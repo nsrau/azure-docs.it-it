@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
+ms.date: 02/08/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 5acff25cca5d549541a8cd68f76e1736c1ed0cb0
+ms.sourcegitcommit: 06d8cb3ce2fe4419a79a63b76d67cc476d205e08
+ms.openlocfilehash: 4e8c8539fdcab348aa91644baafae217bd5e863a
 
 
 ---
 # <a name="azure-active-directory-code-samples"></a>Esempi di codice di Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Microsoft Azure Active Directory (Azure AD) consente di aggiungere funzionalità di autenticazione e autorizzazione alle applicazioni e alle API Web. Questa sezione fornisce collegamenti a esempi di codice che illustrano la procedura da seguire e a frammenti di codice usabili nelle applicazioni. Nella pagina relativa agli esempi di codice sono disponibili argomenti readme dettagliati contenenti informazioni sui requisiti e sulle procedure di installazione e configurazione. Il codice è inoltre accompagnato da commenti per facilitare la comprensione delle sezioni critiche.
+Microsoft Azure Active Directory (Azure AD) consente di aggiungere funzionalità di autenticazione e autorizzazione alle applicazioni e alle API Web. Questa sezione fornisce collegamenti a esempi che illustrano la procedura da seguire e a frammenti di codice utilizzabili nelle applicazioni. Nella pagina relativa agli esempi di codice sono disponibili argomenti readme dettagliati contenenti informazioni sui requisiti e sulle procedure di installazione e configurazione. Il codice è inoltre accompagnato da commenti per facilitare la comprensione delle sezioni critiche.
 
 Per comprendere lo scenario di base di ogni tipo di esempio, vedere Scenari di autenticazione per Azure AD.
 
-È possibile contribuire agli esempi su GitHub: [Esempi e documentazione su Microsoft Azure Active Directory](https://github.com/Azure-Samples?query=active-directory).
+È possibile contribuire agli esempi su GitHub: [Esempi e documentazione su Microsoft Azure Active Directory](https://github.com/Azure-Samples?page=3&query=active-directory).
 
 ## <a name="web-browser-to-web-application"></a>Da Web browser ad applicazione Web
 Questi esempi illustrano come scrivere un'applicazione Web che indirizza il browser dell'utente per l'accesso a Azure AD.
@@ -133,7 +133,6 @@ Queste procedure possono risultare interessanti per l'utente pur essendo basate 
 
 
 
-
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

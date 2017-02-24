@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: search
-ms.date: 01/17/2017
+ms.date: 02/08/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: efa4a720a306aaedcd2d5857d30d34394a76f5f6
-ms.openlocfilehash: b2f8537aa58e6dc78051752a13f555331042972a
+ms.sourcegitcommit: d19a85e127b548e5f8979358879e8b9354934904
+ms.openlocfilehash: ca09ac90dfcf125291bc0b312b16e28160a18527
 
 
 ---
@@ -27,6 +27,9 @@ Se si desidera eseguire ottime esperienze di ricerca nei dati di DocumentDB, è 
 Per impostare questa funzionalità, è necessario un [servizio Ricerca di Azure](search-create-service-portal.md), nonché un indice, un indicizzatore e un'origine dati. È possibile creare questi oggetti usando uno di questi approcci: [portale](search-import-data-portal.md), [.NET SDK](/dotnet/api/microsoft.azure.search) o [API REST](/rest/api/searchservice/) per tutti i linguaggi diversi da .NET. 
 
 Se si sceglie il portale, la [procedura guidata per l'importazione dei dati](search-import-data-portal.md) guida l'utente nella creazione di tutti questi oggetti. In genere, è possibile generare automaticamente un indice predefinito.
+
+> [!NOTE]
+> È possibile avviare la procedura guidata **Importa dati** dal dashboard di DocumentDB per semplificare l'indicizzazione dell'origine dati. Nel riquadro di spostamento a sinistra passare a **Raccolte** > **Aggiungi Ricerca di Azure** per iniziare.
 
 ## <a name="a-idconceptsaazure-search-indexer-concepts"></a><a id="Concepts"></a>Concetti relativi all'indicizzatore di Ricerca di Azure
 Ricerca di Azure supporta la creazione e la gestione di origini dati (incluso DocumentDB) e di indicizzatori che operano su tali origini dati.
@@ -291,6 +294,6 @@ Congratulazioni. Si è appena appreso come integrare Azure DocumentDB con Ricerc
 * Per altre informazioni su Ricerca di Azure, vedere la [pagina del servizio Ricerca](https://azure.microsoft.com/services/search/).
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2016
+ms.date: 02/08/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 0135732e95279f2e717334d3dd39902b56b0aa90
-ms.openlocfilehash: 30a327f59b8149f41c3b5206e0b0c2fc859934a0
+ms.sourcegitcommit: 40f8f1b52c39a170a57168db9227a7c2fa069570
+ms.openlocfilehash: 466d4a566ebb426f48e8c271e1305b844842d638
 
 
 ---
@@ -49,7 +49,7 @@ Per altre informazioni sui ruoli e sulle azioni consentite in Centro sicurezza, 
 Il Centro sicurezza raccoglie i dati dalle macchine virtuali per valutarne lo stato della sicurezza, indicare raccomandazioni sulla sicurezza e segnalare le minacce. La prima volta che si accede al Centro sicurezza, la raccolta dati viene abilitata in tutte le macchine virtuali della sottoscrizione. La raccolta dei dati è consigliata, ma è possibile rifiutare esplicitamente [disattivandola](#how-do-i-disable-data-collection) nei criteri del Centro sicurezza.
 
 ### <a name="how-do-i-disable-data-collection"></a>Come si disabilita la raccolta dati?
-È possibile disabilitare la **raccolta dei dati** per una sottoscrizione in Criteri di sicurezza in qualunque momento. ([accedere al portale di Azure](https://portal.azure.com), selezionare **Sfoglia**, quindi **Centro sicurezza** e infine **Criteri**).  Quando si seleziona una sottoscrizione, si apre un nuovo pannello in cui è possibile disattivare la **raccolta di dati**. Per rimuovere gli agenti dalle macchine virtuali esistenti, selezionare **Delete agents** (Elimina agenti) nella barra multifunzione superiore.
+È possibile disabilitare la **raccolta dei dati** per una sottoscrizione in Criteri di sicurezza in qualunque momento. ([accedere al portale di Azure](https://portal.azure.com), selezionare **Sfoglia**, quindi **Centro sicurezza** e infine **Criteri**).  Quando si seleziona una sottoscrizione, si apre un nuovo pannello in cui è possibile disattivare la **raccolta di dati**. Quando si disattiva la raccolta di dati, gli agenti di monitoraggio di Azure vengono automaticamente rimossi dalle macchine virtuali esistenti della sottoscrizione.
 
 > [!NOTE]
 > I criteri di sicurezza possono essere impostati a livello di sottoscrizione di Azure e a livello di gruppo di risorse, ma è necessario selezionare una sottoscrizione per disattivare la raccolta dei dati.
@@ -71,7 +71,7 @@ La raccolta dei dati viene abilitata tramite l'agente di monitoraggio di Azure e
 L'agente e l'estensione utilizzano una quantità nominale delle risorse di sistema e dovrebbero avere un impatto minimo sulle prestazioni. Per altre informazioni sull'agente, sull'estensione e sull'impatto sulle prestazioni, vedere la [guida alla pianificazione e alla gestione](security-center-planning-and-operations-guide.md#data-collection-and-storage).
 
 ### <a name="where-is-my-data-stored"></a>Dove vengono archiviati i dati?
-Per ciascuna area in cui si dispone di macchine virtuali in esecuzione, è necessario selezionare l'account di archiviazione in cui vengono archiviati i dati raccolti da tali macchine virtuali. Ciò semplifica la conservazione dei dati nella stessa area geografica per scopi di sovranità dei dati e di privacy. In Criteri di sicurezza, selezionare l'account di archiviazione per una sottoscrizione. ([accedere al portale di Azure](https://portal.azure.com), selezionare **Sfoglia**, quindi **Centro sicurezza** e infine **Criteri**). Quando si seleziona una sottoscrizione, viene visualizzato un nuovo pannello. Per selezionare un'area, fare clic su **Choose storage accounts** (Scegliere gli account di archiviazione).
+Per ciascuna area in cui si dispone di macchine virtuali in esecuzione, è necessario selezionare l'account di archiviazione in cui vengono archiviati i dati raccolti da tali macchine virtuali. Ciò semplifica la conservazione dei dati nella stessa area geografica per scopi di sovranità dei dati e di privacy. In Criteri di sicurezza, selezionare l'account di archiviazione per una sottoscrizione. ([accedere al portale di Azure](https://portal.azure.com), selezionare **Sfoglia**, quindi **Centro sicurezza** e infine **Criteri**). Quando si seleziona una sottoscrizione, viene visualizzato un nuovo pannello. Per selezionare un'area, fare clic su **Choose storage accounts** (Scegliere gli account di archiviazione). Se non si sceglie un account di archiviazione per ogni area, viene creato un account di archiviazione per il gruppo di risorse securitydata e inserito in esso.
 
 > [!NOTE]
 > I criteri di sicurezza possono essere impostati a livello di sottoscrizione di Azure e a livello di gruppo di risorse, ma la selezione di un'area per l'account di archiviazione viene eseguita solo a livello di sottoscrizione.
@@ -140,6 +140,7 @@ Macchine virtuali di Windows supportate:
 * Windows Server 2008 R2
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
 Macchine virtuali di Linux supportate:
 
@@ -147,7 +148,7 @@ Macchine virtuali di Linux supportate:
 * Versioni di Debian 7, 8
 * Versioni di CentOS 6.\*, 7.*
 * Versioni di Red Hat Enterprise Linux (RHEL) 6.\*, 7.*
-* Versioni di SUSE Linux Enterprise Server (SLES) 11.\*, 12.*
+* Versioni di SUSE Linux Enterprise Server (SLES) 11 SP4+, 12.*
 * Versioni di Oracle Linux 6.\*, 7.*
 
 Sono supportate anche macchine virtuali in esecuzione in un servizio cloud. Vengono monitorati solo i ruoli Web e di lavoro dei servizi cloud in esecuzione negli slot di produzione. Per altre informazioni sul servizio cloud, vedere [Perché scegliere Servizi cloud](../cloud-services/cloud-services-choose-me.md).
@@ -163,6 +164,6 @@ Per abilitare la raccolta dei dati, l'agente di macchine virtuali deve essere in
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

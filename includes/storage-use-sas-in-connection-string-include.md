@@ -1,40 +1,56 @@
-If you possess a shared access signature (SAS) URL that grants you access to resources in a storage account, you can use the SAS in a connection string. Because the SAS includes on the URI the information required to authenticate the request, the SAS URI provides the protocol, the service endpoint, and the necessary credentials to access the resource.
+Se si dispone di un URL di firma di accesso condiviso che concede l'accesso alle risorse in un account di archiviazione, è possibile usare la firma di accesso condiviso in una stringa di connessione. Poiché la firma di accesso condiviso include nell'URI le informazioni necessarie per autenticare la richiesta, l'URI di firma di accesso condiviso fornisce il protocollo, l'endpoint di servizio e le credenziali necessarie per accedere alla risorsa.
 
-To create a connection string that includes a shared access signature, specify the string in the following format:
+Per creare una stringa di connessione che include una firma di accesso condiviso, specificare la stringa nel seguente formato:
 
-    BlobEndpoint=myBlobEndpoint;
-    QueueEndpoint=myQueueEndpoint;
-    TableEndpoint=myTableEndpoint;
-    FileEndpoint=myFileEndpoint;
-    SharedAccessSignature=sasToken
+```
+BlobEndpoint=myBlobEndpoint;
+QueueEndpoint=myQueueEndpoint;
+TableEndpoint=myTableEndpoint;
+FileEndpoint=myFileEndpoint;
+SharedAccessSignature=sasToken
+```
 
-Each service endpoint is optional, although the connection string must contain at least one.
+Ogni endpoint di servizio è facoltativo anche se la stringa di connessione deve contenerne almeno uno.
 
 > [!NOTE]
-> Using HTTPS with a SAS is recommended as a best practice.
-> 
-> If you are specifying a SAS in a connection string in a configuration file, you may need to encode special characters in the URL.
-> 
-> 
+> La procedura consigliata prevede l'uso di HTTPS con la firma di accesso condiviso.
+>
+> Se si specifica una firma di accesso condiviso in una stringa di connessione all'interno di un file di configurazione, potrebbe essere necessario codificare caratteri speciali nell'URL.
+>
+>
 
-### Service SAS example
-Here's an example of a connection string that includes a service SAS for Blob storage:
+### <a name="service-sas-example"></a>Esempio di firma di accesso condiviso del servizio
+Ecco un esempio di stringa di connessione che include una firma di accesso condiviso del servizio per l'archiviazione BLOB:
 
-    BlobEndpoint=https://storagesample.blob.core.windows.net;SharedAccessSignature=sv=2015-04-05&sr=b&si=tutorial-policy-635959936145100803&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
+```
+BlobEndpoint=https://storagesample.blob.core.windows.net;SharedAccessSignature=sv=2015-04-05&sr=b&si=tutorial-policy-635959936145100803&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
+```
 
-And here's an example of the same connection string with encoding of special characters:
+Ecco invece un esempio della stessa stringa di connessione con la codifica dei caratteri speciali:
 
-    BlobEndpoint=https://storagesample.blob.core.windows.net;SharedAccessSignature=sv=2015-04-05&amp;sr=b&amp;si=tutorial-policy-635959936145100803&amp;sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
+```
+BlobEndpoint=https://storagesample.blob.core.windows.net;SharedAccessSignature=sv=2015-04-05&amp;sr=b&amp;si=tutorial-policy-635959936145100803&amp;sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
+```
 
-### Account SAS example
-Here's an example of a connection string that includes an account SAS for Blob and File storage. Note that endpoints for both services are specified:
+### <a name="account-sas-example"></a>Esempio di firma di accesso condiviso dell'account
+Ecco un esempio di stringa di connessione che include una firma di accesso condiviso dell'account per l'archivio BLOB e file. Si noti che sono specificati gli endpoint per entrambi i servizi:
 
-    BlobEndpoint=https://storagesample.blob.core.windows.net;
-    FileEndpoint=https://storagesample.file.core.windows.net;
-    SharedAccessSignature=sv=2015-07-08&sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&spr=https&st=2016-04-12T03%3A24%3A31Z&se=2016-04-13T03%3A29%3A31Z&srt=s&ss=bf&sp=rwl
+```
+BlobEndpoint=https://storagesample.blob.core.windows.net;
+FileEndpoint=https://storagesample.file.core.windows.net;
+SharedAccessSignature=sv=2015-07-08&sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&spr=https&st=2016-04-12T03%3A24%3A31Z&se=2016-04-13T03%3A29%3A31Z&srt=s&ss=bf&sp=rwl
+```
 
-And here's an example of the same connection string with URL encoding:
+Ecco invece un esempio della stessa stringa di connessione con la codifica dell'URL:
 
-    BlobEndpoint=https://storagesample.blob.core.windows.net;
-    FileEndpoint=https://storagesample.file.core.windows.net;
-    SharedAccessSignature=sv=2015-07-08&amp;sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&amp;spr=https&amp;st=2016-04-12T03%3A24%3A31Z&amp;se=2016-04-13T03%3A29%3A31Z&amp;srt=s&amp;ss=bf&amp;sp=rwl
+```
+BlobEndpoint=https://storagesample.blob.core.windows.net;
+FileEndpoint=https://storagesample.file.core.windows.net;
+SharedAccessSignature=sv=2015-07-08&amp;sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&amp;spr=https&amp;st=2016-04-12T03%3A24%3A31Z&amp;se=2016-04-13T03%3A29%3A31Z&amp;srt=s&amp;ss=bf&amp;sp=rwl
+```
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

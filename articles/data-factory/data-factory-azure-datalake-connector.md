@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: d95d42592e1102d635e5eaad473196c4fa461136
-ms.openlocfilehash: e633562e35276b2d0c6dd19ada5a17bae7b1b0b6
+ms.sourcegitcommit: b2d1a740782a20a7c6b7b8cec8335a41f16231f5
+ms.openlocfilehash: 5a6a14e5fc8f6915b34f9667c4294a46c8591633
 
 
 ---
@@ -423,8 +423,10 @@ La tabella seguente fornisce una descrizione degli elementi JSON specifici per i
 ### <a name="using-service-principal-authentication-recommended"></a>Uso dell'autenticazione basata su entità servizio (opzione consigliata)
 Per usare l'autenticazione basata su entità servizio, è prima di tutto necessario registrare un'entità applicazione in Azure Active Directory (AAD) e concedere a tale entità l'accesso a Data Lake Store. È quindi possibile specificare le proprietà seguenti in Azure Data Factory con le informazioni corrispondenti per ID applicazione, chiave applicazione e tenant per la copia di dati da/verso Data Lake Store. Per informazioni su come configurare l'autenticazione e recuperare le informazioni necessarie, vedere [Autenticazione da servizio a servizio](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
 
->[!NOTE]
->Se si crea un'entità servizio completamente nuova da AAD, potrebbero essere necessari alcuni minuti prima che l'entità entri in vigore. Se viene visualizzato un errore relativo alla copia guidata o ai dettagli dell'esecuzione della copia "Fornite credenziali non valide.", attendere qualche istante e riprovare.
+> [!IMPORTANT]
+> Quando si utilizza Copia guidata, per passare da una cartella a un'altra assicurarsi di concedere all'entità servizio almeno l'autorizzazione di lettura per la radice ADLS ("/") o il ruolo Lettore per l'account ADLS. In caso contrario, potrebbe essere visualizzato l'errore "Le credenziali fornite non sono valide".
+>
+> Se si crea un'entità servizio completamente nuova, o se ne aggiorna una, da AAD, potrebbero essere necessari alcuni minuti prima che l'entità sia operativa. Controllare innanzitutto l'entità servizio e la configurazione ACL ADLS. Se viene ancora visualizzato l'errore "Le credenziali fornite non sono valide", attendere qualche minuto e riprovare.
 >
 
 | Proprietà | Descrizione | Obbligatorio |
@@ -594,6 +596,6 @@ Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spos
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

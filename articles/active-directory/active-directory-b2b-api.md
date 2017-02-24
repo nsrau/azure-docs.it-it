@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/02/2017
+ms.date: 02/09/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: be67973db6b757722f575f5aad41405ab70eda2c
-ms.openlocfilehash: ca376de3d0c5237b0b87f09f0915a8785ceea6fd
+ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
+ms.openlocfilehash: 235b551a716b68c40cc4fe346cc5903d47e6ea74
 
 
 ---
@@ -31,32 +31,44 @@ L'API offre le funzionalità seguenti:
 
 1. Invitare un utente esterno con *qualsiasi* indirizzo di posta elettronica.
 
-    ```"invitedUserDisplayName": "Sam"
-    "invitedUserEmailAddress": "gsamoogle@gmail.com"```
+    ```
+    "invitedUserDisplayName": "Sam"
+    "invitedUserEmailAddress": "gsamoogle@gmail.com"
+    ```
 
 2. Personalizzare la pagina di destinazione visualizzata dagli utenti dopo avere accettato l'invito.
 
-    ```"inviteRedirectUrl": "https://myapps.microsoft.com/"```
+    ```
+    "inviteRedirectUrl": "https://myapps.microsoft.com/"
+    ```
 
 3. Scegliere di inviare il messaggio di invito standard tramite Microsoft
 
-    ```"sendInvitationMessage": true```
+    ```
+    "sendInvitationMessage": true
+    ```
 
   con un messaggio personalizzabile per il destinatario
 
-    ```"customizedMessageBody": "Hello Sam, let's collaborate!"```
+    ```
+    "customizedMessageBody": "Hello Sam, let's collaborate!"
+    ```
 
 4. Scegliere di mettere in copia conoscenza le persone che si vuole mantenere nel ciclo relativo all'invito di questo collaboratore.
 
 5. Personalizzare completamente l'invito e il flusso di lavoro di onboarding scegliendo di non inviare notifiche tramite Azure AD.
 
-    ```"sendInvitationMessage": false```
+    ```
+    "sendInvitationMessage": false
+    ```
 
   In questo caso, si otterrà un URL di riscatto dall'API, che è possibile incorporare in un modello di messaggio di posta elettronica, in un messaggio istantaneo o in un altro metodo di distribuzione.
 
 6. Gli amministratori infine possono scegliere di invitare l'utente come membro.
 
-    ```"invitedUserType": "Member"```
+    ```
+    "invitedUserType": "Member"
+    ```
 
 
 ## <a name="authorization-model"></a>Modello di autorizzazione
@@ -73,7 +85,9 @@ Per altri dettagli, vedere: https://graph.microsoft.io/it-it/docs/authorization/
 ## <a name="powershell"></a>PowerShell
 Ora è possibile usare PowerShell per aggiungere e invitare facilmente utenti esterni a un'organizzazione. È sufficiente creare un nuovo invito usando il cmdlet
 
-```New-AzureADMSInvitation```
+```
+New-AzureADMSInvitation
+```
 
 con le opzioni seguenti:
 
@@ -89,18 +103,19 @@ le cui descrizioni seguono le informazioni di riferimento all'API di invito in [
 Vedere gli altri articoli su Azure AD B2B Collaboration.
 
 * [Che cos'è Azure AD B2B Collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Procedura di aggiunta di utenti di Collaborazione B2B ad Azure Active Directory da parte degli amministratori](active-directory-b2b-admin-add-users.md)
-* [Procedura di aggiunta di utenti di Collaborazione B2B da parte di information worker](active-directory-b2b-how-it-works.md)
+* [Procedura per aggiungere utenti di Collaborazione B2B ad Azure Active Directory da parte degli amministratori](active-directory-b2b-admin-add-users.md)
+* [Procedura di aggiunta di utenti di Collaborazione B2B da parte di information worker](active-directory-b2b-iw-add-users.md)
 * [Elementi del messaggio di posta elettronica di invito per la Collaborazione B2B](active-directory-b2b-invitation-email.md)
-* [Riscatto dell'invito di Collaborazione B2B di Azure Active Directory](active-directory-b2b-redemption-experience.md)
+* [Riscatto dell'invito di Collaborazione B2B](active-directory-b2b-redemption-experience.md)
 * [Licenze per la Collaborazione B2B di Azure AD](active-directory-b2b-licensing.md)
 * [Risoluzione dei problemi di Collaborazione B2B di Azure Active Directory](active-directory-b2b-troubleshooting.md)
 * [Domande frequenti su Collaborazione B2B di Azure Active Directory](active-directory-b2b-faq.md)
 * [Autenticazione a più fattori per utenti di Collaborazione B2B](active-directory-b2b-mfa-instructions.md)
+* [Aggiungere gli utenti per la Collaborazione B2B senza un invito](active-directory-b2b-add-user-without-invite.md)
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: amitsriva
 translationtype: Human Translation
-ms.sourcegitcommit: ca5291e00fcf4fbd9927fe3cadad01f62b235d10
-ms.openlocfilehash: c6829c94bb8e5de3bec155bf326ac61c300477cb
+ms.sourcegitcommit: d65b354bc972c8268f1b4f072843b5bf4977a7c4
+ms.openlocfilehash: 2b37bf92ce8945996eb64477c28bea845b7df516
 
 
 ---
@@ -210,6 +210,9 @@ Questo log viene generato solo se è stato abilitato per il singolo gateway appl
 }
 ```
 
+> [!NOTE]
+> La latenza è calcolata dall'ora di ricezione del primo byte della richiesta HTTP al momento dell'invio dell'ultimo byte della risposta HTTP. Si tratta della somma del tempo di elaborazione del gateway applicazione più il costo di rete per il back-end e il tempo impiegato dal back-end per elaborare la richiesta.
+
 ### <a name="firewall-log"></a>Log del firewall
 
 Questo log viene generato solo se è stato abilitato per il singolo gateway applicazione come descritto nei passaggi precedenti. Questo log richiede anche che il firewall applicazione Web sia configurato in un gateway applicazione. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. Vengono registrati i dati seguenti:
@@ -314,6 +317,6 @@ Per maggiori informazioni sui webhook e su come usarli con gli avvisi, visitare 
 [10]: ./media/application-gateway-diagnostics/figure10.png
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

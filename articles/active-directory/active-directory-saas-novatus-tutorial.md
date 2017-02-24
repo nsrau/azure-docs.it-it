@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 270d1a62d3522e154ba63192f11dc4394532c529
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f14f89b10145787bb2729f741ce8620238a7f246
 
 
 ---
@@ -121,7 +121,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
    
     b. Fare clic su **Avanti**.
 2. Per ottenere la configurazione dell'accesso SSO per l'applicazione, contattare il team di supporto di Novatus all'indirizzo jvinci@novatusinc.com. Allegare il file del certificato scaricato al messaggio di posta elettronica e condividere gli URL dei metadati (ID entità, URL di accesso SSO e URL di disconnessione SSO) con il team Novatus perché possa configurare SSO.
-3. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
+3. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e fare clic su **Avanti**.
    
     ![Single Sign-On di Microsoft Azure AD][10]
 4. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.  
@@ -238,6 +238,6 @@ Quando si fa clic sul riquadro Novatus nel pannello di accesso, si dovrebbe acce
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

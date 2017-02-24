@@ -1,40 +1,45 @@
-
 ---
-title: Gestione di entità di Servizi multimediali con l'API REST | Microsoft Docs
-description: Informazioni su come gestire entità di Servizi multimediali con l'API REST.
+title: "Gestione di entità di Servizi multimediali con REST | Documentazione Microsoft"
+description: "Informazioni su come gestire entità di Servizi multimediali con l&quot;API REST."
 author: juliako
 manager: dwrede
-editor: ''
+editor: 
 services: media-services
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 95262a32-0f2a-4286-b9e2-1a1ca6399b5b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/09/2017
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 946ec4d9c2638cf65f725341dfad1d08751473c6
+ms.openlocfilehash: 534c6e42ace9f42b25fe287de14b02732ed496a4
+
 
 ---
-# <a name="managing-media-services-entities-with-rest-api"></a>Gestione di entità di Servizi multimediali con l'API REST
+# <a name="managing-media-services-entities-with-rest"></a>Gestione di entità di Servizi multimediali con REST 
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-manage-entities.md)
 > * [.NET](media-services-dotnet-manage-entities.md)
 > 
 > 
 
-Servizi multimediali di Microsoft Azure è un servizio REST basato su OData versione 3. È possibile pertanto aggiungere, interrogare, aggiornare ed eliminare entità come in qualsiasi altro servizio OData. Verranno chiamate le eccezioni, quando necessario. Per altre informazioni su OData, vedere la pagina relativa alla [documentazione del protocollo OData](http://www.odata.org/documentation/).
+Servizi multimediali di Microsoft Azure è un servizio REST basato su OData versione&3;. È possibile pertanto aggiungere, interrogare, aggiornare ed eliminare entità come in qualsiasi altro servizio OData. Verranno chiamate le eccezioni, quando necessario. Per altre informazioni su OData, vedere la pagina relativa alla [documentazione del protocollo OData](http://www.odata.org/documentation/).
 
-* Aggiunta di entità 
-* Query di entità 
-* Enumerazione di grandi raccolte di entità
-* Aggiornamento di entità 
-* Eliminazione di entità 
+Questo argomento illustra come gestire le entità di Servizi multimediali di Azure con REST.
+
+
+>[!NOTE]
+> A partire dal 1° aprile 2017, tutti i record di processo presenti nell'account e più vecchi di 90 giorni verranno eliminati automaticamente, insieme ai record attività associati, anche se il numero totale di record è inferiore alla quota massima. Ad esempio, il 1° aprile 2017 qualsiasi record di processo nell'account precedente il 31 dicembre 2016 verrà automaticamente eliminato. Se è necessario archiviare le informazioni sul processo o sull'attività, è possibile usare il codice descritto in questo argomento.
+
+## <a name="considerations-when-working-with-ams-rest"></a>Considerazioni relative all'uso di AMS REST
+
+Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
 
 > [!NOTE]
-> Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
-> 
 > Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
 > 
 > Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere eseguite al nuovo URI, come descritto in [Connessione a un account di Servizi multimediali mediante l'API REST](media-services-rest-connect-programmatically.md). 
@@ -175,6 +180,9 @@ Il seguente esempio illustra come eliminare un localizzatore usato per caricare 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Feb17_HO2-->
 
 

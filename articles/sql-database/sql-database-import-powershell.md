@@ -13,32 +13,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
-ms.date: 08/31/2016
+ms.date: 02/07/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 75bf523679c8d8ad6fbe4a8aa8a561d03008e59b
-ms.openlocfilehash: 211f416d05b0ca998cd71a78d091b8efa39f6a7b
+ms.sourcegitcommit: e6f0d661465c813ec310b8c69ab1ee06e4f95401
+ms.openlocfilehash: 45ec817e62e7967549602adfd2c9d2d3f2484987
 
 
 ---
 # <a name="import-a-bacpac-file-to-create-an-azure-sql-database-by-using-powershell"></a>Importare un file BACPAC per creare un database SQL di Azure tramite PowerShell
 
-> [!div class="op_single_selector"]
-> * [Portale di Azure](sql-database-import.md)
-> * [PowerShell](sql-database-import-powershell.md)
-> * [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-> * [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
-> 
-> 
-
 In questo articolo vengono fornite istruzioni per la creazione di un database SQL Azure importando un file [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) con PowerShell.
 
-Il database viene creato da un file BACPAC (con estensione bacpac) importato da un contenitore BLOB del servizio di archiviazione di Azure. Se non si dispone di un file BACPAC in Archiviazione di Azure, vedere [Archiviare un database SQL di Azure come file BACPAC tramite PowerShell](sql-database-export-powershell.md). Se si dispone già di un file BACPAC che non è in Archiviazione di Azure, [usare AzCopy per caricarlo facilmente nell'account di archiviazione di Azure](../storage/storage-use-azcopy.md#blob-upload).
-
-> [!NOTE]
-> Il database SQL di Azure crea automaticamente e conserva i backup per ogni database dell’utente che è possibile ripristinare. Per conoscere i dettagli, vedere [Backup automatici del database SQL](sql-database-automated-backups.md).
-> 
-> 
+## <a name="prequisites"></a>Prerequisiti
 
 Per importare un database SQL è necessario quanto segue:
 
@@ -106,11 +93,14 @@ Dopo aver eseguito il cmdlet [New-AzureRmSqlDatabaseImport](https://msdn.microso
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per informazioni su come connettersi ed eseguire query su un database SQL importato, vedere [Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio](sql-database-connect-query-ssms.md)
+* Per informazioni su come connettersi ed eseguire query su un database SQL importato, vedere [Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio](sql-database-connect-query-ssms.md).
+* Per informazioni sull'uso di file BACPAC per la migrazione, vedere l'articolo [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (Migrazione da SQL Server al database SQL di Azure con file BACPAC) del blog del Customer Advisory Team di SQL Server.
+* Per una descrizione dell'intero processo di migrazione del database SQL Server, tra cui raccomandazioni sulle prestazioni, vedere [Migrare un database SQL Server nel database SQL di Azure](sql-database-cloud-migrate.md).
 
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

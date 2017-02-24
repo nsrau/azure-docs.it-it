@@ -1,10 +1,10 @@
 ---
-title: Note sulla versione di Windows Universal Apps SDK
+title: Azure Mobile Engagement - Note sulla versione di Windows Universal Apps SDK | Documentazione Microsoft
 description: Azure Mobile Engagement - Note sulla versione di Windows Universal Apps SDK
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: de938ce5-93d5-4218-9e33-10eef102bd61
 ms.service: mobile-engagement
@@ -12,15 +12,19 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 11/03/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 388dab02f09aa306d92f61d47ab5a8e2478a2b9d
+ms.sourcegitcommit: 51858d6daca27a75e7f87af507600c7a193c874f
+ms.openlocfilehash: dc5529a9e8f4eba867732f719ca8fff718c00d5a
 
 
 ---
 # <a name="windows-universal-apps-sdk-release-notes"></a>Note sulla versione di Windows Universal Apps SDK
+## <a name="341-11032016"></a>3.4.1 (11/03/2016)
+
+* Miglioramenti della stabilità.
+
 ## <a name="340-04192016"></a>3.4.0 (19/04/2016)
 * La sovrimpressione Reach è stata migliorata.
 * Aggiunta dell'API "TestLogLevel" per abilitare/disabilitare/filtrare i log della console generati da SDK.
@@ -63,6 +67,6 @@ ms.openlocfilehash: 388dab02f09aa306d92f61d47ab5a8e2478a2b9d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

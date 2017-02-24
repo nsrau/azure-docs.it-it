@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm;asirveda
 translationtype: Human Translation
-ms.sourcegitcommit: 304247b5ed897f39e2db29ca8a5ae9d797e27327
-ms.openlocfilehash: 473688e6610ede44e939b0b384bd8a1604bc5526
+ms.sourcegitcommit: 2687011c449715d2ce5f491c3da501f38035d631
+ms.openlocfilehash: 9c7b708c2bd923733cd034116453fcca2ada949b
 
 
 ---
@@ -257,6 +257,6 @@ Per altre informazioni sulla creazione di App Web di Azure, vedere la [Panoramic
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

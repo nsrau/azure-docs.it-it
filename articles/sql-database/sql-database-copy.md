@@ -16,26 +16,20 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 3686f262a0a3fc01abd179aef337c272e97c0b3c
-ms.openlocfilehash: b12bf1a08780c6888f518a800aea1065fd1283c5
+ms.sourcegitcommit: 21be71a1b4c79ecec8af02d08f65c41128c5ef73
+ms.openlocfilehash: 265adbccee6764322148fad23f31aa1e279dfc9b
 
 
 ---
 # <a name="copy-an-azure-sql-database"></a>Copiare un database SQL di Azure
-> [!div class="op_single_selector"]
-> * [Panoramica](sql-database-copy.md)
-> * [Portale di Azure](sql-database-copy-portal.md)
-> * [PowerShell](sql-database-copy-powershell.md)
-> * [T-SQL](sql-database-copy-transact-sql.md)
-> 
-> 
 
 È possibile usare la [replica geografica attiva](sql-database-geo-replication-overview.md) di Azure per creare una copia del database SQL. Tuttavia, a differenza della replica geografica, interrompe il collegamento di replica al completamento della fase di seeding. Pertanto, il database copia è uno snapshot del database di origine al momento della richiesta di copia.  
+
 È possibile creare la copia del database nello stesso server o su un altro server. Il livello di servizio e il livello di prestazioni (piano tariffario) della copia del database sono gli stessi del database di origine per impostazione predefinita. Quando si usa l'API, è possibile selezionare un livello di prestazioni differente all'interno del livello di servizio stesso (edizione). Al termine del processo di copia, la copia diventa un database indipendente e completamente funzionante. A questo punto, è possibile aggiornare o effettuare il downgrade della copia a qualsiasi edizione. Gli account di accesso, gli utenti e le autorizzazioni possono essere gestiti in modo indipendente.  
 
 Quando si copia un database nello stesso server logico, è possibile usare gli stessi account di accesso per entrambi i database. L'entità di sicurezza usata per copiare il database diventa il proprietario del database (DBO) nel nuovo database. Tutti gli utenti del database, le relative autorizzazioni e i relativi identificatori di sicurezza (SID) vengono copiati nella copia del database.  
 
-Quando la copia del database viene eseguita su un server logico diverso, l'entità di sicurezza sul nuovo server diventa il proprietario del database nel nuovo database. L'uso di [utenti di database indipendente](sql-database-manage-logins.md) per l'accesso ai dati garantisce che per i database primari e secondari ci siano sempre le stesse credenziali utente, in modo che dopo il completamento della copia sia possibile accedervi immediatamente con le stesse credenziali. Se si usa [Azure Active Directory](../active-directory/active-directory-whatis.md), è possibile eliminare completamente l'esigenza di gestione delle credenziali nella copia. Tuttavia, quando si copia il database in un nuovo server, l'accesso basato sulle credenziali non sarà generalmente funzionante perché le credenziali di accesso non esistono nel nuovo server. Vedere [Come gestire la sicurezza dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md) per informazioni sulla gestione degli accessi con credenziali durante la copia di un database in un server logico differente. 
+Quando la copia del database viene eseguita su un server logico diverso, l'entità di sicurezza sul nuovo server diventa il proprietario del database nel nuovo database. L'uso di [utenti di database indipendente](sql-database-manage-logins.md) per l'accesso ai dati garantisce che per i database primari e secondari ci siano sempre le stesse credenziali utente, in modo che dopo il completamento della copia sia possibile accedervi immediatamente con le stesse credenziali. Se si usa [Azure Active Directory](../active-directory/active-directory-whatis.md), è possibile eliminare completamente l'esigenza di gestione delle credenziali nella copia. Tuttavia, quando si copia il database in un nuovo server, è possibile che l'accesso basato sulle credenziali non funzioni perché le credenziali di accesso non esistono nel nuovo server. Vedere [Come gestire la sicurezza dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md) per informazioni sulla gestione degli accessi con credenziali durante la copia di un database in un server logico differente. 
 
 Per copiare un database SQL è necessario quanto segue:
 
@@ -58,6 +52,6 @@ Per copiare un database SQL è necessario quanto segue:
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

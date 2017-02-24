@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 02/09/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 888e88c3e8ede6b67b9cf26b426d73b86b2aff62
-ms.openlocfilehash: 17e9d5d8afe3b11ca5d3944158dcd6c9126ceeda
+ms.sourcegitcommit: 0921464c10d5ca3d426a535d434eab6cf02013e6
+ms.openlocfilehash: c234958f5fc1ba0dbcb727e18e733d13ad0c7e71
 
 
 ---
@@ -28,6 +28,10 @@ Azure DocumentDB supporta sia failover espliciti sia failover basati su criteri 
 * Come funzionano i failover manuali in DocumentDB?
 * Come funzionano i failover automatici in DocumentDB?
 * In che modo è possibile usare i failover manuali in architetture applicative?
+
+In questo video di Azure Friday, con Scott Hanselman e Karthik Raman, Principal Engineering Manager, sono disponibili altre informazioni sui failover regionali.
+
+>[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
 
 ## <a name="a-idconfiguremultiregionapplicationsaconfiguring-multi-region-applications"></a><a id="ConfigureMultiRegionApplications"></a>Configurazione di applicazioni in più aree
 Prima di approfondire le modalità di failover, esaminiamo in che modo è possibile configurare un'applicazione per sfruttare i vantaggi della disponibilità di più aree e assicurare la resilienza in caso di failover regionali.
@@ -119,6 +123,6 @@ In questo articolo abbiamo esaminato la modalità di funzionamento di failover m
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

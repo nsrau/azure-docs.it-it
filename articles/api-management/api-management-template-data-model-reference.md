@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 5df4ff1e0d68a62f5e470c7b05e1507ff019d0dc
+ms.sourcegitcommit: 080ac72246e62948c3defe329028f27751e8c78d
+ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
 
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Informazioni di riferimento sui modelli di dati per i modelli di Gestione API di Azure
@@ -355,9 +355,10 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |ProviderName|string|Nome del provider di autenticazione.|
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API usando i modelli](api-management-developer-portal-templates.md).
+Per ulteriori informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API usando i modelli](api-management-developer-portal-templates.md).
 
 
-<!--HONumber=Jan17_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

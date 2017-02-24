@@ -23,7 +23,7 @@ ms.openlocfilehash: d1ab1ab2132d12bf06dbe2504b7d7111ef2ae851
 ---
 # <a name="how-app-service-works"></a>Funzionamento del Servizio app
 Il Servizio app di Azure è un servizio cloud concepito per risolvere i problemi pratici che attualmente affliggono i tecnici.
-Il Servizio app è finalizzato a favorire la massima produttività degli sviluppatori, senza compromettere l'esigenza di fornire applicazioni a livello cloud.
+Il Servizio app è finalizzato a favorire la massima produttività degli sviluppatori, senza compromettere l'esigenza di fornire applicazioni a livello cloud. 
 
 Il Servizio app offre anche le funzionalità e i framework necessari per creare applicazioni line-of-business aziendali, supportando gli sviluppatori con i linguaggi di sviluppo più diffusi, ad esempio Microsoft .NET, Java, PHP, Node. js e Python.
 Con il Servizio app gli sviluppatori possono:

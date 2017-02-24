@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: apurvajo
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: a86b3e7c653d0767e91ebfaaeaa650b0328c291c
+ms.sourcegitcommit: a1b492b7884deb2d0d4f255af0737e1633606384
+ms.openlocfilehash: 0a016d88b8d7a800bf726e4f582deeaaf3bc6ad6
 
 
 ---
@@ -107,18 +107,8 @@ Questo passaggio descrive come archiviare un certificato SSL acquistato nell'ins
 ## <a name="a-namebkmkverifyownershipastep-2-verify-the-domain-ownership"></a><a name="bkmk_VerifyOwnership"></a>Passaggio 2: verificare la proprietà del dominio
 Questo passaggio descrive come eseguire la verifica della proprietà del dominio per un certificato SSL appena ordinato. 
 
-1. Fare clic su **"Step 2: Verify"** (Passaggio 2: verifica) nel pannello **"Certificate Configuration"** (Configurazione del certificato). Esistono 4 tipi di verifica del dominio supportati da Certificati di servizio app.
+1. Fare clic su **"Step 2: Verify"** (Passaggio 2: verifica) nel pannello **"Certificate Configuration"** (Configurazione del certificato). Esistono 3 tipi di verifica del dominio supportati da Certificati del servizio app.
    
-   * **Verifica del servizio app** 
-     
-     * Questo è il processo più semplice se si dispone già del **dominio personalizzato assegnato alle app del servizio app.** Questo metodo riporta tutte le app del servizio app che soddisfano questi criteri. 
-        Ad esempio, in questo caso, **contosocertdemo.com** è un dominio personalizzato assegnato all'app del servizio app denominata **"ContosoCertDemo"** e pertanto è l'unica app del servizio app elencata di seguito. In caso di distribuzione in più aree, verranno elencate tutte le app del servizio app delle aree.
-       
-        Il metodo di verifica è disponibile SOLO per gli acquisti di un certificato Standard (di base). Per i certificati con caratteri jolly, ignorare e passare all'opzione B, C e D riportata di seguito.
-     * Fare clic sul pulsante **"Verifica"** per completare questo passaggio.
-     * Fare clic su **"Aggiorna"** per aggiornare lo stato del certificato dopo aver completato la verifica. Il completamento della verifica potrebbe richiedere qualche minuto.
-     
-     ![inserimento immagine della verifica del servizio app](./media/app-service-web-purchase-ssl-web-site/AppVerify.jpg)     
    * **Verifica del dominio** 
      
      * Questo è il processo più semplice **SOLO** in caso di **[acquisto del dominio personalizzato dal Servizio app di Azure.](custom-dns-web-site-buydomains-web-app.md)**
@@ -131,15 +121,7 @@ Questo passaggio descrive come eseguire la verifica della proprietà del dominio
      * Se è necessario un nuovo invio del messaggio di verifica, fare clic sul pulsante **"Invia di nuovo il messaggio di posta elettronica"** .
    * **Verifica manuale**    
      
-     1. **Verifica della pagina Web HTML**
-        
-        * Creare un file HTML denominato **{token di verifica dominio}**.html (è possibile copiare il token dal pannello Stato di verifica dominio)
-        * Il contenuto di questo file deve corrispondere esattamente al nome del **token di verifica del dominio**.
-        * Caricare il file nella radice del server Web che ospita il dominio.
-        * Fare clic su **"Aggiorna"** per aggiornare lo stato del certificato dopo aver completato la verifica. Il completamento della verifica potrebbe richiedere qualche minuto.
-          
-          Se si acquista ad esempio un certificato standard per contosocertdemo.com con token di verifica del dominio **'cAGgQrKc'**, una richiesta Web a **'http://contosocertdemo.com/cAGgQrKc.html'** dovrà restituire **cAGgQrKc.**
-     2. **Verifica del record TXT DNS**
+      **Verifica del record TXT DNS**
         
         * Mediante il gestore DNS, creare un record TXT nel sottodominio **'DZC'** con valore uguale al **token di verifica del dominio.**
         * Fare clic su **"Aggiorna"** per aggiornare lo stato del certificato dopo aver completato la verifica. Il completamento della verifica potrebbe richiedere qualche minuto.

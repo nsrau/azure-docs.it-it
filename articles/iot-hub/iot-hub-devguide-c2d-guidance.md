@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/09/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: 17b338ab15ae7cf46f6732e7e7a1005eec98990b
+ms.sourcegitcommit: dea438c8b1bd3d6331f84de01def989f66b6f387
+ms.openlocfilehash: 88ae905708a421052666316eb81c1dd97d6c9635
 
 
 ---
@@ -35,9 +35,9 @@ Ecco un confronto dettagliato delle diverse opzioni di comunicazione da cloud a 
 | Flusso di dati | Bidirezionale. L'app per dispositivo può rispondere immediatamente al metodo. Il back-end della soluzione riceve il risultato insieme alla richiesta. | Unidirezionale. L'app per dispositivo riceve una notifica quando la proprietà viene modificata. | Unidirezionale. L'app per dispositivo riceve il messaggio.
 | Durabilità | I dispositivi disconnessi non vengono contattati. Il back-end riceve una notifica che indica che il dispositivo non è connesso. | I valori delle proprietà vengono conservati nel dispositivo gemello. Il dispositivo li leggerà alla riconnessione successiva. I valori delle proprietà possono essere recuperati con il [linguaggio di query dell'hub IoT][lnk-query]. | I messaggi possono essere conservati dall'hub IoT per un massimo di 48 ore. |
 | Destinazioni | Singolo dispositivo che usa **deviceId** o più dispositivi che usano [processi][lnk-jobs]. | Singolo dispositivo che usa **deviceId** o più dispositivi che usano [processi][lnk-jobs]. | Singolo dispositivo in base a **deviceId**. |
-| Dimensione | Fino a 8 KB di richieste e 8 KB di risposte. | Le dimensioni massime per le proprietà desiderate sono 8 KB. | Fino a 256 KB di messaggi. |
+| Dimensione | Fino a 8 KB di richieste e 8 KB di risposte. | Le dimensioni massime per le proprietà desiderate sono 8 KB. | Messaggi di un massimo di 64 KB. |
 | Frequenza | Elevata. Per altre informazioni, vedere i [limiti dell'hub IoT][lnk-quotas]. | Media. Per altre informazioni, vedere i [limiti dell'hub IoT][lnk-quotas]. | Bassa. Per altre informazioni, vedere i [limiti dell'hub IoT][lnk-quotas]. |
-| Protocol | Disponibile su MQTT e AMQP. | Attualmente disponibile solo quando si usa MQTT. | Disponibile in tutti i protocolli. Il dispositivo deve eseguire il polling quando usa HTTP. |
+| Protocol | Attualmente disponibile solo quando si usa MQTT. | Attualmente disponibile solo quando si usa MQTT. | Disponibile in tutti i protocolli. Il dispositivo deve eseguire il polling quando usa HTTP. |
 
 Informazioni su come usare i metodi diretti, le proprietà desiderate e messaggi da cloud a dispositivo nelle esercitazioni seguenti:
 
@@ -56,6 +56,7 @@ Informazioni su come usare i metodi diretti, le proprietà desiderate e messaggi
 [lnk-c2d-tutorial]: iot-hub-node-node-c2d.md
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Feb17_HO2-->
 
 

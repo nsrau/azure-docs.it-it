@@ -15,8 +15,8 @@ ms.workload: backup-recovery
 ms.date: 12/9/2016
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: 9dfcdeb4dc3e84089eb8031272b870f87d90b689
-ms.openlocfilehash: 09a84e5afa4bd462207179c7505bc80400a5a3a5
+ms.sourcegitcommit: f3f9bc205cd038ae636face742292cb28654fd39
+ms.openlocfilehash: 1212ab52afac346ce6c70e6e6f64b9bc87a13320
 
 ---
 
@@ -47,10 +47,10 @@ Soddisfare questi prerequisiti prima di iniziare a installare manualmente il ser
 | Nome del modello del file del programma di installazione| Sistema operativo |
 |---|--|
 |Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 (64 bit) SP1</br> Windows Server 2012 (64 bit) </br> Windows Server 2012 R2 (64 bit) |
-|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| RHEL 6.4, 6.5, 6.6 (solo 64 bit) </br> CentOS 6.4, 6.5, 6.6 (solo 64 bit) |
+|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| RHEL 6.4, 6.5, 6.6, 6.7, 6.8 (solo 64 bit) </br> CentOS 6.4, 6.5, 6.6, 6.7. 6.8 (solo&64; bit) |
 |Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (solo 64 bit)|
 |Microsoft-ASR_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (solo 64 bit)|
-|Microsoft-ASR_UA\*Ubuntu-14.04-64\*release.tar.gz | Ubuntu 14.04 (solo 64 bit)|
+
 
 ## <a name="install-mobility-service-manually-using-the-graphical-user-interface"></a>Installare manualmente il servizio Mobility tramite interfaccia utente grafica
 
@@ -80,6 +80,6 @@ Dopo aver installato il servizio Mobility è possibile usare il pulsante **+Repl
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

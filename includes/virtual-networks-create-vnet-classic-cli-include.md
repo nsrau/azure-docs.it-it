@@ -1,4 +1,4 @@
-## Come creare una rete virtuale classica con l’Interfaccia della riga di comando di Azure
+## <a name="how-to-create-a-classic-vnet-using-azure-cli"></a>Come creare una rete virtuale classica con l’Interfaccia della riga di comando di Azure
 È possibile utilizzare l'interfaccia della riga di comando (CLI) di Azure per gestire le risorse di Azure dal prompt dei comandi da qualsiasi computer con Windows, Linux o OSX. Per creare una rete virtuale utilizzando l'interfaccia della riga di comando di Azure seguire questa procedura.
 
 1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../articles/xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
@@ -62,4 +62,8 @@
             data:
             info:    network vnet show command OK
 
-<!---HONumber=AcomDC_0323_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

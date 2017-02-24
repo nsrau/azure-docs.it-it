@@ -1,4 +1,4 @@
-#### Tipo VPN - modello di distribuzione Resource Manager
+#### <a name="vpn-type---resource-manager-deployment-model"></a>Tipo VPN - modello di distribuzione Resource Manager
 |  | **RouteBased** | **PolicyBased** |
 | --- | --- | --- |
 | **Da sito a sito** |Supportato |Supportato |
@@ -8,7 +8,7 @@
 | **Da punto a sito** |Supportato |Non supportato |
 | **Classico a Gestione risorse** |Supportato |Non supportato |
 
-#### Tipo VPN - modello di distribuzione classica
+#### <a name="vpn-type---classic-deployment-model"></a>Tipo VPN - modello di distribuzione classica
 |  | **Dinamico** | **Statico** |
 | --- | --- | --- |
 | **Da sito a sito** |Supportato |Supportato |
@@ -18,4 +18,8 @@
 | **Da punto a sito** |Supportato |Non supportato |
 | **Classico a Gestione risorse** |Supportato |Non supportato |
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

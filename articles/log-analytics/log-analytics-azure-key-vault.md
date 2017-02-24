@@ -12,22 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 02/09/2017
 ms.author: richrund
 translationtype: Human Translation
-ms.sourcegitcommit: b781d7b8cbf3f6b9a0a92f4368491404ee033f91
-ms.openlocfilehash: a6612d59d9504b1befd691f3b784ac9378c2b414
+ms.sourcegitcommit: abea89ceab4c606a574ad739e9feca5b5dafacf0
+ms.openlocfilehash: bc87bafd1ce6926d787915fae2f72727940bb90e
 
 
 ---
-# <a name="azure-key-vault-analytics-preview-solution-in-log-analytics"></a>Soluzione di Azure Key Vault Analytics (anteprima) in Log Analytics
+# <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Soluzione di Azure Key Vault Analytics in Log Analytics
 
 È possibile usare la soluzione Insieme di credenziali delle chiavi di Azure in Log Analytics per esaminare i log AuditEvent dell'Insieme di credenziali delle chiavi di Azure.
-
-> [!NOTE]
-> Azure Key Vault Analytics è una [soluzione di anteprima](log-analytics-add-solutions.md#preview-management-solutions-and-features).
-> 
-> 
 
 Per usare la soluzione, è necessario abilitare la registrazione diagnostica di Azure Key Vault e indirizzare la diagnostica a un'area di lavoro di Log Analytics. Non è necessario inserire i log nell'Archiviazione BLOB di Azure.
 

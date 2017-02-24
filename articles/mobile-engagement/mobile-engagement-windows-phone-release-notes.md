@@ -1,26 +1,31 @@
 ---
-title: Note sulla versione dell&quot;SDK per Windows Phone Silverlight
+title: Azure Mobile Engagement - Note sulla versione dell&quot;SDK per Azure Mobile Engagement | Documentazione Microsoft
 description: Azure Mobile Engagement - Note sulla versione dell&quot;SDK per Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 8b87045c-79c2-46da-a147-c075bf276b89
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
-ms.devlang: na
+ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 11/03/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6c054db354036c2747cd524fb62c98e4f3e47575
+ms.sourcegitcommit: 51858d6daca27a75e7f87af507600c7a193c874f
+ms.openlocfilehash: df754a3002750e6ba0b71b664c1df84d506808a4
 
 
 ---
 # <a name="windows-phone-silverlight-sdk-release-notes"></a>Note sulla versione dell'SDK per Windows Phone Silverlight
+##<a name="331-11032016"></a>3.3.1 (11/03/2016)
+Parte del pacchetto Nuget *MicrosoftAzure.MobileEngagement* **v3.4.1**
+
+* Miglioramenti della stabilità.
+
 ## <a name="330-04192016"></a>3.3.0 (19/04/2016)
 Parte del pacchetto Nuget *MicrosoftAzure.MobileEngagement***v3.4.0**
 
@@ -51,6 +56,6 @@ Parte del pacchetto Nuget *MicrosoftAzure.MobileEngagement***v3.2.0**
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

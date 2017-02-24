@@ -1,5 +1,5 @@
 * [Impostazione del footprint dell'app distribuita a livello di area geografica](../articles/app-service-web/app-service-app-service-environment-geo-distributed-scale.md)
-* [Implementazione di un'architettura di sicurezza a livelli](../articles/app-service-web/app-service-app-service-environment-layered-security.md)
+* [Implementazione di un'architettura di sicurezza a livelli](../articles/app-service-web/app-service-app-service-environment-layered-security.md) 
 * [Configurazione di Web application firewall con un ambiente del servizio app](../articles/app-service-web/app-service-app-service-environment-web-application-firewall.md)
 * [Creazione di un ambiente del servizio app abilitato per il bilanciamento del carico interno usando modelli di Resource Manager](../articles/app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
 * [Uso di scalabilità automatica con un ambiente del servizio app](../articles/app-service/app-service-environment-auto-scale.md)
@@ -9,4 +9,8 @@
 * [Impostazioni di configurazione personalizzate per gli ambienti del servizio app, tra cui impostazioni di conformità PCI](../articles/app-service-web/app-service-app-service-environment-custom-settings.md)
 * [Hosting ad alta densità nel servizio app di Azure](../articles/app-service/app-service-high-density-hosting.md#recommended-configuration-for-high-density-hosting)
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

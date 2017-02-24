@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 02/08/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 822bace005a6244a47c9484487dab85b1aec9d9a
-ms.openlocfilehash: e20b1ca582c56da7b4fb1e2df3be90bd1c29a8b6
+ms.sourcegitcommit: d3d59e19ff654a953be43706dce926c4450c6179
+ms.openlocfilehash: 6493230295dbfc939df3daf8504a7d8662083f51
 
 
 ---
@@ -36,29 +36,21 @@ Se il problema riguardante Azure non è trattato in questo articolo, visitare i 
 La sezione seguente elenca alcuni errori comuni che potrebbero essere visualizzati quando si tenta di eliminare gli account di Archiviazione di Azure, contenitori o VHD.
 
 ### <a name="scenario-1-unable-to-delete-a-storage-account"></a>Scenario 1: Impossibile eliminare un account di archiviazione
-Quando si passa all'account di archiviazione nel [Portale di Azure](https://portal.azure.com/) o nel [portale di Azure classico](https://manage.windowsazure.com/) e si seleziona **Elimina**, potrebbe essere visualizzato il messaggio di errore seguente:
+Quando si passa all'account di archiviazione classico del [portale Azure](https://portal.azure.com/) e si seleziona **Elimina**, è possibile che venga visualizzato un elenco di oggetti che impediscono l'eliminazione dell'account di archiviazione:
 
-*L'account di archiviazione StorageAccountName contiene immagini di VM. Assicurarsi di rimuovere queste immagini prima di eliminare questo account di archiviazione.*
+  ![Immagine dell'errore in fase di eliminazione dell'account di archiviazione](./media/storage-cannot-delete-storage-account-container-vhd/newerror.png)
 
-Potrebbe inoltre essere visualizzato questo errore:
+Quando si passa all'account di archiviazione nel [portale di Azure classico](https://manage.windowsazure.com/) e si seleziona **Delete**, potrebbe essere visualizzato uno dei messaggi di errore seguenti:
 
-**Nel Portale di Azure**:
+- *L'account di archiviazione StorageAccountName contiene immagini di VM. Assicurarsi di rimuovere queste immagini prima di eliminare questo account di archiviazione.*
 
-*Non è stato possibile eliminare l'account di archiviazione <nome-account-archiviazione-vm>. Impossibile eliminare l'account di archiviazione <nome-account-archiviazione-vm>: "<nome-account-archiviazione-vm> presenta alcune immagini e/o dischi attivi. Assicurarsi di rimuovere tali immagini e/o dischi prima di eliminare l'account di archiviazione.*
+- *Non è stato possibile eliminare l'account di archiviazione <nome-account-archiviazione-vm>. Impossibile eliminare l'account di archiviazione <nome-account-archiviazione-vm>: "<nome-account-archiviazione-vm> presenta alcune immagini e/o dischi attivi. Assicurarsi di rimuovere tali immagini e/o dischi prima di eliminare l'account di archiviazione.*
 
-**Nel Portale di Azure classico**:
+- *L'account di archiviazione<nome-account-archiviazione-vm> presenta alcune immagini e/o dischi attivi, ad esempio xxxxxxxxx- xxxxxxxxx-O-209490240936090599. Assicurarsi di rimuovere tali immagini e/o dischi prima di eliminare l'account di archiviazione.*
 
-*L'account di archiviazione<nome-account-archiviazione-vm> presenta alcune immagini e/o dischi attivi, ad esempio xxxxxxxxx- xxxxxxxxx-O-209490240936090599. Assicurarsi di rimuovere tali immagini e/o dischi prima di eliminare l'account di archiviazione.*
+- *L'account di archiviazione <nome-account-archiviazione-vm> presenta 1 contenitore con un'immagine attiva e/o elementi di disco. Assicurarsi che gli elementi locali siano rimossi dall'archivio immagini prima di eliminare l'account di archiviazione*.
 
-oppure
-
-**Nel Portale di Azure**:
-
-*L'account di archiviazione <nome-account-archiviazione-vm> presenta 1 contenitore con un'immagine attiva e/o elementi di disco. Assicurarsi che gli elementi locali siano rimossi dall'archivio immagini prima di eliminare l'account di archiviazione*.
-
-**Nel Portale di Azure classico**:
-
-*Invio non riuscito L'account di archiviazione <nome-account-archiviazione-vm> presenta 1 contenitore con un'immagine attiva e/o elementi di disco. Assicurarsi che gli elementi locali siano rimossi dall'archivio immagini prima di eliminare l'account di archiviazione. Quando si tenta di eliminare un account di archiviazione con dischi associati ancora attivi, viene visualizzato un messaggio in cui si chiede di eliminare i dischi attivi*.
+- *Invio non riuscito L'account di archiviazione <nome-account-archiviazione-vm> presenta 1 contenitore con un'immagine attiva e/o elementi di disco. Assicurarsi che gli elementi locali siano rimossi dall'archivio immagini prima di eliminare l'account di archiviazione. Quando si tenta di eliminare un account di archiviazione con dischi associati ancora attivi, viene visualizzato un messaggio in cui si chiede di eliminare i dischi attivi*.
 
 ### <a name="scenario-2-unable-to-delete-a-container"></a>Scenario 2. Impossibile eliminare un contenitore
 Quando si tenta di eliminare il contenitore di archiviazione, potrebbe essere visualizzato l'errore seguente:
@@ -125,7 +117,7 @@ Per risolvere i problemi più comuni, provare una delle procedure seguenti:
     Provare quindi di nuovo a eliminare l'account di archiviazione, il contenitore o il VHD.
 
 > [!WARNING]
-> Assicurarsi di eseguire il backup di tutti gli elementi da salvare prima di eliminare l'account. Non è possibile ripristinare un account di archiviazione eliminato, né recuperare gli elementi che conteneva prima dell'eliminazione. Lo stesso vale per tutte le risorse nell'account: dopo aver eliminato un VHD, un BLOB, una tabella, una coda o un file, non è più possibile recuperarlo. Assicurarsi che la risorsa non sia in uso.
+> Assicurarsi di eseguire il backup di tutti gli elementi da salvare prima di eliminare l'account. Quando si elimina un disco rigido virtuale, un BLOB, una tabella, una coda o un file, l'elemento viene eliminato definitivamente. Assicurarsi che la risorsa non sia in uso.
 >
 >
 
@@ -148,6 +140,6 @@ Lo stato "Arrestato (deallocato)" rilascia le risorse del computer, ad esempio C
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

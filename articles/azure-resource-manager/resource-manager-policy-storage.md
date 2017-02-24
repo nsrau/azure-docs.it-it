@@ -1,5 +1,5 @@
 ---
-title: Criteri di Azure Resource Manager per l&quot;archiviazione | Documentazione Microsoft
+title: Criteri delle risorse di Azure per gli account di archiviazione | Documentazione Microsoft
 description: Descrive i criteri di Azure Resource Manager per gestire la distribuzione degli account di archiviazione.
 services: azure-resource-manager
 documentationcenter: na
@@ -12,18 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/19/2017
+ms.date: 02/09/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: ce31bbcb96a6afe19cf6c25dd9a68d6c2d4d080c
-ms.openlocfilehash: f2141304f6db6d137065e06558e10c721b11f892
+ms.sourcegitcommit: 5ea75843bf671ad4d879c01cdd20d5bbc5e889c2
+ms.openlocfilehash: 08c991e9f217c49828889d0b806888e193b245a8
 
 
 ---
-# <a name="apply-azure-resource-policies-to-storage-accounts"></a>Applicare i criteri delle risorse di Azure agli account di archiviazione
-I criteri di Azure Resource Manager consentono di definire regole coerenti per la modalità di distribuzione delle risorse nell'organizzazione. È possibile creare criteri personalizzati per impedire agli utenti dell'organizzazione di violare le convenzioni necessarie per gestire le risorse dell'organizzazione. Questo argomento mostra vari criteri che definiscono le regole per gli account di archiviazione di Azure. Per altre informazioni sui criteri, vedere [Usare i criteri per gestire le risorse](resource-manager-policy.md).
-
-Gli esempi in questo argomento mostrano valori hardcoded nella regola dei criteri. Tuttavia, è possibile usare i parametri per passare i valori da adottare al momento dell'assegnazione dei criteri. Per altre informazioni, vedere [Parametri dei criteri](resource-manager-policy.md#parameters).
+# <a name="apply-resource-policies-to-storage-accounts"></a>Applicare i criteri delle risorse agli account di archiviazione
+Questo argomento indica diversi [criteri delle risorse](resource-manager-policy.md) che è possibile applicare agli account di archiviazione di Azure. Questi criteri assicurano la coerenza per gli account di archiviazione distribuiti nell'organizzazione. 
 
 ## <a name="define-permitted-storage-account-types"></a>Definire i tipi di account di archiviazione consentiti
 
@@ -53,6 +51,8 @@ I criteri seguenti consentono di limitare i [tipi di account di archiviazione](.
   }
 }
 ```
+
+Una regola di criterio simile con un parametro per accettare gli SKU consentiti è disponibile come definizione di criterio predefinita. Il criterio predefinito ha l'ID risorsa `/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1`. 
 
 ## <a name="define-permitted-access-tier"></a>Definire il livello di accesso consentito
 
@@ -110,16 +110,15 @@ I criteri seguenti richiedono l'abilitazione della [crittografia del servizio di
 }
 ```
 
-## <a name="create-and-assign-policies"></a>Creare e assegnare criteri
-
-Dopo aver definito le regole dei criteri, come mostrato negli esempi precedenti, è necessario creare i criteri e assegnarli a un ambito. L'ambito può essere una sottoscrizione, un gruppo di risorse o una risorsa. Per esempi sulla creazione e l'assegnazione di criteri, vedere [Creare e assegnare un criterio](resource-manager-policy.md#create-and-assign-a-policy). 
+Questa regola di criterio è anche disponibile come definizione di criterio predefinita con l'ID risorsa `/providers/Microsoft.Authorization/policyDefinitions/7c5a74bf-ae94-4a74-8fcf-644d1e0e6e6f`.
 
 ## <a name="next-steps"></a>Passaggi successivi
+* Dopo aver definito una regola di criterio, come mostrato negli esempi precedenti, è necessario creare la definizione di criterio e assegnarla a un ambito. L'ambito può essere una sottoscrizione, un gruppo di risorse o una risorsa. Per esempi sulla creazione e l'assegnazione dei criteri, vedere [Assign and manage policies](resource-manager-policy-create-assign.md) (Assegnare e gestire criteri). 
 * Per indicazioni su come le aziende possono usare Resource Manager per gestire efficacemente le sottoscrizioni, vedere [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Scaffolding aziendale Azure - Governance prescrittiva per le sottoscrizioni).
 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: Configurare ambienti di analisi scientifica dei dati in Azure | Documentazione Microsoft
-description: Impostare gli ambienti per la scienza dei dati per l&quot;uso nel Processo di analisi scientifica dei dati per i team
+description: Configurare gli ambienti per l&quot;analisi scientifica dei dati in Azure da usare nel processo di analisi scientifica dei dati eseguito dai team.
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/08/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
-ms.openlocfilehash: f5f54741615eedfe7909ed02d2a37dc4dd40526e
+ms.sourcegitcommit: 1796f7a7cd174d7ed6582878d72c59995aac41cb
+ms.openlocfilehash: 4f2f66288428aa0aa41abb40ce0e43c4848543ff
 
 
 ---
@@ -35,6 +35,6 @@ La **macchina virtuale per l'analisi scientifica dei dati di Microsoft** è disp
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

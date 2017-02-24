@@ -1,10 +1,10 @@
 ---
-title: Creare e modificare un circuito ExpressRoute usando Resource Manager e PowerShell | Documentazione Microsoft
+title: 'Creare e modificare un circuito ExpressRoute: PowerShell: Azure Resource Manager| Microsoft Docs'
 description: Questo articolo descrive le procedure di creazione, provisioning, verifica, aggiornamento, eliminazione e deprovisioning di un circuito ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: f997182e-9b25-4a7a-b079-b004221dadcc
@@ -14,20 +14,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
-ms.author: ganesr
+ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
-ms.openlocfilehash: 3e11bc1e196b263f758394d1abd4c21d9e12aeef
+ms.sourcegitcommit: 9a8a72f5255184a1ac571532355c7f7a23d7f7bd
+ms.openlocfilehash: 0aacbdafdb5ded81dbc8495a30837e2f4941075f
 
 
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Creare e modificare un circuito ExpressRoute
 > [!div class="op_single_selector"]
-> * [Portale di Azure - Gestione risorse](expressroute-howto-circuit-portal-resource-manager.md)
-> * [PowerShell - Gestione risorse](expressroute-howto-circuit-arm.md)
-> * [PowerShell - Classico](expressroute-howto-circuit-classic.md)
+> * [Resource Manager - Portale di Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
+> * [Classica: PowerShell](expressroute-howto-circuit-classic.md)
+> * [Video - Portale di Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > 
-> 
+>
 
 Questo articolo illustra i passaggi per creare un circuito ExpressRoute di Azure tramite i cmdlet di Windows PowerShell e il modello di distribuzione di Azure Resource Manager. L'articolo descrive anche le procedure di controllo dello stato, aggiornamento, eliminazione e deprovisioning del circuito.
 
@@ -38,6 +39,7 @@ Questo articolo illustra i passaggi per creare un circuito ExpressRoute di Azure
 ## <a name="before-you-begin"></a>Prima di iniziare
 * Ottenere la versione più recente dei moduli di Azure PowerShell (almeno la versione 1.0). Per istruzioni dettagliate sulla configurazione del computer per l'uso dei moduli PowerShell, seguire le istruzioni in [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Prima di iniziare la configurazione, verificare i [prerequisiti](expressroute-prerequisites.md) e i [flussi di lavoro](expressroute-workflows.md).
+
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Creare un circuito ExpressRoute ed eseguirne il provisioning
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Accedere al proprio account Azure e selezionare la sottoscrizione
@@ -81,7 +83,7 @@ L'esempio seguente illustra come creare un circuito ExpressRoute a 200 Mbps tram
 Verificare di aver specificato il livello e la famiglia SKU corretti:
 
 * Il livello SKU determina se deve essere abilitato il componente aggiuntivo ExpressRoute Standard o Premium. È possibile specificare *Standard* per ottenere lo SKU Standard o *Premium* per il componente aggiuntivo Premium.
-* La famiglia SKU determina il tipo di fatturazione. Specificare *Metereddata* per un piano dati a consumo e *Unlimiteddata* per un piano dati senza limiti. Si noti che è possibile modificare il tipo di fatturazione da *Metereddata* a *Unlimiteddata*, ma non è possibile effettuare il passaggio inverso.
+* La famiglia SKU determina il tipo di fatturazione. Specificare *Metereddata* per un piano dati a consumo e *Unlimiteddata* per un piano dati senza limiti. Si noti che è possibile modificare il tipo di fatturazione da *Metereddata* a *Unlimiteddata*, ma non è possibile effettuare il passaggio inverso. ****
 
 > [!IMPORTANT]
 > Il circuito ExpressRoute viene addebitato dal momento in cui emessa una chiave di servizio. Verificare che l'operazione venga eseguita quando il provider di connettività è pronto a effettuare il provisioning del circuito.
@@ -376,6 +378,7 @@ Tenere presente quanto segue:
 
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Dopo aver creato il circuito, verificare di eseguire le operazioni seguenti:
 
 * [Creare e modificare il routing per un circuito ExpressRoute](expressroute-howto-routing-arm.md)
@@ -384,6 +387,6 @@ Dopo aver creato il circuito, verificare di eseguire le operazioni seguenti:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

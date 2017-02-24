@@ -6,4 +6,8 @@ Quando si utilizza il dispositivo virtuale StorSimple, tenere presenti le seguen
 * La chiave pubblica del certificato usato per crittografare i dati archiviati in Azure StorSimple viene resa disponibile per il portale di Azure classico e la chiave privata viene conservata nel dispositivo StorSimple. Nel dispositivo virtuale StorSimple le chiavi pubbliche e private vengono archiviate entrambe in Azure.
 * Il dispositivo virtuale è ospitato nel data center di Microsoft Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

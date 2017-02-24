@@ -1,5 +1,5 @@
-## Progetto WebAPI
-1. In Visual Studio aprire il progetto **AppBackend** creato nell'esercitazione sulla **creazione di notifiche per gli utenti**.
+## <a name="webapi-project"></a>Progetto WebAPI
+1. In Visual Studio aprire il progetto **AppBackend** creato nell'esercitazione **Notify Users** (Inviare notifiche agli utenti).
 2. In Notifications.cs sostituire l'intera classe **Notifications** con il codice seguente. Assicurarsi di sostituire i segnaposto con la stringa di connessione con accesso completo per l'hub di notifica e il nome dell'hub. È possibile ottenere questi valori dal [portale di Azure classico](http://manage.windowsazure.com). Questo modulo rappresenta ora le diverse notifiche sicure che verranno inviate. In un'implementazione completa le notifiche verranno archiviate in un database; per semplicità, in questo caso, verranno archiviate in memoria.
    
         public class Notification
@@ -66,10 +66,10 @@
            await Notifications.Instance.Hub.SendNotificationAsync(rawNotificationToBeSent, usernameTag);
    
            // apns
-           await Notifications.Instance.Hub.SendAppleNativeNotificationAsync("{"aps": {"content-available": 1}, "secureId": "" + secureNotificationInTheBackend.Id.ToString() + ""}", usernameTag);
+           await Notifications.Instance.Hub.SendAppleNativeNotificationAsync("{\"aps\": {\"content-available\": 1}, \"secureId\": \"" + secureNotificationInTheBackend.Id.ToString() + "\"}", usernameTag);
    
            // gcm
-           await Notifications.Instance.Hub.SendGcmNativeNotificationAsync("{"data": {"secureId": "" + secureNotificationInTheBackend.Id.ToString() + ""}}", usernameTag);
+           await Notifications.Instance.Hub.SendGcmNativeNotificationAsync("{\"data\": {\"secureId\": \"" + secureNotificationInTheBackend.Id.ToString() + "\"}}", usernameTag);
 
             return Request.CreateResponse(HttpStatusCode.OK);
         }
@@ -80,4 +80,8 @@ Notare che il metodo `Post` non invia ora una notifica di tipo avviso popup, ma 
 1. L'app verrà ora nuovamente distribuita in un sito Web di Azure in modo da renderla accessibile da tutti i dispositivi. Fare clic con il pulsante destro del mouse sul progetto **AppBackend** e scegliere **Pubblica**.
 2. Selezionare un sito Web Azure come destinazione di pubblicazione. Accedere con l'account di Azure e selezionare un sito Web nuovo o esistente, quindi prendere nota della proprietà **URL di destinazione** nella scheda **Connessione**. Si farà riferimento a quest'URL come *endpoint back-end* più avanti in questa esercitazione. Fare clic su **Pubblica**.
 
-<!---HONumber=AcomDC_1210_2015-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,6 +1,6 @@
 ---
-title: "Espandere un&quot;unità del sistema operativo di una macchina virtuale Windows in Azure | Documentazione Microsoft"
-description: "Questo articolo illustra un approccio per espandere le dimensioni dell&quot;unità del sistema operativo di una macchina virtuale usando Powershell di Azure Resource Manager."
+title: "Espandere l&quot;unità del sistema operativo di una macchina virtuale Windows in Azure | Documentazione Microsoft"
+description: "Espandere la dimensione dell&quot;unità del sistema operativo di una macchina virtuale tramite Azure PowerShell nel modello di distribuzione Resource Manager."
 services: virtual-machines-windows
 documentationcenter: 
 author: kirpasingh
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2016
 ms.author: kirpas
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: a56ca6ee60ce13a1791f09da45dc8fcdc909f203
+ms.sourcegitcommit: dad38b1d122537b326e25bd0d3f3cf220549e30f
+ms.openlocfilehash: 8fcc4bf792639f3193ab089db4192705601df456
 
 
 ---
@@ -27,6 +27,6 @@ ms.openlocfilehash: a56ca6ee60ce13a1791f09da45dc8fcdc909f203
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

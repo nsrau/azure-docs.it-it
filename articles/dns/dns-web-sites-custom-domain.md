@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 02d720a04fdc0fa302c2cb29b0af35ee92c14b3b
-ms.openlocfilehash: ebff4403b81930d533c1dcbaf2b8857207eda4b6
+ms.sourcegitcommit: dd020bf625510eb90af2e1ad19c155831abd7e75
+ms.openlocfilehash: a2a429873c30f526a0de05d4018f53f3a83bbe28
 
 ---
 
@@ -58,7 +58,7 @@ Aggiungere al set di record "@" creato in precedenza il valore IPv4 usando la va
 Per trovare l'indirizzo IP per un'app Web, seguire i passaggi in [Configurare un nome di dominio personalizzato nel servizio app di Azure](../app-service-web/web-sites-custom-domain-name.md#vip).
 
 ```powershell
-Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address <your web app IP address>
+Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address "<your web app IP address>"
 ```
 
 ### <a name="step-3"></a>Passaggio 3
@@ -77,17 +77,22 @@ Se il dominio è già gestito da DNS di Azure (vedere la [delega del dominio DNS
 
 Aprire PowerShell, creare un nuovo set di record CNAME e assegnarlo a una variabile $rs. In questo esempio viene creato un tipo di set di record CNAME con una "durata (TTL)" di 600 secondi nella zona DNS denominata "contoso.com".
 
-    $rs = New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "www" -RecordType "CNAME" -Ttl 600
+```powershell
+$rs = New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "www" -RecordType "CNAME" -Ttl 600
+```
 
-    Name              : www
-    ZoneName          : contoso.com
-    ResourceGroupName : myresourcegroup
-    Ttl               : 600
-    Etag              : 8baceeb9-4c2c-4608-a22c-229923ee1856
-    RecordType        : CNAME
-    Records           : {}
-    Tags              : {}
+L'esempio seguente corrisponde alla risposta.
 
+```
+Name              : www
+ZoneName          : contoso.com
+ResourceGroupName : myresourcegroup
+Ttl               : 600
+Etag              : 8baceeb9-4c2c-4608-a22c-229923ee1856
+RecordType        : CNAME
+Records           : {}
+Tags              : {}
+```
 
 ### <a name="step-2"></a>Passaggio 2
 
@@ -95,8 +100,13 @@ Una volta creato il set di record CNAME, è necessario creare un valore alias ch
 
 Usando la variabile "$rs" assegnata in precedenza, è possibile usare il seguente comando di PowerShell per creare l'alias per l'app Web contoso.azurewebsites.net.
 
-    Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "contoso.azurewebsites.net"
+```powershell
+Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "contoso.azurewebsites.net"
+```
 
+L'esempio seguente corrisponde alla risposta.
+
+```
     Name              : www
     ZoneName          : contoso.com
     ResourceGroupName : myresourcegroup
@@ -105,6 +115,7 @@ Usando la variabile "$rs" assegnata in precedenza, è possibile usare il seguent
     RecordType        : CNAME
     Records           : {contoso.azurewebsites.net}
     Tags              : {}
+```
 
 ### <a name="step-3"></a>Passaggio 3
 
@@ -116,20 +127,22 @@ Set-AzureRMDnsRecordSet -RecordSet $rs
 
 È possibile verificare che il record sia stato creato correttamente eseguendo una query di "www.contoso.com" con nslookup, come mostrato di seguito:
 
-    PS C:\> nslookup
-    Default Server:  Default
-    Address:  192.168.0.1
+```
+PS C:\> nslookup
+Default Server:  Default
+Address:  192.168.0.1
 
-    > www.contoso.com
-    Server:  default server
-    Address:  192.168.0.1
+> www.contoso.com
+Server:  default server
+Address:  192.168.0.1
 
-    Non-authoritative answer:
-    Name:    <instance of web app service>.cloudapp.net
-    Address:  <ip of web app service>
-    Aliases:  www.contoso.com
-    contoso.azurewebsites.net
-    <instance of web app service>.vip.azurewebsites.windows.net
+Non-authoritative answer:
+Name:    <instance of web app service>.cloudapp.net
+Address:  <ip of web app service>
+Aliases:  www.contoso.com
+contoso.azurewebsites.net
+<instance of web app service>.vip.azurewebsites.windows.net
+```
 
 ## <a name="create-an-awverify-record-for-web-apps"></a>Creare un record "awverify" per le app Web
 
@@ -139,24 +152,34 @@ Se si decide di usare un record A per l'app Web, è necessario eseguire un proce
 
 Creare il record "awverify". In questo esempio verrà creato il record "awverify" per consentire a contoso.com di verificare la proprietà del dominio personalizzato.
 
-    $rs = New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "awverify" -RecordType "CNAME" -Ttl 600
+```powershell
+$rs = New-AzureRMDnsRecordSet -ZoneName "contoso.com" -ResourceGroupName "myresourcegroup" -Name "awverify" -RecordType "CNAME" -Ttl 600
+```
 
-    Name              : awverify
-    ZoneName          : contoso.com
-    ResourceGroupName : myresourcegroup
-    Ttl               : 600
-    Etag              : 8baceeb9-4c2c-4608-a22c-229923ee1856
-    RecordType        : CNAME
-    Records           : {}
-    Tags              : {}
+L'esempio seguente corrisponde alla risposta.
 
+```
+Name              : awverify
+ZoneName          : contoso.com
+ResourceGroupName : myresourcegroup
+Ttl               : 600
+Etag              : 8baceeb9-4c2c-4608-a22c-229923ee1856
+RecordType        : CNAME
+Records           : {}
+Tags              : {}
+```
 
 ### <a name="step-2"></a>Passaggio 2
 
 Dopo aver creato il set di record "awverify", assegnare l'alias del set di record CNAME. Nell'esempio seguente, si assegnerà l'alias del set di record CNAME a awverify.contoso.azurewebsites.net.
 
-    Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "awverify.contoso.azurewebsites.net"
+```powershell
+Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "awverify.contoso.azurewebsites.net"
+```
 
+L'esempio seguente corrisponde alla risposta.
+
+```
     Name              : awverify
     ZoneName          : contoso.com
     ResourceGroupName : myresourcegroup
@@ -165,6 +188,7 @@ Dopo aver creato il set di record "awverify", assegnare l'alias del set di recor
     RecordType        : CNAME
     Records           : {awverify.contoso.azurewebsites.net}
     Tags              : {}
+```
 
 ### <a name="step-3"></a>Passaggio 3
 
@@ -180,6 +204,6 @@ Per configurare l'app Web per l'uso di un dominio personalizzato, seguire i pass
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

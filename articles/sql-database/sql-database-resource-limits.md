@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/11/2017
+ms.date: 02/09/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 5dfb2b4fbe4dbd74575b418257843bc2097b966b
-ms.openlocfilehash: 5ca2da0caff29244f43c162e3cd98d335fd23f23
+ms.sourcegitcommit: f2e48e290f59efb5ab6271b7b2882ca8ea8887a6
+ms.openlocfilehash: 15fd64f21eb20ae412f4d0cf1930e99e2e9fc62b
 
 
 ---
@@ -40,7 +40,7 @@ Monitorare l'utilizzo delle risorse e i tempi di risposta medi delle query quand
 ## <a name="enforcement-of-limits"></a>imposizione di limiti
 Per le risorse diverse da CPU, memoria, I/O di log e I/O di dati, al raggiungimento dei limiti le nuove richieste vengono negate. Quando un database raggiunge le dimensioni massime configurate, gli inserimenti e gli aggiornamenti che aumentano le dimensioni dei dati hanno esito negativo, mentre le selezioni e le eliminazioni continuano a funzionare. I client visualizzano un [messaggio di errore](sql-database-develop-error-messages.md) a seconda del limite che è stato raggiunto.
 
-Ad esempio, il numero di connessioni a un database SQL e il numero di richieste simultanee che possono essere elaborate viene limitato. Nel database SQL, il numero di connessioni al database può essere maggiore del numero di richieste simultanee per supportare i pool di connessioni. Mentre il numero di connessioni disponibili può essere facilmente controllato dall'applicazione, il numero di richieste parallele è più difficile da stimare e da controllare. In particolare, durante i carichi di picco quando l'applicazione invia troppe richieste o il database raggiunge i relativi limiti e inizia ad accumulare thread di lavoro a causa dei tempi di esecuzione delle query prolungati, è possibile che si verifichino errori.
+Ad esempio, il numero di connessioni a un database SQL e il numero di richieste simultanee che possono essere elaborate sono limitati. Nel database SQL, il numero di connessioni al database può essere maggiore del numero di richieste simultanee per supportare i pool di connessioni. Mentre il numero di connessioni disponibili può essere facilmente controllato dall'applicazione, il numero di richieste parallele è più difficile da stimare e da controllare. In particolare, durante i carichi di picco quando l'applicazione invia troppe richieste o il database raggiunge i relativi limiti e inizia ad accumulare thread di lavoro a causa dei tempi di esecuzione delle query prolungati, è possibile che si verifichino errori.
 
 ## <a name="service-tiers-and-performance-levels"></a>Livelli di servizio e livelli di prestazioni
 Sono disponibili livelli di servizio e livelli di prestazioni sia per i database singoli che per i pool elastici.

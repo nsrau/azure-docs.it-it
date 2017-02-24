@@ -1,9 +1,9 @@
 ---
-title: Migrazione ad Archiviazione Premium di Azure | Microsoft Docs
-description: Eseguire la migrazione di macchine virtuali esistenti in archiviazione Premium di Azure. Archiviazione Premium offre prestazioni elevate e supporto per dischi a bassa latenza per carichi di lavoro con I/O intensivo in esecuzione su Macchine virtuali di Azure.
+title: Migrazione di VM ad Archiviazione Premium di Azure | Documentazione Microsoft
+description: Eseguire la migrazione delle VM esistenti in Archiviazione Premium di Azure. Archiviazione Premium offre prestazioni elevate e supporto per dischi a bassa latenza per carichi di lavoro con I/O intensivo in esecuzione su Macchine virtuali di Azure.
 services: storage
 documentationcenter: na
-author: aungoo-msft
+author: yuemlu
 manager: tadb
 editor: tysonn
 ms.assetid: 272250b3-fd4e-41d2-8e34-fd8cc341ec87
@@ -12,16 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2016
+ms.date: 02/06/2017
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: 7611f7940b076ba18b3966b0bc9a63fe53b55592
-ms.openlocfilehash: 0ebec265fe2ac2d53dbe3afcb660dddbe7b050ea
+ms.sourcegitcommit: 4582049fa1d369ea63395514336d26a524dbfdbe
+ms.openlocfilehash: b3f1b2b4e257fea0dd9324b02ea9aad3e1a645e4
 
 
 ---
-# <a name="migrating-to-azure-premium-storage"></a>Migrazione ad Archiviazione Premium di Azure
-## <a name="overview"></a>Overview
+# <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrazione in Archiviazione Premium di Azure (dischi non gestiti)
+
+> [!NOTE]
+> Questo articolo descrive come migrare una VM che usa dischi Standard non gestiti a una VM che usa dischi Premium non gestiti. È consigliabile usare Azure Managed Disks per le nuove VM e convertire i dischi non gestiti esistenti in dischi gestiti. Managed Disks gestisce automaticamente gli account di archiviazione sottostanti e non è necessario eseguire questa attività manualmente. Per altre informazioni, vedere [Panoramica di Azure Managed Disks](storage-managed-disks-overview.md).
+>
+
 Archiviazione Premium di Azure offre prestazioni elevate e supporto per dischi a bassa latenza per le macchine virtuali che eseguono carichi di lavoro con I/O intensivo. Per trarre vantaggio dalla velocità e dalle prestazioni di questi dischi, è possibile migrare i dischi delle VM dell'applicazione ad Archiviazione Premium di Azure.
 
 Lo scopo di questa guida è preparare i nuovi utenti di Archiviazione Premium di Microsoft Azure a eseguire una transizione senza intoppi dal sistema corrente ad Archiviazione Premium. Questa guida descrive tre aspetti chiave di questo processo:
@@ -34,7 +38,6 @@ Lo scopo di questa guida è preparare i nuovi utenti di Archiviazione Premium di
 
 > [!NOTE]
 > Una panoramica delle funzionalità e dei prezzi di Archiviazione Premium è disponibile in [Archiviazione Premium: archiviazione dalle prestazioni elevate per carichi di lavoro di macchine virtuali di Azure](storage-premium-storage.md). È consigliabile eseguire la migrazione di qualsiasi disco di macchine virtuali che richiede un numero elevato di IOPS ad Archiviazione Premium di Azure per ottenere prestazioni ottimali per l'applicazione. Se il disco non richiede un numero elevato di IOPS, è possibile limitare i costi mantenendolo in Archiviazione Standard, che archivia i dati dei dischi delle macchine virtuali in unità disco rigido (HDD) invece che in unità SSD.
->
 >
 
 Per completare l'intero processo di migrazione, potrebbero essere necessarie altre azioni sia prima che dopo i passaggi descritti in questa guida. Tra gli esempi sono incluse la configurazione di reti virtuali o di endpoint oppure l'applicazione di modifiche al codice direttamente nell'applicazione che possono causare tempi di inattività all'applicazione. Queste azioni sono univoche per ogni applicazione ed è consigliabile completarle insieme ai passaggi descritti in questa guida per eseguire la transizione completa ad Archiviazione Premium con la massima semplicità possibile.
@@ -773,6 +776,6 @@ Inoltre, controllare le seguenti risorse per altre informazioni su Archiviazione
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

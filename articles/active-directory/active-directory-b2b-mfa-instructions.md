@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/07/2017
+ms.date: 02/09/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 049f8ecec38a518276c6deea6a285a59d1401de6
-ms.openlocfilehash: 318ec4a2b807aaed5c61272016d0957d6e6f5004
+ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
+ms.openlocfilehash: 894f94fdefe081679b1e35183bd4127be35cd33c
 
 
 ---
@@ -35,10 +35,10 @@ Ciò significa:
 6. La società A dovrà avere SKU di Azure AD Premium adeguati che supportano l'autenticazione a più fattori. L'utente della società B utilizzerà questa licenza della società A.
 7. In sintesi, la tenancy che invia l'invito è *sempre* responsabile dell'autenticazione a più fattori degli utenti di Collaborazione B2B dell'organizzazione partner e non dell'organizzazione partner stessa (anche se ha funzionalità di autenticazione a più fattori). Nelle versioni future verrà consentito alle organizzazioni che inviano l'invito di considerare attendibile l'autenticazione a più fattori di specifiche organizzazioni partner invece di usare l'autenticazione a più fattori dell'organizzazione che invia l'invito.
 
-## <a name="setting-up-mfa-for-b2b-users"></a>Configurazione dell'autenticazione a più fattori per gli utenti di B2B
+## <a name="setting-up-mfa-for-b2b-collaboration-users"></a>Configurazione dell'autenticazione a più fattori per gli utenti di Collaborazione B2B
 Configurare l'autenticazione a più fattori per gli utenti di Collaborazione B2B è estremamente semplice, come illustrato in [questo video](https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup).
 
-## <a name="b2b-users-mfa-experience-for-offer-redemption"></a>Esperienza di autenticazione a più fattori per gli utenti di B2B per il riscatto dell'offerta
+## <a name="b2b-collaboration-users-mfa-experience-for-offer-redemption"></a>Esperienza di autenticazione a più fattori per gli utenti di Collaborazione B2B per il riscatto dell'offerta
 Guardare l'animazione sotto per visualizzare l'esperienza di riscatto, come illustrato in [questo video](https://channel9.msdn.com/Blogs/Azure/MFA-redemption).
 
 ## <a name="mfa-reset-for-b2b-collaboration-users"></a>Reimpostazione dell'autenticazione a più fattori per gli utenti di Collaborazione B2B
@@ -75,14 +75,15 @@ L'amministratore attualmente può richiedere agli utenti di Collaborazione B2B d
 Vedere gli altri articoli su Azure AD B2B Collaboration.
 
 * [Che cos'è Azure AD B2B Collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Procedura di aggiunta di utenti di Collaborazione B2B ad Azure Active Directory da parte degli amministratori](active-directory-b2b-admin-add-users.md)
-* [Procedura di aggiunta di utenti di Collaborazione B2B da parte di information worker](active-directory-b2b-add-guest-to-role.md)
+* [Procedura per aggiungere utenti di Collaborazione B2B ad Azure Active Directory da parte degli amministratori](active-directory-b2b-admin-add-users.md)
+* [Procedura di aggiunta di utenti di Collaborazione B2B da parte di information worker](active-directory-b2b-iw-add-users.md)
 * [Elementi del messaggio di posta elettronica di invito per la Collaborazione B2B](active-directory-b2b-invitation-email.md)
-* [Riscatto dell'invito di Collaborazione B2B di Azure Active Directory](active-directory-b2b-redemption-experience.md)
+* [Riscatto dell'invito di Collaborazione B2B](active-directory-b2b-redemption-experience.md)
 * [Licenze per la Collaborazione B2B di Azure AD](active-directory-b2b-licensing.md)
 * [Risoluzione dei problemi di Collaborazione B2B di Azure Active Directory](active-directory-b2b-troubleshooting.md)
 * [Domande frequenti su Collaborazione B2B di Azure Active Directory](active-directory-b2b-faq.md)
 * [API e personalizzazione per Collaborazione B2B di Azure Active Directory](active-directory-b2b-api.md)
+* [Aggiungere gli utenti per la Collaborazione B2B senza un invito](active-directory-b2b-add-user-without-invite.md)
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
 

@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9b26cfed4102bc09512f5ef1270aa0275a7f8f69
-ms.openlocfilehash: 58e1f5862cd147d7664248cf393f77a5e9af10d3
+ms.sourcegitcommit: df0ab8e6828033b783449e9478a5884355a7f1fe
+ms.openlocfilehash: 453aa0e98e639872184b697ad8ed91d9545e152f
 
 
 ---
@@ -40,6 +40,7 @@ Il piano Basic è la scelta predefinita quando viene creata una nuova risorsa di
 
 * Nel piano Basic vengono applicati addebiti in base al volume dei dati: il numero di byte dei dati di telemetria ricevuti da Application Insights. Il volume di dati viene misurato come le dimensioni del pacchetto di dati JSON non compresso inviato dall'applicazione e ricevuto da Application Insights.
 * Il primo GB per ciascuna applicazione è gratuito. Pertanto se si usa lo strumento per prova o per sviluppo, probabilmente non si incorrerà in addebiti.
+* I dati [Live Metrics Stream](app-insights-live-stream.md) non vengono conteggiati ai fini della determinazione del prezzo.
 * Nel piano Basic, con un addebito extra per GB è disponibile l'[Esportazione continua](app-insights-export-telemetry.md), gratuita fino ai primi giorni di marzo 2017.
 
 ### <a name="enterprise-plan"></a>Piano Enterprise
@@ -49,6 +50,7 @@ Il piano Basic è la scelta predefinita quando viene creata una nuova risorsa di
  * Un *nodo* è una macchina server fisica o virtuale oppure un'istanza del ruolo PaaS (piattaforma distribuita come servizio) che ospita l'app.
  * Computer di sviluppo, browser client e dispositivi mobili non sono conteggiati come nodi.
  * Se l'app dispone di diversi componenti che inviano dati di telemetria, ad esempio un servizio Web e un lavoro back-end, questi vengono conteggiati separatamente.
+ * I dati [Live Metrics Stream](app-insights-live-stream.md) non vengono conteggiati ai fini della determinazione del prezzo.
 * In una sottoscrizione, gli addebiti si applicano per nodo, non per app. Se si dispone di cinque nodi che inviano dati di telemetria per 12 app, l'addebito sarà per cinque nodi.
 * Sebbene gli addebiti siano fatturati mensilmente, quelli effettivi hanno luogo solo nelle ore durante le quali un nodo invia dati di telemetria da un'app. La tariffa oraria è la tariffa mensile fatturata divisa per 744 (il numero di ore in un mese di 31 giorni).
 * Viene fornita un'allocazione di volume di dati di 200 MB al giorno per ciascun nodo rilevato (con granularità oraria). L'allocazione di dati non usata non viene trasferita al giorno successivo.
@@ -98,7 +100,7 @@ Esistono tre modi per limitare il volume di invio dei dati:
 
 * **Limite giornaliero.** Per impostazione predefinita è 500 GB al giorno. Quando l'app raggiunge il limite, viene inviata un'e-mail e viene impedito l'uso di dati fino alla fine della giornata. È possibile modificarlo nel pannello Data Volume Management (Gestione volume dati).
 * **[Campionamento](app-insights-sampling.md).** Questo meccanismo può ridurre la quantità di dati di telemetria inviati da server e app client, con una distorsione minima delle metriche.
-* **La limitazione** limita la velocità dei dati a 16.000 eventi al secondo, calcolati con una media di 1 minuto. 
+* Con la **limitazione** la velocità dei dati non supera i 32.000 eventi al secondo, calcolati con una media di oltre 1 minuto. 
 
 
 *Cosa accade se l'app supera la velocità di limitazione?*
@@ -174,6 +176,6 @@ Le applicazioni esistenti possono continuare a usare i piani tariffari precedent
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

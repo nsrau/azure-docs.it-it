@@ -1,5 +1,5 @@
 ---
-title: Sono pronti i dati per l&quot;analisi scientifica? Valutazione dei dati | Microsoft Docs
+title: Sono pronti i dati per l&quot;analisi scientifica? Valutazione dei dati - Azure | Documentazione Microsoft
 description: I 4 criteri per rendere pronti i dati per l&quot;analisi scientifica. Nel video 2 Analisi scientifica dei dati per principianti vengono illustrati esempi concreti per la valutazione dei dati di base.
 keywords: "dati rilevanti, valutare i dati, preparare i dati, criteri dei dati, compatibilità con i dati"
 services: machine-learning
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 35579eda8b92a481525ad987e99e7d9c9ed6b942
-ms.openlocfilehash: 902d83db4630bad443208e0aad039d3ad199d2a1
+ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
+ms.openlocfilehash: 3d2b259c29a52394ac42afba0c5572364cfeea39
 
 
 ---
@@ -113,6 +113,6 @@ Anche gli altri quattro video della serie *Data Science for Beginners* (Analisi 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

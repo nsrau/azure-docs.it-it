@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/01/2016
+ms.date: 02/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: 599b0bdaef2d0189bbe03153ff82489fbd32dd1b
+ms.sourcegitcommit: fb2fe0efe00a7ef7fd1c22ca94c76b2d5f4c5510
+ms.openlocfilehash: 9366bce634fd3855080d267c797e2fecb8ab4ce9
 
 
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accesso ai log di diagnostica per Azure Data Lake Analytics
+
 Informazioni su come abilitare la registrazione diagnostica per l'account di Data Lake Analytics e su come visualizzare i log raccolti per l'account.
 
 Le organizzazioni possono abilitare la registrazione diagnostica per il proprio account di Azure Data Lake Analytics per raccogliere gli audit trail dell'accesso ai dati. Questi registri includono informazioni quali:
@@ -30,47 +31,72 @@ Le organizzazioni possono abilitare la registrazione diagnostica per il proprio 
 * La quantità di dati archiviati nell'account.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+
 * **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Data Lake Analytics. Vedere le [istruzioni](data-lake-analytics-get-started-portal.md).
+
 * **Account di Azure Data Lake Analytics**. Seguire le istruzioni fornite in [Introduzione ad Azure Data Lake Analytics con il portale di Azure](data-lake-analytics-get-started-portal.md).
 
 ## <a name="enable-logging"></a>Abilitazione della registrazione
-1. Accedere al nuovo [portale di Azure](https://portal.azure.com).
-2. Aprire l'account di Data Lake Analytics e dal pannello corrispondente fare clic su **Impostazioni** e su **Impostazioni di diagnostica**.
-3. Nel pannello **Diagnostica** , apportare le modifiche seguenti per configurare la registrazione diagnostica.
 
-    ![Abilitare la registrazione diagnostica](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
+1. Accedere al nuovo [portale di Azure](https://portal.azure.com).
+
+2. Aprire l'account Data Lake Analytics e selezionare **Log di diagnostica** dalla sezione __Monitoraggio__. Selezionare quindi __Turn on diagnostics__ (Attiva diagnostica).
+
+    ![Attivare la diagnostica per acquisire i log di controllo e i log delle richieste.](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
+
+3. Dalle __Impostazioni di diagnostica__, impostare lo stato su __Attivo__ e selezionare le opzioni di registrazione.
+
+    ![Attivare la diagnostica per acquisire i log di controllo e i log delle richieste](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Abilitare i log di diagnostica")
 
    * Impostare lo **Stato** su **Attivo** per abilitare la registrazione diagnostica.
+
    * È possibile scegliere di archiviare/elaborare i dati in due modi diversi.
-     * Selezionare **Esportare in Hub eventi** per trasmettere i dati di log a un Hub eventi di Azure. Usare questa opzione se si ha una pipeline di elaborazione a valle per analizzare in tempo reale i log in ingresso. Se si seleziona questa opzione, è necessario fornire i dettagli dell'Hub eventi di Azure che si desidera utilizzare.
-     * Selezionare **Esportare all'account di archiviazione** per archiviare i log in un account di archiviazione di Azure. Usare questa opzione se si vogliono archiviare i dati. Se si seleziona questa opzione è necessario fornire un account di archiviazione di Azure in cui salvare i log.
+
+     * Selezionare __Archive to a storage account__ (Archivia in un account di archiviazione) per archiviare i log in un account di archiviazione di Azure. Usare questa opzione se si vogliono archiviare i dati. Se si seleziona questa opzione è necessario fornire un account di archiviazione di Azure in cui salvare i log.
+
+     * Selezionare **Stream to an Event Hub** (Esegui streaming in un Hub eventi) per trasmettere i dati di log a un Hub eventi di Azure. Usare questa opzione se si ha una pipeline di elaborazione a valle per analizzare in tempo reale i log in ingresso. Se si seleziona questa opzione, è necessario fornire i dettagli dell'Hub eventi di Azure che si desidera utilizzare.
+
+     * Selezionare __Send to Log Analytics__ (Invia a Log Analytics) per inviare i dati al servizio Log Analytics. Usare questa opzione per raccogliere e analizzare i log con Log Analytics.
    * Specificare se si desidera ottenere i log di controllo, i log delle richieste o entrambi.
+
    * Specificare il numero di giorni per cui devono essere conservati i dati.
+
    * Fare clic su **Save**.
 
-Dopo aver attivato le impostazioni di diagnostica, è possibile controllare i log nella scheda **Log di diagnostica** .
+        > [!NOTE]
+        > È necessario selezionare una tra le opzioni __Archive to a storage account__ (Archivia in un account di archiviazione), __Stream to an Event Hub__ (Esegui streaming in un Hub eventi) o __Send to Log Analytics__ (Invia a Log Analytics) prima di usare il pulsante __Salva__.
+
+Dopo aver attivato le impostazioni di diagnostica, è possibile tornare al pannello __Log di diagnostica__ per visualizzare i log.
 
 ## <a name="view-logs"></a>Visualizzare i log
+
 Esistono due modi per visualizzare i dati di log dell'account Data Lake Analytics.
 
 * Dalle impostazioni dell'account Data Lake Analytics
 * Dall'account di Archiviazione di Azure dove sono archiviati i dati
 
 ### <a name="using-the-data-lake-analytics-settings-view"></a>Usando la visualizzazione Impostazioni dell'account Data Lake Analytics
-1. Nel pannello **Impostazioni** dell'account Data Lake Analytics fare clic su **Log di diagnostica**.
 
-    ![Visualizzare la registrazione diagnostica](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "View diagnostic logs")
-2. Nel pannello **Log di diagnostica** vengono visualizzati i log classificati come **log di controllo** e **log delle richieste**.
+1. Dal pannello dell'account Data Lake Analytics selezionare **Log di diagnostica** e quindi la voce per la quale visualizzare i log.
+
+    ![Visualizzare la registrazione diagnostica](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "Visualizzare i log di diagnostica")
+
+2. I log sono suddivisi in **Log di controllo** e **Log delle richieste**.
+
+    ![Voci del log](./media/data-lake-analytics-diagnostic-logs/diagnostic-log-entries.png)
 
    * I log delle richieste acquisiscono tutte le richieste API fatte nell'account di Data Lake Analytics.
    * I log di controllo sono simili a quelli delle richieste ma forniscono una suddivisione più dettagliata delle operazioni eseguite nell'account di Data Lake Analytics. Ad esempio, una singola chiamata API di caricamento nei log delle richieste potrebbe risultare in molteplici operazioni di "Aggiungi" nei log di controllo.
+
 3. Fare clic sul link **Scarica** di una voce di log per scaricare i log.
 
 ### <a name="from-the-azure-storage-account-that-contains-log-data"></a>Dall'account di Archiviazione di Azure che contiene i dati di log
+
 1. Aprire il pannello Account di Archiviazione di Azure associato a Data Lake Analytics per la registrazione e quindi fare clic su BLOB. Il pannello **Servizio BLOB** elenca due contenitori.
 
-    ![Visualizzare la registrazione diagnostica](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "View diagnostic logs")
+    ![Visualizzare la registrazione diagnostica](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "Visualizzare i log di diagnostica")
 
    * Il contenitore **insights-logs-audit** contiene i log di controllo.
    * Il contenitore **insights-logs-requests** contiene i log delle richieste.
@@ -94,8 +120,6 @@ Esistono due modi per visualizzare i dati di log dell'account Data Lake Analytic
 
    > [!NOTE]
    > Il pannello `##` nel percorso contengono l'anno, il mese, il giorno e l'ora in cui è stato creato il log. Data Lake Analytics crea un file ogni ora, in modo `m=` contenga sempre un valore di `00`.
-   >
-   >
 
     Ad esempio, il percorso completo a un log di controllo potrebbe essere:
 
@@ -106,9 +130,11 @@ Esistono due modi per visualizzare i dati di log dell'account Data Lake Analytic
         https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=14/m=00/PT1H.json
 
 ## <a name="log-structure"></a>Struttura di log
+
 I log di controllo e delle richieste sono in formato JSON. In questa sezione, viene esaminata la struttura di JSON per i log delle richieste e di controllo.
 
 ### <a name="request-logs"></a>Request Logs
+
 Di seguito viene riportata una voce di esempio nel log delle richieste in formato JSON. Ogni BLOB ha un oggetto radice denominato **record** che contiene una matrice di oggetti di log.
 
     {
@@ -140,6 +166,7 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
     }
 
 #### <a name="request-log-schema"></a>Schema del log delle richieste
+
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
 | time |String |Il timestamp del log (fusorario UTC) |
@@ -153,6 +180,7 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
 | properties |JSON |Per informazioni dettagliate, vedere la sezione successiva (Schema delle proprietà del log di richiesta) |
 
 #### <a name="request-log-properties-schema"></a>Schema delle proprietà del log di richiesta
+
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
 | HttpMethod |String |Il metodo HTTP utilizzato per l'operazione. Esempio: GET. |
@@ -163,6 +191,7 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
 | EndTime |String |L'ora in cui il server ha inviato una risposta |
 
 ### <a name="audit-logs"></a>Log di controllo
+
 Di seguito viene riportata una voce di esempio nel log di controllo in formato JSON. Ogni BLOB ha un oggetto radice denominato **record** che contiene una matrice di oggetti di log.
 
     {
@@ -189,6 +218,7 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
     }
 
 #### <a name="audit-log-schema"></a>Schema del log di controllo
+
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
 | time |String |Il timestamp del log (fusorario UTC) |
@@ -206,6 +236,7 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 >
 
 #### <a name="audit-log-properties-schema"></a>Schema delle proprietà del log di controllo
+
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
 | JobId |String |L'ID assegnato al processo |
@@ -218,10 +249,9 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 
 > [!NOTE]
 > **SubmitTime**, **StartTime**, **EndTime** e **Parallelism** offrono informazioni su un'operazione e contengono un valore solo se un'operazione è stata avviata o completata. Ad esempio, **SubmitTime** contiene un valore dopo che **operationName** indica **JobSubmitted**.
->
->
 
 ## <a name="process-the-log-data"></a>Elaborare i dati di log
+
 Azure Data Lake Analytics fornisce un esempio su come elaborare e analizzare i dati di log. È possibile trovare l'esempio all'indirizzo [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -229,6 +259,6 @@ Azure Data Lake Analytics fornisce un esempio su come elaborare e analizzare i d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

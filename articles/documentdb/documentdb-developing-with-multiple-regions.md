@@ -3,7 +3,7 @@ title: "Sviluppo con più aree in DocumentDB | Documentazione Microsoft"
 description: "Informazioni su come accedere ai dati in più aree da Azure DocumentDB, un servizio database NoSQL completamente gestito."
 services: documentdb
 documentationcenter: 
-author: kiratp
+author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: d4579378-0b3a-44a5-9f5b-630f1fa4c66d
@@ -12,19 +12,21 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2016
-ms.author: kipandya
+ms.date: 02/09/2016
+ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
-ms.openlocfilehash: d7ed490157eff98e31c824daf1f9af98ae1afeaa
+ms.sourcegitcommit: 240f45383639f1eb8a4a9b7c4e4489591be23dba
+ms.openlocfilehash: aac8c26cd9af94659abc80b2ae260dc380cf38c9
 
 
 ---
 # <a name="developing-with-multi-region-documentdb-accounts"></a>Sviluppo con account DocumentDB in più aree
-> [!NOTE]
-> La distribuzione globale di database di DocumentDB è disponibile a livello generale ed è abilitata automaticamente per tutti gli account DocumentDB appena creati. Stiamo lavorando per abilitare la distribuzione globale per tutti gli account esistenti, ma nel frattempo, se si vuole che la distribuzione globale sia abilitata per il proprio account, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) .
->
->
+
+In questo video di Azure Friday, con Scott Hanselman e Karthik Raman, Principal Engineering Manager, sono disponibili altre informazioni sugli account DocumentDB in più aree.
+
+>[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
+
+## <a name="introduction"></a>Introduzione
 
 Per sfruttare la [distribuzione globale](documentdb-distribute-data-globally.md), le applicazioni client possono specificare un elenco di aree, nell'ordine preferito, da usare per eseguire operazioni sui documenti. Questa operazione può essere eseguita impostando il criterio di connessione. A seconda della configurazione dell'account Azure DocumentDB, della disponibilità corrente delle aree e dell'elenco delle preferenze specificato, l'SDK sceglierà l'endpoint ottimale per eseguire le operazioni di scrittura e lettura.
 
@@ -158,6 +160,6 @@ Per altre informazioni sulla distribuzione globale dei dati con DocumentDB, vede
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

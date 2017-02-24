@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 07/22/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 1a1d5a3e7f39477e06540a980ccbbdc789cefaf1
-ms.openlocfilehash: dd66b244b3fcb7fe22937dbbc6e284bdd93625f2
+ms.sourcegitcommit: b64bafe1a8572369aa7a7e6f0d8b924fc182cd53
+ms.openlocfilehash: 9440474db7eb7e3ae082505f8c95cbcf8c285cdf
 
 
 ---
 # <a name="use-docker-machine-with-the-azure-driver"></a>Usare Docker Machine con il driver di Azure
-[Docker](https://www.docker.com/) , uno degli approcci alla virtualizzazione più diffusi, isola dati ed eseguibili delle applicazioni presenti all'interno di risorse condivise usando contenitori Linux anziché macchine virtuali. Questo argomento descrive quando e come usare [Docker Machine](https://docs.docker.com/machine/) (il comando `docker-machine`) per creare nuove macchine virtuali Linux in Azure abilitate come host docker per i contenitori di Linux.
+[Docker](https://www.docker.com/) fornisce virtualizzazione tramite contenitori Linux invece di macchine virtuali al fine di isolare i dati dell'applicazione ed eseguire i calcoli in una risorsa condivisa. Questo argomento descrive come e quando usare [Docker Machine](https://docs.docker.com/machine/). Il comando `docker-machine` crea una nuova VM Linux in Azure abilitata come host del docker per i contenitori Linux.
 
 ## <a name="create-vms-with-docker-machine"></a>Creare VM con Docker Machine
 Creare VM host di Docker in Azure con il comando `docker-machine create` usando l'argomento `azure` del driver per l'opzione driver (`-d`) e altri argomenti. 
@@ -132,6 +132,6 @@ Per altri esempi di uso di Docker, vedere [Working with Docker](https://github.c
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

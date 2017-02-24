@@ -10,11 +10,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/09/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 47c3491b067d5e112db589672b68e7cfc7cbe921
-ms.openlocfilehash: eb89c6f485f2321f729dcfe650af4355de84a9ac
+ms.sourcegitcommit: 938f325e2cd4dfc1a192256e033aabfc39b85dac
+ms.openlocfilehash: 6bb1f31407f9af67e699bd110ee528dddee1a70f
 
 
 ---
@@ -24,7 +24,7 @@ Importare i dati tabulari in [Analytics](app-insights-analytics.md), ad esempio 
 
 È possibile importare dati in Analytics usando uno schema personalizzato. Non è necessario usare gli schemi di Application Insights standard, come la richiesta o la traccia.
 
-Attualmente, è possibile importare file CSV (valori separati da virgola) o formati simili con valori delimitati da tabulazione o punto e virgola.
+È possibile importare i file JSON o DSV (Delimiter-Separated Values: virgola, punto e virgola o tabulazione).
 
 L'importazione in Analytics è utile in tre situazioni:
 
@@ -72,12 +72,15 @@ Prima di poter importare dati, è necessario definire un'*origine dati* che spec
 
     ![Aggiungere la nuova origine dati](./media/app-insights-analytics-import/add-new-data-source.png)
 
-2. Seguire le istruzioni per caricare un file di dati di esempio.
+2. Caricare un file di dati di esempio. (Facoltativo se si carica una definizione dello schema).
 
- * La prima riga dell'esempio può essere rappresentata dalle intestazioni di colonna. È possibile modificare i nomi dei campi nel passaggio successivo.
- * L'esempio deve includere almeno 10 righe di dati.
+    La prima riga dell'esempio può essere rappresentata dalle intestazioni di colonna. È possibile modificare i nomi dei campi nel passaggio successivo.
 
-3. Esaminare lo schema che la procedura guidata ha dedotto dall'esempio. È possibile modificare i tipi derivati delle colonne, se necessario.
+    L'esempio deve includere almeno 10 righe di dati.
+
+3. Esaminare lo schema della procedura guidata. Se i tipi sono stati dedotti da un campione, sarà probabilmente necessario modificare i tipi dedotti delle colonne.
+
+   Facoltativo. Caricare una definizione dello schema. Vedere il formato riportato di seguito.
 
 4. Selezionare un timestamp. Tutti i dati in Analytics devono avere un campo di timestamp. Il tipo deve essere `datetime`, ma non deve essere denominato "timestamp". Se i dati includono una colonna contenente una data e ora in formato ISO, scegliere questa opzione come colonna di timestamp. In caso contrario, scegliere "as data arrived" e il processo di importazione aggiungerà un campo di timestamp.
 
@@ -85,6 +88,37 @@ Prima di poter importare dati, è necessario definire un'*origine dati* che spec
 
 5. Creare l'origine dati.
 
+### <a name="schema-definition-file-format"></a>Formato del file di definizione dello schema
+
+Invece di modificare lo schema nell'interfaccia utente, è possibile caricare la definizione dello schema da un file. Il formato della definizione dello schema è il seguente: 
+
+Formato delimitato 
+```
+[ 
+    {"location": "0", "name": "RequestName", "type": "string"}, 
+    {"location": "1", "name": "timestamp", "type": "datetime"}, 
+    {"location": "2", "name": "IPAddress", "type": "string"} 
+] 
+```
+
+Formato JSON 
+```
+[ 
+    {"location": "$.name", "name": "name", "type": "string"}, 
+    {"location": "$.alias", "name": "alias", "type": "string"}, 
+    {"location": "$.room", "name": "room", "type": "long"} 
+]
+```
+ 
+Ogni colonna viene identificata da posizione, nome e tipo. 
+
+* Location: per un formato file delimitato, indica la posizione del valore di cui è stato eseguito il mapping. Per il formato JSON, è il jpath della chiave di cui è stato eseguito il mapping.
+* Name: nome visualizzato della colonna.
+* Type: tipo di dati della colonna.
+ 
+Se sono stati usati dati di esempio e se il formato file è delimitato, la definizione dello schema deve eseguire il mapping di tutte le colonne e aggiungere nuove colonne alla fine. 
+
+JSON consente il mapping parziale dei dati, pertanto la definizione dello schema del formato JSON non deve necessariamente eseguire il mapping di ogni chiave individuata nei dati di esempio. Può inoltre eseguire il mapping di colonne non appartenenti ai dati di esempio. 
 
 ## <a name="import-data"></a>Importa dati
 
@@ -271,7 +305,6 @@ namespace IngestionClient
             requestStream.Write(notificationBytes, 0, notificationBytes.Length); 
             requestStream.Close(); 
 
-            HttpWebResponse response; 
             try 
             { 
                 using (var response = (HttpWebResponse)await request.GetResponseAsync())
@@ -334,6 +367,6 @@ Usare questo codice per ogni BLOB.
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

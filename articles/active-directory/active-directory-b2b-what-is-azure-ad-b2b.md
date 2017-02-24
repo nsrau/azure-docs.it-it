@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/02/2017
+ms.date: 02/09/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 1c1da3c7b1d5e096e03ac3814275f29afeffcaeb
-ms.openlocfilehash: ad03b71052be46bdb64432b007aa471d120db0fa
+ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
+ms.openlocfilehash: 5e55afe6eb88a558ea4eb147860ac5e2ebc97dbc
 
 
 ---
@@ -83,9 +83,8 @@ Gli utenti hanno reagito molto positivamente alle funzionalità di Collaborazion
 
 Vedere gli altri articoli su Azure AD B2B Collaboration.
 
-* [Che cos'è Azure AD B2B Collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Procedura per aggiungere utenti di Collaborazione B2B ad Azure Active Directory da parte degli amministratori](active-directory-b2b-admin-add-users.md)
-* [Procedura per aggiungere utenti di Collaborazione B2B da parte di Information Worker](active-directory-b2b-how-it-works.md)
+* [Procedura per aggiungere utenti di Collaborazione B2B da parte di Information Worker](active-directory-b2b-iw-add-users.md)
 * [Elementi del messaggio di posta elettronica di invito per la Collaborazione B2B](active-directory-b2b-invitation-email.md)
 * [Riscatto dell'invito di Collaborazione B2B](active-directory-b2b-redemption-experience.md)
 * [Licenze per la Collaborazione B2B di Azure AD](active-directory-b2b-licensing.md)
@@ -93,10 +92,11 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 * [Domande frequenti su Collaborazione B2B di Azure Active Directory](active-directory-b2b-faq.md)
 * [API e personalizzazione per Collaborazione B2B di Azure Active Directory](active-directory-b2b-api.md)
 * [Autenticazione a più fattori per utenti di Collaborazione B2B](active-directory-b2b-mfa-instructions.md)
+* [Aggiungere gli utenti per la Collaborazione B2B senza un invito](active-directory-b2b-add-user-without-invite.md)
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

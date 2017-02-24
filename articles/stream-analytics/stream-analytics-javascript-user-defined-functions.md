@@ -1,7 +1,7 @@
 ---
-title: Funzioni JavaScript definite dall&quot;utente in Analisi di flusso di Azure| Microsoft Docs
-description: Tag dei sensori IoT e flussi di dati con l&quot;elaborazione dei dati in tempo reale e l&quot;analisi di flusso
-keywords: soluzione IoT, introduzione all&quot;IoT, strumenti
+title: Funzioni JavaScript definite dall&quot;utente in Analisi di flusso di Azure | Microsoft Docs
+description: Eseguire i meccanismi di query avanzate con funzioni JavaScript definite dall&quot;utente
+keywords: javascript, funzioni definite dall&quot;utente, udf
 services: stream-analytics
 author: jeffstokes72
 manager: jhubbard
@@ -15,42 +15,38 @@ ms.workload: data-services
 ms.date: 02/01/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 83b267a610a1d910fab09f8e42f079d269e3f0bb
-ms.openlocfilehash: e11e6070002275544fa5a82923cdcad4412e40b7
+ms.sourcegitcommit: a8334d146877ccc3988784c7a74a1c887dba68ab
+ms.openlocfilehash: 57027b97cebf8accccd91f135a13825047fd211e
 
 ---
 
 # <a name="azure-stream-analytics-javascript-user-defined-functions"></a>Funzioni JavaScript definite dall'utente in Analisi di flusso di Azure
-L'Analisi di flusso di Azure supporta le funzioni definite dall'utente nel linguaggio JavaScript. Con la vasta gamma di metodi String, RegExp, Math, Array e Date offerti da JavaScript, risulta più facile creare trasformazioni di dati complessi con processi di Analisi di flusso.
+L'Analisi di flusso di Azure supporta le funzioni definite dall'utente nel linguaggio JavaScript. Con il vasto set di metodi **String**, **RegExp**, **Math**, **Array** e **Date** offerti da JavaScript, risulta più facile creare trasformazioni di dati complessi con processi di Analisi di flusso.
 
-## <a name="overview"></a>Panoramica
-Le funzioni JavaScript definite dall'utente supportano funzioni senza stato e di solo calcolo che non richiedono connettività esterna. Il valore restituito di una funzione può essere solo un valore scalare singolo. Una volta aggiunta al processo, la funzione può essere usata ovunque nella query, come una funzione scalare predefinita.
+## <a name="javascript-user-defined-functions"></a>Funzioni JavaScript definite dall'utente
+Le funzioni JavaScript definite dall'utente supportano funzioni senza stato e di solo calcolo che non richiedono connettività esterna. Il valore restituito di una funzione può essere solo un valore scalare singolo. Dopo aver aggiunto una funzione JavaScript definita dall'utente a un processo, è possibile utilizzare la funzione in un punto qualsiasi nella query, ad esempio una funzione scalare incorporata.
 
-Ecco alcuni scenari di esempio in cui risultano utili le funzioni JavaScript definite dall'utente:
-* Analisi e manipolazione delle stringhe con funzioni di espressione regolare, ad esempio Regexp_Replace() e Regexp_Extract()
+Ecco alcuni scenari in cui potrebbero essere utili le funzioni JavaScript definite dall'utente:
+* Analisi e manipolazione delle stringhe con funzioni di espressione regolare, ad esempio **Regexp_Replace()** e **Regexp_Extract()**
 * Decodifica e codifica dati, ad esempio conversione dal formato binario al formato esadecimale
-* Calcoli matematici con funzioni matematiche di JavaScript
-* Operazioni di matrice come ordinamento, aggiunta, ricerca e riempimento
+* Esecuzione di calcoli matematici con funzioni JavaScript **Math**
+* Esecuzione di operazioni di matrice come ordinamento, aggiunta, ricerca e riempimento
 
-Di seguito sono elencate alcune operazioni non eseguibili con una funzione JavaScript definita dall'utente in Analisi di flusso:
-* Chiamate agli endpoint REST esterni, ad esempio per la ricerca inversa degli indirizzi IP o per la raccolta di dati di riferimento da un'origine esterna
-* Serializzazione o deserializzazione negli input e output di un formato evento personalizzato
-* Aggregazioni personalizzate
+Ecco alcune operazioni non eseguibili con una funzione JavaScript definita dall'utente in Analisi di flusso:
+* Chiamate agli endpoint REST esterni, ad esempio per l'esecuzione di una ricerca inversa degli indirizzi IP o per la raccolta di dati di riferimento da un'origine esterna
+* Esecuzione della serializzazione o deserializzazione negli input e output di un formato evento personalizzato
+* Creazione di aggregazioni personalizzate
 
-Per quanto queste non vengano bloccate nella definizione delle funzioni, è consigliabile evitare di usare funzioni come Date.GetDate() o Math.random(). Queste funzioni, infatti, **non** restituiscono lo stesso risultato ogni volta che vengono chiamate e Analisi di flusso di Azure non conserva un giornale di chiamate di funzione e dei risultati restituiti. Pertanto, se una funzione restituisce risultati diversi per gli eventi stessi, non verrà garantita la ripetibilità in caso di processo riavviato dall'utente o dal servizio di Analisi di flusso.
+Sebbene le funzioni come **Date.GetDate()** o **Math.random()** non sono bloccate nella definizione delle funzioni, è consigliabile evitare di utilizzarle. Queste funzioni, infatti, **non** restituiscono lo stesso risultato ogni volta che vengono chiamate e Analisi di flusso di Azure non conserva un giornale di chiamate di funzione e dei risultati restituiti. Se una funzione restituisce risultati diversi per gli stessi eventi, non viene garantita la ripetibilità in caso di processo riavviato dall'utente o dal servizio di Analisi di flusso.
 
-## <a name="adding-a-javascript-udf-from-azure-portal"></a>Aggiunta di una funzione JavaScript definita dall'utente dal portale di Azure
-I passaggi seguenti illustrano come creare una semplice funzione JavaScript definita dall'utente in un processo esistente di Analisi di flusso.
+## <a name="add-a-javascript-user-defined-function-in-the-azure-portal"></a>Aggiungere una funzione JavaScript definita dall'utente nel portale di Azure
+I passaggi seguenti illustrano come creare una semplice funzione JavaScript definita dall'utente in un processo esistente di Analisi di flusso:
 
-1.  Aprire il Portale di Azure.
-
-2.  Individuare il processo di Analisi di flusso e fare clic sul collegamento alle funzioni in **TOPOLOGIA PROCESSO**.
- 
-3.  Verrà visualizzato un elenco vuoto di funzioni esistenti, fare clic sull'icona **Aggiungi** per aggiungere una nuova funzione definita dall'utente.
-
-4.  Nel pannello **Nuova funzione** selezionare JavaScript come tipo di funzione; verrà visualizzato un modello di funzione predefinito nell'editor.
- 
-5.  Inserire _hex2Int_ come alias della funzione e modificarne l'implementazione come indicato di seguito
+1.    Nel portale di Azure individuare il processo di Analisi di flusso.
+2.  In **TOPOLOGIA PROCESSO** selezionare la funzione. Viene visualizzato un elenco vuoto di funzioni.
+3.    Per creare una nuova funzione definita dall'utente, selezionare **Aggiungi**.
+4.    Sul pannello **Nuova funzione** selezionare **JavaScript** per **Tipo funzione**. Nell'editor viene visualizzato un modello di funzione predefinita.
+5.    Per l'**alias della funzione definita dall'utente**, inserire **hex2Int** e modificare l'implementazione della funzione come indicato di seguito:
 
     ```
     // Convert Hex value to integer.
@@ -59,18 +55,16 @@ I passaggi seguenti illustrano come creare una semplice funzione JavaScript defi
     }
     ```
 
-6.  Fare clic sul pulsante **Salva**; la funzione verrà visualizzata nell'elenco. 
+6.    Selezionare **Salva**. La funzione viene visualizzata nell'elenco delle funzioni.
+7.    Selezionare la nuova funzione **hex2Int** e controllare la definizione di funzione. Per ogni funzione, all'alias della funzione viene aggiunto un prefisso della **funzione definita dall'utente**. È necessario *includere il prefisso* quando si chiama la funzione nella query Analisi di flusso. In questo caso, si chiama **UDF.hex2Int**.
 
-7.  Fare clic sulla nuova funzione **hex2Int** per verificarne la definizione. Si noti che verrà aggiunto il prefisso "UDF" a tutti gli alias di funzione. Sarà necessario chiamare la funzione **con il prefisso** nella query di Analisi di flusso, in questo caso **UDF.hex2Int**.
- 
-## <a name="calling-javascript-udf-in-a-query"></a>Chiamata di una funzione JavaScript definita dall'utente in una query
+## <a name="call-a-javascript-user-defined-function-in-a-query"></a>Chiamare una funzione JavaScript definita dall'utente nella query
 
-1. Aprire l'editor di query facendo clic su **Query** in **TOPOLOGIA PROCESSO**. 
-
-2.  Modificare la query e chiamare la funzione definita dall'utente appena aggiunta come indicato di seguito:
+1. Nell'editor di query, in **TOPOLOGIA PROCESSO**, selezionare **Query**.
+2.    Modificare la query e quindi chiamare la funzione definita dall'utente, simile alla seguente:
 
     ```
-    SELECT 
+    SELECT
         time,
         UDF.hex2Int(offset) AS IntOffset
     INTO
@@ -79,24 +73,21 @@ I passaggi seguenti illustrano come creare una semplice funzione JavaScript defi
         InputStream
     ```
 
-3.  Fare clic con il tasto destro del mouse sull'input del processo per caricare un file di dati di esempio.
- 
-4.  Fare clic su **Test** per testare la query.
+3.    Per caricare un file di dati di esempio, fare clic con il tasto destro del mouse sull'input del processo.
+4.    Per testare la query, selezionare **Test**.
 
 
 ## <a name="supported-javascript-objects"></a>Oggetti JavaScript supportati
-La funzione UDF JavaScript definita dall'utente in Analisi di flusso di Azure supporta gli oggetti predefiniti standard del linguaggio JavaScript. Per l'elenco di oggetti, fare riferimento al documento in [Oggetti globali](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
+Le funzioni JavaScript definite dall'utente in Analisi di flusso di Azure supportano oggetti JavaScript standard e incorporati. Per un elenco di questi oggetti, vedere [Oggetti globali](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
 
 ### <a name="stream-analytics-and-javascript-type-conversion"></a>Conversione dei tipi di Analisi di flusso e JavaScript
 
-Vi sono differenze tra i tipi supportati nel linguaggio di query di Analisi di flusso e JavaScript. La tabella seguente elenca i mapping di conversione tra i due tipi.
+Esistono delle differenze tra i tipi supportati da JavaScript e dal linguaggio di query di Analisi di flusso. Questa tabella elenca i mapping di conversione tra i due:
 
-
----
 Analisi dei flussi | JavaScript
 --- | ---
 bigint | Numero (per la precisione, JavaScript può rappresentare solo numeri interi fino a 2^53)
-DateTime | Data (si noti che JavaScript supporta solo millisecondi) 
+DateTime | Data (JavaScript supporta solo millisecondi)
 double | Number
 nvarchar(MAX) | string
 Record | Oggetto
@@ -104,29 +95,29 @@ Array | Array
 NULL | Null
 
 
-Sono elencate anche le conversioni da JavaScript ad Analisi di flusso di Azure.
+Ecco le conversioni da JavaScript ad Analisi di flusso:
 
----
+
 JavaScript | Analisi dei flussi
 --- | ---
-Number | Bigint se il numero è arrotondato e compreso tra long.MinValue e long.MaxValue oppure doppio in caso contrario
+Number | Bigint (se il numero è arrotondato e compreso tra long.MinValue e long.MaxValue, in caso contrario è doppio)
 Date | DateTime
 String | nvarchar(MAX)
 Oggetto | Record
 Array | Array
 Null, Undefined | NULL
-qualsiasi altro tipo, ad esempio Function, Error e così via | Non supportato, errore di runtime
+Qualsiasi altro tipo (ad esempio, una funzione o un errore) | Non supportato (risultati nell'errore di runtime)
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
-Gli errori di runtime in JavaScript verranno considerati irreversibili ed esposti tramite il log attività. Per recuperare il log dal portale di Azure, passare al processo e fare clic su **Log attività**.
- 
+Gli errori di runtime in JavaScript sono considerati irreversibili ed esposti tramite il log attività. Per recuperare il log, nel portale di Azure passare al processo e selezionare **Log attività**.
 
-## <a name="other-javascript-udf-usage-patterns"></a>Altri modelli d'uso delle funzioni JavaScript definite dall'utente
 
-### <a name="writing-nested-json-to-output"></a>Scrittura di una stringa JSON nidificata in output
-La scrittura di una stringa JSON in output è un'attività comune quando si dispone di passaggi di elaborazione successivi che prendono l'output di un processo di Analisi di flusso come input. L'output richiede un formato JSON. Nell'esempio seguente viene chiamata la funzione JSON.stringify() per raccogliere tutte le coppie nome/valore dell'input e scriverle come valore di stringa singola nell'output. 
+## <a name="other-javascript-user-defined-function-patterns"></a>Altri modelli della funzione JavaScript definita dall'utente
 
-### <a name="javascript-udf-definition"></a>Definizione di una funzione JavaScript definita dall'utente:
+### <a name="write-nested-json-to-output"></a>Scrivere una stringa JSON nidificata in output
+In caso di passaggi di elaborazione successivi che utilizzano un output di un processo di Analisi di flusso come input e l'output richiede un formato JSON, è possibile scrivere una stringa JSON in output. L'esempio successivo chiama la funzione **JSON.stringify()** per raccogliere tutte le coppie nome/valore dell'input e quindi scriverle come valore di stringa singola nell'output.
+
+**Definizione della funzione JavaScript definita dall'utente:**
 
 ```
 function main(x) {
@@ -136,7 +127,7 @@ return JSON.stringify(x);
 
 **Query di esempio:**
 ```
-SELECT 
+SELECT
     DataString,
     DataValue,
     HexValue,
@@ -148,17 +139,17 @@ FROM
 ```
 
 ## <a name="get-help"></a>Ottenere aiuto
-Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Per ulteriore assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

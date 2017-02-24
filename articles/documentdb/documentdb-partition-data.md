@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2017
+ms.date: 02/09/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: ec72d5df2fc220638773286e76c25b4b013cce63
-ms.openlocfilehash: 4f96f7392442c31888b79d0284b6d2d58d292e86
+ms.sourcegitcommit: 876e0fd12d045bba85d1e30d4abfcb8ce421213a
+ms.openlocfilehash: ed58e623ff74a21df25fc93346e571edec7b40da
 
 
 ---
@@ -134,7 +134,7 @@ La tabella seguente elenca le differenze nell'uso di raccolte a partizione singo
         <tr>
             <td valign="top"><p>Velocità effettiva minima</p></td>
             <td valign="top"><p>400 unità richiesta al secondo</p></td>
-            <td valign="top"><p>10.000 unità richiesta al secondo</p></td>
+            <td valign="top"><p>2.500 unità richiesta al secondo</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Velocità effettiva massima</p></td>
@@ -174,11 +174,11 @@ Per questo esempio è stato scelto `deviceId` per due motivi: (a) considerato il
 
 
 > [!NOTE]
-> Per creare raccolte partizionate, è necessario specificare un valore per la velocità effettiva maggiore di 10.000 unità richiesta al secondo. Poiché la velocità effettiva viene specificata in multipli di 100, questo valore deve essere almeno 10.100.
+> Per creare raccolte partizionate utilizzando l'SDK, è necessario specificare un valore per la velocità effettiva maggiore o uguale a 10.100 UR/s. Per impostare un valore di velocità effettiva tra 2.500 e 10.000 per le raccolte partizionate, è necessario utilizzare temporaneamente il portale di Azure, poiché i nuovi valori inferiori non sono ancora disponibili nell'SDK.
 > 
 > 
 
-Questo metodo effettua una chiamata API REST a DocumentDB e il servizio eseguirà il provisioning di una serie di partizioni in base alla velocità effettiva richiesta. È possibile modificare la velocità effettiva di una raccolta se le esigenze in termini di prestazioni cambiano. Per altre informazioni dettagliate, vedere l'articolo relativo ai [livelli di prestazioni](documentdb-performance-levels.md) .
+Questo metodo effettua una chiamata API REST a DocumentDB e il servizio eseguirà il provisioning di una serie di partizioni in base alla velocità effettiva richiesta. È possibile modificare la velocità effettiva di una raccolta se le esigenze in termini di prestazioni cambiano. 
 
 ### <a name="reading-and-writing-documents"></a>Lettura e scrittura di documenti
 A questo punto si inseriscono i dati in DocumentDB. Di seguito è riportata una classe di esempio contenente un dispositivo di lettura e una chiamata a CreateDocumentAsync per inserire un nuovo dispositivo di lettura in una raccolta.
@@ -294,7 +294,7 @@ Quando un'applicazione che usa una raccolta a partizione singola necessita di un
 Per eseguire la migrazione da una raccolta a partizione singola a una raccolta partizionata
 
 1. Esportare i dati da una raccolta a partizione singola a JSON. Vedere [Esportare in file JSON](documentdb-import-data.md#export-to-json-file) per altre informazioni.
-2. Importare i dati in una raccolta partizionata creata con una definizione della chiave di partizione e con più di 10.000 unità richiesta al secondo, come illustrato nell'esempio seguente. Vedere [Importare in DocumentDB](documentdb-import-data.md#DocumentDBSeqTarget) per altre informazioni.
+2. Importare i dati in una raccolta partizionata creata con una definizione della chiave di partizione e con più di 2.500 unità richiesta al secondo, come illustrato nell'esempio seguente. Vedere [Importare in DocumentDB](documentdb-import-data.md#DocumentDBSeqTarget) per altre informazioni.
 
 ![Migrazione dei dati a una raccolta partizionata in DocumentDB][3]  
 
@@ -329,7 +329,7 @@ Uno dei casi di utilizzo più comuni di DocumentDB è la registrazione e la tele
 
 * Se il caso di utilizzo prevede una frequenza ridotta di scritture eseguite in un lungo intervallo di tempo e la necessità di eseguire query in base agli intervalli di timestamp e ad altri filtri, si consiglia l'uso di un rollup del timestamp, ad esempio l'uso della data come chiave di partizione. Ciò consente di eseguire query su tutti i dati per una data da una singola partizione. 
 * Se il carico di lavoro prevede molte scritture, che in generale sono più comuni, è opportuno usare una chiave di partizione non basata su timestamp in modo che DocumentDB possa distribuire in modo uniforme le scritture in più partizioni. In questo caso, un nome host, un ID processo, un ID attività o un'altra proprietà con una cardinalità elevata è una scelta efficace. 
-* Il terzo è un approccio ibrido in cui si hanno più raccolte, una per ogni giorno/mese e la chiave di partizione è una proprietà granulare, ad esempio un nome host. Il vantaggio di questo approccio riguarda la possibilità di impostare diversi livelli di prestazioni in base alla finestra temporale, ad esempio il provisioning della raccolta per il mese corrente viene eseguita con una velocità effettiva maggiore perché viene usata per letture e scritture, mentre i per i mesi precedenti è possibile ridurre la velocità effettiva perché vengono usati solo per le letture.
+* Il terzo è un approccio ibrido in cui si hanno più raccolte, una per ogni giorno/mese e la chiave di partizione è una proprietà granulare, ad esempio un nome host. Il vantaggio di questo approccio riguarda la possibilità di impostare diverse velocità effettive in base alla finestra temporale, ad esempio il provisioning della raccolta per il mese corrente viene eseguito con una velocità effettiva maggiore perché viene usata per letture e scritture, mentre i per i mesi precedenti è possibile ridurre la velocità effettiva perché vengono usati solo per le letture.
 
 ### <a name="partitioning-and-multi-tenancy"></a>Partizionamento e multi-tenancy
 Se si implementa un'applicazione multi-tenant usando DocumentDB, sono disponibili due modelli principali per implementare tenancy con DocumentDB: una chiave di partizione per ogni tenant e una raccolta per ogni tenant. Di seguito sono riportati vantaggi e svantaggi di ogni modello:
@@ -354,6 +354,6 @@ Questo articolo descrive il funzionamento del partizionamento in Azure DocumentD
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -4,7 +4,7 @@ description: Fornisce una guida alla personalizzazione delle soluzioni preconfig
 services: 
 suite: iot-suite
 documentationcenter: .net
-author: aguilaaj
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: 4653ae53-4110-4a10-bd6c-7dc034c293a8
@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/11/2016
-ms.author: araguila
+ms.date: 02/08/2017
+ms.author: corywink
 translationtype: Human Translation
-ms.sourcegitcommit: 45fd461defc00c5dc018496b85b8bf85614f03dd
-ms.openlocfilehash: 0037b9e28b20c9a85f810cba45aa5b4cbcf6ab6b
+ms.sourcegitcommit: 14e2fcea9a6afbac640d665d5e44a700f855db4b
+ms.openlocfilehash: bbec0c01e8760c975222768e694e57b8b447bb3b
 
 
 ---
@@ -33,7 +33,7 @@ Il codice sorgente per le soluzioni preconfigurate è disponibile in GitHub nei 
 Il codice sorgente per le soluzioni preconfigurate viene fornito per illustrare i modelli e le procedure usate per implementare la funzionalità end-to-end di una soluzione IoT tramite Azure IoT Suite. È possibile trovare altre informazioni su come compilare e distribuire le soluzioni in repository GitHub.
 
 ## <a name="changing-the-preconfigured-rules"></a>Modifica delle regole preconfigurate
-La soluzione per il monitoraggio remoto include tre processi di [Analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/) per implementare le informazioni sul dispositivo, la telemetria e la logica delle regole visualizzate per la soluzione.
+La soluzione per il monitoraggio remoto include tre processi di [Analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/) per gestire le informazioni sul dispositivo, la telemetria e la logica delle regole nella soluzione.
 
 I tre processi di analisi di flusso e la relativa sintassi sono descritti in dettaglio in [Procedura dettagliata della soluzione preconfigurata per il monitoraggio remoto](iot-suite-remote-monitoring-sample-walkthrough.md). 
 
@@ -42,10 +42,10 @@ I tre processi di analisi di flusso e la relativa sintassi sono descritti in det
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare a un nuovo gruppo di risorse con lo stesso nome della soluzione IoT. 
 3. Selezionare il processo di Analisi di flusso di Azure che si vuole modificare. 
-4. Arrestare il processo selezionando **Arresta**nel set di comandi. 
+4. Arrestare il processo selezionando **Arresta** nel set di comandi. 
 5. Modificare i valori di input, query e output.
    
-    Una modifica semplice consiste nel cambiare la query per il processo **Regole** in modo da usare **"<"** anziché **">"**. Il portale della soluzione visualizzerà ancora **">"** quando si modifica una regola, ma si noterà che il comportamento viene capovolto a causa della modifica del processo sottostante.
+    Una modifica semplice consiste nel cambiare la query per il processo **Regole** in modo da usare **"<"** anziché **">"**. Il portale della soluzione visualizza ancora **">"** quando si modifica una regola, ma si noterà come il comportamento viene capovolto a causa della modifica del processo sottostante.
 6. Avviare il processo
 
 > [!NOTE]
@@ -59,12 +59,12 @@ Oltre a modificare i processi preconfigurati di analisi di flusso di Azure, è p
 ## <a name="customizing-devices"></a>Personalizzazione dei dispositivi
 Una delle attività di estensione più comuni è l'uso di dispositivi specifici per lo scenario. Esistono diversi metodi per usare i dispositivi, tra cui modificare un dispositivo simulato in modo che corrisponda allo scenario o usare l'[IoT Device SDK][IoT Device SDK] per connettere il dispositivo fisico alla soluzione.
 
-Per una guida dettagliata sull'aggiunta di dispositivi alla soluzione preconfigurata per il monitoraggio remoto, vedere il documento relativo ai [dispositivi di connessione a IoT Suite](iot-suite-connecting-devices.md) e l'[esempio C SDK per il monitoraggio remoto](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring), studiato per usare la soluzione preconfigurata per il monitoraggio remoto.
+Per una guida dettagliata sull'aggiunta di dispositivi, vedere l'articolo relativo ai [dispositivi di connessione a IoT Suite](iot-suite-connecting-devices.md) e l'[esempio C SDK per il monitoraggio remoto](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring), studiato per usare la soluzione preconfigurata per il monitoraggio remoto.
 
 ### <a name="creating-your-own-simulated-device"></a>Creazione del dispositivo simulato
-Nel codice sorgente della soluzione per il monitoraggio remoto (a cui viene fatto riferimento più indietro) è incluso un simulatore .NET. Il provisioning di questo simulatore viene eseguito nell'ambito della soluzione ed è possibile modificarlo per inviare metadati diversi e la telemetria o per rispondere a comandi diversi.
+Nel [codice sorgente della soluzione per il monitoraggio remoto](https://github.com/Azure/azure-iot-remote-monitoring) è incluso un simulatore .NET. Il provisioning di questo simulatore viene eseguito nell'ambito della soluzione ed è possibile modificarlo per inviare metadati diversi, la telemetria o per rispondere a comandi diversi.
 
-Nella soluzione preconfigurata per il monitoraggio remoto il simulatore preconfigurato rappresenta un dispositivo di raffreddamento che invia messaggi di telemetria su temperatura e umidità. Il simulatore può essere modificato nel progetto [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) dopo aver duplicato il repository GitHub.
+Il simulatore preconfigurato nella soluzione preconfigurata per il monitoraggio remoto simula un dispositivo più freddo che emette dati di telemetria su temperatura e umidità. È possibile modificare il simulatore nel progetto [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) una volta duplicato il repository di GitHub.
 
 ### <a name="available-locations-for-simulated-devices"></a>Posizioni disponibili per i dispositivi simulati
 Il set predefinito di posizioni si trova a Seattle/Redmond, Washington, Stati Uniti d'America. È possibile modificare queste località nel file [SampleDeviceFactory.cs][lnk-sample-device-factory].
@@ -99,7 +99,7 @@ I membri del ruolo **ReadOnly** possono visualizzare il dashboard e l'elenco dei
    ```
    "appRoles" : [],
    ```
-   Sostituirlo con quanto riportato di seguito:
+   Sostituire questa riga con il codice seguente:
    
    ```
    "appRoles": [
@@ -125,12 +125,12 @@ I membri del ruolo **ReadOnly** possono visualizzare il dashboard e l'elenco dei
    } ],
    ```
 9. Salvare il file con estensione JSON aggiornato (è possibile sovrascrivere il file esistente).
-10. Nel portale di gestione di Azure, nella parte inferiore della pagina selezionare **Gestisci manifesto** e quindi **Carica manifesto** per caricare il file con estensione json salvato nel passaggio precedente.
+10. Nel portale di Azure classico, nella parte inferiore della pagina selezionare **Gestisci manifesto** e quindi **Carica manifesto** per caricare il file con estensione json salvato nel passaggio precedente.
 11. Sono stati aggiunti all'applicazione i ruoli **Admin** e **ReadOnly**.
 12. Per assegnare uno di questi ruoli a un utente nella directory, vedere [Autorizzazioni per il sito azureiotsuite.com][lnk-permissions].
 
 ## <a name="feedback"></a>Commenti e suggerimenti
-Per altre informazioni relative a una personalizzazione, inviare suggerimenti a [User Voice](https://feedback.azure.com/forums/321918-azure-iot) oppure lasciare un commento nell'apposita sezione alla fine di questo articolo. 
+Per altre informazioni relative a una personalizzazione, Inviare suggerimenti sulla funzionalità a [User Voice](https://feedback.azure.com/forums/321918-azure-iot) oppure lasciare un commento nell'apposita sezione di questo articolo. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle opzioni per personalizzare le soluzioni preconfigurate, vedere:
@@ -153,6 +153,6 @@ Per altre informazioni sulle opzioni per personalizzare le soluzioni preconfigur
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

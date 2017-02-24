@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/18/2016
+ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 94e09583ef8070a7e98fd2b30648996648ce3c41
-ms.openlocfilehash: 87d3b5ef8989984420f1d0fe7d4188698a68dd0d
+ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
+ms.openlocfilehash: 6c9e70c3de404a3a5af343570203d6724342e062
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 87d3b5ef8989984420f1d0fe7d4188698a68dd0d
 
 Utilizzando un archivio dati permanente con Apache Storm, è possibile correlare le voci di dati che arrivano in momenti diversi. Ad esempio, il collegamento degli eventi di accesso e disconnessione di una sessione utente per calcolare il tempo di esecuzione della sessione.
 
-In questo documento si apprenderà come creare una topologia di Storm C# di base che tenga traccia degli eventi di accesso e disconnessione per le sessioni utente e che calcoli la durata della sessione. La topologia utilizza HBase come archivio dati permanente. HBase consente di eseguire query in batch su dati cronologici per ottenere informazioni aggiuntive, ad esempio il numero di sessioni utente avviate o terminate durante un periodo di tempo specifico.
+Questo documento descrive come creare una topologia di Storm C# di base che tenga traccia degli eventi di accesso e disconnessione per le sessioni utente e che calcoli la durata della sessione. La topologia utilizza HBase come archivio dati permanente. HBase consente di eseguire query in batch su dati cronologici per ottenere informazioni aggiuntive, ad esempio il numero di sessioni utente avviate o terminate durante un periodo di tempo specifico.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -37,6 +37,9 @@ In questo documento si apprenderà come creare una topologia di Storm C# di base
   > Anche se le topologie SCP.NET sono supportate nei cluster Storm basati su Linux creati dopo il 28/10/2016, il pacchetto HBase SDK per .NET disponibile dal 28/10/2016 non funziona correttamente in Linux.
 
 * Cluster Apache HBase in HDInsight, basato su Linux o su Windows. È l'archivio dati per questo esempio.
+
+  > [!IMPORTANT]
+  > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 * [Java](https://java.com) 1.7 o versione successiva nell'ambiente di sviluppo. Java viene usato per creare il pacchetto della topologia per l'invio al cluster HDInsight.
 
@@ -165,16 +168,16 @@ Il download contiene i seguenti progetti C#:
    
    ![Immagine della voce di menu Submit to Storm](./media/hdinsight-storm-correlation-topology/submittostorm.png)
 
-6. Nella finestra di dialogo **Submit Topology** , selezionare il cluster Storm che eseguirà questa topologia.
+6. Nella finestra di dialogo **Submit Topology** (Invia topologia) selezionare il cluster Storm in cui distribuire questa topologia.
    
    > [!NOTE]
    > La prima volta che si invia una topologia potrebbe richiedere alcuni secondi per recuperare il nome dei cluster HDInsight.
 
-7. Una volta la topologia è stata caricata e inviata al cluster, verrà visualizzata **Storm Topology View** e la topologia in esecuzione. Selezionare **CorrelationTopology** e utilizzare il pulsante Aggiorna nella parte superiore destra della pagina per aggiornare le informazioni di topologia.
+7. Dopo che la topologia è stata caricata e inviata al cluster, la finestra **Storm Topology View** (Visualizzazione topologia Storm) si apre e visualizza la topologia in esecuzione. Selezionare **CorrelationTopology** e utilizzare il pulsante Aggiorna nella parte superiore destra della pagina per aggiornare le informazioni di topologia.
    
    ![Immagine della visualizzazione topologia](./media/hdinsight-storm-correlation-topology/topologyview.png)
    
-   Quando la topologia inizia la generazione di dati, il valore nella colonna **Emitted** verrà incrementato.
+   Quando la topologia inizia la generazione di dati, il valore nella colonna **Emitted** (Emesso) aumenta.
    
    > [!NOTE]
    > Se la finestra **Storm Topology View** non veniva visualizzato automaticamente, utilizzare i passaggi seguenti per aprirlo:
@@ -188,7 +191,7 @@ Una volta generati i dati, utilizzare la procedura seguente per eseguire query s
 
 1. Tornare al progetto **SessionInfo** . Se non in esecuzione, avviare una nuova istanza.
 
-2. Quando richiesto, selezionare **S** per la ricerca dell'evento START. Verrà richiesto di immettere un'ora di inizio e fine per definire un intervallo di tempo; verranno restituiti solo gli eventi che si sono verificati all'interno di questo intervallo.
+2. Quando richiesto, selezionare **S** per la ricerca dell'evento START. Viene richiesto di immettere un'ora di inizio e fine per definire un intervallo di tempo; vengono restituiti solo gli eventi che si sono verificati all'interno di questo intervallo.
    
     Utilizzare i seguenti formati quando si immette l'ora di inizio e fine: HH:MM e 'M'' e 'am' o 'pm'. Ad esempio, 11:20 pm.
    
@@ -196,12 +199,12 @@ Una volta generati i dati, utilizzare la procedura seguente per eseguire query s
    
         Session e6992b3e-79be-4991-afcf-5cb47dd1c81c started at 6/5/2015 6:10:15 PM. Timestamp = 1433527820737
 
-La ricerca degli eventi END funziona come gli eventi START. Tuttavia, gli eventi END vengono generati in modo casuale in un tempo compreso tra 1 e 5 minuti dopo l'evento START. Pertanto, potrebbe essere necessario provare alcuni intervalli di tempo per trovare gli eventi END. Gli eventi END conterranno inoltre la durata della sessione, ovvero la differenza tra l'ora dell'evento START e l'ora dell'evento END. Di seguito è riportato un esempio di dati per gli eventi END:
+La ricerca degli eventi END funziona come gli eventi START. Tuttavia, gli eventi END vengono generati in modo casuale in un tempo compreso tra 1 e 5 minuti dopo l'evento START. Pertanto, potrebbe essere necessario provare alcuni intervalli di tempo per trovare gli eventi END. Gli eventi END contengono anche la durata della sessione, ovvero la differenza tra l'ora dell'evento START e l'ora dell'evento END. Di seguito è riportato un esempio di dati per gli eventi END:
 
     Session fc9fa8e6-6892-4073-93b3-a587040d892e lasted 2 minutes, and ended at 6/5/2015 6:12:15 PM
 
 > [!NOTE]
-> Sebbene i valori orari immessi siano indicati nell'ora locale, l'ora restituita dalla query sarà UTC.
+> Sebbene i valori orari immessi siano indicati nell'ora locale, l'ora restituita dalla query è in UTC.
 
 ## <a name="stop-the-topology"></a>Arrestare la topologia
 
@@ -218,6 +221,6 @@ Per altri esempi di Storm, vedere [Topologie di esempio per Storm in HDInsight](
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

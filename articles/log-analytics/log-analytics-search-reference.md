@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: b7c13d4b4e205fda1e5ba44fbf5eb50a96601d2e
-ms.openlocfilehash: 113dd20f1a5ac42eb7155d693f66053adea57078
+ms.sourcegitcommit: 81fd8dfa480fc6365b6373a4eefef1149248d800
+ms.openlocfilehash: 5e4fba6ff82cbe8af0116e35d71c8f9f04474f0f
 
 
 ---
@@ -298,7 +298,7 @@ Type:Alert AND NOT(Severity:1 OR ObjectId:"8066bbc0-9ec8-ca83-1edc-6f30d4779bcb8
 | system "Windows Server" OR Severity:1 |system AND ("Windows Server" OR Severity:1) |
 
 ### <a name="wildcarding"></a>Utilizzo dei caratteri jolly
-Il linguaggio di query supporta l'uso del carattere (*\*) per rappresentare uno o più caratteri per un valore in una query.
+Il linguaggio di query supporta l'uso del carattere (\*) per rappresentare uno o più caratteri per un valore in una query.
 
 Esempi:
 
@@ -813,6 +813,6 @@ Per altre informazioni sulle ricerche nei log:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2016
+ms.date: 02/08/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: cbc91181f2531ea5e60bb426d6b8b42e2c7684d3
-ms.openlocfilehash: 0bb6db67df25fb3c3484c819398890efef343943
+ms.sourcegitcommit: 40f8f1b52c39a170a57168db9227a7c2fa069570
+ms.openlocfilehash: 12abed3f1220398574e04d6b367f57d86547bc61
 
 
 ---
@@ -61,7 +61,7 @@ Nel portale seguire questa procedura per accedere al Centro sicurezza:
    ![Criteri di sicurezza][3]
 2. Selezionare una sottoscrizione nel pannello **Criteri di sicurezza - Definire il criterio per ogni sottoscrizione o gruppo di risorse**.
 3. Nel pannello **Criteri di sicurezza** **Raccolta dati** è abilitato per raccogliere automaticamente i log. Il provisioning dell'estensione di monitoraggio viene effettuato in tutte le VM correnti e nuove nella sottoscrizione. È possibile rifiutare esplicitamente la raccolta dati impostando **Raccolta dati** su **No**, ma in questo modo il Centro sicurezza non potrà fornire avvisi e raccomandazioni sulla sicurezza.
-4. Nel pannello **Criteri di sicurezza** selezionare **Scegliere un account di archiviazione per area**. Per ciascuna area in cui sono in esecuzione VM, è necessario selezionare l'account di archiviazione in cui vengono archiviati i dati raccolti dalle VM. Se non si sceglie un account di archiviazione per ogni area, verrà creato automaticamente. I dati raccolti vengono isolati in modo logico da quelli di altri clienti per motivi di sicurezza.
+4. Nel pannello **Criteri di sicurezza** selezionare **Scegliere un account di archiviazione per area**. Per ciascuna area in cui sono in esecuzione VM, è necessario selezionare l'account di archiviazione in cui vengono archiviati i dati raccolti dalle VM. Se non si sceglie un account di archiviazione per ogni area, viene creato un account di archiviazione per il gruppo di risorse securitydata e inserito in esso. I dati raccolti vengono isolati in modo logico da quelli di altri clienti per motivi di sicurezza.
 
    > [!NOTE]
    > È consigliabile abilitare la raccolta dati e scegliere prima un account di archiviazione a livello di sottoscrizione. I criteri di sicurezza possono essere impostati a livello di sottoscrizione di Azure e a livello di gruppo di risorse, ma la configurazione della raccolta dati e dell'account di archiviazione viene eseguita solo a livello di sottoscrizione.
@@ -126,6 +126,6 @@ In questo articolo sono stati presentati i componenti di monitoraggio della sicu
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

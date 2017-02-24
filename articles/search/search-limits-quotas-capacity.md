@@ -1,6 +1,6 @@
 ---
 title: Limiti dei servizi in Ricerca di Azure | Microsoft Docs
-description: "Limiti del servizio usati per la pianificazione della capacità e limiti massimi per richieste e risposte in Ricerca di Azure."
+description: "Limiti del servizio utilizzati per la pianificazione della capacità e limiti massimi per richieste e risposte in Ricerca di Azure."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/15/2016
+ms.date: 02/08/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: ffdd03fb1e9718b0f72f5a13bb80de4a4bfe2709
-ms.openlocfilehash: ed21cb2c0f1fce23ed00a50ad181edaacae95ce6
+ms.sourcegitcommit: 99c7ca60b472d2481d9ebb1ec4be3d2eee088c26
+ms.openlocfilehash: e1b76cb4c6393d7c5783f55bf9a0f141786a9602
 
 
 ---
@@ -96,6 +96,6 @@ Le chiavi API vengono utilizzate per l'autenticazione del servizio. Sono disponi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

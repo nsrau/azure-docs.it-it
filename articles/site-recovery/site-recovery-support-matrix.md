@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.date: 12/04/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 1a2ea0753d12915075c055f9983773618bf6777d
-ms.openlocfilehash: 85c6a2296a4487ae549321d3ff07129bcbab5adf
+ms.sourcegitcommit: 1e88eba53b8ec3388ede1ae69cb290423919fda6
+ms.openlocfilehash: d683e25ef96bbd87a6d5b5ea143754b8f67f288e
 
 
 ---
@@ -241,7 +241,7 @@ HUB | Sì | Sì | Sì
 **Architettura sistema operativo guest** | 64 bit | Il controllo dei prerequisiti avrà esito negativo se non supportato
 **Dimensioni disco del sistema operativo** | Fino a 1023 GB | Il controllo dei prerequisiti avrà esito negativo se non supportato
 **Numero di dischi del sistema operativo** | 1 | Il controllo dei prerequisiti avrà esito negativo se non supportato.
-**Numero di dischi dati** | 16 o meno (il valore massimo è una funzione delle dimensioni della macchina virtuale creata; 16 = XL) | Il controllo dei prerequisiti avrà esito negativo se non supportato
+**Numero di dischi dati** | 64 o meno se si replicano **VM VMware in Azure**; 16 o meno se si replicano **VM Hyper-V in Azure** | Il controllo dei prerequisiti avrà esito negativo se non supportato
 **Dimensioni dei dischi rigidi virtuali dei dischi dati** | Fino a 1023 GB | Il controllo dei prerequisiti avrà esito negativo se non supportato
 **Schede di rete** | Sono supportate più schede |
 **Indirizzo IP statico** | Supportato | Se la macchina virtuale principale usa un indirizzo IP statico, è possibile specificare l'indirizzo IP statico per la macchina virtuale che verrà creata in Azure<br/><br/> L'indirizzo IP statico non è supportato per una **VM Linux in esecuzione in Hyper-V**.
@@ -265,6 +265,6 @@ HUB | Sì | Sì | Sì
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 
