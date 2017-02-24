@@ -1,6 +1,6 @@
 ---
-title: "Creare un indice per i documenti in più lingue in Ricerca di Azure | Microsoft Docs"
-description: "  Ricerca di Azure supporta 56 lingue, grazie ai vantaggi offerti dagli analizzatori delle lingue della tecnologia Lucene e di elaborazione del linguaggio naturale di Microsoft."
+title: "Ricerca di Azure disponibile in più lingue | Documentazione Microsoft"
+description: Ricerca di Azure supporta 56 lingue, grazie ai vantaggi offerti dagli analizzatori delle lingue della tecnologia Lucene e di elaborazione del linguaggio naturale di Microsoft.
 services: search
 documentationcenter: 
 author: yahnoosh
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 01/23/2017
 ms.author: jlembicz
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1cbb5209b85d14a313da764394069f835ef29176
+ms.sourcegitcommit: 6feadcc02aa0047dc2028d016687d3ad2859eb44
+ms.openlocfilehash: dbbab31bac66ce73dbf9883992713a2c16581e19
 
 ---
 
@@ -94,6 +94,6 @@ Per gli sviluppatori .NET, si noti che è possibile configurare analizzatori del
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

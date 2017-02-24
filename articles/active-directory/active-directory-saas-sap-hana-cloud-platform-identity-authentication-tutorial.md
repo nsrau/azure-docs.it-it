@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 18fa3fd2fc9bb68b9e68c0c5ac5663a8a8348fd7
-ms.openlocfilehash: e02cb1916c65d137dc06b1ce6a9dd9621a31b56c
+ms.sourcegitcommit: 16ec322d0c921f97819375cfe52d2c3f02a2c53b
+ms.openlocfilehash: d573090fb2dc4ea02308e0711c24371e17fb3cde
 
 
 ---
@@ -135,7 +135,7 @@ L'applicazione SAP HANA Cloud Platform Identity Authentication prevede le asserz
  
     ![Configura accesso Single Sign-On][5]
 
-3. Nella sezione **Attributi utente** nella finestra di dialogo **Single Sign-On**, se l'applicazione SAP prevede un attributo, ad esempio "firstName". Nella finestra di dialogo relativa agli attributi del token SAML aggiungere l'attributo "firstName".
+3. Nella sezione **Attributi utente** nella finestra di dialogo **Single Sign-On**, se l'applicazione SAP prevede un attributo, ad esempio "firstName", nella finestra degli attributi del token SAML aggiungere l'attributo "firstName".
 
     a. Fare clic su **Aggiungi attributo** per aprire la finestra di dialogo **Aggiungi attributo**.
 
@@ -172,7 +172,7 @@ L'applicazione SAP HANA Cloud Platform Identity Authentication prevede le asserz
   
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
-Questa sezione descrive come creare un utente test denominato Britta Simon nel nuovo portale.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel nuovo portale di Azure.
 
 ![Creare un utente di Azure AD][100]
 
@@ -190,11 +190,11 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel n
  
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_03.png) 
 
-4. Nella pagina della finestra di dialogo **Utente** eseguire la procedura seguente:
+4. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
  
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_04.png) 
 
-    a. Nella casella di testo **Nome** digitare **Britta Simon**.
+    a. Nella casella di testo **Nome** digitare **BrittaSimon**.
 
     b. Nella casella di testo **Nome utente** digitare l'**indirizzo di posta elettronica** di BrittaSimon.
 
@@ -276,6 +276,7 @@ Quando si fa clic sul riquadro di SAP HANA Cloud Platform Identity Authenticatio
 [203]: ./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_general_203.png
 
 
-<!--HONumber=Jan17_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

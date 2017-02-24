@@ -1,10 +1,10 @@
 ---
-title: Integrazione di Windows Universal SDK
+title: Azure Mobile Engagement - Integrazione di Windows Universal SDK | Documentazione Microsoft
 description: Integrazione di Windows Universal per SDK per Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 9ded187d-5c07-4377-a41c-ce205dd38b50
 ms.service: mobile-engagement
@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/12/2016
-ms.author: piyushjo;ricksal
+ms.date: 11/03/2016
+ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: acf599588de4dac04d51a66348ea9336fe6ce2f7
+ms.sourcegitcommit: 51858d6daca27a75e7f87af507600c7a193c874f
+ms.openlocfilehash: d616ad58156a19e89b3e106639a38df67cbd0abb
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: acf599588de4dac04d51a66348ea9336fe6ce2f7
 Questo documento descrive tutte le opzioni di configurazione e integrazione disponibili per Windows Universal SDK per Azure Mobile Engagement.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Prima di iniziare questa esercitazione, è necessario completare l' [esercitazione di 15 minuti](mobile-engagement-windows-store-dotnet-get-started.md).
+Prima di iniziare questa esercitazione, è necessario completare l' [esercitazione di&15; minuti](mobile-engagement-windows-store-dotnet-get-started.md).
 
 ## <a name="advanced-features"></a>Funzionalità avanzate
 ### <a name="reporting-features"></a>Funzionalità di segnalazione
@@ -40,10 +40,9 @@ Prima di iniziare questa esercitazione, è necessario completare l' [esercitazio
 [Come usare l'API per l'assegnazione di tag avanzata di Mobile Engagement in un'app universale di Windows](mobile-engagement-windows-store-use-engagement-api.md)
 
 ## <a name="release-notes"></a>Note sulla versione
-### <a name="340-04192016"></a>3.4.0 (19/04/2016)
-* La sovrimpressione Reach è stata migliorata.
-* Aggiunta dell'API "TestLogLevel" per abilitare/disabilitare/filtrare i log della console generati da SDK.
-* Correzione delle notifiche in attività per la prima attività non visualizzata all'avvio dell'applicazione
+### <a name="341-11032016"></a>3.4.1 (11/03/2016)
+
+* Miglioramenti della stabilità.
 
 Per le versioni precedenti, vedere le [note sulla versione complete](mobile-engagement-windows-store-release-notes.md)
 
@@ -78,6 +77,6 @@ Vedere [Upgrade Procedures](mobile-engagement-windows-store-upgrade-procedure.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

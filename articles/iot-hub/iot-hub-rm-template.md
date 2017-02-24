@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/08/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: e4343cfece7286e0a4035239967ab2e0a928b188
-ms.openlocfilehash: cc284c0cd445bbfe2f4424d3251ca07da0538192
+ms.sourcegitcommit: c4330dd4b32119c1950f402c5c589d403960c80f
+ms.openlocfilehash: 49c7506b35f661509346dfd8305f10c0d63422eb
 
 
 ---
@@ -45,7 +45,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Gestisci pacchetti NuGet**.
 3. In Gestione pacchetti NuGet selezionare **Includi versione preliminare** e cercare **Microsoft.Azure.Management.ResourceManager**. Fare clic su **Installa**, in **Rivedi modifiche** fare clic su **OK**, quindi fare clic su **I Accept** (Accetto) per accettare le licenze.
 4. In Gestione pacchetti NuGet cercare **Microsoft.IdentityModel.Clients.ActiveDirectory**.  Fare clic su **Installa**, in **Rivedi modifiche** fare clic su **OK**, quindi fare clic su **I Accept** (Accetto) per accettare la licenza.
-5. In Program.cs sostituire il codice esistente **usando** le dichiarazioni con quanto segue:
+5. In Program.cs sostituire le istruzioni **using** esistenti con il codice seguente:
    
     ```
     using System;
@@ -193,7 +193,7 @@ Dopo avere distribuito un hub IoT usando un modello di Azure Resource Manager co
 * Informazioni sulle funzionalità dell'[API REST del provider di risorse dell'hub IoT][lnk-rest-api].
 * Per altre informazioni sulle funzionalità di Azure Resource Manager, vedere la [Panoramica di Azure Resource Manager][lnk-azure-rm-overview].
 
-Per altre informazioni sulle attività di sviluppo per l'hub IoT, vedere quanto segue:
+Per altre informazioni sulle attività di sviluppo per l'hub IoT, vedere gli articoli seguenti:
 
 * [Introduzione a C SDK][lnk-c-sdk]
 * [Azure IoT SDKs][lnk-sdks] (SDK di IoT di Azure)
@@ -218,6 +218,6 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

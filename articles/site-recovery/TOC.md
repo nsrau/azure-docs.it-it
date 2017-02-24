@@ -2,7 +2,7 @@
 ## [Che cos'è Site Recovery?](site-recovery-overview.md)
 ## [Funzionamento di Azure Site Recovery](site-recovery-components.md)
 ## [Quali carichi di lavoro è possibile proteggere?](site-recovery-workload.md)
-## [Matrice di supporto di Site Recovery](site-recovery-support-matrix.md)
+## [Matrice di supporto di Site Recovery](site-recovery-support-matrix-to-azure.md)
 ## [DOMANDE FREQUENTI](site-recovery-faq.md)
 ## [Guarda il video introduttivo](https://www.youtube.com/watch?v=eOOwMQPBKfM)
 
@@ -26,8 +26,15 @@
 ### [Distribuire il servizio Mobility per la replica VMware](site-recovery-vmware-to-azure-install-mob-svc.md)
 #### [Distribuire il servizio Mobility con System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
 #### [Distribuire il servizio Mobility con Automation DSC per Azure](site-recovery-automate-mobility-service-install.md)
-### [Rimuovere server e disabilitare la protezione](site-recovery-manage-registration-and-protection.md)
-## Eseguire la migrazione
+## Failover e failback
+### [Failover in Site Recovery](site-recovery-failover.md)
+### [Configurare piani di ripristino](site-recovery-create-recovery-plans.md)
+#### [Aggiungere runbook di Azure a piani di ripristino](site-recovery-runbook-automation.md)
+### [Eseguire un failover di test in Azure](site-recovery-test-failover-to-azure.md)
+### [Eseguire un failover di test tra due siti VMM](site-recovery-test-failover-vmm-to-vmm.md)
+### [Eseguire il failback di server fisici e macchine virtuali VMware](site-recovery-failback-azure-to-vmware.md)
+
+## Migrazione
 ### [Eseguire la migrazione ad Azure](site-recovery-migrate-to-azure.md)
 ### [Eseguire la migrazione tra aree di Azure](site-recovery-migrate-azure-to-azure.md)
 ### [Eseguire la migrazione di istanze Windows per AWS in Azure](site-recovery-migrate-aws-to-azure.md)
@@ -44,13 +51,9 @@
 ### [Automatizzare la replica Hyper-V in Azure senza VMM](site-recovery-deploy-with-powershell-resource-manager.md)
 ### [Automatizzare la replica Hyper-V in Azure con VMM](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 ### [Automatizzare la replica Hyper-V in un sito secondario con VMM](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
-## Failover e failback
-### [Failover in Site Recovery](site-recovery-failover.md)
-### [Configurare piani di ripristino](site-recovery-create-recovery-plans.md)
-#### [Aggiungere runbook di Azure a piani di ripristino](site-recovery-runbook-automation.md)
-### [Eseguire un failover di test da VMware ad Azure](site-recovery-test-failover-to-azure.md)
-### [Eseguire un failover di test tra due siti VMM](site-recovery-test-failover-vmm-to-vmm.md)
-### [Eseguire il failback di server fisici e macchine virtuali VMware](site-recovery-failback-azure-to-vmware.md)
+## Gestisci
+### [Rimuovere server e disabilitare la protezione](site-recovery-manage-registration-and-protection.md)
+### [Modificare le impostazioni di replica](site-recovery-setup-replication-settings-vmware.md#edit-replication-policy)
 ## [Monitorare e risolvere i problemi](site-recovery-monitoring-and-troubleshooting.md)
 
 # Riferimento
@@ -69,6 +72,6 @@
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 02/14/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: b247388bff35fb755c8363eb48695e47f2510574
-ms.openlocfilehash: a5f8adfa278b096914239357c675654fd9fc2908
+ms.sourcegitcommit: c28d84bf59c161cfe6a80062f13f10f44bf43f34
+ms.openlocfilehash: 09261f739d2cd3976f68c499d0e83fe25beef0b8
 
 
 ---
@@ -146,7 +146,7 @@ Tramite ACL, può essere applicato individualmente o tramite gruppi e supporta l
 
 **Amministratori IT:**
 
-* [provarlo,](https://azure.microsoft.com/trial/get-started-active-directory/) - è possibile ottenere subito gratuitamente una versione di valutazione di 30 giorni e distribuire la prima soluzione cloud in meno di 5 minuti, usando il collegamento seguente
+* [provarlo,](https://azure.microsoft.com/trial/get-started-active-directory/) : è possibile ottenere subito gratuitamente una versione di valutazione di 30 giorni e distribuire la prima soluzione cloud in meno di 5 minuti, usando il collegamento seguente
 
 * Per suggerimenti relativi a come attivare ed eseguire rapidamente un tenant di Azure AD, vedere "Introduzione ad Azure AD".
 
@@ -173,6 +173,6 @@ Sono disponibili moltissime risorse utili online, che forniscono tutte le inform
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

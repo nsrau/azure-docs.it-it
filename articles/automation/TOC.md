@@ -55,6 +55,7 @@
 ### [Rimuovere i gruppi di risorse](automation-scenario-remove-resourcegroup.md)
 ### [Avviare/arrestare le VM durante gli orari di minore attività](automation-solution-vm-management.md)
 ### [Integrazione del controllo del codice sorgente con GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
+### [Integrazione del controllo del codice sorgente con VSTS](automation-scenario-source-control-integration-with-VSTS.md)
 ## Monitorare
 ### [Inoltrare dati dei processi di Automazione di Azure a Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Scollegare l'account di automazione di Azure dal Log Analytics](automation-unlink-from-log-analytics.md)
@@ -82,6 +83,6 @@
 ## [Video introduttivo su Automazione](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

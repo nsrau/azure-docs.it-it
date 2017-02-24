@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 85fd7b0e867ebe5fff937ff9fc83b688649fcfba
-ms.openlocfilehash: 70feb409d05b26a4d874bad2d1984fda5db32216
+ms.sourcegitcommit: e331e7aab69890637a74382938e22cca56c4d39a
+ms.openlocfilehash: 223dcbb2b54c9b0de384515b185266dc19653191
 
 
 ---
@@ -131,7 +131,7 @@ Un [dispositivo gemello](iot-hub-devguide-device-twins.md) è un documento JSON 
 ## <a name="device-twin-queries"></a>Query del dispositivo gemello
 Le [query dei dispositivi gemelli](iot-hub-devguide-query-language.md) usano il linguaggio di query simile a SQL dell'hub IoT per recuperare informazioni dai dispositivi gemelli. È possibile usare lo stesso linguaggio di query dell'hub IoT per recuperare informazioni sui [processi](#job) in esecuzione nell'hub IoT.
 
-## <a name="device-twins-rest-api"></a>API REST dei dispositivi gemelli
+## <a name="device-twin-rest-api"></a>API REST dei dispositivi gemelli
 È possibile usare l'[API REST dei dispositivi gemelli](https://docs.microsoft.com/rest/api/iothub/devicetwinapi) dalla soluzione di back-end per gestire i dispositivi gemelli. L'API consente di recuperare e aggiornare le proprietà del [dispositivo gemello](#device-twin) e di invocare [metodi diretti](#direct-method). In genere è consigliabile usare uno degli [SDK per servizi](#azure-iot-service-sdks) di livello superiore, come illustrato nelle esercitazioni su Hub IoT.
 
 ## <a name="device-twin-synchronization"></a>Sincronizzazione dei dispositivi gemelli
@@ -173,8 +173,8 @@ Le [metriche di Hub IoT](iot-hub-metrics.md) forniscono dati sullo stato degli h
 ## <a name="iot-hub-query-language"></a>Linguaggio di query di Hub IoT
 Il [linguaggio di query di Hub IoT](iot-hub-devguide-query-language.md) è un linguaggio simile a SQL che consente di effettuare una query dei [processi](#job) e dei dispositivi gemelli.
 
-## <a name="iot-hub-resource-provider-rest-api"></a>API REST del provider di risorse di Hub IoT
-È possibile usare l'[API REST del provider di risorse di hub IoT](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest) per gestire gli hub IoT nella [sottoscrizione di Azure](#subscription) che esegue operazioni come creazione, aggiornamento ed eliminazione di hub.
+## <a name="iot-hub-resource-provider-rest-api"></a>API REST del provider di risorse dell'hub IoT
+È possibile usare l'[API REST del provider di risorse dell'hub IoT](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest) per gestire gli hub IoT nella [sottoscrizione di Azure](#subscription) che esegue operazioni come creazione, aggiornamento ed eliminazione di hub.
 
 ## <a name="iot-suite"></a>IoT Suite
 Azure IoT Suite riunisce diversi servizi di Azure e soluzioni preconfigurate. Tali soluzioni preconfigurate permettono di iniziare rapidamente con implementazioni end-to-end di scenari IoT comuni. Per altre informazioni, vedere [Che cos'è Azure IoT Suite?](../iot-suite/iot-suite-overview.md)
@@ -185,8 +185,8 @@ Azure IoT Suite riunisce diversi servizi di Azure e soluzioni preconfigurate. Ta
 ## <a name="job"></a>Processo
 Il back-end della soluzione può usare i [processi](iot-hub-devguide-jobs.md) per pianificare e tenere traccia delle attività in un set di dispositivi registrati con l'hub IoT. Le attività includono l'aggiornamento delle [proprietà desiderate](#desired-properties) di un dispositivo gemello, l'aggiornamento dei [tag](#tags) di un dispositivo gemello e la chiamata di [metodi diretti](#direct-method). [Hub IoT](#iot-hub) usa i processi anche per eseguire [importazioni ed esportazioni](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) nel [registro delle identità](#identity-registry).
 
-## <a name="job-api"></a>API di processo
-L'[API di processo](https://docs.microsoft.com/rest/api/iothub/jobapi) è un'API REST che consente di gestire i [processi](#job) in esecuzione nell'hub IoT.
+## <a name="jobs-rest-api"></a>API REST dei processi
+L'[API REST dei processi](https://docs.microsoft.com/rest/api/iothub/jobapi) consente di gestire i [processi](#job) in esecuzione nell'hub IoT.
 
 ## <a name="module"></a>Modulo
 In [Azure IoT Gateway SDK](iot-hub-linux-gateway-sdk-get-started.md) è un [modulo](iot-hub-linux-gateway-sdk-get-started.md#azure-iot-gateway-sdk-concepts) è un componente che esegue un'attività specifica. Le attività possono includere l'inserimento di un messaggio da un dispositivo, la trasformazione di un messaggio o l'invio di un messaggio a un hub IoT. Un broker è responsabile dell'inoltro dei messaggi tra i moduli. Azure IoT Gateway SDK include un set di moduli di esempio. È anche possibile creare moduli personalizzati.

@@ -1,5 +1,5 @@
 ---
-title: Problemi di connessione di Desktop remoto a una macchina virtuale di Azure | Documentazione Microsoft
+title: "Non è possibile connettersi tramite RDP a una macchina virtuale Windows in Azure | Documentazione Microsoft"
 description: Risoluzione dei problemi di connessione con Desktop remoto di una macchina virtuale Windows in Azure
 keywords: Errore di desktop remoto, errore di connessione al desktop remoto, impossibile connettersi alla macchina virtuale, risoluzione dei problemi di desktop remoto
 services: virtual-machines-windows
@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 10/26/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 592d6b0168b9ebb47ed841f7e2b55d55a07500aa
+ms.sourcegitcommit: ccdfd0c64b5a784664edaef9c19e272c8e8323e6
+ms.openlocfilehash: b6b9540f4120ef87d819605579df4ab0c9657e45
 
 
 ---
@@ -40,7 +40,7 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, tentare la rico
 6. Riavviare la VM.
 7. Ripetere la distribuzione della VM.
 
-Continuare la lettura per procedure dettagliate e altre informazioni.
+Continuare la lettura per procedure dettagliate e altre informazioni. Verificare che le apparecchiature di rete locali quali router e firewall non blocchino la porta TCP in uscita 3389, come indicato negli [scenari dettagliati di risoluzione dei problemi RDP](virtual-machines-windows-detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!TIP]
 > Se il pulsante **Connetti** della VM è disattivato nel portale e non si è connessi ad Azure tramite una connessione [Express Route](../expressroute/expressroute-introduction.md) o [VPN da sito a sito](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), per poter usare il protocollo RDP è necessario creare un indirizzo IP pubblico e assegnarlo alla VM. Altre informazioni sono disponibili in [Indirizzi IP pubblici in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
@@ -256,6 +256,6 @@ Se non si è verificato alcuno di questi errori e non è ancora possibile connet
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

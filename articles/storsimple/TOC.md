@@ -186,7 +186,7 @@
 
 ## Note sulla versione
 ### [Aggiornamento 4 - Versione corrente](storsimple-update4-release-notes.md)
-### [Aggiornamento 3 - Versione corrente](storsimple-update3-release-notes.md)
+### [Aggiornamento 3](storsimple-update3-release-notes.md)
 ### [Aggiornamento 2.2](storsimple-update21-release-notes.md)
 ### [Aggiornamento 2](storsimple-update2-release-notes.md)
 ### [Aggiornamento 1](storsimple-update1-release-notes.md)
@@ -239,6 +239,6 @@
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

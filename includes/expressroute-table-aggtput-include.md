@@ -5,6 +5,8 @@
 | **SKU con prestazioni elevate** |2000 Mbps |Sì |
 | **SKU con prestazioni elevate** |10000 Mbps |Sì |
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

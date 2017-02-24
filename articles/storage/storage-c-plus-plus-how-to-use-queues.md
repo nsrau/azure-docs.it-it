@@ -55,8 +55,8 @@ Install-Package wastorage
 Aggiungere le istruzioni include seguenti all'inizio del file C++ in cui si desidera utilizzare le API di archiviazione di Azure per accedere alle code:  
 
 ```cpp
-#include "was/storage_account.h"
-#include "was/queue.h"
+#include <was/storage_account.h>
+#include <was/queue.h>
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Impostare una stringa di connessione di archiviazione di Azure

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 8301a36327fb2605eaded8f41e27e830c85e823b
-ms.openlocfilehash: d8b73128a22c4c9efb9fcd50464ef370cd1a499c
+ms.sourcegitcommit: a268907eea2862ae2d054f30accfd4d771a7d880
+ms.openlocfilehash: 0dbacc24af62f8173e4b1b30990d89f02a9d48bb
 
 ---
 
@@ -73,12 +73,12 @@ Per disabilitare l'attività pianificata che attiva un ciclo di sincronizzazione
 Dopo avere completato tutte le modifiche del filtro, non dimenticare di tornare indietro e di **abilitare** di nuovo l'attività.
 
 ## <a name="filtering-options"></a>Opzioni di filtro
-È possibile applicare al servizio di sincronizzazione Azure AD Connect i tipi di configurazione di filtro seguenti:
+Allo Strumento di sincronizzazione della directory è possibile applicare i tipi di configurazione di filtro descritti di seguito:
 
+* [**Basato su gruppo**](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups): il filtro basato su un singolo gruppo può essere configurato solo durante l'installazione iniziale usando l'installazione guidata. Non sono disponibili altri approfondimenti in questo argomento.
 * [**Basato su dominio**](#domain-based-filtering): questa opzione permette di selezionare i domini che verranno sincronizzati con Azure AD. Consente anche di aggiungere e rimuovere domini dalla configurazione del motore di sincronizzazione quando si apportano modifiche all'infrastruttura locale dopo avere installato il servizio di sincronizzazione Azure AD Connect.
 * [**Organizational-Unit–based**](#organizational-unitbased-filtering) (Basato su unità organizzativa): questa opzione di filtro permette di selezionare le unità organizzative che verranno sincronizzate con Azure AD. Questa opzione è disponibile in tutti i tipi di oggetto nelle unità organizzative selezionate.
 * [**Basato su attributo**](#attribute-based-filtering): questa opzione permette di filtrare gli oggetti in base ai valori degli attributi negli oggetti. È anche possibile avere filtri diversi a seconda del tipo di oggetto.
-* [**Basato su gruppo**](#group-based-filtering): il filtro basato su un singolo gruppo può essere configurato solo durante l'installazione iniziale usando l'installazione guidata. Viene usato per una piccola distribuzione pilota.
 
 È possibile usare più opzioni di filtro contemporaneamente. È possibile, ad esempio, usare il filtro basato sulle unità organizzative per includere solo gli oggetti in un'unità organizzativa e nello stesso tempo un filtro basato su un attributo ora per filtrare gli oggetti con maggiore precisione. Quando si usano più metodi di filtro, viene usato un operatore AND logico tra i filtri.
 
@@ -296,7 +296,7 @@ Ora è possibile abilitare di nuovo l'utilità di pianificazione.
 2. In **Libreria Utilità di pianificazione** trovare l'attività denominata **Azure AD Sync Scheduler**, fare clic con il pulsante destro del mouse e scegliere **Abilita**.
 
 ## <a name="group-based-filtering"></a>Filtri basati sui gruppi
-I filtri basati sui gruppi possono essere configurati alla prima installazione di Azure AD Connect usando l'[installazione personalizzata](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups). Sono destinati a una distribuzione pilota, in cui è necessario sincronizzare solo un set ridotto di oggetti. Se si disabilitano i filtri basati sui gruppi, non sarà più possibile abilitarli. L'uso dei filtri basati sui gruppi **non è supportato** in una configurazione personalizzata con regole di sincronizzazione personalizzate. È supportata solo la configurazione di questa funzionalità con l'installazione guidata. Al termine della distribuzione pilota, è necessario usare una delle altre opzioni di filtro illustrate in questo argomento.
+I filtri basati sui gruppi possono essere configurati alla prima installazione di Azure AD Connect usando l'installazione personalizzata. Sono destinati a una distribuzione pilota, in cui è necessario sincronizzare solo un set ridotto di oggetti. Se si disabilitano i filtri basati sui gruppi, non sarà più possibile abilitarli. L'uso dei filtri basati sui gruppi **non è supportato** in una configurazione personalizzata. È supportata solo la configurazione di questa funzionalità con l'installazione guidata. Al termine della distribuzione pilota, è necessario usare una delle altre opzioni di filtro illustrate in questo argomento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md) .

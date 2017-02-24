@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 05/27/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 637171b775d01e16cec1a7e9ef6fad73875eac69
-ms.openlocfilehash: 4f6c3713c6ca579d6ec24e8f208299f9984e0d00
+ms.sourcegitcommit: 6453cca9f876e6c363fbed463263c0f9684a3e70
+ms.openlocfilehash: 11b1a6dd9ecaaa3abaf088b1fed73aae783252f5
 
 
 ---
@@ -62,14 +62,14 @@ Usare la [vista sys.database\_service \_objectives](https://msdn.microsoft.com/l
     ON d.database_id = slo.database_id
     WHERE elastic_pool_name = 'MyElasticPool'; 
 
-## <a name="get-resource-usage-data-for-an-elastic"></a>Ottenere i dati di utilizzo delle risorse per un database elastico
+## <a name="get-resource-usage-data-for-an-elastic-pool"></a>Ottenere i dati di utilizzo delle risorse per un pool elastico
 Usare la [vista sys.elastic\_pool \_resource \_stats](https://msdn.microsoft.com/library/mt280062.aspx) per esaminare le statistiche di utilizzo delle risorse di un pool elastico in un server logico. Accedere al database master per eseguire query sulla vista.
 
     SELECT * FROM sys.elastic_pool_resource_stats 
     WHERE elastic_pool_name = 'MyElasticPool'
     ORDER BY end_time DESC;
 
-## <a name="get-resource-usage-for-an-elastic-database"></a>Ottenere l'utilizzo delle risorse per un database elastico
+## <a name="get-resource-usage-for-a-pooled-database"></a>Ottenere l'utilizzo delle risorse per un database in pool
 Usare la [vista sys.dm\_db\_ resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) o la [vista sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) per esaminare le statistiche di utilizzo delle risorse di un database in un pool elastico. Questo processo è simile all'esecuzione di query sull'utilizzo delle risorse per un database singolo.
 
 ## <a name="next-steps"></a>Passaggi successivi

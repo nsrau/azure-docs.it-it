@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3be980b1428c19c7f1f6eb2c165758281d6e46b2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 44c1fcd28ab15ec91d07fcfe6510f6e8fc7a9d26
 
 
 ---
@@ -118,8 +118,8 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
     a. Fare clic su **Scarica certificato**e quindi salvare il file nel computer.
    
     b. Fare clic su **Avanti**.
-5. Per ottenere la configurazione dell'accesso SSO per l'applicazione, contattare il team di supporto di Nomadesk all'indirizzo support@nomadesk.com. Allegare il file del certificato scaricato al messaggio di posta elettronica e condividere gli URL dei metadati (ID entità, URL di accesso SSO e URL di disconnessione SSO) con il team Nomadesk perché possa configurare SSO.
-6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e fare clic su **Avanti**.
+5. Per ottenere la configurazione dell'accesso Single Sign-On per l'applicazione, contattare il team di supporto di Nomadesk all'indirizzo support@nomadesk.com. Allegare il file del certificato scaricato al messaggio di posta elettronica e condividere gli URL dei metadati (ID entità, URL di accesso SSO e URL di disconnessione SSO) con il team Nomadesk perché possa configurare SSO.
+6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
    
     ![Single Sign-On di Microsoft Azure AD][10]
 7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.  
@@ -236,6 +236,6 @@ Quando si fa clic sul riquadro Nomadesk nel pannello di accesso, si dovrebbe acc
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

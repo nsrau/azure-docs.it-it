@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/01/2017
+ms.date: 02/08/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 714c71e42593a6a038e77bfaaf2f6d7380c4f3ab
-ms.openlocfilehash: 52b75df326c1756f7bbacfc5453515c848a23870
+ms.sourcegitcommit: 45de2422e79215ecfbacf5bd15712eb780c49016
+ms.openlocfilehash: c0a99dadc1d588942ade14267bd45eff09080315
 
 
 ---
@@ -77,7 +77,7 @@ Azure HDInsight supporta solo le reti virtuali basate sulla località e attualme
 
 ### <a name="classic-or-v2-virtual-network"></a>Rete virtuale classica o v2
 
-I cluster basati su Windows richiedono una rete virtuale classica, mentre i cluster basati su Linux richiedono una rete virtuale di Azure Resource Manager. Se non si dispone del tipo di rete corretto, non sarà utilizzabile quando si crea il cluster.
+I cluster basati su Linux richiedono una rete virtuale di Azure Resource Manager, mentre i cluster basati su Windows richiedono una rete virtuale classica. Se non si dispone del tipo di rete corretto, non sarà utilizzabile quando si crea il cluster.
 
 Se si dispone di risorse in una rete virtuale non utilizzabile da parte del cluster che si intende creare, creare una nuova rete virtuale che può essere utilizzata dal cluster e connetterla alla rete virtuale non compatibile. È quindi possibile creare il cluster nella versione della rete che richiede e questo sarà in grado di accedere alle risorse nell'altra rete, poiché le due sono unite. Per ulteriori informazioni sulla connessione di reti virtuali classiche e nuove, vedere [Connessione di VNet classiche a VNet nuove](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
@@ -135,7 +135,7 @@ Consentendo a questi indirizzi l'accesso in ingresso dalla porta 443, sarà poss
 
 Gli esempi seguenti spiegano come creare un nuovo gruppo di sicurezza di rete che ammette gli indirizzi specificati e applica il gruppo di sicurezza a una subnet all'interno della rete virtuale. Gli indirizzi usati in questo esempio sono tratti dall'elenco __Tutte le altre aree__. Se ci si trova in una delle aree elencate, quale ad esempio __Stati Uniti centro-occidentali__, modificare lo script in modo da usare gli indirizzi IP di questa area.
 
-Questa procedura presuppone la creazione di una rete virtuale e della subnet in cui si desidera installare HDInsight.
+Questa procedura presuppone la creazione di una rete virtuale e della subnet in cui si desidera installare HDInsight. Vedere [Creare una rete virtuale usando il portale di Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
 
 > [!IMPORTANT]
 > Si noti il valore `priority` usato in questi esempi. Le regole vengono verificate sul traffico di rete in ordine di priorità. Quando una regola corrisponde ai criteri di verifica e viene applicata, non vengono verificate altre regole.
@@ -226,10 +226,10 @@ Questa procedura presuppone la creazione di una rete virtuale e della subnet in 
 
 2. Usare le informazioni seguenti per aggiungere regole al nuovo gruppo di sicurezza di rete che ammettono la comunicazione in ingresso sulla porta 443 dal servizio integrità e gestione di Azure HDInsight. Sostituire **RESOURCEGROUPNAME** con il nome del gruppo di risorse che contiene la rete virtuale di Azure.
     
-        az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.49.99" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
-        az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "23.99.5.239" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 301 --direction "Inbound"
-        az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule3 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.48.131" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 302 --direction "Inbound"
-        az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule4 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "138.91.141.162" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 303 --direction "Inbound"
+        az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.49.99/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
+        az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "23.99.5.239/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 301 --direction "Inbound"
+        az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule3 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.48.131/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 302 --direction "Inbound"
+        az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule4 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "138.91.141.162/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 303 --direction "Inbound"
 
 3. Dopo aver creato le regole, usare le informazioni seguenti per recuperare l'identificatore univoco per questo gruppo di sicurezza di rete:
 
@@ -237,7 +237,9 @@ Questa procedura presuppone la creazione di una rete virtuale e della subnet in 
 
     Viene restituito un valore analogo al testo seguente:
 
-        "/subscriptions/55b1016c-0f27-43d2-b908-b8c373d6d52e/resourceGroups/mygroup/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
+        "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
+
+    Se non si ottengono i risultati previsti, nel comando inserire l'ID tra virgolette doppie.
 
 4. Usare il comando seguente per applicare il gruppo di sicurezza di rete a una subnet. Sostituire i valori __GUID__ e __RESOURCEGROUPNAME__ con quelli restituiti nel passaggio precedente. Sostituire __VNETNAME__ e __SUBNETNAME__ con il nome di rete virtuale e il nome di subnet da usare per la creazione di un cluster HDInsight.
    
@@ -251,7 +253,7 @@ Questa procedura presuppone la creazione di una rete virtuale e della subnet in 
 > Per consentire l'accesso SSH da Internet, ad esempio, è necessario aggiungere una regola simile alla seguente: 
 > 
 > * Azure PowerShell: ```Add-AzureRmNetworkSecurityRuleConfig -Name "SSSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 304 -Direction Inbound```
-> * Interfaccia della riga di comando di Azure: ```az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule4 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 304 --direction "Inbound"```
+> * Interfaccia della riga di comando di Azure: ```az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 304 --direction "Inbound"```
 
 Per altre informazioni sui gruppi di sicurezza di rete, vedere [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md). Per informazioni sul controllo del routing in una rete virtuale di Azure, vedere [Cosa sono le route definite dall'utente e l'inoltro IP](../virtual-network/virtual-networks-udr-overview.md).
 
@@ -365,6 +367,6 @@ Per altre informazioni sulle reti virtuali di Azure, vedere [Panoramica di Rete 
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Panoramica degli esempi di inoltro del bus di servizio | Documentazione Microsoft
+title: Panoramica degli esempi di Inoltro del bus di servizio di Azure | Documentazione Microsoft
 description: Suddivide gli esempi di inoltro del bus di servizio in categorie e offre una descrizione e un collegamento a ognuno di essi.
 services: service-bus-relay
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2016
+ms.date: 02/13/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0b2206fae964c55e961505b9d0e2ad71fd0b2102
+ms.sourcegitcommit: 6027c973f0104fff9705a70f7812f62562165c1e
+ms.openlocfilehash: d830770c49caeacf762382ce1c6113d9196a5994
 
 
 ---
@@ -24,23 +24,23 @@ ms.openlocfilehash: 0b2206fae964c55e961505b9d0e2ad71fd0b2102
 Gli esempi di inoltro del bus di servizio illustrano le funzionalità chiave del servizio di [inoltro del bus di servizio](https://azure.microsoft.com/services/service-bus/). Questo articolo suddivide gli esempi disponibili in categorie e fornisce una descrizione e un collegamento a ognuno di essi.
 
 > [!NOTE]
-> Gli esempi relativi al bus di servizio non vengono installati con l'SDK. Per ottenere gli esempi, visitare la pagina relativa agli [esempi di Azure SDK](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
+> Gli esempi relativi al bus di servizio non vengono installati con Azure SDK. Per ottenere gli esempi, visitare la pagina relativa agli [esempi di Azure SDK](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
 > 
-> In aggiunta, è disponibile [qui](https://github.com/Azure-Samples/azure-servicebus-relay-samples) un set aggiornato di esempi di inoltro del bus di servizio (in questo articolo non viene descritta la scrittura degli stessi).  
+> Inoltre è disponibile un insieme aggiornato di esempi di Inoltro del bus di servizio [qui](https://github.com/Azure-Samples/azure-servicebus-relay-samples).  
 > 
 > 
 
-Per esempi relativi alla messaggistica, vedere [Esempi di messaggistica del bus di servizio](../service-bus-messaging/service-bus-samples.md).
+Per esempi relativi alla messaggistica del bus di servizio, vedere [Esempi di messaggistica del bus di servizio](../service-bus-messaging/service-bus-samples.md).
 
-## <a name="service-bus-relay"></a>Inoltro del bus di servizio
-Gli esempi seguenti illustrano come scrivere applicazioni che usano il servizio di inoltro del bus di servizio.
+## <a name="azure-service-bus-relay"></a>Inoltro del bus di servizio di Azure
+Gli esempi seguenti illustrano come scrivere applicazioni che usano il servizio di inoltro di Azure.
 
-Tenere presente che per gli esempi di inoltro è necessaria una stringa di connessione per l'accesso allo spazio dei nomi del bus di servizio.
+Tenere presente che per gli esempi di inoltro è necessaria una stringa di connessione per l'accesso allo spazio dei nomi di inoltro.
 
-### <a name="to-obtain-a-connection-string-for-azure-service-bus"></a>Per ottenere una stringa di connessione per il bus di servizio di Azure
+### <a name="to-obtain-a-connection-string-for-azure-relay"></a>Per ottenere una stringa di connessione per il servizio di inoltro Azure
 1. Accedere al [portale di Azure](http://portal.azure.com).
-2. Nella colonna sinistra fare clic su **Bus di servizio**.
-3. Fare clic sul nome dello spazio dei nomi nell'elenco.
+2. Fare clic per espandere l'elenco degli spazi dei nomi nel riquadro **Tutte le risorse**.
+3. Fare clic sul nome dello spazio dei nomi di inoltro nell'elenco.
 4. Nel pannello dello spazio dei nomi fare clic su **Criteri di accesso condivisi**.
 5. Nel pannello **Criteri di accesso condivisi** fare clic su **RootManageSharedAccessKey**.
 6. Copiare la stringa di connessione negli Appunti.
@@ -48,15 +48,15 @@ Tenere presente che per gli esempi di inoltro è necessaria una stringa di conne
 ### <a name="to-obtain-a-connection-string-for-service-bus-for-windows-server"></a>Per ottenere una stringa di connessione per il bus di servizio di Windows Server
 1. Eseguire il cmdlet di PowerShell seguente:
    
-    ```
+    ```powershell
     get-sbClientConfiguration
     ```
 2. Incollare la stringa di connessione nel file App.config relativo all'esempio.
 
-## <a name="service-bus-relay"></a>Inoltro del bus di servizio
-Esempi che illustrano l'inoltro del bus di servizio.
+## <a name="azure-relay"></a>Servizio di inoltro di Azure
+Esempi che illustrano il servizio di inoltro di Azure.
 
-### <a name="getting-started"></a>Per iniziare
+### <a name="getting-started"></a>Introduzione
 | Nome esempio | Descrizione | Versione minima SDK | Disponibilità |
 | --- | --- | --- | --- |
 | [Messaggistica inoltrata con WCF: Azure](http://code.msdn.microsoft.com/Relayed-Messaging-Windows-0d2cede3) |Illustra come eseguire un client e un servizio del bus di servizio di Microsoft Azure in Azure. Nell'esempio il bus di servizio viene configurato a livello di codice. Nei file di configurazione sono archiviate solo le informazioni relative alla sicurezza e all'ambiente. |1.8 |Bus di servizio di Microsoft Azure |
@@ -84,13 +84,13 @@ Esempi che illustrano varie funzionalità dell'inoltro del bus di servizio.
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre panoramiche sul bus di servizio, vedere gli argomenti seguenti.
 
-* [Panoramica dell'inoltro del bus di servizio](service-bus-relay-overview.md)
+* [Panoramica del servizio di inoltro di Azure](relay-what-is-it.md)
 * [Architettura del bus di servizio](../service-bus-messaging/service-bus-architecture.md)
 * [Dati fondamentali del bus di servizio](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

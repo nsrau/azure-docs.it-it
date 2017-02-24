@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 02/08/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 619fec5dc02b026ae2cbb5eba18609fd020a551b
-ms.openlocfilehash: d51d9416ef56e119bc765e536a09206fb36c55fe
+ms.sourcegitcommit: 445dd0dcd05aa25cc531e2d10cc32ad8f32a6e8c
+ms.openlocfilehash: def038842dc3c1037d5dd11ffef6a9e2de3cf09f
 
 
 ---
@@ -44,6 +44,10 @@ La procedura guidata è stata concepita fin da subito per l'uso con i Big Data, 
 
 ## <a name="schema-capture-and-mapping"></a>Acquisizione dello schema e mapping
 In alcuni casi è possibile che lo schema di dati di input non corrisponda allo schema dei dati di output. Se succede, è necessario eseguire il mapping delle colonne che appartengono allo schema di origine con le colonne dello schema di destinazione.
+
+> [!TIP]
+> Quando si copiano dati da SQL Server o da Database SQL di Azure in SQL Data Warehouse, se la tabella non esiste nell'archivio di destinazione, Data Factory ne supporta la creazione automatica usando lo schema dell'origine. Altre informazioni su come [Spostare dati da e verso Azure SQL Data Warehouse con Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
+>
 
 Usare un elenco a discesa per selezionare una colonna dallo schema di origine per eseguire il mapping a una colonna nello schema di destinazione. La copia guidata tenta di comprendere il modello dell'utente per il mapping di colonna, applicandone uno uguale alle colonne rimanenti, senza la necessità di selezionarle singolarmente per completare il mapping dello schema. Se si preferisce, è possibile eseguire l'override di questi mapping usando gli elenchi a discesa per eseguire il mapping singolo di ciascuna colonna. Il modello diventa più preciso quando si esegue il mapping di più colonne. La copia guidata aggiorna costantemente il modello e, alla fine, delinea il modello corretto per il mapping della colonna che si vuole ottenere.     
 
@@ -87,6 +91,6 @@ Per una procedura dettagliata sull'uso di Copia guidata di Data Factory per crea
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

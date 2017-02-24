@@ -1,7 +1,7 @@
 ---
-title: Le 5 domande sull&quot;analisi scientifica dei dati - Analisi scientifica dei dati per principianti | Documentazione Microsoft
+title: Le 5 domande sull&quot;analisi scientifica dei dati - Analisi scientifica dei dati per principianti - Azure | Documentazione Microsoft
 description: "È possibile ottenere una rapida introduzione all&quot;analisi scientifica dei dati grazie alla serie Analisi scientifica dei dati per principianti, cinque brevi video che iniziano con le 5 domande a cui risponde l&quot;analisi scientifica dei dati."
-keywords: effettuare l&quot;analisi scientifica dei dati, analisi scientifica dei dati per principianti, tipi di domande, domande sull&quot;analisi scientifica dei dati, video sull&quot;analisi scientifica dei dati
+keywords: eseguire l&quot;analisi scientifica dei dati, analisi scientifica dei dati per principianti, fondamenti dell&quot;analisi scientifica dei dati, domande sull&quot;analisi scientifica dei dati, video sull&quot;analisi scientifica dei dati, introduzione all&quot;analisi scientifica dei dati
 services: machine-learning
 documentationcenter: na
 author: cjgronlund
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: da5960c6ca030218a405e8827737680d24af4228
+ms.sourcegitcommit: 50d1f8dfc7ce2d8bf4b04cff68698eafd56ce9c2
+ms.openlocfilehash: 518a7d2b5e43d8133d54ab583e4545a3ee9b3cba
 
 
 ---
@@ -27,8 +27,8 @@ La serie *Data Science for Beginners* (Analisi scientifica dei dati per principi
 Il primo video contiene le tipologie di domande a cui l'analisi scientifica dei dati può rispondere. Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'elenco dei video è disponibile qui](#other-videos-in-this-series)
 
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/8/player]
-> 
-> 
+>
+>
 
 ## <a name="other-videos-in-this-series"></a>Altri video della serie
 *Analisi scientifica dei dati per principianti* è una rapida introduzione all'analisi scientifica dei dati in circa 25 minuti. Sono disponibili altri quattro video:
@@ -55,7 +55,7 @@ Potrebbe essere sorprendente, ma *esistono solo cinque domande a cui l'analisi s
 * In che quantità o in che numero?
 * In che modo sono organizzati i dati?
 * Qual è il prossimo passo da fare?
-  
+
   La risposta a ciascuna di queste domande viene fornita da una famiglia a parte di metodi di apprendimento automatico, detti algoritmi.
 
 È utile pensare a un algoritmo come una ricetta e ai dati come gli ingredienti. Un algoritmo specifica come combinare e mettere insieme i dati per ottenere una risposta. I computer sono simili ai frullatori. Svolgono la maggior parte del lavoro più impegnativo dell'algoritmo per l'utente e lo fanno in modo abbastanza veloce.
@@ -143,7 +143,6 @@ Ecco, queste sono le 5 domande a cui l'analisi scientifica dei dati per principi
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

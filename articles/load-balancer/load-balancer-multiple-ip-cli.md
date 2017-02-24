@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 57df4ab0b2a1df6631eb6e67a90f69cebb1dfe75
-ms.openlocfilehash: 64748a540b20bbd4b354f0b4e1d7de4a969381c6
+ms.sourcegitcommit: 394315f81cf694cc2bb3a28b45694361b11e0670
+ms.openlocfilehash: f52a86b01e45a32315b017c2605f7caebb68b006
 
 
 ---
@@ -38,8 +38,27 @@ Per questo scenario sono disponibili due macchine virtuali Windows, ognuna con u
 
 [!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
-Per registrarsi all'anteprima, inviare un messaggio di posta elettronica a [IP multipli](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) con l'ID sottoscrizione e l'uso previsto.
+Eseguire la registrazione per l'anteprima eseguendo i comandi seguenti in PowerShell dopo aver effettuato l'accesso, quindi selezionare la sottoscrizione appropriata:
 
+```
+Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+```
+
+Non tentare di completare i passaggi rimanenti fino a quando non viene visualizzato il seguente output all'esecuzione del comando ```Get-AzureRmProviderFeature```:
+        
+```powershell
+FeatureName                            ProviderName      RegistrationState
+-----------                            ------------      -----------------      
+AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+```
+        
+>[!NOTE] 
+>L'operazione potrebbe richiedere alcuni minuti.
 
 ## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>Procedura per il bilanciamento del carico in più configurazioni IP
 
@@ -135,6 +154,6 @@ Per ottenere lo scenario descritto in questo articolo, seguire questa procedura:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

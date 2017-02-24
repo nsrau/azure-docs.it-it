@@ -1,6 +1,6 @@
 ---
 title: Panoramica di Monitoraggio di Azure | Documentazione Microsoft
-description: "Panoramica generale della funzionalità Monitoraggio di Azure in Microsoft Azure, inclusi avvisi, webhook, ridimensionamento automatico e altro."
+description: "Monitoraggio di Azure raccoglie dati statistici da usare in avvisi, webhook, scalabilità automatica e automazione. L&quot;articolo elenca anche altre opzioni di monitoraggio di Microsoft."
 author: rboucher
 manager: carmonm
 editor: 
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 02/01/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2f8ff117966b11e7415abaa5e7a0735742d7ef99
+ms.sourcegitcommit: 09b2847586eec50d8512ec5eabdc05a11d8b238a
+ms.openlocfilehash: da4dc84501ca6b0c5a2d23e885196167be9c61ad
 
 
 ---
 
-# <a name="overview-of-monitoring-in-microsoft-azure"></a>Panoramica sul monitoraggio in Microsoft Azure
+# <a name="overview-of-azure-monitor"></a>Panoramica di Monitoraggio di Azure
 Questo articolo fornisce una panoramica concettuale del monitoraggio delle risorse di Azure con collegamenti a informazioni su tipi di risorse specifici.  Per informazioni generali sul monitoraggio dell'applicazione da un punto di vista diverso da Azure, vedere [Indicazioni di monitoraggio e diagnostica](../best-practices-monitoring.md).
 
 Una procedura dettagliata video di Monitoraggio di Azure è disponibile alla pagina  
@@ -134,7 +134,7 @@ Le offerte di Azure consentono di monitorare i servizi, dall'infrastruttura bare
 
 * [Monitoraggio di Azure](http://aka.ms/azmondocs): offre funzionalità di visualizzazione, query, routing, avviso, ridimensionamento automatico e automazione dei dati sia dall'infrastruttura di Azure (log attività) che da ogni singola risorsa di Azure (log di diagnostica). Questo articolo fa parte della documentazione di Monitoraggio di Azure. Il nome Monitoraggio di Azure è stato rilasciato il 25 settembre nel corso dell'evento Ignite 2016.  In precedenza il nome era "Azure Insights".  
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) : consente il rilevamento avanzato e la diagnostica per i problemi a livello dell'applicazione del servizio, ben integrati nei dati provenienti dal monitoraggio di Azure. Si tratta della piattaforma di diagnostica predefinita per app Web del servizio app,  a cui è possibile indirizzare i dati da altri servizi.  
-* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/), parte di [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite): offre una soluzione di gestione IT olistica per l'infrastruttura sia locale che e basata sul cloud di terze parti (ad esempio Amazon Web Services), oltre alle risorse di Azure.  I dati di Monitoraggio di Azure possono essere indirizzati direttamente a Log Analytics, in modo da visualizzare le metriche e i log dell'intero ambiente in un'unica posizione.     
+* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/), parte di [Operations Management Suite](https://www.microsoft.com/oms/): offre una soluzione di gestione IT olistica per l'infrastruttura sia locale che e basata sul cloud di terze parti (ad esempio Amazon Web Services), oltre alle risorse di Azure.  I dati di Monitoraggio di Azure possono essere indirizzati direttamente a Log Analytics, in modo da visualizzare le metriche e i log dell'intero ambiente in un'unica posizione.     
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su:
@@ -144,10 +144,10 @@ Altre informazioni su:
 * [Diagnostica di Azure](../azure-diagnostics.md) , utile per la diagnosi di problemi nelle applicazioni di Servizi cloud, Macchine virtuali e Service Fabric.
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) , utili per la diagnosi di problemi nell'app Web del servizio app.
 * [Risoluzione dei problemi di Archiviazione di Azure](../storage/storage-e2e-troubleshooting.md) , utile per l'uso di BLOB, tabelle o code di archiviazione.
-* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) e [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)
+* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) e [Operations Management Suite](https://www.microsoft.com/oms/)
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
-### Installazione tramite Composer
-1. [Installare Git][install-git]. Si noti che in Windows, è anche necessario aggiungere l'eseguibile Git alla variabile di ambiente PATH. 
+### <a name="install-via-composer"></a>Installazione tramite Composer
+1. [Installare GIT][install-git]. Si noti che in Windows, è anche necessario aggiungere l'eseguibile Git alla variabile di ambiente PATH. 
 2. Creare un file denominato **composer.json** nella radice del progetto, quindi aggiungere nel file il codice seguente:
    
     ```
@@ -21,4 +21,7 @@
 [download-SDK-PHP]: ../articles/php-download-sdk.md
 [composer-phar]: http://getcomposer.org/composer.phar
 
-<!---HONumber=AcomDC_0601_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

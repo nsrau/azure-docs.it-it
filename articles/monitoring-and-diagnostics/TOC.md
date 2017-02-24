@@ -45,7 +45,7 @@
 ## [Schema di Diagnostica di Azure](../monitoring-and-diagnostics/azure-diagnostics-schema.md)
 ### [Schema di Diagnostica 1.0](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md)
 ### [Schema di Diagnostica 1.2](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md)
-### [Schema di Diagnostica da 1.3 a 1.5](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-to-1dot5.md)
+### [Schema di Diagnostica da 1.3 a 1.7](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md)
 
 
 # Risorse
@@ -54,6 +54,6 @@
 ## [Elenco delle metriche supportate](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

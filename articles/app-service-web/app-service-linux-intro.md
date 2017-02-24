@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: a3df293a056f4b06281bf8b80717529286d528b8
-ms.openlocfilehash: 48f26113d129ebfa613f1b8f2a372d0e7286aea1
+ms.sourcegitcommit: 6eb4390f8290d3036bf76a592c40253432170883
+ms.openlocfilehash: 0e5c56e62965f2cc9df0b439595223300377d084
 
 
 ---
@@ -33,6 +33,7 @@ Il servizio app in Linux supporta attualmente gli stack di applicazioni seguenti
 * Node.js
 * PHP
 * .Net Core
+* Ruby
 
 I clienti possono distribuire le applicazioni tramite:
 
@@ -66,6 +67,8 @@ App Web in Linux è supportato solo nei piani di servizio app dedicati e non ha 
 
 Le app Web in Linux devono essere create in un gruppo di risorse che non contiene app Web non Linux nella stessa area.
 
+Le app Web in Linux non supportano ancora la distribuzione di app .NET Core da un'origine non compilata. Sarà necessario prima di tutto pubblicare/compilare l'app .NET Core in locale e quindi spingere i bit del sito pubblicato nell'applicazione.
+
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere i collegamenti seguenti per iniziare a usare il servizio app in Linux. È possibile pubblicare domande e dubbi nel [forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
@@ -73,9 +76,9 @@ Vedere i collegamenti seguenti per iniziare a usare il servizio app in Linux. È
 * [Come usare un'immagine Docker personalizzata per il servizio app in Linux](app-service-linux-using-custom-docker-image.md)
 * [Uso della configurazione PM2 per Node.js nelle app Web in Linux](app-service-linux-using-nodejs-pm2.md)
 * [Uso di .NET Core nelle app Web del servizio App di Azure in Linux](app-service-linux-using-dotnetcore.md)
+* [Azure App Service Web Apps on Linux FAQ](app-service-linux-faq.md) (App Web del Servizio app di Azure nelle domande frequenti su Linux)
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

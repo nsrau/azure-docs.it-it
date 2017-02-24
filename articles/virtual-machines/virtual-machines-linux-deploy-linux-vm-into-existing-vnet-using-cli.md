@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63485f0c9e151db22f23d291e2a4425dd01fb7ee
-ms.openlocfilehash: b22ac95ee11fe059d36a9416434a14814da1ee7d
+ms.sourcegitcommit: 34e9b401444aeec233d846a6b52f4a452c54cdaf
+ms.openlocfilehash: 106571bf36454ab20e75cb4ee42b2aca787a9d5a
 
 
 ---
@@ -53,12 +53,9 @@ az vm create \
     --resource-group myResourceGroup \
     --name myVM \
     --image Debian \
-    --admin-username ops \
+    --admin-username azureuser \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --nics myNic \
-    --vnet myVnet \
-    --subnet-name mySubnet \
-    --nsg myNetworkSecurityGroup
+    --nics myNic
 ```
 
 ## <a name="detailed-walkthrough"></a>Procedura dettagliata
@@ -154,17 +151,23 @@ A questo punto sono disponibili una rete virtuale e un gruppo di sicurezza di re
 
 Creare la macchina virtuale con [az vm create](/cli/azure/vm#create). Per altre informazioni sui flag da usare con l'interfaccia della riga di comando di Azure 2.0 (anteprima) per distribuire una macchina virtuale completa, vedere [Creare un ambiente Linux completo usando l'interfaccia della riga di comando di Azure](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
+Nell'esempio seguente viene creata una VM usando Azure Managed Disks. Questi dischi vengono gestiti dalla piattaforma Azure e non richiedono alcuna pianificazione o alcuna posizione per l'archiviazione. Per altre informazioni sui dischi gestiti, vedere [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md) (Panoramica di Azure Managed Disks). Se si desidera usare dischi non gestiti, vedere la nota aggiuntiva seguente.
+
 ```azurecli
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
     --image Debian \
-    --admin-username ops \
+    --admin-username azureuser \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --nics myNic \
-    --vnet myVnet \
-    --subnet-name mySubnet \
-    --nsg myNetworkSecurityGroup
+    --nics myNic
+```
+
+Se si usa Managed Disks, ignorare questo passaggio. Se si desidera usare dischi non gestiti, è necessario aggiungere i parametri aggiuntivi seguenti al comando della procedura per creare dischi non gestiti nell'account di archiviazione denominato `mystorageaccount`: 
+
+```azurecli
+    --use-unmanaged-disk \
+    --storage-account mystorageaccount
 ```
 
 Usando i flag dell'interfaccia della riga di comando per chiamare le risorse esistenti, si indica ad Azure di distribuire la macchina virtuale all'interno della rete esistente. Come già detto, dopo essere state distribuite la rete virtuale e la subnet possono essere usate come risorse statiche o permanenti nell'area di Azure. In questo esempio non è stato creato e assegnato un indirizzo IP pubblico alla scheda di interfaccia di rete virtuale, pertanto questa macchina virtuale non è accessibile pubblicamente da Internet. Per altre informazioni, vedere [Creare una macchina virtuale con un IP pubblico statico usando l'interfaccia della riga di comando di Azure](../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -178,6 +181,6 @@ Per altre informazioni sulle modalità per creare macchine virtuali in Azure, ve
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

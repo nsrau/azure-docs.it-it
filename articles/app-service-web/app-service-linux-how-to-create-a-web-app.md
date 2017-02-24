@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: e062cb169782319bda14acfa4f2b7c8198f320f6
-ms.openlocfilehash: e5c0547a4fb109560dbafbf84d17e0c3d28a7188
+ms.sourcegitcommit: 2956b15e6284b529ccf4ca40c0c97b857eabcdbb
+ms.openlocfilehash: 50d90bfa5e6fb4462bd7d4719e5505d8ad144855
 
 
 ---
@@ -34,7 +34,7 @@ Viene quindi aperto il **pannello Crea**, come illustrato nell'immagine seguente
 1. Assegnare all'app Web un nome.
 2. Scegliere un gruppo di risorse esistente oppure crearne uno nuovo. Vedere le aree disponibili nella [sezione sulle limitazioni](app-service-linux-intro.md).
 3. Scegliere un piano di servizio app di Azure esistente o crearne uno nuovo. Vedere le note sul piano di servizio app nella [sezione sulle limitazioni](app-service-linux-intro.md).
-4. Scegliere lo stack di applicazioni che si intende da usare. È possibile scegliere tra diverse versioni di Node.js e PHP.
+4. Scegliere lo stack di applicazioni che si intende da usare. È possibile scegliere tra diverse versioni di Node.js, PHP, .Net Core e Ruby.
 
 Dopo avere creato l'app, è possibile cambiare lo stack di applicazioni dalle impostazioni dell'applicazione, come illustrato nell'immagine seguente:
 
@@ -59,6 +59,6 @@ Scegliendo le **opzioni di distribuzione** dal portale di gestione, è possibile
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

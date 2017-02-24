@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/15/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 5e4aebee48754f1f6762898d9571a4fff7d7283e
-ms.openlocfilehash: ab167a74ddab1e38369ce9fa466022365ca08bee
+ms.sourcegitcommit: b4637922e7b280b0e9954c9e51788202e784b4f9
+ms.openlocfilehash: 743223f78f279fedf33f73ff52b56f4a7358cd51
 
 
 ---
@@ -44,6 +44,18 @@ La modalità consigliata per l'aggiornamento dell'applicazione è la modalità m
 
 La modalità UnmonitoredManual richiede l'intervento manuale dopo ogni aggiornamento eseguito in un dominio di aggiornamento per passare al dominio di aggiornamento successivo. Non viene eseguito alcun controllo di integrità su Service Fabric. L'amministratore esegue i controlli di integrità o di stato previsti prima di avviare l'aggiornamento nel dominio di aggiornamento successivo.
 
+## <a name="upgrade-default-services"></a>Aggiornare i servizi predefiniti
+I servizi predefiniti all'interno dell'applicazione Service Fabric possono essere aggiornati durante il processo di aggiornamento di un'applicazione. I servizi predefiniti sono definiti nel [manifesto dell'applicazione](service-fabric-application-model.md#describe-an-application). Le regole standard di aggiornamento dei servizi predefiniti sono:
+
+1. I servizi predefiniti nel nuovo [manifesto dell'applicazione](service-fabric-application-model.md#describe-an-application) che non esistono nel cluster vengono creati.
+> [!TIP]
+> È necessario impostare [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md#fabric-settings-that-you-can-customize) su true per abilitare le regole seguenti. Questa funzionalità è supportata dalla versione&5;.5.
+
+2. I servizi predefiniti che esistono sia nel [manifesto dell'applicazione](service-fabric-application-model.md#describe-an-application) precedente sia nella nuova versione vengono aggiornati. Le descrizioni dei servizi della nuova versione sovrascrivono quelle già presenti nel cluster. L'aggiornamento di un'applicazione subisce automaticamente il rollback in caso di errore dell'aggiornamento del servizio predefinito.
+3. I servizi predefiniti del [manifesto dell'applicazione](service-fabric-application-model.md#describe-an-application) precedente che non sono presenti nella nuova versione vengono eliminati. **Si noti che questa eliminazione dei servizi predefiniti non è reversibile.**
+
+In caso di rollback dell'aggiornamento di un'applicazione, i servizi predefiniti vengono riportati allo stato precedente l'avvio dell'aggiornamento. I servizi eliminati non possono in alcun caso essere creati.
+
 ## <a name="application-upgrade-flowchart"></a>Diagramma di flusso di aggiornamento di un'applicazione
 Il diagramma di flusso che segue questo paragrafo aiuta a capire il processo di aggiornamento di un'applicazione di Service Fabric. In particolare, il flusso descrive in che modo i valori di timeout, ad esempio *HealthCheckStableDuration*, *HealthCheckRetryTimeout* e *UpgradeHealthCheckInterval*, consentono di verificare se l'aggiornamento in un dominio di aggiornamento viene considerato riuscito o non riuscito.
 
@@ -62,10 +74,10 @@ Per informazioni su come usare funzionalità avanzate durante l'aggiornamento de
 
 Per informazioni su come risolvere problemi comuni negli aggiornamenti dell'applicazione, vedere i passaggi indicati in [Risoluzione dei problemi relativi agli aggiornamenti dell'applicazione](service-fabric-application-upgrade-troubleshooting.md).
 
-[immagine]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
+[image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

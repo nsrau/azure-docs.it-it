@@ -4,7 +4,7 @@ description: Domande frequenti su IoT Suite
 services: 
 suite: iot-suite
 documentationcenter: 
-author: aguilaaj
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
-ms.author: araguila
+ms.author: corywink
 translationtype: Human Translation
-ms.sourcegitcommit: 69d4439a20fec8caaabdb43444cabd81f7d1b7c8
-ms.openlocfilehash: 6245c2a0f73ff63e3bfb5fe16112f89ed0efdf30
+ms.sourcegitcommit: 14e2fcea9a6afbac640d665d5e44a700f855db4b
+ms.openlocfilehash: ff2e371f0c75dca36cceda36f477e30588dea8e4
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 6245c2a0f73ff63e3bfb5fe16112f89ed0efdf30
 * Se si elimina il gruppo di risorse nel [portale di Azure][lnk-azure-portal], si eliminano solo le risorse presenti in tale gruppo. È anche necessario eliminare l'applicazione Azure Active Directory associata alla soluzione preconfigurata nel [portale di Azure classico][lnk-classic-portal].
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>Di quante istanze dell'hub IoT è possibile eseguire il provisioning in una sottoscrizione?
-Dieci. Anche se è possibile creare un [ticket di supporto di Azure][link-azuresupportticket] per aumentare questo limite, per impostazione predefinita è possibile effettuare il provisioning solo di 10 hub IoT per ogni sottoscrizione, come descritto in [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi][link-azuresublimits]. Di conseguenza, poiché ogni soluzione preconfigurata effettua il provisioning di un nuovo hub IoT, è possibile effettuare il provisioning solo di un massimo di 10 soluzioni preconfigurate in una determinata sottoscrizione. 
+È possibile eseguire il provisioning di 10 hub IoT per ogni sottoscrizione. Anche se è possibile creare un [ticket di supporto di Azure][link-azuresupportticket] per aumentare questo limite, per impostazione predefinita è possibile effettuare il provisioning solo di 10 hub IoT per ogni sottoscrizione, come descritto in [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi][link-azuresublimits]. Di conseguenza, poiché ogni soluzione preconfigurata effettua il provisioning di un nuovo hub IoT, è possibile effettuare il provisioning solo di un massimo di 10 soluzioni preconfigurate in una determinata sottoscrizione. 
 
 ### <a name="how-many-documentdb-instances-can-i-provision-in-a-subscription"></a>Di quante istanze di DocumentDB è possibile eseguire il provisioning in una sottoscrizione?
 Cinquanta. Anche se è possibile creare un [ticket di supporto di Azure][link-azuresupportticket] per aumentare questo limite, per impostazione predefinita è possibile effettuare il provisioning solo di 50 istanze di DocumentDB per ogni sottoscrizione. 
@@ -80,6 +80,6 @@ Vedere il post del blog di Eric Golpe relativo alla [procedura dettagliata di el
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

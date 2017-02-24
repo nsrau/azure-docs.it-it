@@ -3,34 +3,31 @@ title: Copiare un database SQL di Azure tramite il portale di Azure | Documentaz
 description: Creare una copia di un database SQL di Azure
 services: sql-database
 documentationcenter: 
-author: stevestein
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: daa6f079-13ed-462f-b346-e201aa61681b
 ms.service: sql-database
 ms.custom: migrate and move
 ms.devlang: NA
-ms.date: 09/19/2016
-ms.author: sstein
+ms.date: 02/07/2017
+ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 867f06c1fae3715ab03ae4a3ff4ec381603e32f7
-ms.openlocfilehash: 57bc3c00a1ea79ac69b62965a77debea91c6002e
+ms.sourcegitcommit: 60bcd02d24e2084b9020ce56ef6a9f8268c6b1b5
+ms.openlocfilehash: 5da07683a4ca9fe1751debc163a0a5a595b6f82b
 
 
 ---
 # <a name="copy-an-azure-sql-database-using-the-azure-portal"></a>Copiare un database SQL di Azure tramite il portale di Azure
-> [!div class="op_single_selector"]
-> * [Panoramica](sql-database-copy.md)
-> * [Portale di Azure](sql-database-copy-portal.md)
-> * [PowerShell](sql-database-copy-powershell.md)
-> * [T-SQL](sql-database-copy-transact-sql.md)
-> 
-> 
 
-La procedura seguente illustra come copiare un database SQL tramite il [portale di Azure](https://portal.azure.com) nello stesso server o in un server diverso.
+La procedura seguente illustra come copiare un database SQL tramite il [portale di Azure](https://portal.azure.com) nello stesso server o in un server diverso. 
+
+> [!NOTE]
+> È possibile anche copiare un database SQL database usando [PowerShell](sql-database-copy-powershell.md) o [Transact-SQL](sql-database-copy-transact-sql.md).
+>
 
 Per copiare un database SQL è necessario quanto segue:
 
@@ -47,7 +44,7 @@ Aprire la pagina del database SQL per il database che si desidera copiare:
    ![Database SQL](./media/sql-database-copy-portal/sql-database-copy.png)
 4. Nella pagina **Copia** viene fornito un nome predefinito del database. È possibile digitare un nome diverso. Tutti i database in un server devono avere nomi univoci.
 5. Selezionare un **server di destinazione**. Il server di destinazione è il server in cui verrà creata la copia del database. È possibile copiare il database nello stesso server o su un altro server. È possibile creare un nuovo server o selezionare un server esistente dall'elenco. 
-6. Dopo aver selezionato il **Server di destinazione**, saranno abilitate le opzioni **Pool di database elastici** e **Piano tariffario**. Se il server dispone di un pool, è possibile copiarvi il database.
+6. Dopo aver selezionato il **Server di destinazione**, saranno abilitate le opzioni **Pool elastico** e **Piano tariffario**. Se il server dispone di un pool, è possibile copiarvi il database.
 7. Fare clic su **OK** per avviare il processo di copia.
    
    ![Database SQL](./media/sql-database-copy-portal/copy-page.png)
@@ -66,15 +63,8 @@ Aprire la pagina del database SQL per il database che si desidera copiare:
 Per risolvere gli account di accesso al termine dell'operazione di copia, vedere [Risolvere gli account di accesso](sql-database-copy-transact-sql.md#resolve-logins-after-the-copy-operation-completes)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Vedere [Copiare un database SQL di Azure](sql-database-copy.md) per una panoramica su come copiare un database SQL di Azure.
-* Vedere [Copiare un database SQL di Azure con PowerShell](sql-database-copy-powershell.md) per copiare un database tramite PowerShell.
-* Vedere [Copiare un database SQL di Azure con Transact-SQL](sql-database-copy-transact-sql.md) per copiare un database usando Transact-SQL.
-* Vedere [Come gestire la sicurezza dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md) per informazioni sulla gestione di utenti e account di accesso durante la copia di un database in un server logico diverso.
-
-## <a name="additional-resources"></a>Risorse aggiuntive
-* [Gestire gli accessi](sql-database-manage-logins.md)
-* [Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio](sql-database-connect-query-ssms.md)
-* [Esportare il database in un BACPAC](sql-database-export.md)
+* Per informazioni sulla gestione di utenti e account di accesso durante la copia di un database in un server logico diverso, vedere [Come gestire la sicurezza dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md).
+* Per esportare un database in un file BACPAC usando il portale di Azure, vedere [Esportare il database in un file BACPAC usando il portale di Azure](sql-database-export-portal.md).
 * [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
 * [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
@@ -87,6 +77,6 @@ Per risolvere gli account di accesso al termine dell'operazione di copia, vedere
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

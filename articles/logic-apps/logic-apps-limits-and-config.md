@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: b2845e1835c5571909a911b1eb0bfd61ac00da86
+ms.sourcegitcommit: fa27b0399d98f13ee3c4f4059067fb78e087befd
+ms.openlocfilehash: 933e14358875b384a254ab3c1d0bdb453a0fa8ae
 
 
 ---
@@ -81,7 +81,7 @@ Di seguito sono riportati i limiti per una singola istanza di app per la logica.
 
 |Nome|Limite|Note|
 |----|----|----|
-|Trigger al secondo|100|È possibile distribuire i flussi di lavoro tra più app, se necessario|
+|Esecuzioni di azioni al secondo|100|È possibile distribuire i flussi di lavoro tra più app, se necessario|
 
 ### <a name="definition-limits"></a>Limiti delle definizioni
 
@@ -182,6 +182,7 @@ Le chiamate effettuate da un [connettore](../connectors/apis-list.md) proverrann
 - [Informazioni su come integrare i sistemi correnti con le app per la logica](http://channel9.msdn.com/Events/Build/2016/P462)
 
 
-<!--HONumber=Jan17_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

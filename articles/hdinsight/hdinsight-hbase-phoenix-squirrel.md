@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 02/09/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: e2d78b7e71cd17c88ce4e283cc0b0ddc9bf7b479
-ms.openlocfilehash: bcefe7e0b0f1836dc77709329a07dd8d009abbb2
+ms.sourcegitcommit: cd7e8564d24e45bad291c3632021f96fb1584b6f
+ms.openlocfilehash: 730cf9be80be5c5381148f138c3a437beb95c340
 
 
 ---
-# <a name="use-apache-phoenix-and-squirrel-with-windows-based-hbase-clusters-in-hdinsight"></a>Usare Apache Phoenix e SQuirreL con i cluster HBase basati su Windows in HDinsight
+# <a name="use-apache-phoenix-and-squirrel-with-windows-based-hbase-clusters-in-hdinsight"></a>Usare Apache Phoenix e SQuirreL con i cluster HBase basati su Windows in HDInsight
 Informazioni su come usare [Apache Phoenix](http://phoenix.apache.org/) in HDInsight e su come installare e configurare SQuirrel sulla workstation per la connessione a un cluster HBase in HDInsight. Per altre informazioni su Phoenix, vedere la [breve panoramica su Phoenix](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Per la grammatica Phoenix, vedere [Grammatica Phoenix](http://phoenix.apache.org/language/index.html).
 
 > [!NOTE]
@@ -28,7 +28,7 @@ Informazioni su come usare [Apache Phoenix](http://phoenix.apache.org/) in HDIns
 >
 
 > [!IMPORTANT]
-> I passaggi descritti in questo documento funzionano solo con i cluster HDInsight basati su Windows. HDInsight è disponibile in Windows solo per le versioni precedenti a HDInsight 3.4. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Per informazioni sull'uso di Phoenix su HDInsight basato su Linux, vedere [Usare Apache Phoenix con cluster HBase basati su Linux in HDinsight](hdinsight-hbase-phoenix-squirrel-linux.md).
+> I passaggi descritti in questo documento funzionano solo con i cluster HDInsight basati su Windows. HDInsight è disponibile in Windows solo per le versioni precedenti a HDInsight 3.4. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Per informazioni sull'uso di Phoenix su HDInsight basato su Linux, vedere [Usare Apache Phoenix con cluster HBase basati su Linux in HDInsight](hdinsight-hbase-phoenix-squirrel-linux.md).
 >
 
 
@@ -83,10 +83,6 @@ Prima di iniziare le procedure sono necessari:
 
 * Un cluster HBase distribuito in una rete virtuale di Azure con una macchina virtuale DNS.  Per istruzioni, vedere [Creare cluster HBase nella rete virtuale di Azure][hdinsight-hbase-provision-vnet].
 
-  > [!IMPORTANT]
-  > È necessario installare un server DNS nella rete virtuale. Per istruzioni, vedere [Configurare DNS tra due reti virtuali di Azure](hdinsight-hbase-geo-replication-configure-dns.md)
-  >
-  >
 * Ottenere il suffisso DNS specifico della connessione per il cluster HBase. Per ottenerlo, effettuare una connessione RDP al cluster e quindi eseguire IPConfig.  Il suffisso DNS è simile a:
 
         myhbase.b7.internal.cloudapp.net
@@ -158,7 +154,7 @@ Un modo per creare un certificato X.509 consiste nell'usare lo strumento di crea
 
     Il certificato radice e il certificato client vengono archiviati nell'archivio certificati personali del computer. Usare certmgr.msc per verificare.
 
-    ![Certificato vpn Point-to-Site della rete virtuale di Azure][img-certificate]
+    ![Certificato VPN Point-to-Site della rete virtuale di Azure][img-certificate]
 
     Un certificato client deve essere installato in ogni computer che si connette alla rete virtuale. Si consiglia di creare client univoci certificati per ogni computer che si desidera connettersi alla rete virtuale. Per esportare i certificati client, usare certmgr.msc.
 
@@ -295,6 +291,6 @@ In questo articolo si è appreso come usare Apache Phoenix in HDInsight.  Per al
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

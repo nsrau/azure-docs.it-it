@@ -15,8 +15,8 @@ ms.date: 01/17/2017
 ms.author: spelluru
 published: true
 translationtype: Human Translation
-ms.sourcegitcommit: 65c036240618f3e426707d57eeb6b194410a9084
-ms.openlocfilehash: 0110a2d21e7e83d2a185962eb120c560cc0ac0b6
+ms.sourcegitcommit: db0face48d84680eabd82245bd38bd49b204f9ae
+ms.openlocfilehash: a88b791bad9f71f16700ccc7efdee8ef493478a9
 
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Note sulla versione di Gateway di gestione dati
@@ -27,15 +27,36 @@ Vedere gli articoli seguenti per informazioni dettagliate su Gateway di gestione
 *  [Gateway di gestione dati](data-factory-data-management-gateway.md)
 *  [Spostare dati tra un ambiente locale e il cloud mediante Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) 
 
-## <a name="current-version-2561641"></a>VERSIONE CORRENTE (2.5.6164.1)
+
+## <a name="current-version-2762192"></a>VERSIONE CORRENTE (2.7.6219.2)
+
+### <a name="whats-new"></a>Novità
+- È ora possibile eseguire l'autenticazione in Azure Data Lake Store tramite l'entità servizio. In precedenza era supportato solo OAuth.
+- È stato incluso un nuovo driver per la lettura dei dati da Oracle nell'archivio dati locale nel gateway.
+
+### <a name="enhancements-"></a>Miglioramenti
+- Sono state migliorate le prestazioni di lettura di dati dall'origine dati Oracle.
+- Risolto: problema di scadenza del token OAuth nell'origine OData.
+- Risolto: problema causato dall'impossibilità di leggere i decimali superiori ai 28 bit in Oracle.
+
+
+## <a name="earlier-versions"></a>Versioni precedenti
+
+## <a name="2661922"></a>2.6.6192.2
+### <a name="whats-new"></a>Novità
+- Gli utenti possono fornire commenti e suggerimenti sull'esperienza di registrazione del gateway.
+- Supporta il nuovo formato di compressione ZIP (Deflate)
+
+### <a name="enhancements-"></a>Miglioramenti
+- Miglioramento delle prestazioni per Oracle Sink, origine HDFS.
+- Correzione di bug per l'aggiornamento automatico del gateway, capacità di elaborazione parallela del gateway.
+
+
+## <a name="2561641"></a>2.5.6164.1
 ### <a name="enhancements"></a>Miglioramenti
 - Esperienza di registrazione del gateway migliorata e più affidabile. L'esperienza risulta più efficiente grazie alla possibilità di tenere traccia dello stato di avanzamento durante il processo di registrazione del gateway.
 - Miglioramento del processo di ripristino del gateway. Con questo aggiornamento è possibile ripristinare il gateway anche se non si ha il relativo file di backup. Sarà necessario reimpostare le credenziali del servizio collegato nel portale.
 - Correzione di bug.
-
-
-
-## <a name="earlier-versions"></a>Versioni precedenti
 
 ## <a name="2461511"></a>2.4.6151.1
 
@@ -216,6 +237,6 @@ Vedere gli articoli seguenti per informazioni dettagliate su Gateway di gestione
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

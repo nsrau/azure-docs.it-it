@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2016
+ms.date: 02/10/2017
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
-ms.openlocfilehash: 64234747b92379e50edb800d03353be346c4d319
+ms.sourcegitcommit: 394315f81cf694cc2bb3a28b45694361b11e0670
+ms.openlocfilehash: d7df8f3271c6c92df427a840d73fdb9a0c6b54a1
 
 ---
 
@@ -39,7 +39,27 @@ Attualmente, per configurare il bilanciamento del carico in configurazioni IP se
 
 [!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
-Per registrarsi all'anteprima, inviare un messaggio di posta elettronica a [IP multipli](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) con l'ID sottoscrizione e l'uso previsto.
+Eseguire la registrazione per l'anteprima eseguendo i comandi seguenti in PowerShell dopo aver effettuato l'accesso, quindi selezionare la sottoscrizione appropriata:
+
+```
+Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+```
+
+Non tentare di completare i passaggi rimanenti fino a quando non viene visualizzato il seguente output all'esecuzione del comando ```Get-AzureRmProviderFeature```:
+        
+```powershell
+FeatureName                            ProviderName      RegistrationState
+-----------                            ------------      -----------------      
+AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+```
+        
+>[!NOTE] 
+>L'operazione potrebbe richiedere alcuni minuti.
 
 ## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>Procedura per il bilanciamento del carico in più configurazioni IP
 
@@ -150,6 +170,6 @@ Per ottenere lo scenario descritto in questo articolo, seguire questa procedura:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

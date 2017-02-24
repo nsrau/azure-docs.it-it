@@ -12,18 +12,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 02/14/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 52a5dc6b832fb1314ef5994e932b1fe2b5e5de0b
+ms.sourcegitcommit: 8929a1697bf88da82fc027520d0126eaef872840
+ms.openlocfilehash: ec7bdf6b27cc073324d0d3a79b268e9730a6016b
 
 
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-redis-cache"></a>Come configurare il clustering Redis per una Cache Redis di Azure Premium
-Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache, incluso il nuovo livello Premium.
-
-Il livello Premium di Cache Redis di Azure include una serie di funzioni, tra cui il clustering, la persistenza e il supporto della rete virtuale. In questo articolo viene descritto come configurare il clustering in un'istanza Premium di Cache Redis di Azure.
+Cache Redis di Azure dispone di diverse offerte di cache che assicurano flessibilità nella scelta delle funzionalità e delle dimensioni della cache, incluse le funzionalità del livello Premium quali clustering, persistenza e supporto della rete virtuale. In questo articolo viene descritto come configurare il clustering in un'istanza Premium di Cache Redis di Azure.
 
 Per informazioni su altre funzionalità di cache premium, vedere [Introduzione al piano Premium di Cache Redis di Azure](cache-premium-tier-intro.md).
 
@@ -56,12 +54,18 @@ Ogni partizione è una coppia di cache primaria/di replica gestita da Azure e la
 
 Una volta creata la cache è possibile connettersi alla cache e usarla come una cache non in cluster e Redis distribuirà i dati tra le partizioni della cache. Se la diagnostica è [abilitata](cache-how-to-monitor.md#enable-cache-diagnostics), le metriche vengono acquisite separatamente per ogni partizione e possono essere [visualizzate](cache-how-to-monitor.md) nel pannello della Cache Redis. 
 
+> [!NOTE]
+> 
+> Sono richieste alcune lievi modifiche all'applicazione client quando le funzionalità di clustering vengono configurate. Per altre informazioni, vedere [È necessario apportare modifiche all'applicazione client per usare il clustering?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+> 
+> 
+
 Per un codice di esempio sull'uso del clustering con il client StackExchange.Redis, vedere la porzione [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) dell'esempio [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld).
 
 <a name="cluster-size"></a>
 
 ## <a name="change-the-cluster-size-on-a-running-premium-cache"></a>Modificare la dimensione del cluster in una cache premium in esecuzione
-Per modificare la dimensione di una cache premium in esecuzione con il clustering abilitato, fare clic su **(ANTEPRIMA) dimensione del cluster Redis** dal pannello **Impostazioni**.
+Per modificare la dimensione di un cluster per una cache premium in esecuzione con il clustering abilitato, fare clic su **(ANTEPRIMA) dimensione del cluster Redis** dal **menu Risorse**.
 
 > [!NOTE]
 > Si noti che mentre il livello Premium della Cache Redis di Azure è stato rilasciato pubblicamente, la funzionalità dimensione del Cluster Redis è attualmente in anteprima.
@@ -120,7 +124,7 @@ Non tutti i client supportano attualmente il clustering Redis. StackExchange.Red
 > 
 
 ### <a name="how-do-i-connect-to-my-cache-when-clustering-is-enabled"></a>Come ci si connette alla cache quando il clustering è abilitato?
-È possibile connettersi alla cache con gli stessi [endpoint, porte e chiavi](cache-configure.md#properties) usati per la connessione a una cache senza clustering abilitato. Redis gestisce il clustering sul back-end in modo che non sia necessario gestirlo dal client.
+È possibile connettersi alla cache con gli stessi [endpoint](cache-configure.md#properties), [porte](cache-configure.md#properties) e [chiavi](cache-configure.md#access-keys) usati per la connessione a una cache senza clustering abilitato. Redis gestisce il clustering sul back-end in modo che non sia necessario gestirlo dal client.
 
 ### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache"></a>È possibile connettersi direttamente a singole partizioni della cache?
 Questa operazione non è supportata ufficialmente. Detto questo, ogni partizione è costituita da una coppia di cache primaria/di replica nota nel suo complesso come un'istanza della cache. È possibile connettersi tramite l'utilità cli redis in queste istanze di cache nel ramo [instabile](http://redis.io/download) del repository Redis in GitHub. Questa versione implementa il supporto di base quando avviata con il passaggio `-c` . Per altre informazioni vedere [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) (Usare il cluster) all'indirizzo [http://redis.io](http://redis.io) nell'[esercitazione sul cluster Redis](http://redis.io/topics/cluster-tutorial).
@@ -143,7 +147,7 @@ Il clustering è disponibile esclusivamente per le cache Premium.
 
 ### <a name="can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers"></a>È possibile usare il clustering con il provider di stato della sessione ASP.NET Redis e il provider di cache di output?
 * **Provider di cache di output Redis** : nessuna modifica necessaria.
-* **Provider di stato della sessione Redis**: per usare il clustering, è necessario usare [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 o versione successiva. In caso contrario, verrà generata un'eccezione. Si tratta di una modifica significativa. Per altre informazioni, vedere la pagina relativa ai [dettagli delle modifiche significative della versione 2.0.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
+* **Provider di stato della sessione Redis**: per usare il clustering, è necessario usare [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 o versione successiva. In caso contrario, verrà generata un'eccezione. Si tratta di una modifica significativa. Per altre informazioni, vedere la pagina relativa ai [dettagli delle modifiche significative della versione&2;.0.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
 
 <a name="move-exceptions"></a>
 
@@ -172,6 +176,6 @@ Informazioni su come usare altre funzionalità di cache premium.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

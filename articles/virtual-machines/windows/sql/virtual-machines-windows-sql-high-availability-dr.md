@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/15/2016
+ms.date: 02/07/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: fbde757e44d05bf14f9337b47865edfb53894f10
+ms.sourcegitcommit: e43906fda1f5abc38c138b55c991c4ef8c550aa0
+ms.openlocfilehash: 93696222ca82573194541bfa95263f23fe3e2c39
 
 
 ---
@@ -36,27 +36,27 @@ Neppure l'archiviazione con ridondanza geografica di Azure, implementata con una
 Le tecnologie HADR di SQL Server supportate in Azure includono:
 
 * [Gruppi di disponibilità AlwaysOn](https://technet.microsoft.com/library/hh510230.aspx)
-* [Mirroring del database](https://technet.microsoft.com/library/ms189852.aspx)
-* [Log shipping](https://technet.microsoft.com/library/ms187103.aspx)
-* [Backup e ripristino con il servizio di archiviazione BLOB di Azure](https://msdn.microsoft.com/library/jj919148.aspx)
 * [Istanze del cluster di failover AlwaysOn](https://technet.microsoft.com/library/ms189134.aspx)
+* [Log shipping](https://technet.microsoft.com/library/ms187103.aspx)
+* [Backup e ripristino di SQL Server con il servizio di archiviazione BLOB di Azure](https://msdn.microsoft.com/library/jj919148.aspx)
+* [Mirroring del database](https://technet.microsoft.com/library/ms189852.aspx) - Deprecato in SQL Server 2016
 
 È possibile combinare le tecnologie per implementare una soluzione di SQL Server che disponga di funzionalità di disponibilità elevata e ripristino di emergenza. A seconda della tecnologia in uso, una distribuzione ibrida può richiedere un tunnel VPN con la rete virtuale di Azure. Le sezioni seguenti illustrano alcune architetture di distribuzione di esempio.
 
 ## <a name="azure-only-high-availability-solutions"></a>Solo Azure: soluzioni di disponibilità elevata
-È possibile avere una soluzione a disponibilità elevata per i database di SQL Server in Azure tramite i gruppi di disponibilità AlwaysOn o il mirroring del database.
+È possibile avere una soluzione a disponibilità elevata per i database di SQL Server in Azure tramite le funzionalità AlwaysOn tra cui i gruppi di disponibilità o le istanze del cluster di failover.
 
 | Tecnologia | Architetture di esempio |
 | --- | --- |
-| **Gruppi di disponibilità AlwaysOn** |Tutte le repliche di disponibilità in esecuzione nelle macchine virtuali di Azure per la disponibilità elevata nella stessa area. È necessario configurare una macchina virtuale da usare come controller di dominio perché Windows Server Failover Clustering (WSFC) richiede un dominio di Active Directory.<br/> ![Gruppi di disponibilità AlwaysOn](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_ha_always_on.gif)<br/>Per altre informazioni, vedere [Configurare i gruppi di disponibilità AlwaysOn nelle VM di Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md). |
-| **Istanze del cluster di failover AlwaysOn** |Le istanze del cluster di failover, che richiedono l'archivio condiviso, possono essere create in 2 modi diversi.<br/><br/>1. Un'istanza del cluster di failover su un cluster WSFC a due nodi in esecuzione su macchine virtuali di Azure con archiviazione supportata da una soluzione di clustering di terze parti. Per un esempio specifico che usa SIOS DataKeeper, vedere l'articolo relativo alla [disponibilità elevata per una condivisione file basata su WSFC e sul software di terze parti SIOS Datakeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).<br/><br/>2. Un'istanza del cluster di failover su un cluster WSFC a due nodi in esecuzione su macchine virtuali di Azure con archiviazione a blocchi condivisa su una destinazione iSCSI remota tramite ExpressRoute. Ad esempio, NetApp Private Storage (NPS) espone una destinazione iSCSI tramite ExpressRoute con Equinix a macchine virtuali di Azure.<br/><br/>Per le soluzioni di replica dei dati e di archiviazione condivisa di terze parti, contattare il fornitore per eventuali problemi di accesso ai dati durante il failover.<br/><br/>Si noti che non è ancora supportato l'uso di istanze del cluster di failover nell' [archivio file di Azure](https://azure.microsoft.com/services/storage/files/) , perché questa soluzione non usa l'archiviazione Premium. Questo tipo di supporto verrà introdotto a breve. |
+| **Gruppi di disponibilità AlwaysOn** |Le repliche di disponibilità in esecuzione nelle macchine virtuali di Azure nella stessa area assicurano disponibilità elevata. È necessario configurare una macchina virtuale da usare come controller di dominio perché Windows Server Failover Clustering (WSFC) richiede un dominio di Active Directory.<br/> ![Gruppi di disponibilità AlwaysOn](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_ha_always_on.gif)<br/>Per altre informazioni, vedere [Configurare i gruppi di disponibilità AlwaysOn nelle VM di Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md). |
+| **Istanze del cluster di failover AlwaysOn** |Le istanze del cluster di failover, che richiedono l'archiviazione condivisa, possono essere create in 3 modi diversi.<br/><br/>1. Un cluster WSFC a due nodi in esecuzione su macchine virtuali di Azure con archiviazione collegata che usa [Spazi di archiviazione diretta in Windows Server 2016 \(S2D\) ](virtual-machines-windows-portal-sql-create-failover-cluster.md) per fornire una SAN virtuale basata su software.<br/><br/>2. Un cluster WSFC a due nodi in esecuzione su macchine virtuali di Azure con archiviazione supportata da una soluzione di clustering di terze parti. Per un esempio specifico che usa SIOS DataKeeper, vedere l'articolo relativo alla [disponibilità elevata per una condivisione file basata su WSFC e sul software di terze parti SIOS Datakeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).<br/><br/>3. Un cluster WSFC a due nodi in esecuzione su macchine virtuali di Azure con archiviazione a blocchi condivisa su una destinazione iSCSI remota tramite ExpressRoute. Ad esempio, NetApp Private Storage (NPS) espone una destinazione iSCSI tramite ExpressRoute con Equinix a macchine virtuali di Azure.<br/><br/>Per le soluzioni di replica dei dati e di archiviazione condivisa di terze parti, contattare il fornitore per eventuali problemi di accesso ai dati durante il failover.<br/><br/>Si noti che non è ancora supportato l'uso di istanze del cluster di failover nell' [archivio file di Azure](https://azure.microsoft.com/services/storage/files/) , perché questa soluzione non usa l'archiviazione Premium. Questo tipo di supporto verrà introdotto a breve. |
 
 ## <a name="azure-only-disaster-recovery-solutions"></a>Solo Azure: soluzioni di ripristino di emergenza
 È possibile avere una soluzione di ripristino di emergenza per i database di SQL Server in Azure tramite i gruppi di disponibilità AlwaysOn, il mirroring del database o le funzionalità di backup e ripristino con i BLOB di archiviazione.
 
 | Tecnologia | Architetture di esempio |
 | --- | --- |
-| **Gruppi di disponibilità AlwaysOn** |Repliche di disponibilità in esecuzione tra più data center nelle macchine virtuali di Azure per il ripristino di emergenza. Questa soluzione per più aree protegge dalla completa interruzione dell'alimentazione del sito. <br/> ![Gruppi di disponibilità AlwaysOn](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_alwayson.png)<br/>Nell'ambito di un'area tutte le repliche dovranno risiedere nello stesso servizio cloud e nella stessa rete virtuale. Poiché ogni area sarà caratterizzata da una rete virtuale separata, queste soluzioni richiedono la connettività da rete virtuale a rete virtuale. Per altre informazioni, vedere [Configurare una VPN da sito a sito nel portale di Azure classico](../../../vpn-gateway/vpn-gateway-site-to-site-create.md). |
+| **Gruppi di disponibilità AlwaysOn** |Repliche di disponibilità in esecuzione tra più data center nelle macchine virtuali di Azure per il ripristino di emergenza. Questa soluzione per più aree protegge dalla completa interruzione dell'alimentazione del sito. <br/> ![Gruppi di disponibilità AlwaysOn](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_alwayson.png)<br/>Nell'ambito di un'area tutte le repliche dovranno risiedere nello stesso servizio cloud e nella stessa rete virtuale. Poiché ogni area sarà caratterizzata da una rete virtuale separata, queste soluzioni richiedono la connettività da rete virtuale a rete virtuale. Per altre informazioni, vedere [Configurare una VPN da sito a sito nel portale di Azure classico](../../../vpn-gateway/vpn-gateway-site-to-site-create.md). Per istruzioni dettagliate, vedere [Configurare un gruppo di disponibilità SQL Server AlwaysOn in Macchine virtuali di Azure](virtual-machines-windows-portal-sql-availability-group-dr.md).|
 | **Mirroring del database** |Tutti i server principali, mirror e di controllo in esecuzione in diversi data center per il ripristino di emergenza. È necessario eseguire la distribuzione usando certificati del server perché un dominio di Active Directory non può essere esteso a più data center.<br/>![Mirroring del database](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_dbmirroring.gif) |
 | **Backup e ripristino con il servizio di archiviazione BLOB di Azure** |Il backup dei database di produzione viene eseguito direttamente nell'archiviazione BLOB in un data center diverso per il ripristino di emergenza.<br/>![Backup e ripristino](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_backup_restore.gif)<br/>Per altre informazioni, vedere [Backup e ripristino per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-backup-recovery.md). |
 
@@ -139,6 +139,6 @@ Per altri argomenti relativi all'esecuzione di SQL Server nelle macchine virtual
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

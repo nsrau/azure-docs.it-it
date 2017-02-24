@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2016
+ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
-ms.openlocfilehash: 1fbf8cd4347c5a49fe7769fd8d02c2dbfddfc74e
+ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
+ms.openlocfilehash: 41c3e20dc059ecc344cba6ca09ec04892e202d63
 
 
 ---
@@ -81,7 +81,7 @@ SQuirreL SQL è un client JDBC che può essere usato per eseguire in modalità r
             Sostituire **USERNAME** con il nome dell'account utente SSH per il cluster. Sostituire **CLUSTERNAME** con il nome del cluster HDInsight.
         
         > [!NOTE]
-        > Negli ambienti Windows è necessario usare l'utilità PSCP anziché scp. È disponibile per il download all'indirizzo [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+        > Negli ambienti Windows il comando `scp` non è sempre disponibile. In questo caso usare l'utilità PSCP. È disponibile per il download all'indirizzo [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
     * Per **HDInsight basato su Windows**, seguire questa procedura per scaricare i file JAR.
      
@@ -199,6 +199,6 @@ Dopo avere appreso come usare JDBC con Hive, vedere i collegamenti seguenti per 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

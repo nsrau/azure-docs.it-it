@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/22/2016
 ms.author: mfussell
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 160d6a41fc1ea3eecd39e8ad199bc5e69f236061
+ms.sourcegitcommit: dfc2af63c7acb1fef47abb329a385cd7448d2186
+ms.openlocfilehash: 6bbffcfd8acc531fd70c9db90a9f57d8db942002
 
 
 ---
@@ -51,6 +51,9 @@ I microservizi con stato semplificano la progettazione delle applicazioni perch√
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Passaggi successivi
 * Per iniziare a creare servizi con e senza stato, usare i modelli di programmazione [Reliable Services](service-fabric-reliable-services-quick-start.md) e [Reliable Actors](service-fabric-reliable-actors-get-started.md) di Service Fabric.
+* Altre informazioni su [modelli e scenari](service-fabric-patterns-and-scenarios.md).
+* Informazioni sui [casi di studio dei clienti](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=qDJnf86yC_5206218965
+).
 * Vedere anche gli argomenti seguenti:
   * [Informazioni sui microservizi](service-fabric-overview-microservices.md)
   * [Definire e gestire lo stato del servizio](service-fabric-concepts-state.md)
@@ -63,6 +66,6 @@ I microservizi con stato semplificano la progettazione delle applicazioni perch√
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

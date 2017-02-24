@@ -12,32 +12,29 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/08/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 502991093c2f3c38f37a6cb4e3770459b7d5ee78
-ms.openlocfilehash: 9a06ba91dea57ef2298f2b0651a01e56f0b5c4ae
+ms.sourcegitcommit: 445dd0dcd05aa25cc531e2d10cc32ad8f32a6e8c
+ms.openlocfilehash: 98e06e683e6ee473a0747b423ed7cf6ae2b8cfed
 
 
 ---
 # <a name="move-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Spostare dati da e verso Azure SQL Data Warehouse mediante Data factory di Azure
-Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare dati tra Azure SQL Data Warehouse e un altro archivio dati.
+Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare dati tra Azure SQL Data Warehouse e un altro archivio dati. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) , che offre una panoramica generale dello spostamento dei dati con attività di copia e un elenco di archivio dati di origine/di sincronizzazione.
 
-È possibile specificare se si desidera usare PolyBase durante il caricamento dei dati in Azure SQL Data Warehouse. È consigliabile usare PolyBase per ottenere prestazioni ottimali quando si caricano i dati in Azure SQL Data Warehouse. Vedere la sezione [Usare PolyBase per caricare dati in Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) per i dettagli. Per la procedura dettagliata con un caso d'uso, vedere [Caricare 1 TB di dati in Azure SQL Data Warehouse in meno di 15 minuti con Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+> [!TIP]
+> Per ottenere prestazioni ottimali, usare PolyBase per caricare i dati in Azure SQL Data Warehouse. Vedere la sezione [Usare PolyBase per caricare dati in Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) per i dettagli. Per la procedura dettagliata con un caso d'uso, vedere [Caricare 1 TB di dati in Azure SQL Data Warehouse in meno di 15 minuti con Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+>
 
 ## <a name="copy-data-wizard"></a>Copia di dati guidata
-Il modo più semplice di creare una pipeline che copia i dati in/da Azure SQL Data Warehouse consiste nell'usare la procedura Copia di dati guidata. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
+Il modo più semplice di creare una pipeline che copia i dati in/da Azure SQL Data Warehouse consiste nell'usare la procedura Copia di dati guidata. Vedere [Esercitazione: Caricare i dati in SQL Data Warehouse con Data Factory](../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) per una procedura dettagliata rapida per creare una pipeline usando la procedura guidata Copia dati.
 
+> [!TIP]
+> Quando si copiano dati da SQL Server o da Database SQL di Azure in SQL Data Warehouse, se la tabella non esiste nell'archivio di destinazione, Data Factory ne supporta la creazione automatica usando lo schema dell'origine. Provare usando la copia guidata. Altre informazioni sono disponibili in [Creazione automatica tabelle](#auto-table-creation).
+>
 
 Gli esempi seguenti forniscono le definizioni JSON di esempio da usare per creare una pipeline con il [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Tali esempi mostrano come copiare dati in e da Azure SQL Data Warehouse e in e dall'archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** da una delle origini in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.
-
-
-> [!NOTE]
-> Per una panoramica del servizio Azure Data Factory, vedere [Introduzione al servizio Azure Data Factory](data-factory-introduction.md).
->
-> Questo articolo fornisce esempi JSON, ma non include istruzioni dettagliate per la creazione di una data factory. Per una procedura con istruzioni dettagliate sull'uso dell'attività di copia in Azure Data Factory, vedere l'esercitazione [Copiare dati da un archivio BLOB al database SQL usando Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
->
->
 
 ## <a name="sample-copy-data-from-azure-sql-data-warehouse-to-azure-blob"></a>Esempio: Copiare i dati da Azure SQL Data Warehouse al BLOB di Azure
 L'esempio definisce le entità di Data Factory seguenti:
@@ -52,165 +49,170 @@ L'esempio copia ogni ora i dati di una serie temporale (con frequenza oraria, gi
 
 **Servizio collegato di Azure SQL Data Warehouse:**
 
-    {
-      "name": "AzureSqlDWLinkedService",
-      "properties": {
-        "type": "AzureSqlDW",
-        "typeProperties": {
-          "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-        }
-      }
+```JSON
+{
+  "name": "AzureSqlDWLinkedService",
+  "properties": {
+    "type": "AzureSqlDW",
+    "typeProperties": {
+      "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
     }
-
+  }
+}
+```
 **Servizio collegato di archiviazione BLOB di Azure:**
 
-    {
-      "name": "StorageLinkedService",
-      "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-        }
-      }
+```JSON
+{
+  "name": "StorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
     }
-
+  }
+}
+```
 **Set di dati di input di Azure SQL Data Warehouse:**
 
 L'esempio presuppone che sia stata creata una tabella "MyTable" in Azure SQL Data Warehouse e che contenga una colonna denominata "timestampcolumn" per i dati di una serie temporale.
 
 Impostando "external" su "true" si comunica al servizio Data Factory che il set di dati è esterno alla data factory e non è prodotto da un'attività al suo interno.
 
-    {
-      "name": "AzureSqlDWInput",
-      "properties": {
-        "type": "AzureSqlDWTable",
-        "linkedServiceName": "AzureSqlDWLinkedService",
-        "typeProperties": {
-          "tableName": "MyTable"
-        },
-        "external": true,
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
-        },
-        "policy": {
-          "externalData": {
-            "retryInterval": "00:01:00",
-            "retryTimeout": "00:10:00",
-            "maximumRetry": 3
-          }
-        }
+```JSON
+{
+  "name": "AzureSqlDWInput",
+  "properties": {
+    "type": "AzureSqlDWTable",
+    "linkedServiceName": "AzureSqlDWLinkedService",
+    "typeProperties": {
+      "tableName": "MyTable"
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    },
+    "policy": {
+      "externalData": {
+        "retryInterval": "00:01:00",
+        "retryTimeout": "00:10:00",
+        "maximumRetry": 3
       }
     }
-
+  }
+}
+```
 **Set di dati di output del BLOB di Azure:**
 
 I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella per il BLOB viene valutato dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, giorno e ora dell'ora di inizio.
 
-    {
-      "name": "AzureBlobOutput",
-      "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-          "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-          "partitionedBy": [
-            {
-              "name": "Year",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "yyyy"
-              }
-            },
-            {
-              "name": "Month",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "MM"
-              }
-            },
-            {
-              "name": "Day",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "dd"
-              }
-            },
-            {
-              "name": "Hour",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "HH"
-              }
-            }
-          ],
-          "format": {
-            "type": "TextFormat",
-            "columnDelimiter": "\t",
-            "rowDelimiter": "\n"
+```JSON
+{
+  "name": "AzureBlobOutput",
+  "properties": {
+    "type": "AzureBlob",
+    "linkedServiceName": "StorageLinkedService",
+    "typeProperties": {
+      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+      "partitionedBy": [
+        {
+          "name": "Year",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "yyyy"
           }
         },
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
+        {
+          "name": "Month",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "MM"
+          }
+        },
+        {
+          "name": "Day",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "dd"
+          }
+        },
+        {
+          "name": "Hour",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "HH"
+          }
         }
+      ],
+      "format": {
+        "type": "TextFormat",
+        "columnDelimiter": "\t",
+        "rowDelimiter": "\n"
       }
+    },
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
     }
-
+  }
+}
+```
 
 **Pipeline con attività di copia:**
 
 La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **SqlDWSource** e il tipo di **sink** è impostato su **BlobSink**. La query SQL specificata per la proprietà **SqlReaderQuery** consente di selezionare i dati da copiare nell'ultima ora.
 
-    {  
-        "name":"SamplePipeline",
-        "properties":{  
-        "start":"2014-06-01T18:00:00",
-        "end":"2014-06-01T19:00:00",
-        "description":"pipeline for copy activity",
-        "activities":[  
+```JSON
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+    "start":"2014-06-01T18:00:00",
+    "end":"2014-06-01T19:00:00",
+    "description":"pipeline for copy activity",
+    "activities":[  
+      {
+        "name": "AzureSQLDWtoBlob",
+        "description": "copy activity",
+        "type": "Copy",
+        "inputs": [
           {
-            "name": "AzureSQLDWtoBlob",
-            "description": "copy activity",
-            "type": "Copy",
-            "inputs": [
-              {
-                "name": "AzureSqlDWInput"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "AzureBlobOutput"
-              }
-            ],
-            "typeProperties": {
-              "source": {
-                "type": "SqlDWSource",
-                "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
-              },
-              "sink": {
-                "type": "BlobSink"
-              }
-            },
-           "scheduler": {
-              "frequency": "Hour",
-              "interval": 1
-            },
-            "policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "OldestFirst",
-              "retry": 0,
-              "timeout": "01:00:00"
-            }
+            "name": "AzureSqlDWInput"
           }
-         ]
-       }
-    }
-
+        ],
+        "outputs": [
+          {
+            "name": "AzureBlobOutput"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "SqlDWSource",
+            "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+          },
+          "sink": {
+            "type": "BlobSink"
+          }
+        },
+       "scheduler": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "OldestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
+      }
+     ]
+   }
+}
+```
 > [!NOTE]
 > Nell'esempio, la proprietà **sqlReaderQuery** è specificata per SqlDWSource. L'attività di copia esegue questa query nell'origine dell’SQL Data Warehouse di Azure per ottenere i dati.
 >
@@ -233,164 +235,170 @@ L'esempio copia ogni ora i dati di una serie temporale (con frequenza oraria, gi
 
 **Servizio collegato di Azure SQL Data Warehouse:**
 
-    {
-      "name": "AzureSqlDWLinkedService",
-      "properties": {
-        "type": "AzureSqlDW",
-        "typeProperties": {
-          "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-        }
-      }
+```JSON
+{
+  "name": "AzureSqlDWLinkedService",
+  "properties": {
+    "type": "AzureSqlDW",
+    "typeProperties": {
+      "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
     }
-
+  }
+}
+```
 **Servizio collegato di archiviazione BLOB di Azure:**
 
-    {
-      "name": "StorageLinkedService",
-      "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-        }
-      }
+```JSON
+{
+  "name": "StorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
     }
-
+  }
+}
+```
 **Set di dati di input del BLOB di Azure:**
 
 I dati vengono prelevati da un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella e il nome del file per il BLOB vengono valutati dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti di anno, mese e giorno della data/ora di inizio e il nome file usa la parte relativa all'ora. L'impostazione di "external" su "true" comunica al servizio Data Factory che la tabella è esterna alla data factory e non è prodotta da un'attività al suo interno.
 
-    {
-      "name": "AzureBlobInput",
-      "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-          "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
-          "fileName": "{Hour}.csv",
-          "partitionedBy": [
-            {
-              "name": "Year",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "yyyy"
-              }
-            },
-            {
-              "name": "Month",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "MM"
-              }
-            },
-            {
-              "name": "Day",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "dd"
-              }
-            },
-            {
-              "name": "Hour",
-              "value": {
-                "type": "DateTime",
-                "date": "SliceStart",
-                "format": "HH"
-              }
-            }
-          ],
-          "format": {
-            "type": "TextFormat",
-            "columnDelimiter": ",",
-            "rowDelimiter": "\n"
+```JSON
+{
+  "name": "AzureBlobInput",
+  "properties": {
+    "type": "AzureBlob",
+    "linkedServiceName": "StorageLinkedService",
+    "typeProperties": {
+      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+      "fileName": "{Hour}.csv",
+      "partitionedBy": [
+        {
+          "name": "Year",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "yyyy"
           }
         },
-        "external": true,
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
+        {
+          "name": "Month",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "MM"
+          }
         },
-        "policy": {
-          "externalData": {
-            "retryInterval": "00:01:00",
-            "retryTimeout": "00:10:00",
-            "maximumRetry": 3
+        {
+          "name": "Day",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "dd"
+          }
+        },
+        {
+          "name": "Hour",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "HH"
           }
         }
+      ],
+      "format": {
+        "type": "TextFormat",
+        "columnDelimiter": ",",
+        "rowDelimiter": "\n"
+      }
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    },
+    "policy": {
+      "externalData": {
+        "retryInterval": "00:01:00",
+        "retryTimeout": "00:10:00",
+        "maximumRetry": 3
       }
     }
-
+  }
+}
+```
 **Set di dati di output di Azure SQL Data Warehouse:**
 
 Nell’esempio vengono copiati dati in una tabella denominata "MyTable" in Azure SQL Data Warehouse. Creare la tabella in Azure SQL Data Warehouse con lo stesso numero di colonne previsto nel file CSV del BLOB. Alla tabella vengono aggiunte nuove righe ogni ora.
 
-    {
-      "name": "AzureSqlDWOutput",
-      "properties": {
-        "type": "AzureSqlDWTable",
-        "linkedServiceName": "AzureSqlDWLinkedService",
-        "typeProperties": {
-          "tableName": "MyOutputTable"
-        },
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
-        }
-      }
+```JSON
+{
+  "name": "AzureSqlDWOutput",
+  "properties": {
+    "type": "AzureSqlDWTable",
+    "linkedServiceName": "AzureSqlDWLinkedService",
+    "typeProperties": {
+      "tableName": "MyOutputTable"
+    },
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
     }
-
+  }
+}
+```
 **Pipeline con attività di copia**
 
 La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline il tipo di **origine** è impostato su **BlobSource** e il tipo di **sink** è impostato su **SqlDWSink**.
 
-    {  
-        "name":"SamplePipeline",
-        "properties":{  
-        "start":"2014-06-01T18:00:00",
-        "end":"2014-06-01T19:00:00",
-        "description":"pipeline with copy activity",
-        "activities":[  
+```JSON
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+    "start":"2014-06-01T18:00:00",
+    "end":"2014-06-01T19:00:00",
+    "description":"pipeline with copy activity",
+    "activities":[  
+      {
+        "name": "AzureBlobtoSQLDW",
+        "description": "Copy Activity",
+        "type": "Copy",
+        "inputs": [
           {
-            "name": "AzureBlobtoSQLDW",
-            "description": "Copy Activity",
-            "type": "Copy",
-            "inputs": [
-              {
-                "name": "AzureBlobInput"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "AzureSqlDWOutput"
-              }
-            ],
-            "typeProperties": {
-              "source": {
-                "type": "BlobSource",
-                "blobColumnSeparators": ","
-              },
-              "sink": {
-                "type": "SqlDWSink"
-              }
-            },
-           "scheduler": {
-              "frequency": "Hour",
-              "interval": 1
-            },
-            "policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "OldestFirst",
-              "retry": 0,
-              "timeout": "01:00:00"
-            }
+            "name": "AzureBlobInput"
           }
-          ]
-       }
-    }
-
-Per una procedura dettagliata, vedere l'articolo [Caricare i dati con Azure Data Factory](../sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md) nella documentazione di Azure SQL Data Warehouse.
+        ],
+        "outputs": [
+          {
+            "name": "AzureSqlDWOutput"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "BlobSource",
+            "blobColumnSeparators": ","
+          },
+          "sink": {
+            "type": "SqlDWSink",
+            "allowPolyBase": true
+          }
+        },
+       "scheduler": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "OldestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
+      }
+      ]
+   }
+}
+```
+Per una procedura dettagliata, vedere gli articoli [Caricare 1 TB di dati in Azure SQL Data Warehouse in meno di 15 minuti con Azure Data Factory](data-factory-load-sql-data-warehouse.md) e [Caricare i dati con Azure Data Factory](../sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md) nella documentazione di Azure SQL Data Warehouse.
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente fornisce la descrizione degli elementi JSON specifici del servizio collegato di Azure SQL Data Warehouse
@@ -398,7 +406,7 @@ La tabella seguente fornisce la descrizione degli elementi JSON specifici del se
 | Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | type |La proprietà del tipo deve essere impostata su: **AzureSqlDW** |Sì |
-| **connectionString** |Specificare le informazioni necessarie per connettersi all'istanza di Azure SQL Data Warehouse per la proprietà connectionString. |Sì |
+| connectionString |Specificare le informazioni necessarie per connettersi all'istanza di Azure SQL Data Warehouse per la proprietà connectionString. |Sì |
 
 > [!IMPORTANT]
 > Configurare il [firewall del database SQL di Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) e il server di database in modo da [consentire ai servizi di Azure di accedere al server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Se si copiano dati in Azure SQL Data Warehouse dall'esterno di Azure e da origini dati locali con gateway di data factory, configurare anche un intervallo di indirizzi IP appropriato per il computer che invia dati ad Azure SQL Data Warehouse.
@@ -440,32 +448,35 @@ In alternativa, è possibile specificare una stored procedure indicando i parame
 Se non si specifica sqlReaderQuery o sqlReaderStoredProcedureName, le colonne definite nella sezione della struttura del set di dati JSON vengono usate per compilare una query da eseguire su Azure SQL Data Warehouse. Esempio: `select column1, column2 from mytable`. Se la definizione del set di dati non dispone della struttura, vengono selezionate tutte le colonne della tabella.
 
 #### <a name="sqldwsource-example"></a>Esempio SqlDWSource
-    "source": {
-        "type": "SqlDWSource",
-        "sqlReaderStoredProcedureName": "CopyTestSrcStoredProcedureWithParameters",
-        "storedProcedureParameters": {
-            "stringData": { "value": "str3" },
-            "id": { "value": "$$Text.Format('{0:yyyy}', SliceStart)", "type": "Int"}
-        }
-    }
 
+```JSON
+"source": {
+    "type": "SqlDWSource",
+    "sqlReaderStoredProcedureName": "CopyTestSrcStoredProcedureWithParameters",
+    "storedProcedureParameters": {
+        "stringData": { "value": "str3" },
+        "identifier": { "value": "$$Text.Format('{0:yyyy}', SliceStart)", "type": "Int"}
+    }
+}
+```
 **Definizione della stored procedure:**
 
-    CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
-    (
-        @stringData varchar(20),
-        @id int
-    )
-    AS
-    SET NOCOUNT ON;
-    BEGIN
-         select *
-         from dbo.UnitTestSrcTable
-         where dbo.UnitTestSrcTable.stringData != stringData
-        and dbo.UnitTestSrcTable.id != id
-    END
-    GO
-
+```SQL
+CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
+(
+    @stringData varchar(20),
+    @identifier int
+)
+AS
+SET NOCOUNT ON;
+BEGIN
+     select *
+     from dbo.UnitTestSrcTable
+     where dbo.UnitTestSrcTable.stringData != stringData
+    and dbo.UnitTestSrcTable.identifier != identifier
+END
+GO
+```
 
 ### <a name="sqldwsink"></a>SqlDWSink
 **SqlDWSink** supporta le proprietà seguenti:
@@ -473,7 +484,7 @@ Se non si specifica sqlReaderQuery o sqlReaderStoredProcedureName, le colonne de
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
 | writeBatchSize |Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge writeBatchSize. |Numero intero (numero di righe) |No (valore predefinito: 10000) |
-| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. |Intervallo di tempo<br/><br/>  Ad esempio: "00:30:00" (30 minuti). |No |
+| writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. |Intervallo di tempo<br/><br/> Ad esempio: "00:30:00" (30 minuti). |No |
 | sqlWriterCleanupScript |Specificare una query da eseguire nell'attività di copia per pulire i dati di una sezione specifica. Per informazioni dettagliate, vedere la sezione relativa alla [ripetibilità](#repeatability-during-copy). |Istruzione di query. |No |
 | allowPolyBase |Indica se usare PolyBase, quando applicabile, invece del meccanismo BULKINSERT per caricare i dati in Azure SQL Data Warehouse. <br/><br/>Attualmente, come set di dati di origine è supportato solo un set di dati **BLOB di Azure** con la proprietà **format** impostata su **TextFormat**. <br/><br/>Per informazioni su vincoli e dettagli, vedere la sezione [Usare PolyBase per caricare dati in Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) . |True  <br/>False (impostazione predefinita) |No |
 | polyBaseSettings |Gruppo di proprietà che è possibile specificare quando la proprietà **allowPolybase** è impostata su **true**. |&nbsp; |No |
@@ -483,64 +494,69 @@ Se non si specifica sqlReaderQuery o sqlReaderStoredProcedureName, le colonne de
 | useTypeDefault |Specifica come gestire i valori mancanti nei file con testo delimitato quando PolyBase recupera dati dal file di testo.<br/><br/>Per altre informazioni su questa proprietà, vedere la sezione Arguments (Argomenti) in [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |True, False (valore predefinito) |No |
 
 #### <a name="sqldwsink-example"></a>Esempio SqlDWSink
-    "sink": {
-        "type": "SqlDWSink",
-        "writeBatchSize": 1000000,
-        "writeBatchTimeout": "00:05:00"
-    }
 
+```JSON
+"sink": {
+    "type": "SqlDWSink",
+    "writeBatchSize": 1000000,
+    "writeBatchTimeout": "00:05:00"
+}
+```
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>Usare PolyBase per caricare dati in Azure SQL Data Warehouse
 **PolyBase** consente di caricare in modo efficiente grandi quantità di dati in Azure SQL Data Warehouse con una velocità effettiva elevata. L'uso di PolyBase consente un miglioramento significativo della velocità effettiva rispetto al meccanismo BULKINSERT predefinito. Vedere [Copiare il numero di riferimento prestazioni](data-factory-copy-activity-performance.md#performance-reference) con il confronto dettagliato.
 
 * Se il formato dei dati di origine è compatibile con PolyBase, è possibile eseguire la copia direttamente dall'archivio dei dati di origine in Azure SQL Data Warehouse usando PolyBase. Vedere **[Copia diretta tramite PolyBase](#direct-copy-using-polybase)** con i relativi dettagli. Per la procedura dettagliata con un caso d'uso, vedere [Caricare 1 TB di dati in Azure SQL Data Warehouse in meno di 15 minuti con Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 * Se il formato dei dati di origine non è originariamente supportato da PolyBase, è invece possibile ricorrere a **[Copia temporanea tramite PolyBase](#staged-copy-using-polybase)** che offrirà anche una maggior velocità convertendo prima di tutto e automaticamente i dati nel formato compatibile con PolyBase e archiviandoli nel BLOB di Azure, per poi caricarli in SQL Data Warehouse.
 
-Impostare la proprietà **allowPolyBase** su **true**, come illustrato nell'esempio seguente per Azure Data Factory, per usare PolyBase per copiare i dati in Azure SQL Data Warehouse. Quando si imposta allowPolyBase su true, è possibile specificare proprietà specifiche di PolyBase usando il gruppo di proprietà **polyBaseSettings** . Per informazioni dettagliate sulle proprietà che è possibile usare con polyBaseSettings, vedere la sezione [SqlDWSink](#SqlDWSink) .
+Impostare la proprietà `allowPolyBase` su **true**, come illustrato nell'esempio seguente per Azure Data Factory, per usare PolyBase per copiare i dati in Azure SQL Data Warehouse. Quando si imposta allowPolyBase su true, è possibile specificare proprietà specifiche di PolyBase usando il gruppo di proprietà `polyBaseSettings`. Per informazioni dettagliate sulle proprietà che è possibile usare con polyBaseSettings, vedere la sezione [SqlDWSink](#SqlDWSink) .
 
-    "sink": {
-        "type": "SqlDWSink",
-        "allowPolyBase": true,
-        "polyBaseSettings":
-        {
-            "rejectType": "percentage",
-            "rejectValue": 10.0,
-            "rejectSampleValue": 100,
-            "useTypeDefault": true
-        }
-
+```JSON
+"sink": {
+    "type": "SqlDWSink",
+    "allowPolyBase": true,
+    "polyBaseSettings":
+    {
+        "rejectType": "percentage",
+        "rejectValue": 10.0,
+        "rejectSampleValue": 100,
+        "useTypeDefault": true
     }
-
+}
+```
 ### <a name="direct-copy-using-polybase"></a>Copia diretta tramite PolyBase
 Se i dati di origine soddisfano i criteri descritti in questa sezione, è possibile eseguire la copia direttamente dall'archivio dati di origine ad Azure SQL Data Warehouse con PolyBase. In caso contrario è possibile usare la [copia di staging tramite PolyBase](#staged-copy-using-polybase).
 
 Se i requisiti non vengono soddisfatti, Azure Data Factory controlla le impostazioni e usa automaticamente il meccanismo BULKINSERT per lo spostamento dei dati.
 
-1. Il **servizio collegato di origine** è di tipo **Archiviazione di Azure** e non è configurato per l'uso dell'autenticazione con firma di accesso condiviso. Per informazioni dettagliate, vedere [Servizio collegato Archiviazione di Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) .  
-2. Il **set di dati di input** è di tipo **BLOB di Azure** e il tipo di formato nelle proprietà del tipo è **OrcFormat** o **TextFormat** con le configurazioni seguenti:
+1. Il **servizio collegato di origine** è di tipo **AzureStorage** e non è configurato per l'uso dell'autenticazione con firma di accesso condiviso. Per informazioni dettagliate, vedere [Servizio collegato Archiviazione di Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) .  
+2. Il **set di dati di input** è di tipo **AzureBlob** e il tipo di formato nelle proprietà `type` è **OrcFormat** o **TextFormat** con le configurazioni seguenti:
 
-   1. **rowDelimiter** deve essere **\n**.
-   2. **nullValue** è impostata su **stringa vuota** ("").
-   3. **encodingName** è impostata su **utf-8**, ovvero il valore **predefinito** e non deve essere impostata su un valore diverso.
-   4. **escapeChar** e **quoteChar** non sono specificate.
-   5. **Compression** non è **BZIP2**.
+   1. `rowDelimiter` deve essere **\n**.
+   2. `nullValue` è impostato su **stringa vuota** ("") o `treatEmptyAsNull` è impostato su **true**.
+   3. `encodingName` è impostato su **utf-8**, ovvero il valore **predefinito**.
+   4. `escapeChar`, `quoteChar`, `firstRowAsHeader` e `skipLineCount` non sono specificati.
+   5. `compression` può essere **no compression**, **GZip** o **Deflate**.
 
-           "typeProperties": {
-               "folderPath": "<blobpath>",
-               "format": {
-                   "type": "TextFormat",     
-                   "columnDelimiter": "<any delimiter>",
-                   "rowDelimiter": "\n",       
-                   "nullValue": "",           
-                   "encodingName": "utf-8"    
-               },
-               "compression": {  
-                   "type": "GZip",  
-                   "level": "Optimal"  
-               }  
-           },
-3. Non è disponibile alcuna impostazione **skipHeaderLineCount** in **BlobSource** per l'attività di copia nella pipeline.
-4. Non è presente alcuna impostazione **sliceIdentifierColumnName** in **SqlDWSink** per l'attività di copia nella pipeline. PolyBase garantisce che tutti i dati verranno aggiornati o che nessun dato verrà aggiornato in una singola esecuzione. Per ottenere la **ripetibilità**, è possibile usare **sqlWriterCleanupScript**.
-5. Nell'attività di copia associata non viene usato alcun valore **columnMapping** .
+    ```JSON
+    "typeProperties": {
+       "folderPath": "<blobpath>",
+       "format": {
+           "type": "TextFormat",     
+           "columnDelimiter": "<any delimiter>",
+           "rowDelimiter": "\n",       
+           "nullValue": "",           
+           "encodingName": "utf-8"    
+       },
+       "compression": {  
+           "type": "GZip",  
+           "level": "Optimal"  
+       }  
+    },
+    ```
+
+3. Non è disponibile alcuna impostazione `skipHeaderLineCount` in **BlobSource** per l'attività di copia nella pipeline.
+4. Non è disponibile alcuna impostazione `sliceIdentifierColumnName` in **SqlDWSink** per l'attività di copia nella pipeline. PolyBase garantisce che tutti i dati verranno aggiornati o che nessun dato verrà aggiornato in una singola esecuzione. Per ottenere la **ripetibilità**, è possibile usare `sqlWriterCleanupScript`.
+5. Nell'attività di copia associata non viene usato alcun valore `columnMapping`.
 
 ### <a name="staged-copy-using-polybase"></a>copia di staging tramite PolyBase
 Quando l'origine dati non soddisfa i criteri presentati nella sezione precedente, è possibile abilitare la copia dei dati tramite un archivio BLOB di Azure di staging provvisorio. In questo caso, Azure Data Factory esegue trasformazioni sui dati in modo che soddisfino i requisiti di formato dei dati di PolyBase e quindi usa PolyBase per caricare i dati in SQL Data Warehouse. Per informazioni dettagliate sul funzionamento generale della copia dei dati tramite un BLOB di Azure di staging, vedere la sezione [Copia di staging](data-factory-copy-activity-performance.md#staged-copy) .
@@ -550,30 +566,31 @@ Quando l'origine dati non soddisfa i criteri presentati nella sezione precedente
 >
 >
 
-Per usare questa funzionalità, creare un [servizio collegato Archiviazione di Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) che faccia riferimento all'account di archiviazione di Azure contenente l'archivio BLOB provvisorio e quindi specificare le proprietà **enableStaging** e **stagingSettings** per l'attività di copia come illustrato nel codice seguente:
+Per usare questa funzionalità, creare un [servizio collegato Archiviazione di Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) che faccia riferimento all'account di archiviazione di Azure contenente l'archivio BLOB provvisorio e quindi specificare le proprietà `enableStaging` e `stagingSettings` per l'attività di copia come illustrato nel codice seguente:
 
-    "activities":[  
-    {
-        "name": "Sample copy activity from SQL Server to SQL Data Warehouse via PolyBase",
-        "type": "Copy",
-        "inputs": [{ "name": "OnpremisesSQLServerInput" }],
-        "outputs": [{ "name": "AzureSQLDWOutput" }],
-        "typeProperties": {
-            "source": {
-                "type": "SqlSource",
-            },
-            "sink": {
-                "type": "SqlDwSink",
-                "allowPolyBase": true
-            },
-            "enableStaging": true,
-            "stagingSettings": {
-                "linkedServiceName": "MyStagingBlob"
-            }
+```JSON
+"activities":[  
+{
+    "name": "Sample copy activity from SQL Server to SQL Data Warehouse via PolyBase",
+    "type": "Copy",
+    "inputs": [{ "name": "OnpremisesSQLServerInput" }],
+    "outputs": [{ "name": "AzureSQLDWOutput" }],
+    "typeProperties": {
+        "source": {
+            "type": "SqlSource",
+        },
+        "sink": {
+            "type": "SqlDwSink",
+            "allowPolyBase": true
+        },
+        "enableStaging": true,
+        "stagingSettings": {
+            "linkedServiceName": "MyStagingBlob"
         }
     }
-    ]
-
+}
+]
+```
 
 ## <a name="best-practices-when-using-polybase"></a>Procedure consigliate per l'uso di PolyBase
 ### <a name="required-database-permission"></a>Autorizzazione database obbligatoria
@@ -582,7 +599,9 @@ Per usare PolyBase, è necessario che l'utente che è solito caricare i dati in 
 ### <a name="row-size-limitation"></a>Limitazione delle dimensioni delle righe
 Polybase non supporta righe con dimensioni superiori a 32 KB. Un tentativo di caricare una tabella con righe superiori a 32 KB provocherebbe l'errore seguente:
 
-    Type=System.Data.SqlClient.SqlException,Message=107093;Row size exceeds the defined Maximum DMS row size: [35328 bytes] is larger than the limit of [32768 bytes],Source=.Net SqlClient
+```
+Type=System.Data.SqlClient.SqlException,Message=107093;Row size exceeds the defined Maximum DMS row size: [35328 bytes] is larger than the limit of [32768 bytes],Source=.Net SqlClient
+```
 
 Se sono presenti dati di origine con righe di dimensioni superiori a 32 KB, è consigliabile suddividere verticalmente le tabelle di origine in alcune tabelle più piccole, in cui le dimensioni massime delle righe di ogni tabella non supera il limite previsto. Le tabelle più piccole possono essere quindi caricate usando PolyBase e unite in Azure SQL Data Warehouse.
 
@@ -601,21 +620,60 @@ La tabella seguente fornisce esempi relativi a come specificare la proprietà **
 
 Se viene visualizzato l'errore seguente, potrebbe essersi verificato un problema con il valore specificato per la proprietà tableName. Per informazioni sul modo corretto di specificare i valori per la proprietà JSON tableName, vedere la relativa tabella.  
 
-    Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account_test'.,Source=.Net SqlClient Data Provider
+```
+Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account_test'.,Source=.Net SqlClient Data Provider
+```
 
 ### <a name="columns-with-default-values"></a>Colonne con valori predefiniti
 La funzionalità PolyBase in Data Factory accetta attualmente lo stesso numero di colonne disponibili nella tabella di destinazione. Se si ha una tabella con quattro colonne di cui una definita con un valore predefinito, ad esempio, i dati di input dovranno comunque contenere quattro colonne. Se si specifica un set di dati di input con 3 colonne, si verificherà un errore simile al messaggio seguente:
 
-    All columns of the table must be specified in the INSERT BULK statement.
-
+```
+All columns of the table must be specified in the INSERT BULK statement.
+```
 Il valore NULL è una forma speciale di valore predefinito. Se la colonna ammette valori Null, i dati di input (nel BLOB) per tale colonna possono essere vuoti, ma non possono essere mancanti dal set di dati di input. PolyBase inserisce NULL per tali valori in Azure SQL Data Warehouse.  
+
+## <a name="auto-table-creation"></a>Creazione automatica della tabella
+Quando si copiano dati da SQL Server o da Database SQL di Azure in SQL Data Warehouse, se la tabella non esiste nell'archivio di destinazione, Data Factory ne supporta la creazione automatica usando lo schema dell'origine quando, per la creazione, si usa la copia guidata.
+
+Data Factory crea la tabella nella destinazione usando lo stesso nome come origine, crea i tipi di dati della colonna con il mapping sottostante e usa la distribuzione di tabella Round Robin. Si noti che può essere applicata un'adeguata conversione del tipo di dati se è necessario per risolvere eventuali incompatibilità tra gli archivi di origine e di destinazione.
+
+| Tipo di colonna di origine del Database SQL | Tipo di colonna SQL DW di destinazione del Database (limitazione delle dimensioni) |
+| --- | --- |
+| int | int |
+| BigInt | BigInt |
+| SmallInt | SmallInt |
+| TinyInt | TinyInt |
+| Bit | Bit |
+| Decimal | Decimal |
+| Numeric | Decimal |
+| Float | Float |
+| Money | Money |
+| Real | Real |
+| SmallMoney | SmallMoney |
+| Binary | Binary |
+| Varbinary | Varbinary (fino a 8000) |
+| Data | Data |
+| DateTime | DateTime |
+| DateTime2 | DateTime2 |
+| Time | Time |
+| Datetimeoffset | Datetimeoffset |
+| SmallDateTime | SmallDateTime |
+| Text | Varchar (fino a 8000) |
+| NText | NVarChar (fino a 4000) |
+| Image | VarBinary (fino a 8000) |
+| UniqueIdentifier | UniqueIdentifier |
+| Char | Char |
+| NChar | NChar |
+| VarChar | VarChar (fino a 8000) |
+| NVarChar | NVarChar (fino a 4000) |
+| Xml | Varchar (fino a 8000) |
 
 [!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ### <a name="type-mapping-for-azure-sql-data-warehouse"></a>Mapping dei tipi per Azure SQL Data Warehouse
-Come accennato nell'articolo sulle [attività di spostamento dei dati](data-factory-data-movement-activities.md) , l'attività di copia esegue conversioni di tipo automatiche dai tipi di origine ai tipi di sink con l'approccio in 2 passaggi seguente:
+Come accennato nell'articolo sulle [attività di spostamento dei dati](data-factory-data-movement-activities.md) , l'attività di copia esegue conversioni automatiche da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi:
 
 1. Conversione dai tipi di origine nativi al tipo .NET
 2. Conversione dal tipo .NET al tipo di sink nativo
@@ -668,6 +726,6 @@ Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spos
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

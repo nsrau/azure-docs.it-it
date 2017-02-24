@@ -4,7 +4,7 @@ description: Esercitazione su come associare App per la logica a Azure IoT Suite
 services: 
 suite: iot-suite
 documentationcenter: 
-author: aguilaaj
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: 4629a7af-56ca-4b21-a769-5fa18bc3ab07
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2016
-ms.author: araguila
+ms.date: 02/08/2017
+ms.author: corywink
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a010e0dff76390020b74ada6d6144e411e304268
+ms.sourcegitcommit: 14e2fcea9a6afbac640d665d5e44a700f855db4b
+ms.openlocfilehash: 609de3ff0fb14aa98b28572dce1eaeb8a4412d93
 
 
 ---
@@ -48,7 +48,7 @@ Per iniziare, impostare l'app per la logica da usare con la soluzione preconfigu
    
     ![](media/iot-suite-logic-apps-tutorial/logicappsdesigner.png)
 6. Selezionare **Richiesta**. Questa azione specifica che una richiesta HTTP in ingresso con uno specifico payload in formato JSON agisce come trigger.
-7. Incollare quanto segue nello schema JSON del corpo della richiesta:
+7. Incollare il codice seguente nello schema JSON del corpo della richiesta:
    
     ```
     {
@@ -172,6 +172,6 @@ Dopo aver usato un'app per la logica per connettere la soluzione preconfigurata 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

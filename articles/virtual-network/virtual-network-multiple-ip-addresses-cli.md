@@ -1,5 +1,5 @@
 ---
-title: "Più indirizzi IP per le macchine virtuali - Interfaccia della riga di comando di Azure | Documentazione Microsoft"
+title: "Più indirizzi IP per le macchine virtuali di Azure - Interfaccia della riga di comando di Azure | Documentazione Microsoft"
 description: "Informazioni su come assegnare più indirizzi IP a una macchina virtuale usando l&quot;interfaccia della riga di comando di Azure | Resource Manager."
 services: virtual-network
 documentationcenter: na
@@ -16,40 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 482e0d8084d84f9a3170180c2e5414ca77364da8
-ms.openlocfilehash: 6fb458d47173b4922f085e8b1e6339cabefc7da6
+ms.sourcegitcommit: 394315f81cf694cc2bb3a28b45694361b11e0670
+ms.openlocfilehash: 8c2441211f08e8bb22153ff16cbd98c85cb9cf3d
 
 
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-azure-cli"></a>Assegnare più indirizzi IP alle macchine virtuali usando l'interfaccia della riga di comando di Azure
 
-> [!div class="op_single_selector"]
-> * [Portale](virtual-network-multiple-ip-addresses-portal.md)
-> * [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-> * [CLI](virtual-network-multiple-ip-addresses-cli.md)
+[!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-Una macchina virtuale di Azure può essere associata a una o più interfacce di rete. A ogni scheda di interfaccia di rete possono essere assegnati uno o più indirizzi IP pubblici o privati, statici e dinamici. L'assegnazione di più indirizzi IP a una VM consente di:
-
-* Ospitare più siti Web o servizi con indirizzi IP e certificati SSL diversi in un singolo server.
-* Fungere da appliance virtuale di rete, ad esempio un firewall o un servizio di bilanciamento del carico.
-* Aggiungere qualsiasi indirizzo IP per qualsiasi scheda di interfaccia di rete a un pool back-end di Azure Load Balancer. In passato, era possibile aggiungere a un pool di back-end solo gli indirizzi IP primari per la scheda di interfaccia di rete primaria. Per altre informazioni su come bilanciare il carico di più configurazioni IP, leggere l'articolo [Load balancing multiple IP configurations](../load-balancer/load-balancer-multiple-ip.md) (Bilanciamento del carico di più configurazioni IP).
-
-Ogni scheda di interfaccia di rete collegata a una macchina virtuale dispone di una o più configurazioni IP associate. A ogni configurazione viene assegnato un indirizzo IP privato statico o dinamico. Ogni configurazione può anche avere una risorsa di indirizzo IP pubblico associata. Una risorsa indirizzo IP pubblico dispone di un indirizzo IP dinamico o statico assegnato. Se non si ha familiarità con gli indirizzi IP in Azure, leggere l'articolo [Indirizzi IP in Azure](virtual-network-ip-addresses-overview-arm.md) per ottenere altre informazioni.
-
-In questo articolo viene illustrato come usare il portale di Azure per assegnare più indirizzi IP a una VM creata tramite il modello di distribuzione Azure Resource Manager. Non è possibile a assegnare più indirizzi IP alle risorse create tramite il modello di distribuzione classica. Per altre informazioni sui modelli di distribuzione di Azure, leggere l'articolo [Understand Azure deployment models](../resource-manager-deployment-model.md) (Informazioni sui modelli di distribuzione di Azure).
+Questo articolo spiega come creare una macchina virtuale (VM) tramite il modello di distribuzione Azure Resource Manager usando l'interfaccia della riga di comando di Azure. Non è possibile a assegnare più indirizzi IP alle risorse create tramite il modello di distribuzione classica. Per altre informazioni sui modelli di distribuzione di Azure, leggere l'articolo [Understand Azure deployment models](../resource-manager-deployment-model.md) (Informazioni sui modelli di distribuzione di Azure).
 
 [!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
-## <a name="scenario"></a>Scenario
-Una macchina virtuale con una singola scheda di interfaccia di rete viene creata e collegata a una rete virtuale. La macchina virtuale richiede tre diversi indirizzi IP *privati* e due indirizzi IP *pubblici*. Gli indirizzi IP vengono assegnati alle configurazioni IP seguenti:
-
-* **IPConfig-1:** assegna un indirizzo IP privato *dinamico* (predefinito) e un indirizzo IP pubblico *statico*.
-* **IPConfig-2:** assegna un indirizzo IP privato *statico* e un indirizzo IP pubblico *statico*.
-* **IPConfig-3:** assegna un indirizzo IP privato *dinamico* e nessun indirizzo IP pubblico.
-  
-    ![Più indirizzi IP](./media/virtual-network-multiple-ip-addresses-powershell/OneNIC-3IP.png)
-
-Le configurazioni IP vengono associate alla scheda di interfaccia di rete al momento della creazione della stessa, mentre la scheda di interfaccia di rete viene collegata alla macchina virtuale al momento della creazione della macchina virtuale. I tipi di indirizzi IP usati per lo scenario sono a scopo illustrativo. È possibile assegnare qualsiasi tipo di assegnazione e indirizzo IP desiderato.
+[!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name="a-name--createacreate-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Creare una macchina virtuale con più indirizzi IP
 
@@ -57,9 +37,26 @@ La procedura seguente illustra come creare una macchina virtuale di esempio con 
 
 1. Per installare e configurare l'interfaccia della riga di comando di Azure, seguire la procedura riportata nell'articolo [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e accedere all'account Azure.
 
-2. Registrarsi all'anteprima inviando un messaggio di posta elettronica a [IP multipli](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) con l'ID sottoscrizione e l'uso previsto. Non completare i passaggi rimanenti:
-    - Finché non si riceve un messaggio di posta elettronica che comunica che si è stati accettati nell'anteprima.
-    - Senza seguire le istruzioni nel messaggio di posta elettronica ricevuto.
+2. Eseguire la registrazione per l'anteprima eseguendo i comandi seguenti in PowerShell dopo aver effettuato l'accesso, quindi selezionare la sottoscrizione appropriata:
+    ```
+    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+    
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+    ```
+    Non tentare di completare i passaggi rimanenti fino a quando non viene visualizzato il seguente output all'esecuzione del comando ```Get-AzureRmProviderFeature```:
+        
+    ```powershell
+    FeatureName                            ProviderName      RegistrationState
+    -----------                            ------------      -----------------      
+    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```
+        
+    >[!NOTE] 
+    >L'operazione potrebbe richiedere alcuni minuti.
+
 3. [Creare un gruppo di risorse](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-groups-and-choose-deployment-locations) seguito da una [rete virtuale e subnet](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet). Modificare i campi ``` --address-prefixes ``` e ```--address-prefix``` sui valori seguenti per rappresentare lo scenario esatto descritto in questo articolo:
 
     ```azurecli
@@ -159,10 +156,10 @@ La procedura seguente illustra come creare una macchina virtuale di esempio con 
     Ogni volta che si aggiunge un indirizzo IP pubblico a una nuova configurazione IP, è necessario aggiungere anche un indirizzo IP privato, perché tutte le configurazioni IP devono avere un indirizzo IP privato. È possibile aggiungere una risorsa indirizzo IP pubblico esistente o crearne una nuova. Per crearne una nuova, usare il comando seguente:
     
     ```azurecli
-    azure network public-ip create --resource-group myResourceGroup --location westcentralus --name myPublicIP3 --domain-name-label mypublicdns3
+      azure network public-ip create --resource-group myResourceGroup --location westcentralus --name myPublicIP3 --domain-name-label mypublicdns3
     ```
 
-    Per creare una nuova configurazione IP con un indirizzo IP privato dinamico e la risorsa indirizzo IP pubblico *myPublicIP3* associata, inserire il comando seguente:
+     Per creare una nuova configurazione IP con un indirizzo IP privato dinamico e la risorsa indirizzo IP pubblico *myPublicIP3* associata, inserire il comando seguente:
 
     ```azurecli
     azure network nic ip-config create --resource-group myResourceGroup --nic-name myNic --name IPConfig-4 --public-ip-name myPublicIP3
@@ -213,6 +210,7 @@ La procedura seguente illustra come creare una macchina virtuale di esempio con 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Feb17_HO2-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/18/2016
+ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 94e09583ef8070a7e98fd2b30648996648ce3c41
-ms.openlocfilehash: 1389d9e3ff9adde814782ed5ac9a2145ee8bc010
+ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
+ms.openlocfilehash: 8da7631d2dfc51e21269d05ace737760e3be61b8
 
 
 ---
@@ -28,7 +28,9 @@ Storm Dashboard consente di distribuire e gestire facilmente topologie Apache St
 Storm Dashboard e le funzionalità Storm di HDInsight Tools si basano sull'API REST Storm, che consente di creare soluzioni di monitoraggio e gestione.
 
 > [!IMPORTANT]
-> I passaggi descritti in questo documento richiedono uno Storm basato su Windows in cluster HDInsight. Per informazioni sull'utilizzo di un cluster basato su Linux, vedere [Distribuire e gestire le topologie di Apache Storm in HDInsight basato su Linux](hdinsight-storm-deploy-monitor-topology-linux.md)
+> I passaggi descritti in questo documento richiedono un cluster Storm in HDInsight che usa il sistema operativo Windows. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+>
+> Per informazioni sulla distribuzione e gestione di topologie Storm con un cluster HDInsight che usa Linux, vedere [Distribuzione e gestione di topologie Apache Storm in HDInsight basato su Linux](hdinsight-storm-deploy-monitor-topology-linux.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -55,7 +57,7 @@ Nella parte superiore di Storm Dashboard selezionare **Submit Topology**. Seguir
 
 ### <a name="storm-ui"></a>Interfaccia utente di Storm
 
-In Storm Dashboard selezionare il collegamento **Storm UI** . Verranno visualizzate informazioni sul cluster, nonché l'elenco delle topologie in esecuzione.
+In Storm Dashboard selezionare il collegamento **Storm UI** . Vengono visualizzate informazioni sul cluster, nonché l'elenco delle topologie in esecuzione.
 
 ![interfaccia utente Storm][storm-dashboard-ui]
 
@@ -144,7 +146,7 @@ Eseguire i passaggi seguenti per distribuire una topologia di esempio nel cluste
    > [!NOTE]
    > È possibile visualizzare **Storm Topologies** anche da **Esplora server**, espandendo **Azure** > **HDInsight** e quindi facendo clic su un cluster Storm in HDInsight e selezionando **View Storm Topologies**.
 
-    Selezionare la forma degli spout o dei bolt per visualizzare informazioni su questi componenti. Verrà aperta una nuova finestra per ogni elemento selezionato.
+    Selezionare la forma degli spout o dei bolt per visualizzare informazioni su questi componenti. Viene aperta una nuova finestra per ogni elemento selezionato.
 
    > [!NOTE]
    > Il nome della topologia è il nome della classe della topologia, in questo caso `HelloWord`, a cui è stato aggiunto un timestamp.
@@ -174,7 +176,7 @@ Le richieste all'API REST devono usare l' **autenticazione di base**con il nome 
 
 ### <a name="return-values"></a>Valori restituiti
 
-Le informazioni restituite dall'API REST possono essere usate solo nel cluster o nei computer che si trovano nella stessa rete virtuale di Azure del cluster. Ad esempio, il nome di dominio completo (FQDN) restituito per i server Zookeeper non sarà accessibile da Internet.
+Le informazioni restituite dall'API REST possono essere usate solo nel cluster o nei computer che si trovano nella stessa rete virtuale di Azure del cluster. Ad esempio, il nome di dominio completo (FQDN) restituito per i server Zookeeper non è accessibile da Internet.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -192,6 +194,6 @@ Per un elenco di altre topologie di esempio, vedere [Esempi di topologie Storm p
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -13,25 +13,45 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 02/14/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 602d45c53f2e158a686e12325655b15666ef75ac
+ms.sourcegitcommit: acce9907fca6e411d8028e87eff7b50ffa04d575
+ms.openlocfilehash: 4098680a7941ec4732ec0a408c3bf02d6a9906f8
 
 
 ---
 # <a name="submit-hadoop-jobs-in-hdinsight"></a>Inviare processi Hadoop in HDInsight
-Vedere: 
 
-* [Usare Hive in HDInsight](hdinsight-use-hive.md)
-* [Usare Pig in HDInsight](hdinsight-use-pig.md)
-* [Usare Sqoop in HDInsight](hdinsight-use-sqoop.md)
-* [Usare Oozie in HDInsight](hdinsight-use-oozie.md)
+È possibile inviare processi Hadoop tramite .NET SDK, Curl e Azure PowerShell:
+
+- Usare .NET SDK
+
+  - [Creare applicazioni .NET di autenticazione non interattive](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
+  - [Eseguire query Hive con HDInsight .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md)
+  - [Esecuzione di processi Pig con .NET SDK per Hadoop in HDInsight](hdinsight-hadoop-use-pig-dotnet-sdk.md)
+  - [Eseguire processi Sqoop con .NET SDK per Hadoop in HDInsight](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
+  - [Eseguire processi MapReduce con HDInsight .NET SDK](hdinsight-hadoop-use-mapreduce-dotnet-sdk.md)
+
+- CURL
+
+  - [Esecuzione di query Hive con Hadoop in HDInsight mediante Curl](hdinsight-hadoop-use-hive-curl.md)
+  - [Eseguire processi Pig con Hadoop in HDInsight mediante Curl](hdinsight-hadoop-use-pig-curl.md)
+  - [Esecuzione di processi Sqoop con Hadoop in HDInsight mediante Curl](hdinsight-hadoop-use-sqoop-curl.md)
+  - [Esecuzione di processi MapReduce con Hadoop in HDInsight mediante Curl](hdinsight-hadoop-use-mapreduce-curl.md)
+
+- PowerShell
+
+  - [Esecuzione di query Hive usando PowerShell](hdinsight-hadoop-use-hive-powershell.md)
+  - [Eseguire processi Pig mediante PowerShell](hdinsight-hadoop-use-pig-powershell.md)
+  - [Usare Sqoop con Hadoop in HDInsight](hdinsight-hadoop-use-sqoop-powershell.md)
+  - [Esecuzione di processi MapReduce con Hadoop in HDInsight mediante PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md)
+
+## <a name="see-also"></a>Vedere anche
+
+- [Documentazione di Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/)
 
 
-
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 
