@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2615e5c063a54b8cebc208c155f99460fcfa7e05
+ms.sourcegitcommit: 51901a28878f25292ba3d09848bc45a04f867345
+ms.openlocfilehash: 75fb695ea2ce9d859119445ae42eb170a9493876
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -75,7 +76,7 @@ I parametri vengono definiti con la struttura seguente:
 | Nome dell'elemento | Obbligatorio? | Descrizione |
 | --- | --- | --- |
 | type |Sì |Tipo di valore del parametro. Vedere di seguito l'elenco dei tipi consentiti: |
-| displayName    Sì |Nome del parametro che viene visualizzato a un utente nel lab. | |
+| displayName |Sì |Nome del parametro che viene visualizzato a un utente nel lab. | |
 | Descrizione |Sì |Descrizione del parametro che viene visualizzato nel lab. |
 
 I tipi consentiti sono:
@@ -129,10 +130,5 @@ Creare l'elemento personalizzato eseguendo i passaggi seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [Aggiungere un archivio elementi Git a un lab](devtest-lab-add-artifact-repo.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

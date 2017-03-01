@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: bfbffe7843bc178cdf289c999925c690ab82e922
-ms.openlocfilehash: c9bebc8f54d3f732b3014f6885ee65a067e9d1d8
+ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
+ms.openlocfilehash: 7119ce18e04b427c268d4d8636b1a5fa02ed0cc3
+ms.lasthandoff: 02/27/2017
 
 ---
 
@@ -26,7 +27,8 @@ ms.openlocfilehash: c9bebc8f54d3f732b3014f6885ee65a067e9d1d8
 > [!div class="op_single_selector"]
 > * [Portale di Azure](dns-getstarted-create-dnszone-portal.md)
 > * [PowerShell](dns-getstarted-create-dnszone.md)
-> * [Interfaccia della riga di comando di Azure](dns-getstarted-create-dnszone-cli.md)
+> * [Interfaccia della riga di comando di Azure 1.0](dns-getstarted-create-dnszone-cli-nodejs.md)
+> * [Interfaccia della riga di comando di Azure 2.0](dns-getstarted-create-dnszone-cli.md)
 
 Questo articolo illustra i passaggi per creare una zona DNS nel portale di Azure. È anche possibile creare una zona DNS con PowerShell o l'interfaccia della riga di comando.
 
@@ -96,10 +98,5 @@ Assicurarsi di sostituire il server dei nomi corretto per la propria zona nel co
 ## <a name="next-steps"></a>Passaggi successivi
 
 Dopo aver creato una zona DNS, [creare set di record e record](dns-getstarted-create-recordset-portal.md) per creare i record DNS per il dominio Internet.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

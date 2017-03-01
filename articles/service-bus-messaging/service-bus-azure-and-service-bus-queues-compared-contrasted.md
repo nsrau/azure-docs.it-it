@@ -15,8 +15,9 @@ ms.workload: tbd
 ms.date: 01/19/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd12e72ead38aa73b9abf960624755a05720b00
-ms.openlocfilehash: ea973dab1ec68324b24d067e7e07868983a5b151
+ms.sourcegitcommit: f236f6f2155e1bf7471eba8aedea5b77bb5995d0
+ms.openlocfilehash: fd86979339b0ff661dcc6447585ca594b680911d
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -82,7 +83,6 @@ Questa sezione confronta alcune delle funzionalità di accodamento fondamentali 
 
 ### <a name="additional-information"></a>Informazioni aggiuntive
 * In genere i messaggi nelle code di archiviazione sono ordinati in base al principio FIFO (First-In-First-Out), ma in alcuni casi possono risultare non in ordine, ad esempio quando la durata del timeout di visibilità di un messaggio scade a seguito dell'arresto anomalo di un'applicazione client durante l'elaborazione. Quando il timeout di visibilità scade, il messaggio risulta nuovamente visibile nella coda in modo che un altro utente possa rimuoverlo. A questo punto, il messaggio reso nuovamente visibile può essere posizionato nella coda (per poter essere rimosso di nuovo) dopo un messaggio originariamente accodato dopo quest'ultimo.
-* Se all'uso di BLOB e tabelle di Archiviazione di Microsoft Azure si affianca quello delle code, viene garantita una disponibilità pari al 99,9%. Se si usano tabelle o BLOB con code del bus di servizio, la disponibilità risulta ridotta.
 * Il modello FIFO garantito nelle code del bus di servizio richiede l'uso di sessioni di messaggistica. Se l'applicazione termina di funzionare in maniera anomala durante l'elaborazione di un messaggio ricevuto nella modalità **Visualizzazione e blocco**, la prossima volta che un ricevitore di code accetta una sessione di messaggistica, l'applicazione verrà avviata con il messaggio non recapitato dopo la scadenza della relativa durata (TTL).
 * Le code di archiviazione sono progettate per supportare scenari di accodamento standard, ad esempio il disaccoppiamento di componenti dell'applicazione per aumentare la scalabilità e la tolleranza di errore, il livellamento del carico e la creazione di flussi di lavoro di elaborazione.
 * Le code del bus di servizio supportano la garanzia di recapito *At-Least-Once*. La semantica *At-Most-Once* può anche essere supportata tramite lo stato della sessione per archiviare lo stato dell'applicazione e tramite le transazioni per ricevere i messaggi in modo atomico e aggiornare lo stato della sessione.
@@ -200,10 +200,5 @@ Gli articoli seguenti offrono ulteriori indicazioni e informazioni sull'uso dell
 * [Informazioni sulla fatturazione di archiviazione di Azure (larghezza di banda, transazioni e capacità](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 
 [Azure portal]: https://portal.azure.com
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

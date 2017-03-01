@@ -12,19 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
+ms.date: 02/22/2017
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 59f4cd3de4524a5ed51b7ef434b7b21c151dd2e0
+ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
+ms.openlocfilehash: f7dd06f1fc789a74ec7ce2182824ff759dcf7a9f
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="deploying-password-management-and-training-users-to-use-it"></a>Distribuzione di Gestione delle password e formazione degli utenti per l’uso
 > [!IMPORTANT]
-> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,**  [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
+>
+>
 
 Dopo aver abilitato la reimpostazione delle password, il passaggio successivo consiste nel fare in modo che gli utenti usino il servizio all'interno dell'organizzazione. A tale scopo, è necessario assicurarsi che gli utenti siano configurati per usare il servizio correttamente e, inoltre, che dispongano della formazione necessaria per la gestione corretta delle proprie password. In questo articolo vengono descritti i concetti seguenti:
 
@@ -122,11 +123,11 @@ Per informazioni sulle proprietà che è possibile impostare tramite AAD Connect
 2. Fare clic sulla scheda **Utenti** .
 3. Selezionare dall’elenco l'utente a cui si è interessati.
 4. Nella prima scheda la proprietà **Indirizzo di posta elettronica alternativo**può essere usata per abilitare la reimpostazione delle password.
-   
+
    ![][005]
 5. Fare clic sulla scheda **Informazioni sul lavoro** .
 6. In questa pagina sono disponibili le proprietà **Telefono ufficio**, **Telefono cellulare**, **Telefono per l'autenticazione** e **Indirizzo di posta elettronica per l'autenticazione**.  Anche queste proprietà possono essere impostate per consentire a un utente di reimpostare la propria password.
-   
+
    ![][006]
 
 Per informazioni sull’uso di queste proprietà, vedere [Dati usati per la reimpostazione delle password](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) .
@@ -140,10 +141,10 @@ Microsoft sta attualmente lavorando al materiale di formazione di esempio che è
 <br/>
 <br/>
 
-## <a name="links-to-password-reset-documentation"></a>Collegamenti alla documentazione relativa alla reimpostazione della password
+## <a name="next-steps"></a>Passaggi successivi
 Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,**  [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
+* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
 * [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
 * [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
 * [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione
@@ -159,9 +160,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 [005]: ./media/active-directory-passwords-best-practices/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

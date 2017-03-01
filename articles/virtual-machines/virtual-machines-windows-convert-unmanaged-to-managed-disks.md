@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: be2752f46ebedf35a28277ad853207ae8038e345
-ms.openlocfilehash: 16d18b375ba91338aafa0eaef106fdb9107bb872
+ms.sourcegitcommit: e25eaee75b1637447447ace88c2bf1d9aed83880
+ms.openlocfilehash: 484cc6419150b84ee6ed7d2c92960a4d0202e10b
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -39,12 +40,12 @@ Non è possibile convertire una macchina virtuale non gestita creata nel modello
 
 **Dischi dati**:
 1.    Scollegare il disco dati dalla macchina virtuale.
-2.    Copiare il disco rigido virtuale in un account di archiviazione che non è mai stato abilitato per SSE. Per copiare il disco in un altro account di archiviazione, utilizzare [AzCopy](../storage/storage-use-azcopy.md):`https://sourceaccount.blob.core.windows.net/myvhd.vhd  https://destaccount.blob.core.windows.net/myvhd_no_encrypt.vhd /sourcekey:key1 /destkey:key1`
+2.    Copiare il disco rigido virtuale in un account di archiviazione che non è mai stato abilitato per SSE. Per copiare il disco in un altro account di archiviazione, utilizzare [AzCopy](../storage/storage-use-azcopy.md):`AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:myDataDisk.vhd`
 3.    Collegare il disco copiato alla macchina virtuale e convertire la macchina virtuale.
 
 **Disco del sistema operativo**:
 1.    Arrestare la deallocazione della macchina virtuale. Se necessario, salvare la configurazione della macchina virtuale.
-2.    Copiare il disco rigido virtuale del sistema operativo in un account di archiviazione che non è mai stato abilitato per SSE. Per copiare il disco in un altro account di archiviazione, utilizzare [AzCopy](../storage/storage-use-azcopy.md):`https://sourceaccount.blob.core.windows.net/myvhd.vhd  https://destaccount.blob.core.windows.net/myvhd_no_encrypt.vhd /sourcekey:key1 /destkey:key1`
+2.    Copiare il disco rigido virtuale del sistema operativo in un account di archiviazione che non è mai stato abilitato per SSE. Per copiare il disco in un altro account di archiviazione, utilizzare [AzCopy](../storage/storage-use-azcopy.md):`AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:myVhd.vhd`
 3.    Creare una macchina virtuale che usi dischi gestiti e allega il file del disco rigido virtuale come disco del sistema operativo durante la creazione.
 
 
@@ -176,10 +177,5 @@ In questa sezione viene illustrato come convertire le macchine virtuali di Azure
 ## <a name="next-steps"></a>Passaggi successivi
 
 Eseguire una copia di sola lettura di una macchina virtuale usando [snapshot](virtual-machines-windows-snapshot-copy-managed-disk.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

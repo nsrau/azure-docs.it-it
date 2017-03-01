@@ -4,7 +4,7 @@ description: Ultimi aggiornamenti e procedure relativi ad Azure Mobile Engagemen
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: a5487793-1a12-4f6c-a1cf-587c5a671e6b
 ms.service: mobile-engagement
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 09c5c2333748eeca3d6e93b62810d62c8a3e53a1
+ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
+ms.openlocfilehash: 35bd92e52b7a02f58620a03156902f9f91be57ae
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -383,10 +384,5 @@ Sarà quindi possibile aggiungere un elemento `CheckBoxPreference` nel layout de
               android:summaryOff="Engagement is disabled." />
 
 <!-- URLs. -->
-[API del dispositivo]: http://go.microsoft.com/?linkid=9876094
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Device API]: http://go.microsoft.com/?linkid=9876094
 

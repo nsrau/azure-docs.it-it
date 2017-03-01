@@ -3,7 +3,7 @@ title: Abilitare la sincronizzazione offline per l&quot;app per dispositivi mobi
 description: Informazioni su come usare le app per dispositivi mobili del servizio app per memorizzare nella cache e sincronizzare i dati offline in un&quot;applicazione Xamarin iOS
 documentationcenter: xamarin
 author: adrianhall
-manager: dwrede
+manager: erikre
 editor: 
 services: app-service\mobile
 ms.assetid: 828a287c-5d58-4540-9527-1309ebb0f32b
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: feb8534ad0449c9cdf0498d0b9eb05c50f2a2315
+ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
+ms.openlocfilehash: d609231d6d9913b0f40b6e311aeedeb9a2391c7c
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -105,7 +106,7 @@ Il progetto client Xamarin scaricato dopo aver completato l'esercitazione [Crear
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]
-* [Procedura per Azure Mobile Apps .NET SDK][8]
+* [Procedura per .NET SDK di App per dispositivi mobili di Azure][8]
 
 <!-- Images -->
 
@@ -114,9 +115,4 @@ Il progetto client Xamarin scaricato dopo aver completato l'esercitazione [Crear
 [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]: app-service-mobile-offline-data-sync.md
 [SyncContext]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.synccontext(v=azure.10).aspx
 [8]: app-service-mobile-dotnet-how-to-use-client-library.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

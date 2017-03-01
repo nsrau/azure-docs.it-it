@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: bfbffe7843bc178cdf289c999925c690ab82e922
-ms.openlocfilehash: b3951106fe2e8607e65bd0ae47fa2ea3346b8ca5
+ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
+ms.openlocfilehash: 2752579b6277a27ca1e932fbd2c402ac3135e80c
+ms.lasthandoff: 02/27/2017
 
 ---
 
@@ -26,7 +27,8 @@ ms.openlocfilehash: b3951106fe2e8607e65bd0ae47fa2ea3346b8ca5
 > [!div class="op_single_selector"]
 > * [Portale di Azure](dns-getstarted-create-recordset-portal.md)
 > * [PowerShell](dns-getstarted-create-recordset.md)
-> * [Interfaccia della riga di comando di Azure](dns-getstarted-create-recordset-cli.md)
+> * [Interfaccia della riga di comando di Azure 1.0](dns-getstarted-create-recordset-cli-nodejs.md)
+> * [Interfaccia della riga di comando di Azure 2.0](dns-getstarted-create-recordset-cli.md)
 
 Questo articolo illustra la creazione di record e set di record con il portale di Azure. A tale scopo, è necessario comprendere i record e i set di record DNS.
 
@@ -77,9 +79,4 @@ Se non è stato ancora delegato il dominio per usare la nuova zona in DNS di Azu
 Informazioni su come [delegare il nome di dominio ai server dei nomi DNS di Azure](dns-domain-delegation.md)
 
 Per gestire i set di record e i record, vedere le informazioni su [come creare e gestire record e set di record DNS mediante il portale di Azure](dns-operations-recordsets-portal.md).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

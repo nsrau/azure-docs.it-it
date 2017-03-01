@@ -2,8 +2,9 @@
 redirect_url: https://azure.microsoft.com/services/documentdb/
 ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
-ms.openlocfilehash: c5f3881cb477c3cb90adfc53a57ff82a8d312d0f
+ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
+ms.openlocfilehash: ad15b1695ad4697aebc38ac39723a1dd1647c466
+ms.lasthandoff: 02/23/2017
 
 
 
@@ -19,11 +20,6 @@ Non è necessario creare i database dal portale. È possibile crearli anche usan
 ## <a name="next-steps"></a>Passaggi successivi
 Una volta creati il database e la raccolta, è possibile[aggiungere documenti JSON](documentdb-view-json-document-explorer.md)utilizzando Esplora Documenti nel portale, [importare documenti](documentdb-import-data.md)nella raccolta utilizzando lo strumento di migrazione dei dati DocumentDB o utilizzare uno degli [SDK di DocumentDB](documentdb-sdk-dotnet.md) per eseguire le operazioni CRUD. DocumentDB dispone di .NET, Java, Python, Node. js e SDK di API JavaScript. Per esempi di codice .NET che illustrano come creare, rimuovere, aggiornare ed eliminare documenti, vedere gli [esempi di documento .NET](documentdb-dotnet-samples.md#document-examples). Per informazioni sull'uso dei documenti con Node.js SDK, vedere gli [esempi di documento Node.js](documentdb-nodejs-samples.md#document-examples). 
 
-Quando sono presenti documenti in una raccolta, è possibile usare [DocumentDB SQL](documentdb-sql-query.md) per [eseguire query](documentdb-sql-query.md#executing-sql-queries) nei documenti con [Esplora query](documentdb-query-collections-query-explorer.md) nel portale, l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK](documentdb-sdk-dotnet.md). 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
+Quando sono presenti documenti in una raccolta, è possibile usare [DocumentDB SQL](documentdb-sql-query.md) per [eseguire query](documentdb-sql-query.md#ExecutingSqlQueries) nei documenti con [Esplora query](documentdb-query-collections-query-explorer.md) nel portale, l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK](documentdb-sdk-dotnet.md). 
 
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 02d8de2e37af9ccbf79bb77180b0eda0d187eb5c
+ms.sourcegitcommit: f42e31c99bf43e8f034c8d6f4f98d777661c3d81
+ms.openlocfilehash: 204ec83dc1000bb1e10df6fecc303b6ac7795739
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -176,9 +177,6 @@ Dove `yourdomainname` è il nome di dominio configurato con Azure Active Directo
 ### <a name="join-a-windows-7-device-using-azure-active-directory-device-registration"></a>Aggiungere un dispositivo Windows 7 con Registrazione dispositivo di Azure Active Directory
 Per registrare dispositivi Windows 7 aggiunti a un dominio, è necessario distribuire il pacchetto software di registrazione dispositivo. Il pacchetto software è denominato "Workplace Join for Windows 7" ed è disponibile per il download dal [sito Web Microsoft Connect](https://connect.microsoft.com/site1164). Le istruzioni per l'uso del pacchetto sono disponibili in [Configurare la registrazione automatica per i dispositivi Windows 7 aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md).
 
-### <a name="join-an-android-device-using-azure-active-directory-device-registration"></a>Aggiungere un dispositivo Android con Registrazione dispositivo di Azure Active Directory
-L' [argomento Azure Authenticator per Android](active-directory-conditional-access-azure-authenticator-app.md) include istruzioni su come installare l'app Azure Authenticator in un dispositivo Android e aggiungere un account aziendale. Quando viene creato un account aziendale in un dispositivo Android, tale dispositivo viene aggiunto all'area di lavoro nell'organizzazione.
-
 ## <a name="verify-registered-devices-are-written-back-to-active-directory"></a>Verificare che venga eseguito il writeback dei dispositivi registrati in Active Directory
 È possibile verificare che sia stato eseguito il writeback degli oggetti dispositivo in Active Directory con LDP.exe o ADSI Edit. Entrambi sono disponibili con gli strumenti dell'amministratore di Active Directory.
 
@@ -234,10 +232,5 @@ A questo punto, quando gli utenti accedono all'applicazione da un dispositivo no
 
 ## <a name="related-articles"></a>Articoli correlati
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

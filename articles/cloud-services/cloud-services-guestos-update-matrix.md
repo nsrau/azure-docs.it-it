@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/31/2017
+ms.date: 2/23/2017
 ms.author: raiye
 translationtype: Human Translation
-ms.sourcegitcommit: 47d5a9173d8791124a3071b090d6db027dba9448
-ms.openlocfilehash: c070fa326688d94ce2cbf4e0471c4afc9d78c93c
+ms.sourcegitcommit: 244471c5e90a0e2d89c34b255f2da077a94f91cf
+ms.openlocfilehash: 1e87486dc7a186c0ab7147719ac47177c87be148
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -50,35 +51,6 @@ L'implementazione del sistema operativo guest di novembre inizierà l'8 novembre
 ###### <a name="october-23-2016"></a>**23 ottobre 2016**
 Windows Server 2016 sarà rilasciato come OS Family 5 il 1 novembre 2016, con supporto per .NET 4.6.
 
-###### <a name="september-13-2016"></a>**13 settembre 2016**
-L'implementazione del sistema operativo guest di settembre è iniziata il 13 settembre 2016 e dovrebbe essere rilasciata il 13 ottobre 2016.
-
-###### <a name="august-9-2016"></a>**9 agosto 2016**
-L'implementazione del sistema operativo guest di agosto è iniziata il 9 agosto 2016 e dovrebbe essere rilasciata l'8 settembre 2016. 
-
-###### <a name="july-13-2016"></a>**13 luglio 2016**
-L’implementazione del sistema operativo guest di luglio è iniziata il 13 luglio 2016 e dovrebbe essere rilasciata il 12 agosto 2016. 
-
-###### <a name="june-15-2016"></a>**15 giugno 2016**
-L'implementazione del sistema operativo guest di giugno è iniziata il 15 giugno 2016 e dovrebbe essere rilasciata il 14 luglio 2016. 
-
-###### <a name="may-17-2016"></a>**17 maggio 2016**
-L’implementazione del sistema operativo guest di maggio inizierà il 17 maggio 2016 e dovrebbe essere rilasciata il 10 giugno 2016. 
-
-###### <a name="april-18-2016"></a>**18 aprile 2016**
-L'implementazione del sistema operativo guest di aprile inizierà il 18 aprile 2016 e dovrebbe essere rilasciata il 12 maggio 2016. 
-
-###### <a name="march-14-2016"></a>**14 marzo 2016**
-L’implementazione del sistema operativo guest di marzo è iniziata oggi 14 marzo 2016 e dovrebbe essere rilasciata l’8 aprile 2016. 
-
-###### <a name="february-22-2016"></a>**22 febbraio 2016**
-L'implementazione del sistema operativo guest di febbraio è iniziata il 22 febbraio 2016 e dovrebbe essere rilasciata il 9 marzo 2016.
-
-###### <a name="january-18-2016"></a>**18 gennaio 2016**
-L'implementazione del sistema operativo guest di gennaio è iniziata il 18 gennaio 2016 e dovrebbe essere rilasciata il 12 febbraio 2016.
-
-###### <a name="january-4-2016"></a>**4 gennaio 2016**
-Il sistema operativo guest del 2 novembre 2015 è stato rilasciato per la distribuzione il 4 gennaio 2016. Questa versione del sistema operativo non è impostata come sistema operativo predefinito per l'aggiornamento automatico, quindi i tempi di provisioning della distribuzione del sistema operativo guest alla versione del 2 novembre 2015 sono leggermente più lunghi. 
 
 ## <a name="releases"></a>Rilasci
 ## <a name="family-5-releases"></a>Versioni della famiglia 5
@@ -251,10 +223,5 @@ I criteri relativi al supporto e al ritiro del sistema operativo guest sono desc
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
