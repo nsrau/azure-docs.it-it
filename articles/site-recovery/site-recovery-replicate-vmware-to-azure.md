@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 2/17/2017
 ms.author: asgang
 translationtype: Human Translation
-ms.sourcegitcommit: 8f9df48eb93a003f67ad79cc937f41db1531e94d
-ms.openlocfilehash: be280f8de4d2b1316ff6e9e69a4eb93870e8e187
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 54cf67bf630a9de30d4ccafdb09a3f8986c04145
+ms.openlocfilehash: 4415af41cfaf7230f398016e37b8a8cde453fa54
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -29,10 +29,10 @@ ms.lasthandoff: 02/17/2017
 Questo articolo descrive come configurare la replica di macchine virtuali in esecuzione su VMware in Azure.
 ## <a name="prerequisites"></a>Prerequisiti
 
-Nell'articolo si presuppone che le seguenti procedure siano già state eseguite 
+Nell'articolo si presuppone che le seguenti procedure siano già state eseguite
 
 1.  [Configurare l'ambiente di origine locale](site-recovery-set-up-vmware-to-azure.md)
-2.  [Configurare l'ambiente di destinazione in Azure](site-recovery-prepare-target-vmware-to-azure.md). 
+2.  [Configurare l'ambiente di destinazione in Azure](site-recovery-prepare-target-vmware-to-azure.md).
 
 
 ## <a name="enable-replication"></a>Abilitare la replica
@@ -63,7 +63,7 @@ Se si esegue la replica di macchine virtuali VMware, tenere presente quanto segu
 
    * È possibile selezionare un account di archiviazione Standard o Premium. Se si seleziona un account Premium, si dovrà specificare un account di archiviazione Standard aggiuntivo per i log di replica in corso. L'account deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino.
    * Se si vuole usare un account di archiviazione diverso rispetto da quello disponibile, è possibile creare un *collegamento segnaposto con Resource Manager, come illustrato nella Guida introduttiva*. Per creare un account di archiviazione con Resource Manager, fare clic su **Crea nuovo**. Per creare un account di archiviazione con il modello di distribuzione classica, usare il [portale di Azure](../storage/storage-create-storage-account-classic-portal.md).
- 
+
 
 8. Selezionare la rete di Azure e la subnet a cui dovranno connettersi le macchine virtuali di Azure attivate dopo il failover. La rete deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino. Scegliere **Configurare ora per le macchine virtuali selezionate** per applicare le impostazioni di rete a tutti i computer selezionati per la protezione. Scegliere **Configurare in seguito** per selezionare la rete di Azure per ogni computer. Se non è disponibile una rete, sarà necessario [crearla](#set-up-an-azure-network). Per creare una rete con Resource Manager, fare clic su **Crea nuovo**. Per creare una rete con il modello di distribuzione classica, usare il [portale di Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Selezionare una subnet, se applicabile. Fare quindi clic su **OK**.
 
@@ -89,7 +89,7 @@ Se si esegue la replica di macchine virtuali VMware, tenere presente quanto segu
 >
 
 ## <a name="view-and-manage-vm-properties"></a>Visualizzare e gestire le proprietà della macchina virtuale
-È consigliabile verificare le proprietà del computer di origine. Tenere presente che il nome della VM di Azure deve essere conforme ai [requisiti delle macchine virtuali di Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+È consigliabile verificare le proprietà del computer di origine. Tenere presente che il nome della VM di Azure deve essere conforme ai [requisiti delle macchine virtuali di Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 1. Fare clic su **Impostazioni** > **Elementi replicati** e selezionare il computer. Il pannello **Informazioni di base** visualizza informazioni sulle impostazioni e sullo stato dei computer.
 2. In **Proprietà** sono disponibili le informazioni su replica e failover per la VM.
@@ -115,5 +115,6 @@ Se si esegue la replica di macchine virtuali VMware, tenere presente quanto segu
 * Per le macchine virtuali di seconda generazione/abilitate per l'interfaccia UEFI, la famiglia del sistema operativo deve essere Windows e le dimensioni del disco di avvio devono essere minori di 300 GB
 
 ## <a name="next-steps"></a>Passaggi successivi
- 
-Una volta completata la protezione, è possibile provare il test di failover per controllare se l'applicazione viene visualizzata o meno in Azure.    
+
+Una volta completata la protezione, è possibile provare il test di failover per controllare se l'applicazione viene visualizzata o meno in Azure.
+

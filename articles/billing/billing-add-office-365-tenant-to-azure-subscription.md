@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: cjiang
 translationtype: Human Translation
-ms.sourcegitcommit: a8e6423020fc0b669aad2bc48198c1df84db4dd2
-ms.openlocfilehash: 18de4326edef50953c972e17cc9e75ea85a1fb82
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 42db903244e5642dbf273e71994d402f8aeda1e9
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -28,7 +28,7 @@ Collegare le sottoscrizioni di Azure e Office 365 separate per accedere al tenan
 Se si desidera una sottoscrizione di Office 365 per gli utenti nell'istanza di Azure Active Directory o si dispone di un account Office 365 ma non di un account Azure, vedere [Sign up for Azure with Office 365 account](billing-use-existing-office-365-account-azure-subscription.md) (Iscriversi ad Azure con un account Office 365). 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-* Sono necessarie le credenziali dell'amministratore del servizio della sottoscrizione di Azure. Gli account coamministratore non possono eseguire alcuni passaggi di questo articolo. Per modificare l'amministratore dell'account, vedere [Come aggiungere o modificare i ruoli di amministratore di Azure](billing-add-change-azure-subscription-administrator.md#how-to-change-service-administrator-for-a-subscription).
+* Sono necessarie le credenziali dell'amministratore del servizio della sottoscrizione di Azure. Gli account coamministratore non possono eseguire alcuni passaggi di questo articolo. Per modificare l'amministratore dell'account, vedere [Come aggiungere o modificare i ruoli di amministratore di Azure](billing-add-change-azure-subscription-administrator.md#change-service-administrator-for-a-subscription).
 * Sono necessarie le credenziali di un amministratore globale del tenant di Office 365.
 * L'indirizzo di posta elettronica dell'amministratore del servizio deve essere incluso nel tenant di Office 365.
 * L'indirizzo di posta elettronica dell'amministratore del servizio deve essere diverso da quello di un amministratore globale del tenant di Office 365.

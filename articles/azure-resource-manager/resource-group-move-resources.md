@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 0e1ee94504ebff235c1da9128e0ac68c2b28bc59
-ms.openlocfilehash: a7771c2cee3f2820db014a4e5e8620442eea3dd1
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: c8e130f8adbad040fd06fde89156ca6201d18ea6
+ms.openlocfilehash: 5d85602de4eb4cd4ddadc31a83dac34d3487f54d
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -81,7 +81,6 @@ Di seguito sono elencati i servizi che attualmente abilitano lo spostamento in u
 * RETE CDN
 * Servizi cloud: vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 * Servizi cognitivi
-* Servizio contenitore
 * Content Moderator
 * Data Catalog
 * Data factory
@@ -128,6 +127,7 @@ I servizi che attualmente non abilitano lo spostamento di una risorsa sono:
 * gateway applicazione
 * Application Insights
 * Servizi BizTalk
+* Servizio contenitore
 * Express Route
 * DevTest Labs: lo spostamento al nuovo gruppo di risorse nella stessa sottoscrizione è abilitato, ma lo spostamento della sottoscrizione incrociato non è abilitato.
 * Dynamics LCS

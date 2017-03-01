@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 3dbf57923e104715d34d1131d16acb6bc6c51637
-ms.openlocfilehash: dcf61a8875793bb9e5ed4eda51f9da14366a4fba
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
+ms.openlocfilehash: c4c2cd8ddcb541b2619f7e1b140222899f15f87c
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -69,7 +69,7 @@ Se una query viene completata con errori, Esplora query visualizza un elenco di 
 ![Schermata degli errori di query di Esplora query](./media/documentdb-query-collections-query-explorer/queryerror.png)
 
 ## <a name="run-documentdb-sql-queries-outside-the-portal"></a>Eseguire query SQL di DocumentDB all'esterno del portale
-Esplora query nel portale di Azure è solo uno dei modi in cui è possibile eseguire query SQL in DocumentDB. È anche possibile eseguire query SQL usando l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o gli [SDK client](documentdb-sdk-dotnet.md). Per altre informazioni sull'uso degli altri metodi, vedere [Esecuzione di query SQL](documentdb-sql-query.md#executing-sql-queries)
+Esplora query nel portale di Azure è solo uno dei modi in cui è possibile eseguire query SQL in DocumentDB. È anche possibile eseguire query SQL usando l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o gli [SDK client](documentdb-sdk-dotnet.md). Per altre informazioni sull'uso degli altri metodi, vedere [Esecuzione di query SQL](documentdb-sql-query.md#ExecutingSqlQueries)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla grammatica SQL di DocumentDB supportata in Esplora query, consultare l'articolo [Query SQL e sintassi SQL](documentdb-sql-query.md) o stampare il [foglio informativo di query SQL](documentdb-sql-query-cheat-sheet.md).

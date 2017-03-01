@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: e1e30e34e696b499c17656535d71fc6eb0a987ba
-ms.openlocfilehash: ebde5715ff595b8b76d2500e445f4e51a21cce0e
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
+ms.openlocfilehash: 89a54a83e6708da8e7fd91923c3ef71d8371f8f3
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -254,7 +254,7 @@ Una volta creato, il piano di ripristino verrà visualizzato nell'elenco all'int
 
 ### <a name="run-a-test-failover"></a>Eseguire un failover di test
 1. Nella scheda **Piani di ripristino** selezionare il piano e fare clic su **Failover di test**.
-2. Nella pagina **Conferma failover di test** selezionare **Nessuno**. Se si abilita questa opzione, le macchine virtuali di replica su cui è stato eseguito il failover non verranno connesse in rete. Il test, infatti, controlla che il failover delle macchine virtuali venga eseguito correttamente ma non verifica l'ambiente di rete di replica. Osservare come [eseguire un failover di test](site-recovery-failover.md#run-a-test-failover) per altre informazioni su come usare le diverse opzioni di rete.
+2. Nella pagina **Conferma failover di test** selezionare **Nessuno**. Se si abilita questa opzione, le macchine virtuali di replica su cui è stato eseguito il failover non verranno connesse in rete. Il test, infatti, controlla che il failover delle macchine virtuali venga eseguito correttamente ma non verifica l'ambiente di rete di replica. Osservare come [eseguire un failover di test](site-recovery-failover.md) per altre informazioni su come usare le diverse opzioni di rete.
 3. La macchina virtuale di test viene creata sullo stesso host in cui è presente la macchina virtuale di replica, oltre a essere aggiunta allo stesso cloud in cui si trova la macchina virtuale di replica.
 
 ### <a name="run-a-recovery-plan"></a>Eseguire un piano di ripristino
