@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: jeffreyr
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5aa9b594da6b9f386f88c667106c735ed4fd233b
+ms.sourcegitcommit: 407f2631044fb836930093a774f5b718c91f711d
+ms.openlocfilehash: 822941aa3f745e51f653b4274bf0add9c44ff0c8
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -142,7 +143,7 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Definire tipi di dati non modificabili per evitare errori del programmatore
-Idealmente, il compilatore dovrebbe segnalare gli errori quando si crea inavvertitamente codice che modifica lo stato di un oggetto considerato non modificabile. Tuttavia, il compilatore C# non è in grado di farlo. Pertanto, per evitare potenziali errori del programmatore, si consiglia di definire i tipi da usare con le raccolte Reliable Collections come tipi non modificabili. In particolare, questo significa che è opportuno fermarsi ai principali tipi di valore (ad esempio numeri [Int32, UInt64, etc.], DateTime, Guid, TimeSpan e simili). E, ovviamente, è anche possibile usare le stringhe. È preferibile evitare proprietà della raccolta poiché la serializzazione e la deserializzazione può spesso influire negativamente sulle prestazioni. Tuttavia, se si desidera usare le proprietà della raccolta, si consiglia l'uso di libreria di raccolte .NET non modificabili (System.Collections.Immutable). Questa libreria è disponibile per il download all'indirizzo http://nuget.org. Si consiglia anche di sigillare le classi e rendere i campi di sola lettura quando possibile.
+Idealmente, il compilatore dovrebbe segnalare gli errori quando si crea inavvertitamente codice che modifica lo stato di un oggetto considerato non modificabile. Tuttavia, il compilatore C# non è in grado di farlo. Pertanto, per evitare potenziali errori del programmatore, si consiglia di definire i tipi da usare con le raccolte Reliable Collections come tipi non modificabili. In particolare, questo significa che è opportuno fermarsi ai principali tipi di valore (ad esempio numeri [Int32, UInt64, etc.], DateTime, Guid, TimeSpan e simili). E, ovviamente, è anche possibile usare le stringhe. È preferibile evitare proprietà della raccolta poiché la serializzazione e la deserializzazione può spesso influire negativamente sulle prestazioni. Tuttavia, se si intende usare le proprietà della raccolta, è consigliabile l'uso di libreria di raccolte .NET non modificabili ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Questa libreria è disponibile per il download all'indirizzo http://nuget.org. Si consiglia anche di sigillare le classi e rendere i campi di sola lettura quando possibile.
 
 Il tipo UserInfo riportato di seguito mostra come definire un tipo non modificabile sfruttando i consigli indicati in precedenza.
 
@@ -216,9 +217,4 @@ Per informazioni sulle procedure consigliate per il controllo delle versioni dei
 Per informazioni su come implementare contratti dati a tolleranza di versione, vedere [Callback di serializzazione a tolleranza di versione](https://msdn.microsoft.com/library/ms733734.aspx).
 
 Per informazioni su come fornire una struttura di dati che può interagire con più versioni, vedere [Interfaccia IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
