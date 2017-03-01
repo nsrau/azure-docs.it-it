@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: a560aa9cc6c70fd3827f649627466c9071b8ab8b
-ms.openlocfilehash: c350134e8cea5771900e2e88b02b572c20e9d5bd
+ms.sourcegitcommit: e7fc6cb4ee4752bb7ed90a8f64edcc7c82ec3a88
+ms.openlocfilehash: d04c209894ab8ee35b92381f9679f68addd64f00
+ms.lasthandoff: 02/21/2017
 
 ---
 
@@ -58,7 +59,7 @@ Per altre informazioni sui consigli per Servizi app, vedere [Procedure consiglia
 3. Nel dashboard di Advisor fare clic sulla scheda **Prestazioni** e selezionare la sottoscrizione per cui si desidera ricevere consigli.
 
 > [!NOTE]
-> Advisor genera consigli per le sottoscrizioni in cui all'utente è assegnato il ruolo di **proprietario, collaboratore o lettore**.
+> Per accedere alle raccomandazioni di Advisor, è innanzitutto necessario **registrare** la sottoscrizione con Advisor. Una sottoscrizione viene registrata quando il **proprietario della sottoscrizione** avvia il dashboard di Advisor e fa clic sul pulsante **Get recommendations** (Ottieni consigli). Si tratta di un'**operazione una tantum**. Dopo aver registrato una sottoscrizione, è possibile accedere alle raccomandazioni di Advisor come **Proprietario**, **Collaboratore** o **Lettore** di una sottoscrizione, di un gruppo di risorse o di una risorsa specifica.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -69,9 +70,4 @@ Per altre informazioni sui consigli di Advisor, vedere le risorse seguenti:
 -  [Advisor High Availability recommendations](advisor-high-availability-recommendations.md) (Consigli di Advisor sulla disponibilità elevata)
 -  [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)
 -  [Advisor Cost recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sui costi)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

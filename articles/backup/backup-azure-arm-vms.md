@@ -1,5 +1,5 @@
 ---
-title: Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino | Microsoft Docs
+title: Eseguire il backup di macchine virtuali di Azure | Documentazione Microsoft
 description: Scoprire, registrare ed eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino.
 services: backup
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/30/2017
+ms.date: 2/15/2017
 ms.author: trinadhk;jimpark;markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 39147f2db1e660a21d6ed622206787ea0c569056
-ms.openlocfilehash: 28a5014f7ee73b30f879d249811e7fc303b13ac6
+ms.sourcegitcommit: dca042ce1684b35e6a874075e0de28b9d8766331
+ms.openlocfilehash: 981c8652629e96f482d9a62b70b0f0992517019f
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -44,32 +45,57 @@ A meno che l'avvio del backup iniziale non sia imminente, è consigliabile scegl
 
 Per eseguire il processo di backup iniziale:
 
-1. Nel dashboard dell'insieme di credenziali, nel riquadro **Backup**, fare clic su **Macchine virtuali di Azure**. <br/>
-    ![Icona Impostazioni](./media/backup-azure-vms-first-look-arm/rs-vault-in-dashboard-backup-vms.png)
+1. Nel dashboard dell'insieme di credenziali fare clic sul numero sotto **Elementi di backup** oppure fare clic sul riquadro **Elementi di backup**. <br/>
+  ![Icona Impostazioni](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
 
-    Si apre il pannello **Elementi di backup** .
-2. Nel pannello **Elementi di backup** fare clic con il pulsante destro del mouse sull'insieme di credenziali di cui si vuole eseguire il backup e scegliere **Esegui backup ora**.
+  Si apre il pannello **Elementi di backup** .
 
-    ![Icona Impostazioni](./media/backup-azure-vms-first-look-arm/back-up-now.png)
+  ![Elementi di backup](./media/backup-azure-vms-first-look-arm/back-up-items-list.png)
 
-    Viene attivato il processo di backup. <br/>
+2. Nel pannello **Elementi di backup** selezionare l'elemento.
 
-    ![Processo di backup attivato](./media/backup-azure-vms-first-look-arm/backup-triggered.png)
-3. Per verificare che il backup iniziale sia stato completato, nel riquadro **Processi di backup** del dashboard dell'insieme di credenziali fare clic su **Macchine virtuali di Azure**.
+  ![Icona Impostazioni](./media/backup-azure-vms-first-look-arm/back-up-items-list-selected.png)
 
-    ![Riquadro dei processi di backup](./media/backup-azure-vms-first-look-arm/open-backup-jobs.png)
+  Si apre l'elenco **Elementi di backup**. <br/>
 
-    Si apre il pannello dei processi di backup.
-4. Nel pannello **Processi di backup** è possibile visualizzare lo stato di tutti i processi.
+  ![Processo di backup attivato](./media/backup-azure-vms-first-look-arm/backup-items-not-run.png)
 
-    ![Riquadro dei processi di backup](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view.png)
+3. Nell'elenco **Elementi di backup** fare clic sui puntini di sospensione **...** per aprire il menu di scelta rapida.
 
-   > [!NOTE]
-   > Durante il backup, l'estensione di backup in ogni macchina virtuale scarica tutte le scritture ed esegue uno snapshot.
-   >
-   >
+  ![Menu di scelta rapida](./media/backup-azure-vms-first-look-arm/context-menu.png)
 
-    Al termine del processo di backup, lo stato è *Completato*.
+  Si apre il menu di scelta rapida.
+
+  ![Menu di scelta rapida](./media/backup-azure-vms-first-look-arm/context-menu-small.png)
+
+4. Nel menu di scelta rapida fare clic su **Esegui backup ora**.
+
+  ![Menu di scelta rapida](./media/backup-azure-vms-first-look-arm/context-menu-small-backup-now.png)
+
+  Si apre il pannello Esegui backup ora.
+
+  ![mostra il pannello Esegui backup ora](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
+
+5. Nel pannello Esegui backup ora fare clic sull'icona del calendario, usare il comando del calendario per selezionare l'ultimo giorno di conservazione di tale punto di ripristino e fare clic su **Esegui backup**.
+
+  ![impostare l'ultimo giorno di conservazione del punto di ripristino di Esegui backup ora](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
+
+  Le notifiche sulla distribuzione consentono di sapere che il processo di backup è stato attivato e che è possibile monitorare lo stato di avanzamento del processo nella pagina Processi di backup. A seconda delle dimensioni della macchina virtuale, la creazione del backup iniziale potrebbe richiedere un po' di tempo.
+
+6. Per visualizzare o tenere traccia dello stato del backup iniziale, nel dashboard dell'insieme di credenziali, nel riquadro **Processi di backup** fare clic sul riquadro **In corso**.
+
+  ![Riquadro dei processi di backup](./media/backup-azure-vms-first-look-arm/open-backup-jobs-1.png)
+
+  Si apre il pannello dei processi di backup.
+
+  ![Riquadro dei processi di backup](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view-1.png)
+
+  Nel pannello **Processi di backup** è possibile visualizzare lo stato di tutti i processi. Controllare se il processo di backup per la macchina virtuale è ancora in corso o se è terminato. Al termine del processo di backup, lo stato è *Completato*.
+
+  > [!NOTE]
+  > Come parte dell'operazione di backup, il servizio Backup di Azure esegue un comando nell'estensione di backup in ogni VM per scaricare tutte le scritture e creare uno snapshot coerente.
+  >
+  >
 
 ## <a name="troubleshooting-errors"></a>Risoluzione dei problemi
 Se si riscontrano problemi durante il backup della macchina virtuale, leggere l'[articolo sulla risoluzione dei problemi delle macchine virtuali](backup-azure-vms-troubleshoot.md) per assistenza.
@@ -79,9 +105,4 @@ Dopo aver protetto la macchina virtuale, vedere gli articoli seguenti per ottene
 
 * [Gestire e monitorare il backup delle macchine virtuali di Azure](backup-azure-manage-vms.md)
 * [Ripristino di macchine virtuali](backup-azure-arm-restore-vms.md)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

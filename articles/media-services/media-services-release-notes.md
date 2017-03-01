@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/21/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ccf8374064b6fd5f8d78a082543977072bfb30ee
-ms.openlocfilehash: 3c529328002ad96fb48a9ce96b3918493f88b41f
+ms.sourcegitcommit: 83881cda043fc9f1ef48281e8160a882c1f9bced
+ms.openlocfilehash: 5aa7353e681a16d2032fecaf8a2de50e241ac4ad
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -103,6 +104,12 @@ Unità riservate di codifica rinominate per ridurre la confusione con i nomi del
 Le unità riservate di codifica Basic, Standard e Premium sono state rinominate rispettivamente unità riservate S1, S2 e S3.  I clienti che usano unità riservate con codifica Basic visualizzeranno ora l'etichetta S1 nel portale di Azure e nella fattura, mentre i clienti con codifica Standard e Premium visualizzeranno rispettivamente le etichette S2 e S3. 
 
 ## <a name="a-iddecchanges15adecember-2015-release"></a><a id="dec_changes_15"></a>Versione di dicembre 2015
+
+### <a name="azure-media-encoder-deprecation-announcement"></a>Avviso di dichiarazione obsolescenza per Azure Media Encoder
+
+La funzionalità Azure Media Encoder sarà deprecata entro 12 mesi. Iniziare a usare il codificatore [Media Encoder Standard](media-services-media-encoder-standard-formats.md).
+
+### <a name="azure-sdk-for-php"></a>Azure SDK per PHP
 Il team di Azure SDK ha pubblicato una nuova versione del pacchetto [Azure SDK per PHP](http://github.com/Azure/azure-sdk-for-php) che contiene aggiornamenti e nuove funzionalità di Servizi multimediali di Microsoft Azure. In particolare, Azure Media Services SDK per PHP supporta ora le funzionalità di [protezione del contenuto](media-services-content-protection-overview.md) più recenti: la crittografia dinamica con AES e DRM (PlayReady e Widevine) con e senza restrizione Token. Supporta inoltre la scalabilità delle [unità di codifica](media-services-dotnet-encoding-units.md).
 
 Per altre informazioni, vedere:
@@ -535,10 +542,5 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 [GitHub]: https://github.com/Azure/azure-sdk-for-media-services
 [Gestione di asset di Servizi multimediali su più account di archiviazione]: http://msdn.microsoft.com/library/azure/dn271889.aspx
 [Gestione delle notifiche dei processi di Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

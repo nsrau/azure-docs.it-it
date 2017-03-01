@@ -1,6 +1,6 @@
 ---
 title: Ottimizzare l&quot;ambiente con la soluzione SQL Assessment in Log Analytics | Documentazione Microsoft
-description: "È possibile usare la soluzione SQL Assessment per valutare i rischi e l&quot;integrità degli ambienti server a intervalli regolari."
+description: "Con Log Analytics di Azure, è possibile usare la soluzione SQL Assessment per valutare i rischi e l&quot;integrità degli ambienti server a intervalli regolari."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/17/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
-ms.openlocfilehash: 0b0c739f1d89b83c43314d8ace794d26abf10054
+ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
+ms.openlocfilehash: fc8b2d74737bc334d5c4f27782d4e0d46adbcb18
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -41,7 +42,8 @@ SQL Assessment è compatibile con le edizioni Standard, Developer ed Enterprise 
 Usare le informazioni seguenti per installare e configurare la soluzione.
 
 * Nei server in cui è installato SQL Server devono essere installati gli agenti.
-* La soluzione SQL Assessment richiede l'installazione di .NET Framework 4 in ogni computer che contiene un agente OMS.
+* La soluzione SQL Assessment richiede l'installazione di una versione di .NET Framework 4 supportata in ogni computer che contiene un agente OMS.
+* Per installare la soluzione, l'utente deve essere amministratore o collaboratore della sottoscrizione di Azure se si usa il portale di Azure. L'utente deve anche essere membro del ruolo di amministratore o collaboratore dell'area di lavoro OMS nel portale di OMS.
 * Quando si usa l'agente Operations Manager con SQL Assessment, è necessario usare un account RunAs di Operations Manager. Per altre informazioni, vedere di seguito [Account RunAs di Operations Manager per OMS](#operations-manager-run-as-accounts-for-oms) .
 
   > [!NOTE]
@@ -52,8 +54,6 @@ Usare le informazioni seguenti per installare e configurare la soluzione.
 
 > [!NOTE]
 > Dopo aver aggiunto la soluzione, il file AdvisorAssessment.exe viene aggiunto al server con agenti. I dati di configurazione vengono letti e quindi inviati al servizio OMS nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud.
->
->
 
 ## <a name="sql-assessment-data-collection-details"></a>Informazioni dettagliate sulla raccolta dei dati di SQL Assessment
 SQL Assessment raccoglie dati WMI, dati del Registro di sistema, dati sulle prestazioni e risultati delle visualizzazioni a gestione dinamica di SQL Server usando gli agenti abilitati.
@@ -221,7 +221,7 @@ Per ignorare delle raccomandazioni è possibile creare un file di testo che OMS 
 
 * Vengono raccolti i tipi di dati seguenti:
   * WMI
-  *  Registro
+  * Registro
   * Contatori delle prestazioni
   * DMV (Dynamic Management View) di SQL.
 
@@ -243,9 +243,4 @@ Per ignorare delle raccomandazioni è possibile creare un file di testo che OMS 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Eseguire ricerche nei log](log-analytics-log-searches.md) per visualizzare raccomandazioni e dati dettagliati di SQL Assessment.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

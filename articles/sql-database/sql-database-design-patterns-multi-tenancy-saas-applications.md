@@ -4,7 +4,7 @@ description: "Questo articolo illustra i requisiti e i modelli comuni di archite
 keywords: 
 services: sql-database
 documentationcenter: 
-author: CarlRabeler
+author: srinia
 manager: jhubbard
 editor: 
 ms.assetid: 1dd20c6b-ddbb-40ef-ad34-609d398d008a
@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-design
-ms.date: 11/08/2016
-ms.author: carlrab
+ms.date: 02/01/2017
+ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 63f94dc3b648486fe7c2e14661b5f5f02a147149
+ms.sourcegitcommit: e210fb7ead88a9c7f82a0d0202a1fb31043456e6
+ms.openlocfilehash: c30f1d879f46805cf802679613089a16dc47ad40
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -90,7 +91,7 @@ L'asse Y nella figura 2 indica il livello di isolamento dei tenant. L'asse X ind
 
 Figura 2: modelli di dati multi-tenant comuni
 
-Il quadrante in basso a destra nella figura 2 mostra un modello di applicazione che usa un approccio con database autonomo condiviso potenzialmente di grandi dimensioni insieme a una tabella condivisa o schema separato. Offre vantaggi in termini di condivisione delle risorse perché tutti i tenant usano le stesse risorse di database, come CPU, memoria e input/output, in un database singolo. L'isolamento dei tenant è tuttavia limitato. Potrebbe essere necessario eseguire passaggi aggiuntivi per proteggere i tenant tra loro al livello dell'applicazione. Questi passaggi aggiuntivi possono aumentare notevolmente il costo della metodologia DevOps nello sviluppo e nella gestione dell'applicazione. Un altro limite è la scalabilità dell'hardware usato per ospitare il database.
+Il quadrante in basso a destra nella figura 2 mostra un modello di applicazione che usa un approccio con database singolo condiviso potenzialmente di grandi dimensioni insieme a una tabella condivisa o schema separato. Offre vantaggi in termini di condivisione delle risorse perché tutti i tenant usano le stesse risorse di database, come CPU, memoria e input/output, in un database singolo. L'isolamento dei tenant è tuttavia limitato. Potrebbe essere necessario eseguire passaggi aggiuntivi per proteggere i tenant tra loro al livello dell'applicazione. Questi passaggi aggiuntivi possono aumentare notevolmente il costo della metodologia DevOps nello sviluppo e nella gestione dell'applicazione. Un altro limite è la scalabilità dell'hardware usato per ospitare il database.
 
 Il quadrante in basso a sinistra nella figura 2 illustra più tenant partizionati tra più database, in genere con unità di scala di hardware diverse. Ogni database ospita un sottoinsieme di tenant risolvendo il problema di scalabilità di altri modelli. Se è necessaria maggiore capacità per più tenant, è possibile inserire facilmente i tenant in nuovi database allocati in nuove unità di scala dell'hardware. Tuttavia, il livello di condivisione delle risorse è ridotto poiché solo i tenant inseriti nella stessa unità di scala condividono le risorse. Questo approccio non migliora di molto l'isolamento dei tenant perché molti tenant si trovano ancora senza una protezione automatica dalle azioni degli altri tenant. La complessità dell'applicazione rimane elevata.
 
@@ -124,7 +125,7 @@ I pool elastici nel database SQL combinano l'isolamento dei tenant alla condivis
 | [Libreria client dei database elastici](sql-database-elastic-database-client-library.md): le distribuzioni dei dati vengono gestite e i tenant vengono mappati ai database. | |
 
 ## <a name="shared-models"></a>Modelli condivisi
-Come descritto in precedenza, per la maggior parte dei provider SaaS l'approccio con un modello condiviso può rappresentare un problema in termini di isolamento dei tenant, ma anche di complessità nello sviluppo e nella manutenzione delle applicazioni. Tuttavia, per le applicazioni multi-tenant che forniscono un servizio direttamente ai consumer, i requisiti di isolamento dei tenant possono non essere prioritari quanto la riduzione al minimo dei costi. Potrebbe essere possibile riunire i tenant in uno o più database a densità elevata per ridurre i costi. I modelli di database condivisi che usano un database autonomo o più database partizionati possono offrire una maggiore efficienza in termini di condivisione delle risorse e riduzione del costo complessivo. Il database SQL di Azure offre alcune funzionalità che consentono a tali clienti di compilare l'isolamento per una maggiore sicurezza e la gestione su larga scala nel livello dati.
+Come descritto in precedenza, per la maggior parte dei provider SaaS l'approccio con un modello condiviso può rappresentare un problema in termini di isolamento dei tenant, ma anche di complessità nello sviluppo e nella manutenzione delle applicazioni. Tuttavia, per le applicazioni multi-tenant che forniscono un servizio direttamente ai consumer, i requisiti di isolamento dei tenant possono non essere prioritari quanto la riduzione al minimo dei costi. Potrebbe essere possibile riunire i tenant in uno o più database a densità elevata per ridurre i costi. I modelli di database condivisi che usano un database singolo o più database partizionati possono offrire una maggiore efficienza in termini di condivisione delle risorse e riduzione del costo complessivo. Il database SQL di Azure offre alcune funzionalità che consentono a tali clienti di compilare l'isolamento per una maggiore sicurezza e la gestione su larga scala nel livello dati.
 
 | Requisiti dell'applicazione | Funzionalità del database SQL |
 | --- | --- |
@@ -150,7 +151,7 @@ Creare un [dashboard personalizzato del pool elastico per Saas](https://github.c
 
 Usare gli strumenti del database SQL di Azure per [eseguire la migrazione dei database esistenti per la scalabilità orizzontale](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-Visualizzare l'esercitazione su come [creare un pool elastico](sql-database-elastic-pool-create-portal.md).  
+Per creare un pool elastico tramite il portale di Azure, vedere [Creare un pool elastico](sql-database-elastic-pool-manage-portal.md).  
 
 Informazioni su come [monitorare e gestire un pool elastico](sql-database-elastic-pool-manage-portal.md).
 
@@ -160,14 +161,9 @@ Informazioni su come [monitorare e gestire un pool elastico](sql-database-elasti
 * [Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga](sql-database-elastic-tools-multi-tenant-row-level-security.md)
 * [Authentication in multitenant apps, using Azure AD and OpenID Connect (Autenticazione in app multi-tenant con Azure AD e OpenID Connect)](../guidance/guidance-multitenant-identity-authenticate.md)
 * [Informazioni sull'applicazione Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
-* [Avvio rapido: esplorare soluzioni del database SQL di Azure](sql-database-solution-quick-starts.md)
+
 
 ## <a name="questions-and-feature-requests"></a>Domande e richieste di funzionalità
 Per domande, è disponibile il [forum sul database SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Aggiungere una richiesta di funzionalità nel [forum dei commenti e suggerimenti sul database SQL](https://feedback.azure.com/forums/217321-sql-database/).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

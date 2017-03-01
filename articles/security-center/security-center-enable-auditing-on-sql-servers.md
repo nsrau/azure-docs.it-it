@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
-ms.openlocfilehash: 7aab37882e3f831627281bcd197fb6098dc50cc6
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 10206327b628358151ad4585b1d962538ea17bcd
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -42,13 +43,13 @@ Questa indicazione si applica esclusivamente al servizio SQL di Azure e non incl
 3. Nel pannello **Impostazioni del servizio di controllo** selezionare **ON** in **Controllo**.
 
    ![Attivare le impostazioni del servizio di controllo][3]
-4. Seguire la procedura in [Introduzione al controllo del database SQL](../sql-database/sql-database-auditing-get-started.md) per configurare l'archiviazione in cui verranno archiviati i log di controllo. L'account di archiviazione della sottoscrizione per la raccolta dei dati è l'account di archiviazione predefinito.
-5. Seguire i passaggi in [Introduzione individuazione Database SQL](../sql-database/sql-database-threat-detection-get-started.md) per attivare e configurare il rilevamento di minacce e per configurare l'elenco dei messaggi di posta elettronica che riceveranno gli avvisi di sicurezza al rilevamento di anomalie dell'attività.
+4. Seguire la procedura in [SQL database auditing in the Azure portal](../sql-database/sql-database-auditing-portal.md) (Controllo del database SQL nel portale di Azure) per configurare l'archiviazione in cui verranno archiviati i log di controllo. L'account di archiviazione della sottoscrizione per la raccolta dei dati è l'account di archiviazione predefinito.
+5. Seguire i passaggi in [Introduzione individuazione Database SQL](../sql-database/sql-database-threat-detection.md) per attivare e configurare il rilevamento di minacce e per configurare l'elenco dei messaggi di posta elettronica che riceveranno gli avvisi di sicurezza al rilevamento di anomalie dell'attività.
 
 ## <a name="see-also"></a>Vedere anche
 Questo documento illustra come implementare la raccomandazione "Abilita il controllo sui server SQL" del Centro sicurezza. Per altre informazioni su come proteggere il database SQL, vedere gli argomenti seguenti:
 
-* [Protezione del Database SQL](../sql-database/sql-database-security.md)
+* [Protezione del Database SQL](../sql-database/sql-database-security-overview.md)
 
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
@@ -64,9 +65,4 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 [1]: ./media/security-center-enable-auditing-on-sql-server/enable-auditing-on-sql-servers.png
 [2]:./media/security-center-enable-auditing-on-sql-server/enable-auditing.png
 [3]: ./media/security-center-enable-auditing-on-sql-server/auditing-settings-blade.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

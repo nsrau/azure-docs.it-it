@@ -4,7 +4,7 @@ description: Procedure di aggiornamento di Windows Universal Apps SDK per Azure 
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 4c898175-2cd6-43db-b350-bb408332f24d
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: c7b3441892484cf54e2055e9153858171d738e85
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -308,10 +309,5 @@ Esempi di elementi di Capptain di uso comune:
 * GetCapptainPageName è diventato GetEngagementPageName
 
 Si noti la ridenominazione influisce anche sui metodi sottoposti a override.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

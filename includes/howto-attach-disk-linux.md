@@ -1,5 +1,5 @@
 
-Per altre informazioni sui dischi, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Per altre informazioni sui dischi, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](../articles/storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 <a id="attachempty"></a>
 
@@ -114,9 +114,4 @@ Per collegare un disco esistente, è necessario che in un account di archiviazio
 > Dopo l'aggiunta di un disco dati, sarà necessario accedere alla macchina virtuale e inizializzare il disco in modo che la macchina virtuale possa usarlo per l'archiviazione. Per altre informazioni sull'inizializzazione del disco, vedere i passaggi riportati di seguito.
 > 
 > 
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

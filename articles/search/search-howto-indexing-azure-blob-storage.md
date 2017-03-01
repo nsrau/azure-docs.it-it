@@ -15,13 +15,14 @@ ms.tgt_pltfrm: na
 ms.date: 01/18/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 19a652f81beacefd4a51f594f045c1f3f7063b59
-ms.openlocfilehash: 60c8296e1287419dedf5b5f01f2ddb7ab86b5d11
+ms.sourcegitcommit: 05fc8ff05f8e2f20215f6683a125c1a506b4ccdc
+ms.openlocfilehash: 23ed2e066cc6751ebabb57c8077f95b0cb074850
+ms.lasthandoff: 02/18/2017
 
 ---
 
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indicizzazione di documenti in Archiviazione BLOB di Azure con Ricerca di Azure
-Questo articolo illustra come usare Ricerca di Azure per indicizzare documenti (ad esempio PD, documenti di Microsoft Office e numerosi altri formati comuni) salvati nell'archivio BLOB di Azure. In primo luogo, vengono illustrate le nozioni di base per l'impostazione e la configurazione di un indicizzatore BLOB. Vengono inoltre descritti in modo più dettagliato i comportamenti e gli scenari che possono verificarsi. 
+Questo articolo illustra come usare Ricerca di Azure per indicizzare documenti (ad esempio PD, documenti di Microsoft Office e numerosi altri formati comuni) salvati nell'archivio BLOB di Azure. In primo luogo, vengono illustrate le nozioni di base per l'impostazione e la configurazione di un indicizzatore BLOB. Vengono inoltre descritti in modo più dettagliato i comportamenti e gli scenari che possono verificarsi.
 
 ## <a name="supported-document-formats"></a>Formati di documento supportati
 L'indicizzatore BLOB può estrarre il testo dai formati di documento seguenti:
@@ -53,7 +54,7 @@ L'indicizzatore BLOB può estrarre il testo dai formati di documento seguenti:
 >
 >
 
-In questo caso viene illustrato il flusso tramite l'API REST. 
+In questo caso viene illustrato il flusso tramite l'API REST.
 
 ### <a name="step-1-create-a-data-source"></a>Passaggio 1: Creare un'origine dati
 Un'origine dati specifica i dati da indicizzare, le credenziali necessarie per accedere ai dati e i criteri che consentono di identificare in modo efficace le modifiche apportate ai dati (righe nuove, modificate o eliminate). Un'origine dati può essere usata da più indicizzatori nello stesso servizio di ricerca.
@@ -83,7 +84,7 @@ Per altre informazioni sull'API di creazione dell'origine dati, vedere [Creare u
 <a name="Credentials"></a>
 #### <a name="how-to-specify-credentials"></a>Come specificare le credenziali ####
 
-Per specificare le credenziali per il contenitore BLOB, sono disponibili questi modi: 
+Per specificare le credenziali per il contenitore BLOB, sono disponibili questi modi:
 
 - **Stringa di connessione dell'account di archiviazione per accesso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. Per ottenere la stringa di connessione dal portale di Azure, passare al pannello dell'account di archiviazione e quindi selezionare Impostazioni > Chiavi (per gli account di archiviazione della versione classica) oppure Impostazioni > Chiavi di accesso (per gli account di archiviazione di Azure Resource Manager).
 - Stringa di connessione della **firma di accesso condiviso dell'account di archiviazione**: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`. La firma di accesso condiviso deve avere le autorizzazioni per le operazioni di elenco e lettura per i contenitori e gli oggetti (BLOB).
@@ -114,7 +115,7 @@ Di seguito viene illustrato come creare un indice con un campo `content` ricerca
 Per altre informazioni sulla creazione di indici, vedere [Creare un indice](https://docs.microsoft.com/rest/api/searchservice/create-index)
 
 ### <a name="step-3-create-an-indexer"></a>Passaggio 3: Creare un indicizzatore
-Un indicizzatore si connette a un'origine dati con un indice di ricerca di destinazione e consente di pianificare l'automatizzazione dell'aggiornamento dei dati. 
+Un indicizzatore si connette a un'origine dati con un indice di ricerca di destinazione e consente di pianificare l'automatizzazione dell'aggiornamento dei dati.
 
 Dopo aver creato l'indice e l'origine dati, è possibile creare l'indicizzatore:
 
@@ -135,11 +136,11 @@ Per altre informazioni sull'API di creazione di un indicizzatore, vedere [Creare
 
 ## <a name="how-azure-search-indexes-blobs"></a>Indicizzazione dei BLOB con Ricerca di Azure
 
-A seconda della relativa [configurazione](#PartsOfBlobToIndex), l'indicizzatore BLOB può indicizzare solo i metadati di archiviazione, opzione utile quando si è interessati solo ai metadati e non è necessario indicizzare il contenuto dei BLOB, indicizzare i metadati del contenuto e di archiviazione o indicizzare sia i metadati che il contenuto di testo. Per impostazione predefinita, l'indicizzatore estrae sia i metadati che il contenuto. 
+A seconda della relativa [configurazione](#PartsOfBlobToIndex), l'indicizzatore BLOB può indicizzare solo i metadati di archiviazione, opzione utile quando si è interessati solo ai metadati e non è necessario indicizzare il contenuto dei BLOB, indicizzare i metadati del contenuto e di archiviazione o indicizzare sia i metadati che il contenuto di testo. Per impostazione predefinita, l'indicizzatore estrae sia i metadati che il contenuto.
 
 > [!NOTE]
 > Per impostazione predefinita, i BLOB con contenuto strutturato, come quelli in formato JSON, CSV o XML, vengono indicizzati come un unico blocco di testo. Per indicizzare i BLOB JSON e CSV in modo strutturato, vedere le funzionalità in anteprima [Indicizzazione di BLOB JSON](search-howto-index-json-blobs.md) e [Indicizzazione di BLOB CSV](search-howto-index-csv-blobs.md). L'analisi di contenuto XML non è attualmente supportata. Per questo tipo di esigenza è possibile aggiungere un suggerimento in [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
-> 
+>
 > Anche un documento composito o incorporato (ad esempio, un archivio ZIP o un documento di Word con una e-mail di Outlook incorporata con allegati) viene indicizzato come documento singolo.
 
 * L'intero contenuto di testo del documento viene estratto in un campo di tipo stringa denominato `content`.
@@ -236,7 +237,7 @@ Se sono presenti entrambi i parametri `indexedFileNameExtensions` e `excludedFil
 
 ### <a name="dealing-with-unsupported-content-types"></a>Gestire tipi di contenuto non supportati
 
-Per impostazione predefinita, l'indicizzatore BLOB viene arrestato non appena viene rilevato un BLOB con un tipo di contenuto non supportato, ad esempio un'immagine. Naturalmente, è possibile usare il parametro `excludedFileNameExtensions` per ignorare determinati tipi di contenuto. Potrebbe tuttavia essere necessario indicizzare BLOB senza conoscere in anticipo tutti i tipi di contenuto possibili. Per continuare l'indicizzazione quando viene rilevato un tipo di contenuto non supportato, impostare il parametro di configurazione `failOnUnsupportedContentType` su `false`: 
+Per impostazione predefinita, l'indicizzatore BLOB viene arrestato non appena viene rilevato un BLOB con un tipo di contenuto non supportato, ad esempio un'immagine. Naturalmente, è possibile usare il parametro `excludedFileNameExtensions` per ignorare determinati tipi di contenuto. Potrebbe tuttavia essere necessario indicizzare BLOB senza conoscere in anticipo tutti i tipi di contenuto possibili. Per continuare l'indicizzazione quando viene rilevato un tipo di contenuto non supportato, impostare il parametro di configurazione `failOnUnsupportedContentType` su `false`:
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
     Content-Type: application/json
@@ -245,27 +246,27 @@ Per impostazione predefinita, l'indicizzatore BLOB viene arrestato non appena vi
     {
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
-    } 
+    }
 
 ### <a name="ignoring-parsing-errors"></a>Ignorare gli errori di analisi
 
-La logica di estrazione documenti di Ricerca di Azure non è perfetta e talvolta può non riuscire ad analizzare i documenti con un tipo di contenuto supportato, ad esempio DOCX o PDF. Per evitare che l'indicizzazione venga interrotta in tali casi, impostare i parametri di configurazione `maxFailedItems` e `maxFailedItemsPerBatch` su valori accettabili. Ad esempio: 
+La logica di estrazione documenti di Ricerca di Azure non è perfetta e talvolta può non riuscire ad analizzare i documenti con un tipo di contenuto supportato, ad esempio DOCX o PDF. Per evitare che l'indicizzazione venga interrotta in tali casi, impostare i parametri di configurazione `maxFailedItems` e `maxFailedItemsPerBatch` su valori accettabili. Ad esempio:
 
     {
       ... other parts of indexer definition
       "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
-    } 
+    }
 
 <a name="PartsOfBlobToIndex"></a>
 ## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Controllo delle parti di BLOB da indicizzare
 
-Il parametro di configurazione `dataToExtract` permette di controllare quali parti dei BLOB vengono indicizzate. I valori possibili sono i seguenti: 
+Il parametro di configurazione `dataToExtract` permette di controllare quali parti dei BLOB vengono indicizzate. I valori possibili sono i seguenti:
 
 * `storageMetadata`: specifica che vengono indicizzati solo [i metadati specificati dall'utente e le proprietà BLOB standard](../storage/storage-properties-metadata.md).
 * `allMetadata`: specifica che vengono indicizzati i metadati di archiviazione e i [metadati specifici del tipo di contenuto](#ContentSpecificMetadata) estratti dal contenuto BLOB.
 * `contentAndMetadata`: specifica che vengono indicizzati tutti i metadati e il contenuto di testo estratti dal BLOB. Si tratta del valore predefinito.
 
-Ad esempio, per indicizzare solo i metadati di archiviazione, usare: 
+Ad esempio, per indicizzare solo i metadati di archiviazione, usare:
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
     Content-Type: application/json
@@ -317,10 +318,10 @@ Il criterio illustrato sotto, ad esempio, considera l'eliminazione di un BLOB se
 
 ## <a name="indexing-large-datasets"></a>Indicizzazione di set di dati di grandi dimensioni
 
-L'indicizzazione di BLOB può richiedere molto tempo. Quando si hanno milioni di BLOB da indicizzare, è possibile velocizzare l'operazione partizionando i dati e usando più indicizzatori per elaborare i dati in parallelo. A tale scopo, è possibile procedere come segue: 
+L'indicizzazione di BLOB può richiedere molto tempo. Quando si hanno milioni di BLOB da indicizzare, è possibile velocizzare l'operazione partizionando i dati e usando più indicizzatori per elaborare i dati in parallelo. A tale scopo, è possibile procedere come segue:
 
-- Partizionare i dati in più contenitori BLOB o cartelle virtuali. 
-- Impostare diverse origini dati di Ricerca di Azure, una per ogni contenitore o cartella. Per puntare a una cartella BLOB, usare il parametro `query`: 
+- Partizionare i dati in più contenitori BLOB o cartelle virtuali.
+- Impostare diverse origini dati di Ricerca di Azure, una per ogni contenitore o cartella. Per puntare a una cartella BLOB, usare il parametro `query`:
 
     ```
     {
@@ -332,6 +333,14 @@ L'indicizzazione di BLOB può richiedere molto tempo. Quando si hanno milioni di
     ```
 
 - Creare un indicizzatore corrispondente per ogni origine dati. Tutti gli indicizzatori possono puntare allo stesso indice di ricerca di destinazione.  
+
+## <a name="indexing-documents-along-with-related-data"></a>Indicizzazione di documenti con dati correlati
+
+I documenti possono avere metadati associati, ad esempio il reparto che ha creato il documento, che vengono archiviati come dati strutturati in una delle posizioni seguenti.
+-   In un archivio dati separato, ad esempio il database SQL o DocumentDB.
+-   Associati direttamente a ogni documento nell'Archiviazione BLOB di Azure come metadati personalizzati. Per altre informazioni, vedere [Impostazione e recupero di proprietà e metadati per le risorse BLOB](https://docs.microsoft.com/rest/api/storageservices/fileservices/setting-and-retrieving-properties-and-metadata-for-blob-resources).
+
+È possibile indicizzare i documenti e i relativi metadati assegnando lo stesso valore chiave univoco a ogni documento e ai relativi metadati e specificando l'azione `mergeOrUpload` per ogni indicizzatore. Per una descrizione dettagliata di questa soluzione, vedere l'articolo esterno: [Combine documents with other data in Azure Search ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html) (Combinare documenti con altri dati in Ricerca di Azure).
 
 <a name="ContentSpecificMetadata"></a>
 ## <a name="content-type-specific-metadata-properties"></a>Proprietà di metadati specifiche del tipo di contenuto
@@ -356,9 +365,4 @@ La tabella seguente riepiloga l'elaborazione eseguita per ogni formato di docume
 
 ## <a name="help-us-make-azure-search-better"></a>Come contribuire al miglioramento di Ricerca di Azure
 Per richieste di funzionalità o idee su miglioramenti da apportare, è possibile usare il [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

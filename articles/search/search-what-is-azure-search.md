@@ -13,10 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/12/2017
 ms.author: ashmaka
-experiment_id: heidist-experiment1-20170221
+experimental: true
+experiment_id: heidist-20170221
 translationtype: Human Translation
 ms.sourcegitcommit: 292c9150822363aba3336b1efce579dc5362cb14
 ms.openlocfilehash: 99b3babee9b252b2d741515391295d8b1dc5c747
+ms.lasthandoff: 01/14/2017
 
 ---
 # <a name="what-is-azure-search"></a>Che cos'è la Ricerca di Azure?
@@ -86,10 +88,5 @@ Se non si dispone di una sottoscrizione, è possibile [aprire un account Azure g
 
 In alternativa, è possibile [attivare i benefici della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): con la sottoscrizione MSDN ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento. 
 
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

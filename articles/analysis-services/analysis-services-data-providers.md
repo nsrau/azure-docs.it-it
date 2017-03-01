@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/20/2016
+ms.date: 02/27/2016
 ms.author: owend
 translationtype: Human Translation
 ms.sourcegitcommit: 13eb8ab1bf3c218f14b4c23ca1a46e9552d55b25
 ms.openlocfilehash: d70b9f2c2a0cb1abe11dcfee9acb51dcb5552a60
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -41,9 +42,4 @@ I provider di dati per le connessioni client sono diversi da quelli necessari pe
 
 ## <a name="next-steps"></a>Passaggi successivi
 Con i provider di dati più recenti installati, l'applicazione client è pronta a connettersi a un server. Per altre informazioni sulla connessione da un client, vedere [Ottenere dati da Azure Analysis Services](analysis-services-connect.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

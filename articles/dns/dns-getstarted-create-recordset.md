@@ -14,8 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: f4c17d03ff637659a7bc7cde378878d8a4827b80
-ms.openlocfilehash: 175e8620828a2b0a0aff6de0b1a39860ea59514b
+ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
+ms.openlocfilehash: 67b780d66eac4199b0a2367f575477191542cfa7
+ms.lasthandoff: 02/27/2017
 
 ---
 
@@ -24,7 +25,8 @@ ms.openlocfilehash: 175e8620828a2b0a0aff6de0b1a39860ea59514b
 > [!div class="op_single_selector"]
 > * [Portale di Azure](dns-getstarted-create-recordset-portal.md)
 > * [PowerShell](dns-getstarted-create-recordset.md)
-> * [Interfaccia della riga di comando di Azure](dns-getstarted-create-recordset-cli.md)
+> * [Interfaccia della riga di comando di Azure 1.0](dns-getstarted-create-recordset-cli-nodejs.md)
+> * [Interfaccia della riga di comando di Azure 2.0](dns-getstarted-create-recordset-cli.md)
 
 Questo articolo illustra come creare record e set di record con Azure PowerShell.
 
@@ -48,7 +50,7 @@ Se il nuovo record ha lo stesso nome e tipo di un record esistente, è necessari
 
 I set di record vengono creati usando il cmdlet `New-AzureRmDnsRecordSet`. Quando si crea un set di record, è necessario specificare il nome, la zona, la durata (TTL), il tipo di record e i record da creare.
 
-Per creare un set di record nel dominio radice, in questo caso "contoso.com", usare il nome record "@",, incluse le virgolette. Si tratta di una convenzione comune di DNS.
+Per creare un set di record nell'apice della zona, in questo caso "contoso.com", usare il nome record "@", incluse le virgolette. Si tratta di una convenzione comune di DNS.
 
 L'esempio seguente mostra come creare un nuovo set di record con il nome relativo "www" nella zona DNS "contoso.com". Il nome completo del set di record sarà "www.contoso.com". Il tipo di record è "A" e la durata (TTL) è 3600 secondi. Il set di record contiene un record singolo con indirizzo IP "1.2.3.4".
 
@@ -114,10 +116,5 @@ Informazioni su come [gestire le zone DNS usando PowerShell](dns-operations-dnsz
 
 Informazioni su come [gestire i record e i set di record DNS usando PowerShell](dns-operations-recordsets.md).
 
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

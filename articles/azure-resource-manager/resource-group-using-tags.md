@@ -12,11 +12,12 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 02/15/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: ec80273fd388a435bc0aee9cb2dd49df12535923
-ms.openlocfilehash: c5270c56ab6d0a4f200b0707554705d3b7855d32
+ms.sourcegitcommit: 0e1ee94504ebff235c1da9128e0ac68c2b28bc59
+ms.openlocfilehash: 2f56314769d90a1f0f9ebb5ece9c8e54b23b8936
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -28,6 +29,10 @@ ms.openlocfilehash: c5270c56ab6d0a4f200b0707554705d3b7855d32
 > 
 > 
 
+## <a name="ensure-tag-consistency-with-policies"></a>Garantire la coerenza di tag con i criteri
+
+I criteri delle risorse consentono di creare regole standard per l'organizzazione. È possibile creare criteri che garantiscono che le risorse vengano contrassegnate con i valori appropriati. Per altre informazioni, vedere [Applicare criteri delle risorse per i tag](resource-manager-policy-tags.md).
+
 ## <a name="templates"></a>Modelli
 
 [!INCLUDE [resource-manager-tags-in-templates](../../includes/resource-manager-tags-in-templates.md)]
@@ -38,9 +43,9 @@ ms.openlocfilehash: c5270c56ab6d0a4f200b0707554705d3b7855d32
 ## <a name="powershell"></a>PowerShell
 [!INCLUDE [resource-manager-tag-resources-powershell](../../includes/resource-manager-tag-resources-powershell.md)]
 
-## <a name="azure-cli-20-preview"></a>Interfaccia della riga di comando di Azure 2.0 (anteprima)
+## <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
 
-Con l'interfaccia della riga di comando di Azure 2.0 (anteprima), è possibile aggiungere tag alle risorse e ai gruppo di risorse ed eseguire query sulle risorse in base ai valori dei tag.
+Con l'interfaccia della riga di comando di Azure 2.0, è possibile aggiungere tag alle risorse e ai gruppo di risorse ed eseguire query sulle risorse in base ai valori dei tag.
 
 Ogni volta che si applicano tag a una risorsa o a un gruppo di risorse, si sovrascrivono i tag esistenti in tale risorsa o gruppo di risorse. È quindi necessario usare un approccio diverso se nella risorsa o nel gruppo di risorse esistono tag che si vuole mantenere o meno. Per aggiungere a:
 
@@ -110,10 +115,5 @@ Quando si scarica il CSV di utilizzo per i servizi che supportano i tag di fattu
 * Per un'introduzione all'uso dell'interfaccia della riga di comando di Azure durante la distribuzione delle risorse, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure](xplat-cli-azure-resource-manager.md).
 * Per un'introduzione all'uso del portale, vedere [Uso del portale di Azure per gestire le risorse di Azure](resource-group-portal.md)  
 * Per indicazioni su come le aziende possono usare Resource Manager per gestire efficacemente le sottoscrizioni, vedere [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Scaffolding aziendale Azure - Governance prescrittiva per le sottoscrizioni).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

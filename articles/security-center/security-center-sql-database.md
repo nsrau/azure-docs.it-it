@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: c10a35e4828e8da427f324ef3c3892e7e24cc72d
-ms.openlocfilehash: ba8fd7ea8979c8c2afbace60a5675b411438d6b4
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 46dd298a5664d914e55d45c5b7599d5983287476
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -31,7 +32,7 @@ Il Centro sicurezza consente di proteggere i dati nel database SQL fornendo visi
 * Definire i criteri per la crittografia e il controllo del database SQL.
 * Monitorare la sicurezza delle risorse del database SQL per tutte le sottoscrizioni.
 * Identificare e correggere rapidamente i problemi di sicurezza.
-* Integrare gli avvisi generati dal [rilevamento delle minacce del database SQL di Azure](../sql-database/sql-database-threat-detection-get-started.md).
+* Integrare gli avvisi generati dal [rilevamento delle minacce del database SQL di Azure](../sql-database/sql-database-threat-detection.md).
 
 Oltre ad aiutare a proteggere le risorse del database SQL, il Centro sicurezza offre funzionalità per il monitoraggio e la gestione della sicurezza per le macchine virtuali di Azure, i servizi cloud, i servizi app, le reti virtuali e altro ancora. Per altre informazioni sul Centro sicurezza, fare clic [qui](security-center-intro.md).
 
@@ -79,7 +80,7 @@ Per visualizzare le raccomandazioni per le risorse di Azure, selezionare il riqu
 Come illustrato di seguito, il Centro sicurezza mostra i server SQL in cui il controllo e il rilevamento delle minacce non sono abilitati. Dopo aver abilitato il controllo, è possibile configurare le impostazioni di rilevamento delle minacce e di posta elettronica per ricevere gli avvisi di sicurezza. La funzionalità di rilevamento delle minacce visualizza un avviso quando rileva attività di database che indicano la presenza di potenziali minacce alla sicurezza nel database. Gli avvisi vengono visualizzati nel dashboard del Centro sicurezza.
 ![Controllo e rilevamento delle minacce][5]
 
-Seguire i passaggi riportati in [Introduzione al rilevamento delle minacce nel database SQL](../sql-database/sql-database-threat-detection-get-started.md) per abilitare e configurare il rilevamento delle minacce e per configurare l'elenco degli indirizzi di posta elettronica che riceveranno avvisi di sicurezza in caso di rilevamento di attività anomale.
+Seguire i passaggi in [SQL Database Threat Detection in the Azure portal](../sql-database/sql-database-threat-detection-portal.md) (Rilevamento di minacce del database SQL nel portale di Azure) per attivare e configurare il rilevamento di minacce e per configurare l'elenco dei messaggi di posta elettronica che riceveranno gli avvisi di sicurezza al rilevamento di anomalie dell'attività.
 
 Per altre informazioni sulle raccomandazioni, vedere [Gestione delle raccomandazioni di sicurezza](security-center-recommendations.md).
 
@@ -90,7 +91,7 @@ Una volta abilitati i [criteri di sicurezza](security-center-policies.md) per le
 Per altre informazioni, vedere [Monitoraggio dell'integrità della sicurezza](security-center-monitoring.md).
 
 ## <a name="manage-and-respond-to-security-alerts"></a>Gestire e rispondere agli avvisi di sicurezza
-Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log generati dalla funzionalità di [rilevamento delle minacce del database SQL di Azure](../sql-database/sql-database-threat-detection-get-started.md) e da altre risorse di Azure per rilevare le minacce reali e ridurre i falsi positivi. Il Centro sicurezza visualizza un elenco degli avvisi di sicurezza in ordine di priorità, nonché le informazioni necessarie per analizzare rapidamente il problema e indicazioni per risolvere un attacco.
+Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log generati dalla funzionalità di [rilevamento delle minacce del database SQL di Azure](../sql-database/sql-database-threat-detection.md) e da altre risorse di Azure per rilevare le minacce reali e ridurre i falsi positivi. Il Centro sicurezza visualizza un elenco degli avvisi di sicurezza in ordine di priorità, nonché le informazioni necessarie per analizzare rapidamente il problema e indicazioni per risolvere un attacco.
 
 Per visualizzare gli avvisi, selezionare il riquadro **Avvisi di sicurezza** nel pannello Centro sicurezza. Nel pannello **Avvisi di sicurezza** selezionare un avviso per visualizzare altre informazioni sugli eventi che hanno attivato l'avviso ed eventualmente i passaggi da seguire per risolvere i problemi associati a un attacco. In questo esempio si seleziona **Potential SQL Injection** (Potenziale attacco SQL injection).
 ![Avvisi di sicurezza][7]
@@ -115,9 +116,4 @@ Per altre informazioni, vedere [Gestione e risposta agli avvisi di sicurezza](se
 [6]: ./media/security-center-sql-database/monitor-health.png
 [7]: ./media/security-center-sql-database/alert.png
 [8]: ./media/security-center-sql-database/sql-injection.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

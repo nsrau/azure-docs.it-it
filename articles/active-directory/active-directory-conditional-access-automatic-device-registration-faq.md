@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/04/2017
+ms.date: 02/15/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 3e87a3b4086d3a2b0dec5ec7d954864922f51279
-ms.openlocfilehash: c262134df624b548b99c22bd749bb56fcda6fb1b
+ms.sourcegitcommit: 90327223d19ffc6697237d697b93fe88e1654e2c
+ms.openlocfilehash: fc668e1b4af662506da6652bbf21bab6cf91b114
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -57,17 +58,17 @@ Nelle informazioni UTENTE vengono elencati solo i dispositivi seguenti:
 
 Per i dispositivi Windows 10 e Windows Server 2016 aggiunti a un dominio AD locale:
 
-1.  Aprire il prompt dei comandi come amministratore.
+1.    Aprire il prompt dei comandi come amministratore.
 
-2.  Digitare **dsregcmd.exe /debug /leave**
+2.    Digitare **dsregcmd.exe /debug /leave**
 
-3.  **Disconnettersi e accedere per attivare le attività pianificate che registrano nuovamente il dispositivo.** 
+3.    **Disconnettersi e accedere per attivare le attività pianificate che registrano nuovamente il dispositivo.** 
 
 Per altre piattaforme Windows aggiunte a un dominio AD locale:
 
-1.  Aprire il prompt dei comandi come amministratore.
-2.  Digitare `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
-3.  Digitare `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
+1.    Aprire il prompt dei comandi come amministratore.
+2.    Digitare `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
+3.    Digitare `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
 ---
 
@@ -75,13 +76,13 @@ Per altre piattaforme Windows aggiunte a un dominio AD locale:
 
 **R:**
 
--   Per i dispositivi Windows 10 e Windows Server 2016, se vengono effettuati tentativi ripetuti di rimozione o aggiunta del medesimo dispositivo, potrebbero essere visualizzate voci duplicate. 
+-    Per i dispositivi Windows 10 e Windows Server 2016, se vengono effettuati tentativi ripetuti di rimozione o aggiunta del medesimo dispositivo, potrebbero essere visualizzate voci duplicate. 
 
--   Ciascun utente Windows che usa l'opzione Aggiungi account aziendale o dell'istituto di istruzione creerà un nuovo record di dispositivo con lo stesso nome.
+-    Ciascun utente Windows che usa l'opzione Aggiungi account aziendale o dell'istituto di istruzione creerà un nuovo record di dispositivo con lo stesso nome.
 
--   Per le altre piattaforme Windows aggiunte a domini AD locali che usano la registrazione automatica verrà creato un nuovo record di dispositivo con lo stesso nome per ciascun utente di dominio che accede al dispositivo. 
+-    Per le altre piattaforme Windows aggiunte a domini AD locali che usano la registrazione automatica verrà creato un nuovo record di dispositivo con lo stesso nome per ciascun utente di dominio che accede al dispositivo. 
 
--   Un computer AADJ cancellato, reinstallato e aggiunto nuovamente con lo stesso nome verrà visualizzato con un record diverso ma con lo stesso nome dispositivo.
+-    Un computer AADJ cancellato, reinstallato e aggiunto nuovamente con lo stesso nome verrà visualizzato con un record diverso ma con lo stesso nome dispositivo.
 
 ---
 
@@ -112,13 +113,13 @@ Per altre piattaforme Windows aggiunte a un dominio AD locale:
 
 **R:** Di seguito vengono elencati alcuni motivi comuni per questo scenario:
 
-1.  Le credenziali dell'utente non sono più valide.
+1.    Le credenziali dell'utente non sono più valide.
 
-2.  Il computer non riesce a comunicare con Azure Active Directory. Verificare la presenza di eventuali problemi di connettività di rete.
+2.    Il computer non riesce a comunicare con Azure Active Directory. Verificare la presenza di eventuali problemi di connettività di rete.
 
-3.  Non sono stati soddisfatti i prerequisiti di aggiunta ad Azure AD. Assicurarsi di aver seguito i passaggi indicati in [Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Aggiunta ad Azure Active Directory](active-directory-azureadjoin-overview.md).  
+3.    Non sono stati soddisfatti i prerequisiti di aggiunta ad Azure AD. Assicurarsi di aver seguito i passaggi indicati in [Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Aggiunta ad Azure Active Directory](active-directory-azureadjoin-overview.md).  
 
-4.  Gli accessi federati richiedono un server di federazione con supporto per endpoint attivi WS-Trust. 
+4.    Gli accessi federati richiedono un server di federazione con supporto per endpoint attivi WS-Trust. 
 
 ---
 
@@ -144,15 +145,10 @@ Per altre piattaforme Windows aggiunte a un dominio AD locale:
 
 **R:** Per informazioni sulla risoluzione dei problemi, vedere:
 
-1. [Risoluzione dei problemi di registrazione automatica di computer aggiunti al dominio Azure AD per client di livello inferiore di Windows 10 e Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
+1. [Risoluzione dei problemi di registrazione automatica di computer aggiunti al dominio di Azure AD - Windows 10 e Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
 
-2. [Risoluzione dei problemi di registrazione automatica di computer aggiunti al dominio Azure AD per client di livello inferiore di Windows](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+2. [Risoluzione dei problemi di registrazione automatica di computer aggiunti al dominio di Azure AD per client di livello inferiore di Windows](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
  
 ---
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -11,30 +11,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 02/15/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: fe9fad2de3fbb63e51fa14215c6f240977c56c7b
-ms.openlocfilehash: c72cebd04216b4e2bba26dd306354a7cd4e6c49a
+ms.sourcegitcommit: d3688b6a71dcd9964839da3cda35413d00f362d1
+ms.openlocfilehash: 836d43b17515beb565748f28603069c7c6a52fbf
+ms.lasthandoff: 02/15/2017
 
 
 ---
-# <a name="troubleshooting-the-auto-registration-of-azure-ad-domain-joined-computers-for-windows-10-and-windows-server-2016"></a>Risoluzione dei problemi di registrazione automatica di computer aggiunti al dominio Azure AD per client di livello inferiore di Windows 10 e Windows Server 2016
+# <a name="troubleshooting-auto-registration-of-domain-joined-computers-to-azure-ad--windows-10-and-windows-server-2016"></a>Risoluzione dei problemi di registrazione automatica di computer aggiunti al dominio di Azure AD - Windows 10 e Windows Server 2016
 
 Questo argomento è applicabile ai seguenti client:
 
--   Windows 10
--   Windows Server 2016
+-    Windows 10
+-    Windows Server 2016
 
 Per altri client Windows, vedere [Risoluzione dei problemi di registrazione automatica di computer aggiunti al dominio Azure AD per client di livello inferiore di Windows](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md).
 
 Questo argomento presuppone che la registrazione automatica dei dispositivi aggiunti a un dominio sia stata configurata come descritto in [Come configurare la registrazione automatica dei dispositivi aggiunti al dominio di Windows con Azure Active Directory](active-directory-conditional-access-automatic-device-registration-get-started.md) per il supporto agli scenari seguenti:
 
-1.  [Accesso condizionale basato su dispositivo](active-directory-conditional-access-automatic-device-registration-setup.md)
+1.    [Accesso condizionale basato su dispositivo](active-directory-conditional-access-automatic-device-registration-setup.md)
 
-2.  [Roaming aziendale delle impostazioni](active-directory-windows-enterprise-state-roaming-overview.md)
+2.    [Roaming aziendale delle impostazioni](active-directory-windows-enterprise-state-roaming-overview.md)
 
-3.  [Windows Hello for Business](active-directory-azureadjoin-passport-deployment.md) (Configurare Windows Hello for Business)
+3.    [Windows Hello for Business](active-directory-azureadjoin-passport-deployment.md) (Configurare Windows Hello for Business)
 
 
 Questo documento fornisce indicazioni sulla risoluzione di potenziali problemi. 
@@ -80,23 +81,23 @@ Questo campo indica se il dispositivo è registrato con Azure AD. Se il valore v
 
 **Possibili cause:**
 
-1.  Autenticazione del computer non riuscita per la registrazione.
+1.    Autenticazione del computer non riuscita per la registrazione.
 
-2.  È presente un proxy HTTP nell'organizzazione che non può essere individuato dal computer
+2.    È presente un proxy HTTP nell'organizzazione che non può essere individuato dal computer
 
-3.  Il computer non riesce a raggiungere Azure AD per l'autenticazione o il servizio Registrazione dispositivo Azure per la registrazione
+3.    Il computer non riesce a raggiungere Azure AD per l'autenticazione o il servizio Registrazione dispositivo Azure per la registrazione
 
-4.  Il computer non è presente nella rete interna dell'organizzazione o nella VPN con connessione diretta a un controller di dominio locale AD.
+4.    Il computer non è presente nella rete interna dell'organizzazione o nella VPN con connessione diretta a un controller di dominio locale AD.
 
-5.  Se il computer dispone di TPM, potrebbe essere in uno stato non valido.
+5.    Se il computer dispone di TPM, potrebbe essere in uno stato non valido.
 
-6.  Verificare nuovamente le configurazioni precedentemente indicate per assicurarsi che non ci siano errori. Esempi comuni:
+6.    Verificare nuovamente le configurazioni precedentemente indicate per assicurarsi che non ci siano errori. Esempi comuni:
 
-    1.  Il server federativo non dispone di endpoint WS-Trust abilitati
+    1.    Il server federativo non dispone di endpoint WS-Trust abilitati
 
-    2.  Il server federativo potrebbe non consentire l'autenticazione in ingresso dai computer nella rete con l'autenticazione integrata di Windows.
+    2.    Il server federativo potrebbe non consentire l'autenticazione in ingresso dai computer nella rete con l'autenticazione integrata di Windows.
 
-    3.  Non è presente alcun oggetto Punto di connessione del servizio che punti al nome di dominio verificato in Azure AD nella foresta AD a cui appartiene il computer
+    3.    Non è presente alcun oggetto Punto di connessione del servizio che punti al nome di dominio verificato in Azure AD nella foresta AD a cui appartiene il computer
 
 ---
 
@@ -116,17 +117,12 @@ Questo campo indica se il dispositivo è registrato con Azure AD ma come disposi
   
 Questi campi mostrano che l'utente è autenticato correttamente in Azure AD durante l'accesso al dispositivo. Se il valore visualizzato è "NO", di seguito vengono elencate alcune possibili cause:
 
-1.  Chiave di archiviazione STK non valida in TPM e associata al dispositivo al momento della registrazione. Verificare KeySignTest durante l'esecuzione con privilegi elevati.
+1.    Chiave di archiviazione STK non valida in TPM e associata al dispositivo al momento della registrazione. Verificare KeySignTest durante l'esecuzione con privilegi elevati.
 
-2.  ID di accesso alternativo
+2.    ID di accesso alternativo
 
-3.  Proxy HTTP non trovato
+3.    Proxy HTTP non trovato
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per ulteriori informazioni, vedere [Domande frequenti sulla registrazione automatica dei dispositivi](active-directory-conditional-access-automatic-device-registration-faq.md) 
-
-
-<!--HONumber=Feb17_HO1-->
-
-

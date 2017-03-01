@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
-ms.author: subramar
+ms.date: 02/02/2017
+ms.author: subramar;chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: f1e035b50b415f68ce567fe1db3a3fe93c2a1394
-ms.openlocfilehash: 63d7ca0224c1989618c474181b02fa79eb69c966
+ms.sourcegitcommit: c83c4db0ada77998354b3fca4e2297335899a9bd
+ms.openlocfilehash: 20a3277370583ccf93b36191a70149ed7d814238
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -34,7 +35,7 @@ Un aggiornamento può anche prevedere la rimozione di determinati servizi da un'
 
 Azure Service Fabric offre diverse modalità di aggiornamento per supportare i cluster di sviluppo e di produzione. Le opzioni di distribuzione scelte possono essere diverse per ambienti diversi.
 
-L'aggiornamento in sequenza di applicazioni in modalità Monitored è il più comune da usare in un ambiente di produzione. Se vengono specificati criteri di aggiornamento, Service Fabric verifica che l'applicazione sia integra prima di procedere con l'aggiornamento.
+L'aggiornamento in sequenza di applicazioni monitorato è il più comune da usare in un ambiente di produzione. Se vengono specificati criteri di aggiornamento, Service Fabric verifica che l'applicazione sia integra prima di procedere con l'aggiornamento.
 
  L'amministratore dell'applicazione può usare la modalità di aggiornamento in sequenza manuale per avere il controllo totale sull'avanzamento dell'aggiornamento nei vari domini di aggiornamento. Questa modalità è utile quando sono necessari criteri di valutazione dell'integrità più personalizzati o complessi o è in corso un aggiornamento non convenzionale, ad esempio un'applicazione che presenta già una perdita di dati.
 
@@ -99,9 +100,4 @@ Controllare l’aggiornamento dell'applicazione tramite [Parametri di aggiorname
 Rendere compatibili gli aggiornamenti dell'applicazione imparando a usare [Serializzazione dei dati](service-fabric-application-upgrade-data-serialization.md).
 
 Per informazioni su come risolvere problemi comuni negli aggiornamenti dell'applicazione, vedere i passaggi indicati in [Risoluzione dei problemi relativi agli aggiornamenti dell'applicazione](service-fabric-application-upgrade-troubleshooting.md).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

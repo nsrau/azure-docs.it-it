@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 78fb1aba448ebfbba9e38deec35daf7b64b4027c
+ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
+ms.openlocfilehash: 6a854486060c77d743cbdd42b7a341860ab77361
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -31,24 +32,21 @@ Gli amministratori globali e gli amministratori con limitazioni possono usare il
 ## <a name="admins-adding-guest-users-to-the-directory"></a>Aggiunta di utenti guest alla directory da parte degli amministratori
 Aggiungere utenti di Collaborazione B2B alla directory come amministratore di Azure AD, come illustrato nel video seguente:
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/Admin-adding-guests-for-B2B-collaboration-to-Azure-AD-tenant]
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/Admin-adding-guests-for-B2B-collaboration-to-Azure-AD-tenant/Player]
 
-  Se il video non è incorporato, è possibile guardarlo [qui](https://channel9.msdn.com/Blogs/Azure/Admin-adding-guests-for-B2B-collaboration-to-Azure-AD-tenant).
 
 ## <a name="admins-adding-guest-users-to-a-group"></a>Aggiunta di utenti guest a un gruppo da parte degli amministratori
 Aggiungere utenti di Collaborazione B2B a un gruppo come amministratore di Azure AD, come illustrato nel video seguente:
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group]
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group/Player]
 
-  Se il video non è incorporato, è possibile guardarlo [qui](https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group).
 
 ## <a name="admins-adding-guest-users-to-an-application"></a>Aggiunta di utenti guest a un'applicazione da parte degli amministratori
 
 Aggiungere utenti di Collaborazione B2B a un'applicazione come amministratore di Azure AD, come illustrato nel video seguente:
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-assign-b2b-to-apps]
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-assign-b2b-to-apps/Player]
 
-  Se il video non è incorporato, è possibile guardarlo [qui](https://channel9.msdn.com/Blogs/Azure/admin-assign-b2b-to-apps).
 
 ## <a name="related-articles"></a>Articoli correlati
 
@@ -65,9 +63,4 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 * [API e personalizzazione per Collaborazione B2B di Azure Active Directory](active-directory-b2b-api.md)
 * [Aggiungere gli utenti per la Collaborazione B2B senza un invito](active-directory-b2b-add-user-without-invite.md)
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

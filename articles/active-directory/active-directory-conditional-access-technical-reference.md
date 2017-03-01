@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2017
+ms.date: 02/15/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: a5c84d7ef67c49042eb85965593f44915a666df9
+ms.sourcegitcommit: 00124aa9d0729880bf2314f5c35c1797b7a6827f
+ms.openlocfilehash: 79d844f8fa3d3d0898b642f561df34588e044f9a
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -53,8 +54,8 @@ Le regole di accesso condizionale che utilizzano una rete di tipo "ufficio" si b
 Opzioni per specificare le reti di tipo "ufficio"
 
 1. Configurare gli intervalli IP attendibili nella [pagina di configurazione dell'autenticazione Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-whats-next.md). I criteri di accesso condizionale useranno gli intervalli configurati in ogni richiesta di autenticazione e in ogni emissione di token per valutare le regole. 
-2. Configurare l'utilizzo dell'attestazione "rete aziendale" con AD FS; questa opzione può essere utilizzata con la directory federata. [Ulteriori informazioni sulle attestazioni "rete aziendale"](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
-3. Configurare gli intervalli di indirizzi IP pubblici. Nella scheda di configurazione, è possibile impostare gli indirizzi IP pubblici per la propria directory. L'accesso condizionale li utilizzerà come indirizzi IP "ufficio"; in questo modo sarà possibile configurare intervalli aggiuntivi, al di sopra del limite di 50 indirizzi IP applicato dalla pagina di impostazione dell'autenticazione a più fattori.
+2. Configurare l'utilizzo dell'attestazione "rete aziendale" con AD FS; questa opzione può essere utilizzata con la directory federata. Per altre informazioni sulle attestazioni "rete aziendale", vedere [Indirizzi IP attendibili](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
+
 
 ## <a name="rules-based-on-application-sensitivity"></a>Regole basate sulla sensibilità dell'applicazione
 Le regole vengono configurate per le singole applicazioni, consentendo la protezione di servizi ad alto valore, senza alcun impatto sull'accesso ad altri servizi. Le regole di accesso condizionale possono essere configurate nella scheda **Configura** dell'applicazione. 
@@ -74,10 +75,5 @@ Le regole attualmente disponibili sono le seguenti:
 ## <a name="related-topics"></a>Argomenti correlati
 * [Protezione dell'accesso a Office 365 e ad altre app connesse ad Azure Active Directory](active-directory-conditional-access.md)
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

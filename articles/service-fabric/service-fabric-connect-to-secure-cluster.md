@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/03/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: cb1c9734ef7745274095e5b3840698a76045bc91
-ms.openlocfilehash: 44dec18e40f5693e32a99cbea0bf0d1530dddb44
+ms.sourcegitcommit: 52f9a3146852ef83c31bd93e1c538e12f0d953eb
+ms.openlocfilehash: e44ecf5860becffb39d199e36d36d96f50bf7cf3
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -103,6 +104,13 @@ Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azu
           -StoreLocation CurrentUser -StoreName My
 ```
 
+### <a name="connect-to-a-secure-cluster-using-windows-active-directory"></a>Connettersi a un cluster sicuro con Windows Active Directory
+Se il cluster autonomo viene distribuito usando la protezione di Active Directory, connettersi al cluster aggiungendo l'opzione "WindowsCredential".
+
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+          -WindowsCredential
+```
 
 <a id="connectsecureclusterfabricclient"></a>
 
@@ -339,10 +347,5 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 * [Gestione delle applicazioni di Infrastruttura di servizi in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 * [Introduzione al modello di integrità di Infrastruttura di servizi](service-fabric-health-introduction.md)
 * [Sicurezza delle applicazioni e RunAs](service-fabric-application-runas-security.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

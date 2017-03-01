@@ -14,22 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 02/21/2017
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: cb3fd28659eb09dfb74496d2aa526736d223631a
-ms.openlocfilehash: d1571aa6191111c46c43b3a424cea415091adfc9
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 773eba80715cb990b23ecec548a18c112ba73a42
+ms.lasthandoff: 02/22/2017
 
 
 ---
 # <a name="scale-an-azure-container-service-cluster"></a>Ridimensionare un cluster del servizio contenitore di Azure
 Dopo aver [distribuito un cluster del servizio contenitore di Azure](container-service-deployment.md), potrebbe essere necessario modificare il numero di nodi agente. Ad esempio, potrebbero essere necessari più agenti in modo da eseguire più applicazioni o istanze contenitore. 
 
-È possibile modificare il numero di nodi agente nel cluster tramite il portale di Azure o l'interfaccia della riga di comando di Azure 2.0 (anteprima). L'interfaccia della riga di comando di Azure 2.0 (anteprima) è [l'interfaccia della riga di comando di nuova generazione](/cli/azure/old-and-new-clis) per il modello di distribuzione di Resource Manager.
-
-> [!NOTE]
-> Attualmente, non è supportata la scalabilità dei nodi di agenti in un cluster Kubernetes del servizio contenitore.
-
+È possibile modificare il numero di nodi agente in un cluster DC/OS, Docker Swarm o Kubernetes tramite il portale di Azure o l'interfaccia della riga di comando di Azure 2.0. L'interfaccia della riga di comando di Azure 2.0 è [l'interfaccia della riga di comando di nuova generazione](/cli/azure/old-and-new-clis) per il modello di distribuzione di Resource Manager.
 
 ## <a name="scale-with-the-azure-portal"></a>Ridimensionare con il portale di Azure
 
@@ -43,9 +40,9 @@ Dopo aver [distribuito un cluster del servizio contenitore di Azure](container-s
 
 
 
-## <a name="scale-with-the-azure-cli-20-preview"></a>Ridimensionare con l'interfaccia della riga di comando di Azure 2.0 (anteprima)
+## <a name="scale-with-the-azure-cli-20"></a>Ridimensionare con l'interfaccia della riga di comando di Azure 2.0
 
-Assicurarsi di avere [installato](/cli/azure/install-az-cli2) la versione più recente dell'interfaccia della riga di comando di Azure 2.0 (anteprima) e di avere effettuato l'accesso a un account Azure (`az login`).
+Assicurarsi di avere [installato](/cli/azure/install-az-cli2) la versione più recente dell'interfaccia della riga di comando di Azure 2.0 e di avere eseguito l'accesso a un account Azure (`az login`).
 
 
 ### <a name="see-the-current-agent-count"></a>Visualizzare il numero di agenti corrente
@@ -67,7 +64,7 @@ Ad esempio, per modificare il numero di agenti nel cluster precedente a 10, digi
 azure acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
 ```
 
-L'interfaccia della riga di comando di Azure 2.0 (anteprima) restituisce una stringa JSON che rappresenta la nuova configurazione del servizio contenitore, incluso il nuovo numero di agenti.
+L'interfaccia della riga di comando di Azure 2.0 restituisce una stringa JSON che rappresenta la nuova configurazione del servizio contenitore, incluso il nuovo numero di agenti.
 
 Per ulteriori opzioni di comandi, eseguire `az acs scale --help`.
 
@@ -90,12 +87,7 @@ Per ulteriori opzioni di comandi, eseguire `az acs scale --help`.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Vedere [ulteriori esempi](container-service-create-acs-cluster-cli.md) dell'uso di comandi dell'interfaccia della riga di comando di Azure 2.0 (anteprima) con il servizio contenitore di Azure.
+* Vedere [altri esempi](container-service-create-acs-cluster-cli.md) dell'uso di comandi dell'interfaccia della riga di comando di Azure 2.0 con il servizio contenitore di Azure.
 * Ulteriori informazioni sui [pool di agenti DC/OS](container-service-dcos-agents.md) del servizio contenitore di Azure.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

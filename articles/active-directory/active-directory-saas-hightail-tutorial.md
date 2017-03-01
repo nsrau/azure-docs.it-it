@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: aa5cb974f0181b675faa0c1a064098e4a011ca51
+ms.sourcegitcommit: 325d92e493f6e011367d2c85b52c92838327101e
+ms.openlocfilehash: c0666f50980f5983747f8365e64eea603458db3f
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -26,7 +27,7 @@ Questa esercitazione descrive l'integrazione di Hightail con Azure Active Direct
 L'integrazione di Hightail con Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD chi può accedere a Hightail
-* È possibile abilitare gli utenti per l'accesso automatico a Hightail (Single Sign-On) con i propri account Azure AD
+* È possibile abilitare gli utenti per l'accesso Single Sign-On automatico (SSO) a Hightail con i propri account Azure AD
 * È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -37,9 +38,8 @@ Per configurare l'integrazione di Azure AD con Hightail, sono necessari gli elem
 * Sottoscrizione di Azure AD.
 * Sottoscrizione di Hightail abilitata per l'accesso Single Sign-On
 
-> [!NOTE]
-> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
-> 
+>[!NOTE]
+>Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione. 
 > 
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
@@ -55,7 +55,7 @@ Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali s
 1. Aggiunta di Hightail dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
-## <a name="adding-hightail-from-the-gallery"></a>Aggiunta di Hightail dalla raccolta
+## <a name="add-hightail-from-the-gallery"></a>Aggiungere Hightail dalla raccolta
 Per configurare l'integrazione di Hightail in Azure AD, è necessario aggiungere Hightail dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Hightail dalla raccolta, seguire questa procedura:**
@@ -80,7 +80,7 @@ Per configurare l'integrazione di Hightail in Azure AD, è necessario aggiungere
    
     ![Selezione dell'app nella raccolta](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Hightail con un utente test di nome "Britta Simon".
 
 Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Hightail che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Hightail.
@@ -89,13 +89,13 @@ La relazione di collegamento viene stabilita assegnando al valore di **nome uten
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Hightail, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente test di Hightail](#creating-a-hightail-test-user)** : per avere una controparte di Britta Simon in Hightail collegata alla rispettiva rappresentazione in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione Hightail.
 
 L'applicazione Hightail si aspetta che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla scheda **Attribute (Attributo)** dell'applicazione. La schermata seguente illustra un esempio relativo a questa operazione. 
@@ -116,18 +116,12 @@ L'applicazione Hightail si aspetta che le asserzioni SAML abbiano un formato spe
    | Email |user.mail |
    | UserIdentity |user.mail |
    
-    a. Fare clic su **aggiungi attributo utente** per aprire la finestra di dialogo **Aggiungi attributo utente**.
+    1. Fare clic su **aggiungi attributo utente** per aprire la finestra di dialogo **Aggiungi attributo utente**.
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_general_82.png) 
-
-    b. Nella casella di testo **Nome attributo** digitare il nome dell'attributo indicato per quella riga.
-
-    c. Nell'elenco **Valore attributo** selezionare il valore dell'attributo indicato per quella riga.
-
-    d. Fare clic su **Complete**.    
-
-
-
+    2. Nella casella di testo **Nome attributo** digitare il nome dell'attributo indicato per quella riga.
+    3. Nell'elenco **Valore attributo** selezionare il valore dell'attributo indicato per quella riga.
+    4. Fare clic su **Completa**.    
 
 1. Nel menu in alto fare clic su **Avvio rapido**.
    
@@ -138,58 +132,44 @@ L'applicazione Hightail si aspetta che le asserzioni SAML abbiano un formato spe
 3. Nella pagina della finestra di dialogo **Configurare le impostazioni dell'app**, se si desidera configurare l'applicazione in **modalità iniziata da IDP**,seguire la procedura seguente e fare clic su **Avanti**:
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_04.png) 
-
-    a. Nella casella di testo **URL di risposta** digitare l'URL adottando il modello seguente: **"https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse"**
-
-    b. Fare clic su **Avanti**
+    1. Nella casella di testo **URL di risposta** digitare l'URL adottando il modello seguente: **"https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse"**
+    2. Fare clic su **Avanti**.
 
 1. Se si desidera configurare l'applicazione in **SP initiated mode** (Modalità iniziata dal provider di servizi) nella finestra di dialogo **Configurare le impostazioni dell'app** fare clic su **"Mostra opzioni avanzate (facoltativo)"**, quindi digitare l'**URL di accesso** e fare clic su **Avanti**.
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_06.png) 
-   
-    a. Nella casella di testo URL di accesso digitare l'URL utilizzato dagli utenti per accedere all'applicazione Hightail adottando il modello seguente: **https://www.hightail.com/loginSSO**. Questa è la pagina di accesso tradizionale per tutti i clienti che desiderano utilizzare l'accesso SSO.
-   
-    b. Fare clic su **Avanti**
+    1. Nella casella di testo URL di accesso digitare l'URL utilizzato dagli utenti per accedere all'applicazione Hightail adottando il modello seguente: **https://www.hightail.com/loginSSO**. Questa è la pagina di accesso tradizionale per tutti i clienti che desiderano utilizzare l'accesso SSO.
+    2. Fare clic su **Avanti**.
 2. Nella pagina **Configura accesso Single Sign-On in Hightail** seguire questa procedura e fare clic su **Avanti**:
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_05.png) 
-
-    a. Fare clic su **Scarica certificato**e quindi salvare il file del certificato con codifica Base 64 nel computer.
-
-    b. Fare clic su **Avanti**.
-
-    > [AZURE.NOTE] Prima di configurare l'accesso Single Sign-On sull'app Hightail, inserire il dominio di posta elettronica nell'elenco dei consentiti con il team Hightail in modo che tutti gli utenti che usano il dominio possano beneficiare della funzionalità Single Sign-On.
+    1. Fare clic su **Scarica certificato**e quindi salvare il file del certificato con codifica Base&64; nel computer.
+    2. Fare clic su **Avanti**.
+    >[!NOTE] 
+    >Prima di configurare l'accesso Single Sign-On sull'app Hightail, inserire il dominio di posta elettronica nell'elenco dei consentiti con il team Hightail in modo che tutti gli utenti che usano il dominio possano beneficiare della funzionalità Single Sign-On.
+    >
 
 1. Per configurare l'accesso SSO sull'applicazione, è necessario accedere al tenant di Hightail come amministratore.
    
-    a. Nel menu in alto fare clic sulla scheda **Account** e selezionare **Configure SAML** (Configura SAML).
-   
+    1. Nel menu in alto fare clic sulla scheda **Account** e selezionare **Configure SAML** (Configura SAML).
+ 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_001.png) 
-
-    b. Selezionare la casella di controllo **Enable SAML Authentication (Abilita autenticazione SAML)**.
+    2. Selezionare la casella di controllo **Enable SAML Authentication (Abilita autenticazione SAML)**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_002.png) 
-
-    c. Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e quindi incollarlo nella casella di testo **SAML Token Signing Certificate (Certificato per la firma di token SAML)** .
+    3. Aprire il certificato con codifica Base&64; nel Blocco note, copiarne il contenuto negli Appunti e quindi incollarlo nella casella di testo **SAML Token Signing Certificate (Certificato per la firma di token SAML)** .
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_003.png) 
-
-
-    d. Copiare l'URL di accesso remoto da Azure AD a **SAML Authority (Identity Provider) (Autorità SAML, provider di identità)** in Hightail.
+    4. Copiare l'URL di accesso remoto da Azure AD a **SAML Authority (Identity Provider) (Autorità SAML, provider di identità)** in Hightail.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_005.png)
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_004.png)
-
-    e. Se si desidera configurare l'applicazione in **modalità avviata da IDP**, selezionare **"Identity Provider (IdP) initiated log in"** ("Accesso avviato con provider di identità (IdP)"). Se si usa la **modalità avviata da SP**, selezionare **"Service Provider (SP) initiated log in"** ("Accesso avviato con provider di servizi (SP)").
+    5. Se si desidera configurare l'applicazione in **modalità avviata da IDP**, selezionare **"Identity Provider (IdP) initiated log in"** ("Accesso avviato con provider di identità (IdP)"). Se si usa la **modalità avviata da SP**, selezionare **"Service Provider (SP) initiated log in"** ("Accesso avviato con provider di servizi (SP)").
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_006.png)
-
-    f. Copiare l'URL consumer di SAML dell'istanza in uso e incollarlo nella casella di testo **Reply URL (URL di risposta)** come mostrato nel passaggio 4. 
-
-    g. Fare clic su **Save**.
-
-
+    6. Copiare l'URL consumer di SAML dell'istanza in uso e incollarlo nella casella di testo **Reply URL (URL di risposta)** come mostrato nel passaggio 4. 
+    7. Fare clic su **Save**.
 
 1. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e fare clic su **Avanti**.
    
@@ -198,7 +178,7 @@ L'applicazione Hightail si aspetta che le asserzioni SAML abbiano un formato spe
    
     ![Single Sign-On di Microsoft Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.
 
 Nell'elenco di utenti selezionare **Britta Simon**.
@@ -221,24 +201,18 @@ Nell'elenco di utenti selezionare **Britta Simon**.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-hightail-tutorial/create_aaduser_05.png) 
    
-    a. In **Tipo di utente** selezionare **Nuovo utente nell'organizzazione**.
-   
-    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
-   
-    c. Fare clic su **Avanti**.
+    1. In **Tipo di utente** selezionare **Nuovo utente nell'organizzazione**.
+    2. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
+    3. Fare clic su **Avanti**.
 6. Nella pagina **Profilo utente** seguire questa procedura:
    
    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-hightail-tutorial/create_aaduser_06.png) 
    
-   a. Nella casella di testo **Nome** digitare **Britta**.  
-   
-   b. Nella casella di testo **Cognome** digitare **Simon**.
-   
-   c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
-   
-   d. Nell'elenco **Ruolo** selezionare **Utente**.
-   
-   e. Fare clic su **Avanti**.
+   1. Nella casella di testo **Nome** digitare **Britta**.  
+   2. Nella casella di testo **Cognome** digitare **Simon**.
+   3. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
+   4. Nell'elenco **Ruolo** selezionare **Utente**.
+   5. Fare clic su **Avanti**.
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-hightail-tutorial/create_aaduser_07.png) 
@@ -246,21 +220,19 @@ Nell'elenco di utenti selezionare **Britta Simon**.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-hightail-tutorial/create_aaduser_08.png) 
    
-    a. Prendere nota del valore visualizzato in **Nuova password**.
-   
-    b. Fare clic su **Complete**.   
+    1. Prendere nota del valore visualizzato in **Nuova password**.
+    2. Fare clic su **Completa**.   
 
-### <a name="creating-a-hightail-test-user"></a>Creazione di un utente test di Hightail
+### <a name="create-a-hightail-test-user"></a>Creare un utente test di Hightail
 Questa sezione descrive come creare un utente chiamato Britta Simon in Hightail. 
 
 Non è necessario alcun intervento dell'utente in questa sezione. Hightail supporta il provisioning utente just-in-time basato su attestazioni personalizzate. Se sono state configurate le attestazioni personalizzate come illustrato nella sezione **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** in alto, viene automaticamente creato un utente nell'applicazione se ancora non esiste. 
 
-> [!NOTE]
-> Per creare un utente manualmente, è necessario contattare il team di supporto di Hightail all'indirizzo [support@hightail.com](mailto:support@hightail.com).
-> 
+>[!NOTE]
+>Per creare un utente manualmente, è necessario contattare il team di supporto di Hightail all'indirizzo [support@hightail.com](mailto:support@hightail.com). 
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Hightail.
 
 ![Assegna utente][200] 
@@ -281,7 +253,7 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
 
 ![Assegna utente][205]
 
-### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Hightail nel pannello di accesso, viene effettuato automaticamente l'accesso all'applicazione Hightail.
@@ -307,9 +279,4 @@ Quando si fa clic sul riquadro Hightail nel pannello di accesso, viene effettuat
 [203]: ./media/active-directory-saas-hightail-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-hightail-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-hightail-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

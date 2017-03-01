@@ -12,77 +12,66 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2016
+ms.date: 02/16/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5c8b747ef8751f9556e0d23a97ec320cbf3265e6
+ms.sourcegitcommit: 999361daa2faebe3e88cab0b6085a938d6f40e9d
+ms.openlocfilehash: 3079969783f589cb90f17eac116c5d57884db49f
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="user-states-in-azure-multi-factor-authentication"></a>Stati utente in Azure Multi-Factor Authentication
 Gli account utente in modalità Multi-Factor Authentication di Azure presentano i seguenti tre stati distinti:
 
-| Stato | Descrizione | App interessate non basate su browser | Note |
-|:---:|:---:|:---:|:---:|
-| Disabled |Lo stato predefinito per un nuovo utente non registrato alla modalità Multi-Factor Authentication. |No |L'utente attualmente non usa la modalità Multi-Factor Authentication. |
-| Enabled |L'utente è stato registrato alla modalità Multi-Factor Authentication. |No.  Continuano a funzionare fino al completamento della registrazione. |L'utente è abilitato ma non ha completato la procedura di registrazione. All'utente verrà chiesto di completare la procedura all'accesso successivo. |
-| Enforced |L'utente è stato registrato e ha completato la procedura di registrazione per l'utilizzo della modalità Multi-Factor Authentication. |Sì.  Le app richiedono password per le app. |È possibile che l'utente abbia o non abbia completato la registrazione. Se la procedura di registrazione è stata completata, l'utente userà la modalità Multi-Factor Authentication. In caso contrario, all'utente verrà chiesto di completare la procedura all'accesso successivo. |
+| Stato | Descrizione | App interessate non basate su browser | 
+|:---:|:---:|:---:|
+| Disabled |Lo stato predefinito per un nuovo utente non registrato alla modalità Multi-Factor Authentication (MFA). |No |
+| Enabled |L'utente è stato iscritto ad Azure MFA, ma non ha eseguito la registrazione. Verrà richiesto di eseguire la registrazione al successivo accesso. |No.  Continuano a funzionare fino al completamento della registrazione. |
+| Enforced |L'utente è stato iscritto e ha completato il processo di registrazione per Azure MFA. |Sì.  Le app richiedono password per le app. |
 
 ## <a name="changing-a-user-state"></a>Modifica dello stato utente
-Lo stato utente cambia a seconda di due fattori: la configurazione per la MFA e il completamento del processo da parte dell'utente.  Quando si attiva la MFA per un utente, lo stato degli utenti cambia da disabilitato ad abilitato.  Dopo che l'utente abilitato esegue l'accesso e completa il processo, lo stato si imposterà su Applicato.  
+Lo stato dell'utente indica se un amministratore ha eseguito la relativa iscrizione in Azure MFA e se l'utente ha completato il processo di registrazione.
 
-### <a name="to-view-a-users-state"></a>Per visualizzare lo stato di un utente
-- - -
-1. Accedere al **portale di Azure classico** come amministratore.
-2. A sinistra fare clic su **Active Directory**.
-3. In **Directory** fare clic sulla directory relativa all'utente che si desidera attivare.
-   ![Fare clic su Directory](./media/multi-factor-authentication-get-started-cloud/directory1.png)
-4. Nella parte superiore fare clic su **Utenti**.
-5. Nella parte inferiore della pagina fare clic su **Gestisci Multi-Factor Auth**.
-   ![Fare clic su Directory](./media/multi-factor-authentication-get-started-cloud/manage1.png)
-6. Verrà aperta una nuova scheda del browser.  Sarà possibile visualizzare lo stato degli utenti.
-   ![Fare clic su Directory](./media/multi-factor-authentication-get-started-user-states/userstate1.png)
+Tutti gli utenti iniziano con *disabilitato*. Quando si registrano gli utenti in Azure MFA, il relativo stato cambia in *abilitato*. Quando gli utenti abilitati accedono e completano il processo di registrazione, il relativo stato viene modificato in *applicato*.  
 
-### <a name="to-change-the-state-from-disabled-to-enabled"></a>Per modificare lo stato da disabilitato ad abilitato
-1. Accedere al **portale di Azure classico** come amministratore.
-2. A sinistra fare clic su **Active Directory**.
-3. In **Directory** fare clic sulla directory relativa all'utente che si desidera attivare.
-   ![Fare clic su Directory](./media/multi-factor-authentication-get-started-cloud/directory1.png)
-4. Nella parte superiore fare clic su **Utenti**.
-5. Nella parte inferiore della pagina fare clic su **Gestisci Multi-Factor Auth**.
-   ![Fare clic su Directory](./media/multi-factor-authentication-get-started-cloud/manage1.png)
-6. Verrà aperta una nuova scheda del browser.  Trovare l'utente che si desidera abilitare alla modalità Multi-Factor Authentication Potrebbe essere necessario modificare la visualizzazione nella parte superiore. Assicurarsi che lo stato sia **disabilitato**
-   ![Abilitare l'utente](./media/multi-factor-authentication-get-started-cloud/enable1.png)
-7. **Selezionare** la casella accanto al nome.
-8. A destra fare clic su **Abilita**.
-   ![Attivare l'utente](./media/multi-factor-authentication-get-started-cloud/user1.png)
-9. Fare clic su **Abilita Multi-Factor Auth**.
-   ![Attivare l'utente](./media/multi-factor-authentication-get-started-cloud/enable2.png)
-10. Si noterà che lo stato dell'utente è cambiato da **Disabilitato** ad **Abilitato**.
-    ![Attivare gli utenti](./media/multi-factor-authentication-get-started-cloud/user.png)
-11. Dopo avere abilitato gli utenti, è consigliabile inviare una notifica tramite posta elettronica.  È anche opportuno informarli su come possono usare le app non basate su browser per evitare di essere bloccati.
+### <a name="view-user-states"></a>Visualizzare gli stati utente
+
+Per accedere alla pagina in cui è possibile visualizzare e gestire gli stati utente, procedere come segue:
+
+1. Accedere al [portale di Azure classico](https://manage.windowsazure.com) come amministratore.
+2. A sinistra, selezionare **Active Directory**.
+3. Selezionare la directory relativa all'utente da visualizzare.
+   ![Selezionare la directory - screenshot](./media/multi-factor-authentication-get-started-cloud/directory1.png)
+4. Selezionare **Utenti**.
+5. Nella parte inferiore della pagina selezionare **Gestisci Multi-Factor Auth**. 
+   ![Selezionare Gestisci Multi-Factor Auth - screenshot](./media/multi-factor-authentication-get-started-cloud/manage1.png)
+6. Verrà visualizzata una nuova scheda in cui sono visualizzati gli stati utente.
+   ![Stati utente in Microsoft Azure Multi-Factor Authentication - screenshot](./media/multi-factor-authentication-get-started-user-states/userstate1.png)
+
+### <a name="change-the-state-from-disabled-to-enabled"></a>Cambiare lo stato da disabilitato ad abilitato
+
+1. Usare la procedura precedente per visualizzare la pagina Utenti Multi-Factor Authentication. 
+2. Trovare l'utente che si vuole abilitare per Azure MFA. Potrebbe essere necessario modificare la visualizzazione nella parte superiore. Assicurarsi che lo stato sia **disabilitato**.
+   ![Trova utente - screenshot](./media/multi-factor-authentication-get-started-cloud/enable1.png)
+3. Selezionare la casella accanto al nome.
+4. A destra, sotto Azioni rapide, fare clic su **Abilita**.
+   ![Abilitare l'utente selezionato - screenshot](./media/multi-factor-authentication-get-started-cloud/user1.png)
+5. Selezionare **Abilita Multi-Factor Auth**.
+   ![Abilita Multi-Factor Auth - screenshot](./media/multi-factor-authentication-get-started-cloud/enable2.png)
+6. Si noti che lo stato dell'utente è cambiato da **disabilitato** in **abilitato**.
+   ![Verificare che l'utente è ora abilitato - screenshot](./media/multi-factor-authentication-get-started-cloud/user.png)
+
+È consigliabile inviare una notifica tramite posta elettronica agli utenti dopo averli abilitati. Indicare anche che verrà richiesto di eseguire la registrazione al successivo accesso e che alcune app non basate su browser potrebbero non funzionare con la verifica in due passaggi. È possibile anche includere un collegamento alla [guida dell'utente finale ad Azure MFA](./end-user/multi-factor-authentication-end-user.md) con informazioni utili per iniziare. 
 
 ### <a name="to-change-the-state-from-enabledenforced-to-disabled"></a>Per modificare lo stato da abilitato/applicato a disabilitato
-1. Accedere al **portale di Azure classico** come amministratore.
-2. A sinistra fare clic su **Active Directory**.
-3. In **Directory** fare clic sulla directory relativa all'utente che si desidera attivare.
-   ![Fare clic su Directory](./media/multi-factor-authentication-get-started-cloud/directory1.png)
-4. Nella parte superiore fare clic su **Utenti**.
-5. Nella parte inferiore della pagina fare clic su **Gestisci Multi-Factor Auth**.
-   ![Fare clic su Directory](./media/multi-factor-authentication-get-started-cloud/manage1.png)
-6. Verrà aperta una nuova scheda del browser.  Cercare l'utente che si desidera disabilitare. Potrebbe essere necessario modificare la visualizzazione nella parte superiore. Assicurarsi che lo stato sia **Abilitato** o **Applicato**.
-7. **Selezionare** la casella accanto al nome.
-8. A destra fare clic su **Disattiva**.
-   ![Disabilitare l'utente](./media/multi-factor-authentication-get-started-user-states/userstate2.png)
-9. Verrà richiesta conferma.  Fare clic su **Sì**.
-   ![Disabilitare l'utente](./media/multi-factor-authentication-get-started-user-states/userstate3.png)
-10. A questo punto l'operazione dovrebbe essere completa.  Fare clic su **Chiudi.**
-    ![Disabilitare l'utente](./media/multi-factor-authentication-get-started-user-states/userstate4.png)
 
-
-
-
-<!--HONumber=Nov16_HO3-->
+1. Usare la procedura per [visualizzare gli stati utente](#view-user-states) per visualizzare la pagina Utenti Multi-Factor Authentication.
+6. Cercare l'utente da disabilitare. Potrebbe essere necessario modificare la visualizzazione nella parte superiore. Assicurarsi che lo stato sia **abilitato** o **applicato**.
+7. Selezionare la casella accanto al nome.
+8. A destra, sotto Azioni rapide, fare clic su **Disabilita**.
+   ![Disabilita utente - screenshot](./media/multi-factor-authentication-get-started-user-states/userstate2.png)
+9. Verrà chiesto di confermare l'azione. Fare clic su **Sì**.
+10. Se l'utente è stato disabilitato, viene visualizzato un messaggio che conferma l'operazione. Fare clic su **Close**.
 
 

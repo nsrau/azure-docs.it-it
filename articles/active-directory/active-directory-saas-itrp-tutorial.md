@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
+ms.date: 02/27/2017
 ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: c4983024e5f5902620c0be7b422bc3d1eaf4a36f
 ms.openlocfilehash: 8142454e1ee8bf439e9186ac94a3feb05b10ae69
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -173,10 +174,5 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
     ![Sì](./media/active-directory-saas-itrp-tutorial/IC767830.png "Sì")
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

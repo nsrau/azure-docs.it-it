@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 2/17/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 5aa823259a86d361d13af9f6c2df062362c7e47b
-ms.openlocfilehash: 2faa881f146cc1b0a8c0523f2fb0f20b0136441e
+ms.sourcegitcommit: 354bf45625c209c22118804d3835ca71e3128580
+ms.openlocfilehash: deda64fb779e176bb00c3256fa3028e7e3567eb4
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -34,14 +35,23 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |---|---|---|---|---|
 |qpu_metric|QPU|Numero|Media|QPU. Intervallo 0-100 per S1, 0-200 per S2 e 0-400 per S4|
 |memory_metric|Memoria|Byte|Media|Memoria. Intervallo 0-25 GB per S1, 0-50 GB per S2 e 0-100 GB per S4|
+|TotalConnectionRequests|Numero totale di richieste di connessione|Numero|Media|Numero totale delle richieste di connessione in arrivo.|
+|SuccessfullConnectionsPerSec|Connessioni riuscite al secondo|Conteggio al secondo|Media|Numero delle connessioni completate correttamente al secondo.|
+|TotalConnectionFailures|Numero totale di errori di connessione|Numero|Media|Numero totale dei tentativi di connessione non riusciti.|
+|CurrentUserSessions|Sessioni utente correnti|Numero|Media|Numero corrente di sessioni utente attive.|
+|QueryPoolBusyThreads|Thread occupati pool di query|Numero|Media|Numero dei thread occupati nel pool dei thread di query.|
+|CommandPoolJobQueueLength|Lunghezza coda processi nel pool di comandi|Numero|Media|Numero dei processi nella coda del pool dei thread dei comandi.|
+|ProcessingPoolJobQueueLength|Lunghezza coda processi nel pool di elaborazione|Numero|Media|Numero dei processi non di I/O nella coda del pool dei thread di elaborazione.|
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
 |---|---|---|---|---|
-|TotalRequests|Totale richieste gateway|Numero|Somma|Numero di richieste gateway|
-|TotalSuccessfulRequests|Richieste gateway riuscite|Numero|Somma|Numero di richieste gateway elaborate|
-|TotalFailedRequests|Richieste gateway non riuscite|Numero|Somma|Numero di errori nelle richieste gateway|
+|TotalRequests|Totale richieste gateway|Numero|Totale|Numero di richieste del gateway|
+|SuccessfulRequests|Richieste gateway riuscite|Numero|Totale|Numero di richieste del gateway riuscite|
+|UnauthorizedRequests|Richieste del gateway non autorizzate|Numero|Totale|Numero di richieste del gateway non autorizzate|
+|FailedRequests|Richieste gateway non riuscite|Numero|Totale|Numero di errori nelle richieste gateway|
+|OtherRequests|Altre richieste del gateway|Numero|Totale|Numero di altre richieste del gateway|
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
@@ -290,29 +300,66 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |Operazioni scrittura disco/sec|Operazioni scrittura disco/sec|Conteggio al secondo|Media|Il numero di IOPS scritti sul disco|
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
-| Metrica | Nome visualizzato per la metrica | Unità | Tipo di aggregazione | Descrizione |
-| --- | --- | --- | --- | --- |
-| d2c.telemetry.ingress.allProtocol |Tentativi di invio di messaggi telemetria |Numero |Totale |Il numero di messaggi di telemetria da dispositivo a cloud che si è cercato di inviare all'hub IoT |
-| d2c.telemetry.ingress.success |Messaggi telemetria inviati |Numero |Totale |Il numero di messaggi di telemetria da dispositivo a cloud inviati all'hub IoT |
-| d2c.telemetry.egress.success | Messaggi telemetria recapitati | Numero | Totale | Il numero di tutte le operazioni di scrittura riuscite in un endpoint |
-| d2c.telemetry.egress.invalid | Tentativi di recapito di messaggi di telemetria non validi | Numero | Totale | Il numero dei messaggi non recapitati per incompatibilità con l'endpoint |
-| d2c.telemetry.egress.dropped | Messaggi telemetria eliminati | Numero | Totale | Il numero di messaggi eliminati per mancata integrità di un endpoint |
-| d2c.telemetry.egress.fallback | Messaggi telemetria corrispondenti a condizione di fallback | Numero | Totale | Il numero di messaggi corrispondenti alla route di fallback |
-| d2c.telemetry.egress.orphaned | Messaggi telemetria orfani | Numero | Totale | Il numero di messaggi non corrispondenti ad alcuna route inclusa la route di fallback |
-| d2c.endpoints.latency.eventHubs | Latenza messaggi per gli endpoint di Hub eventi | Millisecondi | Media | La latenza media, minima e massima tra l'ingresso del messaggio nell'hub IoT e l'ingresso del messaggio in un endpoint di Hub eventi, in millisecondi |
-| d2c.endpoints.latency.serviceBusQueues | Latenza messaggi per gli endpoint della coda del bus di servizio | Millisecondi | Media | La latenza media, minima e massima tra l'ingresso del messaggio nell'hub IoT e l'ingresso del messaggio in un endpoint della coda del bus di servizio, in millisecondi |
-| d2c.endpoints.latency.serviceBusTopics | Latenza messaggi per gli endpoint dell'argomento del bus di servizio | Millisecondi | Media | La latenza media, minima e massima tra l'ingresso del messaggio nell'hub IoT e l'ingresso del messaggio in un endpoint dell'argomento del bus di servizio, in millisecondi |
-| c2d.commands.egress.complete.success |Comandi completati |Numero |Totale |Il numero di comandi da cloud a dispositivo completati dal dispositivo |
-| c2d.commands.egress.abandon.success |Comandi abbandonati |Numero |Totale |Il numero di comandi da cloud a dispositivo abbandonati dal dispositivo |
-| c2d.commands.egress.reject.success |Comandi rifiutati |Numero |Totale |Il numero di comandi da cloud a dispositivo rifiutati dal dispositivo |
-| devices.totalDevices |Dispositivi totali |Numero |Totale |Il numero di dispositivi registrati nell'hub IoT |
-| devices.connectedDevices.allProtocol |Dispositivi connessi |Numero |Totale |Il numero di dispositivi connessi all'hub IoT |
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
+|---|---|---|---|---|
+|d2c.telemetry.ingress.allProtocol|Tentativi di invio di messaggi di telemetria|Numero|Totale|Il numero di messaggi di telemetria da dispositivo a cloud che si è cercato di inviare all'hub IoT|
+|d2c.telemetry.ingress.success|Messaggi di telemetria inviati|Numero|Totale|Il numero di messaggi di telemetria da dispositivo a cloud inviati all'hub IoT|
+|c2d.commands.egress.complete.success|Comandi completati|Numero|Totale|Numero di comandi da cloud a dispositivo completati dal dispositivo|
+|c2d.commands.egress.abandon.success|Comandi abbandonati|Numero|Totale|Numero di comandi da cloud a dispositivo abbandonati dal dispositivo|
+|c2d.commands.egress.reject.success|Comandi rifiutati|Numero|Totale|Numero di comandi da cloud a dispositivo rifiutati dal dispositivo|
+|devices.totalDevices|Totale dispositivi|Numero|Totale|Il numero di dispositivi registrati nell'hub IoT|
+|devices.connectedDevices.allProtocol|Dispositivi connessi|Numero|Totale|Il numero di dispositivi connessi all'hub IoT|
+|d2c.telemetry.egress.success|Messaggi telemetria recapitati|Numero|Totale|Numero di volte in cui i messaggi sono stati scritti negli endpoint (totale)|
+|d2c.telemetry.egress.dropped|Messaggi rimossi|Numero|Totale|Numero di messaggi rimossi perché non corrispondenti alle route e la route di fallback è stata disabilitata|
+|d2c.telemetry.egress.orphaned|Messaggi orfani|Numero|Totale|Il numero di messaggi non corrispondenti ad alcuna route inclusa la route di fallback|
+|d2c.telemetry.egress.invalid|Messaggi non validi|Numero|Totale|Il numero dei messaggi non recapitati per incompatibilità con l'endpoint|
+|d2c.telemetry.egress.fallback|Messaggi corrispondenti alla condizione di fallback|Numero|Totale|Numero di messaggi scritti nell'endpoint di fallback|
+|d2c.endpoints.egress.eventHubs|Messaggi recapitati agli endpoint dell'hub eventi|Numero|Totale|Numero di volte in cui i messaggi sono stati scritti negli endpoint dell'hub eventi|
+|d2c.endpoints.latency.eventHubs|Latenza messaggi per gli endpoint di Hub eventi|Millisecondi|Media|La latenza media tra l'ingresso del messaggio nell'hub IoT e l'ingresso del messaggio in un endpoint di Hub eventi, in millisecondi|
+|d2c.endpoints.egress.serviceBusQueues|Messaggi recapitati agli endpoint della coda del bus di servizio|Numero|Totale|Numero di volte in cui i messaggi sono stati scritti negli endpoint della coda del bus di servizio|
+|d2c.endpoints.latency.serviceBusQueues|Latenza messaggi per gli endpoint della coda del bus di servizio|Millisecondi|Media|La latenza media tra l'ingresso del messaggio nell'hub IoT e l'ingresso del messaggio in un endpoint della coda del bus di servizio, in millisecondi|
+|d2c.endpoints.egress.serviceBusTopics|Messaggi recapitati agli endpoint dell'argomento del bus di servizio|Numero|Totale|Numero di volte in cui i messaggi sono stati scritti negli endpoint dell'argomento del bus di servizio|
+|d2c.endpoints.latency.serviceBusTopics|Latenza messaggi per gli endpoint dell'argomento del bus di servizio|Millisecondi|Media|La latenza media tra l'ingresso del messaggio nell'hub IoT e l'ingresso del messaggio in un endpoint dell'argomento del bus di servizio, in millisecondi|
+|d2c.endpoints.egress.builtIn.events|Messaggi recapitati all'endpoint predefinito (messaggi/eventi)|Numero|Totale|Numero di volte in cui i messaggi sono stati scritti nell'endpoint predefinito (messaggi/eventi)|
+|d2c.endpoints.latency.builtIn.events|Latenza dei messaggi per l'endpoint predefinito (messaggi/eventi)|Millisecondi|Media|La latenza media tra l'ingresso del messaggio nell'hub IoT e l'ingresso del messaggio nell'endpoint predefinito (messaggi/eventi), in millisecondi |
+|d2c.twin.read.success|Letture dei dispositivi gemelli completate dai dispositivi|Numero|Totale|Numero di tutte le letture dei dispositivi gemelli avviate dal dispositivo completate.|
+|d2c.twin.read.failure|Letture dei dispositivi gemelli non riuscite per i dispositivi|Numero|Totale|Numero di tutte le letture dei dispositivi gemelli avviate dal dispositivo non riuscite.|
+|d2c.twin.read.size|Dimensioni delle risposte di letture dei dispositivi gemelli dai dispositivi|Byte|Media|Numero medio, minimo e massimo di letture dei dispositivi gemelli avviate dal dispositivo completate.|
+|d2c.twin.update.success|Aggiornamenti dei dispositivi gemelli completati dai dispositivi|Numero|Totale|Numero di tutti gli aggiornamenti dei dispositivi gemelli avviati dal dispositivo completati.|
+|d2c.twin.update.failure|Aggiornamenti dei dispositivi gemelli non riusciti per i dispositivi|Numero|Totale|Numero di tutti gli aggiornamenti dei dispositivi gemelli avviati dal dispositivo non riusciti.|
+|d2c.twin.update.size|Dimensioni degli aggiornamenti dei dispositivi gemelli dai dispositivi|Byte|Media|Dimensioni medie, minime e massime degli aggiornamenti dei dispositivi gemelli avviati dal dispositivo completati.|
+|c2d.methods.success|Chiamate a metodi diretti riuscite|Numero|Totale|Numero di tutte le chiamate a metodi diretti riuscite.|
+|c2d.methods.failure|Chiamate a metodi diretti non riuscite|Numero|Totale|Numero di tutte le chiamate a metodi diretti non riuscite.|
+|c2d.methods.requestSize|Dimensioni delle richieste di chiamate a metodi diretti|Byte|Media|Dimensioni medie, minime e massime delle richieste di chiamate a metodi diretti riuscite.|
+|c2d.methods.responseSize|Dimensioni delle risposte a chiamate a metodi diretti|Byte|Media|Dimensioni medie, minime e massime delle risposte a chiamate a metodi diretti riuscite.|
+|c2d.twin.read.success|Letture dei dispositivi gemelli completate dal back-end|Numero|Totale|Numero di tutte le letture dei dispositivi gemelli avviate dal back-end completate.|
+|c2d.twin.read.failure|Letture dei dispositivi gemelli non riuscite per il back-end|Numero|Totale|Numero di tutte le letture dei dispositivi gemelli avviate dal back-end non riuscite.|
+|c2d.twin.read.size|Dimensioni delle risposte di letture dei dispositivi gemelli dal back-end|Byte|Media|Numero medio, minimo e massimo di letture dei dispositivi gemelli avviate dal back-end completate.|
+|c2d.twin.update.success|Aggiornamenti dei dispositivi gemelli completati dal back-end|Numero|Totale|Numero di tutti gli aggiornamenti dei dispositivi gemelli avviati dal back-end completati.|
+|c2d.twin.update.failure|Aggiornamenti dei dispositivi gemelli non riusciti per il back-end|Numero|Totale|Numero di tutti gli aggiornamenti dei dispositivi gemelli avviati dal back-end non riusciti.|
+|c2d.twin.update.size|Dimensioni degli aggiornamenti dei dispositivi gemelli dal back-end|Byte|Media|Dimensioni medie, minime e massime degli aggiornamenti dei dispositivi gemelli avviati dal back-end completati.|
+|twinQueries.success|Query dei dispositivi gemelli completate|Numero|Totale|Numero di tutte le query dei dispositivi gemelli completate.|
+|twinQueries.failure|Query dei dispositivi gemelli non riuscite|Numero|Totale|Numero di tutte le query dei dispositivi gemelli non riuscite.|
+|twinQueries.resultSize|Dimensioni dei risultati delle query dei dispositivi gemelli|Byte|Media|Dimensioni medie, minime e massime dei risultati delle query dei dispositivi gemelli.|
+|jobs.createTwinUpdateJob.success|Creazioni di processi di aggiornamento dei dispositivi gemelli completate|Numero|Totale|Numero di tutte le creazioni di processi di aggiornamento dei dispositivi gemelli completate.|
+|jobs.createTwinUpdateJob.failure|Creazioni di processi di aggiornamento dei dispositivi gemelli non riuscite|Numero|Totale|Numero di tutte le creazioni di processi di aggiornamento dei dispositivi gemelli non riuscite.|
+|jobs.createDirectMethodJob.success|Creazioni di processi di chiamata al metodo completate|Numero|Totale|Numero di tutte le creazioni di processi di chiamata a metodi diretti completate.|
+|jobs.createDirectMethodJob.failure|Creazioni di processi di chiamata al metodo non riuscite|Numero|Totale|Numero di tutte le creazioni di processi di chiamata a metodi diretti non riuscite.|
+|jobs.listJobs.success|Chiamate per elencare i processi riuscite|Numero|Totale|Numero di tutte le chiamate per elencare i processi riuscite.|
+|jobs.listJobs.failure|Chiamate per elencare i processi non riuscite|Numero|Totale|Numero di tutte le chiamate per elencare i processi non riuscite.|
+|jobs.cancelJob.success|Annullamenti di processi riusciti|Numero|Totale|Numero di tutte le chiamate per annullare i processi riuscite.|
+|jobs.cancelJob.failure|Annullamenti di processi non riusciti|Numero|Totale|Numero di tutte le chiamate per annullare i processi non riuscite.|
+|jobs.queryJobs.success|Query sui processi riuscite|Numero|Totale|Numero di tutte le chiamate per eseguire query sui processi riuscite.|
+|jobs.queryJobs.failure|Query sui processi non riuscite|Numero|Totale|Numero di tutte le chiamate per eseguire query sui processi non riuscite.|
+|jobs.completed|Processi completati|Numero|Totale|Numero di tutti i processi completati.|
+|jobs.failed|Processi non riusciti|Numero|Totale|Numero di tutti i processi non riusciti.|
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
 |---|---|---|---|---|
-|INREQS|Richieste in ingresso|Numero|Totale|Velocità effettiva dei messaggi in ingresso di Hub eventi per uno spazio dei nomi|
+|INREQS|Richieste in ingresso|Numero|Totale|Numero totale di richieste in ingresso per uno spazio dei nomi|
 |SUCCREQ|Richieste riuscite|Numero|Totale|Richieste riuscite totali per uno spazio dei nomi|
 |FAILREQ|Richieste non riuscite|Numero|Totale|Richieste non riuscite totali per uno spazio dei nomi|
 |SVRBSY|Errori server occupato|Numero|Totale|Errori di server occupato totali per uno spazio dei nomi|
@@ -320,8 +367,8 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |MISCERR|Altri errori|Numero|Totale|Richieste non riuscite totali per uno spazio dei nomi|
 |INMSGS|Messaggi in ingresso|Numero|Totale|Messaggi in ingresso totali per uno spazio dei nomi|
 |OUTMSGS|Messaggi in uscita|Numero|Totale|Messaggi in uscita totali per uno spazio dei nomi|
-|EHINMBS|Byte in ingresso al secondo|Byte al secondo|Totale|Velocità effettiva dei messaggi in ingresso di Hub eventi per uno spazio dei nomi|
-|EHOUTMBS|Byte in uscita al secondo|Byte al secondo|Totale|Messaggi in uscita totali per uno spazio dei nomi|
+|EHINMBS|Byte in ingresso|Byte al secondo|Totale|Velocità effettiva dei messaggi in ingresso di Hub eventi per uno spazio dei nomi|
+|EHOUTMBS|Byte in uscita|Byte al secondo|Totale|Messaggi in uscita totali per uno spazio dei nomi|
 |EHABL|Messaggi backlog archiviati|Numero|Totale|Messaggi archiviati di Hub eventi nel backlog per uno spazio dei nomi|
 |EHAMSGS|Messaggi archiviati|Numero|Totale|Messaggi archiviati di Hub eventi in uno spazio dei nomi|
 |EHAMBS|Velocità effettiva messaggi archiviati|Byte al secondo|Totale|Velocità effettiva dei messaggi archiviati di Hub eventi in uno spazio dei nomi|
@@ -367,6 +414,70 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |---|---|---|---|---|
 |Velocità effettiva|Velocità effettiva|Byte al secondo|Media||
 
+## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
+|---|---|---|---|---|
+|registration.all|Operazione di registrazione|Numero|Totale|Numero di tutte le operazioni di registrazione riuscite (creazioni, aggiornamenti, query ed eliminazioni). |
+|registration.create|Operazioni di creazione registrazione|Numero|Totale|Numero di tutte le creazioni di registrazioni riuscite.|
+|registration.update|Operazioni di aggiornamento registrazione|Numero|Totale|Numero di tutti gli aggiornamenti di registrazioni riusciti.|
+|registration.get|Operazioni di lettura registrazione|Numero|Totale|Numero di tutte le query su registrazioni riuscite.|
+|registration.delete|Operazioni di eliminazione registrazione|Numero|Totale|Numero di tutte le eliminazioni di registrazioni riuscite.|
+|incoming|Messaggi in ingresso|Numero|Totale|Numero di tutte le chiamate all'API di invio riuscite. |
+|incoming.scheduled|Notifiche push pianificate inviate|Numero|Totale|Notifiche push pianificate annullate|
+|incoming.scheduled.cancel|Notifiche push pianificate annullate|Numero|Totale|Notifiche push pianificate annullate|
+|scheduled.pending|Notifiche pianificate in sospeso|Numero|Totale|Notifiche pianificate in sospeso|
+|installation.all|Operazioni di gestione installazione|Numero|Totale|Operazioni di gestione installazione|
+|installation.get|Ottieni operazioni di installazione|Numero|Totale|Ottieni operazioni di installazione|
+|installation.upsert|Crea o aggiorna operazioni di installazione|Numero|Totale|Crea o aggiorna operazioni di installazione|
+|installation.patch|Operazioni di installazione patch|Numero|Totale|Operazioni di installazione patch|
+|installation.delete|Elimina operazioni di installazione|Numero|Totale|Elimina operazioni di installazione|
+|outgoing.allpns.success|Notifiche riuscite|Numero|Totale|Numero di tutte le notifiche riuscite.|
+|outgoing.allpns.invalidpayload|Errori payload|Numero|Totale|Numero di push non riusciti perché il sistema PNS ha restituito un errore di payload non valido.|
+|outgoing.allpns.pnserror|Errori sistema di notifica esterno|Numero|Totale|Numero di push non riusciti perché si è verificato un problema di comunicazione con il sistema PNS (problemi di autenticazione esclusi).|
+|outgoing.allpns.channelerror|Errori canale|Numero|Totale|Numero di push non riusciti perché il canale non è valido, non è associato all'app corretta, è limitato o è scaduto.|
+|outgoing.allpns.badorexpiredchannel|Errori canale non valido o scaduto|Numero|Totale|Numero di push non riusciti perché il canale/token/ID di registrazione nella registrazione è scaduto o non è valido.|
+|outgoing.wns.success|Notifiche WNS completate|Numero|Totale|Numero di tutte le notifiche riuscite.|
+|outgoing.wns.invalidcredentials|Errori di autorizzazione WNS (credenziali non valide)|Numero|Totale|Numero di push non riusciti perché il sistema PNS non accetta le credenziali specificate o perché le credenziali sono bloccate. Windows Live non riconosce le credenziali.|
+|outgoing.wns.badchannel|Errore canale WNS non valido|Numero|Totale|Numero di push non riusciti perché l'URI del canale nella registrazione non è stato riconosciuto (stato WNS: 404 - Non trovato).|
+|outgoing.wns.expiredchannel|Errore canale WNS scaduto|Numero|Totale|Numero di push non riusciti perché l'URI del canale è scaduto (stato WNS: 410 - Non disponibile).|
+|outgoing.wns.throttled|Notifiche WNS limitate|Numero|Totale|Numero di push non riusciti perché l'app è limitata dal servizio WNS (stato WNS: 406 - Non accettabile).|
+|outgoing.wns.tokenproviderunreachable|Errori di autorizzazione WNS (non disponibile)|Numero|Totale|Windows Live non è raggiungibile.|
+|outgoing.wns.invalidtoken|Errori di autorizzazione WNS (token non valido)|Numero|Totale|Il token fornito a WNS non è valido (stato WNS: 401 - Non autorizzato).|
+|outgoing.wns.wrongtoken|Errori di autorizzazione WNS (token errato)|Numero|Totale|Il token fornito a WNS è valido ma per un'altra applicazione (stato WNS: 403 - Non consentito). Questo scenario può verificarsi se l'URI del canale nella registrazione è associato a un'altra app. Verificare che l'app client sia associata all'app le cui credenziali si trovano nell'hub di notifica.|
+|outgoing.wns.invalidnotificationformat|Formato notifica WNS non valido|Numero|Totale|Il formato della notifica non è valido (stato WNS: 400). Si noti che WNS non rifiuta tutti i payload non validi.|
+|outgoing.wns.invalidnotificationsize|Errore dimensioni notifica WNS non valide|Numero|Totale|Il payload della notifica è troppo grande (stato WNS: 413).|
+|outgoing.wns.channelthrottled|Canale WNS limitato|Numero|Totale|La notifica è stata rimossa perché l'URI del canale nella registrazione è limitato (intestazione della risposta WNS: X-WNS-NotificationStatus: channelThrottled).|
+|outgoing.wns.channeldisconnected|Canale WNS disconnesso|Numero|Totale|La notifica è stata rimossa perché l'URI del canale nella registrazione è limitato (intestazione della risposta WNS: X-WNS-DeviceConnectionStatus: disconnected).|
+|outgoing.wns.dropped|Notifiche WNS eliminate|Numero|Totale|La notifica è stata rimossa perché l'URI del canale nella registrazione è limitato (X-WNS-NotificationStatus: dropped ma non X-WNS-DeviceConnectionStatus: disconnected).|
+|outgoing.wns.pnserror|Errori WNS|Numero|Totale|La notifica non è stata recapitata a causa di errori di comunicazione con WNS.|
+|outgoing.wns.authenticationerror|Errori di autenticazione WNS|Numero|Totale|La notifica non è stata recapitata a causa di errori di comunicazione con Windows Live, di credenziali non valide o di token non corretto.|
+|outgoing.apns.success|Notifiche APNS completate|Numero|Totale|Numero di tutte le notifiche riuscite.|
+|outgoing.apns.invalidcredentials|Errori di autorizzazione del servizio APN|Numero|Totale|Numero di push non riusciti perché il sistema PNS non accetta le credenziali specificate o perché le credenziali sono bloccate.|
+|outgoing.apns.badchannel|Errore canale APNS non valido|Numero|Totale|Numero di push non riusciti perché il token non è valido (codice di stato del servizio APN: 8).|
+|outgoing.apns.expiredchannel|Errore canale APNS scaduto|Numero|Totale|Numero di token invalidati dal canale di feedback del servizio APN.|
+|outgoing.apns.invalidnotificationsize|Errore dimensioni notifica APNS non valide|Numero|Totale|Numero di push non riusciti perché il payload è troppo grande (codice di stato del servizio APN: 7).|
+|outgoing.apns.pnserror|Errori APNS|Numero|Totale|Numero di push non riusciti a causa di errori di comunicazione con il servizio APN.|
+|outgoing.gcm.success|Notifiche GCM completate|Numero|Totale|Numero di tutte le notifiche riuscite.|
+|outgoing.gcm.invalidcredentials|Errori di autorizzazione GCM (credenziali non valide)|Numero|Totale|Numero di push non riusciti perché il sistema PNS non accetta le credenziali specificate o perché le credenziali sono bloccate.|
+|outgoing.gcm.badchannel|Errore canale GCM non valido|Numero|Totale|Numero di push non riusciti perché l'ID di registrazione nella registrazione non è stato riconosciuto (risultato GCM: Invalid Registration).|
+|outgoing.gcm.expiredchannel|Errore canale GCM scaduto|Numero|Totale|Numero di push non riusciti perché l'ID di registrazione nella registrazione è scaduto (risultato GCM: NotRegistered).|
+|outgoing.gcm.throttled|Notifiche GCM limitate|Numero|Totale|Numero di push non riusciti perché l'app è stata limitata da GCM (codice di stato GCM: 501-599 o risultato: Unavailable).|
+|outgoing.gcm.invalidnotificationformat|Formato notifiche GCM non valido|Numero|Totale|Numero di push non riusciti perché il formato del payload non è corretto (risultato GCM: InvalidDataKey o InvalidTtl).|
+|outgoing.gcm.invalidnotificationsize|Errore dimensioni notifica GCM non valide|Numero|Totale|Numero di push non riusciti perché il payload è troppo grande (risultato GCM: MessageTooBig).|
+|outgoing.gcm.wrongchannel|Errore canale GCM errato|Numero|Totale|Numero di push non riusciti perché l'ID di registrazione nella registrazione non è associato all'app corrente (risultato GCM: InvalidPackageName).|
+|outgoing.gcm.pnserror|Errori GCM|Numero|Totale|Numero di push non riusciti a causa di errori di comunicazione con GCM.|
+|outgoing.gcm.authenticationerror|Errori di autenticazione GCM|Numero|Totale|Numero di push non riusciti perché il sistema PNS non accetta le credenziali specificate, perché le credenziali sono bloccate oppure perché l'ID del mittente non è configurato correttamente nell'app (risultato GCM: MismatchedSenderId).|
+|outgoing.mpns.success|Notifiche MPNS completate|Numero|Totale|Numero di tutte le notifiche riuscite.|
+|outgoing.mpns.invalidcredentials|Credenziali MPNS non valide|Numero|Totale|Numero di push non riusciti perché il sistema PNS non accetta le credenziali specificate o perché le credenziali sono bloccate.|
+|outgoing.mpns.badchannel|Errori canale MPNS errato|Numero|Totale|Numero di push non riusciti perché l'URI del canale nella registrazione non è stato riconosciuto (stato MPNS: 404 - Non trovato).|
+|outgoing.mpns.throttled|Notifiche MPNS limitate|Numero|Totale|Numero di push non riusciti perché l'app è limitata dal servizio MPNS (WNS/MPNS: 406 - Non accettabile).|
+|outgoing.mpns.invalidnotificationformat|Formato notifiche MPNS non valido|Numero|Totale|Numero di push non riusciti perché il payload della notifica è troppo grande.|
+|outgoing.mpns.channeldisconnected|Canale MPNS disconnesso|Numero|Totale|Numero di push non riusciti perché l'URI del canale nella registrazione è disconnesso (stato MPNS: 412 - Non trovato).|
+|outgoing.mpns.dropped|Notifiche MPNS eliminate|Numero|Totale|Numero di push che sono stati rimossi dal servizio MPNS (intestazione della risposta MPNS: X-NotificationStatus: QueueFull o Suppressed).|
+|outgoing.mpns.pnserror|Errori MPNS|Numero|Totale|Numero di push non riusciti a causa di errori di comunicazione con MPNS.|
+|outgoing.mpns.authenticationerror|Errori di autenticazione MPNS|Numero|Totale|Numero di push non riusciti perché il sistema PNS non accetta le credenziali specificate o perché le credenziali sono bloccate.|
+
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
@@ -396,10 +507,10 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |blocked_by_firewall|Blocco da parte del firewall|Numero|Totale|Blocco da parte del firewall|
 |deadlock|Deadlock|Numero|Totale|Deadlock|
 |storage_percent|Percentuale di dimensioni del database|Percentuale|Massima|Percentuale di dimensioni del database|
-|xtp_storage_percent|Percentuale archiviazione OLTP interna alla memoria (anteprima)|Percentuale|Media|Percentuale archiviazione OLTP interna alla memoria (anteprima)|
+|xtp_storage_percent|Percentuale di archiviazione OLTP in memoria|Percentuale|Media|Percentuale di archiviazione OLTP in memoria|
 |workers_percent|Percentuale ruoli di lavoro|Percentuale|Media|Percentuale ruoli di lavoro|
 |sessions_percent|Percentuale sessioni|Percentuale|Media|Percentuale sessioni|
-|dtu_limit|Limite DTU|Conteggio|Media|Limite DTU|
+|dtu_limit|Limite DTU|Numero|Media|Limite DTU|
 |dtu_used|Uso DTU|Conteggio|Media|Uso DTU|
 |service_level_objective|Obiettivo del livello di servizio del database|Numero|Totale|Obiettivo del livello di servizio del database|
 |dwu_limit|Limite DWU|Numero|Massima|Limite DWU|
@@ -421,6 +532,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |storage_limit|Limite archiviazione|Byte|Media|Limite archiviazione|
 |eDTU_used|Uso eDTU|Conteggio|Media|Uso eDTU|
 |storage_used|Uso archiviazione|Byte|Media|Uso archiviazione|
+|xtp_storage_percent|Percentuale di archiviazione OLTP in memoria|Percentuale|Media|Percentuale di archiviazione OLTP in memoria|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 
@@ -449,7 +561,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |BytesReceived|Dati in entrata|Byte|Totale|Dati in entrata|
 |BytesSent|Dati in uscita|Byte|Totale|Dati in uscita|
 
-## <a name="microsoftwebsites-including-azure-functions"></a>Microsoft.Web/sites (incluso Funzioni di Azure)
+## <a name="microsoftwebsites-including-functions"></a>Microsoft.Web/sites (incluso Funzioni)
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
 |---|---|---|---|---|
@@ -466,8 +578,8 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |Http406|Http 406|Numero|Totale|Http 406|
 |Http4xx|Http 4xx|Numero|Totale|Http 4xx|
 |Http5xx|Errori server HTTP|Numero|Totale|Errori server HTTP|
-|MemoryWorkingSet|Working set della memoria|Byte|Totale|Working set della memoria|
-|AverageMemoryWorkingSet|Working set della memoria medio|Byte|Totale|Working set della memoria medio|
+|MemoryWorkingSet|Working set della memoria|Byte|Media|Working set della memoria|
+|AverageMemoryWorkingSet|Working set della memoria medio|Byte|Media|Working set della memoria medio|
 |AverageResponseTime|Tempo medio di risposta|Secondi|Media|Tempo medio di risposta|
 |FunctionExecutionUnits|Unità di esecuzione della funzione|Numero|Media|Unità di esecuzione della funzione|
 |FunctionExecutionCount|Conteggio delle esecuzioni della funzione|Numero|Media|Conteggio delle esecuzioni della funzione|
@@ -489,8 +601,8 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |Http406|Http 406|Numero|Totale|Http 406|
 |Http4xx|Http 4xx|Numero|Totale|Http 4xx|
 |Http5xx|Errori server HTTP|Numero|Totale|Errori server HTTP|
-|MemoryWorkingSet|Working set della memoria|Byte|Totale|Working set della memoria|
-|AverageMemoryWorkingSet|Working set della memoria medio|Byte|Totale|Working set della memoria medio|
+|MemoryWorkingSet|Working set della memoria|Byte|Media|Working set della memoria|
+|AverageMemoryWorkingSet|Working set della memoria medio|Byte|Media|Working set della memoria medio|
 |AverageResponseTime|Tempo medio di risposta|Secondi|Media|Tempo medio di risposta|
 |FunctionExecutionUnits|Unità di esecuzione della funzione|Numero|Media|Unità di esecuzione della funzione|
 |FunctionExecutionCount|Conteggio delle esecuzioni della funzione|Numero|Media|Conteggio delle esecuzioni della funzione|
@@ -499,10 +611,5 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 * [Metriche in Azure Monitor](monitoring-overview.md#monitoring-sources)
 * [Create alerts on metrics](insights-receive-alert-notifications.md)
 * [Esportazione delle metriche nell'archiviazione, nell'hub eventi o in Log Analytics](monitoring-overview-of-diagnostic-logs.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

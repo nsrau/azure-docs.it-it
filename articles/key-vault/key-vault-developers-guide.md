@@ -33,6 +33,7 @@ Per altre informazioni generali sull'insieme di credenziali delle chiavi di Azur
 ## <a name="videos"></a>Video
 Questo video mostra come creare il proprio insieme di credenziali delle chiavi e come usarlo dall'applicazione di esempio 'Hello Key Vault'.
 
+
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Key-Vault-Developer-Quick-Start/player]
 
 

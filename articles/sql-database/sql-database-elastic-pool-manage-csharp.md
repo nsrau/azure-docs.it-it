@@ -16,14 +16,15 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: e80f41533d82fbb2086d4d766c3ba4a4e34a5032
-ms.openlocfilehash: be569200e4c4a125a275687d82c3204dcfb5b39a
+ms.sourcegitcommit: dbf337a27c43fc6c91f1b061a1938c5471dd36a4
+ms.openlocfilehash: c511a73794a4b1333e149d286ae43c6929d58f75
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="create-and-manage-an-elastic-pool-with-cx23"></a>Creare e gestire un pool elastico con C&#x23;
 
-Questo argomento illustra come creare e gestire [pool elastici](sql-database-elastic-pool.md) scalabili con [C#](sql-database-elastic-pool-manage-csharp.md). È anche possibile creare e gestire un pool elastico di Azure con il [portale di Azure](https://portal.azure.com/), [PowerShell](sql-database-elastic-pool-manage-powershell.md) e l'API REST. È anche possibile creare e spostare database verso e dai pool elastici usando [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
+Questo argomento illustra come creare e gestire [pool elastici](sql-database-elastic-pool.md) con C#. È anche possibile creare e gestire un pool elastico di Azure con il [portale di Azure](https://portal.azure.com/), [PowerShell](sql-database-elastic-pool-manage-powershell.md) e l'API REST. È anche possibile creare e spostare database verso e dai pool elastici usando [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
 
 > [!NOTE]
 > Molte nuove funzionalità del database SQL sono supportate solo con il [modello di distribuzione Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). È quindi consigliabile usare sempre la **libreria di gestione di database SQL di Azure per .NET più recente ([documentazione](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [pacchetto NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Le [librerie basate sul modello di distribuzione classica](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) meno recenti sono supportate solo per la compatibilità con le versioni precedenti ed è quindi consigliabile usare le nuove librerie basate su Resource Manager.
@@ -303,7 +304,7 @@ Lo script di PowerShell seguente permette di creare l'applicazione Active Direct
 
 Per seguire la procedura descritta in questo articolo, sono necessari gli elementi seguenti:
 
-* Un pool elastico. Per creare un pool elastico, vedere [Creare un pool elastico con C#](sql-database-elastic-pool-create-csharp.md).
+* Un pool elastico. Per creare un pool elastico, vedere [Creare un pool elastico con C#](sql-database-elastic-pool-manage-csharp.md).
 * Visual Studio. Per una copia gratuita di Visual Studio, vedere la pagina [Download di Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) .
 
 ## <a name="move-a-database-into-an-elastic-pool"></a>Spostare un database in un pool elastico
@@ -370,10 +371,5 @@ Recuperare le proprietà dei pool esistenti. Modificare i valori ed eseguire il 
 *  Per i codici di errore SQL per le applicazioni client del database SQL, gli della connessione di database e altri problemi, vedere [Messaggi di errore](sql-database-develop-error-messages.md).
 * [API di Gestione risorse di Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 * Per informazioni aggiuntive sui pool elastici, vedere [Quando usare un pool elastico](sql-database-elastic-pool-guidance.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

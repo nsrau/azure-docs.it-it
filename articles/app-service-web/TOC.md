@@ -257,7 +257,7 @@
 ### [Risolvere i problemi di prestazioni delle App Web](app-service-web-troubleshoot-performance-degradation.md)
 
 # Riferimento
-## [Anteprima dell'interfaccia della riga di comando di Azure 2.0](/cli/azure/appservice)
+## [Interfaccia della riga di comando di Azure 2.0](/cli/azure/appservice)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/)
 ## [REST](/rest/api/appservice)
@@ -273,9 +273,3 @@
 # Risorse
 ## [procedure consigliate](app-service-best-practices.md)
 ## [Elenco delle risorse di Processi Web](websites-webjobs-resources.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
-

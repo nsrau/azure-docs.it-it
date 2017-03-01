@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: klam
 translationtype: Human Translation
-ms.sourcegitcommit: 17b33d3296ffbc65a22bf9a5077282fffdb7b3de
-ms.openlocfilehash: 4a0af9f3f9fab9ff459450eb8658273d4a1bc5dc
+ms.sourcegitcommit: 5b1b65e3d1066bea6958fa6461a157ee39fbe7dc
+ms.openlocfilehash: e14d55ad96187dc8ec6e6aac04463b58280783aa
+ms.lasthandoff: 02/15/2017
 
 ---
 # <a name="logic-apps-pricing-model"></a>Modello di determinazione prezzi delle app per la logica
@@ -27,7 +28,7 @@ Viene misurato il consumo per tutte le azioni eseguite durante un'esecuzione di 
 ### <a name="what-are-action-executions"></a>Informazioni sulle esecuzioni di azioni
 Ogni passaggio della definizione di un'app per la logica è un'azione che include trigger, passaggi del flusso di controllo come condizioni, ambiti e cicli ForEach, cicli Do until, chiamate a connettori e chiamate ad azioni native.
 I trigger sono azioni speciali progettate per creare una nuova istanza di un'app per la logica quando si verifica un determinato evento.  Diversi comportamenti dei trigger potrebbero influire sulla misurazione dell'app per la logica.
-* **Trigger di poll**: questo trigger esegue continuamente il poll di un endpoint fino a quando non riceve un messaggio che soddisfa i criteri per la creazione di un'istanza di un'app per la logica.  L'intervallo di poll può essere configurato nel trigger nella finestra di progettazione delle app per la logica.  Ogni richiesta di poll, anche se non determina la creazione di un'istanza di un'app per la logica, viene conteggiata come esecuzione di azione.
+* **Trigger di poll**: questo trigger esegue continuamente il poll di un endpoint fino a quando non riceve un messaggio che soddisfa i criteri per la creazione di un'istanza di un'app per la logica.  L'intervallo di polling può essere configurato nel trigger nella finestra di progettazione delle app per la logica.  Ogni richiesta di poll, anche se non determina la creazione di un'istanza di un'app per la logica, viene conteggiata come esecuzione di azione.
 * **Trigger di webhook** : questo trigger attende che un client gli invii una richiesta su un determinato endpoint.  Ogni richiesta inviata all'endpoint del webhook viene conteggiata come esecuzione di azione. I trigger Richiesta e Webhook HTTP sono entrambi trigger di webhook.
 * **Trigger di ricorrenza**: questo trigger crea un'istanza dell'app per la logica in base all'intervallo di ricorrenza in esso configurato.  Un trigger di ricorrenza può ad esempio essere configurato per essere eseguito ogni tre giorni o anche ogni minuto.
 
@@ -58,10 +59,5 @@ Per informazioni sui prezzi, vedere [Prezzi di App per la logica](https://azure.
 ## <a name="next-steps"></a>Passaggi successivi
 * [Informazioni sulle app per la logica][whatis]
 * [Creare la prima app per la logica][creare] [prezzi]: https://azure.microsoft.com/pricing/details/logic-apps/ [informazioni]: logic-apps-what-are-logic-apps.md [creare]: logic-apps-create-a-logic-app.md
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

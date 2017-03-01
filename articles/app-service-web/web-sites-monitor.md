@@ -4,7 +4,7 @@ description: Informazioni su come monitorare le app nel servizio app di Azure tr
 services: app-service
 documentationcenter: 
 author: btardif
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: byvinyal
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: d779170030b61540de2c0459e574a72cdc77f342
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -168,9 +169,4 @@ Le app del servizio app ospitate nei piani di servizio app Basic, Standard e Pre
 [http403]: ./media/web-sites-monitor/http403.png
 [quotas]: ./media/web-sites-monitor/quotas.png
 [metrics]: ./media/web-sites-monitor/metrics.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

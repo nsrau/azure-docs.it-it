@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/01/2016
+ms.date: 2/17/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 94d085ac026a309a457891944931901e9dc2564f
+ms.sourcegitcommit: e90efe810084939280b392c470e14e76d35aff01
+ms.openlocfilehash: e628143db9ceba5e159022d2eefe3e6dd9f4bf22
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -76,6 +77,8 @@ Per altre informazioni sulle API di comunicazione del client e del servizio che 
 
 **Servizio Image Store**: ogni cluster di Service Fabric ha un servizio Image Store in cui vengono conservati i pacchetti dell'applicazione distribuiti e con controllo delle versioni. Copiare il contenuto di un pacchetto dell'applicazione nell'archivio immagini e quindi registrare il tipo dell'applicazione all'interno di quel pacchetto dell'applicazione. Una volta eseguito il provisioning del tipo di applicazione, è possibile creare applicazioni denominate. È possibile annullare la registrazione di un tipo di applicazione dal servizio Image Store solo dopo aver eliminato tutte le relative applicazioni denominate.
 
+Per altre informazioni sul servizio Image Store leggere [Informazioni sull'impostazione ImageStoreConnectionString](service-fabric-image-store-connection-string.md).
+
 Per altre informazioni sulla distribuzione di applicazioni nel servizio Image Store, vedere [Distribuire un'applicazione](service-fabric-deploy-remove-applications.md) .
 
 ## <a name="built-in-programming-models"></a>Modelli di programmazione predefiniti
@@ -94,10 +97,5 @@ Per altre informazioni su Service Fabric, vedere:
 * [Panoramica di Service Fabric](service-fabric-overview.md)
 * [Perché usare un approccio ai microservizi per la compilazione di applicazioni](service-fabric-overview-microservices.md)
 * [Scenari applicativi](service-fabric-application-scenarios.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

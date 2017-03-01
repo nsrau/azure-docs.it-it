@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 04/13/2016
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
-ms.openlocfilehash: 83470aaf607a666a63bae5b9897d0b273e327377
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 54afb2f55ef9ff48448c63bc8ee8e745765f61e6
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -96,15 +97,10 @@ La tabella seguente descrive le proprietà delle macchine virtuali che possono e
 ## <a name="create-the-policy"></a>Creare i criteri
 Un criterio può essere creato facilmente usando l'API REST direttamente o i cmdlet di PowerShell. Per creare i criteri, vedere l'articolo seguente:
 
-* [Creazione di criteri](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy)
+* [Creazione di criteri](../azure-resource-manager/resource-manager-policy.md)
 
 ## <a name="apply-the-policy"></a>Applicare i criteri
 Dopo aver creato i criteri è necessario applicarli a un ambito definito. L'ambito può essere una sottoscrizione, un gruppo di risorse o persino una risorsa. Per applicare i criteri, vedere l'articolo seguente:
 
-* [Creazione di criteri](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+* [Creazione di criteri](../azure-resource-manager/resource-manager-policy.md)
 

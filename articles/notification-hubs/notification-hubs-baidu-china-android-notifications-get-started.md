@@ -4,7 +4,7 @@ description: "In questa esercitazione, si apprenderà come usare Hub di notifica
 services: notification-hubs
 documentationcenter: android
 author: ysxu
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 23bde1ea-f978-43b2-9eeb-bfd7b9edc4c1
 ms.service: notification-hubs
@@ -17,6 +17,7 @@ ms.author: yuaxu
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: ec2a69ff5a7f1f3a954eae70f1cd776242b0b7f4
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -446,9 +447,4 @@ Per inviare una notifica di prova, è possibile usare la scheda Debug del portal
 [Baidu Push Android SDK]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
 [portale di Azure classico]: https://manage.windowsazure.com/
 [portale di Baidu]: http://www.baidu.com/
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: Spazi dei nomi associati del bus di servizio | Documentazione Microsoft
+title: Spazi dei nomi abbinati del bus di servizio di Azure | Documentazione Microsoft
 description: Dettagli di implementazione e costi relativi allo spazio dei nomi associato
 services: service-bus-messaging
 documentationcenter: na
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2016
+ms.date: 02/16/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3e384611b598f4e5256f2957227927ffd7c4e5ff
+ms.sourcegitcommit: d987aa22379ede44da1b791f034d713a49ad486a
+ms.openlocfilehash: 84e125dffcac3f3a54250587c5238b50d3a6cb95
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -51,7 +52,7 @@ A questo punto i messaggi si trovano ancora nella coda secondaria e non sono sta
 Nelle sezioni successive di questo argomento verranno illustrati i dettagli specifici del funzionamento di questi componenti.
 
 ## <a name="creation-of-backlog-queues"></a>Creazione di code di backlog
-L'oggetto [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions] passato al metodo [PairNamespaceAsync][PairNamespaceAsync] indica il numero di code di backlog da usare. Ogni coda di backlog viene quindi creata con le proprietà seguenti impostate in modo esplicito. Tutti gli altri valori vengono impostati in base all'oggetto [QueueDescription][QueueDescription] predefinito:
+L'oggetto [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions] passato al metodo [PairNamespaceAsync][PairNamespaceAsync] indica il numero di code di backlog da usare. Ogni coda di backlog viene quindi creata con le proprietà seguenti impostate in modo esplicito. Tutti gli altri valori vengono impostati in base all'oggetto [QueueDescription predefinito][QueueDescription]:
 
 | Path | [spazio dei nomi primario]/x-servicebus-transfer/[indice] dove [indice] è un valore espresso in [0, BacklogQueueCount] |
 | --- | --- |
@@ -81,7 +82,7 @@ Quando vengono inviati, tutti i messaggi passano attraverso un oggetto [MessageS
 
 Il percorso di destinazione originale viene archiviato anche nel messaggio come proprietà x-ms-path. Questa progettazione consente la coesistenza in un'unica coda di backlog di messaggi appartenenti a più entità. Le proprietà vengono ritrasferite dal sifone.
 
-Per l'oggetto [MessageSender][MessageSender] personalizzato possono verificarsi problemi quando i messaggi raggiungono il limite di 256 KB e viene avviato il failover. L'oggetto [MessageSender][MessageSender] personalizzato archivia nelle code di backlog i messaggi per tutte le code e tutti gli argomenti. Questo oggetto unisce i messaggi provenienti da numerose code primarie nelle code di backlog. Per gestire il bilanciamento del carico tra più client che non hanno relazioni tra loro, l'SDK sceglie casualmente una coda di backlog per ogni oggetto [QueueClient][QueueClient] o [TopicClient][TopicClient] creato nel codice.
+Per l'oggetto [MessageSender][MessageSender] possono verificarsi problemi quando i messaggi raggiungono il limite di 256 KB e viene avviato il failover. L'oggetto [MessageSender][MessageSender] personalizzato archivia nelle code di backlog i messaggi per tutte le code e tutti gli argomenti. Questo oggetto unisce i messaggi provenienti da numerose code primarie nelle code di backlog. Per gestire il bilanciamento del carico tra più client che non hanno relazioni tra loro, l'SDK sceglie casualmente una coda di backlog per ogni oggetto [QueueClient][QueueClient] o [TopicClient][TopicClient] creato nel codice.
 
 ## <a name="pings"></a>Ping
 Un messaggio ping è un oggetto [BrokeredMessage][BrokeredMessage] vuoto con la proprietà [ContentType][ContentType] impostata su application/vnd.ms-servicebus-ping e un valore [TimeToLive][TimeToLive] di 1 secondo. Questo ping presenta una caratteristica particolare nel bus di servizio. Il server non recapita mai un ping quando un chiamante qualsiasi richiede un oggetto [BrokeredMessage][BrokeredMessage]. Di conseguenza, non sarà mai necessario comprendere come ricevere e ignorare questi messaggi. A ogni entità, argomento o coda univoca, per istanza di [MessagingFactory][MessagingFactory] e per client che risulta non disponibile viene inviato un ping. Per impostazione predefinita, ciò accade una volta al minuto. I messaggi ping sono considerati come normali messaggi del bus di servizio e possono comportare l'addebito di costi in base alla larghezza di banda e al numero di messaggi. Non appena i client rilevano che il sistema è disponibile, l'invio di messaggi viene arrestato.
@@ -98,30 +99,25 @@ Almeno un programma eseguibile nell'applicazione deve eseguire attivamente il si
 In un'applicazione che ospita il sifone, non appena l'oggetto [MessagingFactory][MessagingFactory] primario o secondario restituisce un errore o viene chiuso, senza che l'oggetto correlato restituisca un errore o venga chiuso, e non appena questo stato viene rilevato, il sifone si attiva automaticamente. Se l'oggetto [MessagingFactory][MessagingFactory] correlato al primo non viene chiuso entro 5 secondi, il sifone restituisce un errore per l'oggetto [MessagingFactory][MessagingFactory] ancora aperto.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni dettagliate sulla messaggistica asincrona del bus di servizio, vedere [Modelli di messaggistica asincrona e disponibilità elevata][Modelli di messaggistica asincrona e disponibilità elevata]. 
+Per informazioni dettagliate sulla messaggistica asincrona del bus di servizio, vedere [Modelli di messaggistica asincrona e disponibilità elevata][Asynchronous messaging patterns and high availability]. 
 
-[PairNamespaceAsync]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.pairnamespaceasync.aspx
-[SendAvailabilityPairedNamespaceOptions]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.aspx
-[MessageSender]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx
-[MessagingFactory]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx
-[FailoverInterval]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.pairednamespaceoptions.failoverinterval.aspx
-[MessagingException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
+[PairNamespaceAsync]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PairNamespaceAsync_Microsoft_ServiceBus_Messaging_PairedNamespaceOptions_
+[SendAvailabilityPairedNamespaceOptions]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions
+[MessageSender]: /dotnet/api/microsoft.servicebus.messaging.messagesender
+[MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
+[FailoverInterval]: /dotnet/api/microsoft.servicebus.messaging.pairednamespaceoptions#Microsoft_ServiceBus_Messaging_PairedNamespaceOptions_FailoverInterval
+[MessagingException]: /dotnet/api/microsoft.servicebus.messaging.messagingexception
 [TimeoutException]: https://msdn.microsoft.com/library/azure/system.timeoutexception.aspx
-[BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
-[QueueDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx
+[BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
+[QueueDescription]: /dotnet/api/microsoft.servicebus.messaging.queuedescription
 [TimeSpan]: https://msdn.microsoft.com/library/azure/system.timespan.aspx
-[PingPrimaryInterval]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.pingprimaryinterval.aspx
-[QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
-[TopicClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx
-[ContentType]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.contenttype.aspx
-[TimeToLive]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx
-[Modelli di messaggistica asincrona e disponibilità elevata]: service-bus-async-messaging.md
+[PingPrimaryInterval]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions#Microsoft_ServiceBus_Messaging_SendAvailabilityPairedNamespaceOptions_PingPrimaryInterval
+[QueueClient]: /dotnet/api/microsoft.servicebus.messaging.queueclient
+[TopicClient]: /dotnet/api/microsoft.servicebus.messaging.topicclient
+[ContentType]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType
+[TimeToLive]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive
+[Asynchronous messaging patterns and high availability]: service-bus-async-messaging.md
 [0]: ./media/service-bus-paired-namespaces/IC673405.png
 [1]: ./media/service-bus-paired-namespaces/IC673406.png
 [2]: ./media/service-bus-paired-namespaces/IC673407.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

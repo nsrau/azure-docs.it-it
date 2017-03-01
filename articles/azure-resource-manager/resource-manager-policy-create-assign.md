@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/10/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 138197bab775ec854f2761a64c52a9a9c8baca60
-ms.openlocfilehash: dec7ebd834514a10d02d739264b03b01a65a4375
+ms.sourcegitcommit: 0e1ee94504ebff235c1da9128e0ac68c2b28bc59
+ms.openlocfilehash: 944eafeb67df4baefa99172c1082259a95e84afe
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -192,11 +193,11 @@ Per rimuovere un'assegnazione di criteri, usare:
 Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
 ```
 
-## <a name="azure-cli-20-preview"></a>Interfaccia della riga di comando di Azure 2.0 (anteprima)
+## <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
 
 ### <a name="create-policy-definition"></a>Creare una definizione di criterio
 
-È possibile creare una definizione di criterio usando l'interfaccia della riga di comando di Azure 2.0 (Anteprima) con il comando di definizione del criterio. L'esempio seguente crea un criterio per consentire solo le risorse in Europa settentrionale ed Europa occidentale.
+È possibile creare una definizione di criteri usando l'interfaccia della riga di comando di Azure 2.0 con il comando di definizione dei criteri. L'esempio seguente crea un criterio per consentire solo le risorse in Europa settentrionale ed Europa occidentale.
 
 ```azurecli
 az policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --rules '{    
@@ -292,10 +293,5 @@ azure policy assignment delete --name regionPolicyAssignment --scope /subscripti
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per indicazioni su come le aziende possono usare Resource Manager per gestire efficacemente le sottoscrizioni, vedere [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Scaffolding aziendale Azure - Governance prescrittiva per le sottoscrizioni).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

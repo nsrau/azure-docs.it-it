@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/15/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: a268907eea2862ae2d054f30accfd4d771a7d880
-ms.openlocfilehash: ae97e66b8fb0992550c5a4f1f8418c5cb7e496b5
+ms.sourcegitcommit: e208b2bf861d698901b287458a3969e833540e44
+ms.openlocfilehash: f8f67af3cb6adb333924714bd758609b950845af
+ms.lasthandoff: 02/17/2017
 
 ---
 
@@ -68,6 +69,17 @@ Innanzitutto, l'utente tenta di accedere a una risorsa che considera attendibili
 5.    Azure AD decrittografa il ticket Kerberos utilizzando la chiave già condivisa, quindi restituisce un token all'utente o chiede all'utente di fornire prove aggiuntive, ad esempio l'autenticazione a più fattori come richiesto dalla risorsa.
 
 Single Sign-On è una funzionalità opportunistica, il che significa che, in caso di errore, l'utente deve solo immettere la password nella pagina di accesso, come di consueto.
+
+## <a name="single-sign-on-sso-prerequisites"></a>Prerequisiti di Single Sign-On (SSO)
+Se si abilita la funzionalità Single Sign-On con l'autenticazione pass-through, non sono necessari pre-requisiti aggiuntivi oltre al quelli richiesti per l'autenticazione pass-through.
+
+Se si abilita la funzionalità Single Sign-On con sincronizzazione password e se è presente un firewall tra Azure AD Connect e Azure AD, assicurarsi che:
+- Il server Azure AD Connect possa comunicare con *.msappproxy.net
+- Azure AD Connect possa eseguire richieste HTTPS ad Azure AD sulle porte seguenti:
+
+|Protocol|Numero della porta|Descrizione
+| --- | --- | ---
+|HTTPS|9090|    Abilitare la registrazione SSO (necessaria solo per il processo di registrazione SSO).
 
 ## <a name="enabling-sso-with-pass-through-authentication-or-password-sync"></a>Abilitazione di SSO con autenticazione pass-through o sincronizzazione delle password
 Azure AD Connect offre un semplice processo per abilitare Single Sign-On con l'autenticazione pass-through o la sincronizzazione delle password. È necessario assicurarsi di disporre di diritti di amministratore per uno dei domini all'interno di ogni foresta sincronizzata per consentire la configurazione dei nomi di entità servizio (SPN) Kerberos sull'account del computer. Il nome utente e la password non vengono archiviati in Azure AD Connect o Azure AD e vengono usati solo per questa operazione.
@@ -132,9 +144,4 @@ Se il controllo delle operazioni non riuscite è attivato, ogni volta che un ute
       </Query>
     </QueryList>
 ```
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

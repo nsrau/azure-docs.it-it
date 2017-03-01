@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 44cfe1c86abaea19ce48255902b2b9611560d695
+ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
+ms.openlocfilehash: 92bf625a9e62a24287b752bc1cbe061f1ef83a03
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -32,9 +33,7 @@ Per gli utenti con account Azure AD o account Microsoft esistenti, l'esperienza 
 ## <a name="social-id-user-first-time-redemption"></a>Primo riscatto dell'ID utente per social network
 Collaborazione B2B di Azure AD semplifica l'uso di qualsiasi indirizzo di posta elettronica per il riscatto. È possibile esaminare l'esperienza di riscatto quando si usa un indirizzo di posta elettronica non Microsoft per Collaborazione B2B. Si tratta di un flusso di riscatto più complesso, perché richiede la creazione di un account al momento del riscatto. Per altre informazioni, guardare il video seguente:
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group]
-
-Se il video non è incorporato, è possibile guardarlo [qui](https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group).
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group/Player]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -51,9 +50,4 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 * [Autenticazione a più fattori per utenti di Collaborazione B2B](active-directory-b2b-mfa-instructions.md)
 * [Aggiungere gli utenti per la Collaborazione B2B senza un invito](active-directory-b2b-add-user-without-invite.md)
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

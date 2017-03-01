@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
-ms.openlocfilehash: ba82512e830032172c8a0d78029605935d1417f9
+ms.sourcegitcommit: 1b95723ec9886835c5967c9efe95b4922390a847
+ms.openlocfilehash: 92b5200016b943c06ef7732344d4136bd3c491b7
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -71,7 +72,7 @@ La quantità di operazioni di I/O nel sito di ripristino è una funzione del num
 ![Risultati sito secondario](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744918.png)
 
 ### <a name="effect-of-replication-on-network-utilization"></a>Effetto della replica sull'uso della rete
-Una media di 275 MB al secondo di larghezza di banda è stata utilizzata tra i nodi primario e di ripristino (con compressione abilitata) su una larghezza di banda esistente di 5 GB al secondo.
+Una media di 275 MB al secondo di larghezza di banda è stata usata tra i nodi primario e di ripristino (con compressione abilitata) su una larghezza di banda esistente di 5 GB al secondo.
 
 ![Risultati utilizzo rete](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744919.png)
 
@@ -170,9 +171,4 @@ Nella tabella vengono riepilogate le metriche delle prestazioni e i contatori mi
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Configurare la protezione tra due siti VMM locali](site-recovery-vmm-to-vmm.md)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

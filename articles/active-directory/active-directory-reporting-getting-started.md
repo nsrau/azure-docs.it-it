@@ -13,10 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/07/2016
-ms.author: dhanyahk
+ms.author: dhanyahk;markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6ce0e0ce9004e1b331328fca5830f01b6ce6af6c
+ms.sourcegitcommit: eec9b73cbaccfa50eec6f237e4d1d810c6efa1d9
+ms.openlocfilehash: e5b8ac91914203156bd395d7f462385e9f6dbcb4
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -113,7 +114,7 @@ Abilitare o disabilitare la sezione "Notifiche tramite posta elettronica di Acce
 ### <a name="integrate-with-the-azure-ad-reporting-api"></a>Integrazione con l'API di creazione report di Azure AD
 Vedere la pagina relativa all' [Introduzione all'API di creazione report](active-directory-reporting-api-getting-started.md).
 
-### <a name="engage-multifactor-authentication-on-users"></a>Assegnare la Multi-Factor Authentication agli utenti.
+### <a name="engage-multi-factor-authentication-on-users"></a>Assegnare la Multi-Factor Authentication agli utenti.
 Selezionare un utente in un report.
 
 Fare clic sul pulsante "Abilita autenticazione a più fattori" nella parte inferiore della schermata.
@@ -139,10 +140,5 @@ Inviare un messaggio di posta elettronica all'indirizzo [aadreportinghelp@micros
 > Per ulteriori informazioni sul Report di AD Azure, consultare [Visualizzare i report di accesso e utilizzo](active-directory-view-access-usage-reports.md).
 > 
 > 
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

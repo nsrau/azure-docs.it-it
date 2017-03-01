@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayan;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: c19ad7c0c466d178e97e83bb2d46b9905130d00e
-ms.openlocfilehash: a97aff9cb7071edc0b7fd1046bdd10d440d75eab
+ms.sourcegitcommit: c3c3938577f610eba522ba593bfab5e93c70e459
+ms.openlocfilehash: d47a97fb023e2cc3ad4acaa07eb4edfd1f82509e
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -120,7 +121,7 @@ Ogni collegamento in un peering reti virtuali include il precedente set di propr
 
 1. In un browser passare a http://portal.azure.com e, se necessario, accedere con l'account Azure.
 2. Se si sta creando un peering tra reti virtuali distribuite con modelli di distribuzione diversi nella *stessa* sottoscrizione, andare al passaggio 3. La possibilità di creare un peering tra reti virtuali distribuite con modelli di distribuzione diversi in sottoscrizioni *diverse* è disponibile in versione di **anteprima**. Le funzionalità in anteprima non offrono lo stesso livello di affidabilità e lo stesso contratto di servizio delle funzionalità in versione di disponibilità generale. Se si sta creando un peering tra reti virtuali distribuite con modelli di distribuzione diversi in sottoscrizioni diverse, è necessario prima completare le attività seguenti:
-    - Registrare la funzionalità in anteprima nella sottoscrizione di Azure immettendo il comando seguente di PowerShell: `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network`. Questo passaggio non può essere eseguito nel portale.
+    - Registrare la funzionalità in anteprima nella sottoscrizione di Azure immettendo il comando seguente di PowerShell: `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network` e `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network` Questo passaggio non può essere eseguito nel portale.
     - Completare i passaggi da 1 a 6 della sezione [Peering tra sottoscrizioni](#x-sub) di questo articolo.
 3. Per stabilire il peering reti virtuali in questo scenario, è necessario creare solo un collegamento, dalla rete virtuale in Azure Resource Manager a quella nella distribuzione classica, ovvero da **VNET1** a **VNET2**. Nel portale fare clic su **Esplora** > e scegliere **Reti virtuali**
 4. Nel pannello Reti virtuali scegliere **VNET1**. Fare clic su **Peer**, quindi su **Aggiungi**.
@@ -141,10 +142,5 @@ Ogni collegamento in un peering reti virtuali include il precedente set di propr
 
     ![Elimina2](./media/virtual-networks-create-vnetpeering-arm-portal/figure16.png)
 4. Con questo stato non si potrà ricreare il collegamento fino a quando lo stato del collegamento peer non diventerà Avviato. È consigliabile rimuovere entrambi i collegamenti prima di ricreare il peering reti virtuali.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

@@ -1,4 +1,3 @@
-
 ---
 title: Azure Active Directory v2.0 e il protocollo OpenID | Documentazione Microsoft
 description: Creare applicazioni Web usando l&quot;implementazione Azure Active Directory v2.0 del protocollo di autenticazione OpenID Connect.
@@ -13,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 02/08/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 1d81be4ba596f7bc0ed7d16cb8bb9b375bd1e223
+ms.sourcegitcommit: d24fd29cfe453a12d72998176177018f322e64d8
+ms.openlocfilehash: 4e43304c108fceb7df70fc37898ffcf989beb922
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -199,6 +199,16 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 -->
 
+## <a name="single-sign-out"></a>Single Sign-Out
+L'endpoint v2.0 usa i cookie per identificare una sessione utente. Quando un utente accede per la prima volta a un'applicazione, l'endpoint v2.0 imposta un cookie nel browser dell'utente. Quando l'utente accede successivamente a un'altra applicazione, Azure AD controlla innanzitutto il cookie per stabilire se l'utente presenta una sessione di accesso valida con l'endpoint v2.0 di Azure AD invece di ripetere l'autenticazione dell'utente.
+
+Analogamente, quando l'utente si disconnette per la prima volta da un'applicazione, l'endpoint v2.0 elimina il cookie dal browser. Tuttavia, l'utente può ancora essere connesso ad altre applicazioni che usano l'endpoint v2.0 di Azure AD per l'autenticazione. Per verificare che l'utente si disconnetta da tutte le applicazioni, l'endpoint v2.0 invia una richiesta HTTP GET all'oggetto `LogoutUrl` di tutte le applicazioni a cui l'utente è attualmente connesso. Le applicazioni devono rispondere a questa richiesta cancellando tutti i cookie che identificano la sessione dell'utente. È possibile impostare `LogoutUrl` da portale di Azure.
+
+1. Passare al [portale di Azure](https://portal.azure.com).
+2. Scegliere il tenant di Azure Directory facendo clic sull'account nell'angolo superiore destro della pagina.
+3. Dal pannello di navigazione a sinistra, scegliere **Azure Active Directory**, quindi scegliere **Registrazioni per l'app** e selezionare l'applicazione di interesse.
+4. Fare clic su **Proprietà** e cercare la casella di testo **URL disconnessione**. 
+
 ## <a name="protocol-diagram-token-acquisition"></a>Diagramma di protocollo: acquisizione dei token
 Molte app Web non richiedono soltanto l'accesso dell'utente, ma necessitano anche di accedere a un servizio Web per conto dell'utente tramite OAuth. In questo scenario viene usato OpenID Connect per l'autenticazione utente e contemporaneamente viene acquisito un codice di autorizzazione che può essere usato per ottenere i token di accesso quando si usa il flusso del codice di autorizzazione di OAuth.
 
@@ -268,10 +278,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 Per una descrizione dei possibili codici di errore e delle risposte client consigliate, vedere [Codici per gli errori dell'endpoint di autorizzazione](#error-codes-for-authorization-endpoint-errors).
 
 Dopo aver ottenuto un codice di autorizzazione e un token ID, è possibile far accedere l'utente e ottenere i token di accesso per suo conto. Per far accedere l'utente, è necessario convalidare il token ID [esattamente come descritto](#validate-the-id-token). Per ottenere i token di accesso, seguire i passaggi descritti nella [documentazione del protocollo OAuth](active-directory-v2-protocols-oauth-code.md#request-an-access-token).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

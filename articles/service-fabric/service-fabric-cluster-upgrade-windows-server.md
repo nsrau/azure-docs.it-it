@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2016
+ms.date: 02/02/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 386102ad864d580ce280e3530bce428c532a751c
+ms.sourcegitcommit: 3d7e28c1cd221d704cf9cfec66da535e079fb472
+ms.openlocfilehash: 30044abc0d7d42b11ddd210dfb9ea3eadb94dda6
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -39,7 +40,7 @@ A tale scopo, impostare la configurazione del cluster "fabricClusterAutoupgradeE
 > 
 > 
 
-È possibile aggiornare il cluster alla nuova versione solo se si usa una configurazione del nodo di tipo produzione in cui ogni nodo di Service Fabric viene allocato in una macchina virtuale o fisica separata. Se si ha un cluster di sviluppo in cui sono presenti più nodi di Service Fabric in un'unica macchina virtuale o fisica, è necessario eliminare il cluster e ricrearlo con la nuova versione.
+È possibile aggiornare il cluster alla nuova versione solo se si usa una configurazione del nodo di tipo produzione, in cui ogni nodo di Service Fabric viene allocato in una macchina virtuale o fisica separata. Se si ha un cluster di sviluppo in cui sono presenti più nodi di Service Fabric in un'unica macchina virtuale o fisica, è necessario eliminare il cluster e ricrearlo con la nuova versione.
 
 Esistono due flussi di lavoro distinti per l'aggiornamento del cluster alla versione di Service Fabric più recente o a una versione supportata. Uno per i cluster che hanno la connettività per scaricare automaticamente la versione più recente e il secondo per i cluster che non hanno la connettività per scaricare la versione più recente di Service Fabric.
 
@@ -124,7 +125,7 @@ e avviare un aggiornamento della configurazione. Per informazioni dettagliate su
 ```
 
 #### <a name="cluster-upgrade-workflow"></a>Flusso di lavoro di aggiornamento del cluster.
-1. Scaricare la versione più recente del pacchetto dal documento [Creare e gestire un cluster eseguito in Windows Server](service-fabric-cluster-creation-for-windows-server.md) 
+1. Scaricare la versione più recente del pacchetto dal documento [Creare e gestire un cluster eseguito in Windows Server](service-fabric-cluster-creation-for-windows-server.md)
 2. Connettersi al cluster da qualsiasi macchina con accesso amministrativo a tutte le macchine elencate come nodi nel cluster. La macchina in cui viene eseguito lo script non deve necessariamente far parte del cluster 
    
     ```powershell
@@ -152,7 +153,7 @@ e avviare un aggiornamento della configurazione. Per informazioni dettagliate su
 
     ```
 
-1. Registrare il pacchetto copiato 
+4. Registrare il pacchetto copiato 
    
     ```powershell
    
@@ -163,7 +164,7 @@ e avviare un aggiornamento della configurazione. Per informazioni dettagliate su
     Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
    
      ```
-2. Avviare un aggiornamento del cluster a una delle versioni disponibili. 
+5. Avviare un aggiornamento del cluster a una delle versioni disponibili. 
    
     ```Powershell
    
@@ -184,6 +185,17 @@ e avviare un aggiornamento della configurazione. Per informazioni dettagliate su
 
 Dopo aver risolto i problemi che hanno determinato il rollback, è necessario avviare di nuovo l'aggiornamento, seguendo la stessa procedura precedente.
 
+
+## <a name="cluster-configuration-upgrade"></a>Aggiornamento della configurazione del cluster
+Per aggiornare la configurazione del cluster, eseguire Start-ServiceFabricClusterConfigurationUpgrade. L'aggiornamento della configurazione viene eseguito per dominio di aggiornamento.
+
+```powershell
+
+    Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File> 
+
+```
+
+
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come personalizzare alcune [impostazioni dei cluster di Service Fabric](service-fabric-cluster-fabric-settings.md)
 * Informazioni su come [aumentare o ridurre le istanze del cluster](service-fabric-cluster-scale-up-down.md)
@@ -191,9 +203,4 @@ Dopo aver risolto i problemi che hanno determinato il rollback, è necessario av
 
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

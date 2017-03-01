@@ -5,7 +5,7 @@ keywords: Servizio app di Azure, Linux, OSS
 services: app-service
 documentationcenter: 
 author: naziml
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
 ms.service: app-service
@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: naziml
+ms.date: 02/16/2017
+ms.author: naziml;wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 6eb4390f8290d3036bf76a592c40253432170883
-ms.openlocfilehash: 0e5c56e62965f2cc9df0b439595223300377d084
+ms.sourcegitcommit: 78fbef5aa26c52f5dd264581fd1525ada763d4c6
+ms.openlocfilehash: fa5d210c5e73074803d5cfb874ad7891563aefd0
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -39,12 +40,12 @@ I clienti possono distribuire le applicazioni tramite:
 
 * FTP
 * Repository Git locale
-* GitHub o Bitbucket
+* GitHub
 
 Per il ridimensionamento delle applicazioni:
 
 * I clienti possono aumentare e ridurre le prestazioni delle app Web modificando il livello nel piano di servizio app.
-* I clienti possono aumentare il numero di istanze delle applicazioni ed eseguire l'app in più istanze entro i confini dello SKU.
+* I clienti possono scalare orizzontalmente le applicazioni ed eseguire più istanze di un'app entro i confini dello SKU.
 
 Per Kudu, alcune delle funzionalità di base vengono usate con gli elementi seguenti:
 
@@ -53,9 +54,9 @@ Per Kudu, alcune delle funzionalità di base vengono usate con gli elementi segu
 * Console di base
 
 ## <a name="limitations"></a>Limitazioni
-Il portale di Azure visualizza solo le funzionalità che possono essere usate attualmente per il servizio app in Linux e nasconde le altre. Altre funzionalità saranno visibili nel portale man mano che verranno abilitate.
+Il portale di Azure visualizza solo le funzionalità che possono essere usate attualmente per il servizio app in Linux e nasconde le altre. Man mano che verranno abilitate nuove funzionalità, queste diventeranno visibili nel portale.
 
-Alcune funzionalità, ad esempio l'integrazione delle reti virtuali, l'autenticazione di Azure Active Directory o di terze parti o le estensioni del sito Kudu, attualmente non funzionano. Man mano che queste funzionalità verranno abilitate, la documentazione verrà aggiornata e le modifiche pubblicate nei blog.
+Alcune funzionalità, quali l'integrazione delle reti virtuali, l'autenticazione di Azure Active Directory o di terze parti o le estensioni del sito Kudu, attualmente non funzionano. Man mano che queste funzionalità verranno abilitate, la documentazione verrà aggiornata e le modifiche pubblicate nei blog.
 
 Questa anteprima pubblica è attualmente disponibile solo nelle aree seguenti:
 
@@ -67,7 +68,7 @@ App Web in Linux è supportato solo nei piani di servizio app dedicati e non ha 
 
 Le app Web in Linux devono essere create in un gruppo di risorse che non contiene app Web non Linux nella stessa area.
 
-Le app Web in Linux non supportano ancora la distribuzione di app .NET Core da un'origine non compilata. Sarà necessario prima di tutto pubblicare/compilare l'app .NET Core in locale e quindi spingere i bit del sito pubblicato nell'applicazione.
+Le app Web in Linux non supportano ancora la distribuzione di app .NET Core da un'origine non compilata. È necessario prima di tutto pubblicare/compilare l'app .NET Core in locale e quindi eseguire il push dei bit del sito pubblicato nell'applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere i collegamenti seguenti per iniziare a usare il servizio app in Linux. È possibile pubblicare domande e dubbi nel [forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
@@ -76,9 +77,7 @@ Vedere i collegamenti seguenti per iniziare a usare il servizio app in Linux. È
 * [Come usare un'immagine Docker personalizzata per il servizio app in Linux](app-service-linux-using-custom-docker-image.md)
 * [Uso della configurazione PM2 per Node.js nelle app Web in Linux](app-service-linux-using-nodejs-pm2.md)
 * [Uso di .NET Core nelle app Web del servizio App di Azure in Linux](app-service-linux-using-dotnetcore.md)
+* [Uso di Ruby nelle app Web del servizio app di Azure in Linux](app-service-linux-using-ruby.md)
 * [Azure App Service Web Apps on Linux FAQ](app-service-linux-faq.md) (App Web del Servizio app di Azure nelle domande frequenti su Linux)
-
-
-<!--HONumber=Feb17_HO3-->
 
 

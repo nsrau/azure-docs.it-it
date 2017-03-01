@@ -4,7 +4,7 @@ description: "Informazioni su come effettuare il provisioning di un&quot;applica
 services: app-service
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
 ms.openlocfilehash: 37a10d284afa6b9ee2aa65e7ec015c3c364f551d
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -271,10 +272,5 @@ Scoprire come [applicare facilmente le metodologie Agile e la pubblicazione cont
 * [Distribuire un'applicazione con un modello di Gestione risorse di Azure](../azure-resource-manager/resource-group-template-deploy.md)
 * [Uso di Azure PowerShell con Gestione risorse di Azure](../azure-resource-manager/powershell-azure-resource-manager.md)
 * [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](../azure-resource-manager/resource-manager-common-deployment-errors.md)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

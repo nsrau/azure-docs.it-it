@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 09f0aa4ea770d23d1b581c54b636c10e59ce1d3c
-ms.openlocfilehash: d5768c44022fc251aa0741d91b575ff604032e18
+ms.sourcegitcommit: 1753096f376d09a1b5f2a6b4731775ef5bf6f5ac
+ms.openlocfilehash: 4f66de2fe4b123e208413ade436bb66b9a03961b
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -28,11 +29,13 @@ Questo articolo elenca i problemi comuni correlati all'archiviazione file di Mic
 
 * [Errore di quota durante il tentativo di aprire un file](#quotaerror)
 * [Rallentamento delle prestazioni quando si accede all'archiviazione file di Azure da Windows o Linux](#slowboth)
+* [Come tracciare le operazioni di lettura e scrittura in archiviazione file di Azure](#traceop)
 
 **Problemi relativi a client Windows**
 
 * [Rallentamento delle prestazioni quando si accede all'archiviazione file di Azure da Windows 8.1 o Windows Server 2012 R2](#windowsslow)
 * [Errore 53 durante il tentativo di montare una condivisione file di Azure](#error53)
+* [Errore 87 indicante che il parametro non è corretto durante il tentativo di montare una condivisione file di Azure](#error87)
 * [Il comando net use è stato eseguito, ma la condivisione file di Azure montata in Esplora risorse non è visibile](#netuse)
 * [L'account di archiviazione contiene "/" e il comando net use non viene eseguito](#slashfails)
 * [L'applicazione o il servizio non può accedere all'unità File di Azure montata](#accessfiledrive)
@@ -41,12 +44,13 @@ Questo articolo elenca i problemi comuni correlati all'archiviazione file di Mic
 **Problemi relativi a client Linux**
 
 * [Errore "You are copying a file to a destination that does not support encryption" (La destinazione in cui si sta copiando il file non supporta la crittografia) quando si caricano o si copiano file in File di Azure](#encryption)
-* [Errore "Host is down" (Host inattivo) su condivisioni file esistenti o blocco della shell quando si eseguono comandi list sul punto di montaggio](#errorhold)
+* [Errore di I/O intermittente indicante l'host inattivo su condivisioni file esistenti o blocco della shell quando si eseguono comandi list sul punto di montaggio](#errorhold)
 * [Errore di montaggio 115 quando si tenta di montare File di Azure sulla macchina virtuale Linux](#error15)
 * [La macchina virtuale Linux presenta ritardi casuali nell'esecuzione di comandi come "ls"](#delayproblem)
 * [Errore 112 - Errore di timeout](#error112)
 
 **Accedere da altre applicazioni**
+
 * [È possibile far riferimento alla condivisione file di Azure per l'applicazione tramite un processo Web?](#webjobs)
 
 <a id="quotaerror"></a>
@@ -54,19 +58,15 @@ Questo articolo elenca i problemi comuni correlati all'archiviazione file di Mic
 ## <a name="quota-error-when-trying-to-open-a-file"></a>Errore di quota durante il tentativo di aprire un file
 In Windows si ricevono messaggi di errore simili ai seguenti:
 
-**1816 ERROR_NOT_ENOUGH_QUOTA <--> 0xc0000044**
-
-**STATUS_QUOTA_EXCEEDED**
-
-**Non c'è abbastanza disponibilità per elaborare il comando**
-
-**Handle non valido. GetLastError: 53**
+`1816 ERROR_NOT_ENOUGH_QUOTA <--> 0xc0000044`
+`STATUS_QUOTA_EXCEEDED`
+`Not enough quota is available to process this command`
+`Invalid handle value GetLastError: 53`
 
 In Linux si ricevono messaggi di errore simili ai seguenti:
 
-**<filename> [permission denied]** ([autorizzazione negata])
-
-**Disk quota exceeded** (Quota disco superata)
+`<filename> [permission denied]`
+`Disk quota exceeded`
 
 ### <a name="cause"></a>Causa
 Il problema si verifica perché si è raggiunto il limite superiore di handle aperti simultaneamente consentito per un file.
@@ -93,14 +93,21 @@ Per verificare se la hotfix è stata installata, è possibile eseguire lo script
 
 Se la hotfix è installata, viene visualizzato l'output seguente:
 
-**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies**
-
-**{96c345ef-3cac-477b-8fcd-bea1a564241c}    REG_DWORD    0x1**
+`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies`
+`{96c345ef-3cac-477b-8fcd-bea1a564241c}    REG_DWORD    0x1`
 
 > [!NOTE]
 > Da dicembre 2015 la hotfix KB3114025 è installata per impostazione predefinita nelle immagini di Windows Server 2012 R2 presenti in Azure Marketplace.
 >
 >
+
+<a id="traceop"></a>
+
+### <a name="how-to-trace-the-read-and-write-operations-in-azure-file-storage"></a>Come tracciare le operazioni di lettura e scrittura in archiviazione file di Azure
+
+[Analizzatore messaggi di Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=44226) è in grado di mostrare la richiesta di un client non crittografata ed esiste una correlazione abbastanza buona tra richieste di trasferimento e transazioni, presupponendo qui il protocollo SMB e non REST.  È tuttavia necessario eseguire questo strumento in ogni client con notevole dispendio di tempo in presenza di numerosi ruoli di lavoro di VM IaaS.
+
+Se si usa l'analisi dei messaggi con ProcMon, è possibile avere un'idea piuttosto precisa del codice dell'applicazione responsabile delle transazioni.
 
 <a id="additional"></a>
 
@@ -134,8 +141,9 @@ Per altre informazioni sull'uso di Portqry, vedere [Descrizione dell'utilità de
 ### <a name="solution-for-cause-2"></a>Soluzione per la causa 2
 Collaborare con l'organizzazione IT per aprire la porta 445 verso [intervalli IP di Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
+<a id="error87"></a>
 ### <a name="cause-3"></a>Causa 3
-Il messaggio "Errore di sistema 53" può essere visualizzato anche se sul client è abilitata la comunicazione NTLMv1. Con la comunicazione NTLMv1 abilitata, il client è meno sicuro. Di conseguenza, la comunicazione verrà bloccata per File di Azure. Per verificare se questa è la causa dell'errore, assicurarsi che la sottochiave seguente del Registro di sistema sia impostata su 3:
+L'errore di sistema 53 o 87 può essere visualizzato se sul client è abilitata la comunicazione NTLMv1. Con la comunicazione NTLMv1 abilitata, il client è meno sicuro. Di conseguenza, la comunicazione verrà bloccata per File di Azure. Per verificare se questa è la causa dell'errore, assicurarsi che la sottochiave seguente del Registro di sistema sia impostata su 3:
 
 HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel.
 
@@ -238,7 +246,11 @@ Questo problema può verificarsi quando il comando di montaggio non include l'op
 ### <a name="solution"></a>Soluzione
 Verificare la presenza dell'opzione **serverino** nella voce "/etc/fstab":
 
-//azureuser.file.core.windows.net/wms/comer on /home/sampledir type cifs (rw,nodev,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X, file_mode=0755,dir_mode=0755,serverino,rsize=65536,wsize=65536,actimeo=1)
+`//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,cache=none,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
+
+È possibile anche verificare se questa opzione è in uso eseguendo il comando **sudo mount | grep cifs** ed esaminando l'output:
+
+`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=none,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
 Se l'opzione **serverino** non è presente, smontare e montare nuovamente File di Azure con l'opzione **serverino** selezionata.
 
@@ -253,7 +265,7 @@ Questo errore può essere causato da un problema di riconnessione di Linux o da 
 
 ### <a name="workaround"></a>Soluzione alternativa
 
-Il problema di Linux è stato risolto, ma ancora non applicato alle distribuzioni Linux. Se è causato dalla mancata riuscita della connessione in Linux, è possibile ovviare al problema evitando di entrare in uno stato inattivo. A tale scopo, nella condivisione file di Azure mantenere un file nel quale si esegue un'operazione di scrittura ogni 30 secondi. Deve trattarsi di un'operazione di scrittura, ad esempio la riscrittura della data di creazione o di modifica nel file. In caso contrario, si potrebbero ottenere risultati memorizzati nella cache e l'operazione potrebbe non attivare la connessione.
+Il problema di Linux è stato risolto, ma ancora non applicato alle distribuzioni Linux. Se è causato dalla mancata riuscita della connessione in Linux, è possibile ovviare al problema evitando di entrare in uno stato inattivo. A tale scopo, nella condivisione file di Azure mantenere un file nel quale si esegue un'operazione di scrittura ogni 30 secondi o meno. Deve trattarsi di un'operazione di scrittura, ad esempio la riscrittura della data di creazione o di modifica nel file. In caso contrario, si potrebbero ottenere risultati memorizzati nella cache e l'operazione potrebbe non attivare la connessione.
 
 <a id="webjobs"></a>
 
@@ -263,9 +275,4 @@ Non è possibile montare condivisioni SMB in un ambiente sandbox appservice. In 
 ## <a name="learn-more"></a>Altre informazioni
 * [Introduzione ad Archiviazione file di Azure in Windows](storage-dotnet-how-to-use-files.md)
 * [Introduzione all'archiviazione file di Azure in Linux](storage-how-to-use-files-linux.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

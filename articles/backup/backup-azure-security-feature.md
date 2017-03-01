@@ -12,11 +12,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/24/2016
+ms.date: 02/17/2017
 ms.author: pajosh
 translationtype: Human Translation
-ms.sourcegitcommit: 4a846e86fa8cefbee04e1e30078a0d2aabdd834d
-ms.openlocfilehash: 1b7df71f103e8284bdcc7bc3a27fe44815b12305
+ms.sourcegitcommit: 5c49de40401235d38142efd60d22b0591752fe75
+ms.openlocfilehash: f17802bf455b82f0b5239356c35024ecde7f1f35
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -29,13 +30,14 @@ Sempre più clienti incorrono in problemi di sicurezza, come malware, ransomware
 
 > [!NOTE]
 > Le funzionalità di sicurezza devono essere abilitate solo se si usa: <br/>
-> * **Agente MAB** (versione minima 2.0.9052). Dopo aver abilitato queste funzionalità è necessario aggiornare a questa versione dell'agente per poter eseguire operazioni critiche, come la modifica della passphrase o l'interruzione del backup con cancellazione dei dati <br/>
-> * **Azure Backup Server** (versione minima dell'agente MAB 2.0.9052 con Server di Backup di Azure Aggiornamento 1) <br/>
-> * **DPM** (non abilitare queste funzionalità). Queste funzioni saranno presto disponibili per i prossimi UR, quindi abilitandole non si influirà minimamente sulla funzionalità esistente. <br/>
+> * **Agente MAB** (versione minima 2.0.9052). Dopo aver abilitato queste funzionalità, è necessario aggiornare a questa versione dell'agente per poter eseguire operazioni critiche, come la modifica della passphrase o l'interruzione del backup con cancellazione dei dati. <br/>
+> * **Azure Backup Server**: versione minima dell'agente MAB 2.0.9052 con Server di Backup di Azure Aggiornamento 1. <br/>
+> * **DPM**: versione dell'agente MAB 2.0.9052 con DPM 2012 R2 UR12 o DPM 2016 UR2. <br/>
 > * **Backup delle macchine virtuali IaaS** (non abilitare queste funzionalità). Queste funzionalità non sono ancora disponibili per il backup delle macchine virtuali IaaS, pertanto abilitandole non si avrà alcun effetto negativo.
-> * Dopo averle abilitate, le funzionalità di sicurezza saranno applicabili a tutte le macchine dell'agente di Servizi di ripristino di Azure (MARS) e a tutti i server di Backup di Azure registrati con l'insieme di credenziali. <br/>
+> * Queste funzionalità sono disponibili solo per l'insieme di credenziali dei Servizi di ripristino.
+> * Tutti i nuovi insiemi di credenziali creati con i Servizi di ripristino hanno queste funzionalità abilitate per impostazione predefinita. Per gli insiemi di credenziali dei Servizi di ripristino esistenti, gli utenti devono abilitare queste funzionalità tramite i passaggi illustrati nella sezione seguente.
+> * Dopo averle abilitate, le funzionalità di sicurezza saranno applicabili a tutte le macchine dell'agente di Servizi di ripristino di Azure (MARS) e a tutti i server di Backup di Azure e ai server DPM registrati con l'insieme di credenziali. <br/>
 > * L'attivazione di questa impostazione è un'azione eseguibile una volta sola e in seguito non sarà più possibile disabilitare queste funzionalità. <br/>
-> * Questa funzionalità è disponibile solo per l'insieme di credenziali dei servizi di ripristino.
 >
 >
 
@@ -70,13 +72,18 @@ Come misura di sicurezza, Backup di Azure conserva i dati di backup eliminati pe
 
 Per gli utenti che usano l'**agente di Servizi di ripristino di Microsoft**:
 
-1. Se il computer su cui erano in esecuzione le operazioni di backup è ancora disponibile, usare l'azione [Ripristinare i dati nello stesso computer](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-the-same-machine) in MARS per recuperare i dati da tutti i punti di ripristino precedenti.
+1. Se il computer su cui erano in esecuzione le operazioni di backup è ancora disponibile, usare l'azione [Ripristinare i dati nello stesso computer](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) in MARS per recuperare i dati da tutti i punti di ripristino precedenti.
 2. Se invece il computer non è disponibile, scegliere l'azione [Ripristinare in un altro computer](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) per ottenere i dati usando un'altra macchina MARS.
 
 Per gli utenti che usano il **server di Backup di Azure**:
 
 1. Se il server in cui erano in esecuzione le operazioni di backup è ancora disponibile, proteggere di nuovo le origini dati eliminate e usare la funzionalità Ripristina dati per recuperare i dati da tutti i punti di ripristino precedenti.
 2. Se invece il computer non è disponibile, scegliere l'azione [Ripristinare i dati da un altro server di Backup di Azure](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) per ottenere i dati usando un altro server di Backup di Azure.
+
+Per gli utenti **DPM**:
+
+1. Se il server in cui erano in esecuzione le operazioni di backup è ancora disponibile, proteggere di nuovo le origini dati eliminate e usare la funzionalità Ripristina dati per recuperare i dati da tutti i punti di ripristino precedenti.
+2. Se invece il computer citato in alto non è disponibile, scegliere [Aggiungi DPM esterno](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) per usare un server DPM per ottenere i dati.
 
 ## <a name="preventing-attacks"></a>Prevenzione degli attacchi
 Questa funzionalità è stata integrata da una serie di controlli per assicurare che solo gli utenti validi possano eseguire svariate operazioni.
@@ -108,9 +115,5 @@ Le funzionalità di sicurezza descritte in questo articolo offrono meccanismi di
 * Consultare [Introduzione all'insieme di credenziali per i servizi di ripristino di Azure](backup-azure-vms-first-look-arm.md) per abilitare queste funzionalità
 * Consultare [Scaricare l'agente di Servizi di ripristino di Azure più recente](http://aka.ms/azurebackup_agent) per proteggere i computer Windows e i dati di backup da eventuali attacchi
 * Consultare [Scaricare il server di Backup di Azure più recente](https://aka.ms/latest_azurebackupserver) per proteggere i carichi di lavoro e i dati di backup da eventuali attacchi
-
-
-
-<!--HONumber=Feb17_HO1-->
-
+* [Download UR12 for System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) (Download per System Center 2012 R2 DPM UR12) o [Download UR2 for System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) (Scaricare UR2 per System Center 2016 DPM) per proteggere i carichi di lavoro e i dati di backup da attacchi
 

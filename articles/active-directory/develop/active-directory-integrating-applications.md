@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/29/2016
+ms.date: 02/08/2017
 ms.author: mbaldwin;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 46629edd59fa51e127fe4a4b61ff7de753dd7e68
+ms.sourcegitcommit: b5dbb8c28bd6b2bdbb53939314348104bbbe4f34
+ms.openlocfilehash: f6ec7634a1d21c7205ac8ae7377a312ed386ee61
 
 
 ---
@@ -34,14 +34,15 @@ Qualsiasi applicazione che vuole usare le funzionalità di Azure AD deve prima e
 
 Per creare un'applicazione Web che richiede solo il supporto dell'accesso per gli utenti in Azure AD, è sufficiente seguire le istruzioni riportate di seguito. Se l'applicazione necessita di credenziali o autorizzazioni per accedere a un'API Web o se deve consentire agli utenti di altri tenant di Azure AD di accedervi, passare alla sezione [Aggiornamento di un'applicazione](#updating-an-application) per continuare la configurazione dell'applicazione.
 
-### <a name="to-register-a-new-application-in-the-azure-classic-portal"></a>Per registrare una nuova applicazione nel portale di Azure classico
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
-2. Scegliere l'icona Active Directory dal menu a sinistra e quindi fare clic sulla directory desiderata.
-3. Nel menu principale fare clic su **applicazioni**. Se alla directory non è stata aggiunta alcuna applicazione, la pagina mostrerà solo il collegamento Aggiungi app. Fare clic sul collegamento o, in alternativa, fare clic sul pulsante **Aggiungi** sulla barra dei comandi.
-4. Nella pagina Come procedere fare clic sul collegamento **Aggiungi un'applicazione che l'organizzazione sta sviluppando**.
-5. Nella pagina Informazioni sull'applicazione è necessario specificare un nome per l'applicazione, nonché indicare il tipo di applicazione che si vuole registrare con Azure AD.  È possibile scegliere tra un'[applicazione Web/client](active-directory-dev-glossary.md#client-application) / [risorsa Web/API](active-directory-dev-glossary.md#resource-server) (può anche svolgere entrambi i ruoli) e un'applicazione [client nativa](active-directory-dev-glossary.md#native-client). Al termine, fare clic sulla freccia nell'angolo inferiore destro della pagina.
-6. Nella pagina Proprietà dell'app impostare i valori di URL accesso e URI ID app per l'applicazione Web, se si sta registrando un'applicazione Web, o solo di URI di reindirizzamento per un'applicazione client nativa, quindi fare clic sulla casella di controllo nell'angolo inferiore destro della pagina.
-7. L'applicazione viene aggiunta e si viene quindi reindirizzati alla pagina Avvio rapido per l'applicazione. A seconda che si tratti di un'applicazione Web o nativa, verranno visualizzate opzioni diverse per l'aggiunta di altre funzionalità all'applicazione. Dopo aver aggiunto l'applicazione, è possibile iniziare ad aggiornarla per consentire agli utenti di effettuare l'accesso, accedere ad API Web in altre applicazioni o configurare un'applicazione multi-tenant, che consente ad altre organizzazioni di accedere all'applicazione.
+### <a name="to-register-a-new-application-in-the-azure-portal"></a>Per registrare una nuova applicazione nel Portale di Azure
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Scegliere il tenant di Azure AD selezionando l'account nell'angolo superiore destro della pagina.
+3. Nel riquadro di spostamento a sinistra scegliere **More Services** (Altri servizi), fare clic su **Registrazioni per l'app** e quindi su **Aggiungi**.
+4. Seguire le istruzioni e creare una nuova applicazione. Per ottenere esempi specifici per applicazioni Web o per applicazioni native, vedere le [Guide introduttive](active-directory-developers-guide.md).
+  * Per le applicazioni Web fornire l'**URL accesso**, ovvero l'URL di base dell'app con cui gli utenti possono accedere, ad esempio `http://localhost:12345`.
+<!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
+  * Per le applicazioni native fornire un **URI di reindirizzamento**, che Azure AD usa per restituire le risposte dei token. Immettere un valore specifico per l'applicazione in uso, ad esempio `http://MyFirstAADApp`
+5. Dopo avere completato la registrazione, Azure AD assegna all'applicazione un identificatore client univoco, l'ID applicazione. L'applicazione viene aggiunta e si viene quindi reindirizzati alla pagina Avvio rapido per l'applicazione. A seconda che si tratti di un'applicazione Web o nativa, verranno visualizzate opzioni diverse per l'aggiunta di altre funzionalità all'applicazione. Dopo aver aggiunto l'applicazione, è possibile iniziare ad aggiornarla per consentire agli utenti di effettuare l'accesso, accedere ad API Web in altre applicazioni o configurare un'applicazione multi-tenant, che consente ad altre organizzazioni di accedere all'applicazione.
 
 > [!NOTE]
 > Per impostazione predefinita, la registrazione delle nuove applicazioni create viene configurata per consentire agli utenti della directory di accedere all'applicazione.
@@ -65,17 +66,24 @@ Per informazioni più dettagliate sul framework di consenso, vedere [Autorizzare
 #### <a name="example-of-the-consent-experience"></a>Esempio dell'esperienza di autorizzazione
 I passaggi seguenti illustrano il funzionamento dell'esperienza di consenso per lo sviluppatore e l'utente dell'applicazione.
 
-1. Nella pagina di configurazione dell'applicazione client Web nel portale di Azure classico impostare le autorizzazioni necessarie per l'applicazione usando i menu a discesa nel controllo Autorizzazioni per altre applicazioni.
+1. Nella pagina di configurazione dell'applicazione client Web nel Portale di Azure impostare le autorizzazioni richieste dall'applicazione usando i menu nella sezione Autorizzazioni necessarie.
    
-    ![Autorizzazioni per altre applicazioni](./media/active-directory-integrating-applications/permissions.png)
+    ![Autorizzazioni per altre applicazioni](./media/active-directory-integrating-applications/requiredpermissions.png)
 2. Considerare che sono state aggiornate le autorizzazioni dell'applicazione, che l'applicazione è in esecuzione e che un utente sta per usarla per la prima volta. Se l'applicazione non ha già ottenuto un token di accesso o di aggiornamento, deve richiedere all'endpoint di autorizzazione di Azure AD un codice di autorizzazione da usare per acquisire il token di accesso e di aggiornamento.
 3. Se l'utente non è ancora autenticato, gli verrà richiesto di accedere ad Azure AD.
    
-    ![Accesso utente o amministratore ad Azure AD](./media/active-directory-integrating-applications/useradminsignin.png)
-4. Dopo che l'utente ha effettuato l'accesso, Azure AD determinerà se l'utente deve essere reindirizzato a una pagina di consenso. Questa decisione dipende dal fatto che l'utente o l'amministratore dell'organizzazione abbia o meno già concesso il consenso dell'applicazione. Se il consenso non è già stato concesso, Azure AD lo richiederà all'utente e visualizzerà le autorizzazioni necessarie per il funzionamento. Il set di autorizzazioni visualizzato nella finestra di dialogo di consenso corrisponde alle impostazioni selezionate nel controllo Autorizzazioni per altre applicazioni nel portale di Azure classico.
+    ![Accesso utente o amministratore ad Azure AD](./media/active-directory-integrating-applications/usersignin.png)
+4. Dopo che l'utente ha effettuato l'accesso, Azure AD determinerà se l'utente deve essere reindirizzato a una pagina di consenso. Questa decisione dipende dal fatto che l'utente o l'amministratore dell'organizzazione abbia o meno già concesso il consenso dell'applicazione. Se il consenso non è già stato concesso, Azure AD lo richiederà all'utente e visualizzerà le autorizzazioni necessarie per il funzionamento. Il set di autorizzazioni visualizzato nella finestra di dialogo di consenso corrisponde alle impostazioni selezionate in Autorizzazioni delegate nel Portale di Azure.
    
-    ![Esperienza di autorizzazione utente](./media/active-directory-integrating-applications/userconsent.png)
+    ![Esperienza di autorizzazione utente](./media/active-directory-integrating-applications/consent.png)
 5. Dopo che l'utente concede il consenso, all'applicazione viene restituito un codice di autorizzazione, che può essere riscattato per acquisire un token di accesso e di aggiornamento. Per altre informazioni su questo flusso, vedere la sezione [Da applicazione Web ad API Web](active-directory-authentication-scenarios.md#web-application-to-web-api) di [Scenari di autenticazione per Azure AD](active-directory-authentication-scenarios.md).
+
+6. In qualità di amministratore, è possibile inoltre consentire le autorizzazioni delegate di un'applicazione per conto di tutti gli utenti nel proprio tenant. Ciò impedirà che la finestra di dialogo di consenso sia visualizzata per ogni utente nel tenant. È possibile eseguire questa operazione dal [Portale di Azure](https://portal.azure.com) dalla pagina dell'applicazione. Dal pannello **Impostazioni** dell'applicazione selezionare **Autorizzazioni necessarie** e fare clic sul pulsante **Concedi autorizzazioni**. 
+
+    ![Concedere le autorizzazioni per il consenso esplicito dell'amministratore](./media/active-directory-integrating-applications/grantpermissions.png)
+    
+> [!NOTE]
+> La concessione del consenso esplicito tramite il pulsante **Concedi autorizzazioni** è attualmente necessaria per applicazioni a singola pagina (SPA) che usano ADAL. js, poiché il token di accesso viene richiesto senza una richiesta di consenso, che avrà esito negativo se non è già stata concessa l'autorizzazione.   
 
 ### <a name="configuring-a-client-application-to-access-web-apis"></a>Configurazione di un'applicazione client per accedere alle API Web
 Per consentire a un'applicazione Web/client riservato di partecipare a un flusso di concessioni di autorizzazioni che richiede l'autenticazione (e ottenere un token di accesso), è necessario definire credenziali protette. Il metodo di autenticazione predefinito supportato dal portale di Azure è ID client + chiave simmetrica. Questa sezione illustra i passaggi di configurazione necessari per fornire alla chiave privata le credenziali del client.
@@ -83,28 +91,30 @@ Per consentire a un'applicazione Web/client riservato di partecipare a un flusso
 Inoltre, prima che un client possa accedere a un'API Web esposta da un'applicazione della risorsa (ad esempio, l'API Graph di Azure AD), il framework di consenso assicurerà che il client ottenga la concessione delle autorizzazioni necessaria, in base alle autorizzazioni richieste. Per impostazione predefinita, tutte le applicazioni possono scegliere le autorizzazioni da Azure Active Directory (API Graph) e dall'API di gestione del servizio Azure con l'autorizzazione "Abilita accesso e lettura dei profili degli utenti" di Azure AD già selezionata per impostazione predefinita. Se l'applicazione client viene registrata in un tenant di Azure AD per Office 365, saranno disponibili per la selezione anche le API Web e le autorizzazioni per SharePoint ed Exchange Online. È possibile scegliere tra [due tipi di autorizzazioni](active-directory-dev-glossary.md#permissions) disponibili nel menu a discesa accanto all'API Web desiderata:
 
 * Autorizzazioni applicazione: l'applicazione client deve accedere direttamente all'API Web come se stessa (nessun contesto utente). Questo tipo di autorizzazione richiede il consenso dell'amministratore e non è disponibile per le applicazioni client native.
-* Autorizzazioni delegate: l'applicazione client deve accedere all'API Web come utente connesso, ma con accesso limitato dall'autorizzazione selezionata. Questo tipo di autorizzazione può essere concesso da un utente, a meno che l'autorizzazione non sia configurata perché sia l'amministratore a dover concedere il consenso.
-
-#### <a name="to-add-credentials-or-permissions-to-access-web-apis"></a>Per aggiungere credenziali o autorizzazioni per accedere alle API Web
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com)
-2. Scegliere l'icona Active Directory dal menu a sinistra, quindi fare clic sulla directory desiderata.
-3. Scegliere **Applicazioni**dal menu in alto e quindi fare clic sull'applicazione che si vuole configurare. Verrà visualizzata la pagina Avvio rapido, con informazioni su Single Sign-On e altre informazioni di configurazione. Fare clic sul collegamento **Configura** nella parte superiore della pagina. Viene visualizzata la pagina di configurazione dell'applicazione.
-4. Per aggiungere una chiave privata per le credenziali dell'applicazione Web, scorrere verso il basso fino alla sezione "Chiavi".  
-   
-   * Fare innanzitutto clic sull'elenco a discesa "Seleziona durata" e scegliere il valore 1 anno o 2 anni. 
-   * Viene visualizzata una nuova riga con le date "Valid from" (Valido dal) e "Expires on" (Scade il).
-   * Dopo che le modifiche apportate alla configurazione sono state salvate, il valore della chiave viene visualizzato nella colonna di destra (sotto). Accertarsi di tornare a questa sezione e di copiarne il contenuto dopo il salvataggio, così da avere i dati disponibili nell'applicazione client durante l'autenticazione in fase di esecuzione.
-5. Per aggiungere autorizzazioni per accedere alle API delle risorse dal client, scorrere verso il basso fino alla sezione "Autorizzazioni per altre applicazioni". 
-   
-   * Innanzitutto fare clic sul pulsante "Aggiungi applicazione".
-   * Usare l'elenco a discesa "Mostra" per visualizzare il tipo di risorse da cui scegliere.
-   * La prima colonna consente di selezionare le applicazioni della risorsa disponibili nella directory che espongono un'API Web. Fare clic sulla risorsa desiderata, quindi fare clic sul segno di spunta nell'angolo in basso a destra.
-   * Una volta selezionata, la risorsa viene aggiunta all'elenco "Autorizzazioni per altre applicazioni".
-   * Usando gli elenchi a discesa "Autorizzazioni applicazione" e "Autorizzazioni delegate", selezionare le autorizzazioni desiderate per l'applicazione client.
-6. Al termine fare clic sul pulsante **Salva** sulla barra dei comandi. Se è stata specificata una chiave per l'applicazione, anche tale chiave verrà generata dopo il salvataggio.
+* Autorizzazioni delegate: l'applicazione client deve accedere all'API Web come utente connesso, ma con accesso limitato dall'autorizzazione selezionata. Questo tipo di autorizzazione può essere concesso da un utente, a meno che l'autorizzazione non sia configurata perché sia l'amministratore a dover concedere il consenso. 
 
 > [!NOTE]
-> Facendo clic sul pulsante Salva, vengono automaticamente impostate anche le autorizzazioni per l'applicazione nella directory in base a quelle configurate nella sezione Autorizzazioni per altre applicazioni.  È possibile visualizzare queste autorizzazioni applicazione osservando il contenuto della scheda Proprietà di ogni applicazione.
+> L'aggiunta di un'autorizzazione delegata a un'applicazione non concede automaticamente il consenso all'utente all'interno del tenant, come accadeva nel portale di Azure classico. Gli utenti devono comunque concedere manualmente il consenso per le autorizzazioni delegate aggiuntive al runtime, a meno che l'amministratore non faccia clic sul pulsante **Concedi autorizzazioni** dalla sezione **Autorizzazioni necessarie** della pagina dell'applicazione nel Portale di Azure. 
+
+#### <a name="to-add-credentials-or-permissions-to-access-web-apis"></a>Per aggiungere credenziali o autorizzazioni per accedere alle API Web
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Scegliere il tenant di Azure AD selezionando l'account nell'angolo superiore destro della pagina.
+3. Scegliere **Azure Active Directory**dal menu in alto, fare clic su **Registrazioni per l'app** e quindi sull'applicazione da configurare. In questo modo sarà visualizzata la pagina di avvio rapido dell'applicazione, nonché il pannello Impostazioni per l'applicazione.
+4. Per aggiungere una chiave privata per le credenziali dell'applicazione Web, fare clic sulla sezione "Chiavi" nel pannello Impostazioni.  
+   
+   * Aggiungere una descrizione per la chiave e selezionare una durata di 1 o 2 anni. 
+   * Dopo che le modifiche apportate alla configurazione sono state salvate, il valore della chiave viene visualizzato nella colonna di destra. Accertarsi di tornare a questa sezione e di copiarne il contenuto dopo il salvataggio, così da avere i dati disponibili nell'applicazione client durante l'autenticazione in fase di esecuzione.
+5. Per aggiungere autorizzazioni per accedere alle API delle risorse dal client, fare clic sulla sezione "Autorizzazioni necessarie" nel pannello Impostazioni. 
+   
+   * Innanzitutto, fare clic sul pulsante "Aggiungi".
+   * Fare clic su "Selezionare un'API" per visualizzare il tipo di risorse da cui scegliere.
+   * Scorrere l'elenco delle API disponibili o usare la casella di ricerca per selezionare fra le applicazioni di risorse disponibili nella directory che espongono un'API Web. Fare clic sulla risorsa desiderata, quindi scegliere **Seleziona**.
+   * Quando è stata effettuata la selezione, è possibile spostarsi al menu **Selezionare le autorizzazioni** in cui scegliere le autorizzazioni per l'applicazione e le autorizzazioni delegate per l'applicazione.
+   
+6. Al termine, scegliere il pulsante **Fine**.
+
+> [!NOTE]
+> Facendo clic sul pulsante **Fine**, vengono automaticamente impostate anche le autorizzazioni per l'applicazione nella directory in base a quelle configurate per altre applicazioni.  È possibile visualizzare queste autorizzazioni per l'applicazione osservando il contenuto del pannello **Impostazioni** dell'applicazione stessa.
 > 
 > 
 
@@ -114,11 +124,11 @@ Inoltre, prima che un client possa accedere a un'API Web esposta da un'applicazi
 La sezione seguente illustra come esporre gli ambiti di accesso modificando il manifesto dell'applicazione della risorsa.
 
 #### <a name="adding-access-scopes-to-your-resource-application"></a>Aggiunta di ambiti di accesso all'applicazione della risorsa
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
-2. Scegliere l'icona Active Directory dal menu a sinistra, quindi fare clic sulla directory desiderata.
-3. Scegliere **Applicazioni**dal menu in alto e quindi fare clic sull'applicazione della risorsa che si vuole configurare. Verrà visualizzata la pagina Avvio rapido, con informazioni su Single Sign-On e altre informazioni di configurazione.
-4. Fare clic sul pulsante **Gestisci manifesto** sulla barra dei comandi e selezionare **Scarica manifesto**.
-5. Aprire il file manifesto dell'applicazione JSON e sostituire il nodo "oauth2Permissions" con il frammento di codice JSON seguente. Questo frammento di codice è un esempio di come esporre un ambito noto come "rappresentazione dell'utente", che consente a un proprietario di risorse di assegnare a un'applicazione client un tipo di accesso delegato a una risorsa. Verificare di avere modificato il testo e i valori per la propria applicazione:
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Scegliere il tenant di Azure AD selezionando l'account nell'angolo superiore destro della pagina.
+3. Scegliere **Azure Active Directory**dal menu in alto, fare clic su **Registrazioni per l'app** e quindi sull'applicazione da configurare. In questo modo sarà visualizzata la pagina di avvio rapido dell'applicazione, nonché il pannello Impostazioni per l'applicazione.
+4. Fare clic su **Manifesto** nella pagina dell'applicazione per aprire l'editor manifesto incorporato. 
+5. Sostituire il nodo "oauth2Permissions" con il frammento di codice JSON seguente. Questo frammento di codice è un esempio di come esporre un ambito noto come "rappresentazione dell'utente", che consente a un proprietario di risorse di assegnare a un'applicazione client un tipo di accesso delegato a una risorsa. Verificare di avere modificato il testo e i valori per la propria applicazione:
    
         "oauth2Permissions": [
         {
@@ -139,13 +149,13 @@ La sezione seguente illustra come esporre gli ambiti di accesso modificando il m
    > Se necessario, è possibile esporre altri ambiti successivamente. Tenere presente che l'API Web può esporre più ambiti associati a molte funzioni diverse. A questo punto, è possibile controllare l'accesso all'API Web usando l'attestazione scope (scp) nel token JWT OAuth 2.0 ricevuto.
    > 
    > 
-6. Salvare il file JSON aggiornato e caricarlo facendo clic sul pulsante **Gestisci manifesto** sulla barra dei comandi, selezionando **Carica manifesto**, passando al file manifesto aggiornato e quindi selezionandolo. Una volta caricato il manifesto, l'API Web è configurata per essere usata da altre applicazioni nella directory.
+6. Fare clic su **Salva** per salvare il manifesto. L'API Web è ora configurata in modo da essere usata da altre applicazioni nella directory.
 
 #### <a name="to-verify-the-web-api-is-exposed-to-other-applications-in-your-directory"></a>Per verificare che l'API Web sia esposta ad altre applicazioni nella directory
-1. Scegliere **Applicazioni** dal menu in alto, selezionare l'applicazione client per cui si vuole configurare l'accesso all'API Web e quindi fare clic su **Configura**.
-2. Scorrere verso il basso fino alla sezione Autorizzazioni per altre applicazioni. Fare clic sul menu a discesa Selezionare l'applicazione per selezionare l'API Web per cui è stata appena esposta un'autorizzazione. Nel menu a discesa Autorizzazioni delegate selezionare la nuova autorizzazione.
+1. Scegliere **Registrazioni per l'app** dal menu in alto, selezionare l'applicazione client per cui si vuole configurare l'accesso all'API Web e quindi passare al pannello Impostazioni.
+2. Dalla sezione **Autorizzazioni necessarie** selezionare l'API Web per la quale è stata appena esposta un'autorizzazione. Nel menu a discesa Autorizzazioni delegate selezionare la nuova autorizzazione.
 
-![Visualizzazione di autorizzazioni Elenco azioni](./media/active-directory-integrating-applications/listpermissions.png)
+![Visualizzazione di autorizzazioni Elenco azioni](./media/active-directory-integrating-applications/todolistpermissions.png)
 
 #### <a name="more-on-the-application-manifest"></a>Altre informazioni sul manifesto dell'applicazione
 Il manifesto dell'applicazione è in realtà un meccanismo per l'aggiornamento dell'entità applicazione, che definisce tutti gli attributi della configurazione dell'identità di un'applicazione Azure AD, inclusi gli ambiti di accesso API di cui si è parlato sopra. Per altre informazioni sull'entità applicazione, vedere la [documentazione sull'entità applicazione dell'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity), che include informazioni di riferimento complete sui membri dell'entità applicazione usati per specificare le autorizzazioni per l'API:  
@@ -177,7 +187,7 @@ Quando si aggiunge un'applicazione ad Azure AD, potrebbe essere necessario conse
 * Un'applicazione multi-tenant è destinata all'uso in più organizzazioni. Si tratta di un'applicazione Web SaaS (Software-as-a-Service) scritta in genere da un fornitore di software indipendente (ISV). È necessario effettuare il provisioning delle applicazioni multi-tenant in ogni directory in cui verranno usate ed è richiesto il consenso dell'utente o dell'amministratore per registrarle, supportato dal framework di consenso di Azure AD. Si noti che, per impostazione predefinita, tutte le applicazioni client native sono multi-tenant perché sono installate nel dispositivo del proprietario della risorsa. Vedere sopra la sezione Panoramica del framework di consenso per altri dettagli sul framework di consenso.
 
 #### <a name="enabling-external-users-to-grant-your-application-access-to-their-resources"></a>Abilitazione degli utenti esterni a concedere l'accesso alle proprie risorse da parte dell'applicazione
-Se si scrive un'applicazione che si vuole rendere disponibile a clienti o partner esterni all'organizzazione, è necessario aggiornare la definizione dell'applicazione nel portale di Azure classico.
+Se si scrive un'applicazione che si vuole rendere disponibile a clienti o partner esterni all'organizzazione, è necessario aggiornare la definizione dell'applicazione nel Portale di Azure.
 
 > [!NOTE]
 > Se si abilita il multi-tenant, è necessario assicurarsi che l'URI ID app dell'applicazione faccia parte di un dominio verificato. Inoltre, l'URL restituito deve iniziare con https://. Per altre informazioni, vedere [Oggetti applicazione e oggetti entità servizio](active-directory-application-objects.md).
@@ -186,11 +196,10 @@ Se si scrive un'applicazione che si vuole rendere disponibile a clienti o partne
 
 Per abilitare l'accesso all'app per gli utenti esterni: 
 
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com)
-2. Scegliere l'icona Active Directory dal menu a sinistra, quindi fare clic sulla directory desiderata.
-3. Scegliere **Applicazioni**dal menu in alto e quindi fare clic sull'applicazione che si vuole configurare. Verrà visualizzata la pagina Avvio rapido con le opzioni di configurazione.
-4. Espandere la sezione **Configura applicazione multi-tenant** della pagina Avvio rapido e quindi fare clic sul collegamento **Configura ora** nella sezione Abilita accesso. Verrà visualizzata la pagina delle proprietà dell'applicazione.
-5. Fare clic sul pulsante **Sì** accanto a "L'applicazione è multi-tenant" e quindi fare clic sul pulsante **Salva** sulla barra dei comandi.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Scegliere il tenant di Azure AD selezionando l'account nell'angolo superiore destro della pagina.
+3. Scegliere **Azure Active Directory**dal menu in alto, fare clic su **Registrazioni per l'app** e quindi sull'applicazione da configurare. In questo modo sarà visualizzata la pagina di avvio rapido dell'applicazione, nonché il pannello Impostazioni per l'applicazione.
+4. Dal pannello Impostazioni fare clic su **Proprietà** e impostare **Multi-tenant** su **Sì**.
 
 Una volta apportata la modifica indicata sopra, utenti e amministratori di altre organizzazioni potranno concedere all'applicazione l'accesso alla propria directory e ad altri dati.
 
@@ -207,85 +216,15 @@ Le applicazioni a singola pagina (SPA) sono in genere strutturate con un front-e
 Per impostazione predefinita, la concessione implicita OAuth 2.0 è disabilitata per le applicazioni. È possibile abilitare la concessione implicita OAuth 2.0 per l'applicazione impostando il valore `oauth2AllowImplicitFlow` nel relativo [manifesto dell'applicazione](active-directory-application-manifest.md), ovvero un file JSON che rappresenta la configurazione dell'identità dell'applicazione.
 
 #### <a name="to-enable-oauth-20-implicit-grant"></a>Per abilitare la concessione implicita OAuth 2.0
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com)
-2. Scegliere l'icona **Active Directory** dal menu a sinistra, quindi fare clic sulla directory desiderata.
-3. Scegliere **Applicazioni**dal menu in alto e quindi fare clic sull'applicazione che si vuole configurare. Verrà visualizzata la pagina Avvio rapido, con informazioni su Single Sign-On e altre informazioni di configurazione.
-4. Fare clic sul pulsante **Gestisci manifesto** sulla barra dei comandi e selezionare **Scarica manifesto**.
-   Aprire il file manifesto JSON dell'applicazione e impostare il valore "oauth2AllowImplicitFlow" su "true". Per impostazione predefinita il valore è "false".
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Scegliere il tenant di Azure AD selezionando l'account nell'angolo superiore destro della pagina.
+3. Scegliere **Azure Active Directory**dal menu in alto, fare clic su **Registrazioni per l'app** e quindi sull'applicazione da configurare. In questo modo sarà visualizzata la pagina di avvio rapido dell'applicazione, nonché il pannello Impostazioni per l'applicazione.
+4. Nella pagina dell'applicazione fare clic su **Manifesto** per aprire l'editor manifesto incorporato.
+   Individuare e impostare il valore "oauth2AllowImplicitFlow" su "true". Per impostazione predefinita il valore è "false".
    
     `"oauth2AllowImplicitFlow": true,`
-5. Salvare il file JSON aggiornato e caricarlo facendo clic sul pulsante **Gestisci manifesto** sulla barra dei comandi, selezionando **Carica manifesto**, passando al file manifesto aggiornato e quindi selezionandolo. Dopo il caricamento, l'API Web è ora configurata per usare la concessione implicita OAuth 2.0 per autenticare gli utenti.
+5. Salvare il manifesto aggiornato. Dopo il salvataggio, l'API Web è configurata in modo da usare la concessione implicita OAuth 2.0 per autenticare gli utenti.
 
-### <a name="legacy-experiences-for-granting-access"></a>Esperienze legacy relative alla concessione dell'accesso
-Questa sezione descrive l'esperienza di consenso impiegata prima del 12 marzo 2014. Questa esperienza è ancora supportata e viene descritta di seguito. Prima della nuova funzionalità, era possibile concedere l'accesso solo per queste autorizzazioni:
-
-* Accesso degli utenti dalla propria organizzazione
-* Accesso degli utenti e lettura dei dati di directory dell'organizzazione (solo come applicazione)
-* Accesso degli utenti e lettura e scrittura dei dati di directory dell'organizzazione (solo come applicazione)
-
-È possibile seguire i passaggi indicati in [Sviluppo di applicazioni Web multi-tenant con Azure AD](https://msdn.microsoft.com/library/azure/dn151789.aspx) per concedere l'accesso per le nuove applicazioni registrate in Azure AD. È importante notare che il nuovo framework di consenso consente applicazioni molto più potenti e permette anche agli utenti, e non solo agli amministratori, di concedere il consenso a tali applicazioni.
-
-#### <a name="building-the-link-that-grants-access-for-external-users-legacy"></a>Creazione del collegamento che concede l'accesso per gli utenti esterni (legacy)
-Perché utenti esterni possano iscriversi all'app usando i propri account aziendali, è necessario aggiornare l'app in modo da aggiungere un pulsante che colleghi alla pagina su Azure AD e che consenta loro di concedere l'accesso. Le indicazioni di personalizzazione per questo pulsante di iscrizione sono disponibili nell'argomento [Linee guida sulla personalizzazione per le applicazioni integrate](active-directory-branding-guidelines.md) . Dopo che l'utente concede o nega l'accesso, la pagina di concessione dell'accesso di Azure AD reindirizzerà di nuovo il browser all'app con una risposta. Per altre informazioni sulle proprietà dell'applicazione, vedere [Oggetti applicazione e oggetti entità servizio](active-directory-application-objects.md).
-
-La pagina di concessione dell'accesso viene creata da Azure AD e un collegamento a questa pagina è disponibile nella pagina di configurazione dell'app nel portale di Azure classico. Per visualizzare la pagina di configurazione, fare clic sul collegamento **Applicazioni** nel menu in alto del tenant di Azure AD, fare clic sull'app che si vuole configurare e quindi fare clic su **Configura** nel menu in alto nella pagina Avvio rapido.
-
-Il collegamento per l'applicazione sarà simile al seguente: `http://account.activedirectory.windowsazure.com/Consent.aspx?ClientID=058eb9b2-4f49-4850-9b78-469e3176e247&RequestedPermissions=DirectoryReaders&ConsentReturnURL=https%3A%2F%2Fadatum.com%2FExpenseReport.aspx%3FContextId%3D123456`. La tabella seguente descrive le parti del collegamento:
-
-| Parametro | Descrizione |
-| --- | --- |
-| ClientId |Obbligatorio. ID client ottenuto durante l'aggiunta dell'app. |
-| RequestedPermissions |Facoltativa. Livello di accesso richiesto dall'app, che verrà visualizzato all'utente che concede l'accesso all'app. Se non è specificato, il livello di accesso richiesto verrà automaticamente impostato solo su Single Sign-On. Le altre opzioni sono DirectoryReaders e DirectoryWriters. Per altri dettagli su questi livelli di accesso, vedere i livelli di accesso all'applicazione. |
-| ConsentReturnUrl |Facoltativa. URL a cui deve essere restituita la risposta per concedere l'accesso. Questo valore deve essere codificato con URL e appartenere allo stesso dominio dell'URL di risposta configurato nella definizione dell'app. Se omesso, la risposta per concedere l'accesso verrà reindirizzata all'URL di risposta configurato. |
-
-Specificando un ConsentReturnUrl distinto dall'URL di risposta, l'app potrà implementare una logica separata in grado di elaborare la risposta in un URL diverso dall'URL di risposta (che in genere elabora i token SAML per l'accesso). Si possono specificare anche altri parametri nell'URL codificato ConsentReturnURL, che verranno passati come parametri stringa di query all'app durante il reindirizzamento.  Questo meccanismo può essere usato per mantenere informazioni aggiuntive o per collegare la richiesta dell'app per la concessione dell'accesso alla risposta di Azure AD.
-
-#### <a name="grant-access-user-experience-and-response-legacy"></a>Esperienza utente e risposta per la concessione dell'accesso (legacy)
-Le immagini seguenti descrivono l'esperienza utente quando un'applicazione esegue il reindirizzamento al collegamento di concessione dell'accesso.
-
-Se l'utente non ha già effettuato l'accesso, gli verrà richiesto di farlo:
-
-![Accedi ad AAD](./media/active-directory-integrating-applications/signintoaad.png)
-
-Quando l'utente viene autenticato, Azure AD lo reindirizzerà alla pagina di concessione dell'accesso:
-
-![Concedi accesso](./media/active-directory-integrating-applications/grantaccess.png)
-
-> [!NOTE]
-> Solo l'amministratore dell'organizzazione esterna può concedere l'accesso all'app. Se l'utente non è un amministratore della società, avrà l'opzione di scrivere all'amministratore della società per richiedere che all'app venga concesso l'accesso.
-> 
-> 
-
-Dopo che il cliente ha concesso l'accesso per l'app facendo clic su Concedi accesso oppure se ha negato l'accesso facendo clic su Annulla, Azure AD invia una risposta a ConsentReturnUrl o all'URL di risposta configurato. La risposta conterrà i parametri seguenti:
-
-| Parametro | Descrizione |
-| --- | --- |
-| TenantId |ID univoco dell'organizzazione in Azure AD che ha concesso l'accesso per l'applicazione. Questo parametro verrà specificato solo se il cliente ha concesso l'accesso. |
-| Consenso |Il valore verrà impostato su Granted se all'app è stato concesso l'accesso oppure su Denied se la richiesta è stata rifiutata. |
-
-Parametri aggiuntivi verranno restituiti all'app se sono stati specificati come parte dell'URL codificato ConsentReturnUrl. Di seguito viene illustrata una risposta di esempio a una richiesta di concessione dell'accesso che indica che l'applicazione è stata autorizzata e che include un ContextID incluso nella richiesta: `https://adatum.com/ExpenseReport.aspx?ContextID=123456&Consent=Granted&TenantId=f03dcba3-d693-47ad-9983-011650e64134`.
-
-> [!NOTE]
-> La risposta di concessione dell'accesso non conterrà un token di sicurezza per l'utente e l'app deve consentire separatamente l'accesso dell'utente.
-> 
-> 
-
-Quella che segue è una risposta di esempio a una richiesta di concessione dell'accesso rifiutata: `https://adatum.com/ExpenseReport.aspx?ContextID=123456&Consent=Denied`
-
-#### <a name="rolling-app-keys-for-uninterrupted-access-to-the-graph-api-legacy"></a>Rollover delle chiavi dell'app per l'accesso ininterrotto all'API Graph (legacy)
-Durante il ciclo di vita dell'app, potrebbe essere necessario modificare le chiavi usate per richiamare Azure AD per l'acquisizione di un token di accesso per chiamare l'API Graph.  La modifica delle chiavi rientra in genere in due categorie: rollover di emergenza in caso di chiave danneggiata o rollover a causa dell'imminente scadenza della chiave corrente. Per fornire all'app accesso ininterrotto durante l'aggiornamento delle chiavi (prevalentemente per il secondo caso), è necessario usare la procedura seguente.
-
-1. Nel portale di Azure classico fare clic sul tenant di directory, scegliere **Applicazioni** dal menu in alto e quindi fare clic sull'app che si vuole configurare. Verrà visualizzata la pagina Avvio rapido, con informazioni su Single Sign-On e altre informazioni di configurazione.
-2. Scegliere **Configura** dal menu in alto per visualizzare un elenco delle proprietà dell'app. Verrà visualizzato anche un elenco delle chiavi.
-3. In Chiavi fare clic sull'elenco a discesa **Seleziona durata**, selezionare 1 anno o 2 anni e quindi fare clic su **Salva** sulla barra dei comandi. Viene generata una nuova chiave password per l'app. Copiare la nuova chiave password. A questo punto, sia la chiave esistente che quella nuova possono essere usate dall'app per ottenere un token di accesso da Azure AD.
-4. Tornare all'app e aggiornare la configurazione per iniziare a usare la nuova chiave password. Per un esempio del punto in cui eseguire questo aggiornamento, vedere [Uso dell'API Graph per eseguire query su Azure AD](https://msdn.microsoft.com/library/azure/dn151791.aspx) .
-5. È ora necessario implementare questa modifica in tutto l'ambiente di produzione, verificandola su un solo nodo del servizio prima di implementarla completamente.
-6. Al termine dell'aggiornamento nella distribuzione di produzione, è possibile tornare al portale di Azure classico per rimuovere la chiave precedente.
-
-#### <a name="changing-app-properties-after-enabling-access-legacy"></a>Modifica delle proprietà dell'app dopo l'abilitazione dell'accesso (legacy)
-Una volta consentito l'accesso per gli utenti esterni all'app, è comunque possibile apportare modifiche alle proprietà dell'app nel portale di Azure classico. Tuttavia, se i clienti hanno concesso l'accesso all'app prima che fossero apportate modifiche all'app, quando visualizzeranno i dettagli sull'app nel portale di Azure classico, le modifiche non risulteranno applicate. Una volta resa disponibile l'app ai clienti, è necessario prestare particolare attenzione quando si apportano determinate modifiche. Se, ad esempio, si aggiorna l'URI ID app, i clienti esistenti che hanno concesso l'accesso prima di questa modifica non potranno accedere all'app con gli account aziendale o dell'istituto di istruzione.
-
-Se si apporta una modifica a RequestedPermissions per richiedere un livello di accesso maggiore, i clienti esistenti che usano la funzionalità dell'app che sfrutta ora chiamate a nuove API con questo livello di accesso maggiore potrebbero ricevere una risposta di accesso negato dall'API Graph.  L'app deve gestire questi casi e chiedere al cliente di concedere l'accesso all'app con la richiesta di un livello di accesso maggiore.
 
 ## <a name="removing-an-application"></a>Rimozione di un'applicazione
 Questa sezione descrive come rimuovere un'applicazione dal tenant di Azure AD.
@@ -294,24 +233,24 @@ Questa sezione descrive come rimuovere un'applicazione dal tenant di Azure AD.
 Si tratta delle applicazioni visualizzate nel filtro "Applicazioni di proprietà dell'azienda" nella pagina "Applicazioni" principale per il tenant di Azure AD. In termini tecnici, sono applicazioni registrate manualmente nel portale di Azure classico o a livello di codice con PowerShell o l'API Graph. Più precisamente, sono rappresentate sia da un oggetto applicazione che da un oggetto entità servizio nel tenant. Per altre informazioni, vedere [Oggetti applicazione e oggetti entità servizio](active-directory-application-objects.md) .
 
 #### <a name="to-remove-a-single-tenant-application-from-your-directory"></a>Per rimuovere un'applicazione single-tenant dalla directory
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com)
-2. Scegliere l'icona Active Directory dal menu a sinistra e quindi fare clic sulla directory desiderata.
-3. Scegliere **Applicazioni**dal menu in alto e quindi fare clic sull'applicazione che si vuole configurare. Verrà visualizzata la pagina Avvio rapido, con informazioni su Single Sign-On e altre informazioni di configurazione.
-4. Fare clic sul pulsante **Elimina** sulla barra dei comandi.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Scegliere il tenant di Azure AD selezionando l'account nell'angolo superiore destro della pagina.
+3. Scegliere **Azure Active Directory**dal menu in alto, fare clic su **Registrazioni per l'app** e quindi sull'applicazione da configurare. In questo modo sarà visualizzata la pagina di avvio rapido dell'applicazione, nonché il pannello Impostazioni per l'applicazione.
+4. Nella pagina dell'applicazione fare clic su **Elimina**.
 5. Nel messaggio di conferma fare clic su **Sì** .
 
 #### <a name="to-remove-a-multi-tenant-application-from-your-directory"></a>Per rimuovere un'applicazione multi-tenant dalla directory
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com)
-2. Scegliere l'icona Active Directory dal menu a sinistra e quindi fare clic sulla directory desiderata.
-3. Scegliere **Applicazioni**dal menu in alto e quindi fare clic sull'applicazione che si vuole configurare. Verrà visualizzata la pagina Avvio rapido, con informazioni su Single Sign-On e altre informazioni di configurazione.
-4. Nella sezione L'applicazione è multi-tenant fare clic su **No**. L'applicazione viene convertita in applicazione single-tenant, ma resta nell'organizzazione che ne ha già concesso il consenso.
-5. Fare clic sul pulsante **Elimina** sulla barra dei comandi.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Scegliere il tenant di Azure AD selezionando l'account nell'angolo superiore destro della pagina.
+3. Scegliere **Azure Active Directory**dal menu in alto, fare clic su **Registrazioni per l'app** e quindi sull'applicazione da configurare. In questo modo sarà visualizzata la pagina di avvio rapido dell'applicazione, nonché il pannello Impostazioni per l'applicazione.
+4. Nel pannello Impostazioni scegliere **Proprietà** e impostare **Multi-tenant** su **No**. L'applicazione viene convertita in applicazione single-tenant, ma resta nell'organizzazione che ne ha già concesso il consenso.
+5. Fare clic sul pulsante **Elimina** dalla pagina dell'applicazione.
 6. Nel messaggio di conferma fare clic su **Sì** .
 
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>Rimozione di un'applicazione multi-tenant autorizzata da un'altra organizzazione
 Si tratta di un subset di applicazioni visualizzate nel filtro "Applicazioni usate dall'azienda" nella pagina "Applicazioni" principale per il tenant di Azure AD, in particolare quelle non elencate in "Applicazioni di proprietà dell'azienda". In termini tecnici, sono applicazioni multi-tenant registrate durante il processo di consenso. Più precisamente, sono rappresentate solo da un oggetto entità servizio. Per altre informazioni, vedere [Oggetti applicazione e oggetti entità servizio](active-directory-application-objects.md) .
 
-Per rimuovere l'accesso di un'applicazione multi-tenant alla directory (dopo avere concesso il consenso), l'amministratore della società deve avere una sottoscrizione di Azure per rimuovere l'accesso tramite il portale di Azure classico. È sufficiente accedere alla pagina di configurazione dell'applicazione e fare clic sul pulsante "Gestisci accesso" in basso. In alternativa, l'amministratore della società può usare i [cmdlet di PowerShell per Azure AD](http://go.microsoft.com/fwlink/?LinkId=294151) per rimuovere l'accesso.
+Per rimuovere l'accesso di un'applicazione multi-tenant alla directory (dopo avere concesso il consenso), l'amministratore della società deve avere una sottoscrizione di Azure per rimuovere l'accesso tramite il Portale di Azure. In alternativa, l'amministratore della società può usare i [cmdlet di PowerShell per Azure AD](http://go.microsoft.com/fwlink/?LinkId=294151) per rimuovere l'accesso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per suggerimenti sulle indicazioni visive per l'applicazione, vedere [Linee guida sulla personalizzazione per le applicazioni](active-directory-branding-guidelines.md).
@@ -323,6 +262,6 @@ Per rimuovere l'accesso di un'applicazione multi-tenant alla directory (dopo ave
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

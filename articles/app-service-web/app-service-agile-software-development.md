@@ -4,7 +4,7 @@ description: "Informazioni su come creare applicazioni complesse con scalabilit√
 services: app-service
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: c0fdb676-36a6-4738-925f-65b4835d187f
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: c214e37fb4211e8a2686a2beb18cf84ee77d5783
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -272,10 +273,5 @@ Agile Software Development √® uno strumento indispensabile per molte aziende che
 * [Strumenti della riga di comando multipiattaforma di Azure](../xplat-cli-install.md)
 * [Creare o modificare utenti in Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 * [Wiki del progetto Kudu](https://github.com/projectkudu/kudu/wiki)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

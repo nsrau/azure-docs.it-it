@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: luisca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 26c492ebdb40bef23247487c2f3015ecd9314cb6
+ms.sourcegitcommit: 29c718d0c34d1e2f9d17b285a7270541a9ff15cf
+ms.openlocfilehash: 9afbae9b7c24c72cbb2ef64e693f7a317dc81a46
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -61,7 +62,7 @@ Per abilitare lo scenario precedente, eseguire le operazioni seguenti nel serviz
 In genere si richiama Get Recommendation per un certo periodo di tempo. Durante questo intervallo di tempo è possibile reindirizzare i dati di utilizzo al sistema di raccomandazione di Machine Learning che li aggiungerà al contenitore del modello specificato. Quando si avranno dati di utilizzo sufficienti, si potrà compilare un nuovo modello di raccomandazione che incorpora i dati di utilizzo aggiuntivi. 
 
 ## <a name="prerequisites"></a>Prerequisiti
-* Visual Studio 2013
+* Visual Studio 2013 o versioni successive
 * Accesso a Internet 
 * Sottoscrizione a API Recommendations (https://datamarket.azure.com/dataset/amla/recommendations).
 
@@ -90,10 +91,5 @@ Per una descrizione completa delle API, vedere la documentazione di Microsoft Az
 
 ## <a name="disclaimer"></a>Dichiarazione di non responsabilità
 L'app di esempio non è destinata all'esecuzione in un ambiente di produzione. I dati forniti nel catalogo sono molto limitati e non offrono un modello di raccomandazione significativo. Vengono forniti per fini dimostrativi. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

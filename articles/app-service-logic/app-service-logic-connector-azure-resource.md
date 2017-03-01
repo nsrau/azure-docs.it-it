@@ -15,8 +15,9 @@ ms.workload: integration
 ms.date: 09/01/2016
 ms.author: stepsic
 translationtype: Human Translation
-ms.sourcegitcommit: 7ff7874538f23c8dd8c4aaa789018c77dfe2ab9a
-ms.openlocfilehash: 7923735d9ed382ee8c554e7e0c6b1fb4a22208bb
+ms.sourcegitcommit: 5b1b65e3d1066bea6958fa6461a157ee39fbe7dc
+ms.openlocfilehash: d230450535613e85c607ef120929ea61bc2085bc
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -35,7 +36,7 @@ Per configurarlo, si verifica è necessario impostare un'entità servizio con le
 
 David Ebbo ha scritto un [interessante post di blog](http://blog.davidebbo.com/2014/12/azure-service-principal.html) su come impostare questa funzionalità. Seguire le istruzioni presenti e ottenere l'**ID tenant**, l'**ID client** e il **Segreto**. Questi tre campi, in aggiunta all' **ID sottoscrizione**, sono necessari per configurare il connettore.
 
-## <a name="using-the-azure-resource-connector-in-logic-apps-designer"></a>Uso del connettore Azure Resource Connector nella finestra di progettazione delle app per la logica
+## <a name="using-the-azure-resource-connector-in-logic-app-designer"></a>Uso del connettore di risorse di Azure nella Progettazione app per la logica
 ### <a name="trigger"></a>Trigger
 Esistono due trigger che sono supportati nel connettore:
 
@@ -106,9 +107,4 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 
 <!--Links -->
 [Creating a Logic app]: app-service-logic-create-a-logic-app.md
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 
