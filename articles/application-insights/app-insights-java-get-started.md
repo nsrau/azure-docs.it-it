@@ -30,7 +30,7 @@ Application Insights supporta le app Java in esecuzione in Linux, Unix o Windows
 
 Sono necessari:
 
-* * Oracle JRE 1.6 o versione successiva o isiZulu JRE 1.6 o versione successiva
+* Oracle JRE 1.6 o versione successiva o isiZulu JRE 1.6 o versione successiva
 * Una sottoscrizione a [Microsoft Azure](https://azure.microsoft.com/).
 
 *Se è disponibile un'App Web già attiva, è possibile seguire la procedura alternativa per [aggiungere l'SDK al server Web in fase di esecuzione](app-insights-java-live.md). Tale alternativa evita di ricompilare il codice, ma non si ottiene l'opzione per scrivere codice per tenere traccia delle attività dell'utente.*
@@ -76,7 +76,7 @@ Aggiornare quindi le dipendenze progetto per fare in modo che i file binari veng
 ```
 
 * *Errori di convalida checksum o compilazione?* Provare a usare una versione specifica, ad esempio `<version>1.0.n</version>`. La versione più recente è disponibile nelle [note sulla versione dell'SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) o negli [elementi Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
-* *È necessario eseguire l'aggiornamento a un nuovo SDK?*  Aggiornare le dipendenze del progetto.
+* *È necessario eseguire l'aggiornamento a un nuovo SDK?* Aggiornare le dipendenze del progetto.
 
 #### <a name="if-youre-using-gradle"></a>Se si usa Gradle...
 Se il progetto è già stato configurato per usare Gradle per la compilazione, unire il codice seguente al file build.gradle.
@@ -97,7 +97,7 @@ Aggiornare quindi le dipendenze progetto per fare in modo che i file binari veng
 
 * *Errori di convalida checksum o compilazione? Provare a usare una versione specifica, come* `version:'1.0.n'`. *La versione più recente è disponibile nelle [note sulla versione dell'SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Per eseguire l'aggiornamento a un nuovo SDK*
-  *  Aggiornare le dipendenze del progetto.
+  * Aggiornare le dipendenze del progetto.
 
 #### <a name="otherwise-"></a>In caso contrario...
 Aggiungere manualmente SDK:
@@ -394,9 +394,4 @@ Se il sito è inattivo, si otterranno grafici dei tempi di risposta, nonché not
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
