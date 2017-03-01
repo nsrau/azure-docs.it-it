@@ -3,7 +3,7 @@ title: 'Procedure ottimali: Gestione delle password di Azure AD | Microsoft Docs
 description: Procedure ottimali per la distribuzione e l&quot;utilizzo, documentazione di esempio per l&quot;utente finale e guide di formazione per la gestione delle password in Azure Active Directory.
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 translationtype: Human Translation
 ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
 ms.openlocfilehash: f7dd06f1fc789a74ec7ce2182824ff759dcf7a9f

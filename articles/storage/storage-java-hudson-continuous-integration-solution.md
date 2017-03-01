@@ -3,7 +3,7 @@ title: Come usare Hudson con l&quot;archiviazione BLOB | Microsoft Docs
 description: Descrive come usare Hudson con l&quot;archiviazione BLOB di Azure come archivio per gli elementi di compilazione.
 services: storage
 documentationcenter: java
-author: dineshmurthy
+author: seguler
 manager: jahogg
 editor: tysonn
 ms.assetid: 119becdd-72c4-4ade-a439-070233c1e1ac
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: dineshm
+ms.date: 02/28/2017
+ms.author: seguler
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 37ad86ce34d7f9ed6642e6f0fa98cf5fbf26e8bc
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -169,8 +170,3 @@ Di seguito è riportata una panoramica delle componenti del servizio BLOB.
 * [Blog del team di Archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
 Per altre informazioni, vedere anche il [Centro per sviluppatori Java](https://azure.microsoft.com/develop/java/).
-
-
-<!--HONumber=Nov16_HO3-->
-
-
