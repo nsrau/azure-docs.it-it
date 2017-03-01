@@ -4,7 +4,7 @@ description: "Apprendere come distribuire nuove funzionalità nell&quot;app o es
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 17953c51-38f8-442d-bb0b-f69c1542f0e9
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 84b5f28fcd0640fd85b5f8c9d655105790c70d62
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -356,9 +357,4 @@ Il servizio app di Azure consente alle piccole e medie imprese di testare le pro
 * [Diramazione Git - Diramazione e unione di base](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 * [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Wiki del progetto Kudu](https://github.com/projectkudu/kudu/wiki)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

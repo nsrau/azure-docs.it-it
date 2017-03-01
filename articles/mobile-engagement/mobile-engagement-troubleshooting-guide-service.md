@@ -4,7 +4,7 @@ description: Guide alla risoluzione dei problemi di Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 8b4275da-c0b4-4690-824a-48e9d7a1fc6e
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 01862d158f4771989ae6eb3b20fe8e080123a231
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -88,10 +89,5 @@ Di seguito sono indicati possibili problemi relativi all'esecuzione di Azure Mob
   * Usare la virgola "," come separatore. È possibile aprire una richiesta di assistenza per richiedere di non usare la virgola "," come separatore, ma un altro carattere, ad esempio il punto e virgola ";".
   * Usare tutte le lettere minuscole per i valori Boolean "true" e "false".
   * Usare un file di dimensioni inferiori a 35 MB (limite consentito).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -4,7 +4,7 @@ description: Questo articolo fornisce informazioni utili per la risoluzione dei 
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 tags: top-support-issue
 keywords: prestazioni dell&quot;applicazione Web, app lenta, rallentamento app
@@ -19,6 +19,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: 5ea043ce3bcd0f500fd765f13764ea3ee83e1ba9
 ms.openlocfilehash: 83c3592014c73c0cf36d371d2752bc76b7c8a4e8
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -171,9 +172,4 @@ Questo è spesso il modo più semplice per risolvere problemi occasionali. Nel p
  ![riavviare l'app Web per risolvere i problemi di prestazioni](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
 È anche possibile gestire l'app Web usando Azure PowerShell. Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

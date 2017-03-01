@@ -3,7 +3,7 @@ title: Vantaggio Azure Hybrid Use per Windows Server | Microsoft Docs
 description: Informazioni su come ottimizzare i vantaggi di Software Assurance per Windows Server per trasferire le licenze locali in Azure
 services: virtual-machines-windows
 documentationcenter: 
-author: iainfoulds
+author: george-moore
 manager: timlt
 editor: 
 ms.assetid: 332583b6-15a3-4efb-80c3-9082587828b0
@@ -17,6 +17,7 @@ ms.author: georgem
 translationtype: Human Translation
 ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
 ms.openlocfilehash: df86e73814ceb0c5137c654bce84c8d42ae41820
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -187,9 +188,4 @@ New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm 
 Altre informazioni sul [Vantaggio Microsoft Azure Hybrid Use](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
 Altre informazioni sull' [uso dei modelli di Resource Manager](../azure-resource-manager/resource-group-overview.md).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

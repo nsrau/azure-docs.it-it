@@ -7,6 +7,7 @@ author: stepro
 manager: dmitryr
 editor: 
 ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: /azure
 ms.assetid: 857a812d-c73e-4af7-a985-2d0baf8b6f71
 ms.service: multiple
 ms.devlang: nodejs
@@ -18,6 +19,7 @@ ms.author: stephpr
 translationtype: Human Translation
 ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
 ms.openlocfilehash: 0de0314902805a2bdb37ce3c6f79ec221f3aed31
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -258,10 +260,5 @@ Dopo il completamento del comando, aggiornare la pagina Web per visualizzare le 
 Questo articolo ha illustrato come selezionare un'applicazione Node.js e distribuirla in macchine virtuali Linux eseguite in Azure. Per altre informazioni sulle macchine virtuali Linux, vedere [Introduzione a Linux in Azure](/documentation/articles/virtual-machines-linux-introduction/).
 
 Per altre informazioni su come sviluppare applicazioni Node.js in Azure, vedere il [centro per sviluppatori Node.js](/develop/nodejs/).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

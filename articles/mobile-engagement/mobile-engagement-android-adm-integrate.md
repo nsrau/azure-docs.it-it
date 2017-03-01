@@ -4,7 +4,7 @@ description: Ultimi aggiornamenti e procedure relativi ad Azure Mobile Engagemen
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: a7d719ec-67b3-4be3-9d7f-0b61a57fe978
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 928c3d85f98f0bd073a5aaadf0ae4495840c5da6
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -108,9 +109,4 @@ Inviare le credenziali OAuth (ID client e Segreto client) al portale di Engageme
 [libreria client ADM]:https://developer.amazon.com/sdk/adm/setup.html
 [integrato ADM]:https://developer.amazon.com/sdk/adm/integrating-app.html
 [questa procedura]:https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -4,7 +4,7 @@ description: Procedure di aggiornamento di Azure Mobile Engagement SDK per Windo
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 87130026-9759-4659-9184-788a3627a165
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 06b2a8b5e12d33c3ade469491b2694dd4a342cf1
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -110,7 +111,7 @@ Al termine di queste operazioni, è necessario sostituire i riferimenti di Cappt
         </engagement:EngagementPage>
 4. Per altre risorse come le immagini di Capptain, tenere presente che sono state rinominate per l'utilizzo di "Engagement".
 
-### <a name="application-id-sdk-key"></a>ID applicazione / chiave SDK
+### <a name="application-id--sdk-key"></a>ID applicazione / chiave SDK
 Engagement utilizza una stringa di connessione. Non è necessario specificare un ID applicazione e una chiave SDK con Mobile Engagement, è sufficiente specificare una stringa di connessione. È possibile configurarla nel file EngagementConfiguration.
 
 La configurazione di Engagement può essere impostata nel file `Resources\EngagementConfiguration.xml` del progetto.
@@ -142,10 +143,5 @@ Esempi di elementi di Capptain di uso comune:
 * GetCapptainPageName è diventato GetEngagementPageName
 
 Si noti la ridenominazione influisce anche sui metodi sottoposti a override.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
