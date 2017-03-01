@@ -3,7 +3,7 @@ title: Crittografia lato client con Python per Archiviazione di Microsoft Azure 
 description: La libreria client di archiviazione di Azure per Python offre supporto per la crittografia lato client per la massima sicurezza delle applicazioni di archiviazioni Azure.
 services: storage
 documentationcenter: python
-author: dineshmurthy
+author: seguler
 manager: jahogg
 editor: tysonn
 ms.assetid: f9bf7981-9948-4f83-8931-b15679a09b8a
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: dineshm
+ms.date: 02/28/2017
+ms.author: seguler
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 4eff4ebb948f88a93b403d6375c1342918120ac5
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -241,8 +242,3 @@ Si noti che la crittografia dei dati di archiviazione restituisce un overhead de
 ## <a name="next-steps"></a>Passaggi successivi
 * Scaricare la [libreria client di archiviazione di Azure per il pacchetto Java PyPi](https://pypi.python.org/pypi/azure-storage)
 * Scaricare il [codice sorgente della libreria di archiviazione di Azure per Python da GitHub](https://github.com/Azure/azure-storage-python)
-
-
-<!--HONumber=Nov16_HO3-->
-
-

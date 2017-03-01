@@ -1,8 +1,8 @@
 ---
-title: Riparazione di un processo di esportazione | Microsoft Docs
+title: Riparazione di un processo di esportazione di Azure | Documentazione Microsoft
 description: "Informazioni su come ripristinare un processo di esportazione che è stato creato ed eseguito mediante il servizio di Importazione/Esportazione di Azure."
-author: renashahmsft
-manager: aungoo
+author: muralikk
+manager: syadav
 editor: tysonn
 services: storage
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2015
-ms.author: renash
+ms.date: 01/23/2017
+ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 78abb839badf99c6251673ee9914955df8c950bc
-ms.openlocfilehash: 61bcbe23f9c747aeb486414fca6c1eb394098d11
+ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
+ms.openlocfilehash: 7ae819a662230a7ca7da6f7bc5bbb3b3f940074e
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -82,7 +83,7 @@ Il file di log di copia indica che si è verificato un errore durante il downloa
 ## <a name="using-repairexport-to-validate-drive-contents"></a>Utilizzo di RepairExport per convalidare i contenuti dell'unità  
 È inoltre possibile utilizzare Importazione/Esportazione di Azure con l'opzione **RepairExport** per convalidare la correttezza del contenuto sull'unità. Il file manifesto in ogni unità di esportazione contiene MD5 per il contenuto dell'unità.  
   
-Il servizio di Importazione/Esportazione di Azure può inoltre salvare i file manifesto su un account di archiviazione durante il processo di esportazione. Il percorso del file manifesto è disponibile tramite l'operazione [Get Job](/rest/api/storageservices/importexport/Get-Job3) (Ottieni processo) al completamento del processo. Vedere [Formato del file manifesto del servizio Importazione/Esportazione](storage-import-export-file-format-metadata-and-properties.md) per ulteriori informazioni sul formato di un file manifesto dell'unità.  
+Il servizio di Importazione/Esportazione di Azure può inoltre salvare i file manifesto su un account di archiviazione durante il processo di esportazione. Il percorso del file manifesto è disponibile tramite l'operazione [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) (Ottieni processo) al completamento del processo. Vedere [Formato del file manifesto del servizio Importazione/Esportazione](storage-import-export-file-format-metadata-and-properties.md) per ulteriori informazioni sul formato di un file manifesto dell'unità.  
   
 Nell'esempio seguente viene illustrato come eseguire lo strumento di Importazione/Esportazione di Azure con i parametri **/ManifestFile** e **/CopyLogFile**:  
   
@@ -155,8 +156,4 @@ Qualsiasi componente con esito negativo della verifica verrà scaricato dallo st
 [Reviewing Job Status with Copy Log Files](storage-import-export-tool-reviewing-job-status-v1.md)  (Revisione dello stato dei processi con i file di log di copia)  
 [Repairing an Import Job](storage-import-export-tool-repairing-an-import-job-v1.md)  (Riparazione di un processo di importazione)  
 [Risoluzione dei problemi relativi allo strumento di Importazione/Esportazione di Azure](storage-import-export-tool-troubleshooting-v1.md)
-
-
-<!--HONumber=Dec16_HO2-->
-
 

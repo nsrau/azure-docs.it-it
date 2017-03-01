@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 04/13/2016
 ms.author: singhkay
 translationtype: Human Translation
-ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
-ms.openlocfilehash: 3e2db0a87433bd4bb83b8f39cd4d2d61bbcb474f
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 1887b777fbe113d59cffb6ba5409e33ca1380880
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -92,13 +93,8 @@ La tabella seguente descrive le proprietà delle macchine virtuali che possono e
 | imageVersion |Specifica la versione di immagine per lo SKU prescelto |
 
 ## <a name="create-the-policy"></a>Creare i criteri
-Un criterio può essere creato facilmente usando l'API REST direttamente o i cmdlet di PowerShell. Altre informazioni sulla [creazione e assegnazione di un criterio](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy).
+Un criterio può essere creato facilmente usando l'API REST direttamente o i cmdlet di PowerShell. Altre informazioni sulla [creazione e assegnazione di un criterio](../azure-resource-manager/resource-manager-policy.md).
 
 ## <a name="apply-the-policy"></a>Applicare i criteri
-Dopo aver creato i criteri è necessario applicarli a un ambito definito. L'ambito può essere una sottoscrizione, un gruppo di risorse o persino una risorsa. Altre informazioni sulla [creazione e assegnazione di un criterio](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+Dopo aver creato i criteri è necessario applicarli a un ambito definito. L'ambito può essere una sottoscrizione, un gruppo di risorse o persino una risorsa. Altre informazioni sulla [creazione e assegnazione di un criterio](../azure-resource-manager/resource-manager-policy.md).
 

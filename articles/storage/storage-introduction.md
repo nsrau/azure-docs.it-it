@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/02/2017
+ms.date: 02/24/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 8e11b36ee927724d4736f8a235aa97848ee2d271
-ms.openlocfilehash: d0647706ad18b3106de44496e43ea822896215ba
+ms.sourcegitcommit: f4b26aa9a4dd110eafb8f9f8d658cc0f530136ec
+ms.openlocfilehash: 4548d83525dba6024d1892950e3acbc6b857977a
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -179,21 +180,21 @@ Le risorse di archiviazione di Azure sono accessibile da qualsiasi linguaggio in
 * [API REST dei servizi di archiviazione](http://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Libreria client per .NET, Windows Phone e Windows Runtime](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Libreria client di archiviazione per C++](https://github.com/Azure/azure-storage-cpp)
-* [Libreria client di archiviazione per Java/Android](/develop/java/)
+* [Libreria client di archiviazione per Java/Android](https://azure.microsoft.com/develop/java/)
 * [Libreria client di archiviazione per Node.js](http://dl.windowsazure.com/nodestoragedocs/index.html)
-* [Libreria client di archiviazione per PHP](/develop/php/)
-* [Libreria client di archiviazione per Ruby](/develop/ruby/)
-* [Libreria client di archiviazione per Python](/develop/python/)
+* [Libreria client di archiviazione per PHP](https://azure.microsoft.com/develop/php/)
+* [Libreria client di archiviazione per Ruby](https://azure.microsoft.com/develop/ruby/)
+* [Libreria client di archiviazione per Python](https://azure.microsoft.com/develop/python/)
 * [Cmdlet di archiviazione per PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt269418.aspx)
 
 ### <a name="azure-storage-management-services"></a>Servizi di gestione di Archiviazione di Azure
-* [Informazioni di riferimento sulle API REST del provider di risorse di archiviazione](https://msdn.microsoft.com/library/azure/mt163683.aspx)
-* [Libreria client del provider di risorse di archiviazione per .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx)
-* [Cmdlet del provider di risorse di archiviazione per PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt607151.aspx)
+* [Informazioni di riferimento sulle API REST del provider di risorse di archiviazione](/rest/api/storagerp/)
+* [Libreria client del provider di risorse di archiviazione per .NET](/dotnet/api/microsoft.azure.management.storage)
+* [Cmdlet del provider di risorse di archiviazione per PowerShell 1.0](/powershell/storage/)
 * [API REST di gestione del servizio di archiviazione (classico)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### <a name="azure-storage-data-movement-services"></a>Servizi di spostamento dei dati di Archiviazione di Azure
-* [API REST del servizio di importazione/esportazione dell'archiviazione](https://msdn.microsoft.com/library/azure/dn529096.aspx)
+* [API REST del servizio di importazione/esportazione dell'archiviazione](storage-import-export-service.md)
 * [Libreria client di spostamento dei dati di archiviazione per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
 
 ### <a name="tools-and-utilities"></a>Strumenti e utilità
@@ -248,9 +249,4 @@ Per altre informazioni su Archiviazione di Azure, vedere le risorse seguenti:
 * [Come usare l'archiviazione tabelle da Python](storage-python-how-to-use-table-storage.md)
 * [Come usare l'archiviazione di accodamento da Python](storage-python-how-to-use-queue-storage.md)
 * [Come usare l'archiviazione file da Python](storage-python-how-to-use-file-storage.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

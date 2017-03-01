@@ -17,14 +17,15 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: d55c08dbd1d2372e5396f40e74b4f63f3e2f0022
+ms.sourcegitcommit: dbf337a27c43fc6c91f1b061a1938c5471dd36a4
+ms.openlocfilehash: bc1a78a2891c73df23bc2a57cec67e6b73414165
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>Usare C# per creare un database SQL con la libreria del database SQL per .NET
 
-Informazioni su come usare C# per creare un database SQL di Azure con la [libreria di gestione di Microsoft Azure SQL per .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Questo articolo descrive come creare un database singolo con SQL e C#. Per creare pool elastici, vedere [Creare un pool elastico](sql-database-elastic-pool-create-csharp.md).
+Informazioni su come usare C# per creare un database SQL di Azure con la [libreria di gestione di Microsoft Azure SQL per .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Questo articolo descrive come creare un database singolo con SQL e C#. Per creare pool elastici, vedere [Creare un pool elastico](sql-database-elastic-pool-manage-csharp.md).
 
 La libreria di gestione di database SQL di Azure per .NET include un'API basata su [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) che esegue il wrapping dell'[API REST di database SQL basata su Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
@@ -284,9 +285,4 @@ Dopo aver provato il database SQL e aver impostato un database con C#, è possib
 [7]: ./media/sql-database-get-started-csharp/add-application.png
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

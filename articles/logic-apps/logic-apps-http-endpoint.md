@@ -15,8 +15,9 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
-ms.openlocfilehash: f8ce1215861da2db49f5148400195c4fefb9a01d
+ms.sourcegitcommit: d7144208fc3e6eb1f8d3c43d8b4a5e2bcb225e58
+ms.openlocfilehash: ac0c200abd110262badd04212c82be45cb0f8bfc
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -53,6 +54,31 @@ Oppure chiamando:
 ``` text
 POST https://management.azure.com/{resourceID of your logic app}/triggers/myendpointtrigger/listCallbackURL?api-version=2015-08-01-preview
 ```
+
+### <a name="changing-http-method-of-the-trigger"></a>Modifica del metodo HTTP del trigger
+Per impostazione predefinita, il trigger di richiesta in App per la logica prevede una richiesta HTTP POST. Ma è possibile configurare il metodo HTTP in `Show advanced options`.
+
+ > [!NOTE]
+ > È consentito un solo tipo di metodo.
+
+### <a name="relative-trigger-url"></a>URL trigger relativo
+È inoltre possibile personalizzare il percorso relativo dell'URL della richiesta per accettare i parametri.
+
+1. Espandere `Show advanced options` del trigger **Request**.
+ - In `Relative path` immettere `customer/{customerId}`.
+
+  ![Trigger URL relativo](./media/logic-apps-http-endpoint/relativeurl.png)
+
+2. Aggiornare l'azione **Respond** per usare il parametro.
+ - Nella selezione token dovrebbe essere visualizzato `customerId`.
+ - Aggiornare il corpo della risposta per restituire `Hello {customerId}`.
+
+  ![Risposta URL relativo](./media/logic-apps-http-endpoint/relativeurlresponse.png)
+
+3. Salvare l'app per la logica e si noterà l'aggiornamento dell'URL della richiesta per includere il percorso relativo.
+
+4. Copiare il nuovo URL della richiesta e incollarlo in una nuova finestra del browser. Sostituire `{customerId}` con `123` e premere Invio.
+ - Dovrebbe essere restituito `Your customer Id is 123`.
 
 ### <a name="security-for-the-trigger-url"></a>Sicurezza per l'URL trigger
 Gli URL di callback delle app per la logica vengono generati in modo sicuro mediante la firma di accesso condiviso.  La firma viene trasmessa come parametro di query e deve essere convalidata prima dell'attivazione dell'app per la logica.  Viene generata tramite una combinazione univoca di chiave privata per ogni app per la logica, nome del trigger e operazione in esecuzione.  A meno che un utente non possa accedere alla chiave privata dell'app per la logica, non potrà generare una firma valida.
@@ -154,9 +180,4 @@ Questa funzionalità è disponibile tramite **Gestione API**:
 [1]: ./media/logic-apps-http-endpoint/manualtriggerurl.png
 [2]: ./media/logic-apps-http-endpoint/manualtrigger.png
 [3]: ./media/logic-apps-http-endpoint/response.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

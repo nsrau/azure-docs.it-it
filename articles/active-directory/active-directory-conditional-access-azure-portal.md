@@ -16,8 +16,9 @@ ms.workload: identity
 ms.date: 01/19/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 89d32955506afdfb9c45c5b0ce3d38d40f012e72
-ms.openlocfilehash: 570a0f0a0c0932a00bbe92b1e137951ceffcd660
+ms.sourcegitcommit: 4dad4bd824f199562cb972c98cfcb452f2823828
+ms.openlocfilehash: b85b10b9504c5efa7ec05b92b544ad777e3abacc
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -167,6 +168,26 @@ No, non è possibile usare Exchange ActiveSync in un criterio di accesso condizi
 Attualmente, all'utente verrà chiesta l'autenticazione a più fattori indipendentemente dal dispositivo.
 
 
+## <a name="what-you-should-avoid-doing"></a>Azioni da evitare
+
+Il framework di accesso condizionale offre ottima flessibilità di configurazione. Tuttavia, questa flessibilità ideale comporta anche che è opportuno esaminare attentamente ogni criterio di configurazione prima che venga rilasciato, in modo da evitare risultati indesiderati. In questo contesto, è necessario prestare particolare attenzione alle assegnazioni che interessano set completi, ad esempio **tutti gli utenti/i gruppi/le applicazioni cloud**.
+
+Nell'ambiente, è necessario evitare le seguenti configurazioni:
+
+
+**Per tutti gli utenti e tutte le applicazioni cloud:**
+
+- **Blocca accesso**: questa configurazione consente di bloccare l'intera organizzazione. Un'idea chiaramente non buona.
+
+- **Richiedi un dispositivo conforme**: per gli utenti che non hanno ancora registrato i propri dispositivi, questo criterio blocca tutti gli accessi, tra cui l'accesso al portale di Intune. Se l'utente è amministratore senza un dispositivo registrato, questo criterio blocca l'accesso al portale di Azure per la modifica dei criteri.
+
+- **Require domain join** (Richiedi aggiunta a dominio): se ancora non si dispone di un dispositivo aggiunto al dominio, questo criterio di blocco dell'accesso è anche in grado di bloccare l'accesso per tutti gli utenti nell'organizzazione.
+ 
+
+**Per tutti gli utenti, tutte le applicazioni cloud e tutte le piattaforme per dispositivi:** 
+
+- **Blocca accesso**: questa configurazione consente di bloccare l'intera organizzazione. Un'idea chiaramente non buona.
+
 
 ## <a name="common-scenarios"></a>Scenari comuni
 
@@ -193,9 +214,4 @@ Molti clienti Intune usano l'accesso condizionale per assicurarsi che solo i dis
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni su come configurare un criterio di accesso condizionale, vedere [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) (Introduzione all'accesso condizionale in Azure Active Directory).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

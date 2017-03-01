@@ -4,7 +4,7 @@ description: Informazioni su come configurare un Web application firewall davant
 services: app-service\web
 documentationcenter: 
 author: naziml
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: a2101291-83ba-4169-98a2-2c0ed9a65e8d
 ms.service: app-service
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d4378398e666fe5ae2c7c55b377ae74880b857de
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 36f38409366d2a0b52387091c5e93296756a0178
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -109,9 +110,4 @@ Sostituire SourceAddressPrefix con l'indirizzo IP virtuale (VIP) del servizio cl
 [TrafficManagerEndpoint]: ./media/app-service-app-service-environment-web-application-firewall/TrafficManagerEndpoint.png
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: "Usare le attività di Machine Learning | Documentazione Microsoft"
+title: Creare pipeline di dati predittive tramite Azure Data Factory | Microsoft Docs
 description: Illustra come creare pipeline predittive usando Data factory di Azure e Azure Machine Learning
 services: data-factory
 documentationcenter: 
@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 01/19/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: cbd5ca0444a1d0f9ad67864ae9507d5659191a05
-ms.openlocfilehash: aea3600cafeb297822280d7dc7ec9d13cce76ca1
+ms.sourcegitcommit: ffe3e6c5f61f2debee70683990cf26ce094dc64b
+ms.openlocfilehash: 1c8cd0a998d7224caf5dcc70061d288a8e3043ed
+ms.lasthandoff: 02/17/2017
 
 
 ---
-# <a name="create-predictive-pipelines-using-azure-machine-learning-activities"></a>Creare pipeline predittive con le attività di Azure Machine Learning
+# <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory
 
 > [!div class="op_single_selector"]
 > * [Hive](data-factory-hive-activity.md) 
@@ -43,7 +44,7 @@ ms.openlocfilehash: aea3600cafeb297822280d7dc7ec9d13cce76ca1
 3. **Distribuirlo come servizio Web**. È possibile pubblicare l'esperimento di assegnazione dei punteggi come servizio Web di Azure. È possibile inviare dati al modello tramite l'endpoint di questo servizio Web e ricevere le stime dei risultati dal modello.  
 
 ### <a name="azure-data-factory"></a>Data factory di Azure
-Data factory è un servizio di integrazione dei dati basato sul cloud che permette di automatizzare lo **spostamento** e la **trasformazione** dei dati. È possibile creare soluzioni di integrazione dei dati usando il servizio Data Factory che può inserire dati da diversi archivi dati, trasformare/elaborare i dati e pubblicare i dati risultanti negli archivi dati.
+Data factory è un servizio di integrazione dei dati basato sul cloud che permette di automatizzare lo **spostamento** e la **trasformazione** dei dati. È possibile creare soluzioni di integrazione dei dati usando Azure Data Factory che può inserire dati da diversi archivi dati, trasformare/elaborare i dati e pubblicare i dati risultanti negli archivi dati.
 
 Il servizio Data Factory consente di creare pipeline di dati che spostano e trasformano i dati e quindi di eseguire le pipeline in base a una pianificazione specificata (ogni ora, ogni giorno, ogni settimana e così via). Offre anche viste avanzate per visualizzare la derivazione e le dipendenze tra le pipeline di dati e monitorare tutte le pipeline di dati da una singola visualizzazione unificata per individuare facilmente i problemi e configurare avvisi di monitoraggio.
 
@@ -57,12 +58,12 @@ Nel corso del tempo è necessario ripetere il training dei modelli predittivi ne
 1. Pubblicare l'esperimento di training, non l'esperimento predittivo, come servizio Web. Eseguire questo passaggio in Azure ML Studio come è stato fatto per esporre l'esperimento predittivo come servizio Web nello scenario precedente.
 2. Usare Attività di esecuzione batch di Azure ML per richiamare il servizio Web per l'esperimento di training. In sostanza, è possibile usare Attività di esecuzione batch di Azure ML per richiamare sia il servizio Web di training che il servizio Web di assegnazione dei punteggi.
 
-Al termine della ripetizione del training, aggiornare il servizio Web di assegnazione dei punteggi, ovvero l'esperimento predittivo esposto come servizio Web, con il modello appena sottoposto a training usando l'**Attività della risorsa di aggiornamento di Azure ML**. Per informazioni dettagliate, vedere [Aggiornamento dei modelli con Attività della risorsa di aggiornamento](#updating-models-using-update-resource-activity).
+Al termine della ripetizione del training, aggiornare il servizio Web di assegnazione dei punteggi, ovvero l'esperimento predittivo esposto come servizio Web, con il modello appena sottoposto a training usando l'**Attività della risorsa di aggiornamento di Azure ML**. Per informazioni dettagliate, vedere l'articolo [Updating models using Update Resource Activity](data-factory-azure-ml-update-resource-activity.md) (Aggiornamento dei modelli con Attività della risorsa di aggiornamento).
 
 ## <a name="invoking-a-web-service-using-batch-execution-activity"></a>Richiamo di un servizio Web tramite Attività di esecuzione batch
 È possibile usare Data factory di Azure per gestire l'elaborazione e lo spostamento dei dati e quindi effettuare un'esecuzione batch tramite Azure Machine Learning. Ecco i passaggi principali:
 
-1. Creare un servizio collegato di Azure Machine Learning. Sono necessari gli elementi seguenti:
+1. Creare un servizio collegato di Azure Machine Learning. Sono necessari i valori seguenti:
 
    1. **URI della richiesta** per l’API di esecuzione batch. È possibile trovare l'URI della richiesta facendo clic sul collegamento **ESECUZIONE BATCH** nella pagina dei servizi Web.
    2. **API key** per il servizio Web di Azure Machine Learning pubblicato. È possibile trovare la chiave API facendo clic sul servizio Web pubblicato.
@@ -260,42 +261,42 @@ Prima di procedere con questo esempio, è consigliabile eseguire l'esercitazione
     ```JSON
     {
         "name": "PredictivePipeline",
-        "properties": {
+         "properties": {
             "description": "use AzureML model",
-            "activities": [
-            {
-                "name": "MLActivity",
-                "type": "AzureMLBatchExecution",
-                "description": "prediction analysis on batch input",
-                "inputs": [
-                {
-                    "name": "DecisionTreeInputBlob"
-                }
-                ],
-                "outputs": [
-                {
-                    "name": "DecisionTreeResultBlob"
-                }
-                ],
-                "linkedServiceName": "MyAzureMLLinkedService",
-                "typeProperties":
-                {
-                    "webServiceInput": "DecisionTreeInputBlob",
-                    "webServiceOutputs": {
-                        "output1": "DecisionTreeResultBlob"
-                    }                
-                },
-                "policy": {
+               "activities": [
+             {
+                   "name": "MLActivity",
+                   "type": "AzureMLBatchExecution",
+                   "description": "prediction analysis on batch input",
+                   "inputs": [
+                 {
+                       "name": "DecisionTreeInputBlob"
+                 }
+                   ],
+                   "outputs": [
+                 {
+                       "name": "DecisionTreeResultBlob"
+                 }
+                   ],
+                   "linkedServiceName": "MyAzureMLLinkedService",
+                   "typeProperties":
+                   {
+                       "webServiceInput": "DecisionTreeInputBlob",
+                       "webServiceOutputs": {
+                           "output1": "DecisionTreeResultBlob"
+                       }                
+                   },
+                   "policy": {
                     "concurrency": 3,
-                    "executionPriorityOrder": "NewestFirst",
-                    "retry": 1,
-                    "timeout": "02:00:00"
-                }
-            }
-            ],
-            "start": "2016-02-13T00:00:00Z",
-            "end": "2016-02-14T00:00:00Z"
-        }
+                     "executionPriorityOrder": "NewestFirst",
+                     "retry": 1,
+                     "timeout": "02:00:00"
+                   }
+             }
+               ],
+               "start": "2016-02-13T00:00:00Z",
+               "end": "2016-02-14T00:00:00Z"
+         }
     }
     ```
 
@@ -543,293 +544,7 @@ Ecco i **punti chiave** :
 
 
 ## <a name="updating-models-using-update-resource-activity"></a>Aggiornamento dei modelli con Attività della risorsa di aggiornamento
-Nel corso del tempo è necessario ripetere il training dei modelli predittivi negli esperimenti di assegnazione dei punteggi di Azure ML usando nuovi set di dati di input. Una volta ripetuto il training, aggiornare il servizio Web di assegnazione dei punteggi con il modello ML di cui è stato ripetuto il training. Questa è la procedura tipica per abilitare la ripetizione del training e l'aggiornamento dei modelli di Azure ML tramite i servizi Web:
-
-1. Creare un esperimento in [Azure ML Studio](https://studio.azureml.net).
-2. Quando si è soddisfatti del modello, usare Azure ML Studio per pubblicare i servizi Web sia per l'**esperimento di training** che per l'**esperimento predittivo** o di assegnazione dei punteggi.
-
-La tabella seguente descrive i servizi Web usati in questo esempio.  Per altre informazioni, vedere [Ripetere il training dei modelli di Machine Learning a livello di codice](../machine-learning/machine-learning-retrain-models-programmatically.md) .
-
-- **Servizio Web di training**: riceve dati di training e produce modelli sottoposti a training. L'output della ripetizione del training è un file con estensione ilearner in un archivio BLOB di Azure. L' **endpoint predefinito** viene creato automaticamente quando si pubblica l'esperimento di training come servizio Web. È possibile creare altri endpoint ma l'esempio usa solo l'endpoint predefinito.
-- **Servizio Web di assegnazione dei punteggi**: riceve esempi di dati non etichettati ed esegue previsioni. L'output della stima può avere diversi formati, ad esempio un file con estensione csv o righe in un database SQL di Azure, a seconda della configurazione dell'esperimento. L'endpoint predefinito viene creato automaticamente quando si pubblica l'esperimento predittivo come servizio Web. 
-
-L'immagine seguente illustra la relazione tra gli endpoint di training e di assegnazione dei punteggi in Azure ML.
-
-![SERVIZI WEB](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
-
-È possibile richiamare il **training web service** tramite il **Attività di esecuzione batch di Azure ML**. Richiamare il servizio Web di training è la stessa operazione che si esegue per richiamare un servizio Web di Azure ML, il servizio Web di assegnazione dei punteggi, per la valutazione dei dati. Le sezioni precedenti descrivono in dettaglio come richiamare un servizio Web di Azure ML da una pipeline di Azure Data Factory. 
-
-È possibile richiamare il **scoring web service** tramite il **Attività della risorsa di aggiornamento di Azure ML** per aggiornare il servizio Web con il nuovo modello sottoposto a training. Gli esempi seguenti forniscono definizioni dei servizi collegati: 
-
-### <a name="scoring-web-service-is-a-classic-web-service"></a>Il servizio Web di assegnazione dei punteggi è un servizio Web classico
-Se il servizio Web di assegnazione dei punteggi è un **servizio Web classico**, creare il secondo **endpoint non predefinito e aggiornabile** usando il [portale di Azure](https://manage.windowsazure.com). Per la procedura, vedere l'articolo [Creare endpoint](../machine-learning/machine-learning-create-endpoint.md) . Dopo aver creato l'endpoint aggiornabile non predefinito, seguire questa procedura:
-
-* Fare clic su **ESECUZIONE BATCH** per ottenere il valore dell'URI per la proprietà JSON **mlEndpoint**.
-* Fare clic su **AGGIORNA RISORSA** per ottenere il valore dell'URI per la proprietà JSON **updateResourceEndpoint**. La chiave API si trova nell'angolo in basso a destra della pagina dell'endpoint.
-
-![Endpoint aggiornabile](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
-
-L'esempio seguente fornisce una definizione JSON di esempio per il servizio collegato AzureML. Il servizio collegato usa il valore apiKey per l'autenticazione.  
-
-```json
-{
-    "name": "updatableScoringEndpoint2",
-    "properties": {
-        "type": "AzureML",
-        "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
-            "apiKey": "endpoint2Key",
-            "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
-        }
-    }
-}
-```
-
-### <a name="scoring-web-service-is-a-new-type-of-web-service-azure-resource-manager"></a>Il servizio Web di assegnazione dei punteggi è un nuovo tipo di servizio Web (Azure Resource Manager)
-Se il servizio Web è il nuovo tipo di servizio Web che espone un endpoint di Azure Resource Manager, non è necessario aggiungere il secondo endpoint **non predefinito**. Il formato del valore **updateResourceEndpoint** nel servizio collegato è il seguente: 
-
-```
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
-```
-
-È possibile ottenere i valori per i segnaposti nell'URL quando si eseguono query nel servizio Web nel portale di [Azure Machine Learning Web Services](https://services.azureml.net/) (Servizi Web Microsoft Azure Machine Learning). Il nuovo tipo di endpoint di risorse di aggiornamento richiede un token AAD (Azure Active Directory). Specificare **servicePrincipalId** e **servicePrincipalKey** nel servizio collegato AzureML. Vedere [Come creare un'entità servizio e assegnare autorizzazioni per gestire una risorsa di Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md). Ecco una definizione di esempio del servizio collegato AzureML: 
-
-```json
-{
-    "name": "AzureMLLinkedService",
-    "properties": {
-        "type": "AzureML",
-        "description": "The linked service for AML web service.",
-        "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/0000000000000000000000000000000000000/services/0000000000000000000000000000000000000/jobs?api-version=2.0",
-            "apiKey": "xxxxxxxxxxxx",
-            "updateResourceEndpoint": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.MachineLearning/webServices/myWebService?api-version=2016-05-01-preview",
-            "servicePrincipalId": "000000000-0000-0000-0000-0000000000000",
-            "servicePrincipalKey": "xxxxx",
-            "tenant": "mycompany.com"
-        }
-    }
-}
-```
-
-Lo scenario seguente fornisce altri dettagli. Include un esempio per la ripetizione del training e l'aggiornamento dei modelli di Azure ML da una pipeline di Azure Data Factory.
-
-### <a name="scenario-retraining-and-updating-an-azure-ml-model"></a>Scenario: ripetizione del training e aggiornamento di un modello di Azure ML
-Questa sezione include una pipeline di esempio che usa **Attività di esecuzione batch di Azure ML** per ripetere il training di un modello. La pipeline usa anche **Attività della risorsa di aggiornamento di Azure ML** per aggiornare il modello nel servizio Web di assegnazione dei punteggi. La sezione include anche frammenti di codice JSON per tutti i servizi collegati, i set di dati e la pipeline usati nell'esempio.
-
-Ecco la vista diagramma della pipeline di esempio. Come si può vedere, Attività di esecuzione batch di Azure ML accetta l'input di training e genera un output di training (file iLearner). Attività della risorsa di aggiornamento di Azure ML accetta questo output di training e aggiorna il modello nell'endpoint di servizio Web di assegnazione dei punteggi. Attività della risorsa di aggiornamento non produce un output. placeholderBlob è solo un set di dati di output fittizio richiesto dal servizio Data factory di Azure per eseguire la pipeline.
-
-![Diagramma della pipeline](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
-
-#### <a name="azure-blob-storage-linked-service"></a>Servizio collegato di archiviazione BLOB di Azure:
-Archiviazione di Azure include i dati seguenti:
-
-* Dati di training. Dati di input per il servizio Web di training di Azure ML.  
-* File iLearner. Output del servizio Web di training di Azure ML. È anche l'input per Attività della risorsa di aggiornamento.  
-
-Ecco la definizione JSON di esempio del servizio collegato:
-
-```JSON
-{
-    "name": "StorageLinkedService",
-      "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=name;AccountKey=key"
-        }
-    }
-}
-```
-
-#### <a name="training-input-dataset"></a>Set di dati di input di training:
-Il set di dati seguente rappresenta i dati di training di input per il servizio Web di training di Azure ML. Attività di esecuzione batch di Azure ML accetta questo set di dati come input.
-
-```JSON
-{
-    "name": "trainingData",
-    "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-            "folderPath": "labeledexamples",
-            "fileName": "labeledexamples.arff",
-            "format": {
-                "type": "TextFormat"
-            }
-        },
-        "availability": {
-            "frequency": "Week",
-            "interval": 1
-        },
-        "policy": {          
-            "externalData": {
-                "retryInterval": "00:01:00",
-                "retryTimeout": "00:10:00",
-                "maximumRetry": 3
-            }
-        }
-    }
-}
-```
-
-#### <a name="training-output-dataset"></a>Set di dati di output di training:
-Il set di dati seguente rappresenta il file iLearner di output del servizio Web di training di Azure ML. Attività di esecuzione batch di Azure ML genera questo set di dati. Questo set di dati è anche l'input per Attività della risorsa di aggiornamento.
-
-```JSON
-{
-    "name": "trainedModelBlob",
-    "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-            "folderPath": "trainingoutput",
-            "fileName": "model.ilearner",
-            "format": {
-                "type": "TextFormat"
-            }
-        },
-        "availability": {
-            "frequency": "Week",
-            "interval": 1
-        }
-    }
-}
-```
-
-#### <a name="linked-service-for-azure-ml-training-endpoint"></a>Servizio collegato per l'endpoint di training di Azure ML
-Il frammento di codice JSON seguente definisce un servizio collegato di Azure Machine Learning che punta all'endpoint predefinito del servizio Web di training.
-
-```JSON
-{    
-    "name": "trainingEndpoint",
-      "properties": {
-        "type": "AzureML",
-        "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--training experiment--/jobs",
-              "apiKey": "myKey"
-        }
-      }
-}
-```
-
-In **Azure ML Studio** eseguire queste operazioni per ottenere i valori per **mlEndpoint** e **apiKey**:
-
-1. Fare clic su **SERVIZI WEB** nel menu a sinistra.
-2. Fare clic su **servizio Web di training** nell'elenco dei servizi Web.
-3. Fare clic su Copia accanto alla casella di testo **Chiave API** . Incollare la chiave dagli Appunti nell'editor JSON di Data Factory.
-4. In **Azure ML Studio** fare clic sul collegamento **ESECUZIONE BATCH**.
-5. Copiare il valore di **Request URI** (URI della richiesta) dalla sezione **Richiesta** e incollarlo nell'editor JSON di Data Factory.   
-
-#### <a name="linked-service-for-azure-ml-updatable-scoring-endpoint"></a>Servizio collegato per l'endpoint di assegnazione dei punteggi aggiornabile di Azure ML:
-Il frammento di codice JSON seguente definisce un servizio collegato di Azure Machine Learning che punta all'endpoint aggiornabile non predefinito del servizio Web di assegnazione dei punteggi.  
-
-```JSON
-{
-    "name": "updatableScoringEndpoint2",
-    "properties": {
-        "type": "AzureML",
-        "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/00000000eb0abe4d6bbb1d7886062747d7/services/00000000026734a5889e02fbb1f65cefd/jobs?api-version=2.0",
-            "apiKey": "sooooooooooh3WvG1hBfKS2BNNcfwSO7hhY6dY98noLfOdqQydYDIXyf2KoIaN3JpALu/AKtflHWMOCuicm/Q==",
-            "updateResourceEndpoint": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/myWebService?api-version=2016-05-01-preview",
-            "servicePrincipalId": "fe200044-c008-4008-a005-94000000731",
-            "servicePrincipalKey": "zWa0000000000Tp6FjtZOspK/WMA2tQ08c8U+gZRBlw=",
-            "tenant": "mycompany.com"
-        }
-    }
-}
-```
-
-#### <a name="placeholder-output-dataset"></a>Set di dati di output del segnaposto:
-Attività della risorsa di aggiornamento di Azure ML non produce un output. Tuttavia, Azure Data Factory richiede un set di dati di output per gestire la pianificazione di una pipeline, quindi in questo esempio viene usato un set di dati segnaposto fittizio.  
-
-```JSON
-{
-    "name": "placeholderBlob",
-    "properties": {
-        "availability": {
-            "frequency": "Week",
-            "interval": 1
-        },
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-            "folderPath": "any",
-            "format": {
-                "type": "TextFormat"
-            }
-        }
-    }
-}
-```
-
-#### <a name="pipeline"></a>Pipeline
-La pipeline include due attività: **AzureMLBatchExecution** e **AzureMLUpdateResource**. Attività di esecuzione batch di Azure ML accetta i dati di training come input e genera il file con estensione iLearner come output. L'attività richiama il servizio Web di training, l'esperimento di training esposto come servizio Web, con i dati di training di input e riceve il file iLearner dal servizio Web. placeholderBlob è solo un set di dati di output fittizio richiesto dal servizio Data factory di Azure per eseguire la pipeline.
-
-![Diagramma della pipeline](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
-
-```JSON
-{
-    "name": "pipeline",
-    "properties": {
-        "activities": [
-            {
-                "name": "retraining",
-                "type": "AzureMLBatchExecution",
-                "inputs": [
-                    {
-                        "name": "trainingData"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "trainedModelBlob"
-                    }
-                ],
-                "typeProperties": {
-                    "webServiceInput": "trainingData",
-                    "webServiceOutputs": {
-                        "output1": "trainedModelBlob"
-                    }              
-                 },
-                "linkedServiceName": "trainingEndpoint",
-                "policy": {
-                    "concurrency": 1,
-                    "executionPriorityOrder": "NewestFirst",
-                    "retry": 1,
-                    "timeout": "02:00:00"
-                }
-            },
-            {
-                "type": "AzureMLUpdateResource",
-                "typeProperties": {
-                    "trainedModelName": "Training Exp for ADF ML [trained model]",
-                    "trainedModelDatasetName" :  "trainedModelBlob"
-                },
-                "inputs": [
-                    {
-                        "name": "trainedModelBlob"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "placeholderBlob"
-                    }
-                ],
-                "policy": {
-                    "timeout": "01:00:00",
-                    "concurrency": 1,
-                    "retry": 3
-                },
-                "name": "AzureML Update Resource",
-                "linkedServiceName": "updatableScoringEndpoint2"
-            }
-        ],
-        "start": "2016-02-13T00:00:00Z",
-           "end": "2016-02-14T00:00:00Z"
-    }
-}
-```
+Al termine della ripetizione del training, aggiornare il servizio Web di assegnazione dei punteggi, ovvero l'esperimento predittivo esposto come servizio Web, con il modello appena sottoposto a training usando l'**Attività della risorsa di aggiornamento di Azure ML**. Per informazioni dettagliate, vedere l'articolo [Updating models using Update Resource Activity](data-factory-azure-ml-update-resource-activity.md) (Aggiornamento dei modelli con Attività della risorsa di aggiornamento).
 
 ### <a name="reader-and-writer-modules"></a>Moduli Reader e Writer 
 Uno scenario comune per l'uso dei parametri del servizio Web è costituito dai reader e dai writer SQL di Azure. Il modulo Reader viene usato per caricare i dati in un esperimento dai servizi di gestione dati all'esterno di Azure Machine Learning Studio. Il modulo Writer viene usato per salvare i dati degli esperimenti in servizi di gestione dati all'esterno di Azure Machine Learning Studio.  
@@ -917,9 +632,4 @@ Per specificare i valori per i parametri del servizio Web, aggiungere una sezion
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 
 [azure-machine-learning]: http://azure.microsoft.com/services/machine-learning/
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

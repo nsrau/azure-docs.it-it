@@ -1,5 +1,5 @@
 ---
-title: "Formato di file di metadati e delle proprietà del servizio di importazione ed esportazione | Documentazione Microsoft"
+title: "Formato di file dei metadati e delle proprietà del servizio Importazione/Esportazione di Azure | Documentazione Microsoft"
 description: "Informazioni su come specificare i metadati e le proprietà per uno o più BLOB che fanno parte di un processo di importazione o esportazione"
 author: muralikk
 manager: syadav
@@ -12,15 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 78abb839badf99c6251673ee9914955df8c950bc
-ms.openlocfilehash: 8c8800682a0ce2c52962a41c1c09fbc59595dee2
+ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
+ms.openlocfilehash: 0cac5419d4b481a5b783b4b9fbd4ad2d4d637042
+ms.lasthandoff: 02/16/2017
 
 
 ---
-# <a name="import-export-service-metadata-and-properties-file-format"></a>Formato di file di metadati e delle proprietà del servizio di importazione ed esportazione
+# <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Formato di file dei metadati e delle proprietà di Importazione/Esportazione di Azure
 È possibile specificare i metadati e le proprietà per uno o più BLOB nell'ambito di un processo di importazione o esportazione. Per impostare i metadati o le proprietà per i BLOB che vengono creati nell'ambito di un processo di importazione, occorre fornire un file di metadati o delle proprietà nel disco rigido contenente i dati da importare. In un processo di esportazione, i metadati e le proprietà vengono scritti in un file di metadati o delle proprietà che viene incluso nel disco rigido restituito all'utente.  
   
 ## <a name="metadata-file-format"></a>Formato del file di metadati  
@@ -70,9 +71,4 @@ Il formato di un file delle proprietà è indicato di seguito:
 |`Cache-Control`|String|Facoltativa. La stringa di controllo della cache per il BLOB.|  
   
  Per le regole dettagliate sull'impostazione dei metadati e delle proprietà di un BLOB, vedere [Impostare le proprietà di un BLOB](/rest/api/storageservices/fileservices/set-blob-properties), [Impostare i metadati di un BLOB](/rest/api/storageservices/fileservices/set-blob-metadata) e [Impostazione e recupero di proprietà e metadati per le risorse BLOB](/rest/api/storageservices/fileservices/setting-and-retrieving-properties-and-metadata-for-blob-resources).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

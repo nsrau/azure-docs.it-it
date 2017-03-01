@@ -1,5 +1,5 @@
 ---
-title: Creare certificati autofirmati per le connessioni cross-premise di una rete virtuale da punto a sito usando makecert | Documentazione Microsoft
+title: 'Creare certificati autofirmati per connessioni da punto a sito: Azure | Documentazione Microsoft'
 description: Questo articolo contiene i passaggi per usare makecert e creare certificati autofirmati in Windows 10.
 services: vpn-gateway
 documentationcenter: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/19/2017
+ms.date: 02/15/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 64c6e8fa5288ce9a25bcb434217511425aebfe21
-ms.openlocfilehash: beb873c99d956eafebecc69f9afc480c558efabb
+ms.sourcegitcommit: 4c8fc5b20416d59eccdf34aaea95ed158d9c04fa
+ms.openlocfilehash: a3965a149fa62e5630d2b9940d4940308991aed1
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -31,21 +32,22 @@ La seguente procedura offre una guida completa alla creazione di un certificato 
 
 ### <a name="to-create-a-self-signed-certificate"></a>Per creare un certificato autofirmato
 1. Da un computer che esegue Windows 10, scaricare e installare [Windows Software Development Kit (SDK) per Windows 10](https://dev.windows.com/en-us/downloads/windows-10-sdk).
-2. Dopo l'installazione, è possibile trovare l'utilità makecert.exe nel percorso seguente: C:\Programmi (x86)\Windows Kits\10\bin\<arch>. 
-   
-    Esempio: `C:\Program Files (x86)\Windows Kits\10\bin\x64`
-3. Creare e installare quindi un certificato nell'archivio Certificati personali nel computer in uso. Nell'esempio seguente viene creato un file *.cer* corrispondente da caricare in Azure quando si configura una connessione da punto a sito. Eseguire il comando seguente come amministratore. Sostituire *ARMP2SRootCert* e *ARMP2SRootCert.cer* con il nome da assegnare al certificato.<br><br>Il certificato si troverà in Certificati -Utente corrente\Personale\Certificati.
+2. Dopo l'installazione, è possibile trovare l'utilità makecert.exe nel percorso seguente: "C:\Programmi (x86)\Windows Kits\10\bin\<arch>". Aprire un prompt dei comandi come amministratore e passare al percorso dell'utilità makecert. È possibile usare l'esempio seguente:
+
+        cd C:\Program Files (x86)\Windows Kits\10\bin\x64
+
+3. Creare e installare quindi un certificato nell'archivio Certificati personali nel computer in uso. Nell'esempio seguente viene creato un file *.cer* corrispondente da caricare in Azure quando si configura una connessione da punto a sito. Sostituire "ARMP2SRootCert" e "ARMP2SRootCert.cer" con il nome da assegnare al certificato.<br><br>Il certificato si troverà in "Certificati -Utente corrente\Personale\Certificati".
    
         makecert -sky exchange -r -n "CN=ARMP2SRootCert" -pe -a sha1 -len 2048 -ss My "ARMP2SRootCert.cer"
 
 ### <a name="a-namerootpublickeyato-obtain-the-public-key"></a><a name="rootpublickey"></a>Per ottenere la chiave pubblica
-Durante la configurazione del gateway VPN per le connessioni da punto a sito, in Azure viene caricata la chiave pubblica relativa al certificato radice.
+Durante la configurazione del gateway VPN per le connessioni da punto a sito, in Azure viene caricata la chiave pubblica relativa al certificato radice. 
 
-1. Per ottenere un file con estensione .cer dal certificato, aprire **certmgr.msc**. Fare clic con il pulsante destro del mouse sul certificato radice autofirmato, scegliere **Tutte le attività** e quindi fare clic su **Esporta**. Si avvia la procedura di **Esportazione guidata certificati**.
-2. Nella procedura guidata fare clic su **Avanti**, selezionare **No, non esportare la chiave privata** e quindi fare clic su **Avanti**.
-3. Nella pagina **Formato file di esportazione** selezionare **Codificato Base&64; X.509 (.CER)**. Quindi fare clic su **Avanti**. 
+1. Per ottenere un file con estensione .cer dal certificato, aprire **certmgr.msc**. Individuare il certificato radice autofirmato, in genere in "Certificati - Utente corrente\Personale\Certificati" e fare clic con il pulsante destro del mouse. Fare clic su **Tutte le attività** e quindi su **Esporta**. Si avvia la procedura di **Esportazione guidata certificati**.
+2. Nella procedura guidata fare clic su **Avanti**. Selezionare **No, non esportare la chiave privata** e quindi fare clic su **Avanti**.
+3. Nella pagina **Formato file di esportazione** selezionare **Codificato Base&64; X.509 (.CER)** e quindi fare clic su **Avanti**. 
 4. In **File da esportare** fare clic su **Sfoglia** e passare alla posizione in cui si vuole esportare il certificato. Per **Nome file**, assegnare un nome al file del certificato. Quindi fare clic su **Avanti**.
-5. Fare clic su **Fine** per esportare il certificato.
+5. Fare clic su **Fine** per esportare il certificato. Verrà visualizzato il messaggio **Esportazione completata**. Fare clic su **OK** per chiudere la procedura guidata.
 
 ### <a name="export-the-self-signed-certificate-optional"></a>Esportare il un certificato autofirmato (facoltativo)
 Si consiglia di esportare il certificato autofirmato e archiviarlo in un percorso sicuro. Se necessario, in seguito è possibile installarlo su un altro computer e generare altri certificati client oppure esportare un altro file.cer. Eventuali computer con un certificato client installato e configurati con impostazioni del client VPN corrette possono connettersi alla rete virtuale tramite P2S. Per questo motivo, è opportuno assicurarsi che i certificati client vengano generati e installati solo quando richiesto e che il certificato autofirmato sia archiviato in modo sicuro.
@@ -59,18 +61,15 @@ Il certificato autofirmato non deve essere installato direttamente nel computer 
 I passaggi seguenti illustrano come generare un certificato client da un certificato autofirmato. È possibile generare più certificati client dallo stesso certificato. Ogni certificato client può essere esportato e installato nel computer client. 
 
 1. Nello stesso computer usato per creare il certificato autofirmato aprire un prompt dei comandi come amministratore.
-2. In questo esempio "ARMP2SRootCert" fa riferimento al certificato autofirmato generato. 
-   
-   * Modificare *"ARMP2SRootCert"* con il nome della radice autofirmata dalla quale si intende generare il certificato client. 
-   * Modificare *ClientCertificateName* con il nome che si desidera assegnare al certificato client generato. 
+2. Modificare ed eseguire l'esempio per generare un certificato client.
+    * Modificare *"ARMP2SRootCert"* con il nome della radice autofirmata dalla quale si intende generare il certificato client. Assicurarsi di usare il nome del certificato radice, ovvero il valore "CN =" che è stato specificato al momento della creazione della radice autofirmata.
+    * Modificare *ClientCertificateName* con il nome che si desidera assegnare al certificato client generato.<br><br>Se si esegue l'esempio riportato di seguito senza modificarlo, si otterrà un certificato client denominato ClientCertificateName nell'archivio dei certificati personale generato dal certificato radice ARMP2SRootCert.
 
-    Modificare ed eseguire l'esempio per generare un certificato client. Se si esegue l'esempio riportato di seguito senza modificarlo, si otterrà un certificato client denominato ClientCertificateName nell'archivio dei certificati personale generato dal certificato radice ARMP2SRootCert.
+            makecert.exe -n "CN=ClientCertificateName" -pe -sky exchange -m 96 -ss My -in "ARMP2SRootCert" -is my -a sha1
 
-        makecert.exe -n "CN=ClientCertificateName" -pe -sky exchange -m 96 -ss My -in "ARMP2SRootCert" -is my -a sha1
 
-1. Tutti i certificati vengono archiviati nell'archivio Certificati - Utente corrente\Personale\Certificati nel computer in uso. È possibile generare tutti i certificati client necessari in base a questa procedura.
+### <a name="a-nameclientkeyapart-2---export-a-client-certificate"></a><a name="clientkey"></a>Parte 2: esportare un certificato client                                                                                                                        
 
-### <a name="a-nameclientkeyapart-2---export-a-client-certificate"></a><a name="clientkey"></a>Parte 2: esportare un certificato client
 1. Per esportare un certificato client, aprire **certmgr.msc**. Fare clic con il pulsante destro del mouse sul certificato client da esportare, scegliere **Tutte le attività** e quindi fare clic su **Esporta**. Si avvia la procedura di **Esportazione guidata certificati**.
 2. Nella procedura guidata, fare clic su **Avanti**, selezionare **Sì, esporta la chiave privata** e quindi fare clic su **Avanti**.
 3. Nella pagina **Formato file di esportazione** è possibile lasciare selezionate le impostazioni predefinite. Quindi fare clic su **Avanti**. 
@@ -92,10 +91,5 @@ Continuare con la configurazione da punto a sito.
 
 * Per i passaggi del modello di distribuzione di **Resource Manager** , vedere l'articolo relativo a come [configurare una connessione da punto a sito a una rete VNet con PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md). 
 * Per i passaggi del modello di distribuzione **classico** , vedere [Configurare una connessione VPN da punto a sito a una rete virtuale tramite il portale classico](vpn-gateway-point-to-site-create.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

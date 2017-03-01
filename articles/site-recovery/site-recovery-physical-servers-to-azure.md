@@ -1,0 +1,289 @@
+---
+title: Replicare server fisici in Azure | Documentazione Microsoft
+description: Descrive come distribuire Azure Site Recovery per orchestrare la replica, il failover e il ripristino di server fisici Windows/Linux locali in Azure tramite il portale di Azure
+services: site-recovery
+documentationcenter: 
+author: rayne-wiselman
+manager: jwhit
+editor: 
+ms.assetid: 
+ms.service: site-recovery
+ms.workload: backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/17/2017
+ms.author: raynew
+translationtype: Human Translation
+ms.sourcegitcommit: 3396818cd177330b7123f3a346b1591a4bcb1e4e
+ms.openlocfilehash: c9994e4e826bc35e1de439684ed5877db91fa069
+ms.lasthandoff: 02/22/2017
+
+
+---
+# <a name="replicate-physical-machines-to-azure-with-azure-site-recovery-using-the-azure-portal"></a>Replicare computer fisici in Azure con Azure Site Recovery tramite il portale di Azure
+
+
+Benvenuti nel servizio Azure Site Recovery.
+
+Site Recovery è un servizio di Azure che contribuisce al miglioramento della strategia di continuità aziendale e ripristino di emergenza (BCDR). Site Recovery orchestra la replica delle macchine virtuali e dei server fisici locali nel cloud di Azure o in un data center secondario. In caso di interruzioni nella località primaria, verrà eseguito il failover alla località secondaria per mantenere disponibili app e carichi di lavoro. Quando la località primaria sarà di nuovo operativa, si tornerà a tale località. Altre informazioni sono disponibili in [Che cos'è Azure Site Recovery?](site-recovery-overview.md)
+
+L'articolo descrive come replicare server fisici Windows/Linux locali in Azure usando Azure Site Recovery nel portale di Azure.
+
+Dopo avere letto questo articolo è possibile lasciare eventuali commenti nella sezione Disqus, nella parte inferiore della pagina. In caso di domande tecniche, visitare il [forum di Azure Site Recovery](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+
+
+## <a name="steps"></a>Passi
+
+È necessario eseguire queste operazioni:
+
+1. Verificare i prerequisiti e le limitazioni.
+2. Configurare la rete e gli account di archiviazione di Azure.
+3. Preparare il computer locale che si vuole distribuire come server di configurazione.
+4. Creare un insieme di credenziali dei servizi di ripristino. L'insieme di credenziali contiene le impostazioni di configurazione e orchestra la replica.
+5. Specificare origine, destinazione e impostazioni di replica.
+6. Distribuire il servizio Mobility nelle VM di cui si vuole eseguire la replica.
+7. Abilitare la replica per le VM.
+7. Eseguire un failover di test per verificare che tutti gli elementi funzionino come previsto.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+**Requisiti di supporto** | **Dettagli**
+--- | ---
+**Azzurro** | Vedere i [requisiti di Azure](site-recovery-prereq.md#azure-requirements).
+**Server di configurazione locale** | Computer locale che esegue Windows Server 2012 R2 o versione successiva Questo server viene configurato durante la distribuzione di Site Recovery.<br/><br/> Per impostazione predefinita, in questa VM vengono installati anche il server di elaborazione e il server di destinazione master. Quando si esegue un aumento delle prestazioni, potrebbe essere necessario un server di elaborazione separato, che ha gli stessi requisiti del server di configurazione.<br/><br/> Altre informazioni su questi componenti sono disponibili [qui](site-recovery-set-up-vmware-to-azure.md#configuration-server-minimum-requirements)
+**VM locali** | Le VM da replicare devono eseguire un [sistema operativo supportato](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) ed essere conformi ai [prerequisiti di Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+**URL** | Il server di configurazione deve avere accesso a questi URL:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/> Se sono presenti regole del firewall basate sull'indirizzo IP, verificare che consentano la comunicazione con Azure.<br/></br> Consentire gli [intervalli IP del data center di Azure ](https://www.microsoft.com/download/confirmation.aspx?id=41653) e la porta HTTPS (443).<br/></br> Consentire gli intervalli di indirizzi IP per l'area di Azure della sottoscrizione e per gli Stati Uniti occidentali (usati per il controllo di accesso e la gestione delle identità).<br/><br/> Consentire questo URL per il download di MySQL: http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi.
+**Servizio Mobility** | Deve essere installato in ogni VM replicata.
+
+
+## <a name="site-recovery-in-the-azure-portal"></a>Ripristino del sito nel portale di Azure
+Azure offre due [modelli di distribuzione](../azure-resource-manager/resource-manager-deployment-model.md) diversi per creare e usare le risorse: Azure Resource Manager e distribuzione classica. Sono disponibili due portali: il portale di Azure classico e il portale di Azure.
+
+Questo articolo illustra come eseguire distribuzioni nel portale di Azure, che offre nuove funzionalità e un'esperienza di distribuzione semplificata. Il portale classico può essere usato per gestire gli insiemi di credenziali esistenti. Non è possibile creare nuovi insieme di credenziali usando il portale classico.
+
+
+## <a name="set-up-azure"></a>Configurare Azure
+
+1. [Configurare una rete di Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+    - Le VM di Azure create dopo il failover verranno inserite in questa rete.
+    - È possibile configurare una rete in modalità classica o [Resource Manager](../resource-manager-deployment-model.md).
+
+2. Configurare un [account di archiviazione di Azure](../storage/storage-create-storage-account.md#create-a-storage-account) per i dati replicati.
+    - L'account può essere Standard o [Premium](../storage/storage-premium-storage.md).
+    - È possibile configurare un account in modalità classica o Resource Manager.
+
+## <a name="prepare-the-configuration-server"></a>Preparare il server di configurazione
+
+1. Installare Windows Server 2012 R2 o versione successiva in un server locale.
+2. Verificare che la VM abbia accesso agli URL elencati in [Prerequisiti](#prerequisites).
+
+**Preparare un account per il push del servizio Mobility**: se si vuole eseguire il push del servizio Mobility alle VM, è necessario un account che possa essere usato dal server di elaborazione per accedere alla VM. L'account viene usato solo per l'installazione push. È possibile usare un account di dominio o locale:
+
+  - Per Windows, se non si usa un account di dominio è necessario disabilitare il Controllo dell'accesso utente remoto nel computer locale. A questo scopo, aggiungere la voce DWORD **LocalAccountTokenFilterPolicy** con un valore di 1 nel Registro di sistema in **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**.
+    - Per aggiungere la voce del Registro di sistema per Windows da un'interfaccia della riga di comando, digitare:   ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
+  - Per Linux, l'account deve essere un utente ROOT nel server Linux di origine.
+
+[!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
+
+## <a name="select-the-protection-goal"></a>Selezionare l'obiettivo di protezione
+
+Selezionare gli elementi da replicare e la posizione in cui eseguire la replica.
+
+1. Fare clic su **Insiemi di credenziali dei servizi di ripristino** e quindi sull'insieme di credenziali.
+2. Nel menu delle risorse fare clic su **Site Recovery** > **Passaggio 1: Preparare l'infrastruttura** > **Obiettivo di protezione**.
+
+    ![Scegliere gli obiettivi](./media/site-recovery-vmware-to-azure/choose-goal-physical.PNG)
+3. In **Obiettivo di protezione** selezionare **In Azure** e scegliere **Non virtualizzato/Altro**.
+
+
+## <a name="set-up-the-source-environment"></a>Configurare l'ambiente di origine
+
+Configurare il server di configurazione, registrarlo nell'insieme di credenziali e individuare le VM.
+
+1. Fare clic su **Site Recovery** > **Passaggio 1: Preparare l'infrastruttura** > **Origine**.
+2. Se non è disponibile un server di configurazione, fare clic su **+Server di configurazione**.
+
+    ![Impostare l'origine](./media/site-recovery-vmware-to-azure/set-source1.png)
+3. In **Aggiungi server** verificare che **Tipo di server** contenga **Server di configurazione**.
+4. Scaricare il file di installazione per l'Installazione unificata di Azure Site Recovery.
+5. Scaricare la chiave di registrazione dell'insieme di credenziali, che sarà necessaria quando si esegue l'Installazione unificata. La chiave è valida per cinque giorni dal momento in cui viene generata.
+
+   ![Impostare l'origine](./media/site-recovery-vmware-to-azure/set-source2.png)
+6. Nella VM del server di configurazione, verificare che il clock di sistema sia sincronizzato con un [server di riferimento ora](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) e quindi eseguire l'Installazione unificata per installare il server di configurazione, il server di elaborazione e il server di destinazione master.
+
+## <a name="run-site-recovery-unified-setup"></a>Eseguire l'Installazione unificata di Site Recovery
+
+Prima di iniziare:
+
+- Verificare che l'ora nella VM sia uguale all'ora nel fuso orario locale. Deve corrispondere. Se è avanti o indietro di 15 minuti, l'installazione potrebbe avere esito negativo.
+- Eseguire l'installazione come amministratore locale nella VM del server di configurazione.
+- Verificare che nella VM sia abilitato TLS 1.0.
+
+Eseguire quindi il file di installazione per l'Installazione unificata nel server di configurazione.
+
+
+[!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
+
+> [!NOTE]
+> Il server di configurazione può essere installato tramite la riga di comando. Per altre informazioni, vedere l'argomento relativo all'[installazione del server di configurazione con gli strumenti da riga di comando](http://aka.ms/installconfigsrv).
+
+## <a name="set-up-the-target"></a>Configurare la destinazione
+
+Prima di configurare l'ambiente di destinazione, verificare di avere [una rete e un account di archiviazione di Azure](#set-up-azure).
+
+1. Fare clic su **Preparare l'infrastruttura** > **Destinazione** e selezionare la sottoscrizione di Azure da usare.
+2. Specificare se per la destinazione deve essere usato il modello di distribuzione classica o Resource Manager.
+3. Site Recovery verifica la disponibilità di uno o più account di archiviazione di Azure e reti compatibili.
+
+   ![Destinazione](./media/site-recovery-vmware-to-azure/gs-target.png)
+4. Se non si è creato un account di archiviazione o una rete, fare clic su **+Account di archiviazione** o **+Rete** per creare una rete o un account Resource Manager inline.
+
+## <a name="set-up-replication-settings"></a>Configurare le impostazioni di replica
+
+1. Per creare nuovi criteri di replica, fare clic su **Infrastruttura di Site Recovery** > **Criteri di replica** > **+Criteri di replica**.
+2. In **Creare i criteri di replica** specificare un nome per i criteri.
+3. In **Soglia RPO**specificare il limite per RPO. Questo valore specifica la frequenza con cui vengono creati punti di ripristino dei dati. Se la replica continua supera questo limite, viene generato un avviso.
+4. In **Conservazione del punto di ripristino** specificare la durata in ore dell'intervallo di conservazione per ogni punto di ripristino. Le VM replicate possono essere ripristinate in qualsiasi punto all'interno di un intervallo. È supportata la conservazione fino a 24 ore per le macchine replicate in Archiviazione Premium e fino a 72 ore per Archiviazione Standard.
+5. In **Frequenza snapshot coerenti con l'app**specificare la frequenza, in minuti, per la creazione di punti di ripristino contenenti snapshot coerenti con l'applicazione. Fare clic su **OK** per creare i criteri.
+
+    ![Criteri di replica](./media/site-recovery-vmware-to-azure/gs-replication2.png)
+8. Quando si creano nuovi criteri, questi vengono associati automaticamente al server di configurazione. Per impostazione predefinita vengono creati automaticamente criteri corrispondenti per il failback. Ad esempio se i criteri di replica sono **rep-policy** i criteri di failback saranno **rep-policy-failback**. Questi criteri non vengono usati fino a quando non si avvia un failback da Azure.  
+
+
+## <a name="plan-capacity"></a>Pianificare la capacità
+
+1. Dopo aver configurato l'infrastruttura di base è possibile passare alla pianificazione della capacità e valutare se sono necessarie altre risorse. [Altre informazioni](site-recovery-plan-capacity-vmware.md).
+2. Dopo aver pianificato la capacità, scegliere **Sì** in **È stata completata la pianificazione della capacità?**
+
+   ![Pianificazione della capacità](./media/site-recovery-vmware-to-azure/gs-capacity-planning.png)
+
+
+## <a name="prepare-vms-for-replication"></a>Preparare le VM per la replica
+
+In tutti i computer da replicare deve essere installo il servizio Mobility. È possibile installare il servizio Mobility in diversi modi:
+
+1. Installazione push dal server di elaborazione. Per usare questo metodo è necessario preparare le VM.
+2. Installazione con strumenti di distribuzione come System Center Configuration Manager o Automation DSC per Azure.
+3.  Installazione manuale.
+
+[Altre informazioni](site-recovery-vmware-to-azure-install-mob-svc.md)
+
+
+## <a name="enable-replication"></a>Abilitare la replica
+
+Prima di iniziare:
+
+- Quando si aggiungono o si modificano VM, possono trascorrere 15 minuti o più prima che le modifiche diventino effettive e vengano visualizzate nel portale.
+- È possibile controllare l'ora dell'ultima individuazione di VM in **Server di configurazione** > **Ora ultimo contatto**.
+- Per aggiungere VM senza attendere l'individuazione pianificata, evidenziare il server di configurazione, senza selezionarlo, e fare clic su **Aggiorna**.
+* Se una VM è pronta per l'installazione push, il server di elaborazione installa automaticamente il servizio Mobility quando si abilita la replica.
+
+
+### <a name="exclude-disks-from-replication"></a>Escludere dischi dalla replica
+
+Per impostazione predefinita, vengono replicati tutti i dischi in un computer. È possibile escludere dischi dalla replica. Ad esempio, è possibile evitare di replicare i dischi con dati temporanei o dati che vengono aggiornati ogni volta che un computer o un'applicazione viene riavviata, come pagefile.sys o tempdb di SQL Server.
+
+### <a name="replicate-vms"></a>Replicare le VM
+
+1. Fare clic su **Passaggio 2: Eseguire la replica dell'applicazione** > **Origine**.
+2. In **Origine** selezionare locale.
+3. In **Source-location** (Percorso di origine) selezionare il nome del server di configurazione.
+4. In **Tipo di computer** selezionare **Computer fisici**.
+4. In **vCenter/vSphere Hypervisor** selezionare il server vCenter che gestisce l'host di vSphere oppure selezionare l'host.
+5. In **Server di elaborazione** scegliere il server di elaborazione. Se non sono stati creati server di elaborazione aggiuntivi, questo sarà il server di configurazione. Fare quindi clic su **OK**.
+
+    ![Abilitare la replica](./media/site-recovery-physical-to-azure/chooseVM.png)
+
+6. In **Destinazione** selezionare la sottoscrizione e il gruppo di risorse in cui si vogliono creare le VM di cui viene eseguito il failover. Scegliere il modello di distribuzione (classica o Resource Manager) da usare in Azure per le VM di cui viene eseguito il failover.
+
+7. Selezionare l'account di archiviazione di Azure da usare per la replica dei dati. Se non si vuole usare un account già configurato, è possibile crearne uno nuovo.
+
+8. Selezionare la rete di Azure e la subnet a cui dovranno connettersi le VM di Azure create dopo il failover. Scegliere **Configurare ora per le macchine virtuali selezionate** per applicare le impostazioni di rete a tutti i computer selezionati per la protezione. Scegliere **Configurare in seguito** per selezionare la rete di Azure per ogni computer. Se non si vuole usare una rete esistente, è possibile crearne una.
+
+    ![Abilitare la replica](./media/site-recovery-physical-to-azure/targetsettings.png)
+9. In **Computer fisici** fare clic sul pulsante '+' e immettere **nome**, **indirizzo IP** e scegliere il tipo di sistema operativo del computer che si desidera replicare.
+  ![Abilitare la replica](./media/site-recovery-physical-to-azure/machineselect.png) È necessario attendere alcuni minuti prima che le macchine vengano individuate e visualizzate nell'elenco.
+
+10. In **Proprietà** > **Configura proprietà**selezionare l'account che verrà usato dal server di elaborazione per installare automaticamente il servizio Mobility nel computer.
+11. Per impostazione predefinita, vengono replicati tutti i dischi. Fare clic su **Tutti i dischi** e deselezionare i dischi da non replicare. Fare quindi clic su **OK**. È possibile impostare proprietà aggiuntive delle VM in un secondo momento.
+
+    ![Abilitare la replica](./media/site-recovery-physical-to-azure/configprop.png)
+11. In **Impostazioni della replica** > **Configura impostazioni di replica** verificare che siano selezionati i criteri di replica corretti. Se si modificano i criteri, le modifiche verranno applicate al computer di replica e ai nuovi computer.
+12. Abilitare la **Coerenza tra più VM** per raccogliere le macchine in un gruppo di replica e specificare un nome per il gruppo. Fare quindi clic su **OK**. Si noti che:
+
+    * I computer in gruppi di replica vengono replicati insieme e hanno punti di ripristino condivisi coerenti con l'arresto anomalo del sistema e coerenti con l'app in caso di failover.
+    * È consigliabile raggruppare le macchine virtuali e i server fisici in modo da rispecchiare i carichi di lavoro. L'abilitazione della coerenza tra più VM può influire sulle prestazioni del carico di lavoro e deve essere usata solo se i computer eseguono lo stesso carico di lavoro ed è necessaria la coerenza.
+    ![Abilitare la replica](./media/site-recovery-physical-to-azure/policy.png)
+
+13. Fare clic su **Abilita la replica**. È possibile tenere traccia dello stato del processo **Abilita protezione** in **Impostazioni** > **Processi** > **Processi di Site Recovery**. Dopo l'esecuzione del processo **Finalizza protezione** la macchina virtuale è pronta per il failover.
+
+Se si configura l'installazione push, dopo l'abilitazione della replica verrà installato il servizio Mobility. Dopo l'installazione push del servizio Mobility in una VM, verrà avviato un processo di protezione che avrà esito negativo. Dopo l'errore, è necessario riavviare manualmente tutti i computer. Il processo di protezione verrà quindi avviato nuovamente e verrà eseguita la replica iniziale.
+
+
+### <a name="view-and-manage-vm-properties"></a>Visualizzare e gestire le proprietà della macchina virtuale
+
+È consigliabile verificare le proprietà delle VM e apportare tutte le modifiche eventualmente necessarie.
+
+1. Fare clic su **Elementi replicati** e selezionare il computer. Il pannello **Informazioni di base** visualizza informazioni sulle impostazioni e sullo stato dei computer.
+2. In **Proprietà** sono disponibili le informazioni su replica e failover per la VM.
+3. In **Calcolo e rete** > **Proprietà di calcolo** è possibile specificare le dimensioni di destinazione e il nome della VM di Azure. Se necessario, modificare il nome in modo che sia conforme ai [requisiti di Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) .
+4. Modificare le impostazioni per la rete, la subnet e l'indirizzo IP di destinazione che verranno assegnati alla VM di Azure.
+
+   - È possibile impostare l'indirizzo IP di destinazione.
+
+    - Se non si specifica un indirizzo, il computer di cui è stato eseguito il failover usa DHCP.
+    - Se si imposta un indirizzo che non è disponibile al momento del failover, il failover non riesce.
+    - Lo stesso indirizzo IP di destinazione può essere usato per il failover di test, se è disponibile nella rete di failover di test.
+
+   - Il numero di schede di rete dipende dalle dimensioni specificate per la macchina virtuale di destinazione:
+
+     - Se il numero di schede di rete nel computer di origine è minore o uguale al numero di schede consentito per le dimensioni del computer di destinazione, la destinazione avrà lo stesso numero di schede dell'origine.
+     - Se il numero di schede della macchina virtuale di origine supera il numero consentito per le dimensioni della destinazione, verranno usate le dimensioni massime della destinazione.
+     - Ad esempio, se una macchina di origine ha due schede di rete e le dimensioni della macchina di destinazione ne supportano quattro, la macchina di destinazione avrà due schede. Se la macchina di origine dispone di due schede ma le dimensioni di destinazione supportate ne consentono solo una, la macchina di destinazione avrà una sola scheda.     
+   - Se la macchina virtuale ha più schede di rete, si connetteranno tutte alla stessa rete.
+   - Se la macchina virtuale ha più schede di rete, la prima nell'elenco diventa la scheda di rete *predefinita* nella macchina virtuale di Azure.
+5. In **Dischi** vengono visualizzati il sistema operativo della VM e i dischi dati che verranno replicati.
+
+## <a name="run-a-test-failover"></a>Eseguire un failover di test
+
+Dopo aver completato la configurazione, eseguire un failover di test per verificare che tutti gli elementi funzionino come previsto.
+
+
+1. Per eseguire il failover di una singola macchina, in **Impostazioni** > **Elementi replicati** fare clic sulla VM > sull'icona ** +Failover di test**.
+
+    ![Failover di test](./media/site-recovery-vmware-to-azure/TestFailover.png)
+
+1. Per eseguire il failover di un piano di ripristino, in **Impostazioni** > **Piani di ripristino** fare clic con il pulsante destro del mouse sul piano e quindi scegliere **Failover di test**. Per creare un piano di ripristino, [seguire queste istruzioni](site-recovery-create-recovery-plans.md).  
+
+1. In **Failover di test** selezionare la rete di Azure a cui dovranno connettersi le VM di Azure dopo il failover.
+
+1. Fare clic su **OK** per iniziare il failover. Per tenere traccia dello stato del processo, fare clic sulla VM per visualizzarne le proprietà oppure fare clic sul processo **Failover di test** nel nome dell'insieme di credenziali > **Impostazioni** > **Processi** > **Processi di Site Recovery**.
+
+1. Al termine del failover sarà possibile visualizzare la macchina virtuale di Azure di replica in **Macchine virtuali** nel portale di Azure. Assicurarsi che la macchina virtuale sia delle dimensioni appropriate, che sia connessa alla rete giusta e che sia in esecuzione.
+
+1. Se sono state [preparate le connessioni dopo il failover](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover), sarà possibile connettersi alla VM di Azure.
+
+1. Al termine, fare clic su **Cleanup test failover** (Pulizia failover di test) nel piano di ripristino. Fare clic su **Note** per registrare e salvare eventuali osservazioni associate al failover di test. Verranno eliminate le macchine virtuali create durante il failover di test.
+
+Per altri dettagli, vedere il documento relativo al [failover di test in Azure](site-recovery-test-failover-to-azure.md).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Quando la replica è operativa, se si verifica un'interruzione viene eseguito il failover in Azure e vengono create VM di Azure dai dati replicati. È quindi possibile accedere a carichi di lavoro e app in Azure finché non viene eseguito il failback nella posizione primaria di nuovo operativa.
+
+- [Altre informazioni](site-recovery-failover.md) sui diversi tipi di failover e su come eseguirli.
+- [Altre informazioni](site-recovery-migrate-to-azure.md#migrate-on-premises-vms-and-physical-servers) per eseguire la migrazione di computer invece della replica e del failback.
+- Durante la replica dei computer fisici, è possibile solo eseguire il failback in un ambiente VMWare. [Informazioni sul failback](site-recovery-failback-azure-to-vmware.md).
+
+## <a name="third-party-software-notices-and-information"></a>Informazioni e comunicazioni sul software di terze parti
+Do Not Translate or Localize
+
+The software and firmware running in the Microsoft product or service is based on or incorporates material from the projects listed below (collectively, “Third Party Code”).  Microsoft is the not original author of the Third Party Code.  The original copyright notice and license, under which Microsoft received such Third Party Code, are set forth below.
+
+The information in Section A is regarding Third Party Code components from the projects listed below. Such licenses and information are provided for informational purposes only.  This Third Party Code is being relicensed to you by Microsoft under Microsoft's software licensing terms for the Microsoft product or service.  
+
+The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
+
+The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
+

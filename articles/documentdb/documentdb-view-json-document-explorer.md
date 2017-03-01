@@ -1,5 +1,5 @@
 ---
-title: Esplora documenti di DocumentDB per la visualizzazione di codice JSON | Documentazione Microsoft
+title: 'Strumento del portale di Azure DocumentDB: Esplora documenti | Documentazione Microsoft'
 description: Informazioni su Esplora documenti di DocumentDB, uno strumento del portale di Azure per visualizzare codice JSON, modificare, creare e caricare documenti JSON con il database di documenti NoSQL DocumentDB.
 keywords: visualizzare json
 services: documentdb
@@ -13,21 +13,27 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/10/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 281a24005f076379fefe859386fdf84065c5cfe7
+ms.sourcegitcommit: 81c569c5130869e6d8c9dc79feca592aecc44e61
+ms.openlocfilehash: edccbbb72649c5a443fefd7f1d97a8c01a4daff2
+ms.lasthandoff: 02/15/2017
 
 
 ---
 # <a name="view-edit-create-and-upload-json-documents-using-documentdb-document-explorer"></a>Visualizzare, modificare, creare e caricare documenti JSON con Esplora documenti di DocumentDB
 Questo articolo offre una panoramica di Esplora documenti di [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) , uno strumento del portale di Azure che consente di visualizzare, modificare, creare, caricare e filtrare documenti JSON con DocumentDB. 
 
-Si noti che Esplora documenti non è abilitato per gli account DocumentDB con supporto del protocollo per MongoDB. Questa pagina verrà aggiornata quando verrà abilitata questa funzionalità.
+> [!NOTE]
+> Esplora documenti non è abilitato per gli account DocumentDB con supporto del protocollo per MongoDB. Questa pagina verrà aggiornata quando verrà abilitata questa funzionalità.
 
-## <a name="launch-document-explorer"></a>Avviare Esplora documenti
-1. Nell'indice del portale di Azure fare clic su **DocumentDB (NoSQL)**. Se **DocumentDB (NoSQL)** non è visibile, fare clic su **More Services** (Altri servizi) e quindi su **DocumentDB (NoSQL)**.
+<a id="launch-document-explorer"></a>
+
+## <a name="launch-document-explorer-in-the-azure-portal"></a>Avviare Esplora documenti nel portale di Azure
+1. Nel [portale di Azure](https://portal.azure.com) nel riquadro di navigazione a sinistra, fare clic sull'![icona di Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**. 
+
+    Se **NoSQL (DocumentDB)** non è visibile, fare clic su **Altri servizi** nella parte inferiore, quindi fare clic sull'![icona di Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**.
 2. Selezionare il nome dell'account. 
 3. Nel menu delle risorse fare clic su **Esplora documenti**. 
    
@@ -35,7 +41,7 @@ Si noti che Esplora documenti non è abilitato per gli account DocumentDB con su
    
     Nel pannello **Esplora documenti** gli elenchi a discesa **Database** e **Raccolta** vengono precompilati a seconda del contesto in cui viene avviato Esplora documenti. 
 
-## <a name="create-a-document"></a>Creare un documento
+## <a name="create-a-json-document"></a>Creare un documento JSON
 1. [Avviare Esplora documenti](#launch-document-explorer).
 2. Nel pannello **Esplora documenti** fare clic su **Crea documento**. 
    
@@ -53,7 +59,7 @@ Si noti che Esplora documenti non è abilitato per gli account DocumentDB con su
    
     Se si dispone già di dati di file JSON, MongoDB, SQL Server, file CSV, archiviazione tabelle di Azure, Amazon DynamoDB, HBase o di altre raccolte di DocumentDB, è possibile usare lo [strumento di migrazione dati](documentdb-import-data.md) di DocumentDB per importare rapidamente i dati.
 
-## <a name="edit-a-document"></a>Modificare un documento
+## <a name="edit-a-json-document"></a>Modificare un documento JSON
 1. [Avviare Esplora documenti](#launch-document-explorer).
 2. Per modificare un documento esistente, selezionarlo nel pannello **Esplora documenti**, modificarlo nel pannello **Documento** e quindi fare clic su **Salva**.
    
@@ -63,7 +69,7 @@ Si noti che Esplora documenti non è abilitato per gli account DocumentDB con su
    
     ![Schermata del comando per ignorare di Esplora documenti](./media/documentdb-view-JSON-document-explorer/discardedit.png)
 
-## <a name="delete-a-document"></a>Eliminare un documento
+## <a name="delete-a-document-from-documentdb"></a>Eliminare un documento da DocumentDB
 1. [Avviare Esplora documenti](#launch-document-explorer).
 2. Selezionare il documento in **Esplora documenti**, fare clic su **Elimina** e quindi confermare l'eliminazione. Dopo la conferma, il documento viene immediatamente rimosso dall'elenco di Esplora documenti.
    
@@ -156,12 +162,5 @@ Per eseguire la migrazione o importare file da un'altra origine, ad esempio file
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla grammatica SQL di DocumentDB supportata in Esplora documenti, vedere l'articolo [Query e sintassi SQL in DocumentDB](documentdb-sql-query.md) o stampare una copia del [Foglio informativo PDF di SQL DocumentDB](documentdb-sql-query-cheat-sheet.md).
-
-Anche il [percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/) è una risorsa utile per l'utente durante l'apprendimento di DocumentDB. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

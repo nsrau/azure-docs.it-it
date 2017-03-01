@@ -4,7 +4,7 @@ description: "Informazioni sulle novità relative alle app per le API nel serviz
 services: app-service\api
 documentationcenter: .net
 author: mohitsriv
-manager: wpickett
+manager: erikre
 editor: tdykstra
 ms.assetid: a9b58066-e8fd-48b8-a651-4613b1736433
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: 30abc823a72431dfd12f1051434191ea904533f6
 ms.openlocfilehash: 4970db1f7b780ed0048f4c1839fff33bed640278
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -121,10 +122,5 @@ Per altre informazioni, leggere gli articoli nella sezione [Documentazione di Ap
 
 * [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAPIApps)
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-apps)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

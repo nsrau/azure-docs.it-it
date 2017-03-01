@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: markgal;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: a4045fc0fc6e2c263da06ed31a590714e80fb4d4
-ms.openlocfilehash: ac13b82c885720fa6d3d127b8e8dbbace5b09ef5
+ms.sourcegitcommit: d7a2b9c13b2c3372ba2e83f726c7bf5cc7e98c02
+ms.openlocfilehash: 4fae07988dea260776368162c03374d83bc55664
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -32,6 +33,11 @@ Dopo l'acquisizione dello snapshot, il servizio Backup di Azure trasferisce i da
 ![Architettura del backup delle macchine virtuali di Azure](./media/backup-azure-vms-introduction/vmbackup-architecture.png)
 
 Quando il trasferimento dei dati è completato, lo snapshot viene rimosso e viene creato un punto di ripristino.
+
+> [!NOTE]
+> Backup di Azure non include il disco temporaneo collegato alla macchina virtuale quando si esegue backup. Maggiori informazioni sul [disco temporaneo](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+>
+>
 
 ### <a name="data-consistency"></a>Coerenza dei dati
 Le operazioni di backup e ripristino dei dati aziendali critici sono ulteriormente complicate dal fatto che il backup di tali dati deve essere eseguito mentre le applicazioni che generano i dati sono in esecuzione. Per risolvere il problema, il servizio Backup di Azure fornisce funzionalità di backup coerenti con l'applicazione per i carichi di lavoro Microsoft avvalendosi del Servizio Copia Shadow del volume per garantire che la scrittura dei dati nell'archiviazione venga effettuata correttamente.
@@ -91,6 +97,10 @@ Nonostante la maggior parte del tempo venga impiegata per la lettura e la copia 
 * Tempo necessario per l' [installazione o l'aggiornamento dell'estensione per il backup](backup-azure-vms.md).
 * Tempo dello snapshot, ovvero il tempo impiegato per attivare uno snapshot. Gli snapshot vengono attivati vicino al momento del backup pianificato.
 * Tempo di attesa di coda. Poiché il servizio di backup elabora i backup di più clienti, è possibile che la copia dei dati di backup dallo snapshot nell'insieme di credenziali di Backup o di Servizi di ripristino non venga avviata immediatamente. Nei periodi di massimo carico, l'attesa può durare al massimo 8 ore a causa del numero di backup in corso di elaborazione. Tuttavia, il tempo di backup totale della macchina virtuale sarà inferiore a 24 ore per i criteri di backup giornalieri.
+* L'ora del trasferimento dati, necessaria al servizio di backup per calcolare le modifiche incrementali da backup e trasferimento precedenti, cambia nell'archiviazione dell'insieme di credenziali.
+
+### <a name="why-am-i-observing-longer15-hours-backup-time"></a>Perché si registrano tempi di backup superiori alle&15; ore?
+Il backup è costituito da due fasi: la cattura di snapshot e il trasferimento degli snapshot nell'insieme di credenziali. Durante la seconda fase, ovvero il trasferimento dei dati nell'insieme di credenziali, al fine di ottimizzare l'archiviazione usata per il backup, vengono trasferite esclusivamente le modifiche incrementali rispetto allo snapshot precedente. A tale scopo, verrà eseguito il calcolo del checksum dei blocchi e, in caso di modifica di un blocco, questo blocco verrà individuato per l'invio nell'insieme di credenziali. Ancora una volta eseguiamo il drill-down nel blocco per verificare se è possibile ridurre al minimo la quantità di trasferimento dati e unire i blocchi modificati da inviare nell'insieme di credenziali. Nel caso di alcune applicazioni legacy, abbiamo constatato che le scritture dalle applicazioni non sono ottimali per l'archiviazione a causa delle dimensioni ridotte e della frammentazione. Pertanto, il tempo di elaborazione dei dati scritti da queste applicazioni è superiore. Il blocco di scrittura da applicazioni minimo consigliato da Azure per le applicazioni in esecuzione su una macchina virtuale è pari a 8 KB. Se l'applicazione usa un blocco inferiore a 8 KB, le prestazioni di backup saranno compromesse a causa di un valore diverso rispetto a quello consigliato da Azure. Si invita l'utente a consultare l'articolo relativo all'[ottimizzazione di applicazioni per prestazioni ottimali con Archiviazione di Azure](../storage/storage-premium-storage-performance.md) e verificare se è possibile ottimizzare l'applicazione per una scrittura ottimale al fine di migliorare le prestazioni di backup. L'articolo illustra l'archiviazione Premium, applicabile anche ai dischi in esecuzione nell'archiviazione Standard.
 
 ## <a name="total-restore-time"></a>Tempo totale di ripristino
 Un'operazione di ripristino è costituita da due sottoattività principali: la copia dei dati dall'insieme di credenziali all'account di archiviazione scelto del cliente e la creazione della macchina virtuale. La copia dei dati dall'insieme di credenziali dipende dalla posizione in cui vengono archiviati i backup internamente in Azure e dalla posizione in cui è memorizzato l'account di archiviazione del cliente. Il tempo necessario alla copia dipende dalle seguenti attività:
@@ -138,9 +148,4 @@ In caso di domande o se si vuole che venga inclusa una funzionalità, è possibi
 * [Gestire i backup delle macchine virtuali](backup-azure-manage-vms.md)
 * [Ripristino di macchine virtuali](backup-azure-restore-vms.md)
 * [Risolvere i problemi relativi al backup delle macchine virtuali di Azure](backup-azure-vms-troubleshoot.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

@@ -4,7 +4,7 @@ description: "Introduzione ad Azure WebJobs SDK. Spiega che cos&quot;è l&quot;S
 services: app-service\web, storage
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: 8281267b-572b-4b14-a328-6704493ea682
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: tdykstra
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 2d21cd34427921ad789b4c95212c07caddd5a966
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -166,10 +167,5 @@ Per altre informazioni, vedere le sezioni relative a [come chiamare manualmente 
 Per altre informazioni su WebJobs SDK, vedere le [risorse consigliate per i Processi Web Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
 Per informazioni sui miglioramenti più recenti di WebJobs SDK, vedere le [note sulla versione](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

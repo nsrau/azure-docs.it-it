@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/30/2017
 ms.author: kakhan
 translationtype: Human Translation
-ms.sourcegitcommit: d86c39ca96633fc84311a4843deee997df9305a6
-ms.openlocfilehash: 692ee9272224369b8d5f892160bc92d5a30c346c
+ms.sourcegitcommit: 1dd5be3ba3a0fbbb4657a2c0b2ca6757a94cc76a
+ms.openlocfilehash: 1c6b4b45b9e0b018a7cb3f28f7868c89ad0fda61
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -348,7 +349,7 @@ Crittografia dischi di Azure consente di proteggere le chiavi di crittografia e 
 #### <a name="create-a-key-vault"></a>Creare un insieme di credenziali delle chiavi
 Per creare un insieme di credenziali delle chiavi, usare una delle opzioni seguenti:
 
-* ["101-Create-KeyVault" Resource Manager template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-key-vault/azuredeploy.json) (Modello di Resource Manager "101-Create-KeyVault")
+* [Modello di Resource Manager "101-Key-Vault-Create"](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 * [Azure PowerShell key vault cmdlets](https://msdn.microsoft.com/library/dn868052.aspx) (Cmdlet dell'insieme di credenziali delle chiavi di Azure PowerShell)
 * Gestione risorse di Azure
 
@@ -1227,9 +1228,4 @@ Quando si collega il disco del sistema operativo, vedere `$KeyEncryptionKey` e `
 ## <a name="for-more-information"></a>Per altre informazioni
 [Esplorare Crittografia dischi di Azure con Azure PowerShell - Parte 1](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/16/explore-azure-disk-encryption-with-azure-powershell.aspx?wa=wsignin1.0)  
 [Esplorare Crittografia dischi di Azure con Azure PowerShell - Parte 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

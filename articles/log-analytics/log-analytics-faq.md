@@ -1,6 +1,6 @@
 ---
 title: Domande frequenti su Log Analytics | Documentazione Microsoft
-description: Risposte alle domande frequenti sul servizio Log Analytics.
+description: Risposte alle domande frequenti sul servizio Log Analytics di Azure.
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/17/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e24e6f9cc383be77dc631a0dd67db099906dccc0
+ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
+ms.openlocfilehash: 4695669dc20b4b4b90ccdaf4db06df2cfcba2167
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -63,7 +64,7 @@ R. I diversi tipi di traffico di ExpressRoute vengono descritti nella [Documenta
 
 Il traffico verso Log Analytics usa il circuito ExpressRoute di peer pubblico.
 
-**D. Esiste un modo semplice per spostare un'area di lavoro di Log Analytics esistente in un'altra area di lavoro di Analytics/sottoscrizione di Azure?**   Ci sono diverse aree di lavoro OMS del cliente che si stanno testando e valutando nella sottoscrizione di Azure e che stanno passando alla produzione e si vuole quindi spostarle nella relativa sottoscrizione di Azure/OMS.  
+**D. Esiste un modo semplice per spostare un'area di lavoro di Log Analytics esistente in un'altra area di lavoro di Analytics/sottoscrizione di Azure?**  Ci sono diverse aree di lavoro OMS del cliente che si stanno testando e valutando nella sottoscrizione di Azure e che stanno passando alla produzione e si vuole quindi spostarle nella relativa sottoscrizione di Azure/OMS.  
 
 A. Il cmdlet `Move-AzureRmResource` consente di spostare un'area di lavoro di Log Analytics e anche un account di Automazione da una sottoscrizione di Azure a un'altra. Per altre informazioni, vedere [Move-AzureRmResource](http://msdn.microsoft.com/library/mt652516.aspx).
 
@@ -89,6 +90,13 @@ Un'icona con un avviso giallo indica problemi di comunicazione tra l'agente e OM
 
 R: In SCOM rimuovere il computer dall'elenco gestito OMS. In questo modo verrà arrestata ogni comunicazione tramite SCOM per tale agente. È possibile impedire che gli agenti connessi direttamente a OMS comunichino con OMS da Pannello di controllo, Sicurezza e impostazioni, **Microsoft Monitoring Agent**.
 In **Analisi dei log di Azure (OMS)**rimuovere tutte le aree di lavoro elencate.
+
+**D: Perché viene visualizzato un errore quando si tenta di spostare l'area di lavoro da una sottoscrizione di Azure a un'altra?**
+
+R: Quando si aggiunge una soluzione, Azure crea una risorsa nella sottoscrizione di Azure in cui è contenuta l'area di lavoro.
+
+In genere, la persona che aggiunge la sottoscrizione è un amministratore o un collaboratore della *sottoscrizione di Azure*. Essere amministratore o collaboratore nel portale di OMS non è sufficiente se l'utente non dispone delle stesse autorizzazioni nel portale di Azure per la sottoscrizione di Azure.
+
 
 ## <a name="agent-data"></a>Dati dell'agente
 **D. Quanti dati è possibile inviare tramite l'agente a Log Analytics? È prevista una quantità massima di dati per ogni cliente?**  
@@ -121,9 +129,4 @@ Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione a Log Analytics](log-analytics-get-started.md) per altre informazioni su Log Analytics e per essere operativi in pochi minuti.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

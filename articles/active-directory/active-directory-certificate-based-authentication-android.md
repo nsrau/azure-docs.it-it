@@ -14,8 +14,9 @@ ms.workload: identity
 ms.date: 02/15/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: c8c6c105c2142dac1b3df6c26838ba8626161092
-ms.openlocfilehash: c22eb13206e629399c20b02fcaeb422d20ac0b21
+ms.sourcegitcommit: c4d95068b5e6472dbb809e675a47cb9eada7ca66
+ms.openlocfilehash: 112f28517196b3b656611a03ed12a40f2e049174
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -31,8 +32,7 @@ La configurazione di questa funzionalità elimina la necessità di immettere una
 
 Questo argomento indica i requisiti e gli scenari supportati per la configurazione dell'autenticazione basata su certificati su un dispositivo Android per gli utenti dei tenant nei piani di Office 365 Enterprise, Business, Education e US Government. 
 
-Questa funzionalità è disponibile in anteprima nei piani di Office 365 China, US Government Defense e US Government Federal. 
-
+Questa funzionalità è disponibile in anteprima nei piani di Office 365 US Government Defense e Federal.
 
 
 ## <a name="office-mobile-applications-support"></a>Supporto delle applicazioni Office per dispositivi mobili
@@ -79,9 +79,4 @@ Se si desidera configurare l'autenticazione basata su certificati nel proprio am
 
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-android/ic195031.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -2,7 +2,7 @@
 title: "Hosting ad alta densità nel servizio app di Azure | Documentazione Microsoft"
 description: "Hosting ad alta densità nel servizio app di Azure"
 author: btardif
-manager: wpickett
+manager: erikre
 editor: 
 services: app-service\web
 documentationcenter: 
@@ -17,6 +17,7 @@ ms.author: byvinyal
 translationtype: Human Translation
 ms.sourcegitcommit: 0c2677b388f7a88ff88715a05212633565393cc2
 ms.openlocfilehash: 2d5d1d5123ca718b2e7dcdf426b77f91969dc9dc
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -152,10 +153,5 @@ Per configurare l'hosting ad alta densità per le app, seguire questa procedura:
 3. Impostare il flag PerSiteScaling su true nel piano di servizio app.
 4. Vengono create nuove app e assegnate al piano di servizio app con la proprietà **numberOfWorkers** impostata su **1**. L'uso di questa configurazione consente di ottenere la massima densità possibile nel pool di lavoro.
 5. Il numero di ruoli di lavoro può essere configurato in modo indipendente per ogni app, per concedere risorse aggiuntive in base alle esigenze. Ad esempio, per un'app a uso elevato è possibile impostare **numberOfWorkers** su **3** per avere maggiore capacità di elaborazione per l'app, mentre per le app a uso ridotto è possibile impostare **numberOfWorkers** su **1**.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

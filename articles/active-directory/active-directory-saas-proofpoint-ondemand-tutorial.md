@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7aa746b8c6f4b747a7dca0e9bf75e61b2707b7e1
+ms.sourcegitcommit: 7cc133d6289bffbc3b7fc591104bc51ebfc67ddd
+ms.openlocfilehash: 2ea87726b06a0e8ab20515031424bf4e93f45a80
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -35,7 +36,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 Per configurare l'integrazione di Azure AD con Proofpoint on Demand, sono necessari gli elementi seguenti:
 
 * Sottoscrizione di Azure AD.
-* Sottoscrizione con accesso Single Sign-On di Proofpoint on Demand.
+* Sottoscrizione con accesso Single Sign-On (SSO) di Proofpoint on Demand
 
 A questo scopo, seguire queste indicazioni:
 
@@ -47,8 +48,8 @@ In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Az
 
 Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
-1. Aggiungere Proofpoint on Demand dalla raccolta.
-2. Configurare e testare l'accesso Single Sign-On di Azure AD.
+* Aggiungere Proofpoint on Demand dalla raccolta.
+* Configurare e testare l'accesso Single Sign-On di Azure AD.
 
 ## <a name="add-proofpoint-on-demand-from-the-gallery"></a>Aggiungere Proofpoint on Demand dalla raccolta
 Per configurare l'integrazione di Proofpoint on Demand in Azure AD, è necessario aggiungere Proofpoint on Demand dalla raccolta al proprio elenco di app SaaS gestite.
@@ -98,29 +99,20 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
    
     ![Pagina "Configurare le impostazioni dell'app" con caselle compilate](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_04.png)
-   
-    a. Nella casella **URL DI ACCESSO** digitare l'URL usato dall'utente per accedere all'applicazione Proofpoint on Demand. Usare il modello seguente: **https://\<nomehost\>.pphosted.com/ppssamlsp_nomehost**
-   
-    b. Nella casella **IDENTIFICATORE** digitare l'URL usando il modello seguente: **https://\<nomehost/>.pphosted.com/ppssamlsp**
-   
-    c. Nella casella **URL DI RISPOSTA** digitare l'URL usando il modello seguente: **https://\<nomehost/>.pphosted.com:portnumber/v1/samlauth/samlconsumer**
-   
-    d. Fare clic su **Next**.
+   1. Nella casella **URL DI ACCESSO** digitare l'URL usato dall'utente per accedere all'applicazione Proofpoint on Demand. Usare il modello seguente: **https://\<nomehost\>.pphosted.com/ppssamlsp_nomehost**
+   2. Nella casella **IDENTIFICATORE** digitare l'URL usando il modello seguente: **https://\<nomehost/>.pphosted.com/ppssamlsp**
+   3. Nella casella **URL DI RISPOSTA** digitare l'URL usando il modello seguente: **https://\<nomehost/>.pphosted.com:portnumber/v1/samlauth/samlconsumer**  
+   4. Fare clic su **Avanti**.
 4. Nella pagina **Configura accesso Single Sign-On in Proofpoint on Demand** seguire questa procedura:
    
     ![Pagina "Configura accesso Single Sign-On in Proofpoint on Demand" con pulsante "Scarica certificato"](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_05.png)
-   
-    a. Fare clic su **Scarica certificato**e quindi salvare il file nel computer.
-   
-    b. Fare clic su **Avanti**.
+   1. Fare clic su **Scarica certificato**e quindi salvare il file nel computer.   
+   2. Fare clic su **Avanti**.
 5. Per ottenere l'accesso Single Sign-On configurato per l'applicazione, contattare il team di supporto Proofpoint on Demand e fornire i seguenti elementi:
-   
-    • Certificato scaricato
-   
-    • ID entità
-   
-    • URL SSO SAML
-6. Nel portale di Azure classico selezionare la conferma della configurazione e fare clic su **Avanti**.
+   * Certificato scaricato
+   * L'ID entità
+   * URL SSO SAML
+6. Nel portale classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
    
     ![Casella di controllo che conferma la configurazione dell'accesso Single Sign-On][10]
 7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.  
@@ -142,34 +134,28 @@ In questa sezione viene creato un utente test chiamato Britta Simon nel portale 
 4. Per aprire la finestra di dialogo **Aggiungi utente** , fare clic su **AGGIUNGI UTENTE** sulla barra degli strumenti in basso.
    
     ![Pulsante AGGIUNGI UTENTE](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_04.png)
-5. Nella pagina **Informazioni sull'utente** seguire questa procedura:  ![Pagina "Informazioni sull'utente" con caselle compilate](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_05.png)
-   
-    a. Nella casella **TIPO DI UTENTE** selezionare **Nuovo utente nell'organizzazione**.
-   
-    b. Nella casella di testo **NOME UTENTE** digitare **BrittaSimon**.
-   
-    c. Fare clic su **Avanti**.
-6. Nella pagina **Profilo utente** seguire questa procedura: ![Pagina "Profilo utente" con caselle compilate](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_06.png)
-   
-   a. Nella casella di testo **NOME** digitare **Britta**.  
-   
-   b. Nella casella di testo **COGNOME** digitare **Simon**.
-   
-   c. Nella casella di testo **NOME VISUALIZZATO** digitare **Britta Simon**.
-   
-   d. Nell'elenco **RUOLO** selezionare **Utente**.
-   
-   e. Fare clic su **Avanti**.
+5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
+
+    ![La pagina "Informazioni sull'utente" con le caselle compilate](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_05.png)   
+   1. Nella casella **TIPO DI UTENTE** selezionare **Nuovo utente nell'organizzazione**.
+   2. Nella casella di testo **NOME UTENTE** digitare **BrittaSimon**.
+   3. Fare clic su **Avanti**.
+6. Nella pagina del **profilo utente** seguire questa procedura:
+
+  ![La pagina del profilo dell'utente con le caselle compilate](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_06.png)   
+   1. Nella casella di testo **NOME** digitare **Britta**.  
+   2. Nella casella di testo **COGNOME** digitare **Simon**.
+   3. Nella casella di testo **NOME VISUALIZZATO** digitare **Britta Simon**.
+   4. Nell'elenco **RUOLO** selezionare **Utente**.
+   5. Fare clic su **Avanti**.
 7. Nella pagina **Ottieni password temporanea** fare clic su **Crea**.
    
-    ![Pulsante per la creazione di una password temporanea](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_07.png)
+   ![Pulsante per la creazione di una password temporanea](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_07.png)
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
    
-    ![Pagina "Ottieni password temporanea" con informazioni sulla password](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_08.png)
-   
-    a. Prendere nota del valore visualizzato in **NUOVA PASSWORD**.
-   
-    b. Fare clic su **Complete**.   
+   ![Pagina "Ottieni password temporanea" con informazioni sulla password](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_08.png)  
+   1. Prendere nota del valore visualizzato in **NUOVA PASSWORD**.
+   2. Fare clic su **Completa**.   
 
 ### <a name="create-a-proofpoint-on-demand-test-user"></a>Creare un utente test di Proofpoint on Demand
 In questa sezione viene creato un utente di nome Britta Simon in Proofpoint on Demand. Per aggiungere utenti alla piattaforma di Proofpoint on Demand, collaborare con il team di supporto di Proofpoint on Demand.
@@ -219,9 +205,4 @@ Quando si fa clic sul riquadro **Proofpoint on Demand** nel pannello in accesso,
 [203]: ./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

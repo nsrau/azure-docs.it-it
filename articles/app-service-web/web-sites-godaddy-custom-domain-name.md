@@ -4,7 +4,7 @@ description: Informazioni su come usare un nome di dominio di GoDaddy con le app
 services: app-service
 documentationcenter: 
 author: erikre
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: 33233e30-5846-488f-83f3-b32e5c114564
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: fe8b4b097f7ff157d624c09b8dbf26f94401395c
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -87,10 +88,5 @@ Per associare il dominio personalizzato a un'app Web nel servizio app, è necess
 
 ## <a name="whats-changed"></a>Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

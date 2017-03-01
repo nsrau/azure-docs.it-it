@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: 1a5af0b498cfdf1946f5c405d9557b0c2d2c8e63
-ms.openlocfilehash: 1e9e54ee935b4c27eb93f72eb99c3ce52cc6c7e2
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 848a4011fd180721cf269390b8dd7426b2287dd2
+ms.lasthandoff: 02/22/2017
 
 ---
 # <a name="authenticate-with-a-container-registry"></a>Eseguire l'autenticazione con un registro contenitori
@@ -59,7 +60,7 @@ Le entità servizio consentono l'[accesso basato su ruoli](../active-directory/r
 
 
 ## <a name="admin-account"></a>Account amministratore
-Per ogni registro che si crea viene creato automaticamente un account amministratore. Per impostazione predefinita l'account è disabilitato, ma è possibile abilitarlo e gestirne le credenziali, ad esempio tramite il [portale](container-registry-get-started-portal.md#manage-registry-settings) o con i [comandi dell'anteprima dell'interfaccia della riga di comando di Azure versione 2.0](container-registry-get-started-azure-cli.md#manage-admin-credentials). Se l'account è abilitato, è possibile passare il nome utente e la password al comando `docker login` per l'autenticazione di base per accedere al registro. ad esempio:
+Per ogni registro che si crea viene creato automaticamente un account amministratore. Per impostazione predefinita l'account è disabilitato, ma è possibile abilitarlo e gestirne le credenziali, ad esempio tramite il [portale](container-registry-get-started-portal.md#manage-registry-settings) o con i [comandi dell'interfaccia della riga di comando di Azure 2.0](container-registry-get-started-azure-cli.md#manage-admin-credentials). Se l'account è abilitato, è possibile passare il nome utente e la password al comando `docker login` per l'autenticazione di base per accedere al registro. ad esempio:
 
 ```
 docker login myregistry-contoso.azurecr.io -u myAdminName -p myPassword
@@ -74,10 +75,5 @@ docker login myregistry-contoso.azurecr.io -u myAdminName -p myPassword
 * [Eseguire il push della prima immagine con l'interfaccia della riga di comando di Docker](container-registry-get-started-docker-cli.md).
 * Per altre informazioni sull'autenticazione nell'anteprima del registro contenitori, vedere il [post di blog](https://blogs.msdn.microsoft.com/stevelasker/2016/11/17/azure-container-registry-user-accounts/). 
 
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

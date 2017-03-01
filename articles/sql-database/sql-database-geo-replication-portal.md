@@ -3,7 +3,7 @@ title: Configurare la replica geografica per il database SQL di Azure con il por
 description: Configurare la replica geografica per il database SQL di Azure usando il portale di Azure
 services: sql-database
 documentationcenter: 
-author: anosov1960
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: d0b29822-714f-4633-a5ab-fb1a09d43ced
@@ -14,21 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/22/2016
-ms.author: sashan;carlrab
+ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 9faff06ee1856ca6490add759acd3c5f36719853
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: fe2d2ef731fb94c7e4e8da0e518bcef8c1ada650
+ms.lasthandoff: 02/16/2017
 
 
 ---
-# <a name="configure-geo-replication-for-azure-sql-database-with-the-azure-portal"></a>Configurare la replica geografica per il Database SQL di Azure con il Portale di Azure
-> [!div class="op_single_selector"]
-> * [Panoramica](sql-database-geo-replication-overview.md)
-> * [Portale di Azure](sql-database-geo-replication-portal.md)
-> * [PowerShell](sql-database-geo-replication-powershell.md)
-> * [T-SQL](sql-database-geo-replication-transact-sql.md)
-> 
-> 
+# <a name="configure-active-geo-replication-for-azure-sql-database-with-the-azure-portal"></a>Configurare la replica geografica attiva per il database SQL di Azure con il portale di Azure
 
 Questo articolo illustra come configurare la replica geografica attiva per un database SQL usando il [portale di Azure](http://portal.azure.com).
 
@@ -39,7 +33,7 @@ Per avviare un failover con il portale di Azure, vedere [Avviare un failover pia
 > 
 > 
 
-Per configurare la replica geografica tramite il portale di Azure, è necessaria la risorsa seguente:
+Per configurare la replica geografica attiva tramite il portale di Azure, è necessaria la risorsa seguente:
 
 * Un database SQL di Azure logico: il database primario che si vuole replicare in una area geografica diversa.
 
@@ -51,7 +45,7 @@ La procedura seguente crea un nuovo database secondario in una relazione di repl
 
 Per aggiungere un database secondario, è necessario essere il proprietario o un comproprietario della sottoscrizione.
 
-Il database secondario ha lo stesso nome del database primario e ha, per impostazione predefinita, lo stesso livello di servizio. Il database secondario può essere un database autonomo o un database in un pool elastico. Per altre informazioni, vedere [Livelli di servizio](sql-database-service-tiers.md).
+Il database secondario ha lo stesso nome del database primario e ha, per impostazione predefinita, lo stesso livello di servizio. Il database secondario può essere un database singolo o un database in un pool elastico. Per altre informazioni, vedere [Livelli di servizio](sql-database-service-tiers.md).
 Dopo aver creato ed eseguito il seeding del database secondario, inizia la replica dei dati dal database primario al nuovo database secondario.
 
 > [!NOTE]
@@ -90,10 +84,5 @@ Questa operazione interrompe in modo permanente la replica al database secondari
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sulla replica geografica attiva, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md).
 * Per la panoramica e gli scenari della continuità aziendale, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

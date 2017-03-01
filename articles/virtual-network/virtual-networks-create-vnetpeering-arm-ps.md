@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayan; annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 5240bfc66ce15f845a511b7f09a5cd6209c8d539
-ms.openlocfilehash: 34cc0fbddadb3860320ae730c2bc9951c735c7f9
+ms.sourcegitcommit: 3fcd6583b415cea6b2151651297c55c93e59c796
+ms.openlocfilehash: b0375a99f5ea3d6af2d3ead382f9a43f1fd285f0
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -155,7 +156,7 @@ Per creare un peering reti virtuali con PowerShell, seguire questa procedura:
         RemoteGateways        : null
         RemoteVirtualNetworkAddressSpace : null
 
-    Dopo aver stabilito il peering, le macchine virtuali devono poter comunicare tra loro in entrambe le reti virtuali. Per impostazione predefinita, `AllowVirtualNetworkAccess` è impostato su *True* e il peering reti virtuali effettuerà il provisioning degli ACL appropriati per consentire la comunicazione tra le reti virtuali. È comunque possibile applicare le regole del gruppo di sicurezza di rete per bloccare la connettività tra subnet o macchine virtuali specifiche per ottenere il controllo granulare dell'accesso tra due reti virtuali. Per altre informazioni sui gruppi di sicurezza di rete, vedere l'articolo ]network security group](virtual-networks-create-nsg-arm-ps.md).
+    Dopo aver stabilito il peering, le macchine virtuali devono poter comunicare tra loro in entrambe le reti virtuali. Per impostazione predefinita, `AllowVirtualNetworkAccess` è impostato su *True* e il peering reti virtuali effettuerà il provisioning degli ACL appropriati per consentire la comunicazione tra le reti virtuali. È comunque possibile applicare le regole del gruppo di sicurezza di rete per bloccare la connettività tra subnet o macchine virtuali specifiche per ottenere il controllo granulare dell'accesso tra due reti virtuali. Per altre informazioni sui gruppi di sicurezza di rete, vedere l'articolo [Gruppi di sicurezza di rete](virtual-networks-create-nsg-arm-ps.md).
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
@@ -225,7 +226,7 @@ Per creare un peering reti virtuali tra sottoscrizioni con PowerShell, seguire q
 [!INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
 
 1. Se si sta creando un peering tra reti virtuali distribuite con modelli di distribuzione diversi nella *stessa* sottoscrizione, andare al passaggio 2. La possibilità di creare un peering tra reti virtuali distribuite con modelli di distribuzione diversi in sottoscrizioni *diverse* è disponibile in versione di **anteprima**. Le funzionalità in anteprima non offrono lo stesso livello di affidabilità e lo stesso contratto di servizio delle funzionalità in versione di disponibilità generale. Se si sta creando un peering tra reti virtuali distribuite con modelli di distribuzione diversi in sottoscrizioni diverse, è necessario prima completare le attività seguenti:
-    - Registrare la funzionalità in anteprima nella sottoscrizione di Azure immettendo il comando seguente di PowerShell: `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network`
+    - Registrare la funzionalità in anteprima nella sottoscrizione di Azure immettendo il comando seguente di PowerShell: `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network` e `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network`
     - Completare i passaggi 1 e 2 della sezione [Peering tra sottoscrizioni](#x-sub) di questo articolo.
 2. Leggere l'oggetto di rete virtuale per **VNET1**, la rete virtuale di Azure Resource Manager, immettendo il comando seguente:
 
@@ -235,7 +236,7 @@ Per creare un peering reti virtuali tra sottoscrizioni con PowerShell, seguire q
 
 3. Per stabilire il peering reti virtuali in questo scenario, è necessario un solo collegamento, nello specifico uno da **VNET1** a **VNET2**. Per questo passaggio, è necessario conoscere l'ID risorsa della rete virtuale classica. Il formato dell'ID del gruppo di risorse è simile all'esempio seguente:
 
-        subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.ClassicNetwork/virtualNetworks/{VirtualNetworkName}
+           subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.ClassicNetwork/virtualNetworks/{VirtualNetworkName}
 
     Assicurarsi di sostituire SubscriptionID, ResourceGroupName e VirtualNetworkName con i nomi appropriati.
 
@@ -279,10 +280,5 @@ Per creare un peering reti virtuali tra sottoscrizioni con PowerShell, seguire q
     ```
 
 2. Dopo la rimozione di un collegamento in un peering reti virtuali, lo stato del collegamento peer sarà *Disconnesso*. Con questo stato non si potrà ricreare il collegamento fino a quando lo stato del collegamento peer non diventerà *Avviato*. È consigliabile rimuovere entrambi i collegamenti prima di ricreare il peering reti virtuali.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 83eb96e8e9d1d5ff31d87141fe7270c0db8867bd
+ms.sourcegitcommit: e210fb7ead88a9c7f82a0d0202a1fb31043456e6
+ms.openlocfilehash: f1f963c1401b785b3d4ee007b6ea61f221f9ec4d
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -93,7 +94,7 @@ Per un'app di esempio che illustra la libreria client, vedere [Iniziare a usare 
 
 Per convertire i database esistenti e usare gli strumenti, vedere l'articolo sulla [migrazione dei database esistenti per aumentare il numero di istanze](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-Per visualizzare le specifiche del pool elastico, vedere [Considerazioni di prezzo e prestazioni per un pool elastico](sql-database-elastic-pool-guidance.md) oppure creare un nuovo pool con questa [esercitazione](sql-database-elastic-pool-create-portal.md).  
+Per visualizzare le specifiche del pool elastico, vedere [Considerazioni di prezzo e prestazioni per un pool elastico](sql-database-elastic-pool-guidance.md) oppure creare un nuovo pool con [pool elastici](sql-database-elastic-pool-manage-portal.md)..  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -103,10 +104,5 @@ Per visualizzare le specifiche del pool elastico, vedere [Considerazioni di prez
 [2]:./media/sql-database-elastic-scale-introduction/h_versus_vert.png
 [3]:./media/sql-database-elastic-scale-introduction/overview.png
 [4]:./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

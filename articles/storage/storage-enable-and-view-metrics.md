@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 02/14/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: c3519943bf60aebc8510b7a7ac577bbe04587bd8
-ms.openlocfilehash: 05f4d8d6e9155f163ef44ef189067427ac606f46
+ms.sourcegitcommit: d7a08bb0f4128eb3915658b41843b35613108a98
+ms.openlocfilehash: d544695654ff136ee25856cb4a0309f882057ebb
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -24,9 +25,9 @@ ms.openlocfilehash: 05f4d8d6e9155f163ef44ef189067427ac606f46
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../includes/storage-selector-portal-enable-and-view-metrics.md)]
 
 ## <a name="overview"></a>Panoramica
-Per impostazione predefinita, Metriche di archiviazione non è abilitato per i servizi di archiviazione. È possibile abilitare il monitoraggio tramite il [portale di Azure](https://portal.azure.com) o Windows PowerShell o a livello di codice con la libreria del client di archiviazione.
+Le metriche di archiviazione vengono abilitate per impostazione predefinita quando si crea un nuovo account di archiviazione. È possibile configurare il monitoraggio tramite il [portale di Azure](https://portal.azure.com) o Windows PowerShell o a livello di codice con una delle librerie del client di archiviazione.
 
-Quando si abilita Metriche di archiviazione, è necessario scegliere un periodo di memorizzazione per i dati: questo periodo determina per quanto tempo il servizio di archiviazione mantiene le metriche e addebita all'utente lo spazio necessario per archiviarle. In genere, è consigliabile usare un periodo di memorizzazione per le metriche al minuto più breve che per le metriche orarie, a causa dello spazio supplementare significativo necessario per le metriche al minuto. È consigliabile scegliere un periodo di memorizzazione tale da avere tempo sufficiente per analizzare i dati e scaricare le metriche da mantenere per l'analisi non in linea o la creazione di report. Tenere presente che verrà addebitato anche il download dei dati di metrica dall'account di archiviazione.
+È possibile configurare un periodo di memorizzazione per i dati delle metriche: questo periodo determina per quanto tempo il servizio di archiviazione mantiene le metriche e addebita all'utente lo spazio necessario per archiviarle. In genere, è consigliabile usare un periodo di memorizzazione per le metriche al minuto più breve che per le metriche orarie, a causa dello spazio supplementare significativo necessario per le metriche al minuto. È consigliabile scegliere un periodo di memorizzazione tale da avere tempo sufficiente per analizzare i dati e scaricare le metriche da mantenere per l'analisi non in linea o la creazione di report. Tenere presente che verrà addebitato anche il download dei dati di metrica dall'account di archiviazione.
 
 ## <a name="how-to-enable-metrics-using-the-azure-portal"></a>Come abilitare le metriche usando il portale di Azure
 Seguire questi passaggi per abilitare le metriche nel [portale di Azure](https://portal.azure.com):
@@ -111,10 +112,10 @@ Se si vogliono scaricare le metriche per l'archiviazione a lungo termine o per a
 * Scrivere un'applicazione personalizzata o script per leggere e archiviare le tabelle.
 
 Molti strumenti di esplorazione dell'archivio di terze parti sono compatibili con queste tabelle e consentono di visualizzarle direttamente.
-Vedere [Strumenti di esplorazione degli archivi di Azure](storage-explorers.md) per un elenco di strumenti disponibili.
+Vedere [Strumento client di Archiviazione di Azure](storage-explorers.md) per un elenco di strumenti disponibili.
 
 > [!NOTE]
-> A partire dalla versione 0.8.0 di [Microsoft Azure Storage Explorer](http://storageexplorer.com/), a questo punto sarà possibile visualizzare e scaricare le tabelle della metrica di analisi.
+> A partire dalla versione 0.8.0 di [Microsoft Azure Storage Explorer](http://storageexplorer.com/) (Esplora archivi di Microsoft Azure), è possibile visualizzare e scaricare le tabelle della metrica di analisi.
 > 
 > 
 
@@ -149,7 +150,12 @@ Nei dati delle metriche al minuto di questo esempio, la chiave di partizione usa
 
 I dati di esempio sopra riportati mostrano tutti i record per un solo minuto (a partire dalle 11.00). La somma del numero di richieste QueryEntities, del numero di richieste QueryEntity e del numero di richieste UpdateEntity è sette, che corrisponde al totale visualizzato nella riga user:All. Analogamente, è possibile ricavare la latenza end-to-end media 104,4286 nella riga user:All calcolando ((143,8 * 5) + 3 + 9) / 7.
 
-È consigliabile impostare gli avvisi nella pagina Monitoraggio del [portale di Azure](https://portal.azure.com) in modo che Metriche di archiviazione possa notificare automaticamente eventuali importanti modifiche nel comportamento dei servizi di archiviazione. Se si usa uno strumento di esplorazione di archiviazione per scaricare i dati di metrica in un formato delimitato, è possibile usare Microsoft Excel per analizzare i dati. Per un elenco di strumenti di esplorazione di archiviazione disponibili, vedere il post di blog [Microsoft Azure Storage Explorers](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx).
+## <a name="metrics-alerts"></a>Avvisi delle metriche
+È consigliabile impostare gli avvisi nel [portale di Azure](https://portal.azure.com) in modo che le metriche di archiviazione possano notificare automaticamente eventuali importanti modifiche nel comportamento dei servizi di archiviazione. Se si usa uno strumento di esplorazione di archiviazione per scaricare i dati di metrica in un formato delimitato, è possibile usare Microsoft Excel per analizzare i dati. Vedere [Strumento client di Archiviazione di Azure](storage-explorers.md) per un elenco di strumenti di esplorazione di archiviazione disponibili. È possibile configurare gli avvisi nel pannello **Regole di avviso**, accessibile da **Monitoraggio** nel pannello dei menu dell'account di archiviazione.
+
+> [!IMPORTANT]
+> Potrebbe verificarsi un ritardo tra un evento di archiviazione e la memorizzazione dei relativi dati di metrica oraria o al minuto. In caso di metriche al minuto, è possibile che vengano scritti contemporaneamente diversi dati. Ciò può comportare l'aggregazione di transazioni dai minuti precedenti nella transazione per il minuto corrente. In questo caso il servizio avvisi potrebbe non avere tutti i dati di metrica a disposizione per l'intervallo di avviso configurato, il che potrebbe determinare l'attivazione imprevista degli avvisi.
+>
 
 ## <a name="accessing-metrics-data-programmatically"></a>Accesso ai dati di metrica a livello di codice
 Nell'elenco riportato di seguito viene illustrato il codice C# che consente l'accesso alle metriche al minuto per un intervallo di minuti. Vengono inoltre visualizzati i risultati in una finestra della console. Viene utilizzata la libreria di archiviazione di Azure versione 4 che include la classe CloudAnalyticsClient, in grado di semplificare l'accesso alle tabelle di metrica nell'archiviazione.
@@ -208,9 +214,4 @@ Anche la capacità usata dalle tabelle di metrica è fatturabile: è possibile u
 * La tabella di capacità per i BLOB contiene due righe aggiunte ogni giorno (se l'utente ha optato per i log): di conseguenza, ogni giorno la dimensione della tabella aumenta di circa 300 byte.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Abilitazione di Registrazione archiviazione e accesso ai dati di log](https://msdn.microsoft.com/library/dn782840.aspx)
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+[Abilitazione di Registrazione archiviazione e accesso ai dati di log](/rest/api/storageservices/fileservices/Enabling-Storage-Logging-and-Accessing-Log-Data)

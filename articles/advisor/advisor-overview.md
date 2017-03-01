@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: f67ca5996fdde0f0939ac46c2f6280f9d89af3d0
-ms.openlocfilehash: a39a5555ce3af59b509a0522725addbb382ff7af
+ms.sourcegitcommit: e7fc6cb4ee4752bb7ed90a8f64edcc7c82ec3a88
+ms.openlocfilehash: 3c4f6d13dd43ae557b177883e14044e637bd803b
+ms.lasthandoff: 02/21/2017
 
 ---
 
@@ -28,9 +29,9 @@ Informazioni su Azure Advisor, sulle sue funzionalità chiave e sulle domande pi
 Azure Advisor è un consulente cloud personalizzato che illustra come seguire le procedure consigliate per ottimizzare le distribuzioni di Azure. Analizza i dati di telemetria dell'uso e della configurazione delle risorse e consiglia soluzioni che consentono di migliorare l'efficienza dei costi, le prestazioni, la disponibilità elevata e la sicurezza delle risorse di Azure.
 
 Con Azure Advisor, è possibile:
--   ottenere consigli personalizzati, attuabili e proattivi sulle procedure consigliate 
--   migliorare le prestazioni, la sicurezza e la disponibilità elevata delle risorse, cercando al tempo stesso le opportunità ottimali per ridurre la spesa complessiva di Azure
--   ricevere consigli con azioni incorporate
+-    ottenere consigli personalizzati, attuabili e proattivi sulle procedure consigliate 
+-    migliorare le prestazioni, la sicurezza e la disponibilità elevata delle risorse, cercando al tempo stesso le opportunità ottimali per ridurre la spesa complessiva di Azure
+-    ricevere consigli con azioni incorporate
 
 È possibile accedere ad Advisor attraverso il [portale di Azure](https://aka.ms/azureadvisordashboard). Accedere al [portale](https://portal.azure.com), selezionare **Sfoglia** e scorrere fino ad **Azure Advisor**. Nel dashboard di Advisor vengono visualizzati consigli personalizzati per la sottoscrizione selezionata. I consigli sono suddivisi in quattro categorie. 
 
@@ -45,7 +46,7 @@ Con Azure Advisor, è possibile:
   ![Tipi di consigli di Advisor](./media/advisor-overview/advisor-all-tab-examples.png)
 
 > [!NOTE]
-> Azure Advisor genera consigli per le sottoscrizioni in cui all'utente è assegnato il ruolo di **proprietario**, **collaboratore** o **lettore**.
+> Per accedere alle raccomandazioni di Advisor, è innanzitutto necessario **registrare** la sottoscrizione con Advisor. Una sottoscrizione viene registrata quando il **proprietario della sottoscrizione** avvia il dashboard di Advisor e fa clic sul pulsante **Get recommendations** (Ottieni consigli). Si tratta di un'**operazione una tantum**. Dopo aver registrato una sottoscrizione, è possibile accedere alle raccomandazioni di Advisor come **Proprietario**, **Collaboratore** o **Lettore** di una sottoscrizione, di un gruppo di risorse o di una risorsa specifica.
 
 È possibile fare clic su un consiglio per scoprire altre informazioni. È inoltre possibile trovare informazioni sulle azioni che è possibile eseguire per sfruttare un'opportunità o risolvere un problema. Advisor offre consigli con azioni incorporate o collegamenti alla documentazione. Facendo clic su un'azione incorporata, si passa a una procedura guidata per implementarla. Facendo clic su un collegamento alla documentazione, si viene condotti alla documentazione che descrive come è possibile implementare manualmente l'operazione. 
 
@@ -58,7 +59,7 @@ Advisor aggiorna i consigli ogni ora. Se non si prevede di eseguire un'operazion
 
 ### <a name="what-permissions-do-i-need-to-access-advisor"></a>Quali autorizzazioni sono necessarie per accedere ad Advisor?
 
-Per visualizzare i consigli di Advisor, è necessario disporre dell'accesso ad almeno una sottoscrizione. L'utente deve disporre del ruolo di **proprietario**, **collaboratore**, o **lettore** per la sottoscrizione. I collaboratori e i proprietari delle sottoscrizioni possono calcolare o generare consigli. Tuttavia, con un ruolo di **lettore**, è possibile solo visualizzare consigli di Advisor. 
+Per accedere alle raccomandazioni di Advisor, è innanzitutto necessario **registrare** la sottoscrizione con Advisor. Una sottoscrizione viene registrata quando il proprietario della sottoscrizione avvia il dashboard di Advisor e fa clic sul pulsante **Get recommendations** (Ottieni consigli). Si tratta di un'**operazione una tantum**. Dopo aver registrato una sottoscrizione, è possibile accedere alle raccomandazioni di Advisor come **Proprietario**, **Collaboratore** o **Lettore** di una sottoscrizione, di un gruppo di risorse o di una risorsa specifica.
 
 ### <a name="how-often-are-advisor-recommendations-updated"></a>Con che frequenza vengono aggiornati i consigli di Advisor?
 
@@ -66,7 +67,7 @@ I consigli di Advisor vengono aggiornati ogni ora.
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Per quali risorse fornisce consigli Advisor?
 
-Advisor fornisce consigli per macchine virtuali, set di disponibilità, Servizi app, SQL Server, database SQL e Cache Redis.
+Advisor fornisce consigli per macchine virtuali, set di disponibilità, gatway applicazione, Servizi app, SQL Server, database SQL e Cache Redis.
 
 ### <a name="can-i-snooze-or-dismiss-a-recommendation"></a>È possibile posporre o ignorare un consiglio?
 
@@ -81,9 +82,4 @@ Per altre informazioni sui consigli di Advisor, vedere le risorse seguenti:
 -  [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)
 -  [Advisor Performance recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sulle prestazioni)
 -  [Advisor Cost recommendations](advisor-cost-recommendations.md) (Consigli di Advisor sui costi)
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

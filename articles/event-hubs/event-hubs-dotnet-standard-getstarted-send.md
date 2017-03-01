@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 02/31/2017
 ms.author: jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: c549676b2126448d52ed43af509671d0b593a064
+ms.sourcegitcommit: 57175ddc53d5856cd3492d4c631a92d4bf9247c4
+ms.openlocfilehash: a6c5ff034450c9c6a01feb4ae6d84cebd75a5682
+ms.lasthandoff: 02/21/2017
 
 ---
 
@@ -35,7 +36,7 @@ In questa esercitazione si scriverà un'applicazione console .NET Core per invia
 
 1. [Visual Studio 2015](http://www.visualstudio.com).
 
-2. [Strumenti di Visual Studio 2015 per .NET core](http://www.microsoft.com/net/core).
+2. [Strumenti di Visual Studio 2015 per .NET Core](http://www.microsoft.com/net/core).
 
 3. Una sottoscrizione di Azure.
 
@@ -51,9 +52,7 @@ Per inviare messaggi a un Hub eventi, si scriverà un'applicazione console C# in
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Aggiungere il pacchetto NuGet di Hub eventi
 
-1. Fare clic con il pulsante destro del mouse sul progetto appena creato e scegliere **Gestisci pacchetti NuGet**.
-
-2. Fare clic sulla scheda **Sfoglia**, quindi cercare "Hub eventi di Microsoft Azure" e selezionare l'elemento **Hub eventi di Microsoft Azure**. Fare clic su **Installa** per completare l'installazione, quindi chiudere questa finestra di dialogo.
+* Aggiungere il pacchetto NuGet [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) al progetto.
 
 ### <a name="write-some-code-to-send-messages-to-the-event-hub"></a>Scrivere il codice per inviare messaggi all'Hub eventi
 
@@ -204,8 +203,3 @@ Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 * [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)
 * [Create an Event Hub](event-hubs-create.md) (Creare un Hub eventi)
 * [Domande frequenti su Hub eventi](event-hubs-faq.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

@@ -12,17 +12,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/03/2017
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 37f2816cb1fa9c7db43359f16669e6521b0fe46a
-ms.openlocfilehash: d623c4172a654b90d68c6e6e488a2c791abe8647
+ms.sourcegitcommit: 8209eb8df45d8c7c42e303ab3377dbde3255154a
+ms.openlocfilehash: 924b3621e03b678e158cd1240864a903db6c8510
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="deploy-storsimple-virtual-array---provision-a-virtual-array-in-hyper-v"></a>Distribuire StorSimple Virtual Array: eseguire il provisioning di un array virtuale in Hyper-V
+# <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Distribuire StorSimple Virtual Array: eseguire il provisioning in Hyper-V
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Questa esercitazione illustra come eseguire il provisioning di un array virtuale StorSimple in un sistema host che esegue Hyper-V in Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2. Le informazioni all'interno di questo articolo si applicano alla distribuzione di array virtuali StorSimple nel portale di Azure nonché nel cloud di Microsoft Azure per enti pubblici.
 
 È necessario disporre dei privilegi di amministratore per eseguire il provisioning e configurare un array virtuale. Il tempo previsto per il completamento di provisioning e installazione iniziale è di circa 10 minuti.
@@ -214,9 +216,4 @@ In presenza di altri errori durante la configurazione iniziale con l'interfaccia
 ## <a name="next-steps"></a>Passaggi successivi
 * [Configurare StorSimple Virtual Array come file server](storsimple-virtual-array-deploy3-fs-setup.md)
 * [Configurare StorSimple Virtual Array come server iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

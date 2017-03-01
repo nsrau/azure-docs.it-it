@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 02/21/2017
 ms.author: sethm;babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: 7547ff2f6db375644dccb9db4283d83a9837e826
+ms.sourcegitcommit: 9c1756d2c2c4dd73c60a71b24bfb4606cab289ed
+ms.openlocfilehash: 8e718e74443e3d51dc54edaf667e34875bc67c5d
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -35,11 +36,11 @@ La tabella seguente confronta i livelli di servizio disponibili per Hub eventi. 
 | Criteri per i server di pubblicazione | N/D | Sì | Sì |     
 | Gruppi di utenti | 1 - Impostazione predefinita | 20 | 20 |
 | Risposta a messaggi | Sì | Sì | Sì |
-| Numero massimo di unità di velocità effettiva | 20 | 20 (con flessibilità fino a 100)  | 1 UC≈200 |
+| Numero massimo di unità di velocità effettiva | 20 | 20 (con flessibilità fino a 100)    | 1 UC≈200 |
 | Connessioni negoziate | 100 incluse | 1.000 incluse | 100 K incluse |
 | Connessioni negoziate aggiuntive | N/D | Sì | Sì |
 | Conservazione dei messaggi | 1 giorno incluso | 1 giorno incluso | Fino a 7 giorni inclusi |
-| Archivio (anteprima) | N/D   | Pagamento per ogni ora | Incluso |
+| Archivio (anteprima) | N/D    | Pagamento per ogni ora | Incluso |
 
 ## <a name="benefits-of-event-hubs-dedicated-capacity"></a>Vantaggi della capacità di Hub eventi dedicato
 
@@ -60,7 +61,7 @@ Il servizio è destinato agli utenti che usano quantità elevate di dati di tele
 
 ## <a name="how-to-onboard"></a>Modalità di esecuzione dell'onboarding
 
-La piattaforma Hub eventi dedicata viene offerta al pubblico tramite un contratto Enterprise con unità di capacità di dimensioni diverse. Ogni unità di capacità fornisce circa l'equivalente di 200 unità elaborate e viene fatturata a $31 all'ora. È possibile aumentare o ridurre la capacità nel corso del mese in base alle esigenze specifiche, aggiungendo o rimuovendo le unità di capacità. Il piano dedicato è caratterizzato da un'esperienza di onboarding più efficiente da parte del team di Hub eventi, che consente di ottenere una distribuzione flessibile ottimale. 
+La piattaforma Hub eventi dedicata viene offerta al pubblico tramite un contratto Enterprise con unità di capacità di dimensioni diverse. Ogni unità di capacità fornisce circa l'equivalente di 200 unità elaborate. È possibile aumentare o ridurre la capacità nel corso del mese in base alle esigenze specifiche, aggiungendo o rimuovendo le unità di capacità. Il piano dedicato è caratterizzato da un'esperienza di onboarding più efficiente da parte del team di Hub eventi, che consente di ottenere una distribuzione flessibile ottimale. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni aggiuntive sul livello Dedicato di Hub eventi, contattare il rappresentante di vendita Microsoft o il Supporto tecnico Microsoft. Per altre informazioni su Hub eventi visitare i collegamenti seguenti:
@@ -69,9 +70,4 @@ Per informazioni dettagliate sui prezzi visitare i collegamenti seguenti:
 
 - [Tariffe di Hub eventi dedicato](https://azure.microsoft.com/pricing/details/event-hubs/). Per informazioni aggiuntive sulla capacità di Hub eventi dedicato, contattare il rappresentante di vendita Microsoft o il Supporto tecnico Microsoft.
 - Le [Domande frequenti si Hub eventi](event-hubs-faq.md) contengono informazioni sui prezzi e risposte ad alcune domande frequenti sugli Hub eventi. 
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

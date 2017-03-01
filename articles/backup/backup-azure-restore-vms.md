@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: trinadhk; jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: 5e22f3b395a2c8d62caa6ae0abf5f81833b00780
-ms.openlocfilehash: 2018f37b3b3426ba6a066310ddfd65fc31b7eb25
+ms.sourcegitcommit: 7de8d98f24ea01012b8fa3a326e1d4ad3f04099a
+ms.openlocfilehash: 186929c1193f63ecda6fd4851bb66c8430ab99ab
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -100,7 +101,7 @@ Se si usa una distribuzione Linux basata su cloud-init, ad esempio Ubuntu, per m
 Se è stata ripristinata una macchina virtuale nello stesso servizio cloud con lo stesso nome usato originariamente per eseguire il backup della VM, il backup continuerà nel post-ripristino della VM. Se è stata ripristinata una macchina virtuale in un servizio cloud diverso o è stato specificato un nome diverso per la VM ripristinata, la VM verrà considerata come nuova ed è necessario configurare il backup per la VM ripristinata.
 
 ## <a name="restoring-a-vm-during-azure-datacenter-disaster"></a>Ripristino di una macchina virtuale durante un'emergenza del data center di Azure
-Backup di Azure consente di ripristinare le macchine virtuali di cui è stato eseguito il backup nel data center associato nel caso in cui nel data center primario in cui le macchine virtuali sono in esecuzione si verifichi un'emergenza e sia stato configurato l'insieme di credenziali di Backup con ridondanza geografica. In tali situazioni, è necessario selezionare un account di archiviazione presente nel data center associato; il resto del processo di ripristino rimane lo stesso. Backup di Azure usa un servizio di calcolo di un'area geografica per creare la macchina virtuale ripristinata. 
+Backup di Azure consente di ripristinare le macchine virtuali di cui è stato eseguito il backup nel data center associato nel caso in cui nel data center primario in cui le macchine virtuali sono in esecuzione si verifichi un'emergenza e sia stato configurato l'insieme di credenziali di Backup con ridondanza geografica. In tali situazioni, è necessario selezionare un account di archiviazione presente nel data center associato; il resto del processo di ripristino rimane lo stesso. Backup di Azure usa un servizio di calcolo di un'area geografica per creare la macchina virtuale ripristinata. Altre informazioni sulla [resilienza dei centri dati di Azure](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md)
 
 ## <a name="restoring-domain-controller-vms"></a>Ripristino delle macchine virtuali del controller di dominio
 L'esecuzione del backup delle macchine virtuali del controller di dominio (DC) è uno scenario supportato da Backup di Azure. Tuttavia è necessario prestare attenzione ad alcuni aspetti durante il processo di ripristino. L'esperienza di ripristino è notevolmente diversa per le macchine virtuali del controller di dominio in una configurazione con un singolo controller di dominio rispetto a quella per le macchine virtuali in una configurazione con più controller di dominio.
@@ -153,10 +154,5 @@ Per poter ricreare completamente i dischi della macchina virtuale dopo il ripris
 ## <a name="next-steps"></a>Passaggi successivi
 * [Risoluzione dei problemi](backup-azure-vms-troubleshoot.md#restore)
 * [Gestire le macchine virtuali](backup-azure-manage-vms.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

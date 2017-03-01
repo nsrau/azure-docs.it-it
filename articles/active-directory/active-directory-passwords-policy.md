@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/22/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
-ms.openlocfilehash: 5cb86ac4694d8b763fa693954a8bb1383739497c
+ms.sourcegitcommit: fc73b667112fe35473872c33bc98423a424c5c65
+ms.openlocfilehash: d6bee5afea6afcd756b53f41baef5dd984423c0a
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -48,8 +49,8 @@ La tabella seguente descrive le impostazioni di criteri password disponibili che
 | Durata di validità della password |<ul><li>Valore predefinito: **90** giorni </li><li>Il valore è configurabile mediante il cmdlet Set-MsolPasswordPolicy del modulo di Azure Active Directory per Windows PowerShell.</li></ul> |
 | Notifica della scadenza della password |<ul><li>Valore predefinito: **14** giorni (prima della scadenza della password)</li><li>Il valore è configurabile tramite il cmdlet Set-MsolPasswordPolicy.</li></ul> |
 | Scadenza della password |<ul><li>Valore predefinito: **false** giorni (indica che la scadenza password è abilitata) </li><li>Il valore può essere configurato per singoli account utente mediante il cmdlet Set-MsolUser. </li></ul> |
-| Cronologia delle password |Non è possibile riutilizzare l'ultima password. |
-| Durata della cronologia delle password |Sempre |
+| Cronologia di **modifica** della password |L'ultima password **non può** essere riusata alla **modifica** della password. |
+| Cronologia di **reimpostazione** della password | L'ultima password **può** essere riusata alla **reimpostazione** della password dimenticata. |
 | Blocco account |Dopo 10 tentativi di accesso non riusciti (password errata), l'utente verrà bloccato per un minuto. Ulteriori tentativi di accesso non riusciti bloccheranno l'utente per periodi sempre più lunghi. |
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -63,9 +64,4 @@ La tabella seguente descrive le impostazioni di criteri password disponibili che
 * [Domande frequenti sulla gestione delle password](active-directory-passwords-faq.md)
 * [Risolvere i problemi relativi alla gestione delle password](active-directory-passwords-troubleshoot.md)
 * [Altre informazioni](active-directory-passwords-learn-more.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

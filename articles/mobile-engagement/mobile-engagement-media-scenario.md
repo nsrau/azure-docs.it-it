@@ -4,7 +4,7 @@ description: Scenario di app multimediali per l&quot;implementazione di Azure Mo
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 48201cc8-4e04-485c-a8dc-d6406d23f3ed
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 6f08f986e66e40211f60beef6ebd00bb041a8ada
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -98,9 +99,4 @@ Dopo questi primi quattro mesi, i risultati riflettono buone prestazioni general
 
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

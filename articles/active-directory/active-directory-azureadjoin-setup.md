@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2016
-ms.author: femila
+ms.date: 02/22/2017
+ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aaa52cdecc09adb3b7ca53e0c0283d4203b21810
+ms.sourcegitcommit: 0480c4f89b6036897bc8d7eff81b56262ea8806c
+ms.openlocfilehash: e4e0fa77552c4df2ea5bb9ddae916e7c661824d1
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -56,10 +57,5 @@ Di seguito sono descritti i tre scenari per abilitare gli utenti a configurare A
 * [Scenari di utilizzo per Aggiunta ad Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

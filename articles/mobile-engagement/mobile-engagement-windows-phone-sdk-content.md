@@ -4,7 +4,7 @@ description: Informazioni sul contenuto di Azure Mobile Engagement SDK per Windo
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 4820d010-2bdd-4b17-88b0-9583bf0b95fb
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ff04a56d377725d344cf75c7b84af1cb211d4723
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -32,10 +33,5 @@ Questa cartella contiene tutte le risorse richieste da Mobile Engagement. È ino
 * `EngagementIconCloseLight.png` : l'icona "Chiudi" della notifica Reach di Mobile Engagement per il tema chiaro di Windows Phone.
 * `EngagementIconCloseDark.png` : l'icona "Chiudi" della notifica Reach di Mobile Engagement per il tema scuro di Windows Phone.
 * `EngagementConfiguration.xml` : il file di configurazione di Mobile Engagement, in cui è possibile personalizzare le impostazioni di Engagement (stringa di connessione di Engagement, segnalazione di arresto anomalo e così via).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5e67654ceaa7420615c63fae288da4fa048110c7
+ms.sourcegitcommit: 0837cb33bf438fb7fd9665d21d411f0170cdd393
+ms.openlocfilehash: f84a5a9e40f6dd1c98fd73ba38a1b5cae9d9cba4
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -273,10 +274,5 @@ Quando si fa clic sul riquadro QuickHelp nel pannello di accesso, si dovrebbe ac
 
 
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
