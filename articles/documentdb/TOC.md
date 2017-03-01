@@ -44,8 +44,9 @@
 ### [Backup e ripristino](documentdb-online-backup-and-restore.md)
 ### [Ritirare S1, S2, S3](documentdb-performance-levels.md)
 ### [Unità richiesta](documentdb-request-units.md)
-### Interfaccia della riga di comando di Azure
-#### [Creare un account](documentdb-automation-resource-manager-cli.md)
+### [Interfaccia della riga di comando di Azure 2.0](documentdb-automation-resource-manager-cli.md)
+### Interfaccia della riga di comando di Azure 1.0
+#### [Creare un account](documentdb-automation-resource-manager-cli-nodejs.md)
 #### [Aggiungere o rimuovere aree](documentdb-automation-region-management.md)
 ### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Supporto del firewall](documentdb-firewall-support.md)
@@ -124,8 +125,3 @@
 ## [La coerenza dei dati spiegata attraverso il baseball](http://research.microsoft.com/apps/pubs/default.aspx?id=206913)
 ## [Libro: Using Microsoft Azure DocumentDB in a Node.js Application](https://go.microsoft.com/fwlink/?LinkId=828428&clcid=0x409)
 ## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
-
-
-<!--HONumber=Feb17_HO3-->
-
-
