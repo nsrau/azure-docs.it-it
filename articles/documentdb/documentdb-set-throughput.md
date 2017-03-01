@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 02/15/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: c65c4021f5d0beda8005abdd375ac51729acf0a8
-ms.openlocfilehash: 8ff246ab7d70bd00ce989d3049e016d692722d18
+ms.sourcegitcommit: abdf0af8a85db19c68a0d74c0477d798c0fd03fc
+ms.openlocfilehash: 8ff2fc6106438e35b93112a6dc97814ba79b06fc
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -78,11 +79,13 @@ offer = new OfferV2(offer, 12000);
 await client.ReplaceOfferAsync(offer);
 ```
 
+## <a name="throughput-faq"></a>Domande frequenti sulla velocità effettiva
+
+**È possibile impostare la velocità effettiva a meno di 400 UR/sec?**
+
+Il valore di&400; UR/sec è la velocità effettiva minima disponibile nelle raccolte di partizioni singole DocumentDB (2500 UR/sec è il valore minimo per le raccolte partizionate). Le unità richieste sono impostate in intervalli di 100 UR/sec, ma la velocità effettiva non può essere impostata su 100 UR/sec o su qualsiasi valore inferiore a 400 UR/sec. Se si cerca un metodo conveniente per sviluppare e testare DocumentDB, è possibile usare la versione gratuita di [Emulatore di DocumentDB](documentdb-nosql-local-emulator.md), distribuibile in locale senza alcun costo aggiuntivo. 
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sul provisioning e sulla diffusione su scala globale di DocumentDB, vedere [Partizionamento e scalabilità con DocumentDB](documentdb-partition-data.md).
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 19adbe15694a6413842b23c27851ce582bfd727e
+ms.sourcegitcommit: bd3dd077bef87a78904ffd5d2be469b6b8bc8959
+ms.openlocfilehash: 7857480d033e4d570aa48569e08bb30846b280f6
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -30,17 +31,18 @@ Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Bime potranno 
 
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
-1. Abilitazione dell'integrazione dell'applicazione per Bime
-2. Configurazione dell'accesso Single Sign-On
-3. Configurazione del provisioning utente
-4. Assegnazione degli utenti
+* Abilitazione dell'integrazione dell'applicazione per Bime
+* Configurazione dell'accesso Single Sign-On (SSO)
+* Configurazione del provisioning utente
+* Assegnazione degli utenti
 
 ![Scenario](./media/active-directory-saas-bime-tutorial/IC775552.png "Scenario")
 
-## <a name="enabling-the-application-integration-for-bime"></a>Abilitazione dell'integrazione dell'applicazione per Bime
+## <a name="enable-the-application-integration-for-bime"></a>Abilitare l'integrazione dell'applicazione per Bime
 Questa sezione descrive come abilitare l'integrazione dell'applicazione per Bime.
 
-### <a name="to-enable-the-application-integration-for-bime-perform-the-following-steps"></a>Per abilitare l'integrazione dell'applicazione per Bime, seguire questa procedura:
+**Per abilitare l'integrazione dell'applicazione per Bime, seguire questa procedura:**
+
 1. Nel portale di Azure classico fare clic su **Active Directory**nel riquadro di spostamento sinistro.
    
    ![Active Directory](./media/active-directory-saas-bime-tutorial/IC700993.png "Active Directory")
@@ -61,13 +63,14 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Bime
    
    ![Bime](./media/active-directory-saas-bime-tutorial/IC775554.png "Bime")
    
-   ## <a name="configuring-single-sign-on"></a>Configurazione dell'accesso Single Sign-On
+## <a name="configure-single-sign-on"></a>Configura accesso Single Sign-On
 
 Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Bime tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.  
-La configurazione dell'accesso Single Sign-On per Bime richiede di recuperare un valore di identificazione personale da un certificato.  
-Se non si ha familiarità con questa procedura, vedere il video che descrive [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI).
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
+La configurazione dell'accesso SSO per Bime richiede di recuperare un valore di identificazione personale da un certificato. Se non si ha familiarità con questa procedura, vedere [Procedura: recuperare l'identificazione personale di un certificato](http://youtu.be/YKQF266SAxI).
+
+**Per configurare l'accesso Single Sign-On, seguire questa procedura:**
+
 1. Nella pagina di integrazione dell'applicazione **Bime** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-bime-tutorial/IC771709.png "Configurare l'accesso Single Sign-On")
@@ -90,23 +93,24 @@ Se non si ha familiarità con questa procedura, vedere il video che descrive [co
    
    1. Selezionare **Enable SAML authentication**.
    2. Nella finestra di dialogo **Configura accesso Single Sign-On in Bime** del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Remote Login URL** (URL accesso remoto).
-   3. Copiare il valore **Identificazione personale** dal certificato esportato e quindi incollarlo nella casella di testo **Impronta digitale del certificato**.  
+   3. Copiare il valore **Identificazione personale** dal certificato esportato e quindi incollarlo nella casella di testo **Impronta digitale del certificato**.       
       
-      > [!TIP]
-      > Per informazioni dettagliate, vedere [come recuperare un valore di identificazione personale del certificato](http://youtu.be/YKQF266SAxI)
+      >[!TIP]
+      >Per informazioni dettagliate, vedere il video che illustra [come recuperare il valore di identificazione personale di un certificato](http://youtu.be/YKQF266SAxI). 
       > 
-      > 
-   4. Fare clic su **Salva**.
+   4. Fare clic su **Save**.
 8. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Complete** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
    
    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-bime-tutorial/IC775560.png "Configurare l'accesso Single Sign-On")
    
-   ## <a name="configuring-user-provisioning"></a>Configurazione del provisioning utente
+## <a name="configure-user-provisioning"></a>Configura provisioning utenti
 
 Per consentire agli utenti di Azure AD di accedere a Bime, è necessario eseguirne il provisioning in Bime.  
-Nel caso di Bime, il provisioning è un'attività manuale.
 
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Per configurare il provisioning utente, eseguire la procedura seguente:
+* Nel caso di Bime, il provisioning è un'attività manuale.
+
+**Per configurare il provisioning utenti, seguire questa procedura:**
+
 1. Accedere al tenant di **Bime** .
 2. Nella barra degli strumenti fare clic su **Admin** e quindi su **Users** (Utenti).
    
@@ -116,20 +120,19 @@ Nel caso di Bime, il provisioning è un'attività manuale.
    ![Utenti](./media/active-directory-saas-bime-tutorial/IC775562.png "Utenti")
 4. Nella finestra di dialogo **Dettagli utente** seguire questa procedura:
    
-   ![Dettagli utente](./media/active-directory-saas-bime-tutorial/IC775563.png "Dettagli utente")
-   
-   1. Nelle caselle di testo First Name, Last Name, Login, Email digitare nome, cognome, accesso e indirizzo di posta elettronica di un account AAD valido di cui si vuole eseguire il provisioning.
-   2. Fare clic su Save.
+   ![Dettagli utente](./media/active-directory-saas-bime-tutorial/IC775563.png "Dettagli utente")   
+  1. Nelle caselle di testo First Name, Last Name, Login, Email digitare nome, cognome, accesso e indirizzo di posta elettronica di un account AAD valido di cui si vuole eseguire il provisioning.
+  2. Fare clic su Save.
 
-> [!NOTE]
-> È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Bime per eseguire il provisioning degli account utente di AAD.
-> 
-> 
+>[!NOTE]
+>È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Bime per eseguire il provisioning degli account utente di AAD.
+>  
 
-## <a name="assigning-users"></a>Assegnazione degli utenti
+## <a name="assign-users"></a>Assegna utenti
 Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
-### <a name="to-assign-users-to-bime-perform-the-following-steps"></a>Per assegnare gli utenti a Bime, seguire questa procedura:
+**Per assegnare gli utenti a Bime, seguire questa procedura:**
+
 1. Nel portale di Azure classico creare un account di test.
 2. Nella pagina di integrazione dell'applicazione **Bime ** fare clic su **Assegna utenti**.
    
@@ -139,10 +142,5 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
    ![Sì](./media/active-directory-saas-bime-tutorial/IC767830.png "Sì")
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

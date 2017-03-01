@@ -5,7 +5,7 @@ keywords: Servizio app di Azure, app Web, domande frequenti, Linux, OSS
 services: app-service
 documentationCenter: 
 authors: aelnably
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 
 ms.service: app-service
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: aelnably
 translationtype: Human Translation
-ms.sourcegitcommit: d4a5260dde1994bbf4ef4467eddd2fb80a2199b0
-ms.openlocfilehash: 22c6c22ba3123555d279fac087a6be2f99bde8d7
+ms.sourcegitcommit: 831ef097027721146531e8d699fe3f67417a57ea
+ms.openlocfilehash: b88aa3d0ae89aec81c2b9144fb5de3210a0b8d1e
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -43,19 +44,25 @@ In caso di domande, scrivere un commento all'articolo; si riceverà una risposta
 
 **D:** È possibile eseguire SSH nella macchina virtuale?
 
-**R:** No, nel prossimo futuro verrà fornito un modo per eseguire SSH nel contenitore dell'app.
+**R:** No, in una versione futura verrà fornito un modo per eseguire SSH nel contenitore dell'app.
 
-## <a name="continous-integration--deployment"></a>Integrazione/distribuzione continua ##
+## <a name="continuous-integration--deployment"></a>Integrazione/Distribuzione continua ##
 
 **Q:** L'app Web usa ancora un'immagine obsoleta del contenitore Docker dopo l'aggiornamento dell'immagine su DockerHub? È supportata l'integrazione/distribuzione continua di contenitori personalizzati?
 
-**R:** È possibile aggiornare il contenitore arrestando e avviando l'app Web o modificando/aggiungendo un'impostazione fittizia dell'applicazione per forzare l'aggiornamento del contenitore. È prevista per il prossimo futuro una funzionalità di integrazione e distribuzione continua per i contenitori personalizzati.
+**R:** È possibile aggiornare il contenitore arrestando e avviando l'app Web o modificando/aggiungendo un'impostazione fittizia dell'applicazione per forzare l'aggiornamento del contenitore. È prevista in una versione futura una funzionalità di integrazione e distribuzione continua per i contenitori personalizzati.
 
 ## <a name="language-support"></a>Supporto per le lingue ##
 
 **Q:** È presente il supporto per le app .NET Core non compilate?
 
-**R:** No, è necessario distribuire l'app .NET Core compilata con tutte le dipendenze. Nel prossimo futuro verrà fornita un'esperienza di distribuzione e compilazione completa.
+**R:** No, è necessario distribuire l'app .NET Core compilata con tutte le dipendenze. In una versione futura verrà fornita un'esperienza di distribuzione e compilazione completa.
+
+## <a name="built-in-images"></a>Immagini predefinite ##
+
+**D:** Quali sono i valori previsti per la sezione relativa al file di avvio quando si configura lo stack di runtime?
+
+**R:** Per Node.Js è possibile specificare il file di configurazione PM2 o il file di script. Per .NET Core è necessario specificare il nome del file dll compilato. Per Ruby è possibile specificare uno script Ruby da usare per l'inizializzazione dell'app.
 
 ## <a name="custom-containers"></a>Contenitori personalizzati ##
 
@@ -69,11 +76,15 @@ In caso di domande, scrivere un commento all'articolo; si riceverà una risposta
 
 **D:** È possibile usare la propria archiviazione?
 
-**R:** Attualmente la funzionalità non è supportata ma il supporto è previsto per il prossimo futuro.
+**R:** Questa funzionalità non è supportata al momento.
 
 **D:** Non è possibile accedere al file system del contenitore personalizzato o ai processi in esecuzione dal sito SCM. Perché?
 
 **R:** Il sito SCM viene eseguito in un contenitore separato. Non è possibile controllare il file system o i processi in esecuzione del contenitore dell'app.
+
+**D:** Il contenitore personalizzato è in attesa su una porta diversa dalla porta 80. Come si può configurare l'app in modo da indirizzare le richieste a questa porta?
+
+**R:** È possibile specificare un'impostazione dell'applicazione denominata **PORTA** e assegnare a tale impostazione il valore del numero di porta previsto.
 
 ## <a name="pricing-and-sla"></a>Prezzi e contratto di servizio ##
 
@@ -92,12 +103,6 @@ In caso di domande, scrivere un commento all'articolo; si riceverà una risposta
 **R:** È possibile inviare qui le proprie idee: https://aka.ms/webapps-uservoice. Aggiungere [Linux] al titolo dell'idea.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Introduzione al servizio app in Linux](./app-service-linux-intro.md) 
 * [What is App Service on Linux?](app-service-linux-intro.md) (Che cos'è Servizio app in Linux?)
-* [Creating Apps in an App Service on Linux](./app-service-linux-how-to-create-a-web-app.md) (Creazione di app Web nel servizio app in Linux)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+* [Creating Apps in an App Service on Linux](app-service-linux-how-to-create-a-web-app.md) (Creazione di app Web nel servizio app in Linux)
 

@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: a560aa9cc6c70fd3827f649627466c9071b8ab8b
-ms.openlocfilehash: 39a882a8338ce820c6b9b98f58d1a9db7448c7be
+ms.sourcegitcommit: e7fc6cb4ee4752bb7ed90a8f64edcc7c82ec3a88
+ms.openlocfilehash: 7999398f69ed0ce5129dd38f8e9e1994db25f9a5
+ms.lasthandoff: 02/21/2017
 
 ---
 
@@ -47,7 +48,7 @@ Advisor identifica le istanze di SQL Server che possono trarre vantaggio dalla c
 3. Nel dashboard di Advisor fare clic sulla scheda **Costo**, selezionare la sottoscrizione per cui si desidera ricevere suggerimenti e quindi fare clic su **Get recommendations** (Ricevi consigli)
 
 > [!NOTE]
-> Azure Advisor genera consigli per le sottoscrizioni in cui all'utente è assegnato il ruolo di **proprietario**, **collaboratore** o **lettore**.
+> Per accedere alle raccomandazioni di Advisor, è innanzitutto necessario **registrare** la sottoscrizione con Advisor. Una sottoscrizione viene registrata quando il **proprietario della sottoscrizione** avvia il dashboard di Advisor e fa clic sul pulsante **Get recommendations** (Ottieni consigli). Si tratta di un'**operazione una tantum**. Dopo aver registrato una sottoscrizione, è possibile accedere alle raccomandazioni di Advisor come **Proprietario**, **Collaboratore** o **Lettore** di una sottoscrizione, di un gruppo di risorse o di una risorsa specifica.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -57,9 +58,4 @@ Per altre informazioni sui consigli di Advisor, vedere le risorse seguenti:
 -  [Advisor High Availability recommendations](advisor-cost-recommendations.md) (Consigli di Advisor sulla disponibilità elevata)
 -  [Advisor Security recommendations](advisor-cost-recommendations.md) (Consigli di Advisor sulla sicurezza)
 -  [Advisor Performance recommendations](advisor-cost-recommendations.md) (Consigli di Advisor sulle prestazioni)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

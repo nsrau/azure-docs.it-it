@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2017
+ms.date: 02/21/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 0821ec479f21ddcc6dc370070d9a40221054877f
-ms.openlocfilehash: fe1f39df8cafeea4d518a5ee1400652bb499cde1
+ms.sourcegitcommit: e3d01fadc5597efa7beb5ee690470f428ee12b62
+ms.openlocfilehash: 216146ffaa0f2732b2f2369107e80de0bbc4e466
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -31,6 +32,7 @@ Attualmente sono disponibili gli articoli seguenti sulle procedure consigliate e
 * [Procedure consigliate per l'aggiornamento software nell'ambiente IaaS di Microsoft Azure](azure-security-best-practices-software-updates-iaas.md)
 * [Procedure consigliate per la sicurezza dei limiti di Azure](../best-practices-network-security.md)
 * [Implementing a secure hybrid network architecture in Azure (Implementazione di un'architettura di rete ibrida sicura in Azure)](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
+* [Azure PaaS Best Practices] (https://docs.microsoft.com/en-us/azure/security/security-paas-deployments)
 
 Azure fornisce una piattaforma sicura per creare le proprie soluzioni. Sono forniti anche servizi e tecnologie che rendono più sicure le soluzioni in Azure. Dato l'alto numero di opzioni disponibili, in molti hanno manifestato interesse per le procedure consigliate e i modelli suggeriti da Microsoft per aumentare la sicurezza.
 
@@ -47,9 +49,4 @@ Per ogni procedura consigliata verrà illustrato nel miglior modo possibile:
 * Come imparare ad abilitare la procedura consigliata
 
 È possibile offrire molti altri articoli sull'architettura e le procedure consigliate per la sicurezza di Azure. Richiedere eventuali argomenti specifici nell'area di discussione nella parte inferiore della pagina.
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

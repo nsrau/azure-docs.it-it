@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: fa27b0399d98f13ee3c4f4059067fb78e087befd
-ms.openlocfilehash: 933e14358875b384a254ab3c1d0bdb453a0fa8ae
+ms.sourcegitcommit: 084919e9dbe3647c45cf67e6836a8c9de6a5cd70
+ms.openlocfilehash: 307a70b5efb22642e54212d8d3517bf5d9070505
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -81,7 +82,8 @@ Di seguito sono riportati i limiti per una singola istanza di app per la logica.
 
 |Nome|Limite|Note|
 |----|----|----|
-|Esecuzioni di azioni al secondo|100|È possibile distribuire i flussi di lavoro tra più app, se necessario|
+|Esecuzioni di azioni al secondo (burst)|1.000|Se necessario, è possibile distribuire il carico di lavoro tra più app|
+|Esecuzioni di azioni all'ora (sostenute)|1.000.000|Se necessario, è possibile distribuire il carico di lavoro tra più app|
 
 ### <a name="definition-limits"></a>Limiti delle definizioni
 
@@ -180,9 +182,4 @@ Le chiamate effettuate da un [connettore](../connectors/apis-list.md) proverrann
 - [Visualizzare esempi e scenari comuni](../logic-apps/logic-apps-examples-and-scenarios.md)
 - [Le app per la logica consentono di automatizzare i processi aziendali](http://channel9.msdn.com/Events/Build/2016/T694) 
 - [Informazioni su come integrare i sistemi correnti con le app per la logica](http://channel9.msdn.com/Events/Build/2016/P462)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

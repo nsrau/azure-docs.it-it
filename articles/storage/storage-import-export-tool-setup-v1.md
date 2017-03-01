@@ -1,6 +1,6 @@
 ---
-title: Configurazione dello strumento di importazione/esportazione di Azure | Documentazione Microsoft
-description: "Informazioni su come impostare lo strumento di preparazione e ripristino delle unità per lo strumento di importazione/esportazione di Azure"
+title: Configurazione dello strumento Importazione/Esportazione di Azure v.1 | Documentazione Microsoft
+description: "Informazioni su come impostare lo strumento di preparazione e riparazione delle unità per Importazione/Esportazione di Azure"
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,20 +15,21 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: fbcc295284d060b9a8bc5cf1cb9f8b2fca566db4
-ms.openlocfilehash: 78151092d8987b7513b69e54f9dacb540c5c3278
+ms.sourcegitcommit: 9aca8aad3f268bf21f3bad9fa22821f5d825f99d
+ms.openlocfilehash: 2d30d0da6055a66b60ed5a836dd897a87d564237
+ms.lasthandoff: 02/16/2017
 
 
 ---
 
-# <a name="setting-up-the-azure-import-export-tool"></a>Configurazione dello strumento di importazione/esportazione di Azure
+# <a name="setting-up-the-azure-importexport-tool"></a>Configurazione dello strumento Importazione/Esportazione di Azure
 Lo strumento di importazione/esportazione di Microsoft Azure è lo strumento di preparazione e ripristino delle unità che è possibile utilizzare con il servizio di importazione/esportazione di Microsoft Azure. È possibile utilizzare lo strumento per svolgere le funzioni indicate di seguito:  
   
 -   Prima di creare un processo di importazione, è possibile utilizzare questo strumento per copiare i dati nei dischi rigidi che si intende fornire a un data center di Microsoft Azure.  
   
 -   Al termine di un processo di importazione, è possibile utilizzare questo strumento per recuperare eventuali BLOB danneggiati, mancanti o in conflitto con altri BLOB.  
   
--   Dopo aver ricevuto le unità da un processo di esportazione completato, è possibile utilizzare questo strumento per recuperare eventuali file danneggiati o mancanti nelle unità.  
+-   Dopo aver ricevuto le unità da un processo di esportazione completato, è possibile usare questo strumento per recuperare eventuali file danneggiati o mancanti nelle unità.  
   
 ## <a name="prerequisites"></a>Prerequisiti  
 Se si intende preparare delle unità per un processo di importazione, è necessario soddisfare i prerequisiti seguenti:  
@@ -37,9 +38,9 @@ Se si intende preparare delle unità per un processo di importazione, è necessa
   
 -   La sottoscrizione deve includere un account di archiviazione con spazio disponibile sufficiente per archiviare i file che si intende importare.  
   
--   È necessario disporre di almeno una delle chiavi di account per l'account di archiviazione.  
+-   È necessaria almeno una delle chiavi dell'account per l'account di archiviazione.  
   
--   È necessario disporre di un computer ("computer di copia") in cui sia installato Windows 7, Windows Server 2008 R2 o un sistema operativo Windows più recente.  
+-   È necessario un computer ("computer di copia") in cui sia installato Windows 7, Windows Server 2008 R2 o un sistema operativo Windows più recente.  
   
 -   Nel computer di copia deve essere installato .NET Framework 4.  
   
@@ -260,9 +261,4 @@ Examples:
  [Ripristino di un processo di importazione](storage-import-export-tool-repairing-an-import-job-v1.md)   
  [Ripristino di un processo di esportazione](storage-import-export-tool-repairing-an-export-job-v1.md)   
  [Risoluzione dei problemi relativi allo strumento Importazione/Esportazione di Azure](storage-import-export-tool-troubleshooting-v1.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

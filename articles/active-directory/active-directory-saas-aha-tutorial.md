@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f95aecd18d5231413678669d01d16387737e9db2
+ms.sourcegitcommit: 76b3bab6c995b93e907d32814c851de5105b8b33
+ms.openlocfilehash: b293545b35954e60569a56b900c247f55ddbec1e
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -24,23 +25,24 @@ Questa esercitazione descrive l'integrazione di Azure e Aha!
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
 * Sottoscrizione di Azure valida
-* Sottoscrizione Aha! abilitata per l'accesso Single Sign-On
+* Sottoscrizione Aha! Sottoscrizione abilitata per l'accesso Single Sign-On (SSO)
 
 Al termine dell'esercitazione, gli utenti di Azure AD assegnati ad Aha! potranno accedere all'applicazione tramite il sito aziendale di Aha! (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
 Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
 
-1. Abilitazione dell'integrazione dell'applicazione per Aha!
-2. Configurazione dell'accesso Single Sign-On
-3. Configurazione del provisioning utente
-4. Assegnazione degli utenti
+* Abilitazione dell'integrazione dell'applicazione per Aha!
+* Configurazione dell'accesso Single Sign-On (SSO)
+* Configurazione del provisioning utente
+* Assegnazione degli utenti
 
 ![Scenario](./media/active-directory-saas-aha-tutorial/IC798944.png "Scenario")
 
-## <a name="enabling-the-application-integration-for-aha"></a>Abilitazione dell'integrazione dell'applicazione per Aha!
+## <a name="enable-the-application-integration-for-aha"></a>Abilitare l'integrazione dell'applicazione per Aha!
 Questa sezione descrive come abilitare l'integrazione dell'applicazione per Aha!.
 
-### <a name="to-enable-the-application-integration-for-aha-perform-the-following-steps"></a>Per abilitare l'integrazione dell'applicazione per Aha!, seguire questa procedura:
+**Per abilitare l'integrazione dell'applicazione per Aha!, seguire questa procedura:**
+
 1. Nel portale di Azure classico fare clic su **Active Directory**nel riquadro di spostamento sinistro.
    
    ![Active Directory](./media/active-directory-saas-aha-tutorial/IC700993.png "Active Directory")
@@ -61,11 +63,12 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Aha!
    
    ![Aha!](./media/active-directory-saas-aha-tutorial/IC802746.png "Aha!")
    
-   ## <a name="configuring-single-sign-on"></a>Configurazione dell'accesso Single Sign-On
+## <a name="configure-single-sign-on"></a>Configura accesso Single Sign-On
 
 Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione ad Aha! tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
+**Per configurare l'accesso Single Sign-On, seguire questa procedura:**
+
 1. Nella pagina di integrazione dell'applicazione **Aha!** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On **.
    
    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-aha-tutorial/IC798946.png "Configurare l'accesso Single Sign-On")
@@ -93,35 +96,35 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
    ![Sicurezza e Single Sign-On](./media/active-directory-saas-aha-tutorial/IC798953.png "Sicurezza e Single Sign-On")
 10. Nella pagina di configurazione **Single Sign-On** eseguire la procedura seguente:
     
-    ![Single Sign-On](./media/active-directory-saas-aha-tutorial/IC798954.png "Single Sign-On")
-    
+   ![Single Sign-On](./media/active-directory-saas-aha-tutorial/IC798954.png "Single Sign-On")    
     1. Nella casella di testo **Name** digitare un nome per la configurazione.
     2. Per **Configure using** (Configura mediante) selezionare **Metadata File** (File di metadati).
     3. Per caricare il file di metadati scaricato, fare clic su **Browse**.
     4. Fare clic su **Aggiorna**.
 11. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Complete** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
     
-    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-aha-tutorial/IC798955.png "Configurare l'accesso Single Sign-On")
+   ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-aha-tutorial/IC798955.png "Configurare l'accesso Single Sign-On")
     
-    ## <a name="configuring-user-provisioning"></a>Configurazione del provisioning utente
+## <a name="configure-user-provisioning"></a>Configura provisioning utenti
 
 Per consentire agli utenti di Azure AD di accedere ad Aha!, è necessario eseguirne il provisioning in Aha!.  
-Nel caso di Aha!, il provisioning è un'attività automatica.  
-Non è necessario eseguire alcuna operazione.
+
+* Nel caso di Aha!, il provisioning è un'attività automatica. Non è necessario eseguire alcuna operazione.
 
 Se necessario, gli utenti vengono creati automaticamente durante il primo tentativo di accesso Single Sign-On.
 
-> [!NOTE]
-> È possibile usare qualsiasi altro strumento di creazione di account utente Aha! o qualsiasi altra API disponibile in Aha! per eseguire il provisioning degli account utente AAD.
+>[!NOTE]
+>È possibile usare qualsiasi altro strumento di creazione di account utente Aha! o qualsiasi altra API disponibile in Aha! per eseguire il provisioning degli account utente AAD.
 > 
 > 
 
-## <a name="assigning-users"></a>Assegnazione degli utenti
+## <a name="assign-users"></a>Assegna utenti
 Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
 
-### <a name="to-assign-users-to-aha-perform-the-following-steps"></a>Per assegnare gli utenti ad Aha!, seguire questa procedura:
+**Per assegnare gli utenti ad Aha!, seguire questa procedura:**
+
 1. Nel portale di Azure classico creare un account di test.
-2. Nella pagina di integrazione dell'applicazione **Aha! **fare clic su **Assegna utenti**.
+2. Nella pagina di integrazione dell'applicazione **Aha!** fare clic su **Assegna utenti**.
    
    ![Assegnare utenti](./media/active-directory-saas-aha-tutorial/IC798956.png "Assegnare utenti")
 3. Selezionare l'utente di test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
@@ -129,10 +132,5 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
    ![Sì](./media/active-directory-saas-aha-tutorial/IC767830.png "Sì")
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

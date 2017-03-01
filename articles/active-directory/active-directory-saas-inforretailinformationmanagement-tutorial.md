@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 02/06/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 9ab2950715850d0c2ee0f398cd44399a5974c1a9
-ms.openlocfilehash: 6a9f414334f4dc078a3c47dac0c71bbf9f2c4158
+ms.sourcegitcommit: ad9c78483af88a85a1b790269231683155760d76
+ms.openlocfilehash: aef560c2b05a80c59743c4cc6d68d6d2c14bdc3f
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -93,7 +94,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Infor Retail 
 
 1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente test di Infor Retail – Information Management](#creating-an-infor-retail---information-management-user)**: per avere una controparte di Britta Simon in Infor Retail – Information Management collegata alla relativa rappresentazione in Azure AD.
+3. **[Creazione di un utente test di Infor Retail – Information Management](#creating-an-infor-retail---information-management-test-user)**: per avere una controparte di Britta Simon in Infor Retail – Information Management collegata alla relativa rappresentazione in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
@@ -115,9 +116,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_02.png)
 
-    a. Nella casella di testo **Identificatore** digitare l'URL usando il modello seguente: `http://<company name>.mingle.infor.com`
+    a. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<company name>.mingle.infor.com`
     
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `http://<company name>.mingle.infor.com:443/sp/ACS.saml2`
+    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<company name>.mingle.infor.com/sp/ACS.saml2`
     
 4. Per configurare l'applicazione in **modalità avviata da SP**, nella sezione **URL e dominio Infor Retail – Information Management** seguire questa procedura:
     
@@ -128,11 +129,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     b. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<company name>.mingle.infor.com/<company code>`
 
     > [!NOTE] 
-    > Si noti che questi non sono i valori reali. È necessario aggiornare questi valori con l'URL di accesso, l'ID e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto di Infor Retail – Information Management](http://www.infor.com/contact/).
+    > Si noti che questi non sono i valori reali. È necessario aggiornare questi valori con l'URL di accesso, l'ID e l'URL di risposta effettivo. Per ottenere questi valori, contattare il [team di supporto di Infor Retail - Information Management](mailto:innovate@infor.com).
 
 5. Nella sezione **Certificato di firma SAML** fare clic su **Crea nuovo certificato**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_04.png)   
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_04.png)     
 
 6. Nella finestra di dialogo **Crea nuovo certificato** fare clic sull'icona del calendario e selezionare una **data di scadenza**. Fare quindi clic sul pulsante **Salva**.
 
@@ -146,11 +147,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_400.png)
 
-9. Nella sezione **Certificato di firma SAML** fare clic su **Scarica** e quindi salvare il file dei metadati nel computer.
+9. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_06.png) 
 
-10. Per ottenere la configurazione dell'accesso Single Sign-On per l'applicazione, contattare il [team di supporto di Infor Retail – Information Management](http://www.infor.com/contact/) e fornire i **metadati** scaricati.
+10. Per ottenere la configurazione dell'accesso Single Sign-On per l'applicazione, contattare il [team di supporto di Infor Retail – Information Management](mailto:innovate@infor.com) e fornire i **metadati** scaricati.
   
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
@@ -172,7 +173,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
  
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-inforretailinformationmanagement-tutorial/create_aaduser_03.png) 
 
-4. Nella finestra di dialogo **Utente** seguire questa procedura:
+4. Nella pagina della finestra di dialogo **Utente** eseguire la procedura seguente:
  
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-inforretailinformationmanagement-tutorial/create_aaduser_04.png) 
 
@@ -180,7 +181,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     b. Nella casella di testo **Nome utente** digitare l'**indirizzo di posta elettronica** di BrittaSimon.
 
-    c. Selezionare **Mostra password** e prendere nota del valore di **Password**.
+    c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
     d. Fare clic su **Crea**. 
 
@@ -188,7 +189,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 ### <a name="creating-an-infor-retail--information-management-test-user"></a>Creazione di un utente test di Infor Retail – Information Management
 
-In questa sezione viene creato un utente chiamato Britta Simon in Infor Retail – Information Management. Rivolgersi al [team di supporto di Infor Retail – Information Management](http://www.infor.com/contact/) per aggiungere gli utenti nella piattaforma Infor Retail – Information Management.
+In questa sezione viene creato un utente chiamato Britta Simon in Infor Retail – Information Management. Rivolgersi al [team di supporto di Infor Retail – Information Management](mailto:innovate@infor.com) per aggiungere gli utenti nella piattaforma Infor Retail – Information Management.
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
@@ -250,8 +251,3 @@ Quando si fa clic sul riquadro di Infor Retail – Information Management nel pa
 [201]: ./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_203.png
-
-
-<!--HONumber=Jan17_HO3-->
-
-

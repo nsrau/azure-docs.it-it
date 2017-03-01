@@ -1,6 +1,6 @@
 ---
-title: 'Always Encrypted: proteggere i dati sensibili nel database SQL di Azure con la crittografia del database | Documentazione Microsoft'
-description: Proteggere i dati sensibili nel database SQL in pochi minuti.
+title: 'Always Encrypted: database SQL - Azure Key Vault | Documentazione Microsoft'
+description: Questo articolo illustra come proteggere i dati sensibili in un database SQL con la crittografia dei dati usando la procedura guidata Always Encrypted di SQL Server Management Studio. Include anche le istruzioni che illustrano come archiviare ogni chiave di crittografia nell&quot;insieme di credenziali delle chiavi di Azure.
 keywords: crittografia dei dati, chiave di crittografia, crittografia del cloud
 services: sql-database
 documentationcenter: 
@@ -17,17 +17,13 @@ ms.topic: article
 ms.date: 07/18/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6b4cf5a1c6b764280488b07cf2dc98ecf78fda21
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: a2a738ef1df470e17b805e843a159e0abc23efdf
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Crittografia sempre attiva: Proteggere i dati sensibili nel database SQL e archiviare le chiavi di crittografia nell'insieme di credenziali delle chiavi di Azure
-> [!div class="op_single_selector"]
-> * [Insieme di credenziali chiave Azure](sql-database-always-encrypted-azure-key-vault.md)
-> * [Archivio certificati di Windows](sql-database-always-encrypted.md)
-> 
-> 
 
 Questo articolo illustra come proteggere i dati sensibili in un database SQL con la crittografia dei dati tramite la [procedura guidata Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx) di [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Include anche le istruzioni che illustrano come archiviare ogni chiave di crittografia nell'insieme di credenziali delle chiavi di Azure.
 
@@ -62,7 +58,7 @@ Per questa esercitazione occorrono:
 5. Per l'**URL DI ACCESSO** e l'**URI ID APP** digitare un URL valido (ad esempio, *http://myClientApp*) e continuare.
 6. Fare clic su **CONFIGURA**.
 7. Copiare l' **ID CLIENT**. Sarà necessario immettere questo valore nel codice in un secondo momento.
-8. Nella sezione relativa alle **chiavi** selezionare **1 anno** dall'elenco a discesa **Seleziona durata**. Verrà copiata la chiave dopo il salvataggio nel passaggio 14.
+8. Nella sezione relativa alle **chiavi** selezionare **1 anno** dall'elenco a discesa **Seleziona durata**. La chiave verrà copiata dopo il salvataggio nel passaggio 13.
 9. Scorrere verso il basso e fare clic su **Aggiungi applicazione**.
 10. Lasciare **MOSTRA** impostato su **App Microsoft** e selezionare **Microsoft Azure Service Management (Gestione servizio di Microsoft Azure)**. Fare clic sul segno di spunta per continuare.
 11. Nell'elenco a discesa **Autorizzazioni delegate** selezionare **Access Azure Service Management (Gestione servizio di accesso Azure)**.
@@ -86,7 +82,7 @@ Quando l'app client è configurata e si dispone dell'ID client, è necessario cr
     $subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).SubscriptionId
     Set-AzureRmContext -SubscriptionId $subscriptionId
 
-    New-AzureRmResourceGroup –Name $resourceGroupName –Location $location
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
     New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
@@ -98,7 +94,7 @@ Quando l'app client è configurata e si dispone dell'ID client, è necessario cr
 ## <a name="create-a-blank-sql-database"></a>Creare un database SQL vuoto
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Fare clic su **Nuovo** > **Dati e archiviazione** > **Database SQL**.
-3. Creare un database **vuoto** denominato **Clinic** in un server nuovo o esistente. Per istruzioni dettagliate su come creare un database nel portale di Azure, vedere [Creare un database SQL in pochi minuti](sql-database-get-started.md).
+3. Creare un database **vuoto** denominato **Clinic** in un server nuovo o esistente. Per istruzioni dettagliate su come creare un database nel portale di Azure, vedere [Primo database SQL di Azure](sql-database-get-started.md).
    
     ![Creazione di un database vuoto](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
 
@@ -201,7 +197,7 @@ Ora che la crittografia Always Encrypted è configurata, è possibile creare un'
    ![Nuova applicazione console](./media/sql-database-always-encrypted-azure-key-vault/console-app.png)
 3. Installare i pacchetti NuGet seguenti facendo clic su **Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**.
 
-Eseguire queste 2 righe di codice nella Console di Gestione pacchetti.
+Eseguire queste&2; righe di codice nella Console di Gestione pacchetti.
 
     Install-Package Microsoft.SqlServer.Management.AlwaysEncrypted.AzureKeyVaultProvider
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -646,10 +642,5 @@ Dopo avere creato un database che usa la crittografia sempre attiva, è possibil
 * [Crittografia di SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Procedura guidata per la crittografia sempre attiva](https://msdn.microsoft.com/library/mt459280.aspx)
 * [Blog della crittografia sempre attiva](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

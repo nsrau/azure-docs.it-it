@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 1f7d7ad6dcec3c7d3b6fec7abcad7c36d2c02b70
-ms.openlocfilehash: 6342b2e5f3efa498a911bb82a642fa4672f77180
+ms.sourcegitcommit: 0e1ee94504ebff235c1da9128e0ac68c2b28bc59
+ms.openlocfilehash: b949318eb689eec9f0d08e91f2a9d0169d9d816f
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -33,7 +34,7 @@ Nell'esempio seguente viene usato PowerShell per ottenere la posizione per il ti
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 ```
 
-Nell'esempio seguente viene usata l'interfaccia della riga di comando di Azure 2.0 (Anteprima) per ottenere la posizione per il tipo di risorsa `Microsoft.Web\sites`:
+Nell'esempio seguente viene usata l'interfaccia della riga di comando di Azure 2.0 per ottenere la posizione per il tipo di risorsa `Microsoft.Web\sites`:
 
 ```azurecli
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
@@ -100,10 +101,5 @@ Se è necessario impostare come hardcoded la posizione del modello, specificare 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altri suggerimenti su come creare i modelli, vedere [Procedure consigliate per la creazione di modelli di Azure Resource Manager](resource-manager-template-best-practices.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

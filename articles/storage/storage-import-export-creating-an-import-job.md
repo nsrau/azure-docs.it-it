@@ -1,5 +1,5 @@
 ---
-title: Creazione di un processo di importazione per il servizio Importazione/Esportazione di Azure | Microsoft Docs
+title: Creare un processo di importazione per Importazione/Esportazione di Azure | Documentazione Microsoft
 description: Informazioni su come creare un&quot;importazione per il servizio di Importazione/Esportazione di Microsoft Azure
 author: muralikk
 manager: syadav
@@ -12,15 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 22e37e26fec913a7638c71b2547c38f5efacd10b
-ms.openlocfilehash: 348757809fb5820e2c5c2d5806ec3c74353f3fc8
+ms.sourcegitcommit: 50fbd0d214c825137c3ac6873be27b9d2d53cee1
+ms.openlocfilehash: 84ba5256c3ee485af9a1a6bccc0571f93c9c0ab7
+ms.lasthandoff: 02/16/2017
 
 
 ---
-# <a name="creating-an-import-job"></a>Creazione di un processo di importazione
+# <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Creazione di un processo di importazione per Importazione/Esportazione di Azure
 
 La creazione di un processo di importazione per il servizio di Importazione/Esportazione di Microsoft Azure utilizzando l'API REST prevede i passaggi seguenti:
 
@@ -93,7 +94,7 @@ Per creare il processo di importazione, chiamare l'operazione [Put Job](/rest/ap
 
     -   Il percorso relativo del file manifesto nel disco rigido
 
-    -   Hash MD5 del file manifesto codificato in base 16
+    -   Hash MD5 del file manifesto codificato in base&16;
 
 ## <a name="shipping-your-drives"></a>Spedizione delle unità
 È necessario spedire le unità all'indirizzo ottenuto nel passaggio precedente e fornire il numero di tracciabilità del pacchetto nel servizio di Importazione/Esportazione.
@@ -105,10 +106,5 @@ Per creare il processo di importazione, chiamare l'operazione [Put Job](/rest/ap
 Dopo avere ottenuto il numero di tracciabilità, chiamare l'operazione [Update Job Properties](/api/storageimportexport/jobs#Jobs_Update) (Aggiorna proprietà processo) per aggiornare il nome del vettore, il numero di tracciabilità per il processo e il numero di account del vettore per la spedizione per reso. Facoltativamente è possibile specificare il numero di unità e la data di spedizione.
 
 ## <a name="see-also"></a>Vedere anche
-[Using the Import/Export service REST API](storage-import-export-using-the-rest-api.md) (Uso dell'API REST del servizio Importazione/Esportazione)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+[Uso dell'API REST del servizio Importazione/Esportazione](storage-import-export-using-the-rest-api.md)
 

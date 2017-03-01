@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/10/2017
+ms.date: 02/16/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 1d9b020c6175ba8f47cde5cba0f69a1c8c228479
-ms.openlocfilehash: 48d2274fff2fb1300406f48c8d3e772aefa9933f
+ms.sourcegitcommit: a87a4a8b290318bb9fdd1ae0b5fdce00085f59df
+ms.openlocfilehash: 3fe19196ce6af2aeb52bf941ced1892a9a172d87
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -31,7 +32,7 @@ L'aggiornamento 4 può essere applicato a qualsiasi dispositivo StorSimple che e
 Esaminare le informazioni contenute nelle note sulla versione prima di distribuire l'aggiornamento della soluzione StorSimple.
 
 > [!IMPORTANT]
-> * L'aggiornamento 4 include software per dispositivi, firmware USM, firmware e driver LSI, firmware del disco, Storport e Spaceport, aggiornamenti di sicurezza e una serie di altri aggiornamenti del sistema operativo. L'installazione dell'aggiornamento richiede circa 1,5-2 ore. È consigliabile applicare questo aggiornamento per mantenere aggiornato il dispositivo. 
+> * L'aggiornamento 4 include software per dispositivi, firmware USM, firmware e driver LSI, firmware del disco, Storport e Spaceport, aggiornamenti di sicurezza e una serie di altri aggiornamenti del sistema operativo. L'installazione dell'aggiornamento richiede circa 4 ore. È consigliabile applicare questo aggiornamento per mantenere aggiornato il dispositivo. 
 > * Per le nuove versioni è possibile che gli aggiornamenti non siano immediatamente visibili perché viene effettuata un'implementazione graduale degli aggiornamenti. Attendere alcuni giorni e quindi provare a cercare nuovamente gli aggiornamenti, perché verranno presto resi disponibili.
 
 ## <a name="whats-new-in-update-4"></a>Novità dell'aggiornamento 4
@@ -91,10 +92,5 @@ Questo aggiornamento non può essere applicato all'appliance cloud StorSimple (o
 ## <a name="next-step"></a>Passaggio successivo
 
 Informazioni su come [installare l'aggiornamento 4](storsimple-install-update-4.md) nel dispositivo StorSimple.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

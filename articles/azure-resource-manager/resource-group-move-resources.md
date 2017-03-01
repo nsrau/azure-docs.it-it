@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
-ms.openlocfilehash: 81ac6de576614050d972d6fae384f91cc8bf6841
+ms.sourcegitcommit: 0e1ee94504ebff235c1da9128e0ac68c2b28bc59
+ms.openlocfilehash: a7771c2cee3f2820db014a4e5e8620442eea3dd1
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -43,7 +44,7 @@ Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La
   (Get-AzureRmSubscription -SubscriptionName "Example Subscription").TenantId
   ```
 
-  Per l'interfaccia della riga di comando di Azure 2.0 usare:
+  Per l'interfaccia della riga di comando di Azure 2.0, usare:
 
   ```azurecli
   az account show --subscription "Example Subscription" --query tenantId
@@ -319,7 +320,7 @@ Are you sure you want to move these resources to the resource group
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
 ```
 
-## <a name="use-azure-cli-20-preview"></a>Interfaccia della riga di comando di Azure 2.0 (anteprima)
+## <a name="use-azure-cli-20"></a>Usare l'interfaccia della riga di comando 2.0 di Azure
 Per spostare le risorse esistenti in un gruppo di risorse o una sottoscrizione diversi, usare il comando `az resource move`. Fornire gli ID risorsa delle risorse da spostare. È possibile ottenere gli ID risorsa con il comando seguente:
 
 ```azurecli
@@ -382,10 +383,5 @@ Nel corpo della richiesta specificare il gruppo di risorse di destinazione e le 
 * Per informazioni sui comandi dell'interfaccia della riga di comando di Azure per la gestione della sottoscrizione, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 * Per informazioni sulle funzionalità del portale per la gestione della sottoscrizione, vedere [Gestire le risorse di Azure mediante il portale](resource-group-portal.md).
 * Per informazioni sull'organizzazione logica delle risorse, vedere [Uso dei tag per organizzare le risorse di Azure](resource-group-using-tags.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

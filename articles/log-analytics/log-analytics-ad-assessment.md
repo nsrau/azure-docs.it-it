@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 58eee787b54122380b48f1c7a96dbe2e79e4bcef
+ms.sourcegitcommit: e0971ca8064a6e4de272a8d890a6fdc88c0f8cc2
+ms.openlocfilehash: 24e3da0ed3aa04e000a4c88fb7b0745d5b880d0d
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -39,7 +40,7 @@ Dopo aver aggiunto la soluzione e completato una valutazione, nel dashboard **AD
 Usare le informazioni seguenti per installare e configurare le soluzioni.
 
 * Gli agenti devono essere installati nei controller di dominio membri del dominio da valutare.
-* La soluzione Active Directory Assessment richiede l'installazione di .NET Framework 4 in ogni computer che contiene un agente OMS.
+* La soluzione Active Directory Assessment richiede l'installazione di una versione di .NET Framework 4 (4.5.2 o superiore) supportata in ogni computer che contiene un agente OMS.
 * Aggiungere la soluzione Active Directory Assessment all'area di lavoro OMS usando la procedura descritta in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).  Non è richiesta alcuna ulteriore configurazione.
 
   > [!NOTE]
@@ -153,7 +154,7 @@ Dopo la successiva esecuzione della valutazione pianificata, per impostazione pr
 
 * Vengono raccolti i tipi di dati seguenti:
   * WMI
-  *  Registro
+  * Registro
   * Contatori delle prestazioni
 
 *È possibile definire l'orario per la raccolta di dati?*
@@ -170,9 +171,4 @@ Dopo la successiva esecuzione della valutazione pianificata, per impostazione pr
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per visualizzare dati e raccomandazioni dettagliati di AD Assessment usare [Ricerche nei log in Log Analytics](log-analytics-log-searches.md) .
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
-ms.openlocfilehash: 0e7f5b3ed4e9a23b2d2fe1acdf35450f36ef1ad4
+ms.sourcegitcommit: 6c76311b8ba36ea5dba1c2cd63ee05e1048ca9de
+ms.openlocfilehash: 6ceb50b05075ea9d056a873cf70b13ff85dc6094
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -25,6 +26,8 @@ ms.openlocfilehash: 0e7f5b3ed4e9a23b2d2fe1acdf35450f36ef1ad4
 
 ## <a name="cortana-intelligence-competitions"></a>Concorsi di Cortana Intelligence
 I **[concorsi](https://gallery.cortanaintelligence.com/competitions)** offrono la possibilità di competere con la community dei data scientist per risolvere problemi complessi usando Cortana Intelligence Suite.
+
+Per consultare le risposte alle domande frequenti sui concorsi, vedere l'articolo [Domande frequenti sui concorsi in Cortana Intelligence Gallery](machine-learning-competition-faq.md).
 
 ## <a name="discover"></a>Scoprire
   Per cercare i concorsi disponibili in Gallery, aprire [Gallery](http://gallery.cortanaintelligence.com), posizionare il puntatore del mouse su **More** (Più) nella parte alta della home page di Gallery e selezionare **Competitions** (Concorsi).
@@ -54,10 +57,5 @@ Se il concorso non è più aperto, lo stato nella pagina dei dettagli è imposta
 **[VAI A GALLERY >>](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

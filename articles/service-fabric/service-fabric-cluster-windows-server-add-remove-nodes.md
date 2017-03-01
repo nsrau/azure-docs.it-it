@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/06/2016
-ms.author: ryanwi;chackdan
+ms.date: 2/02/2017
+ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 3f7d2861512ba02e3b158db78fbee771da1c788b
-ms.openlocfilehash: 0d15e9a68c91c85e6a9250cc31e03e24b32cf7bf
+ms.sourcegitcommit: af121309be44852ee51f34130330533adf19d586
+ms.openlocfilehash: 68474b24519a46db71fe59b5d0574cc4700efccb
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 0d15e9a68c91c85e6a9250cc31e03e24b32cf7bf
 Dopo aver [creato il cluster di Service Fabric autonomo in computer Windows Server](service-fabric-cluster-creation-for-windows-server.md), le esigenze aziendali possono cambiare e richiedere l'aggiunta o la rimozione di più nodi nel cluster. Questo articolo riporta i passaggi dettagliati per eseguire queste operazioni.
 
 ## <a name="add-nodes-to-your-cluster"></a>Aggiungere nodi al cluster
-1. Preparare la VM/computer che si desidera aggiungere al cluster seguendo i passaggi illustrati nella sezione [Preparare i computer con i prerequisiti per la distribuzione del cluster](service-fabric-cluster-creation-for-windows-server.md#preparemachines) .
+1. Preparare la VM/computer che si desidera aggiungere al cluster seguendo i passaggi illustrati nella sezione [Preparare i computer con i prerequisiti per la distribuzione del cluster](service-fabric-cluster-creation-for-windows-server.md) .
 2. Pianificare a quale dominio di errore e dominio di aggiornamento si aggiungerà il computer o la VM.
 3. Creare una connessione Desktop remoto (RDP) con il computer o la VM da aggiungere al cluster.
 4. Copiare o [scaricare il pacchetto autonomo per Service Fabric per Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) nel computer o nella VM e decomprimerlo.
@@ -47,7 +48,9 @@ A seconda del livello di affidabilità scelto per il cluster, non è possibile r
 4. Eseguire lo script *RemoveNode.ps1* in PowerShell. L'esempio seguente rimuove il nodo corrente dal cluster. *ExistingClientConnectionEndpoint* è un endpoint connessione client per qualsiasi nodo che resterà nel cluster. Scegliere l'indirizzo IP e la porta endpoint di *qualsiasi* **altro nodo** del cluster. Questo **altro nodo** aggiornerà a sua volta la configurazione del cluster per il nodo rimosso. 
 
 ```
+
 .\RemoveNode.ps1 -ExistingClientConnectionEndpoint 182.17.34.50:19000
+
 ```
 
 > [!NOTE]
@@ -57,15 +60,18 @@ A seconda del livello di affidabilità scelto per il cluster, non è possibile r
 
 A causa di un difetto noto, un nodo risulta inattivo in query e SFX anche dopo essere stato rimosso. Il problema verrà risolto in una versione futura. 
 
+
+## <a name="remove-node-types-from-your-cluster"></a>Rimuovere i tipi di nodi dal cluster
+La rimozione di un tipo di nodo richiede particolare attenzione. Prima di rimuovere un tipo di nodo, verificare l'eventuale presenza di un nodo che fa riferimento al tipo di nodo.
+
+
+## <a name="replace-primary-nodes-of-your-cluster"></a>Sostituire i nodi primari del cluster
+La sostituzione dei nodi primari deve essere eseguita un nodo alla volta, anziché eseguire la rimozione e l'aggiunta in batch.
+
+
 ## <a name="next-steps"></a>Passaggi successivi
 * [Impostazioni di configurazione per un cluster autonomo in Windows](service-fabric-cluster-manifest.md)
-* [Proteggere un cluster autonomo in Windows tramite la funzionalità di sicurezza di Windows](service-fabric-windows-cluster-windows-security.md)
 * [Proteggere un cluster autonomo in Windows con certificati X.509](service-fabric-windows-cluster-x509-security.md)
 * [Creare un cluster di Service Fabric autonomo con VM di Azure che eseguono Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -16,8 +16,9 @@ ms.workload: na
 ms.date: 01/18/2016
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 8725687a5700df72026f9154659758b9280872f4
-ms.openlocfilehash: 35247a68588ab8593c40ed0d62f37062350f9aec
+ms.sourcegitcommit: 194910a3e4cb655b39a64d2540994d90d34a68e4
+ms.openlocfilehash: 039ed6f4be9f3e0f6b92e5a9f11e12392912df9d
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -79,14 +80,17 @@ In questo esempio un utente e un gruppo vengono aggiunti al ruolo Utenti per il 
 }
 ```
 
+## <a name="role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo
+
+Gli amministratori della sottoscrizione possono usare il **Controllo di accesso** nel pannello di controllo per configurare i ruoli. Non si tratta dello stesso controllo degli amministratori di server o degli utenti del database che, come descritto in precedenza, sono configurati a livello di database o server. 
+
+![Controllo di accesso nel portale di Azure](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
+
+I ruoli si applicano agli utenti o agli account che devono eseguire attività completabili nel portale o tramite i modelli di Azure Resource Manager. Per altre informazioni, vedere l'articolo relativo al [controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md).
+
 ## <a name="next-steps"></a>Passaggi successivi
 Se non è mai stato distribuito un modello tabulare nel server, questo è il momento migliore. Per altre informazioni, vedere [Distribuire in Azure Analysis Services](analysis-services-deploy.md).
 
 Se un modello è stato distribuito nel server, si è pronti per connettersi a tale server tramite un client o un browser. Per altre informazioni, vedere [Get data from Azure Analysis Services server](analysis-services-connect.md) (Ottenere dati dal server Azure Analysis Services).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

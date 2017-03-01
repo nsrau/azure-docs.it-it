@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da un&quot;archiviazione BLOB al database SQL | Microsoft Docs
+title: Copiare dati da un&quot;archiviazione BLOB al database SQL - Azure| Documentazione Microsoft
 description: "Questa esercitazione illustra come usare l&quot;attività di copia in una pipeline di Azure Data Factory per copiare i dati da un archivio BLOB a un database SQL."
 keywords: blob sql, archivio blob, copia di dati
 services: data-factory
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: 70c38f155874c5d9254260c684fea23e22dd59fd
+ms.sourcegitcommit: 2dcba235353f2b1bd2b42d93066a91071f0ea1a1
+ms.openlocfilehash: 8b9afcd62ad318e181e2d210af58dcb412eefaaf
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -127,8 +128,3 @@ I passaggi relativi ai prerequisiti sono stati completati. È possibile creare u
 > La pipeline di dati in questa esercitazione copia i dati da un archivio dati di origine a un archivio dati di destinazione. Non trasforma i dati di input per produrre dati di output. Per un'esercitazione su come trasformare i dati usando Azure Data Factory, vedere [Esercitazione: Creare la prima pipeline per elaborare i dati usando il cluster Hadoop](data-factory-build-your-first-pipeline.md).
 > 
 > È possibile concatenare due attività, ovvero eseguire un'attività dopo l'altra, impostando il set di dati di output di un'attività come set di dati di input di altre attività. Per informazioni dettagliate, vedere [Pianificazione ed esecuzione con Data Factory](data-factory-scheduling-and-execution.md). 
-
-
-<!--HONumber=Feb17_HO1-->
-
-

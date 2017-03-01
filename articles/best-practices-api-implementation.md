@@ -16,8 +16,9 @@ ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ea75a14232c010ebea31273856f21cb0e02067a7
+ms.sourcegitcommit: 066bc9911050c44fe5d8ce2d63bdb0f843e08176
+ms.openlocfilehash: 31dd351ae216e131c092447493ac9f3ae65ba10d
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -1147,9 +1148,4 @@ Se l'API Web è stata pubblicata mediante il Servizio di gestione API, la pagina
 * La pagina [Installare Application Insights per ASP.NET](application-insights/app-insights-asp-net.md) sul sito Web Microsoft fornisce informazioni dettagliate sull'installazione e sulla configurazione di Application Insights in un progetto di API Web ASP.NET.
 * La pagina [Verifica codice utilizzando Unit test](https://msdn.microsoft.com/library/dd264975.aspx) sul sito Web Microsoft fornisce informazioni dettagliate sulla creazione e gestione di unit test utilizzando Visual Studio.
 * La pagina [Eseguire test delle prestazioni in un'applicazione prima del rilascio](https://msdn.microsoft.com/library/dn250793.aspx) sul sito Web Microsoft descrive come utilizzare Visual Studio Ultimate per creare un prestazioni Web e caricare il progetto di test.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

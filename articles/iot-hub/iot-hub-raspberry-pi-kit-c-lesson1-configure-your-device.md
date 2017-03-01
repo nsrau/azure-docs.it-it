@@ -16,8 +16,9 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: 4fdd8de3a24bf521b8ea13416900e69d24e1b62d
+ms.sourcegitcommit: 5b80d471c78973f8c2f6b1ad4e1240c66f0505ef
+ms.openlocfilehash: 3e34b8202794bc969bf41765ce519d083037ab46
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -80,6 +81,9 @@ Accendere Pi usando il cavo micro USB e l'alimentatore.
 > [!NOTE]
 > È importante usare l'alimentatore da almeno 2 A incluso nel kit per garantire un'alimentazione sufficiente al corretto funzionamento del dispositivo Raspberry.
 
+## <a name="enable-ssh"></a>Abilitare SSH
+A partire dalla versione di novembre 2016, Raspbian ha il server SSH disabilitato per impostazione predefinita. È necessario abilitarlo manualmente. A tale scopo, fare riferimento alle [istruzioni ufficiali](https://www.raspberrypi.org/documentation/remote-access/ssh/) o collegare un monitor e passare a **Preferences -> Raspberry Pi Configuration** (Preferenze-> Configurazione Raspberry Pi).
+
 ## <a name="connect-raspberry-pi-3-to-the-network"></a>Connettere Raspberry Pi 3 alla rete
 È possibile connettere Pi a una rete cablata oppure a una rete wireless. Verificare che Pi sia connesso alla stessa rete del computer. È ad esempio possibile connettere Pi allo stesso commutatore a cui è connesso il computer.
 
@@ -113,10 +117,5 @@ In questo articolo si è appreso come configurare il dispositivo Raspberry Pi in
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Ottenere gli strumenti](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

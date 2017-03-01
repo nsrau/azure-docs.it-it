@@ -13,8 +13,9 @@ ms.workload: identity
 ms.date: 12/05/2016
 ms.author: joroja
 translationtype: Human Translation
-ms.sourcegitcommit: 10bcd51746315d80cef20592b869dca95eaacb56
-ms.openlocfilehash: a460ef42dafac04088ecdce12f64ee5e19ba77ff
+ms.sourcegitcommit: 43224628d5726ac2fb0e8c27c649421af7ceeee4
+ms.openlocfilehash: 6cf375fbfe265a53591b9987ebd32db6df73fcb4
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -73,8 +74,8 @@ Facendo clic sulla risorsa Tenant B2C è possibile:
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver completato questa procedura per ogni tenant B2C, i costi vengono addebitati alla sottoscrizione di Azure in base al Contratto Enterprise o Azure Direct.
-- Esaminare l'utilizzo e la fatturazione all'interno della sottoscrizione di Azure selezionata.
-- Esaminare i report dettagliati sull'utilizzo giornaliero con l'API Segnalazione utilizzo funzionalità (da definire).
+- Esaminare l'utilizzo e la fatturazione all'interno della sottoscrizione di Azure selezionata
+- Esaminare i report dettagliati sull'utilizzo giornaliero con l'[API di segnalazione dell'utilizzo](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)
 
 
 
@@ -82,9 +83,4 @@ Dopo aver completato questa procedura per ogni tenant B2C, i costi vengono addeb
 [gog]: http://google.com/        
 [yah]: http://search.yahoo.com/  
 [msn]: http://search.msn.com/    
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

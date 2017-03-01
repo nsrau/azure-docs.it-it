@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 894f94fdefe081679b1e35183bd4127be35cd33c
+ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
+ms.openlocfilehash: 32d0b45080d57712209e0c5a3e5adf981fb4b66e
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -36,10 +37,14 @@ Ciò significa:
 7. In sintesi, la tenancy che invia l'invito è *sempre* responsabile dell'autenticazione a più fattori degli utenti di Collaborazione B2B dell'organizzazione partner e non dell'organizzazione partner stessa (anche se ha funzionalità di autenticazione a più fattori). Nelle versioni future verrà consentito alle organizzazioni che inviano l'invito di considerare attendibile l'autenticazione a più fattori di specifiche organizzazioni partner invece di usare l'autenticazione a più fattori dell'organizzazione che invia l'invito.
 
 ## <a name="setting-up-mfa-for-b2b-collaboration-users"></a>Configurazione dell'autenticazione a più fattori per gli utenti di Collaborazione B2B
-Configurare l'autenticazione a più fattori per gli utenti di Collaborazione B2B è estremamente semplice, come illustrato in [questo video](https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup).
+La configurazione di MFA per gli utenti di Collaborazione B2B è estremamente semplice, come illustrato nel video seguente:
 
-## <a name="b2b-collaboration-users-mfa-experience-for-offer-redemption"></a>Esperienza di autenticazione a più fattori per gli utenti di Collaborazione B2B per il riscatto dell'offerta
-Guardare l'animazione sotto per visualizzare l'esperienza di riscatto, come illustrato in [questo video](https://channel9.msdn.com/Blogs/Azure/MFA-redemption).
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup/Player]
+
+## <a name="b2b-users-mfa-experience-for-offer-redemption"></a>Esperienza di autenticazione a più fattori per gli utenti di B2B per il riscatto dell'offerta
+Guardare l'animazione sotto per visualizzare l'esperienza di riscatto, come illustrato nel video seguente:
+
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/MFA-redemption/Player]
 
 ## <a name="mfa-reset-for-b2b-collaboration-users"></a>Reimpostazione dell'autenticazione a più fattori per gli utenti di Collaborazione B2B
 L'amministratore attualmente può richiedere agli utenti di Collaborazione B2B di provare di nuovo l'identità solo usando i cmdlet di PowerShell seguenti. È quindi consigliabile usare i cmdlet di PowerShell seguenti se si vuole reimpostare il metodo di identificazione di un utente di Collaborazione B2B.
@@ -85,9 +90,4 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 * [API e personalizzazione per Collaborazione B2B di Azure Active Directory](active-directory-b2b-api.md)
 * [Aggiungere gli utenti per la Collaborazione B2B senza un invito](active-directory-b2b-add-user-without-invite.md)
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

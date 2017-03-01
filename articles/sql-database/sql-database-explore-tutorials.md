@@ -17,22 +17,23 @@ ms.workload: data-management
 ms.date: 02/08/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 60bcd02d24e2084b9020ce56ef6a9f8268c6b1b5
-ms.openlocfilehash: 23d4c00f9e4c719e2124ad3c8733269712a796f0
+ms.sourcegitcommit: 9b09383350284c8f1cd3e384c802c25c962b1226
+ms.openlocfilehash: 1fe15e7ad3667d42995cd487c793fae496216fca
+ms.lasthandoff: 02/16/2017
 
         
 ---
  
 # <a name="explore-azure-sql-database-tutorials"></a>Esplorare le esercitazioni sul database SQL di Azure
-I collegamenti nelle tabelle seguenti indirizzano a una panoramica delle aree di funzionalità elencate e a una semplice esercitazione introduttiva per ogni area. Per esercitazioni introduttive nell'ambito della soluzione che illustrano l'uso del database SQL in una soluzione completa basata su scenari reali, vedere [Azure SQL Database Solution Quick Starts](sql-database-solution-quick-starts.md)(Procedure di avvio rapido per la soluzione di database SQL di Azure).
+I collegamenti nelle tabelle seguenti indirizzano a una panoramica delle aree di funzionalità elencate e a una semplice esercitazione introduttiva per ogni area. 
 
 ## <a name="create-servers-databases-and-server-level-firewall-rules"></a>Creare server, database e regole firewall a livello di server
 Nelle esercitazioni seguenti verranno creati server, database e regole firewall a livello di server e verranno fornite informazioni su come connettersi ed eseguire query su server e database.
 
 | Esercitazione | Descrizione |
 | --- | --- | 
-| [Esercitazione introduttiva: il primo database SQL di Azure](sql-database-get-started.md) | Al termine di questa esercitazione introduttiva, saranno disponibili un database di esempio e un database vuoto in esecuzione in un gruppo di risorse di Azure e collegato a un server logico. Vengono anche create due regole firewall a livello di server configurate per abilitare l'entità di sicurezza a livello di server per l'accesso al server da due indirizzi IP specificati. Infine, l'esercitazione illustra come eseguire query in un database nel portale di Azure e come connettersi ed eseguire query tramite SQL Server Management Studio. |
-| [Esercitazione: Effettuare il provisioning e accedere a un database SQL di Azure usando PowerShell](sql-database-get-started-powershell.md) | Al termine di questa esercitazione, si disporrà di un database di esempio e di un database vuoto in esecuzione in un gruppo di risorse di Azure e collegato a un server logico. Sarà inoltre disponibile una regola del firewall a livello di server configurata per abilitare l'entità a livello di server per accedere al server da un indirizzo IP specificato (o da un intervallo di indirizzi IP). |
+| [Primo database SQL di Azure](sql-database-get-started.md) | Al termine di questa esercitazione introduttiva, saranno disponibili un database di esempio e un database vuoto in esecuzione in un gruppo di risorse di Azure e collegato a un server logico. Vengono anche create due regole firewall a livello di server configurate per abilitare l'entità di sicurezza a livello di server per l'accesso al server da due indirizzi IP specificati. Infine, l'esercitazione illustra come eseguire query in un database nel portale di Azure e come connettersi ed eseguire query tramite SQL Server Management Studio. |
+| [Effettuare il provisioning e accedere a un database SQL di Azure usando PowerShell](sql-database-get-started-powershell.md) | Al termine di questa esercitazione, si disporrà di un database di esempio e di un database vuoto in esecuzione in un gruppo di risorse di Azure e collegato a un server logico. Sarà inoltre disponibile una regola del firewall a livello di server configurata per abilitare l'entità a livello di server per accedere al server da un indirizzo IP specificato (o da un intervallo di indirizzi IP). |
 | [Usare C# per creare un database SQL con la libreria del database SQL per .NET](sql-database-get-started-csharp.md)| In questa esercitazione viene usato C# per creare un server del database SQL, una regola firewall e un database SQL. È inoltre possibile creare un'applicazione di Active Directory (AD) e l'entità servizio necessaria per autenticare l'app C#. |
 |  | |
 
@@ -41,7 +42,7 @@ Nelle esercitazioni seguenti, viene illustrato come usare i [backup di database]
 
 | Esercitazione | Descrizione |
 | --- | --- | 
-| [Eseguire il backup e ripristinare un database SQL di Azure con il portale di Azure](sql-database-get-started-backup-recovery.md) | In questa esercitazione viene illustrato come usare il portale di Azure per visualizzare i backup, ripristinare un database a un punto nel tempo, configurare una conservazione a lungo termine dei backup e ripristinare un database da un backup nell'insieme di credenziali di Servizi di ripristino di Azure
+| [Eseguire il backup e ripristinare un database SQL di Azure con il portale di Azure](sql-database-get-started-backup-recovery-portal.md) | In questa esercitazione viene illustrato come usare il portale di Azure per visualizzare i backup, ripristinare un database a un punto nel tempo, configurare una conservazione a lungo termine dei backup e ripristinare un database da un backup nell'insieme di credenziali di Servizi di ripristino di Azure
 | [Eseguire il backup e ripristino con PowerShell](sql-database-get-started-backup-recovery-powershell.md) | In questa esercitazione viene illustrato come usare PowerShell per visualizzare i backup, ripristinare un database a un punto nel tempo, configurare una conservazione a lungo termine dei backup e ripristinare un database da un backup nell'insieme di credenziali di Servizi di ripristino di Azure
 |  | |
 
@@ -97,8 +98,12 @@ Le esercitazioni seguenti illustrano vari aspetti sullo sviluppo di applicazioni
 | --- | --- | 
 | [Creare un report con Excel](sql-database-connect-excel.md) |Questa esercitazione mostra come connettere Excel a un database SQL nel cloud per importare dati e creare tabelle e grafici in base ai valori nel database. |
 | [Creare un'app con SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) |Questa esercitazione mostra come creare un'applicazione usando SQL Server |
+| [Tabelle temporali](sql-database-temporal-tables.md) | Questa esercitazione illustra i concetti relativi alle tabelle temporali.
 | [Usare Entity Framework con gli strumenti elastici](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) |Questa esercitazione illustra le modifiche necessarie in un'applicazione Entity Framework per l'integrazione con le funzionalità degli strumenti del database elastico. |
 | [Adottare OLTP in memoria](sql-database-in-memory-oltp-migration.md) | Questa esercitazione mostra come usare [OLTP in memoria](sql-database-in-memory.md) per migliorare le prestazioni di elaborazione delle transazioni. |
+| [Code First to a New Database](https://msdn.microsoft.com/data/jj193542.aspx) (Code First per un nuovo database) | In questa esercitazione vengono illustrati i concetti relativi alla distribuzione Code First.
+| [Tailspin Surveys sample application](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md) (Applicazione di esempio Tailspin Surveys) | In questa esercitazione viene usata l'applicazione di esempio Tailspon Surveys. |
+| [Contoso Clinic demo application](https://github.com/Microsoft/azure-sql-security-sample) (Applicazione demo Contoso Clinic) | In questa esercitazione viene usata l'applicazione demo Contoso Clinic. |
 |  | |
 
 ## <a name="data-sync"></a>Sincronizzazione dei dati
@@ -109,11 +114,15 @@ Questa esercitazione illustra i concetti relativi alla [sincronizzazione dei dat
 | [Introduzione all'anteprima di sincronizzazione dati di SQL Azure](sql-database-get-started-sql-data-sync.md) |In questa esercitazione vengono fornite le nozioni di base della sincronizzazione dati SQL Azure tramite il portale di Azure classico. |
 |  | |
 
-## <a name="next-steps"></a>Passaggi successivi
-[Esplorare le procedure di avvio rapido per la soluzione di database SQL di Azure](sql-database-solution-quick-starts.md)
+## <a name="monitor-and-tune"></a>Monitorare e ottimizzare
+Le esercitazioni seguenti illustrano il monitoraggio e l'ottimizzazione.
+| Esercitazione | Descrizione |
+| --- | --- | 
+| [Elastic Pool telemetry using PowerShell](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) (Telemetria del pool elastico con PowerShell)| In questa esercitazione viene illustrato come raccogliere i dati di telemetria del pool elastico usando PowerShell. |
+| [Elastic Pool custom dashboard for SaaS](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) (Dashboard personalizzato dei pool elastici per SaaS) | In questa esercitazione viene illustrato come creare un dashboard personalizzato per il monitoraggio dei pool elastici. |
+| [Acquisire il codice di destinazione del file evento per eventi estesi](sql-database-xevent-code-event-file.md)| In questa esercitazione viene illustrato come acquisire eventi estesi in un file evento di destinazione.|
+| [Acquisire il codice di destinazione del buffer circolare per gli eventi estesi](sql-database-xevent-code-ring-buffer.md)| In questa esercitazione viene illustrato come acquisire eventi estesi nel codice del buffer circolare.|
+|  | |
 
-
-
-<!--HONumber=Feb17_HO2-->
 
 

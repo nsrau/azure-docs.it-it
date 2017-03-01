@@ -17,8 +17,9 @@ ms.topic: article
 ms.date: 09/15/2016
 ms.author: negat
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8c4248077626cba2f1ace3c119d301b99247e19f
+ms.sourcegitcommit: 35d4c8593dd9698017df85675395430f345f4e86
+ms.openlocfilehash: 17054073e921708cc0c9392ed1b94e9579a9f940
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -32,26 +33,28 @@ Innanzitutto, passare al [portale di Azure](https://portal.azure.com) in un brow
 
 ![ScaleSetPortalOverview](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalOverview.PNG)
 
-## <a name="create-the-linux-virtual-machine"></a>Creare la macchina virtuale Linux
-È ora possibile usare le impostazioni predefinite e creare rapidamente la macchina virtuale.
+## <a name="create-the-scale-set"></a>Creare il set di scalabilità
+È ora possibile usare le impostazioni predefinite e creare rapidamente il set di scalabilità.
 
 * Nel pannello `Basics` immettere un nome per il set di scalabilità. Questo nome diventa la base del nome di dominio completo del bilanciamento del carico rispetto al set di scalabilità, pertanto, assicurarsi che il nome sia univoco in tutte le istanze di Azure.
 * Selezionare il tipo di sistema operativo desiderato, immettere il nome utente desiderato e selezionare il tipo di autenticazione preferito. Se è stata scelta una password, questa deve avere una lunghezza di 12 caratteri e deve soddisfare almeno tre dei quattro requisiti di complessità seguenti: una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale. Sono disponibili altre informazioni sui [requisiti relativi a nome utente e password](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm). Se si sceglie `SSH public key`, assicurarsi di incollare solo la chiave pubblica, NON quella privata:
 
 ![ScaleSetPortalBasics](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalBasics.PNG)
 
+* Scegliere se si vuole limitare il set di scalabilità a un singolo gruppo di posizionamento o includere più gruppi di posizionamento. Se si consente l'inclusione di gruppi di posizionamento nel set di scalabilità, si consentono set di scalabilità con capacità pari a più di 100 VM (fino a 1.000) con alcune limitazioni. Per altre informazioni, vedere [questa documentazione](./virtual-machine-scale-sets-placement-groups.md).
 * Immettere il nome del gruppo di risorse desiderato e il percorso e fare clic su `OK`.
-* Nel pannello `Virtual machine scale set service settings` immettere l'etichetta del nome di dominio desiderato (la base del nome di dominio completo per il bilanciamento del carico rispetto al set di scalabilità). Questa etichetta deve essere univoca in tutte le istanze di Azure.
+* Nel pannello `Virtual machine scale set service settings` immettere l'etichetta del nome di dominio desiderato (la base del nome di dominio completo per il bilanciamento del carico rispetto al set di scalabilità). Questa etichetta deve essere univoca nell'ambiente Azure.
 * Scegliere l'immagine del disco del sistema operativo desiderata, il numero di istanze e le dimensioni del computer.
+* Scegliere il tipo di disco desiderato: gestito o non gestito. Per altre informazioni, vedere [questa documentazione](./virtual-machine-scale-sets-managed-disks.md). Se si sceglie di includere gruppi di posizionamento nel set di scalabilità, questa opzione non sarà disponibile perché è necessario un disco gestito per consentire ai set di scalabilità di includere gruppi di posizionamento.
 * Abilitare o disabilitare il ridimensionamento automatico e, se abilitato, configurarlo:
 
 ![ScaleSetPortalService](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalService.PNG)
 
-* Nel pannello `Summary`, dopo aver completato la convalida, fare clic su `OK`.
-* Infine, nel pannello `Purchase` fare clic su `Purchase` per iniziare la distribuzione del set di scalabilità.
+* Al termine della convalida fare clic su `OK` nel pannello `Summary` per iniziare a distribuire il set di scalabilità.
+
 
 ## <a name="connect-to-a-vm-in-the-scale-set"></a>Connettersi a una VM nel set di scalabilità
-Dopo aver distribuito il set di scalabilità, passare alla scheda `Inbound NAT Rules` del bilanciamento del carico per il set di scalabilità:
+Se si sceglie di limitare il set di scalabilità a un singolo gruppo di posizionamento, il set di scalabilità viene distribuito con le regole NAT configurate per consentire facilmente la connessione al set di scalabilità; in caso contrario, per connettersi alle macchine virtuali nel set di scalabilità, è probabilmente necessario creare un jumpbox nella stessa rete virtuale del set di scalabilità. Per esaminare gli elementi, passare alla scheda `Inbound NAT Rules` del servizio di bilanciamento del carico per il set di scalabilità:
 
 ![ScaleSetPortalNatRules](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalNatRules.PNG)
 
@@ -67,10 +70,5 @@ Per la documentazione relativa alla modalità di distribuzione dei set di scalab
 Per una documentazione generale, vedere la [pagina di panoramica della documentazione per i set di scalabilità](virtual-machine-scale-sets-overview.md).
 
 Per informazioni generali, vedere la [pagina di destinazione principale per i set di scalabilità](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -11,11 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/02/2016
+ms.date: 02/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: e8daf6f37cbbdf1c33d8b66a2b8719458e8bd9f9
-ms.openlocfilehash: 7886f7e7fcf22d38c45e369761730c076ad96d75
+ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
+ms.openlocfilehash: 1ef09170f9d5dd28005f70913df2c945f8e4ac12
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -71,7 +72,7 @@ I tipi di eventi sono i seguenti:
 * **Visualizzazione pagina**: -  [i dati di telemetria inviati al client Web](app-insights-javascript.md), usati per creare report di visualizzazioni pagine. 
 * **Evento personalizzato**: se sono state inserite chiamate in TrackEvent() per [tenere traccia dell'utilizzo](app-insights-api-custom-events-metrics.md), è possibile cercarle qui.
 * **Eccezione**: [eccezioni non rilevate nel server](app-insights-asp-net-exceptions.md) e quelle che si registrano con TrackException().
-* Dipendenza:  - chiamate dall'applicazione server ad altri servizi, ad esempio le API REST o i database, e chiamate AJAX dal codice client.
+* **Dipendenza**:  - [chiamate dall'applicazione server](app-insights-asp-net-dependencies.md) ad altri servizi, ad esempio le API REST o i database, e chiamate AJAX dal [codice client](app-insights-javascript.md).
 * **Disponibilità**: risultati dei [test di disponibilità](app-insights-monitor-web-app-availability.md).
 
 ## <a name="filter-on-property-values"></a>Filtrare in base ai valori delle proprietà
@@ -137,7 +138,7 @@ Se l'app genera molti dati di telemetria (e si usa ASP.NET SDK versione 2.0.0-be
 
 
 ## <a name="create-work-item"></a>Creare un elemento di lavoro
-È possibile creare un bug in Visual Studio Team Services con i dettagli provenienti da qualsiasi elemento di dati di telemetria. 
+È possibile creare un bug in GitHub o Visual Studio Team Services con i dettagli provenienti da qualsiasi elemento di dati di telemetria. 
 
 ![Fare clic su Nuovo elemento di lavoro, modificare i campi e quindi fare clic su OK.](./media/app-insights-diagnostic-search/42.png)
 
@@ -145,7 +146,7 @@ La prima volta che si esegue questa operazione viene chiesto di configurare un c
 
 ![Immettere l'URL del server di Team Services e il nome del progetto, quindi fare clic su Autorizza.](./media/app-insights-diagnostic-search/41.png)
 
-Il pannello di configurazione è disponibile anche in Impostazioni > Elementi di lavoro.
+(È anche possibile configurare il collegamento al pannello Elementi di lavoro).
 
 ## <a name="save-your-search"></a>Salvare la ricerca
 Dopo aver impostato tutti i filtri desiderati, è possibile salvare la ricerca come preferita. Se si usa un account aziendale, è possibile scegliere se condividerlo con altri membri del team.
@@ -168,7 +169,8 @@ Oltre la telemetria predefinita inviata da Application Insights SDK, è possibil
 
 ## <a name="a-namequestionsaq--a"></a><a name="questions"></a>Domande e risposte
 ### <a name="a-namelimitsahow-much-data-is-retained"></a><a name="limits"></a>Quanti dati vengono conservati?
-Fino a 500 eventi al secondo da ciascuna applicazione. Gli eventi vengono conservati per sette giorni.
+
+Vedere il [Riepilogo dei limiti](app-insights-pricing.md#limits-summary).
 
 ### <a name="how-can-i-see-post-data-in-my-server-requests"></a>Come è possibile visualizzare dati POST nelle richieste server?
 I dati POST non vengono registrati automaticamente, ma è possibile usare [TrackTrace o chiamate di log](app-insights-search-diagnostic-logs.md). Inserire i dati POST nel parametro del messaggio. Non è possibile filtrare in base al messaggio nello stesso modo delle proprietà, ma il limite delle dimensioni è maggiore.
@@ -178,9 +180,4 @@ I dati POST non vengono registrati automaticamente, ma è possibile usare [Track
 * [Inviare log e dati di telemetria personalizzati ad Application Insights](app-insights-search-diagnostic-logs.md)
 * [Configurare i test di disponibilità e velocità di risposta](app-insights-monitor-web-app-availability.md)
 * [Risoluzione dei problemi](app-insights-troubleshoot-faq.md)
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

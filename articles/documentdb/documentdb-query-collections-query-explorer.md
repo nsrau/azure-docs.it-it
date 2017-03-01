@@ -1,5 +1,5 @@
 ---
-title: 'Esplora query di DocumentDB: un editor di query SQL | Microsoft Docs'
+title: 'Strumento del portale di Azure DocumentDB: Esplora query | Documentazione Microsoft'
 description: Informazioni su Esplora query di DocumentDB, un editor di query SQL nel portale di Azure per la scrittura e l&quot;esecuzione di query SQL in una raccolta DocumentDB NoSQL.
 keywords: scrittura di query sql, editor di query sql
 services: documentdb
@@ -13,18 +13,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/10/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4a4e66ff9022b153fe09fba004ff50aed053b392
+ms.sourcegitcommit: 3dbf57923e104715d34d1131d16acb6bc6c51637
+ms.openlocfilehash: dcf61a8875793bb9e5ed4eda51f9da14366a4fba
+ms.lasthandoff: 02/15/2017
 
 
 ---
-# <a name="write-edit-and-run-sql-queries-for-documentdb-using-query-explorer"></a>Scrivere, modificare ed eseguire query SQL per DocumentDB con Esplora query
+# <a name="write-edit-and-run-sql-queries-for-documentdb-using-query-explorer-in-the-azure-portal"></a>Scrivere, modificare ed eseguire query SQL per DocumentDB con Esplora query nel portale di Azure
 L'articolo offre una panoramica di Esplora Query di [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), uno strumento del portale di Azure che consente di scrivere, modificare ed eseguire query SQL in relazione a una [raccolta DocumentDB](documentdb-create-collection.md).
 
-1. Nell'indice del portale di Azure fare clic su **DocumentDB (NoSQL)**. Se **DocumentDB (NoSQL)** non è visibile, fare clic su **More Services** (Altri servizi) e quindi su **DocumentDB (NoSQL)**.
+1. Nel [portale di Azure](https://portal.azure.com) nel riquadro di navigazione a sinistra, fare clic sull'![icona di Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**. 
+
+    Se **NoSQL (DocumentDB)** non è visibile, fare clic su **Altri servizi** nella parte inferiore, quindi fare clic sull'![icona di Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**.
 2. Nel menu delle risorse fare clic su **Esplora query**. 
    
     ![Screenshot del portale di Azure con Esplora query evidenziato](./media/documentdb-query-collections-query-explorer/queryexplorercommand.png)
@@ -71,10 +74,5 @@ Esplora query nel portale di Azure è solo uno dei modi in cui è possibile eseg
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla grammatica SQL di DocumentDB supportata in Esplora query, consultare l'articolo [Query SQL e sintassi SQL](documentdb-sql-query.md) o stampare il [foglio informativo di query SQL](documentdb-sql-query-cheat-sheet.md).
 La pagina [Query Playground](https://www.documentdb.com/sql/demo) permette di testare le query online usando un set di dati di esempio.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

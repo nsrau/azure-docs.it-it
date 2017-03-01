@@ -1,8 +1,8 @@
 ---
-title: Formato dei file manifesto del servizio Importazione/Esportazione | Documentazione Microsoft
+title: Formato dei file manifesto del servizio Importazione/Esportazione di Azure | Documentazione Microsoft
 description: "Informazioni sul formato del file manifesto dell&quot;unità che descrive il mapping tra i BLOB nell&quot;archiviazione Blob di Azure e i file sul disco in un processo di importazione o esportazione nel servizio Importazione/Esportazione"
-author: renashahmsft
-manager: aungoo
+author: muralikk
+manager: syadav
 editor: tysonn
 services: storage
 documentationcenter: 
@@ -12,16 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2015
-ms.author: renash
+ms.date: 01/23/2017
+ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 78abb839badf99c6251673ee9914955df8c950bc
-ms.openlocfilehash: c79d4e4b088bab056459ed4add442acfb0176692
+ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
+ms.openlocfilehash: 2c76120a967aabf546fdb5246478f78e8cf47f94
+ms.lasthandoff: 02/16/2017
 
 
 ---
 
-# <a name="import-export-service-manifest-file-format"></a>Formato del file manifesto del servizio Importazione/Esportazione
+# <a name="azure-importexport-service-manifest-file-format"></a>Formato del file manifesto del servizio Importazione/Esportazione di Azure
 Il file manifesto dell'unità descrive il mapping tra i BLOB nell'archiviazione Blob di Azure e i file nell'unità che comprende un processo di importazione o esportazione. Per un'operazione di importazione, il file manifesto viene creato come parte del processo di preparazione dell'unità e viene archiviato nell'unità prima che questa venga inviata al data center di Azure. Durante un'operazione di esportazione, il manifesto viene creato e archiviato nell'unità dal servizio Importazione/Esportazione di Azure.  
   
 Per entrambi i processi di importazione ed esportazione, il file manifesto dell'unità viene archiviato nell'unità di importazione o esportazione; non viene trasmesso al servizio tramite un'operazione API.  
@@ -100,7 +101,7 @@ Nella tabella seguente vengono specificati gli elementi di dati e gli attributi 
 |`Drive`|Elemento XML nidificato|Contiene il manifesto per tutte le unità.|  
 |`DriveId`|string|Identificatore di unità univoco per l'unità. L'identificatore di unità viene trovato eseguendo una query all'unità sul numero di serie. Il numero di serie in genere è stampato anche all'esterno dell'unità. L'elemento `DriveID` deve comparire prima di qualsiasi elemento `BlobList` nel file manifesto.|  
 |`StorageAccountKey`|string|Necessaria per i processi di importazione se e solo se `ContainerSas` non è specificato. Chiave dell'account di archiviazione di Azure associata al processo.<br /><br /> Nelle operazioni di esportazione questo elemento viene omesso dal manifesto.|  
-|`ContainerSas`|string|Necessaria per i processi di importazione se e solo se `StorageAccountKey` non è specificato. Firma di accesso condiviso del contenitore per l'accesso ai BLOB associati al processo. Per il formato, vedere [Jobs](/rest/api/storageservices/importexport/Put-Job) (Processi). Nelle operazioni di esportazione questo elemento viene omesso dal manifesto.|  
+|`ContainerSas`|string|Necessaria per i processi di importazione se e solo se `StorageAccountKey` non è specificato. Firma di accesso condiviso del contenitore per l'accesso ai BLOB associati al processo. Per il formato, vedere [Jobs](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) (Processi). Nelle operazioni di esportazione questo elemento viene omesso dal manifesto.|  
 |`ClientCreator`|String|Specifica il client che ha creato il file XML. Questo valore non viene interpretato dal servizio Importazione/Esportazione.|  
 |`BlobList`|Elemento XML nidificato|Contiene un elenco di BLOB che fanno parte del processo di importazione o esportazione. Tutti i BLOB in un elenco di BLOB condividono gli stessi metadati e proprietà.|  
 |`BlobList/MetadataPath`|String|Facoltativa. Specifica il percorso relativo di un file sul disco che contiene i metadati predefiniti che verranno impostati nei BLOB presenti nell'elenco per un'operazione di importazione. Questi metadati possono essere sostituiti facoltativamente un BLOB alla volta.<br /><br /> Nelle operazioni di esportazione questo elemento viene omesso dal manifesto.|  
@@ -131,10 +132,5 @@ Nella tabella seguente vengono specificati gli elementi di dati e gli attributi 
 |`Blob/PropertiesPath/@Hash`|Attributo, stringa|Specifica l'hash MD5 codificato in base&16; del file di proprietà del BLOB.|  
   
 ## <a name="see-also"></a>Vedere anche  
-[Storage Import/Export REST](/rest/api/storageservices/importexport/Storage-Import-Export-Service-REST-API-Reference) (REST di importazione/esportazione dell'archiviazione)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
+[REST di importazione/esportazione dell'archiviazione](/rest/api/storageimportexport/)
 

@@ -15,8 +15,9 @@ ms.workload: backup-recovery
 ms.date: 2/2/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: bb24e1c79f6a77ec157fa05a8a212109ce8ae7ad
-ms.openlocfilehash: 8ea724c49664ca4803b1c91aefb94b490bd3d283
+ms.sourcegitcommit: edf190031e87cc5a433eaa8fb86187b41fc1dd4e
+ms.openlocfilehash: 61db9c89ff84db89323b55990dc1049d636958f7
+ms.lasthandoff: 02/22/2017
 
 ---
 
@@ -76,10 +77,5 @@ Durante il failback è consigliabile distribuire un server di elaborazione in Az
 
 ## <a name="unregistering-the-process-server-running-in-azure-from-a-configuration-server-running-on-premises"></a>Annullamento della registrazione del server di elaborazione in esecuzione in Azure con un server di configurazione locale
 
-[!INCLUDE [site-recovery-vmware-upgrade-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
-
-
-
-<!--HONumber=Feb17_HO1-->
-
+[!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
 

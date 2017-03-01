@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: johnsta
 translationtype: Human Translation
-ms.sourcegitcommit: 831f585a9591338c2f404f7ec031d40937731eab
-ms.openlocfilehash: dcf4c0b67bc7a6596070cdf44644a6c451e3afc1
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: c226d1eecbda09f4538f37d830ce68064e8ce77b
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -29,7 +30,7 @@ In questa esercitazione viene illustrato come automatizzare completamente lo svi
 ## <a name="get-started"></a>Introduzione
 È possibile eseguire questa esercitazione in OS X, Windows o Linux.
 - È necessaria una sottoscrizione di Azure. Se non si ha un account, è possibile [iscriversi per ottenere un account](https://azure.microsoft.com/).
-- Installare gli [strumenti da riga di comando di Azure](https://github.com/Azure/azure-cli#microsoft-azure-cli-20---preview).
+- Installare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2).
 
 ## <a name="what-well-create"></a>Risultati della procedura
 Ecco alcuni aspetti principali dell'app e del rispettivo flusso di distribuzione in fase di configurazione:
@@ -319,7 +320,7 @@ Vedere anche:
 ## <a name="clean-up"></a>Eseguire la pulizia
 Per limitare gli addebiti per risorse di calcolo correlati a questa esercitazione, eseguire il comando seguente e annotare le risorse della pipeline di distribuzione correlate a un cluster del servizio contenitore di Azure:
 
-```azurecli 
+```azurecli    
 az container release list --resource-name myacs --resource-group myacs-rg
 ```
 
@@ -345,9 +346,4 @@ Eliminare la definizione di versione di VSTS:
 2. Nell'elenco di definizioni di rilascio disponibile a sinistra fare clic sulla freccia a discesa accanto alla definizione di versione da eliminare, quindi selezionare **Elimina**.
 
 `![Eliminare la definizione di versione di VSTS](media/container-service-setup-ci-cd/vsts-delete-release-def.png)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
