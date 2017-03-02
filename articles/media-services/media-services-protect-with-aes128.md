@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
 ms.openlocfilehash: 5b81c3cdabe7b02a2049d7d1a5e227f5886bdbad
+ms.lasthandoff: 01/11/2017
 
 
 ---
@@ -398,10 +399,10 @@ Il codice seguente indica come inviare una richiesta al servizio di distribuzion
                     IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
                     // Create a task with the encoding details, using a string preset.
-                    // In this case "H264 Multiple Bitrate 720p" preset is used.
+                    // In this case "Adaptive Streaming" preset is used.
                     ITask task = job.Tasks.AddNew("My encoding task",
                         processor,
-                        "H264 Multiple Bitrate 720p",
+                        "Adaptive Streaming",
                         TaskOptions.None);
 
                     // Specify the input asset to be encoded.
@@ -628,10 +629,5 @@ Il codice seguente indica come inviare una richiesta al servizio di distribuzion
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 
