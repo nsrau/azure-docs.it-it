@@ -17,6 +17,7 @@
 ### [Creazione di modelli](resource-group-authoring-templates.md)
 ### [Funzioni di modello](resource-group-template-functions.md)
 ### [Definire la dipendenza tra risorse](resource-group-define-dependencies.md)
+### [Impostare il nome e il tipo della risorsa figlio](resource-manager-template-child-resource.md)
 ### [Creare più istanze di un tipo di risorsa](resource-group-create-multiple.md)
 ### [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md)
 ### [Eseguire il collegamento ad altri modelli](resource-group-linked-templates.md)
@@ -71,8 +72,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=azure-resource-manager)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

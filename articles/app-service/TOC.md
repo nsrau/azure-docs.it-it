@@ -28,6 +28,20 @@
 ### [App di Marketplace](../app-service-web/web-sites-php-web-site-gallery.md)
 ### [PHP](../app-service-web/app-service-web-php-get-started.md)    
 
+# Esempi comuni
+## Esempi di interfaccia della riga di comando
+### [Creare un'app Web e distribuire il codice da GitHub](./scripts/app-service-cli-deploy-github.md)
+### [Creare un'app Web con la distribuzione continua da GitHub](./scripts/app-service-cli-continuous-deployment-github.md)
+### [Creare un'app Web e distribuire il codice da un repository Git locale](./scripts/app-service-cli-deploy-local-git.md)
+### [Creare un'app Web e distribuire il codice in un ambiente di staging](./scripts/app-service-cli-deploy-staging-environment.md)
+### [Creare un'app Web ASP.NET Core in un contenitore Docker](./scripts/app-service-cli-linux-docker-aspnetcore.md)
+### [Eseguire il mapping di un dominio personalizzato a un'app Web](./scripts/app-service-cli-configure-custom-domain.md)
+### [Ridimensionare un'app Web manualmente](./scripts/app-service-cli-scale-manual.md)
+### [Ridimensionare un'app Web a livello globale con un'architettura a disponibilità elevata](./scripts/app-service-cli-scale-high-availability.md)
+### [Connettere un'app Web a un database SQL](./scripts/app-service-cli-app-service-sql.md)
+### [Connettere un'app Web a un account di archiviazione](./scripts/app-service-cli-app-service-storage.md)
+### [Monitorare un'app Web con i log del server Web](./scripts/app-service-cli-monitor.md)
+
 # Procedure
 
 ## Pianificare e progettare
@@ -156,8 +170,3 @@
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=app-service) 
-
-
-<!--HONumber=Jan17_HO3-->
-
-
