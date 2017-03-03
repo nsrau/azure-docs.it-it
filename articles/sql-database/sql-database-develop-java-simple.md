@@ -18,6 +18,7 @@ ms.author: lbosq
 translationtype: Human Translation
 ms.sourcegitcommit: 1f1c6c89c492d18e0678fa4650b6c5744dc9f7d1
 ms.openlocfilehash: aafc89ca958e4bdc2ba52bf1a7d379e3a4cddf1c
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -51,10 +52,5 @@ Vedere la [pagina introduttiva](sql-database-get-started.md) per informazioni su
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * Esplorare tutte le [funzionalità del database SQL](https://azure.microsoft.com/services/sql-database/)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

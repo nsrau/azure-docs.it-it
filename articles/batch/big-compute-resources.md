@@ -17,6 +17,7 @@ ms.author: danlep
 translationtype: Human Translation
 ms.sourcegitcommit: a0e80acad4e8db2177e699f90f7296c64b38e718
 ms.openlocfilehash: edcf34610e7517f9ca16f8c239e4080c475933f4
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -110,10 +111,5 @@ Azure offre [varie dimensioni di macchine virtuali](../virtual-machines/virtual-
 ## <a name="next-steps"></a>Passaggi successivi
 * Per gli annunci più recenti, vedere il [blog del team di Microsoft HPC e Batch](http://blogs.technet.com/b/windowshpc/) e il [blog di Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Vedere anche le [novità di Batch](https://azure.microsoft.com/updates/?service=batch) o eseguire la sottoscrizione al [feed RSS](https://azure.microsoft.com/updates/feed/?service=batch).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

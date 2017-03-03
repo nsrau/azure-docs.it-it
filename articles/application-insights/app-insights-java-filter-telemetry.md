@@ -15,6 +15,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
 ms.openlocfilehash: cd09b7c5d45d07a3fbcc5d6f0c02400dcd36d61b
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -263,9 +264,4 @@ In ApplicationInsights.xml:
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Campionamento](app-insights-sampling.md): prendere in considerazione il campionamento come un'alternativa che non altera le metriche.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

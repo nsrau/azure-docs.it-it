@@ -18,6 +18,7 @@ ms.author: ganesr;cherylmc
 translationtype: Human Translation
 ms.sourcegitcommit: 6d11b75fdd33260be3d975d9bc25fdac3cf22b49
 ms.openlocfilehash: 73f42b25d667f07205e7e67556c367f1a0e6e215
+ms.lasthandoff: 02/06/2017
 
 
 ---
@@ -125,10 +126,5 @@ Eseguire i cmdlet seguenti per disabilitare l'accesso al modello di distribuzion
 
 * [Creare e modificare il routing per un circuito ExpressRoute](expressroute-howto-routing-arm.md)
 * [Collegare la rete virtuale al circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

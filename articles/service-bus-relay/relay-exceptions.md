@@ -17,6 +17,7 @@ ms.author: sethm;jotaub
 translationtype: Human Translation
 ms.sourcegitcommit: bc71995deef3f9795ebd33d9642c7ffa1995021b
 ms.openlocfilehash: 346851226dce8ca8e48d3ae291b97e6e43d1ae03
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -83,10 +84,5 @@ Per questo errore, esistono due cause comuni: una configurazione errata o un err
 * [Creare uno spazio dei nomi](relay-create-namespace-portal.md)
 * [Introduzione a .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introduzione a Node](relay-hybrid-connections-node-get-started.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

@@ -17,6 +17,7 @@ ms.author: ruturajd
 translationtype: Human Translation
 ms.sourcegitcommit: 7688df2aac74d10de7c188ad46f8ab2ec38bbe86
 ms.openlocfilehash: 34c335d17641e9df9b64a7882448afc268e4da7c
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -243,9 +244,4 @@ Al termine della riprotezione, la VM viene replicata in Azure ed è possibile es
 
 * La connessione ExpressRoute deve essere configurata nella rete virtuale di Azure in cui viene eseguito il failover dei computer di origine e in cui si trovano le macchine virtuali di Azure dopo il failover.
 * I dati vengono replicati in un account di archiviazione di Azure in un endpoint pubblico. Per consentire l'uso di ExpressRoute da parte della replica di Site Recovery, configurare il peering pubblico in ExpressRoute specificando il data center di destinazione.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

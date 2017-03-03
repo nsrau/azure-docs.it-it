@@ -17,6 +17,7 @@ ms.author: magoedte;eslesar
 translationtype: Human Translation
 ms.sourcegitcommit: f0d3a5c1929bb6dafef735ae3f4291e329861cc9
 ms.openlocfilehash: b750878703baf143a2e8247bdd01f358e462e598
+ms.lasthandoff: 02/03/2017
 
 ---
 # <a name="azure-automation-dsc-overview"></a>Panoramica della piattaforma DSC di Automazione di Azure
@@ -118,10 +119,5 @@ L'immagine seguente illustra in dettaglio il processo nel ciclo di vita di DSC. 
 * [Cmdlet di Automation DSC per Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Prezzi di Azure Automation DSC](https://azure.microsoft.com/pricing/details/automation/)
 * [La distribuzione continua nelle macchine virtuali IaaS tramite Azure Automation DSC e Chocolatey](automation-dsc-cd-chocolatey.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

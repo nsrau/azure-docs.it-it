@@ -17,6 +17,7 @@ ms.author: mimig
 translationtype: Human Translation
 ms.sourcegitcommit: b9902de45477bb7970da6c8f2234775bdb6edba8
 ms.openlocfilehash: 65f19191bbb736d3b7fbdd94d73f2308ee6dea83
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -178,8 +179,3 @@ Per altre informazioni sui prezzi e sulla gestione dei dati con Azure DocumentDB
 2.  [Prezzi di DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/). Informazioni sui costi del provisioning della velocità effettiva e del consumo di spazio di archiviazione.
 3.  [Unità richiesta](documentdb-request-units.md). Analisi del consumo di velocità effettiva per i diversi tipi di operazione, ad esempio lettura, scrittura, query.
 4.  [Modellazione dei dati in DocumentDB](documentdb-modeling-data.md). Informazioni sulla modellazione dei dati per DocumentDB.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

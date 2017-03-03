@@ -18,6 +18,7 @@ ms.author: jhubbard
 translationtype: Human Translation
 ms.sourcegitcommit: 46f65a2898c39774bd63ff2f8f053224d7238fb0
 ms.openlocfilehash: 0abfceb43ec5c333e9800ee6fca4e31fb317208d
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -50,10 +51,5 @@ A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e c
 * [Il primo runbook](../automation/automation-first-runbook-graphical.md)
 * [Mappa di apprendimento di Automazione di Azure](https://azure.microsoft.com/documentation/learning-paths/automation/)
 * [Automazione di Azure: SQL Agent nel cloud](https://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/) 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
