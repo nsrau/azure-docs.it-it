@@ -17,6 +17,7 @@ ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
 ms.openlocfilehash: 7fcf16ac835089a1c4127fd34264f2cf7cb098ac
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -151,10 +152,5 @@ Usando l'interfaccia della riga di comando di Azure, è possibile esportare un m
 * Per ottenere i dettagli delle operazioni di distribuzione e risolvere i problemi relativi agli errori di distribuzione con l'interfaccia della riga di comando di Azure, vedere [View deployment operations](resource-manager-deployment-operations.md) (Visualizzare le operazioni di distribuzione).
 * Per usare l'interfaccia della riga di comando per configurare un'applicazione o uno script per accedere alle risorse, vedere [Usare l'interfaccia della riga di comando di Azure per creare un'entità servizio per accedere alle risorse](resource-group-authenticate-service-principal-cli.md).
 * Per indicazioni su come le aziende possono usare Resource Manager per gestire efficacemente le sottoscrizioni, vedere [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Scaffolding aziendale Azure - Governance prescrittiva per le sottoscrizioni).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 
