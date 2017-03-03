@@ -17,6 +17,7 @@ ms.author: johnkem; magoedte
 translationtype: Human Translation
 ms.sourcegitcommit: fbc96a248de20b67a72e6a0150fe4b9b754ec4fe
 ms.openlocfilehash: d61ec29026ae5bbbdf33d7810e2e35c4d6bee1e7
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -213,9 +214,4 @@ Lo schema per i log di diagnostica varia a seconda della risorsa e della categor
 * [Trasmettere log di diagnostica di Azure a **Hub eventi**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Modificare le impostazioni di diagnostica usando l'API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 * [Analyze the logs with OMS Log Analytics (Analizzare i log con OMS Log Analytics)](../log-analytics/log-analytics-azure-storage.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
