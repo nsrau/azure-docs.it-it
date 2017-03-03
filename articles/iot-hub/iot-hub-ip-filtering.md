@@ -17,6 +17,7 @@ ms.author: boltean
 translationtype: Human Translation
 ms.sourcegitcommit: ddb729d29072724f691c178967b6181f6ce06df4
 ms.openlocfilehash: a9207d116e9b7360865c950ba00210ed67c3e028
+ms.lasthandoff: 01/28/2017
 
 
 ---
@@ -104,8 +105,3 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 [lnk-monitor]: iot-hub-operations-monitoring.md
 [lnk-metrics]: iot-hub-metrics.md
-
-
-<!--HONumber=Jan17_HO4-->
-
-

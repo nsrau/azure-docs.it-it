@@ -18,6 +18,7 @@ ms.author: rasquill
 translationtype: Human Translation
 ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
 ms.openlocfilehash: 3db8a2b4618c05430a7e0cd7664514abc582078b
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -160,10 +161,5 @@ Poiché l'ambito relativo a DevOps, gestione e ottimizzazione è in continua e r
 * [Blog: come eseguire PowerShell DSC per Linux](http://blogs.technet.com/b/privatecloud/archive/2014/05/19/powershell-dsc-for-linux-step-by-step.aspx)
 * [GitHub: DSC per client Docker](https://github.com/anweiss/DockerClientDSC)
 * [Plug-in di Packer per Azure](https://github.com/msopentech/packer-azure)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 
