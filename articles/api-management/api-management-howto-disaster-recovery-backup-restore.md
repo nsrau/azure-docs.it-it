@@ -17,6 +17,7 @@ ms.author: apimpm
 translationtype: Human Translation
 ms.sourcegitcommit: 1c812fc31011b57f2cdb357574877d6b7125280f
 ms.openlocfilehash: c5ae5049588d5bc7628442942e71f182a425fead
+ms.lasthandoff: 02/10/2017
 
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
@@ -210,9 +211,4 @@ Consultare i blog Microsoft seguenti per due diverse procedure dettagliate del p
 [api-management-aad-resources]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-aad-resources.png
 [api-management-arm-token]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-arm-token.png
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

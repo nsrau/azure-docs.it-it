@@ -17,6 +17,7 @@ ms.author: elioda
 translationtype: Human Translation
 ms.sourcegitcommit: dea438c8b1bd3d6331f84de01def989f66b6f387
 ms.openlocfilehash: 88ae905708a421052666316eb81c1dd97d6c9635
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -54,9 +55,4 @@ Informazioni su come usare i metodi diretti, le proprietà desiderate e messaggi
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 [lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md
 [lnk-c2d-tutorial]: iot-hub-node-node-c2d.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

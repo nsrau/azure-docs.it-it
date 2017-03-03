@@ -17,6 +17,7 @@ ms.author: raynew
 translationtype: Human Translation
 ms.sourcegitcommit: 9ab51cb8e11df43ba2157b11e25a1f29b19e4da9
 ms.openlocfilehash: e36f19e9c429c0e4b42e96b28b1ba995bd1bf167
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -104,9 +105,4 @@ Se si dispone di un sito di origine VMM, è possibile creare uno script nel serv
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Altre informazioni](site-recovery-failover.md) sull'esecuzione dei failover.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

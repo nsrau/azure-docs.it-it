@@ -16,6 +16,7 @@ ms.author: mrys
 translationtype: Human Translation
 ms.sourcegitcommit: cd2aafd80db337cadaa2217a6638d93186975b68
 ms.openlocfilehash: 563a6821b4a3736ef1233aa67d86b9ba06565788
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -2609,9 +2610,4 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 
 OUTPUT @rs2 TO @output_file USING Outputters.Text();
 ```
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -17,6 +17,7 @@ ms.author: jarrettr
 translationtype: Human Translation
 ms.sourcegitcommit: 245fb30a64c8a19f6ea0073d533419e9c3628cb5
 ms.openlocfilehash: 538a43e549f47709616dd93e7eab9c8cb7d99dc6
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -77,9 +78,4 @@ Per altre informazioni, vedere [Azure Site Recovery](../site-recovery/site-recov
 ### <a name="moving-data-faq"></a>Domande frequenti sullo spostamento di dati:
 ## <a name="can-i-migrate-vhds-from-one-region-to-another-without-copying"></a>È possibile migrare i dischi rigidi virtuali da un'area a un'altra senza eseguire una copia?
 L'unico modo per copiare i dischi rigidi virtuali tra aree diverse consiste nel copiare i dati tra gli account di archiviazione di ogni area. A questo scopo è possibile usare AZCopy. Per altre informazioni, vedere Trasferire dati con l'utilità della riga di comando AzCopy . Per grandi quantità di dati è possibile anche usare il servizio Importazione/Esportazione di Azure. Per altre informazioni, vedere [Usare il servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati nell'archiviazione BLOB](https://docs.microsoft.com/en-us/azure/storage/storage-import-export-service) .
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

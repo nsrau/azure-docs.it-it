@@ -17,6 +17,7 @@ ms.author: sethm
 translationtype: Human Translation
 ms.sourcegitcommit: 6027c973f0104fff9705a70f7812f62562165c1e
 ms.openlocfilehash: d830770c49caeacf762382ce1c6113d9196a5994
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -87,10 +88,5 @@ Per altre panoramiche sul bus di servizio, vedere gli argomenti seguenti.
 * [Panoramica del servizio di inoltro di Azure](relay-what-is-it.md)
 * [Architettura del bus di servizio](../service-bus-messaging/service-bus-architecture.md)
 * [Dati fondamentali del bus di servizio](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

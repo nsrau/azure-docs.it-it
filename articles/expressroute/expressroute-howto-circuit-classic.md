@@ -18,6 +18,7 @@ ms.author: ganesr;cherylmc
 translationtype: Human Translation
 ms.sourcegitcommit: fe0bff84a5316628d9e465da0d4e62162f1ea4f2
 ms.openlocfilehash: cb67631dbbfb53a0de9b07bc3918bd70751ec41b
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -338,10 +339,5 @@ Dopo aver creato il circuito, verificare di eseguire le operazioni seguenti:
 
 * [Creare e modificare il routing per un circuito ExpressRoute](expressroute-howto-routing-classic.md)
 * [Collegare la rete virtuale al circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
