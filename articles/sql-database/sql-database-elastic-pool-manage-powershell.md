@@ -18,6 +18,7 @@ ms.author: srinia
 translationtype: Human Translation
 ms.sourcegitcommit: 637171b775d01e16cec1a7e9ef6fad73875eac69
 ms.openlocfilehash: e04a802b662954ff22cf44e144982dbf0964da8e
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -275,9 +276,4 @@ Il cmdlet Stop comporta l'annullamento non la sospensione. Non è possibile ripr
 ## <a name="next-steps"></a>Passaggi successivi
 * [Creare processi elastici](sql-database-elastic-jobs-overview.md) : i processi elastici consentono di eseguire script T-SQL su un numero qualsiasi di database nel pool.
 * Vedere [Aumentare il numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md): usare gli strumenti elastici per aumentare il numero di istanze, spostare dati, eseguire query o creare transazioni.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

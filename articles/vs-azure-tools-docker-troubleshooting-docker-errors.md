@@ -17,6 +17,7 @@ ms.author: mlearned
 translationtype: Human Translation
 ms.sourcegitcommit: 649cc1a78f3a9f343533cb18fb7d763e4f9ea196
 ms.openlocfilehash: 89fa04a1107b6abb49aefd68066443717ac9b731
+ms.lasthandoff: 02/04/2017
 
 
 ---
@@ -146,9 +147,4 @@ In alcuni casi si è osservato che la cache MEF (Managed Extensibility Framework
     ```
 1. Aprire Visual Studio.
 1. Provare a eseguire di nuovo lo scenario.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

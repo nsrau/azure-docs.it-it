@@ -17,6 +17,7 @@ ms.author: robinsh
 translationtype: Human Translation
 ms.sourcegitcommit: 9e75c5af6cb6d2f2a25f18269ec6822aa86459fc
 ms.openlocfilehash: 95ea1a9bc8fe80c39ca9f0683855cc3a4e7a77c4
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -533,8 +534,3 @@ Per altre informazioni su CORS e su come abilitarlo, vedere queste risorse.
 * [Effetti delle impostazioni di sicurezza "Crittografia di sistema: utilizza algoritmi FIPS compatibili per crittografia, hash e firma" in Windows XP e versioni successive di Windows](https://support.microsoft.com/kb/811833)
   
   Questo articolo illustra l'uso della modalità FIPS in computer Windows meno recenti.
-
-
-<!--HONumber=Feb17_HO1-->
-
-

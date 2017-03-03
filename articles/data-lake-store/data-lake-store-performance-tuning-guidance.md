@@ -17,6 +17,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: af11866fc812cd8a375557b7bf9df5cdc9bba610
 ms.openlocfilehash: f0d0c05c08ce198e2702c76ad35b348107c664c7
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -94,9 +95,4 @@ Azure Data Lake Store consente di ottenere prestazioni migliori quando la concor
 ## <a name="see-also"></a>Vedere anche
 * [Panoramica dell’Archivio Data Lake di Azure](data-lake-store-overview.md)
 * [Introduzione all’analisi dei dati di Data Lake di Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

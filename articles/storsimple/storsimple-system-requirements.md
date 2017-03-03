@@ -17,6 +17,7 @@ ms.author: alkohli
 translationtype: Human Translation
 ms.sourcegitcommit: c3af0df0f2e5a0367bef8e12edaca4937db7e39f
 ms.openlocfilehash: 50bc63845bab1322090097dd0d5736e11642a95b
+ms.lasthandoff: 01/06/2017
 
 
 ---
@@ -250,9 +251,4 @@ Esaminare attentamente le procedure consigliate seguenti per assicurare la dispo
 
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

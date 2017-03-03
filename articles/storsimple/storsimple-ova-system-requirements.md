@@ -17,6 +17,7 @@ ms.author: alkohli
 translationtype: Human Translation
 ms.sourcegitcommit: e5f9952d136a2a7914100d8a7f5ffa5ba05a9d75
 ms.openlocfilehash: 9eb839834ed4ee2291eb311f64a8dfa7f07a1ac3
+ms.lasthandoff: 02/07/2017
 
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisiti di sistema StorSimple Virtual Array
@@ -127,10 +128,5 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 
 ## <a name="next-step"></a>Passaggio successivo
 * [Preparare il portale per distribuire StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
