@@ -18,6 +18,7 @@ ms.author: anhoh
 translationtype: Human Translation
 ms.sourcegitcommit: 218d41ac352f01a7e03b5b8a1c45e1bf6d5ace28
 ms.openlocfilehash: a3b1289d52207448cebc628466492371d1bf6519
+ms.lasthandoff: 01/11/2017
 
 
 ---
@@ -83,9 +84,4 @@ Si consideri ad esempio l'account indicato sopra in Informazioni sulla stringa d
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [usare MongoChef](documentdb-mongodb-mongochef.md) con un account DocumentDB con supporto del protocollo per MongoDB.
 * Esplorare DocumentDB con supporto del protocollo per trovare [esempi](documentdb-mongodb-samples.md)di MongoDB.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

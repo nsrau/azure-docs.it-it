@@ -18,6 +18,7 @@ ms.author: danlep
 translationtype: Human Translation
 ms.sourcegitcommit: 7d153f1f45eb5cb06d7b960e7449450b4c74747a
 ms.openlocfilehash: e6c1fcea6ba7f6865cab97be9e3431bec2184064
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -48,10 +49,5 @@ In questo articolo sono trattate le opzioni per l'uso di HPC Pack per l'esecuzio
 ## <a name="create-rdma-clusters-for-mpi-workloads"></a>Creare cluster RDMA per carichi di lavoro MPI
 * [Esercitazione: eseguire OpenFOAM con Microsoft HPC Pack in un cluster Linux RDMA in Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Configurazione di un cluster Linux RDMA per eseguire applicazioni MPI](virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

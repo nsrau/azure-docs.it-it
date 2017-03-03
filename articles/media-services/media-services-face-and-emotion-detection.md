@@ -17,6 +17,7 @@ ms.author: milanga;juliako;
 translationtype: Human Translation
 ms.sourcegitcommit: adaf2a71e022d6d29493ab0a679bd593ea40195e
 ms.openlocfilehash: acb3b4d4a14ea546e94ccc38806251460e21a6bc
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -521,10 +522,5 @@ Il programma seguente illustra come:
 [Panoramica di Analisi servizi multimediali di Azure](media-services-analytics-overview.md)
 
 [Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

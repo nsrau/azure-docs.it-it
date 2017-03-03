@@ -17,6 +17,7 @@ ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: f68cf75cb8261ddac3fd56a8718f900bedb51c2b
 ms.openlocfilehash: 7e0f7d8fefad539960436a58a254087a4ebd2f78
+ms.lasthandoff: 02/15/2017
 
 ---
 
@@ -52,8 +53,3 @@ Azure Multi-Factor Authentication si integra con i client VPN SSL Juniper/Pulse 
 - [Ampliare l'infrastruttura di autenticazione esistente con l'estensione di Server dei criteri di rete per Multi-Factor Authentication di Azure](multi-factor-authentication-nps-extension.md)
 
 - [Configurare le impostazioni di Azure Multi-Factor Authentication](multi-factor-authentication-whats-next.md)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

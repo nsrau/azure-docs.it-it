@@ -18,6 +18,7 @@ ms.author: daleche
 translationtype: Human Translation
 ms.sourcegitcommit: 676cecdd886cfb557e7859e1e9583f0a0f9f749c
 ms.openlocfilehash: 222b9fe98592e0c78ec3d7c5ae4804bf75dd0d1e
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -89,10 +90,5 @@ La tabella seguente elenca tutti gli argomenti relativi ai problemi di connessio
 * [Panoramica dello sviluppo di database SQL](sql-database-develop-overview.md)
 * [Linee guida generali per la gestione degli errori temporanei](../best-practices-retry-general.md)
 * [Raccolte di connessioni per database SQL e Server SQL](sql-database-libraries.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

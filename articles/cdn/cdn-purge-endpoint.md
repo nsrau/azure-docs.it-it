@@ -17,6 +17,7 @@ ms.author: mazha
 translationtype: Human Translation
 ms.sourcegitcommit: eb46368541551feff1b28642f9343e508ef47b95
 ms.openlocfilehash: b035c232bb58d653960190d4974cc3789d55a51d
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -75,10 +76,5 @@ Questa esercitazione illustra l'eliminazione dagli asset di tutti i nodi periodi
 ## <a name="see-also"></a>Vedere anche
 * [Precaricamento di risorse in un endpoint della rete CDN di Azure](cdn-preload-endpoint.md)
 * [Riferimento API REST della rete CDN di Azure - Ripulire o precaricare un endpoint](https://msdn.microsoft.com/library/mt634451.aspx)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

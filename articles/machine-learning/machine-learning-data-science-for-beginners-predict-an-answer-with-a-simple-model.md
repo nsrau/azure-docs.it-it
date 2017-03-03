@@ -18,6 +18,7 @@ ms.author: cgronlun;garye
 translationtype: Human Translation
 ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
 ms.openlocfilehash: b82c293065446f9f9016015d68db972d71cecd2f
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -132,9 +133,4 @@ Anche gli altri video della serie "Analisi scientifica dei dati per principianti
 ## <a name="next-steps"></a>Passaggi successivi
 * [Effettuare il primo esperimento di analisi scientifica dei dati con Machine Learning Studio](machine-learning-create-experiment.md)
 * [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](machine-learning-what-is-machine-learning.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

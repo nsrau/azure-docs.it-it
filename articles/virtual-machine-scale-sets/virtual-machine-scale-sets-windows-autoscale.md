@@ -18,6 +18,7 @@ ms.author: adegeo
 translationtype: Human Translation
 ms.sourcegitcommit: 4fa0cdc2ee71d4e499dfc45bac7b690d728b626a
 ms.openlocfilehash: 2649edd4af67e25ce49bf0ced858b7c7e4633290
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -595,10 +596,5 @@ Se si vuole mantenere il gruppo di risorse, è possibile eliminare solo il set d
 * Per alcuni esempi delle funzionalità di monitoraggio in Monitoraggio di Azure, vedere [Azure Monitor PowerShell quick start samples](../monitoring-and-diagnostics/insights-powershell-samples.md) (Esempi di avvio rapido di PowerShell per Monitoraggio di Azure).
 * Per informazioni sulle funzionalità di notifica, vedere [Use autoscale actions to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) (Usare le azioni di ridimensionamento automatico per inviare notifiche di avviso tramite e-mail e webhook in Monitoraggio di Azure).
 * Per informazioni, vedere [Use audit logs to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md) (Usare i log di controllo per inviare notifiche di avviso tramite e-mail e webhook in Monitoraggio di Azure).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

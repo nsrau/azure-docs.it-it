@@ -18,6 +18,7 @@ ms.author: asabbour
 translationtype: Human Translation
 ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
 ms.openlocfilehash: 72aed50d3dd86c5875d3b741a6fff16cb8f17a2d
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -364,9 +365,4 @@ Può essere utile consultare gli articoli sul [metodo alternativo per creare un 
 [MariaDBs]: https://mariadb.org/en/about/
 [creare una chiave SSH per l'autenticazione]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
 [issue #1268 in the Azure CLI]:https://github.com/Azure/azure-xplat-cli/issues/1268
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

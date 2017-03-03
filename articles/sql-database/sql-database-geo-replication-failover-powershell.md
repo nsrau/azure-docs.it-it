@@ -18,6 +18,7 @@ ms.author: sstein
 translationtype: Human Translation
 ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
 ms.openlocfilehash: ac575284544819c6bed7ef84669b2793085a3dc6
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -77,10 +78,5 @@ Il comando seguente cambia i ruoli del database denominato "mydb” in primario 
 * Per informazioni sulla progettazione di applicazioni cloud per l'uso della replica geografica attiva, vedere [Progettazione di applicazioni cloud per la continuità aziendale mediante la replica geografica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 * Per informazioni sulla replica geografica attiva con i pool elastici, vedere [Strategie di ripristino di emergenza con pool elastico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 * Per un quadro generale, vedere la [panoramica della continuità aziendale](sql-database-business-continuity.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

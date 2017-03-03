@@ -18,6 +18,7 @@ ms.author: kumud
 translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: 002fa917e0cc17c34e0e617a28f2e21ba9b7e35f
+ms.lasthandoff: 02/16/2017
 
 ---
 # <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>Creazione di un servizio di bilanciamento del carico Internet tramite l'interfaccia della riga di comando di Azure
@@ -131,7 +132,7 @@ Questo esempio crea gli elementi seguenti.
 2. Creare una regola del servizio di bilanciamento del carico.
 
     ```azurecli
-        azure network lb rule create --resource-group nrprg nrplb --lb-name lbrule --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name NRPfrontendpool --backend-address-pool-name NRPbackendpool
+        azure network lb rule create --resource-group nrprg --lb-name nrplb --name lbrule --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name NRPfrontendpool --backend-address-pool-name NRPbackendpool
     ```
 
 3. Creare un probe di integrità.
@@ -308,9 +309,4 @@ azure network lb delete --resource-group nrprg --name nrplb
 [Configurare una modalità di distribuzione del servizio di bilanciamento del carico](load-balancer-distribution-mode.md)
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -17,6 +17,7 @@ ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 3b31bd036d9c3ff8036b314b93cbddd94874ff63
 ms.openlocfilehash: 8f7a679dc5b5726107503a9f7363ab162b1770d0
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -36,9 +37,4 @@ L'esperienza di anteprima è ottimizzata per gli amministratori globali. Se si u
 
 ## <a name="next-steps"></a>Passaggi successivi
 È possibile lasciare un feedback sull'esperienza di anteprima nella sezione del portale di amministrazione del [forum dei commenti di Azure AD](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD&filter=alltypes&sort=lastpostdesc).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

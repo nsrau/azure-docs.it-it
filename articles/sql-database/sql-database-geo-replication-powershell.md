@@ -18,6 +18,7 @@ ms.author: sstein
 translationtype: Human Translation
 ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
 ms.openlocfilehash: 85efdb2a5b9571d76338aeb0871b729693b63dcb
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -130,10 +131,5 @@ Il comando seguente recupera lo stato del collegamento di replica tra il databas
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sulla replica geografica attiva, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md)
 * Per la panoramica e gli scenari della continuità aziendale, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -18,6 +18,7 @@ ms.author: jeffstok
 translationtype: Human Translation
 ms.sourcegitcommit: d1ffb9aba0eb1e17d1efd913f536f6f3997fccbb
 ms.openlocfilehash: 7b635b1810536f5b3eb1371d687e9c355e604e41
+ms.lasthandoff: 02/14/2017
 
 ---
 
@@ -152,10 +153,5 @@ In questo articolo viene illustrato come creare un processo dell'analisi di flus
 * **Eventi della funzione** indica il numero di eventi nella richiesta. Per impostazione predefinita, ogni richiesta a un servizio Web di Machine Learning contiene fino a 1.000 eventi.  
   
     ![Analisi di flusso e Machine Learning, visualizzazione di monitoraggio di Machine Learning](./media/stream-analytics-machine-learning-integration-tutorial/job-monitor.png)  
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

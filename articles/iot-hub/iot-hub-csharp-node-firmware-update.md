@@ -17,6 +17,7 @@ ms.author: juanpere
 translationtype: Human Translation
 ms.sourcegitcommit: 4ba60cee8848079935111ed3de480081a4aa58f6
 ms.openlocfilehash: a586d437ed7636874d324c9d3fc5274fe9001627
+ms.lasthandoff: 02/06/2017
 
 
 ---
@@ -141,8 +142,3 @@ Per informazioni su come estendere la soluzione IoT e pianificare le chiamate al
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-rpi-implementation]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm/pi_device
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-
-
-<!--HONumber=Feb17_HO1-->
-
-

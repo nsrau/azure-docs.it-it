@@ -19,6 +19,7 @@ ms.author: rasquill
 translationtype: Human Translation
 ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
 ms.openlocfilehash: 88414392c4ee03e0b140bba0f73e44b6886c4038
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -165,9 +166,4 @@ Se le sottoscrizioni associate all'account vengono autenticate solo con Active D
 * Per l'uso dei comandi dell'interfaccia della riga di comando di Azure, vedere [Comandi dell'interfaccia della riga di comando di Azure in modalità Resource Manager](virtual-machines/azure-cli-arm-commands.md) e [Comandi dell'interfaccia della riga di comando di Azure in modalità Gestione servizi di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 * Per altre informazioni sull'interfaccia della riga di comando di Azure, il download del codice sorgente, la segnalazione dei problemi o la collaborazione al progetto, visitare il [repository GitHub per tale interfaccia](https://github.com/azure/azure-xplat-cli).
 * In caso di problemi durante l'uso dell'interfaccia della riga di comando di Azure o di Azure, visitare i [forum di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

@@ -1,0 +1,68 @@
+# Panoramica
+## [Informazioni su Network Watcher](network-watcher-monitoring-overview.md)
+## [Topologia](network-watcher-topology-overview.md)
+## [Acquisizione pacchetti variabile](network-watcher-packet-capture-overview.md)
+## [Registrazione dei flussi dei gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md)
+## [Verifica del flusso IP](network-watcher-ip-flow-verify-overview.md)
+## [Visualizzazione di un gruppo di sicurezza](network-watcher-security-group-view-overview.md)
+## [Hop successivo](network-watcher-next-hop-overview.md)
+## [Risoluzione dei problemi di connettività VPN](network-watcher-troubleshoot-overview.md)
+# Attività iniziali
+## [Configurare Network Watcher](network-watcher-create.md)
+## Gestire l'acquisizione pacchetti
+### [Portale](network-watcher-packet-capture-manage-portal.md)
+### [PowerShell](network-watcher-packet-capture-manage-powershell.md)
+### [CLI](network-watcher-packet-capture-manage-cli.md)
+### [REST](network-watcher-packet-capture-manage-rest.md)
+## Verificare i flussi IP verso e da una VM
+### [Portale](network-watcher-check-ip-flow-verify-portal.md)
+### [PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
+### [CLI](network-watcher-check-ip-flow-verify-cli.md)
+### [REST](network-watcher-check-ip-flow-verify-rest.md)
+## Analizzare l'hop successivo
+### [Portale](network-watcher-check-next-hop-portal.md)
+### [PowerShell](network-watcher-check-next-hop-powershell.md)
+### [CLI](network-watcher-check-next-hop-cli.md)
+### [REST](network-watcher-check-next-hop-rest.md)
+## Visualizzare la topologia di rete
+### [PowerShell](network-watcher-topology-powershell.md)
+### [CLI](network-watcher-topology-cli.md)
+### [REST](network-watcher-topology-rest.md)
+## Risolvere i problemi relativi a gateway e connessioni VPN
+### [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
+### [CLI](network-watcher-troubleshoot-manage-cli.md)
+### [REST](network-watcher-troubleshoot-manage-rest.md)
+## Analizzare la visualizzazione dei gruppi di sicurezza di rete
+### [PowerShell](network-watcher-security-group-view-powershell.md)
+### [CLI](network-watcher-security-group-view-cli.md)
+### [REST](network-watcher-security-group-view-rest.md)
+## Configurare i log dei flussi dei gruppi di sicurezza di rete
+### [Portale](network-watcher-nsg-flow-logging-portal.md)
+### [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
+### [CLI](network-watcher-nsg-flow-logging-cli.md)
+### [REST](network-watcher-nsg-flow-logging-rest.md)
+# Procedure
+## [Monitorare il gateway VPN con Automazione di Azure](network-watcher-monitor-with-azure-automation.md)
+## [Diagnosticare la connettività locale tramite il gateway VPN](network-watcher-diagnose-on-premises-connectivity.md)
+## [Analizzare le acquisizioni pacchetti per trovare le anomalie](network-watcher-deep-packet-inspection.md)
+## [Usare l'acquisizione pacchetti per eseguire il monitoraggio proattivo della rete con Funzioni di Azure](network-watcher-alert-triggered-packet-capture.md)
+## [Visualizzare i log dei flussi usando Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+## [Visualizzare i log dei flussi usando strumenti open source](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+## [Visualizzare i modelli di traffico di rete usando strumenti open source](network-watcher-using-open-source-tools.md)
+## [Eseguire la conformità e il controllo nella rete usando PowerShell](network-watcher-nsg-auditing-powershell.md)
+## [Eseguire il rilevamento di intrusioni usando strumenti open source](network-watcher-intrusion-detection-open-source-tools.md)
+## [Analizzare i log del gateway applicazione in Azure Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
+# Riferimento
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [.NET](/dotnet/api)
+## [REST](/rest/api/networkwatcher/)
+# Risorse correlate
+## [Rete virtuale](/azure/virtual-network/)
+## [Macchine virtuali](/azure/virtual-machines/)
+## [Gateway VPN](/azure/vpn-gateway/)
+# Risorse
+## [Prezzi](https://azure.microsoft.com/pricing/details/network-watcher/)
+## [Contratto di servizio](https://azure.microsoft.com/support/legal/sla/)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/network-watcher)
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=network-watcher)

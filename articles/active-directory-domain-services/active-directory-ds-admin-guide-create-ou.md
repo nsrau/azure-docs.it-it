@@ -17,6 +17,7 @@ ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 6e0da01df8ac5fd3cdb6b4e42dfbc08fab7d9615
 ms.openlocfilehash: 5931d532a0790f1570d1d99687611231aafc7596
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -81,10 +82,5 @@ Dopo avere creato un'unità organizzativa personalizzata, è possibile procedere
 * [Configurare criteri di gruppo in un dominio gestito](active-directory-ds-admin-guide-administer-group-policy.md)
 * [Centro di amministrazione di Active Directory: Introduzione](https://technet.microsoft.com/library/dd560651.aspx)
 * [Guida dettagliata agli account del servizio gestiti](https://technet.microsoft.com/library/dd548356.aspx)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

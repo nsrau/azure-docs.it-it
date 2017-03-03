@@ -17,6 +17,7 @@ ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: 2e7815702f2d2f4ce935826c4769838727a83696
 ms.openlocfilehash: 7d1be1dea6ed4ecda196743f592456a5b977e9b0
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -93,10 +94,5 @@ Si può fare molto di più con il proxy dell'applicazione:
 * [Abilitare l'accesso condizionale](active-directory-application-proxy-conditional-access.md)
 
 Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

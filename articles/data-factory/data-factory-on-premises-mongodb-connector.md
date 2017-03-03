@@ -17,6 +17,7 @@ ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: af15b530dd512873e4534fb61d276c8c8c3a196a
 ms.openlocfilehash: 2de70faa090fb3da25fec8f8946e52fcae2677d3
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -355,9 +356,4 @@ Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spos
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere l'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md) per istruzioni dettagliate sulla creazione di una pipeline di dati che sposta i dati da un archivio dati locale a un archivio dati di Azure.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -17,6 +17,7 @@ ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: c3d96d11894f0009db004b1089c05559cafd2d43
 ms.openlocfilehash: ee79612cc30f1dfefcf7dcd8af7aed7836dd528c
+ms.lasthandoff: 01/06/2017
 
 
 ---
@@ -408,9 +409,4 @@ Di seguito sono riportati alcuni riferimenti sul monitoraggio e l'ottimizzazione
 * Azure DocumentDB: [Livelli di prestazioni in DocumentDB](../documentdb/documentdb-performance-levels.md)
 * SQL Server locale: [Monitoraggio e ottimizzazione delle prestazioni](https://msdn.microsoft.com/library/ms189081.aspx)
 * File server locale: [Performance Tuning for File Servers](https://msdn.microsoft.com/library/dn567661.aspx)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

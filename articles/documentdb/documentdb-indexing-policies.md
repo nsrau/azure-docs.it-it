@@ -18,6 +18,7 @@ ms.author: arramac
 translationtype: Human Translation
 ms.sourcegitcommit: bd77eaab1dbad95a70b6d08947f11d95220b8947
 ms.openlocfilehash: 818337dfb36ee4c84fa2543f7c54558287ead0e1
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -409,10 +410,5 @@ Seguire i collegamenti seguenti per esempi di gestione dei criteri di indicizzaz
 1. [Esempi di codice di gestione degli indici .NET di DocumentDB](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
 2. [Operazione di raccolta API REST di DocumentDB](https://msdn.microsoft.com/library/azure/dn782195.aspx)
 3. [Eseguire query con DocumentDB SQL](documentdb-sql-query.md)
-
-
-
-
-<!--HONumber=Feb17_HO4-->
 
 

@@ -17,6 +17,7 @@ ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: b2d1a740782a20a7c6b7b8cec8335a41f16231f5
 ms.openlocfilehash: 5a6a14e5fc8f6915b34f9667c4294a46c8591633
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -593,9 +594,4 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano in
 A seconda del fatto che lo spostamento dei dati iniziale sia pianificato con un volume elevato di dati cronologici o con un carico di dati di produzione incrementale, Azure Data Factory include opzioni per migliorare le prestazioni di tali attività. Il parametro concurrency fa parte dell'**attività di copia** e definisce il numero di finestre attività diverse che verranno elaborate in parallelo. Il parametro **parallelCopies** definisce il parallelismo per l'esecuzione di una singola attività. È importante considerare la possibilità di usare questi parametri quando si progettano pipeline per lo spostamento dei dati con Azure Data Factory per raggiungere la massima velocità effettiva.
 
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

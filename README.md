@@ -84,8 +84,3 @@ Alle richieste pull vengono assegnate etichette automatizzate, che consentono di
 ## <a name="more-resources"></a>Altre risorse
 Per un elenco di tutti gli argomenti, vedere l'[indice della Guida per i collaboratori](contributor-guide/contributor-guide-index.md).
 
-
-
-<!--HONumber=Feb17_HO2-->
-
-

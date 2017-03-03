@@ -19,6 +19,7 @@ ms.author: sedusch
 translationtype: Human Translation
 ms.sourcegitcommit: d835d5825268a4ec0fa5b761f9b5714e3236b0ce
 ms.openlocfilehash: 1177321875aa41bc5604b587c4b99fbf81f8637a
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -1927,9 +1928,4 @@ I punti chiave della disponibilità elevata per i sistemi SAP in Azure sono i se
 * Per le finalità di backup del livello DBMS di SAP, consultare la [Guida alla distribuzione DBMS][dbms-guide].
 * Il backup delle istanze delle finestra di dialogo SAP ha poco senso perché in genere la ridistribuzione di semplici istanze di dialogo costituisce un processo più veloce.
 * Ha senso, invece, il backup della VM che contiene la directory globale del sistema SAP e di tutti i profili delle varie istanze; tale backup deve essere eseguito con Windows Backup oppure, ad esempio, con tar in Linux. Dato che esistono differenze tra Windows Server 2008 (R2) e Windows Server 2012 (R2), e che il backup risulta più semplice usando le release più recenti di Windows Server, è consigliabile eseguire Windows Server 2012 (R2) come sistema operativo guest Windows.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

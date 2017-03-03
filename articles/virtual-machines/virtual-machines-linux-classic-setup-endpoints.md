@@ -18,6 +18,7 @@ ms.author: cynthn
 translationtype: Human Translation
 ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
 ms.openlocfilehash: 9fe4e1356064d62d1a373ecbabf4f9cf276524f6
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -36,10 +37,5 @@ Quando si crea una macchina virtuale Linux nel portale di Azure classico, viene 
 ## <a name="next-steps"></a>Passaggi successivi
 * È anche possibile creare un endpoint di VM con l' [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2). Eseguire il comando **azure vm endpoint create** .
 * Se una macchina virtuale è stata creata nel modello di distribuzione Resource Manager, è possibile usare l'interfaccia della riga di comando di Azure in modalità Resource Manager per [creare gruppi di sicurezza di rete](../virtual-network/virtual-networks-create-nsg-arm-cli.md) per controllare il traffico verso la macchina virtuale.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

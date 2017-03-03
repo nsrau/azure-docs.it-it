@@ -17,6 +17,7 @@ ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: 6d459e37b8b39f5d76c4ec86ebb7351c783b81fb
 ms.openlocfilehash: 64cb4be184e02519a6c496f8639035201ebb60f8
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -328,10 +329,5 @@ L'esempio seguente illustra l'uso dei caratteri jolly supportato dalla condizion
 * Dopo aver definito una regola dei criteri, assegnarla a un ambito. Per informazioni sull'assegnazione dei criteri, vedere [Assegnare e gestire i criteri](resource-manager-policy-create-assign.md).
 * Per indicazioni su come le aziende possono usare Resource Manager per gestire efficacemente le sottoscrizioni, vedere [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Scaffolding aziendale Azure - Governance prescrittiva per le sottoscrizioni).
 * Lo schema del criterio è pubblicato in [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

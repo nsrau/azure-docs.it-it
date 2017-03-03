@@ -18,6 +18,7 @@ ms.tgt_pltfrm: NA
 translationtype: Human Translation
 ms.sourcegitcommit: 3d04be3d2427bc59d24bfaad227730991b61265b
 ms.openlocfilehash: 162147607baa36de0487cebc06e7ada20f3dd0c0
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -115,10 +116,5 @@ La funzionalità di esportazione automatizzata di database SQL di Azure, ora dis
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azure/mt707796\(v=azure.300\).aspx)
 * [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/azure/mt707794\(v=azure.300\).aspx)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

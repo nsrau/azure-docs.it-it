@@ -5,9 +5,9 @@
 
 # Attività iniziali
 ## [Creare un lab](devtest-lab-create-lab.md)
-## [Creare elementi di VM](devtest-lab-add-vm-with-artifacts.md)
+## [Creare una VM](devtest-lab-add-vm.md)
 ## [Creare un lab per il training](devtest-lab-training-lab.md)
-## [Domande frequenti](devtest-lab-faq.md)
+## [DOMANDE FREQUENTI](devtest-lab-faq.md)
 
 # Procedure
 ## Gestire i lab
@@ -20,6 +20,7 @@
 ## Gestire elementi
 ### [Aggiungere un repository di elementi](devtest-lab-add-artifact-repo.md)
 ### [Creare elementi personalizzati](devtest-lab-artifact-author.md)
+### [Gestire elementi](devtest-lab-add-vm-with-artifacts.md)
 
 ## Gestire basi e modelli per VM
 ### [Creare un ambiente con più VM con i modelli di Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
@@ -41,8 +42,3 @@
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

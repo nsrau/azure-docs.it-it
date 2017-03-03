@@ -17,6 +17,7 @@ ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: 4547a805c1827a703bf0ef118387882e45c3f241
 ms.openlocfilehash: f63381e3349063ba9dd4ceb67d644c1d71d73369
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -650,9 +651,4 @@ Codice di stato: 200
 ## <a name="next-steps"></a>Passaggi successivi
 
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

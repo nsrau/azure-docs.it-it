@@ -18,6 +18,7 @@ ms.author: cynthn
 translationtype: Human Translation
 ms.sourcegitcommit: cc14f7747c4a24acea434f62b7615d10819bd619
 ms.openlocfilehash: a2df2169acda706a0fc3e1b7daf743ce29e5f030
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -128,10 +129,5 @@ L'esecuzione del comando potrebbe richiedere del tempo, a seconda della connessi
 ## <a name="next-steps"></a>Passaggi successivi
 * [Creare una VM in Azure da un disco rigido virtuale generalizzato](virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Creare una macchina virtuale in Azure da un disco rigido virtuale specializzato](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) collegandolo come disco del sistema operativo quando si crea una nuova macchina Virtuale.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

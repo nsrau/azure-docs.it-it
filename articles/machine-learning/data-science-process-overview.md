@@ -17,6 +17,7 @@ ms.author: bradsev;hangzh;gokuma
 translationtype: Human Translation
 ms.sourcegitcommit: 1796f7a7cd174d7ed6582878d72c59995aac41cb
 ms.openlocfilehash: 995ba0dc3ffd2bc78625db7d1176ca0d5e1611a0
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -196,10 +197,5 @@ Il [ciclo di vita di analisi scientifica dei dati per i team](http://aka.ms/data
 
 ## <a name="next-steps"></a>Passaggi successivi
 Sono anche disponibili esercitazioni dettagliate complete che illustrano tutti i passaggi del processo per **scenari specifici** . Sono elencate, con collegamenti e brevi descrizioni, nell'argomento [Procedure dettagliate del Processo di analisi scientifica dei dati per i team](data-science-process-walkthroughs.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

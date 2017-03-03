@@ -18,6 +18,7 @@ ms.author: sashan
 translationtype: Human Translation
 ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
 ms.openlocfilehash: 4ed2bfcad36059000b5a8e4bfa5f06bceb56843b
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -130,10 +131,5 @@ Come indicato in precedenza, la replica geografica attiva può essere gestita a 
 * Per altre informazioni sull'uso dei backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md).
 * Per altre informazioni sull'uso dei backup automatici per l'archiviazione, vedere [Copiare un database SQL di Azure](sql-database-copy.md).
 * Per ulteriori informazioni sui requisiti di autenticazione per un nuovo database e server primario, vedere l'articolo sulla [sicurezza del database SQL di Azure dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

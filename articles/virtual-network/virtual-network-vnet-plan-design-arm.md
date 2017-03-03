@@ -17,6 +17,7 @@ ms.author: jdial
 translationtype: Human Translation
 ms.sourcegitcommit: ac0d7d9aaf1208c97e0ae797ac7c2b0ffecb88ae
 ms.openlocfilehash: daa0d0a7a0816f16f62904dc0e407105eb25c4ec
+ms.lasthandoff: 02/01/2017
 
 
 ---
@@ -250,9 +251,4 @@ In base a tali requisiti, è possibile aggiungere utenti del team responsabile d
 * Comprendere come [bilanciare il carico](../load-balancer/load-balancer-overview.md) delle VM IaaS e [gestire il routing in più aree di Azure](../traffic-manager/traffic-manager-overview.md).
 * Altre informazioni sui [gruppi di sicurezza di rete e su come pianificare e progettare](virtual-networks-nsg.md) una soluzione per gruppi di sicurezza di rete.
 * Altre informazioni sulle [opzioni di connettività cross-premise e della rete virtuale](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

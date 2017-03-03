@@ -18,6 +18,7 @@ ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: b759e9936a45f989088de5e89a59371c5ea64e1c
 ms.openlocfilehash: 079a05d16ccebb705f410e25f0ed5762db20ae22
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -94,10 +95,5 @@ Il database SQL di Azure non rappresenta solo un enorme vantaggio per i clienti 
 * Per altre informazioni sui ruoli Web e i ruoli di lavoro, vedere l'argomento relativo ai [ruoli di lavoro](../fundamentals-introduction-to-azure.md#compute).    
 * Per altre informazioni sul bus di servizio di Azure, vedere [Bus di servizio](https://azure.microsoft.com/services/service-bus/).
 * Per altre informazioni sulla scalabilità automatica, vedere [Come configurare la scalabilità automatica di un servizio cloud](../cloud-services/cloud-services-how-to-scale.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

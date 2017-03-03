@@ -18,6 +18,7 @@ ms.author: cgronlun;garye
 translationtype: Human Translation
 ms.sourcegitcommit: 1e941778c194462b311e6347c56670d3e0193e90
 ms.openlocfilehash: ebc44a4190bac697697e0b651039a0e8ee8e4a95
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -93,9 +94,4 @@ Assicurarsi di guardare gli altri video della serie "Analisi scientifica dei dat
 ## <a name="next-steps"></a>Passaggi successivi
 * [È possibile effettuare il primo esperimento di analisi scientifica dei dati con Azure Machine Learning](machine-learning-create-experiment.md)
 * [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](machine-learning-what-is-machine-learning.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

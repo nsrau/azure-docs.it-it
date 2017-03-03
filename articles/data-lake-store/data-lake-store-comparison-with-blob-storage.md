@@ -17,6 +17,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: ab9c4bc6e2e68a3522bbc3fe23ea33760f03b620
 ms.openlocfilehash: 10926263ee2657dc96fb1873733d349cf0956e92
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -49,10 +50,5 @@ Questo articolo propone una tabella di riepilogo delle differenze tra Azure Data
 ### <a name="next-steps"></a>Passaggi successivi
 * [Panoramica di Archivio Data Lake di Azure](data-lake-store-overview.md)
 * [Introduzione ad Archivio Data Lake](data-lake-store-get-started-portal.md)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

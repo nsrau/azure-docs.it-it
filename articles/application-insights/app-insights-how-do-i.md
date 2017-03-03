@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
 ms.openlocfilehash: 9e54ee2d67a8dfb5b480db01219e128607e26f51
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -205,9 +206,4 @@ Tra le metriche che è possibile visualizzare in Esplora metriche è disponibile
 ### <a name="to-display-more-performance-counters"></a>Per visualizzare altri contatori delle prestazioni
 * Innanzitutto [aggiungere un nuovo grafico](app-insights-metrics-explorer.md) e verificare che il contatore sia incluso nel set di base offerto.
 * In caso contrario, [aggiungere il contatore al set raccolto dal modulo del contatore delle prestazioni](app-insights-performance-counters.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -7,16 +7,17 @@ manager: jhubbard
 author: ddove
 ms.assetid: 45520ca3-6903-4b39-88ba-1d41b22da9fe
 ms.service: sql-database
-ms.custom: sharded databases
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 10/25/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9c96cbf6d63164cc70608d9d114cef9c5163681c
+ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
+ms.openlocfilehash: 15b4e8d2de44b71ec0fd65a9c78879b5613bb748
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -38,7 +39,7 @@ La mappa globale e locale delle partizioni potrebbero perdere la sincronizzazion
 
 1. L'eliminazione di una partizione con un intervallo che si ritiene non più usato o la ridenominazione della partizione. Eliminazione dei risultati di una partizione in un **mapping di partizione orfana**. Analogamente, anche un database rinominato può causare un mapping di partizione orfana. A seconda della finalità della modifica, potrebbe essere necessario rimuovere la partizione o aggiornarne il percorso. Per ripristinare un database eliminato, vedere [Ripristinare un database SQL di Azure con il portale di Azure](sql-database-restore-deleted-database-portal.md).
 2. Si verifica un evento di failover geografico. Per continuare, è necessario aggiornare il nome del server e il nome del database dello strumento di gestione della mappa partizioni all'interno dell'applicazione e quindi aggiornare i dettagli del mapping di partizione per tutte le partizioni nella mappa partizioni. In caso di failover geografico, è necessario che la logica di ripristino sia automatizzata nel flusso di lavoro di failover. L'automazione delle azioni di ripristino rende possibile la gestibilità senza problemi dei database abilitati per la replica geografica, evitando interventi manuali. Per informazioni sulle opzioni per ripristinare un database in caso di interruzione del data center, vedere [Continuità aziendale](sql-database-business-continuity.md) e [Ripristino di emergenza](sql-database-disaster-recovery.md).
-3. Una partizione o un database ShardMapManager viene ripristinato a una condizione precedente. Per altre informazioni sul recupero temporizzato, vedere [Recupero temporizzato](sql-database-point-in-time-restore-portal.md).
+3. Una partizione o un database ShardMapManager viene ripristinato a una condizione precedente. Per informazioni sul recupero temporizzato tramite i backup, vedere l'articolo sul [ripristino mediante backup](sql-database-recovery-using-backups.md).
 
 Per altre informazioni sugli strumenti di database elastici per i database SQL di Azure, la replica geografica e il ripristino, vedere: 
 
@@ -64,6 +65,7 @@ Il [metodo DetachShard](https://msdn.microsoft.com/library/azure/dn842083.aspx) 
 
 * Il parametro location corrisponde al percorso della partizione, cioè il nome del server e il nome del database, della partizione che viene scollegata. 
 * Il parametro shardMapName è il nome della mappa partizioni. È richiesto solo quando più mappe partizioni sono gestite dallo stesso gestore delle mappe partizioni. facoltativo. 
+
 
 > [!IMPORTANT]
 > usare questa tecnica solo se si è certi che l'intervallo per il mapping aggiornato sia vuoto. Poiché i metodi descritti precedentemente non controllano i dati dell'intervallo da spostare, è consigliabile includere i controlli nel codice.
@@ -98,7 +100,7 @@ Il [metodo ResolveMappingDifferences](https://msdn.microsoft.com/library/azure/m
 
 * Il parametro *RecoveryToken* enumera le differenze nei mapping tra la mappa globale di partizioni e la mappa locale di partizioni per la partizione specifica. 
 * L' [enumerazione MappingDifferenceResolution](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution.aspx) viene usata per indicare il metodo per risolvere la differenza tra i mapping di partizione. 
-* **MappingDifferenceResolution.KeepShardMapping** qualora la mappa locale partizioni contenga il mapping corretto e quindi si dovrà usare il mapping presente nella partizione. Questo si verifica in genere nel caso di un failover, dove la partizione ora risiede in un nuovo server. Poiché la partizione deve essere prima rimossa dalla mappa globale partizioni, tramite il metodo RecoveryManager.DetachShard, non esiste più un mapping nella mappa globale partizioni. Per ristabilire il mapping della partizione è quindi necessario usare la mappa locale partizioni.
+* È consigliabile usare **MappingDifferenceResolution.KeepShardMapping** qualora la mappa locale partizioni contenga il mapping corretto e quindi si dovrà usare il mapping presente nella partizione. Questo si verifica in genere nel caso di un failover, dove la partizione ora risiede in un nuovo server. Poiché la partizione deve essere prima rimossa dalla mappa globale partizioni, tramite il metodo RecoveryManager.DetachShard, non esiste più un mapping nella mappa globale partizioni. Per ristabilire il mapping della partizione è quindi necessario usare la mappa locale partizioni.
 
 ## <a name="attach-a-shard-to-the-shardmap-after-a-shard-is-restored"></a>Collegare una partizione a ShardMap dopo il ripristino di una partizione
 Il [metodo AttachShard](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard.aspx) collega la partizione specificata alla mappa partizioni. Rileva quindi eventuali incoerenze nella mappa partizioni e aggiorna i mapping in modo che la partizione corrisponda al punto di ripristino della partizione. Si presuppone che venga rinominato anche il database per riflettere il nome del database originale, precedente al ripristino della partizione, perché per impostazione predefinita il ripristino temporizzato usa un nuovo database a cui aggiunge il timestamp. 
@@ -125,7 +127,7 @@ Questo esempio aggiunge una partizione alla mappa partizioni ripristinata di rec
 Nel caso di failover geografico, il database secondario è reso accessibile in scrittura e diventa il database primario. Il nome del server, e potenzialmente il database a seconda della configurazione, può essere diverso da quello primario originale. È quindi necessario correggere le voci dei mapping per la partizione nella mappa globale partizioni e nella mappa locale partizioni. In modo analogo, se il database viene ripristinato con un nome e un percorso diversi, oppure a una condizione precedente, potrebbero verificarsi incoerenze nelle mappe partizioni. Il gestore delle mappe partizioni controlla la distribuzione delle connessioni aperte ai database corretti. La distribuzione si basa sui dati contenuti nella mappa partizioni e sul valore della chiave di partizionamento orizzontale di destinazione della richiesta dell'applicazione. Dopo un failover geografico queste informazioni devono essere aggiornate con il nome del server, il nome del database e il mapping di partizione corretti del database ripristinato. 
 
 ## <a name="best-practices"></a>Procedure consigliate
-Il failover geografico e il ripristino sono operazioni che di solito sono gestite da un amministratore del cloud dell'applicazione usando intenzionalmente una delle funzionalità di continuità aziendale dei database SQL di Azure. La pianificazione della continuità aziendale richiede la definizione di processi, procedure e misure che garantiscano la continuità delle operazioni aziendali senza interruzioni. In questo flusso di lavoro è necessario usare i metodi disponibili come parte della classe RecoveryManager per assicurare che la mappa globale partizioni e la mappa locale partizioni siano mantenute aggiornate con l'azione di ripristino eseguita. Per assicurare che la mappa globale partizioni e la mappa locale partizioni riflettano le informazioni corrette dopo un evento di failover, occorre eseguire 5 passaggi. Il codice dell'applicazione per eseguire questi passaggi può essere integrato negli strumenti e nel flusso di lavoro esistenti. 
+Il failover geografico e il ripristino sono operazioni che di solito sono gestite da un amministratore del cloud dell'applicazione usando intenzionalmente una delle funzionalità di continuità aziendale dei database SQL di Azure. La pianificazione della continuità aziendale richiede la definizione di processi, procedure e misure che garantiscano la continuità delle operazioni aziendali senza interruzioni. In questo flusso di lavoro è necessario usare i metodi disponibili come parte della classe RecoveryManager per assicurare che la mappa globale partizioni e la mappa locale partizioni siano mantenute aggiornate con l'azione di ripristino eseguita. Per assicurarsi che la mappa globale partizioni e la mappa locale partizioni riflettano le informazioni corrette dopo un evento di failover, occorre eseguire cinque passaggi. Il codice dell'applicazione per eseguire questi passaggi può essere integrato negli strumenti e nel flusso di lavoro esistenti. 
 
 1. Recuperare Gestione ripristino da ShardMapManager. 
 2. Scollegare la partizione precedente dalla mappa partizioni.
@@ -167,10 +169,5 @@ L'esempio segue questa procedura:
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

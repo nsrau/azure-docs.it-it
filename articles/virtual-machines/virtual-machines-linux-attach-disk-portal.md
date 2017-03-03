@@ -18,6 +18,7 @@ ms.author: cynthn
 translationtype: Human Translation
 ms.sourcegitcommit: cc14f7747c4a24acea434f62b7615d10819bd619
 ms.openlocfilehash: 31d7f4620420839ade1ca58391fad78e94d4e929
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -99,9 +100,4 @@ Continuare seguendo le istruzioni per il collegamento di un [disco gestito](#use
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver aggiunto il disco, è necessario prepararlo per l'uso. Per ulteriori informazioni, vedere [Procedura: inizializzare un nuovo disco dati in Linux](virtual-machines-linux-classic-attach-disk.md#initialize-a-new-data-disk-in-linux).
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

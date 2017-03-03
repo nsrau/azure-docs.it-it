@@ -13,8 +13,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 2c45896d603913d21bebb5f5a157bb60ad9e73ac
-ms.openlocfilehash: f85fbd5c9cce81c5934abce25ccd343810bcc4dd
+ms.sourcegitcommit: a0bb42ad612c47111c946afe280e5ed0b3acc2a7
+ms.openlocfilehash: 02ea87d181ede4a0a2d5934b7875f335a25d6ce3
+ms.lasthandoff: 02/24/2017
 
 ---
 
@@ -150,6 +151,8 @@ Informazioni su come sviluppare app per la logica in grado di semplificare e int
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
+                        <p><a href="/rest/api/logic/definition-language">Linguaggio di definizione del flusso di lavoro</a></p>
+                        <p><a href="/rest/api/logic/actions-and-triggers">Azioni e trigger del flusso di lavoro</a></p>
                         <p><a href="/rest/api/logic/">Informazioni di riferimento sulle API REST</a></p>
                     </div>
                 </div>
@@ -158,10 +161,5 @@ Informazioni su come sviluppare app per la logica in grado di semplificare e int
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

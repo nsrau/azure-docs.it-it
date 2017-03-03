@@ -17,6 +17,7 @@ ms.author: mimig
 translationtype: Human Translation
 ms.sourcegitcommit: 240f45383639f1eb8a4a9b7c4e4489591be23dba
 ms.openlocfilehash: aac8c26cd9af94659abc80b2ae260dc380cf38c9
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -157,9 +158,4 @@ Per altre informazioni sulla distribuzione globale dei dati con DocumentDB, vede
 * [Aggiungere aree tramite il portale di Azure](documentdb-portal-global-replication.md)
 
 [regions]: https://azure.microsoft.com/regions/
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

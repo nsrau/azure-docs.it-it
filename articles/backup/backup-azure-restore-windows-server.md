@@ -17,6 +17,7 @@ ms.author: saurse;trinadhk;markgal;
 translationtype: Human Translation
 ms.sourcegitcommit: d8a85da4c929180c7ca52a19724d2be702fe3e9c
 ms.openlocfilehash: db71f7ea9561542fe9b579bf471cf2b81f5997cd
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -228,9 +229,4 @@ Include la terminologia utilizzata in questi passaggi:
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Dopo aver ripristinato i file e le cartelle, è possibile [gestire i backup](backup-azure-manage-windows-server.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
