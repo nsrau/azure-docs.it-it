@@ -16,6 +16,7 @@ ms.author: mbaldwin
 translationtype: Human Translation
 ms.sourcegitcommit: 114ed651f914060818f10efac849e7f85a3da981
 ms.openlocfilehash: f41396e4aa0c7b6cc2f1768e0c2ba3b95ee31cd3
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -48,10 +49,5 @@ Per client si intende desktop, dispositivi e così via, usati per connettersi al
 * https://*.core.windows.net  
 * In uscita: TCP: 443  
 * Facoltativo: UDP: 3391 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

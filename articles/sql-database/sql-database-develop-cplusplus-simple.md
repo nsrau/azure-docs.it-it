@@ -18,6 +18,7 @@ ms.author: tobiast
 translationtype: Human Translation
 ms.sourcegitcommit: 1f1c6c89c492d18e0678fa4650b6c5744dc9f7d1
 ms.openlocfilehash: 697a99ec828984d4e6f6e3dc446bc6dc8377cf57
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -134,10 +135,5 @@ La soluzione GetStarted contenente tutti gli esempi riportati in questo articolo
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * Esplorare tutte le [funzionalità del database SQL](https://azure.microsoft.com/services/sql-database/)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

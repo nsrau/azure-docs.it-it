@@ -17,6 +17,7 @@ ms.author: richrund
 translationtype: Human Translation
 ms.sourcegitcommit: abea89ceab4c606a574ad739e9feca5b5dafacf0
 ms.openlocfilehash: bc87bafd1ce6926d787915fae2f72727940bb90e
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -150,10 +151,5 @@ I dati raccolti prima della modifica non sono visibili nella nuova soluzione. È
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Usare le [Ricerche nei log in Log Analytics](log-analytics-log-searches.md) per visualizzare i dati dettagliati per l'Insieme di credenziali delle chiavi di Azure.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

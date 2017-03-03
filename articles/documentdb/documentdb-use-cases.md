@@ -17,6 +17,7 @@ ms.author: hawong
 translationtype: Human Translation
 ms.sourcegitcommit: 912d5af4231dee6aa8bc2f32d7950f59377fe90f
 ms.openlocfilehash: dbd5448c94577e6a21a2433a00e7a2f75afcc4a0
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -115,9 +116,4 @@ Oppure, per altre informazioni sui clienti che usano DocumentDB, leggere le segu
 * [Orange Tribes](https://customers.microsoft.com/en-US/story/theres-more-to-that-food-app-than-meets-the-eye-or-the-mouth). Prodotti interattivi per condividere esperienze di viaggi, musica, cinema e anche gastronomia.
 * [Real Madrid](https://customers.microsoft.com/en-US/story/real-madrid-brings-the-stadium-closer-to-450-million-f). Il Real Madrid porta allo stadio quasi 450 milioni di fan in tutto il mondo con i Microsoft Cloud.
 * [Tuku](https://customers.microsoft.com/en-US/story/tuku-makes-car-buying-fun-with-help-from-azure-services). TUKU rende l'acquisto di un'auto un'esperienza divertente grazie al supporto dei servizi di Azure 
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

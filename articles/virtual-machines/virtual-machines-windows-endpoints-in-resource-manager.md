@@ -17,6 +17,7 @@ ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: ccdfd0c64b5a784664edaef9c19e272c8e8323e6
 ms.openlocfilehash: 21df6d8ff572295e27c9aaed83c3af189c700aee
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -31,10 +32,5 @@ Per informazioni dettagliate sulle tecnologie illustrate qui, oltre a guide intr
 * [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)  
 * [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md)  
 * [Panoramica di Azure Resource Manager per i servizi di bilanciamento del carico](../load-balancer/load-balancer-arm.md) 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

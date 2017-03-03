@@ -18,6 +18,7 @@ ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
 ms.openlocfilehash: a451ab54144222676e8063b764a6d22f44a690d7
+ms.lasthandoff: 02/13/2017
 
 
 ---
@@ -74,9 +75,4 @@ La libreria di Azure.com include molti altri dettagli su tutti questi aspetti, a
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

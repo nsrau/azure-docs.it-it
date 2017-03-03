@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
 ms.openlocfilehash: c4a20fe310d9a70bb3a954bd936daf6f3d432db9
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -441,9 +442,4 @@ Si noti che questo conteggio è diverso dal conteggio delle "Eccezioni" calcolat
 * [Monitorare REST, SQL e altre chiamate alle dipendenze](app-insights-asp-net-dependencies.md)
 * [Monitorare i tempi di caricamento delle pagina, le eccezioni del browser e le chiamate AJAX](app-insights-javascript.md)
 * [Monitorare i contatori delle prestazioni](app-insights-performance-counters.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -17,6 +17,7 @@ ms.author: jotaub
 translationtype: Human Translation
 ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
 ms.openlocfilehash: 5a360462288e5df6e0ede5f11adabba158a9dd57
+ms.lasthandoff: 02/02/2017
 
 ---
 
@@ -59,8 +60,3 @@ Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 * [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)
 * [Create an Event Hub](event-hubs-create.md) (Creare un Hub eventi)
 * [Domande frequenti su Hub eventi](event-hubs-faq.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

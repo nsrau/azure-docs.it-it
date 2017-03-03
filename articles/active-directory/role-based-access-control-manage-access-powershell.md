@@ -17,6 +17,7 @@ ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: 45f1716d7520981845fbfb96cfaf24cde9dd5c5d
 ms.openlocfilehash: 8b906c402dde8d2bbaa2354a370a775058c146a7
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -279,10 +280,5 @@ Nell'esempio seguente il ruolo personalizzato *Virtual Machine Operator* non è 
 ## <a name="see-also"></a>Vedere anche
 * [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)
   [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)] (Uso di Azure PowerShell con Azure Resource Manager)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

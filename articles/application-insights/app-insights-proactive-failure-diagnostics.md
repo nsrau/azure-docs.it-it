@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
 ms.openlocfilehash: 24ca63e69d181f0d2c236b1fb6761984ce89520b
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -151,9 +152,4 @@ Gli avvisi di rilevamento intelligente sono completamente automatici, tuttavia √
 
 * [Configurare manualmente gli avvisi relativi alle metriche](app-insights-alerts.md)
 * [Test Web di disponibilit√†](app-insights-monitor-web-app-availability.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

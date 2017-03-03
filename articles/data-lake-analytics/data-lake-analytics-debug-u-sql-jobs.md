@@ -17,6 +17,7 @@ ms.author: yanacai
 translationtype: Human Translation
 ms.sourcegitcommit: a5bb452582f05981a17c2514e0e40db0571bf61d
 ms.openlocfilehash: f9b485bfbfbeb8a95ae1908ef6b1733b9cc6999a
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -131,10 +132,5 @@ Dopo aver completato il debug è possibile inviare nuovamente il processo non ri
 * [Esercitazione: Introduzione al linguaggio U-SQL di Analisi Data Lake di Azure](data-lake-analytics-u-sql-get-started.md)
 * [Esercitazione: Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

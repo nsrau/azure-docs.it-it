@@ -17,6 +17,7 @@ ms.author: swkrish
 translationtype: Human Translation
 ms.sourcegitcommit: 33521eca953c0e14a7fdaa99edef2997397286eb
 ms.openlocfilehash: cd79a485feddc68924f9b7f5e7d8d614b4e28d28
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -168,10 +169,5 @@ Quando si crea un criterio di iscrizione o accesso (con gli account locali), il 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Configurazione di token, sessione e accesso Single Sign-On](active-directory-b2c-token-session-sso.md).
 * [Disabilitare la verifica della posta elettronica durante l'iscrizione dell'utente](active-directory-b2c-reference-disable-ev.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

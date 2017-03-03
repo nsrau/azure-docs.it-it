@@ -17,6 +17,7 @@ ms.author: abnarain
 translationtype: Human Translation
 ms.sourcegitcommit: 3d66640481d8e1f96d3061077f0c97da5fa6bf4e
 ms.openlocfilehash: a0ccdffa5347c4f3cda16ec75b75da3eb3199539
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -448,9 +449,4 @@ Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName A
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Vedere l'articolo [Spostare dati tra archivi dati locali e cloud](data-factory-move-data-between-onprem-and-cloud.md) . In questa procedura dettagliata viene creata una pipeline che usa il gateway per spostare i dati da un database di SQL Server locale a un BLOB di Azure.  
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

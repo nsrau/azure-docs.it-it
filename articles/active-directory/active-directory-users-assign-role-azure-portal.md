@@ -17,6 +17,7 @@ ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 3b31bd036d9c3ff8036b314b93cbddd94874ff63
 ms.openlocfilehash: 3778964172946fa928e2a908943f50897957eb42
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -43,9 +44,4 @@ Questo articolo illustra come assegnare un ruolo amministrativo a un utente in a
 * [Modificare le informazioni di lavoro di un utente](active-directory-users-work-info-azure-portal.md)
 * [Gestire i profili utente](active-directory-users-profile-azure-portal.md)
 * [Eliminare un utente in Azure AD](active-directory-users-delete-user-azure-portal.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

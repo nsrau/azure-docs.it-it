@@ -18,6 +18,7 @@ ms.author: guybo
 translationtype: Human Translation
 ms.sourcegitcommit: f13545d753690534e0e645af67efcf1b524837eb
 ms.openlocfilehash: dad27b11b5f02ed41826b82882cc5089eb69cb04
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -57,10 +58,5 @@ Le VM dei set di scalabilità diventano una base stabile per i contenitori e ric
 
 ## <a name="how-do-you-roll-out-an-os-update-across-update-domains"></a>Come distribuire un aggiornamento del sistema operativo nei domini di aggiornamento
 Si supponga di che voler aggiornare un'immagine del sistema operativo mantenendo in esecuzione il set di scalabilità di VM. Un possibile approccio prevede di aggiornare le immagini una VM alla volta. A tale scopo è possibile usare PowerShell o l'interfaccia della riga di comando di Azure. Sono disponibili comandi separati per aggiornare il modello del set di scalabilità di VM (la modalità di definizione della sua configurazione) e per eseguire chiamate di "aggiornamento manuale" su singole VM. Il documento di Azure [Aggiornare un set di scalabilità di macchine virtuali](./virtual-machine-scale-sets-upgrade-scale-set.md) include altre informazioni sulle opzioni disponibili per eseguire aggiornamenti del sistema operativo in un set di scalabilità di macchine virtuali.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -18,6 +18,7 @@ ms.author: rasquill
 translationtype: Human Translation
 ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
 ms.openlocfilehash: 0daa75e1d4fccf7d7c7785422a9607787e55ca8b
+ms.lasthandoff: 12/02/2016
 
 
 ---
@@ -74,7 +75,7 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 dove:
 
 * *&lt;vm-cloudservice name&gt;* è il nome della VM che diventerà il computer host del contenitore Docker in Azure
-* *&lt;nomeutente&gt;* is the nomeutente of the default root user of the VM
+* *&lt;username&gt;* è il nome utente dell'utente ROOT predefinito della VM
 * *&lt;password&gt;* è la password dell'account *username* che soddisfa gli standard di complessità per Azure
 
 > [!NOTE]
@@ -181,9 +182,4 @@ Il daemon Docker sull'host è configurato per restare in ascolto delle connessio
 [guida dell'utente di Docker]: https://docs.docker.com/userguide/
 
 [Introduzione a Docker e Compose per definire ed eseguire un'applicazione multi-contenitore in una macchina virtuale di Azure]:virtual-machines-linux-docker-compose-quickstart.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

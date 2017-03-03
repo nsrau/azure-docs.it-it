@@ -17,6 +17,7 @@ ms.author: sethm
 translationtype: Human Translation
 ms.sourcegitcommit: ab0df01d637c15b05c2d83f1936a0154118034f7
 ms.openlocfilehash: f88c4914478c3adf823fc22a0e049e73fb43e8db
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -106,9 +107,4 @@ Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 * [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)
 * [Create an Event Hub](event-hubs-create.md) (Creare un Hub eventi)
 * [Domande frequenti su Hub eventi](event-hubs-faq.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
