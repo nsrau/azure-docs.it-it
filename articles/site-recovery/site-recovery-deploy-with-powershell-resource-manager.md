@@ -17,6 +17,7 @@ ms.author: bsiva
 translationtype: Human Translation
 ms.sourcegitcommit: a084cecddc2af36ee087b2e0e63a2b18b20f07f0
 ms.openlocfilehash: 3df4aaa018d31e9ee9526679ac1febbe5b75bb7e
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -244,9 +245,4 @@ Questo articolo descrive come usare Azure Powershell con Azure Resource Manager 
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Altre informazioni](https://msdn.microsoft.com/library/azure/mt637930.aspx) sui cmdlet PowerShell per Azure Site Recovery con Azure Resource Manager.
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

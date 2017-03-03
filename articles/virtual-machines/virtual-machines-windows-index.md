@@ -18,6 +18,7 @@ ms.author: danlep
 translationtype: Human Translation
 ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
 ms.openlocfilehash: 263b3a1edc94a60e756850b2d917840be87e7a5a
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -163,9 +164,4 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali di Azu
 [Risolvere i problemi della distribuzione classica con la creazione di una nuova macchina virtuale Windows in Azure](virtual-machines-windows-classic-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [Risolvere i problemi della distribuzione classica con il riavvio e il ridimensionamento di una macchina virtuale Windows esistente in Azure](windows/classic/virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

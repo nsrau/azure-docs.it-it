@@ -18,6 +18,7 @@ ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
 ms.openlocfilehash: 07593e7f1d92a9a5943714f662568fec10a8886a
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -160,10 +161,5 @@ Nell'aprile 2017 il tipo di database secondario non leggibile verrà ritirato e 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sulla replica geografica attiva, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md)
 * Per la panoramica e gli scenari della continuità aziendale, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

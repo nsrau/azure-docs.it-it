@@ -17,6 +17,7 @@ ms.author: sutalasi
 translationtype: Human Translation
 ms.sourcegitcommit: 0400369eb7ae3a2ebd506605b50afe08fe563d22
 ms.openlocfilehash: 33b3e7322afafd623a10661e33abe7b959eeb512
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -319,9 +320,4 @@ Utilizzare i comandi seguenti per monitorare l'attività. Si noti che è necessa
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Altre informazioni](https://msdn.microsoft.com/library/azure/mt637930.aspx) su Azure Site Recovery con i cmdlet PowerShell per Azure Resource Manager.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
