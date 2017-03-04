@@ -17,6 +17,7 @@ ms.author: muralikk
 translationtype: Human Translation
 ms.sourcegitcommit: 48ee2a2bd2ecd2f487748588ef2ad3138dd9983b
 ms.openlocfilehash: a113120381c4e83bd64a41fd30beb138cb1dd5fa
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -407,9 +408,4 @@ Lo strumento WAImportExport legge e scrive i file un batch alla volta e un batch
 **.xml**: per ogni disco rigido preparato con lo strumento WAImportExport viene creato un singolo file journal denominato "&lt;IDUnità&gt;.xml", dove l'ID corrisponde al numero di serie associato all'unità che lo strumento legge dal disco. Per creare il processo di importazione nel portale di Azure sono necessari i file journal di tutte le unità. Il file journal può essere usato anche per riprendere la preparazione delle unità nel caso in cui lo strumento venga interrotto.
 
 **.jrn**: il file journal con suffisso jrn contiene lo stato di tutte le sessioni di copia di un disco rigido. Include inoltre le informazioni necessarie per creare il processo di importazione. Quando si esegue lo strumento WAImportExport, è sempre necessario specificare un file journal, nonché l'ID della sessione di copia.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

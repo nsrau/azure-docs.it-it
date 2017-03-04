@@ -17,6 +17,7 @@ ms.author: limichel
 translationtype: Human Translation
 ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
 ms.openlocfilehash: ae9bd30b76786f94f0d836a39137da696fdb94a2
+ms.lasthandoff: 01/11/2017
 
 ---
 
@@ -210,9 +211,4 @@ Vengono ora configurati l'indirizzo IP e la porta font-end del servizio di bilan
 * [Gestione traffico di Azure](traffic-manager-overview.md)
 * [Panoramica del gateway applicazione](../application-gateway/application-gateway-introduction.md)
 * [Panoramica di Azure Load Balancer](../load-balancer/load-balancer-overview.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 
