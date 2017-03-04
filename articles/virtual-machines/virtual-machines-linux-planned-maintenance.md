@@ -18,11 +18,12 @@ ms.author: drewm
 translationtype: Human Translation
 ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
 ms.openlocfilehash: d0e7d00dd8e6ab53897340e13a3170519cbdb135
+ms.lasthandoff: 11/17/2016
 
 
 ---
 # <a name="planned-maintenance-for-linux-virtual-machines-in-azure"></a>Manutenzione pianificata per macchine virtuali Linux in Azure
-Informazioni sulla manutenzione pianificata di Azure e su come può influire sulla disponibilità delle macchine virtuali Linux. Questo articolo è disponibile anche per le [macchine virtuali Windows](virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Informazioni sulla manutenzione pianificata di Azure e su come può influire sulla disponibilità delle macchine virtuali Linux. Questo articolo è disponibile anche per le [macchine virtuali Windows](virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
 
 Questo articolo offre informazioni di background relative al processo di manutenzione pianificata di Azure. Se si vogliono risolvere eventuali problemi di riavvio indesiderato delle macchine virtuali, è possibile [leggere il post di blog post che illustra in dettaglio i log di riavvio delle VM](https://azure.microsoft.com/blog/viewing-vm-reboot-logs/).
 
@@ -36,10 +37,4 @@ Tuttavia, alcuni aggiornamenti richiedono un riavvio delle macchine virtuali per
 Esistono due tipi di manutenzione che possono influire sulla disponibilità delle macchine virtuali: pianificata e non pianificata. Questa pagina descrive come Microsoft Azure esegue la manutenzione pianificata. Per altre informazioni sulla manutenzione non pianificata, vedere la pagina relativa al [confronto tra manutenzione pianificata e non pianificata](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-planned-maintenance](../../includes/virtual-machines-common-planned-maintenance.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
