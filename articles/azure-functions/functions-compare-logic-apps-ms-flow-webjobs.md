@@ -18,6 +18,7 @@ ms.author: chrande; glenga
 translationtype: Human Translation
 ms.sourcegitcommit: ee94e074c574bc2e6e1a52dbfd6bd0ae102cb342
 ms.openlocfilehash: 0d007bf2a0f5a40fcb7ac6dfe5beff05a4310701
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -118,10 +119,5 @@ In alternativa, è possibile ottenere altre informazioni su questi servizi di in
 * [Logic Apps Live Webcast](http://aka.ms/logicappslive)
 * [Microsoft Flow Frequently asked question](https://flow.microsoft.com/documentation/frequently-asked-questions/)
 * [Risorse di documentazione di Processi Web di Azure](../app-service-web/websites-webjobs-resources.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

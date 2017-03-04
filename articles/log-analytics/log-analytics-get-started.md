@@ -17,6 +17,7 @@ ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: f75386f970aeb5694d226cfcd569b8c04a253191
 ms.openlocfilehash: 0f418af5728b6a156ebc72fb99a3d16d559654ed
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -150,9 +151,4 @@ In questa esercitazione è stato installato un agente in una macchina virtuale e
 * Informazioni sulla connessione degli [agenti di Operations Manager](log-analytics-om-agents.md) a Log Analytics.
 * [Aggiungere soluzioni di Log Analytics dalla raccolta soluzioni](log-analytics-add-solutions.md) per aggiungere funzionalità e raccogliere i dati.
 * Acquisire familiarità con le [ricerche nei log](log-analytics-log-searches.md) per visualizzare le informazioni dettagliate raccolte dalle soluzioni.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
