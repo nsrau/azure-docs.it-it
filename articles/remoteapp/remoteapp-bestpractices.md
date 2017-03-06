@@ -16,6 +16,7 @@ ms.author: mbaldwin
 translationtype: Human Translation
 ms.sourcegitcommit: 9af9f95e9638eda71fbc4508bea8e35ce5191734
 ms.openlocfilehash: 3caabe366db4def4f8332c64d08f86f271c31bb2
+ms.lasthandoff: 01/10/2017
 
 
 ---
@@ -44,10 +45,5 @@ Le informazioni seguenti consentono di configurare e usare in modo efficiente Az
   * Archiviare i dati condivisi in percorsi di archiviazione esterni al servizio, ad esempio condivisioni file locali o OneDrive.
   * Configurare le impostazioni a livello di sistema nell'immagine modello anziché sulle singole macchine virtuali in un servizio.
   * Disabilitare gli aggiornamenti software automatici per le applicazioni pubblicate. Applicarli invece manualmente per l'immagine modello e testarli prima della distribuzione dal modello.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

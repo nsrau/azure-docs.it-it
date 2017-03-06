@@ -18,6 +18,7 @@ ms.author: jehollan
 translationtype: Human Translation
 ms.sourcegitcommit: c0edbe421050ad46f6d31fd6416df4b344b233ad
 ms.openlocfilehash: 2c24699f6253fc7952b331ebcce4b937f1c83603
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -151,9 +152,4 @@ Di seguito sono riportate informazioni dettagliate su come procedere con le app 
 
 ## <a name="create-a-logic-app"></a>Creare un'app per la logica
 Provare ora a usare la piattaforma e [creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md) . È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

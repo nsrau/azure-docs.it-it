@@ -15,8 +15,9 @@ ms.topic: hero-article
 /ms.date: 1/18/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 6c93e5363767cb6860d4a365eba178dd940bd41d
-ms.openlocfilehash: e0800b7c7aba64fa7429fc3ced8c194cd9fbf0d1
+ms.sourcegitcommit: 4e81088857c0e9cacaf91342227ae63080fc90c5
+ms.openlocfilehash: 780066b1e71d967c64da0a1c1a284ffd5d1b7481
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -215,10 +216,10 @@ Per illustrare come si monta una condivisione file di Azure, viene creata una ma
 3. Aprire una finestra di PowerShell nella macchina virtuale.
 
 ### <a name="persist-your-storage-account-credentials-for-the-virtual-machine"></a>Mantenere le credenziali dell'account di archiviazione per la macchina virtuale
-Prima di eseguire il montaggio nella condivisione file, mantenere le credenziali dell'account di archiviazione nella macchina virtuale. Questo passaggio consente a Windows di riconnettere automaticamente la condivisione file quando la macchina virtuale viene riavviata. Per mantenere le credenziali dell'account, eseguire il comando `cmdkey` nella finestra di PowerShell della macchina virtuale. Sostituire `<storage-account-name>` con il nome dell'account di archiviazione e `<storage-account-key>` con la chiave dell'account di archiviazione.
+Prima di eseguire il montaggio nella condivisione file, mantenere le credenziali dell'account di archiviazione nella macchina virtuale. Questo passaggio consente a Windows di riconnettere automaticamente la condivisione file quando la macchina virtuale viene riavviata. Per mantenere le credenziali dell'account, eseguire il comando `cmdkey` nella finestra di PowerShell della macchina virtuale. Sostituire `<storage-account-name>` con il nome dell'account di archiviazione e `<storage-account-key>` con la chiave dell'account di archiviazione. È necessario specificare in modo esplicito il dominio "AZURE", come nell'esempio riportato di seguito. 
 
 ```
-cmdkey /add:<storage-account-name>.file.core.windows.net /user:<storage-account-name> /pass:<storage-account-key>
+cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>
 ```
 
 Windows esegue la riconnessione alla condivisione file quando la macchina virtuale viene riavviata. È possibile verificare che la condivisione sia stata riconnessa eseguendo il comando `net use` in una finestra di PowerShell.
@@ -238,10 +239,10 @@ net use z: \\samples.file.core.windows.net\logs
 Poiché sono state mantenute le credenziali dell'account di archiviazione nel passaggio precedente, non è necessario inserirle con il comando `net use`. Se le credenziali non sono state mantenute, includerle come parametro passato al comando `net use` , come illustrato nell'esempio seguente.
 
 ```
-net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /u:<storage-account-name> <storage-account-key>
+net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /u:AZURE\<storage-account-name> <storage-account-key>
 
 example :
-net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
+net use z: \\samples.file.core.windows.net\logs /u:AZURE\samples <storage-account-key>
 ```
 
 A questo punto è possibile usare la condivisione di archiviazione file dalla macchina virtuale come si farebbe con qualsiasi altra unità. È possibile eseguire i comandi file standard dal prompt dei comandi o visualizzare la condivisione montata e i relativi contenuti da Esplora file. È anche possibile eseguire il codice dalla macchina virtuale che accede alla condivisione file usando le API I/O del file Windows standard, ad esempio quelle fornite dagli [spazi dei nomi System.IO](http://msdn.microsoft.com/library/gg145019.aspx) in .NET Framework.
@@ -680,9 +681,4 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 * [Analisi di archiviazione file di Azure](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Introduzione al servizio File di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Mantenimento delle connessioni ai file di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

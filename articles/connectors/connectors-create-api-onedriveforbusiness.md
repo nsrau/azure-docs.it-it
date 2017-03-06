@@ -18,6 +18,7 @@ ms.author: deonhe
 translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: 992b4b7bab8878355cbe936b75768e67b086286e
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -320,10 +321,5 @@ Estrazione cartella: estrae una cartella in OneDrive for Business
 ### <a name="object"></a>Oggetto
 ## <a name="next-steps"></a>Passaggi successivi
 [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

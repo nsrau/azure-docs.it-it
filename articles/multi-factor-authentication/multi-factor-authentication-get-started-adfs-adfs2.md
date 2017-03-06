@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/14/2017
+ms.date: 02/24/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
-ms.openlocfilehash: 035ec56b638797d650f73e1112b77991555d5194
-
+ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
+ms.openlocfilehash: ea0853929cd8670b6458a546e7fb1b3a229c09d7
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="secure-cloud-and-on-premises-resources-using-azure-multi-factor-authentication-server-with-ad-fs-20"></a>Proteggere le risorse del cloud e locali mediante Server Azure multi-Factor Authentication con AD FS 2.0
+# <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Configurare il server Azure Multi-Factor Authentication per lavorare con AD FS 2.0
 Questo articolo è rivolto alle organizzazioni che vengono federate con Azure Active Directory e intendono proteggere le risorse che risiedono in locale o nel cloud. È possibile proteggere le risorse usando il server Azure Multi-Factor Authentication e configurandolo per il funzionamento con AD FS in modo da attivare la verifica in due passaggi per gli endpoint di alto valore.
 
 In questa documentazione viene illustrato l'utilizzo di Server Azure multi-Factor Authentication con ADFS 2.0. Per altre informazioni su AD FS, vedere [Protezione delle risorse cloud e locali tramite il server Azure Multi-Factor Authentication con Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md).
@@ -115,9 +116,4 @@ Gli IP attendibili consentono agli utenti di ignorare Azure Multi-Factor Authent
 4. Immettere l'indirizzo IP, l'intervallo di indirizzi IP o la subnet da includere nell'elenco degli elementi attendibili. Se si immette una subnet, selezionare la Netmask appropriata e fare clic sul pulsante **OK**. È stato aggiunto l'indirizzo IP attendibile.
 
 <center>![Configurazione](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

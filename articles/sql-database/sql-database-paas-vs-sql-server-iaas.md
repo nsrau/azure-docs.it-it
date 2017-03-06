@@ -17,8 +17,9 @@ ms.topic: get-started-article
 ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: a2e65de2ec77da9005cea18876fd86fd2928b9da
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: bdcf28703f007d32144278c7f0956fe4c27c3b27
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -121,7 +122,7 @@ Per molti reparti IT rispettare gli obblighi relativi al tempo di attività di u
 
 Per i livelli di servizio Basic, Standard e Premium del **database SQL** Microsoft fornisce un contratto di servizio con disponibilità del 99,99%. Per le informazioni più recenti, vedere [Contratto di servizio](https://azure.microsoft.com/support/legal/sla/sql-database/). Per le informazioni più recenti sui livelli di servizio del database SQL e sui piani di continuità aziendale supportati, vedere [Livelli di servizio](sql-database-service-tiers.md).
 
-Per **SQL Server in esecuzione nelle macchine virtuali di Azure**Microsoft fornisce un contratto di servizio con disponibilità del 99,95% che copre solo alla macchina virtuale. Questo contratto di servizio non comprende i processi, ad esempio SQL Server, in esecuzione nella macchina virtuale e richiede che siano ospitate almeno due istanze di VM in un set di disponibilità. Per le informazioni più recenti, vedere il [Contratto di servizio per macchine virtuali](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Per la disponibilità elevata del database all'interno delle macchine virtuali, è necessario configurare una delle opzioni di disponibilità elevata supportate in SQL Server, ad esempio [Gruppi di disponibilità AlwaysOn](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). L'uso di un'opzione di disponibilità elevata supportata non fornisce un contratto di servizio aggiuntivo, ma permette di ottenere una disponibilità del database superiore al 99,99%.
+Per **SQL Server in esecuzione nelle macchine virtuali di Azure**Microsoft fornisce un contratto di servizio con disponibilità del 99,95% che copre solo alla macchina virtuale. Questo contratto di servizio non comprende i processi, ad esempio SQL Server, in esecuzione nella macchina virtuale e richiede che siano ospitate almeno due istanze di VM in un set di disponibilità. Per le informazioni più recenti, vedere il [Contratto di servizio per macchine virtuali](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Per la disponibilità elevata del database all'interno delle macchine virtuali, è necessario configurare una delle opzioni di disponibilità elevata supportate in SQL Server, ad esempio [Gruppi di disponibilità AlwaysOn](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). L'uso di un'opzione di disponibilità elevata supportata non fornisce un contratto di servizio aggiuntivo, ma permette di ottenere una disponibilità del database superiore al&99;,99%.
 
 ### <a name="a-namemarketatime-to-market"></a><a name="market"></a>Time-to-market
 **SQL Database** è la soluzione ideale per le applicazioni progettate per il cloud quando i fattori critici sono la produttività degli sviluppatori e un time-to-market rapido. Con la funzionalità di tipo DBA programmatica, è lo strumento ideale per gli architetti e gli sviluppatori cloud perché riduce la gestione del sistema operativo e del database sottostanti. Ad esempio, è possibile usare le [API REST](http://msdn.microsoft.com/library/azure/dn505719.aspx) e i [cmdlet di PowerShell](http://msdn.microsoft.com/library/mt740629.aspx) per automatizzare e gestire le operazioni amministrative di migliaia di database. Le funzionalità come i [pool elastici](sql-database-elastic-pool.md) consentono di concentrarsi sul livello dell'applicazione e accelerare i tempi di introduzione della soluzione sul mercato.
@@ -142,14 +143,8 @@ Scegliere **SQL Server nelle macchine virtuali di Azure** se:
 * Sono disponibili risorse IT esistenti ed è possibile essere il proprietario di operazioni relative ad applicazione di patch, backup e disponibilità elevata del database. Alcune funzionalità automatizzate semplificano notevolmente queste operazioni. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per un'introduzione al database SQL, vedere [Esercitazione sul database SQL: Creare un database SQL in pochi minuti usando il portale di Azure](sql-database-get-started.md) .
+* Per un'introduzione asi database SQL, vedere [Il primo database SQL di Azure](sql-database-get-started.md).
 * Vedere [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 * Per un'introduzione a SQL Server nelle macchine virtuali di Azure, vedere [Effettuare il provisioning di una macchina virtuale di SQL Server nel portale di Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md) .
-* Vedere [SQL Server in Macchine virtuali di Azure: percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

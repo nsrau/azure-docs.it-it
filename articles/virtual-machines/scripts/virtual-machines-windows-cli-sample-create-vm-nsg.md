@@ -1,0 +1,64 @@
+---
+title: Script dell&quot;interfaccia della riga di comando Azure di esempio - Creare due macchine virtuali con NSG interno ed esterno | Documentazione Microsoft
+description: Script dell&quot;interfaccia della riga di comando Azure di esempio - Creare due macchine virtuali con NSG interno ed esterno
+services: virtual-machines-windows
+documentationcenter: virtual-machines
+author: rickstercdn
+manager: timlt
+editor: tysonn
+tags: 
+ms.assetid: 
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure
+ms.date: 02/23/2017
+ms.author: rclaus
+translationtype: Human Translation
+ms.sourcegitcommit: a172d73732354d31d717d8e2f3a5c5c43cbbd6dc
+ms.openlocfilehash: 9ef17544582e944fda2ab8ea8b8098bb83e2ab57
+ms.lasthandoff: 03/01/2017
+
+---
+
+# <a name="secure-network-traffic-between-virtual-machines"></a>Proteggere il traffico di rete tra le macchine virtuali
+
+Questo script crea due macchine virtuali e protegge il traffico in ingresso su entrambe le macchine. Una macchina virtuale è accessibile su Internet e dispone di un gruppo di sicurezza di rete (NSG) configurato per consentire il traffico sulle porte 3389 e 80. La seconda macchina virtuale non è accessibile su Internet e dispone di un NSG configurato per consentire solo il traffico proveniente dalla prima macchina virtuale. 
+
+Prima di eseguire questo script, verificare che sia stata creata una connessione con Azure tramite il comando `az login`. È anche necessario modificare la variabile $AdminPassword all'inizio dello script secondo i requisiti di complessità delle password univoci.
+
+Questo esempio funziona nella shell Bash. Per le opzioni sull'esecuzione di script dell'interfaccia della riga di comando di Azure in Windows, vedere [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md) (Esecuzione dell'interfaccia della riga di comando di Azure in Windows).
+
+## <a name="create-vm-sample-with-a-network-security-group"></a>Creare una macchina virtuale di esempio con un gruppo di sicurezza di rete
+
+[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-nsg/create-windows-vm-nsg.sh "Creare una macchina virtuale con NSG")]
+
+## <a name="clean-up-deployment"></a>Pulire la distribuzione 
+
+Dopo l'esecuzione dello script di esempio, eseguire il comando seguente per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
+
+```azurecli
+az group delete --name myResourceGroup --yes
+```
+
+## <a name="script-explanation"></a>Spiegazione dello script
+
+Questo script usa i comandi seguenti per creare un gruppo di risorse, la macchina virtuale e tutte le risorse correlate. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
+
+| Comando | Note |
+|---|---|
+| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) | Consente di creare una rete virtuale e una subnet di Azure. |
+| [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#create) | Consente di creare una subnet. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | Consente di creare la macchina virtuale e la connette alla scheda di rete, alla rete virtuale, alla subnet e al gruppo di sicurezza di rete. Questo comando specifica anche l'immagine della macchina virtuale da usare e le credenziali di amministrazione.  |
+| [az network nsg rule update](https://docs.microsoft.com/cli/azure/network/nsg/rule#update) | Consente di aggiornare una regola NSG. In questo esempio, la regola di back-end viene aggiornata perché il traffico attraversi solo la subnet front-end. |
+| [az network nsg rule list](https://docs.microsoft.com/cli/azure/network/nsg/rule#list) | Restituisce informazioni sulla regola del gruppo di sicurezza di rete. In questo esempio, il nome della regola è archiviato in una variabile da usare successivamente nello script. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).
+
+Altri esempi di script dell'interfaccia della riga di comando della macchina virtuale sono reperibili nella [documentazione della macchina virtuale Windows Azure](../virtual-machines-windows-cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+

@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
-ms.openlocfilehash: 50a85747a3414e180bcd9129899fef7ffdaebc8d
+ms.sourcegitcommit: 30b30513d5563cf64679e29c4858bf15f65d3a44
+ms.openlocfilehash: 015c997135eae9c936af1a1ec0b0064912baaa04
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -39,8 +40,6 @@ Usare questa esercitazione per un'introduzione all'uso della registrazione dell'
 > Attualmente non è possibile configurare l'insieme di credenziali delle chiavi di Azure nel portale di Azure. Usare invece queste istruzioni per Azure PowerShell.
 > 
 > 
-
-I log raccolti possono essere visualizzati con Log Analytics da Operations Management Suite. Per altre informazioni, vedere [Azure Key Vault (Preview) solution in Log Analytics](../log-analytics/log-analytics-azure-key-vault.md)(Soluzione Insieme di credenziali delle chiavi di Azure (anteprima) in Log Analytics).
 
 Per informazioni generali sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali chiave di Azure?](key-vault-whatis.md)
 
@@ -254,6 +253,10 @@ La tabella seguente include un elenco di operationName con il comando API REST c
 | SecretList |[Elencare i segreti in un insieme di credenziali](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
 | SecretListVersions |[Elencare le versioni di un segreto](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
 
+## <a name="a-idloganalyticsause-log-analytics"></a><a id="loganalytics"></a>Usare Log Analytics
+
+È possibile usare la soluzione Insieme di credenziali delle chiavi di Azure in Log Analytics per esaminare i log AuditEvent dell'Insieme di credenziali delle chiavi di Azure. Per altre informazioni e per approfondire l'impostazione di questa funzionalità vedere [Soluzione Insieme di credenziali delle chiavi di Azure in Log Analytics](../log-analytics/log-analytics-azure-key-vault.md). Questo articolo contiene inoltre istruzioni su come eseguire la migrazione, nel caso fosse necessario, dalla soluzione Key Vault offerta nell'anteprima di Log Analytics, dove sono stati indirizzati la prima volta i log a un account di Archiviazione di Azure e da dove è stato configurato Log Analytics per la lettura.
+
 ## <a name="a-idnextanext-steps"></a><a id="next"></a>Passaggi successivi
 Per un'esercitazione sull'uso dell'insieme di credenziali delle chiavi di Azure in un'applicazione Web, vedere [Usare l'insieme di credenziali delle chiavi di Azure da un'applicazione Web](key-vault-use-from-web-application.md).
 
@@ -262,10 +265,5 @@ Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell�
 Per un elenco di cmdlet di Azure PowerShell 1.0 per l'insieme di credenziali delle chiavi di Azure, vedere [Cmdlet per l'insieme di credenziali delle chiavi di Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
 
 Per un'esercitazione sulla rotazione delle chiavi e il controllo dei log con l'insieme di credenziali delle chiavi di Azure, vedere [Come configurare l'insieme di credenziali delle chiavi con rotazione e controllo delle chiavi end-to-end](key-vault-key-rotation-log-monitoring.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -18,6 +18,7 @@ ms.author: deonhe
 translationtype: Human Translation
 ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
 ms.openlocfilehash: b6758aa36120c9c187e91ee5d9e7ceb5041eae6a
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -229,10 +230,5 @@ Le azioni e i trigger riportati sopra possono restituire uno o più dei seguenti
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

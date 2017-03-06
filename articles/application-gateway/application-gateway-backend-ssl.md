@@ -11,16 +11,18 @@ ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: cb2b7bc626294e12c6e19647c1e787e1f671595b
-ms.openlocfilehash: a49a93b11ab3e965ac1ddaec919bfcbf43381dee
+ms.sourcegitcommit: 5009b13cec57e6974f71610c84fdaad837085df0
+ms.openlocfilehash: 5f81d8146f8000e73a2eb578ff2371a62c8875e9
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="enabling-ssl-policy-and-end-to-end-ssl-on-application-gateway"></a>Abilitazione di criteri SSL ed SSL end-to-end nel gateway applicazione
+# <a name="overview-of-end-to-end-ssl-and-ssl-policy-on-application-gateway"></a>Panoramica di criteri SSL ed SSL end-to-end nel gateway applicazione
 
 Il gateway applicazione supporta la terminazione SSL nel gateway, dopo la quale il traffico scorre generalmente non crittografato verso i server back-end. Questa funzionalità consente ai server Web di non gestire il costoso carico di crittografia/decrittografia. Tuttavia, per alcuni clienti le comunicazioni non crittografate verso i server back-end non rappresentano un'opzione accettabile. Questa comunicazione non crittografata potrebbe dipendere da requisiti di sicurezza/conformità o da un'applicazione in grado di accettare solo connessioni protette. Per queste applicazioni, il gateway applicazione supporta ora la crittografia SSL end-to-end.
 
@@ -53,9 +55,4 @@ Dopo aver appreso i concetti di SSL end-to-end e i criteri SSL, passare all'arti
 <!--Image references-->
 
 [1]: ./media/application-gateway-backend-ssl/scenario.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

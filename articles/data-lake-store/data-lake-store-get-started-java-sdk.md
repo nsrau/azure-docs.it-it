@@ -17,6 +17,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: 091fadce064086d82b833f8e44edfbba125d3e6b
 ms.openlocfilehash: cb5babdd8fea3615d8aa27f05a07c3b489f3faa4
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -158,10 +159,5 @@ Si noti che i file vengono letti e scritti attraverso i flussi Java standard. Ci
 * [Proteggere i dati in Data Lake Store](data-lake-store-secure-data.md)
 * [Usare Azure Data Lake Analytics con Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

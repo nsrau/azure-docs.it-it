@@ -1,6 +1,6 @@
 ---
 title: Creare un ambiente Linux tramite l&quot;interfaccia della riga di comando di Azure 2.0 | Documentazione Microsoft
-description: Usare l&quot;interfaccia della riga di comando di Azure 2.0 (anteprima) per creare da zero una risorsa di archiviazione, una VM Linux, una rete virtuale con subnet, il bilanciamento del carico, una scheda di interfaccia di rete, un IP pubblico e un gruppo di sicurezza di rete.
+description: Usare l&quot;interfaccia della riga di comando di Azure 2.0 per creare da zero una risorsa di archiviazione, una VM di Linux, una rete virtuale con subnet, il bilanciamento del carico, una scheda NIC, un IP pubblico e un gruppo di sicurezza di rete.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,14 @@ ms.workload: infrastructure
 ms.date: 12/8/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 39ce158ae52b978b74161cdadb4b886a7ddbf87a
-ms.openlocfilehash: a00936df023ddbb13f5765f2e78900a68cccdb88
+ms.sourcegitcommit: d4cff286de1abd492ce7276c300b50d71f06345b
+ms.openlocfilehash: f07a326aa2fcd659f69265001293c9ed332bb842
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="create-a-complete-linux-environment-by-using-the-azure-cli-20-preview"></a>Creare un ambiente Linux completo usando l'interfaccia della riga di comando di Azure 2.0 (anteprima)
-In questo articolo viene spiegato come creare una semplice rete con un servizio di bilanciamento del carico e un paio di VM utili per lo sviluppo e per calcoli semplici. Viene presentato in dettaglio l'intero processo, comando dopo comando, fino a creare due VM Linux funzionanti e sicure a cui è possibile connettersi da qualsiasi posizione in Internet. Si potrà quindi passare a reti e ambienti più complessi.
+# <a name="create-a-complete-linux-environment-with-the-azure-cli-20"></a>Creare un ambiente Linux completo tramite l'interfaccia della riga di comando di Azure 2.0
+In questo articolo viene spiegato come creare una semplice rete con un servizio di bilanciamento del carico e un paio di VM utili per lo sviluppo e per calcoli semplici. Viene presentato in dettaglio l'intero processo, comando dopo comando, fino a creare due VM Linux funzionanti e sicure a cui è possibile connettersi da qualsiasi posizione in Internet. Si potrà quindi passare a reti e ambienti più complessi. Questo articolo illustra come creare l'ambiente con l'interfaccia della riga di comando di Azure 2.0. È possibile anche eseguire questi passaggi tramite l'[interfaccia della riga di comando di Azure 1.0](virtual-machines-linux-create-cli-complete-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Durante il processo si apprenderanno informazioni sulla gerarchia delle dipendenze fornita dal modello di distribuzione di Resource Manager e sulle potenzialità che offre. Dopo aver osservato come viene realizzato il sistema, è possibile ricrearlo molto più rapidamente utilizzando i [modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). In più, dopo aver scoperto come interagiscono le parti dell'ambiente, diventa più facile creare modelli per automatizzarle.
 
@@ -34,18 +35,12 @@ Nell'ambiente sono presenti:
 
 ![Panoramica sull'ambiente di base](./media/virtual-machines-linux-create-cli-complete/environment_overview.png)
 
-## <a name="cli-versions-to-complete-the-task"></a>Versioni dell'interfaccia della riga di comando per completare l'attività
-È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
-
-- [Interfaccia della riga di comando di Azure 1.0](virtual-machines-linux-create-cli-complete-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): l'interfaccia della riga di comando per i modelli di distribuzione classici e di gestione delle risorse
-- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](#quick-commands): interfaccia di prossima generazione per il modello di distribuzione di gestione delle risorse (questo articolo)
-
 ## <a name="quick-commands"></a>Comandi rapidi
 Se si vuole eseguire rapidamente l'attività, la sezione seguente indica in dettaglio i comandi base per caricare una VM in Azure. Altre informazioni dettagliate e il contesto per ogni passaggio sono disponibili nelle sezioni successive del documento, a partire da [qui](#detailed-walkthrough).
 
 Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. Alcuni esempi di nomi dei parametri sono `myResourceGroup`, `mystorageaccount` e `myVM`.
 
-Per creare questo ambiente personalizzato, è necessario installare la versione più recente dell'[interfaccia della riga di comando di Azure 2.0 (anteprima)](/cli/azure/install-az-cli2) e connetterla a un account Azure usando [az login](/cli/azure/#login).
+Per creare questo ambiente personalizzato, è necessario installare la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e connetterla a un account Azure usando [az login](/cli/azure/#login).
 
 Creare prima il gruppo di risorse con [az group create](/cli/azure/group#create). Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nella località `westeurope`:
 
@@ -53,7 +48,7 @@ Creare prima il gruppo di risorse con [az group create](/cli/azure/group#create)
 az group create --name myResourceGroup --location westeurope
 ```
 
-Questo passaggio è facoltativo. L'azione predefinita quando si crea una macchina virtuale con l'interfaccia della riga di comando di Azure 2.0 (anteprima) consiste nell'uso di Azure Managed Disks. Per altre informazioni su Azure Managed Disks, vedere [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md) (Panoramica di Azure Managed Disks). Se invece si desidera usare dischi non gestiti, è necessario creare un account di archiviazione con [az storage account create](/cli/azure/storage/account#create). L'esempio seguente crea un nuovo account di archiviazione denominato `mystorageaccount`. Il nome dell'account di archiviazione deve essere univoco; specificare quindi il proprio nome univoco.
+Questo passaggio è facoltativo. L'azione predefinita quando si crea una macchina virtuale con l'interfaccia della riga di comando di Azure 2.0 consiste nell'uso di Azure Managed Disks. Per altre informazioni su Azure Managed Disks, vedere [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md) (Panoramica di Azure Managed Disks). Se invece si desidera usare dischi non gestiti, è necessario creare un account di archiviazione con [az storage account create](/cli/azure/storage/account#create). L'esempio seguente crea un nuovo account di archiviazione denominato `mystorageaccount`. Il nome dell'account di archiviazione deve essere univoco; specificare quindi il proprio nome univoco.
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westeurope \
@@ -226,7 +221,7 @@ az group export --name myResourceGroup > myResourceGroup.json
 ## <a name="detailed-walkthrough"></a>Procedura dettagliata
 La procedura dettagliata seguente illustra il funzionamento di ciascun comando durante la creazione dell'ambiente. Questi concetti torneranno utili in fase di creazione degli ambienti personalizzati per lo sviluppo o per la produzione.
 
-Assicurarsi di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0 (anteprima)](/cli/azure/install-az-cli2) e avere eseguito la registrazione a un account di Azure con [az login](/cli/azure/#login).
+Verificare di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e di avere eseguito la registrazione a un account di Azure con [az login](/cli/azure/#login).
 
 Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono `myResourceGroup`, `mystorageaccount` e `myVM`.
 
@@ -252,7 +247,7 @@ Per impostazione predefinita, l'output è in formato JSON (JavaScript Object Not
 ```
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
-Questo passaggio è facoltativo. L'azione predefinita quando si crea una macchina virtuale con l'interfaccia della riga di comando di Azure 2.0 (anteprima) consiste nell'uso di Azure Managed Disks. Questi dischi vengono gestiti dalla piattaforma Azure e non richiedono alcuna pianificazione o alcuna posizione per l'archiviazione. Per altre informazioni su Azure Managed Disks, vedere [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md) (Panoramica di Azure Managed Disks). Se si desidera usare Azure Managed Disks, passare a [Creare una rete virtuale e una subnet](#create-a-virtual-network-and-subnet). 
+Questo passaggio è facoltativo. L'azione predefinita quando si crea una macchina virtuale con l'interfaccia della riga di comando di Azure 2.0 consiste nell'uso di Azure Managed Disks. Questi dischi vengono gestiti dalla piattaforma Azure e non richiedono alcuna pianificazione o alcuna posizione per l'archiviazione. Per altre informazioni su Azure Managed Disks, vedere [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md) (Panoramica di Azure Managed Disks). Se si desidera usare Azure Managed Disks, passare a [Creare una rete virtuale e una subnet](#create-a-virtual-network-and-subnet). 
 
 Se si desidera usare dischi non gestiti, è necessario creare un account di archiviazione per i dischi della macchina virtuale e per eventuali altri dischi dati da aggiungere.
 
@@ -1114,9 +1109,4 @@ Se lo si desidera, è possibile consultare [ulteriori informazioni su come esegu
 
 ## <a name="next-steps"></a>Passaggi successivi
 Ora è possibile iniziare a utilizzare più componenti di rete e VM. È possibile utilizzare questo ambiente di esempio per compilare l'applicazione utilizzando i componenti principali presentati qui.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

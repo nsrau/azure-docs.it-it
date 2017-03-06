@@ -18,6 +18,7 @@ ms.author: yushwang
 translationtype: Human Translation
 ms.sourcegitcommit: 5961c73c3f147ab6b3eca4e9d920003df1ca2c82
 ms.openlocfilehash: 298eab8ad562cfb32edf8609ac29052dc403f406
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -55,10 +56,5 @@ Il diagramma seguente illustra un esempio di una topologia multihop con più per
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per i passaggi di configurazione di BGP per le connessioni cross-premise e tra reti virtuali, vedere [Introduzione a BGP nei gateway VPN di Azure](vpn-gateway-bgp-resource-manager-ps.md) .
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

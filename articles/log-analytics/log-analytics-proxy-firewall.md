@@ -17,6 +17,7 @@ ms.author: banders;magoedte
 translationtype: Human Translation
 ms.sourcegitcommit: 6a527fa303f1e2bd06ac662e545d6b6a1d299fb4
 ms.openlocfilehash: cd06dfd498540970dc8ed29650f4d9e3ca57939b
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -185,9 +186,4 @@ In alternativa, è possibile cercare i Management Pack di OMS anche usando i com
 ## <a name="next-steps"></a>Passaggi successivi
 * [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md) per aggiungere funzionalità e raccogliere dati.
 * Acquisire familiarità con le [ricerche nei log](log-analytics-log-searches.md) per visualizzare le informazioni dettagliate raccolte dalle soluzioni.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

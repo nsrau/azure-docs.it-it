@@ -17,7 +17,7 @@ La dimensione della macchina virtuale influisce sul prezzo. Influisce, inoltre, 
 
 Le considerazioni seguenti potrebbero essere utili all’utente per scegliere una dimensione:
 
-* Le dimensioni delle serie A8-A11 e H sono note anche come *istanze a elevato uso di calcolo*. L'hardware che esegue queste dimensioni è progettato e ottimizzato per applicazioni a elevato utilizzo di calcolo e di rete, come applicazioni cluster HPC, modellazione e simulazioni. La serie A8-A11 usa Intel Xeon E5-2670 @ 2,6 GHZ, mentre la serie H usa Intel Xeon E5-2667 v3 @ 3,2 GHz. Per informazioni e considerazioni dettagliate sull'uso di queste dimensioni, vedere [Informazioni sulle VM serie H e serie A a elevato uso di calcolo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+* Le dimensioni delle serie A8-A11 e H sono note anche come *istanze a elevato uso di calcolo*. L'hardware che esegue queste dimensioni è progettato e ottimizzato per applicazioni a elevato utilizzo di calcolo e di rete, come applicazioni cluster HPC, modellazione e simulazioni. La serie A8-A11 usa Intel Xeon E5-2670 a 2,6 GHZ, mentre la serie H usa Intel Xeon E5-2667 v3 a 3,2 GHz. Per informazioni e considerazioni dettagliate sull'uso di queste dimensioni, vedere [Informazioni sulle VM serie H e serie A a elevato uso di calcolo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 * Le serie Dv2, D, G e DS/GS sono ideali per le applicazioni che richiedono CPU più veloci, prestazioni migliori del disco locale o requisiti di memoria superiori.  Offrono una potente combinazione per molte applicazioni di livello aziendale.
 * Le VM serie F sono un'ottima scelta per i carichi di lavoro che richiedono CPU più veloci ma che non necessitano della stessa memoria o unità SSD locale per core di CPU.  Carichi di lavoro come server Web, analisi, giochi ed elaborazione batch trarranno vantaggio dal valore della serie F.
 * Alcuni degli host fisici nei data center di Azure potrebbero non supportare macchine virtuali di dimensioni superiori, ad esempio da A5 ad A11. Di conseguenza, potrebbe essere visualizzato il messaggio di errore **Impossibile configurare la macchina virtuale <machine name>** o **Impossibile creare la macchina virtuale <machine name>** quando si configura una macchina virtuale esistente in base a una nuova dimensione, si crea una nuova macchina virtuale in una rete virtuale creata prima del 16 aprile 2013 o si aggiunge una nuova macchina a un servizio cloud esistente. Vedere [Errore: "Impossibile configurare la macchina virtuale"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) nel forum di supporto per le soluzioni alternative per ogni scenario di distribuzione.  
@@ -50,6 +50,7 @@ Le considerazioni seguenti potrebbero essere utili all’utente per scegliere un
 | [G1-G5](#g-series) |180 - 240* |
 | [GS1-GS5](#gs-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
+| [L4s-L32s](#l-series) |180 - 240* |
 
 Le unità ACU contrassegnate con * usano la tecnologia Intel® Turbo per aumentare la frequenza della CPU e offrire un miglioramento delle prestazioni.  L'entità dell'aumento di prestazioni può variare in base alle dimensioni della macchina virtuale, al carico di lavoro e agli altri carichi di lavoro in esecuzione sullo stesso host.
 
@@ -91,44 +92,45 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informa
 
 ## <a name="av2-series"></a>Serie Av2
 
-| Dimensione        | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva del disco di dati max: IOPS | Larghezza di banda della rete/scheda NIC max |
-|-------------|-----------|--------------|-----------------------|----------------|--------------------|-----------------------|
-| Standard_A1_v2 | 1         | 2            | 10                   | 2              | 2x500              | 1/moderata              |
-| Standard_A2_v2 | 2         | 4            | 20                   | 4              | 4x500              | 2/moderata              |
-| Standard_A4_v2 | 4         | 8            | 40                   | 8              | 8x500              | 4/alta                  |
-| Standard_A8_v2 | 8         | 16           | 80                   | 16             | 16x500             | 8/alta                  |
-| Standard_A2m_v2 | 2        | 16           | 20                   | 4              | 4x500              | 2/moderata              |
-| Standard_A4m_v2 | 4        | 32           | 40                   | 8              | 8x500              | 4/alta                  |
-| Standard_A8m_v2 | 8        | 64           | 80                   | 16             | 16x500             | 8/alta                  |
-
+| Dimensione            | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Velocità effettiva massima del disco locale: IOPS/Mbps di lettura/Mbps di scrittura | Velocità effettiva/disco di dati massimo: IOPS | Larghezza di banda della rete/scheda NIC max |
+|-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_A1_v2  | 1         | 2           | 10             | 1000 / 20 / 10                                           | 2/2 x 500                         | 1/moderata                 |
+| Standard_A2_v2  | 2         | 4           | 20             | 2000 / 40 / 20                                           | 4/4 x 500                         | 2/moderata                 |
+| Standard_A4_v2  | 4         | 8           | 40             | 4000 / 80 / 40                                           | 8/8 x 500                         | 4/alta                     |
+| Standard_A8_v2  | 8         | 16          | 80             | 8000 / 160 / 80                                          | 16/16 x 500                       | 8/alta                     |
+| Standard_A2m_v2 | 2         | 16          | 20             | 2000 / 40 / 20                                           | 4/4 x 500                         | 2/moderata                 |
+| Standard_A4m_v2 | 4         | 32          | 40             | 4000 / 80 / 40                                           | 8/8 x 500                         | 4/alta                     |
+| Standard_A8m_v2 | 8         | 64          | 80             | 8000 / 160 / 80                                          | 16/16 x 500                       | 8/alta                     |
 
 ## <a name="d-series"></a>Serie D
-| Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva del disco di dati max: IOPS | Larghezza di banda della rete/scheda NIC max |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_D1 |1 |3,5 |50 |2 |2x500 |1/moderata |
-| Standard_D2 |2 |7 |100 |4 |4x500 |2/alta |
-| Standard_D3 |4 |14 |200 |8 |8x500 |4/alta |
-| Standard_D4 |8 |28 |400 |16 |16x500 |8/alta |
-| Standard_D11 |2 |14 |100 |4 |4x500 |2/alta |
-| Standard_D12 |4 |28 |200 |8 |8x500 |4/alta |
-| Standard_D13 |8 |56 |400 |16 |16x500 |8/alta |
-| Standard_D14 |16 |112 |800 |32 |32x500 |8/molto alta |
 
+| Dimensione         | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Velocità effettiva massima del disco locale: IOPS/Mbps di lettura/Mbps di scrittura | Velocità effettiva/disco di dati massimo: IOPS | Larghezza di banda della rete/scheda NIC max |
+|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_D1  | 1         | 3,5         | 50             | 3000 / 46 / 23                                           | 2/2 x 500                         | 1/moderata                 |
+| Standard_D2  | 2         | 7           | 100            | 6000 / 93 / 46                                           | 4/4 x 500                         | 2/alta                     |
+| Standard_D3  | 4         | 14          | 200            | 12000 / 187 / 93                                         | 8/8 x 500                         | 4/alta                     |
+| Standard_D4  | 8         | 28          | 400            | 24000 / 375 / 187                                        | 16/16 x 500                       | 8/alta                     |
+| Standard_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 4/4 x 500                         | 2/alta                     |
+| Standard_D12 | 4         | 28          | 200            | 12000 / 187 / 93                                         | 8/8 x 500                         | 4/alta                     |
+| Standard_D13 | 8         | 56          | 400            | 24000 / 375 / 187                                        | 16/16 x 500                       | 8/alta                     |
+| Standard_D14 | 16        | 112         | 800            | 48000 / 750 / 375                                        | 32/32 x 500                       | 8/molto alta                |
 <br>
 
 ## <a name="dv2-series"></a>Serie Dv2
-| Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva del disco di dati max: IOPS | Larghezza di banda della rete/scheda NIC max |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_D1_v2 |1 |3,5 |50 |2 |2x500 |1/moderata |
-| Standard_D2_v2 |2 |7 |100 |4 |4x500 |2/alta |
-| Standard_D3_v2 |4 |14 |200 |8 |8x500 |4/alta |
-| Standard_D4_v2 |8 |28 |400 |16 |16x500 |8/alta |
-| Standard_D5_v2 |16 |56 |800 |32 |32x500 |8/estremamente alta |
-| Standard_D11_v2 |2 |14 |100 |4 |4x500 |2/alta |
-| Standard_D12_v2 |4 |28 |200 |8 |8x500 |4/alta |
-| Standard_D13_v2 |8 |56 |400 |16 |16x500 |8/alta |
-| Standard_D14_v2 |16 |112 |800 |32 |32x500 |8/estremamente alta |
-| Standard_D15_v2** |20 |140 |1.000 |40 |40x500 |8/estremamente alta* |
+
+
+| Dimensione              | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Velocità effettiva massima del disco locale: IOPS/Mbps di lettura/Mbps di scrittura | Velocità effettiva/disco di dati massimo: IOPS | Larghezza di banda della rete/scheda NIC max |
+|-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_D1_v2    | 1         | 3,5         | 50             | 3000 / 46 / 23                                           | 2/2 x 500                         | 1/moderata                 |
+| Standard_D2_v2    | 2         | 7           | 100            | 6000 / 93 / 46                                           | 4/4 x 500                         | 2/alta                     |
+| Standard_D3_v2    | 4         | 14          | 200            | 12000 / 187 / 93                                         | 8/8 x 500                         | 4/alta                     |
+| Standard_D4_v2    | 8         | 28          | 400            | 24000 / 375 / 187                                        | 16/16 x 500                       | 8/alta                     |
+| Standard_D5_v2    | 16        | 56          | 800            | 48000 / 750 / 375                                        | 32/32 x 500                       | 8/estremamente alta           |
+| Standard_D11_v2   | 2         | 14          | 100            | 6000 / 93 / 46                                           | 4/4 x 500                         | 2/alta                     |
+| Standard_D12_v2   | 4         | 28          | 200            | 12000 / 187 / 93                                         | 8/8 x 500                         | 4/alta                     |
+| Standard_D13_v2   | 8         | 56          | 400            | 24000 / 375 / 187                                        | 16/16 x 500                       | 8/alta                     |
+| Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 32/32 x 500                       | 8/estremamente alta           |
+| Standard_D15_v2** | 20        | 140         | 1.000          | 60000 / 937 / 468                                        | 40/40 x 500                       | 8/estremamente alta*          |
 
 * In alcune aree, per le dimensioni Standard_D15_v2 è disponibile la rete accelerata. Per altre informazioni sull'uso e la disponibilità, vedere [Accelerated Networking is in Preview](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) (Rete accelerata disponibile in anteprima) e [Rete accelerata per macchine virtuali](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md).
 
@@ -137,7 +139,7 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informa
 <br>
 
 ## <a name="ds-series"></a>Serie DS*
-| Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Max velocità effettiva del disco nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max |
+| Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva massima del disco locale e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1 |1 |3,5 |7 |2 |4.000/32 (43) |3.200/32 |1/moderata |
 | Standard_DS2 |2 |7 |14 |4 |8.000/64 (86) |6.400/64 |2/alta |
@@ -178,18 +180,18 @@ MBps = 10^6 byte al secondo e GiB = 1024^3 byte.
 <br>
 
 ## <a name="f-series"></a>Serie F
-| Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva del disco max: IOPS | Larghezza di banda della rete/scheda NIC max |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_F1 |1 |2 |16 |2 |2x500 |1/moderata |
-| Standard_F2 |2 |4 |32 |4 |4x500 |2/alta |
-| Standard_F4 |4 |8 |64 |8 |8x500 |4/alta |
-| Standard_F8 |8 |16 |128 |16 |16x500 |8/alta |
-| Standard_F16 |16 |32 |256 |32 |32x500 |8/estremamente alta |
 
+| Dimensione         | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Velocità effettiva massima del disco locale: IOPS/Mbps di lettura/Mbps di scrittura | Velocità effettiva/disco di dati massimo: IOPS | Larghezza di banda della rete/scheda NIC max |
+|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 2/2 x 500                         | 1/moderata                 |
+| Standard_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 4/4 x 500                         | 2/alta                     |
+| Standard_F4  | 4         | 8           | 64             | 12000 / 187 / 93                                         | 8/8 x 500                         | 4/alta                     |
+| Standard_F8  | 8         | 16          | 128            | 24000 / 375 / 187                                        | 16/16 x 500                       | 8/alta                     |
+| Standard_F16 | 16        | 32          | 256            | 48000 / 750 / 375                                        | 32/32 x 500                       | 8/estremamente alta           |
 <br>
 
 ## <a name="fs-series"></a>Serie Fs*
-| Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Max velocità effettiva del disco nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max |
+| Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva massima del disco locale e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1s |1 |2 |4 |2 |4.000/32 (12) |3.200/48 |1/moderata |
 | Standard_F2s |2 |4 |8 |4 |8.000/64 (24) |6.400/96 |2/alta |
@@ -204,19 +206,20 @@ MBps = 10^6 byte al secondo e GiB = 1024^3 byte.
 <br>
 
 ## <a name="g-series"></a>Serie G
-| Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva del disco max: IOPS | Larghezza di banda della rete/scheda NIC max |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_G1 |2 |28 |384 |4 |4x500 |1/alta |
-| Standard_G2 |4 |56 |768 |8 |8x500 |2/alta |
-| Standard_G3 |8 |112 |1.536 |16 |16x500 |4/molto alta |
-| Standard_G4 |16 |224 |3.072 |32 |32x500 |8/estremamente alta |
-| Standard_G5* |32 |448 |6.144 |64 |64 x 500 |8/estremamente alta |
+
+| Dimensione         | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Velocità effettiva massima del disco locale: IOPS/Mbps di lettura/Mbps di scrittura | Velocità effettiva/disco di dati massimo: IOPS | Larghezza di banda della rete/scheda NIC max |
+|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 4/4 x 500                       | 1/alta                     |
+| Standard_G2  | 4         | 56          | 768            | 12000 / 187 / 93                                         | 8/8 x 500                       | 2/alta                     |
+| Standard_G3  | 8         | 112         | 1.536          | 24000 / 375 / 187                                        | 16/16 x 500                     | 4/molto alta                |
+| Standard_G4  | 16        | 224         | 3.072          | 48000 / 750 / 375                                        | 32/32 x 500                     | 8/estremamente alta           |
+| Standard_G5* | 32        | 448         | 6.144          | 96000 / 1500 / 750                                       | 64/64 x 500                     | 8/estremamente alta           |
 
 *L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
 <br>
 
 ## <a name="gs-series"></a>Serie GS*
-| Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Max velocità effettiva del disco nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max |
+| Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva massima del disco locale e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_GS1 |2 |28 |56 |4 |10.000/100 (264) |5.000/125 |1/alta |
 | Standard_GS2 |4 |56 |112 |8 |20.000/200 (528) |10.000/250 |2/alta |
@@ -226,7 +229,7 @@ MBps = 10^6 byte al secondo e GiB = 1024^3 byte.
 
 MBps = 10^6 byte al secondo e GiB = 1024^3 byte.
 
-*La massima velocità effettiva del disco (IOPS o MBps) possibile con una VM serie GS può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati. 
+*La massima velocità effettiva del disco (IOPS o MBps) possibile con una VM serie GS può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/storage/storage-premium-storage.md). 
 
 **L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
 <br>
@@ -251,8 +254,30 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informa
 
 <br>
 
+
+## <a name="ls-series"></a>Serie LS* 
+
+La serie LS è ottimizzata per carichi di lavoro che richiedono l'archiviazione locale a bassa latenza, come i database NoSQL (ad esempio Cassandra, MongoDB, Cloudera e Redis). La serie LS offre fino a 32 core di CPU e usa il [processore Intel® Xeon® della famiglia E5 v3](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). Si tratta delle stesse prestazioni CPU della serie G/GS ed è dotato di 8 GiB di memoria per ogni core della CPU.  
+
+ 
+| Dimensione          | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Max velocità effettiva del disco nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max | 
+|---------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
+| Standard_L4s  | 4    | 32   | 678   | 8              | ND/ND (0)          | 5.000/125                               | 2/alta       | 
+| Standard_L8s  | 8    | 64   | 1,388 | 16             | ND/ND (0)          | 10.000/250                              | 4/molto alta  | 
+| Standard_L16s | 16   | 128  | 2,807 | 32             | ND/ND (0)          | 20.000/500                              | 8/estremamente alta | 
+| Standard_L32s** | 32   | 256  | 5,630 | 64             | ND/ND (0)          | 40.000/1.000                            | 8/estremamente alta | 
+ 
+MBps = 10^6 byte al secondo e GiB = 1024^3 byte. 
+
+*La massima velocità effettiva del disco (IOPS o Mbps) possibile con una VM serie LS può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/storage/storage-premium-storage.md). 
+
+**L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
+
+
+
 ## <a name="n-series"></a>Serie N
 Le dimensioni NC e NV sono dette anche istanze abilitate tramite GPU. Si tratta di macchine virtuali specializzate dotate di schede GPU NVIDIA e ottimizzate per diversi scenari e casi d'uso. Le dimensioni NV sono ottimizzate e progettate per le operazioni di visualizzazione remota, streaming, giochi, codifica e scenari VDI che utilizzano framework come OpenGL e DirectX. Le dimensioni NC sono più adatte per applicazioni e algoritmi a elevato utilizzo di calcolo e reti, tra cui applicazioni e simulazioni basate su CUDA e OpenCL. 
+
 
 ### <a name="nv-instances"></a>Istanze NV
 Le istanze NV sono basate su GPU NVIDIA Tesla M60 e NVIDIA GRID per applicazioni con accelerazione grafica per desktop e desktop virtuali con cui i clienti potranno visualizzare i propri dati o le proprie simulazioni. Gli utenti potranno visualizzare i flussi di lavoro con utilizzo intensivo di grafica nelle istanze NV per ottenere una funzionalità grafica di livello superiore e inoltre eseguire singoli carichi di lavoro di precisione, come la codifica e il rendering. Il modello Tesla M60 ospita 4.096 core CUDA in una dual GPU con un massimo di 36 flussi H264 da 1080p. 
@@ -303,9 +328,4 @@ Nel modello di distribuzione classico, alcuni nomi di dimensioni VM sono leggerm
 ## <a name="next-steps"></a>Passaggi successivi
 * Per informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../articles/azure-subscription-service-limits.md).
 * Per altre informazioni, vedere [Informazioni sulle VM serie H e serie A a elevato uso di calcolo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per carichi di lavoro come High-Performance Computing (HPC).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

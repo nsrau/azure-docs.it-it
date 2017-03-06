@@ -1,6 +1,6 @@
 ---
 title: Creare un hub IoT usando l&quot;interfaccia della riga di comando di Azure (az.py) | Documentazione Microsoft
-description: Come creare un hub IoT di Azure usando l&quot;interfaccia della riga di comando di Azure multipiattaforma 2.0 (anteprima) (az.py).
+description: Come creare un hub IoT di Azure usando l&quot;interfaccia della riga di comando di Azure 2.0 multipiattaforma (az.py).
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -15,28 +15,29 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1f6bc5f172819f9877c862ec8f0efab7f8021864
-ms.openlocfilehash: 42538837faed8bf33832dd2762b278c0d910c454
+ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
+ms.openlocfilehash: 4f512601cebcfce7bfac47ed440c96fcb2c91b5f
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="create-an-iot-hub-using-the-azure-cli-20-preview"></a>Creare un hub IoT usando l'interfaccia della riga di comando di Azure 2.0 (anteprima)
+# <a name="create-an-iot-hub-using-the-azure-cli-20"></a>Creare un hub IoT usando l'interfaccia della riga di comando di Azure 2.0
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## <a name="introduction"></a>Introduzione
 
-È possibile usare l'interfaccia della riga di comando di Azure 2.0 (anteprima) (az.py) per creare e gestire hub IoT di Azure a livello di codice. Questo articolo illustra come usare l'interfaccia della riga di comando di Azure 2.0 (anteprima) (az.py) per creare un hub IoT.
+È possibile usare l'interfaccia della riga di comando di Azure 2.0 (az.py) per creare e gestire hub IoT di Azure a livello di codice. Questo articolo illustra come usare l'interfaccia della riga di comando di Azure 2.0 (az.py) per creare un hub IoT.
 
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 * [Interfaccia della riga di comando di Azure (azure.js)](iot-hub-create-using-cli-nodejs.md): l'interfaccia della riga di comando per i modelli di distribuzione classica e di gestione delle risorse.
-* Interfaccia della riga di comando di Azure 2.0 (anteprima) (az.py): l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse, come descritto in questo articolo.
+* Interfaccia della riga di comando di Azure 2.0 (az.py): interfaccia avanzata per il modello di distribuzione di gestione delle risorse, come descritto in questo articolo.
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Un account Azure attivo. Se non si ha un account, è possibile crearne uno [gratuito][lnk-free-trial] in pochi minuti.
-* [Interfaccia della riga di comando di Azure 2.0 (anteprima)][lnk-CLI-install].
+* [Interfaccia della riga di comando di Azure 2.0][lnk-CLI-install].
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Accedere all'account Azure e impostarlo
 
@@ -137,9 +138,4 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-iot-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-portal]: iot-hub-create-through-portal.md 
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

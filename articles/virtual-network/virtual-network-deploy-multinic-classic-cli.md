@@ -1,10 +1,10 @@
 ---
-title: "Creare una macchina virtuale (classica) con più schede di interfaccia di rete usando l&quot;interfaccia della riga di comando di Azure | Documentazione Microsoft"
-description: "Informazioni su come creare una macchina virtuale con più schede di interfaccia di rete tramite il modello di distribuzione classica usando l&quot;interfaccia della riga di comando di Azure."
+title: "Creare una VM (classica) con più schede di interfaccia di rete - interfaccia della riga di comando 1.0 di Azure| Documentazione Microsoft"
+description: "Informazioni su come creare una VM (classica) con più schede di interfaccia di rete usando l&quot;interfaccia della riga di comando 1.0 di Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: b436e41e-866c-439f-a7c7-7b4b041725ef
@@ -15,19 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f1a4dc135721a1c2a134806fbae031ee60e23074
-ms.openlocfilehash: 4d9f5f918e8f06dedcce14a880e436f807a5a7b0
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: b62421b7289650818748d0016dccfdf42ef0a768
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli"></a>Creare una macchina virtuale (classica) con più schede di interfaccia di rete usando l'interfaccia della riga di comando di Azure
+# <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli-10"></a>Creare una VM (classica) con più schede di interfaccia di rete usando l'interfaccia della riga di comando 1.0 di Azure
+
 [!INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
 È possibile creare macchine virtuali (VM) in Azure e collegare più interfacce di rete (NIC) a ciascuna delle macchine virtuali. Più schede di interfaccia rete consentono la separazione dei tipi di traffico tra schede di interfaccia di rete. Ad esempio, una scheda di interfaccia di rete può comunicare con Internet, mentre un'altra comunica solo con le risorse interne non connesse a Internet. La possibilità di separare il traffico di rete tra più schede di interfaccia di rete è necessaria per molte appliance virtuali di rete, ad esempio soluzioni di ottimizzazione WAN e di distribuzione delle applicazioni.
 
 > [!IMPORTANT]
-> Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Informazioni su come eseguire questa procedura con il [modello di distribuzione Resource Manager](virtual-network-deploy-multinic-arm-cli.md).
+> Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Informazioni su come seguire questa procedura con il [modello di distribuzione Resource Manager](virtual-network-deploy-multinic-arm-cli.md).
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
@@ -186,9 +189,4 @@ Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo sc
         info:    Getting virtual machines
         info:    Adding Data-Disk
         info:    vm disk attach-new command OK
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

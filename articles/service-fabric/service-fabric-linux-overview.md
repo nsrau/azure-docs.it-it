@@ -12,11 +12,12 @@ ms.devlang: Java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2016
+ms.date: 03/02/2017
 ms.author: SubramaR
 translationtype: Human Translation
 ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
 ms.openlocfilehash: 175edd2c45319f197d1df65ae22853ca0dc3d310
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -46,10 +47,5 @@ L'anteprima supporta l'interazione con il cluster tramite l'interfaccia della ri
 2. [Preparare l'ambiente di sviluppo in Linux](service-fabric-get-started-linux.md)
 3. [Preparare l'ambiente di sviluppo in OSX](service-fabric-get-started-mac.md)
 4. [Creare la prima applicazione Java di Service Fabric in Linux](service-fabric-create-your-first-linux-application-with-java.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Controllo degli accessi in base al ruolo nel portale di Azure | Documentazione Microsoft
+title: Controllo degli accessi in base al ruolo nel portale di Azure classico | Microsoft Docs
 description: Introduzione alla gestione degli accessi con il Controllo degli accessi in base al ruolo nel portale di Azure. Usare le assegnazioni di ruolo per assegnare autorizzazioni alle risorse.
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/10/2016
+ms.date: 02/17/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b930fe0a4a47cffebb579be43a77e87548549cfd
+ms.sourcegitcommit: bb894c38de63d0eac4066eeabaed7ba791021cc4
+ms.openlocfilehash: 05da6cd034a387b54eff0790996662223e4b8bab
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -24,8 +25,6 @@ ms.openlocfilehash: b930fe0a4a47cffebb579be43a77e87548549cfd
 > [!div class="op_single_selector"]
 > * [Gestire l'accesso per utente o gruppo](role-based-access-control-manage-assignments.md)
 > * [Gestire l'accesso per risorsa](role-based-access-control-configure.md)
-> 
-> 
 
 Il Controllo degli accessi in base al ruolo di Azure (RBAC) consente la gestione specifica degli accessi per Azure. L'uso del Controllo degli accessi in base al ruolo permette di concedere agli utenti solo il livello di accesso necessario per lavorare. Questo articolo permette di iniziare subito a usare il Controllo degli accessi in base al ruolo nel portale di Azure. Per altri dettagli sulla gestione degli accessi, vedere l'articolo relativo al [Controllo degli accessi in base al ruolo](role-based-access-control-what-is.md).
 
@@ -44,8 +43,6 @@ Si noti che per alcuni utenti l'accesso è stato **assegnato**, mentre per altri
 
 > [!NOTE]
 > Gli utenti con i ruoli Amministratore sottoscrizione classico e Coamministratore sono considerati proprietari della sottoscrizione nel nuovo modello Controllo degli accessi in base al ruolo.
-> 
-> 
 
 ## <a name="add-access"></a>Aggiungere un accesso
 Si concede l'accesso dalla risorsa, dal gruppo di risorse o dalla sottoscrizione che costituisce l'ambito dell'assegnazione di ruolo.
@@ -61,12 +58,11 @@ Si concede l'accesso dalla risorsa, dal gruppo di risorse o dalla sottoscrizione
 Dopo aver aggiunto un'assegnazione di ruolo, viene visualizzato il pannello **Utenti** .
 
 ## <a name="remove-access"></a>Rimuovere un accesso
-1. Selezionare l'assegnazione di ruolo nel pannello Controllo di accesso.
-2. Selezionare **Rimuovi** nel pannello dei dettagli dell'assegnazione.  
-3. Selezionare **Sì** per confermare la rimozione.  
-    ![Screenshot del pannello Utenti: Rimuovi dal ruolo](./media/role-based-access-control-configure/remove-access1.png)
+1. Usare le caselle di controllo del pannello Controllo di accesso per selezionare uno o più assegnazioni di ruolo.
+2. Selezionare **Rimuovi**.  
+3. Verrà visualizzata una casella popup in cui viene richiesto di confermare l'azione. Selezionare **Sì** per rimuovere le assegnazioni di ruolo.
 
-Le assegnazioni ereditate non possono essere rimosse. Si noti nell'immagine seguente che il pulsante Rimuovi è disabilitato. Esaminare i dettagli in **Nodo assegnazione** . Passare alla risorsa inclusa nell'elenco per rimuovere l'assegnazione di ruolo.
+Le assegnazioni ereditate non possono essere rimosse. Se si desidera rimuovere un'assegnazione ereditata, è necessario eseguire questa operazione laddove è stata creata l'assegnazione di ruolo. Nella colonna **Ambito**, accanto a **Ereditato** è presente un collegamento che consente di visualizzare le risorse in cui è stato assegnato questo ruolo. Passare alla risorsa inclusa nell'elenco per rimuovere l'assegnazione di ruolo.
 
 ![Screenshot del pannello Utenti: l'accesso ereditato disabilita il pulsante Rimuovi](./media/role-based-access-control-configure/remove-access2.png)
 
@@ -81,10 +77,5 @@ Le assegnazioni ereditate non possono essere rimosse. Si noti nell'immagine segu
 * [Creare un report della cronologia delle modifiche relative all'accesso](role-based-access-control-access-change-history-report.md)
 * Vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](role-based-access-built-in-roles.md)
 * Definire i [ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](role-based-access-control-custom-roles.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

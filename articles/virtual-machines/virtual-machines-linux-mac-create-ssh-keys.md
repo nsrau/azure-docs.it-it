@@ -1,6 +1,6 @@
 ---
 title: Creare una coppia di chiavi SSH per le macchine virtuali Linux in Azure | Documentazione Microsoft
-description: Creare in modo sicuro una coppia di chiavi SSH pubblica e privata per le macchine virtuali di Linux.
+description: Creare in modo sicuro una coppia di chiavi SSH pubblica e privata per le macchine virtuali di Linux in Azure.
 services: virtual-machines-linux
 documentationcenter: 
 author: vlivech
@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/6/2016
+ms.date: 2/6/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: e5f93bab46620e06e56950ba7b3686b15f789a9d
-ms.openlocfilehash: 1ee0368b75e4ef2fc759251db32c5aed5c1a168d
+ms.sourcegitcommit: 6776fe5cf1faadfbcfc9bbd6c69ec1380c2429c7
+ms.openlocfilehash: 67dce2c226f5ec5f396ef51cd59781d532d76795
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -41,6 +42,9 @@ Aggiungere la chiave appena creata per `ssh-agent`:
 ```bash
 ssh-add ~/.ssh/id_rsa
 ```
+
+> [!NOTE] 
+> I comandi precedenti funzionano nei sistemi operativi di Linux di quasi tutte le distribuzioni, ma non necessariamente in contenitori, perché l'ambiente può essere sottoposto a vincoli radicali.
 
 ## <a name="detailed-walkthrough"></a>Procedura dettagliata
 
@@ -249,9 +253,4 @@ Il prossimo passaggio consiste nel creare VM Linux di Azure usando la nuova chia
 * [Creare una VM Linux protetta usando un modello di Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Creare una VM Linux protetta usando il portale di Azure](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Creare una VM Linux protetta usando l'interfaccia della riga di comando di Azure](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

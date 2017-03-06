@@ -19,6 +19,7 @@ ms.author: mandia
 translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: dbb920f212d46365233e83ba1e0a0ae99917e405
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -277,10 +278,5 @@ Recupera tutti i siti web, i video, le immagini e così via da una ricerca di Bi
 [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 Tornare all' [elenco di API](apis-list.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

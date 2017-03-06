@@ -17,6 +17,7 @@ ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: 5b8b293b5b37365088a3df55581be7b7bf76691c
 ms.openlocfilehash: 7bc3421e00215ca4629ea11811c98e581377b24a
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -55,7 +56,7 @@ Questi comandi permettono di creare un gruppo di risorse e distribuirvi un model
 1. Accedere all'account Azure.
 
    ```powershell
-   Add-AzureRmAccount
+   Login-AzureRmAccount
    ```
 
     Viene restituito un riepilogo dell'account.
@@ -229,10 +230,5 @@ Tuttavia, quando si usa un file di parametri esterni, non è possibile trasmette
 * Per indicazioni sulla distribuzione della soluzione in ambienti diversi, vedere [Ambienti di sviluppo e test in Microsoft Azure](solution-dev-test-environments.md).
 * Per indicazioni su come le aziende possono usare Resource Manager per gestire efficacemente le sottoscrizioni, vedere [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Scaffolding aziendale Azure - Governance prescrittiva per le sottoscrizioni).
 * Per una serie di quattro parti sull'automazione della distribuzione, vedere [Automazione della distribuzione di applicazioni nelle macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Questa serie illustra argomenti come architettura, accesso e sicurezza, disponibilità, scalabilità e distribuzione delle applicazioni.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -1,6 +1,6 @@
 
 ---
-title: Creare un ambiente Linux completo tramite l&quot;interfaccia della riga di comando 1.0 di Azure | Documentazione Microsoft
+title: Creare un ambiente Linux completo tramite l&quot;interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
 description: Usare l&quot;interfaccia della riga di comando 1.0 di Azure per creare da zero una risorsa di archiviazione, una VM di Linux, una rete virtuale con subnet, il bilanciamento del carico, una scheda di interfaccia di rete, un IP pubblico e un gruppo di sicurezza di rete.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -17,12 +17,13 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 0dee2c3b92adc4098a51014dd7379aa3d53c1627
-ms.openlocfilehash: 8c051aca8aa9eb0ebbd55098917218f6f874c1be
+ms.sourcegitcommit: 67d4fee2fc59651903d4c02d1fce84c7b81e5da1
+ms.openlocfilehash: 03356c0499c595f73221d05d941233de5f01f357
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="create-a-complete-linux-environment-by-using-the-azure-cli-10"></a>Creare un ambiente Linux completo tramite l'interfaccia della riga di comando di Azure 1.0
+# <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>Creare un ambiente Linux completo tramite l'interfaccia della riga di comando di Azure 1.0
 In questo articolo viene spiegato come creare una semplice rete con un servizio di bilanciamento del carico e un paio di VM utili per lo sviluppo e per calcoli semplici. Viene presentato in dettaglio l'intero processo, comando dopo comando, fino a creare due VM Linux funzionanti e sicure a cui è possibile connettersi da qualsiasi posizione in Internet. Si potrà quindi passare a reti e ambienti più complessi.
 
 Durante il processo si apprenderanno informazioni sulla gerarchia delle dipendenze fornita dal modello di distribuzione di Resource Manager e sulle potenzialità che offre. Dopo aver osservato come viene realizzato il sistema, è possibile ricrearlo molto più rapidamente utilizzando i [modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). In più, dopo aver scoperto come interagiscono le parti dell'ambiente, diventa più facile creare modelli per automatizzarle.
@@ -42,7 +43,7 @@ Per creare questo ambiente personalizzato, è necessario aver installato l'[inte
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - [Interfaccia della riga di comando di Azure 1.0](#quick-commands): l'interfaccia della riga di comando per i modelli di distribuzione classica e di gestione delle risorse (questo articolo)
-- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse
+- [Interfaccia della riga di comando di Azure 2.0](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): interfaccia avanzata per il modello di distribuzione di gestione delle risorse
 
 
 ## <a name="quick-commands"></a>Comandi rapidi
@@ -1292,9 +1293,4 @@ Se lo si desidera, è possibile consultare [ulteriori informazioni su come esegu
 
 ## <a name="next-steps"></a>Passaggi successivi
 Ora è possibile iniziare a utilizzare più componenti di rete e VM. È possibile utilizzare questo ambiente di esempio per compilare l'applicazione utilizzando i componenti principali presentati qui.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

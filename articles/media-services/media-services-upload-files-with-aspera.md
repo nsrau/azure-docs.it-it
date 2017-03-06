@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/30/2017
+ms.date: 02/22/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff87afae1b468bef77947edd9806d330047f2ba6
-ms.openlocfilehash: 3b167db06ee30f7c3483eca30782437c61f8dcc8
+ms.sourcegitcommit: 44fe2f5c0a3f050a93368589d9ea6b8ea3e35d26
+ms.openlocfilehash: 60a35bbda79a45bd0ac24e76b0a20720afe79774
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -117,6 +118,15 @@ Dopo l'accesso ad Azure Marketplace, seguire questi semplici passaggi per comple
 
     ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
 
+## <a name="resources"></a>Risorse
+
+Le risorse seguenti sono state citate in questo articolo. 
+
+* [Collegare il plug-in del browser](http://downloads.asperasoft.com/connect2/)
+* [Guida alla connessione](http://downloads.asperasoft.com/en/documentation/8)
+* [Client Aspera](http://downloads.asperasoft.com/en/downloads/2)
+* [Guida al client](http://downloads.asperasoft.com/en/documentation/2)
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 È ora possibile [copiare BLOB da un account di archiviazione in un account AMS](media-services-copying-existing-blob.md#copy-blobs-from-a-storage-account-into-an-ams-account).
@@ -126,10 +136,5 @@ Dopo l'accesso ad Azure Marketplace, seguire questi semplici passaggi per comple
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

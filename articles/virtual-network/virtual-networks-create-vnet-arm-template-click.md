@@ -1,10 +1,10 @@
 ---
-title: Creare una rete virtuale usando un modello di Resource Manager | Documentazione Microsoft
-description: Informazioni su come creare una rete virtuale usando un modello | Resource Manager.
+title: Creare una rete virtuale | Modello di Azure Resource Manager | Documentazione Microsoft
+description: Informazioni su come creare una rete virtuale usando un modello di Azure Resource Manager.
 services: virtual-network
 documentationcenter: 
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 69530861-2f97-4a6e-b336-a7baf2690044
@@ -15,13 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c934f78e514230958fad8b2aa9be4d2e56a3a835
-ms.openlocfilehash: be3fbc2c14be06cac2b9213ee2da58545e34fc0e
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 1e1ca336987082e06f172f7eb89036c64d1fec37
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="create-a-virtual-network-using-a-template"></a>Creare una rete virtuale usando un modello
+# <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>Creare una rete virtuale usando un modello di Azure Resource Manager
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
@@ -241,9 +243,4 @@ Leggere le informazioni su come connettere:
 - Una macchina virtuale (VM) a una rete virtuale negli articoli [Creare una macchina virtuale Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md) o [Creare una VM Linux](../virtual-machines/virtual-machines-linux-quick-create-portal.md). Anziché creare una rete virtuale e una subnet, come illustrato nelle procedure degli articoli, è possibile selezionare una rete virtuale e una subnet esistenti a cui connettere una VM.
 - La rete virtuale ad altre reti virtuali nell'articolo [Connettere reti virtuali](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - La rete virtuale a una rete locale tramite una rete privata virtuale (VPN) da sito a sito o il circuito ExpressRoute negli articoli [Connect a VNet to an on-premises network using a site-to-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) (Connettere una rete virtuale a una rete locale tramite una VPN da sito a sito) e [Collegare una rete virtuale a un circuito ExpressRoute](../expressroute/expressroute-howto-linkvnet-arm.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

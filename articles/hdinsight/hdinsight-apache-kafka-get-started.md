@@ -17,6 +17,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: f592dc23938c436e803c7a0d8f7fd2dd5b4185c8
 ms.openlocfilehash: 3b645725b88b33e7283ce2bf89383b285d75cddc
+ms.lasthandoff: 02/15/2017
 
 ---
 # <a name="get-started-with-apache-kafka-preview-on-hdinsight"></a>Introduzione ad Apache Kafka (anteprima) in HDInsight
@@ -350,10 +351,5 @@ In questo documento sono state illustrate le nozioni di base per l'uso di Apache
 * [Usare MirrorMaker per creare una replica di Kafka in HDInsight](hdinsight-apache-kafka-mirroring.md)
 * [Usare Apache Storm (anteprima) con Kafka in HDInsight](hdinsight-apache-storm-with-kafka.md)
 * [Use Apache Spark with Kafka on HDInsight](hdinsight-apache-spark-with-kafka.md) (Usare Apache Spark con Kafka in HDInsight)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -12,11 +12,12 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2016
+ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
 ms.sourcegitcommit: c9730b553e59d12b8720bbf3a06cc956912e27de
 ms.openlocfilehash: 37063d35e76d03a84f6e4451c2f6c363704607f2
+ms.lasthandoff: 01/12/2017
 
 
 ---
@@ -48,10 +49,5 @@ Dopo aver terminato la configurazione, l'agente di Diagnostica di Azure per Linu
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per comprendere più nel dettaglio gli eventi da esaminare durante la risoluzione dei problemi, vedere la [documentazione di LTTng](http://lttng.org/docs) e l'articolo relativo all'[uso dell'estensione Diagnostica di Azure per Linux](../virtual-machines/virtual-machines-linux-classic-diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

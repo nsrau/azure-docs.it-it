@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: il primo database SQL di Azure | Documentazione Microsoft'
-description: Come creare un server logico di database SQL, una regola del firewall a livello di server e un database usando il portale di Azure. Viene illustrato anche come usare SQL Server Management Studio con il database SQL di Azure.
+title: 'Guida introduttiva: il primo database SQL di Azure | Microsoft Docs'
+description: Informazioni su come creare un server logico di database SQL, una regola del firewall a livello di server e database nel portale di Azure. Viene illustrato anche come usare SQL Server Management Studio con il database SQL di Azure.
 keywords: esercitazione sul database sql, creare un database sql
 services: sql-database
 documentationcenter: 
@@ -14,52 +14,44 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 02/04/2017
+ms.date: 02/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 6453cca9f876e6c363fbed463263c0f9684a3e70
-ms.openlocfilehash: b838974de06ecbc751254064e2310df51c450086
+ms.sourcegitcommit: 166a9d7032bb75188a790bea1724aefd194dcefa
+ms.openlocfilehash: 36afd5c8bccb080ae3aaf1b4975d317b9087a3b3
+ms.lasthandoff: 02/18/2017
 
 
 ---
-# <a name="quick-start-tutorial-your-first-azure-sql-database"></a>Esercitazione introduttiva: il primo database SQL di Azure
+# <a name="create-connect-to-and-query-your-first-azure-sql-databases-in-the-azure-portal-and-using-ssms"></a>Creare i primi database SQL di Azure, connettersi ed eseguire query nel portale di Azure e con SSMS
 
-Questa esercitazione introduttiva illustra come eseguire queste operazioni:
+Questa esercitazione descrive come creare database SQL di Azure, connettersi e eseguire query nel portale di Azure e con SQL Server Management Studio. Al termine di questa esercitazione:
 
-* [Creare un nuovo server logico](sql-database-get-started.md#create-a-new-logical-sql-server) 
-* [Visualizzare le proprietà del server logico](sql-database-get-started.md#view-the-logical-server-properties) 
-* [Creare una regola del firewall a livello di server](sql-database-get-started.md#create-a-server-level-firewall-rule) 
-* [Connettersi al server con SSMS](sql-database-get-started.md#connect-to-the-server-with-ssms) 
-* [Creare un database con dati di esempio](sql-database-get-started.md#create-a-database-with-sample-data) 
-* [Visualizzare le proprietà del database](sql-database-get-started.md#view-the-database-properties) 
-* [Eseguire query nel database nel portale di Azure](sql-database-get-started.md#query-the-database-in-the-azure-portal) 
-* [Connettersi al database con SSMS ed eseguire query](sql-database-get-started.md#connect-and-query-the-database-with-ssms) 
-* [Creare un database vuoto con SSMS](sql-database-get-started.md#create-a-blank-database-with-ssms) 
-* [Risolvere i problemi di connettività](sql-database-get-started.md#troubleshoot-connectivity) 
-* [Eliminare un database](sql-database-get-started.md#delete-a-single-database) 
-
-
-In questa esercitazione introduttiva vengono creati un database di esempio e un database vuoto in esecuzione in un gruppo di risorse di Azure e vengono collegati a un server logico. Vengono anche create due regole firewall a livello di server configurate per abilitare l'entità di sicurezza a livello di server per l'accesso al server da due indirizzi IP specificati. Infine, l'esercitazione illustra come eseguire query in un database nel portale di Azure e come connettersi ed eseguire query tramite SQL Server Management Studio. 
+* Si sarà creato un gruppo di risorse contenente un server logico, una regola del firewall a livello di server e due database.
+* Si sarà appreso come visualizzare le proprietà del server e dei database nel portale di Azure e con SQL Server Management Studio.
+* Si sarà appreso come eseguire query su un database nel portale di Azure e con SQL Server Management Studio.
 
 **Tempo stimato**: per questa esercitazione sono necessari circa 30 minuti, presupponendo che i prerequisiti siano già soddisfatti.
 
 > [!TIP]
-> Per eseguire le stesse attività è possibile usare [C#](sql-database-get-started-csharp.md) o [PowerShell](sql-database-get-started-powershell.md).
+> Si può anche apprendere come creare un database SQL di Azure, connettersi ed eseguire query con [PowerShell](sql-database-get-started-powershell.md) o [C#](sql-database-get-started-csharp.md).
 >
+
+> [!NOTE]
+> Questa esercitazione offre informazioni sul contenuto di questi argomenti: [panoramica del server del database SQL](sql-database-server-overview.md), [panoramica del database SQL](sql-database-overview.md) e [panoramica delle regole del firewall del database SQL di Azure](sql-database-firewall-configure.md). Per una panoramica del servizio di database SQL, vedere [Informazioni sul database SQL](sql-database-technical-overview.md).
+>  
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* È necessario un account Azure. È possibile [aprire un account Azure gratuito](/pricing/free-trial/?WT.mc_id=A261C142F) o [attivare i benefici della sottoscrizione di Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* **Account Azure**. È possibile [aprire un account Azure gratuito](https://azure.microsoft.com/free/) o [attivare i benefici della sottoscrizione di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
-* È necessario essere in grado di connettersi al portale di Azure con un account membro del ruolo proprietario o collaboratore della sottoscrizione. Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Introduzione alla gestione degli accessi nel portale di Azure](../active-directory/role-based-access-control-what-is.md).
+* **Autorizzazioni di creazione di Azure**. È necessario essere in grado di connettersi al portale di Azure con un account membro del ruolo proprietario o collaboratore della sottoscrizione. Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Introduzione alla gestione degli accessi nel portale di Azure](../active-directory/role-based-access-control-what-is.md).
 
-> [!NOTE]
-> Questa esercitazione introduttiva offre informazioni sul contenuto di questi argomenti: [Panoramica del server del database SQL](sql-database-server-overview.md), [Panoramica del database SQL](sql-database-overview.md) e [Panoramica sulle regole del firewall per il database SQL di Azure](sql-database-firewall-configure.md).
->  
+* **SQL Server Management Studio**. Per scaricare e installare l'ultima versione di SQL Server Management Studio (SSMS), vedere [Scaricare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Per la connessione al database SQL di Azure usare sempre l'ultima versione di SSMS, perché vengono continuamente rilasciate nuove funzionalità.
 
+### <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
-### <a name="sign-in-to-the-azure-portal-with-your-azure-account"></a>Accedere al portale di Azure con il proprio account Azure
-Seguire questa procedura con l'[account Azure](https://account.windowsazure.com/Home/Index) per connettersi al portale di Azure.
+I passaggi di questa procedura illustrano come connettersi al portale di Azure con l'[account Azure](https://account.windowsazure.com/Home/Index).
 
 1. Aprire il browser preferito e connettersi al [portale di Azure](https://portal.azure.com/).
 2. Accedere al [portale di Azure](https://portal.azure.com/).
@@ -72,7 +64,7 @@ Seguire questa procedura con l'[account Azure](https://account.windowsazure.com/
 
 ## <a name="create-a-new-logical-sql-server"></a>Creare un nuovo server logico di SQL Server
 
-Seguire questa procedura per creare un nuovo server logico con il portale di Azure nell'area scelta.
+I passaggi di questa procedura illustrano come creare un server logico nell'area scelta nel portale di Azure. Un server logico è l'oggetto in cui si creano i database SQL e in cui si creano le regole del firewall per consentire agli utenti la connessione tramite il firewall del database SQL di Azure. 
 
 1. Fare clic su **Nuovo**, digitare **sql server** e quindi fare clic su **INVIO**.
 
@@ -80,31 +72,31 @@ Seguire questa procedura per creare un nuovo server logico con il portale di Azu
 2. Fare clic su **SQL Server (server logico)**.
    
     ![crea - server logico di sql](./media/sql-database-get-started/create-logical-sql-server.png)
-3. Fare clic su **Crea** per aprire il nuovo pannello SQL Server (server logico).
+3. Fare clic su **Crea** per aprire il nuovo pannello SQL Server (solo server logico).
 
     ![nuovo - server logico di sql](./media/sql-database-get-started/new-logical-sql-server.png)
-3. Nella casella di testo Nome server specificare un nome valido per il nuovo server logico. Un segno di spunta verde indica che è stato specificato un nome valido.
+3. Nella casella di testo **Nome server** specificare un nome valido per il nuovo server logico. Un segno di spunta verde indica che è stato specificato un nome valido.
     
     ![nuovo nome server](./media/sql-database-get-started/new-server-name.png)
 
     > [!IMPORTANT]
-    > Il nome completo per il nuovo server è nel formato <nome_server>.database.windows.net.
+    > Il nome completo del nuovo server deve essere univoco a livello globale e nel formato **<nome_server>.database.windows.net**. Questo nome completo del server verrà usato più avanti in questa esercitazione per connettersi al server e ai database.
     >
     
-4. Nella casella di testo Account di accesso amministratore server specificare un nome utente per l'account di accesso con autenticazione SQL per questo server. Questo è noto come account di accesso dell'entità server. Un segno di spunta verde indica che è stato specificato un nome valido.
+4. Nella casella di testo **Account di accesso amministratore server** specificare un nome utente per l'account di accesso con autenticazione SQL per questo server. Questo account è denominato account di accesso dell'entità server. Un segno di spunta verde indica che è stato specificato un nome valido.
     
     ![account di accesso amministratore di sql](./media/sql-database-get-started/sql-admin-login.png)
 5. Nelle caselle di testo **Password** e **Conferma password** specificare una password per l'account di accesso dell'entità server. Un segno di spunta verde indica che è stata specificata una password valida.
     
     ![password amministratore di sql](./media/sql-database-get-started/sql-admin-password.png)
-6. Selezionare una sottoscrizione in cui si dispone dell'autorizzazione per creare oggetti.
+6. Nella casella di riepilogo a discesa **Sottoscrizione** selezionare una sottoscrizione in cui si ha l'autorizzazione per creare oggetti.
 
     ![sottoscrizione](./media/sql-database-get-started/subscription.png)
-7. Nella casella di testo Gruppo di risorse selezionare **Crea nuovo** e quindi, nella casella di testo Gruppo di risorse, specificare un nome valido per il nuovo gruppo di risorse (è inoltre possibile usare un gruppo di risorse esistente se ne è già stato creato uno). Un segno di spunta verde indica che è stato specificato un nome valido.
+7. Nella casella di testo **Gruppo di risorse** selezionare **Crea nuovo** e quindi specificare un nome valido per il nuovo gruppo di risorse. Un segno di spunta verde indica che è stato specificato un nome valido.
 
     ![nuovo gruppo di risorse](./media/sql-database-get-started/new-resource-group.png)
 
-8. Nella casella di testo **Località** selezionare un data center adatto alla propria località, ad esempio "Australia orientale".
+8. Nella casella di testo **Località** selezionare un data center in cui creare il server logico.
     
     ![località del server](./media/sql-database-get-started/server-location.png)
     
@@ -112,67 +104,53 @@ Seguire questa procedura per creare un nuovo server logico con il portale di Azu
     > La casella di controllo **Consenti ai servizi di Azure di accedere al server** non può essere modificata in questo pannello. È possibile modificare questa impostazione nel pannello firewall del server. Per altre informazioni, vedere [Get started with security](sql-database-control-access-sql-authentication-get-started.md) (Introduzione alla sicurezza).
     >
     
-9. Fare clic su **Create**.
+9. Selezionare la casella di controllo **Aggiungi al dashboard**.
+
+10. Fare clic su **Crea** per distribuire lo script in Azure per creare il server logico.
 
     ![Pulsante Crea](./media/sql-database-get-started/create.png)
 
-## <a name="view-the-logical-server-properties"></a>Visualizzare le proprietà del server logico
-
-Seguire questa procedura per visualizzare le proprietà del server con il portale di Azure. Il nome completo del server è necessario per connettere il server in una procedura successiva. 
-
-1. Nel portale di Azure fare clic su **Altri servizi**.
-
-    ![altri servizi](./media/sql-database-get-started/more-services.png)
-2. Nella casella di testo Filtro digitare **SQL** e quindi fare clic sulla stella per specificare SQL Server come preferito in Azure. 
-
-    ![imposta preferito](./media/sql-database-get-started/favorite.png)
-3. Nel pannello predefinito fare clic su **SQL Server** per aprire l'elenco di istanze di SQL Server nella sottoscrizione di Azure. 
-
-    ![nuova istanza di sql server](./media/sql-database-get-started/new-sql-server.png)
-
-4. Fare clic sulla nuova istanza di SQL Server per visualizzarne le proprietà nel portale di Azure. Le esercitazioni successive consentiranno di comprendere le opzioni disponibili nel pannello.
+11. Al termine della creazione del server, esaminarne le proprietà che vengono visualizzate per impostazione predefinita. 
 
     ![pannello di sql server](./media/sql-database-get-started/sql-server-blade.png)
-5. In Impostazioni fare clic su **Proprietà** per visualizzare varie proprietà del server logico di SQL.
+12. Fare clic su **Proprietà** per visualizzare proprietà aggiuntive del server logico di SQL.
 
     ![proprietà di sql server](./media/sql-database-get-started/sql-server-properties.png)
-6. Copiare il nome completo del server negli Appunti per usarli più avanti in questa esercitazione.
+13. Copiare il nome completo del server negli Appunti per usarli più avanti in questa esercitazione.
 
     ![nome completo del server sql](./media/sql-database-get-started/sql-server-full-name.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Creare una regola del firewall a livello di server
 
-Seguire questa procedura per creare una nuova regola del firewall a livello di server con il portale di Azure, per consentire la connessione al server con SQL Server Management Studio nella procedura successiva.
+I passaggi di questa procedura illustrano come creare una regola del firewall a livello di server nel portale di Azure. Per impostazione predefinita, un firewall di database SQL di Azure impedisce la connettività esterna al server logico e ai relativi database. Per potersi connettere al server, è necessario creare una regola del firewall per l'indirizzo IP del computer da cui ci si connette nelle procedura successiva. Per altre informazioni, vedere [Panoramica sulle regole del firewall per il database SQL di Azure](sql-database-firewall-configure.md).
 
-1. Nel pannello di SQL Server, in Impostazioni, fare clic su **Firewall** per aprire il pannello del firewall per SQL Server.
+1. Nel pannello SQL Server fare clic su **Firewall** per aprire il pannello del firewall per il server. Si noti che viene visualizzato l'indirizzo IP per il computer client.
 
     ![Firewall di SQL server](./media/sql-database-get-started/sql-server-firewall.png)
 
-2. Fare clic su **Aggiungi IP client** sulla barra degli strumenti.
+2. Fare clic su **Aggiungi IP client** sulla barra degli strumenti per creare una regola del firewall per l'indirizzo IP corrente.
 
     ![Aggiungi IP client](./media/sql-database-get-started/add-client-ip.png)
 
     > [!NOTE]
-    > È possibile aprire il firewall del database SQL nel server a un singolo indirizzo IP o a un intero intervallo di indirizzi. L'apertura del firewall consente agli amministratori SQL e agli utenti di accedere a qualsiasi database nel server per cui hanno credenziali valide.
+    > È possibile creare una regola del firewall per un singolo indirizzo IP o per un intero intervallo di indirizzi. L'apertura del firewall consente ad amministratori e utenti SQL di accedere a qualsiasi database nel server per cui hanno credenziali valide.
     >
 
-4. Fare clic su **Salva** sulla barra degli strumenti per salvare questa regola del firewall a livello di server e quindi fare clic su **OK**.
+4. Fare clic su **Salva** sulla barra degli strumenti per salvare la regola del firewall a livello di server e quindi su **OK** per chiudere la finestra di dialogo Operazione riuscita.
 
-    ![Aggiungi IP client](./media/sql-database-get-started/save-firewall-rule.png)
+    ![esito positivo](./media/sql-database-get-started/save-firewall-rule.png)
 
 ## <a name="connect-to-the-server-with-ssms"></a>Connettersi al server con SSMS
 
-Seguire questa procedura per connettersi al server logico per SQL Server con SQL Server Management Studio.
+I passaggi di questa procedura illustrano come connettersi al server logico di SQL con SQL Server Management Studio. SSMS è il principale strumento usato dagli amministratori di database per gestire server e database SQL.
 
-1. Scaricare e installare la versione più recente di SSMS se non è già stato fatto, vedere [Scaricare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Per mantenersi aggiornata, la versione più recente di SSMS chiede di scaricare la nuova versione quando è disponibile.
-
-2. Dopo l'installazione, digitare **Microsoft SQL Server Management Studio** nella casella di ricerca di Windows e fare clic su **INVIO** per aprire SSMS:
+1. Aprire SQL Server Management Studio. A tale scopo, digitare **Microsoft SQL Server Management Studio** nella casella di ricerca di Windows e premere **INVIO**.
 
     ![SQL Server Management Studio](./media/sql-database-get-started/ssms.png)
-3. Nella casella di dialogo Connetti al server immettere le informazioni necessarie per connettersi a SQL Server usando Autenticazione di SQL Server.
+3. Nella finestra di dialogo **Connetti al server** immettere il nome completo del server della procedura precedente, selezionare Autenticazione di SQL Server e quindi inserire l'account di accesso e la password specificati durante il provisioning del server.
 
     ![connetti al server](./media/sql-database-get-started/connect-to-server.png)
-4. Fare clic su **Connect**.
+4. Fare clic su **Connetti** per avviare la connessione e aprire Esplora oggetti in SSMS.
 
     ![connesso al server](./media/sql-database-get-started/connected-to-server.png)
 5. In Esplora oggetti espandere **Database**, **Database di sistema**, **Master** per visualizzare gli oggetti nel database master.
@@ -191,67 +169,43 @@ Seguire questa procedura per connettersi al server logico per SQL Server con SQL
     ![eseguire query su oggetti di sistema del database master](./media/sql-database-get-started/query-master-database-system-objects.png)
 
     > [!NOTE]
-    > Per informazioni sulla sicurezza di SQL, vedere [Get Started with SQL security](sql-database-control-access-sql-authentication-get-started.md) (Introduzione alla sicurezza di SQL)
+    > Per iniziare a usare le funzionalità di sicurezza di SQL, vedere l'[introduzione all'autenticazione SQL](sql-database-control-access-sql-authentication-get-started.md).
     >
 
 ## <a name="create-a-database-with-sample-data"></a>Creare un database con dati di esempio
 
-Seguire questa procedura per creare un database con dati di esempio con il portale di Azure. Viene creato un database associato al server logico creato in precedenza. Se il livello di servizio Basic non è disponibile nell'area in cui è stato creato il server, eliminare il server e crearlo di nuovo in un'altra area. Per informazioni sui passaggi di eliminazione, vedere l'ultima procedura di questa esercitazione.
+I passaggi di questa procedura illustrano come creare un database con dati di esempio associato al server logico creato in precedenza nel portale di Azure. 
 
 1. Nel portale di Azure fare clic su **Database SQL** nel pannello predefinito.
 
     ![database sql](./media/sql-database-get-started/new-sql-database.png)
-2. Nel pannello dei database SQL fare clic su **Aggiungi**.
+2. Nel pannello dei database SQL fare clic su **Aggiungi**. 
 
     ![aggiungi database sql](./media/sql-database-get-started/add-sql-database.png)
-3. Nel pannello Database SQL esaminare le informazioni completate automaticamente.
 
     ![pannello database sql](./media/sql-database-get-started/sql-database-blade.png)
-4. Specificare un nome di database valido.
+3. Nella casella di testo **Nome database** specificare un nome di database valido.
 
     ![nome del database sql](./media/sql-database-get-started/sql-database-name.png)
-5. In Selezionare l'origine fare clic su **Esempio** e quindi in Selezionare l'esempio fare clic su **AdventureWorksLT [V12]**.
+4. In **Selezionare l'origine** selezionare **Sample (AdventureWorksLT)**.
    
     ![adventure works lt](./media/sql-database-get-started/adventureworkslt.png)
-6. In Server specificare il nome utente di accesso amministratore server e la password.
+5. In **Server** verificare che sia selezionato il proprio server. Quando si aggiunge un database a un server, è possibile aggiungerlo come database singolo (impostazione predefinita) oppure aggiungerlo a un pool elastico. Per altre informazioni sui pool elastici, vedere [Elastic pools](sql-database-elastic-pool.md) (Pool elastici).
 
-    ![credenziali del server](./media/sql-database-get-started/server-credentials.png)
-
-    > [!NOTE]
-    > Quando si aggiunge un database a un server, è possibile aggiungerlo come database singolo (questo è il valore predefinito) o aggiungerlo a un pool elastico. Per altre informazioni sui pool elastici, vedere [Elastic pools](sql-database-elastic-pool.md) (Pool elastici).
-    >
-
-7. In Piano tariffario modificare il piano tariffario in **Basic** (è possibile aumentare il piano tariffario in un secondo momento, se necessario, ma ai fini dell'esercitazione si consiglia di usare il piano tariffario a costo più basso).
+6. In **Piano tariffario** modificare il piano tariffario in **Basic** e fare clic su **Seleziona**. È possibile incrementare il piano tariffario in un secondo momento, se necessario, ma ai fini dell'esercitazione è consigliabile usare il piano a costo più basso.
 
     ![piano tariffario](./media/sql-database-get-started/pricing-tier.png)
-8. Fare clic su **Create**.
+7. Selezionare la casella di controllo **Aggiungi al dashboard** e quindi fare clic su **Crea**.
 
     ![Pulsante Crea](./media/sql-database-get-started/create.png)
 
-## <a name="view-the-database-properties"></a>Visualizzare le proprietà del database
-
-Seguire questa procedura per eseguire query nel database con il portale di Azure.
-
-1. Nel pannello del database SQL fare clic su nuovo database per visualizzarne le proprietà nel portale di Azure. Le esercitazioni successive consentiranno di comprendere le opzioni disponibili nel pannello. 
+8. Al termine della creazione del database, visualizzarne le proprietà nel portale di Azure. Le esercitazioni successive consentiranno di comprendere le opzioni disponibili nel pannello. 
 
     ![nuovo pannello del database di esempio](./media/sql-database-get-started/new-sample-db-blade.png)
-2. Fare clic su **Proprietà** per visualizzare informazioni aggiuntive sul database.
-
-    ![nuove proprietà del database di esempio](./media/sql-database-get-started/new-sample-db-properties.png)
-
-3. Fare clic su **Mostra stringhe di connessione del database**.
-
-    ![nuove stringhe di connessione del database di esempio](./media/sql-database-get-started/new-sample-db-connection-strings.png)
-4. Fare clic su **Panoramica** e quindi sul nome del server nel riquadro Informazioni di base.
-    
-    ![nuovo riquadro informazioni di base del database di esempio](./media/sql-database-get-started/new-sample-db-essentials-pane.png)
-5. Nel riquadro Informazioni di base del server, vedere il database appena aggiunto.
-
-    ![nuovo riquadro informazioni di base del database di esempio del server](./media/sql-database-get-started/new-sample-db-server-essentials-pane.png)
 
 ## <a name="query-the-database-in-the-azure-portal"></a>Eseguire query nel database nel portale di Azure
 
-Seguire questa procedura per eseguire query nel database con l'Editor di query nel portale di Azure. La query mostra gli oggetti nel database.
+I passaggi di questa procedura illustrano come eseguire query sul database direttamente nel portale di Azure. 
 
 1. Nel pannello del database SQL fare clic su **Strumenti** sulla barra degli strumenti.
 
@@ -267,23 +221,19 @@ Seguire questa procedura per eseguire query nel database con l'Editor di query n
 
     ![Accesso all'Editor di query](./media/sql-database-get-started/query-editor-login.png)
 6. Fare clic su **OK** per provare ad accedere.
-7. Quando si riceve un errore di accesso che indica che il client non ha le autorizzazioni necessarie per l'accesso a causa dell'assenza di una regola del firewall per l'indirizzo IP del client, copiare l'indirizzo IP del client nella finestra dell'errore e creare una regola del firewall a livello di server nel pannello di SQL Server per questo database.
-
-    ![Errore dell'Editor di query](./media/sql-database-get-started/query-editor-error.png)
-8. Ripetere i 6 passaggi precedenti per accedere al database.
-9. Dopo l'autenticazione, nella finestra della query digitare la query seguente:
+7. Dopo l'autenticazione, nella finestra di query digitare la query seguente e quindi fare clic su **Esegui**.
 
    ```select * from sys.objects```
 
     ![Query dell'Editor di query](./media/sql-database-get-started/query-editor-query.png)
-10.  Fare clic su **Run**.
-11. Verificare i risultati della query nel riquadro **Risultati**.
+
+8. Esaminare i risultati della query nel riquadro **Risultati**.
 
     ![Risultati dell'Editor di query](./media/sql-database-get-started/query-editor-results.png)
 
-## <a name="connect-and-query-the-database-with-ssms"></a>Connettersi al database con SSMS ed eseguire query
+## <a name="query-the-database-with-ssms"></a>Eseguire query sul database con SSMS
 
-Seguire questa procedura per connettersi al database con SQL Server Management Studio e quindi eseguire una query nei dati di esempio per visualizzare gli oggetti nel database.
+I passaggi di questa procedura illustrano come connettersi al database con SQL Server Management Studio e quindi eseguire query sui dati di esempio per visualizzare gli oggetti nel database.
 
 1. Passare ad SQL Server Management Studio e, in Esplora oggetti, fare clic su **Database** e quindi su **Aggiorna** sulla barra degli strumenti per visualizzare il database di esempio.
 
@@ -304,17 +254,13 @@ Seguire questa procedura per connettersi al database con SQL Server Management S
 
 ## <a name="create-a-blank-database-with-ssms"></a>Creare un database vuoto con SSMS
 
-Seguire questa procedura per creare un nuovo database nel server logico con SQL Server Management Studio.
+I passaggi di questa procedura illustrano come creare un nuovo database con SQL Server Management Studio.
 
 1. In Esplora oggetti fare clic con il pulsante destro del mouse su **Database** e scegliere **Nuovo database**.
 
     ![nuovo database vuoto con ssms](./media/sql-database-get-started/new-blank-database-ssms.png)
 
-    > [!NOTE]
-    > È anche possibile impostare SSMS affinché crei uno script di database per creare un nuovo database con Transact-SQL.
-    >
-
-2. Nella finestra di dialogo Nuovo database specificare un nome di database nella casella di testo Nome database. 
+2. Nella finestra di dialogo **Nuovo database** specificare un nome di database nella casella di testo Nome database. 
 
     ![nuovo nome del database vuoto con ssms](./media/sql-database-get-started/new-blank-database-name-ssms.png)
 
@@ -333,15 +279,14 @@ Seguire questa procedura per creare un nuovo database nel server logico con SQL 
 
 ## <a name="troubleshoot-connectivity"></a>Risolvere i problemi di connettività
 
-> [!IMPORTANT]
-> In caso di problemi di connettività, vedere [Problemi di connessione](sql-database-troubleshoot-common-connection-issues.md).
-> 
+Quando la connessione al database SQL di Azure non riesce, vengono visualizzati messaggi di errore. I problemi di connessione possono essere causati dalla riconfigurazione del database SQL di Azure, dalle impostazioni del firewall, dal timeout della connessione o da informazioni di accesso non corrette. Per uno strumento di risoluzione dei problemi di connettività, vedere [Troubleshooting connectivity issues with Microsoft Azure SQL Database](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database) (Risoluzione dei problemi di connettività con il database SQL di Microsoft Azure).
 
-## <a name="delete-a-single-database"></a>Eliminare un database singolo
+## <a name="delete-a-single-database-in-the-azure-portal"></a>Eliminare un database singolo nel portale di Azure
 
-Seguire questa procedura per eliminare un singolo database con il portale di Azure.
+I passaggi di questa procedura illustrano come eliminare un database singolo con il portale di Azure.
 
-1. Nel pannello del database SQL del portale di Azure fare clic su **Elimina**.
+1. Nel pannello dei database SQL nel portale di Azure fare clic sul database che si vuole eliminare. 
+2.  Fare clic su **Elimina** per tale database SQL.
 
     ![delete-database](./media/sql-database-get-started/delete-database.png)
 2. Fare clic su **Sì** per confermare che si vuole eliminare definitivamente questo database.
@@ -349,7 +294,7 @@ Seguire questa procedura per eliminare un singolo database con il portale di Azu
     ![delete-database-yes](./media/sql-database-get-started/delete-database-yes.png)
 
 > [!TIP]
-> Durante il periodo di conservazione per il database è possibile ripristinarlo dai backup automatici avviati dal servizio. È possibile ripristinare i database dell'edizione Basic in sette giorni. Tuttavia, non eliminare un server. In tal caso, è possibile ripristinare il server o i relativi database eliminati. Per altre informazioni sui backup dei database, vedere [Informazioni sul backup del database SQL](sql-database-automated-backups.md) e per informazioni sul ripristino di un database dai backup, vedere [Ripristino del database](sql-database-recovery-using-backups.md). Per informazioni pratiche sul ripristino di un database eliminato, vedere [Ripristinare un database SQL di Azure con il portale di Azure](sql-database-restore-deleted-database-portal.md).
+> Durante il periodo di conservazione del database è possibile ripristinarlo dai backup automatici avviati dal servizio, se non si elimina il server. È possibile ripristinare i database dell'edizione Basic in sette giorni. Per tutte le altre edizioni, è possibile ripristinare i database entro 35 giorni. Se si elimina il server, non è possibile ripristinare il server o i relativi database eliminati. Per altre informazioni sui backup dei database, vedere [Informazioni sul backup del database SQL](sql-database-automated-backups.md) e per informazioni sul ripristino di un database dai backup, vedere [Ripristino del database](sql-database-recovery-using-backups.md). Per informazioni pratiche sul ripristino di un database eliminato, vedere [Ripristinare un database SQL di Azure con il portale di Azure](sql-database-restore-deleted-database-portal.md).
 >
 
 
@@ -358,7 +303,7 @@ Dopo aver completato questa esercitazione, sono disponibili numerose altre eserc
 
 - Per un'introduzione all'esercitazione sull'autenticazione di SQL Server, vedere [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md) (Autenticazione e autorizzazione di SQL).
 - Per un'introduzione all'esercitazione sull'autenticazione di Azure Active Directory, vedere [AAD authentication and authorization](sql-database-control-access-aad-authentication-get-started.md) (Autenticazione e autorizzazione di AAD).
-* Per eseguire query sul database di esempio nel portale di Azure, vedere [Public preview: Interactive query experience for SQL databases](https://azure.microsoft.com/en-us/updates/azure-sql-database-public-preview-t-sql-editor/) (Anteprima pubblica: esperienza di query interattiva per i database SQL).
+* Per eseguire query sul database di esempio nel portale di Azure, vedere [Public preview: Interactive query experience for SQL databases](https://azure.microsoft.com/updates/azure-sql-database-public-preview-t-sql-editor/) (Anteprima pubblica: esperienza di query interattiva per i database SQL).
 * Se si ha familiarità con Excel, vedere l'esercitazione [Connettere Excel a un database SQL di Azure e creare un report](sql-database-connect-excel.md).
 * Se si è pronti per iniziare a scrivere codice, scegliere il linguaggio di programmazione in [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md).
 * Per spostare i database SQL Server locali in Azure, vedere [Migrating a database to SQL Database](sql-database-cloud-migrate.md) (Migrazione di un database al database SQL).
@@ -369,10 +314,5 @@ Dopo aver completato questa esercitazione, sono disponibili numerose altre eserc
 
 - Per una panoramica tecnica, vedere [Informazioni sul database SQL](sql-database-technical-overview.md).
 - Per informazioni sui prezzi, vedere [Database SQL Azure - Prezzi](https://azure.microsoft.com/pricing/details/sql-database/).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

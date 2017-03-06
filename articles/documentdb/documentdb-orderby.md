@@ -4,6 +4,7 @@ ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
 ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
 ms.openlocfilehash: c5fc68fb25a4cb2166e0c0a72871d16c71397852
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -130,10 +131,5 @@ Esaminare il [progetto di esempio Github](https://github.com/Azure/azure-documen
 * [Nozioni di base sui criteri di indicizzazione di DocumentDB](documentdb-indexing-policies.md)
 * [Riferimento SQL di DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 * [Esempi di Order By di DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

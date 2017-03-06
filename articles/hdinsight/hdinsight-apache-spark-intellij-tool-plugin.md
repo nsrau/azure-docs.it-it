@@ -18,6 +18,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: 6c513def2abc8c99b84b2eb48848de76e12e69c7
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -263,10 +264,5 @@ Per eventuali commenti o suggerimenti oppure se vengono riscontrati problemi dur
 ### <a name="manage-resources"></a>Gestire risorse
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-job-debugging.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
