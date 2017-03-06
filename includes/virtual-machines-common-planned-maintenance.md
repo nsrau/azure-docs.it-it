@@ -79,7 +79,7 @@ Consultare la tabella seguente per informazioni relative alle coppie di aree cor
 | Governo degli Stati Uniti - Iowa |Governo degli Stati Uniti - Virginia |
 
 <!--Anchors-->
-[Immagine1]: ./media/virtual-machines-common-planned-maintenance/vmplanned1.png
+[image1]: ./media/virtual-machines-common-planned-maintenance/vmplanned1.png
 [image2]: ./media/virtual-machines-common-planned-maintenance/EventViewerPostReboot.png
 [image3]: ./media/virtual-machines-planned-maintenance/RegionPairs.PNG
 [Image4]: ./media/virtual-machines-common-planned-maintenance/AvailabilitySetExample.png
@@ -89,9 +89,4 @@ Consultare la tabella seguente per informazioni relative alle coppie di aree cor
 [Gestione della disponibilità delle macchine virtuali]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 
 [confronto tra manutenzione pianificata e non pianificata]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
