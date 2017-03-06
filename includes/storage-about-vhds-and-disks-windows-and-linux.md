@@ -1,3 +1,14 @@
+### <a name="disk-persistence"></a>Persistenza del disco 
+
+Nella tabella seguente vengono illustrati i diversi stati per i vari dischi in una macchina virtuale di Azure e la possibile persistenza dei dati in ogni stato.
+
+| Disco | Inizia | Arresto/<br>Deallocare | Sospendi | Re-<br>boot | Arresto<br>sistema | Elimina | Esito negativo | Ridimensionamento | 
+| ---- | ----- | ---- | ---- | ---- | ----  | ------ | ------- | ------ | 
+| Disco del sistema operativo | Sì | Sì  | Sì | Sì | Sì  | No | No  | Sì | 
+| RAM  | Sì | Sì | Sì | Sì | No   | No | No | No | 
+| Disco locale temporaneo | Sì | No | Sì | No | No  | No | No | No | 
+| Disco dati collegato | Sì | Sì | Sì | Sì | Sì  | Sì | Sì | Sì | 
+
 ## <a name="about-vhds"></a>Informazioni sui dischi rigidi virtuali
 
 I dischi rigidi virtuali utilizzati in Azure sono file con estensione .vhd archiviati come BLOB di pagine in un account di archiviazione Standard o Premium in Azure. Per ulteriori dettagli sui BLOB di pagine, vedere [Informazioni sui BLOB in blocchi e sui BLOB di pagine](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Per informazioni su Archiviazione Premium, vedere l'articolo relativo alle [prestazioni elevate di Archiviazione Premium e macchine virtuali di Azure](../articles/storage/storage-premium-storage.md).
@@ -52,9 +63,3 @@ La tabella seguente permette di scegliere mettendo a confronto i livelli Premium
 | Dimensione disco | P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB | Dischi non gestiti: tra 1 GB e 1 TB <br><br>Dischi gestiti:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB |
 | Velocità effettiva massima per disco | 200 MB/s | 60 MB/s |
 | Numero massimo di operazioni di I/O al secondo per disco | 5000 IOPS | 500 IOPS |
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

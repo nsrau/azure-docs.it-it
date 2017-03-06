@@ -18,6 +18,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
 ms.openlocfilehash: 8b924f29594a9f0c8c161661b216a12ff65b42a9
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -142,10 +143,5 @@ Dopo avere appreso come usare Pig con HDInsight, vedere i collegamenti seguenti 
 
 
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

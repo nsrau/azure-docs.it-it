@@ -1,10 +1,10 @@
 ---
-title: Cosa sono le route definite dall&quot;utente e l&quot;inoltro IP
-description: Informazioni su come usare route definite dall&quot;utente e l&quot;inoltro IP per inoltrare il traffico a dispositivi virtuali di rete in Azure.
+title: Route definite dall&quot;utente e inoltro IP in Azure | Microsoft Docs
+description: Informazioni su come configurare route definite dall&quot;utente e l&quot;inoltro IP per inoltrare il traffico a dispositivi virtuali di rete in Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: c39076c4-11b7-4b46-a904-817503c4b486
 ms.service: virtual-network
@@ -14,13 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d0b8e8ec88c39ce18ddfd6405faa7c11ab73f878
-ms.openlocfilehash: 673ce33f0f0836c3df3854b0e6368a6215ee6f5f
+ms.sourcegitcommit: c9996d2160c4082c18e9022835725c4c7270a248
+ms.openlocfilehash: 555939d6181d43d89a2d355744b74887d41df6ff
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="what-are-user-defined-routes-and-ip-forwarding"></a>Cosa sono le route definite dall'utente e l'inoltro IP
+# <a name="user-defined-routes-and-ip-forwarding"></a>Route definite dall'utente e inoltro IP
+
 Quando si aggiungono macchine virtuali (VM) a una rete virtuale (VNet) in Azure, si noterà che le macchine virtuali sono in grado di comunicare con altri in rete, automaticamente. Non è necessario specificare un gateway, anche se le macchine virtuali si trovano in subnet diverse. Lo stesso vale per la comunicazione tra macchine virtuali e rete Internet pubblica e anche rete locale se è presente una connessione ibrida tra Azure e il proprio Data Center.
 
 Questo flusso di comunicazione è possibile perché Azure utilizza una serie di route di sistema per definire il flusso di traffico IP. I route di sistema controllano il flusso delle comunicazioni negli scenari seguenti:
@@ -53,8 +56,8 @@ I pacchetti vengono inoltrati attraverso una rete TCP/IP basata su una tabella d
 | Proprietà | Descrizione | Vincoli | Considerazioni |
 | --- | --- | --- | --- |
 | Prefisso indirizzo |CIDR di destinazione a cui viene applicata la route, ad esempio 10.1.0.0/16. |Deve essere un intervallo CIDR valido che rappresenta gli indirizzi sulla rete Internet pubblica, la rete virtuale di Azure o un data center locale. |Assicurarsi che **Prefisso indirizzo** non contenga il valore di **Indirizzo hop successivo**, in caso contrario i pacchetti entreranno in un ciclo tra l'origine e l'hop successivo, senza mai raggiungere la destinazione. |
-| Tipo hop successivo |Il tipo di hop Azure il pacchetto deve essere inviato. |Deve essere uno dei valori seguenti:  <br/> **Rete virtuale**. Rappresenta la rete virtuale locale. Se ad esempio sono presenti due subnet, 10.1.0.0/16 e 10.2.0.0/16 nella stessa rete virtuale, la route per ogni subnet nella tabella route avrà un valore di hop successivo di *Rete virtuale*. <br/> **Gateway di rete virtuale**. Rappresenta un Gateway VPN S2S Azure. <br/> **Internet**. Rappresenta il gateway Internet predefinito fornito dall'infrastruttura di Azure. <br/> **Dispositivo virtuale**. Rappresenta un dispositivo virtuale che aggiunto alla rete virtuale Azure. <br/> **Nessuno**. Rappresenta un black hole. I pacchetti inoltrati a un black hole non verranno inoltrati affatto. |È consigliabile usare un tipo **Nessuno** per arrestare il flusso dei pacchetti verso una data destinazione. |
-| Indirizzo hop successivo |L'indirizzo hop successivo contiene l'indirizzo IP per inoltrare i pacchetti. I valori di hop successivo sono consentiti solo nelle route dove il tipo di hop successivo è *dispositivo virtuale*. |Deve essere un indirizzo IP raggiungibile nella rete virtuale in cui viene applicata la route definita dall'utente. |Se l'indirizzo IP rappresenta una macchina virtuale, assicurarsi di abilitare [Inoltro IP](#IP-forwarding) in Azure per la macchina virtuale. |
+| Tipo hop successivo |Il tipo di hop Azure il pacchetto deve essere inviato. |Deve essere uno dei valori seguenti:  <br/> **Rete virtuale**. Rappresenta la rete virtuale locale. Se ad esempio sono presenti due subnet, 10.1.0.0/16 e 10.2.0.0/16 nella stessa rete virtuale, la route per ogni subnet nella tabella route avrà un valore di hop successivo di *Rete virtuale*. <br/> **Gateway di rete virtuale**. Rappresenta un Gateway VPN S2S Azure. <br/> **Internet**. Rappresenta il gateway Internet predefinito fornito dall'infrastruttura di Azure. <br/> **Dispositivo virtuale**. Rappresenta un dispositivo virtuale che aggiunto alla rete virtuale Azure. <br/> **Nessuno**. Rappresenta un black hole. I pacchetti inoltrati a un black hole non verranno inoltrati affatto. |Si consiglia di usare **appliance virtuale ** per indirizzare il traffico a una macchina virtuale o a un indirizzo IP interno di Azure Load Balancer.  Questo tipo consente di specificare un indirizzo IP come descritto di seguito. È consigliabile usare un tipo **Nessuno** per arrestare il flusso dei pacchetti verso una data destinazione. |
+| Indirizzo hop successivo |L'indirizzo hop successivo contiene l'indirizzo IP per inoltrare i pacchetti. I valori di hop successivo sono consentiti solo nelle route dove il tipo di hop successivo è *dispositivo virtuale*. |Deve essere un indirizzo IP raggiungibile nella rete virtuale in cui viene applicata la route definita dall'utente. |Se l'indirizzo IP rappresenta una macchina virtuale, assicurarsi di abilitare [Inoltro IP](#IP-forwarding) in Azure per la macchina virtuale. Se l'indirizzo IP rappresenta l'indirizzo IP interno di Azure Load Balancer, assicurarsi che ci sia una regola di bilanciamento del carico corrispondente per ogni porta per cui si desidera bilanciare il carico.|
 
 In Azure PowerShell, alcuni dei valori di "NextHopType" hanno nomi diversi:
 
@@ -64,7 +67,7 @@ In Azure PowerShell, alcuni dei valori di "NextHopType" hanno nomi diversi:
 * Internet è Internet
 * Nessuno è None
 
-### <a name="system-routes"></a>Le route di sistema
+### <a name="system-routes"></a>Route di sistema
 Ogni subnet creata in una rete virtuale viene associata automaticamente a una tabella di route che contiene le seguenti regole di route di sistema:
 
 * **Regola di rete virtuale locale**: questa regola viene creata automaticamente per ogni subnet in una rete virtuale. Specifica che vi è un collegamento diretto tra le macchine virtuali nella rete virtuale e che non esiste alcun  hop successivo intermediario.
@@ -108,10 +111,5 @@ Questo dispositivo virtuale macchina virtuale deve essere in grado di ricevere t
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [Creare route definite dall'utente in Resource Manager usando un modello](virtual-network-create-udr-arm-template.md) e associarle alle subnet. 
 * Informazioni su come [creare route nel modello di distribuzione classica](virtual-network-create-udr-classic-ps.md) e associarle a subnet.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

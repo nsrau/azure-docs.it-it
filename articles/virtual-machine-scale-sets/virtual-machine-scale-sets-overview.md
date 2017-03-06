@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 1/25/2017
 ms.author: guybo
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 868d65642ab9ca3e1c35d33a7cb9e9dd8c31c430
-ms.openlocfilehash: f945ac0357c11c70780dea8e62f094457a213d96
+ms.sourcegitcommit: 54673cbc69e418bdbe7cb5791dfb5d20e7ebcb9f
+ms.openlocfilehash: 2294587fd3f978a3f8383112ece329b47307db7a
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="virtual-machine-scale-sets-overview"></a>Panoramica dei set di scalabilità di macchine virtuali
+# <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Informazioni sui set di scalabilità di macchine virtuali in Azure
 I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire un set di macchine virtuali identiche. Con tutte le macchine virtuali configurate allo stesso modo, i set di scalabilità di macchine virtuali sono progettati per supportare la vera scalabilità automatica (non è necessario il pre-provisioning delle macchine virtuali) e semplificare quindi la creazione di servizi su larga scala destinati a carichi di lavoro Big Compute, Big Data e nei contenitori.
 
 Per le applicazioni che richiedono la scalabilità (aumento e riduzione di istanze e capacità) delle risorse di calcolo, le operazioni di ridimensionamento vengono bilanciate in modo implicito tra domini di errore e domini di aggiornamento. Per un'introduzione ai set di scalabilità di macchine virtuali, vedere questo [annuncio del blog di Azure](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
@@ -127,9 +129,4 @@ Questa sezione mostra un elenco di alcuni scenari di set di scalabilità di macc
 **D.** I set di scalabilità di macchine virtuali si integrano con i set di disponibilità di Azure?
 
 **R.** Sì. Un set di scalabilità di VM è un set di disponibilità implicito impostato con 5 domini di errore e 5 domini di aggiornamento. Non è necessario configurare nulla in virtualMachineProfile. I set di scalabilità di più di 100 macchine virtuali si estendono su più 'gruppi di posizionamento' equivalenti a più set di disponibilità. Un set di disponibilità di macchine virtuali può trovarsi nella stessa rete virtuale di un set di scalabilità di macchine virtuali. Una configurazione comune consiste nell'inserire VM del nodo di controllo, che spesso richiedono una configurazione univoca, nel set di disponibilità e nodi di dati nel set di scalabilità.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

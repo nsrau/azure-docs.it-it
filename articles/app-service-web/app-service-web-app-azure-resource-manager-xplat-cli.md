@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/29/2016
 ms.author: aelnably
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: 6f75781af24d1ad4cb6460f0dfd528684aaad57f
+ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
+ms.openlocfilehash: 7a03e1417617453c43edcc3787da10d171359757
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -30,7 +31,7 @@ Nella versione 0.10.5 degli strumenti da riga di comando multipiattaforma di Mic
 Per altre informazioni sulla gestione dei gruppi di risorse, vedere [Usare l'interfaccia della riga di comando di Azure per gestire risorse e gruppi di risorse](../azure-resource-manager/xplat-cli-azure-resource-manager.md). 
 
 > [!NOTE] 
-> È inoltre possibile utilizzare l'[interfaccia della riga di comando di Azure versione 2.0 (anteprima)](https://github.com/Azure/azure-cli), vale a dire un'interfaccia della riga di comando di nuova generazione in Python per il modello di distribuzione di gestione delle risorse.
+> Si può anche usare l'[interfaccia della riga di comando di Azure 2.0 ](https://github.com/Azure/azure-cli), vale a dire un'interfaccia della riga di comando di nuova generazione in Python per il modello di distribuzione di gestione delle risorse.
 >
 >
 
@@ -178,9 +179,4 @@ Per eliminare associazioni nome host, usare:
 * Per altre informazioni sul supporto dell'interfaccia della riga di comando di Azure Resource Manager, vedere [Usare l'interfaccia della riga di comando di Azure per gestire risorse e gruppi di risorse](../azure-resource-manager/xplat-cli-azure-resource-manager.md).
 * Per altre informazioni sulla gestione del servizio app tramite PowerShell, vedere [Uso di comandi di PowerShell basati su Azure Resource Manager per la gestione di app Web di Azure](app-service-web-app-azure-resource-manager-powershell.md).
 * Per informazioni sul servizio app di Azure in Linux, vedere [Introduzione al servizio app in Linux](app-service-linux-intro.md).
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

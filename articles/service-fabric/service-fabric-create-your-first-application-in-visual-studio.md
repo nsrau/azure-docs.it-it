@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 12/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 23699d8d44ccd101519920e5f20e9b13cd15cc38
+ms.sourcegitcommit: 45411dcfd2dc221de9566b382a1b1c62da914208
+ms.openlocfilehash: 21f2e6e9b422d497882a2414fd24974d60ea685e
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -36,7 +37,7 @@ Prima di iniziare, assicurarsi di avere [configurato l'ambiente di sviluppo](ser
 ## <a name="video-walkthrough"></a>Procedura dettagliata video
 Il video seguente illustra i passaggi di questa esercitazione:
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
 > 
 > 
 
@@ -122,6 +123,19 @@ Per impostazione predefinita, il cluster di sviluppo locale è configurato per e
 
 Quando si cambia la modalità cluster, il cluster di sviluppo viene reimpostato e tutte le applicazioni di cui è stato effettuato il provisioning o che sono in esecuzione in tale cluster vengono rimosse.
 
+È inoltre possibile modificare la modalità di cluster usando PowerShell:
+
+1. Avviare una nuova finestra di PowerShell come amministratore.
+2. Eseguire lo script di installazione del cluster dalla cartella dell'SDK:
+   
+    ```powershell
+    & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster
+    ```
+   
+    La configurazione del cluster richiede alcuni istanti. Al termine, l'output visualizzato sarà simile al seguente:
+   
+    ![Output installazione del cluster][cluster-setup-success-1-node]
+
 ## <a name="cleaning-up"></a>+ Cleaning up
 Prima di concludere, è importante ricordare che il cluster locale è reale. L'arresto del debugger rimuove l'istanza dell'applicazione e annulla la registrazione del tipo di applicazione. L'esecuzione del cluster tuttavia continua in background. A questo scopo, sono disponibili diverse opzioni per gestire il cluster:
 
@@ -150,9 +164,5 @@ Prima di concludere, è importante ricordare che il cluster locale è reale. L'a
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
 

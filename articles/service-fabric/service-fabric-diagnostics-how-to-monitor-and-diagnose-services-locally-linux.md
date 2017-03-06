@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/14/2016
+ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
 ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
 ms.openlocfilehash: a8f077168dbc8660625371a2b988926c69491337
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -113,7 +114,7 @@ Il primo passaggio consiste nell'includere System.Diagnostics.Tracing in modo da
             using (StreamWriter Out = new StreamWriter( new FileStream("/tmp/MyServiceLog.txt", FileMode.Append)))           
         {  
                  // report all event information               
-         Out.Write(" {0} ",  Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
+          Out.Write(" {0} ",  Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
                 if (eventData.Message != null)              
             Out.WriteLine(eventData.Message, eventData.Payload.ToArray());              
             else             
@@ -140,9 +141,4 @@ Gli esempi in [C# Samples](https://github.com/Azure-Samples/service-fabric-dotne
 ## <a name="next-steps"></a>Passaggi successivi
 Lo stesso codice di traccia aggiunto all'applicazione potrà essere usato per la diagnostica dell'applicazione in un cluster di Azure. Consultare questi articoli che illustrano le diverse opzioni per gli strumenti e descrivono come configurarli.
 * [Come raccogliere log con Diagnostica di Azure](service-fabric-diagnostics-how-to-setup-lad.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

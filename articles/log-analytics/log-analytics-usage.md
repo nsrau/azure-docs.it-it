@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 668cde23cb717fcad52fd7823561d10735e6df1b
+ms.sourcegitcommit: 7e3d4b83fefdc70f292cf85b682cf8ed756bf4c5
+ms.openlocfilehash: e7f04df679604f274c8ad9bf4daddc63c8b5418a
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -47,6 +48,12 @@ Il dashboard **Utilizzo di Log Analytics** visualizza le informazioni seguenti:
     - Tempo impiegato per raccogliere e indicizzare i dati
 - Elenco di query
 
+## <a name="understanding-nodes-for-oms-offers"></a>Informazioni sui nodi per le offerte di OMS
+
+Se si usa il tariffario *per ogni nodo (OMS)*, l'importo addebitato dipende dal numero di nodi e di soluzioni abilitate. È possibile visualizzare il numero di nodi in uso per ogni offerta nella sezione *offerte* del dashboard di uso.
+
+![dashboard di utilizzo](./media/log-analytics-usage/log-analytics-usage-offerings.png)
+
 ## <a name="to-work-with-usage-data"></a>Per gestire i dati di utilizzo
 1. Se questa operazione non è già stata eseguita, accedere al [portale di Azure](https://portal.azure.com), usando la sottoscrizione di Azure.
 2. Scegliere **Altri servizi** dal menu **Hub** e digitare **Log Analytics** nell'elenco di risorse. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Fare clic su **Log Analytics**.  
@@ -63,9 +70,4 @@ Il dashboard **Utilizzo di Log Analytics** visualizza le informazioni seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Vedere [Ricerche nei log in Log Analytics](log-analytics-log-searches.md) per visualizzare le informazioni dettagliate raccolte e inviate a OMS dalle funzionalità e dalle soluzioni.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

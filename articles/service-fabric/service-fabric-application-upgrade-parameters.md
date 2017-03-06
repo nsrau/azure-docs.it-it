@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
+ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
 ms.sourcegitcommit: 5a0362caf0082112b7d9c648c9ecfb893d8ac954
 ms.openlocfilehash: 3f8fb1da14a65454d3c7997de80f399110b3b441
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -69,9 +70,4 @@ Rendere compatibili gli aggiornamenti dell'applicazione imparando a usare [Seria
 Per informazioni su come usare funzionalità avanzate durante l'aggiornamento dell'applicazione, vedere [Argomenti avanzati](service-fabric-application-upgrade-advanced.md).
 
 Per informazioni su come risolvere problemi comuni negli aggiornamenti dell'applicazione, vedere i passaggi indicati in [Risoluzione dei problemi relativi agli aggiornamenti dell'applicazione](service-fabric-application-upgrade-troubleshooting.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

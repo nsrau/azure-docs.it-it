@@ -15,20 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/15/2017
 ms.author: rasquill
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dc0797927d75a06117d72f52d7065927e65678b4
-ms.openlocfilehash: 76d6288832b50d187c729afaee9118923517eb94
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: e9be064425ae6b9048098333cc664310e7128314
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="select-linux-vm-images-with-the-azure-cli"></a>Selezionare immagini di VM Linux con l'interfaccia della riga di comando di Azure
+# <a name="how-to-find-linux-vm-images-with-the-azure-cli"></a>Come trovare immagini di VM Linux con l'interfaccia della riga di comando di Azure
 Questo argomento descrive come trovare editori, offerte, SKU e versioni per ciascuna posizione di distribuzione. 
 
 
-## <a name="use-azure-cli-20-preview"></a>Interfaccia della riga di comando di Azure 2.0 (anteprima)
+## <a name="use-azure-cli-20"></a>Usare l'interfaccia della riga di comando 2.0 di Azure
 
-Dopo avere [installato l'interfaccia della riga di comando di Azure 2.0 (anteprima)](https://docs.microsoft.com/cli/azure/install-az-cli2), usare il comando `az vm image list` per visualizzare un elenco memorizzato nella cache di immagini di VM comuni. Ad esempio, il comando seguente `az vm image list -o table` visualizza:
+Dopo avere [installato l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), usare il comando `az vm image list` per visualizzare un elenco memorizzato nella cache di immagini di VM comuni. Ad esempio, il comando seguente `az vm image list -o table` visualizza:
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list

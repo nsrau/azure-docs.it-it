@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: v-livech
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: ea1274dd53a93f00fa251ed03684b17b58b009c2
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: bd0c9fd0044ce8a5de9004c68b1267b8b66df80a
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="create-a-linux-vm-using-an-azure-template"></a>Creare una VM Linux usando un modello di Azure
+# <a name="how-to-create-a-linux-vm-using-an-azure-resourec-manager-template"></a>Procedura su come creare una VM Linux con un modello di Azure Resource Manager
 Questo articolo illustra come distribuire rapidamente una macchina virtuale Linux in Azure usando un modello di Azure.  L'articolo richiede:
 
 * Un account Azure. È possibile [ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
@@ -78,10 +80,5 @@ L'esempio ha distribuito una VM usando il parametro `--template-uri` .  È anche
 
 ## <a name="next-steps"></a>Passaggi successivi
 Eseguire una ricerca nella [raccolta di modelli](https://azure.microsoft.com/documentation/templates/) per scoprire quali framework per app si possono distribuire successivamente.
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

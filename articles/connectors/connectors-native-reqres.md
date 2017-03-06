@@ -18,6 +18,7 @@ ms.author: jehollan
 translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: e45b07d709927af64cfba28dfb0d8ee9cb8893b3
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -110,10 +111,5 @@ Di seguito sono riportati i campi di input per l'azione di risposta HTTP. Un ast
 
 ## <a name="next-steps"></a>Passaggi successivi
 Provare ora a usare la piattaforma e [creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Più indirizzi IP per le macchine virtuali di Azure - Interfaccia della riga di comando di Azure | Documentazione Microsoft"
-description: "Informazioni su come assegnare più indirizzi IP a una macchina virtuale usando l&quot;interfaccia della riga di comando di Azure | Resource Manager."
+title: "Creare una VM con più indirizzi IP usando l&quot;interfaccia della riga di comando di Azure 2.0 | Documentazione Microsoft"
+description: "Informazioni su come assegnare più indirizzi IP a una macchina virtuale usando l&quot;interfaccia della riga di comando di Azure 2.0 | Resource Manager."
 services: virtual-network
 documentationcenter: na
 author: anavinahar
@@ -16,17 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 7e99731f6826e563109da734a80fcccfff85676a
-ms.openlocfilehash: 3deb0e1668aae15a7d9abe00791f4524ed49d77b
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: d52694b2604510f1926142ace89cc7781ca83a1c
+ms.openlocfilehash: 8b969b1367b3af752a89c8fea62a0685b514e8b5
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="assign-multiple-ip-addresses-to-virtual-machines-using-azure-cli"></a>Assegnare più indirizzi IP alle macchine virtuali usando l'interfaccia della riga di comando di Azure
+# <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli-20"></a>Assegnare più indirizzi IP alle macchine virtuali usando l'interfaccia della riga di comando di Azure 2.0
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-Questo articolo spiega come creare una macchina virtuale (VM) tramite il modello di distribuzione Azure Resource Manager usando l'interfaccia della riga di comando di Azure. Non è possibile a assegnare più indirizzi IP alle risorse create tramite il modello di distribuzione classica. Per altre informazioni sui modelli di distribuzione di Azure, leggere l'articolo [Understand Azure deployment models](../resource-manager-deployment-model.md) (Informazioni sui modelli di distribuzione di Azure).
+Questo articolo spiega come creare una macchina virtuale (VM) tramite il modello di distribuzione Azure Resource Manager usando l'interfaccia della riga di comando di Azure 2.0. Non è possibile a assegnare più indirizzi IP alle risorse create tramite il modello di distribuzione classica. Per altre informazioni sui modelli di distribuzione di Azure, leggere l'articolo [Understand Azure deployment models](../resource-manager-deployment-model.md) (Informazioni sui modelli di distribuzione di Azure).
 
 [!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
@@ -34,112 +34,161 @@ Questo articolo spiega come creare una macchina virtuale (VM) tramite il modello
 
 ## <a name="a-name--createacreate-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Creare una macchina virtuale con più indirizzi IP
 
-La procedura seguente illustra come creare una macchina virtuale di esempio con più indirizzi IP, come descritto nello scenario. Modificare i nomi delle variabili e i tipi di indirizzi IP come richiesto per l'implementazione.
+È possibile completare questa attività usando l'interfaccia della riga di comando di Azure 2.0 (questo articolo) o l'[interfaccia della riga di comando di Azure 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md). Sostituire i valori in base alle esigenze specifiche dell'ambiente. La procedura seguente illustra come creare una macchina virtuale di esempio con più indirizzi IP, come descritto nello scenario. Modificare i valori delle variabili e i tipi di indirizzi IP come richiesto per l'implementazione. 
 
-1. Per installare e configurare l'interfaccia della riga di comando di Azure, seguire la procedura riportata nell'articolo [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e accedere all'account Azure.
+1. Installare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2), se non è già stata installata.
+2. Creare una coppia di chiavi SSH pubblica e privata per le VM Linux completando i passaggi descritti in [Creare una coppia di chiavi SSH pubblica e privata per le VM Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+3. Da una shell dei comandi accedere con il comando `az login` e selezionare la sottoscrizione in uso.
+4. <a name="register"></a>Per effettuare la registrazione per l'anteprima, eseguire i comandi di PowerShell seguenti; per questa operazione non è possibile usare l'interfaccia della riga di comando:
 
-2. Eseguire la registrazione per l'anteprima eseguendo i comandi seguenti in PowerShell dopo aver effettuato l'accesso, quindi selezionare la sottoscrizione appropriata:
-    ```
-    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
-
-    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
-    
+    ```powershell
+    Register-AzureRmProviderFeature  -FeatureName AllowMultipleIpConfigurationsPerNic    -ProviderNamespace Microsoft.Network
+    Register-AzureRmProviderFeature  -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
     ```
+
     Non tentare di completare i passaggi rimanenti fino a quando non viene visualizzato il seguente output all'esecuzione del comando ```Get-AzureRmProviderFeature```:
-        
+    
     ```powershell
     FeatureName                            ProviderName      RegistrationState
-    -----------                            ------------      -----------------      
+    -----------                            ------------      -----------------
     AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
     AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
     ```
         
     >[!NOTE] 
-    >L'operazione potrebbe richiedere alcuni minuti.
-
-3. [Creare un gruppo di risorse](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-groups-and-choose-deployment-locations) seguito da una [rete virtuale e subnet](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet). Modificare i campi ``` --address-prefixes ``` e ```--address-prefix``` sui valori seguenti per rappresentare lo scenario esatto descritto in questo articolo:
-
-    ```azurecli
-    --address-prefixes 10.0.0.0/16
-    --address-prefix 10.0.0.0/24
-    ```
-    >[!NOTE] 
-    >L'articolo di riferimento precedente usa l'Europa occidentale come posizione per creare risorse, mentre questo articolo usa gli Stati Uniti centro-occidentali. Apportare in modo accurato le modifiche alla posizione.
-
-4. [Creare un account di archiviazione](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-storage-account) per la macchina virtuale.
-
-5. Creare la scheda di interfaccia di rete e le configurazioni IP da assegnare alla scheda di interfaccia di rete. È possibile aggiungere, rimuovere o modificare le configurazioni in base alle esigenze. Nello scenario vengono descritte le configurazioni seguenti:
-
-    **IPConfig-1**
-
-    Immettere i comandi seguenti per creare:
-
-    - Una risorsa indirizzo IP pubblico con un indirizzo IP pubblico statico
-    - Una configurazione IP con la risorsa indirizzo IP pubblico e un indirizzo IP privato dinamico
+    >La registrazione potrebbe richiedere alcuni minuti.
+5. Creare la VM eseguendo lo script seguente in un computer Linux o Mac. Lo script crea un gruppo di risorse, una rete virtuale (VNet), una scheda di interfaccia di rete con tre configurazioni IP e una VM con due schede di interfaccia di rete collegate. Le risorse di schede di interfaccia di rete, indirizzo IP pubblico, rete virtuale e VM devono essere tutte presenti nella stessa località e nella stessa sottoscrizione. Lo script seguente esamina un caso in cui tutte le risorse sono incluse nello stesso gruppo di risorse, anche se questo non è un requisito.
 
     ```azurecli
-    azure network public-ip create --resource-group myResourceGroup --location westcentralus --name myPublicIP --domain-name-label mypublicdns --allocation-method Static
+    #!/bin/sh
+
+    RgName="myResourceGroup"
+    Location="westcentralus"
+    az group create --name $RgName --location $Location
+
+    # Create a public IP address resource with a static IP address using the `--allocation-method Static` option. If you
+    # do not specify this option, the address is allocated dynamically. The address is assigned to the resource from a pool
+    # of IP adresses unique to each Azure region. Download and view the file from
+    # https://www.microsoft.com/en-us/download/details.aspx?id=41653 that lists the ranges for each region.
+
+    PipName="myPublicIP"
+
+    # This name must be unique within an Azure location.
+    DnsName="myDNSName"
+
+    az network public-ip create \
+    --name $PipName \
+    --resource-group $RgName \
+    --location $Location \
+    --dns-name $DnsName\
+    --allocation-method Static
+
+    # Create a virtual network with one subnet
+
+    VnetName="myVnet"
+    VnetPrefix="10.0.0.0/16"
+    VnetSubnetName="mySubnet"
+    VnetSubnetPrefix="10.0.0.0/24"
+
+    az network vnet create \
+    --name $VnetName \
+    --resource-group $RgName \
+    --location $Location \
+    --address-prefix $VnetPrefix \
+    --subnet-name $VnetSubnetName \
+    --subnet-prefix $VnetSubnetPrefix
+
+    # Create a network interface connected to the subnet and associate the public IP address to it. Azure will create the
+    # first IP configuration with a dynamic private IP address and will associate the public IP address resource to it.
+
+    NicName="MyNic1"
+
+    az network nic create \
+    --name $NicName \
+    --resource-group $RgName \
+    --location $Location \
+    --subnet $VnetSubnet1Name \
+    --vnet-name $VnetName \
+    --public-ip-address $PipName
+
+    # Create a second public IP address, a second IP configuration, and associate it to the NIC. This configuration has a
+    # static public IP address and a static private IP address.
+
+    az network public-ip create --resource-group $RgName --location $Location --name myPublicIP2 --dns-name mypublicdns2 --allocation-method Static
+    az network nic ip-config create --resource-group $RgName --nic-name $NicName --name IPConfig-2 --private-ip-address 10.0.0.5 --public-ip-name myPublicIP2
+
+    # Create a third IP configuration, and associate it to the NIC. This configuration has a dynamic private IP address and
+    # no public IP address.
+
+    azure network nic ip-config create --resource-group $RgName --nic-name $NicName --name IPConfig-3
+
+    # Note: Though this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations
+    # to any NIC in a VM. To learn how to create a VM with multiple NICs, read the Create a VM with multiple NICs 
+    # article: https://docs.microsoft.com/azure/virtual-network/virtual-network-deploy-multinic-arm-cli.
+
+    # Create a VM and attach the NIC.
+
+    VmName="myVm"
+
+    # Replace the value for the following **VmSize** variable with a value from the
+    # https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes article. The script fails if the VM size
+    # is not supported in the location you select. Run the `azure vm sizes --location westcentralus` command to get a full list
+    # of VMs in US West Central, for example.
+
+    VmSize="Standard_DS1"
+
+    # Replace the value for the OsImage variable value with a value for *urn* from the output returned by entering the
+    # `az vm image list` command.
+
+    OsImage="credativ:Debian:8:latest"
+
+    Username="adminuser"
+
+    # Replace the following value with the path to your public key file. If you're creating a Windows VM, remove the following
+    # line and you'll be prompted for the password you want to configure for the VM.
+
+    SshKeyValue="~/.ssh/id_rsa.pub"
+
+    az vm create \
+    --name $VmName \
+    --resource-group $RgName \
+    --image $OsImage \
+    --location $Location \
+    --size $VmSize \
+    --nics $NicName \
+    --admin-username $Username \
+    --ssh-key-value $SshKeyValue
     ```
+
+    Oltre a creare una VM con una scheda di interfaccia di rete con 3 configurazioni IP, lo script crea: - un unico disco gestito Premium per impostazione predefinita, ma sono disponibili altre opzioni per il tipo di disco è possibile creare. Leggere [Creare una VM Linux usando l'interfaccia della riga di comando di Azure 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per informazioni dettagliate.
+        - una rete virtuale con una subnet e due indirizzi IP pubblici. In alternativa, è possibile usare le risorse *esistenti* di rete virtuale, subnet, scheda di interfaccia di rete o indirizzo IP pubblico. Per informazioni su come usare le risorse di rete esistenti anziché creare risorse aggiuntive, immettere `az vm create -h`.
+
     > [!NOTE]
     > Per gli indirizzi IP pubblici è prevista una tariffa nominale. Per altre informazioni sui prezzi degli indirizzi IP, vedere la pagina [Prezzi per gli indirizzi IP](https://azure.microsoft.com/pricing/details/ip-addresses) . È previsto un limite per il numero di indirizzi IP pubblici che possono essere usati in una sottoscrizione. Per altre informazioni sui limiti, vedere l'articolo [Limiti di Azure](../azure-subscription-service-limits.md#networking-limits).
 
-    ```azurecli
-    azure network nic create --resource-group myResourceGroup --location westcentralus --subnet-vnet-name myVnet --subnet-name mySubnet --name myNic1 --public-ip-name myPublicIP
-    ```
+7. Dopo avere creato la VM, immettere il comando `az network nic show --name MyNic1 --resource-group myResourceGroup` per visualizzare la configurazione della scheda di interfaccia di rete. Immettere `az network nic ip-config list --nic-name MyNic1 --resource-group myResourceGroup --output table` per visualizzare un elenco di configurazioni IP associate alla scheda di interfaccia di rete.
 
-    **IPConfig-2**
-
-     Immettere i comandi seguenti per creare una nuova risorsa indirizzo IP pubblico e una nuova configurazione IP con un indirizzo IP pubblico e un indirizzo IP privato statico:
-    
-    ```azurecli
-    azure network public-ip create --resource-group myResourceGroup --location westcentralus --name myPublicIP2 --domain-name-label mypublicdns2 --allocation-method Static
-
-    azure network nic ip-config create --resource-group myResourceGroup --nic-name myNic1 --name IPConfig-2 --private-ip-address 10.0.0.5 --public-ip-name myPublicIP2
-    ```
-
-    **IPConfig-3**
-
-    Immettere i comandi seguenti per creare una configurazione IP con un indirizzo IP privato dinamico e nessun indirizzo IP pubblico:
-
-    ```azurecli
-    azure network nic ip-config create --resource-group myResourceGroup --nic-name myNic1 --name IPConfig-3
-    ```
-
-    >[!NOTE] 
-    >Sebbene questo articolo assegna tutte le configurazioni IP a una singola scheda di interfaccia di rete, è possibile anche assegnare più configurazioni IP a qualsiasi scheda di interfaccia di rete in una macchina virtuale. Per informazioni su come creare una VM con più interfacce di rete, leggere l'articolo Creare una macchina virtuale con più schede di interfaccia di rete usando PowerShell.
-
-6. Articolo [Creare una macchina virtuale Linux](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-the-linux-vms). Assicurarsi di rimuovere la proprietà ```  --availset-name myAvailabilitySet \ ```, non è necessaria per questo scenario. Usare il percorso appropriato in base allo scenario in uso. 
-
-    >[!WARNING] 
-    > Il passaggio 6 nell'articolo sulla creazione di macchine virtuali ha esito negativo se la dimensione della macchina virtuale non è supportata nella posizione selezionata. Eseguire il comando seguente per ottenere un elenco completo delle macchine virtuali negli Stati Uniti occidentali, ad esempio: `azure vm sizes --location westcentralus`. È possibile modificare il nome della località in base allo scenario.
-
-    Per modificare le dimensioni della macchina virtuale alla versione 2 DS2 Standard, ad esempio, è sufficiente aggiungere la seguente proprietà ```  --vm-size Standard_DS3_v2``` al comando ``` azure vm create ``` nel passaggio 6.
-
-7. Immettere il comando seguente per visualizzare la scheda di interfaccia di rete e le configurazioni IP associate:
-
-    ```azurecli
-    azure network nic show --resource-group myResourceGroup --name myNic1
-    ```
 8. Aggiungere gli indirizzi IP privati al sistema operativo della macchina virtuale seguendo la procedura per il proprio sistema operativo riportata nella sezione [Aggiungere indirizzi IP a una macchina virtuale](#os-config) di questo articolo.
 
 ## <a name="a-nameaddaadd-ip-addresses-to-a-vm"></a><a name="add"></a>Aggiungere indirizzi IP a una macchina virtuale
 
 È possibile aggiungere indirizzi IP privati e pubblici a una scheda di interfaccia di rete esistente completando la procedura seguente. Gli esempi si basano sullo [scenario](#Scenario) descritto in questo articolo.
 
-1. Aprire l'interfaccia della riga di comando di Azure e completare i passaggi rimanenti in questa sezione all'interno di una singola sessione dell'interfaccia della riga di comando. Se l'interfaccia della riga di comando di Azure non è installata e configurata, completare la procedura riportata nell'articolo [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e accedere all'account Azure.
+1. Aprire una shell dei comandi e completare i passaggi rimanenti in questa sezione all'interno di una singola sessione. Se l'interfaccia della riga di comando di Azure non è installata e configurata, completare la procedura riportata nell'articolo [Installazione dell'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) e accedere all'account Azure con il comando `az-login`.
 
-2. Eseguire la registrazione per l'anteprima pubblica tramite il passaggio 2 della sezione **Creare una macchina virtuale con più indirizzi IP**.
+2. Eseguire la registrazione per l'anteprima pubblica tramite il [passaggio 4 ](#register)della sezione **Creare una VM con più indirizzi IP** di questo articolo.
 
 3. Completare i passaggi in una delle sezioni seguenti, a seconda delle esigenze:
 
     **Aggiungere un indirizzo IP privato**
     
-    Per aggiungere un indirizzo IP privato a una scheda di interfaccia di rete, è necessario creare una configurazione IP tramite il comando seguente.  Se si desidera aggiungere un indirizzo IP privato dinamico, rimuovere ```-PrivateIpAddress 10.0.0.7``` prima di immettere il comando. Quando si specifica un indirizzo IP statico, deve essere un indirizzo non usato per la subnet.
+    Per aggiungere un indirizzo IP privato a una scheda di interfaccia di rete, è necessario creare una configurazione IP usando il comando seguente. Se si desidera aggiungere un indirizzo IP privato dinamico, rimuovere `-PrivateIpAddress 10.0.0.7` prima di immettere il comando. Quando si specifica un indirizzo IP statico, deve essere un indirizzo non usato per la subnet.
 
     ```azurecli
-    azure network nic ip-config create --resource-group myResourceGroup --nic-name myNic1 --private-ip-address 10.0.0.7 --name IPConfig-4
+    az network nic ip-config create --resource-group myResourceGroup --nic-name myNic1 --private-ip-address 10.0.0.7 --name IPConfig-4
     ```
+    
     Creare tutte le configurazioni usando nomi di configurazione univoci e indirizzi IP privati (per le configurazioni con indirizzi IP statici).
 
     **Aggiungere un indirizzo IP pubblico**
@@ -155,56 +204,60 @@ La procedura seguente illustra come creare una macchina virtuale di esempio con 
     Ogni volta che si aggiunge un indirizzo IP pubblico a una nuova configurazione IP, è necessario aggiungere anche un indirizzo IP privato, perché tutte le configurazioni IP devono avere un indirizzo IP privato. È possibile aggiungere una risorsa indirizzo IP pubblico esistente o crearne una nuova. Per crearne una nuova, usare il comando seguente:
     
     ```azurecli
-      azure network public-ip create --resource-group myResourceGroup --location westcentralus --name myPublicIP3 --domain-name-label mypublicdns3
+      az network public-ip create --resource-group myResourceGroup --location westcentralus --name myPublicIP3 --dns-name mypublicdns3
     ```
 
      Per creare una nuova configurazione IP con un indirizzo IP privato dinamico e la risorsa indirizzo IP pubblico *myPublicIP3* associata, inserire il comando seguente:
 
     ```azurecli
-    azure network nic ip-config create --resource-group myResourceGroup --nic-name myNic --name IPConfig-4 --public-ip-name myPublicIP3
+    az network nic ip-config create --resource-group myResourceGroup --nic-name myNic1 --name IPConfig-5 --public-ip-address myPublicIP3
     ```
 
     **Associare la risorsa a una configurazione IP esistente**
     Una risorsa indirizzo IP pubblico può essere associata a una configurazione IP che non dispone ancora di una risorsa associata. È possibile stabilire se una configurazione IP dispone di un indirizzo IP pubblico associato immettendo il comando seguente:
 
     ```azurecli
-    azure network nic ip-config list --resource-group myResourceGroup --nic-name myNic1
+    az network nic ip-config list --resource-group myResourceGroup --nic-name myNic1 --query "[?provisioningState=='Succeeded'].{ Name: name, PublicIpAddressId: publicIpAddress.id }" --output table
     ```
 
-    Cercare una riga simile a quella che segue l'output restituito:
-    
-        Name               Provisioning state  Primary  Private IP allocation  Private IP version  Private IP address  Subnet    Public IP
-        -----------------  ------------------  -------  ---------------------  ------------------  ------------------  --------  -----------
-        default-ip-config  Succeeded           true     Dynamic                IPv4                10.0.0.4            mySubnet  myPublicIP
-        IPConfig-2         Succeeded           false    Static                 IPv4                10.0.0.5            mySubnet  myPublicIP2
-        IPConfig-3         Succeeded           false    Dynamic                IPv4                10.0.0.6            mySubnet
-     
-    Poiché la colonna **IP pubblico** per *IpConfig-3* è vuota, nessuna risorsa di indirizzo IP pubblico è attualmente associata. È possibile aggiungere una risorsa indirizzo IP pubblico esistente a IpConfig-3 o immettere il comando seguente per crearne una:
+    Output restituito:
 
     ```azurecli
-    azure network public-ip create --resource-group  myResourceGroup --location westcentralus --name myPublicIP3 --domain-name-label mypublicdns3 --allocation-method Static
+    Name        PublicIpAddressId
+    --------    ------------------------------------------------------------------------------------------------------------
+    ipconfig1   /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP1
+    IPConfig-2  /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP2
+    IPConfig-3  
+    ```
+
+    Poiché l'output della colonna **PublicIpAddressId** per *IpConfig-3* è vuoto, nessuna risorsa di indirizzo IP pubblico è attualmente associata. È possibile aggiungere una risorsa indirizzo IP pubblico esistente a IpConfig-3 o immettere il comando seguente per crearne una:
+
+    ```azurecli
+    az network public-ip create --resource-group  myResourceGroup --location westcentralus --name myPublicIP3 --dns-name mypublicdns3 --allocation-method Static
     ```
     
     Immettere il comando seguente per associare la risorsa indirizzo IP pubblico alla configurazione IP esistente denominata *IPConfig-3*:
     
     ```azurecli
-    azure network nic ip-config set --resource-group myResourceGroup --nic-name myNic1 --name IPConfig-3 --public-ip-name myPublicIP3
+    az network nic ip-config update --resource-group myResourceGroup --nic-name myNic1 --name IPConfig-3 --public-ip myPublicIP3
     ```
 
-7. Visualizzare le risorse indirizzo IP privato e indirizzo IP pubblico assegnate alla scheda di interfaccia di rete immettendo il comando seguente:
+4. Visualizzare gli ID di risorse indirizzo IP privato e indirizzo IP pubblico assegnati alla scheda di interfaccia di rete immettendo il comando seguente:
 
     ```azurecli
-    azure network nic ip-config list --resource-group myResourceGroup --nic-name myNic1
+    az network nic ip-config list --resource-group myResourceGroup --nic-name myNic1 --query "[?provisioningState=='Succeeded'].{ Name: name, PrivateIpAddress: privateIpAddress, PrivateIpAllocationMethod: privateIpAllocationMethod, PublicIpAddressId: publicIpAddress.id }" --output table
     ```
-    L'output dovrebbe essere simile al seguente: 
+    Output restituito: 
     
-        Name               Provisioning state  Primary  Private IP allocation  Private IP version  Private IP address  Subnet    Public IP
-        -----------------  ------------------  -------  ---------------------  ------------------  ------------------  --------  -----------
-        default-ip-config  Succeeded           true     Dynamic                IPv4                10.0.0.4            mySubnet  myPublicIP
-        IPConfig-2         Succeeded           false    Static                 IPv4                10.0.0.5            mySubnet  myPublicIP2
-        IPConfig-3         Succeeded           false    Dynamic                IPv4                10.0.0.6            mySubnet  myPublicIP3
-     
-9. Aggiungere al sistema operativo della macchina virtuale gli indirizzi IP privati aggiunti alla scheda di interfaccia di rete seguendo le istruzioni disponibili nella sezione [Aggiungere indirizzi IP a una macchina virtuale](#os-config) di questo articolo. Non aggiungere gli indirizzi IP pubblici al sistema operativo.
+    ```azurecli
+    Name        PrivateIpAddress    PrivateIpAllocationMethod    PublicIpAddressId
+    --------    ------------------  ---------------------------  ------------------------------------------------------------------------------------------------------------
+    ipconfig1   10.0.0.4            Dynamic                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP1
+    IPConfig-2  10.0.0.5            Static                       /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP2
+    IPConfig-3  10.0.0.6            Dynamic                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP3
+    ```
+
+5. Aggiungere al sistema operativo della macchina virtuale gli indirizzi IP privati aggiunti alla scheda di interfaccia di rete seguendo le istruzioni disponibili nella sezione [Aggiungere indirizzi IP a una macchina virtuale](#os-config) di questo articolo. Non aggiungere gli indirizzi IP pubblici al sistema operativo.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
 

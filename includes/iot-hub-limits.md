@@ -3,10 +3,10 @@ Nella tabella seguente sono elencati i limiti associati ai diversi livelli di se
 | Risorsa | S1 Standard | S2 Standard | S3 Standard | F1 Gratuito |
 | --- | --- | --- | --- | --- |
 | Messaggi al giorno |400.000 |6.000.000 |300.000.000 |8.000 |
-| Unità massime |200 |200 |200 |1 |
+| Unità massime |200 |200 |10 |1 |
 
 > [!NOTE]
-> Se si prevede l'utilizzo di più di 200 unità con un hub di livello S1, S2 o S3, contattare il supporto tecnico Microsoft.
+> Se si prevede l'uso di più di 200 unità con un hub di livello S1, S2 o con 10 unità con livello S3, contattare il supporto tecnico Microsoft.
 > 
 > 
 
@@ -16,7 +16,7 @@ Nella tabella seguente sono elencate le limitazioni che si applicano alle risors
 | --- | --- |
 | Numero massimo hub IoT a pagamento per ogni sottoscrizione di Azure |10 |
 | Numero massimo hub IoT gratuiti per ogni sottoscrizione di Azure |1 |
-| Numero massimo di identità del dispositivo<br/>  restituito in una singola chiamata |1000 |
+| Numero massimo di identità del dispositivo<br/> restituito in una singola chiamata |1000 |
 | Conservazione massima nell'hub IoT per i messaggi dal dispositivo al cloud |7 giorni |
 | Dimensione massima del messaggio del dispositivo al cloud |256 KB |
 | Dimensione massima del batch del dispositivo al cloud |256 KB |
@@ -56,7 +56,3 @@ Il servizio IoT Hub limita le richieste quando vengono superate le quote seguent
 | Aggiornamenti dei dispositivi gemelli | 50/sec/unità (per S3), un massimo di 10/sec o di 1/sec/unità (per S2), 10/sec (per S1) |
 | Operazioni dei processi <br/> (creazione, aggiornamento, elenco, eliminazione) | 5000/sec/unità (per S3), 100/sec/unità (per S2), 100/min/unità (per S1) |
 | Velocità effettiva delle operazioni dei processi per dispositivo | 50/sec/unità (per S3), un massimo di 10/sec o di 1/sec/unità (per S2), 10/sec (per S1) |
-
-<!--HONumber=Feb17_HO1-->
-
-

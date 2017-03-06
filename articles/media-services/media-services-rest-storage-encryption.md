@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
 ms.openlocfilehash: d649ce6bcb5629cb820befd3478afa3f70293ccb
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -365,9 +366,4 @@ Dopo avere caricato il file multimediale digitale in un contenitore BLOB, è nec
        "MimeType":"video/mp4",
        "ContentChecksum":null
     }
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 
