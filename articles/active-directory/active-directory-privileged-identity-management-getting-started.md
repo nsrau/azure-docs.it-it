@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 02/27/2017
 ms.author: billmath
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
-ms.openlocfilehash: 7b1510ccfed939e27bad4fc0e5fafd4383db4a35
-
+ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
+ms.openlocfilehash: 6945529b8189c270ca6e5c41be0cd0d9caa37cb4
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="get-started-with-azure-ad-privileged-identity-management"></a>Introduzione ad Azure AD Privileged Identity Management
+# <a name="start-using-azure-ad-privileged-identity-management"></a>Iniziare ad usare Azure AD Privileged Identity Management
 Con Azure Active Directory (AD) Privileged Identity Management è possibile gestire, il controllo e monitorare l'accesso all'interno dell'organizzazione. È incluso l'accesso alle risorse in Azure AD e altri Microsoft Online Services, ad esempio Office 365 o Microsoft Intune.
 
 Questo articolo descrive come aggiungere l'app Azure AD PIM al dashboard del portale di Azure.
@@ -52,9 +53,4 @@ La [panoramica di Azure AD Privileged Identity Management](active-directory-priv
 <!--Image references-->
 
 [1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
