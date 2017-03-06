@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/15/2016
+ms.date: 02/27/2017
 ms.author: mihauss
 translationtype: Human Translation
-ms.sourcegitcommit: c75658d173bcb3438d6f2725ec9ef2c4127013d7
-ms.openlocfilehash: 0d0ca29a4733c681e044884697030ccd2916b6cb
+ms.sourcegitcommit: c004285f3b3052ed9361fc7165702aff8f5e835d
+ms.openlocfilehash: e0df34dbb4278d759ee412000d6dafd64276d926
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -80,12 +81,12 @@ La tabella seguente evidenzia il confronto tra i due livelli di archiviazione:
 <tbody>
 <tr>
     <td><strong><center></center></strong></td>
-    <td><strong><center>livello di archiviazione ad accesso frequente</center></strong></td>
-    <td><strong><center>livello di archiviazione ad accesso sporadico</center></strong></td
+    <td><strong><center>Livello di archiviazione ad accesso frequente</center></strong></td>
+    <td><strong><center>Livello di archiviazione ad accesso sporadico</center></strong></td
 </tr>
 <tr>
     <td><strong><center>Disponibilità</center></strong></td>
-    <td><center>99,9%</center></td>
+    <td><center>99.9%</center></td>
     <td><center>99%</center></td>
 </tr>
 <tr>
@@ -107,7 +108,7 @@ La tabella seguente evidenzia il confronto tra i due livelli di archiviazione:
     <td colspan="2"><center>N/D</center></td>
 </tr>
 <tr>
-    <td><strong><center>Latency<br>(tempo per il primo byte)<center></strong></td>
+    <td><strong><center>Latenza<br>(tempo per il primo byte)<center></strong></td>
     <td colspan="2"><center>millisecondi</center></td>
 </tr>
 <tr>
@@ -341,10 +342,5 @@ Per altri dettagli, vedere [Introduzione all'archivio BLOB di Azure con .NET](st
 [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 
 [Visualizzare ed esplorare gli account di archiviazione](http://storageexplorer.com/)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

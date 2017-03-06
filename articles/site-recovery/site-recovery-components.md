@@ -12,11 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2017
+ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: bd8082c46ee36c70e372208d1bd15337acc558a1
-ms.openlocfilehash: eb97f66901efa336942dee56d9a8a62ade1f6842
+ms.sourcegitcommit: 080dce21c2c803fc05c945cdadb1edd55bd7fe1c
+ms.openlocfilehash: 4993a873742db5ca2bd8c31eaab098beb0a0a030
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -24,13 +25,11 @@ ms.openlocfilehash: eb97f66901efa336942dee56d9a8a62ade1f6842
 
 Leggere questo articolo per capire l'architettura sottostante del servizio Azure Site Recovery e i componenti necessari per il suo funzionamento.
 
-Le organizzazioni necessitano di una strategia di continuità aziendale e ripristino di emergenza per determinare come app, carichi di lavoro e dati possano rimanere in esecuzione e disponibili durante i periodi di inattività, pianificati o meno, e come ripristinare le normali condizioni di lavoro il prima possibile. La strategia di continuità aziendale e ripristino di emergenza deve garantire la sicurezza dei dati aziendali e la possibilità di recuperarli, oltre alla disponibilità costante dei carichi di lavoro in caso di emergenza.
-
 Il servizio Azure Site Recovery contribuisce alla strategia BCDR orchestrando la replica dei server fisici locali e delle macchine virtuali nel cloud (Azure) o in un data center secondario. In caso di interruzioni nella località primaria, verrà eseguito il failover alla località secondaria per mantenere disponibili app e carichi di lavoro. Quando la località primaria sarà di nuovo operativa, si tornerà a tale località. Per altre informazioni, vedere [Che cos'è Site Recovery?](site-recovery-overview.md)
 
 Questo articolo descrive la distribuzione nel [portale di Azure](https://portal.azure.com). Il [portale di Azure classico](https://manage.windowsazure.com/) può essere usato per gestire gli insiemi di credenziali di Site Recovery esistenti, ma non per crearne di nuovi.
 
-È possibile inserire commenti nella parte inferiore di questo articolo. In caso di domande tecniche, visitare il [forum di Azure Site Recovery](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Per inviare commenti è possibile usare la parte inferiore di questo articolo oppure il [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="deployment-scenarios"></a>Scenari di distribuzione
@@ -84,7 +83,7 @@ Site Recovery replica app in esecuzione in VM e server fisici supportati. Per un
 
 1. Si eseguono failover non pianificati da VM VMware locali e da server fisici ad Azure. Il failover pianificato non è supportato.
 2. È possibile effettuare il failover di un solo computer o creare [piani di ripristino](site-recovery-create-recovery-plans.md) per orchestrare il failover di più computer.
-3. Quando si esegue un failover, verranno create VM di replica in Azure. Si esegue il commit di un failover per avviare l'accesso al carico di lavoro dalla VM di Azure di replica.
+3. Quando si esegue un failover, vengono create VM di replica in Azure. Si esegue il commit di un failover per avviare l'accesso al carico di lavoro dalla VM di Azure di replica.
 4. Quando il sito locale primario è di nuovo disponibile, è possibile effettuare il failback. Si configura un'infrastruttura di failback, si avvia la replica del computer dal sito secondario a quello primario e si esegue un failover non pianificato dal sito secondario. Dopo il commit di questo failover, i dati saranno di nuovo locali e sarà necessario abilitare ancora la replica in Azure. [Altre informazioni](site-recovery-failback-azure-to-vmware.md)
 
 Esistono alcuni requisiti per il failback:
@@ -133,10 +132,11 @@ Esistono alcuni requisiti per il failback:
 
 **Componente** | **Dettagli**
 --- | ---
-**Azzurro** | In Azure sono necessari un account Microsoft Azure, un account di archiviazione di Azure e una rete di Azure.<br/><br/> La risorsa di archiviazione e la rete possono essere account basati su Resource Manager o classici.<br/><br/> I dati replicati vengono salvati nell'account di archiviazione e,quando si verifica un failover dal sito locale, vengono create VM di Azure con i dati replicati.<br/><br/> Le VM di Azure si connettono alla rete virtuale di Azure quando vengono create.
-**Server VMM** | Se gli host Hyper-V si trovano in cloud VMM, sono necessarie reti logiche e VM impostate per configurare il [mapping di rete](site-recovery-network-mapping.md). È necessario che una rete VM sia collegata a una rete logica associata al cloud.
+
+**Azure** |In Azure sono necessari un account Microsoft Azure, un account di archiviazione di Azure e una rete di Azure.<br/><br/> La risorsa di archiviazione e la rete possono essere account basati su Resource Manager o classici.<br/><br/> I dati replicati vengono salvati nell'account di archiviazione e,quando si verifica un failover dal sito locale, vengono create VM di Azure con i dati replicati.<br/><br/> Le VM di Azure si connettono alla rete virtuale di Azure quando vengono create.
+**Server VMM** | Se gli host Hyper-V si trovano in cloud VMM, sono necessarie reti logiche e VM impostate per configurare il mapping di rete. È necessario che una rete VM sia collegata a una rete logica associata al cloud.
 **Host Hyper-V** | È necessario uno o più server host Hyper-V.
-**VM Hyper-V** | È necessaria una o più macchine virtuali nel server host Hyper-V. Il provider in esecuzione nell'host Hyper-V coordina e orchestra la replica con il servizio Site Recovery su Internet. L'agente gestisce i dati di replica tramite HTTPS 443. Le comunicazioni dal provider e dall'agente sono protette e crittografate. I dati replicati nell'archiviazione di Azure vengono anche crittografati.
+**Macchine virtuali Hyper-V** | Sono necessarie una o più macchine virtuali nel server host Hyper-V. Il provider in esecuzione nell'host Hyper-V coordina e orchestra la replica con il servizio Site Recovery su Internet. L'agente gestisce i dati di replica tramite HTTPS 443. Le comunicazioni dal provider e dall'agente sono protette e crittografate. I dati replicati nell'archiviazione di Azure vengono anche crittografati.
 
 
 ## <a name="replication-process"></a>Processo di replica
@@ -202,7 +202,7 @@ Esistono alcuni requisiti per il failback:
 2. È possibile effettuare il failover di un solo computer o creare [piani di ripristino](site-recovery-create-recovery-plans.md) per orchestrare il failover di più computer.
 4. Se si esegue un failover non pianificato in un sito secondario, dopo il failover i computer della posizione secondaria non sono abilitati per la protezione o la replica. Se è stato eseguito un failover pianificato, dopo il failover i computer della posizione secondaria sono protetti.
 5. Si esegue quindi il commit del failover per avviare l'accesso al carico di lavoro dalla VM di replica.
-6. Quando il sito primario è nuovamente disponibile, si avvia la replica inversa dal sito secondario a quello primario. La replica inversa porta le macchine virtuali in uno stato protetto, ma il data center secondario resta la posizione attiva.
+6. Quando il sito primario è nuovamente disponibile, si avvia la replica inversa dal sito secondario a quello primario. La replica inversa porta le macchine virtuali in uno stato protetto, ma per il datacenter secondario resta la posizione attiva.
 7. Per rendere di nuovo il sito primario la posizione attiva, occorre avviare un failover pianificato da sito secondario a primario, seguito da un'altra replica inversa.
 
 
@@ -212,7 +212,7 @@ Esistono alcuni requisiti per il failback:
 --- | ---
 1. **Abilitare la protezione** | Dopo avere abilitato la protezione per una VM Hyper-V, viene avviato il processo **Abilita protezione** per controllare che il computer sia conforme ai prerequisiti. Il processo richiama due metodi:<br/><br/> [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) per impostare la replica con le impostazioni configurate.<br/><br/> [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), per inizializzare una replica della VM completa.
 2. **Replica iniziale** |  Viene eseguito uno snapshot della macchina virtuale e i dischi rigidi virtuali vengono replicati uno alla volta, fino a quando non sono stati tutti copiati nella posizione secondaria.<br/><br/> Il tempo necessario per completare l'operazione dipende dalle dimensioni della VM, dalla larghezza di banda della rete e dal metodo di replica iniziale.<br/><br/> Se vengono apportate modifiche al disco mentre è in corso la replica iniziale, la gestione delle repliche di Hyper-V tiene traccia delle modifiche sotto forma di log di replica di Hyper-V (con estensione hrl), che si trovano nella stessa cartella dei dischi.<br/><br/> A ogni disco è associato un file con estensione hrl, che verrà inviato alla risorsa di archiviazione secondaria.<br/><br/> Si noti che lo snapshot e i file di log usano risorse del disco durante l'esecuzione della replica iniziale. Al termine della replica iniziale, lo snapshot della macchina virtuale viene eliminato e le modifiche differenziali al disco nel log vengono sincronizzate e unite.
-3. **Finalizzare la protezione** | Al termine della replica iniziale, il processo **Finalizza protezione** configura la rete e altre impostazioni successive alla replica, in modo che la macchina virtuale sia protetta.<br/><br/> Se si esegue la replica in Azure, potrebbe essere necessario modificare le impostazioni della macchina virtuale, in modo che sia pronta per il failover.<br/><br/> A questo punto è possibile eseguire un failover di test per controllare che tutto funzioni come previsto.
+3. **Finalizzare la protezione** | Al termine della replica iniziale, il processo **Finalizza protezione** configura la rete e altre impostazioni successive alla replica, in modo che la macchina virtuale sia protetta.<br/><br/> Se si esegue la replica in Azure, potrebbe essere necessario modificare le impostazioni della macchina virtuale in modo che sia pronta per il failover.<br/><br/> A questo punto è possibile eseguire un failover di test per controllare che tutto funzioni come previsto.
 4. **Replica** | Dopo la replica iniziale, viene avviata la sincronizzazione differenziale in base alle impostazioni della replica.<br/><br/> **Errore di replica**: se la replica differenziale non riesce e una replica completa risulta costosa a livello di larghezza di banda o del tempo richiesto, verrà eseguita la risincronizzazione. Ad esempio, se i file con estensione hrl raggiungono il 50% delle dimensioni del disco, la macchina virtuale verrà contrassegnata per la risincronizzazione. La risincronizzazione riduce al minimo la quantità di dati inviati calcolando i checksum delle macchine virtuali di origine e di destinazione e inviando solo il relativo differenziale. Al termine della risincronizzazione, viene ripresa la replica differenziale. Per impostazione predefinita, la risincronizzazione è pianificata per l'esecuzione automatica negli orari non lavorativi, ma è possibile risincronizzare manualmente una macchina virtuale.<br/><br/> **Errore di replica**: se si verifica un errore di replica, per impostazione predefinita viene effettuato un nuovo tentativo. Se si tratta di un errore irreversibile, ad esempio un errore di autenticazione o di autorizzazione oppure se lo stato del computer di replica non è valido, non verranno effettuati nuovi tentativi. Se si tratta di un errore reversibile, ad esempio un errore di rete o spazio su disco o memoria insufficiente, verranno eseguiti nuovi tentativi a intervalli crescenti (ogni 1, 2, 4, 8, 10 e quindi 30 minuti).
 5. **Failover pianificato/non pianificato** | È possibile eseguire failover pianificati o non pianificati in base alle esigenze.<br/><br/> Se si esegue un failover pianificato, le macchine virtuali di origine vengono arrestate per assicurare che non si verifichino perdite di dati.<br/><br/> Dopo la creazione, le macchine virtuali di replica sono in uno stato di commit in sospeso. È necessario eseguirne il commit per completare il failover.<br/><br/> Dopo che il sito primario è operativo, è possibile effettuare il failback nel sito primario, quando è disponibile.
 
@@ -223,10 +223,5 @@ Esistono alcuni requisiti per il failback:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Preparare la distribuzione](site-recovery-best-practices.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+[Verifica dei prerequisiti](site-recovery-prereq.md)
 

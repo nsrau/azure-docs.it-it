@@ -4,7 +4,7 @@ description: Un&quot;esercitazione che illustra come eseguire un&quot;app Web di
 services: app-service\web
 documentationcenter: php
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 tags: mysql
 ms.assetid: cb73859d-48aa-470a-b486-d984746d6d26
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 4e1c3e8fa45f4ef4ee7df7e6bc9ea4aa4fe1b1aa
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 7877662f43b83d6d60c3ef836d14b291245d8d42
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -43,7 +44,7 @@ Gli sviluppatori PHP possono integrare trasferire il proprio framework PHP prefe
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - [Interfaccia della riga di comando di Azure 1.0](app-service-web-php-get-started-cli-nodejs.md): l'interfaccia della riga di comando per i modelli di distribuzione classici e di gestione delle risorse
-- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](app-service-web-php-get-started.md): l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse
+- [Interfaccia della riga di comando di Azure 2.0](app-service-web-php-get-started.md): interfaccia avanzata per il modello di distribuzione di gestione delle risorse
 
 ## <a name="prerequisites"></a>Prerequisiti
 * [PHP 5.6.29](http://php.net/downloads.php)
@@ -250,10 +251,5 @@ Scoprire come aggiungere dati all'app [creando un database MySQL in Azure](../st
 * [Configurare PHP in App Web del servizio app di Azure](web-sites-php-configure.md)
 * [Conversione di WordPress in un multisito nel servizio app di Azure](web-sites-php-convert-wordpress-multisite.md)
 * [WordPress di livello aziendale nel servizio app di Azure](web-sites-php-enterprise-wordpress.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

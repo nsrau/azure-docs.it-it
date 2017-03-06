@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: boltean
 translationtype: Human Translation
-ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
-ms.openlocfilehash: 44291ed86775312a894f6acf92260cde76982f27
+ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
+ms.openlocfilehash: 1be7dc038f1bc864e7c6461b616449d75ecda439
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.openlocfilehash: 44291ed86775312a894f6acf92260cde76982f27
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 * Interfaccia della riga di comando di Azure (azure.js): interfaccia della riga di comando per i modelli di distribuzione classica e Resource Manager.
-* [Interfaccia della riga di comando di Azure 2.0 (anteprima) (az.py)](iot-hub-create-using-cli.md): interfaccia della riga di comando di nuova generazione per il modello di distribuzione Resource Manager.
+* [Interfaccia della riga di comando di Azure 2.0 (az.py)](iot-hub-create-using-cli.md): interfaccia della riga di comando di nuova generazione per il modello di distribuzione Resource Manager.
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
@@ -130,9 +131,4 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-portal]: iot-hub-create-through-portal.md 
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

@@ -1,6 +1,6 @@
 ---
-title: "Creare un set di scalabilità di macchine virtuali tramite PowerShell | Microsoft Docs"
-description: "Creare un set di scalabilità di macchine virtuali tramite PowerShell"
+title: "Creare un set di scalabilità di macchine virtuali di Azure tramite PowerShell | Microsoft Docs"
+description: "Creare un set di scalabilità di macchine virtuali di Azure tramite PowerShell"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: Thraka
@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 02/21/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: 5abaa31828e624f77b6a9efb4496327977b483e4
+ms.sourcegitcommit: 1f8e66fac5b82698525794f0486dd0432c7421a7
+ms.openlocfilehash: 7286fed39839675eb960b749f3235f83e36c5e9a
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -56,47 +57,7 @@ Un set di scalabilità di macchine virtuali deve trovarsi all'interno di un grup
         Tags              :
         ResourceId        : /subscriptions/########-####-####-####-############/resourceGroups/myrg1
 
-### <a name="storage-account"></a>Account di archiviazione
-Un account di archiviazione viene usato da una macchina virtuale per archiviare il disco del sistema operativo e i dati di diagnostica usati per la scalabilità. Se possibile, è consigliabile avere un account di archiviazione per ogni macchina virtuale creata in un set di scalabilità. Se questo non è possibile, pianificare un massimo di 20 macchine virtuali per ogni account di archiviazione. L'esempio riportato in questo articolo presenta la creazione di tre account di archiviazione per tre macchine virtuali.
-
-1. Sostituire il valore di **$stName** con un nome per l'account di archiviazione. Testare l'univocità del nome. 
-   
-        $saName = "storage account name"
-        Get-AzureRmStorageAccountNameAvailability $saName
-   
-    Se la risposta è **True**, il nome proposto è univoco.
-2. Sostituire il valore di **$saType** con il tipo di account di archiviazione e quindi creare la variabile:  
-   
-        $saType = "storage account type"
-   
-    I valori possibili sono: Standard_LRS, Standard_GRS, Standard_RAGRS o Premium_LRS.
-3. Creare l'account:
-   
-        New-AzureRmStorageAccount -Name $saName -ResourceGroupName $rgName –Type $saType -Location $locName
-   
-    L'output sarà simile all'esempio seguente:
-   
-        ResourceGroupName   : myrg1
-        StorageAccountName  : myst1
-        Id                  : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microsoft
-                              .Storage/storageAccounts/myst1
-        Location            : centralus
-        AccountType         : StandardLRS
-        CreationTime        : 3/15/2016 4:51:52 PM
-        CustomDomain        :
-        LastGeoFailoverTime :
-        PrimaryEndpoints    : Microsoft.Azure.Management.Storage.Models.Endpoints
-        PrimaryLocation     : centralus
-        ProvisioningState   : Succeeded
-        SecondaryEndpoints  :
-        SecondaryLocation   :
-        StatusOfPrimary     : Available
-        StatusOfSecondary   :
-        Tags                : {}
-        Context             : Microsoft.WindowsAzure.Commands.Common.Storage.AzureStorageContext
-4. Ripetere i passaggi da 1 a 4 per creare tre account di archiviazione, ad esempio myst1, myst2 e myst3.
-
-### <a name="virtual-network"></a>rete virtuale
+### <a name="virtual-network"></a>Rete virtuale
 Per le macchine virtuali nel set di scalabilità è necessaria una rete virtuale.
 
 1. Sostituire il valore di **$subnetName** con il nome da usare per la subnet nella rete virtuale e creare la variabile: 
@@ -173,12 +134,10 @@ Sono disponibili tutte le risorse necessarie per la configurazione del set di sc
         $imageSku = "2012-R2-Datacenter"
    
     Per informazioni su altre immagini da usare, vedere [Esplorare e selezionare immagini di macchine virtuali Windows in Azure con PowerShell o l'interfaccia della riga di comando](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-3. Sostituire il valore di **$vhdContainers** con un elenco contenente i percorsi di archiviazione dei dischi rigidi virtuali, ad esempio "https://mystorage.blob.core.windows.net/vhds" e quindi creare la variabile:
+
+3. Creare il profilo di archiviazione:
    
-        $vhdContainers = @("https://myst1.blob.core.windows.net/vhds","https://myst2.blob.core.windows.net/vhds","https://myst3.blob.core.windows.net/vhds")
-4. Creare il profilo di archiviazione:
-   
-        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storageProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
+        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
 
 ### <a name="virtual-machine-scale-set"></a>Set di scalabilità di macchine virtuali
 Infine, è possibile creare il set di scalabilità.
@@ -221,10 +180,5 @@ Per esplorare il set di scalabilità di macchine virtuali appena creato, usare q
 * Per gestire il set di scalabilità appena creato, usare le informazioni disponibili in [Gestire le macchine virtuali in un set di scalabilità di macchine virtuali](virtual-machine-scale-sets-windows-manage.md)
 * È consigliabile impostare il ridimensionamento automatico del set di scalabilità. A tale scopo, usare le informazioni disponibili in [Ridimensionamento automatico e set di scalabilità di macchine virtuali](virtual-machine-scale-sets-autoscale-overview.md)
 * Altre informazioni sull'aumento delle prestazioni sono disponibili in [Scalabilità automatica verticale con set di scalabilità di macchine virtuali](virtual-machine-scale-sets-vertical-scale-reprovision.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

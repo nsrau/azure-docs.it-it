@@ -1,21 +1,22 @@
 ---
-title: Aggiungere Application Insights SDK per monitorare un&quot;app Node.js | Microsoft Docs
-description: "Analizzare l&quot;uso, la disponibilità e le prestazioni dell&quot;applicazione locale o Web di Microsoft Azure con Application Insights."
+title: Monitorare l&quot;app Node.js con SDK Application Insights di Azure | Microsoft Docs
+description: "Analizzare l&quot;uso, la disponibilità e le prestazioni dell&quot;applicazione locale o Web di Microsoft Azure usando Application Insights."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 02/23/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: fd089f0cc5c23dcddb392df55c65907519f59248
+ms.sourcegitcommit: 46b829ce52994a5112494145a02e78859c5fae2d
+ms.openlocfilehash: d4c7fa2058b1c07671329304c37630d2e6e8e8a7
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -29,17 +30,16 @@ L'SDK offre la raccolta automatica delle risposte e delle frequenze delle richie
 ![Grafici di monitoraggio delle prestazioni di esempio](./media/app-insights-nodejs/10-perf.png)
 
 #### <a name="before-you-start"></a>Prima di iniziare
-Sono necessari:
+È necessario:
 
-* Visual Studio 2013 o versione successiva. È preferibile una versione successiva.
 * Una sottoscrizione a [Microsoft Azure](http://azure.com). Se il team o l'organizzazione ha una sottoscrizione di Azure, il proprietario potrà aggiungere l'utente alla sottoscrizione usando il rispettivo [account Microsoft](http://live.com).
 
 ## <a name="a-nameaddacreate-an-application-insights-resource"></a><a name="add"></a>Creare una risorsa di Application Insights
-Accedere al [portale di Azure][portal] e creare una nuova risorsa di Application Insights. Una [risorsa][roles] in Azure è un'istanza di un servizio. In questa risorsa la telemetria dell'app verrà analizzata e visualizzata.
+Accedere al [Portale di Azure][portal] e creare una nuova risorsa di Application Insights. Una [risorsa][roles] in Azure è un'istanza di un servizio. In questa risorsa la telemetria dell'app verrà analizzata e visualizzata.
 
 ![Fare clic su Nuovo, Application Insights](./media/app-insights-nodejs/01-new-asp.png)
 
-Scegliere Altro come tipo di applicazione. La scelta del tipo di applicazione imposta il contenuto predefinito dei pannelli delle risorse e le proprietà visibili in [Esplora metriche][metrics].
+Scegliere Generale come tipo di applicazione. La scelta del tipo di applicazione imposta il contenuto predefinito dei pannelli delle risorse e le proprietà visibili in [Esplora metriche][metrics].
 
 #### <a name="copy-the-instrumentation-key"></a>Eseguire una copia della chiave di strumentazione
 La chiave identifica la risorsa e verrà installata subito nell'SDK per indirizzare i dati alla risorsa.
@@ -74,7 +74,7 @@ Cercare i dati nella pagina di panoramica. All'inizio si vedranno solo uno o due
 
 ![Fare clic per visualizzare altri dati.](./media/app-insights-nodejs/12-first-perf.png)
 
-Fare clic su qualsiasi grafico per visualizzare metriche più dettagliate. [Altre informazioni sulle metriche][perf].
+Fare clic su qualsiasi grafico per visualizzare metriche più dettagliate. [Altre informazioni sulle metriche.][perf]
 
 #### <a name="no-data"></a>Dati non visualizzati
 * Usare l'applicazione, aprendo pagine diverse in modo da generare alcuni dati di telemetria.
@@ -197,9 +197,4 @@ server.on("listening", () => {
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

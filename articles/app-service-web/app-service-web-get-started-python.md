@@ -4,7 +4,7 @@ description: "Informazioni su come eseguire facilmente app Web nel servizio app 
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 928ee2e5-6143-4c0c-8546-366f5a3d80ce
 ms.service: app-service-web
@@ -15,22 +15,14 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: b0ffb91c2a92075b723b050338e8bedcc1e03ce7
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 5df82f438eab04d7ef2753c02b87eb5162c5c19d
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="deploy-your-first-python-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Distribuire la prima app Web Python in Azure in cinque minuti (anteprima dell'interfaccia della riga di comando 2.0)
-
-> [!div class="op_single_selector"]
-> * [Primo sito HTML](app-service-web-get-started-html.md)
-> * [Prima app .NET](app-service-web-get-started-dotnet.md)
-> * [Prima app PHP](app-service-web-get-started-php.md)
-> * [Prima app Node.js](app-service-web-get-started-nodejs.md)
-> * [Prima app Python](app-service-web-get-started-python.md)
-> * [Prima app Java](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)]
 
 Questa esercitazione illustra come distribuire la prima app Web Python nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md).
 Il servizio app consente di creare app Web, [back-end di app per dispositivi mobili](/documentation/learning-paths/appservice-mobileapps/) e [app per le API](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -49,7 +41,7 @@ Si apprenderà come:
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - [Interfaccia della riga di comando di Azure 1.0](app-service-web-get-started-python-cli-nodejs.md): l'interfaccia della riga di comando per i modelli di distribuzione classici e di gestione delle risorse
-- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](app-service-web-get-started-python.md): l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse
+- [Interfaccia della riga di comando di Azure 2.0](app-service-web-get-started-python.md): l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse
 
 ## <a name="prerequisites"></a>Prerequisiti
 * [Git](http://www.git-scm.com/downloads).
@@ -150,10 +142,5 @@ In alternativa, è possibile fare altre prove con la prima app Web, ad esempio:
 
 * Provare [altri modi per distribuire il codice in Azure](web-sites-deploy.md). Per eseguire la distribuzione da un repository GitHub, ad esempio, è sufficiente selezionare **GitHub** anziché **Repository Git locale** in **Opzioni di distribuzione**.
 * Ottimizzare l'app Azure: autenticare gli utenti, ridimensionare l'app in base alla richiesta e configurare alcuni avvisi sulle prestazioni, tutto con pochi clic. Vedere [Aggiungere funzionalità alla prima app Web](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

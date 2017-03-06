@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: b04ce0fe0db7649cebc7a1eeb2a35f1d53bf9636
-ms.openlocfilehash: 1ce9f07c3e91eacdc74ccab3fbb7dc433a25c197
+ms.sourcegitcommit: 06f274fe3febd4c3d6d3da90b361c3137ec795b9
+ms.openlocfilehash: e6514465db0d01b248bdb9e5113450e2bd3d2346
+ms.lasthandoff: 02/23/2017
 
 ---
 
@@ -23,7 +24,7 @@ ms.openlocfilehash: 1ce9f07c3e91eacdc74ccab3fbb7dc433a25c197
 
 Gestione API offre la possibilità di proteggere l'accesso alle API (ovvero dal client a Gestione API) mediante certificati client. Attualmente è possibile controllare l'identificazione personale del certificato client rispetto a un valore desiderato. È inoltre possibile controllare l'identificazione personale rispetto a certificati esistenti caricati in Gestione API.  
 
-Per informazioni sulla protezione dell'accesso al servizio back-end di un'API mediante certificati client (ovvero da Gestione API al back-end), vedere [Come proteggere i servizi back-end usando l'autenticazione con certificati client](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
+Per informazioni sulla protezione dell'accesso al servizio back-end di un'API tramite certificati client (ovvero da Gestione API al back-end), vedere [Come proteggere i servizi back-end usando l'autenticazione con certificati client](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
 
 ## <a name="checking-a-thumbprint-against-a-desired-value"></a>Controllo di un'identificazione personale rispetto a un valore desiderato
 
@@ -59,10 +60,5 @@ L'esempio seguente illustra come controllare l'identificazione personale di un c
 
 *  [Come proteggere i servizi back-end usando l'autenticazione con certificati client](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
 *  [Come caricare i certificati](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

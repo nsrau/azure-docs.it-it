@@ -4,7 +4,7 @@ description: "Informazioni su come eseguire facilmente app Web nel servizio app 
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 670d38f6-48ad-481c-8d82-bd532501f8db
 ms.service: app-service-web
@@ -15,22 +15,14 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: df256874674f5e0474ac813eb5614557f83d340b
+ms.sourcegitcommit: d24e78a826de9fb72e0eedc48877c83e867f70ca
+ms.openlocfilehash: 7868a3d1abbf54b00e7b47ebc743515a5a0e8d7c
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="deploy-your-first-nodejs-web-app-to-azure-in-five-minutes"></a>Distribuire la prima app Web Node.js in Azure in cinque minuti
-
-> [!div class="op_single_selector"]
-> * [Primo sito HTML](app-service-web-get-started-html-cli-nodejs.md)
-> * [Prima app .NET](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [Prima app PHP](app-service-web-get-started-php-cli-nodejs.md)
-> * [Prima app Node.js](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [Prima app Python](app-service-web-get-started-python-cli-nodejs.md)
-> * [Prima app Java](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started-nodejs-cli](../../includes/app-service-web-selector-get-started-nodejs-cli.md)]  
 
 Questa esercitazione illustra come distribuire la prima app Web Node.js nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md).
 Il servizio app consente di creare app Web, [back-end di app per dispositivi mobili](/documentation/learning-paths/appservice-mobileapps/) e [app per le API](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -49,7 +41,7 @@ Si apprenderà come:
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - [Interfaccia della riga di comando di Azure 1.0](app-service-web-get-started-nodejs-cli-nodejs.md): l'interfaccia della riga di comando per i modelli di distribuzione classici e di gestione delle risorse
-- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](app-service-web-get-started-nodejs.md): l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse
+- [Interfaccia della riga di comando di Azure 2.0](app-service-web-get-started-nodejs.md): l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse
 
 ## <a name="prerequisites"></a>Prerequisiti
 * [Git](http://www.git-scm.com/downloads).
@@ -128,10 +120,5 @@ In alternativa, è possibile fare altre prove con la prima app Web, ad esempio:
 
 * Provare [altri modi per distribuire il codice in Azure](web-sites-deploy.md). Per eseguire la distribuzione da un repository GitHub, ad esempio, è sufficiente selezionare **GitHub** anziché **Repository Git locale** in **Opzioni di distribuzione**.
 * Ottimizzare l'app Azure: autenticare gli utenti, ridimensionare l'app in base alla richiesta e configurare alcuni avvisi sulle prestazioni, tutto con pochi clic. Vedere [Aggiungere funzionalità alla prima app Web](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

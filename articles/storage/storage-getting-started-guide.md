@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 12/08/2016
+ms.date: 02/23/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 12ce6b6bccf3ea2aa2945ddd775716f29cf01e1f
-ms.openlocfilehash: 47b2623eb3b83220ef8e3cfafde06dab3ac3d22e
+ms.sourcegitcommit: a8e5d36d31aabc9226206f52d8543566c5218494
+ms.openlocfilehash: 6c833cd40439fef1fe9cca2591d36a6c49630579
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -29,8 +30,8 @@ Per ottenere altre informazioni su Archiviazione di Azure prima di approfondire 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare, verificare di disporre dei prerequisiti seguenti.
 
-1. Per compilare l'applicazione, è necessario disporre di [Visual Studio](https://www.visualstudio.com/) installato nel computer.
-2. Installare la versione più recente [Azure SDK per .NET](https://azure.microsoft.com/downloads/). il SDK include i progetti di esempio delle Guide rapide di Azure, l'emulatore di archiviazione di Azure e [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+1. Per compilare e creare l'applicazione, è necessario che [Visual Studio 2015](https://www.visualstudio.com/) o versioni successive sia installato sul computer.
+2. Installare la versione più recente di [Azure SDK per .NET](https://azure.microsoft.com/downloads/). il SDK include i progetti di esempio delle Guide rapide di Azure, l'emulatore di archiviazione di Azure e [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 3. Assicurarsi di avere [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653) installato nel computer, come richiesto per i progetti di esempio delle Guide rapide di Azure che verrà utilizzato in questa esercitazione.
 
     Se non si è certi di quale versione di .NET Framework è installata sul computer in use, vedere [How to: Determine Which .NET Framework Versions Are Installed](https://msdn.microsoft.com/vstudio/hh925568.aspx). In alternativa, premere il pulsante **Start** o il tasto Windows e digitare **Pannello di controllo**. Fare clic su **Programmi** > **Programmi e Funzionalità**, e determinare se .NET Framework 4.5 è elencato tra i programmi installati.
@@ -45,9 +46,12 @@ Ora verrà creata una semplice applicazione di Archiviazione di Azure usando uno
 1. Avviare Visual Studio.
 2. Scegliere **Nuovo progetto** dal menu **File**.
 3. Nella finestra di dialogo **Nuovo progetto**, fare clic su **Installati** > **Modelli** > **Visual C#** > **Cloud** > **QuickStarts** > **Servizi dati**.
-    a. Scegliere uno dei modelli seguenti: **Archiviazione di Azure: BLOB**, **Archiviazione di Azure: file**, **Archiviazione di Azure: code** o **Archiviazione di Azure: tabelle**.
-    b. Assicurarsi che come framework di destinazione sia selezionata l'opzione **.NET Framework 4.5**.
-    c. Specificare un nome per il progetto e creare la nuova soluzione di Visual Studio, come illustrato:
+   
+   a. Scegliere uno dei modelli seguenti: **Archiviazione di Azure: BLOB**, **Archiviazione di Azure: file**, **Archiviazione di Azure: code** o **Archiviazione di Azure: tabelle**.
+   
+   b. Assicurarsi che come framework di destinazione sia selezionata l'opzione **.NET Framework 4.5**.
+   
+   c. Specificare un nome per il progetto e creare la nuova soluzione di Visual Studio, come illustrato:
 
     ![Avvio rapido di Azure][Image1]
 
@@ -55,11 +59,11 @@ Ora verrà creata una semplice applicazione di Archiviazione di Azure usando uno
 
 A questo punto, eseguire l'applicazione di esempio:
 
-1. In Visual Studio, selezionare **Esplora Soluzioni** sul menu **Visualizza**. Aprire il file App.config e impostare come commento la stringa di connessione per l'emulatore di archiviazione di Azure:
+1. In Visual Studio, selezionare **Esplora Soluzioni** sul menu **Visualizza**. Aprire il file **App.config** e inserire come commento la stringa di connessione per l'emulatore di Archiviazione di Azure:
 
    `<!--<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>-->`
 
-2. Rimuovere i simboli di commento dalla stringa di connessione per il servizio di archiviazione di Azure e fornire il nome e la chiave di accesso dell'account di archiviazione nel file App.config:
+2. Rimuovere il commento dalla stringa di connessione per il servizio di Archiviazione di Azure nel file App.config e sostituire `[AccountName]` e `[AccountKey]` con le credenziali dell'account:
 
    `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
 
@@ -76,8 +80,11 @@ Proviamo, verrà creata una semplice applicazione di Archiviazione di Azure usan
 1. Avviare Visual Studio.
 2. Scegliere **Nuovo progetto** dal menu **File**.
 3. Nella finestra di dialogo **Nuovo progetto**, fare clic su **Installati** > **Modelli** > **Visual C#** > **Cloud** > **QuickStarts** > **Servizi dati**.
+    
     a. Scegliere uno dei modelli seguenti: **Archiviazione di Azure: BLOB**, **Archiviazione di Azure: file**, **Archiviazione di Azure: code** o **Archiviazione di Azure: tabelle**.
+    
     b. Assicurarsi che come framework di destinazione sia selezionata l'opzione **.NET Framework 4.5**.
+    
     c. Specificare un nome per il progetto e creare la nuova soluzione di Visual Studio, come illustrato:
 
     ![Avvio rapido di Azure][Image1]
@@ -109,9 +116,4 @@ Per ulteriori informazioni sull'archiviazione Azure, vedere la risorsa seguente:
 * [API REST dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

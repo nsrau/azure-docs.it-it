@@ -1,6 +1,6 @@
 ---
-title: Distribuzione di macchine virtuali Linux in una rete esistente dall&quot;interfaccia della riga di comando di Azure 2.0 (anteprima) | Documenti di Microsoft
-description: Informazioni su come distribuire una macchina virtuale Linux in una rete virtuale esistente dall&quot;interfaccia della riga di comando di Azure 2.0 (anteprima)
+title: Distribuzione di macchine virtuali Linux in una rete esistente dall&quot;interfaccia della riga di comando di Azure 2.0 | Documentazione Microsoft
+description: Informazioni su come distribuire una macchina virtuale Linux in una rete virtuale esistente dall&quot;interfaccia della riga di comando di Azure 2.0
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,31 +16,27 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 34e9b401444aeec233d846a6b52f4a452c54cdaf
-ms.openlocfilehash: 106571bf36454ab20e75cb4ee42b2aca787a9d5a
+ms.sourcegitcommit: 67d4fee2fc59651903d4c02d1fce84c7b81e5da1
+ms.openlocfilehash: c56ad780a1d67102d23c84a18c712ae48cec1eb6
+ms.lasthandoff: 02/27/2017
 
 
 ---
 
-# <a name="deploy-a-linux-vm-into-an-existing-virtual-network-using-the-azure-cli-20-preview"></a>Distribuire una macchina virtuale Linux in una rete virtuale esistente usando l'interfaccia della riga di comando di Azure 2.0 (anteprima)
+# <a name="deploy-a-linux-vm-into-an-existing-virtual-network"></a>Distribuire una macchina virtuale Linux in una rete virtuale esistente
 
-Questo articolo illustra come usare l'interfaccia della riga di comando di Azure 2.0 (anteprima) per distribuire una macchina virtuale in una rete virtuale esistente. I requisiti sono:
+Questo articolo illustra come usare l'interfaccia della riga di comando di Azure 2.0 per distribuire una macchina virtuale in una rete virtuale esistente. I requisiti sono:
 
 - [Un account di Azure](https://azure.microsoft.com/pricing/free-trial/)
 - [File di chiavi SSH pubbliche e private](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-
-## <a name="cli-versions-to-complete-the-task"></a>Versioni dell'interfaccia della riga di comando per completare l'attività
-È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
-
-- [Interfaccia della riga di comando di Azure 1.0](virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): l'interfaccia della riga di comando per i modelli di distribuzione classici e di gestione delle risorse
-- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](#quick-commands): interfaccia di prossima generazione per il modello di distribuzione di gestione delle risorse (questo articolo)
+È possibile anche eseguire questi passaggi tramite l'[interfaccia della riga di comando di Azure 1.0](virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## <a name="quick-commands"></a>Comandi rapidi
 Se si vuole eseguire rapidamente l'attività, la sezione seguente indica in dettaglio i comandi necessari. Altre informazioni dettagliate e il contesto per ogni passaggio sono disponibili nelle sezioni successive del documento, [a partire da qui](#detailed-walkthrough).
 
-Per creare questo ambiente personalizzato, è necessario installare la versione più recente dell'[interfaccia della riga di comando di Azure 2.0 (anteprima)](/cli/azure/install-az-cli2) e connetterla a un account Azure usando [az login](/cli/azure/#login).
+Per creare questo ambiente personalizzato, è necessario installare la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e connetterla a un account Azure usando [az login](/cli/azure/#login).
 
 Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono `myResourceGroup`, `myVnet` e `myVM`.
 
@@ -62,7 +58,7 @@ az vm create \
 
 È consigliabile che gli asset di Azure, come le reti virtuali e i gruppi di sicurezza di rete, siano risorse statiche, ovvero di lunga durata e distribuite raramente. Dopo essere stata distribuita, una rete virtuale può essere usata in nuove distribuzioni senza alcun effetto negativo sull'infrastruttura. Si pensi a una rete virtuale come se fosse analoga a uno switch di rete hardware tradizionale, il quale non richiede una nuova configurazione a ogni distribuzione. In una rete virtuale configurata in modo appropriato, è possibile continuare a distribuire nuovi server nella rete virtuale più volte, apportando solo le modifiche indispensabili durante il ciclo di vita della rete virtuale.
 
-Per creare questo ambiente personalizzato, è necessario installare la versione più recente dell'[interfaccia della riga di comando di Azure 2.0 (anteprima)](/cli/azure/install-az-cli2) e connetterla a un account Azure usando [az login](/cli/azure/#login).
+Per creare questo ambiente personalizzato, è necessario installare la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e connetterla a un account Azure usando [az login](/cli/azure/#login).
 
 Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono `myResourceGroup`, `myVnet` e `myVM`.
 
@@ -149,7 +145,7 @@ az network nic create \
 
 A questo punto sono disponibili una rete virtuale e un gruppo di sicurezza di rete che funge da firewall per proteggere la subnet bloccando tutto il traffico in ingresso tranne quello verso la porta 22 per SSH. È ora possibile distribuire la macchina virtuale all'interno di questa infrastruttura di rete esistente.
 
-Creare la macchina virtuale con [az vm create](/cli/azure/vm#create). Per altre informazioni sui flag da usare con l'interfaccia della riga di comando di Azure 2.0 (anteprima) per distribuire una macchina virtuale completa, vedere [Creare un ambiente Linux completo usando l'interfaccia della riga di comando di Azure](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Creare la macchina virtuale con [az vm create](/cli/azure/vm#create). Per altre informazioni sui flag da usare con l'interfaccia della riga di comando di Azure 2.0 per distribuire una macchina virtuale completa, vedere [Creare un ambiente Linux completo usando l'interfaccia della riga di comando di Azure](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Nell'esempio seguente viene creata una VM usando Azure Managed Disks. Questi dischi vengono gestiti dalla piattaforma Azure e non richiedono alcuna pianificazione o alcuna posizione per l'archiviazione. Per altre informazioni sui dischi gestiti, vedere [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md) (Panoramica di Azure Managed Disks). Se si desidera usare dischi non gestiti, vedere la nota aggiuntiva seguente.
 
@@ -178,9 +174,4 @@ Per altre informazioni sulle modalità per creare macchine virtuali in Azure, ve
 * [Usare un modello di Azure Resource Manager per creare una distribuzione specifica](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Creare un ambiente Linux completo mediante l'interfaccia della riga di comando di Azure](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Creare una VM Linux in Azure usando i modelli](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

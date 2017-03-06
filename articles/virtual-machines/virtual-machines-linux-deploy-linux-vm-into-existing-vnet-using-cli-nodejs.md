@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/05/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: cce15fa7042b29de055a62b1b7a6efa4d0539acf
-ms.openlocfilehash: fd73f2eae7f89c237a6a2ff75c6022cb0684e613
+ms.sourcegitcommit: 67d4fee2fc59651903d4c02d1fce84c7b81e5da1
+ms.openlocfilehash: 9a97a5a3fe8937d51c9e196df2929edac67a25ec
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -34,7 +35,7 @@ Questo articolo illustra come usare i flag dell'interfaccia della riga di comand
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - [Interfaccia della riga di comando di Azure 1.0](#quick-commands): l'interfaccia della riga di comando per i modelli di distribuzione classica e di gestione delle risorse (questo articolo)
-- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse
+- [Interfaccia della riga di comando di Azure 2.0](virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): interfaccia avanzata per il modello di distribuzione di gestione delle risorse
 
 
 ## <a name="quick-commands"></a>Comandi rapidi
@@ -166,9 +167,4 @@ Usando i flag dell'interfaccia della riga di comando per chiamare le risorse esi
 * [Usare un modello di Azure Resource Manager per creare una distribuzione specifica](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Creare un ambiente Linux completo mediante l'interfaccia della riga di comando di Azure](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Creare una VM Linux in Azure usando i modelli](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

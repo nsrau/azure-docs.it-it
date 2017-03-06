@@ -1,45 +1,40 @@
 ## <a name="view-device-telemetry-in-the-dashboard"></a>Visualizzare la telemetria del dispositivo nel dashboard
-Il dashboard nella soluzione di monitoraggio remoto consente di visualizzare la telemetria che i dispositivi inviano all’hub IoT.
+Il dashboard nella soluzione di monitoraggio remoto consente di visualizzare la telemetria che i dispositivi inviano all'hub IoT.
 
 1. Nel browser tornare al dashboard della soluzione di monitoraggio remoto e fare clic su **Dispositivi** nel pannello di sinistra per passare a **Elenco dispositivi**.
-2. In **Elenco dispositivi** si noterà che lo stato del dispositivo è ora **In esecuzione**.
+2. In **Devices list** (Elenco dispositivi) si noterà che lo stato del dispositivo è ora **In esecuzione**. Se non lo è, nel pannello **Dettagli dispositivo** fare clic su **Attiva dispositivo**.
    
-    ![][18]
-3. Fare clic su **Dashboard** per tornare al dashboard e selezionare il dispositivo nell'elenco a discesa **Dispositivo da visualizzare** per visualizzarne i dati di telemetria. La telemetria dall'applicazione di esempio è di 50 unità per la temperatura interna, 55 unità per la temperatura esterna e 50 unità per l’umidità. Si noti che per impostazione predefinita il dashboard mostra solo i valori di temperatura e umidità.
+    ![Visualizzare lo stato dei dispositivi][18]
+3. Fare clic su **Dashboard** per tornare al dashboard e selezionare il dispositivo nell'elenco a discesa **Dispositivo da visualizzare** per visualizzarne i dati di telemetria. La telemetria dall'applicazione di esempio è di 50 unità per la temperatura interna, 55 unità per la temperatura esterna e 50 unità per l’umidità.
    
-    ![][img-telemetry]
+    ![Visualizzare la telemetria dei dispositivi][img-telemetry]
 
-## <a name="send-a-command-to-your-device"></a>Inviare un comando al dispositivo
-Il dashboard nella soluzione di monitoraggio remoto consente di inviare comandi ai dispositivi tramite l'hub IoT. Ad esempio, nella soluzione di monitoraggio remota, è possibile inviare un comando per impostare la temperatura interna di un dispositivo.
+## <a name="invoke-a-method-on-your-device"></a>Richiamare un metodo sul dispositivo
+Il dashboard nella soluzione di monitoraggio remoto consente di richiamare metodi sui dispositivi tramite l'hub IoT. Nella soluzione di monitoraggio remota, ad esempio, è possibile richiamare un metodo per simulare il riavvio di un dispositivo.
 
 1. Nel dashboard della soluzione di monitoraggio remoto fare clic su **Dispositivi** nel pannello di sinistra per passare a **Elenco dispositivi**.
 2. In **Elenco dispositivi** fare clic sull'**ID** del proprio dispositivo.
-3. Nel pannello **Dettagli dispositivo** fare clic su **Comandi**.
+3. Nel pannello **Dettagli dispositivo** fare clic su **Metodi**.
    
-    ![][13]
-4. Nell'elenco a discesa **Comando** selezionare **SetTemperature** e quindi in **Temperatura** immettere un nuovo valore di temperatura. Fare clic su **Inviare comando** per inviare il comando al dispositivo.
+    ![Metodi per il dispositivo][13]
+4. Nel menu a discesa **Metodi**, selezionare **InitiateFirmwareUpdate**, quindi in **FWPACKAGEURI** immettere un URL fittizio. Fare clic su **Richiama metodo** per chiamare il metodo sul dispositivo.
    
-    ![][14]
+    ![Richiamare un metodo per il dispositivo][14]
    
-   > [!NOTE]
-   > La cronologia dei comandi mostra inizialmente lo stato del comando come **In sospeso**. Quando il dispositivo riconosce il comando, lo stato passa a **Esito positivo**.
-   > 
-   > 
-5. Nel dashboard, verificare che il dispositivo stia ora inviando 75 come nuovo valore di temperatura.
+
+5. Viene visualizzato un messaggio nella console che esegue il codice del dispositivo quando il dispositivo gestisce il metodo. I risultati del metodo vengono aggiunti alla cronologia nel portale delle soluzioni:
+
+    ![Visualizzare la cronologia del metodo][img-method-history]
 
 ## <a name="next-steps"></a>Passaggi successivi
-L'articolo sulla [personalizzazione delle soluzioni preconfigurate][lnk-customize] descrive alcuni modi per estendere questo esempio. Le estensioni possibili comprendono l'utilizzo di sensori reali e implementazione di comandi aggiuntivi.
+L'articolo [Personalizzazione delle soluzioni preconfigurate][lnk-customize] descrive alcuni modi per estendere questo esempio. Le estensioni possibili comprendono l'utilizzo di sensori reali e implementazione di comandi aggiuntivi.
 
-Per altre informazioni, vedere [Autorizzazioni per il sito azureiotsuite.com][lnk-permissions].
+Per altre informazioni sulle [autorizzazioni visitare il sito azureiotsuite.com][lnk-permissions].
 
 [13]: ./media/iot-suite-visualize-connecting/suite4.png
 [14]: ./media/iot-suite-visualize-connecting/suite7-1.png
 [18]: ./media/iot-suite-visualize-connecting/suite10.png
 [img-telemetry]: ./media/iot-suite-visualize-connecting/telemetry.png
+[img-method-history]: ./media/iot-suite-visualize-connecting/history.png
 [lnk-customize]: ../articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-permissions]: ../articles/iot-suite/iot-suite-permissions.md
-
-
-<!--HONumber=Nov16_HO3-->
-
-

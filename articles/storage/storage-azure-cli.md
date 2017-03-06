@@ -1,6 +1,6 @@
 ---
-title: Uso dell&quot;interfaccia della riga di comando di Azure 2.0 (Anteprima) con Archiviazione di Azure | Documentazione Microsoft
-description: "Informazioni su come usare l&quot;interfaccia della riga di comando di Azure 2.0 (Anteprima) con Archiviazione di Azure per creare e gestire gli account di archiviazione e usare file e BLOB di Azure. L&quot;interfaccia della riga di comando di Azure 2.0 è uno strumento multipiattaforma."
+title: Uso dell&quot;interfaccia della riga di comando di Azure 2.0 con Archiviazione di Azure | Documentazione Microsoft
+description: "Informazioni su come usare l&quot;interfaccia della riga di comando di Azure 2.0 con Archiviazione di Azure per creare e gestire gli account di archiviazione e usare file e BLOB di Azure. L&quot;interfaccia della riga di comando di Azure 2.0 è uno strumento multipiattaforma compilato in Python."
 services: storage
 documentationcenter: na
 author: mmacy
@@ -12,21 +12,22 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 02/18/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
-ms.openlocfilehash: 9a9ae2758aba17f35b7262560f8d980404ecd394
+ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
+ms.openlocfilehash: 5008bb0292bc7513a6264ff1768976fd5ba11bfa
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="using-the-azure-cli-20-preview-with-azure-storage"></a>Uso dell'interfaccia della riga di comando di Azure 2.0 (Anteprima) con Archiviazione di Azure
+# <a name="using-the-azure-cli-20-with-azure-storage"></a>Uso dell'interfaccia della riga di comando di Azure 2.0 con Archiviazione di Azure
 
 ## <a name="overview"></a>Panoramica
 
-L'interfaccia della riga di comando di Azure 2.0 (Anteprima), open-source e multipiattaforma, offre un insieme di comandi per usare la piattaforma Azure. Fornisce gran parte delle funzionalità disponibili nel [portale di Azure](https://portal.azure.com) incluso l'accesso ai dati complessi.
+L'interfaccia della riga di comando di Azure 2.0, open-source e multipiattaforma, offre un insieme di comandi per usare la piattaforma Azure. Fornisce gran parte delle funzionalità disponibili nel [portale di Azure](https://portal.azure.com) incluso l'accesso ai dati complessi.
 
-Questa guida illustra come usare l'[interfaccia della riga di comando di Azure 2.0 (Anteprima)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) per eseguire diverse attività con le risorse nell'account di Archiviazione di Azure. Prima di usare questa guida, si consiglia di scaricare e installare oppure di aggiornare il sistema alla versione più recente dell'interfaccia della riga di comando 2.0.
+Questa guida illustra come usare l'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) per eseguire diverse attività con le risorse nell'account di Archiviazione di Azure. Prima di usare questa guida, si consiglia di scaricare e installare oppure di aggiornare il sistema alla versione più recente dell'interfaccia della riga di comando 2.0.
 
 Gli esempi di questa guida presuppongono l'uso della shell Bash in Ubuntu, ma la procedura dovrebbe funzionare in modo simile anche nelle altre piattaforme. 
 
@@ -39,9 +40,9 @@ Questa guida si presuppone che si conoscano i concetti di base dell'archiviazion
 * **Account Azure**: se non si ha già una sottoscrizione di Azure, [creare un account Azure gratuito](https://azure.microsoft.com/free/).
 * **Account di archiviazione**: vedere [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) in [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md).
 
-### <a name="install-the-azure-cli-20-preview"></a>Installare l'interfaccia della riga di comando di Azure 2.0 (Anteprima)
+### <a name="install-the-azure-cli-20"></a>Installare l'interfaccia della riga di comando di Azure 2.0.
 
-Scaricare e installare l'interfaccia della riga di comando di Azure 2.0 (Anteprima) seguendo le istruzioni riportate in [Installare l'interfaccia della riga di comando di Azure 2.0 (Anteprima)](/cli/azure/install-az-cli2).
+Scaricare e installare l'interfaccia della riga di comando di Azure 2.0 seguendo le istruzioni riportate in [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2).
 
 > [!TIP]
 > Se si riscontrano problemi con l'installazione, consultare la sezione [Installation Troubleshooting](/cli/azure/install-az-cli2#installation-troubleshooting) (Risoluzione dei problemi di installazione) dell'articolo e la guida [Install Troubleshooting](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) (Risoluzione dei problemi di installazione) su GitHub.
@@ -70,21 +71,24 @@ Here are the base commands:
                 resources.
     appservice: Commands to manage your Azure web apps and App Service plans.
     cloud     : Manage the Azure clouds registered.
-    component : Commands to manage and update Azure CLI 2.0 (Preview) components.
-    configure : Configure Azure CLI 2.0 Preview or view your configuration. The command is
+    component : Commands to manage and update Azure CLI 2.0 components.
+    configure : Configure Azure CLI 2.0 or view your configuration. The command is
                 interactive, so just type `az configure` and respond to the prompts.
     container : Set up automated builds and deployments for multi-container Docker applications.
-    context   : Manage contexts.
+    disk      : Commands to manage 'Managed Disks'.
     feature   : Commands to manage resource provider features, such as previews.
     feedback  : Loving or hating the CLI?  Let us know!
     group     : Commands to manage resource groups.
+    image     : Commands to manage custom virtual machine images based on managed disks/snapshots.
+    lock
     login     : Log in to access Azure subscriptions.
-    logout    : Log out to remove accesses to Azure subscriptions.
+    logout    : Log out to remove access to Azure subscriptions.
     network   : Manages Network resources.
     policy    : Commands to manage resource policies.
     provider  : Manage resource providers.
     resource  : Generic commands to manage Azure resources.
     role      : Use role assignments to manage access to your Azure resources.
+    snapshot  : Commands to manage snapshots.
     storage   : Durable, highly available, and massively scalable cloud storage.
     tag       : Manage resource tags.
     vm        : Provision Linux and Windows virtual machines in minutes.
@@ -191,7 +195,7 @@ test_blob.txt
 Done
 ```
 
-> [!NOTE]
+> [!TIP]
 > L'output precedente è in formato **tabella**. È possibile specificare il formato di output da usare specificando l'argomento `--output` nei comandi dell'interfaccia della riga di comando oppure impostarlo a livello globale tramite `az configure`.
 >
 
@@ -344,32 +348,19 @@ az storage file list -s myshare/myDir
 az storage file list -s myshare -p myDir/mySubDir/MySubDir2
 ```
 
-### <a name="copy-files"></a>Copiare i file      
+### <a name="copy-files"></a>Copiare i file        
 È possibile copiare un file in un altro file, un file in un BLOB o un BLOB in un file. Ad esempio, per copiare un file in una directory di un'altra condivisione:        
         
 ```azurecli
-# Get the URL for the source file you want to copy
-az storage file url -s myshare -p /mydir/image.png
-
-# Copy the file to another share
 az storage file copy start \
-    --source-uri https://mystorageaccount.file.core.windows.net/myshare/mydir/image.png \   
-    --destination-share myshare2 --destination-path mydir2/image.png        
+--source-share share1 --source-path dir1/file.txt \
+--destination-share share2 --destination-path dir2/file.txt        
 ```
 
-> [!NOTE]
-> Un problema noto nell'interfaccia della riga di comando 2.0 (Anteprima) impedisce l'uso di `--source-share` e `--source-path`. È possibile usare l'argomento `--source-uri` come soluzione temporanea finché il problema non sarà risolto.
->
-
 ## <a name="next-steps"></a>Passaggi successivi
-Di seguito sono riportate altre risorse con altre informazioni sull'uso dell'interfaccia della riga di comando di Azure 2.0 (Anteprima).
+Di seguito sono segnalate altre risorse relative all'utilizzo dell'interfaccia della riga di comando di Azure 2.0.
 
-* [Introduzione all'interfaccia della riga di comando di Azure 2.0 (Anteprima)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
-* [Riferimento ai comandi dell'interfaccia della riga di comando di Azure 2.0 (Anteprima)](/cli/azure)
-* [Interfaccia della riga di comando di Azure 2.0 (Anteprima) su GitHub](https://github.com/Azure/azure-cli)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
+* [Introduzione all'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
+* [Riferimento ai comandi dell'interfaccia della riga di comando di Azure 2.0](/cli/azure)
+* [Interfaccia della riga di comando di Azure 2.0 su GitHub](https://github.com/Azure/azure-cli)
 

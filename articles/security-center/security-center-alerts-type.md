@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/06/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: bdd7d3d6e532efe7c3ed8225dd29a895725f2ff9
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 9ee2d2ef7b21fab8cfc4a70561d612be7367d366
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -182,7 +183,7 @@ Esempio di questo tipo di avviso:
 ![DoS in uscita](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)
 
 ## <a name="resource-analysis"></a>Analisi delle risorse
-L'analisi delle risorse del Centro sicurezza si concentra sui servizi PaaS, ad esempio l'integrazione con la funzione di [rilevamento delle minacce nel database SQL di Azure](../sql-database/sql-database-threat-detection-get-started.md) . In base ai risultati dell'analisi di queste aree, Centro sicurezza attiva un avviso correlato alle risorse.
+L'analisi delle risorse del Centro sicurezza si concentra sui servizi PaaS, ad esempio l'integrazione con la funzione di [rilevamento delle minacce nel database SQL di Azure](../sql-database/sql-database-threat-detection.md). In base ai risultati dell'analisi di queste aree, Centro sicurezza attiva un avviso correlato alle risorse.
 
 ### <a name="potential-sql-injection"></a>Potenziale attacco SQL injection
 In un attacco SQL injection, il malware viene inserito in stringhe che vengono successivamente passate a un'istanza di SQL Server per l'analisi e l'esecuzione. È consigliabile verificare la presenza di vulnerabilità a questo tipo di attacco in qualsiasi procedura che crea istruzioni SQL, perché SQL Server esegue tutte le query sintatticamente valide che riceve. Il rilevamento delle minacce SQL usa Machine Learning, l'analisi del comportamento e il rilevamento delle anomalie per individuare eventi sospetti che possono verificarsi nei database SQL di Azure. Ad esempio:
@@ -213,9 +214,4 @@ In questo documento sono stati descritti i diversi tipi di avvisi di sicurezza d
 * [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md)
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/) : post di blog sulla sicurezza e sulla conformità di Azure.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
