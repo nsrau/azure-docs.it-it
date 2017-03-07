@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: dddcd8baea7694d957820870b2f991a35200d0ca
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -35,10 +36,4 @@ Perché sia possibile analizzare il problema, assicurarsi di indicare i dati seg
 È possibile inviare commenti e suggerimenti su Servizi di dominio Azure AD tramite il **[sito dedicato di Azure Active Director](https://feedback.azure.com/forums/169401-azure-active-directory/)**.
 
 Per contattare Microsoft, assicurarsi di anteporre alla domanda o al commento/suggerimento le parole **"AADDS"**.
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 
