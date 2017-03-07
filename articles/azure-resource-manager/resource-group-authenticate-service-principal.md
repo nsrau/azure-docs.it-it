@@ -221,7 +221,8 @@ La versione di PowerShell disponibile con Windows 10 e Windows Server 2016 Techn
      Dopodiché, generare il certificato.
   
   ```powershell
-  $cert = New-SelfSignedCertificateEx -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
+  New-SelfSignedCertificateEx  -StoreLocation CurrentUser -StoreName My -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
+  $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'CN=exampleapp' }
   ```
 
 Ora si dispone del certificato e si può procedere con la creazione dell'app AD.
