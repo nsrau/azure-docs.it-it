@@ -25,8 +25,3 @@
 # Risorse correlate
 ## [Azure Active Directory](/azure/active-directory/)
 ## [Controllo di accesso in base al ruolo](../role-based-access-control-what-is.md)
-
-
-<!--HONumber=Jan17_HO3-->
-
-
