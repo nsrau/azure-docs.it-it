@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 02/01/2017
+ms.date: 03/03/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: 5d8fa8328bb2257b77a27fc2fa33565e20000e10
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 3f8ad9bf72555b9ab19af4c7a15f66b982fe66fe
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -118,7 +118,8 @@ Altre funzionalità continueranno a essere aggiunte alla versione&12;. È quindi
 | PolyBase | [Supportato](https://msdn.microsoft.com/library/mt143171.aspx) | [Non supportato]
 | Gestione basata su criteri | [Supportato](https://msdn.microsoft.com/library/bb510667.aspx) | Non supportate |
 | Predicati | [Supportato](https://msdn.microsoft.com/library/ms189523.aspx) | [La maggior parte](https://msdn.microsoft.com/library/ms189523.aspx)
-| Resource governor | [Supportato](https://msdn.microsoft.com/library/bb933866.aspx) | [Predefinito](sql-database-service-tiers.md) |
+| Servizi R | [Supportato](https://msdn.microsoft.com/library/mt604845.aspx)
+| Resource governor | [Supportato](https://msdn.microsoft.com/library/bb933866.aspx) | Non supportate |
 | Ripristino del database da backup | [Supportato](https://msdn.microsoft.com/library/ms187048.aspx#anchor_6) | [Solo da backup predefiniti](sql-database-recovery-using-backups.md) |
 | Sicurezza a livello di riga | [Supportato](https://msdn.microsoft.com/library/dn765131.aspx) | [Supportato](https://msdn.microsoft.com/library/dn765131.aspx) |
 | Istruzioni per la sicurezza | [Supportato](https://msdn.microsoft.com/library/ff848791.aspx) | [Alcuni](https://msdn.microsoft.com/library/ff848791.aspx) |
