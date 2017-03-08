@@ -1,5 +1,5 @@
 ---
-title: Cosa fare in caso di un&quot;interruzione di servizio di Azure che influisce sulle macchine virtuali di Azure | Microsoft Docs
+title: Scenari di ripristino di emergenza per macchine virtuali di Azure | Documentazione Microsoft
 description: Informazioni su cosa fare in caso di un&quot;interruzione di servizio di Azure che influisce sulle macchine virtuali di Azure.
 services: virtual-machines
 documentationcenter: 
@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: kmouss;aglick
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e1c0a6c0b375d9f1fbc331736f6bed73c2232048
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: a70f30f380bf110271cb597d8755611da5d2d78c
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-virtual-machines"></a>Cosa fare in caso di un'interruzione di servizio di Azure che influisce sulle macchine virtuali di Azure
+# <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-vms"></a>Cosa fare in caso di un'interruzione di servizio di Azure che influisce sulle macchine virtuali di Azure
 Microsoft si impegna costantemente per garantire agli utenti la disponibilità dei servizi in base alle esigenze. Eventi imprevisti possono, tuttavia, causare interruzioni non pianificate dei servizi.
 
 La connettività e la disponibilità dei servizi Microsoft sono garantite da un contratto di servizio. I contratti di servizio relativi ai singoli servizi di Azure sono disponibili alla pagina [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/).
@@ -76,10 +78,5 @@ Per informazioni su come eseguire il backup di macchine virtuali, vedere [Esegui
 Per informazioni su come usare Azure Site Recovery per orchestrare e automatizzare la protezione di computer e macchine virtuali Windows e Linux in esecuzione in macchine virtuali Hyper-V e VMWare, vedere [Site Recovery](https://azure.microsoft.com/documentation/learning-paths/site-recovery/).
 
 Per chiarimenti sulle istruzioni o per chiedere a Microsoft di eseguire le operazioni per proprio conto, contattare il [supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

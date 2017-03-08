@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: richrund
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: cab40991e5b0628f422b9eb91130d8135c1434f1
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: 3bb103a8def2e1c56695169568c2d3c64b7f291f
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="connect-azure-virtual-machines-to-log-analytics"></a>Connettere macchine virtuali di Azure a Log Analytics
+# <a name="connect-azure-virtual-machines-to-log-analytics-with-a-log-analytics-agent"></a>Connettere macchine virtuali di Azure a Log Analytics con un agente Log Analytics
+
 Nei computer Windows e Linux, è consigliabile raccogliere log e metriche installando l'agente di Log Analytics.
 
 Il modo più semplice per installare l'agente di Log Analytics nelle VM di Azure è tramite l'estensione macchina virtuale di Log Analytics.  L'uso dell'estensione macchina virtuale consente di semplificare il processo di installazione e di configurare automaticamente l'agente per l'invio di dati all'area di lavoro di Log Analytics specificata. L'agente viene anche aggiornato automaticamente in modo da garantire la presenza delle funzionalità e delle correzioni più recenti.
@@ -34,8 +37,8 @@ Quando si usa la raccolta basata su agenti per i dati di log, è necessario conf
 
 > [!IMPORTANT]
 > Se si configura Log Analytics per indicizzare i dati di log usando [Diagnostica di Azure](log-analytics-azure-storage.md) e si configura l'agente per raccogliere gli stessi log, i log verranno raccolti due volte e verranno addebitati costi per entrambe le origini dati. Se è installato l'agente, è consigliabile raccogliere i dati di log usando solo l'agente e non configurare Log Analytics per raccogliere i dati di log da Diagnostica di Azure.
-> 
-> 
+>
+>
 
 È possibile abilitare l'estensione macchina virtuale di Log Analytics in tre semplici modi:
 
@@ -400,10 +403,4 @@ Per i computer non inclusi in Azure è possibile installare l'agente di Log Anal
 
 * [Connettere computer Windows a Log Analytics](log-analytics-windows-agents.md)
 * [Connettere computer Linux a Log Analytics](log-analytics-linux-agents.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

@@ -17,6 +17,7 @@ ms.author: muralikk
 translationtype: Human Translation
 ms.sourcegitcommit: 787f54ca2c19d87866ede452ea1cce0b1c37f263
 ms.openlocfilehash: 50f66d229b80489e429b5db3f2c6cc5787b6884c
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -348,7 +349,7 @@ Per istruzioni più dettagliate, vedere anche [Flusso di lavoro di esempio per p
    
    Se è disponibile il numero di tracciabilità, selezionare il vettore di consegna dall'elenco e immettere tale numero.
    
-   Se non si dispone ancora di un numero di spedizione, scegliere **I will provide my shipping information for this import job once I have shipped my package**, quindi completare il processo di importazione.
+   Se non si dispone ancora di un numero di spedizione, scegliere **Fornirò le informazioni sulla spedizione per questo processo di esportazione dopo aver spedito il pacchetto**, quindi completare il processo di importazione.
 6. Per immettere il numero di spedizione dopo aver spedito il pacchetto, tornare nella pagina **Importazione/Esportazione** dell'account di archiviazione nel portale di Azure, selezionare il processo dall'elenco e scegliere **Informazioni sulla spedizione**. Nella procedura guidata, immettere il numero di spedizione nel passaggio 2.
    
     Se il numero di tracciabilità non viene aggiornato entro due settimane dalla creazione del processo, il processo scadrà.
@@ -487,7 +488,7 @@ Alcuni percorsi dell'account di archiviazione sono mappati a indirizzi di spediz
 
 Il numero di telefono viene fornito all'utente durante la creazione del processo. Se è richiesto un nome di contatto, rivolgersi a waimportexport@microsoft.com per ottenere tali informazioni.
 
-**È possibile usare il servizio Importazione/Esportazione di Azure per copiare cassette postali PST e dati di SharePoint in Office 365?**
+**È possibile usare il servizio Importazione/Esportazione di Azure per copiare cassette postali PST e dati di SharePoint in Office&365;?**
 
 Vedere [Importare file PST o dati di SharePoint in Office 365](https://technet.microsoft.com/library/ms.o365.cc.ingestionhelp.aspx).
 
@@ -499,10 +500,5 @@ Vedere [Flusso di lavoro di Backup offline in Backup di Azure](../backup/backup-
 * [Setting up the WAImportExport tool](storage-import-export-tool-how-to.md) (Configurazione dello strumento WAImportExport)
 * [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 * [Esempio di API REST del servizio Importazione/Esportazione di Azure](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 02/24/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 920b5feee8e94af5b98e8dffc127da4085bac597
+ms.sourcegitcommit: c6e2ecebf6cd1b246c155c158d12d4d83bd1feda
+ms.openlocfilehash: bda2da933accb769bae4c9b420ae330014fc2ba0
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -70,8 +71,8 @@ La tabella seguente mostra alcuni esempi di query nei log che recuperano i recor
 
 | Query | Descrizione |
 |:--- |:--- |
-| Tipo=IISLog |Tutti i record del log di IIS. |
-| Tipo=IISLog EventLevelName=error |Tutti gli eventi di Windows con livello di gravità dell'errore. |
+| Type=W3CIISLog |Tutti i record del log di IIS. |
+| Type=W3CIISLog scStatus=500 |Tutti i record del log IIS con stato restituito pari a 500. |
 | Tipo=W3CIISLog &#124; Measure count() by cIP |Numero di voci del log di IIS in base all'indirizzo IP del client. |
 | Tipo=W3CIISLog csHost="www.contoso.com" &#124; Measure count() by csUriStem |Numero di voci del log di IIS per ULR per l'host www.contoso.com. |
 | Tipo=W3CIISLog &#124; Measure Sum(csBytes) by Computer &#124; top 500000 |Numero totale di byte ricevuti da ogni computer che esegue IIS. |
@@ -80,10 +81,5 @@ La tabella seguente mostra alcuni esempi di query nei log che recuperano i recor
 * Configurare Log Analytics per raccogliere altre [origini dati](log-analytics-data-sources.md) per l'analisi.
 * Informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.
 * Configurare gli avvisi di Log Analytics per notificare in modo proattivo le condizioni importanti riscontrate nei log di IIS.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

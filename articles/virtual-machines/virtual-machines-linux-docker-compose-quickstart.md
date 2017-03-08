@@ -16,12 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 9fc3f1fbe9ab03257d613e31f5890a63d1aeba1f
-ms.openlocfilehash: 70796d5dc7c1a47d65d51d4873705606ef32c869
+ms.sourcegitcommit: 0240ecede4afc937972f81ca8536b3b05e905deb
+ms.openlocfilehash: 8389b743dec50e3de0e13e023ef43e4f706eb477
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-on-an-azure-virtual-machine"></a>Introduzione a Docker e Compose per la definizione e l'esecuzione di un'applicazione multi-contenitore in una macchina virtuale di Azure
+# <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Introduzione a Docker e Compose per la definizione e l'esecuzione di un'applicazione multi-contenitore in Azure
 Con [Compose](http://github.com/docker/compose) si usa un file di testo semplice per definire un'applicazione costituita da più contenitori Docker. Si avvia quindi l'applicazione mediante un unico comando che effettua le operazioni necessarie per distribuire l'ambiente definito. Come esempio, questo articolo illustra come configurare rapidamente un blog WordPress con un database SQL MariaDB back-end in una macchina virtuale di Ubuntu. È possibile usare Compose anche per configurare applicazioni più complesse.
 
 ## <a name="step-1-set-up-a-linux-vm-as-a-docker-host"></a>Passaggio 1: configurare una macchina virtuale Linux come host Docker
@@ -29,28 +30,11 @@ Con [Compose](http://github.com/docker/compose) si usa un file di testo semplice
 
 Quando si usa l'estensione di VM Docker, la macchina virtuale viene automaticamente configurata come host Docker e Compose è già installato. È possibile creare una macchina virtuale e usare l'estensione di VM Docker tramite una delle seguenti versioni dell'interfaccia della riga di comando:
 
+- [Interfaccia della riga di comando di Azure 2.0](#azure-cli-20): interfaccia della riga di comando di prossima generazione per il modello di distribuzione di Gestione risorsa
 - [Interfaccia della riga di comando di Azure 1.0](#azure-cli-10): l'interfaccia della riga di comando per i modelli di distribuzione classici e di gestione delle risorse
-- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](#azure-cli-20-preview): l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse
 
-
-### <a name="azure-cli-10"></a>Interfaccia della riga di comando di Azure 1.0
-Installare la versione più recente, [Interfaccia della riga di comando di Azure 1.0](../xplat-cli-install.md), e accedere a un account Azure. Verificare di usare la modalità di Resource Manager per creare la macchina virtuale (`azure config mode arm`).
-
-L'esempio seguente consente di creare un gruppo di risorse denominato `myResourceGroup` nel percorso `West US`, distribuendo una VM con l'estensione di VM Docker di Azure. Per distribuire l'ambiente, viene usato un [modello di Azure Resource Manager da Github](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu):
-
-```azurecli
-azure group create --name myResourceGroup --location "West US" \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
-```
-
-L'interfaccia della riga di comando di Azure riporta l'utente al prompt dopo alcuni secondi, ma la creazione e la configurazione dell'host Docker sono ancora in corso. L'operazione di distribuzione richiede alcuni minuti. È possibile visualizzare i dettagli sullo stato dell'host Docker con il comando `azure vm show`. Nell'esempio seguente viene eseguito il controllo dello stato della VM denominata `myDockerVM` (il nome predefinito del modello, non modificare questo nome) che appartiene al gruppo di risorse `myResourceGroup`. Immettere il nome del gruppo di risorse creato nel passaggio precedente:
-
-```azurecli
-azure vm show --resource-group myResourceGroup --name myDockerVM
-```
-
-### <a name="azure-cli-20-preview"></a>Interfaccia della riga di comando di Azure 2.0 (anteprima)
-Installare l'[Interfaccia della riga di comando di Azure 2.0 (Anteprima)](/cli/azure/install-az-cli2) e accedere a un account di Azure tramite il comando [az login](/cli/azure/#login).
+### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
+Installare la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e accedere a un account Azure tramite il comando [az login](/cli/azure/#login).
 
 Innanzitutto, creare un gruppo di risorse per l'ambiente di Docker con il comando [az group create](/cli/azure/group#create). Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nella località `West US`:
 
@@ -80,8 +64,24 @@ az vm show --resource-group myResourceGroup --name myDockerVM \
 
 Quando questo comando restituisce `Succeeded`, la distribuzione è stata completata ed è possibile configurare SSH sulla macchina virtuale nel passaggio seguente.
 
+### <a name="azure-cli-10"></a>Interfaccia della riga di comando di Azure 1.0
+Installare la versione più recente, [Interfaccia della riga di comando di Azure 1.0](../xplat-cli-install.md), e accedere a un account Azure. Verificare di usare la modalità di Resource Manager per creare la macchina virtuale (`azure config mode arm`).
+
+L'esempio seguente consente di creare un gruppo di risorse denominato `myResourceGroup` nel percorso `West US`, distribuendo una VM con l'estensione di VM Docker di Azure. Per distribuire l'ambiente, viene usato un [modello di Azure Resource Manager da Github](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu):
+
+```azurecli
+azure group create --name myResourceGroup --location "West US" \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
+```
+
+L'interfaccia della riga di comando di Azure riporta l'utente al prompt dopo alcuni secondi, ma la creazione e la configurazione dell'host Docker sono ancora in corso. L'operazione di distribuzione richiede alcuni minuti. È possibile visualizzare i dettagli sullo stato dell'host Docker con il comando `azure vm show`. Nell'esempio seguente viene eseguito il controllo dello stato della VM denominata `myDockerVM` (il nome predefinito del modello, non modificare questo nome) che appartiene al gruppo di risorse `myResourceGroup`. Immettere il nome del gruppo di risorse creato nel passaggio precedente:
+
+```azurecli
+azure vm show --resource-group myResourceGroup --name myDockerVM
+```
+
 ## <a name="step-2-verify-that-compose-is-installed"></a>Passaggio 2: Verificare che Compose sia installato
-Al termine della distribuzione, stabilire una connessione SSH al nuovo host Docker con il nome DNS specificato durante la distribuzione. È possibile usare `azure vm show -g myResourceGroup -n myDockerVM`(Interfaccia della riga di comando di Azure 1.0) or `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv` (Interfaccia della riga di comando di Azure 2.0 (Anteprima)) per visualizzare i dettagli della VM, incluso il nome DNS.
+Al termine della distribuzione, stabilire una connessione SSH al nuovo host Docker con il nome DNS specificato durante la distribuzione. È possibile usare `azure vm show -g myResourceGroup -n myDockerVM` (Interfaccia della riga di comando di Azure 1.0) o `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv` (Interfaccia della riga di comando di Azure 2.0) per visualizzare i dettagli della macchina virtuale, incluso il nome DNS.
 
 Per verificare l'installazione di Compose nella macchina virtuale, eseguire il comando seguente:
 
@@ -170,9 +170,4 @@ Ora è possibile connettersi a WordPress direttamente nella VM dalla porta 80. A
 <!--Image references-->
 
 [wordpress_start]: ./media/virtual-machines-linux-docker-compose-quickstart/WordPress.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

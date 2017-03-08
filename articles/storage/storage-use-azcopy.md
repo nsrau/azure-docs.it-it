@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: a2d0f959bfcae54367512db1f63e22c866c35671
-ms.openlocfilehash: ca26ad38722560054aef1a153b9b95296d8bb021
+ms.sourcegitcommit: e1c4342897fe6cf57e323a82e04e10473b3ece30
+ms.openlocfilehash: 777b84d9aa59f773345c1925c3c6467dc64d2d34
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -308,23 +309,25 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfiles
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S
 ```
+Quando si copia un file tra condivisioni file, viene eseguita un'operazione di [copia sul lato server](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx).
 
 ### <a name="copy-from-file-share-to-blob"></a>Copiare dalla condivisione file al BLOB
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare/ /Dest:https://myaccount2.blob.core.windows.net/mycontainer/ /SourceKey:key1 /DestKey:key2 /S
 ```
+Quando si copia un file dalla condivisione file al BLOB, viene eseguita un'operazione di [copia sul lato server](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx).
 
-Si noti che la copia asincrona da Archiviazione file a BLOB di pagine non è supportata.
 
 ### <a name="copy-from-blob-to-file-share"></a>Copy dal BLOB alla condivisione file
 
 ```azcopy
 AzCopy /Source:https://myaccount1.blob.core.windows.net/mycontainer/ /Dest:https://myaccount2.file.core.windows.net/myfileshare/ /SourceKey:key1 /DestKey:key2 /S
 ```
+Quando si copia un file dal BLOB alla condivisione file, viene eseguita un'operazione di [copia sul lato server](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx).
 
 ### <a name="synchronously-copy-files"></a>Copiare file in modo sincrono
-È possibile specificare l'opzione `/SyncCopy` per copiare i dati da archiviazione file ad archiviazione file, da archiviazione file ad archivio BLOB e da archivio BLOB ad archiviazione file in modo sincrono. AzCopy esegue questa operazione scaricando i dati di origine nella memoria locale e caricandoli di nuovo nella destinazione.
+È possibile specificare l'opzione `/SyncCopy` per copiare i dati da archiviazione file ad archiviazione file, da archiviazione file ad archivio BLOB e da archivio BLOB ad archiviazione file in modo sincrono. AzCopy esegue questa operazione scaricando i dati di origine nella memoria locale e caricandoli di nuovo nella destinazione. Verranno applicati i costi in uscita standard.
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
@@ -767,7 +770,7 @@ Gli attributi disponibili sono:
 ### <a name="delimiterdelimiter"></a>/Delimiter:"delimiter"
 Indica il delimitatore usato per delimitare le directory virtuali in un nome BLOB.
 
-Per impostazione predefinita, AzCopy usa il carattere / come delimitatore. Tuttavia, a questo scopo supporta anche l'uso di caratteri comuni, ad esempio @,, # o %. Se è necessario includere uno di questi caratteri speciali nella riga di comando, racchiudere il nome del file tra virgolette doppie.
+Per impostazione predefinita, AzCopy usa il carattere / come delimitatore. Tuttavia, a questo scopo supporta anche l'uso di caratteri comuni, ad esempio @, # o %. Se è necessario includere uno di questi caratteri speciali nella riga di comando, racchiudere il nome del file tra virgolette doppie.
 
 Questa opzione si applica solo per il download di BLOB.
 
@@ -904,10 +907,5 @@ Per altre informazioni su Archiviazione di Azure e AzCopy, vedere le risorse seg
 * [AzCopy:trasferimento di dati con modalità riavviabile e token di firma di accesso condiviso](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 * [AzCopy: uso del comando di copia dei BLOB tra account](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 * [AzCopy: Caricamento e download di file per BLOB di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

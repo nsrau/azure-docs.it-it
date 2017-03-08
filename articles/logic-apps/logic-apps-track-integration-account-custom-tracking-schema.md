@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: padmavc
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d090ce5a912a2079d2e47d13caf60ca701f0e548
-ms.openlocfilehash: a3bb9851d0f7e6f40f456f7989ae949fb38549e0
+ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
+ms.openlocfilehash: 9a663a4e79c30b97e6390b7ff7f83deec131384a
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="custom-tracking-schemas"></a>Schemi di rilevamento personalizzati
-È possibile usare uno schema di rilevamento personalizzato nell'account di integrazione di Azure per monitorare le transazioni business-to-business (B2B).
+# <a name="enable-tracking-to-monitor-your-complete-workflow-end-to-end"></a>Abilitare il rilevamento per monitorare il flusso di lavoro completo, end-to-end
+È disponibile un rilevamento predefinito che è possibile abilitare per diverse parti del flusso di lavoro Business to Business, ad esempio il rilevamento dei messaggi AS2 o X12. Quando si creano flussi di lavoro che includono app per la logica, BizTalk Server, SQL Server o qualsiasi altro livello, è possibile abilitare il rilevamento personalizzato che registra gli eventi dall'inizio alla fine del flusso di lavoro. 
+
+Questo argomento fornisce un codice personalizzato che è possibile usare nei livelli all'esterno di app per la logica. 
 
 ## <a name="custom-tracking-schema"></a>Schema di rilevamento personalizzato
 ````java
@@ -84,9 +88,4 @@ Per informazioni sugli schemi di rilevamento per il protocollo B2B, vedere:
 * Altre informazioni sul [monitoraggio dei messaggi B2B](logic-apps-monitor-b2b-message.md).   
 * Altre informazioni sul [rilevamento dei messaggi B2B nel portale di Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 * Altre informazioni su [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
