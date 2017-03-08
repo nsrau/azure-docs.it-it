@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 02/18/2017
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: 3a353bc874c1827f8a0fc85352894ad96cff16b5
-ms.openlocfilehash: e6ee3ea5e59e402d69ad255d2210d7092786c9d1
+ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
+ms.openlocfilehash: c208f44045ba414be2034f577435ae02ea4456cf
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -41,7 +42,7 @@ Per iniziare a usare gratuitamente Archiviazione Standard di Azure, visitare [qu
 Per informazioni su come creare una VM con Managed Disks, vedere uno degli articoli seguenti.
 
 * [Creare una VM con Resource Manager e PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
-* [Creare una VM Linux usando l'interfaccia della riga di comando di Azure 2.0 (anteprima)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Creare una VM Linux usando l'interfaccia della riga di comando di Azure 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
 
 ## <a name="standard-storage-features"></a>Funzionalità di Archiviazione Standard 
 
@@ -98,7 +99,7 @@ Per il servizio Archiviazione, il file VHD è un BLOB di pagine. È possibile cr
 
 È possibile creare [snapshot incrementali](storage-incremental-snapshots.md) dei dischi Standard non gestiti nello stesso modo in cui si usano gli snapshot con Archiviazione Standard. Se il disco di origine si trova in un account di archiviazione con ridondanza locale, è consigliabile creare gli snapshot e quindi copiarli in un account di archiviazione Standard con ridondanza geografica. Per altre informazioni, vedere [Opzioni di ridondanza di Archiviazione di Azure](storage-redundancy.md).
 
-Se un disco è collegato a una VM, alcune operazioni API non sono consentite sui dischi. Ad esempio, non è possibile eseguire un'operazione [Copy Blob](/rest/api/storageservices/fileservices/Copy-Blob) sul BLOB finché il disco è collegato a una macchina virtuale. Al contrario, è necessario creare innanzitutto uno snapshot del BLOB usando il metodo dell'API REST [Snapshot Blob](/rest/api/storageservices/fileservices/Snapshot-Blob), quindi eseguire l'operazione [Copy Blob](/rest/api/storageservices/fileservices/Copy-Blob) dello snapshot per copiare il disco collegato. In alternativa, è possibile scollegare il disco e quindi eseguire le operazioni necessarie.
+Se un disco è collegato a una macchina virtuale, alcune operazioni API non sono consentite sui dischi. Ad esempio, non è possibile eseguire un'operazione [Copy Blob](/rest/api/storageservices/fileservices/Copy-Blob) sul BLOB finché il disco è collegato a una macchina virtuale. Al contrario, è necessario creare innanzitutto uno snapshot del BLOB usando il metodo dell'API REST [Snapshot Blob](/rest/api/storageservices/fileservices/Snapshot-Blob), quindi eseguire l'operazione [Copy Blob](/rest/api/storageservices/fileservices/Copy-Blob) dello snapshot per copiare il disco collegato. In alternativa, è possibile scollegare il disco e quindi eseguire le operazioni necessarie.
 
 Per mantenere copie con ridondanza geografica degli snapshot, è possibile copiare gli snapshot da un account di archiviazione con ridondanza locale a un account di archiviazione Standard con ridondanza geografica usando AzCopy o Copy Blob. Per altre informazioni, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md) e [Copy Blob](/rest/api/storageservices/fileservices/Copy-Blob).
 
@@ -108,7 +109,7 @@ Per informazioni dettagliate sull'esecuzione di operazioni REST sui BLOB di pagi
 
 Uno snapshot di un disco gestito è una copia di sola lettura del disco gestito archiviata come disco gestito Standard. Gli snapshot incrementali non sono attualmente supportati per i dischi gestiti, ma saranno supportati in futuro.
 
-Se un disco gestito è collegato a una VM, alcune operazioni API non sono consentite sui dischi. Ad esempio, non è possibile generare una firma di accesso condiviso per eseguire un'operazione di copia mentre il disco è collegato a una VM. Creare invece prima di tutto uno snapshot del disco e quindi eseguire la copia dello snapshot. In alternativa, è possibile scollegare il disco e quindi generare una firma di accesso condiviso per eseguire l'operazione di copia.
+Se un disco gestito è collegato a una VM, alcune operazioni API non sono consentite sui dischi. Ad esempio, non è possibile generare una firma di accesso condiviso per eseguire un'operazione di copia mentre il disco è collegato a una macchina virtuale. Creare invece prima di tutto uno snapshot del disco e quindi eseguire la copia dello snapshot. In alternativa, è possibile scollegare il disco e quindi generare una firma di accesso condiviso per eseguire l'operazione di copia.
 
 ## <a name="pricing-and-billing"></a>Prezzi e fatturazione
 
@@ -140,7 +141,7 @@ Per informazioni dettagliate sui prezzi di Archiviazione Standard, Macchine virt
 
 È possibile eseguire il backup delle macchine virtuali con dischi non gestiti con Backup di Azure. [Altre informazioni](../backup/backup-azure-vms-first-look-arm.md).
 
-È anche possibile usare il servizio Backup di Azure con Managed Disks per creare un processo di backup con backup pianificati, facile ripristino delle VM e criteri di conservazione dei backup. Per altre informazioni in merito, vedere la sezione relativa all'[uso del servizio Backup di Azure per VM con dischi gestiti](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
+È anche possibile usare il servizio Backup di Azure con Managed Disks per creare un processo di backup con backup pianificati, facile ripristino delle macchine virtuali e criteri di conservazione dei backup. Per altre informazioni in merito, vedere la sezione relativa all'[uso del servizio Backup di Azure per macchine virtuali con dischi gestiti](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -152,9 +153,4 @@ Per informazioni dettagliate sui prezzi di Archiviazione Standard, Macchine virt
 
 * [Creare una VM con Resource Manager e PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
-* [Creare una VM Linux usando l'interfaccia della riga di comando di Azure 2.0 (anteprima)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
-
+* [Creare una VM Linux usando l'interfaccia della riga di comando di Azure 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)

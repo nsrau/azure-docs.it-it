@@ -14,11 +14,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: support-article
-ms.date: 11/28/2016
+ms.date: 03/07/2017
 ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: 2df9b83132711e199b58fa92841a3dca74c7282a
 ms.openlocfilehash: 0164ad801b11a6c6124df8106bd7b71b737f81f1
+ms.lasthandoff: 11/30/2016
 
 
 ---
@@ -143,10 +144,5 @@ Provare nuovamente la connessione dal computer. Se ancora non riesce, alcuni dei
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 Per ulteriori informazioni sulla risoluzione dei problemi di accesso dell'applicazione, vedere [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 
