@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 2/6/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 673b979520b0e6fd4d0b0c00d2be26c41d112677
-ms.openlocfilehash: f99effa72070bb8acd35fa95b1ea3219d64ace46
+ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
+ms.openlocfilehash: 8bc6ac01f1592d371abbb2df3ff6ecf4ee2a993c
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -24,12 +25,12 @@ Creare uno snapshot di un disco gestito per il backup o creare un disco gestito 
 
 Per informazioni sui prezzi, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/managed-disks/). <!--Add link to topic or blog post that explains managed disks. -->
 
-Usare il portale di Azure o l'interfaccia della riga di comando Azure 2.0 (Anteprima) per creare uno snapshot del disco gestito.
+Usare il portale di Azure o l'interfaccia della riga di comando Azure 2.0 per creare uno snapshot del disco gestito.
 
-## <a name="use-azure-cli-20-preview-to-take-a-snapshot"></a>Usare l'interfaccia della riga di comando Azure 2.0 (Anteprima) per creare uno snapshot
+## <a name="use-azure-cli-20-to-take-a-snapshot"></a>Usare l'interfaccia della riga di comando Azure 2.0 per creare uno snapshot
 
 > [!NOTE] 
-> L'esempio seguente richiede che sia installata l'interfaccia della riga di comando Azure 2.0 (Anteprima) e che venga eseguito l'accesso all'account Azure.
+> L'esempio seguente richiede che sia installata l'interfaccia della riga di comando Azure 2.0 e che venga eseguito l'accesso all'account Azure.
 
 La procedura seguente illustra come ottenere e creare uno snapshot di un disco del sistema operativo gestito usando il comando `az snapshot create` con il parametro `--source-disk`. Nell'esempio seguente si presuppone che esista una macchina virtuale denominata `myVM` creata con un disco del sistema operativo gestito nel gruppo di risorse `myResourceGroup`.
 
@@ -80,10 +81,5 @@ L'output dovrebbe essere simile a quanto segue:
 
 Se si prevede di usare lo snapshot per creare un disco gestito e associarlo a una macchina virtuale a prestazioni elevate, usare il parametro `--sku Premium_LRS` con il comando `az snapshot create`. In questo modo si crea lo snapshot in modo tale che venga archiviato come un disco gestito Premium. Managed Disks Premium offre prestazioni migliori perché consiste in unità SSD, ma con un costo superiore rispetto ai dischi Standard (HDD).
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

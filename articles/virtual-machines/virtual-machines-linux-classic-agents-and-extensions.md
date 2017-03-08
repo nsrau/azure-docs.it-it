@@ -1,6 +1,7 @@
+
 ---
 title: Agente ed estensioni di macchine virtuali Linux in Azure | Documentazione Microsoft
-description: Fornisce una panoramica dell&quot;agente e delle estensioni e informazioni su come installare l&quot;agente utilizzando il modello di distribuzione classica.
+description: Fornisce una panoramica dell&quot;agente e delle estensioni e informazioni su come installare l&quot;agente, usando il modello di distribuzione classica su macchine virtuali Linux.
 services: virtual-machines-linux
 documentationcenter: 
 author: squillace
@@ -13,23 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/23/2016
+ms.date: 03/02/2017
 ms.author: rasquill
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
-ms.openlocfilehash: 383e32eca05888c8bf08f80a413c0b64a9b4fb46
+ms.sourcegitcommit: 4e96285a093dffd43d78071f33cc28763be24804
+ms.openlocfilehash: 96a188344cd75d2e4a097fde9df09e9c302ea679
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="about-the-virtual-machine-agent-and-extensions"></a>Informazioni sull'agente e sulle estensioni di macchine virtuali
-> [!IMPORTANT] 
+# <a name="about-the-virtual-machine-agent-and-extensions-for-linux"></a>Informazioni sull'agente e sulle estensioni di macchine virtuali per Linux
+> [!IMPORTANT]
 > Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Per informazioni su agenti ed estensioni VM tramite Gestione risorse, vedere [qui](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-agents-and-extensions](../../includes/virtual-machines-common-classic-agents-and-extensions.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

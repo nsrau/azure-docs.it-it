@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 67b832253619afe789a4dfdb95893e8c0ae62bee
 ms.openlocfilehash: 17890fddf948ddc0e89a9107ac5fe65223cd05e1
+ms.lasthandoff: 01/30/2017
 
 ---
 
@@ -40,6 +41,7 @@ L'autenticazione pass-through può essere configurata tramite Azure AD Connect e
 >Gli ambienti a più foreste sono supportati se sono presenti relazioni di trust tra le foreste e se il routing nel suffisso del nome è configurato correttamente.
 
 ## <a name="supported-clients-in-the-preview"></a>Client supportati nell'anteprima
+
 L'autenticazione pass-through è supportata tramite i client basati su Web browser e i client di Office che supportano l'[autenticazione moderna](https://aka.ms/modernauthga). Per i client che non sono supportati, quali i client legacy di Office, Exchange Active Sync (client di posta elettronica nativi su dispositivi mobili), si consiglia di usare l'autenticazione moderna equivalente. Ciò non solo consente l'autenticazione pass-through, ma anche l'applicazione dell'accesso condizionale, ad esempio l'autenticazione a più fattori.
 
 Non è attualmente supportata l'autenticazione pass-through per i clienti che usano Windows 10 aggiunti ad Azure AD. Tuttavia, possono usare la sincronizzazione delle password come fallback automatico per Windows 10, oltre ai client legacy.
@@ -154,9 +156,4 @@ Altri errori segnalati nella schermata di accesso di Azure AD sono descritti di 
 |AADSTS80004|Il nome utente trasmesso al connettore non era valido|Assicurarsi che l'utente stia tentando di accedere con il nome utente corretto.
 |AADSTS80005|La convalida ha rilevato un errore WebException imprevedibile|Si tratta di un problema temporaneo. ripetere la richiesta. Se il problema persiste, contattare il supporto Microsoft.
 |AADSTS80007|Errore durante la comunicazione con Active Directory|Controllare i log del connettore per ulteriori informazioni e verificare che Active Directory funzioni come previsto.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

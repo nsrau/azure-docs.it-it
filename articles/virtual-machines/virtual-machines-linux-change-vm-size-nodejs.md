@@ -15,13 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2016
 ms.author: mwasson
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e7ca3b709bf2f09227b1607e4956ce021eab414a
-ms.openlocfilehash: ab52f1a4f568a7ef3c281e16636f61a063cda519
-
+ms.sourcegitcommit: b93844d55cf1c41e1e388d7bbaa3fedf88113423
+ms.openlocfilehash: bf28993330619a25fcf0bc79055be0d7453c2be4
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="how-to-resize-a-linux-vm"></a>Come ridimensionare una VM di Linux
+# <a name="resize-a-linux-vm-with-the-azure-cli-10"></a>Ridimensionare una VM Linux con l'interfaccia della riga di comando di Azure 1.0
+
 ## <a name="overview"></a>Panoramica
 Dopo aver eseguito il provisioning di una macchina virtuale (VM), è possibile scalare la macchina virtuale in verticale o orizzontale modificando le [dimensioni della VM][vm-sizes]. In alcuni casi, è necessario prima deallocare la macchina virtuale. Questa situazione può verificarsi se le nuove dimensioni non sono disponibili nel cluster hardware che ospita la VM.
 
@@ -33,7 +35,7 @@ Questo articolo illustra come ridimensionare una VM Linux mediante l'[interfacci
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - [Interfaccia della riga di comando di Azure 1.0](#resize-a-linux-vm): l'interfaccia della riga di comando per i modelli di distribuzione classica e di gestione delle risorse (questo articolo)
-- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](virtual-machines-linux-change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse
+- [Interfaccia della riga di comando di Azure 2.0](virtual-machines-linux-change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): interfaccia della riga di comando di prossima generazione per il modello di distribuzione di Gestione risorsa
 
 
 ## <a name="resize-a-linux-vm"></a>Ridimensionare una VM di Linux
@@ -79,9 +81,4 @@ Per una maggiore scalabilità, eseguire più istanze di VM e la scalabilità ori
 [boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/
 [scale-set]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md 
 [vm-sizes]: virtual-machines-linux-sizes.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

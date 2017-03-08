@@ -4,7 +4,7 @@ description: "Un&quot;esercitazione che illustra come distribuire un&quot;app We
 services: app-service
 documentationcenter: .net
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: 0752c802-8609-4956-a755-686116913645
 ms.service: app-service
@@ -15,18 +15,19 @@ ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin;riande
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 68764f29fde48631727371de05372a47e336a919
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: b23dfdcf99cab46bb4cedc690e00d29d37b3a044
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="deploy-an-aspnet-mvc-5-mobile-web-app-in-azure-app-service"></a>Distribuzione di un'app Web ASP.NET MVC 5 per dispositivi mobili nel servizio app di Azure
-In questa esercitazione verranno illustrate le nozioni di base per lo sviluppo di un'app Web ASP.NET MVC 5 per dispositivi mobili e la distribuzione di tale app nel servizio app di Azure. Ai fini di questa esercitazione, è necessario [Visual Studio Express 2013per il Web][Visual Studio Express 2013] o la versione professionale di Visual Studio, se già se ne dispone. È possibile utilizzare [Visual Studio 2015] , ma le schermate saranno diverse ed è necessario utilizzare i modelli ASP.NET 4.x.
+In questa esercitazione verranno illustrate le nozioni di base per lo sviluppo di un'app Web ASP.NET MVC 5 per dispositivi mobili e la distribuzione di tale app nel servizio app di Azure. Ai fini di questa esercitazione, è necessario disporre di [Visual Studio Express 2013 per il Web][Visual Studio Express 2013] o della versione professionale di Visual Studio. È possibile utilizzare [Visual Studio 2015] , ma le schermate saranno diverse ed è necessario utilizzare i modelli ASP.NET 4.x.
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="what-youll-build"></a>Scopo dell'esercitazione
-Ai fini di questa esercitazione, si aggiungeranno funzionalità per dispositivi mobili alla semplice applicazione di elenco conferenze fornita nel [progetto iniziale][StarterProject]. La schermata seguente mostra le sessioni ASP.NET nell'applicazione completata, così come vengono visualizzate nell'emulatore di browser negli strumenti di sviluppo F12 di Internet Explorer 11.
+Ai fini di questa esercitazione, si aggiungeranno funzionalità mobili alla semplice applicazione di elenco conferenze fornita nel [progetto iniziale][StarterProject]. La schermata seguente mostra le sessioni ASP.NET nell'applicazione completata, così come vengono visualizzate nell'emulatore di browser negli strumenti di sviluppo F12 di Internet Explorer 11.
 
 ![][FixedSessionsByTag]
 
@@ -57,7 +58,7 @@ Sono disponibili alcuni progetti con codice sorgente C\# a integrazione di ques
 * [Download progetto iniziale][StarterProject]
 * [Download progetto completato][CompletedProject]
 
-## <a name="a-namebkmkdeploystarterprojectadeploy-the-starter-project-to-an-azure-web-app"></a><a name="bkmk_DeployStarterProject"></a>Distribuire il progetto iniziale in un'app Web di Azure
+## <a name="bkmk_DeployStarterProject"></a>Distribuire il progetto iniziale in un'app Web di Azure
 1. Scaricare il [progetto iniziale][StarterProject] dell'applicazione di elenco conferenze.
 2. In Esplora risorse fare quindi clic con il pulsante destro del mouse sul file ZIP scaricato e scegliere *Proprietà*.
 3. Nella finestra di dialogo **Proprietà** fare clic sul pulsante **Sblocca**. L'operazione di sblocco impedisce la visualizzazione dell'avviso di sicurezza quando si tenta di utilizzare un file *ZIP* scaricato dal Web.
@@ -106,7 +107,7 @@ Fare clic sul collegamento **ASP.NET** .
 
 La visualizzazione relativa ai tag ASP.NET viene ridotta in modo da rientrare per intero nello schermo, operazione eseguita automaticamente da Bootstrap. È tuttavia possibile migliorare tale visualizzazione per adattarla al browser per dispositivi mobili. La colonna **Date** , ad esempio, è di difficile lettura. Più avanti in questa esercitazione verrà illustrato come modificare la visualizzazione *AllTags* per adattarla allo schermo dei dispositivi mobili.
 
-## <a name="a-namebkmkbootstrapa-bootstrap-css-framework"></a><a name="bkmk_bootstrap"></a> Framework CSS Bootstrap
+## <a name="bkmk_bootstrap"></a> Framework CSS Bootstrap
 Una delle novità del modello MVC 5 è il supporto integrato per Bootstrap. È già stato illustrato come Bootstrap consenta di migliorare le diverse schermate dell'applicazione. Ad esempio, quando la larghezza del browser è ridotta, la barra di spostamento nella parte superiore della schermata è automaticamente comprimibile. Sul browser desktop, provare a ridimensionare la finestra e osservare come cambiano le dimensioni e l'aspetto della barra di spostamento. Questa è una dimostrazione della progettazione Web reattiva integrata in Bootstrap.
 
 Per vedere l'aspetto dell'app Web senza Bootstrap, aprire *App\_Start\\BundleConfig.cs* e impostare come commento le righe contenenti *bootstrap.js* e *bootstrap.css*. Il codice riportato di seguito mostra le ultime due istruzioni del metodo `RegisterBundles` dopo la modifica:
@@ -130,11 +131,11 @@ Annullare le modifiche e aggiornare il browser per verificare che la schermata p
 
 Bootstrap non è specifico di ASP.NET MVC 5 e le funzionalità che fornisce possono essere usate in qualsiasi applicazione Web. Ora, tuttavia, Bootstrap è integrato nel modello di progetto ASP.NET MVC 5 per consentire all'applicazione Web MVC 5 di sfruttarne i vantaggi per impostazione predefinita.
 
-Per altre informazioni su Bootstrap, visitare il sito Web di [Bootstrap][BootstrapSite].
+Per altre informazioni, visitare il sito Web di [Bootstrap][BootstrapSite].
 
 Nella sezione seguente verrà illustrato come creare visualizzazioni specifiche del browser per dispositivi mobili.
 
-## <a name="a-namebkmkoverrideviewsa-override-the-views-layouts-and-partial-views"></a><a name="bkmk_overrideviews"></a> Eseguire l'override di viste, layout e viste parziali
+## <a name="bkmk_overrideviews"></a> Eseguire l'override di viste, layout e viste parziali
 È possibile eseguire l'override di una visualizzazione (inclusi i layout e le visualizzazioni parziali) per i browser per dispositivi mobili in generale, per un singolo browser per dispositivi mobili o per un qualsiasi browser specifico. Per fornire una vista specifica per dispositivi mobili è possibile copiare un file di visualizzazione e aggiungere *.Mobile* al nome del file. Ad esempio, per creare la visualizzazione *Index* per dispositivi mobili, è possibile copiare *Views\\Home\\Index.cshtml* in *Views\\Home\\Index.Mobile.cshtml*.
 
 In questa sezione verrà illustrato come creare un file di layout specifico per dispositivi mobili.
@@ -162,7 +163,7 @@ La visualizzazione desktop, invece, non è stata modificata (con i titoli da *\_
 
 ![][AllTagsMobile_LayoutMobileDesktop]
 
-## <a name="a-namebkmkbrowserviewsa-create-browser-specific-views"></a><a name="bkmk_browserviews"></a> Creazione di visualizzazioni specifiche del browser
+## <a name="bkmk_browserviews"></a> Creazione di visualizzazioni specifiche del browser
 Oltre a visualizzazioni specifiche del dispositivo mobile e del desktop, è possibile anche creare visualizzazioni per un particolare browser. È possibile, ad esempio, creare visualizzazioni specifiche per i browser di iPhone o Android. In questa sezione verrà illustrato come creare un layout per il browser di iPhone e una versione iPhone della visualizzazione *AllTags* .
 
 Aprire il file *Global.asax* e aggiungere il codice seguente all'ultima riga del metodo `Application_Start`.
@@ -229,10 +230,10 @@ Se `RequireConsistentDisplayMode` è impostato su `true`, il layout mobile (*\_L
 In questa sezione è stato spiegato come creare layout e visualizzazioni mobili e come creare layout e visualizzazioni per dispositivi specifici, ad esempio iPhone.
 Il principale vantaggio offerto dal framework CSS Bootstrap, tuttavia, è il layout reattivo, ovvero la possibilità di applicare un singolo foglio di stile a browser per desktop, telefoni cellulari e tablet per assicurare un aspetto uniforme e coerente. Nella sezione seguente verrà illustrato come usare Bootstrap per creare visualizzazioni per dispositivi mobili.
 
-## <a name="a-namebkmkimprovespeakerslista-improve-the-speakers-list"></a><a name="bkmk_Improvespeakerslist"></a> Migliorare l'elenco Speakers
+## <a name="bkmk_Improvespeakerslist"></a> Migliorare l'elenco Speakers
 Come si è appena osservato, la vista *Speakers* è leggibile, ma i collegamenti sono di dimensioni ridotte e difficili da selezionare con un tocco su un dispositivo mobile. In questa sezione verrà illustrato come rendere la visualizzazione *AllSpeakers* adatta a dispositivi mobili, con collegamenti ben visibili e facili da toccare e una casella di ricerca per trovare rapidamente i relatori.
 
-È possibile usare lo stile di Bootstrap relativo ai [relativo ai gruppi elenchi collegati][relativo ai gruppi elenchi collegati] per migliorare la visualizzazione *Speakers*. In *Views\\Home\\AllSpeakers.cshtml* sostituire il contenuto del file Razor con il codice riportato di seguito.
+È possibile usare lo stile di Bootstrap relativo ai [gruppi elenchi collegati][linked list group] per migliorare la visualizzazione *Speakers*. In *Views\\Home\\AllSpeakers.cshtml* sostituire il contenuto del file Razor con il codice riportato di seguito.
 
      @model IEnumerable<string>
 
@@ -255,7 +256,7 @@ Aggiornare il browser per dispositivi mobili. La vista aggiornata avrà un aspet
 
 ![][AllSpeakersFixed]
 
-Lo stile di Bootstrap [relativo ai gruppi elenchi collegati][relativo ai gruppi elenchi collegati] rende l'intera casella di ogni collegamento selezionabile con un clic, agevolando in questo modo l'esperienza utente. Passare alla visualizzazione desktop e osservare l'aspetto uniforme e coerente.
+Lo stile di Bootstrap relativo ai [ gruppi elenchi collegati][linked list group] rende l'intera casella di ogni collegamento selezionabile con un clic, agevolando in questo modo l'esperienza utente. Passare alla visualizzazione desktop e osservare l'aspetto uniforme e coerente.
 
 ![][AllSpeakersFixedDesktop]
 
@@ -326,7 +327,7 @@ Aggiornare il browser per dispositivi mobili e passare alla visualizzazione *All
 
 ![][AllSpeakersFixedSearchBySC]
 
-## <a name="a-namebkmkimprovetagsa-improve-the-tags-list"></a><a name="bkmk_improvetags"></a> Migliorare l'elenco Tags
+## <a name="bkmk_improvetags"></a> Migliorare l'elenco Tags
 Come la visualizzazione *Speakers*, anche la visualizzazione *Tags* è leggibile, ma i collegamenti sono di dimensioni ridotte e difficili da selezionare con un tocco su un dispositivo mobile. È possibile intervenire sulla visualizzazione *Tags* nello stesso modo in cui è stata migliorata la visualizzazione *Speakers*. Usare le modifiche del codice descritte in precedenza, ma applicare la sintassi del metodo `Html.ActionLink` seguente in *Views\\Home\\AllTags.cshtml*:
 
     @Html.ActionLink(tag, 
@@ -347,7 +348,7 @@ Il browser per dispositivi mobili aggiornato avrà il seguente aspetto:
 > 
 > 
 
-## <a name="a-namebkmkimprovedatesa-improve-the-dates-list"></a><a name="bkmk_improvedates"></a> Migliorare l'elenco Dates
+## <a name="bkmk_improvedates"></a> Migliorare l'elenco Dates
 È possibile intervenire sulla visualizzazione *Dates* nello stesso modo in cui sono state migliorate le visualizzazioni *Speakers* e *Tags`Html.ActionLink`. Usare le modifiche del codice descritte in precedenza, ma , ma applicare la sintassi del metodo * seguente in *Views\\Home\\AllDates.cshtml*:
 
     @Html.ActionLink(date.ToString("ddd, MMM dd, h:mm tt"), 
@@ -359,7 +360,7 @@ Si otterrà una visualizzazione del browser per dispositivi mobili aggiornato si
 
 ![][AllDatesFixed]
 
-È possibile migliorare ulteriormente la visualizzazione *Dates* organizzando i valori di data e ora in base alla data. È possibile eseguire questa operazione usando lo stile di Bootstrap relativo ai [pannelli][pannelli]. Sostituire il contenuto del file *Views\\Home\\AllDates.cshtml* con il codice seguente:
+È possibile migliorare ulteriormente la visualizzazione *Dates* organizzando i valori di data e ora in base alla data. È possibile eseguire questa operazione usando lo stile di Bootstrap relativo ai [pannelli][panels]. Sostituire il contenuto del file *Views\\Home\\AllDates.cshtml* con il codice seguente:
 
     @model IEnumerable<DateTime>
 
@@ -387,7 +388,7 @@ Si otterrà una visualizzazione del browser per dispositivi mobili aggiornato si
         </div>
     }
 
-Il codice crea un tag `<div class="panel panel-primary">` separato per ogni data dell'elenco e usa il [relativo ai gruppi elenchi collegati][relativo ai gruppi elenchi collegati] per i rispettivi collegamenti, come indicato in precedenza. Si osservi di seguito l'aspetto del browser per dispositivi mobili quando viene eseguito questo codice:
+Il codice crea un tag `<div class="panel panel-primary">` separato per ogni data dell'elenco e usa il [gruppo elenchi collegati][linked list group] per i rispettivi collegamenti, come indicato in precedenza. Si osservi di seguito l'aspetto del browser per dispositivi mobili quando viene eseguito questo codice:
 
 ![][AllDatesFixed2]
 
@@ -395,7 +396,7 @@ Passare al browser desktop. Si noti ancora una volta l'aspetto uniforme e coeren
 
 ![][AllDatesFixed2Desktop]
 
-## <a name="a-namebkmkimprovesessionstablea-improve-the-sessionstable-view"></a><a name="bkmk_improvesessionstable"></a> Migliorare la vista SessionsTable
+## <a name="bkmk_improvesessionstable"></a> Migliorare la vista SessionsTable
 In questa sezione verrà illustrato come creare la visualizzazione *SessionsTable* in modo specifico per dispositivi mobili. Questa modifica è più impegnativa di quelle apportate in precedenza.
 
 Nel browser per dispositivi mobili toccare il pulsante **Tag**, quindi immettere `asp` nella casella di ricerca.
@@ -441,9 +442,9 @@ Come mostrato dalla figura, la visualizzazione è formattata come tabella, soluz
 
 Il codice esegue tre operazioni:
 
-* usa il [gruppo elenchi collegati personalizzato][gruppo elenchi collegati personalizzato] di Bootstrap per formattare le informazioni della sessione in verticale, in modo da facilitarne la lettura su un browser per dispositivi mobili, usando classi come list-group-item-text.
-* applica il [sistema griglia al layout][sistema griglia al layout], in modo che gli elementi della sessione scorrano in orizzontale nel browser desktop e in verticale in quello per dispositivi mobili usando la classe col-md-4.
-* usa [utilità reattive][utilità reattive] per nascondere i tag della sessione durante la visualizzazione sul browser per dispositivi mobili usando la classe hidden-xs.
+* usa il [gruppo elenchi collegati personalizzato][custom linked list group] di Bootstrap per formattare le informazioni della sessione in verticale, in modo da facilitarne la lettura su un browser per dispositivi mobili (usando classi quali list-group-item-text)
+* applica il [sistema griglia][grid system] al layout, in modo che gli elementi della sessione scorrano in orizzontale nel browser desktop e in verticale in quello per dispositivi mobili (usando la classe col-md-4)
+* usa [utilità reattive][responsive utilities] per nascondere i tag della sessione durante la visualizzazione sul browser per dispositivi mobili (usando la classe hidden-xs)
 
 È possibile anche toccare il collegamento di un titolo per passare alla relativa sessione. Nell'immagine seguente è illustrato l'aspetto risultante dopo aver apportato le modifiche al codice.
 
@@ -455,7 +456,7 @@ Il sistema griglia di Bootstrap applicato formatta automaticamente le sessioni i
 
 Si noti che ora nel browser desktop i tag sono visualizzati. Si noti anche che il sistema griglia di Bootstrap applicato ha organizzato gli elementi della sessione in due colonne. Se si ingrandisce la finestra del browser, gli elementi verranno visualizzati in tre colonne.
 
-## <a name="a-namebkmkimprovesessionbycodea-improve-the-sessionbycode-view"></a><a name="bkmk_improvesessionbycode"></a> Migliorare la vista SessionByCode
+## <a name="bkmk_improvesessionbycode"></a> Migliorare la vista SessionByCode
 Come operazione conclusiva, la visualizzazione *SessionByCode* verrà modificata per adattarla allo schermo dei dispositivi mobili.
 
 Nel browser per dispositivi mobili toccare il pulsante **Tag**, quindi immettere `asp` nella casella di ricerca.
@@ -531,25 +532,25 @@ Nel corso di questa esercitazione è stato mostrato come usare ASP.NET MVC 5 per
 ## <a name="see-also"></a>Vedere anche
 * [9 principi di base della progettazione Web reattiva](http://blog.froont.com/9-basic-principles-of-responsive-web-design/)
 * [Bootstrap][BootstrapSite]
-* [Blog ufficiale di Bootstrap][Blog ufficiale di Bootstrap]
-* [Tutorial Twitter Bootstrap su Tutorial Republic][Tutorial Twitter Bootstrap su Tutorial Republic]
-* [Editor e strumenti Bootstrap][Editor e strumenti Bootstrap]
-* [Procedure consigliate per applicazioni Web W3C per dispositivi mobili][Procedure consigliate per applicazioni Web W3C per dispositivi mobili]
-* [Candidate recommendation W3C per query sui supporti][Candidate recommendation W3C per query sui supporti]
+* [Blog ufficiale di Bootstrap][Official Bootstrap Blog]
+* [Tutorial Twitter Bootstrap su Tutorial Republic][Twitter Bootstrap Tutorial from Tutorial Republic]
+* [Editor e strumenti Bootstrap][The Bootstrap Playground]
+* [Procedure consigliate per applicazioni Web W3C per dispositivi mobili][W3C Recommendation Mobile Web Application Best Practices]
+* [Candidate Recommendation W3C per query sui supporti][W3C Candidate Recommendation for media queries]
 
 ## <a name="whats-changed"></a>Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- Internal Links -->
-[Distribuire il progetto iniziale in un'app Web di Azure]: #bkmk_DeployStarterProject
-[Framework CSS Bootstrap]: #bkmk_bootstrap
-[Eseguire l'override di viste, layout e viste parziali]: #bkmk_overrideviews
-[Creazione di visualizzazioni specifiche del browser]:#bkmk_browserviews
-[Migliorare l'elenco Speakers]: #bkmk_Improvespeakerslist
-[Migliorare l'elenco Tags]: #bkmk_improvetags
-[Migliorare l'elenco Dates]: #bkmk_improvedates
-[Migliorare la vista SessionsTable]: #bkmk_improvesessionstable
-[Migliorare la vista SessionByCode]: #bkmk_improvesessionbycode
+[Deploy the starter project to an Azure web app]: #bkmk_DeployStarterProject
+[Bootstrap CSS Framework]: #bkmk_bootstrap
+[Override the Views, Layouts, and Partial Views]: #bkmk_overrideviews
+[Create Browser-Specific Views]:#bkmk_browserviews
+[Improve the Speakers List]: #bkmk_Improvespeakerslist
+[Improve the Tags List]: #bkmk_improvetags
+[Improve the Dates List]: #bkmk_improvedates
+[Improve the SessionsTable View]: #bkmk_improvesessionstable
+[Improve the SessionByCode View]: #bkmk_improvesessionbycode
 
 <!-- External Links -->
 [Visual Studio Express 2013]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
@@ -563,17 +564,17 @@ Nel corso di questa esercitazione è stato mostrato come usare ASP.NET MVC 5 per
 [CompletedProject]: http://go.microsoft.com/fwlink/?LinkID=398781&clcid=0x409
 [BootstrapSite]: http://getbootstrap.com/
 [WebPIAzureSdk23NetVS13]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/WebPIAzureSdk23NetVS13.png
-[relativo ai gruppi elenchi collegati]: http://getbootstrap.com/components/#list-group-linked
+[linked list group]: http://getbootstrap.com/components/#list-group-linked
 [glyphicon]: http://getbootstrap.com/components/#glyphicons
-[pannelli]: http://getbootstrap.com/components/#panels
-[gruppo elenchi collegati personalizzato]: http://getbootstrap.com/components/#list-group-custom-content
-[sistema griglia al layout]: http://getbootstrap.com/css/#grid
-[utilità reattive]: http://getbootstrap.com/css/#responsive-utilities
-[Blog ufficiale di Bootstrap]: http://blog.getbootstrap.com/
-[Tutorial Twitter Bootstrap su Tutorial Republic]: http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/
-[Editor e strumenti Bootstrap]: http://www.bootply.com/
-[Procedure consigliate per applicazioni Web W3C per dispositivi mobili]: http://www.w3.org/TR/mwabp/
-[Candidate recommendation W3C per query sui supporti]: http://www.w3.org/TR/css3-mediaqueries/
+[panels]: http://getbootstrap.com/components/#panels
+[custom linked list group]: http://getbootstrap.com/components/#list-group-custom-content
+[grid system]: http://getbootstrap.com/css/#grid
+[responsive utilities]: http://getbootstrap.com/css/#responsive-utilities
+[Official Bootstrap Blog]: http://blog.getbootstrap.com/
+[Twitter Bootstrap Tutorial from Tutorial Republic]: http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/
+[The Bootstrap Playground]: http://www.bootply.com/
+[W3C Recommendation Mobile Web Application Best Practices]: http://www.w3.org/TR/mwabp/
+[W3C Candidate Recommendation for media queries]: http://www.w3.org/TR/css3-mediaqueries/
 
 <!-- Images -->
 [DeployClickPublish]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-1.png
@@ -608,10 +609,5 @@ Nel corso di questa esercitazione è stato mostrato come usare ASP.NET MVC 5 per
 [SessionsTableFixedTagASP.NETDesktop]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsTable-Fixed-Tag-ASP.NET-Desktop.png
 [SessionByCode3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-3-644.png
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

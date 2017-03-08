@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 6e0da01df8ac5fd3cdb6b4e42dfbc08fab7d9615
@@ -41,27 +41,27 @@ Dopo aver installato gli strumenti di amministrazione di AD nella macchina virtu
 
 > [!NOTE]
 > Solo i membri del gruppo "AAD DC Administrators" hanno i privilegi necessari per creare un'unità organizzativa personalizzata. Assicurarsi di eseguire la procedura seguente come utente appartenente a questo gruppo.
-> 
-> 
+>
+>
 
 1. Dalla schermata Start fare clic su **Strumenti di amministrazione**. Gli strumenti di amministrazione di AD risulteranno installati nella macchina virtuale.
-   
+
     ![Strumenti di amministrazione installati nel server](./media/active-directory-domain-services-admin-guide/install-rsat-admin-tools-installed.png)
 2. Fare clic su **Centro di amministrazione di Active Directory**.
-   
+
     ![Centro di amministrazione di Active Directory](./media/active-directory-domain-services-admin-guide/adac-overview.png)
 3. Per visualizzare il dominio, fare clic sul nome di dominio nel riquadro a sinistra, ad esempio "contoso100.com".
-   
+
     ![Centro di amministrazione di Active Directory - Visualizza dominio](./media/active-directory-domain-services-admin-guide/create-ou-adac-overview.png)
 4. Nel riquadro **Attività** sul lato destro fare clic su **Nuovo** sotto il nodo del nome di dominio. In questo esempio fare clic su **Nuovo** sotto il nodo "contoso100(local)" nel riquadro **Attività** sul lato destro.
-   
+
     ![Centro di amministrazione di Active Directory - Nuova OU](./media/active-directory-domain-services-admin-guide/create-ou-adac-new-ou.png)
 5. Verrà visualizzata l'opzione per creare un'unità organizzativa. Fare clic su **Unità organizzativa** per visualizzare la finestra di dialogo **Crea unità organizzativa**.
 6. Nella finestra di dialogo **Crea unità organizzativa** specificare un **Nome** per la nuova unità organizzativa. Fornire una breve descrizione per la OU. È anche possibile impostare il campo **Gestita da** per la OU. Toccare **OK**per creare l'unità organizzativa personalizzata.
-   
+
     ![Centro di amministrazione di Active Directory - finestra di dialogo Crea OU](./media/active-directory-domain-services-admin-guide/create-ou-dialog.png)
 7. La OU appena creato verrà visualizzata nel Centro di amministrazione di Active Directory.
-   
+
     ![Centro di amministrazione di Active Directory - OU creata](./media/active-directory-domain-services-admin-guide/create-ou-done.png)
 
 ## <a name="permissionssecurity-for-newly-created-ous"></a>Autorizzazioni/sicurezza per le OU appena create
@@ -74,13 +74,12 @@ Dopo avere creato un'unità organizzativa personalizzata, è possibile procedere
 
 > [!WARNING]
 > Account utente, gruppi, account del servizio e oggetti computer creati in unità organizzative personalizzate non sono disponibili nel tenant di Azure AD. In altre parole, questi oggetti non saranno visualizzati con l'API Graph di Azure AD o nell'interfaccia utente di Azure AD. Questi oggetti saranno disponibili solo nel dominio gestito di Servizi di dominio Azure AD.
-> 
-> 
+>
+>
 
 ## <a name="related-content"></a>Contenuti correlati
 * [Amministrare un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-administer-domain.md)
 * [Configurare criteri di gruppo in un dominio gestito](active-directory-ds-admin-guide-administer-group-policy.md)
 * [Centro di amministrazione di Active Directory: Introduzione](https://technet.microsoft.com/library/dd560651.aspx)
 * [Guida dettagliata agli account del servizio gestiti](https://technet.microsoft.com/library/dd548356.aspx)
-
 

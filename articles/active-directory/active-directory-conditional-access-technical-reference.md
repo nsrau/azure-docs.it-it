@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2017
+ms.date: 03/01/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 00124aa9d0729880bf2314f5c35c1797b7a6827f
-ms.openlocfilehash: 79d844f8fa3d3d0898b642f561df34588e044f9a
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 4296bbc7123f6571ad564351612864a6315d8abf
+ms.openlocfilehash: 450f3e001a0bc4a45fea4c4f0a81e676e9a80cc4
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -24,16 +24,19 @@ ms.lasthandoff: 02/17/2017
 ## <a name="services-enabled-with-conditional-access"></a>Servizi abilitati con l'accesso condizionale
 Le regole di accesso condizionale sono supportate in diversi tipi di applicazioni di Azure AD, inclusi i seguenti:
 
-* Applicazioni federate dalla raccolta di applicazioni di Azure AD
-* Applicazioni con accesso Single Sign-On basato su password dalla raccolta di applicazioni di Azure AD
+
 * Applicazioni registrate con il proxy di applicazione di Azure
-* Applicazioni line-of-business e multi-tenant sviluppate registrate con Azure AD
-* Visual Studio Online
 * App remote di Azure
+* Applicazioni line-of-business e multi-tenant sviluppate registrate con Azure AD
 * Dynamics CRM
+* Applicazioni federate dalla raccolta di applicazioni di Azure AD
 * Microsoft Office 365 Yammer
 * Microsoft Office 365 Exchange Online
 * Microsoft Office 365 SharePoint Online (include OneDrive for Business)
+* Microsoft Power BI 
+* Applicazioni con accesso Single Sign-On basato su password dalla raccolta di applicazioni di Azure AD
+* Visual Studio Online
+
 
 ## <a name="enable-access-rules"></a>Abilitare le regole di accesso
 Ogni regola può essere abilitata o disabilitata sulla base delle singole applicazioni. Quando le regole sono impostate su **ON** , verranno abilitate e applicate per gli utenti che accedono all'applicazione. Quando sono impostate su **OFF** , non verranno usate e non avranno alcun impatto sull'esperienza di accesso degli utenti.

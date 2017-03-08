@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 0749a73569286daf9bbbe2c4064db472f41d7171
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -29,7 +30,7 @@ Le indicazioni seguenti semplificano la selezione di una rete virtuale da usare 
 * La funzionalità Azure AD Domain Services **non può essere abilitata nelle reti virtuali create usando Azure Resource Manager**.
 * È possibile connettere una rete virtuale basata su Resource Manager a una rete virtuale classica in cui è abilitata la funzionalità Azure AD Domain Services. È quindi possibile usare successivamente Azure AD Domain Services nella rete virtuale basata su Resource Manager. Per altre informazioni, vedere la sezione [Connettività di rete](active-directory-ds-networking.md#network-connectivity).
 * **Reti virtuali a livello di area**: se si prevede di usare una rete virtuale esistente, assicurarsi che sia una rete virtuale a livello di area.
-  
+
   * Con Servizi di dominio Azure AD non è possibile usare reti virtuali che usano il meccanismo dei gruppi di affinità legacy.
   * Per usare Azure AD Domain Services, [eseguire la migrazione delle reti virtuali legacy alle reti virtuali a livello di area](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
@@ -45,8 +46,8 @@ Le indicazioni seguenti semplificano la selezione di una rete virtuale da usare 
 
 > [!WARNING]
 > Non è possibile spostare Domain Services in una rete virtuale diversa dopo l'abilitazione del servizio.
-> 
-> 
+>
+>
 
 ## <a name="network-security-groups-and-subnet-design"></a>Gruppi di sicurezza di rete e struttura della subnet
 Un [gruppo di sicurezza di rete (NSG)](../virtual-network/virtual-networks-nsg.md) contiene un elenco di regole dell'elenco di controllo di accesso (ACL) che consentono o rifiutano il traffico di rete alle istanze di VM in una rete virtuale. I gruppi di sicurezza di rete possono essere associati a subnet o singole istanze VM in una subnet. Quando un gruppo di sicurezza di rete viene associato a una subnet, le regole ACL si applicano a tutte le istanze di VM in tale subnet. Il traffico verso una singola VM può essere inoltre ulteriormente limitato associando un gruppo di sicurezza di rete direttamente a tale VM.
@@ -61,8 +62,8 @@ Un [gruppo di sicurezza di rete (NSG)](../virtual-network/virtual-networks-nsg.m
 
 > [!WARNING]
 > Quando si associa un gruppo di sicurezza di rete a una subnet in cui è abilitata la funzionalità Azure AD Domain Services, è possibile che si interferisca con la possibilità di manutenzione e gestione del dominio da parte di Microsoft. Viene inoltre ostacolata la sincronizzazione tra il tenant Azure AD e il dominio gestito. **Il Contratto di servizio non si applica alle distribuzioni in cui è stato creato un gruppo di sicurezza di rete che impedisce ad Azure Active Directory Domain Services di aggiornare e gestire il dominio.**
-> 
-> 
+>
+>
 
 ### <a name="ports-required-for-azure-ad-domain-services"></a>Porte necessarie per Azure Active Directory Domain Services
 Azure Active Directory Domain Services richiede le porte seguenti per la manutenzione e la gestione del dominio. Verificare che queste porte non siano bloccate per la subnet in cui è stato abilitato il dominio gestito.
@@ -92,14 +93,14 @@ Un dominio gestito di Azure AD Domain Services può essere abilitato solo in una
 
 ### <a name="network-connection-options"></a>Opzioni per le connessioni di rete
 * **Connessioni da rete virtuale a rete virtuale tramite connessioni VPN da sito a sito**: la connessione di una rete virtuale a un'altra rete virtuale è simile alla connessione di una rete virtuale a un percorso di sito locale. Entrambi i tipi di connettività utilizzano un gateway VPN per fornire un tunnel sicuro tramite IPsec/IKE.
-  
+
     ![Connettività di rete virtuale tramite gateway VPN](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
-  
+
     [Altre informazioni: connettere reti virtuali usando il gateway VPN](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * **Connessioni da rete virtuale a rete virtuale tramite il peering reti virtuali**: il peering reti virtuali è un meccanismo che connette due reti virtuali nella stessa area tramite la rete backbone di Azure. Una volta eseguito il peering, le due reti virtuali appaiono come una sola per qualsiasi scopo di connettività. Continuano a essere gestite come risorse separate, ma le macchine virtuali in queste reti virtuali possono comunicare direttamente tra di esse usando gli indirizzi IP privati.
-  
+
     ![Connettività di rete virtuale tramite peering](./media/active-directory-domain-services-design-guide/vnet-peering.png)
-  
+
     [Altre informazioni: Peering reti virtuali](../virtual-network/virtual-network-peering-overview.md)
 
 <br>
@@ -108,10 +109,4 @@ Un dominio gestito di Azure AD Domain Services può essere abilitato solo in una
 * [Peering reti virtuali](../virtual-network/virtual-network-peering-overview.md)
 * [Configurare una connessione da rete virtuale a rete virtuale per il modello di distribuzione classico](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

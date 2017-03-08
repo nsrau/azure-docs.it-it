@@ -1,6 +1,6 @@
 ---
-title: Creare una copia della macchina virtuale Linux di Azure | Microsoft Docs
-description: Scopri come creare una copia della VM Linux di Azure nel modello di distribuzione Resource Manager
+title: Creare una copia della macchina virtuale Linux con l&quot;interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
+description: Informazioni su come creare una copia della macchina virtuale Linux di Azure con l&quot;interfaccia della riga di comando di Azure 1.0 nel modello di distribuzione Resource Manager
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 07/28/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: fc5d84768213f1c9358bfcffd77868c25b6c24a4
-ms.openlocfilehash: 9920e86a00793928bdfae5bc4e9dac161ed56ad0
+ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
+ms.openlocfilehash: e85094fbb63b5cf0c5f3b080e047dbc3b8561a26
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="create-a-copy-of-a-linux-virtual-machine-running-on-azure"></a>Creare la copia di una macchina virtuale Linux eseguita in Azure
+# <a name="create-a-copy-of-a-linux-virtual-machine-running-on-azure-with-the-azure-cli-10"></a>Creare la copia di una macchina virtuale Linux eseguita in Azure con l'interfaccia della riga di comando di Azure 1.0
 Questo articolo descrive come creare una copia di una macchina virtuale (VM) di Azure che esegue Linux nel modello di distribuzione Resource Manager. Per prima cosa si esegue la copia dei dischi dati e del sistema operativo in un nuovo contenitore, quindi si configurano le risorse di rete e si crea la nuova macchina virtuale.
 
 È anche possibile [caricare e creare una VM da un'immagine disco personalizzata](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -29,7 +30,7 @@ Questo articolo descrive come creare una copia di una macchina virtuale (VM) di 
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - Interfaccia della riga di comando di Azure 1.0: interfaccia della riga di comando per i modelli di distribuzione classica e di gestione delle risorse (questo articolo)
-- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse
+- [Interfaccia della riga di comando di Azure 2.0](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): interfaccia della riga di comando di prossima generazione per il modello di distribuzione di Gestione risorsa
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Accertarsi che prima di iniziare la procedura siano soddisfatti i prerequisiti seguenti:
@@ -112,10 +113,5 @@ azure vm create -n myVM -l myLocation -g myResourceGroup -f myNic \
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su come usare l'interfaccia della riga di comando di Azure per gestire la nuova macchina virtuale, vedere [Comandi dell'interfaccia della riga di comando Azure per Azure Resource Manager](azure-cli-arm-commands.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

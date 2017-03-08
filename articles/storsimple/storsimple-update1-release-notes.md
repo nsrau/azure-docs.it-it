@@ -4,7 +4,7 @@ description: "Vengono descritte le nuove funzionalità, i problemi e le soluzion
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 6c9aae87-6f77-44b8-b7fa-ebbdc9d8517c
 ms.service: storsimple
@@ -12,16 +12,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/18/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2cc83aec80acceff64774a10d9542183fb0308b9
+ms.sourcegitcommit: 148f3920b92892781ed09380644b05b5bef7c952
+ms.openlocfilehash: 325c688e4da81fd9e6b73bd350a739ac43a480c0
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="storsimple-8000-series-update-12-release-notes"></a>Note sulla versione dell'aggiornamento 1.2 di StorSimple serie 8000
-## <a name="overview"></a>Overview
+# <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>Note sulla versione dell'aggiornamento 1.2 del dispositivo StorSimple serie 8000
+
+## <a name="overview"></a>Panoramica
 Nelle note sulla versione seguenti vengono descritte le nuove funzionalità e sono indicati i problemi critici non risolti relativi all'aggiornamento 1.2 di StorSimple serie 8000. Le note contengono inoltre un elenco degli aggiornamenti del firmware del software, del driver e del disco di StorSimple inclusi in questa versione. 
 
 L’aggiornamento 1.2 può essere applicato a qualsiasi dispositivo StorSimple che esegue il software Release (GA), aggiornamento 0.1, aggiornamento 0.2 o aggiornamento 0.3. L’aggiornamento 1.2 non è disponibile se il dispositivo esegue l’aggiornamento 1 o 1.1. Se il dispositivo esegue Release (GA), [contattare il supporto Microsoft](storsimple-contact-microsoft-support.md) per assistenza relativa all'installazione dell'aggiornamento.
@@ -110,10 +113,5 @@ Impossibile applicare questo aggiornamento per il dispositivo virtuale. Sarà ne
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Installare l'aggiornamento 1.2 nel dispositivo](storsimple-install-update-1.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

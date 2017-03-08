@@ -4,7 +4,7 @@ description: "Informazioni su come eseguire attività in background nelle app We
 services: app-service
 documentationcenter: 
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.service: app-service
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/27/2016
 ms.author: tdykstra
 translationtype: Human Translation
-ms.sourcegitcommit: 10320f338d902ffefd8a98fd59f3e8fb22682b00
-ms.openlocfilehash: 578575877fc706076ac2fdf034cb1ac0e92b16ef
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 5d0d46447c3e0a3a1047e2bbedd44bbd46dd7f1b
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -32,7 +33,7 @@ Azure WebJobs SDK semplifica molte attività di programmazione dei processi Web.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="a-nameacceptablefilesaacceptable-file-types-for-scripts-or-programs"></a><a name="acceptablefiles"></a>Tipi di file consentiti per script e programmi
+## <a name="acceptablefiles"></a>Tipi di file consentiti per script e programmi
 Sono consentiti i tipi di file seguenti:
 
 * .cmd, .bat, .exe (Prompt dei comandi di Windows)
@@ -43,7 +44,7 @@ Sono consentiti i tipi di file seguenti:
 * .js (Node)
 * JAR (Java)
 
-## <a name="a-namecreateondemandacreate-an-on-demand-webjob-in-the-portal"></a><a name="CreateOnDemand"></a>Creare un processo Web su richiesta nel portale
+## <a name="CreateOnDemand"></a>Creare un processo Web su richiesta nel portale
 1. Nel pannello **App Web** del [Portale di Azure](https://portal.azure.com) fare clic su **Tutte le impostazioni > Processi Web** per visualizzare il pannello **Processi Web**.
    
     ![Pannello Processi Web](./media/web-sites-create-web-jobs/wjblade.png)
@@ -60,7 +61,7 @@ Sono consentiti i tipi di file seguenti:
    
     ![Eseguire un processo Web](./media/web-sites-create-web-jobs/runondemand.png)
 
-## <a name="a-namecreatecontinuousacreate-a-continuously-running-webjob"></a><a name="CreateContinuous"></a>Creare un processo Web con esecuzione continua
+## <a name="CreateContinuous"></a>Creare un processo Web con esecuzione continua
 1. Per creare un processo Web eseguito in modo continuo, seguire la stessa procedura usata per creare un processo Web eseguito una sola volta, ma nella casella **Modalità di esecuzione** selezionare **Continuo**.
 2. Per avviare o interrompere un processo Web continuo, selezionarlo con il pulsante destro del mouse nell'elenco, quindi fare clic su **Avvia** o **Interrompi**.
 
@@ -71,7 +72,7 @@ Sono consentiti i tipi di file seguenti:
 > 
 > 
 
-## <a name="a-namecreatescheduledcronacreate-a-scheduled-webjob-using-a-cron-expression"></a><a name="CreateScheduledCRON"></a>Creare un processo Web pianificato utilizzando un'espressione CRON
+## <a name="CreateScheduledCRON"></a>Creare un processo Web pianificato utilizzando un'espressione CRON
 Questa tecnica, disponibile per le app Web in esecuzione in modalità Basic, Standard o Premium, richiede che nell'app sia abilitata l'impostazione **Always On** .
 
 Per trasformare un processo Web On Demand in un processo Web pianificato, includere semplicemente un file `settings.job` nella directory principale del file zip del processo Web. Questo file JSON deve includere una `schedule` proprietà con un [espressione CRON](https://en.wikipedia.org/wiki/Cron), per esempio quanto riportato di seguito.
@@ -95,7 +96,7 @@ Altri esempi di programmazione CRON:
 
 **Nota**: quando si distribuisce un processo Web da Visual Studio, assicurarsi di contrassegnare le proprietà del file `settings.job` come "Copia se più recente".
 
-## <a name="a-namecreatescheduledacreate-a-scheduled-webjob-using-the-azure-scheduler"></a><a name="CreateScheduled"></a>Creare un processo Web pianificato utilizzando l’Utilità di pianificazione di Azure
+## <a name="CreateScheduled"></a>Creare un processo Web pianificato utilizzando l’Utilità di pianificazione di Azure
 La tecnica alternativa seguente usa l'utilità di pianificazione di Azure. In questo caso, il processo Web non dispone di alcuna conoscenza diretta della pianificazione. Al contrario, l'utilità di pianificazione di Azure verrà configurata per attivare il processo Web in una pianificazione. 
 
 Il portale di Azure non permette ancora di creare un processo Web pianificato; tuttavia, attualmente è possibile eseguire questa operazione utilizzando il [portale classico](http://manage.windowsazure.com).
@@ -133,7 +134,7 @@ Il portale di Azure non permette ancora di creare un processo Web pianificato; t
     
     ![Elenco processi][WebJobsListWithSeveralJobs]
 
-### <a name="a-nameschedulerascheduled-jobs-and-azure-scheduler"></a><a name="Scheduler"></a>Processi pianificati e Utilità di pianificazione di Azure
+### <a name="Scheduler"></a>Processi pianificati e Utilità di pianificazione di Azure
 I processi pianificati possono essere ulteriormente configurati nell'Utilità di pianificazione di Azure del [portale classico](http://manage.windowsazure.com).
 
 1. Nella pagina WebJobs fare clic sul collegamento **schedule** del processo per passare alla pagina del portale dell'Utilità di pianificazione di Azure. 
@@ -146,7 +147,7 @@ I processi pianificati possono essere ulteriormente configurati nell'Utilità di
    
     ![Pagina Job Action nell'Utilità di pianificazione][JobActionPageInScheduler]
 
-## <a name="a-nameviewjobhistoryaview-the-job-history"></a><a name="ViewJobHistory"></a>Visualizzare la cronologia processo
+## <a name="ViewJobHistory"></a>Visualizzare la cronologia processo
 1. Per visualizzare la cronologia di esecuzione di un processo, inclusi i processi creati con WebJobs SDK, fare clic sul collegamento corrispondente nella colonna **Log** nel pannello dei processi Web. È possibile utilizzare l'icona degli Appunti per copiare l'URL della pagina del file di log negli Appunti, se lo si desidera.
    
     ![Collegamento Log](./media/web-sites-create-web-jobs/wjbladelogslink.png)
@@ -167,15 +168,15 @@ I processi pianificati possono essere ulteriormente configurati nell'Utilità di
    
     Quando si fa clic su questi collegamenti, si viene reindirizzati alla pagina WebJob Details per il processo selezionato.
 
-## <a name="a-namewhpnotesanotes"></a><a name="WHPNotes"></a>Note
+## <a name="WHPNotes"></a>Note
 * Le app Web in modalità gratuita possono scadere dopo 20 minuti, se non vengono inviate richieste al sito scm (distribuzione) e se il portale dell'app Web non è aperto in Azure. Le richieste al sito effettivo non comportano la reimpostazione del timeout.
 * Il codice per un processo continuo deve essere scritto per l'esecuzione in un ciclo infinito.
 * I processi continui vengono eseguiti in modo continuo solo quando l'app è attiva.
 * Le modalità di base e standard offrono la funzionalità Sempre attivata che, se abilitata, impedisce alle app Web di diventare inattive.
 * È possibile solo eseguire il debug di processi Web con esecuzione continua. Il debug di processi Web pianificati o su richiesta non è supportato.
 
-## <a name="a-namenextstepsanext-steps"></a><a name="NextSteps"></a>Passaggi successivi
-Per altre informazioni, vedere [Risorse consigliate per i processi Web di Azure][WebJobsRecommendedResources].
+## <a name="NextSteps"></a>Passaggi successivi
+Per altre informazioni, vedere l'articolo relativo alle [risorse consigliate per i processi Web di Azure][WebJobsRecommendedResources].
 
 [PSonWebJobs]:http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
 [WebJobsRecommendedResources]:http://go.microsoft.com/fwlink/?LinkId=390226
@@ -203,10 +204,5 @@ Per altre informazioni, vedere [Risorse consigliate per i processi Web di Azure]
 [LinkToScheduler]: ./media/web-sites-create-web-jobs/31LinkToScheduler.png
 [SchedulerPortal]: ./media/web-sites-create-web-jobs/32SchedulerPortal.png
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

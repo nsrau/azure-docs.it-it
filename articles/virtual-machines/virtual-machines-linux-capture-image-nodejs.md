@@ -16,13 +16,14 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 341dcec8c45b380286e2bb96c57afc7740605d16
-ms.openlocfilehash: 40a3fa51b1fcf87bd03f767606c888cc501fd6de
+ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
+ms.openlocfilehash: 18d70fc1dc85efe699e6ec498e024a0b8d3525f0
+ms.lasthandoff: 02/27/2017
 
 
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Acquisire una VM Linux in esecuzione su Azure
-Seguire i passaggi descritti in questo articolo per generalizzare e acquisire la macchina virtuale Linux di Azure (VM) nel modello di distribuzione Azure Resource Manager. Quando si generalizza la macchina virtuale, si rimuovono le informazioni sull'account personale e si prepara la macchina virtuale da usare come immagine. Si acquisisce quindi l'immagine di un disco rigido virtuale generalizzato (VHD) per il sistema operativo, i dischi rigidi virtuali per i dischi dati collegati, e un [modello di Resource Manager](../azure-resource-manager/resource-group-overview.md) per nuove distribuzioni di macchine virtuali. Questo articolo descrive come acquisire un'immagine di macchina virtuale con l'interfaccia della riga di comando di Azure 1.0 tramite i dischi non gestiti. È anche possibile [acquisire una macchina virtuale tramite Azure Managed Disks con l'interfaccia della riga di comando di Azure 2.0 (Anteprima)](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). La funzionalità Managed Disks viene gestita dalla piattaforma Azure e non richiede alcuna pianificazione o alcuna posizione per l'archiviazione. Per altre informazioni, vedere [Azure Managed Disks Overview](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Panoramica di Azure Managed Disks). 
+Seguire i passaggi descritti in questo articolo per generalizzare e acquisire la macchina virtuale Linux di Azure (VM) nel modello di distribuzione Azure Resource Manager. Quando si generalizza la macchina virtuale, si rimuovono le informazioni sull'account personale e si prepara la macchina virtuale da usare come immagine. Si acquisisce quindi l'immagine di un disco rigido virtuale generalizzato (VHD) per il sistema operativo, i dischi rigidi virtuali per i dischi dati collegati, e un [modello di Resource Manager](../azure-resource-manager/resource-group-overview.md) per nuove distribuzioni di macchine virtuali. Questo articolo descrive come acquisire un'immagine di macchina virtuale con l'interfaccia della riga di comando di Azure 1.0 tramite i dischi non gestiti. È anche possibile [acquisire una macchina virtuale tramite Azure Managed Disks con l'interfaccia della riga di comando di Azure 2.0 ](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). La funzionalità Managed Disks viene gestita dalla piattaforma Azure e non richiede alcuna pianificazione o alcuna posizione per l'archiviazione. Per altre informazioni, vedere [Azure Managed Disks Overview](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Panoramica di Azure Managed Disks). 
 
 Per creare macchine virtuali usando l'immagine, configurare le risorse di rete per ogni nuova macchina virtuale e usare il modello (un file JavaScript Object Notation o JSON) per distribuirlo dalle immagini del disco rigido virtuale acquisite. In questo modo è possibile replicare una macchina virtuale con la configurazione corrente del software, simile al modo in cui si usano le immagini in Azure Marketplace.
 
@@ -33,7 +34,7 @@ Per creare macchine virtuali usando l'immagine, configurare le risorse di rete p
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - [Interfaccia della riga di comando di Azure 1.0](#before-you-begin): l'interfaccia della riga di comando per i modelli di distribuzione classica e di gestione delle risorse (questo articolo)
-- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse
+- [Interfaccia della riga di comando di Azure 2.0](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): interfaccia della riga di comando di prossima generazione per il modello di distribuzione di Gestione risorsa
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Accertarsi che siano soddisfatti i prerequisiti seguenti:
@@ -205,10 +206,5 @@ Per altre opzioni del comando, eseguire `azure help vm create`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per gestire le VM con l'interfaccia della riga di comando, vedere le attività in [Distribuire e gestire le macchine virtuali usando modelli di Gestione risorse di Azure e l'interfaccia della riga di comando di Azure](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

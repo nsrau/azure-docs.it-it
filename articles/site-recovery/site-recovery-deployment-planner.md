@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: f438db1d0129dfb0e2eaa00146147084cd8c11b6
-ms.openlocfilehash: 179e8cf928d83a3a66ed3489173e4c28a2bc9d4f
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 4e444deaa84c7f02608f4910e31f7033df51a73b
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -309,7 +309,7 @@ Le macchine virtuali **incompatibili** sono le macchine virtuali profilate incom
 
 **To meet RPO 90% of the time** (Per soddisfare il valore RPO il 90% del tempo): se a causa dei prezzi della banda larga o per altri motivi non è possibile effettuare il provisioning della larghezza di banda necessaria per soddisfare il valore RPO desiderato il 100% del tempo, è possibile scegliere di passare a una larghezza di banda inferiore che possa soddisfare il valore RPO desiderato il 90% del tempo. Per comprendere le implicazioni del provisioning di questa larghezza di banda inferiore, il report offre un'analisi ipotetica del numero e della durata delle violazioni del valore RPO prevedibili.
 
-**Achieved Throughput** (Velocità effettiva ottenuta): velocità effettiva dal server in cui è stato eseguito il comando GetThroughput all'area di Microsoft Azure in cui si trova l'account di archiviazione di Azure. Indica la velocità effettiva approssimativa ottenibile quando si proteggono le macchine virtuali compatibili con Azure Site Recovery, se le caratteristiche di archiviazione e di larghezza di banda del server di configurazione e del server di elaborazione rimangono uguali a quelle del server dal quale è stato eseguito lo strumento. La velocità effettiva ottenuta è la velocità effettiva dal server in cui è stato eseguito il comando GetThroughput all'area di Microsoft Azure in cui si trova l'account di archiviazione di Azure. Indica la velocità effettiva approssimativa ottenibile quando si proteggono le macchine virtuali compatibili con Azure Site Recovery, se le caratteristiche di archiviazione e di larghezza di banda del server di configurazione e del server di elaborazione rimangono uguali a quelle del server dal quale è stato eseguito lo strumento.
+**Achieved Throughput** (Velocità effettiva ottenuta): velocità effettiva dal server in cui è stato eseguito il comando GetThroughput all'area di Microsoft Azure in cui si trova l'account di archiviazione di Azure. Indica la velocità effettiva approssimativa ottenibile quando si proteggono le macchine virtuali compatibili con Azure Site Recovery, se le caratteristiche di archiviazione e di larghezza di banda del server di configurazione e del server di elaborazione rimangono uguali a quelle del server dal quale è stato eseguito lo strumento.    
 
 Per la replica è necessario eseguire il provisioning della larghezza di banda consigliata per soddisfare il valore RPO per il 100% del tempo. Anche dopo il provisioning della larghezza di banda appropriata, se non è visibile un aumento della velocità effettiva ottenuta indicata dallo strumento, verificare quanto segue:
 

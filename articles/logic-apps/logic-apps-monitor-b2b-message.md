@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: padmavc
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 52fa2ceb13e6c14d0dd4ba72a76328a2a9356bab
-ms.openlocfilehash: 79acdf2c29c3520fc38adf6270bcae68e87aac18
+ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
+ms.openlocfilehash: dc760b4c08d0e1afff3bc1276f6ed2367d67629e
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="monitor-b2b-messages"></a>Monitorare i messaggi B2B
+# <a name="start-or-enable-logging-of-as2-x12-and-edifact-messages-to-monitor-success-errors-and-message-properties"></a>Avviare o attivare la registrazione dei messaggi AS2, X12 ed EDIFACT per monitorare il completamento dell'operazione, gli errori e le proprietà dei messaggi
 
-La comunicazione B2B comporta lo scambio di messaggi tra due processi o applicazioni aziendali in esecuzione. La relazione definisce un contratto tra processi aziendali. Dopo che è stata stabilita la comunicazione, è possibile impostare il monitoraggio dei messaggi per controllare il corretto funzionamento della comunicazione.
-È possibile configurare l'account di integrazione in modo che usi la diagnostica per ottenere dettagli e debug più avanzati.
+La comunicazione B2B comporta lo scambio di messaggi tra due processi o applicazioni aziendali in esecuzione. La relazione definisce un contratto tra processi aziendali. Dopo che è stata stabilita la comunicazione, è possibile impostare il monitoraggio dei messaggi per controllare il corretto funzionamento della comunicazione. È possibile configurare l'account di integrazione in modo che usi la diagnostica per ottenere dettagli e debug più avanzati.
 
 Il rilevamento dei messaggi è disponibile per i protocolli B2B: AS2, X12 ed EDIFACT. 
 
@@ -94,10 +95,5 @@ Microsoft supporta questi tipi di schemi di rilevamento. Tutti includono schemi 
 [Rilevamento dei messaggi B2B nel portale di OMS](logic-apps-track-b2b-messages-omsportal.md "Rilevamento dei messaggi B2B")
 
 [Altre informazioni su Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack")
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

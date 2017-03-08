@@ -4,7 +4,7 @@ description: Illustra come installare l&quot;aggiornamento 1.2 di StorSimple ser
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 7a513923-eb77-4078-b0ab-f8e90183796a
 ms.service: storsimple
@@ -12,16 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/22/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f16ae589c160338450a41857f88fe29763e1b9eb
+ms.sourcegitcommit: 56af9046fff24229298997b169aaf329e1692cc2
+ms.openlocfilehash: 80ff35cc47dfc38089f4c392ef4c90baf9ccc03e
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="install-update-12-on-your-storsimple-device"></a>Installare l'aggiornamento 1.2 nel dispositivo StorSimple
-## <a name="overview"></a>Overview
+# <a name="install-update-12-on-your-storsimple-8000-series-device"></a>Installare l'aggiornamento 1.2 nel dispositivo StorSimple serie 8000
+## <a name="overview"></a>Panoramica
 In questa esercitazione viene illustrato come installare l'aggiornamento 1.2 in un dispositivo StorSimple in cui è in esecuzione una versione del software prima dell'aggiornamento 1. L'esercitazione illustra anche le ulteriori procedure richieste per l'aggiornamento quando un gateway è configurato su un'interfaccia di rete diversa da DATA 0 del dispositivo StorSimple.
 
 L'aggiornamento 1.2 include aggiornamenti del software del dispositivo, aggiornamenti del driver LSI e aggiornamenti del firmware del disco. Gli aggiornamenti del software e del driver LSI non sono problematici e possono essere applicati attraverso il portale di Azure classico. Gli aggiornamenti del firmware del disco sono problematici e possono essere applicati solo tramite l'interfaccia di Windows PowerShell del dispositivo.
@@ -59,7 +61,7 @@ Seguire questa procedura per aggiornare il dispositivo a [Aggiornamento 1.2](sto
    
    Gli aggiornamenti in modalità manutenzione sono aggiornamenti problematici che comportano tempi di inattività del dispositivo e possono essere applicati solo tramite l'interfaccia di Windows PowerShell del dispositivo.
    
-   ![Pagina di manutenzione](./media/storsimple-install-update-1/InstallUpdate12_10M.png "Maintenance page")
+   ![Pagina di manutenzione](./media/storsimple-install-update-1/InstallUpdate12_10M.png "Pagina Manutenzione")
 2. Scaricare gli aggiornamenti in modalità manutenzione utilizzando la procedura indicata in [Scaricare gli aggiornamenti rapidi](#to-download-hotfixes) per cercare e scaricare KB3063416, che installa gli aggiornamenti del firmware del disco (gli altri aggiornamenti devono essere già installati a questo punto).
 3. Seguire i passaggi elencati nella sezione [Installare e verificare gli aggiornamenti rapidi in modalità manutenzione](#to-install-and-verify-maintenance-mode-hotfixes) per installare gli aggiornamenti in modalità manutenzione.
 4. Nel portale di Azure classico passare alla pagina **Manutenzione** e, nella parte inferiore della pagina, fare clic su **Cerca aggiornamenti** per verificare la presenza di eventuali aggiornamenti di Windows e quindi fare clic su **Installa aggiornamenti**. Attendere che tutti gli aggiornamenti vengano installati correttamente.
@@ -114,10 +116,5 @@ Seguire la procedura seguente per disabilitare l'interfaccia di rete con il gate
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni sulla [versione dell'aggiornamento 1.2](storsimple-update1-release-notes.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

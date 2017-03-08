@@ -4,7 +4,7 @@ description: Descrizione delle procedure per creare ed eliminare il servizio Sto
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: byronr
+manager: timlt
 editor: 
 ms.assetid: bc1d5650-275c-42ed-bc77-cdb596f85943
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/05/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f507eb6986f7c62965dc00673ee5ebe38e70f1d7
-ms.openlocfilehash: 1858fa9e1223d0938bb1eb6195c42fb1ec3b007d
+ms.sourcegitcommit: 99fab8eafe4e17f50db8e7e33637001be03abe7b
+ms.openlocfilehash: 0cb356910b858bf231dfadffa1d4561df1977af0
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="deploy-the-storsimple-manager-service"></a>Distribuire il servizio StorSimple Manager
+# <a name="deploy-the-storsimple-manager-service-in-the-azure-classic-portal"></a>Distribuire il servizio StorSimple Manager nel portale di Azure classico
+
 ## <a name="overview"></a>Panoramica
 Il servizio StorSimple Manager viene eseguito in Microsoft Azure ed è connesso a più dispositivi di archiviazione StorSimple. Dopo aver creato il servizio, è possibile usarlo per gestire i dispositivi tramite il portale di Microsoft Azure classico in esecuzione in un browser. Questo consente di monitorare tutti i dispositivi connessi al servizio StorSimple Manager da un'unica posizione centrale, con una conseguente riduzione del carico amministrativo.
 
@@ -99,9 +102,4 @@ Per rigenerare una chiave di registrazione del servizio, attenersi alla procedur
 * Ulteriori informazioni sul [processo di distribuzione di StorSimple](storsimple-deployment-walkthrough-u2.md).
 * Ulteriori informazioni sulla [gestione dell'account di archiviazione di StorSimple](storsimple-manage-storage-accounts.md).
 * Ulteriori informazioni sull’ [utilizzo del servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

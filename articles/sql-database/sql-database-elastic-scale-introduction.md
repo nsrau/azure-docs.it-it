@@ -94,7 +94,7 @@ Per un'app di esempio che illustra la libreria client, vedere [Iniziare a usare 
 
 Per convertire i database esistenti e usare gli strumenti, vedere l'articolo sulla [migrazione dei database esistenti per aumentare il numero di istanze](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-Per visualizzare le specifiche del pool elastico, vedere [Considerazioni di prezzo e prestazioni per un pool elastico](sql-database-elastic-pool-guidance.md) oppure creare un nuovo pool con [pool elastici](sql-database-elastic-pool-manage-portal.md)..  
+Per visualizzare le specifiche del pool elastico, vedere [Considerazioni di prezzo e prestazioni per un pool elastico](sql-database-elastic-pool-guidance.md) oppure creare un nuovo pool con [pool elastici](sql-database-elastic-pool-manage-portal.md).  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

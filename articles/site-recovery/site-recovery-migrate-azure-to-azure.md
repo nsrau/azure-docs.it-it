@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/19/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
-ms.openlocfilehash: 501e5e8501c6106ba2e51b3523332fd224a5a142
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: c33b69dbdccd2a894b494175dec2bd423af478b1
+ms.openlocfilehash: 0019b64ba545d91cf32ed2945c5c0d4844e264e1
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -28,14 +28,14 @@ Benvenuti in Azure Site Recovery. Consultare questo articolo se si desidera eseg
 * Azure offre due diversi modelli di distribuzione per creare e usare le risorse: Azure Resource Manager e la distribuzione classica. Sono anche disponibili il portale di Azure classico, che supporta il modello di distribuzione classica, e il portale di Azure, che supporta entrambi i modelli di distribuzione. I passaggi di base per la migrazione sono gli stessi indipendentemente dal fatto che si stia configurando Site Recovery in Resource Manager o nel modello classico. Tuttavia, le istruzioni e le schermate dell'interfaccia utente presenti in questo articolo sono pertinenti al portale di Azure.
 * **Attualmente è possibile eseguire la migrazione solo da un'area a un'altra. Si può eseguire il failover di VM da un'area di Azure a un'altra ma non è possibile eseguire il failback.**
 * Le istruzioni di migrazione in questo articolo si basano sulle istruzioni per la replica di una macchina fisica in Azure. Include i collegamenti alla procedura nell'articolo [Eseguire la replica di macchine virtuali VMware e computer fisici in Azure con Azure Site Recovery tramite il portale di Azure](site-recovery-vmware-to-azure.md), che illustra come replicare un server fisico nel portale di Azure.
-* Se si sta configurando Site Recovery nel portale classico, seguire le istruzioni dettagliate in [questo articolo](site-recovery-vmware-to-azure-classic.md). 
+* Se si sta configurando Site Recovery nel portale classico, seguire le istruzioni dettagliate in [questo articolo](site-recovery-vmware-to-azure-classic.md).
 
 Per inviare commenti o domande, è possibile usare la parte inferiore di questo articolo oppure il [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per la distribuzione è necessario quanto segue:
 
-* **Server di configurazione**: una VM locale che esegue Windows Server 2012 R2 e agisce da server di configurazione. Installare gli altri componenti di Site Recovery anche in questa VM, inclusi il server di elaborazione e il server di destinazione master. Per altre informazioni, leggere [Architettura dello scenario](site-recovery-components.md#replicate-vmware-vmsphysical-servers-to-azure) e [Prerequisiti del server di configurazione](site-recovery-vmware-to-azure.md#prerequisites).
+* **Server di configurazione**: una VM locale che esegue Windows Server 2012 R2 e agisce da server di configurazione. Installare gli altri componenti di Site Recovery anche in questa VM, inclusi il server di elaborazione e il server di destinazione master. Per altre informazioni, leggere [Architettura dello scenario](site-recovery-components.md#vmware-replication-to-azure) e [Prerequisiti del server di configurazione](site-recovery-vmware-to-azure.md#prerequisites).
 * **Macchine virtuali IaaS**: le VM di cui si desidera eseguire la migrazione. Nella migrazione queste VM vengono considerate macchine fisiche.
 
 ## <a name="deployment-steps"></a>Passaggi di distribuzione

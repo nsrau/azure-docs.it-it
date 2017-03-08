@@ -1,4 +1,4 @@
-# Overview
+# Panoramica
 ## [Informazioni su Hub di notifica](notification-hubs-push-notification-overview.md)
 # Attività iniziali
 ## [Android (FCM)](notification-hubs-android-push-notification-google-fcm-get-started.md)
@@ -14,7 +14,7 @@
 
 # Procedure
 ## Pianificare e progettare
-### [Guida all'architettura push aziendale](notification-hubs-enterprise-push-notification-architecture.md)
+### [Informazioni aggiuntive sull'architettura push aziendale](notification-hubs-enterprise-push-notification-architecture.md)
 
 ## Sviluppare
 ### [Inviare notifiche push ad Android usando GCM](notification-hubs-android-push-notification-google-gcm-get-started.md)
@@ -69,8 +69,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-notificationhub)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=notification-hubs)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 02/22/2016
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
-ms.openlocfilehash: 0e0fe444ef6eab96b134ad042d41a54b436f3aec
+ms.sourcegitcommit: b521c3bb99c9a6980df46eacec4e1ebe72fb01a1
+ms.openlocfilehash: 00f6a7af021029d1795071c930e05f200578fa14
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -243,6 +244,8 @@ In questa procedura dettagliata viene usato [Esplora risorse di Azure](https://r
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla scalabilità automatica, usare questi collegamenti.
 
+[Risolvere i problemi di scalabilità automatica con set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
+
 [Metriche comuni per il ridimensionamento automatico](insights-autoscale-common-metrics.md)
 
 [Procedure consigliate per il ridimensionamento automatico di Azure](insights-autoscale-best-practices.md)
@@ -252,9 +255,4 @@ Per altre informazioni sulla scalabilità automatica, usare questi collegamenti.
 [Gestire il ridimensionamento automatico con l'interfaccia della riga di comando](insights-cli-samples.md#autoscale)
 
 [Configurare notifiche webhook e di posta elettronica per il ridimensionamento automatico](insights-autoscale-to-webhook-email.md)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

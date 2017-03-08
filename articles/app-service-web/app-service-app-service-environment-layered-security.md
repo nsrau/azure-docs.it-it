@@ -4,7 +4,7 @@ description: "Implementazione di un&quot;architettura di sicurezza su più livel
 services: app-service
 documentationcenter: 
 author: stefsch
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601
 ms.service: app-service
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 35f87789bd374a6170e38dfb462fd928babd55a3
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 0fb02c13f99a8f4a46e0142c20da3b152c809b6b
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 35f87789bd374a6170e38dfb462fd928babd55a3
 ## <a name="overview"></a>Overview
 Dato che gli ambienti del servizio app forniscono un ambiente di runtime isolato distribuito in una rete virtuale, gli sviluppatori possono creare un'architettura di sicurezza su più livelli offrendo livelli diversi di accesso alla rete per ogni livello applicazione fisico.
 
-Un'esigenza comune è quella di nascondere i back-end delle API all'accesso a Internet generale e consentire alle API di essere chiamate solo dalle app Web upstream.  I [gruppi di sicurezza di rete][NetworkSecurityGroups] possono essere usati nelle subnet contenenti ambienti del servizio app per limitare l'accesso pubblico alle applicazioni API.
+Un'esigenza comune è quella di nascondere i back-end delle API all'accesso a Internet generale e consentire alle API di essere chiamate solo dalle app Web upstream.  I [gruppi di sicurezza di rete (NSG)][NetworkSecurityGroups] possono essere usati nelle subnet contenenti ambienti del servizio app per limitare l'accesso pubblico alle applicazioni API.
 
 Il diagramma seguente mostra un'architettura di esempio con un elemento WebAPI basato sull'app distribuita in un ambiente del servizio app.  Tre diverse istanze di app Web, distribuite in tre diversi ambienti del servizio app, eseguono chiamate back-end alla stessa app WebAPI.
 
@@ -40,7 +41,7 @@ Per conoscere le regole per la sicurezza della rete necessarie, si deve determin
 Poiché i [gruppi di sicurezza di rete][NetworkSecurityGroups] vengono applicati alle subnet e gli ambienti del servizio app vengono distribuiti nelle subnet, le regole contenute in un gruppo di sicurezza di rete si applicano a **tutte** le app in esecuzione in un ambiente del servizio app.  Usando l'architettura di esempio di questo articolo, una volta applicato un gruppo di sicurezza di rete alla subnet contenente "apiase", tutte le app in esecuzione nell'ambiente del servizio app "apiase" verranno protette dallo stesso set di regole di sicurezza. 
 
 * **Determinare l'indirizzo IP in uscita dei chiamanti upstream:** quali sono gli indirizzi IP dei chiamanti upstream?  Sarà necessario consentire esplicitamente a questi indirizzi l'accesso nel gruppo di sicurezza di rete.  Poiché le chiamate tra gli ambienti del servizio app sono considerate chiamate "Internet", all'indirizzo IP in uscita assegnato a ciascuno dei tre ambienti del servizio app upstream deve essere consentito l'accesso nel gruppo di sicurezza di rete per la subnet "apiase".   Per altri dettagli su come determinare l'indirizzo IP in uscita per le app in esecuzione in un ambiente del servizio app, vedere l'articolo [Panoramica dell'architettura di rete][NetworkArchitecture].
-* **L'app per le API back-end dovrà chiamare se stessa?**   Un aspetto delicato e a volte trascurato è lo scenario in cui l'applicazione back-end deve chiamare se stessa.  Se un'applicazione API back-end in un ambiente del servizio app deve chiamare se stessa, anche questa chiamata viene considerata una chiamata "Internet".  Nell'architettura di esempio è necessario consentire l'accesso anche dall'indirizzo IP in uscita dell'ambiente del servizio app "apiase".
+* **L'app per le API back-end dovrà chiamare se stessa?**  Un aspetto delicato e a volte trascurato è lo scenario in cui l'applicazione back-end deve chiamare se stessa.  Se un'applicazione API back-end in un ambiente del servizio app deve chiamare se stessa, anche questa chiamata viene considerata una chiamata "Internet".  Nell'architettura di esempio è necessario consentire l'accesso anche dall'indirizzo IP in uscita dell'ambiente del servizio app "apiase".
 
 ## <a name="setting-up-the-network-security-group"></a>Configurazione del gruppo di sicurezza di rete
 Una volta noto il set di indirizzi IP in uscita, il passaggio successivo consiste nel creare un gruppo di sicurezza di rete.  I gruppi di sicurezza di rete possono essere creati sia per le reti virtuali basate su Resource Manager che per le reti virtuali classiche.  Gli esempi seguenti illustrano la creazione e configurazione di un gruppo di sicurezza di rete in una rete virtuale classica usando Powershell.
@@ -49,7 +50,7 @@ Per l'architettura di esempio, gli ambienti si trovano negli Stati Uniti centro-
 
     New-AzureNetworkSecurityGroup -Name "RestrictBackendApi" -Location "South Central US" -Label "Only allow web frontend and loopback traffic"
 
-Viene aggiunta prima di tutto una regola di consenso esplicita per l'infrastruttura di gestione di Azure, come indicato nell'articolo sul [traffico in ingresso][InboundTraffic] per gli ambienti del servizio app.
+Prima viene aggiunta una regola di consenso esplicita per l'infrastruttura di gestione di Azure, come indicato nell'articolo sul [traffico in ingresso][InboundTraffic] per gli ambienti del servizio app.
 
     #Open ports for access by Azure management infrastructure
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET' -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
@@ -110,9 +111,4 @@ Informazioni sugli [indirizzi IP in uscita][NetworkArchitecture] e sugli ambient
 <!-- IMAGES -->
 [ConceptualArchitecture]: ./media/app-service-app-service-environment-layered-security/ConceptualArchitecture-1.png
 [NSGConfiguration]:  ./media/app-service-app-service-environment-layered-security/NSGConfiguration-1.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

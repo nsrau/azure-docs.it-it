@@ -15,16 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: cynthn
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ccde5cf9a45c79cfd441633722960007aad46088
-ms.openlocfilehash: fe00166c443d8db678ec46cfd8b66c327176ddcf
+ms.sourcegitcommit: 32e30b44c2f7cfa9c1069190fdc53dbe6e9f4cd5
+ms.openlocfilehash: bc2a8803bdc875e9f62d9263b16cdbb5cc70ecbf
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="migrate-from-aws-and-other-platforms-to-managed-disks-in-azure"></a>Eseguire la migrazione da AWS e altre piattaforme a Managed Disks in Azure
+# <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Eseguire la migrazione da Amazon Web Services (AWS) e altre piattaforme a Managed Disks in Azure
 
-È possibile caricare i file VHD da soluzioni di virtualizzazione locale o AWS in Azure per creare macchine virtuali che sfruttino i vantaggi di Managed Disks. Azure Managed Disks elimina la necessità di gestire gli account di archiviazione per le macchine virtuali IaaS di Azure. È necessario specificare solo il tipo (Premium o Standard) e le dimensioni del disco necessario. Azure creerà e gestirà il disco per l'utente. 
+È possibile caricare i file di disco rigido virtuale da soluzioni di virtualizzazione locali o AWS in Azure per creare macchine virtuali che sfruttino i vantaggi di Managed Disks. Azure Managed Disks elimina la necessità di gestire gli account di archiviazione per le macchine virtuali IaaS di Azure. È necessario specificare solo il tipo (Premium o Standard) e le dimensioni del disco necessario. Azure creerà e gestirà il disco per l'utente. 
 
 È possibile caricare dischi rigidi virtuali generalizzati e specializzati. 
 **Disco rigido virtuale generalizzato**: tutte le informazioni sull'account personale sono state rimosse dal disco rigido virtuale generalizzato usando Sysprep. 
@@ -58,7 +60,7 @@ Questa sezione consente di prendere le decisioni migliori sui tipi di macchina v
 
 ### <a name="location"></a>Percorso
 
-Selezionare un percorso in cui Azure Managed Disks è disponibile. Se si esegue la migrazione a Managed Disks Premium, assicurarsi anche che l'Archiviazione Premium sia disponibile nell'area di destinazione della migrazione. Per informazioni aggiornate sulle località disponibili, vedere [Prodotti in base all'area](https://azure.microsoft.com/regions/#services) .
+Selezionare una posizione in cui Azure Managed Disks è disponibile. Se si esegue la migrazione a Managed Disks Premium, assicurarsi anche che l'Archiviazione Premium sia disponibile nell'area di destinazione della migrazione. Per informazioni aggiornate sulle località disponibili, vedere [Prodotti in base all'area](https://azure.microsoft.com/regions/#services) .
 
 ### <a name="vm-sizes"></a>Dimensioni delle macchine virtuali
 
@@ -101,9 +103,4 @@ Esaminare i [prezzi per Managed Disks](https://azure.microsoft.com/en-us/pricing
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Prima di caricare dischi rigidi virtuali in Azure, è necessario seguire la procedura in [Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

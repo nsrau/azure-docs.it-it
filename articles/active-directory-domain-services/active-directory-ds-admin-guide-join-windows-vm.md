@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
 ms.openlocfilehash: aad6bcd3eb704f090156d2ace80d2540a9543bd7
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -24,8 +25,8 @@ ms.openlocfilehash: aad6bcd3eb704f090156d2ace80d2540a9543bd7
 > [!div class="op_single_selector"]
 > * [Portale di Azure classico - Windows](active-directory-ds-admin-guide-join-windows-vm.md)
 > * [PowerShell - Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-> 
-> 
+>
+>
 
 <br>
 
@@ -39,24 +40,24 @@ Seguire questa procedura per creare una macchina virtuale Windows aggiunta alla 
 1. Fare clic su **Nuovo**sulla barra dei comandi nella parte inferiore della finestra del portale di Azure classico.
 2. In **Calcolo** fare clic su **Macchina Virtuale** e quindi su **Da raccolta**.
 3. L'opzione **Scegli un'immagine** della prima schermata consente di scegliere dall'elenco un'immagine per la macchina virtuale. Scegliere l'immagine appropriata.
-   
+
     ![Selezionare l'immagine](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-image.png)
 4. Nella seconda schermata è possibile scegliere un nome computer, una dimensione e il nome e la password dell'amministratore. Scegliere il livello e la dimensione necessari per eseguire l'app o il carico di lavoro. Il nome utente selezionato qui corrisponde a un utente amministratore locale del computer. Non immettere in questo campo le credenziali di un account utente di dominio.
-   
+
     ![Configurare la macchina virtuale](./media/active-directory-domain-services-admin-guide/create-windows-vm-config.png)
 5. Nella terza schermata è possibile configurare le risorse per le connessioni di rete, l'archiviazione e la disponibilità. Assicurarsi di selezionare la rete virtuale in cui sono stati abilitati i Servizi di dominio Azure AD dall'elenco a discesa **Area/Gruppo di affinità/Rete virtuale** . Specificare un **Nome DNS del servizio cloud** appropriato per la macchina virtuale.
-   
+
     ![Selezionare una rete virtuale per la macchina virtuale](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-vnet.png)
-   
+
    > [!WARNING]
    > Assicurarsi di aggiungere la macchina virtuale alla stessa rete virtuale in cui è stato abilitato Azure AD Domain Services. La macchina virtuale potrà così "vedere" il dominio ed eseguire attività quali l'aggiunta al dominio. Se si sceglie di creare la macchina virtuale in una rete virtuale diversa, connettere quest'ultima alla rete virtuale in cui è stato abilitato Azure AD Domain Services.
-   > 
-   > 
+   >
+   >
 6. La quarta schermata consente di installare l'agente di macchine virtuali e alcune delle estensioni disponibili.
-   
+
     ![Operazione completata](./media/active-directory-domain-services-admin-guide/create-windows-vm-done.png)
 7. Dopo la creazione della macchina virtuale, nel portale classico la nuova macchina virtuale viene elencata nel nodo **Macchine virtuali** . La macchina virtuale e il servizio cloud vengono avviati automaticamente e viene indicato lo stato **In esecuzione**.
-   
+
     ![Macchina virtuale attiva e in esecuzione](./media/active-directory-domain-services-admin-guide/create-windows-vm-running.png)
 
 ## <a name="step-2-connect-to-the-windows-server-virtual-machine-using-the-local-administrator-account"></a>Passaggio 2: Connettersi alla macchina virtuale Windows Server usando l'account amministratore locale
@@ -65,7 +66,7 @@ Seguire questa procedura per creare una macchina virtuale Windows aggiunta alla 
 Seguire questa procedura per connettersi alla macchina virtuale.
 
 1. Passare al nodo **Macchine virtuali** nel portale classico. Selezionare la macchina virtuale creata nel passaggio 1 e fare clic su **Connetti** sulla barra dei comandi nella parte inferiore della finestra.
-   
+
     ![Connettersi alla macchina virtuale Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
 2. Il portale classico richiederà di aprire o salvare un file con estensione rdp, usato per connettersi alla macchina virtuale. Dopo aver terminato il download, fare clic sul file per aprirlo.
 3. Al prompt di accesso digitare le **credenziali di amministratore locale** specificate durante la creazione della macchina virtuale, come 'localhost\mahesh' in questo esempio.
@@ -77,28 +78,28 @@ Seguire questa procedura per aggiungere la macchina virtuale Windows Server al d
 
 1. Connettersi a Windows Server come illustrato nel passaggio 2 precedente. Dalla schermata Start aprire **Server Manager**.
 2. Fare clic su **Server locale** nel riquadro sinistro della finestra di Server Manager.
-   
+
     ![Avviare Server Manager nella macchina virtuale](./media/active-directory-domain-services-admin-guide/join-domain-server-manager.png)
 3. Fare clic su **GRUPPO DI LAVORO** nella sezione **PROPRIETÀ**. Nella pagina **Proprietà del sistema** fare clic su **Modifica** per eseguire l'aggiunta al dominio.
-   
+
     ![Pagina Proprietà di sistema](./media/active-directory-domain-services-admin-guide/join-domain-system-properties.png)
 4. Specificare il nome del dominio gestito di Azure AD Domain Services nella casella di testo **Dominio** e fare clic su **OK**.
-   
+
     ![Specificare il dominio per l'aggiunta](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-domain.png)
 5. Verrà richiesta l'immissione delle credenziali per l'aggiunta al dominio. Assicurarsi di **specificare le credenziali per un utente appartenente al gruppo di amministratori dei controller di dominio di Azure AD** . Solo i membri di questo gruppo hanno i privilegi necessari per aggiungete computer al dominio gestito.
-   
+
     ![Specificare le credenziali per l'aggiunta a un dominio](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
 6. È possibile specificare le credenziali in uno dei modi seguenti:
-   
+
    * Formato UPN: specificare il suffisso UPN per l'account utente, come configurato in Azure AD. In questo esempio il suffisso UPN dell'utente 'bob' è 'bob@domainservicespreview.onmicrosoft.com'.
    * Formato SAMAccountName: è possibile specificare il nome account con il formato SAMAccountName. In questo esempio l'utente 'bob' deve immettere 'CONTOSO100\bob'.
-     
+
      > [!NOTE]
      > **È consigliabile usare il formato UPN per specificare le credenziali.** L'attributo SAMAccountName può essere generato automaticamente se il prefisso UPN dell'utente è troppo lungo (ad esempio "joereallylongnameuser"). Se a più utenti è associato lo stesso prefisso UPN (ad esempio "bob") nel tenant di Azure AD, il formato SAMAccountName relativo può essere generato automaticamente dal servizio. In questi casi è possibile usare in modo affidabile il formato UPN per accedere al dominio.
-     > 
-     > 
+     >
+     >
 7. Dopo l'aggiunta al dominio verrà visualizzato il messaggio di benvenuto seguente. Riavviare la macchina virtuale per completare l'operazione di aggiunta al dominio.
-   
+
     ![Messaggio di benvenuto al dominio](./media/active-directory-domain-services-admin-guide/join-domain-done.png)
 
 ## <a name="troubleshooting-domain-join"></a>Risoluzione dei problemi di aggiunta al dominio
@@ -124,10 +125,4 @@ Se si verificano problemi con le credenziali e non è possibile completare l'agg
 ## <a name="related-content"></a>Contenuti correlati
 * [Guida introduttiva di Azure AD Domain Services](active-directory-ds-getting-started.md)
 * [Amministrare un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-administer-domain.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: f9ea0d14a99a7881b816606058e5ad72a0fef499
-ms.openlocfilehash: 01adbd43c5c77c3a80c5141e06a2ab14a49b8454
+ms.sourcegitcommit: bd67dc463daee2d7763e722f079930d8712fe478
+ms.openlocfilehash: 81a08a3cbd14c4a61efe68d9dd9fcd032dd1e1cd
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -97,19 +98,18 @@ Le estensioni macchina virtuale di Azure possono essere distribuite con i modell
 ## <a name="powershell-deployment"></a>Distribuzione PowerShell
 
 Il comando `Set-AzureRmVMCustomScriptExtension` consente di aggiungere l'estensione di script personalizzata a una macchina virtuale esistente. Per ulteriori informazioni, vedere [Set-AzureRmVMCustomScriptExtension](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.compute/v2.1.0/set-azurermvmcustomscriptextension).
-
 ```powershell
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
--VMName myVM `
--Location myLocation `
--FileUri myURL `
--Run 'myScript.ps1' `
--Name DemoScriptExtension
+    -VMName myVM `
+    -Location myLocation `
+    -FileUri myURL `
+    -Run 'myScript.ps1' `
+    -Name DemoScriptExtension
 ```
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risoluzione dei problemi
+### <a name="troubleshoot"></a>Risolvere problemi
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite il modulo Azure PowerShell. Per visualizzare lo stato di distribuzione delle estensioni per una determinata macchina virtuale, eseguire il comando seguente.
 
@@ -118,25 +118,35 @@ Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myE
 ```
 
 L'output dell'esecuzione dell'estensione viene registrato nei file presenti nella directory seguente nella macchina virtuale di destinazione.
-
 ```cmd
 C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension
 ```
 
-Lo script stesso viene scaricato nella directory seguente nella macchina virtuale di destinazione.
-
+I file specificati vengono scaricati nella directory seguente nella macchina virtuale di destinazione.
 ```cmd
-C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads
+C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 ```
+dove `<n>` è un numero intero decimale che può variare nelle diverse esecuzioni dell'estensione.  Il valore `1.*` corrisponde al valore effettivo attuale `typeHandlerVersion` dell'estensione.  Ad esempio, la directory effettiva potrebbe essere `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`.  
+
+Quando si esegue il comando `commandToExecute`, nell'estensione sarà impostata questa directory (ad esempio `...\Downloads\2`) come directory di lavoro attuale. In questo modo viene abilitato l'uso di percorsi relativi per individuare i file scaricati tramite la proprietà `fileURIs`. Nella tabella seguente sono riportati alcuni esempi.
+
+Poiché il percorso di download assoluto può variare nel tempo, quando è possibile è preferibile optare per percorsi relativi di script/file nella stringa `commandToExecute`. Ad esempio:
+```json
+    "commandToExecute": "powershell.exe . . . -File './scripts/myscript.ps1'"
+```
+
+Le informazioni sul percorso dopo il primo segmento URI vengono mantenute per i file scaricati tramite l'elenco delle proprietà `fileUris`.  Come illustrato nella tabella riportata di seguito, per i file scaricati viene eseguito il mapping nelle sottodirectory di download per riflettere la struttura dei valori `fileUris`.  
+
+#### <a name="examples-of-downloaded-files"></a>Esempi di file scaricati
+
+| URI in fileUris | Percorso relativo scaricato | Percorso assoluto scaricato * |
+| ---- | ------- |:--- |
+| `https://someAcct.blob.core.windows.net/aContainer/scripts/myscript.ps1` | `./scripts/myscript.ps1` |`C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2\scripts\myscript.ps1`  |
+| `https://someAcct.blob.core.windows.net/aContainer/topLevel.ps1` | `./topLevel.ps1` | `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2\topLevel.ps1` |
+
+\* Come in precedenza, i percorsi assoluti delle directory cambieranno nella durata della macchina virtuale ma non all'interno di una singola esecuzione dell'estensione CustomScript.
 
 ### <a name="support"></a>Supporto
 
-Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/en-us/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/en-us/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/en-us/support/faq/).
-
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+Per ricevere maggiore assistenza in qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum di Azure su MSDN e Stack Overflow].(https://azure.microsoft.com/en-us/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/en-us/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/en-us/support/faq/).
 

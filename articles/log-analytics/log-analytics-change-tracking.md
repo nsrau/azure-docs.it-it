@@ -1,7 +1,7 @@
 ---
-title: Soluzione di rilevamento delle modifiche in Log Analytics | Microsoft Docs
-description: "È possibile usare la soluzione Change Tracking (Rilevamento modifiche) relativa alla configurazione in Log Analytics per identificare facilmente le modifiche apportate al software e ai servizi Windows nell&quot;ambiente in uso. Questa funzionalità può semplificare l&quot;individuazione dei problemi operativi."
-services: operations-management-suite
+title: Rilevare le modifiche con Log Analytics di Azure | Documentazione Microsoft
+description: La soluzione di rilevamento modifiche in Log Analytics consente di identificare le modifiche al software e ai servizi Windows che si verificano nell&quot;ambiente in uso.
+services: log-analytics
 documentationcenter: 
 author: bandersmsft
 manager: carmonm
@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a66cdb9825cfc3935d534afaf3f6f0cf5d5fb5a
-ms.openlocfilehash: d4226882ded34a79f7e227886a396db0e927bad2
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: 3953a83b20ee2d1ca0035b31824ca167e92f4864
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="change-tracking-solution-in-log-analytics"></a>Soluzione di rilevamento modifiche in Log Analytics
+# <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Rilevare le modifiche software nell'ambiente in uso con la soluzione di rilevamento modifiche
+
 Questo articolo spiega come usare la soluzione di rilevamento delle modifiche in Log Analytics per identificare facilmente le modifiche nell'ambiente. La soluzione rileva le modifiche apportate a software Windows and Linux, file di Windows, servizi di Windows e daemon Linux. Rilevando le modifiche alla configurazione è possibile localizzare eventuali problemi operativi.
 
 La soluzione viene installata per aggiornare il tipo di agente che è stato installato. La soluzione legge le modifiche al software installato, ai servizi Windows e ai daemon Linux nei server monitorati e invia i dati al servizio Log Analytics nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud. Usando le informazioni nel dashboard Change Tracking, è possibile visualizzare facilmente le modifiche apportate all'infrastruttura del server.
@@ -90,9 +93,4 @@ Dopo l'installazione della soluzione, è possibile visualizzare il riepilogo del
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per visualizzare dati dettagliati di monitoraggio delle modifiche, usare [Ricerche nei log in Log Analytics](log-analytics-log-searches.md) .
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

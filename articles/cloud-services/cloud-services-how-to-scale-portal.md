@@ -12,35 +12,41 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 02/27/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 0b404af5b638ec2d543ce98b562b7df538652f70
-ms.openlocfilehash: 1f6fd5b4e10e2f94256f5a3dac7609265b1f2cc4
-
+ms.sourcegitcommit: 51338924f5c8eff4234c7d57f7efc0619316bb38
+ms.openlocfilehash: 157a5130755f2092d044f3361e4fb5bc3a7a1053
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="how-to-auto-scale-a-cloud-service"></a>Come configurare la scalabilità automatica di un servizio cloud
+
+# <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Come configurare la scalabilità automatica per un servizio cloud nel portale
 > [!div class="op_single_selector"]
 > * [Portale di Azure](cloud-services-how-to-scale-portal.md)
 > * [Portale di Azure classico](cloud-services-how-to-scale.md)
-> 
-> 
 
 È possibile impostare condizioni per un ruolo di lavoro del servizio cloud che attivano operazioni di scalabilità verticale o orizzontale. Le condizioni per il ruolo possono essere basate sulla CPU, sul disco o sul carico di rete del ruolo. È anche possibile impostare una condizione in base a una coda di messaggi o alla metrica di un'altra risorsa di Azure associata alla sottoscrizione.
 
 > [!NOTE]
 > Questo articolo è incentrato sui ruoli Web e di lavoro del servizio cloud. Quando si crea una macchina virtuale (distribuzione classica) direttamente, questa viene ospitata in un servizio cloud. È possibile ridimensionare una macchina virtuale standard tramite l'associazione con un [set di disponibilità](../virtual-machines/virtual-machines-windows-classic-configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) e attivarla o disattivarla manualmente.
-> 
-> 
 
 ## <a name="considerations"></a>Considerazioni
 Prima di configurare la scalabilità per l'applicazione, tenere presente quanto segue:
 
-* La scalabilità è influenzata dall'utilizzo di core. Le istanze del ruolo più ampie usano più core. È possibile ridimensionare il numero di istanze di un'applicazione solo entro i limiti di core previsti dalla sottoscrizione. Ad esempio, se la sottoscrizione prevede al massimo venti core e si esegue un'applicazione con due servizi cloud di medie dimensioni (per un totale di quattro core), l'aumento di istanze di altre distribuzioni del servizio cloud nella sottoscrizione è limitato a sedici core. Per altre informazioni, vedere [Dimensioni dei servizi cloud](cloud-services-sizes-specs.md) .
+* La scalabilità è influenzata dall'utilizzo di core.
+
+    Le istanze del ruolo più ampie usano più core. È possibile ridimensionare il numero di istanze di un'applicazione solo entro i limiti di core previsti dalla sottoscrizione. Si supponga, ad esempio, che la sottoscrizione abbia un limite di 20 core. Se si esegue un'applicazione con due servizi cloud di medie dimensioni (per un totale di 4 core), l'aumento di altre distribuzioni del servizio cloud nella sottoscrizione è limitata ai 16 core rimanenti. Per altre informazioni sulle dimensioni, vedere [Dimensioni dei servizi cloud](cloud-services-sizes-specs.md).
+
 * È possibile eseguire la scalabilità in base a una soglia di messaggi in coda. Per altre informazioni sull'uso delle code, vedere l'articolo relativo all' [uso del servizio di archiviazione code](../storage/storage-dotnet-how-to-use-queues.md).
+
 * È anche possibile ridimensionare altre risorse associate alla sottoscrizione.
+
 * Per abilitare la disponibilità elevata dell'applicazione, è necessario accertarsi che sia distribuita con due o più istanze del ruolo. Per altre informazioni, vedere [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/).
+
+> [!WARNING]
+> La scalabilità automatica funziona solo con gli account di archiviazione di Azure classico. Non funziona con gli account di archiviazione di Azure Resource Manager.
+
 
 ## <a name="where-scale-is-located"></a>Posizione della scalabilità
 Dopo aver selezionato il servizio cloud, viene visualizzato il pannello del servizio cloud.
@@ -103,17 +109,12 @@ Accedere a [Impostazioni scalabilità](#where-scale-is-located) e impostare l'op
 
 ![Impostazioni di scalabilità dei servizi cloud con profilo e regola](./media/cloud-services-how-to-scale-portal/manual-basics.png)
 
-Questa operazione rimuove la scalabilità automatica dal ruolo e quindi è possibile impostare direttamente il numero di istanze. 
+Questa impostazione rimuove la scalabilità automatica dal ruolo e quindi è possibile impostare direttamente il numero di istanze. 
 
 1. L'opzione di scalabilità (manuale o automatica).
 2. Un dispositivo di scorrimento delle istanze del ruolo per impostare le istanze da ridimensionare.
 3. Istanze del ruolo da ridimensionare.
 
 Dopo aver configurato il profilo e le regole, selezionare l'icona **Salva** nella parte superiore.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

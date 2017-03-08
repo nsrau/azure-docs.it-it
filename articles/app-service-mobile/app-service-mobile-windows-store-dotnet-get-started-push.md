@@ -4,7 +4,7 @@ description: Informazioni su come usare le app per dispositivi mobili del serviz
 services: app-service\mobile,notification-hubs
 documentationcenter: windows
 author: ysxu
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 6de1b9d4-bd28-43e4-8db4-94cd3b187aa3
 ms.service: app-service-mobile
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 78976e591d2eaacb286465b1ad0926a04143cecc
-ms.openlocfilehash: 6cb3033b302e2506252707856e4ce676bf576c77
+ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
+ms.openlocfilehash: 5e71ecc6539179efdcfa6bfc4567bddaa96a59d9
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -28,7 +29,7 @@ In questa esercitazione vengono aggiunte notifiche push al progetto [avvio rapid
 
 Se non si usa il progetto server di avvio rapido scaricato, sarà necessario aggiungere il pacchetto di estensione di notifica push. Per altre informazioni, vedere [Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-## <a name="a-nameconfigure-hubaconfigure-a-notification-hub"></a><a name="configure-hub"></a>Configurare un hub di notifica
+## <a name="configure-hub"></a>Configurare un hub di notifica
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## <a name="register-your-app-for-push-notifications"></a>Registrare l'app per le notifiche push
@@ -53,10 +54,10 @@ Se non si usa il progetto server di avvio rapido scaricato, sarà necessario agg
 ## <a name="configure-the-backend-to-send-push-notifications"></a>Configurare il back-end per l'invio di notifiche push
 [!INCLUDE [app-service-mobile-configure-wns](../../includes/app-service-mobile-configure-wns.md)]
 
-## <a name="a-idupdate-serviceaupdate-the-server-to-send-push-notifications"></a><a id="update-service"></a>Aggiornare il server per l'invio di notifiche push
+## <a id="update-service"></a>Aggiornare il server per l'invio di notifiche push
 Usare la procedura corrispondente al tipo di progetto di back-end in corso:&mdash; [back-end .NET](#dotnet) o [back-end Node.js](#nodejs).
 
-### <a name="a-namedotnetanet-backend-project"></a><a name="dotnet"></a>Progetto di back-end .NET
+### <a name="dotnet"></a>Progetto di back-end .NET
 1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto server, scegliere **Gestisci pacchetti NuGet**, cercare Microsoft.Azure.NotificationHubs e quindi fare clic su **Installa**. Verrà installata la libreria client dell'Hub di notifica.
 2. Espandere **Controller**, aprire TodoItemController.cs e aggiungere le istruzioni using seguenti:
 
@@ -100,7 +101,7 @@ Usare la procedura corrispondente al tipo di progetto di back-end in corso:&mdas
     Questo codice indica all'hub di notifica di inviare una notifica push dopo l'inserimento di un nuovo elemento.
 4. Pubblicare di nuovo il progetto server.
 
-### <a name="a-namenodejsanodejs-backend-project"></a><a name="nodejs"></a>Progetto di back-end Node.js
+### <a name="nodejs"></a>Progetto di back-end Node.js
 1. [Scaricare il progetto di avvio rapido](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) (se non è ancora stato scaricato) oppure usare l'[editor online del portale di Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
 2. Sostituire il codice esistente nel file todoitem.js file con il codice seguente:
 
@@ -147,7 +148,7 @@ Usare la procedura corrispondente al tipo di progetto di back-end in corso:&mdas
     Ogni volta che viene inserito un nuovo elemento Todo, viene inviata una notifica popup WNS contenente l'elemento item.text.
 3. Quando si modifica il file nel computer locale, ripubblicare il progetto server.
 
-## <a name="a-idupdate-appaadd-push-notifications-to-your-app"></a><a id="update-app"></a>Aggiungere notifiche push all'app
+## <a id="update-app"></a>Aggiungere notifiche push all'app
 L'app dovrà quindi registrarsi per le notifiche push all'avvio. Se l'autenticazione è già stata abilitata, verificare che l'utente esegua l'accesso prima di registrarsi per le notifiche push.
 
 1. Aprire il file di progetto **App.xaml.cs** e aggiungere le istruzioni `using` seguenti:
@@ -179,33 +180,28 @@ L'app dovrà quindi registrarsi per le notifiche push all'avvio. Se l'autenticaz
     In tal modo si garantirà che il valore di ChannelURI temporaneo venga registrato ogni volta che l'applicazione viene avviata.
 4. Ricompilare il progetto dell'app UWP. L'app è ora pronta per ricevere notifiche di tipo avviso popup.
 
-## <a name="a-idtestatest-push-notifications-in-your-app"></a><a id="test"></a>Testare le notifiche push nell'app
+## <a id="test"></a>Testare le notifiche push nell'app
 [!INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
 
-## <a name="a-idmoreanext-steps"></a><a id="more"></a>Passaggi successivi
+## <a id="more"></a>Passaggi successivi
 Altre informazioni sulle notifiche push:
 
 * [Come usare il client gestito per App per dispositivi mobili di Azure](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications)  
-   I modelli offrono flessibilità per inviare notifiche push multipiattaforma e push localizzati. Informazioni su come registrare i modelli.
+  I modelli offrono flessibilità per inviare notifiche push multipiattaforma e push localizzati. Informazioni su come registrare i modelli.
 * [Diagnose push notification issues](../notification-hubs/notification-hubs-push-notification-fixer.md)  
-   (Diagnosticare i problemi relativi alle notifiche push) Esistono varie ragioni per cui le notifiche possono essere eliminate o non giungere ai dispositivi. Questo argomento illustra come analizzare e capire la causa radice degli errori relativi alle notifiche push.
+  (Diagnosticare i problemi relativi alle notifiche push) Esistono varie ragioni per cui le notifiche possono essere eliminate o non giungere ai dispositivi. Questo argomento illustra come analizzare e capire la causa radice degli errori relativi alle notifiche push.
 
 È consigliabile proseguire con una delle esercitazioni seguenti:
 
 * [Aggiungere l'autenticazione all'app Windows](app-service-mobile-windows-store-dotnet-get-started-users.md)  
-   Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
+  Informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 * [Abilitare la sincronizzazione offline per l'app](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
   : informazioni su come aggiungere il supporto offline all'app usando il back-end di un'app per dispositivi mobili. La sincronizzazione offline consente agli utenti finali di interagire con un'app&mdash;visualizzando, aggiungendo e modificando i dati&mdash;anche se non è disponibile una connessione di rete.
 
 <!-- Anchors. -->
 
 <!-- URLs. -->
-[portale di Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
 <!-- Images. -->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -4,7 +4,7 @@ description: "Informazioni sulla funzionalità Ambiente del servizio app che off
 services: app-service
 documentationcenter: 
 author: stefsch
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 78e6d4f5-da46-4eb5-a632-b5fdc17d2394
 ms.service: app-service
@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 465710ca02b8f905b11980e0023d7feceabf34f1
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 91b1d6315a9414789b28442f3f19d14c2aed8f00
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="introduction-to-app-service-environment"></a>Introduzione all'ambiente del servizio app
 ## <a name="overview"></a>Panoramica
-Un ambiente del servizio app è un'opzione del piano di servizio [Premium][PremiumTier] del servizio app di Azure che offre un ambiente completamente isolato e dedicato per l'esecuzione sicura su larga scala delle app del servizio app di Azure, incluse [app Web][WebApps], [app per dispositivi mobili][MobileApps] e [app per le API][APIApps].  
+Un ambiente di servizio app è un'opzione del piano di servizio [Premium][PremiumTier] di Servizio app di Azure che fornisce un ambiente completamente isolato e dedicato all'esecuzione sicura delle app di Servizio di Azure su larga scala, tra cui [app Web][WebApps], [app per dispositivi mobili][MobileApps], e [app per le API][APIApps].  
 
 Gli ambienti di servizi di app sono ideali per i carichi di lavoro dell'applicazione che richiedono:
 
@@ -35,9 +36,9 @@ Gli ambienti di servizio dell’App sono isolati per eseguire solo le applicazio
 
 Tutti gli articoli e le procedure sugli ambienti del servizio app sono disponibili nel [File LEGGIMI per gli ambienti di servizio dell'applicazione](../app-service/app-service-app-service-environments-readme.md).
 
-Per una panoramica del modo in cui gli ambienti del servizio app consentono la scalabilità elevata e proteggono l'accesso di rete, vedere l'[approfondimento di AzureCon][AzureConDeepDive] relativo agli ambienti del servizio app.
+Per una panoramica del modo in cui gli ambienti del servizio app abilitano la scalabilità elevata e proteggono l'accesso alla rete, vedere l'[approfondimento di AzureCon][AzureConDeepDive] relativo agli ambienti del servizio app.
 
-Per un approfondimento sull'aumento del numero di istanze usando più ambienti del servizio app, vedere l'articolo relativo alla configurazione di un [footprint di app con distribuzione geografica][GeodistributedAppFootprint].
+Per un approfondimento sulla scalabilità orizzontale usando più ambienti del servizio app, vedere l'articolo sulle modalità di configurazione di un [footprint di app con distribuzione geografica][GeodistributedAppFootprint].
 
 Per vedere come è stata configurata l'architettura di sicurezza illustrata negli approfondimenti di AzureCon, vedere l'articolo sull'implementazione di una [architettura di sicurezza a più livelli](app-service-app-service-environment-layered-security.md) con gli ambienti del servizio app.
 
@@ -69,14 +70,14 @@ Un ambiente del servizio app può avere connessione a Internet con un indirizzo 
 
 Spesso le app devono accedere a risorse aziendali, ad esempio database e servizi Web interni.  In base a un approccio comune, questi endpoint vengono resi disponibili solo al traffico di rete interno in una rete virtuale di Azure.  Quando un ambiente del servizio app è aggiunto alla stessa rete virtuale dei servizi interni, le app in esecuzione nell'ambiente possono accedere a questi servizi, inclusi gli endpoint raggiungibili tramite connessioni [da sito a sito][SiteToSite] e connessioni [Azure ExpressRoute][ExpressRoute].
 
-Per altre informazioni sul funzionamento di ambienti di servizio app con reti virtuali e reti locali, vedere gli articoli seguenti su [architettura di rete][NetworkArchitectureOverview], [controllo del traffico in ingresso][ControllingInboundTraffic] e [connessione sicura ai back-end][SecurelyConnectingToBackends]. 
+Per altre informazioni sul funzionamento degli ambienti del servizio app con reti virtuali e reti locali, consultare gli articoli seguenti su [architettura di rete][NetworkArchitectureOverview], [controllo del traffico in ingresso][ControllingInboundTraffic] e [connessione sicura ai back-end][SecurelyConnectingToBackends]. 
 
 ## <a name="getting-started"></a>Introduzione
-Per iniziare a usare gli ambienti del servizio app, vedere [Come creare un ambiente del servizio app][HowToCreateAnAppServiceEnvironment]
+Per iniziare a usare gli ambienti del servizio app, vedere [Come creare un ambiente del servizio app][HowToCreateAnAppServiceEnvironment].
 
 Tutti gli articoli e le procedure sugli ambienti del servizio app sono disponibili nel [file LEGGIMI per gli ambienti di servizio dell'applicazione](../app-service/app-service-app-service-environments-readme.md).
 
-Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Servizio app di Azure][AzureAppService].
+Per altre informazioni sulla piattaforma del servizio app di Azure, vedere l'articolo relativo al [servizio app di Azure][AzureAppService].
 
 Per una panoramica dell'architettura di rete dell'ambiente del servizio app, vedere l'articolo [Panoramica dell'architettura di rete][NetworkArchitectureOverview].
 
@@ -110,10 +111,5 @@ Per altre informazioni sull'uso di un ambiente del servizio app con ExpressRoute
 
 <!-- IMAGES -->
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -15,8 +15,9 @@ ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 8651566079a0875e1a3a549d4bf1dbbc6ac7ce21
-ms.openlocfilehash: 410159ad7b5abc5eb3cb1a212895eda7ac225323
+ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
+ms.openlocfilehash: fb670dd7296f329fc280cf9f2c2adba2df44c07c
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -47,7 +48,7 @@ Durante la creazione di una macchina virtuale da `azure-cli` è possibile scegli
 
 ## <a name="creating-a-vm-with-a-managed-disk"></a>Creazione di una macchina virtuale con un disco gestito
 
-L'esempio seguente richiede l'interfaccia della riga di comando di Azure 2.0 (anteprima), [installabile da qui].
+L'esempio seguente richiede l'interfaccia della riga di comando di Azure 2.0, [installabile da qui].
 
 Creare innanzitutto un gruppo di risorse per gestire le risorse:
 
@@ -238,10 +239,5 @@ Si discuterà di Crittografia del servizio di archiviazione (SSE) e come è poss
 
 ## <a name="storage-limits"></a>Limiti relativi ad Archiviazione
 * [Limiti del servizio di archiviazione](../azure-subscription-service-limits.md#storage-limits)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

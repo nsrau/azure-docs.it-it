@@ -15,8 +15,9 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: db3d95cf7efd1caebb9e568ba729b9cbc30e5b78
-ms.openlocfilehash: 22001eec6402054239c9215a686512bd74d9bb9f
+ms.sourcegitcommit: e762497c67e04aa4186094a203796278355de36f
+ms.openlocfilehash: 5da58eebde8ea0d615514755af1c378d16f60bfc
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -30,8 +31,8 @@ ms.openlocfilehash: 22001eec6402054239c9215a686512bd74d9bb9f
 ## <a name="cli-versions-to-complete-the-task"></a>Versioni dell'interfaccia della riga di comando per completare l'attività
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
-- [Interfaccia della riga di comando di Azure 1.0](#create-supporting-resources): l'interfaccia della riga di comando per i modelli di distribuzione classici e di gestione delle risorse
-- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](virtual-machines-linux-multiple-nics.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): interfaccia di prossima generazione per il modello di distribuzione di gestione delle risorse (questo articolo)
+- [Interfaccia della riga di comando di Azure 1.0](#create-supporting-resources): l'interfaccia della riga di comando per i modelli di distribuzione classica e di gestione delle risorse (questo articolo)
+- [Interfaccia della riga di comando di Azure 2.0](virtual-machines-linux-multiple-nics.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): interfaccia della riga di comando di prossima generazione per il modello di distribuzione di Gestione risorsa
 
 
 ## <a name="create-supporting-resources"></a>Creare risorse di supporto
@@ -141,10 +142,5 @@ Ulteriori informazioni sulla [creazione di più istanze utilizzando *Copia*](../
 Assicurarsi di consultare [Dimensioni delle macchine virtuali di Linux](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) durante il tentativo di creazione di una macchina virtuale con più schede di rete. Prestare attenzione al numero massimo di schede di rete supportato per ogni dimensione della macchina virtuale. 
 
 Tenere presente che non è possibile aggiungere altre schede di rete a una macchina virtuale esistente. È necessario creare tutte le schede di rete quando si distribuisce la macchina virtuale. Prestare attenzione quando si pianificano le distribuzioni per assicurarsi di avere la connettività di rete necessaria fin dall'inizio.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

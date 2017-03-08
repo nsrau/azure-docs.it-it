@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
+ms.date: 02/28/2017
 ms.author: jahogg
 translationtype: Human Translation
-ms.sourcegitcommit: f197d3070e4265ff1633d6d167412d242a366ccf
-ms.openlocfilehash: 26d670a66fb6a7d4a1f0d50de93bea233c35db6b
+ms.sourcegitcommit: 28dfc25fc58afda13732aa8608c42f7e42c649d6
+ms.openlocfilehash: e51c843a59e8a59de68ee5370cb33d9bef206c19
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -565,11 +566,11 @@ La tabella che segue mostra un esempio di messaggio del log lato server generato
 | Orario di inizio richiesta | 2014-05-30T06:17:48.4473697Z |
 | Tipo di operazione     | GetBlobProperties            |
 | Stato della richiesta     | SASAuthorizationError        |
-| Stato codice HTTP   | 404                          |
+| Stato codice HTTP   | 404                            |
 | Tipo di autenticazione| Sas                          |
 | Tipo di servizio       | BLOB                         |
-| URL richiesta        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
-| nbsp;              |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
+| URL richiesta         | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
+| nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | intestazione dell'ID richiesta  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | ID richiesta client  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
@@ -613,7 +614,7 @@ client.SetServiceProperties(sp);
 #### <a name="a-namenetwork-failureanetwork-failure"></a><a name="network-failure"></a>Errore della rete
 In alcune circostanze, la perdita di pacchetti di rete può causare la restituzione da parte del servizio di archiviazione di messaggi HTTP 404 per il client. Ad esempio, quando l'applicazione client elimina un'entità dal servizio tabelle, il client genera un'eccezione di archiviazione segnalando un messaggio di stato "HTTP 404 (Non trovato)" ricevuto dal servizio tabelle. Quando si esamina la tabella nel servizio di archiviazione tabelle, si può notare che il servizio ha eliminato l'entità come richiesto.
 
-I dettagli dell'eccezione nel client includono l'ID richiesta (7e84f12d…) assegnato dal servizio tabelle per la richiesta. È possibile usare queste informazioni per individuare i dettagli della richiesta nei log di archiviazione sul lato server, eseguendo una ricerca nella colonna **request-id-header** del file di log. È inoltre possibile usare le metriche per identificare il momento in cui si verificano errori come questo e quindi eseguire una ricerca nei file di log in base all'orario in cui le metriche hanno registrato l'errore. Questa voce del file di log indica che l'eliminazione non è riuscita con messaggio di stato HTTP 404 (altro errore del client). La stessa voce del log include anche l'ID richiesta generato dal client nella colonna **client-request-id** (813ea74f…).
+I dettagli dell'eccezione nel client includono l'ID richiesta (7e84f12d…) assegnato dal servizio tabelle per la richiesta. È possibile usare queste informazioni per individuare i dettagli della richiesta nei log di archiviazione sul lato server, eseguendo una ricerca nella colonna **request-id-header** del file di log. È inoltre possibile usare le metriche per identificare il momento in cui si verificano errori come questo e quindi eseguire una ricerca nei file di log in base all'orario in cui le metriche hanno registrato l'errore. Questa voce del file di log indica che l'eliminazione non è riuscita con messaggio di stato HTTP&404; (altro errore del client). La stessa voce del log include anche l'ID richiesta generato dal client nella colonna **client-request-id** (813ea74f…).
 
 Il log sul lato server contiene anche un'altra voce con lo stesso valore **client-request-id** (813ea74f…) in modo che venga eseguita correttamente l'eliminazione della stessa entità e dallo stesso client. L'operazione di eliminazione corretta viene eseguita poco prima della richiesta di eliminazione non riuscita.
 
@@ -884,9 +885,4 @@ Al momento della redazione di questo documento Application Insights è disponibi
 [8]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/wireshark-screenshot-3.png
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-2.png
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

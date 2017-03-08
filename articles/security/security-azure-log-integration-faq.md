@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/07/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: f7589fa62dcfedc6f99439f453a40f999ff8d845
-ms.openlocfilehash: aa1e59a38b37c5e78b61ad7fe10f7c8461b7fe1d
+ms.sourcegitcommit: d31d4c390d5e03c8b206284c3ae75defed2a38af
+ms.openlocfilehash: 83bedb42e8e685f5ea65e160ab7bfe128236ef82
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -49,7 +50,6 @@ Se la configurazione del proxy non consente l'accesso di archiviazione di Azure 
 Aggiungere il **subscriptionid** al nome descrittivo durante l'aggiunta dell'origine.
 
     Azlog source add <sourcefriendlyname>.<subscription id> <StorageName> <StorageKey>  
-
 L'XML dell'evento include i metadati illustrati di seguito, compreso l'ID sottoscrizione.
 
 ![XML dell'evento][1]
@@ -65,7 +65,7 @@ Error:
 ### <a name="when-running-command-azlog-authorize-why-do-i-get-the-following-error"></a>Durante l'esecuzione del comando **azlog authorize**, perché viene visualizzato il seguente errore?
 Error:
 
-  *Avviso creazione assegnazione di ruolo - AuthorizationFailed: il client janedo@microsoft.com' con ID oggetto "fe9e03e4-4dad-4328-910f-fd24a9660bd2" non dispone dell'autorizzazione per eseguire l'azione "Microsoft.Authorization/roleAssignments/write" sull'ambito "/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000".*
+  *Warning creating Role Assignment - AuthorizationFailed: The client janedo@microsoft.com' with object id 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000'.* (Avviso durante la creazione dell'assegnazione del ruolo - Autorizzazione non riuscita: il client " con ID oggetto "fe9e03e4-4dad-4328-910f-fd24a9660bd2' non dispone di autorizzazione per eseguire l'azione 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000").
 
 Il comando **azlog authorize** assegna il ruolo di Lettore all'entità servizio di Azure AD (creata con **azlog createazureid**) per le sottoscrizioni fornite. Se l'account di accesso di Azure non è un coamministratore o un proprietario della sottoscrizione, l'operazione ha esito negativo con il messaggio di errore "Autorizzazione non riuscita". Per completare l'operazione è necessario il controllo di accesso di Azure basato sui ruoli (RBAC) di coamministratore o proprietario.
 
@@ -104,13 +104,9 @@ L'esempio seguente è una configurazione in cui vengono raccolti solo gli ID eve
 
 Dopo aver apportato modifiche, verificare l'account di archiviazione per assicurarsi che vengano raccolti gli eventi corretti.
 
-In caso di domande sull'integrazione dei log di Azure, inviare un messaggio di posta elettronica all'indirizzo [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
+Se si verificano problemi durante l'installazione e la configurazione, aprire una [richiesta di supporto](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request), selezionare "Integrazione log" come servizio per cui si richiede il supporto.
+
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

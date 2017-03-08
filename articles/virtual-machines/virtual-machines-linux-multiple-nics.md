@@ -1,6 +1,6 @@
 ---
-title: "Creare una macchina virtuale Linux con più schede di interfaccia di rete usando l&quot;interfaccia della riga di comando di Azure 2.0 (Anteprima) | Documentazione Microsoft"
-description: "Informazioni su come creare una VM Linux con più schede di interfaccia di rete collegate usando l&quot;interfaccia della riga di comando di Azure 2.0 (Anteprima) o i modelli di Resource Manager."
+title: "Creare una macchina virtuale Linux con più schede di interfaccia di rete usando l&quot;interfaccia della riga di comando di Azure 2.0 | Documentazione Microsoft"
+description: "Informazioni su come creare una VM Linux con più schede di interfaccia di rete collegate usando l&quot;interfaccia della riga di comando di Azure 2.0 o i modelli di Resource Manager."
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -15,27 +15,23 @@ ms.workload: infrastructure
 ms.date: 02/10/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 368c79b001495e0fb000a4b280023b2299256435
-ms.openlocfilehash: a854a15a9119f289344a75638d1042ee6779bb46
+ms.sourcegitcommit: 7f3abdd63e43713d9d1f7ff28e44efc08167fddb
+ms.openlocfilehash: e50f9ce362177a2aff8da5b1d516973c41d1149e
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="create-a-linux-vm-with-multiple-nics-using-the-azure-cli-20-preview"></a>Creare una macchina virtuale Linux con più schede di interfaccia di rete usando l'interfaccia della riga di comando di Azure 2.0 (Anteprima)
+# <a name="create-a-linux-vm-with-multiple-nics"></a>Creare una VM Linux con più schede di interfaccia di rete
 È possibile creare una macchina virtuale (VM) in Azure con più interfacce di rete virtuale (NIC) collegate. Uno scenario comune è quello di avere subnet diverse per la connettività front-end e back-end, oppure disporre di una rete dedicata a una soluzione di monitoraggio o di backup. In questo articolo vengono presentati i comandi rapidi per creare una macchina virtuale con più schede di rete collegate. Per informazioni dettagliate, incluse quelle sulla creazione di più schede di rete all'interno degli script di Bash, consultare la sezione dedicata alla [distribuzione di macchine virtuali con più schede di rete](../virtual-network/virtual-network-deploy-multinic-arm-cli.md). Le differenti [dimensioni della macchina virtuale](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) supportano un numero variabile di schede di rete, pertanto scegliere le dimensioni della macchina virtuale di conseguenza.
+
+Questo articolo illustra come creare una macchina virtuale con più schede di interfaccia di rete usando l'interfaccia della riga di comando di Azure 2.0. È possibile anche eseguire questi passaggi tramite l'[interfaccia della riga di comando di Azure 1.0](virtual-machines-linux-multiple-nics-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!WARNING]
 > È necessario collegare più schede di rete quando si crea una VM, poiché non è possibile aggiungere le schede di rete a una macchina virtuale esistente. È possibile [creare una nuova VM basata sui dischi virtuali originali](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e creare più schede di interfaccia di rete mentre si distribuisce la VM.
 
 
-## <a name="cli-versions-to-complete-the-task"></a>Versioni dell'interfaccia della riga di comando per completare l'attività
-È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
-
-- [Interfaccia della riga di comando di Azure 1.0](virtual-machines-linux-multiple-nics-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): l'interfaccia della riga di comando per i modelli di distribuzione classici e di gestione delle risorse
-- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](#create-supporting-resources): interfaccia di prossima generazione per il modello di distribuzione di gestione delle risorse (questo articolo)
-
-
 ## <a name="create-supporting-resources"></a>Creare risorse di supporto
-Installare l'[Interfaccia della riga di comando di Azure 2.0 (Anteprima)](/cli/azure/install-az-cli2) e accedere a un account di Azure tramite il comando [az login](/cli/azure/#login).
+Installare la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e accedere a un account Azure tramite il comando [az login](/cli/azure/#login).
 
 Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono `myResourceGroup`, `mystorageaccount` e `myVM`.
 
@@ -120,10 +116,5 @@ Ulteriori informazioni sulla [creazione di più istanze utilizzando *Copia*](../
 Assicurarsi di consultare [Dimensioni delle macchine virtuali di Linux](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) durante il tentativo di creazione di una macchina virtuale con più schede di rete. Prestare attenzione al numero massimo di schede di rete supportato per ogni dimensione della macchina virtuale. 
 
 Tenere presente che non è possibile aggiungere altre schede di rete a una macchina virtuale esistente. È necessario creare tutte le schede di rete quando si distribuisce la macchina virtuale. Prestare attenzione quando si pianificano le distribuzioni per assicurarsi di avere la connettività di rete necessaria fin dall'inizio.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

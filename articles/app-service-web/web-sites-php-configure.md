@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: f72b59c0b3091cd2b8ad12f8d94e09364d9b65cd
+ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
+ms.openlocfilehash: 3adbef0d22673d6cd872f583903d0c73469d4fa1
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -68,7 +69,7 @@ Per usare l'interfaccia della riga di comando di Azure, è necessario che **Node
         azure site show {app-name}
 
 > [!NOTE] 
-> I comandi dell'[interfaccia della riga di comando di Azure 2.0 (anteprima)](https://github.com/Azure/azure-cli) equivalenti a quanto riportato sopra sono i seguenti:
+> I comandi dell'[interfaccia della riga di comando di Azure 2.0](https://github.com/Azure/azure-cli) equivalenti a quanto riportato sopra sono i seguenti:
 >
 >
 
@@ -203,10 +204,5 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/
 [GETPHPVERCLI]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
 [SETPHPVERPS]: ./media/web-sites-php-configure/ChangePHPVersion-PS.png
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

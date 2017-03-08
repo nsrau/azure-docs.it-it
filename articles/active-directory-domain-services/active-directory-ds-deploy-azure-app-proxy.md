@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 5121a810badcaa9c66a9f5d85bd83b9f522b9665
 ms.openlocfilehash: 449499ebed1b455af012ec97976d04604a320941
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -104,7 +105,7 @@ Abilitare l'accesso Single Sign-On alle applicazioni che usano l'autenticazione 
 
 
 ### <a name="enable-resource-based-kerberos-constrained-delegation-for-the-azure-ad-application-proxy-connector"></a>Abilitare la delega vincolata kerberos basata su risorse per il connettore del proxy di applicazione di Azure AD
-Il connettore del proxy di applicazione di Azure deve essere configurato per la delega vincolata kerberos (KCD), in modo che possa rappresentare gli utenti nel dominio gestito. In un dominio gestito di Azure AD Domain Services non si hanno privilegi di amministratore di dominio. Di conseguenza, **non è possibile configurare la delega vincolata Kerberos tradizionale a livello di account in un dominio gestito**. 
+Il connettore del proxy di applicazione di Azure deve essere configurato per la delega vincolata kerberos (KCD), in modo che possa rappresentare gli utenti nel dominio gestito. In un dominio gestito di Azure AD Domain Services non si hanno privilegi di amministratore di dominio. Di conseguenza, **non è possibile configurare la delega vincolata Kerberos tradizionale a livello di account in un dominio gestito**.
 
 Usare la delega vincolata Kerberos basata su risorse, come illustrato in [questo articolo](active-directory-ds-enable-kcd.md).
 
@@ -130,9 +131,4 @@ Se sono stati distribuiti più connettori del proxy di applicazione nel dominio 
 * [Guida introduttiva di Azure AD Domain Services](active-directory-ds-getting-started.md)
 * [Configurare la delega vincolata Kerberos in un dominio gestito](active-directory-ds-enable-kcd.md)
 * [Panoramica della delega vincolata Kerberos](https://technet.microsoft.com/library/jj553400.aspx)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

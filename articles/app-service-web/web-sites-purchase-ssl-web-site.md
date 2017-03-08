@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: apurvajo
 translationtype: Human Translation
-ms.sourcegitcommit: a1b492b7884deb2d0d4f255af0737e1633606384
-ms.openlocfilehash: 0a016d88b8d7a800bf726e4f582deeaaf3bc6ad6
+ms.sourcegitcommit: 3629280101a6c8c53dacf9f80c09becf1db53f03
+ms.openlocfilehash: e4331c6d5a07e6450c1fdde43d4c226e9a06de54
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -36,7 +37,7 @@ Questo articolo spiega come acquistare e configurare un certificato SSL per il *
 > 
 > 
 
-## <a name="a-namebkmkoverviewaoverview"></a><a name="bkmk_Overview"></a>Panoramica
+## <a name="bkmk_Overview"></a>Panoramica
 > [!NOTE]
 > Non tentare di acquistare un certificato SSL con una sottoscrizione a cui non è associata una carta di credito attiva, perché è possibile che la sottoscrizione venga disabilitata. 
 > 
@@ -47,7 +48,7 @@ Per abilitare HTTPS per un dominio personalizzato, ad esempio contoso.com, è ne
 
 Prima di richiedere un certificato SSL, è necessario determinare i nomi di dominio da proteggere tramite il certificato, in modo da stabilire il tipo di certificato che è necessario ottenere. Se si vuole proteggere solo un singolo nome di dominio, ad esempio contoso.com or www.contoso.com, sarà sufficiente un certificato Standard (di base). Se è necessario proteggere più nomi di dominio, ad esempio contoso.com, www.contoso.com e mail.contoso.com, è possibile ottenere un **[certificato con caratteri jolly](http://en.wikipedia.org/wiki/Wildcard_certificate)**
 
-## <a name="a-namebkmkpurchasecertastep-0-place-an-ssl-certificate-order"></a><a name="bkmk_purchasecert"></a>Passaggio 0: eseguire un ordine per un certificato SSL
+## <a name="bkmk_purchasecert"></a>Passaggio 0: eseguire un ordine per un certificato SSL
 Questo passaggio descrive come eseguire un ordine per il certificato SSL desiderato.
 
 1. Nel **[Portale di Azure](https://portal.azure.com/)** fare clic su Sfoglia e digitare "Certificati del servizio app" nella barra di ricerca, quindi selezionare "Certificati del servizio app" dai risultati e fare clic su Aggiungi. 
@@ -83,7 +84,7 @@ Questo passaggio descrive come eseguire un ordine per il certificato SSL desider
 > 
 > 
 
-## <a name="a-namebkmkstorekeyvaultastep-1-store-the-certificate-in-azure-key-vault"></a><a name="bkmk_StoreKeyVault"></a>Passaggio 1: archiviare il certificato nell'insieme di credenziali delle chiavi di Azure
+## <a name="bkmk_StoreKeyVault"></a>Passaggio 1: archiviare il certificato nell'insieme di credenziali delle chiavi di Azure
 Questo passaggio descrive come archiviare un certificato SSL acquistato nell'insieme di credenziali delle chiavi di Azure desiderato.
 
 1. Dopo aver completato l'acquisto del certificato SSL è necessario aprire manualmente il pannello delle risorse **Certificati del servizio app** passando nuovamente a questo pannello (vedere Passaggio 1)   
@@ -104,7 +105,7 @@ Questo passaggio descrive come archiviare un certificato SSL acquistato nell'ins
    
     Questa operazione conclude il passaggio di archiviazione del certificato acquistato nell'insieme di credenziali delle chiavi di Azure desiderato. Quando si aggiorna il pannello, dovrebbe essere presente un segno di spunta verde in corrispondenza anche di questo passaggio.
 
-## <a name="a-namebkmkverifyownershipastep-2-verify-the-domain-ownership"></a><a name="bkmk_VerifyOwnership"></a>Passaggio 2: verificare la proprietà del dominio
+## <a name="bkmk_VerifyOwnership"></a>Passaggio 2: verificare la proprietà del dominio
 Questo passaggio descrive come eseguire la verifica della proprietà del dominio per un certificato SSL appena ordinato. 
 
 1. Fare clic su **"Step 2: Verify"** (Passaggio 2: verifica) nel pannello **"Certificate Configuration"** (Configurazione del certificato). Esistono 3 tipi di verifica del dominio supportati da Certificati del servizio app.
@@ -121,14 +122,23 @@ Questo passaggio descrive come eseguire la verifica della proprietà del dominio
      * Se è necessario un nuovo invio del messaggio di verifica, fare clic sul pulsante **"Invia di nuovo il messaggio di posta elettronica"** .
    * **Verifica manuale**    
      
-      **Verifica del record TXT DNS**
-        
-        * Mediante il gestore DNS, creare un record TXT nel sottodominio **'DZC'** con valore uguale al **token di verifica del dominio.**
+      **Verifica della pagina Web HTML (funziona solo con lo SKU del certificato standard)**
+
+        * Creare un file HTML denominato **"starfield.html"**
+        * Il contenuto di questo file deve corrispondere esattamente al nome del token di verifica del dominio. È possibile copiare il token dal pannello dello stato di verifica del dominio.
+        * Caricare il file nella radice del server Web che ospita il dominio **/.well-known/pki-validation/starfield.html**
         * Fare clic su **"Aggiorna"** per aggiornare lo stato del certificato dopo aver completato la verifica. Il completamento della verifica potrebbe richiedere qualche minuto.
           
-          Ad esempio, per eseguire la convalida di un certificato con caratteri jolly con nome host **\*.contosocertdemo.com** o **\*.subdomain.contosocertdemo.com** e token di verifica del dominio **cAGgQrKc**, è necessario creare un record TXT in dzc.contosocertdemo.com con valore **cAGgQrKc.**     
+          Se si acquista ad esempio un certificato standard per **contosocertdemo.com** con token di verifica del dominio **tgjgthq8d11ttaeah97s3fr2sh**, una richiesta Web a **http://contosocertdemo.com/.well-known/pki-validation/starfield.html** dovrà restituire **tgjgthq8d11ttaeah97s3fr2sh**.
 
-## <a name="a-namebkmkassigncertificateastep-3-assign-certificate-to-app-service-app"></a><a name="bkmk_AssignCertificate"></a>Passaggio 3: Assegnare il certificato all'app del servizio app
+      **Verifica del record TXT DNS**
+        
+        * Usando il gestore DNS, creare un record TXT nel sottodominio **"@"** con valore uguale al **token di verifica del dominio.**
+        * Fare clic su **"Aggiorna"** per aggiornare lo stato del certificato dopo aver completato la verifica. Il completamento della verifica potrebbe richiedere qualche minuto.
+          
+          Ad esempio, per eseguire la convalida di un certificato con caratteri jolly con nome host **\*.contosocertdemo.com** o **\*.subdomain.contosocertdemo.com** e token di verifica del dominio **tgjgthq8d11ttaeah97s3fr2sh**, è necessario creare un record TXT in **contosocertdemo.com** con valore **tgjgthq8d11ttaeah97s3fr2sh**     
+
+## <a name="bkmk_AssignCertificate"></a>Passaggio 3: Assegnare il certificato all'app del servizio app
 Questo passaggio descrive come assegnare un certificato appena acquistato alle app del servizio app. 
 
 > [!NOTE]
@@ -163,7 +173,7 @@ Se è stata selezionata l'opzione **SSL basato su IP** e il dominio personalizza
 1. Usando gli strumenti forniti dal registrar, modificare il record A per il nome di dominio personalizzato, in modo che faccia riferimento all'indirizzo IP riportato nel passaggio precedente.
    A questo punto si dovrebbe poter andare all'app usando HTTPS:// anziché HTTP:// per verificare che il certificato sia stato configurato correttamente.
 
-## <a name="a-namebkmkrekeyarekey-and-sync-the-certificate"></a><a name="bkmk_Rekey"></a>Reimpostare e sincronizzare il certificato
+## <a name="bkmk_Rekey"></a>Reimpostare e sincronizzare il certificato
 1. Per motivi di sicurezza, sarà possibile reimpostare il certificato semplicemente selezionando l'opzione **"Reimposta e sincronizza"** nel pannello **"Proprietà del certificato"**. 
 2. Fare clic sul pulsante **"Reimposta"** per avviare il processo. Questo processo può richiedere da 1 a 10 minuti. 
    
@@ -185,10 +195,5 @@ Se è stata selezionata l'opzione **SSL basato su IP** e il dominio personalizza
 > Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
