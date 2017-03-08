@@ -15,14 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2017
 ms.author: cynthn
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
-ms.openlocfilehash: fc8cb82e952a05b161f00ef9ebfbd4852d3987d4
+ms.sourcegitcommit: c859b789b564ee79022823e8d796775f58eeeccd
+ms.openlocfilehash: 7acd58989da14ea49374e86edb0dba5762557d79
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="upload-a-specialized-vhd-to-azure-to-use-for-creating-a-new-vm"></a>Caricare un disco rigido virtuale specializzato in Azure da usare per creare una nuova macchina virtuale
+# <a name="how-to-upload-a-specialized-vhd-to-create-a-vm-in-azure"></a>Come caricare un disco rigido virtuale specializzato per creare una macchina virtuale in Azure
 
 Un disco rigido virtuale specializzato gestisce gli account utente, le applicazioni e altri dati di stato dalla macchina virtuale originale. È possibile caricare un disco rigido virtuale specializzato in Azure e usarlo per creare una macchina virtuale che usi Managed Disks o un account di archiviazione non gestita. Si consiglia di usare [Managed Disks](../storage/storage-managed-disks-overview.md) per sfruttare la gestione semplificata e le funzionalità aggiuntive offerte.
 
@@ -39,7 +41,7 @@ Un disco rigido virtuale specializzato gestisce gli account utente, le applicazi
 * Per trovare i limiti generali delle VM di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-Se si usa PowerShell, verificare di disporre della versione più recente del modulo di PowerShell AzureRM.Compute. Eseguire il comando seguente per installarlo.
+Se si usa PowerShell, verificare di avere la versione più recente del modulo di PowerShell AzureRM.Compute. Eseguire il comando seguente per installarlo.
 
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
@@ -321,9 +323,4 @@ $vmList.Name
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per accedere alla nuova macchina virtuale, passare alla VM nel [portale](https://portal.azure.com), fare clic su **Connetti**e aprire il file RDP di Desktop remoto. Usare le credenziali dell'account della macchina virtuale originale per accedere alla nuova macchina virtuale. Per altre informazioni, vedere [Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 1c4045bd9b705ab3e909a06035f27b85635fdf36
 ms.openlocfilehash: 3d83a919d8e7bc59bd51e226c56ff2bb42c87955
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -109,8 +110,8 @@ Possono esistere situazioni di distribuzione in cui sono necessarie alcune delle
 
 > [!NOTE]
 > Un'opzione fai da te potrebbe essere più adatta per determinate situazioni di distribuzione. [Condividendo i loro commenti](active-directory-ds-contact-us.md) gli utenti ci aiuteranno a comprendere quali funzionalità potrebbero far ricadere la loro scelta in futuro su Servizi di dominio Azure AD. Questi commenti e suggerimenti ci consentiranno di migliorare il servizio in modo da adattarlo ad altre esigenze di distribuzione e casi di utilizzo.
-> 
-> 
+>
+>
 
 Microsoft ha pubblicato alcune [linee guida per la distribuzione di Active Directory di Windows Server nelle macchine virtuali Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx) come aiuto per l'installazione.
 
@@ -118,10 +119,4 @@ Microsoft ha pubblicato alcune [linee guida per la distribuzione di Active Direc
 * [Funzionalità - Servizi di dominio Azure AD](active-directory-ds-features.md)
 * [Scenari di distribuzione - Servizi di dominio Azure AD](active-directory-ds-scenarios.md)
 * [Linee guida per la distribuzione di Active Directory di Windows Server in macchine virtuali di Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

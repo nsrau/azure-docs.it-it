@@ -1,5 +1,5 @@
 ---
-title: "Estensioni e funzionalità della macchina virtuale per Windows | Microsoft Docs"
+title: "Estensioni e funzionalità delle macchine virtuali per Windows in Azure | Documentazione Microsoft"
 description: "Informazioni sulle estensioni disponibili per le macchine virtuali di Azure, raggruppate in base a ciò che forniscono o migliorano."
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,13 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1493bf0a545cd605b80404413894bd56e1ced735
-ms.openlocfilehash: ebd8734ad2de6f5e528e941f90098de079966f48
+ms.sourcegitcommit: 32e30b44c2f7cfa9c1069190fdc53dbe6e9f4cd5
+ms.openlocfilehash: 88ccd06cf3098c3df014422e5f4dc54ceb955d3c
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="virtual-machine-extensions-and-features-for-windows"></a>Estensioni e funzionalità della macchina virtuale per Windows
+# <a name="virtual-machine-extensions-and-features-for-windows"></a>Estensioni e funzionalità della macchina virtuale per Windows 
 
 Le estensioni della macchina virtuale di Azure sono piccole applicazioni che eseguono attività di configurazione e automazione post-distribuzione sulle macchine virtuali di Azure. Ad esempio, se una macchina virtuale richiede l'installazione di software, la protezione antivirus o la configurazione di Docker, è possibile usare un'estensione di macchina virtuale per completare queste attività. Le estensioni della macchina virtuale di Azure possono essere eseguite tramite l'interfaccia della riga di comando di Azure, PowerShell, i modelli di Azure Resource Manager e il portale di Azure. Le estensioni possono essere unite in bundle con una nuova distribuzione di macchina virtuale o eseguite su un sistema esistente.
 
@@ -285,9 +287,4 @@ Un'estensione può essere eliminata anche tramite il portale di Azure. A tale sc
 | Estensione DSC per Windows |Estensione PowerShell DSC (Desired State Configuration) |[Estensione DSC per Windows](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Estensione di Diagnostica di Azure |Gestisce Diagnostica di Azure. |[Estensione di Diagnostica di Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Estensione dell'accesso alla VM di Azure |Gestire gli utenti e le credenziali |[Estensione dell'accesso alle macchine virtuali per Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

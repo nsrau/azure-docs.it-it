@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/23/2017
 ms.author: saurabh
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e9258143cae9d9f8ba1f357617e2c45cf8487ab9
-ms.openlocfilehash: 2bd7efaaf45267ccdad390354ea98fafff1a6cb5
+ms.sourcegitcommit: 855ecb73854e20eb52f343e5d190cbcbaa9ad080
+ms.openlocfilehash: 85adb953254496e969fb8d459a0c79592708c835
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="create-a-windows-virtual-machine-with-monitoring-and-diagnostics-using-azure-resource-manager-template"></a>Creare una macchina virtuale Windows con monitoraggio e diagnostica mediante i modelli di Gestione risorse di Azure
+# <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Usare monitoraggio e diagnostica con una macchina virtuale Windows e modelli di Azure Resource Manager
 L'estensione Diagnostica di Azure offre le funzionalità di monitoraggio e diagnostica in una macchina virtuale Windows basata su Azure. È possibile abilitare queste funzionalità nella macchina virtuale includendo l'estensione come parte del modello di Gestione risorse di Azure. Per altre informazioni sull'inclusione di un'estensione come parte di un modello di macchina virtuale, vedere [Creazione di modelli di Gestione risorse di Azure con le estensioni di macchina virtuale](virtual-machines-windows-extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . Questo articolo illustra come aggiungere l'estensione Diagnostica di Azure a un modello di macchina virtuale Windows.  
 
 ## <a name="add-the-azure-diagnostics-extension-to-the-vm-resource-definition"></a>Aggiungere l'estensione Diagnostica di Azure alla definizione della risorsa della VM
@@ -167,10 +169,5 @@ Ogni tabella WADMetrics includerà le colonne seguenti:
 * Per un modello di esempio completo di macchina virtuale Windows con estensione Diagnostica, vedere [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
 * Distribuire il modello di Resource Manager con [Azure PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o la [riga di comando di Azure](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * Altre informazioni sulla [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

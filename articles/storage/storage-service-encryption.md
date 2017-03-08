@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 130100a4f1710a7820c8e9793db73144d7d68808
-ms.openlocfilehash: 26b1f0708b3705297b9a35cce0692d3503b03246
+ms.sourcegitcommit: a5cce0da15941e91cbe74cdd1e0306ebd8db362c
+ms.openlocfilehash: d228ceb1a99e8fe11b59e6372b60bbfc93adac27
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -38,10 +39,10 @@ La crittografia del servizio di archiviazione esegue la crittografia dei dati du
 
 L'anteprima della crittografia del servizio di archiviazione per i file è ora disponibile per la crittografia dei dati in Archiviazione file. È attualmente in fase di anteprima. Di seguito è riportato l'elenco delle aree in cui è disponile la crittografia del servizio di archiviazione per Archiviazione file.
 
-Per partecipare all'anteprima della crittografia del servizio di archiviazione per i file, contattare ssdiscussions@microsoft.com.
+Per partecipare all'anteprima della crittografia del servizio di archiviazione per i file, contattare ssediscussions@microsoft.com.
 
 Per altre informazioni, vedere le domande frequenti.
-Disponibilità per Archiviazione file. La crittografia del servizio di archiviazione per Archiviazione file è attualmente disponibile nell'area Asia orientale.
+Disponibilità per Archiviazione file. La crittografia del servizio di archiviazione per Archiviazione file è attualmente disponibile nelle aree Asia orientale, Europa settentrionale e Stati Uniti orientali 2.
 
 
 Per abilitare o disabilitare la crittografia del servizio di archiviazione per un account di archiviazione, accedere al [portale di Azure](https://azure.portal.com) e selezionare un account di archiviazione. Nel pannello delle impostazioni cercare la sezione Servizio BLOB, illustrata in questo screenshot, e fare clic su Crittografia.
@@ -198,10 +199,5 @@ D: Contattare [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com
 
 ## <a name="next-steps"></a>Passaggi successivi
 Archiviazione di Azure fornisce un set completo di funzionalità di sicurezza, che consentono agli sviluppatori di creare applicazioni sicure. Per altre informazioni, vedere la [Guida alla sicurezza delle risorse di archiviazione](storage-security-guide.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

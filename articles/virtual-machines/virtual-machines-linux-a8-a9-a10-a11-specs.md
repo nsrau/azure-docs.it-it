@@ -15,13 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f73cbfec2ce2e41589b84997891ff0b60266c9b2
-ms.openlocfilehash: 10a10e138c9c8ed8c15136bf1d6565edc57758b5
-
+ms.sourcegitcommit: f3b1593a80e6eedc08005988d485a317951efd33
+ms.openlocfilehash: ad2beff5bbc6aaa18247939ccfe310460f9ccdee
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="about-h-series-and-compute-intensive-a-series-vms"></a>Informazioni sulle macchine virtuali serie H e serie A a elevato utilizzo di calcolo
+# <a name="about-h-series-and-compute-intensive-a-series-vms-for-linux"></a>Informazioni sulle macchine virtuali serie H e serie A a elevato utilizzo di calcolo per Linux
 Informazioni generali e considerazioni sull'uso delle nuove dimensioni di Azure serie H e delle precedenti dimensioni A8, A9, A10 e A11, note anche come istanze *a elevato utilizzo di calcolo* . Questo articolo illustra l'uso di queste dimensioni per macchine virtuali Linux. Questo articolo è disponibile anche per le [VM Windows](virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 Per conoscere le specifiche di base, le capacità di archiviazione e i dettagli relativi ai dischi, vedere [Dimensioni delle macchine virtuali](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -128,10 +129,5 @@ done
 * Per informazioni dettagliate sulla disponibilità e i prezzi delle dimensioni a elevato utilizzo di calcolo, vedere [Macchine virtuali - Prezzi](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux).
 * Per informazioni sulle funzionalità di archiviazione e dettagli relativi ai dischi, vedere [Dimensioni delle macchine virtuali in Azure](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Per iniziare a distribuire e usare dimensioni a elevato uso di calcolo con RDMA in Linux, vedere [Configurare un cluster Linux RDMA per eseguire applicazioni MPI](virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

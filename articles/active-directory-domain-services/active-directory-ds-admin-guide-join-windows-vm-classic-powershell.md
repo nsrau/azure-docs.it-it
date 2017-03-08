@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: fdc53ee24c623218e218cdda1c24dffbbec50bc5
 ms.openlocfilehash: e7c7e9504985fa98185286ee9a28cec80fb87df6
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -24,15 +25,15 @@ ms.openlocfilehash: e7c7e9504985fa98185286ee9a28cec80fb87df6
 > [!div class="op_single_selector"]
 > * [Portale di Azure classico - Windows](active-directory-ds-admin-guide-join-windows-vm.md)
 > * [PowerShell - Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-> 
-> 
+>
+>
 
 <br>
 
 > [!IMPORTANT]
 > Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Servizi di dominio Active Directory non supporta attualmente il modello Resource Manager.
-> 
-> 
+>
+>
 
 In questi passaggi viene illustrato come personalizzare un set di comandi di Azure PowerShell per la creazione e la preconfigurazione di una macchina virtuale di Azure basata su Windows tramite un approccio con componenti principali. Questi passaggi consentono di creare una macchina virtuale di Azure basata su Windows e aggiungerla a un dominio gestito da Servizi di dominio Active Directory di Azure.
 
@@ -156,10 +157,4 @@ Di seguito è riportato lo script di esempio completo per creare la macchina vir
 ## <a name="related-content"></a>Contenuti correlati
 * [Guida introduttiva di Azure AD Domain Services](active-directory-ds-getting-started.md)
 * [Amministrare un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-administer-domain.md)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

@@ -18,10 +18,12 @@ ms.author: sashan
 translationtype: Human Translation
 ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
 ms.openlocfilehash: ae06e6855a11f91ce18e3b12698b3d01e23a6a2c
+ms.lasthandoff: 01/07/2017
 
 
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configurare e gestire la sicurezza dei database SQL di Azure per il ripristino geografico o il failover 
+
 > [!NOTE]
 > [La replica geografica attiva](sql-database-geo-replication-overview.md) è ora disponibile per tutti i database in tutti i livelli di servizio.
 >  
@@ -101,10 +103,5 @@ L'ultimo passaggio consiste nel generare gli account di accesso con i SID approp
 * Per altre informazioni sugli utenti di database indipendente, vedere [Utenti di database indipendente: rendere portabile un database](https://msdn.microsoft.com/library/ff929188.aspx).
 * Per informazioni sull'uso e la configurazione della replica geografica attiva, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md)
 * Per informazioni sull'uso del ripristino geografico, vedere l'argomento sul [ripristino geografico](sql-database-recovery-using-backups.md#geo-restore)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

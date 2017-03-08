@@ -4,7 +4,7 @@ description: "Scoprire di più su come eseguire il failover di StorSimple Virtua
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 3c1f9c62-af57-4634-a0d8-435522d969aa
 ms.service: storsimple
@@ -12,14 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: d31f10f660dc05290363825c089664a70ecdd037
+ms.sourcegitcommit: 01acc0a5a6db7695d04d3adbf843826da5288025
+ms.openlocfilehash: 30b0aaa27be46ed581f56176fa3385273ff101c0
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array"></a>Ripristino di emergenza e failover del dispositivo per StorSimple Virtual Array
+# <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Ripristino di emergenza e failover del dispositivo per l'array virtuale StorSimple tramite il portale di Azure
 
 ## <a name="overview"></a>Panoramica
 Questo articolo descrive il ripristino di emergenza per l'array virtuale Microsoft Azure StorSimple, inclusi i passaggi dettagliati per eseguire il failover a un altro array virtuale. Il failover consente di spostare i dati da un dispositivo di *origine* nel data center a un dispositivo di *destinazione*. Il dispositivo di destinazione può trovarsi nella stessa o in un'altra area geografica. Il failover del dispositivo interessa tutto il dispositivo. Durante il failover, la proprietà dei dati del cloud passa dal dispositivo di origine al dispositivo di destinazione.
@@ -178,10 +180,5 @@ Se sono presenti dispositivi StorSimple registrati prima del verificarsi di un'e
 ## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni su come [Usare l'interfaccia utente Web per amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

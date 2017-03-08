@@ -1,6 +1,6 @@
 ---
-title: Acquisire una VM Linux usando l&quot;interfaccia della riga di comando di Azure 2.0 (anteprima) | Microsoft Docs
-description: Informazioni su come acquisire e generalizzare l&quot;immagine di una macchina virtuale di Azure basata su Linux usando i dischi gestiti creati con l&quot;interfaccia della riga di comando di Azure 2.0 (anteprima)
+title: Acquisire una VM Linux con l&quot;interfaccia della riga di comando di Azure 2.0 | Documentazione Microsoft
+description: Informazioni su come acquisire e generalizzare l&quot;immagine di una macchina virtuale di Azure basata su Linux usando i dischi gestiti creati con l&quot;interfaccia della riga di comando di Azure 2.0
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -16,29 +16,25 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 4620ace217e8e3d733129f69a793d3e2f9e989b2
-ms.openlocfilehash: 64b829de4389ba6aa46dc51afd0cff3f40265d68
+ms.sourcegitcommit: 93abc8b1b14f58b0d0be52517a2b63dfe2dc32fb
+ms.openlocfilehash: c72f576d992c9adfa83b9744672397045833c43f
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="how-to-generalize-and-capture-a-linux-virtual-machine-using-the-azure-cli-20-preview"></a>Come generalizzare e acquisire una macchina virtuale Linux con l'interfaccia della riga di comando CLI 2.0 di Azure (anteprima)
-Per riutilizzare le macchine virtuali distribuite e configurate in Azure, si acquisisce un'immagine della macchina virtuale. Il processo prevede inoltre la generalizzazione della macchina virtuale per rimuovere le informazioni personali dell'account prima di distribuire nuove macchine virtuali dall'immagine. Questo articolo descrive come acquisire un'immagine di macchina virtuale con l'interfaccia della riga di comando di Azure 2.0 (anteprima) tramite Azure Managed Disks. Questi dischi vengono gestiti dalla piattaforma Azure e non richiedono alcuna pianificazione o alcuna posizione per l'archiviazione. Per altre informazioni, vedere [Azure Managed Disks Overview](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Panoramica di Azure Managed Disks). 
+# <a name="how-to-generalize-and-capture-a-linux-virtual-machine"></a>Come generalizzare e acquisire una macchina virtuale Linux
+Per riutilizzare le macchine virtuali distribuite e configurate in Azure, si acquisisce un'immagine della macchina virtuale. Il processo prevede inoltre la generalizzazione della macchina virtuale per rimuovere le informazioni personali dell'account prima di distribuire nuove macchine virtuali dall'immagine. Questo articolo descrive come acquisire un'immagine di macchina virtuale con l'interfaccia della riga di comando di Azure 2.0 tramite Azure Managed Disks. Questi dischi vengono gestiti dalla piattaforma Azure e non richiedono alcuna pianificazione o alcuna posizione per l'archiviazione. Per altre informazioni, vedere [Azure Managed Disks Overview](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Panoramica di Azure Managed Disks). Questo articolo illustra come acquisire una VM Linux tramite l'interfaccia della riga di comando di Azure 2.0. È possibile anche eseguire questi passaggi tramite l'[interfaccia della riga di comando di Azure 1.0](virtual-machines-linux-capture-image-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!TIP]
 > Per creare una copia della VM Linux esistente con il relativo stato specializzato per il backup o il debug, vedere [Creare una copia di una macchina virtuale Linux in esecuzione su Azure](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Per caricare un disco rigido virtuale Linux da una macchina virtuale locale, vedere [Caricare e creare una VM Linux da un'immagine disco personalizzata](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
-## <a name="cli-versions-to-complete-the-task"></a>Versioni dell'interfaccia della riga di comando per completare l'attività
-È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
-
-- [Interfaccia della riga di comando di Azure 1.0](virtual-machines-linux-capture-image-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): l'interfaccia della riga di comando per i modelli di distribuzione classici e di gestione delle risorse
-- [Interfaccia della riga di comando di Azure 2.0 (anteprima) - Azure Managed Disks](#quick-commands): interfaccia di prossima generazione per il modello di distribuzione di gestione delle risorse (questo articolo)
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Accertarsi che siano soddisfatti i prerequisiti seguenti:
 
 * **Macchina virtuale Azure creata nel modello di distribuzione Resource Manager**: se non è stata creata una VM Linux, è possibile usare il [portale](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), l'[interfaccia della riga di comando di Azure](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) oppure i [modelli di Resource Manager](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Configurare la macchina virtuale in base alle esigenze. Ad esempio, [aggiungere dischi dati](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), applicare aggiornamenti e installare applicazioni. 
 
-È necessario inoltre aver installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0 (Anteprima)](/cli/azure/install-az-cli2) e aver effettuato l'accesso a un account Azure con il comando [az login](/cli/azure/#login).
+È necessario anche aver installato l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e aver eseguito l'accesso a un account Azure tramite il comando [az login](/cli/azure/#login).
 
 ## <a name="quick-commands"></a>Comandi rapidi
 Se si vuole eseguire rapidamente l'attività, la sezione seguente indica in dettaglio i comandi base per acquisire l'immagine di una macchina virtuale Linux in Azure. Altre informazioni dettagliate e il contesto per ogni passaggio sono disponibili nelle sezioni successive del documento, a partire da [qui](#detailed-steps). Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. Alcuni esempi di nomi dei parametri sono `myResourceGroup`, `myVM` e `myImage`.
@@ -95,7 +91,7 @@ Per preparare la macchina virtuale alla generalizzazione, si esegue il deprovisi
 4. Dopo aver eseguito il comando, digitare **exit**. Questo passaggio chiude il client SSH.
 
 ## <a name="step-2-capture-the-vm"></a>Passaggio 2: Acquisire la macchina virtuale
-Usare l'interfaccia della riga di comando di Azure 2.0 (anteprima) per generalizzare e acquisire la macchina virtuale. Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono **myResourceGroup**, **myVnet** e **myVM**.
+Usare l'interfaccia della riga di comando di Azure 2.0 per generalizzare e acquisire la macchina virtuale. Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono **myResourceGroup**, **myVnet** e **myVM**.
 
 1. Deallocare la macchina virtuale su cui è stato eseguito il deprovisioning con [az vm deallocate](/cli//azure/vm#deallocate). L'esempio seguente dealloca la macchina virtuale denominata `myVM` nel gruppo di risorse `myResourceGroup`:
    
@@ -153,14 +149,10 @@ az vm show --resource-group myResourceGroup --name myVM --show-details
 ## <a name="next-steps"></a>Passaggi successivi
 È possibile creare più macchine virtuali da un'immagine di macchina virtuale di origine. Se è necessario apportare modifiche all'immagine: 
 
-- Accendere la risorsa della macchina virtuale di origine.
+- Creare una macchina virtuale da un'immagine dell'utente.
 - Apportare aggiornamenti o modifiche alla configurazione.
-- Seguire nuovamente i passaggi per eseguire il deprovisioning, deallocare, generalizzare e acquisire la macchina virtuale. 
+- Seguire nuovamente i passaggi per eseguire il deprovisioning, deallocare, generalizzare e creare un'immagine.
+- Usare la nuova immagine per le distribuzioni future. Se si desidera, eliminare l'immagine originale.
 
-Per altre informazioni sulla gestione delle macchine virtuali con l'interfaccia della riga di comando, vedere [Interfaccia della riga di comando di Azure 2.0 (anteprima)](/cli/azure/overview).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+Per altre informazioni sulla gestione delle macchine virtuali con l'interfaccia della riga di comando, vedere [Interfaccia della riga di comando di Azure 2.0](/cli/azure/overview).
 

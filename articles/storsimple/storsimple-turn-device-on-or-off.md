@@ -4,7 +4,7 @@ description: "Viene illustrato come attivare un nuovo dispositivo StorSimple, at
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
@@ -12,16 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/23/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5943276236d239e8ee2eba302f52e9445203564d
+ms.sourcegitcommit: 6bfbb0b5eaae3fb3ce45d719ea1d3dec48ed0467
+ms.openlocfilehash: 359aaa1af6765270d9fe0f449007fcb4323b0ad4
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="turn-your-storsimple-device-on-or-off"></a>Attivare o arrestare il dispositivo StorSimple
-## <a name="overview"></a>Overview
+# <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Attivare o disattivare il dispositivo StorSimple serie 8000
+## <a name="overview"></a>Panoramica
 L’arresto di un dispositivo Microsoft Azure StorSimple non è necessario nel normale funzionamento del sistema. Tuttavia, potrebbe esser necessario spegnere un dispositivo o accenderne uno nuovo. In genere, un arresto è necessario nei casi in cui bisogna sostituire l'hardware non riuscito, spostare fisicamente un'unità o mettere fuori servizio un dispositivo. In questa esercitazione viene descritta la procedura necessaria per l'attivazione e l'arresto del dispositivo StorSimple in scenari diversi.
 
 Nella tabella seguente sono elencati diversi scenari per l'attivazione e l'arresto del dispositivo StorSimple e vengono forniti collegamenti alle procedure appropriate.
@@ -187,10 +189,5 @@ Dopo aver effettuato l'accesso a Windows PowerShell per StorSimple o al portale 
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md) se si riscontrano problemi durante l'attivazione o l'arresto di un dispositivo StorSimple.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

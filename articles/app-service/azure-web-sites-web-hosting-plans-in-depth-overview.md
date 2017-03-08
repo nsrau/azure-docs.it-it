@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ceaf35eed16fda272e4b3c501e3e9ab570855101
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 47f1a3e50639af80472c63cba30141a032f76443
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -36,7 +36,7 @@ Nel [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) le ap
 
 Tutte le applicazioni assegnate a un **piano di servizio app** condividono le risorse definite dal piano che consentono di risparmiare sui costi quando si ospitano più app.
 
-Il **piano di servizio app** può eseguire la scalabilità da unità SKU **Free** e **Shared** a unità SKU **Basic**, **Standard** e **Premium** fornendo anche l'accesso ad altre risorse e funzionalità. 
+Il **piano di servizio app** può essere ridimensionato da SKU **Free** e **Shared** a SKU **Basic**, **Standard** e **Premium** fornendo anche l'accesso ad altre risorse e funzionalità. 
 
 Se il piano di servizio app è impostato sullo SKU **Basic** o superiore è possibile controllare le **dimensioni** e il numero di scala delle VM.
 

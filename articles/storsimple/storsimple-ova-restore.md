@@ -4,7 +4,7 @@ description: "Scoprire di più su come ripristinare un backup di StorSimple Virt
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 4d0deb8c-e3c7-4bc4-b89d-9881041960cb
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/07/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: 1b2156f2768e02be8030d91352422bd935fa7543
+ms.sourcegitcommit: 840deacac773846a9c57d9437cb6f331cd8fcecb
+ms.openlocfilehash: 5ec5cab591907ccc5d9139da2ba149325daf8422
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="restore-from-a-backup-of-your-storsimple-virtual-array"></a>Ripristinare da un backup dell'array virtuale StorSimple
+# <a name="restore-from-a-backup-set-of-shares-and-volumes-on-your-storsimple-virtual-array"></a>Ripristinare da un set di backup di condivisioni e volumi nell'array virtuale StorSimple
+
 ## <a name="overview"></a>Panoramica
 Le informazioni contenute in questo articolo si applicano solo a Microsoft Azure StorSimple Virtual Array (noto anche come dispositivo virtuale locale StorSimple o dispositivo virtuale StorSimple) che esegue la versione di disponibilità generale (GA) di marzo 2016 o una versione successiva. Questo articolo illustra passo per passo come ripristinare da un set di backup di condivisioni o volumi sull'array virtuale StorSimple. L'articolo illustra anche come funziona il ripristino a livello di elemento su StorSimple Virtual Array configurato come file server.
 
@@ -104,10 +107,5 @@ Guardare il video per scoprire come è possibile creare condivisioni, eseguire i
 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni su come [Usare l'interfaccia utente Web per amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

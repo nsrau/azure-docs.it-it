@@ -4,7 +4,7 @@ description: In questo articolo viene descritto come gestire i record di control
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 11252938-5b97-4178-8c37-f58eaa3d00b1
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 037da7a5647f5b3d2b0cf1364fab050406be3b62
+ms.sourcegitcommit: f45d8e2b848e930a790e7bf38c2b09fbdaaf2fab
+ms.openlocfilehash: 30b6aedd9b4b7913f6862b34582f3ae96c9eae5f
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="use-the-storsimple-manager-service-to-manage-access-control-records-for-the-storsimple-virtual-array"></a>Usare il servizio StorSimple Manager per gestire i record di controllo di accesso per l'array virtuale StorSimple
+# <a name="use-storsimple-manager-to-manage-access-control-records-for-storsimple-virtual-array"></a>Usare StorSimple Manager per gestire i record di controllo di accesso per l'array virtuale StorSimple
+
 ## <a name="overview"></a>Panoramica
 I record di controllo di accesso (ACR) consentono di specificare quali host possono connettersi a un volume nell'array virtuale StorSimple (noto anche come dispositivo virtuale locale StorSimple). I record di controllo di accesso vengono impostati su un volume specifico e contengono i nomi completi iSCSI (IQN) degli host. Quando un host prova a connettersi a un volume, il dispositivo verifica il record di controllo di accesso associato a tale volume per il nome qualificato iSCSI e, se esiste una corrispondenza, viene stabilita la connessione. Nella sezione dei **record di controllo di accesso** nella pagina **Configura** vengono visualizzati tutti i record di controllo di accesso insieme agli IQN degli host.
 
@@ -103,10 +106,5 @@ Attenersi alla procedura seguente per eliminare un record di controllo di access
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sull' [aggiunta di volumi e la configurazione di record di controllo di accesso](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -12,15 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/30/2017
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d81b20ca17ddf723dcc11148f7b44e763dde100b
-ms.openlocfilehash: 1af0f36ce1161b35a2f75d74774ed145c8bc9328
-
+ms.sourcegitcommit: dd9e7f672a9f991fd06530a968a3369b752148a2
+ms.openlocfilehash: 3e4f7bfd117696ddb25156e027e29c0d21f27804
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="storsimple-system-limits"></a>Limiti di sistema StorSimple
+# <a name="what-are-storsimple-8000-series-system-limits"></a>Quali sono i limiti relativi al sistema StorSimple serie 8000?
 ## <a name="overview"></a>Panoramica
 StorSimple fornisce una risorsa di archiviazione scalabile e flessibile per il datacenter. Esistono tuttavia alcuni limiti che è necessario tenere in considerazione quando si pianifica, distribuisce e utilizza una soluzione StorSimple. Nella tabella seguente vengono descritti questi limiti e vengono forniti alcuni suggerimenti per ottenere il massimo dalla soluzione StorSimple.
 
@@ -56,10 +57,5 @@ StorSimple fornisce una risorsa di archiviazione scalabile e flessibile per il d
 
 ## <a name="next-steps"></a>Passaggi successivi
 Consultare i [requisiti di sistema di StorSimple](storsimple-system-requirements.md). 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

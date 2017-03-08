@@ -15,8 +15,9 @@ ms.workload: infrastructure
 ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 13ae22245d105b32b9fc50d7dbc8a6d50ad4560a
-ms.openlocfilehash: 85fcc919b97d4cc06f89fc1ea5dc701ff61c2b27
+ms.sourcegitcommit: 7f3abdd63e43713d9d1f7ff28e44efc08167fddb
+ms.openlocfilehash: f421ebdc81ce413d69f62a3b86563ab4a09b747a
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -28,10 +29,18 @@ Se si riscontrano difficoltà nella risoluzione dei problemi relativi a SSH o al
 
 È possibile ridistribuire una VM tramite una delle opzioni seguenti. È sufficiente scegliere un'opzione per la ridistribuzione:
 
+- [Interfaccia della riga di comando di Azure 2.0](#azure-cli-20)
 - [Interfaccia della riga di comando di Azure 1.0](#azure-cli-10)
-- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](#azure-cli-20-preview)
 - [Portale di Azure](#using-azure-portal)
 
+## <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
+Installare la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e accedere a un account Azure tramite il comando [az login](/cli/azure/#login).
+
+Ridistribuire la VM con il comando [az vm redeploy](/cli/azure/vm#redeploy). L'esempio seguente ridistribuisce la VM denominata `myVM` nel gruppo di risorse `myResourceGroup`:
+
+```azurecli
+az vm redeploy --resource-group myResourceGroup --name myVM 
+```
 
 ## <a name="azure-cli-10"></a>Interfaccia della riga di comando di Azure 1.0
 Installare la [versione più recente dell'interfaccia della riga di comando di Azure 1.0](../xplat-cli-install.md), accedere a un account Azure e verificare che sia attiva la modalità Resource Manager (`azure config mode arm`).
@@ -42,23 +51,9 @@ L'esempio seguente ridistribuisce la VM denominata `myVM` nel gruppo di risorse 
 azure vm redeploy --resource-group myResourceGroup --vm-name myVM 
 ```
 
-## <a name="azure-cli-20-preview"></a>Interfaccia della riga di comando di Azure 2.0 (anteprima)
-Installare l'[Interfaccia della riga di comando di Azure 2.0 (Anteprima)](/cli/azure/install-az-cli2) e accedere a un account di Azure tramite il comando [az login](/cli/azure/#login).
-
-Ridistribuire la VM con il comando [az vm redeploy](/cli/azure/vm#redeploy). L'esempio seguente ridistribuisce la VM denominata `myVM` nel gruppo di risorse `myResourceGroup`:
-
-```azurecli
-az vm redeploy --resource-group myResourceGroup --name myVM 
-```
-
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../includes/virtual-machines-common-redeploy-to-new-node.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 In caso di problemi di connessione alla VM, è possibile trovare assistenza specifica sulla [risoluzione dei problemi relativi alle connessioni SSH](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o sui [passaggi dettagliati per la risoluzione dei problemi SSH](virtual-machines-linux-detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Se non si riesce ad accedere a un'applicazione in esecuzione sulla VM, è possibile leggere l'articolo sulle [difficoltà nella risoluzione dei problemi relativi alle applicazioni](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -4,7 +4,7 @@ description: Informazioni su come creare una richiesta di supporto e avviare una
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 2ebc20fe-f490-4749-8e43-c9fac86f1676
 ms.service: storsimple
@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli;anbacker
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ce19be3454c08bbc041b5f6929c4ad56ffe9b7ea
-ms.openlocfilehash: 5f8124371391f7e2e59bbea474bef1da77686e0c
+ms.sourcegitcommit: 6b0e763769564eaa191c78df05c008150c9a363f
+ms.openlocfilehash: cecc2566b432e897b5eff0c12e66598f0518ed80
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="contact-microsoft-support"></a>Contattare il supporto tecnico Microsoft
+# <a name="contact-microsoft-support-for-your-storsimple"></a>Contattare il supporto tecnico Microsoft per il dispositivo StorSimple in uso
 Se si verificano problemi con la soluzione Microsoft Azure StorSimple, è possibile creare una richiesta di servizio per il supporto tecnico. In una sessione online con il supporto tecnico, è necessario anche avviare una sessione di supporto nel dispositivo StorSimple. In questo articolo viene descritto:
 
 * Come creare una richiesta di supporto
@@ -91,10 +93,5 @@ Per avviare una sessione di supporto, attenersi alla procedura seguente.
 > È possibile disabilitare l'accesso del supporto eseguendo `Disable-HcsSupportAccess`. Il dispositivo StorSimple inoltre tenterà di disabilitare l'accesso del supporto dopo 8 ore dall'avvio della sessione. È consigliabile modificare le credenziali del dispositivo StorSimple dopo l'avvio di una sessione di supporto.
 > 
 > 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
-ms.openlocfilehash: 62b5469d06974dfbe1b243091d34e1141416c971
+ms.sourcegitcommit: 4652795b8bef910b4e5eb83ef836e7b75621ab8a
+ms.openlocfilehash: bbea6700f7abc7822c3530f151c224cb59104cb1
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -44,7 +45,7 @@ In caso di domande sull'integrazione dei log di Azure, inviare un messaggio di p
 In questo documento è stata presentata l'integrazione dei log di Azure. Per altre informazioni sull'integrazione dei log di Azure e sui tipi di log supportati, vedere gli argomenti seguenti:
 
 * [Integrazione dei log di Microsoft Azure per i log di Azure (Anteprima)](https://www.microsoft.com/download/details.aspx?id=53324) – Area download per informazioni dettagliate, requisiti di sistema e istruzioni di installazione sull'integrazione dei log di Azure.
-* [Introduzione all'integrazione dei log di Azure](security-azure-log-integration-get-started.md) - Questa esercitazione illustra come installare l'integrazione dei log di Azure e integrare i log dall'archiviazione di Azure, i log di controllo di Azure e gli avvisi del Centro sicurezza.
+* [Introduzione all'integrazione dei log di Azure](security-azure-log-integration-get-started.md) - Questa esercitazione illustra come installare l'integrazione dei log di Azure e integrare i log dall'archiviazione di Azure WAD, i log attività di Azure, gli avvisi del Centro sicurezza di Azure e i log di controllo di Azure Active Directory.
 * [Passaggi per la configurazione dei partner](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) – Questo post di blog mostra come configurare l'integrazione dei log di Azure per lavorare con le soluzioni partner Splunk, HP ArcSight e IBM QRadar.
 * [Domande frequenti sull'integrazione dei log di Azure](security-azure-log-integration-faq.md) - Queste domande frequenti riguardano l'integrazione dei log di Azure.
 * [Integrazione degli avvisi del Centro sicurezza con l'integrazione dei log di Azure](../security-center/security-center-integrating-alerts-with-log-integration.md) - Questo documento mostra come sincronizzare gli avvisi del Centro sicurezza di Azure, insieme agli eventi di sicurezza delle macchine virtuali raccolti da Diagnostica di Azure e dai log di controllo di Azure, con la propria soluzione SIEM o di analisi dei log.
@@ -52,9 +53,4 @@ In questo documento è stata presentata l'integrazione dei log di Azure. Per alt
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-overview/azure-log-integration.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

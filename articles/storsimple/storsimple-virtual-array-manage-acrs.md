@@ -4,7 +4,7 @@ description: In questo articolo viene descritto come gestire i record di control
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: e154bb4f-faab-4d92-a593-900c3ddc9595
 ms.service: storsimple
@@ -12,14 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: 1a93ef9c3418da64302d251203fd195708437931
+ms.sourcegitcommit: 94a25f63887aea4eb71420dbd7ddc536e9f8d644
+ms.openlocfilehash: 2ce65aa4efba735305208f7a6d761bc2814d1b8f
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="use-the-storsimple-device-manager-service-to-manage-access-control-records-for-the-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per gestire i record di controllo di accesso per l'array virtuale StorSimple
+# <a name="use-storsimple-device-manager-to-manage-access-control-records-for-storsimple-virtual-array"></a>Usare Gestione dispositivi StorSimple per gestire i record di controllo di accesso per l'array virtuale StorSimple
 
 ## <a name="overview"></a>Panoramica
 
@@ -127,10 +129,5 @@ Attenersi alla procedura seguente per eliminare un record di controllo di access
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Altre informazioni sull' [aggiunta di volumi e la configurazione di record di controllo di accesso](storsimple-virtual-array-deploy3-iscsi-setup.md#step-3-add-a-volume).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

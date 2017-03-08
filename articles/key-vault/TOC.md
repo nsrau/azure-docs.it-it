@@ -46,8 +46,3 @@
 ## [Prezzi](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Blog](http://blogs.technet.com/b/kv/)
 ## [Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

@@ -1,25 +1,30 @@
-<properties
-  pageTitle="Creare una VM con un modello di Resource Manager | Microsoft Docs"
-  description="Usare un modello di Resource Manager e PowerShell per creare facilmente una nuova macchina virtuale Windows."
-  services="virtual-machines-windows" 
-  documentationcenter=""
-  author="davidmu1"
-  manager="timlt"
-  editor=""
-  tags="azure-resource-manager"/>
+---
+title: Creare una macchina virtuale Windows usando un modello di Azure | Documentazione Microsoft
+description: Usare un modello di Resource Manager e PowerShell per creare facilmente una nuova macchina virtuale Windows.
+services: virtual-machines-windows
+documentationcenter: 
+author: davidmu1
+manager: timlt
+editor: 
+tags: azure-resource-manager
+ms.assetid: 19129d61-8c04-4aa9-a01f-361a09466805
+ms.service: virtual-machines-windows
+ms.workload: na
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 01/06/2017
+ms.author: davidmu
+ms.custom: H1Hack27Feb2017
+translationtype: Human Translation
+ms.sourcegitcommit: 32e30b44c2f7cfa9c1069190fdc53dbe6e9f4cd5
+ms.openlocfilehash: c1c301b5687cf35e93698a66fac7103b0cc90aed
+ms.lasthandoff: 03/01/2017
 
-<tags
-  ms.assetid="19129d61-8c04-4aa9-a01f-361a09466805"
-  ms.service="virtual-machines-windows"
-  ms.workload="na"
-  ms.tgt_pltfrm="vm-windows"
-  ms.devlang="na"
-  ms.topic="article"
-  ms.date="01/06/2017"
-  ms.author="davidmu"/>
 
+---
 
-# <a name="create-a-windows-virtual-machine-with-a-resource-manager-template"></a>Creare una macchina virtuale Windows con un modello di Gestione risorse
+# <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Creare una macchina virtuale Windows usando un modello di Resource Manager
 
 Questo articolo descrive come distribuire un modello di Azure Resource Manager tramite PowerShell. Il [modello](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json) consente di distribuire una singola macchina virtuale che esegue Windows Server in una nuova rete virtuale con un'unica subnet.
 
@@ -95,10 +100,5 @@ DeploymentDebugLogLevel :
 ## <a name="next-steps"></a>Passaggi successivi
 * Se si sono verificati problemi con la distribuzione, è consigliabile vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 * Per informazioni su come gestire la macchina virtuale creata, vedere [Gestire macchine virtuali con Azure Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

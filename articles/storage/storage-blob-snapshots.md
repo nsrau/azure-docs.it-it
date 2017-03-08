@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: cedc76bc46137a5d53fd76c0fdb6ff2db79566a4
-ms.openlocfilehash: 05e999d62d3ffdde708c9898807e79fabcff992e
+ms.sourcegitcommit: a8b570cfbab594e1a21417e081eaf6d34a4659d0
+ms.openlocfilehash: 40f10b1cb860ca0c018cc3589417c54588269b0c
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -36,6 +37,10 @@ Un BLOB può avere un numero qualsiasi di snapshot. Gli snapshot vengono mantenu
 Quando si crea uno snapshot di un BLOB, le proprietà di sistema del BLOB vengono copiate nello snapshot con gli stessi valori. Anche i metadati del BLOB di base vengono copiati nello snapshot, se non si specificano metadati separati per lo snapshot durante la creazione.
 
 Eventuali lease associati al BLOB di base non vengono copiati nello snapshot. Non è possibile acquisire un lease in uno snapshot.
+
+Un file di disco rigido virtuale viene usato per archiviare lo stato e le informazioni correnti per il disco della macchina virtuale. È possibile scollegare il disco dall'interno della macchina virtuale o arrestare la macchina virtuale e quindi creare uno snapshot del relativo file di disco rigido virtuale. È possibile usare il file di snapshot successivamente per recuperare il file di disco rigido virtuale in quel determinato momento e ricreare la macchina virtuale.
+
+Se la Crittografia del servizio di archiviazione (SSE) è abilitata per l'account di archiviazione in cui si trova il BLOB, per gli snapshot del BLOB verrà eseguita la crittografia dei dati inattivi.
 
 ## <a name="create-a-snapshot"></a>Creare uno snapshot
 L'esempio di codice seguente mostra come creare uno snapshot in .NET. Questo esempio specifica metadati separati per lo snapshot al momento della creazione.
@@ -163,10 +168,5 @@ Nello Scenario 4, il BLOB di base è stato completamente aggiornato e non contie
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altri esempi di uso dell'archiviazione BLOB, vedere [Esempi di codice per Azure](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). È possibile scaricare un'applicazione di esempio ed eseguirla oppure esaminare il codice in GitHub.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

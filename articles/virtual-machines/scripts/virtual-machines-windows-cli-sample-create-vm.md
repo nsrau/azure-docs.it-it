@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 777baeb2a6a281343da8bea2de957ee9883a5ba2
-ms.openlocfilehash: 4cc559956cf49d002124b6035eca874996c730f9
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 82d40c30c92f5da090e7ec4e2f25ead3908cc603
+ms.openlocfilehash: b1af197b425b0f8951e011f24609b9bf4769f931
+ms.lasthandoff: 03/02/2017
 
 ---
 
@@ -30,7 +30,7 @@ Prima di eseguire questo script, verificare che sia stata creata una connessione
 
 Questo esempio funziona in una shell Bash. Per le opzioni sull'esecuzione di script dell'interfaccia della riga di comando di Azure in Windows, vedere [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md) (Esecuzione dell'interfaccia della riga di comando di Azure in Windows).
 
-## <a name="create-vm-sample"></a>Creare una macchina virtuale di esempio
+## <a name="sample-script"></a>Script di esempio
 
 [!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-detailed/create-windows-vm-detailed.sh "Creazione rapida della macchina virtuale")]
 

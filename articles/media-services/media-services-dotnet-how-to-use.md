@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 03/02/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9cfa3ecf3788dfd90a7e1d6c79827961d3dbeb54
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 38c7ea11091bb65432589df4d72e5efef3cb7ea3
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -31,7 +32,7 @@ La libreria di **Azure Media Services .NET SDK** consente di programmare per Ser
 * Un account di Servizi multimediali ottenuto con una sottoscrizione di Azure nuova o esistente. Vedere l'argomento [Come creare un account di Servizi multimediali](media-services-portal-create-account.md).
 * Sistemi operativi: Windows 10, Windows 7, Windows 2008 R2 o Windows 8.
 * .NET Framework 4.5
-* Visual Studio 2015, Visual Studio 2013 o Visual Studio 2012  o Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express).
+* Visual Studio.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 In questa sezione viene illustrato come creare un progetto in Visual Studio e configurarlo per lo sviluppo in Servizi multimediali.  In questo caso, il progetto è un'applicazione console Windows C#, ma la stessa procedura di configurazione si applica ad altri tipi di progetti che è possibile creare per le applicazioni Servizi multimediali, ad esempio un'applicazione Windows Forms o un'applicazione Web ASP.NET.
@@ -40,7 +41,7 @@ Questa sezione illustra come usare **NuGet** per aggiungere Media Services .NET 
 
 In alternativa, è possibile ottenere i bit più recenti di Media Services .NET SDK da GitHub ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) e [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), compilare la soluzione e quindi aggiungere i riferimenti al progetto client. Si noti che tutte le dipendenze necessarie vengono scaricate ed estratte automaticamente.
 
-1. Creare una nuova applicazione console C# in Visual Studio 2010 SP1 o versioni di Visual Studio successive. Immettere un valore nei campi **Nome**, **Percorso** e **Nome soluzione**, quindi fare clic su OK.
+1. Creare una nuova applicazione console C# in Visual Studio. Immettere un valore nei campi **Nome**, **Percorso** e **Nome soluzione**, quindi fare clic su OK.
 2. Compilare la soluzione.
 3. Usare **NuGet** per installare e aggiungere **Azure Media Services .NET SDK Extensions**. Insieme al pacchetto viene installato anche **Media Services .NET SDK** e vengono aggiunte tutte le altre dipendenze necessarie.
    
@@ -91,10 +92,5 @@ A questo punto, si è pronti per iniziare a sviluppare un'applicazione di Serviz
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

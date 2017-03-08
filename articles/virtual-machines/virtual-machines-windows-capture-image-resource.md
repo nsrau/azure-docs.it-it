@@ -13,15 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 02/27/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
-ms.openlocfilehash: 12b2d12c5152c6e9b8f2e8c78fbbd6663cb24e45
+ms.sourcegitcommit: 0f6bd85668533ee79700caead2edc6bc6c7d70de
+ms.openlocfilehash: 45383cb3b8238d72bf9ba398a22fe0a005941c3f
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="how-to-capture-a-managed-image-of-a-generalized-vm-in-azure"></a>Come acquisire un'immagine gestita di una macchina virtuale generalizzata in Azure
+# <a name="capture-a-managed-image-of-a-generalized-vm-in-azure"></a>Acquisire un'immagine gestita di una macchina virtuale generalizzata in Azure
 
 È possibile creare una risorsa immagine gestita da una macchina virtuale generalizzata che viene archiviata come disco gestito o non gestito in un account di archiviazione. È quindi possibile usare questa immagine per creare più macchine virtuali che usino i dischi gestiti per l'archiviazione. 
 
@@ -39,13 +40,14 @@ ms.openlocfilehash: 12b2d12c5152c6e9b8f2e8c78fbbd6663cb24e45
 4. Selezionare **Immagine** dai risultati.
 5. Nel pannello **Immagine** fare clic su **Crea**.
 6. In **Nome** digitare un nome per l'immagine.
-7. In **Gruppo risorse** selezionare **Crea nuovo** e digitare un nome oppure scegliere **From existing** (Da esistente) e selezionare un gruppo di risorse da usare dall'elenco a discesa.
+7. Se sono disponibili più sottoscrizioni, selezionare quella corretta dall'elenco a discesa **Sottoscrizione**.
+7. In **Gruppo di risorse** selezionare **Crea nuovo** e digitare un nome oppure scegliere **From existing** (Da esistente) e selezionare un gruppo di risorse da usare dall'elenco a discesa.
 8. In **Percorso** scegliere il percorso del gruppo di risorse.
 9. In **Tipo di sistema operativo** selezionare il tipo di sistema operativo, ovvero Windows o Linux.
-11. In **BLOB di archiviazione** fare clic su **Sfoglia** per cercare il disco rigido virtuale in Archiviazione di Azure.
+11. In **BLOB di archiviazione** fare clic su **Sfoglia** per cercare il disco rigido virtuale nell'archiviazione di Azure.
 12. In **Tipo di account** scegliere Standard_LRS o Premium_LRS. Il tipo Standard usa unità disco rigido, mente l'account Premium usa unità SSD. Entrambi usano l'archiviazione con ridondanza locale.
 13. In **Disk caching** (Memorizzazione nella cache del disco) selezionare l'opzione di memorizzazione nella cache del disco appropriata. Le opzioni sono **Nessuna**, **Di sola lettura** e **Lettura/Scrittura**.
-14. Facoltativo: è possibile aggiungere anche un disco dati esistente all'immagine.  
+14. Facoltativo: è possibile aggiungere anche un disco dati esistente all'immagine facendo clic su **+ Aggiungi disco dati**.  
 15. Dopo aver completato le selezioni, fare clic su **Crea**.
 16. Dopo aver creato l'immagine, questa verrà visualizzata come una risorsa **immagine** nell'elenco delle risorse nel gruppo di risorse scelto.
 
@@ -171,10 +173,5 @@ Creare un'immagine gestita tramite il disco rigido virtuale del sistema operativ
 
 ## <a name="next-steps"></a>Passaggi successivi
 - È ora possibile [creare una macchina virtuale dall'immagine gestita generalizzata](virtual-machines-windows-create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).    
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

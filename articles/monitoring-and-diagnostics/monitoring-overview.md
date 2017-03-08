@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 09b2847586eec50d8512ec5eabdc05a11d8b238a
-ms.openlocfilehash: da4dc84501ca6b0c5a2d23e885196167be9c61ad
+ms.sourcegitcommit: 3693b90509646fd7292861979cd7c2d1c0100d68
+ms.openlocfilehash: 30e92d17a99a0c751397e448108d488aefdd557a
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -24,8 +25,8 @@ ms.openlocfilehash: da4dc84501ca6b0c5a2d23e885196167be9c61ad
 # <a name="overview-of-azure-monitor"></a>Panoramica di Monitoraggio di Azure
 Questo articolo fornisce una panoramica concettuale del monitoraggio delle risorse di Azure con collegamenti a informazioni su tipi di risorse specifici.  Per informazioni generali sul monitoraggio dell'applicazione da un punto di vista diverso da Azure, vedere [Indicazioni di monitoraggio e diagnostica](../best-practices-monitoring.md).
 
-Una procedura dettagliata video di Monitoraggio di Azure è disponibile alla pagina  
-[Explore Microsoft Azure monitoring and diagnostics](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor) (Esplorare le funzionalità Diagnostica e Monitoraggio di Microsoft Azure). Un altro video che illustra uno scenario in cui è possibile usare Monitoraggio di Azure è disponibile alla pagina [Explore Microsoft Azure monitoring and diagnostics](https://channel9.msdn.com/events/Ignite/2016/BRK2234) (Esplorare le funzionalità Diagnostica e Monitoraggio di Microsoft Azure).  
+Un video della procedura dettagliata di Monitoraggio di Azure è disponibile alla pagina  
+[Introduzione a Monitoraggio di Azure](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor). Un altro video che illustra uno scenario in cui è possibile usare Monitoraggio di Azure è disponibile alla pagina [Explore Microsoft Azure monitoring and diagnostics](https://channel9.msdn.com/events/Ignite/2016/BRK2234) (Esplorare le funzionalità Diagnostica e Monitoraggio di Microsoft Azure).  
 
 Le applicazioni cloud sono complesse e hanno molte parti mobili. Il monitoraggio offre la possibilità di garantire il funzionamento e l'integrità dell'applicazione. Consente anche di prevenire i problemi potenziali o di risolvere quelli precedenti. Inoltre, è possibile usare i dati di monitoraggio per ottenere informazioni approfondite sull'applicazione, utili per migliorarne le prestazioni o la manutenibilità oppure per automatizzare azioni che altrimenti richiederebbero un intervento manuale.
 
@@ -55,7 +56,7 @@ Per altri servizi di Azure non esiste necessariamente una corrispondenza 1:1 tra
 ### <a name="resource---metrics-and-diagnostics-logs"></a>Risorsa: log di diagnostica e metriche
 Le metriche che è possibile raccogliere variano in base al tipo di risorsa. Ad esempio, Macchine virtuali fornisce statistiche sull'I/O del disco e sulla percentuale CPU. Queste statistiche non esistono invece per una coda del bus di servizio, che invece fornisce metriche come le dimensioni della coda e la velocità effettiva dei messaggi.
 
-Per le risorse di calcolo è possibile ottenere metriche relative al sistema operativo guest e moduli di diagnostica come Diagnostica di Azure. Diagnostica di Azure consente di raccogliere e instradare i dati di diagnostica raccolti in altre posizioni, ad esempio Archiviazione di Azure.
+Per le risorse di calcolo è possibile ottenere metriche relative al sistema operativo guest e moduli di diagnostica come Diagnostica di Azure. Diagnostica di Azure consente di raccogliere e inviare i dati di diagnostica in altre posizioni, ad esempio Archiviazione di Azure.
 
 In [Metriche supportate](monitoring-supported-metrics.md) è disponibile un elenco delle metriche che è attualmente possibile raccogliere.
 
@@ -113,7 +114,7 @@ Tra gli esempi sono inclusi:
 * Invio a Hub eventi per il routing a strumenti di terze parti per eseguire l'analisi in tempo reale.
 
 ### <a name="automate"></a>Automazione
-È possibile usare i dati di monitoraggio per attivare eventi o interi processi. Ecco alcuni esempi:
+È possibile usare i dati di monitoraggio per attivare avvisi o anche interi processi. Tra gli esempi sono inclusi:
 
 * Usare i dati per la scalabilità automatica delle istanze di calcolo in base al carico dell'applicazione.
 * Inviare messaggi di posta elettronica quando una metrica supera una soglia predeterminata.
@@ -145,9 +146,4 @@ Altre informazioni su:
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) , utili per la diagnosi di problemi nell'app Web del servizio app.
 * [Risoluzione dei problemi di Archiviazione di Azure](../storage/storage-e2e-troubleshooting.md) , utile per l'uso di BLOB, tabelle o code di archiviazione.
 * [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) e [Operations Management Suite](https://www.microsoft.com/oms/)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

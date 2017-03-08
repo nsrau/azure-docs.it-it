@@ -4,7 +4,7 @@ description: Si illustra come eseguire il backup delle condivisioni e dei volumi
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: e3cdcd9e-33b1-424d-82aa-b369d934067e
 ms.service: storsimple
@@ -12,14 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5c31ac5284f3ba8fecc1e9f33838a778254658e5
-ms.openlocfilehash: 2e49565f2696e345d83fcff4d60a4f9a2b9ff39e
+ms.sourcegitcommit: ed759edbf4548bc0d6c041ca825ddb392430795b
+ms.openlocfilehash: c926f0c80ce56cac3106ad97ec3ec2e18a8e2cc6
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="back-up-your-storsimple-virtual-array"></a>Backup dell'array virtuale StorSimple
+# <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Eseguire il backup di condivisioni o volumi nell'array virtuale StorSimple
 
 ## <a name="overview"></a>Panoramica
 
@@ -112,10 +114,5 @@ Per visualizzare i backup esistenti, eseguire la procedura seguente nel portale 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Scoprire di più su come [amministrazione StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

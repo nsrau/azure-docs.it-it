@@ -17,6 +17,7 @@ ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: 33e6b9ba880f56d967b49d0b89e61d1b531e8376
 ms.openlocfilehash: 1d8cb6894399a7863392a7f11bde69d75d4685c3
+ms.lasthandoff: 11/23/2016
 
 
 ---
@@ -721,7 +722,7 @@ L'esempio seguente illustra come combinare due matrici.
         }
      },
      "variables": {
-         "combinedarray": "[concat(parameters('firstarray'), parameters('secondarray'))]
+         "combinedarray": "[concat(parameters('firstarray'), parameters('secondarray'))]"
      }
 
 
@@ -1217,10 +1218,5 @@ L'esempio seguente mostra la funzione subscription chiamata nella sezione output
 * Per unire più modelli, vedere [Uso di modelli collegati con Gestione risorse di Azure](resource-group-linked-templates.md)
 * Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Azure Resource Manager](resource-group-create-multiple.md)
 * Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md)
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

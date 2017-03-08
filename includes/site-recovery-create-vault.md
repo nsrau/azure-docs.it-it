@@ -1,4 +1,4 @@
-## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
+
 1. Accedere al [portale di Azure](https://portal.azure.com) > **Site Recovery**
 2. Fare clic su **Nuovo** > **Gestione** >
 3. In **Nome**specificare un nome descrittivo per identificare l'insieme di credenziali. Se è disponibile più di una sottoscrizione, selezionarne una.

@@ -3,7 +3,7 @@ title: Panoramica del servizio di analisi degli errori | Documentazione Microsof
 description: Questo articolo descrive il servizio di analisi degli errori di Service Fabric per provocare errori ed eseguire scenari di test sui servizi dell&quot;utente.
 services: service-fabric
 documentationcenter: .net
-author: rishirsinha
+author: anmolah
 manager: timlt
 editor: vturecek
 ms.assetid: 1f064276-293a-4989-a513-e0d0b9fdf703
@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/06/2016
-ms.author: rsinha
+ms.date: 03/01/2017
+ms.author: anmola
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 84b5de368b59f7cb6e5b2965a7e9f731c472fa0e
+ms.sourcegitcommit: e3dda1f6a0d513668aca252aa1855a93f3720247
+ms.openlocfilehash: 3bff3fb99f27985c24b5a2e677738595314242c4
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -102,9 +103,4 @@ A questo punto è possibile iniziare a testare le applicazioni e i servizi con g
 
 <!--Image references-->
 [0]: ./media/service-fabric-testability-overview/faultanalysisservice.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

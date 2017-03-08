@@ -3,8 +3,8 @@ title: Panoramica di Azure Managed Disks Standard e Premium | Microsoft Docs
 description: Panoramica di Azure Managed Disks, che gestisce automaticamente gli account di archiviazione quando si usano macchine virtuali di Azure
 services: storage
 documentationcenter: na
-author: ramankumarlive
-manager: tadb
+author: robinsh
+manager: timlt
 editor: tysonn
 ms.assetid: 272250b3-fd4e-41d2-8e34-fd8cc341ec87
 ms.service: storage
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
-ms.author: ramankum
+ms.date: 02/23/2017
+ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 58c395a45115c9db0027cffe96d20863c928a63d
-ms.openlocfilehash: 74ec73388af06dbf5682c5aa1c84b153dfc4a744
+ms.sourcegitcommit: 388e4c8f46662200a0e05db06d417f086ad41b11
+ms.openlocfilehash: b53feeb08d469363a52303cad4577b752a570900
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -26,7 +27,8 @@ ms.openlocfilehash: 74ec73388af06dbf5682c5aa1c84b153dfc4a744
 Azure Managed Disks semplifica la gestione dei dischi per le macchine virtuali IaaS di Azure grazie alla gestione degli [account di archiviazione](storage-introduction.md) associati ai dischi delle macchine virtuali. Specificando il tipo, [Premium](storage-premium-storage.md) o [Standard](storage-standard-storage.md), e le dimensioni del disco necessarie, Azure crea e gestisce automaticamente il disco.
 
 >[!NOTE]
-> Con Managed Disks è necessario che la porta 8443 sia disponibile. Se si vuole bloccare tale porta, è necessario usare dischi non gestiti.
+>Le macchine virtuali con Managed Disks richiedono traffico in uscita sulla porta 8443 per segnalare lo stato [estensioni di VM](../virtual-machines/virtual-machines-windows-extensions-features.md) installate sulla piattaforma Azure. Il provisioning di una macchina virtuale con estensioni ha esito negativo se questa porta non è disponibile. Lo stato di distribuzione di un'estensione è sconosciuto anche se questa viene installata in una macchina virtuale in esecuzione. Se non è possibile sbloccare la porta 8443, è necessario usare i dischi non gestiti. Microsoft sta lavorando attivamente per risolvere il problema. Per altri dettagli, consultare le [Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)](storage-faq-for-disks.md#managed-disks-and-port-8443). 
+>
 >
 
 ## <a name="benefits-of-managed-disks"></a>Vantaggi dei dischi gestiti
@@ -102,7 +104,7 @@ Managed Disks supporta anche la creazione di un'immagine personalizzata gestita.
 
 Per informazioni sulla creazione di immagini, vedere gli articoli seguenti:
 * [Come acquisire un'immagine gestita di una macchina virtuale generalizzata in Azure](../virtual-machines/virtual-machines-windows-capture-image-resource.md)
-* [Come generalizzare e acquisire una macchina virtuale Linux con l'interfaccia della riga di comando CLI 2.0 di Azure (anteprima)](../virtual-machines/virtual-machines-linux-capture-image.md)
+* [Come generalizzare e acquisire una macchina virtuale Linux con l'interfaccia della riga di comando di Azure 2.0](../virtual-machines/virtual-machines-linux-capture-image.md)
 
 ## <a name="images-versus-snapshots"></a>Immagini e snapshot
 
@@ -134,7 +136,7 @@ Per altre informazioni su Managed Disks, vedere gli articoli seguenti.
 
 * [Creare una VM con Resource Manager e PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
-* [Creare una VM Linux usando l'interfaccia della riga di comando di Azure 2.0 (anteprima)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Creare una VM Linux usando l'interfaccia della riga di comando di Azure 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
 
 * [Collegare un disco dati gestito a una macchina virtuale Windows con PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
 
@@ -151,9 +153,4 @@ Per altre informazioni su Managed Disks, vedere gli articoli seguenti.
 * [Eseguire la migrazione da AWS e altre piattaforme a Managed Disks in Azure](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
 
 * [Convertire macchine virtuali di Azure in dischi gestiti in Azure](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

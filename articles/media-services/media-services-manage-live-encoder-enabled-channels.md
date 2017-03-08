@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: ef9c1d5511889cf78421d24f9c5902bf188890c7
-ms.openlocfilehash: 35db86988cf3d62401d6caecc7214411ddc2c498
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 138598ce20459b7d4975c6640b28e9a999de30cd
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: 35db86988cf3d62401d6caecc7214411ddc2c498
 In Servizi multimediali di Azure (AMS) un **canale** rappresenta una pipeline per l'elaborazione dei contenuti in streaming live. Un **canale** riceve i flussi di input live in uno dei due modi seguenti:
 
 * Un codificatore live locale invia un flusso a velocità in bit singola al canale abilitato per l'esecuzione della codifica live con Servizi multimediali in uno dei seguenti formati: RTP (MPEG-TS), RTMP o Smooth Streaming (MP4 frammentato). Il canale esegue quindi la codifica live del flusso in ingresso a velocità in bit singola in un flusso video a più velocità in bit (adattivo). Quando richiesto, Servizi multimediali invia il flusso ai clienti.
-* Un codificatore live locale invia un flusso **RTMP** o **Smooth Streaming** (MP4 frammentato) a bitrate multipli a un canale non abilitato per eseguire la codifica live con AMS. I flussi inseriti passano attraverso il **canale**senza altre elaborazioni. Questo metodo viene chiamato **pass-through**. È possibile usare i codificatori live seguenti che generano output in formato Smooth Streaming a bitrate multipli: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco ed Elemental. I codificatori live seguenti generano output in formato RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek e Tricaster.  Un codificatore live può anche inviare un flusso a bitrate singolo a un canale non abilitato per la codifica live, ma questa operazione non è consigliata. Quando richiesto, Servizi multimediali invia il flusso ai clienti.
+* Un codificatore live locale invia un flusso **RTMP** o **Smooth Streaming** (MP4 frammentato) a bitrate multipli a un canale non abilitato per eseguire la codifica live con AMS. I flussi inseriti passano attraverso il **canale**senza altre elaborazioni. Questo metodo viene chiamato **pass-through**. È possibile usare i codificatori live seguenti che generano output in formato Smooth Streaming a bitrate multipli: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco ed Elemental. I codificatori live seguenti generano output in formato RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek e codificatori Tricaster.  Un codificatore live può anche inviare un flusso a bitrate singolo a un canale non abilitato per la codifica live, ma questa operazione non è consigliata. Quando richiesto, Servizi multimediali invia il flusso ai clienti.
   
   > [!NOTE]
   > L'uso del metodo pass-through è il modo più economico per eseguire uno streaming live.
@@ -161,19 +162,8 @@ Considerazioni:
     * Mono, Stereo
 * I codificatori di trasmissione consigliati includono:
   
-  * Ateme AM2102
-  * Ericsson AVP2000
-  * eVertz 3480
-  * Ericsson RX8200
   * Imagine Communications Selenio ENC 1
   * Imagine Communications Selenio ENC 2
-  * AdTec EN-30
-  * AdTec EN-91P
-  * AdTec EN-100
-  * Harmonic ProStream 1000
-  * Thor H-2 4HD-EM
-  * eVertz 7880 SLKE
-  * Cisco Spinnaker
   * Elemental Live
 
 #### <a name="a-idsinglebitratertmpasingle-bitrate-rtmp"></a><a id="single_bitrate_RTMP"></a>RTMP a velocità in bit singola
@@ -194,7 +184,6 @@ Considerazioni:
 * I codec consigliati includono:
 * Telestream Wirecast
 * Flash Media Live Encoder
-* Tricaster
 
 #### <a name="single-bitrate-fragmented-mp4-smooth-streaming"></a>MP4 frammentato (Smooth Streaming) a velocità in bit singola
 Caso di utilizzo tipico:
@@ -428,10 +417,5 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 [Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure](media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

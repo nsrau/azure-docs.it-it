@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2016
 ms.author: kasing
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 915320ed4a7d9e86a7a9b29dff5c0addfb95f4c0
+ms.sourcegitcommit: 0a888f945a39a8bb88a730a226af6ec21d133f44
+ms.openlocfilehash: 0075160ea9c0dae991fc2344c46d216a8203bec3
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="vertically-scale-azure-virtual-machines-with-azure-automation"></a>Scalabilità verticale di macchine virtuali di Azure tramite Automazione di Azure
+# <a name="how-to-vertically-scale-virtual-machines-with-azure-automation"></a>Procedura: Eseguire la scalabilità verticale di macchine virtuali tramite Automazione di Azure
 La scalabilità verticale è il processo di aumento o riduzione delle risorse di una macchina in risposta al carico di lavoro. In Azure tale operazione può essere eseguita modificando le dimensioni della macchina virtuale. Può essere utile negli scenari seguenti:
 
 * Se la macchina virtuale non viene usata di frequente, è possibile diminuirne le dimensioni per ridurre i costi mensili
@@ -89,10 +91,5 @@ Assicurarsi di copiare il webhook prima di chiudere la finestra di dialogo del w
 ![Aggiunta di un avviso alla macchina virtuale 1](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-1.png)
 
 ![Aggiunta di un avviso alla macchina virtuale 2](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
