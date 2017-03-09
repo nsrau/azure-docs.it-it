@@ -1,6 +1,6 @@
 ---
-title: Creare record DNS usando l&quot;interfaccia della riga di comando di Azure | Documentazione Microsoft
-description: Come creare i record host per DNS di Azure. Configurare i set di record e i record usando CLI
+title: Creare record DNS usando l&quot;interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
+description: Come creare i record host per DNS di Azure. Configurare i set di record e i record usando l&quot;interfaccia della riga di comando di Azure 2.0
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -10,21 +10,24 @@ ms.service: dns
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 12/21/2016
+ms.date: 02/27/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 18a21cdc0f9641356dfaf6f6d93edfcac11af210
-ms.openlocfilehash: 790af1544ed86155f5f864f3914b5fd1c4f42f4b
+ms.sourcegitcommit: 1481fcb070f383d158c5a6ae32504e498de4a66b
+ms.openlocfilehash: ca713647a9f795d7803c32eac7fba9b5b6ac95cf
+ms.lasthandoff: 03/01/2017
 
 ---
 
-# <a name="create-dns-records-using-the-azure-cli"></a>Creare record DNS usando l'interfaccia della riga di comando di Azure
+# <a name="how-to-create-dns-records-using-the-azure-cli-20"></a>Procedura: creare record DNS usando l'interfaccia della riga di comando di Azure 2.0
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](dns-getstarted-create-recordset-portal.md)
+> * [portale di Azure](dns-getstarted-create-recordset-portal.md)
 > * [PowerShell](dns-getstarted-create-recordset.md)
-> * [Interfaccia della riga di comando di Azure](dns-getstarted-create-recordset-cli.md)
+> * [Interfaccia della riga di comando di Azure 1.0](dns-getstarted-create-recordset-cli-nodejs.md)
+> * [Interfaccia della riga di comando di Azure 2.0](dns-getstarted-create-recordset-cli.md)
 
 Questo articolo illustra la creazione di record e set di record usando l'interfaccia della riga di comando di Azure.
 
@@ -36,35 +39,42 @@ Prima di creare record DNS nel servizio DNS di Azure, è necessario comprendere 
 
 Per altre informazioni sui record DNS nel servizio DNS di Azure, vedere [Zone e record DNS](dns-zones-records.md).
 
+## <a name="cli-versions-to-complete-the-task"></a>Versioni dell'interfaccia della riga di comando per completare l'attività
+
+È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
+
+* [Interfaccia della riga di comando di Azure 1.0](dns-getstarted-create-recordset-cli-nodejs.md): l'interfaccia della riga di comando per il modello di distribuzione classico e di gestione delle risorse.
+* [Interfaccia della riga di comando di Azure 2.0](dns-getstarted-create-recordset-cli.md): interfaccia avanzata per il modello di distribuzione di gestione delle risorse.
+
 ## <a name="create-a-record-set-and-record"></a>Creare un set di record e un record
 
-In questa sezione viene descritto come creare record DNS in DNS di Azure. Negli esempi si suppone che l'utente abbia già [installato l'interfaccia della riga di comando di Azure, effettuato l'accesso e creato una zona DNS](dns-getstarted-create-dnszone-cli.md).
+In questa sezione viene descritto come creare record DNS in DNS di Azure. Negli esempi si suppone che l'utente abbia già [installato l'interfaccia della riga di comando di Azure 2.0, effettuato l'accesso e creato una zona DNS](dns-getstarted-create-dnszone-cli.md).
 
-Gli esempi in questa pagina usano tutti il tipo di record DNS "A". Per altri tipi di record e maggiori informazioni su come gestire i record DNS e i set di record, vedere [Gestire record e set di record DNS con l'interfaccia della riga di comando di Azure](dns-operations-recordsets-cli.md).
+Gli esempi in questa pagina usano tutti il tipo di record DNS "A". Per altri tipi di record e maggiori informazioni su come gestire i record DNS e i set di record, vedere [Gestire record e set di record DNS con l'interfaccia della riga di comando di Azure 2.0](dns-operations-recordsets-cli.md).
 
 ## <a name="create-a-dns-record"></a>Creare un record DNS
 
-Per creare un record DNS, usare il comando `azure network dns record-set add-record`. Per altre informazioni, vedere `azure network dns record-set add-record -h`.
+Per creare un record DNS, usare il comando `az network dns record-set ? add`, dove ? è il tipo di record. Per altre informazioni, vedere `az network dns record-set --help`.
 
 Quando si crea un record è necessario specificare il nome del gruppo di risorse, della zona e del set di record, il tipo di record e i dettagli del record da creare.
 
 Il comando crea il set di record, se non esiste già. In caso contrario, il comando aggiunge il record specificato al set di record esistente. 
 
-Se viene creato un nuovo set di record, per la durata (TTL) viene usato un valore predefinito di 3600. Per istruzioni sull'uso di durate diverse, vedere [Gestire record e set di record DNS con l'interfaccia della riga di comando](dns-operations-recordsets-cli.md).
+Se viene creato un nuovo set di record, per la durata (TTL) viene usato un valore predefinito di 3600. Per istruzioni sull'uso di durate diverse, vedere [Gestire record e set di record DNS con l'interfaccia della riga di comando di Azure 2.0](dns-operations-recordsets-cli.md).
 
 L'esempio seguente mostra come creare un record "A" denominato *www* nella zona *contoso.com* nel gruppo di risorse *MyResourceGroup*. L'indirizzo IP del record "A" è *1.2.3.4*.
 
 ```azurecli
-azure network dns record-set add-record MyResourceGroup contoso.com www A -a 1.2.3.4
+az network dns record-set a create --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
-Per creare un set di record nel dominio radice, in questo caso "contoso.com", usare il nome record "@",, incluse le virgolette:
+Per creare un set di record nell'apice della zona, in questo caso "contoso.com", usare il nome record "@", incluse le virgolette:
 
 ```azurecli
-azure network dns record-set add-record MyResourceGroup contoso.com "@" A -a 1.2.3.4
+az network dns record-set a --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
 ```
 
-I parametri usati per specificare i dati del record variano a seconda del tipo di record. Per un record di tipo "A", ad esempio, specificare l'indirizzo IPv4 con il parametro `-a <IPv4 address>`. Vedere `azure network dns record-set add-record -h` per elencare i parametri per altri tipi di record. Per esempi sui singoli tipi di record, vedere [Gestire record e set di record DNS con l'interfaccia della riga di comando](dns-operations-recordsets-cli.md).
+I parametri usati per specificare i dati del record variano a seconda del tipo di record. Per un record di tipo "A", ad esempio, specificare l'indirizzo IPv4 con il parametro `--ipv4-address <IPv4 address>`. Vedere `az network dns record --help` per elencare i parametri per altri tipi di record. Per esempi sui singoli tipi di record, vedere [Gestire record e set di record DNS con l'interfaccia della riga di comando di Azure 2.0](dns-operations-recordsets-cli.md).
 
 
 ## <a name="verify-name-resolution"></a>Verificare la risoluzione dei nomi
@@ -90,13 +100,8 @@ Address:  1.2.3.4
 
 Informazioni su come [delegare il nome di dominio ai server dei nomi DNS di Azure](dns-domain-delegation.md)
 
-Informazioni su come [gestire le zone DNS usando l'interfaccia della riga di comando di Azure](dns-operations-dnszones-cli.md).
+Informazioni su come [gestire le zone DNS usando l'interfaccia della riga di comando di Azure 2.0](dns-operations-dnszones-cli.md).
 
-Informazioni su come [gestire i record e i set di record DNS usando l'interfaccia della riga di comando di Azure](dns-operations-recordsets-cli.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
+Informazioni su come [gestire i record e i set di record DNS usando l'interfaccia della riga di comando di Azure 2.0](dns-operations-recordsets-cli.md).
 
 
