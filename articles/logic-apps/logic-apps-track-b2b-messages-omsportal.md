@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/13/2016
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: 91eb30aaa1ab3891d8e97d48a9a0fe9fa9b2b82b
-ms.openlocfilehash: 3130104427b2a1873690617c6d726375c89876cf
+ms.sourcegitcommit: 2aa32d692da81dc34fafbc9cb6ea72a806f31e5c
+ms.openlocfilehash: a4068c70a01f80086ff3fb55f8e101c7dce95dea
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -79,8 +80,8 @@ La comunicazione B2B comporta lo scambio di messaggi tra due processi o applicaz
 | Mittente | Il partner guest configurato nelle impostazioni di ricezione o il partner host configurato nelle impostazioni di invio di un contratto AS2. |
 | Ricevitore | Il partner host configurato nelle impostazioni di ricezione o il partner guest configurato nelle impostazioni di invio di un contratto AS2. |
 | App per la logica | App per la logica in cui sono configurate le azioni AS2. |
-| Stato | Lo stato dei messaggi AS2. Operazione completata = Ricevuto o inviato un messaggio AS2 valido, nessun MDN configurato; Operazione completata = Ricevuto o inviato un messaggio AS2 valido, MDN configurato e MDN ricevuto o inviato; Operazione non riuscita = Ricevuto un messaggio AS2 non valido, nessun MDN configurato; In sospeso = Ricevuto o inviato un messaggio AS2 valido, MDN configurato e atteso ack funzionale. |
-| Ack | Stato dei messaggi MDN. |
+| Stato | Stato dei messaggi AS2 <br>Operazione riuscita = ricevuto o inviato un messaggio AS2 corretto, nessun MDN configurato <br>Operazione riuscita = ricevuto o inviato un messaggio AS2 corretto, MDN configurato e ricevuto o MDN inviato <br>Operazione non riuscita = ricevuto un messaggio AS2 non corretto, nessun MDN configurato <br>In sospeso = ricevuto o inviato un messaggio AS2 corretto, MDN configurato e ACK funzionale previsto |
+| Ack | Lo stato dei messaggi MDN <br>Accettato = ricevuto o inviato un messaggio MDN positivo <br>In sospeso = in attesa di ricevere o inviare un messaggio MDN <br>Rifiutato = ricevuto o inviato un messaggio MDN negativo <br>Non richiesto = MDN non configurato nel contratto |
 | Direzione | Direzione dei messaggi AS2. |
 | ID correlazione | ID per correlare tutti i trigger e le azioni all'interno di un'app per la logica. |
 | ID del messaggio |  ID del messaggio AS2, dalle intestazioni del messaggio AS2. |
@@ -93,8 +94,8 @@ La comunicazione B2B comporta lo scambio di messaggi tra due processi o applicaz
 | Mittente | Il partner guest configurato nelle impostazioni di ricezione o il partner host configurato nelle impostazioni di invio di un contratto AS2. |
 | Ricevitore | Il partner host configurato nelle impostazioni di ricezione o il partner guest configurato nelle impostazioni di invio di un contratto AS2. |
 | App per la logica | App per la logica in cui sono configurate le azioni AS2. |
-| Stato | Lo stato dei messaggi X12. Operazione completata = Ricevuto o inviato un messaggio X12 valido, nessun ack funzionale configurato; Operazione completata = Ricevuto o inviato un messaggio X12 valido, ack funzionale configurato e ack funzionale inviato o ricevuto; Operazione non riuscita = Ricevuto o inviato un messaggio X12 non valido; In sospeso: Ricevuto o inviato un messaggio X12 valido, ack funzionale configurato e atteso ack funzionale. |
-| Ack | Stato Ack funzionali (997).  Accettato = Ricevuto o inviato ack funzionale positivo; Rifiutato = Ricevuto o inviato ack funzionale negativo; In sospeso = Atteso ack funzionale ma non ricevuto; In sospeso = Generato un ack funzionale; impossibile inviarlo al partner. |
+| Stato | Stato dei messaggi X12 <br>Operazione riuscita = ricevuto o inviato un messaggio X12 corretto, nessun ACK funzionale configurato <br>Operazione riuscita = ricevuto o inviato un messaggio X12 corretto, ACK funzionale configurato e ricevuto o ACK funzionale inviato <br>Operazione non riuscita = ricevuto o inviato un messaggio X12 errato <br>In sospeso = ricevuto o inviato un messaggio X12 corretto, ACK funzionale configurato e ACK funzionale previsto. |
+| Ack | Stato ACK funzionale (997) <br>Accettato = ricevuto o inviato un ACK funzionale positivo <br>Rifiutato = ricevuto o inviato un ACK funzionale negativo <br>In sospeso = in attesa di un ACK funzionale ma non ricevuto <br>In sospeso = ACK funzionale generato ma impossibile inviarlo al partner <br>Non richiesto = ACK funzionale non configurato |
 | Direzione | Direzione dei messaggi X12. |
 | ID correlazione | ID per correlare tutti i trigger e le azioni all'interno di un'app per la logica. |
 | Tipo di messaggio |  Tipo di messaggio EDI X12. |
@@ -130,9 +131,4 @@ Nella pagina di ricerca è possibile creare una query. Quando si esegue una rice
 [Schema di rilevamento AS2](logic-apps-track-integration-account-as2-tracking-schemas.md "Learn about AS2 Tracking Schema")    
 [Schema di rilevamento X12](logic-apps-track-integration-account-x12-tracking-schema.md "Learn about X12 Tracking Schema")  
 [Altre informazioni su Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
