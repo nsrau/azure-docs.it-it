@@ -5,7 +5,7 @@ description: "Fornisce informazioni sulle impostazioni di Criteri di gruppo e di
 services: active-directory
 keywords: informazioni sulle impostazioni di Criteri di gruppo e gestione di dispositivi mobili per Enterprise State Roaming, Enterprise State Roaming, cloud windows
 documentationcenter: 
-author: MarkusVi
+author: ningtan
 manager: femila
 editor: curtand
 ms.assetid: 6471a9b3-8dd4-4237-89d1-bfbeca9f8252
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/08/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 6bdec7bf35bb4a233200def36c0e697baaf15fec

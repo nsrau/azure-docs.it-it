@@ -3,7 +3,7 @@ title: Abilitare la sincronizzazione offline per l&quot;app per dispositivi mobi
 description: Informazioni su come usare le app per dispositivi mobili del servizio app per memorizzare nella cache e sincronizzare i dati offline in un&quot;applicazione Xamarin iOS
 documentationcenter: xamarin
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 services: app-service\mobile
 ms.assetid: 828a287c-5d58-4540-9527-1309ebb0f32b
@@ -38,7 +38,7 @@ Le funzionalità offline delle app per dispositivi mobili di Azure consentono di
 2. Aprire il file QSTodoService.cs e rimuovere i simboli di commento dalla definizione `#define OFFLINE_SYNC_ENABLED`.
 3. Ricompilare ed eseguire l'app client. L'app funziona esattamente come prima di attivare la sincronizzazione offline. Tuttavia, il database locale è ora popolato con dati che possono essere usati in uno scenario offline.
 
-## <a name="a-nameupdate-syncaupdate-the-app-to-disconnect-from-the-backend"></a><a name="update-sync"></a>Aggiornare l'app per disconnetterla dal back-end
+## <a name="update-sync"></a>Aggiornare l'app per disconnetterla dal back-end
 In questa sezione verrà interrotta la connessione al back-end dell'app per dispositivi mobili per simulare una situazione offline. Quando si aggiungono elementi di dati, il gestore di eccezioni informa che l'app è in modalità offline. In questo stato, nuovi elementi verranno aggiunti all'archivio locale che verranno sincronizzati con il back-end dell'app per dispositivi mobili la prima volta che verrà eseguita un'operazione di push in presenza di uno stato di connessione.
 
 1. Modificare il file QSToDoService.cs nel progetto condiviso. Modificare il valore **applicationURL** in modo che faccia riferimento a un URL non valido:
@@ -52,7 +52,7 @@ In questa sezione verrà interrotta la connessione al back-end dell'app per disp
 5. (Facoltativo) Se Visual Studio è installato in un computer, aprire **Esplora server**. Passare al database in **Azure**-> **Database SQL**. Fare clic con il pulsante destro del mouse sul database e scegliere **Apri in Esplora oggetti di SQL Server**. È ora possibile passare alla tabella di database SQL e al relativo contenuto. Verificare che i dati nel database back-end non siano stati modificati.
 6. (Facoltativo) Usare uno strumento REST come Fiddler o Postman per eseguire una query sul back-end mobile, usando una query GET nel formato `https://<your-mobile-app-backend-name>.azurewebsites.net/tables/TodoItem`.
 
-## <a name="a-nameupdate-online-appaupdate-the-app-to-reconnect-your-mobile-app-backend"></a><a name="update-online-app"></a>Aggiornare l'app per la riconnessione al back-end dell'app per dispositivi mobili
+## <a name="update-online-app"></a>Aggiornare l'app per la riconnessione al back-end dell'app per dispositivi mobili
 In questa sezione viene effettuata la riconnessione dell'app al back-end dell'app per dispositivi mobili. Viene simulato il passaggio dell'app dallo stato offline allo stato online con il back-end dell'app per dispositivi mobili.   Se l'interruzione della rete è stata simulata disattivando la connettività di rete, non sono necessarie modifiche al codice.
 Riattivare la rete.  Alla prima esecuzione dell'applicazione viene chiamato il metodo `RefreshDataAsync`, che sua volta chiama `SyncAsync` per sincronizzare l'archivio locale con il database back-end.
 

@@ -17,6 +17,7 @@ ms.author: yuaxu
 translationtype: Human Translation
 ms.sourcegitcommit: dc5f98fd548512801c705f942e30df5e6b95d542
 ms.openlocfilehash: 3271db005133bd7849b8a33dd7fa8f11bf5a29c2
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -30,7 +31,7 @@ Se questa è la prima esperienza con la funzionalità App per dispositivi mobili
 
 Per altre informazioni sulla funzionalità di sincronizzazione offline, vedere l'argomento [Sincronizzazione di dati offline nelle app per dispositivi mobili].
 
-## <a name="a-namereview-syncareview-the-client-sync-code"></a><a name="review-sync"></a>Verificare il codice di sincronizzazione del client
+## <a name="review-sync"></a>Verificare il codice di sincronizzazione del client
 Il progetto client scaricato per l'esercitazione [Creare un'app iOS] contiene già il codice che supporta la sincronizzazione offline mediante un database basato sui dati principali locali. Questa sezione riepiloga gli elementi già inclusi nel codice dell'esercitazione. Per una panoramica concettuale della funzionalità, vedere [Sincronizzazione di dati offline nelle app per dispositivi mobili].
 
 La funzionalità di sincronizzazione dei dati offline di App per dispositivi mobili consente agli utenti finali di interagire con un database locale quando la rete non è disponibile. Per usare queste funzionalità nell'app, è possibile inizializzare il contesto di sincronizzazione di `MSClient` e fare riferimento a un archivio locale. Fare quindi riferimento alla tabella tramite l'interfaccia **MSSyncTable**.
@@ -48,6 +49,7 @@ Prima di poter eseguire qualsiasi operazione su tabella, è necessario inizializ
    self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
    ```    
 * **Swift**: Nel metodo **ToDoTableViewController.viewDidLoad**:
+
    ```swift
    let client = MSClient(applicationURLString: "http:// ...") // URI of the Mobile App
    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
@@ -135,7 +137,7 @@ L'app Swift esegue la sincronizzazione quando l'utente esegue l'aggiornamento e 
 
 Poiché l'app esegue la sincronizzazione ogni volta che i dati vengono modificati (Objective-C) oppure a ogni avvio dell'applicazione (Objective-C e Swift), l'app presuppone che l'utente sia online. In un'altra sezione, l'app verrà aggiornata in modo che gli utenti possano apportare modifiche anche quando sono offline.
 
-## <a name="a-namereview-core-dataareview-the-core-data-model"></a><a name="review-core-data"></a>Esaminare il modello di Core Data
+## <a name="review-core-data"></a>Esaminare il modello di Core Data
 Quando si usa l'archivio offline Core Data, è necessario definire particolari tabelle e campi all'interno del modello di dati. L'app di esempio include già un modello di dati nel formato corretto. Questa sezione illustra le tabelle e il relativo uso.
 
 Aprire **QSDataModel.xcdatamodeld**. Qui sono definite quattro tabelle, tre usate dall'SDK e una per gli elementi attività:
@@ -202,7 +204,7 @@ Quando si usa la funzionalità di sincronizzazione offline, definire le tre tabe
 | updatedAt | Data | (facoltativo) viene mappato alla proprietà di sistema **updatedAt** |
 | version | string | (facoltativo) viene usato per il rilevamento dei conflitti, viene mappato a version |
 
-## <a name="a-namesetup-syncachange-the-sync-behavior-of-the-app"></a><a name="setup-sync"></a>Modificare il comportamento di sincronizzazione dell'app
+## <a name="setup-sync"></a>Modificare il comportamento di sincronizzazione dell'app
 In questa sezione si modifica l'app in modo che non esegua la sincronizzazione all'avvio o quando si inseriscono e si aggiornano elementi, bensì solo quando si seleziona il pulsante di aggiornamento.
 
 **Objective-C**:
@@ -231,7 +233,7 @@ In `viewDidLoad` in **ToDoTableViewController.swift** impostare un commento per 
   self.onRefresh(self.refreshControl)
 ```
 
-## <a name="a-nametest-appatest-the-app"></a><a name="test-app"></a>Test dell'app
+## <a name="test-app"></a>Test dell'app
 In questa sezione, ci si collega a un URL non valido per simulare uno scenario offline. Quando si aggiungono elementi di dati, questi vengono conservati nell'archivio Core Data locale, ma non vengono sincronizzati con il back-end dell'app per dispositivi mobili.
 
 1. Modificare l'URL dell'app per dispositivi mobili in **QSTodoService.m** con un URL non valido ed eseguire di nuovo l'app:
@@ -285,9 +287,4 @@ Quando l'archivio locale è stato sincronizzato con il server, è stato usato il
 
 [Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/en-us/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

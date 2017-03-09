@@ -4,7 +4,7 @@ description: Informazioni su come eseguire facilmente l&quot;aggiornamento dell&
 services: app-service\mobile
 documentationcenter: 
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 9c0ac353-afb6-462b-ab94-d91b8247322f
 ms.service: app-service-mobile
@@ -44,7 +44,7 @@ L'aggiornamento al nuovo [SDK delle app per dispositivi mobili](https://www.nuge
 * Supporto per altri tipi di progetto ASP.NET e route. È ora possibile ospitare controller MVC e API Web nello stesso progetto del progetto di back-end per dispositivi mobili.
 * Supporto per le nuove funzionalità di autenticazione del Servizio app, che consentono di utilizzare una configurazione di autenticazione comune tra web e app per dispositivi mobili:
 
-## <a name="a-nameoverviewabasic-upgrade-overview"></a><a name="overview"></a>Panoramica sull'aggiornamento di base
+## <a name="overview"></a>Panoramica sull'aggiornamento di base
 In molti casi, l'aggiornamento sarà semplice come passare al nuovo SDK del server di app per dispositivi mobili e ripubblicare il codice in una nuova istanza di app per dispositivi mobili. Esistono, tuttavia, alcuni scenari che richiedono alcune configurazioni aggiuntive, ad esempio l'autenticazione avanzata e l'uso dei processi pianificati. Ciascuno di questi scenari viene trattato nelle sezioni seguenti.
 
 > [!TIP]
@@ -63,7 +63,7 @@ La struttura completa del processo di aggiornamento è la seguente:
 3. Rilasciare una nuova versione dell'applicazione client
 4. (Facoltativo) Eliminare l'istanza migrata originale
 
-## <a name="a-namemobile-app-versionacreating-a-second-application-instance"></a><a name="mobile-app-version"></a>Creazione di una seconda istanza dell'applicazione
+## <a name="mobile-app-version"></a>Creazione di una seconda istanza dell'applicazione
 Il primo passaggio per l'aggiornamento prevede la creazione della risorsa di app per dispositivi mobili che ospiterà la nuova versione dell'applicazione. Se è già stata eseguita la migrazione di un servizio mobile esistente, è consigliabile creare questa versione nello stesso piano di hosting. Aprire il [portale di Azure] e passare all'applicazione migrata. Prendere nota del piano di servizio app in cui è in esecuzione.
 
 Creare quindi la seconda istanza dell'applicazione seguendo le [istruzioni per la creazione di back-end .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app). Quando viene richiesto di selezionare il piano di servizio app o "piano di hosting", scegliere il piano dell'applicazione migrata.
@@ -215,7 +215,7 @@ Analogamente, la registrazione viene ora effettuata mediante la scrittura di tra
     ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
     traceWriter.Info("Hello, World");  
 
-## <a name="a-nameauthenticationaauthentication-considerations"></a><a name="authentication"></a>Considerazioni sull'autenticazione
+## <a name="authentication"></a>Considerazioni sull'autenticazione
 I componenti di autenticazione di Servizi mobili sono ora stati spostati nella funzionalità di autenticazione/autorizzazione del servizio app. Per informazioni sull'abilitazione di questa funzionalità per il sito, vedere l'argomento [Aggiungere l'autenticazione all'app per dispositivi mobili](app-service-mobile-ios-get-started-users.md) .
 
 Per alcuni provider, come AAD, Facebook e Google, dovrebbe essere possibile sfruttare la registrazione esistente dall'applicazione di copia. È sufficiente passare al portale del provider di identità e aggiungere un nuovo URL di reindirizzamento alla registrazione. Configurare quindi l'autenticazione/autorizzazione del servizio app con l'ID client e il segreto.
@@ -238,7 +238,7 @@ Se l'app stabilisce dipendenze sugli ID utente, è importante sfruttare la stess
 ### <a name="custom-authentication"></a>Autenticazione personalizzata
 Se l'app usa una soluzione di autenticazione personalizzata, è necessario assicurarsi che il sito aggiornato abbia accesso al sistema. Seguire le nuove istruzioni per l'autenticazione personalizzata nella [panoramica di .NET Server SDK] per integrare la soluzione. Si noti che i componenti dell'autenticazione personalizzata sono ancora in versione di anteprima.
 
-## <a name="a-nameupdating-clientsaupdating-clients"></a><a name="updating-clients"></a>Aggiornamento dei client
+## <a name="updating-clients"></a>Aggiornamento dei client
 Dopo aver reso operativo un back-end dell'app per dispositivi mobili, è possibile lavorare su una nuova versione dell'applicazione client che ne faccia uso. App per dispositivi mobili include anche una nuova versione degli SDK del client e, come nel caso dell'aggiornamento del server descritto in precedenza, sarà necessario rimuovere tutti i riferimenti agli SDK di Servizi mobili prima di installare le versioni di App per dispositivi mobili.
 
 Una delle principali modifiche tra le versioni è rappresentata dai costruttori che non richiedono più una chiave applicazione. Ora è sufficiente passare l'URL dell'app per dispositivi mobili. Ad esempio, nei client .NET, il costruttore `MobileServiceClient` ora è:

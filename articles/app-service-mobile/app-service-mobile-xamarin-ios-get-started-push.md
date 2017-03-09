@@ -4,7 +4,7 @@ description: Informazioni su come usare il servizio app di Azure per inviare not
 services: app-service\mobile
 documentationcenter: xamarin
 author: ysxu
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 2921214a-49f8-45e1-a306-a85ce21defca
 ms.service: app-service-mobile
@@ -120,7 +120,7 @@ Se non si usa il progetto server di avvio rapido scaricato, sarà necessario agg
 
 L'app è ora aggiornata per il supporto delle notifiche push.
 
-## <a name="a-nametestatest-push-notifications-in-your-app"></a><a name="test"></a>Testare le notifiche push nell'app
+## <a name="test"></a>Testare le notifiche push nell'app
 1. Scegliere **Run** (Esegui) per generare il progetto e avviare l'app in un dispositivo con iOS, quindi fare clic su **OK** per accettare le notifiche push.
    
    > [!NOTE]

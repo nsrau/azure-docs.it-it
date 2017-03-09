@@ -3,7 +3,7 @@ title: Aggiungere notifiche push all&quot;app Android con App per dispositivi mo
 description: Informazioni su come usare App per dispositivi mobili per inviare notifiche push all&quot;app Android.
 services: app-service\mobile
 documentationcenter: android
-manager: erikre
+manager: adrianha
 editor: 
 author: ysxu
 ms.assetid: 9058ed6d-e871-4179-86af-0092d0ca09d3
@@ -17,6 +17,7 @@ ms.author: yuaxu
 translationtype: Human Translation
 ms.sourcegitcommit: ef43d1df2a64d85f256b28cd7db5a4f4356a7ec0
 ms.openlocfilehash: 055f55966de1e5c1bb41a6e0bf1c0da1758a3ed0
+ms.lasthandoff: 12/13/2016
 
 
 ---
@@ -81,9 +82,4 @@ Dopo aver completato questa esercitazione, continuare con una delle esercitazion
 [avvio rapido di Android]: app-service-mobile-android-get-started.md
 
 [Set Up Google Play Services SDK]:https://developers.google.com/android/guides/setup (Configurare Google Play Services SDK)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

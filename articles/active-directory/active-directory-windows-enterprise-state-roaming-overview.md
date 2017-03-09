@@ -4,7 +4,7 @@ description: Fornisce informazioni sulle impostazioni del servizio Enterprise St
 services: active-directory
 keywords: informazioni su Enterprise State Roaming, sincronizzazione aziendale, cloud windows
 documentationcenter: 
-author: MarkusVi
+author: ningtan
 manager: femila
 editor: curtand
 ms.assetid: 83b3b58f-94c1-4ab0-be05-20e01f5ae3f0
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/08/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: ce78b996a5f45b0b074563bc50af5aaab85f2667
