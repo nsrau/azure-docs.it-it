@@ -1,3 +1,4 @@
+
 # Panoramica
 ## [Informazioni su Azure per enti pubblici](documentation-government-welcome.md)
 ## [ITAR](documentation-government-overview-itar.md)
@@ -31,6 +32,7 @@
 ### [Calcolo](documentation-government-compute.md)
 ### [Archiviazione](documentation-government-services-storage.md)
 ### [Database](documentation-government-services-database.md)
+### [Intelligence e analisi](documentation-government-services-intelligenceandanalytics.md)
 ### [Rete](documentation-government-networking.md)
 ### [Sicurezza e identità](documentation-government-services-securityandidentity.md)
 ### [Monitoraggio e gestione](documentation-government-services-monitoringandmanagement.md)
@@ -42,8 +44,3 @@
 ## [Versione di valutazione](https://azuregov.microsoft.com/trial/azuregovtrial)
 ## [Blog](https://blogs.msdn.microsoft.com/azuregov/)
 ## [Sito Web di Azure per enti pubblici](https://azure.microsoft.com/overview/clouds/government/)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

@@ -1,8 +1,9 @@
 # Panoramica
 ## [Informazioni su Azure Multi-Factor Authentication](multi-factor-authentication.md)
 ## [Funzionamento](multi-factor-authentication-how-it-works.md)
+## [Come ottenere Azure MFA](multi-factor-authentication-versions-plans.md)
 
-# Attività iniziali
+# Introduzione
 ## [Scegliere dove eseguire la distribuzione](multi-factor-authentication-get-started.md)
 ## [MFA nel cloud](multi-factor-authentication-get-started-cloud.md)
 ## [MFA locale](multi-factor-authentication-get-started-server.md)
@@ -20,6 +21,7 @@
 #### [Configurazioni VPN avanzate](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [Servizio Web per app per dispositivi mobili](multi-factor-authentication-get-started-server-webservice.md)
 #### [Autenticazione di Windows](multi-factor-authentication-get-started-server-windows.md)
+#### [Aggiornare il server MFA](multi-factor-authentication-server-upgrade.md)
 #### [Aggiornamento da PhoneFactor](multi-factor-authentication-get-started-server-upgrade.md)
 
 ## Gestire gli utenti
@@ -45,8 +47,3 @@
 ## Risolvere i problemi
 ### [Domande frequenti](multi-factor-authentication-faq.md)
 ### [Porre una domanda](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
-
-
-<!--HONumber=Feb17_HO1-->
-
-
