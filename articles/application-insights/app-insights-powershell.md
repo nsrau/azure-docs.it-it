@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
 ms.openlocfilehash: 9fc886d9ce69c1ca3d7a981d5eeb276c09cc245e
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -191,9 +192,8 @@ Dopo la creazione di una risorsa dell'applicazione, è necessaria la chiave di s
 Per configurare un avviso per la metrica contemporaneamente alla risorsa app, unire il codice seguente nel file modello:
 
 ```JSON
-
+{
     parameters: { ... // existing parameters ...
-       ,       
             "responseTime": {
               "type": "int",
               "defaultValue": 3,
@@ -203,12 +203,10 @@ Per configurare un avviso per la metrica contemporaneamente alla risorsa app, un
               }
     },
     variables: { ... // existing variables ...
-      ,
       // Alert names must be unique within resource group.
       "responseAlertName": "[concat('ResponseTime-', toLower(parameters('appName')))]"
     }, 
     resources: { ... // existing resources ...
-     ,
      {
       //
       // Metric alert on response time
@@ -250,7 +248,7 @@ Per configurare un avviso per la metrica contemporaneamente alla risorsa app, un
         ]
       }
     }
-
+}
 ```
 
 Quando si richiama il modello, se si vuole, è possibile aggiungere questo parametro:
@@ -271,19 +269,16 @@ Questo esempio è relativo a un test di ping (per testare una singola pagina).
 Unire il codice seguente nel file modello che crea l'app.
 
 ```JSON
-
+{
     parameters: { ... // existing parameters here ...
-      ,
       "pingURL": { "type": "string" },
       "pingText": { "type": "string" , defaultValue: ""}
     },
     variables: { ... // existing variables here ...
-      ,
       "pingTestName":"[concat('PingTest-', toLower(parameters('appName')))]",
       "pingAlertRuleName": "[concat('PingAlert-', toLower(parameters('appName')), '-', subscription().subscriptionId)]"
     },
     resources: { ... // existing resources here ...
-    ,  
     { //
       // Availability test: part 1 configures the test
       //
@@ -365,7 +360,7 @@ Unire il codice seguente nel file modello che crea l'app.
         ]
       }
     }
-
+}
 ```
 
 Per trovare i codici per altre posizioni di test o per automatizzare la creazione di test Web più complessi, creare un esempio manualmente e quindi impostare i parametri per il codice da [Azure Resource Manager](https://resources.azure.com/).
@@ -434,10 +429,5 @@ Altri articoli di automazione:
 * [Inviare i dati del servizio Diagnostica di Azure ad Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Deploy to Azure from Github](http://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx) (Distribuire ad Azure da Github)
 * [Creare annotazioni di rilascio](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

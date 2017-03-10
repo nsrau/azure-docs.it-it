@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2017
+ms.date: 02/28/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 6aed200529f8f21f15d9b77a403f9ef07582d449
-ms.openlocfilehash: 975c8fbc9afdc7b01da85f56a075aa44dade9dde
+ms.sourcegitcommit: 280a17677714a522ca978a6eb6baf3e70f853d7a
+ms.openlocfilehash: 5b0865310076557c8f7ce6f9d9b553950854407c
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -35,7 +36,7 @@ La connettività può essere stabilita da una rete (IP VPN) any-to-any, da una r
 * Routing dinamico tra la rete e Microsoft con protocolli standard del settore (BGP).
 * Ridondanza incorporata in ogni località di peering per una maggiore affidabilità.
 * [Contratto di servizio](https://azure.microsoft.com/support/legal/sla/)per i tempi di attività delle connessioni.
-* Qualità del servizio e supporto di più classi di servizio per applicazioni speciali, ad esempio Skype for Business.
+* Supporto QoS per Skype for Business.
 
 Per altre informazioni, vedere [Domande frequenti su ExpressRoute](expressroute-faqs.md).
 
@@ -108,8 +109,4 @@ Microsoft gestisce ambienti cloud isolati per aree geopolitiche speciali e segme
   * [Creare un circuito ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md)
   * [Configurare il routing](expressroute-howto-routing-portal-resource-manager.md)
   * [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
 

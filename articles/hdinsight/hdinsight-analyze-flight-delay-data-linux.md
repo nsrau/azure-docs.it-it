@@ -15,20 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: larryfr
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9d20050dada974c0c2a54399e2db7b9a289f7e89
-ms.openlocfilehash: 8ca2e34fef825bbc50dd367642bc82d8ba00b6b0
-
+ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
+ms.openlocfilehash: 4531aeb00cff7eee12ab0ab9c7466446fc50d5b1
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Analizzare i dati sui ritardi dei voli con Hive in HDInsight
-Informazioni su come analizzare i dati sui ritardi dei voli usando Hive in HDInsight basato su Linux, quindi su come esportare i dati al database SQL di Azure mediante Sqoop.
+# <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Analizzare i dati sui ritardi dei voli con Hive in HDInsight basato su Linux
+
+Informazioni su come analizzare i dati sui ritardi dei voli usando Hive in HDInsight basato su Linux, quindi su come esportare i dati nel database SQL di Azure mediante Sqoop.
 
 > [!IMPORTANT]
 > I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ### <a name="prerequisites"></a>Prerequisiti
-Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 * **Un cluster HDInsight**. Per la procedura sulla creazione di un nuovo cluster HDInsight basato su Linux, vedere [Introduzione all'uso di Hadoop con Hive in HDInsight in Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
@@ -61,7 +62,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
     Sostituire **FILENAME** con il nome del file con estensione zip. Sostituire **USERNAME** con l'account di accesso SSH per il cluster HDInsight. Sostituire CLUSTERNAME con il nome del cluster HDInsight.
    
    > [!NOTE]
-   > Se è stata usata una password per l'autenticazione a SSH, viene richiesto di specificarla. Se è stata usata una chiave pubblica, può essere necessario usare il parametro `-i` e specificare il percorso alla chiave privata corrispondente. Ad esempio, `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
+   > Se è stata usata una password per l'autenticazione a SSH, viene richiesto di specificarla. Se è stata usata una chiave pubblica, può essere necessario usare il parametro `-i` e specificare il percorso alla chiave privata corrispondente. Ad esempio: `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 
 2. Una volta completato il caricamento, connettersi al cluster tramite SSH:
    
@@ -78,9 +79,9 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
     unzip FILENAME.zip
     ```
    
-    Viene estratto un file con estensione CSV con una dimensione di circa 60 MB.
+    Questo comando estrae un file con estensione CSV con una dimensione di circa 60 MB.
 
-4. Usare il comando seguente per creare una nuova directory in WASB (l'archivio dati distribuito usato da HDInsight) e copiare il file:
+4. Usare il comando seguente per creare una directory nell'archivio di HDInsight e quindi copiare il file nella directory:
    
     ```
     hdfs dfs -mkdir -p /tutorials/flightdelays/data
@@ -88,6 +89,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
     ```
 
 ## <a name="create-and-run-the-hiveql"></a>Creare ed eseguire HiveQL
+
 Usare la procedura seguente per importare dati dal file con estensione csv in una tabella Hive denominata **Delays**.
 
 1. Usare il comando seguente per creare e modificare un nuovo file denominato **flightdelays.hql**:
@@ -96,7 +98,7 @@ Usare la procedura seguente per importare dati dal file con estensione csv in un
     nano flightdelays.hql
     ```
    
-    Usare il codice seguente come contenuto di questo file:
+    Usare il testo seguente come contenuto del file:
    
     ```hiveql
     DROP TABLE delays_raw;
@@ -175,7 +177,7 @@ Usare la procedura seguente per importare dati dal file con estensione csv in un
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
     ```
 
-5. Quando si riceve il prompt di `jdbc:hive2://localhost:10001/>` , usare il comando seguente per recuperare i dati dai dati sui ritardi dei voli importati.
+5. Quando si riceve il prompt di `jdbc:hive2://localhost:10001/>`, usare la query seguente per recuperare i dati dai dati sui ritardi dei voli importati.
    
     ```hiveql
     INSERT OVERWRITE DIRECTORY '/tutorials/flightdelays/output'
@@ -187,13 +189,13 @@ Usare la procedura seguente per importare dati dal file con estensione csv in un
     GROUP BY origin_city_name;
     ```
    
-    Viene recuperato un elenco di città in cui si sono verificati ritardi meteo e il tempo di ritardo medio che può essere salvarlo in `/tutorials/flightdelays/output`. Sqoop legge in seguito i dati da questo percorso e li esporta nel database SQL di Azure.
+    Grazie a questa query viene recuperato un elenco di città in cui si sono verificati ritardi meteo e il tempo di ritardo medio che può essere salvato in `/tutorials/flightdelays/output`. Sqoop legge in seguito i dati da questo percorso e li esporta nel database SQL di Azure.
 
 6. Per uscire da Beeline, immettere `!quit` al prompt dei comandi.
 
 ## <a name="create-a-sql-database"></a>Creare un database SQL
 
-Se si dispone già di un database SQL, è necessario ottenere il nome del server. È possibile trovarlo nel [portale di Azure](https://portal.azure.com) selezionando **Database SQL**e quindi filtrando il nome del database che si desidera usare. Il nome del server è elencato nella colonna **SERVER** .
+Se si dispone già di un database SQL, è necessario ottenere il nome del server. È possibile trovare il nome del server nel [Portale di Azure](https://portal.azure.com) selezionando **Database SQL**e quindi filtrando il nome del database che si desidera usare. Il nome del server è elencato nella colonna **SERVER** .
 
 Se non si dispone già di un database SQL, vedere le informazioni in [Esercitazione sul database SQL: Creare un database SQL in pochi minuti usando il portale di Azure](../sql-database/sql-database-get-started.md) per crearne uno. È necessario salvare il nome del server usato per il database.
 
@@ -217,7 +219,7 @@ Se non si dispone già di un database SQL, vedere le informazioni in [Esercitazi
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
    
-    L'output è simile al seguente:
+    L'output che si riceve è simile al testo seguente:
    
     ```
     locale is "en_US.UTF-8"
@@ -238,7 +240,7 @@ Se non si dispone già di un database SQL, vedere le informazioni in [Esercitazi
     GO
     ```
    
-    Dopo aver immesso l'istruzione `GO` , vengono valutate le istruzioni precedenti. Si crea una nuova tabella denominata **Ritardi**, con un indice cluster (obbligatorio per il database SQL).
+    Dopo aver immesso l'istruzione `GO`, vengono valutate le istruzioni precedenti. Si crea una tabella denominata **Ritardi**, con un indice cluster.
    
     Per verificare la corretta creazione della tabella, usare il comando seguente:
    
@@ -264,7 +266,7 @@ Se non si dispone già di un database SQL, vedere le informazioni in [Esercitazi
     sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
     ```
    
-    Dovrebbe essere visualizzato un elenco di database, compreso il database in cui è stata creata in precedenza la tabella delays.
+    Questo comando restituisce un elenco di database, compreso il database in cui è stata creata in precedenza la tabella Ritardi.
 
 2. Usare il comando seguente per esportare dati dalla tabella hivesampletable alla tabella mobiledata:
    
@@ -272,7 +274,7 @@ Se non si dispone già di un database SQL, vedere le informazioni in [Esercitazi
     sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
     ```
    
-    In questo modo, si indicherà a Sqoop di connettersi al database SQL, al database contenente la tabella dei ritardi e di esportare dati dalla directory `/tutorials/flightdelays/output` (dove in precedenza è stato archiviato l'output della query hive) alla tabella Ritardi.
+    Sqoop si connette al database contenente la tabella Ritardi ed esporta i dati dalla directory `/tutorials/flightdelays/output` alla tabella dei ritardi.
 
 3. Al termine dell'esecuzione del comando, usare le informazioni seguenti per connettersi al database tramite TSQL:
    
@@ -289,11 +291,10 @@ Se non si dispone già di un database SQL, vedere le informazioni in [Esercitazi
     
     Dovrebbe essere visualizzato un elenco di dati della tabella. Digitare `exit` per uscire dall'utilità tsql.
 
-## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Passaggi successivi
+## <a id="nextsteps"></a> Passaggi successivi
 
-È stato illustrato come caricare file nell'archivio BLOB di Azure, come popolare una tabella Hive con i dati disponibili nell'archivio BLOB di Azure, come eseguire query Hive e come usare Sqoop per esportare i dati da HDFS in un database SQL di Azure. Per altre informazioni, vedere gli articoli seguenti:
+Per altre informazioni su come usare i dati in HDInsight, vedere i documenti seguenti:
 
-* [Introduzione a HDInsight][hdinsight-get-started]
 * [Usare Hive con HDInsight][hdinsight-use-hive]
 * [Usare Oozie con HDInsight][hdinsight-use-oozie]
 * [Usare Sqoop con Hadoop in HDInsight][hdinsight-use-sqoop]
@@ -325,10 +326,5 @@ Se non si dispone già di un database SQL, vedere le informazioni in [Esercitazi
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

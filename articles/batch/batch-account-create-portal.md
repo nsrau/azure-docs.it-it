@@ -12,15 +12,18 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2016
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
-ms.openlocfilehash: fb53c1748d42e605048d1ab4e033460399c75911
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: bdd7f1410906a46c66c1fd33949b30cc669e5a6b
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="create-an-azure-batch-account-using-the-azure-portal"></a>Creare un account Azure Batch usando il portale di Azure
+# <a name="create-a-batch-account-with-the-azure-portal"></a>Creare un account Batch nel portale di Azure
+
 > [!div class="op_single_selector"]
 > * [Portale di Azure](batch-account-create-portal.md)
 > * [.NET per la gestione di Batch](batch-management-dotnet.md)
@@ -125,9 +128,4 @@ Oltre a usare il portale di Azure, è anche possibile creare e gestire account B
 [account_url]: ./media/batch-account-create-portal/account_url.png
 [storage_account]: ./media/batch-account-create-portal/storage_account.png
 [quotas]: ./media/batch-account-create-portal/quotas.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

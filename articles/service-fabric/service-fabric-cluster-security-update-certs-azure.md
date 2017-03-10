@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/11/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: bb27d279396aa7b670187560cebe2ed074576bad
-ms.openlocfilehash: 86df3e74cd0060652a3223cfbd1516643985275e
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 45225c4250539dfeb9f3b4654615acbdd162191b
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -140,7 +141,7 @@ L'aspetto delle proprietà dovrebbe essere simile al seguente:
 
 ![Json_Pub_Setting2][Json_Pub_Setting2]
 
-Se non si vuole eseguire il **rollover del certificato**, è possibile specificare il nuovo certificato come primario e spostare il certificato primario corrente come secondario. Ciò determina il rollover del certificato corrente nel nuovo certificato in un passaggio di distribuzione. 
+Per eseguire il **rollover del certificato**, è possibile specificare il nuovo certificato come primario e spostare il certificato primario corrente come secondario. Ciò determina il rollover del certificato corrente nel nuovo certificato in un passaggio di distribuzione. 
 
 
 ```JSON
@@ -312,10 +313,5 @@ Per ulteriori informazioni sulla gestione del cluster, leggere questi articoli:
 [Json_Pub_Setting4]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_17.PNG
 [Json_Pub_Setting5]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_18.PNG
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

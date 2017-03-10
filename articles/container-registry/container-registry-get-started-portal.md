@@ -1,28 +1,7 @@
 ---
-title: Creare un registro contenitori di Azure - Portale | Documentazione Microsoft
-description: Introduzione alla creazione e gestione dei registri di contenitori di Azure con il portale di Azure
-services: container-registry
-documentationcenter: 
-author: stevelas
-manager: balans
-editor: dlepow
-tags: 
-keywords: 
-ms.assetid: 53a3b3cb-ab4b-4560-bc00-366e2759f1a1
-ms.service: container-registry
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/14/2016
-ms.author: stevelas
-translationtype: Human Translation
-ms.sourcegitcommit: d3047cd4cddb23c4daeb9265afc4d7b3fe30d46c
-ms.openlocfilehash: bec138da39696cd93bdc9bf0307108b8ca6eb149
+title: Creare un registro contenitori di Azure - portale | Documentazione Microsoft description Introduzione alla creazione e gestione dei registri di contenitori di Azure con il portale di Azure services: container-registry documentationcenter: '' author: stevelas manager: balans editor: dlepow tags: ''keywords: ''
 
----
-# <a name="create-a-container-registry-using-the-azure-portal"></a>Creare un registro contenitori con il portale di Azure
-Usare il portale di Azure per creare un registro contenitori e gestirne le impostazioni. È anche possibile creare e gestire registri di contenitori usando i [comandi dell'anteprima dell'interfaccia della riga di comando di Azure 2.0](container-registry-get-started-azure-cli.md) oppure, a livello di codice, con l'[API REST](https://go.microsoft.com/fwlink/p/?linkid=834376) del servizio Registro contenitori.
+ms.assetid: 53a3b3cb-ab4b-4560-bc00-366e2759f1a1 ms.service: container-registry ms.devlang: na ms.topic: get-started-article ms.tgt_pltfrm: na ms.workload: na ms.date: 11/14/2016 ms.author: stevelas ---# Creare un registro contenitori di Azure usando il portale di Azure Usare il portale di Azure per creare un registro contenitori e gestire le relative impostazioni. È anche possibile creare e gestire registri di contenitori usando i [comandi dell'interfaccia della riga di comando di Azure 2.0](container-registry-get-started-azure-cli.md) oppure, a livello di codice, con l'[API REST](https://go.microsoft.com/fwlink/p/?linkid=834376) del servizio Registro contenitori.
 
 Per concetti e informazioni di base, vedere [Informazioni su Registro contenitori di Azure](container-registry-intro.md)
 
@@ -52,7 +31,9 @@ Per concetti e informazioni di base, vedere [Informazioni su Registro contenitor
    > [!IMPORTANT]
    > Oltre a consentire l'accesso tramite un account utente amministratore, i registri dei contenitori supportano l'autenticazione basata sulle entità servizio di Azure Active Directory. Per altre informazioni e considerazioni, vedere [Authenticate with the container registry](container-registry-authentication.md) (Eseguire l'autenticazione al registro contenitori).
    
-    e. **Storage account** (Account di archiviazione): usare l'impostazione predefinita per creare un [account di archiviazione](../storage/storage-introduction.md) oppure selezionarne uno esistente nello stesso percorso. Si noti che gli account di archiviazione Premium e Classic non sono supportati.
+
+    e. **Storage account** (Account di archiviazione): usare l'impostazione predefinita per creare un [account di archiviazione](../storage/storage-introduction.md) oppure selezionarne uno esistente nello stesso percorso. Archiviazione Premium non è attualmente supportata.
+
 
 ## <a name="manage-registry-settings"></a>Gestire le impostazioni del registro
 Dopo aver creato il registro, trovare le impostazioni iniziando dal pannello **Container Registries** (Registri dei contenitori) nel portale. Le impostazioni potrebbero essere ad esempio necessarie per accedere al registro o abilitare o disabilitare l'utente amministratore.
@@ -72,11 +53,5 @@ Dopo aver creato il registro, trovare le impostazioni iniziando dal pannello **C
 ## <a name="next-steps"></a>Passaggi successivi
 * [Effettuare il push della prima immagine tramite l'interfaccia della riga di comando di Docker](container-registry-get-started-docker-cli.md)
 
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

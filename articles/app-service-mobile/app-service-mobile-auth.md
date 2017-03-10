@@ -4,7 +4,7 @@ description: "Riferimento concettuale e panoramica della funzionalità di autent
 services: app-service\mobile
 documentationcenter: 
 author: mattchenderson
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: a46dbf70-867d-48f6-8885-7f5207ad102e
 ms.service: app-service-mobile
@@ -17,11 +17,12 @@ ms.author: mahender
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 8b676aee5353d0e5d85224950a537b3fe31f2f29
+ms.lasthandoff: 11/17/2016
 
 
 ---
 # <a name="authentication-and-authorization-in-azure-mobile-apps"></a>Autenticazione e autorizzazione in App per dispositivi mobili di Azure
-## <a name="what-is-app-service-authentication-authorization"></a>Informazioni sull’autenticazione / autorizzazione di servizio app
+## <a name="what-is-app-service-authentication--authorization"></a>Informazioni sull’autenticazione / autorizzazione di servizio app
 > [!NOTE]
 > Questo argomento verrà trasferito in un unico argomento [Autenticazione/autorizzazione del servizio app](../app-service/app-service-authentication-overview.md) , che illustra l'autenticazione e l'autorizzazione per app Web, app per dispositivi mobili e app per le API.
 > 
@@ -106,9 +107,4 @@ Se si desidera utilizzare un sistema di identità diverso da quelli qui forniti,
 [Come configurare un'applicazione per usare l'account di accesso di Google]: app-service-mobile-how-to-configure-google-authentication.md
 [Come configurare un'applicazione per usare l'account di accesso Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [Come configurare un'applicazione per usare l'account di accesso di Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

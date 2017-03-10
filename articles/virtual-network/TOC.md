@@ -12,8 +12,7 @@
 ### [Risoluzione dei nomi](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 # Attività iniziali
-## [Creare una rete virtuale](virtual-networks-create-vnet-arm-pportal.md)
-## [Distribuire una macchina virtuale in una rete virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+## [Creare la prima rete virtuale](virtual-network-get-started-vnet-subnet.md)
 
 # Procedure
 ## Pianificare e progettare
@@ -146,8 +145,3 @@
 ## [Forum sulle reti](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/virtual-network)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

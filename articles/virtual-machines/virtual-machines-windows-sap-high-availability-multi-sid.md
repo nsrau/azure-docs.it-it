@@ -1,6 +1,6 @@
 
 ---
-title: "Creare una configurazione di SAP a più SID | Documentazione Microsoft"
+title: "Creare una configurazione di SAP a più SID in Azure| Documentazione Microsoft"
 description: "Guida alla configurazione di SAP NetWeaver a più SID a disponibilità elevata nelle macchine virtuali Windows"
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
@@ -17,15 +17,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: goraco
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 8a5d23cb579b8441fc1249264e9f1f35b1c7134b
-ms.openlocfilehash: e0df3a0c607cfdba7198eb2e54ce031e096369d3
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 32e30b44c2f7cfa9c1069190fdc53dbe6e9f4cd5
+ms.openlocfilehash: aa0876207323b49d6ba6c1a9f4dabd35f7fe2167
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="create-an-sap-multi-sid-configuration"></a>Creare una configurazione di SAP a più SID
+# <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Creare una configurazione di SAP NetWeaver a più SID
+
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037

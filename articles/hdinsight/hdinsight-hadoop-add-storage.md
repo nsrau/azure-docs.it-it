@@ -12,16 +12,17 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2016
+ms.date: 02/23/2017
 ms.author: larryfr
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
-ms.openlocfilehash: 18545981a21736d9673ce19ae2325ba5e4a67ff6
-
+ms.sourcegitcommit: d391c5c6289aa63e969f63f189eb5db680883f0a
+ms.openlocfilehash: b8c5e53ed5fe86ed099e37644d405080477f8c27
+ms.lasthandoff: 03/01/2017
 
 ---
 
-# <a name="add-additional-azure-storage-accounts-to-hdinsight"></a>Aggiungere altri account di Archiviazione di Azure a HDInsight
+# <a name="add-additional-storage-accounts-to-hdinsight"></a>Aggiungere altri account di archiviazione a HDInsight
 
 Informazioni su come usare le azioni script per aggiungere altri account di archiviazione di Azure a un cluster HDInsight esistente che usa il sistema operativo Linux.
 
@@ -32,7 +33,7 @@ Informazioni su come usare le azioni script per aggiungere altri account di arch
 
 Lo script accetta i parametri seguenti:
 
-* __Nome dell'account di archiviazione di Azure__: nome dell'account di archiviazione da aggiungere al cluster HDInsight. Dopo l'esecuzione dello script, HDInsight potrà leggere e scrivere i dati archiviati in questo account di archiviazione.
+* __Nome dell'account di archiviazione di Azure__: nome dell'account di archiviazione da aggiungere al cluster HDInsight. Dopo l'esecuzione dello script, HDInsight è in grado di leggere e scrivere i dati archiviati in questo account di archiviazione.
 
 * __Chiave dell'account di archiviazione di Azure__: chiave che concede l'accesso all'account di archiviazione.
 
@@ -44,7 +45,7 @@ Durante l'elaborazione, lo script esegue le azioni seguenti:
 
 * Verifica che l'account di archiviazione esista e sia accessibile tramite la chiave.
 
-* Crittografa la chiave mediante le credenziali del cluster, in modo da impedire agli utenti di HDInsight di estrarre e usare con facilità la chiave dell'account di archiviazione da Ambari.
+* Crittografa la chiave mediante le credenziali del cluster,
 
 * Aggiunge l'account di archiviazione al file core-site.xml.
 
@@ -74,9 +75,9 @@ Quando si usano le informazioni disponibili nel documento di personalizzazione, 
 
 ### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>Account di archiviazione non visualizzati nel portale di Azure o negli strumenti
 
-Quando si visualizza il cluster HDInsight nel portale di Azure, la selezione della voce __Account di archiviazione__ in __Proprietà__ non visualizzerà gli account di archiviazione aggiunti tramite questa azione script. L'account di archiviazione aggiuntivo non verrà inoltre visualizzato in Azure PowerShell e nell'interfaccia della riga di comando di Azure.
+Quando si visualizza il cluster HDInsight nel Portale di Azure, selezionando la voce __Account di archiviazione__ in __Proprietà__ non vengono mostrati gli account di archiviazione aggiunti tramite questa azione script. L'account di archiviazione aggiuntivo non viene inoltre visualizzato in Azure PowerShell e nell'interfaccia della riga di comando di Azure.
 
-Lo script modifica infatti solo la configurazione di core-site.xml per il cluster. Queste informazioni non vengono attualmente usate durante il recupero delle informazioni sul cluster tramite le API Gestione di Azure.
+Le informazioni di archiviazione non vengono mostrate perché lo script modifica solo la configurazione di core-site.xml per il cluster. Queste informazioni non vengono usate durante il recupero delle informazioni del cluster tramite le API di gestione di Azure.
 
 Per visualizzare le informazioni sull'account di archiviazione aggiunte al cluster tramite lo script, usare l'API REST Ambari. Il comando seguente illustra come usare [cURL (http://curl.haxx.se/)](http://curl.haxx.se/) e [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) per recuperare e analizzare i dati JSON da Ambari:
 
@@ -96,13 +97,11 @@ Questo testo è un esempio di chiave crittografata, usata per accedere all'accou
 
 ### <a name="unable-to-access-storage-after-changing-key"></a>Non è possibile accedere alla risorsa di archiviazione dopo la modifica della chiave
 
-Se si modifica la chiave per un account di archiviazione, HDInsight non potrà più accedere all'account di archiviazione.
+Se si modifica la chiave per un account di archiviazione, HDInsight non potrà più accedere all'account di archiviazione. HDInsight usa una copia memorizzata nella cache della chiave in core-site.xml per il cluster. Questa copia memorizzata nella cache deve essere aggiornata in modo che corrisponda alla nuova chiave.
 
-Questo problema dipende dal fatto che la chiave archiviata nel file core-site.xml per il cluster è la chiave precedente.
+La ripetizione dell'esecuzione dell'azione script __non__ aggiorna la chiave, perché lo script verifica se esiste già una voce per l'account di archiviazione. Se esiste già una voce, non viene apportata alcuna modifica.
 
-La ripetizione dell'esecuzione dell'azione script __non__ aggiornerà la chiave, perché lo script verifica se esiste già una voce per l'account di archiviazione. Se la voce esiste, non verranno apportate modifiche.
-
-Per risolvere il problema, è necessario rimuovere la voce esistente per l'account di archiviazione, seguendo questa procedura:
+Per risolvere il problema, è necessario rimuovere la voce esistente per l'account di archiviazione, Eseguire i seguenti passaggi per rimuovere la voce esistente:
 
 1. In un Web browser aprire l'interfaccia utente Web di Ambari per il cluster HDInsight. L'URI è https://CLUSTERNAME.azurehdinsight.net. Sostituire __CLUSTERNAME__ con il nome del cluster.
 
@@ -110,7 +109,7 @@ Per risolvere il problema, è necessario rimuovere la voce esistente per l'accou
 
 2. Dall'elenco di servizi nella parte sinistra della pagina selezionare __HDFS__. Selezionare quindi la scheda __Configs__ (Configurazioni) al centro della pagina.
 
-3. Nel campo __Filter__ (Filtro) immettere il valore __fs.azure.account__. Verranno restituite le voci per eventuali account di archiviazione aggiunti al cluster. Sono disponibili due tipi di voci, ovvero __keyprovider__ e __key__. Entrambi i tipi contengono il nome dell'account di archiviazione come parte del nome della chiave. 
+3. Nel campo __Filter__ (Filtro) immettere il valore __fs.azure.account__. Vengono restituite le voci per eventuali account di archiviazione aggiunti al cluster. Sono disponibili due tipi di voci, ovvero __keyprovider__ e __key__. Entrambi i tipi contengono il nome dell'account di archiviazione come parte del nome della chiave. 
 
     Le voci di esempio seguenti sono relative a un account di archiviazione denominato __mystorage__:
 
@@ -131,9 +130,4 @@ Se l'account di archiviazione si trova in un'area diversa rispetto al cluster HD
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo documento include informazioni su come aggiungere altri account di archiviazione a un cluster HDInsight esistente. Per altre informazioni sulle azioni script, vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md)
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+Fino a ora sono state date le informazioni su come aggiungere altri account di archiviazione a un cluster HDInsight esistente. Per altre informazioni sulle azioni script, vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md)

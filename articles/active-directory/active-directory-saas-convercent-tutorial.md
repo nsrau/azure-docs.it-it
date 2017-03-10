@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/28/2016
+ms.date: 03/08/2017
 ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 6bbfc7e22e5cb70ed1466bda14831412aead76a6
 ms.openlocfilehash: bacabf7fe51e3c417a93a54f043c14aa5d65b31d
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -238,8 +239,3 @@ Quando si fa clic sul riquadro Convercent nel pannello di accesso, si accederà 
 [201]: ./media/active-directory-saas-convercent-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-convercent-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-convercent-tutorial/tutorial_general_203.png
-
-
-<!--HONumber=Jan17_HO1-->
-
-

@@ -1,10 +1,11 @@
 # Panoramica
 ## [Che cos'è Site Recovery?](site-recovery-overview.md)
 ## [Funzionamento di Azure Site Recovery](site-recovery-components.md)
+## [Funzionamento della replica Hyper-V in Azure](site-recovery-hyper-v-azure-architecture.md)
 ## [Quali carichi di lavoro è possibile proteggere?](site-recovery-workload.md)
 ## [Matrice di supporto di Site Recovery](site-recovery-support-matrix-to-azure.md)
 ## [DOMANDE FREQUENTI](site-recovery-faq.md)
-## [Guarda il video introduttivo](https://www.youtube.com/watch?v=eOOwMQPBKfM)
+## [Guarda il video introduttivo](https://azure.microsoft.com/resources/videos/index/?services=recovery-manager)
 
 # Attività iniziali
 ## [Replicare VM VMware in Azure](site-recovery-vmware-to-azure.md)
@@ -18,7 +19,7 @@
 ## Pianificare
 ### [Prerequisiti di distribuzione](site-recovery-prereq.md)
 ### [Considerazioni sull'infrastruttura di rete](site-recovery-network-design.md)
-### [Usare Site Recovery Capacity Planner](site-recovery-capacity-planner.md)
+### [Eseguire Site Recovery Capacity Planner per la replica Hyper-V](site-recovery-capacity-planner.md)
 ### [Pianificare la capacità e ridimensionare la replica VMware in Azure](site-recovery-plan-capacity-vmware.md)
 ### [Eseguire l'utilità di pianificazione delle distribuzioni per la replica di VMware in Azure](site-recovery-deployment-planner.md)
 ## Configurare

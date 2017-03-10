@@ -16,8 +16,9 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: e026008afcdb86fa80c80cb13c7ff4d94027d6ee
-ms.openlocfilehash: a86350fcdbcf3312d3b1d0dd7c895d9402609245
+ms.sourcegitcommit: c08b568642e88da1aeddd36cb25a9f5c94b083e2
+ms.openlocfilehash: f283f103804d8e6d4a3c2037c8d38daafcb3f3e8
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -26,7 +27,6 @@ ms.openlocfilehash: a86350fcdbcf3312d3b1d0dd7c895d9402609245
 Informazioni su come creare cluster [Hadoop](http://hadoop.apache.org/) in HDInsight e come eseguire processi Hive in HDInsight. [Apache Hive](https://hive.apache.org/) è il componente più diffuso dell'ecosistema Hadoop. Attualmente HDInsight viene fornito con tipi di cluster diversi: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), [Interactive Hive (anteprima)](hdinsight-hadoop-use-interactive-hive.md) e [R server](hdinsight-hadoop-r-server-overview.md).  Ogni tipo di cluster supporta un set diverso di componenti. I sei tipi di cluster supportano Hive. Per un elenco dei componenti supportati in HDInsight, vedere [Novità delle versioni cluster di Hadoop incluse in HDInsight](hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
-
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare questa esercitazione, è necessario avere:
 
@@ -59,7 +59,7 @@ Il modello di Resource Manager usato in questa esercitazione è disponibile in [
     Alcune proprietà sono state impostate come hardcoded nel modello.  È possibile configurare questi valori dal modello.
 
     * **Località**: sia la località del cluster che quella dell'account di archiviazione dipendente usano la stessa posizione del gruppo di risorse.
-    * **Versione del cluster**: 3.4
+    * **Versione del cluster**: 3.5
     * **Tipo di sistema operativo**: Linux
     * **Numero di nodi del ruolo di lavoro**: 2
 
@@ -156,10 +156,5 @@ Per altre informazioni sulla creazione o la gestione di un cluster HDInsight, ve
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Eseguire il backup di file e cartelle da Windows ad Azure con Backup di Azure usando il modello di distribuzione Resource Manager | Documentazione Microsoft
+title: Eseguire il backup di file e cartelle da Windows in Azure (Resource Manager) | Microsoft Docs
 description: Informazioni su come eseguire il backup di file e cartelle di Windows in Azure in una distribuzione Resource Manager.
 services: backup
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 2/10/2017
+ms.date: 2/23/2017
 ms.author: markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: cdccfe1215bb8f62381c73becdc9d90f45800966
-ms.openlocfilehash: 337e1101fe044f22d6389b83b79794560b84f273
+ms.sourcegitcommit: b188affca609dd5ff3aa0d2cba3ec81c1c91888f
+ms.openlocfilehash: 916a4e837d003a73a1801dd25b8ebfbfdcd86312
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -26,17 +27,6 @@ Questo articolo illustra come eseguire il backup di file e cartelle di Windows S
 
 Per altre informazioni su Backup di Azure, vedere questa [panoramica](backup-introduction-to-azure-backup.md).
 
-Per eseguire il backup di file e cartelle in Azure, è necessario eseguire queste attività:
-
-![Passaggio 1](./media/backup-try-azure-backup-in-10-mins/step-1.png) Ottenere una sottoscrizione di Azure (se non se ne possiede già una).<br>
-![Passaggio 2](./media/backup-try-azure-backup-in-10-mins/step-2.png) Creare l'insieme di credenziali di Servizi di ripristino.<br>
-![Passaggio 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Scaricare i file necessari.<br>
-![Passaggio 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Installare e registrare l'agente di Servizi di ripristino.<br>
-![Passaggio 5](./media/backup-try-azure-backup-in-10-mins/step-5.png) Eseguire il backup di file e cartelle.
-
-![Come eseguire il backup di computer Windows con Backup di Azure](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
-
-## <a name="get-an-azure-subscription"></a>Ottenere una sottoscrizione di Azure
 Se non è disponibile una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) che consente di accedere a qualsiasi servizio di Azure.
 
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
@@ -70,6 +60,7 @@ Per eseguire il backup dei file e delle cartelle, è necessario creare un insiem
   Per informazioni complete sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 7. Fare clic su **Località** per selezionare l'area geografica per l'insieme di credenziali. La scelta determina l'area geografica in cui vengono inviati i dati di backup.
+
 8. Nella parte inferiore del pannello Insieme di credenziali dei servizi di ripristino fare clic su **Crea**.
 
     La creazione dell'insieme di credenziali dei servizi di ripristino può richiedere alcuni minuti. Monitorare le notifiche di stato nell'area superiore destra del portale. L'insieme di credenziali, dopo essere stato creato, viene visualizzato negli insiemi di credenziali di Servizi di ripristino. Se l'insieme di credenziali non viene visualizzato dopo qualche minuto, fare clic su **Aggiorna**.
@@ -229,9 +220,4 @@ In caso di domande o se si vuole che venga inclusa una funzionalità, è possibi
 * Sono disponibili altre informazioni sul [backup di computer Windows](backup-configure-vault.md).
 * Ora che si è eseguito il backup dei file e delle cartelle, è possibile [gestire l'insieme di credenziali e i server](backup-azure-manage-windows-server.md).
 * Se è necessario ripristinare un backup, usare questo articolo per [ripristinare i file in un computer Windows](backup-azure-restore-windows-server.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

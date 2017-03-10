@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 1753096f376d09a1b5f2a6b4731775ef5bf6f5ac
-ms.openlocfilehash: 4f66de2fe4b123e208413ade436bb66b9a03961b
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 7aa2a60f2a02e0f9d837b5b1cecc03709f040898
+ms.openlocfilehash: cce72f374e2cc6f1a42428d9f8e1f3ab8be50f7b
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -246,13 +246,15 @@ Questo problema può verificarsi quando il comando di montaggio non include l'op
 ### <a name="solution"></a>Soluzione
 Verificare la presenza dell'opzione **serverino** nella voce "/etc/fstab":
 
-`//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,cache=none,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
+`//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
 È possibile anche verificare se questa opzione è in uso eseguendo il comando **sudo mount | grep cifs** ed esaminando l'output:
 
-`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=none,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
+`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
 Se l'opzione **serverino** non è presente, smontare e montare nuovamente File di Azure con l'opzione **serverino** selezionata.
+
+Un altro motivo per il rallentamento delle prestazioni potrebbe essere la disattivazione del caching. Per verificare se il caching è abilitato, cercare "cache =".  *cache=none* indica che il caching è disabilitato. Rimontare la condivisione con il comando di montaggio predefinito o aggiungere in modo esplicito l'opzione **cache=strict** al comando di montaggio per verificare se è abilitato il caching predefinito o il caching in modalità "strict".
 
 <a id="error112"></a>
 ## <a name="error-112---timeout-error"></a>Errore 112 - Errore di timeout
@@ -263,9 +265,10 @@ Questo errore indica errori di comunicazione che impediscono di ristabilire una 
 
 Questo errore può essere causato da un problema di riconnessione di Linux o da altri problemi che impediscono la riconnessione, ad esempio errori di rete. Se si specifica un'opzione di montaggio "hard", il client viene forzato ad attendere fino a quando la connessione non è stabilita o interrotta in modo esplicito; può essere usata per evitare gli errori causati dai timeout di rete. Tuttavia, gli utenti devono essere consapevoli che ciò potrebbe provocare attese indefinite e devono pertanto poter gestire l'arresto di una connessione se necessario.
 
+
 ### <a name="workaround"></a>Soluzione alternativa
 
-Il problema di Linux è stato risolto, ma ancora non applicato alle distribuzioni Linux. Se è causato dalla mancata riuscita della connessione in Linux, è possibile ovviare al problema evitando di entrare in uno stato inattivo. A tale scopo, nella condivisione file di Azure mantenere un file nel quale si esegue un'operazione di scrittura ogni 30 secondi o meno. Deve trattarsi di un'operazione di scrittura, ad esempio la riscrittura della data di creazione o di modifica nel file. In caso contrario, si potrebbero ottenere risultati memorizzati nella cache e l'operazione potrebbe non attivare la connessione.
+Il problema di Linux è stato risolto, ma ancora non applicato alle distribuzioni Linux. Se è causato dalla mancata riuscita della connessione in Linux, è possibile ovviare al problema evitando di entrare in uno stato inattivo. A tale scopo, nella condivisione file di Azure mantenere un file nel quale si esegue un'operazione di scrittura ogni 30 secondi o meno. Deve trattarsi di un'operazione di scrittura, ad esempio la riscrittura della data di creazione o di modifica nel file. In caso contrario, si potrebbero ottenere risultati memorizzati nella cache e l'operazione potrebbe non attivare la connessione. Il seguente è un elenco dei kernel Linux più diffusi che dispongono di questa e altre correzioni di riconnessione: 4.4.40+ 4.8.16+ 4.9.1+
 
 <a id="webjobs"></a>
 
