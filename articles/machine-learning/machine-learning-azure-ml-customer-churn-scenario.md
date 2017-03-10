@@ -1,5 +1,5 @@
 ---
-title: Analisi della varianza dei clienti con Machine Learning | Documentazione Microsoft
+title: Analisi della varianza dei clienti con Machine Learning | Microsoft Docs
 description: Casi di studio sullo sviluppo di un modello integrato per l&quot;analisi e l&quot;assegnazione dei punteggi di varianza del cliente
 services: machine-learning
 documentationcenter: 
@@ -12,23 +12,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 12/13/2016
 ms.author: jeannt
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cfaa14eb1dd8d958c210f95997d291aba79c5da7
+ms.sourcegitcommit: 80bede0dc3ad3934d63feabb946744aeb45f334d
+ms.openlocfilehash: f239a2a270df00cecbe263fa61b84af06af817db
+ms.lasthandoff: 12/15/2016
 
 
 ---
 # <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Analisi della varianza del cliente tramite Azure Machine Learning
-## <a name="overview"></a>Overview
-In questo argomento viene illustrata un'implementazione di riferimento di un progetto di analisi della varianza del cliente compilata tramite Azure Machine Learning Studio. Vengono illustrati i modelli generici associati per la risoluzione olistica dei problemi di varianza del cliente industriale. Viene, inoltre, misurata l'accuratezza dei modelli compilati utilizzando Machine Learning e vengono poi valutate le direzioni per uno sviluppo ulteriore.  
+## <a name="overview"></a>Panoramica
+Questo argomento illustra un'implementazione di riferimento di un progetto di analisi della varianza del cliente compilata tramite Azure Machine Learning. L'articolo illustra i modelli generici associati per la risoluzione olistica dei problemi di varianza del cliente industriale. Viene, inoltre, misurata l'accuratezza dei modelli compilati utilizzando Machine Learning e vengono poi valutate le direzioni per uno sviluppo ulteriore.  
 
 ### <a name="acknowledgements"></a>Riconoscimenti
 Questo esperimento è stato sviluppato e testato da Serge Berger, Principal Data Scientist presso Microsoft e Roger Barga, in precedenza Product Manager per Microsoft Azure Machine Learning. Il team di documentazione di Azure esprime riconoscenza e ringrazia gli esperti per aver condiviso le proprie competenze in questo white paper.
 
 > [!NOTE]
-> I dati usati per questo esperimento non sono disponibili pubblicamente. Per un esempio su come compilare un modello di Machine Learning per l'analisi della varianza, vedere: [Telco churn model template](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) (Modello di varianza Telco) nella [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/).
+> I dati usati per questo esperimento non sono disponibili pubblicamente. Per un esempio su come compilare un modello di apprendimento automatico per l'analisi della varianza, vedere: [Retail churn model template](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) (Modello di varianza al dettaglio) in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/).
 > 
 > 
 
@@ -250,9 +251,4 @@ Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei
 [8]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-8.png
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
