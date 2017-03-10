@@ -17,6 +17,7 @@ ms.author: dastrock
 translationtype: Human Translation
 ms.sourcegitcommit: 0ae9ad40f2e32d56fd50c90b86339cbb458d7291
 ms.openlocfilehash: a3276c764ebb6382594cf7002e7c7e8e328862ef
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -72,7 +73,7 @@ Si noti che le attestazioni nei token ID non vengono restituite in un ordine par
 | Nome | Attestazione | Valore di esempio | Descrizione |
 | --- | --- | --- | --- |
 | Audience |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |Identifica il destinatario del token. Per Azure AD B2C il destinatario è l'ID applicazione assegnato all'app nel portale di registrazione delle app. L'app deve convalidare questo valore e rifiutare il token, se il valore non corrisponde. |
-| Issuer |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Identifica il servizio token di sicurezza (STS) che costruisce e restituisce il token e identifica la directory di Azure AD in cui è stato autenticato l'utente. L'app deve convalidare l'attestazione Autorità di certificazione per assicurarsi che il token sia stato fornito dall'endpoint 2.0. |
+| Issuer |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Identifica il servizio token di sicurezza (STS) che costruisce e restituisce il token e identifica la directory di Azure AD in cui è stato autenticato l'utente. L'app deve convalidare l'attestazione Autorità di certificazione per assicurarsi che il token sia stato fornito dall'endpoint&2;.0. |
 | Ora di emissione |`iat` |`1438535543` |Indica l'ora in cui il token è stato rilasciato, rappresentata come valore epoch time. |
 | Scadenza |`exp` |`1438539443` |Indica l'ora di scadenza del token, rappresentata come valore epoch time. L'app deve usare questa attestazione per verificare la validità della durata del token. |
 | Non prima |`nbf` |`1438535543` |Indica l'ora di inizio della validità del token, rappresentata come valore epoch time. Equivale in genere all'ora di rilascio del token. L'app deve usare questa attestazione per verificare la validità della durata del token. |
@@ -122,7 +123,7 @@ Azure AD B2C include un endpoint dei metadati di OpenID Connect. Questo consente
 https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in
 ```
 
-`fabrikamb2c.onmicrosoft.com` è la directory B2C usata per autenticare l'utente e `b2c_1_sign_in` sono i criteri usati per acquisire il token. Per determinare quale criterio è stato usato per la firma di un token e la posizione da cui recuperare i metadati, sono disponibili due opzioni. Prima di tutto, il nome del criterio è incluso nell'attestazione `acr` del token. È possibile analizzare le attestazioni all'esterno del corpo del token JWT decodificando il corpo in base 64 e deserializzando la stringa JSON risultante. L'attestazione `acr` è il nome del criterio usato per rilasciare il token.  L'altra opzione consiste nel codificare i criteri nel valore del parametro `state` quando si rilascia la richiesta, per poi decodificarlo e determinare quali criteri sono stati utilizzati. Entrambi i metodi sono validi.
+`fabrikamb2c.onmicrosoft.com` è la directory B2C usata per autenticare l'utente e `b2c_1_sign_in` sono i criteri usati per acquisire il token. Per determinare quale criterio è stato usato per la firma di un token e la posizione da cui recuperare i metadati, sono disponibili due opzioni. Prima di tutto, il nome del criterio è incluso nell'attestazione `acr` del token. È possibile analizzare le attestazioni all'esterno del corpo del token JWT decodificando il corpo in base&64; e deserializzando la stringa JSON risultante. L'attestazione `acr` è il nome del criterio usato per rilasciare il token.  L'altra opzione consiste nel codificare i criteri nel valore del parametro `state` quando si rilascia la richiesta, per poi decodificarlo e determinare quali criteri sono stati utilizzati. Entrambi i metodi sono validi.
 
 Il documento metadati è un oggetto JSON che contiene diverse informazioni utili, come ad esempio il percorso degli endpoint necessari per eseguire l'autenticazione OpenID Connect. Include anche un oggetto `jwks_uri` che fornisce la posizione del set di chiavi pubbliche usate per firmare i token. Tale posizione è indicata di seguito, ma è consigliabile recuperarla in modo dinamico usando il documento di metadati e analizzando l'oggetto `jwks_uri`:
 
@@ -152,10 +153,5 @@ A scopo di approfondimento viene riportata di seguito la durata dei vari token. 
 | Token ID |Un'ora |I token ID sono in genere validi per un'ora. L'app Web può usare tale durata per mantenere le relative sessioni con gli utenti (scelta consigliati). È anche possibile scegliere una durata di sessione diversa. Se l'app deve ottenere un nuovo token ID, deve semplicemente inviare una nuova richiesta di accesso ad Azure AD. Se l'utente ha una sessione del browser valida con Azure AD, può non essere necessario immettere nuovamente le credenziali. |
 | Token di aggiornamento |Fino a 14 giorni |Un singolo token di aggiornamento è valido per un periodo massimo di 14 giorni. Tuttavia, un token di aggiornamento potrebbe non essere più valido in qualsiasi momento per diversi motivi. L'app deve continuare a provare a usare un token di aggiornamento fino a quando la richiesta non ha esito negativo o l'app non sostituisce il token di aggiornamento con uno nuovo.  Se sono trascorsi 90 giorni dall'ultima volta in cui l'utente ha immesso le credenziali, un token di aggiornamento non è più valido. |
 | Codici di autorizzazione |Cinque minuti |I codici di autorizzazione hanno intenzionalmente una breve durata. Alla ricezione devono essere riscattati immediatamente con token di accesso, token ID o token di aggiornamento. |
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -4,7 +4,7 @@ description: Fornisce le risposte ad alcune possibili domande degli amministrato
 services: active-directory
 keywords: impostazioni di enterprise state roaming, cloud windows, domande frequenti su enterprise state roaming
 documentationcenter: 
-author: ningtan
+author: tanning
 manager: swadhwa
 editor: curtand
 ms.assetid: c0824f5c-129b-4240-969f-921f6a64eae7

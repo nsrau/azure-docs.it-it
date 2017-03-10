@@ -4,7 +4,7 @@ description: "Elenco completo di tutte le impostazioni di cui verrà effettuato 
 services: active-directory
 keywords: enterprise state roaming, cloud windows
 documentationcenter: 
-author: ningtan
+author: tanning
 manager: femila
 editor: curtand
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
