@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 03/08/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 39ac484419371344452dbe9042791b85d36618e3
+ms.sourcegitcommit: 451369e21e7471180b6cd8c77d62b157d0bcddff
+ms.openlocfilehash: d9264e4268bb0418d64d4da680bd6e8b756a9ea6
+ms.lasthandoff: 12/14/2016
 
 
 ---
@@ -61,22 +62,27 @@ Per configurare l'integrazione di RightScale in Azure AD, è necessario aggiunge
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
    
     ![Active Directory][1]
+
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
+
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
    
     ![Applications][2]
+
 4. Fare clic su **Add** nella parte inferiore della pagina.
    
     ![Applicazioni][3]
+
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
    
     ![Applicazioni][4]
+
 6. Nella casella di ricerca digitare **RightScale**.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_01.png)
+
 7. Nel riquadro dei risultati selezionare **RightScale** e quindi fare clic su **Completa** per aggiungere l'applicazione.
    
-    ![Selezione dell'app nella raccolta](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_02.png)
 
 ## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con RightScale in usando un utente test di nome "Britta Simon".
@@ -99,9 +105,11 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 1. Nella pagina di integrazione dell'applicazione **RightScale** del portale classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
     ![Configura accesso Single Sign-On][6] 
+
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a RightScale** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_03.png) 
+
 3. Nella pagina della finestra di dialogo **Configurare le impostazioni dell'app**, se si desidera configurare l'applicazione in **modalità iniziata da IDP**,seguire la procedura seguente e fare clic su **Avanti**:
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_04.png) 
@@ -117,13 +125,15 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
     a. Nella casella di testo URL di accesso digitare l'URL usato dagli utenti per accedere all'applicazione RightScale nel formato seguente: `https://login.rightscale.com/`
    
     b. Fare clic su **Avanti**
+
 2. Nella pagina **Configura accesso Single Sign-On in RightScale** seguire questa procedura e fare clic su **Avanti**:
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_05.png) 
    
-    a. Fare clic su **Scarica certificato**e quindi salvare il file del certificato con codifica Base 64 nel computer.
+    a. Fare clic su **Scarica certificato**e quindi salvare il file del certificato con codifica Base&64; nel computer.
    
     b. Fare clic su **Avanti**.
+
 3. Per configurare l'accesso SSO per l'applicazione, è necessario accedere al tenant di RightScale come amministratore.
    
     a. Nel menu in alto fare clic sulla scheda **Settings** (Impostazioni) e selezionare **Single Sign-On**.
@@ -154,14 +164,16 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_008.png)
    
-    g. Fare clic sul pulsante **Sfoglia** per caricare il certificato scaricato al passaggio 4.
+    g. Fare clic sul pulsante **Sfoglia** per caricare il certificato scaricato al passaggio&4;.
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_009.png)
    
     h. Fare clic su **Save**.
+
 4. Nel portale classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
    
     ![Single Sign-On di Microsoft Azure AD][10]
+
 5. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.  
    
     ![Single Sign-On di Microsoft Azure AD][11]
@@ -176,13 +188,17 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
 1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_09.png) 
+
 2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
+
 3. Per visualizzare l'elenco di utenti, fare clic su **Utenti**nel menu in alto.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_03.png) 
+
 4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_04.png) 
+
 5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_05.png) 
@@ -192,22 +208,25 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
     b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
    
     c. Fare clic su **Avanti**.
+
 6. Nella pagina **Profilo utente** seguire questa procedura:
    
-   ![Creazione di un utente test di Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_06.png) 
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_06.png) 
    
-   a. Nella casella di testo **Nome** digitare **Britta**.  
+    a. Nella casella di testo **Nome** digitare **Britta**.  
    
-   b. Nella casella di testo **Cognome** digitare **Simon**.
+    b. Nella casella di testo **Cognome** digitare **Simon**.
    
-   c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
+    c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
    
-   d. Nell'elenco **Ruolo** selezionare **Utente**.
+    d. Nell'elenco **Ruolo** selezionare **Utente**.
    
-   e. Fare clic su **Avanti**.
+    e. Fare clic su **Avanti**.
+
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_07.png) 
+
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_08.png) 
@@ -229,13 +248,17 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
 1. Per aprire la visualizzazione delle applicazioni nel portale classico, nella visualizzazione Directory fare clic su **Applicazioni** nel menu in alto.
    
     ![Assegna utente][201] 
+
 2. Nell'elenco di applicazioni selezionare **RightScale**.
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_50.png) 
+
 3. Scegliere **Utenti**dal menu in alto.
    
     ![Assegna utente][203] 
+
 4. Nell'elenco di utenti selezionare **Britta Simon**.
+
 5. Fare clic su **Assegna**sulla barra degli strumenti in basso.
    
     ![Assegna utente][205]
@@ -265,9 +288,4 @@ Quando si fa clic sul riquadro RightScale nel pannello di accesso, si dovrebbe a
 [203]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

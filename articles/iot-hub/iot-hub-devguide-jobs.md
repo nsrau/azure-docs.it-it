@@ -1,5 +1,5 @@
 ---
-title: Informazioni sui processi hub IoT di Azure | Documentazione Microsoft
+title: Informazioni sui processi hub IoT di Azure | Microsoft Docs
 description: "Guida per sviluppatori - Pianificazione di processi da eseguire in più dispositivi connessi all&quot;hub di IoT. I processi possono aggiornare i tag e le proprietà desiderate e richiamare metodi diretti su più dispositivi."
 services: iot-hub
 documentationcenter: .net
@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: 8245c9d86d7a37bfb12c06b1cb2cbe9dae01d653
-ms.openlocfilehash: c919105d2047e2a931433d2f30a7fa41192d7908
+ms.sourcegitcommit: eac5027f39d15e355d1c9f60a31ded567272d5fa
+ms.openlocfilehash: b94ceac2298509817020b32b65125c5f767d8089
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -59,14 +60,22 @@ Di seguito sono riportati i dettagli di una richiesta HTTP 1.1 per eseguire un [
         cloudToDeviceMethod: {
             methodName: '<methodName>',
             payload: <payload>,                 
-            timeoutInSeconds: methodTimeoutInSeconds 
+            responseTimeoutInSeconds: methodTimeoutInSeconds 
         },
-        queryCondition: '<queryOrDevices>', // if the queryOrDevices parameter is a string
-        deviceIds: '<queryOrDevices>',      // if the queryOrDevices parameter is an array
+        queryCondition: '<queryOrDevices>', // query condition
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
     }
     ```
+La condizione di query può anche trovarsi in un ID dispositivo singolo o in un elenco di ID dispositivo, come illustrato di seguito.
+
+**esempi**
+```
+queryCondition = "deviceId = 'MyDevice1'"
+queryCondition = "deviceId IN ['MyDevice1','MyDevice2']"
+queryCondition = "deviceId IN ['MyDevice1']
+```
+[Linguaggio di query dell'hub IoT][lnk-query] illustra il linguaggio di query dell'hub IoT in maggiore dettaglio.
 
 ## <a name="jobs-to-update-device-twin-properties"></a>Processi per aggiornare le proprietà dei dispositivi gemelli
 Di seguito sono riportati i dettagli di una richiesta HTTP 1.1 per aggiornare le proprietà dei dispositivi gemelli tramite un processo:
@@ -82,8 +91,7 @@ Di seguito sono riportati i dettagli di una richiesta HTTP 1.1 per aggiornare le
         jobId: '<jobId>',
         type: 'scheduleTwinUpdate', 
         updateTwin: <patch>                 // Valid JSON object
-        queryCondition: '<queryOrDevices>', // if the queryOrDevices parameter is a string
-        deviceIds: '<queryOrDevices>',      // if the queryOrDevices parameter is an array
+        queryCondition: '<queryOrDevices>', // query condition
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        // format TBD
     }
@@ -109,8 +117,8 @@ Di seguito è riportato un elenco di proprietà e corrispondenti descrizioni che
 | Proprietà | Description |
 | --- | --- |
 | **jobId** |ID fornito dall'applicazione per il processo. |
-| **startTime** |Ora di inizio fornita dall'applicazione (ISO 8601) per il processo. |
-| **endTime** |Data fornita dall'hub IoT (ISO 8601) per il completamento del processo. È valida solo quando il processo raggiunge lo stato di completamento. |
+| **startTime** |Ora di inizio fornita dall'applicazione (ISO&8601;) per il processo. |
+| **endTime** |Data fornita dall'hub IoT (ISO&8601;) per il completamento del processo. È valida solo quando il processo raggiunge lo stato di completamento. |
 | **type** |Tipi di processi: |
 | **scheduledUpdateTwin**: un processo usato per aggiornare un set di proprietà o tag desiderati. | |
 | **scheduledDeviceMethod**: un processo usato per richiamare un metodo di dispositivo in un set di dispositivi gemelli. | |
@@ -134,7 +142,7 @@ Proprietà **deviceJobStatistics**.
 | **deviceJobStatistics.pendingCount** |Numero di dispositivi in cui il processo è in attesa. |
 
 ### <a name="additional-reference-material"></a>Materiale di riferimento
-Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida per sviluppatori dell'hub IoT:
+Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida per gli sviluppatori dell'hub IoT:
 
 * [Endpoint dell'hub IoT][lnk-endpoints] illustra i diversi endpoint esposti da ogni hub IoT per operazioni della fase di esecuzione e di gestione.
 * [Quote e limitazioni][lnk-quotas] descrive le quote applicabili al servizio Hub IoT e il comportamento di limitazione previsto quando si usa il servizio.
@@ -159,9 +167,4 @@ Per provare alcuni dei concetti descritti in questo articolo, può essere utile 
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-devguide]: iot-hub-devguide-device-twins.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

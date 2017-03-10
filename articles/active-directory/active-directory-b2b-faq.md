@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/16/2017
+ms.date: 03/07/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
-ms.openlocfilehash: 3e92da61128a18c42726f4c3c85cd6e5024a697f
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 0abe257f3c1c2f35c92fa5f382e9778217f01159
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -41,9 +41,6 @@ Sì. Vedere l'esempio di PowerShell incluso.
 
 ### <a name="can-the-invited-external-user-leave-the-organization-to-which-he-was-invited"></a>L'utente invitato esterno può lasciare l'organizzazione a cui è stato invitato?
 Questa funzionalità non è attualmente disponibile nell'aggiornamento dell'anteprima pubblica.
-
-### <a name="can-i-use-my-microsoft-account-johncontosomicrosoftacctcom-to-sign-in-to-resources"></a>È possibile usare l'account Microsoft (John@contosomicrosoftacct.com) per accedere alle risorse?
-Durante questo aggiornamento dell'anteprima pubblica non è possibile usare l'account Microsoft. Se si ha un suffisso di account Microsoft non standard (ad esempio per la posta aziendale, come @contoso.com), verrà creato un tenant di Azure Active Directory da poter usare.
 
 ### <a name="now-that-multi-factor-authentication-mfa-is-available-for-guest-users-can-they-also-reset-their-mfa-method"></a>Ora che gli utenti guest hanno a disposizione l'autenticazione a più fattori, possono anche reimpostare il metodo di autenticazione a più fattori?
 Sì, esattamente come i normali utenti.

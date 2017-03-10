@@ -3,8 +3,8 @@ title: Domande frequenti sui dischi delle macchine virtuali IaaS di Azure | Micr
 description: Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)
 services: storage
 documentationcenter: 
-author: ramankumarlive
-manager: aungoo-msft
+author: robinsh
+manager: timlt
 editor: tysonn
 ms.assetid: e2a20625-6224-4187-8401-abadc8f1de91
 ms.service: storage
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
-ms.author: ramankum
+ms.date: 02/23/2017
+ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 0746c954e669bd739b8ecfcddaf287cb5172877f
-ms.openlocfilehash: 95b627738726f3c108fff38bfeda413303b2c718
+ms.sourcegitcommit: 61610078ad5cefd513fdb758aec45d7489704817
+ms.openlocfilehash: b4cb40d81613c16558be1e0e2c10dbfa0265a6b7
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -120,6 +121,48 @@ Sì.
 
 Azure Managed Disks supporta attualmente solo l'archiviazione con ridondanza locale.
 
+## <a name="managed-disks-and-port-8443"></a>Managed Disks e porta 8443
+
+**Perché i clienti devono sbloccare il traffico in uscita sulla porta 8443 per le macchine virtuali usando Managed Disks di Azure?**
+
+L'agente di macchine virtuali di Azure usa la porta 8443 per segnalare lo stato di ogni estensione della macchina virtuale nella piattaforma di Azure. Se questa porta non viene sbloccata, l'agente di macchine virtuali non sarà in grado di segnalare lo stato di un'estensione della macchina virtuale. Per altre informazioni sull'agente di VM, vedere [Panoramica dell'agente di macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-agent-user-guide.md).
+
+**Cosa accade se una macchina virtuale viene distribuita con le estensioni e la porta non viene sbloccata?**
+
+La distribuzione provocherà un errore. 
+
+**Cosa accade se una macchina virtuale viene distribuita senza estensioni e la porta non viene sbloccata?**
+
+Questo non influenzerà la distribuzione. 
+
+**Cosa accade se un'estensione viene installata in una macchina virtuale su cui è già stato eseguito il provisioning ed è in esecuzione e per cui la porta 8443 è bloccata?**
+
+L'estensione non verrà distribuita correttamente. Lo stato dell'estensione sarà sconosciuto. 
+
+**Cosa accade se viene usato un modello ARM per eseguire il provisioning su più macchine virtuali con la porta 8443 bloccata, una macchina virtuale con le estensioni e una seconda macchina virtuale che dipende dalla prima macchina virtuale?**
+
+Per la prima macchina virtuale la distribuzione risulterà non riuscita perché le estensioni non vengono distribuite correttamente. La seconda macchina virtuale non verrà distribuita. 
+
+**Il requisito di sblocco della porta verrà applicato a tutte le estensioni della macchina virtuale?**
+
+Sì.
+
+**Le connessioni in ingresso e in uscita sulla porta 8443 devono entrambe essere sbloccate?**
+
+No. Solo le connessioni in uscita sulla porta 8443 devono essere sbloccate. 
+
+**Lo sblocco della porta 8443 per le connessioni in uscita è necessario per l'intera durata della macchina virtuale?**
+
+Sì.
+
+**Lo sblocco di questa porta influisce sulle prestazioni della macchina virtuale?**
+
+No.
+
+**Esiste una data entro la quale è necessario correggere questo problema così da non dover più sbloccare la porta 8443?**
+
+Sì, entro la fine di maggio 2017.
+
 ## <a name="premium-disks--both-managed-and-unmanaged"></a>Dischi Premium, sia gestiti che non
 
 **Se una macchina virtuale usa una serie di dimensioni che supporta Archiviazione Premium, ad esempio DSv2, è possibile collegare dischi dati sia Premium che Standard?** 
@@ -151,8 +194,3 @@ L'unità SSD locale è un archivio temporaneo che è incluso in una macchina vir
 Se la domanda non è elencata qui, invitiamo gli utenti a comunicarcela per consentirci di fornire il nostro aiuto. È possibile pubblicare una domanda nei commenti alla fine di questo articolo o nel [forum MSDN di Archiviazione di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata) per mettersi in contattato con il team di Archiviazione di Azure e altri membri della community.
 
 Per eseguire una richiesta di funzionalità, inviare richieste e idee al [forum dei commenti su Archiviazione di Azure](https://feedback.azure.com/forums/217298-storage).
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Usare Azure Batch SDK per Python | Documentazione Microsoft'
-description: Informazioni sui concetti di base di Azure Batch e sullo sviluppo del servizio Batch con uno scenario semplice
+description: Apprendere i concetti di base di Azure Batch e creare una soluzione semplice mediante Python.
 services: batch
 documentationcenter: python
 author: tamram
@@ -12,15 +12,18 @@ ms.devlang: python
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 02/01/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 02f68c743f18fa691afdd5ff02f427b89d28c663
-ms.openlocfilehash: 146eaea2bf523ff6e7d9024205e47965fa2e0413
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 4dc9491f3645b071640262af3f1ffcb480cfabef
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="get-started-with-the-azure-batch-python-client"></a>Introduzione al client Python di Azure Batch
+# <a name="get-started-with-the-batch-sdk-for-python"></a>Introduzione all'SDK di Batch per Python
+
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
@@ -705,9 +708,4 @@ Dopo avere acquisito familiarità con il flusso di lavoro di base di una soluzio
 [9]: ./media/batch-python-tutorial/credentials_batch_sm.png "Credenziali di Batch nel portale"
 [10]: ./media/batch-python-tutorial/credentials_storage_sm.png "Credenziali del servizio di archiviazione nel portale"
 [11]: ./media/batch-python-tutorial/batch_workflow_minimal_sm.png "Flusso di lavoro della soluzione Batch (diagramma minimo)"
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

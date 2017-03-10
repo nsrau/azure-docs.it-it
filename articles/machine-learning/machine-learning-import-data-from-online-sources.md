@@ -1,5 +1,5 @@
 ---
-title: Importare dati in Machine Learning Studio da origini dati online | Documentazione Microsoft
+title: Importare dati in Machine Learning Studio da origini dati online | Microsoft Docs
 description: Come importare dati di training in Azure Machine Learning Studio da varie origini online.
 keywords: dati di importazione, formato dati, tipi di dati, origini dati, dati di training
 services: machine-learning
@@ -13,18 +13,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: bradsev;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 701c54bac16cbf208fd655fd72f2d4acfc0ba891
-ms.openlocfilehash: 89856f6509d0d2e2e472a61db70b9b04dc1ac7b7
+ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
+ms.openlocfilehash: afecdde0cbc0bcbe0932b23dc1a8e067d02ded12
+ms.lasthandoff: 12/20/2016
 
 
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Importare i dati in Azure Machine Learning Studio da diverse origini dati online con il modulo Import Data
-
-[!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
-
 Questo articolo illustra il supporto per l'importazione di dati online da varie origini e le informazioni necessarie per spostare i dati da queste origini a un esperimento di Azure Machine Learning.
 
 > [!NOTE]
@@ -34,8 +32,10 @@ Questo articolo illustra il supporto per l'importazione di dati online da varie 
 
 <!-- -->
 
+[!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
+
 ## <a name="introduction"></a>Introduzione
-In Azure Machine Learning Studio è possibile accedere ai dati provenienti da una delle origini dati online disponibili durante l'esecuzione degli esperimenti tramite il modulo [Import Data][import-data]:
+Il modulo [Import Data][import-data] permette di accedere ai dati provenienti da una delle origini dati online disponibili durante l'esecuzione degli esperimenti in [Azure Machine Learning Studio](https://studio.azureml.net/Home):
 
 * URL Web tramite HTTP
 * Hadoop tramite HiveQL
@@ -45,15 +45,15 @@ In Azure Machine Learning Studio è possibile accedere ai dati provenienti da un
 * Database SQL Server locale
 * Provider di feed di dati, attualmente OData
 
-Il flusso di lavoro per l'esecuzione di esperimenti in Azure Machine Learning Studio è costituito dal trascinamento e dal rilascio di componenti nell'area di disegno. Per accedere alle origini dati online, aggiungere il modulo [Import Data][import-data] all'esperimento, selezionare l'**origine dati** e quindi fornire i parametri necessari per accedere ai dati. Le origini dati online supportate vengono illustrate nella tabella seguente. Questa tabella riepiloga anche i formati di file supportati e i parametri usati per accedere ai dati.
+Per accedere alle origini dati online nell'esperimento di Studio, aggiungere il modulo [Import Data][import-data], selezionare l'**origine dati** e quindi specificare i parametri necessari per accedere ai dati. Le origini dati online supportate vengono illustrate nella tabella seguente. Questa tabella riepiloga anche i formati di file supportati e i parametri usati per accedere ai dati.
 
-Si noti che poiché si accede a questi dati di training durante l'esecuzione dell'esperimento, saranno disponibili solo durante l'esperimento. I dati archiviati in un modulo del set di dati sono invece disponibili per ogni esperimento nell'area di lavoro.
+Dal momento che si accede a questi dati di training durante l'esecuzione dell'esperimento, i dati sono disponibili solo durante l'esperimento. I dati archiviati in un modulo del set di dati sono invece disponibili per ogni esperimento nell'area di lavoro.
 
 > [!IMPORTANT]
 > Attualmente i moduli [Import Data][import-data] ed [Export Data][export-data] possono leggere e scrivere dati solo da un'istanza di Archiviazione di Azure creata con il modello di distribuzione classica. In altre parole, il nuovo tipo di account di archiviazione BLOB di Azure che offre un livello di accesso di archiviazione a caldo o un livello di accesso di archiviazione a freddo non è ancora supportato. 
 > 
 > In genere gli account di archiviazione di Azure creati prima che fosse disponibile questa opzione non dovrebbero essere influenzati. 
-> Per creare un nuovo account, selezionare **Classica** come modello di distribuzione o usare Resource Manager e per **Tipologia account** selezionare **Utilizzo generico** anziché **Archivio BLOB**. 
+> Per creare un nuovo account, selezionare **Classica** come modello di distribuzione o usare Resource Manager e selezionare **Utilizzo generico** anziché **Archivio BLOB** come **Tipologia account**. 
 > 
 > Per altre informazioni, vedere [Archivio BLOB di Azure: livelli di archiviazione ad accesso frequente e sporadico](../storage/storage-blob-storage-tiers.md).
 > 
@@ -80,9 +80,4 @@ Il modulo **Import data** di Azure Machine Learning supporta le origini dati seg
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [export-data]: https://msdn.microsoft.com/library/azure/7A391181-B6A7-4AD4-B82D-E419C0D6522C/
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

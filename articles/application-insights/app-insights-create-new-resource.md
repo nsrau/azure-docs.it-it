@@ -1,5 +1,5 @@
 ---
-title: Creare una nuova risorsa di Azure Application Insights | Documentazione Microsoft
+title: Creare una nuova risorsa di Azure Application Insights | Microsoft Docs
 description: Impostare manualmente il monitoraggio di Application Insights per una nuova applicazione live.
 services: application-insights
 documentationcenter: 
@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 75b651bd3e77ac19e22dcc3442870469fe2aaca1
-ms.openlocfilehash: 60a94a333ffb4bf674e370972abd6fa0caf37d91
+ms.sourcegitcommit: 003db6e1479be1007dd292555ce5997f1c138809
+ms.openlocfilehash: f73a24993fdeaced422b2f7a1283722a82c2be77
+ms.lasthandoff: 12/13/2016
 
 
 ---
@@ -36,11 +37,11 @@ In [portal.azure.com](https://portal.azure.com)aggiungere una nuova risorsa di A
 
 ![Fare clic su Nuovo, Application Insights](./media/app-insights-create-new-resource/01-new.png)
 
-* Il **tipo di applicazione** influisce sul contenuto del pannello Panoramica e sulle proprietà disponibili in [Esplora metriche][metrics]. Se il tipo dell'app non è visualizzato, scegliere ASP.NET.
-* **gruppo di risorse** è utile per gestire le proprietà come il controllo di accesso. Se sono già state create altre risorse di Azure, è possibile inserire questa nuova risorsa nello stesso gruppo.
+* Il **tipo di applicazione** influisce sul contenuto del pannello Panoramica e sulle proprietà disponibili in [Esplora metriche][metrics]. Se il tipo dell'app non è visualizzato, scegliere Generale.
 * **sottoscrizione** è il proprio account di pagamento in Azure.
+* **gruppo di risorse** è utile per gestire le proprietà come il controllo di accesso. Se sono già state create altre risorse di Azure, è possibile inserire questa nuova risorsa nello stesso gruppo.
 * Il **percorso** è la posizione in cui vengono conservati i dati.
-* **Aggiungi a schermata iniziale** inserisce un riquadro di accesso rapido alla propria risorsa nella pagina iniziale di Azure. Consigliato.
+* **Aggiungi al dashboard** inserisce un riquadro di accesso rapido alla risorsa nella home page di Azure. Consigliato.
 
 Dopo aver creato l'app, verrà visualizzato un nuovo pannello che mostra i dati sulle prestazioni e l'utilizzo dell'app. 
 
@@ -58,7 +59,7 @@ Usare la chiave di strumentazione per configurare l'[SDK installato nell'applica
 
 L'SDK include i moduli standard che inviano dati di telemetria senza che occorra scrivere codice. Per rilevare le azioni degli utenti o diagnosticare i problemi in modo più dettagliato, [usare l'API][api] per inviare dati di telemetria personalizzati.
 
-## <a name="a-namemonitorasee-telemetry-data"></a><a name="monitor"></a>Visualizzare i dati di telemetria
+## <a name="monitor"></a>Visualizzare i dati di telemetria
 Chiudere il pannello di avvio rapido per tornare al pannello dell'applicazione nel portale di Azure.
 
 Fare clic sul riquadro Cerca per vedere [Diagnostic Search][diagnostic] (Ricerca diagnostica), ovvero la finestra in cui verranno visualizzati i primi eventi. 
@@ -66,7 +67,7 @@ Fare clic sul riquadro Cerca per vedere [Diagnostic Search][diagnostic] (Ricerca
 Se si prevedono più dati, fare clic su Aggiorna dopo pochi secondi.
 
 ## <a name="creating-a-resource-automatically"></a>Creazione automatica di una risorsa
-È possibile scrivere uno [script di PowerShell](app-insights-powershell-script-create-resource.md) per creare automaticamente una risorsa.
+È possibile scrivere uno [script di PowerShell](app-insights-powershell.md) per creare automaticamente una risorsa.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Creare un dashboard](app-insights-dashboards.md)
@@ -80,10 +81,5 @@ Se si prevedono più dati, fare clic su Aggiorna dopo pochi secondi.
 [diagnostic]: app-insights-diagnostic-search.md
 [metrics]: app-insights-metrics-explorer.md
 [start]: app-insights-overview.md
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

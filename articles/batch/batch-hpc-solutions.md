@@ -1,5 +1,5 @@
 ---
-title: Soluzioni Batch e HPC nel cloud | Documentazione Microsoft
+title: Soluzioni Batch e HPC nel cloud - Azure | Microsoft Docs
 description: Informazioni sugli scenari Batch e High Performance Computing (HPC e Big Compute) e sulle opzioni per le soluzioni in Azure
 services: batch, virtual-machines, cloud-services
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
-ms.openlocfilehash: c3e80bc18e4d1007146d9d3c80c2618400480046
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 288bd4dc0bde4cb610efc4a6d015e5b9499eb0ee
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="batch-and-hpc-solutions-in-the-azure-cloud"></a>Soluzioni Batch e HPC nel cloud di Azure
+# <a name="batch-and-hpc-solutions-for-large-scale-computing-workloads"></a>Batch e soluzioni HPC per carichi di lavoro di elaborazione su larga scala
+
 Azure offre soluzioni cloud scalabili ed efficienti per batch computing e high performance computing (HPC), dette anche *Big Compute*. Si possono leggere qui di seguito le informazioni relative a carichi di lavoro Big Compute e servizi di Azure per supportarli oppure passare direttamente agli [scenari di soluzioni](#scenarios) più avanti in questo articolo. L'articolo è destinato principalmente ai decision maker in ambito tecnico, ai responsabili IT e ai fornitori di software indipendenti, ma può essere usato da altri professionisti IT e sviluppatori per acquisire familiarità con queste soluzioni.
 
 Le organizzazioni hanno problemi di elaborazione su larga scala: progettazione tecnica e analisi, rendering delle immagini, modellazione complessa, simulazioni Monte Carlo, calcoli di valutazione dei rischi finanziari e altri ancora. Azure consente alle organizzazioni di risolvere questi problemi in merito alle risorse, alla scalabilità e alla pianificazione necessarie. Con Azure, le organizzazioni possono:
@@ -134,9 +137,4 @@ La soluzione Big Compute può richiedere altri servizi di Azure per connettersi 
 [iaas_cluster]: ./media/batch-hpc-solutions/iaas_cluster.png
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

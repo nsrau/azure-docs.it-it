@@ -15,8 +15,9 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: f65e5c42a42dfaef8100935d979375bcb7a06e92
+ms.sourcegitcommit: 84f1968a4bda08232bb260f74915ef8889b53f3c
+ms.openlocfilehash: 77daea3da5bdb8de374058ef7b1ab5926ed59aa7
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -26,7 +27,7 @@ Esistono molti tipi diversi di contenuto che possono attraversare un'app per la 
 ## <a name="content-type-header"></a>Intestazione Content-Type
 Per semplicità, esaminiamo due valori `Content-Types` che non richiedono alcuna conversione o cast da usare nei tipi di contenuto `application/json` e `text/plain` di un'app per la logica.
 
-### <a name="applicationjson"></a>Application/json
+## <a name="applicationjson"></a>Application/json
 Il motore del flusso di lavoro si basa sull'intestazione `Content-Type` delle chiamate HTTP per determinare la gestione appropriata.  Qualsiasi richiesta con tipo di contenuto `application/json` verrà archiviata e gestita come un oggetto JSON.  Per impostazione predefinita, il contenuto JSON può anche essere analizzato senza che sia necessario alcun cast.  Pertanto, una richiesta con l'intestazione content-type `application/json ` come questa:
 
 ```
@@ -40,8 +41,18 @@ Il motore del flusso di lavoro si basa sull'intestazione `Content-Type` delle ch
 
 può essere analizzata in un flusso di lavoro con un'espressione come `@body('myAction')['foo'][0]` per ottenere un valore, in questo caso, `bar`).  Non è necessario alcun cast aggiuntivo.  Se si lavora con dati JSON ma non è stata specificata un'intestazione, è possibile impostare manualmente i dati su JSON usando la funzione `@json()`, ad esempio `@json(triggerBody())['foo']`.
 
-### <a name="textplain"></a>Text/plain
-Come per `application/json`, i messaggi HTTP ricevuti con l'intestazione `Content-Type` di `text/plain` verranno archiviati nel relativo formato non elaborato.  Se inclusa in azioni successive senza cast, la richiesta verrà inviata anche con un'intestazione `Content-Type`: `text/plain`.  Ad esempio, se si lavora con un file flat, si può ricevere il contenuto HTTP seguente:
+### <a name="schema-and-schema-generator"></a>Schema e generatore di schemi
+Il trigger della richiesta consente di immettere uno schema JSON per il payload che si prevede di ricevere. In questo modo la finestra di progettazione può generare i token che consentono di usare il contenuto della richiesta. Se non si dispone di uno schema, selezionare `Use sample payload to generate schema` per generare uno schema JSON da un payload di esempio.
+
+![Schema](./media/logic-apps-http-endpoint/manualtrigger.png)
+
+### <a name="use-parse-json-action"></a>Usare l'azione di analisi JSON
+L'azione `Parse JSON` consente di analizzare un contenuto JSON in token facili da usare nell'App per la logica. Analogamente al trigger di richiesta, consente di immettere o generare uno schema JSON per il contenuto che si desidera analizzare. Questo è uno strumento efficace per usare i dati del bus di servizio, DocumentDb, e così via in modo molto più semplice.
+
+![Analizzare JSON](./media/logic-apps-content-type/ParseJSON.png)
+
+## <a name="textplain"></a>Text/plain
+Come per `application/json`, i messaggi HTTP ricevuti con l'intestazione `Content-Type` di `text/plain` verranno archiviati nel relativo formato non elaborato.  Inoltre, se inclusa in azioni successive senza cast, la richiesta verrà inviata con un'intestazione `Content-Type`: `text/plain`.  Ad esempio, se si lavora con un file flat, si può ricevere il contenuto HTTP seguente:
 
 ```
 Date,Name,Address
@@ -50,8 +61,8 @@ Oct-1,Frank,123 Ave.
 
 come `text/plain`.  Se nell'azione successiva si invia il contenuto come corpo di un'altra richiesta (`@body('flatfile')`), la richiesta avrà un'intestazione Content-Type `text/plain`.  Se si lavora con dati che sono testo normale ma non è stata specificata un'intestazione, è possibile impostare manualmente i dati come testo usando la funzione `@string()`, ad esempio `@string(triggerBody())`.
 
-### <a name="applicationxml-and-applicationoctet-stream-and-converter-functions"></a>Application/xml, Application/octet-stream e funzioni del convertitore
-Il motore dell'app per la logica manterrà sempre il valore `Content-Type` che è stato ricevuto per la richiesta o risposta HTTP.  Questo significa che se un contenuto viene ricevuto con `Content-Type` of `application/octet-stream`, l'inserimento dello stesso in un'azione successiva senza cast genererà una richiesta in uscita con `Content-Type`: `application/octet-stream`.  In questo modo il motore è in grado di garantire che i dati non vadano perduti mentre attraversano il flusso di lavoro.  Tuttavia, lo stato dell'azione, ovvero gli input e gli output, viene memorizzato in un oggetto JSON mentre attraversa il flusso di lavoro.  Ciò significa che per mantenere alcuni tipi di dati, il motore convertirà il contenuto in una stringa binaria con codifica Base64, con i metadati appropriati per conservare sia `$content` che `$content-type`, che verrà automaticamente convertita.  È anche possibile convertire manualmente i tipi di contenuto usando le funzioni del convertitore incorporato:
+## <a name="applicationxml-and-applicationoctet-stream-and-converter-functions"></a>Application/xml, Application/octet-stream e funzioni del convertitore
+Il motore dell'app per la logica manterrà sempre il valore `Content-Type` che è stato ricevuto per la richiesta o risposta HTTP.  Questo significa che se un contenuto viene ricevuto con `Content-Type` di `application/octet-stream`, l'inserimento dello stesso in un'azione successiva senza cast genererà una richiesta in uscita con `Content-Type`: `application/octet-stream`.  In questo modo il motore è in grado di garantire che i dati non vadano perduti mentre attraversano il flusso di lavoro.  Tuttavia, lo stato dell'azione, ovvero gli input e gli output, viene memorizzato in un oggetto JSON mentre attraversa il flusso di lavoro.  Ciò significa che per mantenere alcuni tipi di dati, il motore convertirà il contenuto in una stringa binaria con codifica Base64, con i metadati appropriati per conservare sia `$content` che `$content-type`, che verrà automaticamente convertita.  È anche possibile convertire manualmente i tipi di contenuto usando le funzioni del convertitore incorporato:
 
 * `@json()`: esegue il cast dei dati in `application/json`
 * `@xml()`: esegue il cast dei dati in `application/xml`
@@ -72,7 +83,7 @@ Ad esempio, se si riceve una richiesta HTTP con `Content-Type`: `application/xml
 
 Si potrebbe eseguire il cast e usarlo in un secondo tempo con un elemento simile a `@xml(triggerBody())` o all'interno di una funzione come `@xpath(xml(triggerBody()), '/CustomerName')`.
 
-### <a name="other-content-types"></a>Altri tipi di contenuto
+## <a name="other-content-types"></a>Altri tipi di contenuto
 Esistono altri tipi di contenuto che sono supportati e funzionano con le app per la logica, ma potrebbero richiedere il recupero manuale del corpo del messaggio con la decodifica di `$content`.  Ad esempio, se si attiva una richiesta `application/x-www-url-formencoded` simile alla seguente:
 
 ```
@@ -90,10 +101,3 @@ poiché i dati non sono testo normale o JSON verranno memorizzati nell'azione co
 ```
 
 Dove `$content` rappresenta il payload codificato come stringa Base64 per mantenere tutti i dati.  Poiché al momento non esiste una funzione nativa per dati del modulo, questi dati possono essere usati all'interno di un flusso di lavoro eseguendo manualmente l'accesso ai dati con una funzione come `@string(body('formdataAction'))`.  Se la richiesta in uscita deve avere anche l'intestazione content-type `application/x-www-url-formencoded`, è sufficiente aggiungerla al corpo dell'azione senza cast come `@body('formdataAction')`.  Questa operazione tuttavia funziona solo se il corpo è l'unico parametro nell'input `body` .  Se si prova a eseguire `@body('formdataAction')` all'interno di una richiesta `application/json` si riceve un errore di runtime perché viene inviato il corpo codificato.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-
