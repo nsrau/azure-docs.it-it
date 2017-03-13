@@ -16,9 +16,9 @@ ms.tgt_pltfrm: na
 ms.date: 02/22/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 3f608b8ae7a7812b939e0d9ab1cb8e19853220fd
-ms.openlocfilehash: 6ed23693c95ce9025576d59fa6df9d640950ada3
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 7945ee77be8a09dcac9ddd6b338bdd542ec18540
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -35,11 +35,13 @@ Questa introduzione senza codice permette di iniziare a usare i dati predefiniti
 
 **Tempo stimato:** circa 15 minuti. Di più se è anche necessario eseguire l'iscrizione a un account o un servizio. 
 
-In alternativa, è possibile guardare una dimostrazione della durata di sei minuti dei passaggi illustrati in questa esercitazione, all'incirca a partire dal terzo minuto di questa [panoramica video su Ricerca di Azure](https://channel9.msdn.com/Events/Connect/2016/138).
+In alternativa, prepararsi usando una [introduzione basata su codice alla programmazione di Ricerca di Azure in .NET](search-howto-dotnet-sdk.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Questa esercitazione presuppone la disponibilità di una [sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) e del [servizio Ricerca di Azure](search-create-service-portal.md). 
+
+Se non si vuole eseguire subito il provisioning di un servizio, è possibile guardare una dimostrazione della durata di sei minuti dei passaggi illustrati in questa esercitazione, all'incirca a partire dal terzo minuto di questa [panoramica video su Ricerca di Azure](https://channel9.msdn.com/Events/Connect/2016/138).
 
 ## <a name="find-your-service"></a>Trovare il servizio
 1. Accedere al [portale di Azure](https://portal.azure.com).
@@ -57,7 +59,7 @@ Molti clienti iniziano con il servizio gratuito. Questa versione è limitata a t
 > ![Riquadri degli indicizzatori e delle origini dati][1]
 >
 
-## <a name="a-namecreate-indexa-create-an-index-and-load-data"></a><a name="create-index"></a> Creare un indice e caricare i dati
+## <a name="create-index"></a> Creare un indice e caricare i dati
 Le query di ricerca scorrono un *indice* contenente dati ricercabili, metadati e costrutti usati per l'ottimizzazione di determinati comportamenti di ricerca.
 
 Per mantenere questa attività basata sul portale, viene usato un set dati di esempio su cui è possibile eseguire una ricerca per indicizzazione con un indicizzatore tramite la procedura guidata **Importa dati**. 
@@ -100,7 +102,7 @@ Per monitorare l'importazione dei dati, tornare al dashboard del servizio, scorr
 
    ![Messaggio di stato dell'indicizzatore][4]
 
-## <a name="a-namequery-indexa-query-the-index"></a><a name="query-index"></a> Eseguire query sull'indice
+## <a name="query-index"></a> Eseguire query sull'indice
 Ora è disponibile un indice di ricerca su cui è possibile eseguire query. **Esplora ricerche** è uno strumento di query integrato nel portale. Include una casella di ricerca che permette di verificare se i risultati della ricerca sono quelli previsti. 
 
 > [!TIP]

@@ -19,8 +19,8 @@ Eseguire il cmdlet in entrambi i controller.
 
 Se si è verificato è presente la connettività e continuare a visualizzare questo problema, contattare il supporto Microsoft per la procedura successiva.
 
+**Come si procede se viene visualizzato un errore di aggiornamento quando si aggiorna il dispositivo alla versione Update 4 ed entrambi i controller eseguono Update 4?**
 
+A partire dalla versione Update 4, se entrambi i controller eseguono la stessa versione del software e si verifica un errore di aggiornamento, i controller non entrano in modalità di ripristino. Questa situazione può verificarsi se l'hotfix del software del dispositivo (aggiornamento di primo ordine) viene applicato a entrambi i controller correttamente, ma gli altri hotfix (secondo e terzo ordine) devono ancora essere applicati. A partire dalla versione Update 4, i controller entrano in modalità di ripristino solo se i due controller eseguono versioni diverse del software. 
 
-<!--HONumber=Nov16_HO3-->
-
-
+Se l'utente visualizza un errore di aggiornamento quando entrambi i controller eseguono Update 4, è consigliabile attendere qualche minuto e poi riprovare a eseguire l'aggiornamento. Se il nuovo tentativo non riesce, è necessario contattare il supporto tecnico Microsoft.

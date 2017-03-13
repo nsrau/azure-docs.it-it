@@ -14,30 +14,32 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 03/03/2017
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3bb83f231d16819e5f5da7edbc9fc3f38baff011
-ms.openlocfilehash: b0c5efa595b0377d7ae2d936d0394667356d18c9
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: c11adbe77131d4e0337ccd926da03041042c3703
+ms.lasthandoff: 03/06/2017
 
 
 ---
-# <a name="frequently-asked-questions-azure-container-service"></a>Domande frequenti: servizio contenitore di Azure
+# <a name="container-service-frequently-asked-questions"></a>Domande frequenti sul servizio contenitore
 
 
 ## <a name="orchestrators"></a>Agenti di orchestrazione
 
 ### <a name="which-container-orchestrators-do-you-support-on-azure-container-service"></a>Quali agenti di orchestrazione contenitore sono supportati nel servizio contenitore di Azure? 
 
-È previsto il supporto per DC/OS open source, Docker Swarm e Kubernetes. Il supporto per DC/OS e Docker Swarm è disponibile a livello generale, mentre il supporto per Kubernetes è attualmente in anteprima. Per altre informazioni, vedere la [panoramica](container-service-intro.md).
+È previsto il supporto per DC/OS open source, Docker Swarm e Kubernetes. Per altre informazioni, vedere la [panoramica](container-service-intro.md).
  
-### <a name="do-you-support-swarm-mode"></a>La modalità Swarm è supportata? 
+### <a name="do-you-support-docker-swarm-mode"></a>La modalità Docker Swarm è supportata? 
 
 La modalità Swarm attualmente non è supportata, ma è presente nella guida di orientamento al servizio. 
 
 ### <a name="does-azure-container-service-support-windows-containers"></a>Il servizio contenitore di Azure supporta i contenitori Windows?  
 
-Attualmente sono supportati i contenitori Linux. Il supporto per i contenitori Windows con gli agenti di orchestrazione DC/OS, Docker Swarm e Kubernetes è presente nella guida di orientamento al servizio. 
+Attualmente sono supportati i contenitori Linux con tutti gli agenti di orchestrazione. Il supporto per i contenitori Windows con Kubernetes è disponibile in anteprima.
 
 ### <a name="do-you-recommend-a-specific-orchestrator-in-azure-container-service"></a>È consigliabile un agente di orchestrazione specifico nel servizio contenitore di Azure? 
 In genere non viene consigliato un agente di orchestrazione specifico. Se si ha già familiarità con uno degli agenti di orchestrazione supportati, è possibile servirsi di tale esperienza per il servizio contenitore di Azure. Le tendenze dei dati suggeriscono tuttavia che DC/OS è il prodotto collaudato per i carichi di lavoro di Big Data e IoT, Kubernetes è ideale per i carichi di lavoro nativi del cloud e Docker Swarm è noto per l'integrazione con gli strumenti di Docker e la facile curva di apprendimento.
@@ -55,29 +57,23 @@ Il [motore ACS](http://github.com/Azure/acs-engine) è un progetto open source c
 
 È possibile usare gli strumenti standard del sistema operativo per creare una coppia di chiavi pubblica e privata RSA SSH per l'autenticazione nelle macchine virtuali Linux per il cluster. Per i passaggi, vedere il materiale sussidiario per [OS X e Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) o per [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
 
-Se si usano i [comandi dell'interfaccia della riga di comando di Azure 2.0 (anteprima)](container-service-create-acs-cluster-cli.md) per distribuire un cluster del servizio contenitore, le chiavi SSH possono venire generate automaticamente per il cluster.
+Se si usano i [comandi dell'interfaccia della riga di comando di Azure 2.0](container-service-create-acs-cluster-cli.md) per distribuire un cluster del servizio contenitore, le chiavi SSH possono essere generate automaticamente per il cluster.
 
 ### <a name="how-do-i-create-a-service-principal-for-my-kubernetes-cluster"></a>Come si crea un'entità servizio per il cluster Kubernetes?
 
-Per creare un cluster Kubernetes nel servizio contenitore di Azure, sono necessari anche l'ID e la password di un'entità servizio di Azure Active Directory. Per altre informazioni, vedere [Informazioni sull'entità servizio per un cluster Kubernetes](container-service-kubernetes-service-principal.md).
+Per creare un cluster Kubernetes nel servizio contenitore di Azure, sono necessari anche l'ID e la password di un'entità servizio di Azure Active Directory. Per altre informazioni, vedere [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md) (Informazioni sull'entità servizio per un cluster Kubernetes).
 
 
-Se si usano i [comandi dell'interfaccia della riga di comando di Azure 2.0 (anteprima)](container-service-create-acs-cluster-cli.md) per distribuire un cluster Kubernetes, le credenziali dell'entità servizio possono venire generate automaticamente per il cluster.
+Se si usano i [comandi dell'interfaccia della riga di comando di Azure 2.0](container-service-create-acs-cluster-cli.md) per distribuire un cluster Kubernetes, le credenziali dell'entità servizio possono essere generate automaticamente per il cluster.
 
 
 ### <a name="how-do-i-increase-the-number-of-masters-after-a-cluster-is-created"></a>Come si aumenta il numero di master dopo la creazione di un cluster? 
-Dopo la creazione del cluster, il numero di master è fisso e non può essere modificato. Durante la creazione del cluster, è consigliabile selezionare tre o cinque master per una disponibilità elevata.
+Dopo la creazione del cluster, il numero di master è fisso e non può essere modificato. Durante la creazione del cluster, è consigliabile selezionare più master per una disponibilità elevata.
 
-> [!NOTE]
-> Nell'anteprima un cluster Kubernetes nel servizio contenitore di Azure può avere solo un master.
->
 
 ### <a name="how-do-i-increase-the-number-of-agents-after-a-cluster-is-created"></a>Come si aumenta il numero di agenti dopo la creazione di un cluster? 
 È possibile ridimensionare il numero di agenti nel cluster usando il portale di Azure o gli strumenti da riga di comando. Vedere [Ridimensionare un cluster del servizio contenitore di Azure](container-service-scale.md).
 
-> [!NOTE]
-> Nell'anteprima, un cluster Kubernetes nel servizio contenitore di Azure ha un numero fisso di agenti. 
->
 
 ### <a name="what-are-the-urls-of-my-masters-and-agents"></a>Quali sono gli URL dei master e degli agenti? 
 Gli URL delle risorse cluster nel servizio contenitore di Azure si basano sul prefisso del nome DNS specificato e sul nome dell'area di Azure scelto per la distribuzione. Ad esempio, il nome di dominio completo (FQDN) del nodo master presenta questo formato:
@@ -87,6 +83,17 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 ```
 
 È possibile trovare gli URL di uso più frequente per il cluster nel portale di Azure, in Esplora risorse di Azure o in altri strumenti di Azure.
+
+### <a name="how-do-i-tell-which-orchestrator-version-is-running-in-my-cluster"></a>Come si può stabilire la versione dell'agente di orchestrazione in esecuzione nel cluster?
+
+* DC/OS: vedere la [documentazione di Mesosphere](https://support.mesosphere.com/hc/en-us/articles/207719793-How-to-get-the-DCOS-version-from-the-command-line-)
+* Docker Swarm: eseguire `docker version`
+* Kubernetes: eseguire `kubectl version`
+
+
+### <a name="how-do-i-upgrade-the-orchestrator-after-deployment"></a>Qual è la procedura per aggiornare l'agente di orchestrazione dopo la distribuzione?
+
+Attualmente, il servizio contenitore di Azure non fornisce strumenti per aggiornare la versione dell'agente di orchestrazione distribuito nel cluster. Se il servizio contenitore supporta una versione successiva, è possibile distribuire un nuovo cluster. Un'altra opzione consiste nell'usare gli strumenti specifici dell'agente di orchestrazione eventualmente disponibili per aggiornare un cluster sul posto. Per un esempio, vedere [DC/OS Upgrading](https://dcos.io/docs/1.8/administration/upgrading/) (Aggiornamento di DC/OS).
  
 ### <a name="where-do-i-find-the-ssh-connection-string-to-my-cluster"></a>Dove si trova la stringa di connessione SSH al cluster?
 
@@ -114,9 +121,4 @@ Per altre informazioni, vedere [Connettersi a un cluster del servizio contenitor
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Altre informazioni](container-service-intro.md) sul servizio contenitore di Azure.
-* Distribuire un cluster del servizio contenitore usando il [portale](container-service-deployment.md) o la [versione 2.0 (anteprima) dell'interfaccia della riga di comando di Azure](container-service-create-acs-cluster-cli.md).
-
-
-<!--HONumber=Feb17_HO3-->
-
-
+* Distribuire un cluster del servizio contenitore usando il [portale](container-service-deployment.md) o l'[interfaccia della riga di comando di Azure 2.0](container-service-create-acs-cluster-cli.md).

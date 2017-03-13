@@ -1,6 +1,6 @@
 ---
-title: Gestire le aree di lavoro | Microsoft Docs
-description: "Gestire le aree di lavoro in Log Analytics di Azure usando svariate attività amministrative per utenti, account, aree di lavoro e account di Azure."
+title: Gestire aree di lavoro in Azure Log Analytics e nel portale di OMS | Microsoft Docs
+description: "È possibile gestire le aree di lavoro in Log Analytics di Azure e nel portale di OMS usando svariate attività amministrative per utenti, account, aree di lavoro e account di Azure."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/17/2017
+ms.date: 03/01/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
-ms.openlocfilehash: 1d330362389ee690dc2942c9bb1bc32e1f10e08a
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: dd09c109594e0ba86fe2f40625e765494bfc06eb
+ms.openlocfilehash: 1221de9ae16022f7300510b2db67ed0849b61397
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -163,25 +163,16 @@ Per rimuovere un utente da un'area di lavoro, seguire questa procedura. La rimoz
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Collegare un'area di lavoro esistente a una sottoscrizione di Azure
 Tutte le aree di lavoro create dopo il 26 settembre 2016 devono essere collegate a una sottoscrizione di Azure al momento della creazione. All'accesso successivo, le aree di lavoro create prima di tale data devono essere collegate a un'area di lavoro. Quando si crea l'area di lavoro dal portale di Azure o si collega l'area di lavoro a una sottoscrizione di Azure, Azure Active Directory viene collegato come account aziendale.
 
-![collegamento sottoscrizione di Azure](./media/log-analytics-manage-access/required-link.png)
-
-> [!IMPORTANT]
-> Per collegare un'area di lavoro, è necessario che l'account di Azure abbia già accesso a tale area.  In altri termini, è necessario che l'account usato per accedere al portale di Azure sia **lo stesso** account usato per accedere all'area di lavoro. In caso contrario, vedere [Aggiungere un utente a un'area di lavoro esistente](#add-a-user-to-an-existing-workspace).
->
->
-
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-oms-portal"></a>Per collegare un'area di lavoro a una sottoscrizione di Azure nel portale di OMS
-Per collegare un'area di lavoro a una sottoscrizione di Azure nel portale di OMS, l'utente connesso deve avere già un account Azure a pagamento.
 
-1. Nel portale di OMS fare clic sul riquadro **Impostazioni**.
-2. Fare clic sulla scheda **Account** e quindi sulla scheda **Azure Subscription & Data Plan** (Sottoscrizione di Azure e piano dati).
-3. Fare clic sul piano dati da usare.
-4. Fare clic su **Salva**  
-   ![Sottoscrizione e piani dati](./media/log-analytics-manage-access/subscription-tab.png)
+- Quando si accede al portale di OMS, viene richiesto di selezionare una sottoscrizione di Azure. Selezionare la sottoscrizione che si vuole collegare all'area di lavoro e quindi fare clic su **Collega**.  
+    ![Collegare la sottoscrizione di Azure](./media/log-analytics-manage-access/required-link.png)
 
-Il nuovo piano dati viene visualizzato nella barra multifunzione del portale di OMS, nella parte superiore della pagina Web.
+    > [!IMPORTANT]
+    > Per collegare un'area di lavoro, è necessario che l'account di Azure abbia già accesso a tale area.  In altri termini, è necessario che l'account usato per accedere al portale di Azure sia **lo stesso** account usato per accedere all'area di lavoro. In caso contrario, vedere [Aggiungere un utente a un'area di lavoro esistente](#add-a-user-to-an-existing-workspace).
 
-![Barra multifunzione di OMS](./media/log-analytics-manage-access/data-plan-changed.png)
+
+
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>Per collegare un'area di lavoro a una sottoscrizione di Azure nel portale di Azure
 1. Accedere al [portale di Azure](http://portal.azure.com).
@@ -236,7 +227,7 @@ Se si ha un impegno monetario di Azure nell'iscrizione Enterprise a cui sono col
 
 Se è necessario modificare la sottoscrizione di Azure a cui è collegata l'area di lavoro, è possibile usare il cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) di Azure PowerShell.  
 
-### <a name="change-a-workspace-to-a-paid-pricing-tier"></a>Passare a un piano tariffario a pagamento per l'area di lavoro
+### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-azure-portal"></a>Passare a un piano tariffario a pagamento per l'area di lavoro nel portale di Azure
 1. Accedere al [portale di Azure](http://portal.azure.com).
 2. Cercare e selezionare **Log Analytics**.
 3. Viene visualizzato un elenco delle aree di lavoro esistenti. Selezionare un'area di lavoro.  
@@ -250,6 +241,21 @@ Se è necessario modificare la sottoscrizione di Azure a cui è collegata l'area
 > Se l'area di lavoro è collegata a un account di Automazione, prima di poter selezionare il piano tariffario *Standalone (Per GB)* (Autonomo - per GB), è necessario eliminare eventuali soluzioni di **Automazione e controllo** e scollegare l'account di Automazione. Nel pannello dell'area di lavoro in **Generale** fare clic su **Soluzioni** per visualizzare ed eliminare le soluzioni. Per scollegare l'account di Automazione, fare clic sul nome dell'account di Automazione nel pannello **Piano tariffario**.
 >
 >
+
+## <a name="change-your-data-plan-in-the-oms-portal"></a>Modificare il piano dati nel portale di OMS
+
+Per modificare un piano dati usando il portale di OMS, l'utente connesso deve avere già un account Azure.
+
+1. Nel portale di OMS fare clic sul riquadro **Impostazioni**.
+2. Fare clic sulla scheda **Account** e quindi sulla scheda **Azure Subscription & Data Plan** (Sottoscrizione di Azure e piano dati).
+3. Fare clic sul piano dati da usare.
+4. Fare clic su **Salva**  
+   ![Sottoscrizione e piani dati](./media/log-analytics-manage-access/subscription-tab.png)
+
+Il nuovo piano dati viene visualizzato nella barra multifunzione del portale di OMS, nella parte superiore della pagina Web.
+
+![Barra multifunzione di OMS](./media/log-analytics-manage-access/data-plan-changed.png)
+
 
 ## <a name="change-how-long-log-analytics-stores-data"></a>Modificare la durata dell'archiviazione dei dati di Log Analytics
 
@@ -266,8 +272,8 @@ Per modificare la durata della conservazione dei dati:
 2. Cercare e selezionare **Log Analytics**.
 3. Viene visualizzato un elenco delle aree di lavoro esistenti. Selezionare un'area di lavoro.  
 4. Nel pannello dell'area di lavoro in **Generale** fare clic su **Conservazione**.  
-5. Usare il dispositivo di scorrimento per aumentare o diminuire il numero di giorni di conservazione e quindi fare clic su **Salva**
-![Modificare la conservazione](./media/log-analytics-manage-access/manage-access-change-retention01.png)
+5. Usare il dispositivo di scorrimento per aumentare o diminuire il numero di giorni di conservazione e quindi fare clic su **Salva**.  
+    ![Modificare la conservazione](./media/log-analytics-manage-access/manage-access-change-retention01.png)
 
 ## <a name="change-an-azure-active-directory-organization-for-a-workspace"></a>Modificare un'organizzazione di Azure Active Directory in un'area di lavoro
 

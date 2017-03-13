@@ -14,11 +14,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/23/2017
-ms.author: rachelap@microsoft.com
+ms.date: 03/01/2017
+ms.author: rachelap; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: a8f6d111a010666bf4aaaf05e061381cc8fffed0
-ms.openlocfilehash: 634781189459f26e2ffa42b25a2ffb229d3371d4
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 4bea7f73871f8bfc755f30b9ef41a1960893152e
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -32,7 +33,7 @@ Per rendere le cose più interessanti, una funzione è scritta in JavaScript e l
 
 ## <a name="create-a-function-that-writes-to-the-queue"></a>Creare una funzione che scrive nella coda
 
-Prima di connettersi a una coda di archiviazione, è necessario creare una funzione che carica la coda di messaggi. La funzione JavaScript usa un trigger basato su timer che scrive un messaggio nella coda ogni 10 secondi. Se non si dispone già di un account Azure, consultare [Prova Funzioni di Azure](https://functions.azure.com/try) oppure [creare un account Azure gratuito](https://azure.microsoft.com/free/).
+Prima di connettersi a una coda di archiviazione, è necessario creare una funzione che carica la coda di messaggi. La funzione JavaScript usa un trigger basato su timer che scrive un messaggio nella coda ogni 10 secondi. Se non si dispone già di un account Azure, vedere [Prova Funzioni di Azure](https://functions.azure.com/try) oppure [creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
 1. Passare al portale di Azure e trovare l'app per le funzioni.
 
@@ -125,7 +126,7 @@ Dopo aver aggiunto i messaggi alla coda, è possibile creare un'altra funzione c
 
     ![Aggiungere un'associazione a una tabella di Archiviazione di Azure](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png) 
 
-2. Immettere `TableItem` per **Nome tabella** e `functionbindings` per **Nome del parametro della tabella**, scegliere una **Connessione dell'account di archiviazione** o crearne una nuova e quindi fare clic su **Salva**.
+2. Immettere `functionbindings` per **Nome tabella** e `myTable` per **Nome del parametro della tabella**, scegliere una **Connessione dell'account di archiviazione** o crearne una nuova e quindi fare clic su **Salva**.
 
     ![Configurare l'associazione della tabella di archiviazione](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab2.png)
    
@@ -180,7 +181,7 @@ Dopo aver aggiunto i messaggi alla coda, è possibile creare un'altra funzione c
 [!INCLUDE [More binding information](../../includes/functions-bindings-next-steps.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere gli argomenti seguenti per altre informazioni su Funzioni di Azure.
+Per altre informazioni su Funzioni di Azure, vedere gli argomenti seguenti:
 
 * [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)  
   Informazioni di riferimento per programmatori in merito alla codifica delle funzioni e alla definizione di trigger e associazioni.
@@ -190,10 +191,5 @@ Vedere gli argomenti seguenti per altre informazioni su Funzioni di Azure.
   Presenta i piani di servizio disponibili con Funzioni di Azure, tra cui il piano di hosting A consumo, e spiega come scegliere quello più appropriato. 
 
 [!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

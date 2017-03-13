@@ -4,20 +4,20 @@
 | Risorsa | Limite predefinito | 
 | --- | --- | 
 | Account di Servizi multimediali di Azure in una singola sottoscrizione | 25 (fisso) |
-| Unità riservate multimediali per account AMS |25 (S1, S2)<br/>10 (S3) <sup>1</sup> | 
-| Processi per ogni account di Servizi multimediali di Azure | 50.000<sup>2</sup> |
+| Unità riservate multimediali per account AMS |25 (S1, S2)<br/>10 (S3) <sup>(1)</sup> | 
+| Processi per ogni account di Servizi multimediali di Azure | 50.000<sup>(2)</sup> |
 | Attività concatenate per processo | 30 (fisso) |
 | Asset per ogni account di Servizi multimediali di Azure | 1.000.000|
 | Asset per attività | 50 |
 | Asset per processo | 100 |
-| Localizzatori univoci associati a un asset contemporaneamente | 5<sup>4</sup> |
+| Localizzatori univoci associati a un asset contemporaneamente | 5<sup>(4)</sup> |
 | Canali live per ogni account AMS  |5|
 | Programmi con stato arrestato per canale  |50|
 | Programmi con stato in esecuzione per canale  |3|
 | Endpoint di streaming con stato in esecuzione per ogni account AMS |2|
 | Unità di streaming per endpoint di streaming  |10 |
-| Account di archiviazione | 1.000<sup>5</sup> (fisso) |
-| Criteri | 1,000,000<sup>6</sup> |
+| Account di archiviazione | 1.000<sup>(5)</sup> (fisso) |
+| Criteri | 1.000.000<sup>(6)</sup> |
 | Dimensioni complete| In alcuni scenari è previsto un limite per le dimensioni massime dei file supportate per l'elaborazione in Servizi multimediali. <sup>7</sup> |
   
 <sup>1</sup> Le unità riservate S3 non sono disponibili in India occidentale.
@@ -44,8 +44,3 @@ A partire dall'1 aprile 2017, tutti i record di processo presenti nell'account e
 |S1    | 325|
 |S2    | 640|
 |S3    | 260|
-
-
-<!--HONumber=Feb17_HO2-->
-
-

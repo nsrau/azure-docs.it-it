@@ -1,6 +1,6 @@
 ---
-title: Immagini Docker in un registro contenitori di Azure | Documentazione Microsoft
-description: Effettuare il push e il pull di immagini Docker in un registro di contenitori di Azure tramite l&quot;interfaccia della riga di comando di Docker
+title: Effettuare il push di un&quot;immagine Docker in un registro di Azure privato | Microsoft Docs
+description: Effettuare il push e il pull di immagini Docker in un registro di contenitori privati in Azure tramite l&quot;interfaccia della riga di comando di Docker
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -16,15 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
-ms.openlocfilehash: df15eebf0052aa4713263a810df605fa1016c306
+ms.sourcegitcommit: 0433e22dc7722ef9c8edfaf949dbd9a9d8645e67
+ms.openlocfilehash: e778c09991da73cd5064532119d92bff36f0a00e
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="push-your-first-image-to-a-container-registry-using-the-docker-cli"></a>Effettuare il push della prima immagine in un registro di contenitori tramite l'interfaccia della riga di comando di Docker
+# <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Effettuare il push della prima immagine in un registro per contenitori Docker privati tramite l'interfaccia della riga di comando di Docker
 Un registro di contenitori di Azure archivia e gestisce le immagini dei contenitori [Docker](http://hub.docker.com) private, in modo analogo a come [Docker Hub](https://hub.docker.com/) archivia le immagini Docker pubbliche. Usare l'[interfaccia della riga di comando di Docker](https://docs.docker.com/engine/reference/commandline/cli/) per eseguire l'[accesso](https://docs.docker.com/engine/reference/commandline/login/), il [push](https://docs.docker.com/engine/reference/commandline/push/), il [pull](https://docs.docker.com/engine/reference/commandline/pull/) e altre operazioni sul registro di contenitori. 
 
-Per altri concetti e informazioni di base, vedere [What is Azure Container Registry?](container-registry-intro.md) (Che cos'è Azure Container Registry?).
+Per altre informazioni di base e concetti, vedere la [panoramica](container-registry-intro.md)
 
 
 > [!NOTE]
@@ -33,7 +35,7 @@ Per altri concetti e informazioni di base, vedere [What is Azure Container Regis
 > 
 
 ## <a name="prerequisites"></a>Prerequisiti
-* **Registro di contenitori di Azure**: creare un registro di contenitori nella sottoscrizione di Azure. Ad esempio, usare il [portale di Azure](container-registry-get-started-portal.md) o l'[interfaccia della riga di comando di Azure 2.0 (anteprima)](container-registry-get-started-azure-cli.md).
+* **Registro di contenitori di Azure**: creare un registro di contenitori nella sottoscrizione di Azure. Ad esempio, usare il [Portale di Azure](container-registry-get-started-portal.md) o l'[interfaccia della riga di comando di Azure 2.0](container-registry-get-started-azure-cli.md).
 * **Interfaccia della riga di comando di Docker**: per configurare il computer locale come host Docker e accedere ai comandi della riga di comando di Docker, installare [Docker Engine](https://docs.docker.com/engine/installation/).
 
 ## <a name="log-in-to-a-registry"></a>Accedere a un registro
@@ -114,10 +116,5 @@ docker rmi myregistry-contoso.azurecr.io/samples/nginx
 Una volta apprese le nozioni di base, si è pronti per iniziare a usare il proprio registro. È ad esempio possibile iniziare a distribuire immagini di contenitore in un cluster del [servizio contenitore di Azure](https://azure.microsoft.com/documentation/services/container-service/).
 
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
