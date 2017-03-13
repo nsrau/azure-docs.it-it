@@ -12,12 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2017
+ms.date: 03/06/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: fa9b427afff2c12babde30aa354e59d31c8f5b2c
-ms.openlocfilehash: 219fe64481df2c5c5cbfe622afdab11dcc1b7100
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: f709fe00cce61f6766a0a56ea31b023e00c91fce
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -48,12 +48,9 @@ Eseguire questa procedura per aggiungere la soluzione Gestione aggiornamenti nel
    a.    Installare la versione più recente dell'agente OMS per Linux usando i comandi seguenti.  Sostituire <Workspace ID> con l'ID area di lavoro e <Key> con la chiave primaria o secondaria.
    
         cd ~
-        wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh  
-        sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
+        wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID>  -s <PrimaryKey> -d opinsights.azure.com 
 
-   b. Per rimuovere l'agente, usare il comando seguente.
-   
-        sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
+   b. Per rimuovere l'agente, usare il processo descritto nella sezione [Uninstalling the OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#uninstalling-the-oms-agent-for-linux) (Disinstallazione dell'agente OMS per Linux).  
 
 ## <a name="management-packs"></a>Management Pack
 Se il gruppo di gestione di System Center Operations Manager è connesso all'area di lavoro di OMS, in Operations Manager verranno installati i Management Pack seguenti quando si aggiunge questa soluzione. Per questi Management Pack non è richiesta alcuna configurazione o manutenzione. 

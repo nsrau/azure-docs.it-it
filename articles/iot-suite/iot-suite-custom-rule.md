@@ -26,7 +26,7 @@ ms.lasthandoff: 12/15/2016
 
 ## <a name="introduction"></a>Introduzione
 
-Nelle soluzioni preconfigurate è possibile configurare [regole che si attivano quando un valore di telemetria per un dispositivo raggiunge una soglia specifica][lnk-builtin-rule]. [Usare i dati di telemetria dinamica con la soluzione di monitoraggio remoto preconfigurata] [ lnk-dynamic-telemetry] descrive come aggiungere alla soluzione valori di telemetria personalizzati, ad esempio *ExternalTemperature*. Questo articolo illustra come creare regole personalizzate per tipi di dati di telemetria dinamica nella soluzione.
+Nelle soluzioni preconfigurate è possibile configurare [regole che si attivano quando un valore di telemetria per un dispositivo raggiunge una soglia specifica][lnk-builtin-rule]. [Usare i dati di telemetria dinamica con la soluzione di monitoraggio remoto preconfigurata][lnk-dynamic-telemetry] descrive come aggiungere alla soluzione valori di telemetria personalizzati, ad esempio *ExternalTemperature*. Questo articolo illustra come creare regole personalizzate per tipi di dati di telemetria dinamica nella soluzione.
 
 Questa esercitazione usa un semplice dispositivo simulato Node.js per generare dati di telemetria dinamica da inviare al back-end della soluzione preconfigurata. Si aggiungeranno quindi regole personalizzate nella soluzione **RemoteMonitoring** di Visual Studio e si distribuirà questo back-end personalizzato alla sottoscrizione di Azure.
 

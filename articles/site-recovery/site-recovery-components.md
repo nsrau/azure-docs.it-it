@@ -15,49 +15,36 @@ ms.topic: get-started-article
 ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 080dce21c2c803fc05c945cdadb1edd55bd7fe1c
-ms.openlocfilehash: 4993a873742db5ca2bd8c31eaab098beb0a0a030
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 22b50dd6242e8c10241b0626b48f8ef842b6b0fd
+ms.openlocfilehash: c33ca9e5292096a0fd96d98da3e89d721463e903
+ms.lasthandoff: 03/02/2017
 
 
 ---
 # <a name="how-does-azure-site-recovery-work"></a>Funzionamento di Azure Site Recovery
 
-Leggere questo articolo per capire l'architettura sottostante del servizio Azure Site Recovery e i componenti necessari per il suo funzionamento.
-
-Il servizio Azure Site Recovery contribuisce alla strategia BCDR orchestrando la replica dei server fisici locali e delle macchine virtuali nel cloud (Azure) o in un data center secondario. In caso di interruzioni nella località primaria, verrà eseguito il failover alla località secondaria per mantenere disponibili app e carichi di lavoro. Quando la località primaria sarà di nuovo operativa, si tornerà a tale località. Per altre informazioni, vedere [Che cos'è Site Recovery?](site-recovery-overview.md)
-
-Questo articolo descrive la distribuzione nel [portale di Azure](https://portal.azure.com). Il [portale di Azure classico](https://manage.windowsazure.com/) può essere usato per gestire gli insiemi di credenziali di Site Recovery esistenti, ma non per crearne di nuovi.
+Leggere questo articolo per capire l'architettura sottostante del servizio [Azure Site Recovery](site-recovery-overview.md) e i componenti necessari per il suo funzionamento.
 
 Per inviare commenti è possibile usare la parte inferiore di questo articolo oppure il [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
-## <a name="deployment-scenarios"></a>Scenari di distribuzione
+## <a name="replication-to-azure"></a>Replica in Azure
 
-È possibile distribuire Site Recovery per orchestrare la replica in diversi scenari:
+È possibile replicare gli elementi seguenti in Azure:
+- **VMware**: macchine virtuali VMware locali in esecuzione in un [host supportato](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers). È possibile replicare macchine virtuali VMware che eseguono i [sistemi operativi supportati](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions).
+- **Hyper-V**: macchine virtuali Hyper-V locali in esecuzione negli [host supportati](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
+- **Macchine fisiche**: server fisici locali che eseguono Windows o Linux nei [sistemi operativi supportati](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions). È possibile replicare macchine virtuali Hyper-V che eseguono qualsiasi sistema operativo guest [supportato da Hyper-V e Azure](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
-- **Replicare macchine virtuali VMware**: è possibile replicare le macchine virtuali VMware locali in Azure o in un data center secondario.
-- **Replicare computer fisici**: è possibile replicare i computer fisici (Windows o Linux) in Azure o in un data center secondario. Il processo di replica dei computer fisici è quasi uguale a quello di replica delle macchine virtuali VMware.
-- **Replicare VM Hyper-V**: è possibile replicare le VM Hyper-V in Azure o in un sito VMM secondario. Per replicarle in un sito secondario, devono essere gestite in cloud di System Center Virtual Machine Manager (VMM).
-- **Eseguire la migrazione di VM**: oltre alla replica (replica, failover e failback) di VM locali e server fisici in Azure, è anche possibile eseguirne la migrazione in VM di Azure (replica e failover, non il failback). Ecco di cosa è possibile eseguire la migrazione:
-    - Eseguire la migrazione di carichi di lavoro in esecuzione in server fisici e VM Hyper-V e VMware locali, perché vengano eseguiti in VM di Azure.
-    - Eseguire la migrazione di [VM IaaS di Azure](site-recovery-migrate-azure-to-azure.md) tra aree di Azure. Questo scenario supporta attualmente solo la migrazione, non il failback.
-    - Eseguire la migrazione di [istanze di Windows per Amazon Web Services](site-recovery-migrate-aws-to-azure.md) a VM IaaS di Azure. Questo scenario supporta attualmente solo la migrazione, non il failback.
+## <a name="vmware-replication-to-azure"></a>Replica VMware in Azure
 
-Site Recovery replica app in esecuzione in VM e server fisici supportati. Per un riepilogo completo delle app supportate, vedere [Carichi di lavoro che è possibile proteggere con Azure Site Recovery](site-recovery-workload.md)
-
-## <a name="replicate-vmware-vmsphysical-servers-to-azure"></a>Replicare VM VMware/server fisici in Azure
-
-### <a name="components"></a>Componenti
-
-**Componente** | **Dettagli**
---- | ---
-**Azzurro** | In Azure sono necessari un account Microsoft Azure, un account di archiviazione di Azure e una rete di Azure.<br/><br/> La risorsa di archiviazione e la rete possono essere account Resource Manager o account classici.<br/><br/>  I dati replicati vengono salvati nell'account di archiviazione e,quando si verifica un failover dal sito locale, vengono create VM di Azure con i dati replicati. Le VM di Azure si connettono alla rete virtuale di Azure quando vengono create.
-**Server di configurazione** | Si imposta un server di configurazione locale per coordinare le comunicazioni tra il sito locale e Azure e per gestire la replica dei dati.
-**Server di elaborazione** | Installato per impostazione predefinita nel server di configurazione locale.<br/><br/> Agisce come un gateway di replica. Riceve i dati di replica dai computer di origine protetti, li ottimizza attraverso la memorizzazione nella cache, la compressione e la crittografia e li invia all'archiviazione di Azure.<br/><br/> Gestisce l'installazione push del servizio Mobility nei computer protetti ed esegue l'individuazione automatica delle VM VMware.<br/><br/> Man mano che la distribuzione cresce, è possibile aggiungere altri server di elaborazione dedicati e distinti per gestire i volumi più elevati di traffico di replica.
-**Server master di destinazione** | Installato per impostazione predefinita nel server di configurazione locale.<br/><br/> Gestisce i dati di replica durante il failback da Azure. Se i volumi del traffico di failback sono elevati, è possibile distribuire un server di destinazione master separato per il failback.
-**Server VMware** | È possibile aggiungere server vCenter e vSphere all'insieme di credenziali di Servizi di ripristino, per replicare le VM VMware.<br/><br/> Se si replicano server fisici, sarà necessaria un'infrastruttura VMware locale per il failback. Non è possibile eseguire il failback a un computer fisico.
-**Computer replicati** | Il servizio Mobility deve essere installato in ogni computer da replicare. Può essere installato manualmente in ogni computer o con un'installazione push dal server di elaborazione.
+Area | Componente | Dettagli
+--- | --- | ---
+**Azzurro** | In Azure sono necessari un account Azure, un account di archiviazione di Azure e una rete di Azure. | La risorsa di archiviazione e la rete possono essere account Resource Manager o account classici.<br/><br/>  I dati replicati vengono salvati nell'account di archiviazione e,quando si verifica un failover dal sito locale, vengono create VM di Azure con i dati replicati. Le VM di Azure si connettono alla rete virtuale di Azure quando vengono create.
+**Server di configurazione** | Un singolo server di gestione (VM VMWare) esegue tutti i componenti locali: server di configurazione, server di elaborazione, server master di destinazione. | Il server di configurazione coordina le comunicazioni tra i componenti locali e Azure e gestisce la replica dei dati.
+ **Server di elaborazione**  | Installato per impostazione predefinita nel server di configurazione. | Agisce come un gateway di replica. Riceve i dati di replica, li ottimizza attraverso la memorizzazione nella cache, la compressione e la crittografia e li invia all'archiviazione di Azure.<br/><br/> Il server di elaborazione gestisce anche l'installazione push del servizio Mobility nei computer protetti ed esegue l'individuazione automatica delle VM VMware.<br/><br/> Man mano che la distribuzione cresce, è possibile aggiungere altri server di elaborazione dedicati e distinti per gestire i volumi più elevati di traffico di replica.
+ **Server master di destinazione** | Installato per impostazione predefinita nel server di configurazione locale. | Gestisce i dati di replica durante il failback da Azure.<br/><br/> Se i volumi del traffico di failback sono elevati, è possibile distribuire un server di destinazione master separato per il failback.
+**Server VMware** | Le macchine virtuali VMware sono ospitate nei server vSphere ESXi e si consiglia un server vCenter per la gestione degli host. | È possibile aggiungere server VMware all'insieme di credenziali di Servizi di ripristino.<br/><br/> I
+**Computer replicati** | Il servizio Mobility verrà installato in ogni macchina virtuale VMware da replicare. Può essere installato manualmente in ogni computer o con un'installazione push dal server di elaborazione.
 
 **Figura 1: Componenti da VMware ad Azure**
 
@@ -79,16 +66,16 @@ Site Recovery replica app in esecuzione in VM e server fisici supportati. Per un
 
 ![Avanzato](./media/site-recovery-components/v2a-architecture-henry.png)
 
-### <a name="failover-and-failback-process"></a>Processo di failover e failback
+### <a name="failover-and-failback"></a>Failover e failback
 
-1. Si eseguono failover non pianificati da VM VMware locali e da server fisici ad Azure. Il failover pianificato non è supportato.
-2. È possibile effettuare il failover di un solo computer o creare [piani di ripristino](site-recovery-create-recovery-plans.md) per orchestrare il failover di più computer.
+1. Dopo aver verificato che il failover di test funzioni come previsto, è possibile eseguire failover non pianificati in Azure in base alle esigenze. Il failover pianificato non è supportato.
+2. È possibile effettuare il failover di un solo computer o creare [piani di ripristino](site-recovery-create-recovery-plans.md) per il failover di più macchine virtuali.
 3. Quando si esegue un failover, vengono create VM di replica in Azure. Si esegue il commit di un failover per avviare l'accesso al carico di lavoro dalla VM di Azure di replica.
 4. Quando il sito locale primario è di nuovo disponibile, è possibile effettuare il failback. Si configura un'infrastruttura di failback, si avvia la replica del computer dal sito secondario a quello primario e si esegue un failover non pianificato dal sito secondario. Dopo il commit di questo failover, i dati saranno di nuovo locali e sarà necessario abilitare ancora la replica in Azure. [Altre informazioni](site-recovery-failback-azure-to-vmware.md)
 
 Esistono alcuni requisiti per il failback:
 
-- **Il failback da computer fisico a computer fisico non è supportato**: se si esegue il failover di server fisici in Azure e quindi si vuole eseguire il failback, sarà necessario eseguire il failback in una macchina virtuale VMware. Non è possibile eseguire il failback a un server fisico. È necessaria una VM di Azure a cui eseguire il failback. Se il server di configurazione non è stato distribuito come macchina virtuale VMware, sarà necessario configurare un server di destinazione master separato come macchina virtuale VMware. Questa operazione è necessaria perché il server di destinazione master interagisce e si collega con le risorse di archiviazione VMware per ripristinare i dischi in una macchina virtuale VMware.
+
 - **Server di elaborazione temporaneo in Azure**: se si vuole eseguire il failback da Azure dopo il failover, è necessario impostare una VM di Azure configurata come server di elaborazione per gestire la replica da Azure. Questa VM può essere eliminata al termine del failback.
 - **Connessione VPN**: per eseguire il failback è necessaria una connessione VPN, oppure Azure ExpressRoute, configurata dalla rete di Azure al sito locale.
 - **Server di destinazione master locale distinto**: il server di destinazione master locale gestisce il failback. Il server di destinazione master viene installato per impostazione predefinita nel server di gestione, ma se si esegue il failback di volumi di traffico più grandi, è consigliabile configurare un server di destinazione master locale distinto a questo scopo.
@@ -98,53 +85,28 @@ Esistono alcuni requisiti per il failback:
 
 ![Failback](./media/site-recovery-components/enhanced-failback.png)
 
+## <a name="physical-server-replication-to-azure"></a>Replica di server fisici in Azure
 
-## <a name="replicate-vmware-vmsphysical-servers-to-a-secondary-site"></a>Replicare VM VMware/server fisici in un sito secondario
+Anche questo scenario di replica usa gli stessi componenti e lo stesso processo della replica [VMware in Azure](#vmware-replication-to-azure), ma con le differenze seguenti:
 
-### <a name="components"></a>Componenti
+- È possibile usare un server fisico per il server di configurazione, anziché una VM VMware.
+- Sarà necessaria un'infrastruttura VMware locale per il failback. Non è possibile eseguire il failback a un computer fisico.
 
-**Componente** | **Dettagli**
---- | ---
-**Azzurro** | Questo scenario viene distribuito con InMage Scout. Per ottenerlo, è necessario avere una sottoscrizione di Azure.<br/><br/> Dopo aver creato un insieme di credenziali di Servizi di ripristino, scaricare InMage Scout e installare gli aggiornamenti più recenti per configurare la distribuzione.
-**Server di elaborazione** | Si distribuisce il componente del server di elaborazione nel sito primario per gestire la memorizzazione nella cache, la compressione e l'ottimizzazione dei dati.<br/><br/> Gestisce anche l'installazione push di Unified Agent nei computer da proteggere.
-**Server VMware ESX/ESXi e vCenter** |  È necessaria un'infrastruttura VMware per replicare le VM VMware.
-**VM/server fisici** |  Si installa Unified Agent nelle VM VMware o nei server fisici Windows/Linux da replicare.<br/><br/> L'agente funge da provider di comunicazioni tra tutti i componenti.
-**Server di configurazione** | Il server di configurazione viene installato nel sito secondario per gestire, configurare e monitorare la distribuzione usando il sito Web di gestione o la console vContinuum.
-**Server vContinuum** | Installato nella stessa posizione del server di configurazione.<br/><br/> Fornisce una console per la gestione e il monitoraggio dell'ambiente protetto.
-**Server di destinazione master (sito secondario)** | Questo server contiene i dati replicati. Riceve i dati dal server di elaborazione e crea un computer di replica nel sito secondario e include i punti di conservazione dei dati.<br/><br/> Il numero di server di destinazione master necessari dipende dal numero di computer da proteggere.<br/><br/> Se si vuole eseguire il failback al sito primario, deve essere disponibile anche un server di destinazione master. Unified Agent viene installato in questo server.
+## <a name="hyper-v-replication-to-azure"></a>Replica Hyper-V in Azure
+
+**Area** | **Componente** | **Dettagli**
+--- | --- | ---
+**Azzurro** | In Azure sono necessari un account Microsoft Azure, un account di archiviazione di Azure e una rete di Azure. | La risorsa di archiviazione e la rete possono essere account basati su Resource Manager o classici.<br/><br/> I dati replicati vengono salvati nell'account di archiviazione e,quando si verifica un failover dal sito locale, vengono create VM di Azure con i dati replicati.<br/><br/> Le VM di Azure si connettono alla rete virtuale di Azure quando vengono create.
+**Server VMM** | Host Hyper-V situati in cloud VMM | Se gli host Hyper-V sono gestiti in cloud VMM, il server VMM viene registrato nell'insieme di credenziali di Servizi di ripristino.<br/><br/> Nel server VMM è necessario installare il provider di Site Recovery per orchestrare la replica con Azure.<br/><br/> È necessaria la configurazione di reti logiche e VM per configurare il mapping di rete. È necessario che una rete VM sia collegata a una rete logica associata al cloud.
+**Host Hyper-V** | I server Hyper-V possono essere distribuiti con o senza server VMM. | In assenza di un server VMM, il provider di Site Recovery è installato nell'host per orchestrare la replica con Site Recovery tramite Internet. Se è presente un server VMM, il provider è installato in esso e non nell'host.<br/><br/> L'agente di Servizi di ripristino viene installato nell'host per gestire la replica dei dati.<br/><br/> Le comunicazioni dal provider e dall'agente sono protette e crittografate. I dati replicati nell'archiviazione di Azure vengono anche crittografati.
+**VM Hyper-V** | È necessaria una o più macchine virtuali nel server host Hyper-V. | Non è necessario installare esplicitamente alcun componente nelle macchine virtuali.
+
 
 ### <a name="replication-process"></a>Processo di replica
 
-1. Configurare i server del componente in ogni sito, ovvero configurazione, elaborazione, destinazione master, e installare Unified Agent nei computer da replicare.
-2. Dopo la replica iniziale, l'agente installato in ogni computer invia le modifiche della replica differenziale al server di elaborazione.
-3. Il server di elaborazione ottimizza i dati e li trasferisce nel server di destinazione master nel sito secondario. Il server di configurazione gestisce il processo di replica.
-
-**Figura 4: Replica da VMware a VMware**
-
-![Da VMware a VMware](./media/site-recovery-components/vmware-to-vmware.png)
-
-
-
-## <a name="replicate-hyper-v-vms-to-azure"></a>Replicare VM Hyper-V in Azure
-
-
-### <a name="components"></a>Componenti
-
-**Componente** | **Dettagli**
---- | ---
-
-**Azure** |In Azure sono necessari un account Microsoft Azure, un account di archiviazione di Azure e una rete di Azure.<br/><br/> La risorsa di archiviazione e la rete possono essere account basati su Resource Manager o classici.<br/><br/> I dati replicati vengono salvati nell'account di archiviazione e,quando si verifica un failover dal sito locale, vengono create VM di Azure con i dati replicati.<br/><br/> Le VM di Azure si connettono alla rete virtuale di Azure quando vengono create.
-**Server VMM** | Se gli host Hyper-V si trovano in cloud VMM, sono necessarie reti logiche e VM impostate per configurare il mapping di rete. È necessario che una rete VM sia collegata a una rete logica associata al cloud.
-**Host Hyper-V** | È necessario uno o più server host Hyper-V.
-**Macchine virtuali Hyper-V** | Sono necessarie una o più macchine virtuali nel server host Hyper-V. Il provider in esecuzione nell'host Hyper-V coordina e orchestra la replica con il servizio Site Recovery su Internet. L'agente gestisce i dati di replica tramite HTTPS 443. Le comunicazioni dal provider e dall'agente sono protette e crittografate. I dati replicati nell'archiviazione di Azure vengono anche crittografati.
-
-
-## <a name="replication-process"></a>Processo di replica
-
 1. Si configurano i componenti di Azure. È consigliabile configurare gli account di archiviazione e di rete prima di iniziare la distribuzione di Site Recovery.
 2. Si crea un insieme di credenziali dei servizi di replica per Site Recovery e si configurano le impostazioni dell'insieme di credenziali, tra cui:
-    - Se non si gestiscono gli host Hyper-V in un cloud VMM, si crea un contenitore del sito Hyper-V a cui si aggiungono gli host Hyper-V.
-    - L'origine e la destinazione della replica. Se gli host Hyper-V vengono gestiti in VMM, l'origine è il cloud VMM. In caso contrario, l'origine è il sito Hyper-V.
+    - Impostazioni di origine e di destinazione. Se non si gestiscono gli host Hyper-V in un cloud VMM, per la destinazione si crea un contenitore del sito Hyper-V a cui si aggiungono gli host Hyper-V. Se gli host Hyper-V vengono gestiti in VMM, l'origine è il cloud VMM. La destinazione è Azure.
     - Installazione del provider di Azure Site Recovery e dell'agente Servizi di ripristino di Microsoft Azure. Il provider verrà installato in VMM, se disponibile, e l'agente in ogni host Hyper-V. Se non si ha VMM, sia il provider che l'agente vengono installati in ogni host.
     - Si crea un criterio di replica per il sito Hyper-V o per il cloud VMM. Il criterio viene applicato a tutte le VM negli host del sito o del cloud.
     - Si abilita la replica per le VM Hyper-V. La replica iniziale viene eseguita in base alle impostazioni del criterio di replica.
@@ -157,30 +119,64 @@ Esistono alcuni requisiti per il failback:
 2. È possibile effettuare il failover di un solo computer o creare [piani di ripristino](site-recovery-create-recovery-plans.md) per orchestrare il failover di più computer.
 4. Dopo avere eseguito il failover, le VM di replica create verranno visualizzate in Azure. È possibile assegnare un indirizzo IP pubblico alla VM, se necessario.
 5. Si esegue quindi il commit del failover per avviare l'accesso al carico di lavoro dalla VM di Azure di replica.
-6. Quando il sito locale primario è di nuovo disponibile, è possibile effettuare il failback. Si avvia un failover pianificato da Azure al sito primario. Per un failover pianificato è possibile scegliere di effettuare il failback nella stessa VM o in una posizione alternativa e di sincronizzare le modifiche tra Azure e l'ambiente locale, per evitare perdite di dati. Quando le VMs vengono create in locale, si esegue il commit del failover.
+6. Quando il sito locale primario è di nuovo disponibile, è possibile [effettuare il failback](site-recovery-failback-from-azure-to-hyper-v.md). Si avvia un failover pianificato da Azure al sito primario. Per un failover pianificato è possibile scegliere di effettuare il failback nella stessa VM o in una posizione alternativa e di sincronizzare le modifiche tra Azure e l'ambiente locale, per evitare perdite di dati. Quando le VMs vengono create in locale, si esegue il commit del failover.
 
-**Figura 5: Replica dal sito Hyper-V ad Azure**
+**Figura 4: Replica dal sito Hyper-V ad Azure**
 
 ![Componenti](./media/site-recovery-components/arch-onprem-azure-hypervsite.png)
 
-**Figura 6: Replica da Hyper-V nei cloud VMM ad Azure**
+**Figura 5: Replica da Hyper-V nei cloud VMM ad Azure**
 
 ![Componenti](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
 
 
+## <a name="replication-to-a-secondary-site"></a>Replica in un sito secondario
 
-## <a name="replicate-hyper-v-vms-to-a-secondary-site"></a>Replicare le VM Hyper-V in un sito secondario
+È possibile replicare gli elementi seguenti in un sito secondario:
+
+- **VMware**: macchine virtuali VMware locali in esecuzione in un [host supportato](site-recovery-support-matrix-to-sec-site.md#on-premises-servers). È possibile replicare macchine virtuali VMware che eseguono i [sistemi operativi supportati](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions).
+- **Macchine fisiche**: server fisici locali che eseguono Windows o Linux nei [sistemi operativi supportati](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions).
+- **Hyper-V**: macchine virtuali Hyper-V locali in esecuzione negli [host Hyper-V supportati](site-recovery-support-matrix-to-sec-site.md#on-premises-servers) gestiti in cloud VMM. [host supportati](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers). È possibile replicare macchine virtuali Hyper-V che eseguono qualsiasi sistema operativo guest [supportato da Hyper-V e Azure](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
+
+
+## <a name="vmware-vmphysical-server-replication-to-a-secondary-site"></a>Replica di VM VMware/server fisici in un sito secondario
 
 ### <a name="components"></a>Componenti
 
-**Componente** | **Dettagli**
---- | ---
-**Account di Azure** | È necessario un account Microsoft Azure.
-**Server VMM** | È consigliabile distribuire un server VMM in un sito primario e uno nel sito secondario, connessi a Internet.<br/><br/> Ogni server deve avere almeno un cloud privato VMM, con il profilo funzionalità di Hyper-V impostato.<br/><br/> Il provider di Azure Site Recovery viene installato nel server VMM. Il provider coordina e orchestra la replica con il servizio Site Recovery su Internet. Le comunicazioni tra il provider e Azure sono protette e crittografate.
-**Server Hyper-V** |  È necessario uno o più server host Hyper-V nei cloud VMM primario e secondario. I server devono essere connessi a Internet.<br/><br/> I dati vengono replicati tra il server host Hyper-V primario e secondario su LAN o VPN usando l'autenticazione Kerberos o del certificato.  
-**Computer di origine** | Il server host Hyper-V di origine deve avere almeno una VM che si vuole replicare.
+**Area** | **Componente** | **Dettagli**
+--- | --- | ---
+**Azzurro** | Questo scenario viene distribuito con InMage Scout. | Per ottenere InMage Scout, è necessaria una sottoscrizione di Azure.<br/><br/> Dopo aver creato un insieme di credenziali di Servizi di ripristino, scaricare InMage Scout e installare gli aggiornamenti più recenti per configurare la distribuzione.
+**Server di elaborazione** | Situato nel sito primario | Il server di elaborazione viene distribuito per gestire la memorizzazione nella cache, la compressione e l'ottimizzazione dei dati.<br/><br/> Gestisce anche l'installazione push di Unified Agent nei computer da proteggere.
+**Server di configurazione** | Situato nel sito secondario | Il server di configurazione gestisce, configura e monitora la distribuzione usando il sito Web di gestione o la console vContinuum.
+**Server vContinuum** | Facoltativo. Installato nella stessa posizione del server di configurazione. | Fornisce una console per la gestione e il monitoraggio dell'ambiente protetto.
+**Server master di destinazione** | Situato nel sito secondario | Questo server contiene i dati replicati. Riceve i dati dal server di elaborazione e crea un computer di replica nel sito secondario e include i punti di conservazione dei dati.<br/><br/> Il numero di server di destinazione master necessari dipende dal numero di computer da proteggere.<br/><br/> Se si vuole eseguire il failback al sito primario, deve essere disponibile anche un server di destinazione master. Unified Agent viene installato in questo server.
+**Server VMware ESX/ESXi e vCenter** |  Le macchine virtuali sono ospitate in host ESX/ESXi. Gli host vengono gestiti con un server vCenter. | È necessaria un'infrastruttura VMware per replicare le VM VMware.
+**VM/server fisici** |  Unified Agent installato nei server fisici e nelle macchine virtuali VMware da replicare. | L'agente funge da provider di comunicazioni tra tutti i componenti.
 
-## <a name="replication-process"></a>Processo di replica
+
+### <a name="replication-process"></a>Processo di replica
+
+1. Configurare i server del componente in ogni sito, ovvero configurazione, elaborazione, destinazione master, e installare Unified Agent nei computer da replicare.
+2. Dopo la replica iniziale, l'agente installato in ogni computer invia le modifiche della replica differenziale al server di elaborazione.
+3. Il server di elaborazione ottimizza i dati e li trasferisce nel server di destinazione master nel sito secondario. Il server di configurazione gestisce il processo di replica.
+
+**Figura 6: Replica da VMware a VMware**
+
+![Da VMware a VMware](./media/site-recovery-components/vmware-to-vmware.png)
+
+
+
+## <a name="hyper-v-vm-replication-to-a-secondary-site"></a>Replica di VM Hyper-V in un sito secondario
+
+
+**Area** | **Componente** | **Dettagli**
+--- | --- | ---
+**Azzurro** | È necessario un account Microsoft Azure. |
+**Server VMM** | È consigliabile distribuire un server VMM in un sito primario e uno nel sito secondario. | Ogni server VMM deve essere connesso a Internet.<br/><br/> Ogni server deve avere almeno un cloud privato VMM, con il profilo funzionalità di Hyper-V impostato.<br/><br/> Il provider di Azure Site Recovery viene installato nel server VMM. Il provider coordina e orchestra la replica con il servizio Site Recovery su Internet. Le comunicazioni tra il provider e Azure sono protette e crittografate.
+**Server Hyper-V** |  Uno o più server host Hyper-V nei cloud VMM primario e secondario.<br/><br/> I server devono essere connessi a Internet.<br/><br/> I dati vengono replicati tra il server host Hyper-V primario e secondario su LAN o VPN usando l'autenticazione Kerberos o del certificato.  
+**VM Hyper-V** | Situata nel server host Hyper-V di origine. | Il server host di origine deve avere almeno una VM che si vuole replicare.
+
+### <a name="replication-process"></a>Processo di replica
 
 1. Si configura l'account Azure.
 2. Si crea un insieme di credenziali dei servizi di replica per Site Recovery e si configurano le impostazioni dell'insieme di credenziali, tra cui:
@@ -196,7 +192,7 @@ Esistono alcuni requisiti per il failback:
 
 ![Da sito locale a sito locale](./media/site-recovery-components/arch-onprem-onprem.png)
 
-### <a name="failover-and-failback-process"></a>Processo di failover e failback
+### <a name="failover-and-failback"></a>Failover e failback
 
 1. È possibile eseguire un [failover](site-recovery-failover.md) pianificato o non pianificato tra siti locali. Se si esegue un failover pianificato, le macchine virtuali di origine vengono arrestate per assicurare che non si verifichino perdite di dati.
 2. È possibile effettuare il failover di un solo computer o creare [piani di ripristino](site-recovery-create-recovery-plans.md) per orchestrare il failover di più computer.
@@ -206,7 +202,7 @@ Esistono alcuni requisiti per il failback:
 7. Per rendere di nuovo il sito primario la posizione attiva, occorre avviare un failover pianificato da sito secondario a primario, seguito da un'altra replica inversa.
 
 
-### <a name="hyper-v-replication-workflow"></a>Flusso di lavoro di replica Hyper-V
+## <a name="hyper-v-replication-workflow"></a>Flusso di lavoro di replica Hyper-V
 
 **Fase del flusso di lavoro** | **Azione**
 --- | ---
@@ -220,6 +216,9 @@ Esistono alcuni requisiti per il failback:
 **Figura 8: Flusso di lavoro di Hyper-V**
 
 ![flusso di lavoro](./media/site-recovery-components/arch-hyperv-azure-workflow.png)
+
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

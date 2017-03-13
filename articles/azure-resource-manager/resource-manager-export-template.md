@@ -12,11 +12,12 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/20/2016
+ms.date: 03/03/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 4f1e8850aee2cc9578ce80ceb4a5eecf121c4c60
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: f8512229ee30fee6315d8ba167f1716e40f79b3e
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -36,7 +37,7 @@ In questa esercitazione si esegue l'accesso al portale di Azure, si crea un acco
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Nuovo** > **Risorsa di archiviazione** > **Account di archiviazione**.
    
       ![creare la risorsa di archiviazione](./media/resource-manager-export-template/create-storage.png)
-2. Creare un account di archiviazione usando il nome **storage**, le proprie iniziali e la data. Il nome dell'account di archiviazione deve essere univoco in Azure. Se il nome è già in uso, viene visualizzato un messaggio di errore che indica che il nome è in uso. Provare una variante. Per il gruppo di risorse creare un nuovo gruppo di risorse e denominarlo **ExportGroup**. È possibile usare i valori predefiniti per le altre proprietà. Selezionare **Crea**.
+2. Creare un account di archiviazione usando il nome **storage**, le proprie iniziali e la data. Il nome dell'account di archiviazione deve essere univoco in Azure. Se il nome è già in uso, viene visualizzato un messaggio di errore che indica che il nome è in uso. Provare una variante. Per un gruppo di risorse, selezionare **Crea nuovo** e assegnare il nome **ExportGroup**. È possibile usare i valori predefiniti per le altre proprietà. Selezionare **Crea**.
    
       ![specificare i valori per la risorsa di archiviazione](./media/resource-manager-export-template/provide-storage-values.png)
 
@@ -57,6 +58,7 @@ La distribuzione può richiedere un minuto. Al termine della distribuzione, la s
    1. **Modello** : modello che definisce l'infrastruttura per la soluzione. Quando è stato creato l'account di archiviazione tramite il portale, Resource Manager ha usato un modello per distribuirlo e ha salvato tale modello come riferimento futuro.
    2. **Parametri** : file dei parametri che può essere usato per passare i valori durante la distribuzione. Contiene i valori specificati durante la prima distribuzione, ma è possibile modificare qualsiasi valore durante la ridistribuzione del modello.
    3. **Interfaccia della riga di comando** : file di script dell'interfaccia della riga di comando di Azure che può essere usato per distribuire il modello.
+   3. **Interfaccia della riga di comando 2.0**: file di script dell'interfaccia della riga di comando di Azure che può essere usato per distribuire il modello.
    4. **PowerShell** : file di script di Azure PowerShell che può essere usato per distribuire il modello.
    5. **.NET** : classe .NET che può essere usata per distribuire il modello.
    6. **Ruby** : classe Ruby che può essere usata per distribuire il modello.
@@ -67,48 +69,49 @@ La distribuzione può richiedere un minuto. Al termine della distribuzione, la s
       
       Occorre prestare particolare attenzione al modello. Il modello deve avere un aspetto analogo al seguente:
       
-        {
-      
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {
-            "name": {
-              "type": "String"
-            },
-            "accountType": {
-              "type": "String"
-            },
-            "location": {
-              "type": "String"
-            },
-            "encryptionEnabled": {
-              "defaultValue": false,
-              "type": "Bool"
-            }
+      ```json
+      {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+          "name": {
+            "type": "String"
           },
-          "resources": [
-            {
-              "type": "Microsoft.Storage/storageAccounts",
-              "sku": {
-                "name": "[parameters('accountType')]"
-              },
-              "kind": "Storage",
-              "name": "[parameters('name')]",
-              "apiVersion": "2016-01-01",
-              "location": "[parameters('location')]",
-              "properties": {
-                "encryption": {
-                  "services": {
-                    "blob": {
-                      "enabled": "[parameters('encryptionEnabled')]"
-                    }
-                  },
-                  "keySource": "Microsoft.Storage"
-                }
+          "accountType": {
+            "type": "String"
+          },
+          "location": {
+            "type": "String"
+          },
+          "encryptionEnabled": {
+            "defaultValue": false,
+            "type": "Bool"
+          }
+        },
+        "resources": [
+          {
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+              "name": "[parameters('accountType')]"
+            },
+            "kind": "Storage",
+            "name": "[parameters('name')]",
+            "apiVersion": "2016-01-01",
+            "location": "[parameters('location')]",
+            "properties": {
+              "encryption": {
+                "services": {
+                  "blob": {
+                    "enabled": "[parameters('encryptionEnabled')]"
+                  }
+                },
+                "keySource": "Microsoft.Storage"
               }
             }
-          ]
-        }
+          }
+        ]
+      }
+      ```
 
 Questo è il modello effettivo usato per creare l'account di archiviazione. Si noti che contiene parametri che consentono di distribuire tipi diversi di account di archiviazione. Per altre informazioni sulla struttura del modello, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md). Per l'elenco completo delle funzioni che è possibile usare in un modello, vedere [Funzioni del modello di Azure Resource Manager](resource-group-template-functions.md).
 
@@ -144,25 +147,29 @@ Per ottenere lo stato corrente del gruppo di risorse, esportare un modello che v
    
      Non tutti i tipi di risorse supportano la funzione di esportazione del modello. Se il gruppo di risorse contiene solo l'account di archiviazione e la rete virtuale illustrati in questo articolo, non verranno visualizzati errori. Se invece sono stati creati altri tipi di risorse, è possibile che venga visualizzato un errore che informa di un problema con l'esportazione. Per informazioni su come gestire tali problemi, vedere la sezione [Risolvere i problemi di esportazione](#fix-export-issues) .
 2. Vengono visualizzati di nuovo i sei file che è possibile usare per ridistribuire la soluzione, ma questa volta il modello è leggermente diverso. Questo modello ha solo due parametri, uno per il nome dell'account di archiviazione e uno per il nome della rete virtuale.
-   
-        "parameters": {
-          "virtualNetworks_VNET_name": {
-            "defaultValue": "VNET",
-            "type": "String"
-          },
-          "storageAccounts_storagetf05092016_name": {
-            "defaultValue": "storagetf05092016",
-            "type": "String"
-          }
-        },
+
+  ```json
+  "parameters": {
+    "virtualNetworks_VNET_name": {
+      "defaultValue": "VNET",
+      "type": "String"
+    },
+    "storageAccounts_storagetf05092016_name": {
+      "defaultValue": "storagetf05092016",
+      "type": "String"
+    }
+  },
+  ```
    
      Resource Manager non ha recuperato i modelli usati durante la distribuzione. Ha generato invece un nuovo modello basato sulla configurazione corrente delle risorse. Ad esempio, il modello imposta la posizione dell'account di archiviazione e il valore di replica su:
-   
-        "location": "northeurope",
-        "tags": {},
-        "properties": {
-            "accountType": "Standard_RAGRS"
-        },
+
+  ```json 
+  "location": "northeurope",
+  "tags": {},
+  "properties": {
+    "accountType": "Standard_RAGRS"
+  },
+  ```
 3. Per continuare a usare questo modello, sono disponibili due opzioni. È possibile scaricare il modello e usare un editor JSON per lavorare in locale. In alternativa, è possibile salvare il modello nella libreria e lavorare tramite il portale.
    
      Se si ha familiarità con un editor di JSON come [Visual Studio Code](resource-manager-vs-code.md) o [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), è preferibile scaricare il modello in locale e usare l'editor. Se non si ha familiarità con un editor JSON, è preferibile modificare il modello tramite il portale. Nelle sezioni successive di questo argomento si presuppone che il modello sia stato salvato nella libreria nel portale. Tuttavia, si apportano le stesse modifiche di sintassi al modello lavorando tramite il portale o in locale con un editor di JSON.
@@ -190,88 +197,97 @@ Il modello esportato funziona correttamente se si vuole creare lo stesso account
 
 In questa sezione vengono aggiunti parametri al modello esportato, per poterlo usare di nuovo durante la distribuzione di queste risorse in altri ambienti. Vengono aggiunte anche alcune funzionalità al modello per ridurre la probabilità che si verifichi un errore durante la distribuzione del modello. Non è più necessario cercare di specificare un nome univoco per l'account di archiviazione. Il nome univoco viene invece creato dal modello. È possibile limitare i valori che possono essere specificati per il tipo di account di archiviazione, consentendo solo le opzioni valide.
 
-1. Selezionare **Modifica** per personalizzare il modello.
+1. Per personalizzare il modello, selezionare **Modifica**.
    
      ![visualizzare il modello](./media/resource-manager-export-template/show-template.png)
 2. Selezionare il modello.
    
      ![modificare un modello](./media/resource-manager-export-template/edit-template.png)
 3. Per poter passare i valori da specificare durante la distribuzione, sostituire la sezione **parameters** con le nuove definizioni dei parametri. Si notino i valori di **allowedValues** per **storageAccount_accountType**. Se si specifica accidentalmente un valore non corretto, l'errore viene riconosciuto prima dell'avvio della distribuzione. Si noti anche che si sta specificando solo un prefisso per il nome dell'account di archiviazione e che il prefisso è limitato a 11 caratteri. La limitazione del prefisso a 11 caratteri fa in modo che il nome completo non superi il numero massimo di caratteri per un account di archiviazione. Il prefisso consente di applicare una convenzione di denominazione agli account di archiviazione. Nel passaggio successivo verrà illustrato come creare un nome univoco.
-   
-        "parameters": {
-          "storageAccount_prefix": {
-            "type": "string",
-            "maxLength": 11
-          },
-          "storageAccount_accountType": {
-            "defaultValue": "Standard_RAGRS",
-            "type": "string",
-            "allowedValues": [
-              "Standard_LRS",
-              "Standard_ZRS",
-              "Standard_GRS",
-              "Standard_RAGRS",
-              "Premium_LRS"
-            ]
-          },
-          "virtualNetwork_name": {
-            "type": "string"
-          },
-          "addressPrefix": {
-            "defaultValue": "10.0.0.0/16",
-            "type": "string"
-          },
-          "subnetName": {
-            "defaultValue": "subnet-1",
-            "type": "string"
-          },
-          "subnetAddressPrefix": {
-            "defaultValue": "10.0.0.0/24",
-            "type": "string"
-          }
-        },
+
+  ```json
+  "parameters": {
+    "storageAccount_prefix": {
+      "type": "string",
+      "maxLength": 11
+    },
+    "storageAccount_accountType": {
+      "defaultValue": "Standard_RAGRS",
+      "type": "string",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_ZRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Premium_LRS"
+      ]
+    },
+    "virtualNetwork_name": {
+      "type": "string"
+    },
+    "addressPrefix": {
+      "defaultValue": "10.0.0.0/16",
+      "type": "string"
+    },
+    "subnetName": {
+      "defaultValue": "subnet-1",
+      "type": "string"
+    },
+    "subnetAddressPrefix": {
+      "defaultValue": "10.0.0.0/24",
+      "type": "string"
+    }
+  },
+  ```
+
 4. La sezione **variables** del modello è attualmente vuota. La sezione **variables** consente di creare valori che semplificano la sintassi per il resto del modello. Sostituire questa sezione con una nuova definizione di variabile. La variabile **storageAccount_name** consente di concatenare il prefisso del parametro a una stringa univoca generata in base all'identificatore del gruppo di risorse. Non è necessario cercare di specificare un nome univoco quando si fornisce un valore di parametro.
-   
-        "variables": {
-          "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
-        },
+
+  ```json
+  "variables": {
+    "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
+  },
+  ```
+
 5. Per usare i parametri e la variabile nelle definizioni delle risorse, sostituire la sezione **resources** con le nuove definizioni seguenti. Si noti che sono state apportate poche modifiche alle definizioni delle risorse. Sono stati essenzialmente modificati i valori assegnati alle proprietà delle risorse. Le proprietà sono uguali alle proprietà del modello esportato. Si stanno semplicemente assegnando proprietà a valori di parametro, anziché a valori hardcoded. La posizione delle risorse viene impostata in modo da usare la stessa località del gruppo di risorse con l'espressione **resourceGroup().location**. L'espressione **variables** consente di fare riferimento alla variabile creata per il nome dell'account di archiviazione.
-   
-        "resources": [
+
+  ```json
+  "resources": [
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "name": "[parameters('virtualNetwork_name')]",
+      "apiVersion": "2015-06-15",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('addressPrefix')]"
+          ]
+        },
+        "subnets": [
           {
-            "type": "Microsoft.Network/virtualNetworks",
-            "name": "[parameters('virtualNetwork_name')]",
-            "apiVersion": "2015-06-15",
-            "location": "[resourceGroup().location]",
+            "name": "[parameters('subnetName')]",
             "properties": {
-              "addressSpace": {
-                "addressPrefixes": [
-                  "[parameters('addressPrefix')]"
-                ]
-              },
-              "subnets": [
-                {
-                  "name": "[parameters('subnetName')]",
-                  "properties": {
-                    "addressPrefix": "[parameters('subnetAddressPrefix')]"
-                  }
-                }
-              ]
-            },
-            "dependsOn": []
-          },
-          {
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[variables('storageAccount_name')]",
-            "apiVersion": "2015-06-15",
-            "location": "[resourceGroup().location]",
-            "tags": {},
-            "properties": {
-                "accountType": "[parameters('storageAccount_accountType')]"
-            },
-            "dependsOn": []
+              "addressPrefix": "[parameters('subnetAddressPrefix')]"
+            }
           }
         ]
+      },
+      "dependsOn": []
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccount_name')]",
+      "apiVersion": "2015-06-15",
+      "location": "[resourceGroup().location]",
+      "tags": {},
+      "properties": {
+        "accountType": "[parameters('storageAccount_accountType')]"
+      },
+      "dependsOn": []
+    }
+  ]
+  ```
+
 6. Selezionare **OK** una volta terminata la modifica del modello.
 7. Selezionare **Salva** per salvare le modifiche al modello.
    
@@ -286,7 +302,7 @@ Se si lavora con i file scaricati, anziché con la libreria del portale, è nece
 
 Sostituire i contenuti del file parameters.json con:
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
@@ -324,7 +340,7 @@ Questo argomento illustra le correzioni più comuni.
 ### <a name="connection-string"></a>Stringa di connessione
 Nella risorsa dei siti Web aggiungere una definizione per la stringa di connessione al database:
 
-```
+```json
 {
   "type": "Microsoft.Web/sites",
   ...
@@ -350,7 +366,7 @@ Nella risorsa dei siti Web aggiungere una definizione per la stringa di connessi
 ### <a name="web-site-extension"></a>Estensione del sito Web
 Nella risorsa del sito Web aggiungere una definizione per il codice da installare:
 
-```
+```json
 {
   "type": "Microsoft.Web/sites",
   ...
@@ -382,7 +398,7 @@ Per esempi di estensioni macchina virtuale, vedere [Esempi di configurazione del
 ### <a name="virtual-network-gateway"></a>Gateway di rete virtuale
 Aggiungere un tipo di risorsa gateway di rete virtuale.
 
-```
+```json
 {
   "type": "Microsoft.Network/virtualNetworkGateways",
   "name": "[parameters('<gateway-name>')]",
@@ -417,7 +433,7 @@ Aggiungere un tipo di risorsa gateway di rete virtuale.
 ### <a name="local-network-gateway"></a>Gateway di rete locale
 Aggiungere un tipo di risorsa gateway di rete locale.
 
-```
+```json
 {
     "type": "Microsoft.Network/localNetworkGateways",
     "name": "[parameters('<local-network-gateway-name>')]",
@@ -434,7 +450,7 @@ Aggiungere un tipo di risorsa gateway di rete locale.
 ### <a name="connection"></a>Connessione
 Aggiungere un tipo di risorsa connessione.
 
-```
+```json
 {
     "apiVersion": "2015-06-15",
     "name": "[parameters('<connection-name>')]",
@@ -461,10 +477,5 @@ Congratulazioni. Si è appreso come esportare un modello da risorse create nel p
 * È possibile distribuire un modello tramite [PowerShell](resource-group-template-deploy.md), l'[interfaccia della riga di comando di Azure](resource-group-template-deploy-cli.md) o l'[API REST](resource-group-template-deploy-rest.md).
 * Per informazioni su come esportare un modello tramite PowerShell, vedere [Uso di Azure PowerShell con Azure Resource Manager](powershell-azure-resource-manager.md).
 * Per informazioni su come esportare un modello tramite l'interfaccia della riga di comando di Azure, vedere [Usare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Manager](xplat-cli-azure-resource-manager.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

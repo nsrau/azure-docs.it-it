@@ -17,6 +17,7 @@ ms.author: vidarmsft
 translationtype: Human Translation
 ms.sourcegitcommit: 37f795fe59496b0267120537115cf56d44cc5325
 ms.openlocfilehash: 60cde851a466a5b4b0752908f11272eedb246b0a
+ms.lasthandoff: 12/23/2016
 
 ---
 
@@ -177,9 +178,4 @@ Eseguire la procedura seguente per usare .NET allo scopo di avviare un processo 
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Usare l'interfaccia utente di StorSimple Data Manager per la trasformazione dei dati](storsimple-data-manager-ui.md).
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 
