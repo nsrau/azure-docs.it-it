@@ -1,6 +1,6 @@
 ---
 title: Distribuire un cluster per contenitori Docker - Interfaccia della riga di comando di Azure | Documentazione Microsoft
-description: Distribuire un cluster del servizio contenitore di Azure usando la versione 2.0 (anteprima) dell&quot;interfaccia della riga di comando di Azure
+description: Distribuire una soluzione Kubernetes, DC/OS o Docker Swarm nel servizio contenitore di Azure usando l&quot;interfaccia della riga di comando di Azure 2.0
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -14,26 +14,28 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 03/01/2017
 ms.author: saudas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: df916670743158d6a22b3f17343630114584fa08
-ms.openlocfilehash: 65f1c812472f4a3b6d4a4e6fb7666a2c022af102
+ms.sourcegitcommit: 2464901d22bb91cbf396ef60f4bda6d979b578b7
+ms.openlocfilehash: a0cbf24c2e2f1e6f3a1d2097e6146c09b4eee4fe
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="using-the-azure-cli-20-preview-to-create-an-azure-container-service-cluster"></a>Uso dell'anteprima della versione 2.0 dell'interfaccia della riga di comando di Azure per creare un cluster del servizio contenitore di Azure
+# <a name="deploy-a-docker-container-hosting-solution-using-the-azure-cli-20"></a>Distribuire una soluzione di hosting di contenitori Docker usando l'interfaccia della riga di comando di Azure 2.0
 
-Usare i comandi `az acs` nella versione 2.0 dell'interfaccia della riga di comando di Azure (anteprima) per creare e gestire i cluster nel servizio contenitore di Azure. È anche possibile distribuire un cluster del servizio contenitore di Azure usando il [portale di Azure](container-service-deployment.md) o le API del servizio contenitore di Azure.
+Usare i comandi `az acs` nell'interfaccia della riga di comando di Azure 2.0 per creare e gestire i cluster nel servizio contenitore di Azure. È anche possibile distribuire un cluster del servizio contenitore di Azure usando il [portale di Azure](container-service-deployment.md) o le API del servizio contenitore di Azure.
 
 Per informazioni sui comandi `az acs`, passare il parametro `-h` a qualsiasi comando. Ad esempio: `az acs create -h`.
 
 
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per creare un cluster del servizio contenitore di Azure usando la versione 2.0 dell'interfaccia della riga di comando di Azure (anteprima), è necessario:
+Per creare un cluster del servizio contenitore di Azure usando l'interfaccia della riga di comando di Azure 2.0, è necessario:
 * Avere un account Azure ([versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/))
-* Avere installato e configurato l'[interfaccia della riga di comando di Azure versione 2.0 (anteprima)](/cli/azure/install-az-cli2)
+* Avere installato e configurato l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2)
 
 ## <a name="get-started"></a>Introduzione 
 ### <a name="log-in-to-your-account"></a>Accedere all'account
@@ -41,7 +43,7 @@ Per creare un cluster del servizio contenitore di Azure usando la versione 2.0 d
 az login 
 ```
 
-Seguire i prompt per accedere in modo interattivo. Per altri metodi di accesso, vedere [Get started with Azure CLI 2.0 (Preview)](/cli/azure/get-started-with-az-cli2) (Introduzione alla versione 2.0 dell'interfaccia della riga di comando di Azure - Anteprima).
+Seguire i prompt per accedere in modo interattivo. Per altri metodi di accesso, vedere [Get started with Azure CLI 2.0](/cli/azure/get-started-with-az-cli2) (Introduzione all'interfaccia della riga di comando di Azure 2.0).
 
 ### <a name="set-your-azure-subscription"></a>Configurare la sottoscrizione di Azure
 
@@ -74,7 +76,7 @@ Altri input vengono impostati su valori predefiniti, come illustrato nella scher
 
 
 ### <a name="quick-acs-create-using-defaults"></a>Operazione rapida con i valori predefiniti per `acs create`
-Se è disponibile un file di chiave pubblica SSH `id_rsa.pub` nel percorso predefinito o se ne è stato creato uno per [OS X e Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) o [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md), usare un comando simile al seguente:
+Se è disponibile un file di chiave pubblica SSH RSA `id_rsa.pub` nel percorso predefinito o se ne è stato creato uno per [OS X e Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) o [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md), usare un comando simile al seguente:
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789
@@ -143,8 +145,3 @@ Ora che si ha a disposizione un cluster funzionante, vedere i documenti seguenti
 * [Gestione di contenitori tramite l'API REST](container-service-mesos-marathon-rest.md)
 * [Gestione dei contenitori con Docker Swarm](container-service-docker-swarm.md)
 * [Uso del servizio contenitore di Azure e Kubernetes](container-service-kubernetes-walkthrough.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

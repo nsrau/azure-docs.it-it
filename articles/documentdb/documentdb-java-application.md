@@ -16,16 +16,17 @@ ms.workload: data-services
 ms.date: 11/16/2016
 ms.author: denlee
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d8abb90b19fd3b79324209a2418c414e3b6bb301
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 6e315ea33fe4a493f1ab349482f9af3a732b3127
+ms.lasthandoff: 03/08/2017
 
 
 ---
 # <a name="build-a-java-web-application-using-documentdb"></a>Creazione di un'applicazione Web Java con DocumentDB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
-> * [Node.JS](documentdb-nodejs-application.md)
+> * [.NET per MongoDB](documentdb-mongodb-application.md)
+> * [Node.js](documentdb-nodejs-application.md)
 > * [Java](documentdb-java-application.md)
 > * [Python](documentdb-python-application.md)
 > 
@@ -45,7 +46,7 @@ Questa esercitazione illustra come creare un'applicazione di gestione delle atti
 > 
 > 
 
-## <a name="a-idprerequisitesaprerequisites-for-this-java-web-application-tutorial"></a><a id="Prerequisites"></a>Prerequisiti per questa esercitazione sull'applicazione Web Java
+## <a id="Prerequisites"></a>Prerequisiti per questa esercitazione sull'applicazione Web Java
 Prima di iniziare questa esercitazione sullo sviluppo dell’applicazione, è necessario disporre di quanto segue:
 
 * Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -59,14 +60,14 @@ Prima di iniziare questa esercitazione sullo sviluppo dell’applicazione, è ne
 
 Se questi strumenti vengono installati per la prima volta, coreservlets.com fornisce una procedura dettagliata del processo di installazione nella sezione introduttiva dell'articolo relativo all' [esercitazione sull'installazione di TomCat7 e il relativo uso con Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) .
 
-## <a name="a-idcreatedbastep-1-create-a-documentdb-database-account"></a><a id="CreateDB"></a>Passaggio 1: Creare un account del database DocumentDB
+## <a id="CreateDB"></a>Passaggio 1: Creare un account del database DocumentDB
 Il primo passaggio consiste nella creazione di un account DocumentDB. Se si ha già un account o si usa l'emulatore DocumentDB per questa esercitazione, è possibile proseguire con il [Passaggio 2: Creare l'applicazione Java JSP](#CreateJSP).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 [!INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-## <a name="a-idcreatejspastep-2-create-the-java-jsp-application"></a><a id="CreateJSP"></a>Passaggio 2: Creare l'applicazione Java JSP
+## <a id="CreateJSP"></a>Passaggio 2: Creare l'applicazione Java JSP
 Per creare l'applicazione JSP:
 
 1. Iniziare innanzitutto con la creazione di un progetto Java. Avviare Eclipse, quindi fare clic su **File**, **New** (Nuovo) e quindi su **Dynamic Web Project** (Progetto Web dinamico). Se **Dynamic Web Project** (Progetto Web dinamico) non è presente nell'elenco dei progetti disponibili, seguire questa procedura: fare clic su **File**, su **New** (Nuovo) e su **Project** (Progetto), espandere **Web**, fare clic su **Dynamic Web Project** (Progetto Web dinamico), quindi selezionare **Next** (Avanti).
@@ -88,7 +89,7 @@ Per creare l'applicazione JSP:
    
     ![Esercitazione sull’applicazione Java - Hello World](./media/documentdb-java-application/image12.png)
 
-## <a name="a-idinstallsdkastep-3-install-the-documentdb-java-sdk"></a><a id="InstallSDK"></a>Passaggio 3: Installazione di DocumentDB Java SDK
+## <a id="InstallSDK"></a>Passaggio 3: Installazione di DocumentDB Java SDK
 Il modo più semplice per inserire DocumentDB Java SDK e le relative dipendenze è tramite [Apache Maven](http://maven.apache.org/).
 
 A tale scopo, sarà necessario convertire il progetto in un progetto Maven completando i passaggi seguenti:
@@ -115,7 +116,7 @@ A tale scopo, sarà necessario convertire il progetto in un progetto Maven compl
 6. Fare clic su **OK** e Maven installerà DocumentDB Java SDK.
 7. Salvare il file pom.xml.
 
-## <a name="a-iduseserviceastep-4-using-the-documentdb-service-in-a-java-application"></a><a id="UseService"></a>Passaggio 4: Uso del servizio DocumentDB in un'applicazione Java
+## <a id="UseService"></a>Passaggio 4: Uso del servizio DocumentDB in un'applicazione Java
 1. Definire innanzitutto l'oggetto TodoItem:
    
         @Data
@@ -349,7 +350,7 @@ A tale scopo, sarà necessario convertire il progetto in un progetto Maven compl
             return true;
         }
 
-## <a name="a-idwireastep-5-wiring-the-rest-of-the-of-java-application-development-project-together"></a><a id="Wire"></a>Passaggio 5: Collegare il resto del progetto di sviluppo dell'applicazione Java
+## <a id="Wire"></a>Passaggio 5: Collegare il resto del progetto di sviluppo dell'applicazione Java
 Dopo aver completato questi passaggi, è necessario creare un'interfaccia utente intuitiva e collegarla all'oggetto DAO.
 
 1. Creare innanzitutto un controller per la chiamata dell'oggetto DAO:
@@ -721,7 +722,7 @@ Dopo aver completato questi passaggi, è necessario creare un'interfaccia utente
 5. A questo punto, è necessario testare l'applicazione. Eseguire l'applicazione in locale e aggiungere alcuni elementi Todo specificando i valori relativi al nome e alla categoria dell'elemento e selezionando **Add Task** (Aggiungi attività).
 6. Quando l'elemento viene visualizzato, è possibile aggiornarne lo stato attivando o disattivando la relativa casella di controllo e facendo clic su **Update Tasks**.
 
-## <a name="a-iddeployastep-6-deploy-your-java-application-to-azure-websites"></a><a id="Deploy"></a>Passaggio 6: Distribuire l'applicazione Java in Siti Web di Azure
+## <a id="Deploy"></a>Passaggio 6: Distribuire l'applicazione Java in Siti Web di Azure
 Con Siti Web di Azure la procedura di distribuzione di applicazioni Java è molto semplice e consiste nell'esportazione di un'applicazione come file con estensione war e nel relativo caricamento tramite controllo del codice sorgente, ad esempio GIT, o FTP.
 
 1. Per esportare l'applicazione come un file WAR, fare clic con il pulsante destro del mouse sul progetto in **Project Explorer** (Esplora progetti), fare clic su **Export** (Esporta) e quindi su **WAR File** (File WAR).
@@ -735,7 +736,7 @@ Con Siti Web di Azure la procedura di distribuzione di applicazioni Java è molt
     Dopo aver caricato il file con estensione war nella directory webapps, l'ambiente di runtime identificherà il file aggiunto e lo caricherà automaticamente.
 4. Per visualizzare il prodotto finito, passare a http://YOUR\_SITE\_NAME.azurewebsites.net/azure-documentdb-java-sample/ e iniziare ad aggiungere le attività.
 
-## <a name="a-idgetprojectaget-the-project-from-github"></a><a id="GetProject"></a>Ottenere il progetto da GitHub
+## <a id="GetProject"></a>Ottenere il progetto da GitHub
 Tutti gli esempi in questa esercitazione sono inclusi nel progetto [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) su GitHub. Per importare il progetto todo in Eclipse, assicurarsi di avere il software e le risorse elencate nella sezione [Prerequisiti](#Prerequisites) , quindi eseguire le operazioni seguenti:
 
 1. Installare [Project Lombok](http://projectlombok.org/). Lombok viene usato per generare costruttori, getter e setter nel progetto. Dopo aver scaricato il file lombok.jar, fare doppio clic per installarlo o eseguire l'installazione dalla riga di comando.

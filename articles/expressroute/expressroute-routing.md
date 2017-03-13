@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/27/2017
+ms.date: 03/03/2017
 ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 409f22dcc352aae1af9100bb7a30120ea861009b
-ms.openlocfilehash: 4acca777cb5e34719c9b8ccef09bd04b82f74ce6
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: e678062429605db34c1e6c835841aaf2508d81a3
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -161,6 +162,9 @@ Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate
 | India meridionale |12076:51019 |
 | India occidentale |12076:51018 |
 | India centrale |12076:51017 |
+| **Corea** | |
+| Corea meridionale |12076:51028 |
+| Corea centrale |12076:51029 |
 
 Tutte le route annunciate da Microsoft verranno contrassegnate con il valore della community appropriato. 
 
@@ -212,10 +216,5 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
   * [Creare un circuito ExpressRoute per il modello di distribuzione classica](expressroute-howto-circuit-classic.md) o [Creare e modificare un circuito ExpressRoute usando Azure Resource Manager](expressroute-howto-circuit-arm.md)
   * [Configurare il routing per il modello di distribuzione classica](expressroute-howto-routing-classic.md) o [Configurare il routing per il modello di distribuzione Resource Manager](expressroute-howto-routing-arm.md)
   * [Collegare una rete virtuale classica a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md) o [Collegare una rete virtuale di Azure Resource Manager a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

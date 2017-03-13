@@ -13,16 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/28/2016
+ms.date: 03/01/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 9077746d8ffe968504f1dde90ed5f76dd1facc19
+ms.sourcegitcommit: 00f6b2e60c20eb27771d9d54df63f930ee88a55a
+ms.openlocfilehash: 7427c8126ab73a851bc696d4925366b3b714616d
+ms.lasthandoff: 03/02/2017
 
 
 ---
 # <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows
-Per avviare una sessione di Desktop remoto (RDP), si userà il pulsante **Connetti** nel portale di Azure. Effettuare la connessione alla macchina virtuale, quindi accedere al sistema.
+Per avviare una sessione di Desktop remoto (RDP) da un desktop di Windows, sarà necessario usare il pulsante **Connetti** nel portale di Azure. Effettuare la connessione alla macchina virtuale, quindi accedere al sistema.
+
+Se si sta tentando di effettuare la connessione a una macchina virtuale Windows da un Mac, è necessario installare un client RDP per Mac come [Desktop remoto Microsoft](https://itunes.apple.com/app/microsoft-remote-desktop/id715768417).
 
 ## <a name="connect-to-the-virtual-machine"></a>Connettersi alla macchina virtuale
 1. Accedere al [portale di Azure](https://portal.azure.com/), se questa operazione non è già stata eseguita.
@@ -42,10 +45,5 @@ Per avviare una sessione di Desktop remoto (RDP), si userà il pulsante **Connet
 
 ## <a name="next-steps"></a>Passaggi successivi
 In caso di problemi quando si cerca di eseguire la connessione, vedere [Risolvere i problemi di connessioni Desktop remoto](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). In questo articolo viene illustrato come diagnosticare e risolvere i problemi più comuni.
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

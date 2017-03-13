@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 02/21/2017
+ms.date: 03/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: dcd7836f1ef84bbf7f45f1a70da1e177d9913a36
-ms.openlocfilehash: 345e5516be0c4de56c0cb104b1a598cd964b41d2
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: b1bbe3a43d071b452b7b60e1c56571958b444237
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -129,8 +129,8 @@ Per avviare le attività iniziali, scegliere la modalità di distribuzione di Si
 ## <a name="step-1-choose-your-protection-goals"></a>Passaggio 1: Scegliere gli obiettivi della protezione
 Selezionare gli elementi da replicare e la posizione in cui eseguire la replica.
 
-1. Nel pannello **Insiemi di credenziali dei servizi di ripristino** selezionare l'insieme di credenziali e fare clic su **Impostazioni**.
-2. In **Attività iniziali** fare clic su **Site Recovery** > **Passaggio 1: Preparare l'infrastruttura** > **Obiettivo di protezione**.
+1. Nel pannello **Insiemi di credenziali dei servizi di ripristino** selezionare l'insieme di credenziali.
+2. In **Introduzione** fare clic su **Site Recovery** > **Passaggio 1: Preparare l'infrastruttura** > **Obiettivo di protezione**.
 
     ![Scegliere gli obiettivi](./media/site-recovery-vmm-to-azure/choose-goals.png)
 3. In **Obiettivo di protezione** selezionare **In Azure** e scegliere **Sì, con Hyper-V**. Selezionare **Sì** per confermare l'uso di VMM per la gestione degli host Hyper-V e del sito di ripristino. Fare quindi clic su **OK**.
@@ -143,17 +143,17 @@ Installare il provider di Azure Site Recovery nel server VMM e registrare il ser
 1. Fare clic su **Passaggio 2: Preparare l'infrastruttura** > **Origine**.
 
     ![Impostare l'origine](./media/site-recovery-vmm-to-azure/set-source1.png)
-    
+
 2. In **Prepara origine** fare clic su **+ VMM** per aggiungere un server VMM.
 
     ![Impostare l'origine](./media/site-recovery-vmm-to-azure/set-source2.png)
-    
+
 3. Nel pannello **Aggiungi server** verificare che in **Tipo di server** sia visualizzato **System Center VMM server** (Server System Center VMM) e che il server VMM sia conforme a [prerequisiti e requisiti URL](#on-premises-prerequisites).
 4. Scaricare il file di installazione del provider di Azure Site Recovery.
 5. Scaricare la chiave di registrazione, che sarà necessaria durante l'installazione. La chiave è valida per cinque giorni dal momento in cui viene generata.
 
     ![Impostare l'origine](./media/site-recovery-vmm-to-azure/set-source3.png)
-    
+
 6. Installare il provider di Azure Site Recovery nel server VMM.
 
 ### <a name="set-up-the-azure-site-recovery-provider"></a>Configurare il provider di Azure Site Recovery
@@ -180,7 +180,7 @@ Installare il provider di Azure Site Recovery nel server VMM e registrare il ser
 9. Abilitare **Sincronizza i metadati cloud** per sincronizzare i metadati relativi a tutti i cloud presenti nel server VMM con l'insieme di credenziali. È necessario eseguire questa azione solo una volta in ogni server. Se non si vogliono sincronizzare tutti i cloud, è possibile lasciare deselezionata questa opzione e sincronizzare ogni cloud singolarmente nelle proprietà del cloud nella console VMM. Fare clic su **Register** per completare il processo.
 
     ![Server registration](./media/site-recovery-vmm-to-azure/provider16.PNG)
-10. Verrà avviata la registrazione. Al termine della registrazione, il server viene visualizzato nel pannello **Impostazioni** > **Server** nell'insieme di credenziali.
+10. Verrà avviata la registrazione. Al termine della registrazione, il server verrà visualizzato in **Infrastruttura di Site Recovery** >  **Server VMM**.
 
 #### <a name="command-line-installation-for-the-azure-site-recovery-provider"></a>Installazione dalla riga di comando per il provider di Azure Site Recovery
 Il provider di Azure Site Recovery può essere installato dalla riga di comando. Questo metodo può essere usato per installare il provider in un Server Core per Windows Server 2012 R2.
@@ -266,7 +266,7 @@ Specificare l'account di archiviazione di Azure da usare per la replica e la ret
 
 Per configurare il mapping, procedere come segue:
 
-1. In **Impostazioni** > **Infrastruttura di Site Recovery** > **Mapping di rete** > **Mapping di rete** fare clic sull'icona **+Mapping di rete**.
+1. In **Infrastruttura di Site Recovery** > **Mapping di rete** > **Mapping di rete** fare clic sull'icona **+Mapping di rete**.
 
     ![Mapping di rete](./media/site-recovery-vmm-to-azure/network-mapping1.png)
 2. In **Aggiungi mapping di rete** selezionare il server VMM di origine e **Azure** come destinazione.
@@ -295,7 +295,7 @@ Quando ha inizio il mapping di rete vengono eseguite le operazioni seguenti:
 7. In **Crittografare i dati archiviati in Azure**specificare se crittografare i dati inattivi in Archiviazione di Azure. Fare quindi clic su **OK**.
 
     ![Criteri di replica](./media/site-recovery-vmm-to-azure/gs-replication2.png)
-8. Quando si creano nuovi criteri, questi vengono associati automaticamente al cloud VMM. Fare clic su **OK**. È possibile associare altri cloud VMM, e le VM che contengono, a questi criteri di replica in **Impostazioni** > Replica**> nome dei criteri > **Associate VMM Cloud** (Associa cloud VMM)**.
+8. Quando si creano nuovi criteri, questi vengono associati automaticamente al cloud VMM. Fare clic su **OK**. È possibile associare altri cloud VMM (e le VM in essi contenute) a questi criteri di replica in **Replica** > nome del criterio > **Associate VMM Cloud (Associa cloud VMM)**.
 
     ![Criteri di replica](./media/site-recovery-vmm-to-azure/policy-associate.png)
 
@@ -375,16 +375,16 @@ Per abilitare la replica, procedere come descritto di seguito.
     >
 
 
-8. In **Impostazioni della replica** > **Configurare le impostazioni di replica** selezionare i criteri di replica da applicare per le VM protette. Fare quindi clic su **OK**. È possibile modificare i criteri di replica in **Impostazioni** > **Criteri di replica** > nome dei criteri > **Modifica impostazioni**. Le modifiche applicate vengono usate per i computer di cui è già in corso la replica e per i nuovi computer.
+8. In **Impostazioni della replica** > **Configurare le impostazioni di replica** selezionare i criteri di replica da applicare per le VM protette. Fare quindi clic su **OK**. È possibile modificare i criteri di replica in **Criteri di replica** > nome del criterio > **Modifica impostazioni**. Le modifiche applicate vengono usate per i computer di cui è già in corso la replica e per i nuovi computer.
 
    ![Abilitare la replica](./media/site-recovery-vmm-to-azure/enable-replication7.png)
 
-È possibile tenere traccia dello stato del processo **Abilita protezione** in **Impostazioni** > **Processi** > **Processi di Site Recovery**. Dopo l'esecuzione del processo **Finalizza protezione** la macchina virtuale è pronta per il failover.
+È possibile tenere traccia dello stato del processo **Abilita protezione** in **Processi** > **Processi di Site Recovery**. Dopo l'esecuzione del processo **Finalizza protezione** la macchina virtuale è pronta per il failover.
 
 ### <a name="view-and-manage-vm-properties"></a>Visualizzare e gestire le proprietà della macchina virtuale
 È consigliabile verificare le proprietà del computer di origine. Tenere presente che il nome della VM di Azure deve essere conforme ai [requisiti delle macchine virtuali di Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
-1. Fare clic su **Impostazioni** > **Elementi protetti** > **Elementi replicati** e selezionare la macchina per visualizzarne i dettagli.
+1. In **Elementi protetti** fare clic su **Elementi replicati** e selezionare il computer per visualizzarne i dettagli.
 
     ![Abilitare la replica](./media/site-recovery-vmm-to-azure/vm-essentials.png)
 2. In **Proprietà** sono disponibili le informazioni su replica e failover per la VM.
@@ -438,10 +438,10 @@ Per accedere a una macchina virtuale di Azure che esegue Linux dopo il failover 
 ## <a name="step-7-test-your-deployment"></a>Passaggio 7: Testare la distribuzione
 Per testare la distribuzione è possibile eseguire un failover di test per una singola macchina virtuale o un piano di ripristino che contenga una o più macchine virtuali.
 
-1. Per eseguire il failover di una VM, in **Impostazioni** > **Elementi replicati** fare clic sulla VM e quindi su **+Failover di test**.
-1. Per eseguire il failover di un piano di ripristino, in **Impostazioni** > **Piani di ripristino** fare clic con il pulsante destro del mouse sul piano e quindi scegliere **Failover di test**. Per creare un piano di ripristino, [seguire queste istruzioni](site-recovery-create-recovery-plans.md).
+1. Per eseguire il failover di una VM, in **Elementi replicati** fare clic sulla VM e quindi su **+Failover di test**.
+1. Per eseguire il failover di un piano di ripristino, in **Piani di ripristino** fare clic con il pulsante destro del mouse sul piano e quindi su **Failover di test**. Per creare un piano di ripristino, [seguire queste istruzioni](site-recovery-create-recovery-plans.md).
 1. In **Failover di test** selezionare la rete di Azure a cui dovranno connettersi le VM di Azure dopo il failover.
-1. Fare clic su **OK** per iniziare il failover. Per tenere traccia dello stato del processo, fare clic sulla VM per visualizzarne le proprietà oppure sul processo **Failover di test** in **Impostazioni** > **Processi di Site Recovery**.
+1. Fare clic su **OK** per iniziare il failover. Per tenere traccia dello stato del processo, fare clic sulla VM per visualizzarne le proprietà oppure sul processo **Failover di test** in **Processi di Site Recovery**.
 1. Al termine del failover sarà possibile visualizzare la macchina virtuale di Azure di replica in **Macchine virtuali** nel portale di Azure. Assicurarsi che la VM sia delle dimensioni appropriate, che sia connessa alla rete giusta e che sia in esecuzione.
 1. Se sono state [preparate le connessioni dopo il failover](#prepare-to-connect-to-Azure-VMs-after-failover), sarà possibile connettersi alla VM di Azure.
 1. Al termine, fare clic su **Cleanup test failover** (Pulizia failover di test) nel piano di ripristino. Fare clic su **Note** per registrare e salvare eventuali osservazioni associate al failover di test. Verranno eliminate le macchine virtuali create durante il failover di test.
@@ -454,9 +454,9 @@ Per monitorare le impostazioni di configurazione, lo stato e l'integrità della 
 1. Fare clic sul nome dell'insieme di credenziali per accedere al dashboard **Informazioni di base** . In questo dashboard è possibile visualizzare i processi di Site Recovery, lo stato della replica, i piani di ripristino, l'integrità del server e gli eventi.  Il dashboard **Informazioni di base** può essere personalizzato con i riquadri e i layout più utili all'utente, incluso lo stato degli insiemi di credenziali di Backup e di Site Recovery.
 
     ![Informazioni di base](./media/site-recovery-vmm-to-azure/essentials.png)
-2. In *Integrità* è possibile monitorare i problemi sui server locali (VMM o server di configurazione) e gli eventi generati da Site Recovery nelle ultime 24 ore.
-3. È possibile gestire e monitorare la replica nei riquadri **Elementi replicati**, **Piani di ripristino** e **Processi di Site Recovery**. Per eseguire il drill-down dei processi, accedere a **Impostazioni** > **Processi** > **Processi di Site Recovery**.
+2. In **Integrità** è possibile monitorare i problemi sui server locali (VMM o server di configurazione) e gli eventi generati da Site Recovery nelle ultime 24 ore.
+3. È possibile gestire e monitorare la replica nei riquadri **Elementi replicati**, **Piani di ripristino** e **Processi di Site Recovery**. Per eseguire il drill-down dei processi, accedere a **Processi** > **Processi di Site Recovery**.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver configurato correttamente la distribuzione, vedere [altre informazioni](site-recovery-failover.md) sui diversi tipi di failover.
+Dopo aver configurato correttamente la distribuzione, leggere [altre informazioni](site-recovery-failover.md) sul failover.
 

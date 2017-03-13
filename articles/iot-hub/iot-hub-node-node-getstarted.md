@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: dobett
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2e4220bedcb0091342fd9386669d523d4da04d1c
-ms.openlocfilehash: 5d005e3259333f79b9b9852e325864745ee54b84
+ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
+ms.openlocfilehash: cae5694bc8189c525c8ae593eda3e51f5636c439
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="get-started-with-azure-iot-hub-node"></a>Introduzione all'hub IoT di Azure per Node.js
+# <a name="connect-your-simulated-device-to-your-iot-hub-using-node"></a>Connettere il dispositivo simulato all'hub IoT usando Node
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 Al termine di questa esercitazione si avranno tre app console Node.js:
@@ -293,9 +295,4 @@ Per informazioni sull'estensione della soluzione IoT e l'elaborazione di messagg
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

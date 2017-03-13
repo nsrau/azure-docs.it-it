@@ -14,29 +14,28 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 03/01/2017
 ms.author: rogardle
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2464c91b99d985d7e626f57b2d77a334ee595f43
-ms.openlocfilehash: 813517a26ccbbd9df7e7fb7de36811cdebb84284
+ms.sourcegitcommit: 31897e11abfe70ed08381f0d13c6bdabe56c28ed
+ms.openlocfilehash: 05ff751255000220be3b59d013b6106473e4732b
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="connect-to-an-azure-container-service-cluster"></a>Connettersi a un cluster del servizio contenitore di Azure
+# <a name="make-a-remote-connection-to-a-kuburnetes-dcos-or-docker-swarm-cluster"></a>Stabilire una connessione remota a un cluster Kuburnetes, DC/OS o Docker Swarm
 Dopo aver creato un cluster del servizio contenitore di Azure è necessario connettersi al cluster per distribuire e gestire i carichi di lavoro. Questo articolo descrive come connettersi alla VM master del cluster da un computer remoto. 
 
 I cluster Kubernetes, DC/OS e Docker Swarm forniscono localmente endpoint HTTP. Per Kubernetes, questo endpoint viene esposto in modo sicuro in Internet ed è possibile accedervi eseguendo lo strumento da riga di comando `kubectl` da qualsiasi computer connesso a Internet. 
 
 Per DC/OS e Docker Swarm è necessario creare un tunnel Secure Shell (SSH) verso un sistema interno. Dopo la creazione del tunnel, è possibile eseguire comandi che usano gli endpoint HTTP e visualizzare l'interfaccia Web del cluster dal sistema locale. 
 
-> [!NOTE]
-> Il supporto per Kubernetes nel servizio contenitore di Azure è attualmente disponibile in anteprima.
->
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un cluster Kubernetes, DC/OS o Swarm [distribuito nel servizio contenitore di Azure](container-service-deployment.md).
-* File di chiave privata SSH, corrispondente alla chiave pubblica aggiunta al cluster durante la distribuzione. Questi comandi presuppongono che la chiave privata SSH si trovi in `$HOME/.ssh/id_rsa` nel computer. Vedere le istruzioni per [OS X e Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) o [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) per altre informazioni. Se la connessione SSH non funziona, potrebbe essere necessario [reimpostare le chiavi SSH](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
+* File di chiave privata SSH RSA, corrispondente alla chiave pubblica aggiunta al cluster durante la distribuzione. Questi comandi presuppongono che la chiave privata SSH si trovi in `$HOME/.ssh/id_rsa` nel computer. Vedere le istruzioni per [OS X e Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) o [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) per altre informazioni. Se la connessione SSH non funziona, potrebbe essere necessario [reimpostare le chiavi SSH](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
 
 ## <a name="connect-to-a-kubernetes-cluster"></a>Connettersi a un cluster Kubernetes
 
@@ -47,7 +46,7 @@ Seguire questi passaggi per installare e configurare `kubectl` nel computer.
 > 
 
 ### <a name="install-kubectl"></a>Installare kubectl
-Un modo per installare questo strumento è usare il comando `az acs kubernetes install-cli` dell'interfaccia della riga di comando di Azure 2.0 (anteprima). Per eseguire questo comando, assicurarsi di avere [installato](/cli/azure/install-az-cli2) la versione più recente dell'interfaccia della riga di comando di Azure 2.0 (anteprima) e di avere effettuato l'accesso a un account Azure (`az login`).
+Un modo per installare questo strumento è usare il comando `az acs kubernetes install-cli` dell'interfaccia della riga di comando di Azure 2.0. Per eseguire questo comando, assicurarsi di avere [installato](/cli/azure/install-az-cli2) la versione più recente dell'interfaccia della riga di comando di Azure 2.0 e di avere effettuato l'accesso a un account Azure (`az login`).
 
 ```azurecli
 # Linux or OS X
@@ -57,7 +56,7 @@ az acs kubernetes install-cli [--install-location=/some/directory/kubectl]
 az acs kubernetes install-cli [--install-location=C:\some\directory\kubectl.exe]
 ```
 
-In alternativa è possibile scaricare il client direttamente dalla [pagina delle versioni](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#downloads-for-v146).
+In alternativa è possibile scaricare il client più recente direttamente dalla [pagina delle versioni di Kubernetes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md). Per altre informazioni, vedere [Installing and Setting up kubectl](https://kubernetes.io/docs/user-guide/prereqs/) (Installazione e configurazione di kubectl).
 
 ### <a name="download-cluster-credentials"></a>Scaricare le credenziali del cluster
 Dopo aver installato `kubectl`, è necessario copiare le credenziali del cluster nel computer. Un modo per ottenere le credenziali è con il comando `az acs kubernetes get-credentials`. Passare il nome del gruppo di risorse e il nome della risorsa del servizio contenitore:
@@ -128,7 +127,7 @@ Quando si crea un tunnel SSH in Linux o OS X, prima di tutto è necessario indiv
     **PATH_TO_PRIVATE_KEY** [FACOLTATIVO] è il percorso della chiave privata che corrisponde alla chiave pubblica specificata durante la creazione del cluster. Usare questa opzione con il flag `-i`.
 
     ```bash
-    ssh -fNL PORT:localhost:PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com 
+    ssh -fNL LOCAL_PORT:localhost:REMOTE_PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com 
     ```
     > [!NOTE]
     > La porta di connessione SSH è la 2200, non la porta 22 standard. In un cluster con più di una VM master, si tratta della porta di connessione per la prima VM master.
@@ -203,7 +202,7 @@ Esistono più opzioni per creare i tunnel SSH in Windows. Questa sezione descriv
 
     ![Log eventi di PuTTY](media/putty4.png)
 
-Dopo aver configurato il tunnel per DC/OS, è possibile accedere all'endpoint correlato all'indirizzo:
+Dopo aver configurato il tunnel per DC/OS, è possibile accedere agli endpoint correlati all'indirizzo:
 
 * Controller di dominio/sistema operativo: `http://localhost/`
 * Marathon: `http://localhost/marathon`
@@ -217,10 +216,5 @@ Distribuire e gestire contenitori nel cluster:
 * [Uso del servizio contenitore di Azure e Kubernetes](container-service-kubernetes-ui.md)
 * [Gestione di contenitori tramite l'API REST](container-service-mesos-marathon-rest.md)
 * [Gestione dei contenitori con Docker Swarm](container-service-docker-swarm.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

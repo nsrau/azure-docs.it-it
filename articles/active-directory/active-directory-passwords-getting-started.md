@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: d391aeacd5a755c3d344a359cae130788d1a5402
-ms.openlocfilehash: 02c7cd73951b7af83760ee10be4bb8f2da142283
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: c40fca54b02f2673194ab16c41314f1e50be12be
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -80,13 +80,10 @@ Per configurare criteri di reimpostazione della password utente, completare i pa
 
    ![][003]
 
-5. Nella scheda **Configura** scorrere verso il basso fino alla sezione **Criteri di reimpostazione password utente**.  In questa sezione è possibile configurare tutti gli aspetti dei criteri di reimpostazione della password utente per una determinata directory. *Se la scheda Configura non viene visualizzata, verificare di aver effettuato l'iscrizione ad Azure Active Directory Premium o Basic e di aver **assegnato una licenza** all'account amministratore che sta configurando questa funzionalità.*  
+5. Nella scheda **Configura** scorrere verso il basso fino alla sezione **Criteri di reimpostazione password utente**.  In questa sezione è possibile configurare tutti gli aspetti dei criteri di reimpostazione della password utente per una determinata directory. *Se la scheda Configura non viene visualizzata, verificare di aver effettuato l'iscrizione ad Azure Active Directory Premium o Basic e di aver __assegnato una licenza__ all'account amministratore che sta configurando questa funzionalità.*  
 
    > [!NOTE]
    > **I criteri impostati si applicano solo agli utenti finali dell'organizzazione, non agli amministratori**. Per motivi di sicurezza, Microsoft controlla i criteri di reimpostazione delle password per gli amministratori. I criteri attuali per gli amministratori prevedono due test: telefono cellulare e indirizzo di posta elettronica.
-
-   >
-   >
 
    ![][004]
 6. Per configurare i criteri di reimpostazione della password utente, impostare l'opzione **Utenti abilitati per la reimpostazione della password** su **Sì**.  Verranno così visualizzati molti altri controlli che consentono di configurare il modo in cui usare questa funzionalità nella propria directory.  Sarà quindi possibile personalizzare la funzionalità di reimpostazione delle password in base alle proprie esigenze specifiche.  Per saperne di più sul funzionamento di ognuno dei controlli dei criteri di reimpostazione delle password, vedere [Personalizzare: Gestione delle password di Azure AD](active-directory-passwords-customize.md).
@@ -264,13 +261,19 @@ Per verificare che il servizio sia stato installato correttamente, è anche poss
   ![][023]
 
 ### <a name="step-3-configure-your-firewall"></a>Passaggio 3: Configurare il firewall
-Dopo avere abilitato il writeback delle password, è necessario assicurarsi che il computer che esegue Azure AD Connect possa raggiungere i servizi cloud Microsoft per ricevere le richieste di writeback delle password. Questo passaggio implica l'aggiornamento delle regole di connessione nelle appliance di rete (server proxy, firewall e così via) per consentire le connessioni in uscita verso determinati URL e indirizzi IP di proprietà di Microsoft tramite porte di rete specifiche. Queste modifiche possono variare in base alla versione dello strumento Azure AD Connect. Per altre informazioni sul contesto, è possibile leggere le sezioni sul [funzionamento del writeback delle password](active-directory-passwords-learn-more.md#how-password-writeback-works) e sul [modello di sicurezza del writeback delle password](active-directory-passwords-learn-more.md#password-writeback-security-model).
+Dopo avere abilitato il writeback delle password, è necessario assicurarsi che il computer che esegue Azure AD Connect possa raggiungere i servizi cloud Microsoft per ricevere le richieste di writeback delle password. Questo passaggio implica l'aggiornamento delle regole di connessione nelle appliance di rete (server proxy, firewall e così via) per consentire le connessioni in uscita verso determinati [URL e indirizzi IP di proprietà di Microsoft](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US) tramite porte di rete specifiche. Queste modifiche possono variare in base alla versione dello strumento Azure AD Connect. Per altre informazioni sul contesto, è possibile leggere le sezioni sul [funzionamento del writeback delle password](active-directory-passwords-learn-more.md#how-password-writeback-works) e sul [modello di sicurezza del writeback delle password](active-directory-passwords-learn-more.md#password-writeback-security-model).
 
 #### <a name="why-do-i-need-to-do-this"></a>Perché è necessario eseguire questa operazione?
 
 Affinché il writeback delle password funzioni correttamente, il computer che esegue Azure AD Connect deve essere in grado di stabilire connessioni HTTPS in uscita verso **.servicebus.windows.net* e l'indirizzo IP specifico usato da Azure, come definito nell'[elenco intervalli IP del data center di Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
-Per le versioni 1.0.8667.0 e successive dello strumento Azure AD Connect:
+Per la versione **1.1.439.0** (ultima) e le versioni successive dello strumento Azure AD Connect:
+
+- La versione più recente dello strumento Azure AD Connect dovrà disporre dell'accesso **HTTPS in uscita** a:
+    - *passwordreset.microsoftonline.com*
+    - *servicbus.windows.net*
+
+Per le versioni da **1.0.8667.0** a **1.1.380.0** dello strumento Azure AD Connect:
 
 - **Opzione 1:** consentire di eseguire tutte le connessioni HTTPS in uscita sulla porta 443 (usando l'indirizzo IP o l'URL).
     - Quando usare questa opzione:
@@ -298,6 +301,9 @@ Per le versioni 1.0.8667.0 e successive dello strumento Azure AD Connect:
 > Se si usa una versione di Azure AD Connect precedente alla versione 1.0.8667.0, è consigliabile eseguire l'aggiornamento alla [versione più recente di Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594), che include determinati miglioramenti della rete di writeback per semplificare la configurazione.
 
 Dopo aver configurato le appliance di rete, riavviare il computer che esegue lo strumento Azure AD Connect.
+
+#### <a name="idle-connections-on-azure-ad-connect-114390-and-up"></a>Connessioni inattive in Azure AD (versione&1;.1.439.0 e successive)
+Lo strumento Azure AD Connect invierà ping/keep-alive periodici agli endpoint di ServiceBus per assicurarsi che le connessioni rimangano attive. Nel caso lo strumento rilevi che vengono interrotte troppe connessioni, aumenterà automaticamente la frequenza dei ping all'endpoint. L'intervallo di ping più breve che può essere impostato è di 1 ping ogni 60 secondi, tuttavia, **è caldamente consigliato che i proxy/firewall consentano la persistenza delle connessioni inattive per almeno 2-3 minuti**. \*Per le versioni precedenti, è consigliata una persistenza di 4 minuti o più.
 
 ### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>Passaggio 4: Impostare le autorizzazioni di Active Directory appropriate
 Per ogni foresta che contiene utenti di cui verranno reimpostate le password, se X è l'account specificato per tale foresta nella configurazione guidata iniziale, sarà necessario assegnare a X i diritti estesi **Reimposta password**, **Modifica password**, **Autorizzazioni di scrittura** per `lockoutTime` e **Autorizzazioni di scrittura** per `pwdLastSet` sull'oggetto radice per ogni dominio della foresta. I diritti devono essere contrassegnati come ereditati da tutti gli oggetti utente.  

@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione su NoSQL: Azure DocumentDB Java SDK | Documentazione Microsoft'
+title: 'Esercitazione su NoSQL: Azure DocumentDB Java SDK | Microsoft Docs'
 description: "Esercitazione su NoSQL che crea un database online e un&quot;applicazione console Java con DocumentDB Java SDK. Azure DocumentDB è un database NoSQL per JSON."
 keywords: esercitazione su nosql, database online, applicazione console java
 services: documentdb
@@ -16,8 +16,9 @@ ms.topic: hero-article
 ms.date: 01/05/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: ddd676df429c20d1c07cfe64abc9ab69ef11bd8c
-ms.openlocfilehash: 845858c3df6456293a2552f55ffb35254024931b
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 74af5fda495adc726bfa85ad48a407fd61d4dd88
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -25,8 +26,9 @@ ms.openlocfilehash: 845858c3df6456293a2552f55ffb35254024931b
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
+> * [Node.js per MongoDB](documentdb-mongodb-samples.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
@@ -62,7 +64,7 @@ Creare un account DocumentDB. Se è già disponibile un account da usare, è pos
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a name="a-idgitcloneastep-2-clone-the-github-project"></a><a id="GitClone"></a>Passaggio 2: Clonare il progetto Github
+## <a id="GitClone"></a>Passaggio 2: Clonare il progetto Github
 Per iniziare, è possibile clonare il repository Github per l'[introduzione a DocumentDB e Java](https://github.com/Azure-Samples/documentdb-java-getting-started). Eseguire questo comando da una directory locale per recuperare il progetto di esempio in locale.
 
     git clone git@github.com:Azure-Samples/documentdb-java-getting-started.git
@@ -77,7 +79,7 @@ La directory contiene un oggetto `pom.xml` per il progetto e una cartella `src` 
         <version>LATEST</version>
     </dependency>
 
-## <a name="a-idconnectastep-3-connect-to-a-documentdb-account"></a><a id="Connect"></a>Passaggio 3: Connettersi a un account DocumentDB
+## <a id="Connect"></a>Passaggio 3: Connettersi a un account DocumentDB
 Tornare al [portale di Azure](https://portal.azure.com) per recuperare l'endpoint e la chiave master primaria. La chiave primaria e l'endpoint di DocumentDB sono necessari all'applicazione per conoscere la destinazione della connessione e a DocumentDB per considerare attendibile la connessione dell'applicazione.
 
 Nel portale di Azure passare all'account DocumentDB e quindi fare clic su **Chiavi**. Copiare l'URI dal portale e incollarlo in `<your endpoint URI>` nel file Program.java. Copiare quindi la CHIAVE PRIMARIA dal portale e incollarla in `<your key>`.
@@ -97,7 +99,7 @@ Nel portale di Azure passare all'account DocumentDB e quindi fare clic su **Chia
     database.setId("familydb");
     this.client.createDatabase(database, null);
 
-## <a name="a-idcreatecollastep-5-create-a-collection"></a><a id="CreateColl"></a>Passaggio 5: Creare una raccolta
+## <a id="CreateColl"></a>Passaggio 5: Creare una raccolta
 > [!WARNING]
 > **createCollection** crea una nuova raccolta con velocità effettiva riservata, che presenta implicazioni in termini di prezzi. Per altre informazioni, visitare la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/documentdb/).
 > 
@@ -116,7 +118,7 @@ Nel portale di Azure passare all'account DocumentDB e quindi fare clic su **Chia
 
     this.client.createCollection("/dbs/familydb", collectionInfo, requestOptions);
 
-## <a name="a-idcreatedocastep-6-create-json-documents"></a><a id="CreateDoc"></a>Passaggio 6: Creare documenti JSON
+## <a id="CreateDoc"></a>Passaggio 6: Creare documenti JSON
 È possibile creare un [documento](documentdb-resources.md#documents) usando il metodo [createDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createDocument-java.lang.String-java.lang.Object-com.microsoft.azure.documentdb.RequestOptions-boolean-) della classe **DocumentClient**. I documenti sono contenuto JSON definito dall'utente (arbitrario). Ora è possibile inserire uno o più documenti. Se sono già disponibili dati da archiviare nel database, è possibile usare lo [strumento di migrazione dei dati](documentdb-import-data.md) di DocumentDB per importare i dati in un database.
 
     // Insert your Java objects as documents 
@@ -139,7 +141,7 @@ Nel portale di Azure passare all'account DocumentDB e quindi fare clic su **Chia
 
 ![Diagramma che illustra la relazione gerarchica tra l'account, il database online, la raccolta e i documenti usati nell'esercitazione su NoSQL per creare un'applicazione console Java](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
-## <a name="a-idqueryastep-7-query-documentdb-resources"></a><a id="Query"></a>Passaggio 7: Eseguire query sulle risorse di DocumentDB
+## <a id="Query"></a>Passaggio 7: Eseguire query sulle risorse di DocumentDB
 DocumentDB supporta [query](documentdb-sql-query.md) complesse sui documenti JSON archiviati in ogni raccolta.  Il codice di esempio seguente mostra come eseguire query su documenti in DocumentDB usando la sintassi SQL con il metodo [queryDocuments](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#queryDocuments-java.lang.String-com.microsoft.azure.documentdb.SqlQuerySpec-com.microsoft.azure.documentdb.FeedOptions-).
 
     FeedResponse<Document> queryResults = this.client.queryDocuments(
@@ -152,7 +154,7 @@ DocumentDB supporta [query](documentdb-sql-query.md) complesse sui documenti JSO
         System.out.println(String.format("\tRead %s", family));
     }
 
-## <a name="a-idreplacedocumentastep-8-replace-json-document"></a><a id="ReplaceDocument"></a>Passaggio 8: Sostituire un documento JSON
+## <a id="ReplaceDocument"></a>Passaggio 8: Sostituire un documento JSON
 DocumentDB supporta l'aggiornamento di documenti JSON con il metodo [replaceDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#replaceDocument-com.microsoft.azure.documentdb.Document-com.microsoft.azure.documentdb.RequestOptions-).
 
     // Update a property
@@ -163,17 +165,17 @@ DocumentDB supporta l'aggiornamento di documenti JSON con il metodo [replaceDocu
         andersenFamily,
         null);
 
-## <a name="a-iddeletedocumentastep-9-delete-json-document"></a><a id="DeleteDocument"></a>Passaggio 9: Eliminare un documento JSON
+## <a id="DeleteDocument"></a>Passaggio 9: Eliminare un documento JSON
 Analogamente, DocumentDB supporta l'eliminazione di documenti JSON con il metodo [deleteDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#deleteDocument-java.lang.String-com.microsoft.azure.documentdb.RequestOptions-).  
 
     this.client.delete("/dbs/familydb/colls/familycoll/docs/Andersen.1", null);
 
-## <a name="a-iddeletedatabaseastep-10-delete-the-database"></a><a id="DeleteDatabase"></a>Passaggio 10: Eliminare il database
+## <a id="DeleteDatabase"></a>Passaggio 10: Eliminare il database
 Se si elimina il database creato, insieme al database vengono rimosse tutte le risorse figlio, come raccolte, documenti e così via.
 
     this.client.deleteDatabase("/dbs/familydb", null);
 
-## <a name="a-idrunastep-11-run-your-java-console-application-all-together"></a><a id="Run"></a>Passaggio 11: Eseguire l'intera applicazione console Java
+## <a id="Run"></a>Passaggio 11: Eseguire l'intera applicazione console Java
 Per eseguire l'applicazione dalla console, eseguire prima la compilazione con Maven:
     
     mvn package
@@ -192,9 +194,4 @@ Congratulazioni. L'esercitazione su NoSQL è stata completata ed è stata creata
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 
