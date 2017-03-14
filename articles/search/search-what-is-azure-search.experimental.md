@@ -13,12 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 02/15/2017
 ms.author: heidist
-experimental: true
-experiment_id: heidist-experiment1-20170221
+experiment_id: heidist-20170221
 translationtype: Human Translation
-ms.sourcegitcommit: f7e657906d24693dffd84ebbd348d1940f271931
-ms.openlocfilehash: a4e28e17cd3ce2488bd292a4c5e95fb532526a56
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 71694028366f48682881523c0220a4158078a76c
+ms.openlocfilehash: b851f906b57225dce516d9704fdace80c44c4897
+ms.lasthandoff: 02/23/2017
 
 ---
 # <a name="what-is-azure-search"></a>Che cos'è la Ricerca di Azure?
@@ -29,7 +28,7 @@ La Ricerca di Azure offre un motore di ricerca dedicato e programmabile con comp
 
 Un'esperienza di ricerca solida è una necessità per la maggior parte delle app Web e per dispositivi mobili. Nonostante la complessità tecnica alla base dell'esperienza, poter disporre di una ricerca full-text con termini di query a completamento automatico, correzioni di ortografia e corrispondenze basate su input identici a livello semantico ma diversi in superficie, ad esempio "macchina" e "auto", è il minimo che gli utenti si aspettano. I requisiti operativi di scalabilità, affidabilità e sincronizzazione tra ricerche e archivi dati di back-end sono altrettanto importanti. 
 
-La Ricerca di Azure offre una gamma completa di funzionalità per soddisfare sia i requisiti di ricerca che quelli operativi.
+Ricerca di Azure offre funzionalità complete per soddisfare sia i requisiti di ricerca che quelli operativi.
 
 ![Barra di ricerca e pagina di ricerca personalizzata con funzionalità tipiche](./media/search-what-is-azure-search/search-page-callouts3.png)
 
@@ -50,7 +49,7 @@ I servizi dedicati vengono eseguiti 24 ore su 24 e 7 giorni su 7 in base alla sc
 
 Alcuni provider di servizi cloud offrono motori di ricerca personalizzati con funzionalità per disporre di una barra di ricerca nelle app personalizzate. Alcuni offrono simili funzionalità di base, con ricerca full-text, ricerca geografica e la possibilità di gestire un certo livello di ambiguità negli input di ricerca. In genere sono una [funzionalità specializzata](#feature-drilldown) o la semplicità e la facilità d'uso generale di API, strumenti e gestione a determinare la scelta ideale.
 
-Paragonata con altre soluzioni di ricerca, la Ricerca di Azure ha le migliori prestazioni nei carichi di lavoro con ricerca full-text in archivi di contenuti e database in Azure, con un livello di funzionalità aggiuntive necessarie per le app che fanno principalmente affidamento sulla ricerca per esplorare i contenuti. 
+Paragonata con altre soluzioni di ricerca, Ricerca di Azure offre le migliori prestazioni nei carichi di lavoro con ricerca full-text in archivi di contenuti e database in Azure, con un livello di funzionalità aggiuntive necessarie per le app che fanno principalmente affidamento sulla ricerca per il recupero delle informazioni e l'esplorazione dei contenuti. 
 
 + Integrazione dei dati in Azure (crawler) al livello di indicizzazione
 + Portale di Azure per la gestione centralizzata
@@ -61,7 +60,9 @@ Paragonata con altre soluzioni di ricerca, la Ricerca di Azure ha le migliori pr
 > [!Note]
 > Le origini dati non di Azure sono pienamente supportate. È possibile reindirizzare qualsiasi raccolta di documenti JSON in un indice di Ricerca di Azure.
 
-### <a name="a-namefeature-drilldownafeature-drilldown"></a><a name="feature-drilldown"></a>Funzione in dettaglio
+I casi di utilizzo in grado di sfruttare la gamma più ampia di funzionalità di Ricerca di Azure includono cataloghi online, programmi line of business e applicazioni di individuazione di documenti.
+
+### <a name="feature-drilldown"></a>Funzione in dettaglio
 
 #### <a name="full-text-search-and-text-analysis"></a>Ricerca full-text e analisi del testo
 

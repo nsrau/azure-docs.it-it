@@ -15,9 +15,9 @@ ms.workload: backup-recovery
 ms.date: 2/14/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: 96e6696818a0de2fadd55ff7e0ccee350d2666ad
-ms.openlocfilehash: 0e49b7dded14ab6b76c7c73af714af5f5c854bbc
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 73d5f91f31780350c68b3475c2cbbb597f9b438e
+ms.openlocfilehash: 0c8f37055a6c64a54009ecafd883426824dcd901
+ms.lasthandoff: 03/01/2017
 
 ---
 
@@ -104,11 +104,32 @@ ProxyPassword="Password"
   ```
 
   >[!WARNING]
-  Se sono presenti server di elaborazione con scalabilità orizzontale associati a questo server di configurazione, è necessario [correggere le impostazioni del proxy in tutti i server di elaborazione con scalabilità orizzontale](site-recovery-vmware-to-azure-manage-scaleout-process-server.md) nella distribuzione.
+  Se sono presenti server di elaborazione con scalabilità orizzontale associati a questo server di configurazione, è necessario [correggere le impostazioni del proxy in tutti i server di elaborazione con scalabilità orizzontale](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#modifying-proxy-settings-for-scale-out-process-server) nella distribuzione.
+
+## <a name="re-register-a-configuration-server-with-the-same-recovery-services-vault"></a>Registrare un server di configurazione con lo stesso insieme di credenziali di Servizi di ripristino
+  1. Accedere al server di configurazione.
+  2. Avviare il file cspsconfigtool.exe usando il relativo collegamento.
+  3. Fare clic sulla scheda **Vault Registration** (Registrazione dell'insieme di credenziali).
+  4. Scaricare un nuovo file di registrazione dal portale e fornirlo come input allo strumento.
+        ![register-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-csonfiguration-server.png)
+  5. Specificare i dettagli del server proxy e fare clic sul pulsante **Register** (Registra).  
+  6. Aprire una finestra di prompt dei comandi di PowerShell per amministratore.
+  7. Eseguire il comando seguente
+
+      ```
+      $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+      net stop obengine
+      net start obengine
+      ```
+
+  >[!WARNING]
+  Se sono presenti server di elaborazione con scalabilità orizzontale associati a questo server di configurazione, è necessario [registrare di nuovo tutti i server di elaborazione con scalabilità orizzontale](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server) nella distribuzione.
 
 ## <a name="registering-a-configuration-server-with-a-different-recovery-services-vault"></a>Registrazione di un server di configurazione con un insieme di credenziali di Servizi di ripristino diverso.
 1. Accedere al server di configurazione.
 2. Al prompt dei comandi dell'amministratore, eseguire il comando
+
 ```
 reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
 net stop dra
@@ -152,11 +173,11 @@ Prima di iniziare a rimuovere le autorizzazioni per il server di configurazione,
 1. Accedere al server di configurazione come amministratore.
 2. Scegliere Pannello di controllo > Programma > Disinstallare programmi
 3. Disinstallare i programmi nella sequenza seguente:
-  * Servizio Mobility di Microsoft Azure Site Recovery/server di destinazione master
-  * Server di elaborazione/server di configurazione di Microsoft Azure Site Recovery
-  * Dipendenze del server di configurazione di Microsoft Azure Site Recovery
   * Agente di Servizi di ripristino di Microsoft Azure
+  * Servizio Mobility di Microsoft Azure Site Recovery/server di destinazione master
   * Provider di Microsoft Azure Site Recovery
+  * Server di elaborazione/Server di configurazione di Microsoft Azure Site Recovery
+  * Dipendenze del server di configurazione di Microsoft Azure Site Recovery
   * MySQL Server 5.5
 4. Al prompt dei comandi dell'amministratore, eseguire questo comando:
   ```

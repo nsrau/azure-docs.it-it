@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 02/23/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 4df32e7e03f17ec46e46a3f2718d24783424ab9e
-ms.openlocfilehash: fc1f3c7160a4956ed7372a2797c03c2892fbfb65
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 14627391a5df562a70737a71f41fe7cb934c9062
+ms.openlocfilehash: 54f579e5806a2fa5bd4ceace8a8ab46509b4be1e
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -35,47 +35,44 @@ Prima di configurare l'esportazione continua, è necessario prendere in consider
 
 Con l'esportazione continua i dati vengono copiati nella risorsa di archiviazione, in cui possono rimanere fino a quando si desidera, ma sono ancora disponibili in Application Insights per il [periodo di conservazione](app-insights-data-retention-privacy.md) usuale. 
 
-## <a name="create-a-storage-account"></a>Creare un account di archiviazione
-Se non si dispone già di un account di archiviazione "classico", crearne uno ora.
+## <a name="setup"></a> Creare un'esportazione continua
+1. Nella risorsa di Application Insights per l'app aprire Esportazione continua e scegliere **Aggiungi**: 
 
-1. Creare un account di archiviazione per la sottoscrizione nel [portale di Azure](https://portal.azure.com).
-   
-    ![Nel portale di Azure scegliere Nuovo, Dati, Archiviazione](./media/app-insights-export-telemetry/030.png)
-2. Creare un contenitore
-   
-    ![Nel nuovo archivio selezionare Contenitori, fare clic sul riquadro Contenitori e quindi su Aggiungi](./media/app-insights-export-telemetry/040.png)
+    ![Scorrere verso il basso e fare clic su Esportazione continua](./media/app-insights-export-telemetry/01-export.png)
 
-Se lo spazio di archiviazione viene creato in un'area diversa dalla risorsa di Application Insights, possono essere applicati [addebiti per il trasferimento dei dati](https://azure.microsoft.com/pricing/details/bandwidth/).
+2. Scegliere i tipi di dati di telemetria da esportare.
 
-## <a name="a-namesetupa-set-up-continuous-export"></a><a name="setup"></a> Configurare l'esportazione continua
-Nel pannello Panoramica dell'applicazione nel portale di Application Insights aprire Esportazione continua: 
+3. Creare o selezionare un [account di archiviazione di Azure](../storage/storage-introduction.md) in cui memorizzare i dati. 
 
-![Scorrere verso il basso e fare clic su Esportazione continua](./media/app-insights-export-telemetry/01-export.png)
+    > [!Warning]
+    > Per impostazione predefinita, il percorso di archiviazione verrà impostato sulla stessa area geografica della risorsa di Application Insights. Se si esegue l'archiviazione in un'area differente, è possibile che vengano applicati addebiti per il trasferimento.
 
-Aggiungere un'esportazione continua e scegliere i tipi di evento da esportare:
+    ![Fare clic su Aggiungi, Destinazione di esportazione, Account di archiviazione e quindi creare un nuovo archivio o scegliere un archivio esistente](./media/app-insights-export-telemetry/02-add.png)
 
-![Fare clic su Aggiungi, Destinazione di esportazione, Account di archiviazione e quindi creare un nuovo archivio o scegliere un archivio esistente](./media/app-insights-export-telemetry/02-add.png)
+4. Creare o selezionare un contenitore nella risorsa di archiviazione:
 
-Scegliere o creare l'[account di archiviazione di Azure](../storage/storage-introduction.md) in cui memorizzare i dati:
+    ![Fare clic su Scegli tipi di eventi](./media/app-insights-export-telemetry/create-container.png)
 
-![Fare clic su Scegli tipi di eventi](./media/app-insights-export-telemetry/03-types.png)
+Dopo averla creata, l'esportazione viene avviata. Si ottengono solo i dati ricevuti dopo avere creato l'esportazione. 
 
-Dopo averla creata, l'esportazione viene avviata. Si ottengono solo i dati che arrivano dopo aver creato l'esportazione. 
+Può verificarsi un ritardo di circa un'ora prima che i dati vengano visualizzati nella risorsa di archiviazione.
 
-Può verificarsi un ritardo di circa un'ora prima che i dati vengano visualizzati nel BLOB.
+### <a name="to-edit-continuous-export"></a>Per modificare l'esportazione continua
 
 Se si vogliono modificare i tipi di eventi in un secondo momento, è sufficiente modificare l'esportazione:
 
 ![Fare clic su Scegli tipi di eventi](./media/app-insights-export-telemetry/05-edit.png)
 
-Per interrompere il flusso, fare clic su Disabilita. Quando si fa nuovamente clic su Abilita, il flusso verrà riavviato con nuovi dati. Non si otterranno i dati che arrivano nel portale mentre l'esportazione è stata disabilitata.
+### <a name="to-stop-continuous-export"></a>Per interrompere l'esportazione continua
 
-Per interrompere il flusso in modo permanente, eliminare l'esportazione. Questa operazione non elimina i dati dalla risorsa di archiviazione.
+Per interrompere l'esportazione, fare clic su Disabilita. Quando si fa clic di nuovo su Abilita, l'esportazione verrà riavviata con nuovi dati. Non si otterranno i dati che arrivano nel portale mentre l'esportazione è stata disabilitata.
 
-#### <a name="cant-add-or-change-an-export"></a>Non si riesce ad aggiungere o modificare un'esportazione?
+Per interrompere l'esportazione in modo permanente, eliminare l'esportazione. Questa operazione non elimina i dati dalla risorsa di archiviazione.
+
+### <a name="cant-add-or-change-an-export"></a>Non si riesce ad aggiungere o modificare un'esportazione?
 * Per aggiungere o modificare le esportazioni, è necessario avere i diritti di accesso proprietario, collaboratore o collaboratore di Application Insights. [Informazioni sui ruoli][roles].
 
-## <a name="a-nameanalyzea-what-events-do-you-get"></a><a name="analyze"></a> Quali eventi si ottengono?
+## <a name="analyze"></a> Quali eventi si ottengono?
 I dati esportati sono dati di telemetria non elaborati ricevuti dall'applicazione, tranne che per l'aggiunta di dati del percorso calcolati dall'indirizzo IP del client. 
 
 I dati che il [campionamento](app-insights-sampling.md) ha rimosso non sono inclusi nei dati esportati.
@@ -85,11 +82,11 @@ Le altre metriche calcolate non sono incluse. Ad esempio, non si procederà all'
 I dati includono anche i risultati di ogni [test Web di disponibilità](app-insights-monitor-web-app-availability.md) impostato. 
 
 > [!NOTE]
-> **Campionamento.** Se l'applicazione invia una grande quantità di dati e si sta utilizzando la versione 2.0.0-beta3 o versioni successive dell’SDK di Application Insights per ASP.NET, la funzionalità del campionamento adattivo può operare e inviare solo una percentuale dei dati di telemetria. [Altre informazioni sul campionamento.](app-insights-sampling.md)
+> **Campionamento.** Se l'applicazione invia una grande quantità di dati, la funzionalità di campionamento può intervenire e inviare solo una percentuale della telemetria generata. [Altre informazioni sul campionamento.](app-insights-sampling.md)
 > 
 > 
 
-## <a name="a-namegeta-inspect-the-data"></a><a name="get"></a> Esaminare i dati
+## <a name="get"></a> Esaminare i dati
 È possibile esaminare lo spazio di archiviazione direttamente nel portale. Fare clic su **Sfoglia**, selezionare l'account di archiviazione e quindi aprire i **Contenitori**.
 
 Per esaminare l'archiviazione di Azure in Visual Studio, aprire **Visualizza**, **Cloud Explorer**. (Se non si dispone di tale comando del menu, è necessario installare l’SDK di Azure: aprire la finestra di dialogo **Nuovo progetto**, espandere Visual C#/Cloud e scegliere **Ottieni Microsoft Azure SDK per .NET**).
@@ -109,7 +106,7 @@ Where
 * `blobCreationTimeUtc` è l'ora di creazione del BLOB nell'archivio di gestione temporanea interno
 * `blobDeliveryTimeUtc` è l'ora in cui il BLOB viene copiato nell'archivio di destinazione dell'esportazione
 
-## <a name="a-nameformata-data-format"></a><a name="format"></a> Formato dati
+## <a name="format"></a> Formato dati
 * Ogni BLOB è un file di testo che contiene più righe separate da '\n'. Contiene i dati di telemetria elaborati in un periodo di tempo di circa mezzo minuto.
 * Ogni riga rappresenta un punto dati di telemetria, ad esempio una richiesta o una visualizzazione di pagina.
 * Ogni riga è un documento JSON non formattato. Se si desidera sedersi a osservare, aprirlo in Visual Studio e scegliere Modifica, Avanzate, File di formato:
@@ -146,7 +143,7 @@ Su scala ridotta è possibile scrivere codice per separare i dati, leggerli in u
 
 Per un esempio di codice più esaustivo, vedere l'articolo relativo all'[uso di un ruolo di lavoro][exportasa].
 
-## <a name="a-namedeleteadelete-your-old-data"></a><a name="delete"></a>Eliminare i vecchi dati
+## <a name="delete"></a>Eliminare i vecchi dati
 Si noti che si è responsabili della gestione della capacità di archiviazione ed eliminazione di vecchi dati, se necessario. 
 
 ## <a name="if-you-regenerate-your-storage-key"></a>Se si rigenera la chiave di archiviazione...

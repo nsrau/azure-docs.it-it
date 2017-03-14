@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f7ea1762e3a3ffe8d3c0c6af307b846dc1f3c696
+ms.sourcegitcommit: 52590f0c47954d115f39cbe988e04a0ed3feb94d
+ms.openlocfilehash: cd3352ae30734cce116fda5a838f95e5e0b86a8a
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -95,7 +96,7 @@ La procedura seguente consente di creare una formula basata su una macchina virt
 7. Fare clic su **OK** per creare la formula.
 
 ## <a name="use-a-formula-to-provision-a-vm"></a>Usare una formula per il provisioning di una VM
-Dopo aver creato una formula, è possibile creare una VM in base a tale formula. La procedura è descritta nella sezione [Aggiungere una macchina virtuale con elementi](devtest-lab-add-vm-with-artifacts.md#add-a-vm-with-artifacts) .
+Dopo aver creato una formula, è possibile creare una VM in base a tale formula. La procedura è descritta nell'articolo [Aggiungere una macchina virtuale con elementi](devtest-lab-add-vm-with-artifacts.md).
 
 ## <a name="modify-a-formula"></a>Modificare una formula
 Per modificare una formula, seguire questa procedura:
@@ -133,10 +134,5 @@ Per eliminare una formula, seguire questa procedura:
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo avere creato una formula da usare durante la creazione di una macchina virtuale, il passaggio successivo consiste nell'[aggiungere una macchina virtuale al lab](devtest-lab-add-vm-with-artifacts.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

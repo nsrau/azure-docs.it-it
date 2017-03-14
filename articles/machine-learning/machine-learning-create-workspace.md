@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: garye;bradsev;ahgyger
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 647398c1a0994da04845672e89d9f82d5e8b6d21
+ms.sourcegitcommit: 613cf7e34d69afa21b1808ffe57af9a8b64944f5
+ms.openlocfilehash: 182a34822e71d63f4d7229548ae3f59d9f195337
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -29,86 +30,77 @@ Per usare Azure Machine Learning Studio, è necessario disporre di un'area di la
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## <a name="to-create-a-workspace"></a>Per creare un'area di lavoro
-1. Accedere al [portale di Microsoft Azure classico].
+### <a name="to-create-a-workspace"></a>Per creare un'area di lavoro
+1. Accedere al [portale di Azure](https://portal.azure.com/)
 
-> [!NOTE]
-> Per accedere, è necessario essere l'amministratore di una sottoscrizione di Azure. I proprietari di un'area di lavoro di Machine Learning non possono accedere al [portale di Microsoft Azure classico]. Per informazioni dettagliate, vedere [Privilegi dell'amministratore della sottoscrizione di Azure e del proprietario dell'area di lavoro](#subscriptionvsworkspace) .
-> 
-> 
+    > [!NOTE]
+    > Per eseguire l'accesso e creare un'area di lavoro è necessario essere amministratore di una sottoscrizione di Azure. 
+    >
+    > 
 
-1. Nel riquadro dei servizi di Microsoft Azure fare clic su **MACHINE LEARNING**.
-   
-    ![Servizio Machine Learning][1]
-2. Fare clic su **+NEW** nella parte inferiore della finestra.
-3. Fare clic su **SERVIZI DATI**, quindi su **MACHINE LEARNING** e infine su **CREAZIONE RAPIDA**.
-   
-    ![Creazione rapida di una nuova area di lavoro][3]
-4. Immettere un **NOME AREA DI LAVORO** per l'area di lavoro.
-5. Specificare il **PERCORSO** di Azure, quindi immettere un **ACCOUNT DI ARCHIVIAZIONE** di Azure esistente oppure scegliere **Crea un nuovo account di archiviazione** per crearne uno nuovo.
-6. Fare clic su **CREA UN'AREA DI LAVORO ML**.
+2. Fare clic su **+Nuovo**
 
-Dopo avere creato l'area di lavoro di Machine Learning, questa sarà visualizzata nella pagina **Machine Learning** .
+3. Selezionare **Intelligence e analisi**, fare clic su **Area di lavoro di Machine Learning** e quindi su **Crea**
+
+4. Immettere le informazioni sull'area di lavoro
+
+    - Il *nome dell'area di lavoro* può contenere al massimo 260 caratteri e non può terminare con uno spazio. Il nome non può includere questi caratteri: `< > * % & : \ ? + /`
+    - Se si distribuiscono i servizi Web da quest'area di lavoro, vengono usati il *piano di servizio Web* che si sceglie (o si crea) e il *piano tariffario* selezionato.
+
+    ![Creazione di una nuova area di lavoro](media/machine-learning-create-workspace/create-new-workspace.png)
+
+5. Fare clic su **Crea**
+
+Dopo aver distribuito l'area di lavoro è possibile aprirla in Machine Learning Studio.
+
+1. Passare a Machine Learning Studio all'indirizzo [https://studio.azureml.net/](https://studio.azureml.net/).
+
+2. Selezionare l'area di lavoro nell'angolo in alto a destra.
+
+    ![Selezionare l'area di lavoro](media/machine-learning-create-workspace/open-workspace.png)
+
+3. Fare clic su **esperimenti personali**.
+
+    ![Aprire gli esperimenti](media/machine-learning-create-workspace/my-experiments.png)
+
+Per informazioni sulla gestione dell'area di lavoro, vedere [Gestire un'area di lavoro di Azure Machine Learning](machine-learning-manage-workspace.md).
+Se si verifica un problema durante la creazione dell'area di lavoro, vedere [Guida per la risoluzione dei problemi: Creare un'area di lavoro di Machine Learning e connettersi a essa](machine-learning-troubleshooting-creating-ml-workspace.md).
+
 
 ## <a name="sharing-an-azure-machine-learning-workspace"></a>Condivisione di un'area di lavoro di Azure Machine Learning
-Dopo la creazione di un'area di lavoro di Machine Learning, è possibile invitare utenti all'area di lavoro e condividere l'accesso all'area di lavoro e a tutti i rispettivi esperimenti. Sono supportati due ruoli per gli utenti:
+Dopo la creazione di un'area di lavoro di Machine Learning, è possibile invitare utenti all'area di lavoro per condividere l'accesso all'area di lavoro e a tutti i rispettivi esperimenti, dataset, notebook e così via. È possibile aggiungere gli utenti in due ruoli:
 
-* **Utente** : un utente dell'area di lavoro può creare, aprire, modificare ed eliminare set di dati, esperimenti e servizi Web nell'area di lavoro.
-* **Proprietario** : un proprietario può invitare, rimuovere ed elencare utenti con accesso all'area di lavoro, oltre a specificare le operazioni consentite a un utente. L'utente potrà anche accedere ai notebook.
+* **Utente**: un utente dell'area di lavoro può creare, aprire, modificare ed eliminare esperimenti, dataset e così via nell'area di lavoro.
+* **Proprietario**: un proprietario può invitare e rimuovere gli utenti dell'area di lavoro in aggiunta alle operazioni consentite a un utente.
+
+> [!NOTE]
+> L'account amministratore che crea l'area di lavoro viene aggiunto automaticamente all'area di lavoro come proprietario. Agli altri amministratori o utenti della sottoscrizione non viene invece concesso automaticamente l'accesso all'area di lavoro, ma è necessario inviare loro un invito in modo esplicito.
+> 
+> 
 
 ### <a name="to-share-a-workspace"></a>Per condividere un'area di lavoro
-1. Accedere a [Machine Learning Studio]
-2. Nel riquadro di Machine Learning Studio fare clic su **SETTINGS**
-3. Fare clic su **USERS**
-4. Fare clic su **INVITE MORE USERS**
-   
-    ![INVITE MORE USERS][4]
-5. Immettere uno o più indirizzi di posta elettronica. All'utente non serve altro che un account Microsoft valido, ad esempio, name@outlook.com) o un account aziendale (da Azure Active Directory).
-6. Fare quindi clic sul pulsante con il segno di spunta.
+
+1. Accedere a Machine Learning Studio all'indirizzo [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
+
+2. Nel pannello sinistro fare clic su **IMPOSTAZIONI**
+
+3. Fare clic sulla scheda **UTENTI**
+
+4. Fare clic su **INVITE MORE USERS (INVITA ALTRI UTENTI)** in fondo alla pagina
+
+    ![Impostazioni di Studio](media/machine-learning-create-workspace/settings.png)
+
+5. Immettere uno o più indirizzi di posta elettronica. L'utente ha bisogno di un account Microsoft o di un account aziendale valido (da Azure Active Directory).
+
+6. Scegliere se si desidera aggiungere l'utente come proprietario o utente.
+
+7. Fare clic sul segno di spunta **OK**.
 
 Ogni utente aggiunto riceverà un messaggio di posta elettronica con istruzioni per l'accesso all'area di lavoro condivisa.
 
-Per informazioni sulla gestione dell'area di lavoro, vedere [Gestire un'area di lavoro di Azure Machine Learning].
-Se si verifica un problema durante la creazione dell'area di lavoro, vedere [Guida per la risoluzione dei problemi: Creare un'area di lavoro di Machine Learning e connettersi a essa].
-
-## <a name="a-namesubscriptionvsworkspaceaprivileges-of-azure-subscription-administrator-and-of-workspace-owner"></a><a name="subscriptionvsworkspace"></a>Privilegi dell'amministratore della sottoscrizione di Azure e del proprietario dell'area di lavoro
-La tabella seguente chiarisce la differenza tra amministratore di una sottoscrizione di Azure e proprietario dell'area di lavoro.
-
-| Azioni | Amministratore della sottoscrizione di Azure | Proprietario dell'area di lavoro |
-| --- |:---:|:---:|
-| Accesso al [portale di Microsoft Azure classico] |Sì |No |
-| Creazione di una nuova area di lavoro |Sì |No |
-| Eliminazione di un'area di lavoro |Sì |No |
-| Aggiunta di un endpoint a un servizio Web |Sì |No |
-| Eliminazione di un endpoint da un servizio Web |Sì |No |
-| Modifica della concorrenza per un servizio Web |Sì |No |
-| Accesso a [Machine Learning Studio] |No * |Sì |
-
 > [!NOTE]
-> * All'area di lavoro viene automaticamente aggiunto come proprietario l'amministratore della sottoscrizione di Azure che la crea. Il ruolo di amministratore di una sottoscrizione di Azure non garantisce tuttavia l'accesso a qualsiasi area di lavoro inclusa nella sottoscrizione.
-> 
-> 
-
-<!-- ![List of Machine Learning workspaces][2] -->
-
-<!--Anchors-->
-[Per creare un'area di lavoro]: #createworkspace
-
-<!--Image references-->
-[1]: media/machine-learning-create-workspace/cw1.png
-[2]: media/machine-learning-create-workspace/cw2.png
-[3]: media/machine-learning-create-workspace/cw4.png
-[4]: media/machine-learning-create-workspace/cw5.png
+> Per poter distribuire o gestire i servizi Web nell'area di lavoro, l'utente deve essere un collaboratore o un amministratore nella sottoscrizione di Azure. 
 
 
-<!--Link references-->
-[Gestire un'area di lavoro di Azure Machine Learning]: machine-learning-manage-workspace.md
-[Guida per la risoluzione dei problemi: Creare un'area di lavoro di Machine Learning e connettersi a essa]: machine-learning-troubleshooting-creating-ml-workspace.md
-[Machine Learning Studio]: https://studio.azureml.net/  
-[portale di Microsoft Azure classico]: https://manage.windowsazure.com/
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

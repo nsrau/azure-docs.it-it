@@ -3,7 +3,7 @@ title: 'Risoluzione dei problemi: Gestione delle password di Azure AD | Document
 description: Passaggi comuni per la risoluzione dei problemi di gestione delle password di Azure AD, tra cui reimpostazione, modifica, writeback, registrazione e informazioni da includere per ottenere assistenza.
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: 18f3dcf7-9314-4a2b-8fed-54b00c0026dd
@@ -12,19 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
-ms.openlocfilehash: 3515091cf71ecb595d8c08902ff13549a9ddd2f4
+ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
+ms.openlocfilehash: e4a4e1968ec43b76bfa9bd938804ef23e37477e5
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="how-to-troubleshoot-password-management"></a>Come risolvere i problemi relativi alla gestione delle password
 > [!IMPORTANT]
 > **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+>
+>
 
 Questo articolo fornisce informazioni su come risolvere i problemi relativi alla gestione delle password. È possibile risolvere la maggior parte dei problemi che potrebbero verificarsi con i pochi semplici passaggi illustrati di seguito, che spiegano come risolvere i problemi della distribuzione:
 
@@ -46,11 +47,11 @@ Se non è possibile risolvere il problema con le indicazioni fornite di seguito,
 * **Pagina** : la pagina che si stava consultando quando è stato visualizzato l'errore (includere l'URL).
 * **Data/Ora/Fuso orario**: data e ora in cui è stato visualizzato l'errore (includere il fuso orario).
 * **Codice di supporto**: codice di supporto generato quando è stato visualizzato l'errore. Per trovare questo codice, riprodurre l'errore, quindi fare clic sul collegamento Codice di supporto nella parte inferiore della schermo e inviare al personale del supporto tecnico il GUID risultante.
-  
+
   * Se è visualizzata una pagina senza un codice di supporto nella parte inferiore, premere F12 ed eseguire una ricerca di SID e CID, quindi inviare i due risultati al personale del supporto tecnico.
-    
+
     ![][001]
-* **ID utente**: ID dell'utente che ha visualizzato l'errore, ad esempio user@contoso.com)?
+* **ID utente**: ID dell'utente che ha visualizzato l'errore, ad esempio user@contoso.com
 * **Informazioni sull'utente**: specificare se si tratta di un utente federato, con sincronizzazione di hash della password o solo cloud.  All'utente è assegnata una licenza AAD Premium o AAD Basic?
 * **Registro eventi dell'applicazione** : se si usa il writeback della password e l'errore si verifica nell'infrastruttura locale, comprimere una copia del registro eventi dell'applicazione dal server Azure AD Connect e inviarla insieme alla richiesta.
 
@@ -1455,7 +1456,7 @@ Il riavvio del servizio di sincronizzazione di Azure AD Connect può aiutare a r
 2. Digitare **services.msc** nella casella di ricerca e premere **INVIO**.
 3. Cercare la voce **Microsoft Azure AD Connect** .
 4. Fare clic con il pulsante destro del mouse sulla voce relativa al servizio, scegliere **Riavvia**e attendere il completamento dell'operazione.
-   
+
    ![][002]
 
 Questi passaggi consentiranno di ristabilire la connessione con il servizio cloud e risolvere eventuali interruzioni che si sono verificate.  Se il riavvio del servizio di sincronizzazione non risolve il problema, come passaggio successivo è consigliabile provare a disabilitare e riabilitare la funzionalità di writeback della password.
@@ -1468,14 +1469,14 @@ Disabilitando e riabilitando la funzionalità di writeback della password è pos
 3. Nella finestra di dialogo **Connessione a Servizi di dominio Active Directory** immettere le **credenziali di amministratore di AD Domain Services**.
 4. Nella finestra di dialogo **Identificazione univoca per gli utenti** fare clic su **Avanti**.
 5. Nella finestra di dialogo **Funzionalità facoltative** deselezionare la casella di controllo **Writeback password**.
-   
+
    ![][003]
 6. Fare clic su **Avanti** nelle pagine rimanenti senza apportare alcuna modifica fino a quando non viene visualizzata la pagina **Pronto per la configurazione**.
 7. Verificare che nella pagina di configurazione l'**opzione Writeback password sia disabilitata** e quindi fare clic sul pulsante verde **Configura** per salvare le modifiche.
 8. Nella finestra di dialogo **Operazione completata** deselezionare l'opzione **Sincronizza ora** e quindi fare clic su **Fine** per chiudere la procedura guidata.
 9. Aprire di nuovo la **Configurazione guidata di Azure AD Connect**.
 10. **Ripetere i passaggi da 2 a 8**, verificando di **selezionare l'opzione Writeback password** nella schermata **Funzionalità facoltative** per riabilitare il servizio.
-    
+
     ![][004]
 
 Questi passaggi consentiranno di ristabilire la connessione con il servizio cloud e risolvere eventuali interruzioni che si sono verificate.
@@ -1496,11 +1497,9 @@ Se la reinstallazione della versione più recente del server Azure AD Connect no
 
 Se il problema persiste, vedere [Risolvere i problemi relativi al writeback delle password](#troubleshoot-password-writeback) e le [domande frequenti sulla gestione delle password di Azure AD](active-directory-passwords-faq.md) per verificare se il problema viene trattato.
 
-<br/>
-<br/>
-<br/>
 
-## <a name="links-to-password-reset-documentation"></a>Collegamenti alla documentazione relativa alla reimpostazione della password
+
+## <a name="next-steps"></a>Passaggi successivi
 Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
 * **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
@@ -1516,9 +1515,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 [002]: ./media/active-directory-passwords-troubleshoot/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -1,6 +1,6 @@
 ---
-title: Ripristinare l&quot;accesso con l&quot;estensione VMAccess e l&quot;interfaccia della riga di comando di Azure 2.0 (Anteprima) | Documenti di Microsoft
-description: Come gestire gli utenti e ripristinare l&quot;accesso in VM virtuali Linux usando l&quot;estensione VMAccess e l&quot;interfaccia della riga di comando di Azure 2.0 (Anteprima)
+title: Ripristinare l&quot;accesso con l&quot;estensione VMAccess e l&quot;interfaccia della riga di comando di Azure 2.0 | Documenti di Microsoft
+description: Come gestire gli utenti e ripristinare l&quot;accesso in VM Linux mediante l&quot;estensione VMAccess e l&quot;interfaccia della riga di comando di Azure 2.0
 services: virtual-machines-linux
 documentationcenter: 
 author: vlivech
@@ -16,32 +16,25 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 98646daf5a4d2c9aca7dfc02a36f39d12f749443
-ms.openlocfilehash: 7752b486bda4a68b14ff3e8aaf1a369a649c83b5
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: debdb8a16c8cfd6a137bd2a7c3b82cfdbedb0d8c
+ms.openlocfilehash: 4fac98d37dde195af69d8bd03fd796c6eeae3734
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="manage-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20-preview"></a>Gestire utenti, SSH e dischi di controllo o di ripristino in VM Linux tramite l'estensione VMAccess con l'interfaccia della riga di comando di Azure 2.0 (Anteprima)
+# <a name="manage-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Gestire utenti, SSH e dischi di controllo o di ripristino in VM Linux mediante l'estensione VMAccess con l'interfaccia della riga di comando di Azure 2.0
 Il disco della VM Linux genera errori. In qualche modo la password radice della VM Linux è stata reimpostata o la chiave privata SSH è stata eliminata accidentalmente. In passato, quando nel data center si verificava questa situazione, era necessario accedere all'unità e quindi aprire il KVM per raggiungere la console del server. L'estensione VMAccess di Azure può essere concepita come il commutatore tastiera, video e mouse che consente di accedere alla console per reimpostare l'accesso a Linux o eseguire la manutenzione a livello di disco.
 
-Questo articolo illustra come usare l'estensione VMAccess di Azure per controllare o ripristinare un disco, reimpostare l'accesso utente, gestire gli account utente o reimpostare la configurazione dei dischi SSHD in Linux.
-
-
-## <a name="cli-versions-to-complete-the-task"></a>Versioni dell'interfaccia della riga di comando per completare l'attività
-È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
-
-- [Interfaccia della riga di comando di Azure 1.0](virtual-machines-linux-using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): l'interfaccia della riga di comando per i modelli di distribuzione classici e di gestione delle risorse
-- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](#ways-to-use-the-vmaccess-extension): interfaccia di prossima generazione per il modello di distribuzione di gestione delle risorse (questo articolo)
+Questo articolo illustra come usare l'estensione VMAccess di Azure per controllare o ripristinare un disco, reimpostare l'accesso utente, gestire gli account utente o reimpostare la configurazione dei dischi SSHD in Linux. È possibile anche eseguire questi passaggi tramite l'[interfaccia della riga di comando di Azure 1.0](virtual-machines-linux-using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## <a name="ways-to-use-the-vmaccess-extension"></a>Modi di usare l'estensione VMAccess
 Esistono due modi per usare l'estensione VMAccess nelle VM Linux:
 
-* Usare l'interfaccia della riga di comando di Azure 2.0 (Anteprima) e i parametri richiesti.
+* Usare l'interfaccia della riga di comando di Azure 2.0 e i parametri richiesti.
 * [Usare file JSON non elaborati che l'estensione VMAccess elaborerà](#use-json-files-and-the-vmaccess-extension) e su cui baserà le sue operazioni.
 
-Gli esempi seguenti usano [az vm access](/cli/azure/vm/access) con i parametri appropriati. Per eseguire questi passaggi è necessario aver installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0 (Anteprima)](/cli/azure/install-az-cli2) e aver effettuato l'accesso a un account Azure con il comando [az login](/cli/azure/#login).
+Gli esempi seguenti usano [az vm access](/cli/azure/vm/access) con i parametri appropriati. Per eseguire questi passaggi è necessario aver installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e aver effettuato l'accesso a un account Azure con il comando [az login](/cli/azure/#login).
 
 ## <a name="reset-ssh-key"></a>Ripristinare la chiave SSH
 L'esempio seguente ripristina la chiave SSH per l'utente `azureuser` nella VM denominata `myVM`:

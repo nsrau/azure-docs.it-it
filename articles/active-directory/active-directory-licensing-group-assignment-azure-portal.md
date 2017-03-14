@@ -1,6 +1,6 @@
 ---
 
-title: Assegnazione di licenze a un gruppo in Azure Active Directory | Microsoft Docs
+title: Assegnare licenze a un gruppo in Azure Active Directory | Documentazione Microsoft
 description: Come assegnare licenze usando le licenze basate sui gruppi di Azure Active Directory
 services: active-directory
 keywords: Licenze di Azure AD
@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6a9cebafd1ad8f513bfab897970241f7b82b2a53
-ms.openlocfilehash: cea745934c36297f5fe0867f4335a797a3ae2515
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: f8b63e5831897d3a45298b0415bb2d6d44ab0de1
+ms.openlocfilehash: 73727d8d1e5de01794589538bd67d3d698d325a0
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="assigning-licenses-to-a-group-in-azure-active-directory"></a>Assegnazione di licenze a un gruppo in Azure Active Directory
+# <a name="assign-licenses-to-a-group-of-users-in-azure-active-directory"></a>Assegnare licenze a un gruppo di utenti in Azure Active Directory
 
 Questo articolo illustra in modo dettagliato uno scenario di base relativo all'assegnazione di licenze a un gruppo e alla verifica che tutti i membri del gruppo ottengano correttamente la licenza.
 

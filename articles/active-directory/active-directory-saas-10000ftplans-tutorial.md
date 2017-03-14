@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Novatus | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con 10,000ft Plans | Documentazione Microsoft'
 description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e 10,000ft Plans.
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: b1dded643a2526b7df799eddaca071c95ea35442
-ms.openlocfilehash: fbc47fe42fabbe65233364d86252d2e722600975
+ms.sourcegitcommit: 2a1f3df856116e372518b2f88460b3c6905c4c9a
+ms.openlocfilehash: 584ddcfc53afee6a8ff11a03d662d8acf58e4820
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -112,7 +113,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
     b. Nella casella di testo **Identificatore** digitare `https://app.10000ft.com/saml/metadata`.
 
     > [!NOTE] 
-    > Il valore **Identificatore** è diverso se si dispone di un dominio personalizzato. Se è necessaria assistenza, contattare il [team di supporto di 10,000ft Plans](mailto:support@10000ft.com).  
+    > Il valore **Identificatore** è diverso se si dispone di un dominio personalizzato. Se è necessaria assistenza, contattare il [team di supporto di&10;,000ft Plans](mailto:support@10000ft.com).  
 
     c. Fare clic su **Avanti**
 
@@ -124,7 +125,7 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
     a. Fare clic su **Scarica certificato**e quindi salvare il file nel computer.
    
     b. Fare clic su **Next**.
-2. Per ottenere la configurazione dell'accesso SSO per l'applicazione, contattare il [team di supporto di 10,000ft Plans](mailto:support@10000ft.com), allegare il certificato scaricato e specificare l'URL autorità di certificazione, l'URL SSO SAML e l'URL disconnessione.
+2. Per ottenere la configurazione dell'accesso SSO per l'applicazione, contattare il [team di supporto di&10;,000ft Plans](mailto:support@10000ft.com), allegare il certificato scaricato e specificare l'URL autorità di certificazione, l'URL SSO SAML e l'URL disconnessione.
 3. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
    
     ![Single Sign-On di Microsoft Azure AD][10]
@@ -239,9 +240,4 @@ Quando si fa clic sul riquadro 10,000ft Plans nel pannello di accesso, si accede
 [203]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/19/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 34bb02d93f74d437962334802f3bfbf938bbb258
-ms.openlocfilehash: 2bc98da479e6efea322a3782879fae72b106538a
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
+ms.openlocfilehash: 29084a52aca22b31a2fa42660ec2cdf050aec7ca
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -190,7 +190,7 @@ Controllare la barra di stato per verificare che l'insieme di credenziali sia st
 
    * Se si vuole usare un proxy personalizzato, configurarlo prima di installare il provider. Quando si configurano impostazioni proxy personalizzate, viene eseguito un test per verificare la connessione proxy.
    * Se si usa un proxy personalizzato o se il proxy predefinito richiede l'autenticazione, è necessario immettere i dettagli del proxy, inclusi l'indirizzo e la porta.
-   * Questi [URL](site-recovery-best-practices.md#url-access) devono essere accessibili dal server VMM.
+   * Gli URL richiesti devono essere accessibili dal server VMM.
    * Se si usa un proxy personalizzato, viene creato automaticamente un account RunAs di VMM (DRAProxyAccount) usando le credenziali del proxy specificate. Configurare il server proxy in modo che l'account possa eseguire l'autenticazione. È possibile modificare le impostazioni dell'account RunAs nella console di VMM (**Impostazioni** > **Sicurezza** > **Account RunAs** > **DRAProxyAccount**). Per applicare la modifica, è necessario riavviare il servizio VMM.
 10. In **Chiave di registrazione** selezionare il codice scaricato dal portale e copiato nel server VMM.
 11. In **Vault name**verificare il nome dell'insieme di credenziali in cui verrà registrato il server.
@@ -321,7 +321,7 @@ Testare la distribuzione per assicurarsi che il failover delle macchine virtuali
 
     ![Selezionare le macchine virtuali](./media/site-recovery-vmm-san/r-plan-vm.png)
 4. Dopo la creazione, il piano di ripristino viene visualizzato nell'elenco all'interno della scheda **Piani di ripristino**. Selezionare il piano e scegliere **Failover di test**.
-5. Nella pagina **Conferma failover di test** selezionare **Nessuno**. Se si abilita questa opzione, le macchine virtuali di replica su cui è stato eseguito il failover non verranno connesse in rete. Viene testato il funzionamento corretto del failover delle macchine virtuali, ma non l'ambiente di rete. Per altre informazioni su altre opzioni di rete, vedere [Failover in Site Recovery](site-recovery-failover.md#run-a-test-failover).
+5. Nella pagina **Conferma failover di test** selezionare **Nessuno**. Se si abilita questa opzione, le macchine virtuali di replica su cui è stato eseguito il failover non verranno connesse in rete. Viene testato il funzionamento corretto del failover delle macchine virtuali, ma non l'ambiente di rete. Per altre informazioni su altre opzioni di rete, vedere [Failover in Site Recovery](site-recovery-failover.md).
 
     ![Seleziona rete di test](./media/site-recovery-vmm-san/test-fail1.png)
 

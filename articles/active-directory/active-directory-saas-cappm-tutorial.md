@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 02/17/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 910e4730c05193ae43309f0e67db629ff15b09b5
+ms.sourcegitcommit: 2d8d925f80830a0d7047e9567fdd413af2e8c5c3
+ms.openlocfilehash: 014f81f1577f67c3e186e2f55d3ca7486e8a6d53
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -26,7 +27,7 @@ Questa esercitazione descrive come integrare CA PPM con Azure Active Directory (
 L'integrazione di CA PPM con Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD chi può accedere a CA PPM
-* È possibile abilitare gli utenti perché possano accedere automaticamente a CA PPM (Single Sign-On) con i propri account Azure AD
+* È possibile abilitare gli utenti per l'accesso automatico Single Sign-On (SSO) a CA PPM con i propri account Azure AD
 * È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -35,7 +36,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 Per configurare l'integrazione di Azure AD con CA PPM, sono necessari gli elementi seguenti:
 
 * Sottoscrizione di Azure AD.
-* Sottoscrizione di CA PPM abilitata per l'accesso Single Sign-On
+* Sottoscrizione di CA PPM abilitata per l'accesso Single Sign-On (SSO)
 
 > [!NOTE]
 > Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
@@ -45,7 +46,7 @@ Per configurare l'integrazione di Azure AD con CA PPM, sono necessari gli elemen
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 * Non usare l'ambiente di produzione, a meno che non sia necessario.
-* Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+* Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
@@ -53,7 +54,7 @@ In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Az
 Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
 1. Aggiunta di CA PPM dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+2. Configurazione e test dell'accesso Single Sign-On (SSO) di Microsoft Azure AD
 
 ## <a name="adding-ca-ppm-from-the-gallery"></a>Aggiunta di CA PPM dalla raccolta
 Per configurare l'integrazione di CA PPM in Azure AD, è necessario aggiungere CA PPM dalla raccolta al proprio elenco di app SaaS gestite.
@@ -80,25 +81,25 @@ Per configurare l'integrazione di CA PPM in Azure AD, è necessario aggiungere C
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-cappm-tutorial/tutorial_cappm_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con CA PPM con un utente test di nome "Britta Simon".
+## <a name="configure-and-test-azure-ad-sso"></a>Configurare e testare l'accesso Single Sign-On (SSO) di Azure AD
+In questa sezione viene configurato e testato l'accesso SSO di Azure AD con CA PPM con un utente test di nome "Britta Simon".
 
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente controparte di CA PPM che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in CA PPM.
+Per il funzionamento dell'accesso SSO, Azure AD deve conoscere qual è l'utente di CA PPM che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in CA PPM.
 
 La relazione di collegamento viene stabilita assegnando al valore di **nome utente** in Azure AD lo stesso valore di **nome utente** in CA PPM.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con CA PPM, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente di test di CA PPM](#creating-an-ca-ppm-test-user)**: per avere una controparte di Britta Simon in CA PPM che sia collegata alla relativa rappresentazione in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
-In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure classico e viene configurato l'accesso Single Sign-On nell'applicazione CA PPM.
+### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
+In questa sezione viene abilitato l'accesso SSO di Azure AD nel portale di Azure classico e viene configurato l'accesso SSO nell'applicazione CA PPM.
 
-**Per configurare l'accesso Single Sign-On di Azure AD con CA PPM, seguire questa procedura:**
+**Per configurare l'accesso SSO di Azure AD con CA PPM, seguire questa procedura:**
 
 1. Nella pagina di integrazione dell'applicazione **CA PPM** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
@@ -109,32 +110,26 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-cappm-tutorial/tutorial_cappm_04.png) 
-   
-    a. Nella casella di testo **Identificatore** digitare l'URL utilizzato dagli utenti per accedere all'applicazione CA PPM usando il modello seguente: **https://ca.ondemand.saml.20.post.\<nome società\>**.
-   
-    b. Nella casella di testo **URL di risposta** digitare **https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer**
-   
-    c. click **Avanti**
+  1. Nella casella di testo **Identificatore** digitare l'URL utilizzato dagli utenti per accedere all'applicazione CA PPM usando il modello seguente: **https://ca.ondemand.saml.20.post.\<nome società\>**.
+  2. Nella casella di testo **URL di risposta** digitare **https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer** 
+  3. click **Avanti**
 4. Nella pagina **Configura accesso Single Sign-On in CA PPM** seguire questa procedura:
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-cappm-tutorial/tutorial_cappm_05.png)
-   
-    a. Fare clic su **Scarica certificato**e quindi salvare il file nel computer.
-   
-    b. Fare clic su **Avanti**.
+  1. Fare clic su **Scarica certificato**e quindi salvare il file nel computer.
+  2. Fare clic su **Avanti**.
 5. Per ottenere l'accesso Single Sign-On configurato per l'applicazione, contattare il [supporto tecnico di CA](mailto:catechnicalsupport@ca.com) e specificare i seguenti elementi:
-   
-    • Certificato scaricato
-   
-    • **ID entità**
-6. Nel portale classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
+  
+  * Certificato scaricato
+  * L' **ID entità**
+6. Nel portale di Azure classico selezionare la conferma della configurazione e fare clic su **Avanti**.
    
     ![Single Sign-On di Microsoft Azure AD][10]
 7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.  
    
     ![Single Sign-On di Microsoft Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 In questa sezione viene creato un utente test chiamato Britta Simon nel portale classico.
 
 ![Creare un utente di Azure AD][20]
@@ -152,38 +147,30 @@ In questa sezione viene creato un utente test chiamato Britta Simon nel portale 
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-cappm-tutorial/create_aaduser_04.png) 
 5. Nella pagina **Informazioni sull'utente** seguire questa procedura:  ![Creazione di un utente test di Azure AD](./media/active-directory-saas-cappm-tutorial/create_aaduser_05.png) 
-   
-    a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
-   
-    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
-   
-    c. Fare clic su **Avanti**.
-6. Nella pagina **Profilo utente** seguire questa procedura: ![Creazione di un utente test di Azure AD](./media/active-directory-saas-cappm-tutorial/create_aaduser_06.png) 
-   
-   a. Nella casella di testo **Nome** digitare **Britta**.  
-   
-   b. Nella casella di testo **Cognome** digitare **Simon**.
-   
-   c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
-   
-   d. Nell'elenco **Ruolo** selezionare **Utente**.
-   
-   e. Fare clic su **Avanti**.
+  1. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
+  2. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
+  3. Fare clic su **Avanti**.
+6. Nella pagina **Profilo utente** seguire questa procedura:
+
+ ![Creazione di un utente test di Azure AD](./media/active-directory-saas-cappm-tutorial/create_aaduser_06.png)   
+  1. Nella casella di testo **Nome** digitare **Britta**.    
+  2. Nella casella di testo **Cognome** digitare **Simon**.
+  3. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
+  4. Nell'elenco **Ruolo** selezionare **Utente**.
+  5. Fare clic su **Avanti**.
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
    
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-cappm-tutorial/create_aaduser_07.png) 
+   ![Creazione di un utente test di Azure AD](./media/active-directory-saas-cappm-tutorial/create_aaduser_07.png) 
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
    
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-cappm-tutorial/create_aaduser_08.png) 
-   
-    a. Prendere nota del valore visualizzato in **Nuova password**.
-   
-    b. Fare clic su **Complete**.   
+   ![Creazione di un utente test di Azure AD](./media/active-directory-saas-cappm-tutorial/create_aaduser_08.png)  
+  1. Prendere nota del valore visualizzato in **Nuova password**.
+  2. Fare clic su **Complete**.   
 
-### <a name="creating-an-ca-ppm-test-user"></a>Creazione di un utente test di CA PPM
+### <a name="create-an-ca-ppm-test-user"></a>Creare un utente test per CA PPM
 In questa sezione viene creato un utente di nome Britta Simon in CA PPM. Collaborare con il team di supporto di CA PPM per aggiungere gli utenti nella piattaforma CA PPM.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure, concedendole così accesso a CA PPM.
 
 ![Assegna utente][200] 
@@ -204,7 +191,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
    
     ![Assegna utente][205]
 
-### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro CA PPM nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione CA PPM.
@@ -230,9 +217,4 @@ Quando si fa clic sul riquadro CA PPM nel pannello di accesso, si dovrebbe acced
 [203]: ./media/active-directory-saas-cappm-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-cappm-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-cappm-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
