@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 03/08/2017
 ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: 55c988bf74ff0f2e519e895a735dc68f3dc99855
 ms.openlocfilehash: e2deed13106db9467eef181f25a0a226034df5a2
+ms.lasthandoff: 02/11/2017
 
 ---
 
@@ -327,9 +328,4 @@ Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spos
 Vedere gli articoli seguenti:
 
 * [Esercitazione dell'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate della creazione di una pipeline con un'attività di copia.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
