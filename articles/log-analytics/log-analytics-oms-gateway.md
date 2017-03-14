@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6f9974c109905f432705b85dcc8fc4d3549f16e9
-ms.openlocfilehash: 445bc1259cb3fa6f02fa1cadec11b1ac4b186e78
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: de2e6d201ba54774697356e1cd55c4881664a401
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="connect-computers-and-devices-to-oms-using-the-oms-gateway"></a>Connettere computer e dispositivi a OMS tramite il gateway OMS
+# <a name="connect-computers-and-devices-without-internet-access-to-oms-using-the-oms-gateway"></a>Connettere computer e dispositivi senza accesso a Internet a OMS tramite il gateway OMS
+
 Questo documento descrive in che modo i dispositivi gestiti OMS e i computer monitorati da System Center Operations Manager (SCOM) possono inviare dati al servizio OMS quando non è disponibile l'accesso a Internet. Il gateway OMS può raccogliere i dati e inviarli al servizio OMS per conto dei dispositivi.
 
 Il gateway è un proxy di inoltro HTTP che supporta il tunneling HTTP tramite il comando HTTP CONNECT. Il gateway può gestire fino a 2000 dispositivi OMS connessi contemporaneamente quando vengono eseguiti su una CPU a 4 core e un server da 16 GB che esegue Windows.
@@ -277,9 +280,4 @@ Per richiedere supporto, fare clic sul simbolo del punto interrogativo nell'ango
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Aggiungere le origini dati](log-analytics-data-sources.md) per raccogliere i dati dalle origini connesse nell'area di lavoro di OMS e archiviarli nel repository OMS.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

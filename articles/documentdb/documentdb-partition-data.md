@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 02/22/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 876e0fd12d045bba85d1e30d4abfcb8ce421213a
-ms.openlocfilehash: ed58e623ff74a21df25fc93346e571edec7b40da
+ms.sourcegitcommit: 5ed72d95ae258d6fa8e808cd72ab6e8a665901c9
+ms.openlocfilehash: 0a8b53f7860548a2a013bfc7813cdf798b6a4910
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -41,14 +42,22 @@ In DocumentDB è possibile archiviare ed eseguire query di documenti JSON senza 
 
 Il partizionamento è completamente trasparente per l'applicazione. DocumentDB supporta letture e scritture veloci, query SQL e LINQ, una logica transazionale basata su JavaScript, livelli di coerenza e il controllo di accesso con granularità fine tramite chiamate API REST a una singola risorsa della raccolta. Il servizio gestisce la distribuzione dei dati tra le partizioni e il routing delle richieste di query alla partizione corretta. 
 
-Come funziona? Quando viene creata una raccolta in DocumentDB, viene visualizzato un valore di configurazione della **proprietà chiave di partizione** che è possibile specificare. Questa è la proprietà (o il percorso) JSON all'interno dei documenti che possono essere usati da DocumentDB per distribuire i dati tra più server o più partizioni. DocumentDB eseguirà l'hashing del valore della chiave di partizione e userà il risultato con hash per determinare la partizione in cui verrà archiviato il documento JSON. Tutti i documenti con la stessa chiave di partizione verranno archiviati nella stessa partizione. 
+Come funziona? Quando viene creata una raccolta in DocumentDB, è possibile specificare il valore di configurazione della **proprietà chiave di partizione**. Questa è la proprietà (o il percorso) JSON all'interno dei documenti che possono essere usati da DocumentDB per distribuire i dati tra più server o più partizioni. DocumentDB eseguirà l'hashing del valore della chiave di partizione e userà il risultato con hash per determinare la partizione in cui verrà archiviato il documento JSON. Tutti i documenti con la stessa chiave di partizione verranno archiviati nella stessa partizione. 
 
 Ad esempio, si consideri un'applicazione che archivia i dati sui dipendenti e i relativi reparti in DocumentDB. Scegliere `"department"` come proprietà chiave di partizione per scalare orizzontalmente i dati in base al reparto. Ogni documento in DocumentDB deve contenere una proprietà `"id"` obbligatoria che deve essere univoca per ogni documento con lo stesso valore della chiave di partizione, ad esempio `"Marketing`". Ogni documento archiviato in una raccolta deve avere una combinazione univoca di chiave di partizione e ID, ad esempio `{ "Department": "Marketing", "id": "0001" }`, `{ "Department": "Marketing", "id": "0002" }` e `{ "Department": "Sales", "id": "0001" }`. In altre parole, la proprietà composta (chiave di partizione, id) è la chiave primaria per la raccolta.
 
-## <a name="partition-keys"></a>Chiavi di partizione
-La scelta della chiave di partizione è una decisione importante da prendere in fase di progettazione. È necessario scegliere un nome della proprietà JSON che contiene un'ampia gamma di valori e probabilmente modelli di accesso distribuiti in modo uniforme. La chiave di partizione viene specificata come percorso JSON, ad esempio `/department` rappresenta la proprietà reparto. 
+DocumentDB creare un numero ridotto di partizioni fisiche dietro a ogni raccolta in base alle dimensioni di archiviazione e alla velocità effettiva con provisioning. La proprietà definita come chiave di partizione è una partizione logica. Più valori di chiave di partizione condividono in genere una singola partizione fisica, ma un singolo valore non può espandersi a una partizione. È bene disporre di una chiave di partizione con molti valori, perché ciò consente a DocumentDB di eseguire un miglior bilanciamento del carico in caso di aumento dei dati o della velocità effettiva con provisioning.
 
-La tabella seguente mostra esempi di definizioni della chiave di partizione e i valori JSON corrispondenti a ciascuna definizione.
+Si supponga, ad esempio, di creare una raccolta con 25.000 richieste per secondo di velocità effettiva e che DocumentDB supporta 10.000 richieste al secondo per ogni singola partizione fisica. Per la raccolta, DocumentDB crea le 3 partizioni fisiche P1, P2 e P3. Durante l'inserimento o la lettura di un documento, il servizio DocumentDB genera il valore hash corrispondente `Department` per il mapping dei dati delle tre partizioni P1, P2 e P3. Pertanto, se l'hash di "Marketing" e "Sales" corrisponde a 1, entrambi vengono memorizzati in P1. Quando la partizione P1 è piena, DocumentDB la suddivide nelle due nuove partizioni P4 e P5. Dopo la divisione, il servizio potrebbe quindi spostare "Marketing" in P4 e "Sales" in P5, quindi eliminare P1. Questi spostamenti delle chiavi di partizione tra partizioni sono trasparenti all'applicazione e non hanno alcun impatto sulla disponibilità della raccolta.
+
+## <a name="partition-keys"></a>Chiavi di partizione
+La scelta della chiave di partizione è una decisione importante da prendere in fase di progettazione. È necessario scegliere un nome della proprietà JSON che contiene un'ampia gamma di valori e probabilmente modelli di accesso distribuiti in modo uniforme. 
+
+> [!NOTE]
+> È bene disporre di una chiave di partizione con un numero elevato di valori distinti (100-1000 come minimo). Molti clienti usano DocumentDB come archivio di valori di chiavi, dove l'"id" univoco è la chiave di partizione per un numero elevato di chiavi di partizioni, da milioni sino a miliardi.
+>
+
+La tabella seguente mostra esempi di definizioni della chiave di partizione e i valori JSON corrispondenti a ciascuna definizione. La chiave di partizione viene specificata come percorso JSON, ad esempio `/department` rappresenta la proprietà reparto. 
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -157,21 +166,22 @@ L'esempio seguente illustra un frammento di codice .NET per creare una raccolta 
 
 Per questo esempio è stato scelto `deviceId` per due motivi: (a) considerato il numero elevato di dispositivi, le scritture possono essere distribuite in modo uniforme tra le partizioni consentendo di scalare il database per l'inserimento di volumi elevati di dati e (b) molte richieste, ad esempio il recupero della lettura più recente per un dispositivo, sono limitate a un singolo deviceId e possono essere recuperate da una partizione singola.
 
-    DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
-    await client.CreateDatabaseAsync(new Database { Id = "db" });
+```csharp
+DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
+await client.CreateDatabaseAsync(new Database { Id = "db" });
 
-    // Collection for device telemetry. Here the JSON property deviceId will be used as the partition key to 
-    // spread across partitions. Configured for 10K RU/s throughput and an indexing policy that supports 
-    // sorting against any number or string property.
-    DocumentCollection myCollection = new DocumentCollection();
-    myCollection.Id = "coll";
-    myCollection.PartitionKey.Paths.Add("/deviceId");
+// Collection for device telemetry. Here the JSON property deviceId will be used as the partition key to 
+// spread across partitions. Configured for 10K RU/s throughput and an indexing policy that supports 
+// sorting against any number or string property.
+DocumentCollection myCollection = new DocumentCollection();
+myCollection.Id = "coll";
+myCollection.PartitionKey.Paths.Add("/deviceId");
 
-    await client.CreateDocumentCollectionAsync(
-        UriFactory.CreateDatabaseUri("db"),
-        myCollection,
-        new RequestOptions { OfferThroughput = 20000 });
-
+await client.CreateDocumentCollectionAsync(
+    UriFactory.CreateDatabaseUri("db"),
+    myCollection,
+    new RequestOptions { OfferThroughput = 20000 });
+```
 
 > [!NOTE]
 > Per creare raccolte partizionate utilizzando l'SDK, è necessario specificare un valore per la velocità effettiva maggiore o uguale a 10.100 UR/s. Per impostare un valore di velocità effettiva tra 2.500 e 10.000 per le raccolte partizionate, è necessario utilizzare temporaneamente il portale di Azure, poiché i nuovi valori inferiori non sono ancora disponibili nell'SDK.
@@ -183,107 +193,118 @@ Questo metodo effettua una chiamata API REST a DocumentDB e il servizio eseguir�
 ### <a name="reading-and-writing-documents"></a>Lettura e scrittura di documenti
 A questo punto si inseriscono i dati in DocumentDB. Di seguito è riportata una classe di esempio contenente un dispositivo di lettura e una chiamata a CreateDocumentAsync per inserire un nuovo dispositivo di lettura in una raccolta.
 
-    public class DeviceReading
+```csharp
+public class DeviceReading
+{
+    [JsonProperty("id")]
+    public string Id;
+
+    [JsonProperty("deviceId")]
+    public string DeviceId;
+
+    [JsonConverter(typeof(IsoDateTimeConverter))]
+    [JsonProperty("readingTime")]
+    public DateTime ReadingTime;
+
+    [JsonProperty("metricType")]
+    public string MetricType;
+
+    [JsonProperty("unit")]
+    public string Unit;
+
+    [JsonProperty("metricValue")]
+    public double MetricValue;
+  }
+
+// Create a document. Here the partition key is extracted as "XMS-0001" based on the collection definition
+await client.CreateDocumentAsync(
+    UriFactory.CreateDocumentCollectionUri("db", "coll"),
+    new DeviceReading
     {
-        [JsonProperty("id")]
-        public string Id;
-
-        [JsonProperty("deviceId")]
-        public string DeviceId;
-
-        [JsonConverter(typeof(IsoDateTimeConverter))]
-        [JsonProperty("readingTime")]
-        public DateTime ReadingTime;
-
-        [JsonProperty("metricType")]
-        public string MetricType;
-
-        [JsonProperty("unit")]
-        public string Unit;
-
-        [JsonProperty("metricValue")]
-        public double MetricValue;
-      }
-
-    // Create a document. Here the partition key is extracted as "XMS-0001" based on the collection definition
-    await client.CreateDocumentAsync(
-        UriFactory.CreateDocumentCollectionUri("db", "coll"),
-        new DeviceReading
-        {
-            Id = "XMS-001-FE24C",
-            DeviceId = "XMS-0001",
-            MetricType = "Temperature",
-            MetricValue = 105.00,
-            Unit = "Fahrenheit",
-            ReadingTime = DateTime.UtcNow
-        });
-
+        Id = "XMS-001-FE24C",
+        DeviceId = "XMS-0001",
+        MetricType = "Temperature",
+        MetricValue = 105.00,
+        Unit = "Fahrenheit",
+        ReadingTime = DateTime.UtcNow
+    });
+```
 
 Si procede alla lettura del documento, all'aggiornamento e infine all'eliminazione in base alla chiave di partizione e all'id. Si noti che le letture includono un valore PartitionKey, corrispondente all'intestazione di richiesta `x-ms-documentdb-partitionkey` nell'API REST.
 
-    // Read document. Needs the partition key and the ID to be specified
-    Document result = await client.ReadDocumentAsync(
-      UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
-      new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
+```csharp
+// Read document. Needs the partition key and the ID to be specified
+Document result = await client.ReadDocumentAsync(
+  UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
+  new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
 
-    DeviceReading reading = (DeviceReading)(dynamic)result;
+DeviceReading reading = (DeviceReading)(dynamic)result;
 
-    // Update the document. Partition key is not required, again extracted from the document
-    reading.MetricValue = 104;
-    reading.ReadingTime = DateTime.UtcNow;
+// Update the document. Partition key is not required, again extracted from the document
+reading.MetricValue = 104;
+reading.ReadingTime = DateTime.UtcNow;
 
-    await client.ReplaceDocumentAsync(
-      UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
-      reading);
+await client.ReplaceDocumentAsync(
+  UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
+  reading);
 
-    // Delete document. Needs partition key
-    await client.DeleteDocumentAsync(
-      UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
-      new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
-
-
+// Delete document. Needs partition key
+await client.DeleteDocumentAsync(
+  UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
+  new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
+```
 
 ### <a name="querying-partitioned-collections"></a>Esecuzione di query sulle raccolte partizionate
 Quando viene eseguita una query sui dati delle raccolte partizionate, DocumentDB instrada automaticamente la query alle partizioni corrispondenti ai valori della chiave di partizione specificati nel filtro (se presenti). Ad esempio, questa query viene instradata solo alla partizione contenente la chiave di partizione "XMS-0001".
 
-    // Query using partition key
-    IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
-        UriFactory.CreateDocumentCollectionUri("db", "coll"))
-        .Where(m => m.MetricType == "Temperature" && m.DeviceId == "XMS-0001");
-
+```csharp
+// Query using partition key
+IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
+    UriFactory.CreateDocumentCollectionUri("db", "coll"))
+    .Where(m => m.MetricType == "Temperature" && m.DeviceId == "XMS-0001");
+```
+    
 La query seguente non dispone di un filtro per la chiave di partizione (DeviceId) e viene effettuato il fan-out a tutte le partizioni in cui viene eseguita a fronte dell'indice della partizione. Si noti che è necessario specificare EnableCrossPartitionQuery (`x-ms-documentdb-query-enablecrosspartition` nell'API REST) affinché l'SDK esegua una query tra le partizioni.
 
-    // Query across partition keys
-    IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<DeviceReading>(
-        UriFactory.CreateDocumentCollectionUri("db", "coll"), 
-        new FeedOptions { EnableCrossPartitionQuery = true })
-        .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
+```csharp
+// Query across partition keys
+IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<DeviceReading>(
+    UriFactory.CreateDocumentCollectionUri("db", "coll"), 
+    new FeedOptions { EnableCrossPartitionQuery = true })
+    .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
+```
+
+DocumentDB supporta le [funzioni di aggregazione] ([funzioni di aggregazione](documentdb-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`, `SUM` e `AVG` su raccolte partizionate usando SQL a partire da SDK 1.12.0 e versioni successive. Le query devono includere un unico operatore di aggregazione e un singolo valore nella proiezione.
 
 ### <a name="parallel-query-execution"></a>Esecuzione di query in parallelo
 Gli SDK di DocumentDB 1.9.0 e versioni successive supportano le opzioni di esecuzione di query in parallelo, che consentono di eseguire query a bassa latenza sulle raccolte partizionate, anche quando è necessario toccare un numero elevato di partizioni. Ad esempio, la query seguente è configurata in modo da essere eseguita in parallelo tra le partizioni.
 
-    // Cross-partition Order By Queries
-    IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<DeviceReading>(
-        UriFactory.CreateDocumentCollectionUri("db", "coll"), 
-        new FeedOptions { EnableCrossPartitionQuery = true, MaxDegreeOfParallelism = 10, MaxBufferedItemCount = 100})
-        .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100)
-        .OrderBy(m => m.MetricValue);
-
+```csharp
+// Cross-partition Order By Queries
+IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<DeviceReading>(
+    UriFactory.CreateDocumentCollectionUri("db", "coll"), 
+    new FeedOptions { EnableCrossPartitionQuery = true, MaxDegreeOfParallelism = 10, MaxBufferedItemCount = 100})
+    .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100)
+    .OrderBy(m => m.MetricValue);
+```
+    
 È possibile gestire l'esecuzione di query in parallelo, ottimizzando i parametri seguenti:
 
 * Impostando `MaxDegreeOfParallelism`è possibile controllare il grado di parallelismo, ovvero il numero massimo di connessioni di rete simultanee alle partizioni della raccolta. Se si imposta questo valore su -1, il grado di parallelismo viene gestito dall'SDK. Se `MaxDegreeOfParallelism` non è specificato o è impostato su 0, ovvero il valore predefinito, esisterà una sola connessione di rete per le partizioni della raccolta.
-* Impostando `MaxBufferedItemCount`è possibile raggiungere un compromesso tra latenza della query e uso della memoria dal lato client. Se si omette questo parametro o si imposta su -1, il numero di elementi memorizzati nel buffer durante l'esecuzione di query in parallelo viene gestito dall'SDK.
+* Impostando `MaxBufferedItemCount` è possibile raggiungere un compromesso tra latenza della query e uso della memoria dal lato client. Se si omette questo parametro o si imposta su -1, il numero di elementi memorizzati nel buffer durante l'esecuzione di query in parallelo viene gestito dall'SDK.
 
 Considerato lo stato della raccolta, una query in parallelo restituirà i risultati nello stesso ordine dell'esecuzione seriale. Quando si esegue una query tra partizioni che include l'ordinamento (ORDER BY e/o TOP), l'SDK di DocumentDB esegue la query in parallelo tra le partizioni e unisce i risultati ordinati parzialmente sul lato client per produrre risultati ordinati a livello globale.
 
 ### <a name="executing-stored-procedures"></a>Esecuzione di stored procedure
 È anche possibile eseguire transazioni atomiche rispetto a documenti con lo stesso ID dispositivo, ad esempio se si gestiscono aggregazioni o lo stato più recente di un dispositivo in un unico documento. 
 
-    await client.ExecuteStoredProcedureAsync<DeviceReading>(
-        UriFactory.CreateStoredProcedureUri("db", "coll", "SetLatestStateAcrossReadings"),
-        new RequestOptions { PartitionKey = new PartitionKey("XMS-001") }, 
-        "XMS-001-FE24C");
-
+```csharp
+await client.ExecuteStoredProcedureAsync<DeviceReading>(
+    UriFactory.CreateStoredProcedureUri("db", "coll", "SetLatestStateAcrossReadings"),
+    new RequestOptions { PartitionKey = new PartitionKey("XMS-001") }, 
+    "XMS-001-FE24C");
+```
+    
 Nella sezione successiva verrà illustrato come passare alle raccolte partizionate da raccolte a partizione singola.
 
 <a name="migrating-from-single-partition"></a>
@@ -350,10 +371,5 @@ Questo articolo descrive il funzionamento del partizionamento in Azure DocumentD
 [2]: ./media/documentdb-partition-data/single-and-partitioned.png
 [3]: ./media/documentdb-partition-data/documentdb-migration-partitioned-collection.png  
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

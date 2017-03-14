@@ -1,9 +1,9 @@
 ---
-title: 'Altre informazioni: Gestione delle password di Azure AD | Documentazione Microsoft'
-description: Argomenti avanzati sulla gestione delle password di Azure Active Directory, ad esempio come funziona il writeback delle password, sicurezza del writeback delle password, come funziona il portale di reimpostazione delle password e quali dati vengono usati per la reimpostazione della password.
+title: 'Altre informazioni: Gestione delle password di Azure Active Directory | Documentazione Microsoft'
+description: Argomenti avanzati sulla gestione delle password di Azure Active Directory, ad esempio come funziona il writeback delle password, sicurezza del writeback delle password, come funziona il portale di reimpostazione della password e quali dati vengono usati per la reimpostazione della password.
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: d3be2912-76c8-40a0-9507-b7b1a7ce2f8f
@@ -12,17 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
-ms.openlocfilehash: 534373f72a4181914e3b7ea98ded507418e3d299
+ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
+ms.openlocfilehash: 8a9e412776acf4e08658517b714d9644b172f523
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="learn-more-about-password-management"></a>Altre informazioni sulla gestione delle password
 > [!IMPORTANT]
-> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,**  [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
+> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
 >
 >
 
@@ -42,12 +43,12 @@ Writeback password è un componente di [Azure Active Directory Connect](connect/
 
 Il writeback delle password consente di configurare il tenant cloud per scrivere automaticamente le password nuovamente in Active Directory locale.  Evita di dover configurare e gestire una complessa soluzione di reimpostazione della password self-service locale, e offre agli utenti un modo pratico e basato sul cloud per reimpostare le password locali ovunque essi si trovino.  Di seguito sono riportate altre informazioni su alcune delle funzionalità principali del writeback delle password:
 
-* **Feedback immediato.**   Il writeback delle password è un'operazione sincrona.  Gli utenti saranno informati immediatamente se la password non soddisfa i criteri o non può essere reimpostata o modificata per qualsiasi motivo.
-* **Supporta la reimpostazione delle password per gli utenti con ADFS o altre tecnologie di federazione.**   Con il writeback delle password gli account utente federati potranno gestire le proprie password AD locali dal cloud, purché siano sincronizzati nel tenant di Azure AD.
-* **Supporta la reimpostazione delle password per gli utenti con la sincronizzazione degli hash delle password.**  Quando il servizio di reimpostazione delle password rileva che un account utente sincronizzato è abilitato per la sincronizzazione degli hash delle password, la password locale e la password cloud dell'account vengono reimpostate simultaneamente.
-* **Supporta la modifica delle password dal pannello di accesso e da Office 365.**   Quando gli utenti federati o sincronizzati con password modificano le password scadute o non scadute, queste verranno scritte anche nell'ambiente AD locale.
+* **Feedback immediato.**  Il writeback delle password è un'operazione sincrona.  Gli utenti saranno informati immediatamente se la password non soddisfa i criteri o non può essere reimpostata o modificata per qualsiasi motivo.
+* **Supporta la reimpostazione delle password per gli utenti con ADFS o altre tecnologie di federazione.**  Con il writeback delle password gli account utente federati potranno gestire le proprie password AD locali dal cloud, purché siano sincronizzati nel tenant di Azure AD.
+* **Supporta la reimpostazione delle password per gli utenti con la sincronizzazione degli hash delle password.** Quando il servizio di reimpostazione delle password rileva che un account utente sincronizzato è abilitato per la sincronizzazione degli hash delle password, la password locale e la password cloud dell'account vengono reimpostate simultaneamente.
+* **Supporta la modifica delle password dal pannello di accesso e da Office 365.**  Quando gli utenti federati o sincronizzati con password modificano le password scadute o non scadute, queste verranno scritte anche nell'ambiente AD locale.
 * **Supporta il writeback delle password in caso di reimpostazione da parte degli amministratori nel** [**portale di gestione di Azure**](https://manage.windowsazure.com).  Quando un amministratore reimposta la password di un utente nel [portale di gestione di Azure](https://manage.windowsazure.com), se tale utente è federato o sincronizzato con password, la password selezionata dall'amministratore verrà impostata anche nell'ambiente AD locale.  Ciò non è attualmente supportato nel portale di amministrazione di Office.
-* **Applica i criteri password AD locali.**   Quando un utente Reimposta la propria password, verificare che soddisfi i criteri AD locali prima di eseguirne il commit a tale directory.  Sono inclusi cronologia, complessità, validità, filtri delle password e altre restrizioni per le password definite in AD locale.
+* **Applica i criteri password AD locali.**  Quando un utente Reimposta la propria password, verificare che soddisfi i criteri AD locali prima di eseguirne il commit a tale directory.  Sono inclusi cronologia, complessità, validità, filtri delle password e altre restrizioni per le password definite in AD locale.
 * **Non richiede regole del firewall per il traffico in ingresso.**  Per il writeback delle password viene usato Inoltro del bus di servizio di Azure come canale di comunicazione sottostante. In questo modo non è necessario aprire porte in ingresso nel firewall per usare questa funzionalità.
 * **Non è supportato per gli account utente esistenti nei gruppi protetti in Active Directory locale.** Per altre informazioni sui gruppi protetti, vedere l'articolo relativo ad [account e gruppi protetti in Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
 
@@ -245,7 +246,7 @@ Gli interni non sono supportati; gli eventuali interni specificati verranno igno
               <p>AlternateEmailAddresses[0] </p>
               <p>Il campo Indirizzo di posta elettronica per l'autenticazione viene usato se sono presenti dati, in caso contrario viene usato il campo Indirizzo di posta elettronica alternativo.</p>
               <p>Nota: il campo Indirizzo di posta elettronica alternativo è specificato come una matrice di stringhe nella directory.  In questa matrice viene usata la prima voce.</p>
-              <p>ad esempio Set-MsolUser -UserPrincipalName JWarner@contoso.com -AlternateEmailAddresses "email@live.com"</p>
+              <p>Un esempio è Set-MsolUser -UserPrincipalName JWarner@contoso.com -AlternateEmailAddresses "email@live.com"</p>
             </td>
             <td>
               <p>Usato in:</p>
@@ -257,7 +258,7 @@ Gli interni non sono supportati; gli eventuali interni specificati verranno igno
             </td>
             <td>
               <p>
-                <a href="mailto:user@domain.com">user@domain.com</a> oppure 甲斐@黒川.日本</p>
+                <a href="mailto:user@domain.com">user@domain.com</a> o 甲斐@黒川.日本</p>
               <ul>
                 <li class="unordered">
 I messaggi di posta elettronica devono seguire la formattazione standard prevista.<br><br></li>
@@ -390,10 +391,10 @@ Connect-MsolService
 Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select Email
 ```
 
-## <a name="links-to-password-reset-documentation"></a>Collegamenti alla documentazione relativa alla reimpostazione della password
+## <a name="next-steps"></a>Passaggi successivi
 Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,**  [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
+* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
 * [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
 * [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
 * [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione
@@ -404,9 +405,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

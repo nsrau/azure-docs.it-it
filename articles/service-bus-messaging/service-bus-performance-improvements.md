@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd12e72ead38aa73b9abf960624755a05720b00
-ms.openlocfilehash: 8f9bcee4cf1ce0b226c93a40017487122f59daaa
+ms.sourcegitcommit: a9fd01e533f4ab76a68ec853a645941eff43dbfd
+ms.openlocfilehash: d077099a9fdc50cf78157bcb7f28d1d28583bea1
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -139,6 +140,9 @@ namespaceManager.CreateTopic(td);
 
 Se un messaggio contenente informazioni critiche che non devono andare perdute viene inviato a un'entità espressa, il mittente può forzare il bus di servizio perché mantenga subito e in modo permanente il messaggio nell'archivio stabile impostando la proprietà [ForcePersistence][ForcePersistence] su **true**.
 
+> [!NOTE]
+> Si noti che le entità express non supportano le transazioni.
+
 ## <a name="use-of-partitioned-queues-or-topics"></a>Uso di code o argomenti partizionati
 Internamente, il bus di servizio usa lo stesso nodo e lo stesso archivio di messaggistica per elaborare e archiviare tutti i messaggi per un'entità di messaggistica (coda o argomento). Una coda o un argomento partizionato, al contrario, viene distribuito tra più nodi e archivi di messaggistica. Le code e gli argomenti partizionati non solo registrano una velocità effettiva superiore rispetto a quella delle code e degli argomenti normali, ma presentano anche una maggiore disponibilità. Per creare un'entità partizionata, impostare la proprietà [EnablePartitioning][EnablePartitioning] su **true**, come illustrato nell'esempio seguente. Per altre informazioni sulle entità partizionate, vedere le [entità di messaggistica partizionate][Partitioned messaging entities].
 
@@ -256,9 +260,4 @@ Per altre informazioni sull'ottimizzazione delle prestazioni del bus di servizio
 [EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning
 [Partitioned messaging entities]: service-bus-partitioning.md
 [TopicDescription.EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription#Microsoft_ServiceBus_Messaging_TopicDescription_EnableFilteringMessagesBeforePublishing
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

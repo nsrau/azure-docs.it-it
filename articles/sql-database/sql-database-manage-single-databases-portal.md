@@ -16,8 +16,9 @@ ms.tgt_pltfrm: NA
 ms.date: 02/06/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 319e22e2fb423e0fe1fabf95d0018d4fa3232e0b
-ms.openlocfilehash: 5d7f11b9b027f86adf3d2382e82f2d382d71ee51
+ms.sourcegitcommit: 5e01db2676e3515f41bf98d23595e6509c0d6805
+ms.openlocfilehash: c5f50213be9cd20c82acf8dd94463e7dce0a0195
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -49,6 +50,7 @@ ms.openlocfilehash: 5d7f11b9b027f86adf3d2382e82f2d382d71ee51
     ![nuovo pannello del database di esempio](./media/sql-database-get-started/new-sample-db-blade.png)
 
 ## <a name="change-the-service-tier-and-performance-level-of-a-single-database"></a>Modificare il livello di servizio e il livello delle prestazioni di un database singolo
+
 Aprire il pannello del Database SQL per il database che si desidera scalare verso l’alto o verso il basso:
 
 1. Nel [Portale di Azure](https://portal.azure.com) fare clic su **More services** (Altri servizi) > **Database SQL**.
@@ -59,12 +61,11 @@ Aprire il pannello del Database SQL per il database che si desidera scalare vers
 
 4. Scegliere un nuovo piano tariffario e fare clic su **Seleziona**:
    
-   Facendo clic su **Seleziona** viene inviata una richiesta di ridimensionamento per modificare il piano tariffario. A seconda delle dimensioni del database, l'operazione di ridimensionamento potrebbe richiedere diverso tempo. Vedere le informazioni nella prima parte dell'articolo.
+   Facendo clic su **Seleziona** viene inviata una richiesta di ridimensionamento per modificare il piano tariffario. A seconda delle dimensioni del database, l'operazione di ridimensionamento potrebbe richiedere diverso tempo (vedere [Livelli di servizio](sql-database-service-tiers.md)).
    
    > [!NOTE]
    > La modifica del piano tariffario del database non modifica le dimensioni massime del database. Per modificare le dimensioni massime del database usare [Transact-SQL (T-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) o [PowerShell](https://msdn.microsoft.com/library/mt619433.aspx).
-   > 
-   > 
+   >  
    
    ![selezionare un livello di prezzo](./media/sql-database-manage-single-database-portal/choose-tier.png)
 5. Fare clic sull'icona di notifica (a forma di campanello) in alto a destra:
@@ -80,9 +81,4 @@ Aprire il pannello del Database SQL per il database che si desidera scalare vers
 * Per informazioni su come eseguire le attività di gestione usando SQL Server Management Studio, vedere [SQL Server Management Studio](sql-database-manage-azure-ssms.md).
 * Per informazioni sul servizio di database SQL, vedere [Informazioni sul database SQL](sql-database-technical-overview.md). 
 * Per informazioni sui server di database di Azure e sulle funzionalità di database, vedere [Funzionalità](sql-database-features.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

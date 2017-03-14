@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 12/04/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 1e88eba53b8ec3388ede1ae69cb290423919fda6
-ms.openlocfilehash: d683e25ef96bbd87a6d5b5ea143754b8f67f288e
+ms.sourcegitcommit: 3b9d269a780e9a4c61263208f26f440b1121c682
+ms.openlocfilehash: f437598b612a145c5dd8b46a1ba340d298a76981
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -62,7 +63,7 @@ vCenter 5.5 o 6.0 (supporto per le sole funzionalità 5.5)  <br/><br/> vSphere 6
 
 ### <a name="machines-replicate-to-azure"></a>Computer (replica in Azure)
 
-Le macchine virtuali devono essere conformi ai [requisiti di Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+Le macchine virtuali devono essere conformi ai [requisiti di Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 **Requisito** | **Server fisico/VMware** | **Hyper-V (senza VMM)** | **Hyper-V (con VMM)**
 --- | --- | --- | ---
@@ -163,17 +164,17 @@ Disco superiore a 1 TB | No | No | No
 Volume con disco con striping superiore a 1 TB<br/><br/> LVM | Sì | Sì | Sì
 Spazi di archiviazione | No | Sì | Sì
 Aggiunta/rimozione a caldo disco | No | No | No
-Esclusione disco | Sì | No | No
+Esclusione disco | Sì | Sì | Sì
 Percorsi multipli (MPIO) | ND | Sì | Sì
 
 **Archiviazione di Azure** | **Server fisico/VMware** | **Hyper-V (senza VMM)** | **Hyper-V (con VMM)**
 --- | --- | --- | ---
 Archiviazione con ridondanza locale | Sì | Sì | Sì
-Archiviazione con ridondanza geografica | Sì | Sì | Sì
+Archiviazione con ridondanza geografica (solo per l'archiviazione standard) | Sì | Sì | Sì
 Archiviazione ad accesso sporadico | No | No | No
 Archiviazione ad accesso frequente| No | No | No
 Crittografia di dati inattivi | Sì | Sì | Sì
-Archiviazione Premium | Sì | No | No
+Archiviazione Premium | Sì | Sì | Sì
 Servizio di importazione/esportazione | No | No | No
 
 
@@ -261,10 +262,5 @@ HUB | Sì | Sì | Sì
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Preparare la distribuzione](site-recovery-best-practices.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+Controllare i [prerequisiti](site-recovery-prereq.md)
 

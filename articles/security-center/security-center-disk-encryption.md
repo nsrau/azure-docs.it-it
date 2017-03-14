@@ -1,23 +1,7 @@
----
-title: Crittografare una macchina virtuale di Azure | Documentazione Microsoft
-description: Questo documento illustra come crittografare una macchina virtuale di Azure dopo la ricezione di un avviso dal Centro sicurezza di Azure.
-services: security, security-center
-documentationcenter: na
-author: TomShinder
-manager: swadhwa
-editor: 
-ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5
-ms.service: security
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/27/2016
-ms.author: tomsh
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
+le--- titolo: Crittografare una macchina virtuale di Azure | Documentazione Microsoft descrizione: Questo documento illustra come crittografare una macchina virtuale di Azure dopo la ricezione di un avviso dal Centro sicurezza di Azure.
+services: security, security-center documentationcenter: na author: TomShinder manager: swadhwa editor: ''
 
+ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5 ms.service: security ms.devlang: na ms.topic: hero-article ms.tgt_pltfrm: na ms.workload: na ms.date: 05/27/2016 ms.author: tomsh
 
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Crittografare una macchina virtuale di Azure
@@ -26,7 +10,7 @@ Centro sicurezza di Azure invia avvisi in caso di macchine virtuali non crittogr
 ![Raccomandazione di crittografare il disco](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
-> Le informazioni contenute in questo documento si applicano alla versione di anteprima del Centro sicurezza di Azure.
+> Le informazioni contenute in questo documento riguardano la crittografia delle macchine virtuali senza usare una chiave di crittografia (che è obbligatoria per il backup delle macchine virtuali mediante Backup di Azure). Per informazioni su come usare una chiave di crittografia per il supporto di Backup di Azure per macchine virtuali di Azure crittografate, vedere l'articolo [Azure Disk Encryption per le macchine virtuali IaaS Windows e Linux](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) .
 >
 >
 
@@ -178,9 +162,3 @@ In questo documento si è appreso come crittografare una macchina virtuale di Az
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'utilizzo del servizio
 * [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/) : post di blog sulla sicurezza e sulla conformità di Azure
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

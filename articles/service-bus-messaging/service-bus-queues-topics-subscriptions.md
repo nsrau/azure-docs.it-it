@@ -1,5 +1,5 @@
 ---
-title: Code, argomenti e sottoscrizioni del bus di servizio | Microsoft Docs
+title: Panoramica delle code di messaggi, degli argomenti e delle sottoscrizioni del bus di servizio | Documentazione Microsoft
 description: "Panoramica delle entità di messaggistica del bus di servizio."
 services: service-bus-messaging
 documentationcenter: na
@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 12/20/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 60a914e4706414891863c5d1d07846898936815b
-ms.openlocfilehash: cd3b8b73db87a6b15b5a408609417ff2d2ca0a86
+ms.sourcegitcommit: 4a972b9b8b52a90f27afda98d8bdc661016d1fe1
+ms.openlocfilehash: b4c551e1d0511c868c8a54d1307529436c107945
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -165,10 +166,5 @@ Per altri esempi e informazioni sull'uso della messaggistica del bus di servizio
 * [Esercitazione sulla messaggistica negoziata del bus di servizio - REST](service-bus-brokered-tutorial-rest.md)
 * [Topic filters sample](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters) (Esempio Filtri di argomento)
 * [Brokered Messaging: Advanced Filters sample](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) (Esempio Messaggistica negoziata: filtri avanzati)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Raccogliere e analizzare contatori delle prestazioni in Log Analytics | Documentazione Microsoft
+title: Raccogliere e analizzare contatori delle prestazioni in Log Analytics di Axure| Documentazione Microsoft
 description: I contatori delle prestazioni vengono raccolti da Log Analytics per analizzare le prestazioni degli agenti Windows e Linux.  Questo articolo descrive come configurare la raccolta di contatori delle prestazioni per gli agenti Windows e Linux, i cui dettagli vengono archiviati nel repository OMS, e come analizzarli nel portale di OMS.
 services: log-analytics
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 02/24/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
-ms.openlocfilehash: 1e4b5dac9333a9bd38f6ef89ddce22c74fed06ba
+ms.sourcegitcommit: 853177202e4724546242d4e8d1b41b456a444eeb
+ms.openlocfilehash: 2381b7e9ab4514d6668569c2a58d108af5008a7e
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -34,7 +35,7 @@ Quando si configurano i contatori delle prestazioni di Windows o Linux per la pr
 
 Seguire questa procedura per aggiungere un nuovo contatore delle prestazioni Windows da raccogliere.
 
-1. Digitare il nome del contatore nella casella di testo, usando il formato *oggetto(istanza)\contatore*.  Quando si inizia a digitare, viene visualizzato un elenco di contatori comuni corrispondenti.  È possibile selezionare un contatore nell'elenco o digitare quello desiderato.  Per restituire tutte le istanze per un contatore specifico, specificare *oggetto\contatore*. 
+1. Digitare il nome del contatore nella casella di testo, usando il formato *oggetto(istanza)\contatore*.  Quando si inizia a digitare, viene visualizzato un elenco di contatori comuni corrispondenti.  È possibile selezionare un contatore nell'elenco o digitare quello desiderato.  Per restituire tutte le istanze per un contatore specifico, specificare *oggetto\contatore*.
 2. Fare clic su **+** o premere **INVIO** per aggiungere il contatore all'elenco.
 3. Quando si aggiunge un contatore, per **Intervallo di campionamento** verrà usato il valore predefinito di 10 secondi.  Per ridurre i requisiti di spazio di archiviazione dei dati sulle prestazioni raccolti, è possibile impostare questa opzione su un valore più alto, fino a un massimo di 1800 secondi (30 minuti).
 4. Dopo aver aggiunto i contatori, fare clic sul pulsante **Salva** nella parte superiore della schermata per salvare la configurazione.
@@ -92,19 +93,9 @@ Quando si esegue una ricerca nei log per i dati sulle prestazioni, per impostazi
 
 ![Visualizzazione Metriche compressa](media/log-analytics-data-sources-performance-counters/metricscollapsed.png)
 
-Se l'intervallo di tempo selezionato è di 6 ore o meno, il grafico viene aggiornato ogni pochi secondi.  I dati in tempo reale vengono visualizzati sul lato destro del grafico in azzurro.
-
-![Visualizzazione Metriche espansa con dati dinamici](media/log-analytics-data-sources-performance-counters/metricsexpanded.png)
-
 Per aggregare i dati sulle prestazioni in una ricerca log, vedere [On-demand metric aggregation and visualization in OMS](http://blogs.technet.microsoft.com/msoms/2016/02/26/on-demand-metric-aggregation-and-visualization-in-oms/) (Aggregazione metrica su richiesta e visualizzazione in OMS).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.  
 * Esportare i dati raccolti in [Power BI](log-analytics-powerbi.md) per altre opzioni di visualizzazione e analisi.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

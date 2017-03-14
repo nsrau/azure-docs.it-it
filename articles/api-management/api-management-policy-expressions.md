@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: ed28fcea134bfbeda25abff41a3163471cef4294
+ms.sourcegitcommit: 3152a1306f2c3eeb42dd3b21cff62b696ed01e5d
+ms.openlocfilehash: 75ea0486a1b5abc71df3b7d9e8385717954b89f4
+ms.lasthandoff: 03/01/2017
 
 ---
 # <a name="api-management-policy-expressions"></a>Espressioni di criteri di Gestione API
@@ -35,12 +36,12 @@ La sintassi delle espressioni di criteri è C# 6.0. Ogni espressione ha accesso 
 > -   Le istruzioni dei criteri usate in questo video sono disponibili nel repository di github [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies).  
   
   
-##  <a name="a-namesyntaxa-syntax"></a><a name="Syntax"></a> Sintassi  
+##  <a name="Syntax"></a> Sintassi  
  Le espressioni a istruzione singola sono racchiuse tra `@(expression)`, dove `expression` è un'istruzione di espressione C# ben formata.  
   
  Le espressioni a più istruzioni sono racchiuse tra `@{expression}`. Tutti i percorsi di codice all'interno di espressioni a più istruzioni devono terminare con un'istruzione `return`.  
   
-##  <a name="a-namepolicyexpressionsexamplesa-examples"></a><a name="PolicyExpressionsExamples"></a> Esempi  
+##  <a name="PolicyExpressionsExamples"></a> Esempi  
   
 ```  
 @(true)  
@@ -51,7 +52,7 @@ La sintassi delle espressioni di criteri è C# 6.0. Ogni espressione ha accesso 
   
 @(Regex.Match(context.Response.Headers.GetValueOrDefault("Cache-Control",""), @"max-age=(?<maxAge>\d+)").Groups["maxAge"]?.Value)  
   
-@(context.Variables.ContainsKey("maxAge")?3600:int.Parse((string)context.Variables["maxAge"]))  
+@(context.Variables.ContainsKey("maxAge") ? int.Parse((string)context.Variables["maxAge"]) : 3600)  
   
 @{   
   string value;   
@@ -66,13 +67,13 @@ La sintassi delle espressioni di criteri è C# 6.0. Ogni espressione ha accesso 
 }  
 ```  
   
-##  <a name="a-namepolicyexpressionsusagea-usage"></a><a name="PolicyExpressionsUsage"></a> Uso  
+##  <a name="PolicyExpressionsUsage"></a> Uso  
  Le espressioni possono essere usate come valori di attributo o valori di testo in uno qualsiasi dei [criteri](api-management-policies.md) di Gestione API, salvo diversamente specificato dai criteri.  
   
 > [!IMPORTANT]
 >  Si noti che quando si usano espressioni di criteri, è prevista solo una verifica limitata di tali espressioni quando i criteri vengono definiti. Poiché le espressioni vengono eseguite dal gateway al momento del runtime nella pipeline in entrata o in uscita, eventuali eccezioni di runtime generate dalle espressioni di criteri porteranno a un errore di runtime nella chiamata dell'API.  
   
-##  <a name="a-nameclrtypesa-net-framework-types-allowed-in-policy-expressions"></a><a name="CLRTypes"></a> Tipi di .NET framework consentiti nelle espressioni di criteri  
+##  <a name="CLRTypes"></a> Tipi di .NET framework consentiti nelle espressioni di criteri  
  Nella tabella seguente sono elencati i tipi di .NET Framework e i relativi membri consentiti nelle espressioni di criteri.  
   
 |Tipo CLR|Metodi supportati|  
@@ -166,12 +167,12 @@ La sintassi delle espressioni di criteri è C# 6.0. Ogni espressione ha accesso 
 |System.Xml.Linq.XText|Tutti i metodi sono supportati|  
 |System.Xml.XmlNodeType|Tutti|  
   
-##  <a name="a-namecontextvariablesa-context-variable"></a><a name="ContextVariables"></a> Variabile di contesto  
+##  <a name="ContextVariables"></a> Variabile di contesto  
  Una variabile denominata `context` è disponibile in modo implicito in ogni [espressione](api-management-policy-expressions.md#Syntax) di criteri. I suoi membri forniscono informazioni riguardanti `\request`. Tutti i membri di `context` sono di sola lettura.  
   
 |Variabile di contesto|Metodi, proprietà e valori di parametro consentiti|  
 |----------------------|-------------------------------------------------------|  
-|context|Api: IApi<br /><br /> Distribuzione<br /><br /> LastError<br /><br /> Operazione<br /><br /> Prodotto<br /><br /> Richiesta<br /><br /> Risposta<br /><br /> Sottoscrizione<br /><br /> Tracing: bool<br /><br /> Utente<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|  
+|context|Api: IApi<br /><br /> Distribuzione<br /><br /> LastError<br /><br /> Operazione<br /><br /> Prodotto<br /><br /> Richiesta<br /><br /> RequestId: string<br /><br /> Response<br /><br /> Sottoscrizione<br /><br /> Tracing: bool<br /><br /> Utente<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|  
 |context.Api|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> ServiceUrl: IUrl|  
 |context.Deployment|Region: string<br /><br /> ServiceName: string|  
 |context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> Per ulteriori informazioni su context.LastError, vedere [Gestione degli errori](api-management-error-handling-policies.md).|  
@@ -200,9 +201,5 @@ La sintassi delle espressioni di criteri è C# 6.0. Ogni espressione ha accesso 
 |string Jwt.Claims.GetValueOrDefault(claimName: string, defaultValue: string)|claimName: string<br /><br /> defaultValue: string<br /><br /> Restituisce valori di attestazione separati da virgole oppure `defaultValue` se non viene trovata l'intestazione.|
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per ulteriori informazioni sull'uso dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  
-
-
-<!--HONumber=Jan17_HO2-->
-
+Per altre informazioni sull'uso dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  
 

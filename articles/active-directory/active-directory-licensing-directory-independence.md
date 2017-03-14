@@ -1,6 +1,6 @@
 ---
-title: "Aggiungere e gestire più directory di Azure Active Directory | Documentazione Microsoft"
-description: Istruzioni e procedure consigliate per l&quot;aggiunta e la gestione delle directory di Azure Active Directory, che spiega le directory come risorse completamente indipendenti
+title: Caratteristiche delle directory di Azure Active Directory | Documentazione Microsoft
+description: Gestire le directory di Azure Active Directory considerando le directory come risorse completamente indipendenti
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/13/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
-ms.openlocfilehash: 23aad0421088b620f32bbf3f6b3f0b11e001e3ae
+ms.sourcegitcommit: f8b63e5831897d3a45298b0415bb2d6d44ab0de1
+ms.openlocfilehash: 5ec00d5e8380f121dd9302cf08a0708c530aab9b
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="add-and-manage-multiple-azure-active-directory-directories"></a>Aggiungere e gestire più directory di Azure Active Directory
+# <a name="understand-how-multiple-azure-active-directory-directories-interact"></a>Comprendere l'interazione di più directory di Azure Active Directory
 In Azure Active Directory (Azure AD), ogni directory è una risorsa totalmente indipendente: un peer con funzionalità complete e logicamente indipendente dalle altre directory gestite. Non esiste alcuna relazione padre-figlio tra le directory. Questa indipendenza tra le directory include l'indipendenza delle risorse, l'indipendenza amministrativa e l'indipendenza della sincronizzazione.
 
 ## <a name="resource-independence"></a>Indipendenza delle risorse.
@@ -49,9 +51,4 @@ Per aggiungere una directory di Azure AD nel portale di Azure classico, selezion
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un'ampia panoramica dei problemi relativi alle licenze di Microsoft Azure e le procedure consigliate, vedere [che cosa sono le licenze di Azure Active Directory?](active-directory-licensing-what-is.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

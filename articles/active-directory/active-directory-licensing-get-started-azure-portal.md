@@ -1,6 +1,6 @@
 ---
 
-title: Introduzione alle licenze di Azure Active Directory nel Portale di Azure | Microsoft Docs
+title: Introduzione alle licenze nell&quot;anteprima di Azure Active Directory | Documentazione Microsoft
 description: Descrizione delle licenze di Azure Active Directory, del loro funzionamento, di come iniziare a usarle e delle procedure consigliate, anche per Office 365, Microsoft Intune e le edizioni di base e Premium di Azure Active Directory
 services: active-directory
 keywords: Licenze di Azure AD
@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0dbe9072cd561f550883cd514a6d25381d095ba8
-ms.openlocfilehash: 648b1d51a5e414e67bda475dcef1419ee1692868
+ms.sourcegitcommit: 09f0ed3f7624bb242c40868710fb3eae49cda906
+ms.openlocfilehash: a798de49ed08eedaf27267c6bac12f8b0b64739f
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="get-started-with-azure-active-directory-licensing-in-the-azure-portal"></a>Introduzione alle licenze di Azure Active Directory nel Portale di Azure
+# <a name="license-yourself-and-your-users-in-azure-active-directory-preview"></a>Concessione di licenze a se stessi e agli utenti in anteprima di Azure Active Directory
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](active-directory-licensing-get-started-azure-portal.md)
@@ -152,9 +154,4 @@ A questo punto si è pronti per configurare e utilizzare alcune delle funzionali
 * [Assegnazione di gruppi alle applicazioni](active-directory-manage-groups.md)
 * [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 * [Acquisto diretto di licenze di Azure AD Premium](http://aka.ms/buyaadp)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

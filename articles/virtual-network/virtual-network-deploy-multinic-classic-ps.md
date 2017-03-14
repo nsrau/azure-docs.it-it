@@ -1,10 +1,10 @@
 ---
-title: "Creare una macchina virtuale (classica) con più schede di interfaccia di rete usando PowerShell | Documentazione Microsoft"
-description: "Informazioni su come creare una macchina virtuale con più schede di interfaccia di rete tramite il modello di distribuzione classica usando PowerShell."
+title: "Creare una VM (classica) con più schede di interfaccia di rete - Azure PowerShell | Documentazione Microsoft"
+description: "Informazioni su come creare una VM (classica) con più schede di interfaccia di rete mediante PowerShell."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 6e50f39a-2497-4845-a5d4-7332dbc203c5
@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5f6f14a3bf779de0c4ef6d1f31c283b72d3a18f7
-ms.openlocfilehash: 9243294318c3f6c4c7a3563444f0db0ebcf33f28
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: cd3e6c548fd1f7dccaf478d3324efc8d768e3064
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -140,8 +142,8 @@ Le macchine virtuali di back-end dipendono dalla creazione delle risorse seguent
 4. Impostare il valore predefinito NIC e assegnare un indirizzo IP statico.
 
     ```powershell
-    Set-AzureSubnet         -SubnetNames $backendSubnetName -VM $vmConfig
-    Set-AzureStaticVNetIP   -IPAddress ($ipAddressPrefix+$suffixNumber+3) -VM $vmConfig
+    Set-AzureSubnet            -SubnetNames $backendSubnetName -VM $vmConfig
+    Set-AzureStaticVNetIP     -IPAddress ($ipAddressPrefix+$suffixNumber+3) -VM $vmConfig
     ```
 
 5. Aggiungere una seconda scheda di rete per ogni macchina virtuale.
@@ -194,10 +196,5 @@ Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo sc
 
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

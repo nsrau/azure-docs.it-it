@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 01/25/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: 43e818b0b60045f9e88d587441d39f46ab2fbfad
-ms.openlocfilehash: e529461d3c6e1876572848fbf6af5b0a1c64ac30
+ms.sourcegitcommit: 511e61552ec0a2c862ebd99fd881f87b56b69398
+ms.openlocfilehash: 84eabb9c898d32efeb6e1c4b1f17b683940b4c04
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: e529461d3c6e1876572848fbf6af5b0a1c64ac30
 > * [Replica in sito secondario di proprietà del cliente](site-recovery-support-matrix-to-sec-site.md)
 
 
-In questo articolo vengono riepilogati le configurazioni e i componenti supportati per Azure Site Recovery durante la replica e il ripristino in Azure. Per altre informazioni sui prerequisiti per Azure Site Recovery, vedere [Procedure consigliate di Site Recovery](site-recovery-best-practices.md).
+In questo articolo vengono riepilogati le configurazioni e i componenti supportati per Azure Site Recovery durante la replica e il ripristino in Azure. Per altre informazioni sui requisiti di Azure Site Recovery, vedere i [prerequisiti](site-recovery-prereq.md).
 
 
 ## <a name="support-for-deployment-options"></a>Supporto per opzioni di distribuzione
@@ -64,7 +65,7 @@ In questo articolo vengono riepilogati le configurazioni e i componenti supporta
 
 ## <a name="support-for-replicated-machine-os-versions"></a>Supporto per le versioni dei sistemi operativi dei computer replicati
 
-In caso di replica in Azure, le macchine virtuali protette devono soddisfare i [requisiti di Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+In caso di replica in Azure, le macchine virtuali protette devono soddisfare i [requisiti di Azure](#failed-over-azure-vm-requirements).
 La tabella seguente offre un riepilogo dei sistemi operativi replicati supportati nei vari scenari di distribuzione quando si usa Azure Site Recovery. Il supporto è applicabile per qualsiasi carico di lavoro in esecuzione nel sistema operativo indicato.
 
  **Server fisico/VMware** | **Hyper-V (senza Virtual Machine Manager)** | **Hyper-V (con Virtual Machine Manager)**
@@ -147,7 +148,7 @@ Percorsi multipli (MPIO) | N/D | Sì | Sì
 
 **Archiviazione di Azure** | **Server fisico/VMware** | **Hyper-V (senza Virtual Machine Manager)** | **Hyper-V (con Virtual Machine Manager)**
 --- | --- | --- | ---
-Archiviazione con ridondanza locale | Sì | Sì | Sì 
+Archiviazione con ridondanza locale | Sì | Sì | Sì
 Archiviazione con ridondanza geografica | Sì | Sì | Sì
 Archiviazione ad accesso sporadico | No | No | No
 Archiviazione ad accesso frequente| No | No | No
@@ -206,10 +207,5 @@ Spostamento di risorse di archiviazione, rete e VM di Azure tra gruppi di risors
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Preparare la distribuzione](site-recovery-best-practices.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+[Controllare i prerequisiti](site-recovery-prereq.md)
 

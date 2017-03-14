@@ -15,12 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 12/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: 3a8e5583f213c6d35f8e41dd31fe2ccad7389977
-ms.openlocfilehash: a3c0aaae014619fb3f4a2fffa6063a473da691e1
+ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
+ms.openlocfilehash: 5af1b1bacce2fe189a7b557527520795ed622b54
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="application-gateway-websocket-support"></a>Supporto di WebSocket nel gateway applicazione
+# <a name="overview-of-websocket-support-in-application-gateway"></a>Panoramica del supporto di WebSocket nel gateway dell'applicazione
 
 Il gateway applicazione offre il supporto nativo per WebSocket in tutte le dimensioni di gateway. Non esistono impostazioni configurabili dall'utente per abilitare o disabilitare in modo selettivo il supporto di WebSocket. È possibile continuare a usare un listener HTTP standard sulla porta 80/443 per ricevere il traffico WebSocket. Il traffico WebSocket viene quindi indirizzato al server back-end abilitato per WebSocket usando il pool back-end appropriato, come specificato nelle regole del gateway applicazione. Il protocollo WebSocket standardizzato nella specifica [RFC6455](https://tools.ietf.org/html/rfc6455) consente una comunicazione full duplex tra server e client su una connessione TCP con esecuzione prolungata. Questa funzionalità consente una comunicazione più interattiva tra server Web e client, che può essere bidirezionale senza che sia necessario il polling richiesto invece nelle implementazioni basate su HTTP.  A differenza del protocollo HTTP, WebSocket presenta un overhead ridotto e può riusare la stessa connessione TCP per più richieste/risposte garantendo così un utilizzo più efficiente delle risorse. I protocolli WebSocket sono progettati per usare le porte HTTP 80 e 443 tradizionali.
 
@@ -120,10 +121,5 @@ Un altro motivo risiede nel fatto che il probe di integrità del back-end del ga
 ## <a name="next-steps"></a>Passaggi successivi
 
 Dopo aver acquisito familiarità con il supporto di WebSocket, [creare un gateway applicazione](application-gateway-create-gateway.md) per iniziare a usare un'applicazione Web abilitata per WebSocket.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

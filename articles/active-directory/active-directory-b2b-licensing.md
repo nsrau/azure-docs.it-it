@@ -16,8 +16,9 @@ ms.workload: identity
 ms.date: 02/09/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 59a7fe2d1eea948f1452f21d2185e6bdf93dc41f
+ms.sourcegitcommit: 64af2509036d035c5802f4b1985c3f986b685545
+ms.openlocfilehash: 2b677e684021a873c0bc4db751d8e60d9eaa6f9d
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: 59a7fe2d1eea948f1452f21d2185e6bdf93dc41f
 Collaborazione B2B di Azure Active Directory (Azure AD) estende agli utenti guest invitati nel tenant di Azure AD un set selezionato di funzionalità di Azure AD esistenti. Di conseguenza, gli utenti guest di Collaborazione B2B di Azure AD useranno le licenze di Azure AD e si allineeranno ai livelli di licenza Free, Basic e Premium P1/P2 esistenti come indicato qui: https://azure.microsoft.com/en-us/pricing/details/active-directory/.
 
 Non è previsto alcun addebito per l'invito degli utenti in B2B e per la loro assegnazione a un'applicazione in Azure AD. Inoltre, le prime 10 app per utente e guest e i primi 3 rapporti di base sono gratuiti per gli utenti B2B, poiché fanno parte del livello "Free" di Azure AD.
-Eventuali funzionalità a pagamento di Azure AD estese agli utenti B2B tramite le funzionalità di Collaborazione B2B avranno bisogno di una licenza a pagamento di Azure AD Basic, Premium P1 o Premium P2 in base alle funzionalità. Il tenant che effettua l'invito otterrà 5 diritti utente B2B con ciascuna licenza a pagamento di Azure AD. Ciò significa che ciascuna licenza a pagamento di Azure AD che fornisce diritti a un utente dipendente in un tenant includerà anche i diritti per 5 utenti B2B invitati nel tenant.
+Eventuali funzionalità a pagamento di Azure AD estese agli utenti B2B tramite le funzionalità di Collaborazione B2B avranno bisogno di una licenza a pagamento di Azure AD Basic, Premium P1 o Premium P2 in base alle funzionalità. Il tenant che effettua l'invito otterrà 5 diritti utente B2B con ciascuna licenza a pagamento di Azure AD. In altre parole, ogni licenza a pagamento di Azure AD che fornisce diritti sulle funzioni a pagamento di Azure AD a un utente dipendente in un tenant includerà anche i diritti sulle stesse funzioni a pagamento di Azure AD a altri 5 utenti B2B invitati nel tenant.
 
 ## <a name="licensing-examples"></a>Esempi di licenza
 - Un cliente desidera invitare 100 utenti B2B nel proprio tenant di Azure AD e userà la gestione degli accessi basata sui gruppi e il provisioning per tutti. Tuttavia, 50 tra quegli utenti avranno bisogno anche di MFA e accesso condizionale. Il cliente deve acquistare 10 licenze Basic e 10 licenze Premium P1 di Azure AD per includere correttamente tutti gli utenti B2B. Analogamente, se un tenant di invito prevede di usare le funzioni di Identity Protection con lgli utenti B2B, dovrà disporre di un numero sufficiente di licenze Premium P2 di Azure AD per includere tutti gli utenti B2B con un rapporto 5:1.
@@ -51,7 +52,7 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 
 * [Che cos'è Azure AD B2B Collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Procedura per aggiungere utenti di Collaborazione B2B ad Azure Active Directory da parte degli amministratori](active-directory-b2b-admin-add-users.md)
-* [Procedura per aggiungere utenti di Collaborazione B2B da parte di Information Worker](active-directory-b2b-iw-add-users.md)
+* [Procedura di aggiunta di utenti di Collaborazione B2B da parte di information worker](active-directory-b2b-iw-add-users.md)
 * [Elementi del messaggio di posta elettronica di invito per la Collaborazione B2B](active-directory-b2b-invitation-email.md)
 * [Riscatto dell'invito di Collaborazione B2B](active-directory-b2b-redemption-experience.md)
 * [Risoluzione dei problemi di Collaborazione B2B di Azure Active Directory](active-directory-b2b-troubleshooting.md)
@@ -60,9 +61,4 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 * [Autenticazione a più fattori per utenti di Collaborazione B2B](active-directory-b2b-mfa-instructions.md)
 * [Aggiungere gli utenti per la Collaborazione B2B senza un invito](active-directory-b2b-add-user-without-invite.md)
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/28/2016
+ms.date: 02/28/2017
 ms.author: skwan;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: 01c6d3c3fa8648ef9ecaefcf43191315380d13d4
+ms.sourcegitcommit: e1299c1f7f8a31f7034fc0736fcd9d66153a9758
+ms.openlocfilehash: 3290a375963bc3e625cbdb05b5f9686e8cfb34f6
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory-ad"></a>Come ottenere la certificazione AppSource per Azure Active Directory (AD)
-Per ottenere la certificazione AppSource per Azure AD, l'applicazione deve implementare il modello di accesso multi-tenant con Azure AD mediante il protocollo OpenID Connect, OAuth 2.0 o SAML 2.0. 
+Per ottenere la certificazione AppSource per Azure AD, l'applicazione deve implementare il modello di accesso multi-tenant con Azure AD mediante il protocollo OpenID Connect o OAuth 2.0.  
 
 Se non si ha familiarità con lo sviluppo di applicazioni multi-tenant o di accesso Azure AD:
 
@@ -57,10 +58,5 @@ La sezione dei commenti Disqus riportata di seguito consente di fornire commenti
 
 
 
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: Come spostare una macchina virtuale o un&quot;istanza del ruolo in un&quot;altra subnet
-description: Informazioni su come spostare macchine virtuali e istanze del ruolo in un&quot;altra subnet
+title: Spostare una VM (classica) o un&quot;istanza del ruolo di Servizi cloud in un&quot;altra subnet - Azure PowerShell | Documentazione Microsoft
+description: Informazioni su come spostare le VM (classiche) e le istanze del ruolo di Servizi cloud in un&quot;altra subnet mediante PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: de4135c7-dc5b-4ffa-84cc-1b8364b7b427
 ms.service: virtual-network
@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 264e02fa48486acd7a9701c497c4e1fa95a1ce4e
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: b094f8338394ef2e84cad3070936d715411326a4
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="how-to-move-a-vm-or-role-instance-to-a-different-subnet"></a>Come spostare una macchina virtuale o un'istanza del ruolo in un'altra subnet
-È possibile usare PowerShell per spostare le proprie macchine virtuali da una subnet a un'altra nella stessa rete virtuale (VNet). Le istanze del ruolo possono essere spostate modificando il file CSCFG invece di usare PowerShell.
+# <a name="move-a-vm-classic-or-cloud-services-role-instance-to-a-different-subnet-using-powershell"></a>Spostare una VM (classica) o un'istanza del ruolo di Servizi cloud in un'altra subnet mediante PowerShell
+È possibile usare PowerShell per spostare le proprie VM (classiche) da una subnet a un'altra nella stessa rete virtuale (VNet). Le istanze del ruolo possono essere spostate modificando il file CSCFG invece di usare PowerShell.
 
 > [!NOTE]
-> Le informazioni contenute in questo articolo riguardano le sole distribuzioni classiche di Azure.
+> Questo articolo spiega come spostare solo le VM distribuite tramite il modello di distribuzione classica.
 > 
 > 
 
@@ -57,9 +59,4 @@ Per spostare un'istanza del ruolo, modificare il file CSCFG. Nell'esempio seguen
            </InstanceAddress>
         </AddressAssignments>
     </NetworkConfiguration> 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

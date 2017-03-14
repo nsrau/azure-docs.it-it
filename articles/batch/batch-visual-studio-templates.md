@@ -1,6 +1,6 @@
 ---
-title: 'Usare modelli di Visual Studio per avviare il progetto Batch: Azure | Documentazione Microsoft'
-description: Informazioni su come questi modelli di progetto di Visual Studio consentono di implementare ed eseguire i carichi di lavoro a elevato utilizzo di calcolo in Azure Batch.
+title: Avviare la creazione di soluzioni Batch con i modelli di progetto di Visual Studio - Azure | Documentazione Microsoft
+description: Informazioni su come questi modelli di progetto di Visual Studio consentono di implementare ed eseguire carichi di lavoro a elevato utilizzo di calcolo in Azure Batch.
 services: batch
 documentationcenter: .net
 author: fayora
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: d56525e55816595f33b1fcd9ea96e41fe48b55a3
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: dd7c67bf83e4b95b978b793c8169b7e9c98bc939
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="visual-studio-project-templates-for-azure-batch"></a>Modelli di progetto di Visual Studio per Azure Batch
+# <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Usare i modelli di progetto di Visual Studio per avviare rapidamente le soluzioni Batch
+
 I modelli di Visual Studio **Gestore di processi** e **Task Processor** (Elaboratore di attività) per Batch forniscono il codice per implementare ed eseguire i carichi di lavoro a elevato utilizzo di calcolo in Batch con il minimo sforzo. Questo documento illustra tali modelli e fornisce le linee guida per usarli.
 
 > [!IMPORTANT]
@@ -451,9 +454,4 @@ Il [forum di Azure Batch][forum] su MSDN consente di seguire discussioni su Batc
 [diagram01]: ./media/batch-visual-studio-templates/diagram01.png
 [solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png
 [solution_explorer02]: ./media/batch-visual-studio-templates/solution_explorer02.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

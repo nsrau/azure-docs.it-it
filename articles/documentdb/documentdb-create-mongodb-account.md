@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 11/24/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 9b83a0878f45bf3a79d00ad77965308d95f33d28
-ms.openlocfilehash: 797ee3b1209e5abf545f0614c408d94391a29c8b
+ms.sourcegitcommit: 1c9e8d5a00445b31c81547df7bd2dbc55f8feac2
+ms.openlocfilehash: e9176ec520b05e5613eab610fbc96144e9405d07
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: 797ee3b1209e5abf545f0614c408d94391a29c8b
 # <a name="create-a-documentdb-account-for-use-with-mongodb-apps"></a>Creare un account DocumentDB da usare con le app MongoDB
 I database DocumentDB ora possono essere usati come archivio dati per le app scritte per MongoDB. Per usare questa funzionalità, sono necessari un account Azure e un account DocumentDB. Questa esercitazione illustra il processo di creazione di un account DocumentDB da usare con le app MongoDB. 
 
-È possibile creare un account DocumentDB con supporto per MongoDB usando il portale di Azure o l'interfaccia della riga di comando di Azure con i modelli di Azure Resource Manager. Questo articolo illustra come creare un account DocumentDB con supporto per MongoDB usando il portale di Azure. Per creare un account tramite l'interfaccia della riga di comando con Azure Resource Manager, vedere [Automatizzare la creazione dell'account DocumentDB con supporto per MongoDB](documentdb-automation-resource-manager-cli.md#quick-create-documentdb-with-mongodb-api-account).
+È possibile creare un account DocumentDB con supporto per MongoDB usando il portale di Azure o l'interfaccia della riga di comando di Azure con i modelli di Azure Resource Manager. Questo articolo illustra come creare un account DocumentDB con supporto per MongoDB usando il portale di Azure. Per creare un account tramite l'interfaccia della riga di comando con Azure Resource Manager, vedere [Automatizzare la gestione degli account Azure DocumentDB usando l'interfaccia della riga di comando di Azure 2.0](documentdb-automation-resource-manager-cli.md).
 
 ## <a name="prerequisite"></a>Prerequisito
 Un account Azure. Se non si ha un account Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) ora.
@@ -71,9 +72,4 @@ Un account Azure. Se non si ha un account Azure, creare un [account Azure gratui
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [connettersi](documentdb-connect-mongodb-account.md) a un account DocumentDB con supporto del protocollo per MongoDB.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

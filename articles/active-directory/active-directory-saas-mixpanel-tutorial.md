@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 02/17/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 58c8e1b6bcc90ecf5cc630aa0249ea811c1d1174
+ms.sourcegitcommit: 2d8d925f80830a0d7047e9567fdd413af2e8c5c3
+ms.openlocfilehash: 87b409c73e68a6ed6ea84e92b15bbcf3ed82d5f9
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -26,7 +27,7 @@ Questa esercitazione descrive l'integrazione di Mixpanel con Azure Active Direct
 L'integrazione di Mixpanel con Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD chi può accedere a Mixpanel
-* È possibile abilitare gli utenti per l'accesso automatico a Mixpanel (Single Sign-On) con i propri account Azure AD
+* È possibile abilitare gli utenti per l'accesso Single Sign-On automatico a Mixpanel (SSO) con i propri account Azure AD
 * È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -35,27 +36,26 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 Per configurare l'integrazione di Azure AD con Mixpanel, sono necessari gli elementi seguenti:
 
 * Sottoscrizione di Azure AD.
-* Sottoscrizione di Mixpanel abilitata per l'accesso Single Sign-On
+* Sottoscrizione di Mixpanel abilitata per l'accesso Single Sign-On (SSO)
 
-> [!NOTE]
-> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
-> 
+>[!NOTE]
+>Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione. 
 > 
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 * Non usare l'ambiente di produzione, a meno che non sia necessario.
-* Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+* Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test. 
+L'obiettivo di questa esercitazione è quello di testare l'accesso Single Sign-On (SSO) di Azure AD in un ambiente di test. 
 
 Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
 1. Aggiunta di Mixpanel dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+2. Configurazione e test dell'accesso Single Sign-On (SSO) di Microsoft Azure AD
 
-## <a name="adding-mixpanel-from-the-gallery"></a>Aggiunta di Mixpanel dalla raccolta
+## <a name="add-mixpanel-from-the-gallery"></a>Aggiungere Mixpanel dalla raccolta
 Per configurare l'integrazione di Mixpanel in Azure AD, è necessario aggiungere Mixpanel dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Mixpanel dalla raccolta, seguire questa procedura:**
@@ -78,8 +78,8 @@ Per configurare l'integrazione di Mixpanel in Azure AD, è necessario aggiungere
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_01.png)
 7. Nel riquadro dei risultati selezionare **Mixpanel** e quindi fare clic su **Completa** per aggiungere l'applicazione.
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
-Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Mixpanel con un utente test di nome "Britta Simon".
+## <a name="configure-and-test-azure-ad-sso"></a>Configurare e testare l'accesso Single Sign-On (SSO) di Azure AD
+Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Mixpanel in base a un utente test di nome "Britta Simon".
 
 Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Mixpanel che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Mixpanel.
 
@@ -87,14 +87,14 @@ La relazione di collegamento viene stabilita assegnando il valore di **user name
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Mixpanel, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creare un utente di test Mixpanel](#creating-a-mixpanel-test-user)** : per avere una controparte di Britta Simon in Mixpanel collegata alla rispettiva rappresentazione in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
-Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione Mixpanel.
+Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure classico e come configurare l'accesso Single Sign-On nell'applicazione Mixpanel.
 
 **Per configurare l'accesso Single Sign-On di Azure AD con Mixpanel, seguire questa procedura:**
 
@@ -106,23 +106,20 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_03.png) 
 3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
    
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_04.png) 
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_04.png)
+  1. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione Mixpanel adottando il modello seguente: **"https://mixpanel.com/login/"**.
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione Mixpanel adottando il modello seguente: **"https://mixpanel.com/login/"**.
+    >[!NOTE]
+    >Eseguire la registrazione nella pagina [https://mixpanel.com/register/](https://mixpanel.com/register/) per configurare le credenziali di accesso e contattare il [team di supporto di Mixpanel](mailto:support@Mixpanel.com) per abilitare le impostazioni SSO per il tenant. Se necessario, è possibile ottenere anche il valore per l'URL di accesso dal team di supporto di Mixpanel.
+    >
 
-    > [AZURE.NOTE] Eseguire la registrazione nella pagina [https://mixpanel.com/register/](https://mixpanel.com/register/) per configurare le credenziali di accesso e contattare il [team di supporto di Mixpanel](mailto:support@Mixpanel.com) per abilitare le impostazioni SSO per il tenant. Se necessario, è possibile ottenere anche il valore per l'URL di accesso dal team di supporto di Mixpanel.
-
-    b. Fare clic su **Avanti**.
-
-
+  2. Fare clic su **Avanti**.
 
 1. Nella pagina **Configura accesso Single Sign-On in Mixpanel** seguire questa procedura:
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_05.png) 
-   
-    a. Fare clic su **Scarica certificato**e quindi salvare il file nel computer. 
-   
-    b. Fare clic su **Avanti**.
+  1. Fare clic su **Scarica certificato**e quindi salvare il file nel computer. 
+  2. Fare clic su **Avanti**.
 2. In una finestra del browser diversa accedere all'applicazione Mixpanel come amministratore.
 3. Nella parte inferiore della pagina fare clic sull'icona a forma di piccolo **ingranaggio** nell'angolo sinistro. 
    
@@ -144,9 +141,10 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
    
     ![Single Sign-On di Microsoft Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.
-Nell'elenco di utenti selezionare **Britta Simon**.
+
+* Nell'elenco di utenti selezionare **Britta Simon**.
 
 ![Creare un utente di Azure AD][20]
 
@@ -164,38 +162,28 @@ Nell'elenco di utenti selezionare **Britta Simon**.
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_04.png) 
 5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
    
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_05.png) 
-   
-    a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
-   
-    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
-   
-    c. Fare clic su **Avanti**.
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_05.png)  
+ 1. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
+ 2. Nella casella di testo **Nome utente** digitare **BrittaSimon**. 
+ 3. Fare clic su **Avanti**.
 6. Nella pagina **Profilo utente** seguire questa procedura:
    
-   ![Creazione di un utente test di Azure AD](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_06.png) 
-   
-   a. Nella casella di testo **Nome** digitare **Britta**.  
-   
-   b. Nella casella di testo **Cognome** digitare **Simon**.
-   
-   c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
-   
-   d. Nell'elenco **Ruolo** selezionare **Utente**.
-   
-   e. Fare clic su **Avanti**.
+   ![Creazione di un utente test di Azure AD](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_06.png)  
+ 1. Nella casella di testo **Nome** digitare **Britta**.   
+ 2. Nella casella di testo **Cognome** digitare **Simon**. 
+ 3. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.  
+ 4. Nell'elenco **Ruolo** selezionare **Utente**. 
+ 5. Fare clic su **Avanti**.
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_07.png) 
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
    
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_08.png) 
-   
-    a. Prendere nota del valore visualizzato in **Nuova password**.
-   
-    b. Fare clic su **Complete**.   
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_08.png)  
+ 1. Prendere nota del valore visualizzato in **Nuova password**.
+ 2. Fare clic su **Completa**.   
 
-### <a name="creating-a-mixpanel-test-user"></a>Creare un utente di test Mixpanel
+### <a name="create-a-mixpanel-test-user"></a>Creare un utente di test Mixpanel
 Questa sezione descrive come creare un utente chiamato Britta Simon in Mixpanel. 
 
 1. Accedere al sito aziendale di Mixpanel come amministratore.
@@ -208,8 +196,8 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in Mixpanel.
 
 L'utente riceverà un messaggio di posta elettronica per la configurazione del profilo.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
-Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Mixpanel.
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+Questa sezione descrive come abilitare Britta Simon a usare l'accesso Single Sign-On di Azure concedendole l'accesso a Mixpanel.
 
 ![Assegna utente][200] 
 
@@ -229,8 +217,8 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
    
     ![Assegna utente][205]
 
-### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
-Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
+Questa sezione descrive come testare la configurazione singola dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Mixpanel nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Mixpanel.
 
@@ -255,9 +243,4 @@ Quando si fa clic sul riquadro Mixpanel nel pannello di accesso, si dovrebbe acc
 [203]: ./media/active-directory-saas-mixpanel-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-mixpanel-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-mixpanel-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

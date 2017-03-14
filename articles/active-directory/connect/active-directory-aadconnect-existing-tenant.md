@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect con un tenant esistente | Documentazione Microsoft
+title: "Azure AD Connect: Quando è già presente Azure AD | Documentazione Microsoft"
 description: "Questo argomento illustra come usare Connect quando è presente un tenant Azure AD."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/22/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: e358f6d1937a45f375777cea1153b975a745a719
-ms.openlocfilehash: 160a3ae7190dab76eee4634bd6babb5b047cd5ac
+ms.sourcegitcommit: f59028a2f909914222236f3b3575afd0949b4277
+ms.openlocfilehash: c89e206462856d25a81729e7028065ac1cd13ef3
+ms.lasthandoff: 02/23/2017
 
 ---
 
@@ -26,7 +27,7 @@ La maggior parte degli argomenti che illustrano come usare Azure AD Connect pres
 ## <a name="the-basics"></a>Nozioni di base
 Un oggetto in Azure AD viene gestito nel cloud (Azure AD) o in locale. Per un singolo oggetto non è possibile gestire alcuni attributi in locale e altri attributi in Azure AD. Ogni oggetto ha un flag che indica dove viene gestito l'oggetto.
 
-È possibile gestire alcuni utenti in locale e altri nel cloud. Uno scenario comune per questa configurazione è un'organizzazione con una combinazione di impiegati e operai. Solo gli impiegati hanno un account AD locale. Alcuni utenti verranno gestiti in locale, alcuni in Azure AD.
+È possibile gestire alcuni utenti in locale e altri nel cloud. Uno scenario comune per questa configurazione è un'azienda con una combinazione di contabili e addetti alla vendita. I contabili hanno un account AD locale, a differenza degli addetti alla vendita che hanno un account in Azure AD. Alcuni utenti verranno gestiti in locale, alcuni in Azure AD.
 
 Se si iniziano a gestire in Azure AD utenti che si trovano anche nell'istanza di AD locale e successivamente si vuole usare Connect, è necessario prendere in considerazione altri aspetti.
 
@@ -60,9 +61,4 @@ Se l'unico motivo per cui si prevede di aggiungere un'istanza di AD locale è il
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

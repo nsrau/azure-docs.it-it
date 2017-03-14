@@ -13,11 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 02/23/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 5f9783232e9b03ca3777a000ffc189863d0956ab
-ms.openlocfilehash: ffc481943a9dc55593fa8b46dffef0098f288eaf
+ms.sourcegitcommit: 92479ddca2c69f1b8630374e88cc5eda9ac8c9ef
+ms.openlocfilehash: 59b2205fcddf48cfbfb8d15e174c385482a21ec9
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -38,9 +39,9 @@ L'emulatore di DocumentDB presenta i requisiti hardware e software seguenti:
 
 * Requisiti software
   * Windows Server 2012 R2, Windows Server 2016 o Windows Server 10
-*   Requisiti hardware minimi
-  * 2 GB di RAM
-  * 10 GB di spazio su disco disponibile
+*    Requisiti hardware minimi
+  *    2 GB di RAM
+  *    10 GB di spazio su disco disponibile
 
 ## <a name="installing-the-documentdb-emulator"></a>Installazione dell'emulatore di DocumentDB
 È possibile scaricare e installare l'emulatore di DocumentDB dall'[Area download Microsoft](https://aka.ms/documentdb-emulator). 
@@ -117,7 +118,7 @@ Per importare il certificato X.509 nell'archivio certificati Java, seguire le is
 
 Quando ci si connette all'emulatore da Python e Node.js SDK, la verifica SSL è disabilitata.
 
-## <a name="a-idcommand-lineadocumentdb-emulator-command-line-tool-reference"></a><a id="command-line"></a>Informazioni di riferimento sullo strumento da riga di comando dell'emulatore di DocumentDB
+## <a id="command-line"></a>Informazioni di riferimento sullo strumento da riga di comando dell'emulatore di DocumentDB
 Dal percorso di installazione è possibile usare la riga di comando per avviare e arrestare l'emulatore, configurare le opzioni ed eseguire altre operazioni.
 
 ### <a name="command-line-syntax"></a>Sintassi della riga di comando
@@ -223,7 +224,7 @@ Poiché l'emulatore di DocumentDB fornisce un ambiente emulato eseguito in una w
 * L'emulatore di DocumentDB non supporta gli override della quota del servizio disponibili nel servizio Azure DocumentDB, ad esempio i limiti di dimensioni dei documenti e lo spazio di archiviazione per le raccolte aumentato.
 * Poiché la copia dell'emulatore di DocumentDB potrebbe non essere aggiornata con le modifiche più recenti del servizio Azure DocumentDB, vedere [Capacity Planner di DocumentDB](https://www.documentdb.com/capacityplanner) per stimare con precisione le esigenze di produttività (UR) dell'applicazione.
 
-## <a name="a-idset-partitioncountachange-the-number-of-collections"></a><a id="set-partitioncount"></a>Modificare il numero di raccolte
+## <a id="set-partitioncount"></a>Modificare il numero di raccolte
 
 Usando l'emulatore di DocumentDB, per impostazione predefinita, è possibile creare al massimo 25 raccolte a partizione singola o una raccolta partizionata. Modificando il valore **PartitionCount**, è possibile creare fino a 250 raccolte a partizione singola o 10 raccolte partizionate o qualsiasi combinazione delle due che non contenga più di 250 raccolte a partizione singola (dove una raccolta partizionata = 25 raccolte a partizione singola).
 
@@ -249,9 +250,11 @@ Usa i suggerimenti seguenti per aiutare a risolvere i problemi dell'emulatore di
 
 - In caso di arresto anomalo dell'emulatore di DocumentDB, raccogliere file di dump dalla cartella c:\Users\nome_utente\AppData\Local\CrashDumps, comprimerli e allegarli a un messaggio di posta elettronica da inviare all'indirizzo [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
+- In caso di arresti anomali del sistema in DocumentDB.StartupEntryPoint.exe, eseguire il comando seguente da un prompt dei comandi di amministratore:`lodctr /R` 
+
 - In caso di problemi di connettività, [raccogliere i file di traccia](#trace-files), comprimerli e allegarli a un messaggio di posta elettronica da inviare all'indirizzo [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
-### <a name="a-idtrace-filesacollect-trace-files"></a><a id="trace-files"></a>Raccogliere i file di traccia
+### <a id="trace-files"></a>Raccogliere i file di traccia
 
 Per raccogliere le tracce di debug, eseguire i comandi seguenti da un prompt dei comandi amministrativi:
 
@@ -268,9 +271,4 @@ Per raccogliere le tracce di debug, eseguire i comandi seguenti da un prompt dei
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni su DocumentDB, vedere [Introduzione ad Azure DocumentDB](documentdb-introduction.md).
 * Per avviare lo sviluppo nell'emulatore di DocumentDB, scaricare uno degli [SDK di DocumentDB supportati](documentdb-sdk-dotnet.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
