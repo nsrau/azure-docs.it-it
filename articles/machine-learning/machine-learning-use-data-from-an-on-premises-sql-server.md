@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 03/13/2017
 ms.author: garye;krishnan
 translationtype: Human Translation
 ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
 ms.openlocfilehash: 62917bfb2124a2b8beb57e0ee38be93e8ca1c655
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -148,9 +149,4 @@ Dopo aver configurato il gateway è possibile aggiungere un modulo **Import Data
 Al termine dell'esecuzione dell'esperimento è possibile visualizzare i dati importati dal database facendo clic sulla porta di output del modulo **Import Data** (Importa dati) e selezionando **Visualize** (Visualizza).
 
 Dopo aver completato lo sviluppo dell'esperimento, è possibile distribuire il modello e renderlo operativo. I dati del database SQL Server locale configurati nel modulo **Import Data** (Importa dati) verranno letti e usati per l'assegnazione dei punteggi tramite il servizio Esecuzione batch. Sebbene per l'assegnazione dei punteggi ai dati locali sia possibile usare il servizio di richiesta/risposta, Microsoft consiglia l'uso del [componente aggiuntivo di Excel](machine-learning-excel-add-in-for-web-services.md) . La scrittura in un database SQL Server locale tramite **Export data** (Esporta dati) non è attualmente supportata, né negli esperimenti né nei servizi Web pubblicati.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

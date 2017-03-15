@@ -35,7 +35,7 @@ Eventuali funzionalità a pagamento di Azure AD estese agli utenti B2B tramite l
 - Un cliente dispone di 10 dipendenti, tutti coperti da una licenza Premium P1 di Azure AD, e vuole invitare 60 utenti B2B che avranno tutti bisogno dell'autenticazione a più fattori (MFA). Stando alla regola di rapporto 5:1 per le licenze, il cliente dovrà disporre di almeno 12 licenze Premium P1 di Azure AD per includere tutti e 60 gli utenti di Collaborazione B2B. Poiché dispone già di 10 licenze Premium P1 per i 10 dipendenti esistenti, ha già diritto a invitare 50 utenti B2B con funzionalità Premium P1 come MFA. In questo esempio, il cliente dovrà acquistare 2 licenze Premium P1 aggiuntive per includere i rimanenti 10 utenti di Collaborazione B2B.
 
 > [!NOTE]
-Non vi è alcuna necessità di assegnare le licenze agli utenti B2B o per abilitare tali diritti utente di Collaborazione B2B.
+> Non vi è alcuna necessità di assegnare le licenze agli utenti B2B o per abilitare tali diritti utente di Collaborazione B2B.
 
 Il cliente proprietario del tenant da cui vengono inviati gli inviti deve determinare il numero di utenti di Collaborazione B2B che avrà bisogno di funzionalità a pagamento di Azure AD. A seconda del livello a cui tali funzionalità fanno capo (Basic, Premium P1 o Premium P2), i clienti dovranno avere un numero sufficiente di licenze a pagamento di Azure AD per includere tutti gli utenti di Collaborazione B2B con un rapporto di 5:1. Se un'azienda necessita di ulteriori diritti utente di Collaborazione B2B, dovrà acquistare le relative necessarie licenze a pagamento di Azure AD.
 
