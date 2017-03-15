@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 03/07/2017
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 82abd4724200d71da9ad577a0b0a37b2e8db3481
-ms.openlocfilehash: 4e96a48080ff299172a5f50960dda92dee145ce4
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: faffd356191b7cca124f0a2cd147837078e4150f
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -31,13 +31,6 @@ ms.lasthandoff: 02/24/2017
 Azure Active Directory (Azure AD) consente di designare amministratori diversi per le diverse funzioni. Questi amministratori hanno accesso a diverse funzionalità nel portale di Azure o nel portale di Azure classico e, a seconda del ruolo, possono, tra le altre cose, creare o modificare gli utenti, assegnare ruoli amministrativi ad altri, reimpostare le password utente, gestire le licenze utente e gestire i domini. Un utente a cui è assegnato un ruolo amministrativo disporrà delle stesse autorizzazioni in tutti i servizi cloud sottoscritti dall'organizzazione, indipendentemente dal fatto che il ruolo venga assegnato nel portale di Office 365, nel portale di Azure classico oppure usando il modulo di Azure AD per Windows PowerShell.
 
 Sono disponibili i ruoli di amministratore seguenti:
-
-
-- **Amministratore applicazione**: gli utenti con questo ruolo possono creare e gestire tutte le applicazioni, gestire le assegnazioni di licenze, monitorare l'integrità del servizio e gestire le richieste di servizio.
-
-- **Sviluppatore applicazioni**: gli utenti con questo ruolo possono creare applicazioni. Questo ruolo viene usato per consentire ad alcuni utenti di mantenere la possibilità di creare applicazioni quando il flag **UsersPermissionToCreateLOBAppsEnabled** (che consente a tutti gli utenti di creare applicazioni) è impostato su false.
-
-- **Amministratore del servizio proxy di applicazione**: gli utenti con questo ruolo dispongono delle autorizzazioni per gestire tutti gli aspetti del servizio proxy di applicazione di Azure AD.
 
 * **Amministratore fatturazione**: effettua acquisti, gestisce le sottoscrizioni, gestisce i ticket di supporto e monitora l'integrità del servizio.
 

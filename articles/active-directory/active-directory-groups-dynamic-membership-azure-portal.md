@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/07/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
-ms.openlocfilehash: 16dd02934d4bd18f87f6508dce6c6829fe6aa0ac
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: aa6ab3d2133019203a75b07853908059684bbaae
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -191,14 +191,27 @@ Ora è possibile popolare i membri di un gruppo in base all'attributo di manager
 ## <a name="using-attributes-to-create-rules-for-device-objects"></a>Uso degli attributi per creare regole per gli oggetti dispositivo
 È anche possibile creare una regola che consenta di selezionare gli oggetti dispositivo per l'appartenenza a un gruppo. È possibile usare gli attributi del dispositivo seguenti:
 
-| Proprietà | Valori consentiti | Utilizzo |
-| --- | --- | --- |
-| displayName |Qualsiasi valore stringa. |(device.displayName - eq "Iphone di Rob") |
-| deviceOSType |Qualsiasi valore stringa. |(device.deviceOSType -eq "IOS") |
-| deviceOSVersion |Qualsiasi valore stringa. |(device.OSVersion -eq "9.1") |
-| isDirSynced |true false null |(device.isDirSynced -eq "true") |
-| isManaged |true false null |(device.isManaged -eq "false") |
-| isCompliant |true false null |(device.isCompliant -eq "true") |
+| Proprietà              | Valori consentiti                  | Utilizzo                                                       |
+|-------------------------|---------------------------------|-------------------------------------------------------------|
+| displayName             | Qualsiasi valore stringa.                | (device.displayName - eq "Iphone di Rob")                       |
+| deviceOSType            | Qualsiasi valore stringa.                | (device.deviceOSType -eq "IOS")                             |
+| deviceOSVersion         | Qualsiasi valore stringa.                | (device.OSVersion -eq "9.1")                                |
+| isDirSynced             | true false null                 | (device.isDirSynced -eq "true")                             |
+| isManaged               | true false null                 | (device.isManaged -eq "false")                              |
+| isCompliant             | true false null                 | (device.isCompliant -eq "true")                             |
+| deviceCategory          | Qualsiasi valore stringa.                | (device.deviceCategory -eq "")                              |
+| deviceManufacturer      | Qualsiasi valore stringa.                | (device.deviceManufacturer -eq "Microsoft")                 |
+| deviceModel             | Qualsiasi valore stringa.                | (device.deviceModel -eq "IPhone 7+")                        |
+| deviceOwnership         | Qualsiasi valore stringa.                | (device.deviceOwnership -eq "")                             |
+| domainName              | Qualsiasi valore stringa.                | (device.domainName -eq "contoso.com")                       |
+| enrollmentProfileName   | Qualsiasi valore stringa.                | (device.enrollmentProfileName -eq "")                       |
+| isRooted                | true false null                 | (device.deviceOSType -eq "true")                            |
+| managementType          | Qualsiasi valore stringa.                | (device.managementType -eq "")                              |
+| organizationalUnit      | Qualsiasi valore stringa.                | (device.organizationalUnit -eq "")                          |
+| deviceId                | un deviceId valido                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d" |
+
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questi articoli forniscono informazioni aggiuntive sui gruppi in Azure Active Directory.
