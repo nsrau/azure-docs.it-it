@@ -11,17 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/27/2017
 ms.author: markvi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
-ms.openlocfilehash: 2dd9c96e1c15e424588869b61eb26501b1b66be3
+ms.sourcegitcommit: 15cb521e928bab6c7966d19e74d9ae3bca99ef34
+ms.openlocfilehash: ef589c768f60e9a68ac7bc952fa181758452b1bd
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="introduction-to-the-access-panel"></a>Introduzione al Pannello di accesso
+# <a name="what-is-the-access-panel"></a>Che cos'è il pannello di accesso?
 Il pannello di accesso è un portale basato sul Web che consente agli utenti finali con account aziendale in Azure Active Directory di visualizzare e avviare applicazioni basate sul cloud per le quali l'amministratore di Azure AD ha concesso i diritti di accesso. Gli utenti che hanno effettuato la sottoscrizione a un'edizione di Azure Active Directory possono usare anche le funzionalità di gestione di gruppo in modalità self-service tramite il pannello di accesso. <br>
- Il pannello di accesso è separato dal portale di gestione di Azure e non richiede una sottoscrizione Azure. 
+Il pannello di accesso è separato dal portale di gestione di Azure e non richiede una sottoscrizione Azure. 
 
 ![Pannello di accesso][1] 
 
@@ -49,8 +51,8 @@ Questo URL deve essere distribuito a tutti gli utenti che effettueranno l'access
 
 ## <a name="authentication"></a>Autenticazione
 Per raggiungere il pannello di accesso, un utente deve essere autenticato con un account aziendale in Azure AD. <br>
- Un utente può essere autenticato direttamente in Azure AD. <br>
- In alternativa, se in un'organizzazione è stata configurata la federazione con ADFS o altre tecnologie, gli utenti possono essere autenticati da Windows Server Active Directory.
+Un utente può essere autenticato direttamente in Azure AD. <br>
+In alternativa, se in un'organizzazione è stata configurata la federazione con ADFS o altre tecnologie, gli utenti possono essere autenticati da Windows Server Active Directory.
 
 Se un utente ha una sottoscrizione Azure oppure Office 365 e ha usato il portale di gestione di Azure o un'applicazione di Office 365, visualizzerà l'elenco delle applicazioni senza dover eseguire di nuovo l'accesso. Gli utenti non autenticati dovranno accedere usando il nome utente e la password del proprio account in Azure AD. Se l'organizzazione ha configurato la federazione, sarà sufficiente digitare il nome utente.
 
@@ -102,7 +104,7 @@ Queste sono applicazioni aggiunte dall'amministratore nella sezione Active Direc
 Quando fa clic sul riquadro di una di queste applicazioni, l'utente viene reindirizzato a tale applicazione e l'accesso viene eseguito automaticamente.
 
 ### <a name="password-based-sso-without-identity-provisioning"></a>Single Sign-On basato su password senza provisioning delle identità
-Queste sono applicazioni aggiunte dall'amministratore nella sezione Active Directory del portale di gestione di Azure con la modalità Single Sign-On impostata su*Password-based Single Sign-On*(Single Sign-On basato su password). <br>  Tutti gli utenti della directory visualizzeranno tutte le applicazioni che sono state configurate in questa modalità.
+Queste sono applicazioni aggiunte dall'amministratore nella sezione Active Directory del portale di gestione di Azure con la modalità Single Sign-On impostata su*Password-based Single Sign-On*(Single Sign-On basato su password). <br> Tutti gli utenti della directory visualizzeranno tutte le applicazioni che sono state configurate in questa modalità.
 
 La prima volta che fa clic sul riquadro di una di queste applicazioni, l'utente visualizza un messaggio in cui viene chiesto se desidera installare il plug-in Single Sign-On basato su password per Internet Explorer o Chrome. Questa operazione può richiedere il riavvio del Web browser. Quando torna nel pannello di accesso e fa clic di nuovo sul riquadro dell'applicazione, l'utente visualizza un messaggio in cui viene chiesto di specificare un nome utente e una password per l'applicazione. Dopo aver immesso il nome utente e la password, queste credenziali vengono archiviate in modo sicuro in Azure AD e collegate all'account in Azure AD. Il pannello di accesso automatizzerà quindi l'accesso dell'utente all'applicazione usando queste credenziali.
 
@@ -131,9 +133,4 @@ Quando si configura Single Sign-On per un'applicazione, il portale di gestione d
 [2]: ./media/active-directory-saas-access-panel-introduction/ic767167.png
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

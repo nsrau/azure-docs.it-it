@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 8d5c21f8e746a9bcddc2eb9b0294836e0de55bf2
-ms.openlocfilehash: 6300aa7030cfd29ec4b8b1db7b42227855fddbcf
+ms.sourcegitcommit: ea6b80e289f039a5924fcc2ccf9d71dbbb432982
+ms.openlocfilehash: 2f2676d85a513a152832cfd336c3b643577341b9
+ms.lasthandoff: 02/24/2017
 
 ---
 # <a name="azure-api-management-faqs"></a>Domande frequenti su Gestione API di Azure
@@ -44,13 +45,13 @@ Risposte alle domande comuni, modelli e procedure consigliate per Gestione API d
 * [Perché si ottiene un errore di autenticazione quando si cerca di clonare un repository GIT?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 * [Gestione API funziona con ExpressRoute?](#does-api-management-work-with-azure-expressroute)
 * [È possibile spostare un servizio Gestione API da una sottoscrizione a un'altra?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
-* [Esistono restrizioni o problemi noti relativi all'importazione di questa API?](#api-management-api-import-restrictions)
+* [Esistono restrizioni o problemi noti relativi all'importazione di questa API?](#are-there-restrictions-on-or-known-issues-with-importing-my-api)
 
 ### <a name="how-can-i-ask-the-microsoft-azure-api-management-team-a-question"></a>Come si rivolge una domanda al team di Gestione API di Microsoft Azure?
 È possibile contattare Microsoft in uno dei modi seguenti:
 
 * Pubblicare le domande sul [forum MSDN di Gestione API](https://social.msdn.microsoft.com/forums/azure/home?forum=azureapimgmt).
-* Inviare un messaggio di posta elettronica all'indirizzo <mailto:apimgmt@microsoft.com>.
+* Inviare un messaggio di posta elettronica a <mailto:apimgmt@microsoft.com>.
 * Inviare una richiesta di funzionalità nel [forum dei commenti e suggerimenti su Azure](https://feedback.azure.com/forums/248703-api-management).
 
 ### <a name="what-does-it-mean-when-a-feature-is-in-preview"></a>Che cosa significa se una funzionalità è in anteprima?
@@ -62,7 +63,7 @@ Esistono diverse opzioni per proteggere la connessione tra il gateway di Gestion
 * Usare l'autenticazione HTTP di base. Per altre informazioni, vedere [Configurare le impostazioni API](api-management-howto-create-apis.md#configure-api-settings).
 * Usare l'autenticazione reciproca SSL come descritto in [Come proteggere i servizi back-end usando l'autenticazione con certificati client in Gestione API di Azure](api-management-howto-mutual-certificates.md).
 * Usare gli elenchi di IP consentiti nel servizio back-end. Se si usa un'istanza di Gestione API di livello Standard o Premium, l'indirizzo IP del gateway rimane costante. È possibile impostare l'elenco elementi consentiti per autorizzare questo indirizzo IP. È possibile ottenere l'indirizzo IP dell'istanza di Gestione API nel dashboard del portale di Azure.
-* Connettere l'istanza di Gestione API a una rete virtuale di Azure. Per altre informazioni, vedere [Come configurare connessioni VPN in Gestione API di Azure](api-management-howto-setup-vpn.md).
+* Connettere l'istanza di Gestione API a una rete virtuale di Azure. 
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Come si copia l'istanza del servizio Gestione API in una nuova istanza?
 Esistono diverse opzioni per copiare un'istanza di Gestione API in una nuova istanza. È possibile:
@@ -149,9 +150,4 @@ Sì. Per informazioni, vedere [Move resources to a new resource group or subscri
 
 ### <a name="are-there-restrictions-on-or-known-issues-with-importing-my-api"></a>Esistono restrizioni o problemi noti relativi all'importazione di questa API?
 [Problemi noti e limitazioni](api-management-api-import-restrictions.md) per i formati Open API (Swagger), WSDL e WADL.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

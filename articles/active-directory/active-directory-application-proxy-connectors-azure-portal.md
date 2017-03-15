@@ -11,16 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 02/22/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d169720d01d543bb199a118aea7e34d9da45b2c1
-ms.openlocfilehash: 2fafc207826db48d3fea01bb2cac9689b9784060
-
+ms.sourcegitcommit: 53fa0876ce1e3e2b2ac47316f37c5a0de2591d41
+ms.openlocfilehash: 2a050e5817ab884c9d4337cc1cc76e298299dba3
+ms.lasthandoff: 02/28/2017
 
 ---
 
-# <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Pubblicare applicazioni in reti e posizioni separate tramite i gruppi di connettori
+# <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups---public-preview"></a>Pubblicare applicazioni in reti e posizioni separate tramite i gruppi di connettori - Anteprima pubblica
 > [!div class="op_single_selector"]
 > * [Portale di Azure](active-directory-application-proxy-connectors-azure-portal.md)
 > * [Portale di Azure classico](active-directory-application-proxy-connectors.md)
@@ -131,10 +132,5 @@ Nell'esempio seguente l'azienda ha due data center, A e B, con due connettori ch
 * [Abilitare l'accesso Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)
 * [Abilitare l'accesso condizionale](active-directory-application-proxy-conditional-access.md)
 * [Risolvere i problemi che si verificano con il proxy di applicazione](active-directory-application-proxy-troubleshoot.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

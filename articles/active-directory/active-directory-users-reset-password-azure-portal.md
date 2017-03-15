@@ -1,5 +1,5 @@
 ---
-title: Reimpostare la password per un utente in anteprima di Azure Active Directory | Microsoft Docs
+title: Reimpostazione delle password in Azure Active Directory | Documentazione Microsoft
 description: Illustra come reimpostare la password per un utente in Azure Active Directory
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
-ms.openlocfilehash: 7b58db43f247182553a5766e11fa263ee93beff7
+ms.sourcegitcommit: 15cb521e928bab6c7966d19e74d9ae3bca99ef34
+ms.openlocfilehash: a5e48f43751e90f41ffd61049a17af3ff48d132e
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="reset-the-password-for-a-user-in-azure-active-directory-preview"></a>Reimpostare la password per un utente in anteprima di Azure Active Directory
+# <a name="reset-the-password-for-a-user-in-azure-active-directory---public-preview"></a>Reimpostare la password per un utente in Azure Active Directory - anteprima pubblica
 > [!div class="op_single_selector"]
 > * [Portale di Azure](active-directory-users-reset-password-azure-portal.md)
 > * [portale di Azure classico](active-directory-create-users-reset-password.md)
@@ -47,9 +49,4 @@ ms.openlocfilehash: 7b58db43f247182553a5766e11fa263ee93beff7
 * [Modificare le informazioni di lavoro di un utente](active-directory-users-work-info-azure-portal.md)
 * [Gestire i profili utente](active-directory-users-profile-azure-portal.md)
 * [Eliminare un utente in Azure AD](active-directory-users-delete-user-azure-portal.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayan;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: c3c3938577f610eba522ba593bfab5e93c70e459
-ms.openlocfilehash: d47a97fb023e2cc3ad4acaa07eb4edfd1f82509e
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: a4a770ec6f258c62864cd3fcc79b33b5cac38ace
+ms.openlocfilehash: 8f05957e8c40dee8ceb7fb1355d8d8776935cf5a
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -76,7 +76,7 @@ Ogni collegamento in un peering reti virtuali include il precedente set di propr
 [!INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
 1. In un browser passare a http://portal.azure.com e, se necessario, accedere con l'account Azure.
-2. In questo esempio, l'utente A ha autorizzazioni amministrative per la sottoscrizione A, mentre l'utente B ha autorizzazioni amministrative per la sottoscrizione B.
+2. In questo esempio, l'utente A ha autorizzazioni amministrative per la sottoscrizione A, mentre l'utente B ha autorizzazioni amministrative per la sottoscrizione B. Entrambe le sottoscrizioni sono associate allo stesso tenant di Azure Active Directory. Non è possibile creare un peering tra le sottoscrizioni associate a diversi tenant di Azure Active Directory.
 3. Nel portale fare clic su **Esplora** e scegliere **Reti virtuali**. Fare clic sulla rete virtuale per cui si vuole configurare il peering.
 4. Nel pannello della rete virtuale selezionata fare clic su **Controllo di accesso** e quindi su **Aggiungi**, come illustrato nell'immagine seguente:
 

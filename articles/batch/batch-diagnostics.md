@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 02/01/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4b8343ac07aa7b2c0771a723306cf1f875cb6147
-ms.openlocfilehash: aeba32d62458f948c7aa99294c90519979924d57
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 16a13909079306256ded06f2100815c46ff562a3
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="azure-batch-diagnostic-logging"></a>Registrazione diagnostica di Azure Batch
+# <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Registrare gli eventi per la diagnostica e il monitoraggio delle soluzioni Batch
+
 Come per molti servizi di Azure, il servizio Batch genera eventi di log per determinate risorse durante il ciclo di vita della risorsa. È possibile abilitare i log di diagnostica di Azure Batch per registrare gli eventi per le risorse, come attività e pool, e quindi usare i log per l'analisi e il monitoraggio diagnostici. Eventi come la creazione e l'eliminazione di pool, l'avvio e il completamento di attività e di altro tipo sono inclusi nei log di diagnostica di Batch.
 
 > [!NOTE]
@@ -105,9 +108,4 @@ Oltre ad archiviare gli eventi dei log di diagnostica in un account di archiviaz
 [task_start]: https://msdn.microsoft.com/library/azure/mt743616.aspx
 [task_complete]: https://msdn.microsoft.com/library/azure/mt743612.aspx
 [task_fail]: https://msdn.microsoft.com/library/azure/mt743607.aspx
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

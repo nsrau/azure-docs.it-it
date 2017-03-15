@@ -1,6 +1,6 @@
 ---
-title: Librerie di autenticazione di Azure Active Directory 2.0 | Microsoft Docs
-description: Librerie client e middleware server compatibili e link a librerie, codice sorgente ed esempi correlati per l&quot;endpoint di Azure Active Directory 2.0.
+title: Librerie di autenticazione di Azure Active Directory&2;.0 | Microsoft Docs
+description: Librerie client e middleware server compatibili e link a librerie, codice sorgente ed esempi correlati per l&quot;endpoint di Azure Active Directory&2;.0.
 services: active-directory
 documentationcenter: 
 author: skwan
@@ -15,31 +15,32 @@ ms.workload: identity
 ms.date: 11/29/2016
 ms.author: skwan;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: f54dbdaa9e1eab9c7c050c2d8163322ee56f003e
+ms.sourcegitcommit: 9710381787cc1fe570443467b6980616879c503f
+ms.openlocfilehash: ab5576d09e5a51cd7ae602d57693558715e12d66
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="azure-active-directory-v20-authentication-libraries"></a>Librerie di autenticazione di Azure Active Directory 2.0
-L'endpoint di Azure Active Directory (Azure AD) 2.0 supporta i protocolli standard del settore OAuth 2.0 e OpenID Connect 1.0. Con l'endpoint 2.0 è possibile usare varie librerie di Microsoft e altre organizzazioni.
+# <a name="azure-active-directory-v20-authentication-libraries"></a>Librerie di autenticazione di Azure Active Directory&2;.0
+L'endpoint di Azure Active Directory (Azure AD) 2.0 supporta i protocolli standard del settore OAuth 2.0 e OpenID Connect 1.0. Con l'endpoint&2;.0 è possibile usare varie librerie di Microsoft e altre organizzazioni.
 
-Quando si compila un'applicazione che usa l'endpoint 2.0, è consigliabile usare raccolte scritte da esperti del dominio del protocollo che seguono una metodologia Security Development Lifecycle (SDL), come [quella seguita da Microsoft][Microsoft-SDL]. Se si decide di creare manualmente il codice per il supporto dei protocolli, è consigliabile seguire la metodologia SDL e prestare attenzione alle considerazioni sulla sicurezza contenute nelle specifiche degli standard di ogni protocollo.
+Quando si compila un'applicazione che usa l'endpoint&2;.0, è consigliabile usare raccolte scritte da esperti del dominio del protocollo che seguono una metodologia Security Development Lifecycle (SDL), come [quella seguita da Microsoft][Microsoft-SDL]. Se si decide di creare manualmente il codice per il supporto dei protocolli, è consigliabile seguire la metodologia SDL e prestare attenzione alle considerazioni sulla sicurezza contenute nelle specifiche degli standard di ogni protocollo.
 
 ## <a name="types-of-libraries"></a>Tipi di librerie
-Azure AD 2.0 usa due tipi di librerie:
+Azure AD&2;.0 usa due tipi di librerie:
 
 * **Librerie client**. I server e i client nativi usano le librerie client per ottenere i token di accesso per chiamare una risorsa, ad esempio Microsoft Graph.
 * **Librerie middleware server**. Le librerie middleware server vengono usate dalle app Web per l'accesso degli utenti e dalle API Web per convalidare i token inviati da client nativi o altri server.
 
 ## <a name="library-support"></a>Supporto per le librerie
-Dato che è possibile scegliere qualsiasi libreria conforme agli standard quando si usa l'endpoint 2.0, è importante sapere a chi rivolgersi per ottenere supporto. Per richieste relative a problemi e funzionalità nel codice della libreria, contattare il proprietario della libreria. Per richieste relative a problemi e funzionalità nell'implementazione del protocollo sul lato del servizio, contattare Microsoft.
+Dato che è possibile scegliere qualsiasi libreria conforme agli standard quando si usa l'endpoint&2;.0, è importante sapere a chi rivolgersi per ottenere supporto. Per richieste relative a problemi e funzionalità nel codice della libreria, contattare il proprietario della libreria. Per richieste relative a problemi e funzionalità nell'implementazione del protocollo sul lato del servizio, contattare Microsoft.
 
 Le librerie dispongono di due categorie di supporto:
 
 * **Librerie supportate da Microsoft**. Microsoft offre aggiornamenti per queste librerie, a cui ha applicato la due diligence SDL.
-* **Librerie compatibili**. Microsoft ha testato queste librerie in scenari di base e ne ha confermato il funzionamento con l'endpoint 2.0. Microsoft non fornisce correzioni per queste librerie e non ha eseguito una verifica su di esse. Le richieste relative a problemi e funzionalità devono essere indirizzate al progetto open source della libreria.
+* **Librerie compatibili**. Microsoft ha testato queste librerie in scenari di base e ne ha confermato il funzionamento con l'endpoint&2;.0. Microsoft non fornisce correzioni per queste librerie e non ha eseguito una verifica su di esse. Le richieste relative a problemi e funzionalità devono essere indirizzate al progetto open source della libreria.
 
-Per un elenco delle librerie che funzionano con l'endpoint 2.0, vedere le sezioni successive di questo articolo.
+Per un elenco delle librerie che funzionano con l'endpoint&2;.0, vedere le sezioni successive di questo articolo.
 
 ## <a name="microsoft-supported-client-libraries"></a>Librerie client supportate da Microsoft
 | Piattaforma | Nome libreria | Scaricare | Codice sorgente | Esempio |
@@ -71,9 +72,9 @@ Per un elenco delle librerie che funzionano con l'endpoint 2.0, vedere le sezion
 | Android |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) |0.2.1 |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) |[Esempio di app nativa](active-directory-v2-devquickstarts-android.md) |
 | iOS |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |1.2.8 |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |[Esempio di app nativa](active-directory-v2-devquickstarts-ios.md) |
 | Java | [Scribe Java scribejava](https://github.com/scribejava/scribejava) | [Versione 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/archive/scribejava-3.2.0.zip) | Presto disponibile |
-| JavaScript |[Hello.js](https://adodson.com/hello.js/) |1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |Presto disponibile |
+| JavaScript |[Hello.js](https://adodson.com/hello.js/) |1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
 | PHP | [PHP League oauth2-client](https://github.com/thephpleague/oauth2-client) | [Versione 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-client](https://github.com/thephpleague/oauth2-client/archive/1.4.2.zip) | Presto disponibile |
-| Python-Flask |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |0.9.3 |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |Presto disponibile |
+| Python-Flask |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |0.9.3 |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |[App Web](https://github.com/Azure-Samples/active-directory-python-flask-graphapi-web-v2) |
 | Ruby |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1</br>omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)</br>[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |Presto disponibile |
 
 <!--- REMOVING BRANDON'S FOR NOW
@@ -89,7 +90,7 @@ Per un elenco delle librerie che funzionano con l'endpoint 2.0, vedere le sezion
 Presto disponibile
 
 ## <a name="related-content"></a>Contenuti correlati
-Per altre informazioni sull'endpoint di Azure AD 2.0, vedere la [panoramica del modello app di Azure AD 2.0][AAD-App-Model-V2-Overview].
+Per altre informazioni sull'endpoint di Azure AD&2;.0, vedere la [panoramica del modello app di Azure AD&2;.0][AAD-App-Model-V2-Overview].
 
 Per contribuire al miglioramento e all'organizzazione dei contenuti, usare la funzionalità dei commenti Disqus alla fine dell'articolo per fornire commenti e suggerimenti.
 
@@ -132,9 +133,4 @@ Per contribuire al miglioramento e all'organizzazione dei contenuti, usare la fu
 [ServerLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
 [ServerLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad/
 [ServerLib-Node-Sample]: https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-devquickstarts-node-web/
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

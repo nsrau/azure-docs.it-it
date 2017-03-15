@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 01/04/2017
+ms.date: 02/23/2017
 ms.author: bharatn
 translationtype: Human Translation
-ms.sourcegitcommit: c738b9d6461da032f216b8a51c69204066d5cfd3
-ms.openlocfilehash: 9487209a8e5d976d56da50b8c70e69950d0ad129
+ms.sourcegitcommit: 76234592c0eda9f8317b2e9e5e8c8d3fbfca20c7
+ms.openlocfilehash: 8d7d447a6bfb537a6901455f28bb8d8cbd0832b5
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -48,14 +49,15 @@ Anziché configurare porte singole del servizio in Azure Load Balancer, è possi
 
 > [!WARNING]
 > La configurazione della porta del proxy inverso nel servizio di bilanciamento del carico rende tutti i microservizi nel cluster che espongono endpoint HTTP indirizzabili dall'esterno del cluster.
-> 
-> 
+>
+>
+
 
 ## <a name="uri-format-for-addressing-services-via-the-reverse-proxy"></a>Formato URI di indirizzamento dei servizi tramite il proxy inverso
 Il proxy inverso usa un formato URI specifico per identificare la partizione di servizio alla quale inoltrare la richiesta in ingresso:
 
 ```
-http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&Timeout=<timeout_in_seconds>
+http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&ListenerName=<listenerName>&TargetReplicaSelector=<targetReplicaSelector>&Timeout=<timeout_in_seconds>
 ```
 
 * **http(s):** il proxy inverso può essere configurato per accettare il traffico HTTP o HTTPS. In caso di traffico HTTPS, la terminazione SSL si verifica in corrispondenza del proxy inverso. Le richieste dal proxy inverso ai servizi del cluster sono inoltrate tramite HTTP. **Si noti che non sono attualmente supportati servizi HTTPS.**
@@ -65,6 +67,10 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 * **Suffix path:** si tratta del percorso URL effettivo per il servizio al quale si desidera connettersi. Ad esempio, *myapi/values/add/3*
 * **PartitionKey:** per un servizio partizionato, questa è la chiave di partizione calcolata della partizione che si desidera raggiungere. Si noti che questo *non* è il GUID dell'ID di partizione. Questo parametro non è obbligatorio per i servizi che usano lo schema di partizione singleton.
 * **PartitionKind:** lo schema di partizione del servizio. Può essere "Int64Range" o "Named". Questo parametro non è obbligatorio per i servizi che usano lo schema di partizione singleton.
+* **ListenerName** Gli endpoint del servizio hanno la forma {"Endpoints":{"Listener1":"Endpoint1","Listener2":"Endpoint2" ...}}. Quando il servizio espone più endpoint, questa forma indica a quali di questi endpoint deve essere inoltrata la richiesta del client. Può essere omessa se il servizio ha un solo listener.
+* **TargetReplicaSelector** Specifica la modalità di selezione della replica o dell'istanza di destinazione.
+  * Quando il servizio di destinazione è con stato, il TargetReplicaSelector può essere uno dei valori "PrimaryReplica", "RandomSecondaryReplica" o "RandomReplica". Il valore predefinito quando non viene specificato questo parametro è "PrimaryReplica".
+  * Quando il servizio di destinazione è senza stato, il proxy inverso sceglie un'istanza casuale della partizione del servizio a cui inoltrare la richiesta.
 * **Timeout:** specifica il timeout per la richiesta http creata dal proxy inverso al servizio per conto della richiesta del client. Il valore predefinito è 60 secondi. Questo è un parametro facoltativo.
 
 ### <a name="example-usage"></a>Esempio di utilizzo
@@ -132,7 +138,7 @@ Il proxy inverso di Service Fabric può essere abilitato per il cluster tramite 
 Dopo aver ottenuto il modello per il cluster che si vuole distribuire (da modelli di esempio o creando un modello di Resource Manager personalizzato), è possibile abilitare il proxy inverso nel modello con la procedura seguente.
 
 1. Definire una porta per il proxy inverso nella [sezione dei parametri](../azure-resource-manager/resource-group-authoring-templates.md) del modello.
-   
+
     ```json
     "SFReverseProxyPort": {
         "type": "int",
@@ -143,30 +149,9 @@ Dopo aver ottenuto il modello per il cluster che si vuole distribuire (da modell
     },
     ```
 2. Specificare la porta per ogni oggetto nodetype nella sezione **Cluster** [Tipo di risorsa](../azure-resource-manager/resource-group-authoring-templates.md)
-   
-    Per le versioni delle API precedenti a '&2016;-09-01', la porta è identificata dal nome del parametro ***httpApplicationGatewayEndpointPort***
-   
-    ```json
-    {
-        "apiVersion": "2016-03-01",
-        "type": "Microsoft.ServiceFabric/clusters",
-        "name": "[parameters('clusterName')]",
-        "location": "[parameters('clusterLocation')]",
-        ...
-       "nodeTypes": [
-          {
-           ...
-           "httpApplicationGatewayEndpointPort": "[parameters('SFReverseProxyPort')]",
-           ...
-          },
-        ...
-        ],
-        ...
-    }
-    ```
-   
-    Per le versioni delle API successive a '&2016;-09-01', la porta è identificata dal nome del parametro ***reverseProxyEndpointPort***
-   
+
+    La porta è identificata dal nome del parametro ***reverseProxyEndpointPort***
+
     ```json
     {
         "apiVersion": "2016-09-01",
@@ -186,7 +171,7 @@ Dopo aver ottenuto il modello per il cluster che si vuole distribuire (da modell
     }
     ```
 3. Per fare riferimento al proxy inverso dall'esterno del cluster di Azure, configurare le **regole di Azure Load Balancer** per la porta specificata nel passaggio 1.
-   
+
     ```json
     {
         "apiVersion": "[variables('lbApiVersion')]",
@@ -229,32 +214,8 @@ Dopo aver ottenuto il modello per il cluster che si vuole distribuire (da modell
         ]
     }
     ```
-4. Per configurare i certificati SSL sulla porta per il proxy inverso, aggiungere il certificato alla proprietà httpApplicationGatewayCertificate nella **Cluster** [Tipo di risorsa](../azure-resource-manager/resource-group-authoring-templates.md)
-   
-    Per le versioni delle API precedenti a '&2016;-09-01', il certificato è identificato dal nome del parametro ***httpApplicationGatewayCertificate***
-   
-    ```json
-    {
-        "apiVersion": "2016-03-01",
-        "type": "Microsoft.ServiceFabric/clusters",
-        "name": "[parameters('clusterName')]",
-        "location": "[parameters('clusterLocation')]",
-        "dependsOn": [
-            "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
-        ],
-        "properties": {
-            ...
-            "httpApplicationGatewayCertificate": {
-                "thumbprint": "[parameters('sfReverseProxyCertificateThumbprint')]",
-                "x509StoreName": "[parameters('sfReverseProxyCertificateStoreName')]"
-            },
-            ...
-            "clusterState": "Default",
-        }
-    }
-    ```
-    Per le versioni delle API successive a '&2016;-09-01', il certificato è identificato dal nome del parametro ***reverseProxyCertificate***
-   
+4. Per configurare i certificati SSL sulla porta per il proxy inverso, aggiungere il certificato alla proprietà ***reverseProxyCertificate*** nella sezione **Cluster** [Tipo di risorsa](../resource-group-authoring-templates.md)
+
     ```json
     {
         "apiVersion": "2016-09-01",
@@ -276,6 +237,61 @@ Dopo aver ottenuto il modello per il cluster che si vuole distribuire (da modell
     }
     ```
 
+### <a name="supporting-reverse-proxy-certificate-different-from-cluster-certificate"></a>Supporto di un certificato di proxy inverso diverso dal certificato di cluster
+ Se il certificato del proxy inverso è diverso dal certificato utilizzato per proteggere il cluster, il certificato specificato in precedenza deve essere installato nella VM e configurato con un ACL che consenta l'accesso al service fabric. Questa operazione può essere eseguita tramite la sezione di **virtualMachineScaleSets** [Tipo di risorsa](../resource-group-authoring-templates.md). L'installazione può essere eseguita aggiungendo tale certificato a osProfile e la configurazione dell'ACL può essere eseguita tramite il certificato per la sezione di estensione del modello.
+
+  ```json
+  {
+    "apiVersion": "[variables('vmssApiVersion')]",
+    "type": "Microsoft.Compute/virtualMachineScaleSets",
+    ....
+      "osProfile": {
+          "adminPassword": "[parameters('adminPassword')]",
+          "adminUsername": "[parameters('adminUsername')]",
+          "computernamePrefix": "[parameters('vmNodeType0Name')]",
+          "secrets": [
+            {
+              "sourceVault": {
+                "id": "[parameters('sfReverseProxySourceVaultValue')]"
+              },
+              "vaultCertificates": [
+                {
+                  "certificateStore": "[parameters('sfReverseProxyCertificateStoreValue')]",
+                  "certificateUrl": "[parameters('sfReverseProxyCertificateUrlValue')]"
+                }
+              ]
+            }
+          ]
+        }
+   ....
+   "extensions": [
+          {
+              "name": "[concat(parameters('vmNodeType0Name'),'_ServiceFabricNode')]",
+              "properties": {
+                      "type": "ServiceFabricNode",
+                      "autoUpgradeMinorVersion": false,
+                      ...
+                      "publisher": "Microsoft.Azure.ServiceFabric",
+                      "settings": {
+                        "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
+                        "nodeTypeRef": "[parameters('vmNodeType0Name')]",
+                        "dataPath": "D:\\\\SvcFab",
+                        "durabilityLevel": "Bronze",
+                        "testExtension": true,
+                        "reverseProxyCertificate": {
+                          "thumbprint": "[parameters('sfReverseProxyCertificateThumbprint')]",
+                          "x509StoreName": "[parameters('sfReverseProxyCertificateStoreValue')]"
+                        },
+                  },
+                  "typeHandlerVersion": "1.0"
+              }
+          },
+      ]
+    }
+  ```
+> [!NOTE]
+> Quando si abilita il proxy inverso di un cluster esistente, con certificati diversi dal certificato del cluster, il certificato del proxy inverso deve essere installato e l'ACL configurato sul cluster prima di abilitare il proxy inverso. Ad esempio la distribuzione del [modello di Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) con le impostazioni descritte in precedenza deve essere completata prima di avviare una distribuzione per abilitare il proxy inverso mediante i passaggi 1-4.
+
 ## <a name="next-steps"></a>Passaggi successivi
 * Vedere un esempio di comunicazione HTTP tra i servizi in un [progetto di esempio in GitHUb](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount).
 * [Chiamate di procedura remota con i Reliable Services remoti](service-fabric-reliable-services-communication-remoting.md)
@@ -284,9 +300,4 @@ Dopo aver ottenuto il modello per il cluster che si vuole distribuire (da modell
 
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

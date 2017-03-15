@@ -1,21 +1,22 @@
 ---
-title: Mappa delle applicazioni in Application Insights | Microsoft Docs
+title: Mappa delle applicazioni in Azure Application Insights | Documentazione Microsoft
 description: Una rappresentazione visiva delle dipendenze tra i componenti di app, contrassegnati con avvisi e indicatori KPI.
 services: application-insights
 documentationcenter: 
 author: SoubhagyaDash
-manager: douge
+manager: carmonm
 ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 02/22/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fc2d3c3fee5abbab0eab16c106c88c8753e703cc
-ms.openlocfilehash: f7ee8a43c83b1bad53acdb71de7a66d8afaa09b2
+ms.sourcegitcommit: 1330d8be444f596b0d1ed2038eaeb1200e8b9285
+ms.openlocfilehash: 04a34eb24df356018590b1791ecc7719a550ab51
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -49,7 +50,7 @@ Se si dispone di numerose dipendenze di un tipo (SQL, HTTP e così via), possono
 ## <a name="spot-problems"></a>Individuazione di problemi
 Ogni nodo dispone di indicatori di prestazioni rilevanti, ad esempio tassi di carico, prestazioni ed errori per il componente. 
 
-Le icone di avviso evidenziano possibili problemi. Un avviso di colore arancione indica che si verificano errori nelle richieste, visualizzazioni di pagina o chiamate di dipendenza. Il rosso indica una percentuale di errore superiore al 5%.
+Le icone di avviso evidenziano possibili problemi. Un avviso di colore arancione indica che si verificano errori nelle richieste, visualizzazioni di pagina o chiamate di dipendenza. Il rosso indica una percentuale di errore superiore al 5%. Se si vuole modificare queste soglie, aprire Opzioni.
 
 ![icone di errore](./media/app-insights-app-map/04.png)
 
@@ -105,9 +106,6 @@ La mappa delle app consente di trovare i nodi del server mediante la ricerca di 
 
 ![Immagine MapLink-1](./media/app-insights-app-map/13.png)
 
+## <a name="next-steps"></a>Passaggi successivi
 
-
-
-<!--HONumber=Nov16_HO4-->
-
-
+* [Portale di Azure](https://portal.azure.com)

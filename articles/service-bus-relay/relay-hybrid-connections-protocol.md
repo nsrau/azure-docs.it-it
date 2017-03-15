@@ -1,5 +1,5 @@
 ---
-title: Protocollo per le connessioni ibride di inoltro di Azure | Microsoft Docs
+title: Guida al protocollo per le connessioni ibride di inoltro di Azure | Documentazione Microsoft
 description: Guida al protocollo per le connessioni ibride di inoltro di Azure.
 services: service-bus-relay
 documentationcenter: na
@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/14/2017
 ms.author: sethm;clemensv
 translationtype: Human Translation
-ms.sourcegitcommit: 579942cfe0dc7d6a5e3f205308642d36bf6be880
-ms.openlocfilehash: d3a191797e75c424af07910e4a6a87e1183f6676
+ms.sourcegitcommit: 4a972b9b8b52a90f27afda98d8bdc661016d1fe1
+ms.openlocfilehash: f5fd4c6c0b8db3fe91d8b57a68fe33dcff353a59
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -267,10 +268,5 @@ Se la connessione Web Socket viene intenzionalmente arrestata dal servizio dopo 
 * [Creare uno spazio dei nomi](relay-create-namespace-portal.md)
 * [Introduzione a .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introduzione a Node](relay-hybrid-connections-node-get-started.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

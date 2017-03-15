@@ -1,5 +1,5 @@
 ---
-title: Raccolta di log e metriche per i servizi di Azure in Log Analytics | Documentazione Microsoft
+title: Raccogliere log e metriche per i servizi di Azure per Log Analytics | Documentazione Microsoft
 description: "È possibile configurare la diagnostica per le risorse di Azure per scrivere log e metriche in Log Analytics."
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fcb2c38b18e40d3ca4406810e523ae339d612bcf
-ms.openlocfilehash: b2049e2b3673ddc0455fc07c298f1054c8c8e78e
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: 935680e33c1b32619b7acb8d50a61e48b6703402
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="collecting-logs-and-metrics-for-azure-services-in-log-analytics"></a>Raccolta di log e metriche per i servizi di Azure in Log Analytics
+# <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Raccolta di log e metriche per i servizi di Azure da usare in Log Analytics
 
 Esistono quattro diversi modi per raccogliere log e metriche per i servizi di Azure:
 
@@ -149,9 +151,4 @@ La raccolta di modelli di Azure include [esempi dell'uso di Automazione di Azure
 * [Usare l'archiviazione BLOB per IIS e l'archiviazione tabelle per gli eventi](log-analytics-azure-storage-iis-table.md) per leggere i log dei servizi di Azure che scrivono dati di diagnostica in un archivio tabelle o i log IIS scritti in un archivio BLOB.
 * [Abilitare soluzioni](log-analytics-add-solutions.md) per fornire informazioni dettagliate sui dati.
 * [Usare query di ricerca](log-analytics-log-searches.md) per analizzare i dati.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: bec4f89556a2daa41e19b0ecb2ab9bbbed849107
-ms.openlocfilehash: 0bf40c5b44ea87c88d4464baf958e8afb7a59c38
+ms.sourcegitcommit: 273598a6eecb358c0b308c481193323e67dd475c
+ms.openlocfilehash: 24c3fdd8124ff3cc43feacb6f25dda84be9f46d9
+ms.lasthandoff: 02/28/2017
 
 ---
 
@@ -36,7 +37,7 @@ Se non si vuole che una macchina virtuale comunichi con gli endpoint all'esterno
 
 ## <a name="standalone-vm-with-no-instance-level-public-ip-address"></a>Macchina virtuale autonoma senza indirizzo IP pubblico a livello di istanza
 
-In questo scenario la macchina virtuale non fa parte di un pool di Azure Load Balancer e non ha assegnato un indirizzo IP pubblico a livello di istanza. Quando la macchina virtuale crea un flusso in uscita, Azure converte l'indirizzo IP di origine privata del flusso in uscita in un indirizzo IP di origine pubblica. L'indirizzo IP pubblico usato per questo flusso in uscita non è configurabile. Azure usa SNAT (Source Network Address Translation) per eseguire questa funzione. Per distinguere i singoli flussi originati dalla macchina virtuale vengono usate porte temporanee dell'indirizzo IP pubblico. SNAT assegna dinamicamente le porte temporanee dopo che sono stati creati i flussi. In questo contesto le porte temporanee usate per SNAT sono dette porte SNAT.
+In questo scenario la macchina virtuale non fa parte di un pool di Azure Load Balancer e non ha assegnato un indirizzo IP pubblico a livello di istanza. Quando la macchina virtuale crea un flusso in uscita, Azure converte l'indirizzo IP di origine privata del flusso in uscita in un indirizzo IP di origine pubblica. L'indirizzo IP pubblico usato per questo flusso in uscita non è configurabile e non interferisce con il limite della risorsa IP pubblico della sottoscrizione. Azure usa SNAT (Source Network Address Translation) per eseguire questa funzione. Per distinguere i singoli flussi originati dalla macchina virtuale vengono usate porte temporanee dell'indirizzo IP pubblico. SNAT assegna dinamicamente le porte temporanee dopo che sono stati creati i flussi. In questo contesto le porte temporanee usate per SNAT sono dette porte SNAT.
 
 Le porte SNAT sono una risorsa limitata che può esaurirsi. L'importante è capire come vengono usate. Viene usata una porta SNAT per flusso verso un singolo indirizzo IP di destinazione. In caso di più flussi verso lo stesso indirizzo IP di destinazione, viene usata una singola porta SNAT per ogni flusso. Si garantisce così che i flussi siano univoci quando hanno origine dallo stesso indirizzo IP pubblico e quando sono destinati allo stesso indirizzo IP. Più flussi destinati ognuno a un indirizzo IP di destinazione diverso usano una singola porta SNAT per ogni destinazione. L'indirizzo IP di destinazione crea i flussi univoci.
 
@@ -65,9 +66,4 @@ Esistono molti modi per determinare l'indirizzo IP di origine pubblica di una co
 A volte può succedere di non voler consentire a una macchina virtuale di creare un flusso in uscita o può essere necessario gestire le destinazioni che possono essere raggiunte da flussi in uscita. In questo caso usare i [gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) per gestire le destinazioni che la macchina virtuale può raggiungere. Quando si applica un gruppo di sicurezza di rete a una macchina virtuale con carico bilanciato, è necessario considerare i [tag predefiniti](../virtual-network/virtual-networks-nsg.md#default-tags) e le [regole predefinite](../virtual-network/virtual-networks-nsg.md#default-rules).
 
 È necessario assicurarsi che la macchina virtuale riceva richieste di probe di integrità da Azure Load Balancer. Se un gruppo di sicurezza di rete blocca le richieste di probe di integrità dal tag AZURE_LOADBALANCER predefinito, il probe di integrità della macchina virtuale avrà esito negativo e la macchina virtuale sarà contrassegnata come non attiva. Load Balancer interrompe l'invio di nuovi flussi a tale macchina virtuale.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

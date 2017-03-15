@@ -32,8 +32,8 @@ L'esempio seguente collega un `50`disco GB alla macchina virtuale denominata `my
 Per usare i dischi gestiti:
 
 ```azurecli
-az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk \
-  –-new --size-gb 50
+az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
+  --new --size-gb 50
 ```
 
 Per usare i dischi non gestiti:
@@ -53,8 +53,8 @@ L'uso di dischi gestiti consente di concentrarsi sulle macchine virtuali e sui r
 Se è necessario solo un nuovo disco nella macchina virtuale, è possibile usare il comando `az vm disk attach`.
 
 ```azurecli
-az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk \
-  –-new --size-gb 50
+az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
+  --new --size-gb 50
 ```
 
 ### <a name="attach-an-existing-disk"></a>Collegare un disco esistente 

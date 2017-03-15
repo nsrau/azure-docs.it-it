@@ -1,6 +1,6 @@
 ---
-title: Ottimizzare l&quot;ambiente con la soluzione Service Fabric in Log Analytics | Documentazione Microsoft
-description: "È possibile usare la soluzione Service Fabric per valutare i rischi e l&quot;integrità delle applicazioni Service Fabric, dei servizi micro, dei nodi e dei cluster."
+title: Accedere ad applicazioni Service Fabric con Log Analytics mediante il portale di Azure | Documentazione Microsoft
+description: "È possibile usare la soluzione Service Fabric in Log Analytics mediante il portale di Azure per valutare i rischi e l&quot;integrità delle applicazioni Service Fabric, dei microservizi, dei nodi e dei cluster."
 services: log-analytics
 documentationcenter: 
 author: niniikhena
@@ -15,17 +15,19 @@ ms.topic: article
 ms.date: 09/21/2016
 ms.author: nini
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2fe6c2b23c816a5ec5bb00199725cdf0b29b31f0
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: ac94bca1657efbe0ce94db953933f026217d1c8a
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="service-fabric-solution-in-log-analytics"></a>Soluzione Service Fabric in Log Analytics
+# <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Valutare le applicazioni e i microservizi Service Fabric con il portale di Azure
+
 > [!div class="op_single_selector"]
 > * [Gestione risorse](log-analytics-service-fabric-azure-resource-manager.md)
 > * [PowerShell](log-analytics-service-fabric.md)
-> 
-> 
+>
+>
 
 In questo articolo viene descritto come usare la soluzione Service Fabric in Log Analytics per identificare e risolvere i problemi nel cluster di Service Fabric.
 
@@ -79,11 +81,11 @@ Per visualizzare i dati sulle prestazioni dai nodi:
 * Andare a Impostazioni nel riquadro a sinistra e selezionare dati >> Contatori delle prestazioni di Windows >> "Aggiungi i contatori delle prestazioni selezionati": ![Service Fabric](./media/log-analytics-service-fabric/7.png)
 * In Ricerca log, usare le query seguenti per approfondire le metriche principali relative ai nodi:
   </br>
-  
+
     a. Confrontare l'uso medio della CPU in tutti i nodi nell'ultima ora per determinare i nodi che hanno avuto problemi e l'intervallo di tempo in cui un nodo ha avuto un picco:
-  
+
     ``` Type=Perf ObjectName=Processor CounterName="% Processor Time"|measure avg(CounterValue) by Computer Interval 1HOUR. ```
-  
+
     ![Service Fabric](./media/log-analytics-service-fabric/10.png)
 
     b. Visualizzare i grafici a linee simili relativi alla memoria disponibile in ciascun nodo con questa query:
@@ -115,8 +117,8 @@ Questo modello aggiunge semplicemente gli account di archiviazione esistenti a u
 > [!NOTE]
 > Per la selezione di un gruppo di risorse, se si usa un'area di lavoro di Log Analytics già esistente, selezionare "Usa esistente" e cercare il gruppo di risorse che contiene l'area di lavoro di OMS. Altrimenti, crearne uno nuovo.
 > ![Service Fabric](./media/log-analytics-service-fabric/8.png)
-> 
-> 
+>
+>
 
 Dopo avere distribuito il modello, sarà possibile visualizzare l'account di archiviazione connesso all'area di lavoro di Log Analytics. In questo esempio, all'area di lavoro di Exchange è stato aggiunto un ulteriore account di archiviazione, creato in precedenza.
 ![Service Fabric](./media/log-analytics-service-fabric/9.png)
@@ -144,15 +146,9 @@ La tabella seguente illustra i metodi di raccolta dei dati e altri dettagli sull
 
 > [!NOTE]
 > È possibile modificare l'ambito di questi eventi nella soluzione Service Fabric facendo clic su **Dati basati sugli ultimi 7 giorni** nella parte superiore del dashboard. È anche possibile mostrare gli avvisi generati negli ultimi 7 giorni, nell'ultimo giorno o nelle ultime sei ore. In alternativa, è possibile selezionare **Personalizzato** e specificare un intervallo di date personalizzato.
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per visualizzare i dati dettagliati sugli eventi Service Fabric usare [Ricerche log in Log Analytics](log-analytics-log-searches.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

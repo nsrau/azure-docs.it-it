@@ -1,5 +1,5 @@
 ---
-title: Test di Funzioni di Azure | Microsoft Docs
+title: Test di Funzioni di Azure | Documentazione Microsoft
 description: Testare Funzioni di Azure con Postman, cURL e Node.js.
 services: functions
 documentationcenter: na
@@ -16,14 +16,15 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: wesmc
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 811d39a10cee3a602a43b6733d6743959cd02f45
-ms.openlocfilehash: 3795bfa395409fe3850f19cd351371cf07e42b58
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
+ms.openlocfilehash: a58bf41ec11b5826b60c1fc999240ea655be6d9d
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="testing-azure-functions"></a>Test di Funzioni di Azure
+# <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategie per il test del codice in Funzioni di Azure
 
 Questo argomento illustra i vari modi per eseguire il test delle funzioni e include gli approcci generali seguenti:
 

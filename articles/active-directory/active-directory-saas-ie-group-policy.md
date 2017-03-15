@@ -1,5 +1,5 @@
 ---
-title: Come distribuire l&quot;estensione Pannello di accesso per Internet Explorer con Criteri di gruppo | Documentazione Microsoft
+title: Distribuire l&quot;estensione Pannello di accesso di Azure per Internet Explorer con un criterio di gruppo | Documentazione Microsoft
 description: Come usare Criteri di gruppo per distribuire il componente aggiuntivo di Internet Explorer per il portale App personali.
 services: active-directory
 documentationcenter: 
@@ -11,27 +11,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2017
+ms.date: 02/27/2017
 ms.author: markvi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b312e1a37b15e170847fae02e40bae26103b6d6d
+ms.sourcegitcommit: c06c089fb08c19b55246122201c378917a560e14
+ms.openlocfilehash: af36f45e66b68e2e76651eb408682f36ee0cbb68
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Come distribuire l'estensione Pannello di accesso per Internet Explorer con Criteri di gruppo
 Questa esercitazione illustra come usare Criteri di gruppo per installare l'estensione Pannello di accesso per Internet Explorer nei computer degli utenti in modalità remota. Questa estensione è necessaria per gli utenti di Internet Explorer che devono eseguire l'accesso ad app configurate con l' [accesso Single Sign-On basato su password](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
 
-Si consiglia agli amministratori di automatizzare la distribuzione di questa estensione. In caso contrario, gli utenti dovranno scaricare e installare l'estensione in autonomia, un'operazione soggetta a errori e che richiede autorizzazioni di amministratore. Questa esercitazione descrive un metodo per automatizzare le distribuzioni software tramite Criteri di gruppo. [Altre informazioni su Criteri di gruppo](https://technet.microsoft.com/windowsserver/bb310732.aspx)
+Si consiglia agli amministratori di automatizzare la distribuzione di questa estensione. In caso contrario, gli utenti devono scaricare e installare l'estensione in autonomia, un'operazione soggetta a errori e che richiede autorizzazioni di amministratore. Questa esercitazione descrive un metodo per automatizzare le distribuzioni software tramite Criteri di gruppo. [Altre informazioni su Criteri di gruppo](https://technet.microsoft.com/windowsserver/bb310732.aspx)
 
 L'estensione Pannello di accesso è disponibile per [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) e [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998). In entrambi i casi l'installazione non richiede autorizzazioni di amministratore.
 
 ## <a name="prerequisites"></a>Prerequisiti
 * [Servizi di dominio Active Directory](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)è già stato configurato e i computer degli utenti sono stati aggiunti al dominio.
-* Per modificare gli oggetti Criteri di gruppo è necessaria l'autorizzazione "Modifica impostazione". Questa autorizzazione è assegnata per impostazione predefinita ai membri dei gruppi di sicurezza seguenti: Domain Administrators, Enterprise Administrators e Group Policy Creator Owners. [Altre informazioni.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
+* Per modificare l'oggetto Criteri di gruppo è necessaria l'autorizzazione "Modifica impostazione". Questa autorizzazione è assegnata per impostazione predefinita ai membri dei gruppi di sicurezza seguenti: Domain Administrators, Enterprise Administrators e Group Policy Creator Owners. [Altre informazioni.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
 ## <a name="step-1-create-the-distribution-point"></a>Passaggio 1: Creare il punto di distribuzione
-Per prima cosa, salvare il pacchetto del programma di installazione in un percorso di rete a cui possono accedere tutti i computer in cui si vuole installare l'estensione in modalità remota. A questo scopo, seguire questa procedura:
+Per prima cosa, salvare il pacchetto del programma di installazione in un percorso di rete a cui possono accedere i computer in cui si vuole installare l'estensione in modalità remota. A questo scopo, seguire questa procedura:
 
 1. Eseguire l'accesso al server come amministratore
 2. Nella finestra **Server Manager** passare a **Servizi file e archiviazione**.
@@ -64,12 +66,12 @@ Per prima cosa, salvare il pacchetto del programma di installazione in un percor
 5. Nella finestra **Nuovo oggetto Criteri di gruppo** digitare un nome per il nuovo oggetto Criteri di gruppo.
    
     ![Assegnare un nome al nuovo oggetto Criteri di gruppo](./media/active-directory-saas-ie-group-policy/name-gpo.png)
-6. Fare clic con il pulsante destro del mouse sull'oggetto Criteri di gruppo appena creato e scegliere **Modifica**.
+6. Fare clic con il pulsante destro del mouse sull'oggetto Criteri di gruppo creato e scegliere **Modifica**.
    
     ![Modificare il nuovo oggetto Criteri di gruppo](./media/active-directory-saas-ie-group-policy/edit-gpo.png)
 
 ## <a name="step-3-assign-the-installation-package"></a>Passaggio 3: Assegnare il pacchetto di installazione
-1. Determinare se l'estensione dovrà essere distribuita in base a una **Configurazione computer** o una **Configurazione utente**. Con una [Configurazione computer](https://technet.microsoft.com/library/cc736413%28v=ws.10%29.aspx), l'estensione verrà installata nel computer indipendentemente dall'utente che vi accede. Con una [Configurazione utente](https://technet.microsoft.com/library/cc781953%28v=ws.10%29.aspx), l'estensione verrà installata per l'utente, indipendentemente dal computer a cui accede.
+1. Determinare se l'estensione dovrà essere distribuita in base a una **Configurazione computer** o una **Configurazione utente**. Con una [Configurazione computer](https://technet.microsoft.com/library/cc736413%28v=ws.10%29.aspx), l'estensione viene installata nel computer indipendentemente dall'utente che vi accede. Con una [Configurazione utente](https://technet.microsoft.com/library/cc781953%28v=ws.10%29.aspx), l'estensione viene installata per l'utente, indipendentemente dal computer a cui accede.
 2. Nel riquadro sinistro della finestra **Editor Gestione Criteri di gruppo** passare a uno dei percorsi di cartella seguenti, a seconda del tipo di configurazione scelto:
    
    * `Computer Configuration/Policies/Software Settings/`
@@ -121,7 +123,7 @@ Quando gli utenti accedono a siti Web utilizzando l'estensione del Pannello di a
 
 Se si desidera impedire agli utenti la visualizzazione del messaggio, attenersi alla procedura seguente per impedire al completamento automatico di ricordare le password:
 
-1. Nella finestra **Editor Gestione criteri di gruppo** , passare al percorso elencato di seguito. Si noti che questa impostazione di configurazione è disponibile solo in **Configurazione utente**.
+1. Nella finestra **Editor Gestione criteri di gruppo** , passare al percorso elencato di seguito. Questa impostazione di configurazione è disponibile solo in **Configurazione utente**.
    
    * `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/`
 2. Individuare l'impostazione denominata **Attiva Completamento automatico per nomi utente e password nei moduli**.
@@ -150,7 +152,7 @@ Per verificare la corretta distribuzione dell'estensione, seguire questa procedu
 
 1. Se per la distribuzione è stata selezionata l'opzione **Configurazione computer**, accedere a un computer client appartenente all'unità organizzativa selezionata in [Passaggio 2: Creare l'oggetto Criteri di gruppo](#step-2-create-the-group-policy-object). Se invece è stata selezionata l'opzione **Configurazione utente**, assicurarsi di eseguire l'accesso con un nome utente appartenente all'unità organizzativa.
 2. Potrebbero essere necessari più accessi prima che le modifiche a Criteri di gruppo risultino completamente aggiornate nel computer. Per forzare l'aggiornamento, aprire una finestra del **prompt dei comandi** ed eseguire il comando seguente: `gpupdate /force`
-3. Per avviare l'installazione, sarà prima necessario riavviare il computer. L'avvio potrebbe impiegare molto più tempo del normale mentre è in corso l'installazione dell'estensione.
+3. Per avviare l'installazione, è necessario riavviare il computer. L'avvio potrebbe impiegare molto più tempo del normale mentre è in corso l'installazione dell'estensione.
 4. Dopo aver riavviato, aprire **Internet Explorer**. Nell'angolo in alto a destra della finestra fare clic su **Strumenti** (l'icona a forma di ingranaggio) e quindi selezionare **Gestione componenti aggiuntivi**.
    
     ![Passare a Strumenti > Gestione componenti aggiuntivi](./media/active-directory-saas-ie-group-policy/manage-add-ons.png)
@@ -162,10 +164,5 @@ Per verificare la corretta distribuzione dell'estensione, seguire questa procedu
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 * [Accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 * [Risoluzione dei problemi dell’estensione del pannello di accesso per Internet Explorer](active-directory-saas-ie-troubleshooting.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

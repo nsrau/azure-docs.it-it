@@ -1,5 +1,5 @@
 ---
-title: Guida di riferimento alla ricerca in Log Analytics | Documentazione Microsoft
+title: Guida di riferimento alla ricerca in Log Analytics di Azure | Documentazione Microsoft
 description: "La Guida di riferimento alla ricerca in Log Analytics descrive il linguaggio di ricerca e fornisce le opzioni della sintassi di query generale che è possibile usare quando si cercano dati e si filtrano espressioni per restringere la ricerca."
 services: log-analytics
 documentationcenter: 
@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 81fd8dfa480fc6365b6373a4eefef1149248d800
-ms.openlocfilehash: 5e4fba6ff82cbe8af0116e35d71c8f9f04474f0f
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: a294ef357ea3c656e4e6392e89ad1d90b829e2cb
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -254,7 +256,7 @@ SampleValue:[0..2]
 ```
 
 ### <a name="regular-expressions"></a>Espressioni regolari
-È possibile specificare una condizione di ricerca per un campo con un'espressione regolare usando la parola chiave Regex.
+È possibile specificare una condizione di ricerca per un campo con un'espressione regolare usando la parola chiave Regex.  Una descrizione completa della sintassi utilizzabile nelle espressioni regolari è riportata in [Uso di espressioni regolari per filtrare ricerche log in Log Analytics](log-analytics-log-searches-regex.md).
 
 **Sintassi**
 
@@ -581,7 +583,29 @@ Esempi:
     Type:Perf CounterName:"% Total Run Time" | Measure max(CounterValue) by Computer | where (AggregatedValue>50 and AggregatedValue<90)
 
 ### <a name="in"></a>IN
-Sintassi:
+La parola chiave **IN** consente di scegliere da un elenco di valori.  A seconda della sintassi utilizzata, questo può essere un semplice elenco di valori forniti o un elenco di valori di un'aggregazione.
+
+Sintassi 1:
+
+```
+field IN {value1,value2,value3,...}
+```
+
+Descrizione: questa sintassi consente di includere tutti i valori in un elenco semplice.
+
+
+
+Esempi:
+
+```
+EventID IN {1201,1204,1210}
+```
+
+```
+Computer IN {"srv01.contoso.com","srv02.contoso.com"}
+```
+
+Sintassi 2:
 
 ```
 (Outer Query) (Field to use with inner query results) IN {Inner query | measure count() by (Field to send to outer query)} (rest  of outer query)  
@@ -810,9 +834,4 @@ Per altre informazioni sulle ricerche nei log:
 
 * Acquisire familiarità con le [ricerche nei log](log-analytics-log-searches.md) per visualizzare le informazioni dettagliate raccolte dalle soluzioni.
 * Usare [Campi personalizzati in Log Analytics](log-analytics-custom-fields.md) per estendere le ricerche nei log.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

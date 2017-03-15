@@ -3,7 +3,7 @@ title: Come ottenere informazioni dettagliate con i report di gestione delle pas
 description: Questo articolo descrive come usare i report per ottenere informazioni dettagliate sulle operazioni di gestione delle password nell&quot;organizzazione.
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: 1472b51d-53f4-4b0f-b1be-57f6fa88fa65
@@ -12,29 +12,30 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9e66d3d4877b0f04d101da73aa819b76857b7e18
+ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
+ms.openlocfilehash: 50255c1eabc5ac0f51fa8d45851fb632928070cc
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="how-to-get-operational-insights-with-password-management-reports"></a>Come ottenere informazioni dettagliate con i report di gestione delle password
 > [!IMPORTANT]
-> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,**  [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
+>
+>
 
-Questa sezione descrive come è possibile usare i report di gestione delle password di Azure Active Directory per visualizzare come gli utenti usano la modifica e la reimpostazione delle password nell'organizzazione.
+Questa sezione descrive come è possibile usare i report di gestione delle password di Azure Active Directory per visualizzare come gli utenti usano la modifica e la reimpostazione della password nell'organizzazione.
 
-* [**Informazioni generali sui report di gestione delle password**](#overview-of-password-management-reports)
+* [**Panoramica dei report di gestione delle password**](#overview-of-password-management-reports)
 * [**Come visualizzare i report di gestione delle password**](#how-to-view-password-management-reports)
 * [**Visualizzare le attività di registrazione per la reimpostazione delle password nell'organizzazione**](#view-password-reset-registration-activity)
 * [**Visualizzare le attività di reimpostazione delle password nell'organizzazione**](#view-password-reset-activity)
 
 ## <a name="overview-of-password-management-reports"></a>Informazioni generali sui report di gestione delle password
-Dopo aver distribuito la funzionalità di reimpostazione delle password, uno dei passaggi successivi più comuni consiste nel verificarne l'uso nell'organizzazione.  Ad esempio, è possibile ottenere informazioni dettagliate sulla modalità di registrazione degli utenti alla funzionalità di reimpostazione delle password o sul numero di reimpostazioni delle password eseguite negli ultimi giorni.  Di seguito sono elencate alcune delle domande più comuni a cui sarà possibile rispondere con i report di gestione delle password presenti nel [portale di gestione di Azure](https://manage.windowsazure.com) :
+Dopo aver distribuito la funzionalità di reimpostazione delle password, uno dei passaggi successivi più comuni consiste nel verificarne l'uso nell'organizzazione.  Ad esempio, è possibile ottenere informazioni dettagliate sulla modalità di registrazione degli utenti alla funzionalità di reimpostazione delle password o sul numero di reimpostazioni delle password eseguite negli ultimi giorni.  Di seguito sono elencate alcune domande comuni a cui sarà possibile rispondere con i report di gestione delle password presenti attualmente nel [portale di gestione di Azure](https://manage.windowsazure.com):
 
 * Quante persone si sono registrate per la reimpostazione delle password?
 * Chi ha eseguito la registrazione per la reimpostazione delle password?
@@ -48,12 +49,12 @@ Dopo aver distribuito la funzionalità di reimpostazione delle password, uno dei
 ## <a name="how-to-view-password-management-reports"></a>Come visualizzare i report di gestione delle password
 Per trovare i report di gestione delle password, seguire questa procedura:
 
-1. Fare clic sull'estensione **Active Directory** nel [portale di gestione di Azure](https://manage.windowsazure.com).
+1. Fare clic sull'estensione **Active Directory** nel [portale di Azure classico](https://manage.windowsazure.com).
 2. Selezionare la directory dall'elenco visualizzato nel portale.
 3. Fare clic sulla scheda **Report** .
 4. Controllare la sezione **Log attività** .
 5. Selezionare il report **Attività di reimpostazione password** o **Attività di registrazione reimpostazione password**.
-   
+
    ![][001]
 
 ## <a name="how-to-access-password-management-reports-from-an-api"></a>Come accedere ai report di gestione delle password da un'API
@@ -72,7 +73,7 @@ Il report relativo alle attività di registrazione per la reimpostazione delle p
 * **Intervallo di tempo massimo**: 1 mese
 * **Numero massimo di righe**: illimitato
 * **Scaricabile**: Sì, tramite file CSV
-  
+
     ![][002]
 
 ### <a name="description-of-report-columns"></a>Descrizione delle colonne del report
@@ -96,7 +97,7 @@ Questo report illustra tutti i tentativi di reimpostazione delle password che si
 * **Intervallo di tempo massimo**: 1 mese
 * **Numero massimo di righe**: illimitato
 * **Scaricabile**: Sì, tramite file CSV
-  
+
     ![][003]
 
 ### <a name="description-of-report-columns"></a>Descrizione delle colonne del report
@@ -157,12 +158,12 @@ Di seguito è riportato l'elenco dei tipi di risultati previsti quando si usa il
 | Si è verificato un problema durante la reimpostazione della password locale dell'utente. Verificare il log eventi del computer di sincronizzazione. |Operazione non riuscita |
 | Questo utente non è un membro del gruppo di utenti autorizzati alla reimpostazione della password. Per risolvere il problema, aggiungere l'utente al gruppo. |Operazione non riuscita |
 | La reimpostazione della password è stata completamente disabilitata per questo tenant. Vedere [qui](http://aka.ms/ssprtroubleshoot) per risolvere il problema. |Operazione non riuscita |
-| La reimpostazione della password dell'utente è riuscita. |Operazione riuscita |
+| La reimpostazione della password dell'utente è riuscita. |Operazione completata |
 
-## <a name="links-to-password-reset-documentation"></a>Collegamenti alla documentazione relativa alla reimpostazione della password
+## <a name="next-steps"></a>Passaggi successivi
 Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,**  [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
+* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
 * [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
 * [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
 * [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione
@@ -174,9 +175,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 [001]: ./media/active-directory-passwords-get-insights/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

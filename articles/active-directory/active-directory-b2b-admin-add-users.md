@@ -14,12 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/16/2017
+ms.date: 02/18/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
-ms.openlocfilehash: 6a854486060c77d743cbdd42b7a341860ab77361
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: a4e25c0dab34f0977b4511046ad53f4c0b409990
+ms.openlocfilehash: 830cc28cdd5ca523c43cf1fa9cdff5131727d71f
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -46,6 +46,13 @@ Aggiungere utenti di Collaborazione B2B a un gruppo come amministratore di Azure
 Aggiungere utenti di Collaborazione B2B a un'applicazione come amministratore di Azure AD, come illustrato nel video seguente:
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-assign-b2b-to-apps/Player]
+
+## <a name="admins-resending-invitations-to-guest-users"></a>Amministratori che inviano un nuovo invito agli utenti guest
+È possibile passare alla pagina del profilo di un utente di Collaborazione B2B e inviare di nuovo gli inviti a utenti guest non ancora riscattati:
+
+![nuovo invio dell'invito](./media/active-directory-b2b-admin-add-users/resend-invitation.png)
+
+> ![NOTE] L'invito verrà inviato di nuovo dall'utente connesso e l'utente verrà invitato alla directory, anche se l'invito originale è destinato a un'app o a un gruppo specifico.
 
 
 ## <a name="related-articles"></a>Articoli correlati

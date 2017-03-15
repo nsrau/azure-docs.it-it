@@ -16,74 +16,81 @@ ms.workload: identity
 ms.date: 02/18/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: d3f68340592d9032999ecb5cc16ac1fedcce4c33
-ms.openlocfilehash: ae154e09e3b9ef2182e74b1dc5a0d8da3922b0df
+ms.sourcegitcommit: eb0482d0dec3121710cc2ee56ab538cd66cb03c9
+ms.openlocfilehash: eaf7fabc243b3dfa37d974f4315a378bec9356b7
+ms.lasthandoff: 02/24/2017
 
 
 ---
 
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Proprietà di un utente di Collaborazione B2B di Azure Active Directory
 
-## <a name="defining-a-b2b-collaboration-user"></a>Definizione di un utente di Collaborazione B2B
-Un utente di Collaborazione B2B è un utente con UserType = Guest, ovvero un utente guest. L'utente rappresenta in genere un utente di un'organizzazione partner e ha privilegi limitati nella directory di invito per impostazione predefinita. In base alle esigenze dell'organizzazione mittente dell'invito, un utente di Collaborazione B2B può trovarsi in uno dei seguenti stati dell'account:
-1. Incluso in un'istanza esterna di Azure Active Directory (Azure AD), rappresentato come utente guest nell'organizzazione host. In tal caso, l'utente B2B accede con un account Azure AD appartenente alla relativa tenancy home. Se l'organizzazione esterna a cui appartiene l'utente non usa Azure AD al momento dell'invito, l'utente guest viene creato in Azure AD quando l'utente riscatta l'invito, dopo la verifica del relativo indirizzo di posta elettronica. Tale tenancy è anche detta "Just-In-Time" (JIT) o tenancy virale.
-2. Incluso nell'account Microsoft, rappresentato come utente guest nell'organizzazione host. In tal caso, l'utente guest accede con un account Microsoft. Nell'aggiornamento dell'anteprima pubblica per Azure AD di Collaborazione B2B l'identità non MSA basata su social network, come google.com o simili, dell'utente invitato viene creata come account Microsoft al momento del riscatto dell'offerta.
-3. Incluso nell'istanza locale di Active Directory dell'organizzazione host, sincronizzato con l'istanza di Azure AD dell'organizzazione host. In questa versione è necessario impostare manualmente su guest l'attributo UserType di tali utenti nel cloud tramite PowerShell. Nelle versioni future la modifica verrà eseguita automaticamente come parte di Azure AD Connect.
-4. Incluso nell'istanza di Azure AD dell'organizzazione host con UserType = Guest, con le credenziali gestite dall'organizzazione host.
+Un utente di Collaborazione B2B (business-to-business ) di Azure Active Directory (Azure AD) è un utente con UserType = Guest. L'utente guest rappresenta in genere un utente di un'organizzazione partner e ha privilegi limitati nella directory di invito per impostazione predefinita.
 
-  ![visualizzazione iniziali del mittente dell'invito](media/active-directory-b2b-user-properties/redemption-diagram.png)
+In base alle esigenze dell'organizzazione che emette l'invito, un utente di Collaborazione B2B di Azure AD può trovarsi in uno dei seguenti stati dell'account:
+
+- Stato 1: incluso in un'istanza esterna di Azure AD e rappresentato come utente guest nell'organizzazione host. In questo caso, l'utente B2B accede con un account Azure AD appartenente alla relativa tenancy home. Se l'organizzazione esterna dell'utente non usa Azure AD al momento dell'invito, l'utente guest viene creato in Azure AD quando l'utente riscatta l'invito, dopo che Azure AD ha verificato il suo indirizzo di posta elettronica. Tale tenancy è anche detta "Just-In-Time" (JIT) o tenancy virale.
+
+- Stato 2: incluso in un account Microsoft e rappresentato come utente guest nell'organizzazione host. In tal caso, l'utente guest accede con un account Microsoft. Nell'aggiornamento dell'anteprima pubblica di Azure AD, l'identità basata su social network (come google.com o simili) dell'utente invitato, che non è un account Microsoft, viene creata come account Microsoft al momento del riscatto dell'offerta.
+
+- Stato 3: incluso nell'istanza locale di Active Directory dell'organizzazione host e sincronizzato con l'istanza di Azure AD dell'organizzazione host. In questa versione è necessario usare PowerShell per modificare manualmente l'attributo UserType di tali utenti nel cloud.
+
+- Stato 4: incluso nell'istanza di Azure AD dell'organizzazione host con UserType = Guest e credenziali gestite dall'organizzazione host.
+
+  ![Visualizzazione iniziali del mittente dell'invito](media/active-directory-b2b-user-properties/redemption-diagram.png)
 
 
-Viene ora illustrato l'aspetto dell'utente di Collaborazione B2B nello stato 1 in Azure AD.
+Viene ora illustrato l'aspetto dell'utente di Collaborazione B2B di Azure AD nello stato 1 in Azure AD.
 
 ### <a name="before-invitation-redemption"></a>Prima del riscatto dell'invito
 
-![prima del riscatto dell'offerta](media/active-directory-b2b-user-properties/before-redemption.png)
+![Prima del riscatto dell'offerta](media/active-directory-b2b-user-properties/before-redemption.png)
 
 ### <a name="after-invitation-redemption"></a>Dopo il riscatto dell'invito
 
-![dopo il riscatto dell'offerta](media/active-directory-b2b-user-properties/after-redemption.png)
+![Dopo il riscatto dell'offerta](media/active-directory-b2b-user-properties/after-redemption.png)
 
-## <a name="key-properties-of-the-b2b-collaboration-user"></a>Proprietà chiava dell'utente di Collaborazione B2B
-
+## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>Proprietà chiave dell'utente di Collaborazione B2B di Azure AD
 ### <a name="usertype"></a>UserType
-Questo attributo indica la relazione tra l'utente e la tenancy host. I valori possibili sono due:
-- Membro: indica un dipendente dell'organizzazione host o un utente retribuito dall'organizzazione. Ad esempio, questo utente deve poter accedere a siti solo interni e non viene considerato un collaboratore esterno.
-- Guest: indica un utente che non è considerato interno all'azienda. Può trattarsi di un collaboratore esterno, un partner, un cliente e così via che non deve ricevere promemoria interni del CEO, ad esempio, o usufruire di benefit aziendali.
+Questa proprietà indica la relazione tra l'utente e la tenancy host. I valori possibili sono due:
+- Membro: questo valore indica un dipendente dell'organizzazione host e un utente retribuito dall'organizzazione. L'utente prevede ad esempio di avere accesso solo ai siti interni e non viene considerato un collaboratore esterno.
 
-  > ![NOTA] L'attributo UserType non ha alcun legame con la modalità di accesso, con il ruolo della directory a cui l'utente appartiene e così via. Indica semplicemente la relazione dell'utente con l'organizzazione host e permette alll'organizzazione di applicare tutti i criteri che dipendono da questo attributo.
+- Guest: questo valore indica un utente che non è considerato interno all'azienda. Può trattarsi di un collaboratore esterno, un partner, un cliente e così via che non deve ricevere promemoria interni del CEO, ad esempio, o usufruire di benefit aziendali.
 
-### <a name="source"></a>Origine
-Indica la modalità di accesso dell'utente.
+  > [!NOTE]
+  > La proprietà UserType non ha alcun legame con la modalità di accesso, con il ruolo della directory dell'utente e così via. Questa proprietà indica semplicemente la relazione dell'utente con l'organizzazione host e consente all'organizzazione di applicare i criteri che dipendono da questa proprietà.
+
+### <a name="source"></a>Source
+Questa proprietà indica la modalità di accesso dell'utente.
 
 - Utente invitato: l'utente è stato invitato ma non ha ancora riscattato l'invito.
 
-- Active Directory esterno: l'utente è incluso in un'organizzazione esterna ed esegue l'autenticazione con un account Azure AD appartenente all'altra organizzazione. Questo corrisponde allo stato 1 precedente.
+- Active Directory esterno: l'utente è incluso in un'organizzazione esterna ed esegue l'autenticazione con un account Azure AD appartenente all'altra organizzazione. Questo tipo di accesso corrisponde allo stato 1.
 
-- Account Microsoft: l'utente è incluso in MSA ed esegue l'autenticazione con un account Microsoft. Questo corrisponde allo stato 2 precedente.
+- Account Microsoft: l'utente è incluso in un account Microsoft ed esegue l'autenticazione con un account Microsoft. Questo tipo di accesso corrisponde allo stato 2.
 
-- AD di Windows Server: l'utente è sincronizzato da un'istanza locale di Active Directory appartenente all'organizzazione. Questo corrisponde allo stato 3 precedente.
+- Active Directory di Windows Server: l'utente accede da un'istanza locale di Active Directory appartenente all'organizzazione. Questo tipo di accesso corrisponde allo stato 3.
 
-- Azure Active Directory: l'utente esegue l'autenticazione con un account Azure AD appartenente all'organizzazione. Questo corrisponde allo stato 4 precedente.
+- Azure Active Directory: l'utente esegue l'autenticazione con un account Azure AD appartenente all'organizzazione. Questo tipo di accesso corrisponde allo stato 4.
+  > [!NOTE]
+  > Source e UserType sono proprietà indipendenti. Un valore di Source non implica un valore UserType specifico.
 
-  > ![NOTA] Origine e UserType sono attributi indipendenti. Un valore dell'origine non implica un attributo UserType specifico.
+## <a name="can-azure-ad-b2b-users-be-added-as-members-instead-of-guests"></a>Possibilità di aggiungere utenti B2B di Azure AD come membri anziché come guest
+In genere, utente B2B di Azure AD è sinonimo di utente guest. Un utente di Collaborazione B2B di Azure AD viene quindi aggiunto come utente con UserType = Guest per impostazione predefinita. In alcuni casi, tuttavia, l'organizzazione partner fa parte di un'organizzazione più ampia a cui appartiene anche l'organizzazione host. In tal caso, l'organizzazione host potrebbe voler considerare gli utenti dell'organizzazione partner come membri e non come utenti guest. A tale scopo è possibile usare le API di gestione inviti B2B di Azure AD per aggiungere o invitare un utente dell'organizzazione partner come membro dell'organizzazione host.
 
-## <a name="can-b2b-users-be-added-as-members-instead-of-guests"></a>Possibilità di aggiungere utenti B2B come membri anziché come guest
-In genere, utente B2B è sinonimo di utente guest. Un utente di Collaborazione B2B viene quindi aggiunto come utente con UserType = Guest per impostazione predefinita. In alcuni casi, tuttavia, l'organizzazione partner fa parte di un gruppo più ampio a cui appartiene anche l'organizzazione host. In tal caso, l'organizzazione host potrebbe voler considerare gli utenti dell'organizzazione partner come membri e non come utenti guest. A tale scopo, è possibile usare le API di gestione inviti B2B per aggiungere o invitare un utente dell'organizzazione partner come membro dell'organizzazione host.
+## <a name="filter-for-guest-users-in-the-directory"></a>Filtrare gli utenti guest nella directory
 
-## <a name="filtering-for-guest-users-in-the-directory"></a>Applicazione del filtro agli utenti guest nella directory
+![Filtrare gli utenti guest](media/active-directory-b2b-user-properties/filter-guest-users.png)
 
-![filtrare gli utenti guest](media/active-directory-b2b-user-properties/filter-guest-users.png)
+## <a name="convert-usertype"></a>Convertire UserType
+Gli utenti possono attualmente convertire UserType da Membro a Guest e viceversa usando PowerShell. La proprietà UserType dovrebbe tuttavia rappresentare la relazione dell'utente con l'organizzazione. È quindi consigliabile modificare il valore di questa proprietà solo se cambia la relazione dell'utente con l'organizzazione. Se la relazione dell'utente cambia, è necessario risolvere alcuni problemi, ad esempio l'eventuale necessità di modificare il nome dell'entità utente (UPN)? L'utente deve continuare ad avere accesso alle stesse risorse? È necessario assegnare una cassetta postale all'utente? Non è consigliabile modificare UserType con PowerShell come attività atomica. Se questa proprietà non sarà più modificabile con PowerShell, non è consigliabile creare una dipendenza da questo valore.
 
-## <a name="converting-usertype"></a>Conversione di UserType
-In PowerShell attualmente gli utenti possono convertire UserType da Membro a Guest e viceversa. Tuttavia, la proprietà UserType dovrebbe rappresentare la relazione dell'utente con l'organizzazione. È quindi consigliabile modificarla solo se la relazione dell'utente con l'organizzazione è cambiata. Se tale relazione cambia, sarà necessario rispondere ad altri interrogativi, come i quelli riportati di seguito. È necessario modificare l'UPN? L'utente deve continuare ad accedere alle risorse a cui aveva accesso? È necessario assegnare una cassetta postale all'utente? Non è consigliabile modificare UserType in PowerShell come attività atomica. Nelle versioni future questa proprietà non sarà più modificabile tramite PowerShell, non è quindi consigliabile creare una dipendenza da questo valore.
+## <a name="remove-guest-user-limitations"></a>Rimuovere le limitazioni dell'utente guest
+In alcuni casi può essere necessario dare privilegi più elevati agli utenti guest. A tale scopo è possibile aggiungere un utente guest a un ruolo qualsiasi o rimuovere le limitazioni dell'utente guest predefinito nella directory per assegnare all'utente gli stessi privilegi dei membri.
 
-## <a name="removing-guest-user-limitations"></a>Rimozione delle limitazioni dell'utente guest
-In alcuni casi può essere necessario dare privilegi più elevati agli utenti guest. A tale scopo, è possibile aggiungere un utente guest a un ruolo qualsiasi o rimuovere le restrizioni dell'utente guest predefinito dalla directory per dare loro gli stessi privilegi dei membri. Per altre informazioni, continuare la lettura.
+È possibile disabilitare le limitazioni dell'utente guest predefinito per assegnare all'utente guest nella directory aziendale le stesse autorizzazioni directory del normale utente membro.
 
-È possibile disabilitare le limitazioni dell'utente guest predefinito per dare agli utenti guest nella directory aziendale le stesse autorizzazioni directory dei normali utenti membro.
-
-![rimuovere le limitazioni dell'utente guest](media/active-directory-b2b-user-properties/remove-guest-limitations.png)
+![Rimuovere le limitazioni dell'utente guest](media/active-directory-b2b-user-properties/remove-guest-limitations.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -92,16 +99,12 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 * [Che cos'è Azure AD B2B Collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Aggiunta di un utente di Collaborazione B2B a un ruolo](active-directory-b2b-add-guest-to-role.md)
 * [Delegare gli inviti a Collaborazione B2B](active-directory-b2b-delegate-invitations.md)
+* [Controllo e creazione di report di un utente di Collaborazione B2B](active-directory-b2b-auditing-and-reporting.md)
 * [Gruppi dinamici e Collaborazione B2B](active-directory-b2b-dynamic-groups.md)
 * [Codici ed esempi di PowerShell per Collaborazione B2B](active-directory-b2b-code-samples.md)
 * [Configurare app SaaS per Collaborazione B2B](active-directory-b2b-configure-saas-apps.md)
-* [Token utente per Collaborazione B2B](active-directory-b2b-user-token.md)
+* [Token utente in Collaborazione B2B](active-directory-b2b-user-token.md)
 * [Mapping delle attestazioni utente per Collaborazione B2B](active-directory-b2b-claims-mapping.md)
 * [Condivisione esterna di Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitazioni correnti di Collaborazione B2B](active-directory-b2b-current-limitations.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: Soluzione Stato replica di Active Directory in Log Analytics | Documentazione Microsoft
+title: Monitorare lo stato della replica di Active Directory in Log Analytics di Azure| Documentazione Microsoft
 description: Il pacchetto della soluzione Stato replica di Active Directory monitora a intervalli regolari l&quot;ambiente Active Directory per rilevare eventuali errori di replica e segnala i risultati nel dashboard di OMS.
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 744c4bd37b7b1443cf78586aab8ec2661e02254e
-ms.openlocfilehash: c0fc2ae5318068c204296b9e053c2cc7324e84c7
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: ffae86cb963f0df7f879effbace073d7e830cd94
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="active-directory-replication-status-solution-in-log-analytics"></a>Soluzione Stato replica di Active Directory in Log Analytics
+# <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Monitorare lo stato della replica di Active Directory con Log Analytics
+
 Active Directory è un componente chiave di un ambiente IT aziendale. Per garantire disponibilità e prestazioni elevate, ogni controller di dominio ha la propria copia del database di Active Directory. I controller di dominio si replicano tra loro per propagare le modifiche all'interno dell'azienda. Gli errori in questo processo di replica possono causare una serie di problemi all'interno dell'azienda.
 
 Il pacchetto della soluzione Stato replica di Active Directory monitora a intervalli regolari l'ambiente Active Directory per rilevare eventuali errori di replica e segnala i risultati nel dashboard di OMS.
@@ -150,9 +153,4 @@ Se non si intende connettere i controller di dominio direttamente a OMS o SCOM, 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Usare le [ricerche nei log in Log Analytics](log-analytics-log-searches.md) per visualizzare dati dettagliati dello stato di replica di Active Directory.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

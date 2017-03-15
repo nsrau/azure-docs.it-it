@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 02/22/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: d49d7e6b4a9485c2371eb02ac8068adfde9bad6b
-ms.openlocfilehash: 92195f4479f429f0911d9e2ca7be29c1aef7785e
+ms.sourcegitcommit: bf5010537d222045b5bf13d85cab6c48c9659ed0
+ms.openlocfilehash: b055342d8e11e4d38688681b36ef9a1f717fdf15
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -29,7 +30,7 @@ Data Factory supporta attualmente solo lo spostamento di dati da Amazon S3 ad al
 Per copiare i dati da Amazon S3, assicurarsi di avere le autorizzazioni indicate di seguito:
 
 * **s3:GetObject** e **s3:GetObjectVersion** per le operazioni oggetto di Amazon S3
-* **S3:ListBucket** e **s3:ListAllMyBuckets** (usate soltanto nella procedura guidata di copia) per le operazioni bucket di Amazon S3
+* **S3:ListBucket** per le operazioni sui bucket di Amazon S3. Se si usa Copia guidata, è necessario anche **s3:ListAllMyBuckets**.
 
 È possibile trovare l'elenco completo delle autorizzazioni di Amazon S3 con tutti i dettagli in [Specificando le autorizzazioni in un criterio](http://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
@@ -340,9 +341,4 @@ Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spos
 Vedere gli articoli seguenti:
 
 * [Esercitazione dell'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate della creazione di una pipeline con un'attività di copia.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

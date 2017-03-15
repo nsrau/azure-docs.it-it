@@ -1,5 +1,5 @@
 ---
-title: Che cosa sono le licenze di Microsoft Azure Active Directory? | Documentazione Microsoft
+title: Gestire le licenze degli utenti di Azure Active Directory nel portale di Azure classico | Documentazione Microsoft
 description: Descrizione delle licenze di Microsoft Azure Active Directory, del funzionamento, di come iniziare a utilizzarlo e delle procedure consigliate, tra cui Office 365, Microsoft Intune e le edizioni di base e Premium di Azure Active Directory
 services: active-directory
 keywords: Licenze di Azure AD
@@ -13,19 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ae4961611195c1574f5b94edbca74e1f182b4361
-ms.openlocfilehash: eb0b428f84dc16abd5cfee73dc8e4191698ebdd6
+ms.sourcegitcommit: f8b63e5831897d3a45298b0415bb2d6d44ab0de1
+ms.openlocfilehash: 7df8805139b6e3cc23041a8201b496fb7fce8063
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="what-is-microsoft-azure-active-directory-licensing"></a>Che cosa sono le licenze di Microsoft Azure Active Directory?
+# <a name="what-is-microsoft-azure-active-directory-licensing-in-the-azure-classic-portal"></a>Che cos'è la gestione delle licenze di Microsoft Azure Active Directory nel portale di Azure classico?
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](active-directory-licensing-get-started-azure-portal.md)
-> * [Portale di Azure classico](active-directory-licensing-what-is.md)
+> * [portale di Azure classico](active-directory-licensing-what-is.md)
 >
 >
 
@@ -158,9 +160,4 @@ A questo punto si è pronti per configurare e utilizzare alcune delle funzionali
 * [Assegnazione di gruppi alle applicazioni](active-directory-manage-groups.md)
 * [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 * [Acquisto diretto di licenze di Azure AD Premium](http://aka.ms/buyaadp)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

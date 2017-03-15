@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/17/2017
+ms.date: 02/27/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bb894c38de63d0eac4066eeabaed7ba791021cc4
-ms.openlocfilehash: bb15538a37fd610207c77fe2cf89fbfa16bbba11
-ms.lasthandoff: 02/18/2017
-
+ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
+ms.openlocfilehash: 433dc731c342924d962e2f08e392556558a0168d
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="create-an-access-change-history-report"></a>Creare un report della cronologia delle modifiche relative all'accesso
+# <a name="create-an-access-report-for-role-based-access-control"></a>Creare un report degli accessi per il controllo degli accessi in base al ruolo
 Ogni volta che un utente concede o revoca l'accesso all'interno delle sottoscrizioni, le modifiche vengono registrate negli eventi di Azure. È possibile creare report della cronologia delle modifiche relative all'accesso per visualizzare tutte le modifiche degli ultimi 90 giorni.
 
 ## <a name="create-a-report-with-azure-powershell"></a>Creare un rapporto con Azure PowerShell

@@ -16,98 +16,95 @@ ms.workload: identity
 ms.date: 02/06/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c05cd490ee9125f7e5182cb502db6f4e9390094
-ms.openlocfilehash: 3f41fdaa4f0ec31c9f11f2826b5cb9ccbf4db30d
+ms.sourcegitcommit: 42f93a638ea0bb5139063b76b223fd811ba58fb4
+ms.openlocfilehash: 98bf824831f60a70877e8c41f8b60c339df173d6
+ms.lasthandoff: 02/24/2017
 
 
 ---
 
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configurare app SaaS per Collaborazione B2B
 
-Collaborazione B2B di Azure Active Directory (Azure AD) funziona con la maggior parte delle applicazioni che si integrano con Azure AD. In questa sezione verranno illustrate le istruzioni per configurare alcune delle app di firma di accesso condiviso più richieste da usare con B2B di Azure AD.
-Prima di esaminare le istruzioni specifiche delle applicazioni, ecco alcune regole generali:
+Collaborazione B2B di Azure Active Directory (Azure AD) funziona con la maggior parte delle app che si integrano con Azure AD. Questa sezione contiene istruzioni per configurare alcune popolari app SaaS per l'uso con Collaborazione B2B di Azure AD.
 
-* Tenere presente che per la maggior parte delle applicazioni, il provisioning utenti deve essere effettuato manualmente, ovvero gli utenti devono essere creati manualmente anche nell'applicazione.
+Prima di esaminare le istruzioni specifiche delle app, ecco alcune regole generali:
 
-* Per le app che supportano il provisioning automatico (ad esempio, Dropbox), verranno creati inviti separati dalle applicazioni. L'utente deve assicurarsi di accettare ogni invito.
+* Per la maggior parte delle app, la configurazione degli utenti deve essere eseguita manualmente. Gli utenti devono quindi essere creati manualmente anche nell'app.
 
-* In Attributi utente impostare sempre Identificatore utente su user.mail, per attenuare eventuali problemi con i valori UPD modificati negli utenti guest
+* Per le app che supportano la configurazione automatica, come Dropbox, vengono creati inviti separati dalle app. Gli utenti devono assicurarsi di accettare ogni invito.
+
+* Negli attributi utente, per prevenire eventuali problemi con valori del disco del profilo utente (UPD) modificati negli utenti guest impostare sempre **Identificatore utente** su **user.mail**.
 
 
-##<a name="dropbox-for-business"></a>Dropbox for Business
+## <a name="dropbox-business"></a>Dropbox Business
 
-Perché gli utenti possano accedere con l'account organizzazione, Dropbox for Business deve essere configurato manualmente per l'uso di Azure AD come provider di identità SAML. Dropbox for Business non può richiedere o consentire agli utenti di accedere con Azure AD se non è stato appositamente configurato.
+Per consentire agli utenti di accedere con il proprio account aziendale, è necessario configurare manualmente Dropbox Business per l'uso di Azure AD come provider di identità SAML (Security Assertion Markup Language). Se non è stato appositamente configurato, Dropbox Business non può richiedere o consentire in altro modo agli utenti di accedere con Azure AD.
 
-1. Aggiungere l'applicazione Dropbox for Business in Azure AD, come illustrato nello screenshot.
+1. Per aggiungere l'app Dropbox Business in Azure AD, selezionare **Applicazioni aziendali** nel riquadro sinistro e quindi fare clic su **Aggiungi**.
 
-  ![Aggiungere Dropbox ad Azure AD](media/active-directory-b2b-configure-saas-apps/add-dropbox.png)
+  ![Pulsante "Aggiungi" nella pagina Applicazioni aziendali](media/active-directory-b2b-configure-saas-apps/add-dropbox.png)
 
-  ![Aggiungere Dropbox ad Azure AD](media/active-directory-b2b-configure-saas-apps/add-app-dialog.png)
+2. Nella finestra **Aggiungi applicazione** immettere **dropbox** nella casella di ricerca e quindi selezionare **Dropbox for Business** nell'elenco dei risultati.
 
-2. Configurare l'applicazione.
+  ![Cercare "dropbox" nella pagina Aggiungi applicazione](media/active-directory-b2b-configure-saas-apps/add-app-dialog.png)
 
-  ![Configurare Single Sign-On per l'app](media/active-directory-b2b-configure-saas-apps/configure-app-sso.png)
+3. Nella pagina **Single Sign-On** selezionare **Single Sign-On** nel riquadro sinistro e quindi immettere **user.mail** nella casella **Identificatore utente**. Verrà impostato come nome UPN per impostazione predefinita.
 
-3. Selezionare la configurazione Single Sign-On e impostare l'identificatore utente su user.mail (per impostazione predefinita, il nome UPN)
+  ![Configurare l'accesso Single Sign-On per l'app](media/active-directory-b2b-configure-saas-apps/configure-app-sso.png)
 
-4. Scaricare il certificato da usare per la configurazione di DropBox.
+4. Per scaricare il certificato da usare per la configurazione di Dropbox, selezionare **Configura DropBox** e quindi **SAML Single Sign On Service URL** (URL servizio Single Sign-On SAML) nell'elenco.
 
-  ![Scaricare il certificato](media/active-directory-b2b-configure-saas-apps/download-certificate.png)
+  ![Download del certificato per la configurazione di Dropbox](media/active-directory-b2b-configure-saas-apps/download-certificate.png)
 
-5. Usare l'opzione Configure DropBox (Configura DropBox). Il processo viene illustrato in dettaglio negli screenshot seguenti.
+5. Accedere a Dropbox con l'URL di accesso della pagina **Single Sign-On**.
 
-6. Ottenere l'URL Single Sign-On SAML da usare nella configurazione.
+  ![Pagina di accesso di Dropbox](media/active-directory-b2b-configure-saas-apps/sign-in-to-dropbox.png)
 
-7. Ottenere l'URL di accesso dalla pagina di configurazione di DropBox.
+6. Nel menu selezionare **Admin Console** (Console di amministrazione).
 
-  ![Accedere a Dropbox](media/active-directory-b2b-configure-saas-apps/sign-in-to-dropbox.png)
+  ![Collegamento "Admin Console" (Console di amministrazione) nel menu di Dropbox](media/active-directory-b2b-configure-saas-apps/dropbox-menu.png)
 
-  ![Menu di Dropbox](media/active-directory-b2b-configure-saas-apps/dropbox-menu.png)
+7. Nella finestra di dialogo **Authentication** (Autenticazione) selezionare **More** (Altro), caricare il certificato e quindi immettere l'URL di accesso Single Sign-On SAML nella casella **Sign in URL** (URL di accesso).
 
-  ![Finestra di dialogo di autenticazione di Dropbox compressa](media/active-directory-b2b-configure-saas-apps/dropbox-auth-01.png)
+  ![Collegamento "More" (Altro) nella finestra di dialogo compressa Authentication (Autenticazione)](media/active-directory-b2b-configure-saas-apps/dropbox-auth-01.png)
 
-  ![Finestra di dialogo di autenticazione di Dropbox espansa](media/active-directory-b2b-configure-saas-apps/dropbox-auth-02.png)
+  ![Collegamento "Sign in URL" (URL di accesso) nella finestra di dialogo compressa Authentication (Autenticazione)](media/active-directory-b2b-configure-saas-apps/paste-single-sign-on-URL.png)
 
-8. Caricare il certificato e incollare l'URL Single Sign-On SAML qui.
+8. Per impostare la configurazione automatica degli utenti nel portale di Azure, selezionare **Provisioning** nel riquadro sinistro, quindi **Automatico** nella casella **Modalità di provisioning** e infine **Autorizza**.
 
-  ![Incollare l'URL SSO SAML](media/active-directory-b2b-configure-saas-apps/paste-single-sign-on-URL.png)
+  ![Configurazione del provisioning utenti automatico nel portale di Azure](media/active-directory-b2b-configure-saas-apps/set-up-automatic-provisioning.png)
 
-9. Configurare il provisioning utente automatico nel portale di Azure.
-
-  ![Configurare il provisioning utente automatico](media/active-directory-b2b-configure-saas-apps/set-up-automatic-provisioning.png)
-
-10. Dopo il provisioning nell'applicazione DropBox, l'utente guest/membro otterrà un invito separato da DropBox. Gli invitati devono accettarlo facendo clic sul collegamento, per usare Single Sign-On in DropBox.
+Al termine della configurazione nell'app Dropbox, gli utenti guest o membro ricevono un invito separato da Dropbox. Per usare l'accesso Single Sign-On in Dropbox, gli invitati devono accettare l'invito facendo clic su un collegamento in esso contenuto.
 
 ## <a name="box"></a>Box
-Questa sezione descrive come consentire agli utenti di autenticare un utente guest a Box con il proprio account in Azure AD usando la federazione basata sul protocollo SAML. Come parte di questa procedura, verrà richiesto di caricare metadati in Box.com.
+È possibile consentire agli utenti di autenticare utenti guest Box con il proprio account Azure AD usando la federazione basata sul protocollo SAML. In questa procedura si caricano metadati in Box.com.
 
-1. Aggiungere Box dalle applicazioni aziendali
+1. Aggiungere l'app Box dalle app aziendali.
 
-2. Configura accesso Single Sign-On
+2. Configurare l'accesso Single Sign-On seguendo questa procedura:
 
   ![Configurare Single Sign-On per Box](media/active-directory-b2b-configure-saas-apps/configure-box-sso.png)
 
-3. Assicurarsi prima di tutto che l'URL di accesso sia impostato correttamente per Box nel portale di gestione di Azure. Si tratta dell'URL del tenant Box.com e il formato deve essere: https://.box.com.
+ a. Nella casella **URL di accesso** assicurarsi che l'URL di accesso sia impostato correttamente per Box nel portale di Azure. Si tratta dell'URL del tenant di Box.com e deve seguire la convenzione di denominazione *https://.box.com*.  
+ Il campo **Identificatore** non si applica a questa app, ma viene comunque visualizzato come obbligatorio.
 
-4. Tenere presente che, anche se l'identificatore non viene usato per questa applicazione, viene tuttavia visualizzato come campo obbligatorio.
+ b. Nella casella **Identificatore utente** immettere **user.mail** (per l'accesso SSO per account guest).
 
-5. Impostare l'identificatore utente su user.mail, per garantire SSO agli account guest.
+ c. In **Certificato di firma SAML** fare clic su **Crea nuovo certificato**.
 
-6. Creare un nuovo certificato SAML.
+ d. Per iniziare a configurare il tenant di Box.com per l'uso di Azure AD come provider di identità, scaricare il file di metadati e quindi salvarlo nell'unità locale.
 
-7. Per iniziare a configurare il tenant Box.com per l'uso di Azure Active Directory come provider di identità, avviare il download del file di metadati seguente e salvarlo in locale nel computer. Scaricare il file di metadati, verificando che il download sia attivo.
+ e. Inoltrare il file di metadati al team di supporto di Box, che configurerà l'accesso Single Sign-On.
 
-8. Inoltrare il file dei metadati al team di supporto di Box. La configurazione dell'accesso Single Sign-On viene eseguita dal team di supporto.
+3. Per la configurazione automatica degli utenti in Azure AD, nel riquadro sinistro selezionare **Provisioning** e quindi **Autorizza**.
 
-9. Configurare il provisioning utente automatico di Azure AD.
+  ![Autorizzare la connessione di Azure AD a Box](media/active-directory-b2b-configure-saas-apps/auth-azure-ad-to-connect-to-box.png)
 
-  ![Autorizzare Azure AD per la connessione a Box](media/active-directory-b2b-configure-saas-apps/auth-azure-ad-to-connect-to-box.png)
-
-Gli invitati devono anche riscattare l'invitato dall'applicazione Box.
+Così come gli invitati di Dropbox, gli invitati di Box devono riscattare l'invito proveniente dall'app Box.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere gli altri articoli su Azure AD B2B Collaboration.
+Vedere gli articoli seguenti su Collaborazione B2B di Azure AD:
 
 * [Che cos'è Azure AD B2B Collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Proprietà dell'utente di Collaborazione B2B](active-directory-b2b-user-properties.md)
@@ -119,9 +116,4 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 * [Mapping delle attestazioni utente per Collaborazione B2B](active-directory-b2b-claims-mapping.md)
 * [Condivisione esterna di Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitazioni correnti di Collaborazione B2B](active-directory-b2b-current-limitations.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

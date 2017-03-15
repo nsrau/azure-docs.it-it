@@ -3,8 +3,8 @@ title: Eseguire la replica di app con SQL Server e Azure Site Recovery | Microso
 description: "Questo articolo descrive come eseguire la replica di SQL Server tramite le funzionalità di ripristino di emergenza di SQL Server e Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
-author: rayne-wiselman
-manager: jwhit
+author: prateek9us
+manager: gauravd
 editor: 
 ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2017
-ms.author: raynew
+ms.date: 02/22/2017
+ms.author: pratshar
 translationtype: Human Translation
-ms.sourcegitcommit: f822756c0ce45c98b95a0cec2efd1353aff71561
-ms.openlocfilehash: f2d8a9221a989f9e79b6f4e17d9448303544ffd6
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 9ea73dd91c9637692bbc3d6d2aa97fbed7ae500d
+ms.openlocfilehash: 79c110031a47f1bdb78f4acfcadd7bff1e909807
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -72,15 +72,17 @@ Site Recovery può essere integrato con le tecnologie di continuità aziendale e
 
 ## <a name="deployment-recommendations"></a>Indicazioni di distribuzione
 
-**Versione** | **Distribuzione** | **Da sito locale a secondario** | **Da sito locale ad Azure** |
---- | --- | --- | --- | --- |
-**Istanza di clustering di failover di SQL Server 2014/2012 Enterprise** | Cluster di failover | Gruppi di disponibilità AlwaysOn | Gruppi di disponibilità AlwaysOn
-**SQL Server AlwaysOn 2014/2012** | Gruppi di disponibilità AlwaysOn | AlwaysOn | AlwaysOn
-**Istanza di clustering di failover di SQL Server 2014/2012 Standard** | Cluster di failover | Replica di Site Recovery con mirror locale | Replica di Site Recovery con mirror locale
-**SQL Server 2014/2012 Enterprise/Standard** | Autonoma | Replica di Site Recovery | Replica di Site Recovery
-**SQL Server 2008 R2 Enterprise/Standard** | Istanza di clustering di failover |Replica di Site Recovery con mirror locale |Replica di Site Recovery con mirror locale |
-**SQL Server 2008 R2 Enterprise/Standard** | Autonoma |Replica di Site Recovery | Replica di Site Recovery
-**SQL Server (qualsiasi versione) Enterprise/Standard** |Istanza di clustering di failover, applicazione DTC | Replica di Site Recovery |Non supportate
+Nella tabella seguente vengono riepilogate le indicazioni per l'integrazione delle tecnologie di continuità aziendale e ripristino di emergenza (BCDR) di SQL Server con Site Recovery.
+
+| **Versione** | **Edizione** | **Distribuzione** | **Da locale a locale** | **Da locale ad Azure** |
+| --- | --- | --- | --- | --- |
+| SQL Server 2014 o 2012 |Enterprise |Istanza del cluster di failover |Gruppi di disponibilità AlwaysOn |Gruppi di disponibilità AlwaysOn |
+|| Enterprise |Gruppi di disponibilità AlwaysOn per la disponibilità elevata |Gruppi di disponibilità AlwaysOn |Gruppi di disponibilità AlwaysOn | |
+|| Standard |Istanza del cluster di failover (FCI) |Replica di Site Recovery con mirror locale |Replica di Site Recovery con mirror locale | |
+|| Enterprise o Standard |Autonoma |Replica di Site Recovery |Replica di Site Recovery | |
+| SQL Server 2008 R2 |Enterprise o Standard |Istanza del cluster di failover (FCI) |Replica di Site Recovery con mirror locale |Replica di Site Recovery con mirror locale |
+|| Enterprise o Standard |Autonoma |Replica di Site Recovery |Replica di Site Recovery | |
+| SQL Server (qualsiasi versione) |Enterprise o Standard |Istanza del cluster di failover: applicazione DTC |Replica di Site Recovery |Non supportato |
 
 ## <a name="deployment-prerequisites"></a>Prerequisiti di distribuzione
 
@@ -97,15 +99,16 @@ Per garantire la corretta esecuzione di SQL Server, configurare Active Directory
 
 Le istruzioni in questo articolo presuppongono che sia disponibile un controller di dominio nella posizione secondaria. [Altre informazioni](site-recovery-active-directory.md) sulla protezione di Active Directory con Site Recovery.
 
-## <a name="integrate-with-sql-server-always-on-for-replication-to-azure-classic-portal-with-a-vmmconfiguration-server"></a>Eseguire l'integrazione con SQL Server AlwaysOn per la replica in Azure (portale classico con server di configurazione/VMM)
+## <a name="integrate-with-sql-server-alwayson-for-replication-to-azure-classic-portal-with-a-vmmconfiguration-server"></a>Eseguire l'integrazione con SQL Server AlwaysOn per la replica in Azure (portale classico con server di configurazione/VMM)
 
 
 Site Recovery supporta in modo nativo SQL AlwaysOn. Se si è creato un gruppo di disponibilità SQL con una macchina virtuale di Azure configurata come posizione secondaria, è possibile usare Site Recovery per gestire il failover dei gruppi di disponibilità.
 
 > [!NOTE]
-> Questa funzionalità è attualmente in anteprima. È disponibile quando i server host Hyper-V del sito primario sono gestiti in cloud VMM di System Center o quando è stata configurata la [replica di VMware](site-recovery-vmware-to-azure.md). La funzionalità non è attualmente disponibile nel nuovo portale di Azure. Attualmente questa funzionalità non è disponibile nel nuovo portale di Azure.
+> Questa funzionalità è attualmente in anteprima. È disponibile quando i server host Hyper-V del sito primario sono gestiti in cloud VMM di System Center o quando è stata configurata la [replica di VMware](site-recovery-vmware-to-azure.md). La funzionalità non è attualmente disponibile nel nuovo portale di Azure. Eseguire la procedura in [questa sezione](site-recovery-sql.md#integrate-with-sql-server-alwayson-for-replication-to-azure-azure-portalclassic-portal-with-no-vmmconfiguration-server) se si usa il nuovo portale di Azure.
 >
 >
+
 
 #### <a name="before-you-start"></a>Prima di iniziare
 
@@ -169,7 +172,7 @@ Nell'esempio, l'app Sharepoint include tre macchine virtuali che usano un gruppo
 
 ![Personalizzare il piano di ripristino](./media/site-recovery-sql/customize-rp.png)
 
-### <a name="fail-over"></a>Effettuare il failover
+### <a name="failover"></a>Failover
 
 Dopo l'aggiunta del gruppo di disponibilità a un piano di ripristino, sono disponibili diverse opzioni di failover.
 
@@ -195,7 +198,7 @@ Se si vuole impostare nuovamente il gruppo di disponibilità come primario nell'
 >
 >
 
-## <a name="integrate-with-sql-server-always-on-for-replication-to-azure-azure-portalclassic-portal-with-no-vmmconfiguration-server"></a>Eseguire l'integrazione con SQL Server AlwaysOn per la replica in Azure (portale di Azure/portale classico senza server di configurazione/VMM)
+## <a name="integrate-with-sql-server-alwayson-for-replication-to-azure-azure-portalclassic-portal-with-no-vmmconfiguration-server"></a>Eseguire l'integrazione con SQL Server AlwaysOn per la replica in Azure (portale di Azure/portale classico senza server di configurazione/VMM)
 
 Queste istruzioni si applicano in caso di integrazione con gruppi di disponibilità SQL Server nel nuovo portale di Azure o nel portale classico, se non si usa un server VMM o un server di configurazione. In questo scenario, è possibile usare i runbook di automazione di Azure per configurare un failover tramite script dei gruppi di disponibilità SQL.
 
@@ -304,7 +307,7 @@ Queste istruzioni si applicano in caso di integrazione con gruppi di disponibili
          }
      }``
 
-## <a name="integrate-with-sql-server-always-on-for-replication-to-a-secondary-on-premises-site"></a>Eseguire l'integrazione con SQL Server AlwaysOn per la replica in un sito secondario locale
+## <a name="integrate-with-sql-server-alwayson-for-replication-to-a-secondary-on-premises-site"></a>Eseguire l'integrazione con SQL Server AlwaysOn per la replica in un sito secondario locale
 
 Se SQL Server usa gruppi di disponibilità per la disponibilità elevata o un'istanza di clustering di failover, è consigliabile usare gruppi di disponibilità anche nel sito di ripristino. Si noti che ciò si applica alle app che non usano transazioni distribuite.
 

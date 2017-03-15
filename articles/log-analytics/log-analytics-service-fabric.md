@@ -1,6 +1,6 @@
 ---
-title: Valutare le applicazioni e i micro-servizi di Azure Service Fabric | Documentazione Microsoft
-description: "È possibile usare la soluzione Service Fabric per valutare i rischi e l&quot;integrità delle applicazioni Service Fabric, dei servizi micro, dei nodi e dei cluster."
+title: Accedere ad applicazioni Service Fabric con Log Analytics di Azure mediante PowerShell | Documentazione Microsoft
+description: "È possibile usare la soluzione Service Fabric in Log Analytics mediante PowerShell per valutare i rischi e l&quot;integrità delle applicazioni Service Fabric, dei microservizi, dei nodi e dei cluster."
 services: log-analytics
 documentationcenter: 
 author: niniikhena
@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/21/2016
 ms.author: nini
 translationtype: Human Translation
-ms.sourcegitcommit: 7695debd9f8152efbbc04b6d63a0b44e70646f16
-ms.openlocfilehash: 7cf1174791187cd7d751c4e2d2646282f4a0a5ce
+ms.sourcegitcommit: 6d20dc322a2493b9dd9a3fd843512befc1e90100
+ms.openlocfilehash: a822e7eb85eca42cba85d191e1effd7240deb1af
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="service-fabric-solution-in-log-analytics"></a>Soluzione Service Fabric in Log Analytics
+# <a name="assess-azure-service-fabric-applications-and-micro-services-with-powershell"></a>Valutare le applicazioni e i microservizi di Azure Service Fabric con PowerShell
 > [!div class="op_single_selector"]
 > * [Gestione risorse](log-analytics-service-fabric-azure-resource-manager.md)
 > * [PowerShell](log-analytics-service-fabric.md)
@@ -636,9 +637,4 @@ foreach($storageAccount in $storageAccountsToCheck)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per visualizzare i dati dettagliati sugli eventi Service Fabric usare [Ricerche log in Log Analytics](log-analytics-log-searches.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

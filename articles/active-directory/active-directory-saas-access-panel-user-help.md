@@ -12,17 +12,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 02/27/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: d99920e1f39567834f7721c6afec6adfceb512f4
-ms.openlocfilehash: 7464d02b94d8119bb932508e0dfcd36bcbfaed3b
+ms.sourcegitcommit: 59be15f2d17bbcbc4db6dd9d291cb1ea5991db2e
+ms.openlocfilehash: a753ac16e3329c85656682314824eb14ad8a4e52
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="common-access-panel-tasks"></a>Attività comuni dell'Access Panel (Riquadro di accesso)
+# <a name="do-you-need-help-with-myapps"></a>Richiesta di assistenza per App personali
 
-L'Access Panel (Riquadro di accesso) è un portale web che consente di:
+Questa pagina è stata visualizzata perché si è verificato un problema durante l'uso del portale App personali. Vi sono casi in cui viene è necessario contattare il supporto tecnico o l'amministratore per la risoluzione di un problema. In questo argomento sono presenti passaggi relativi alle domande più comuni che è possibile provare prima autonomamente. 
+
+Per informazioni sulla gestione delle password, provare [questo](active-directory-passwords-update-your-own-password.md).
+  
+
+## <a name="what-is-the-myapps-portal"></a>Che cos'è il portale App personali?
+
+
+È un portale Web che consente di:
 
 - gestire e avviare applicazioni basate su cloud
 - gestire le appartenenze ai gruppi
@@ -30,66 +39,53 @@ L'Access Panel (Riquadro di accesso) è un portale web che consente di:
 
 ![Pannello di accesso][1] 
 
-In questo argomento vengono fornite le istruzioni per eseguire attività comuni e risolvere i problemi.
 
 
 
-## <a name="how-to-troubleshoot-accessing-an-app"></a>Come risolvere i problemi di accesso a un'applicazione
+## <a name="how-can-i-change-my-password"></a>Come è possibile modificare la password personale?
 
-1.  Controllare che l'estensione del Riquadro di accesso sia installata correttamente nel browser.  
-Seguire [questa procedura](active-directory-saas-ie-troubleshooting.md) per la risoluzione dei problemi di estensione di Internet Explorer.
-2.  Assicurarsi che il browser non sia in modalità privata o in incognito.
-3.  Se non è ancora possibile accedere alle applicazioni, contattare l'amministratore o il supporto tecnico per ricevere assistenza.
-
-## <a name="how-to-change-your-password"></a>Come cambiare la password
-
-1.  Nell'**Access Panel (Riquadro di accesso)** fare clic sul controllo utente in alto a destra e quindi fare clic su **Profilo**.
-2.  In **Gestisci account** fare clic su **Cambia password**.
-3.  Digitare la vecchia password, quindi digitare una nuova password e confermarla.
-4.  Fare clic su **Submit**.
+1.    In **App personali** fare clic sul controllo utente in alto a destra e quindi fare clic su **Profilo**.
+2.    In **Gestisci account** fare clic su **Cambia password**.
+3.    Digitare la vecchia password, quindi digitare una nuova password e confermarla.
+4.    Fare clic su **Submit**.
 
 Per maggiori informazioni, vedere [Come aggiornare la password](active-directory-passwords-update-your-own-password.md).
 
 
-## <a name="how-to-setup-password-reset"></a>Come configurare la reimpostazione della password
+## <a name="how-do-i-setup-password-reset"></a>Come si configura la reimpostazione della password?
 
-1.  Nell'**Access Panel (Riquadro di accesso)** fare clic sul controllo utente in alto a destra e quindi fare clic su **Profilo**.
-2.  In **Gestisci account** fare clic su **Configura la reimpostazione della password self-service**.
-3.  Seguire la procedura indicata nella finestra di dialogo e inviare.
+1.    In **App personali** fare clic sul controllo utente in alto a destra e quindi fare clic su **Profilo**.
+2.    In **Gestisci account** fare clic su **Configura la reimpostazione della password self-service**.
+3.    Seguire la procedura indicata nella finestra di dialogo e inviare.
 
 Per maggiori informazioni, vedere [Come reimpostare la password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 
 
-## <a name="how-to-add-new-apps-or-request-permission-to-app-access"></a>Come aggiungere nuove applicazioni o richiedere l'autorizzazione per accedervi
+## <a name="how-can-i-add-a-new-app"></a>Come è possibile aggiungere una nuova app?
 
-1.  Nell'**Access Panel (Riquadro di accesso)** fare clic su **Aggiungi app**.
-2.  Cercare l'applicazione che si desidera aggiungere e quindi fare clic su **Aggiungi**.  
-Se l'applicazione richiede l'autorizzazione potrebbe essere necessario attendere l'approvazione dell'amministratore.
+1.    In **App personali** fare clic su **Aggiungi app**.
+2.    Cercare l'applicazione che si desidera aggiungere e quindi fare clic su **Aggiungi**.
 
-Se non è possibile trovare l'applicazione che si sta cercando, contattare l'amministratore per ricevere assistenza.
+**Osservazioni:**
+
+- Si ha accesso a questa opzione solo se è stata abilitata dall'amministratore per l'account.
+- Se l'applicazione richiede l'autorizzazione potrebbe essere necessario attendere l'approvazione dell'amministratore.
 
 
-## <a name="how-to-manage-your-group-memberships"></a>Come gestire le appartenenze ai gruppi
 
-1. Nell'**Access Panel (Riquadro di accesso)** fare clic sul riquadro dell'applicazione **Gruppi**.
-2. Per creare un gruppo, in **Gruppi di cui si è proprietari** fare clic su **Crea gruppo**, quindi seguire le istruzioni.
-3. Per partecipare a un gruppo in **Groups I'm in (Gruppi di cui si fa parte)** fare clic su **Partecipa a gruppo**, quindi seguire le istruzioni.
+## <a name="how-can-i-manage-group-memberships"></a>Come è possibile gestire le appartenenze ai gruppi?
 
-**Osservazioni**:
-  
+1.    In **App personali** fare clic nel riquadro delle app **Gruppi**.
+2.    Per creare un gruppo, in **Gruppi di cui si è proprietari** fare clic su **Crea gruppo**, quindi seguire le istruzioni.
+3.    Per partecipare a un gruppo in **Groups I'm in (Gruppi di cui si fa parte)** fare clic su **Partecipa a gruppo**, quindi seguire le istruzioni.
+
+**Osservazioni:**
+
 - Fare clic su un gruppo di cui si è membri consente di visualizzare i dettagli e di abbandonare il gruppo.
 - Fare clic su un gruppo di cui si proprietari consente di visualizzare i dettagli, di aggiungere o rimuovere i membri e di abbandonare il gruppo.
 
 
 
-## <a name="next-steps"></a>Passaggi successivi
-* [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
-
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-user-help/01.png
-
-
-
-<!--HONumber=Nov16_HO5-->
-
 

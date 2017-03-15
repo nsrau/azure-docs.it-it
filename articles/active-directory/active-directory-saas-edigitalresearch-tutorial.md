@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 02/17/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 59ecf25dfe445343c0908c0955f9a17bad12226f
+ms.sourcegitcommit: 2d8d925f80830a0d7047e9567fdd413af2e8c5c3
+ms.openlocfilehash: f1ade8fa8b38aff86c119b74d6a68155a650d4dc
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -26,7 +27,7 @@ Questa esercitazione descrive l'integrazione di eDigitalResearch con Azure Activ
 L'integrazione di eDigitalResearch con Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD chi può accedere a eDigitalResearch
-* È possibile abilitare gli utenti per l'accesso automatico a eDigitalResearch (Single Sign-On) con i propri account Azure AD.
+* È possibile abilitare gli utenti per l'accesso Single Sign-On automatico a eDigitalResearch (SSO) con i propri account Azure AD
 * È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -35,20 +36,19 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 Per configurare l'integrazione di Azure AD con eDigitalResearch, sono necessari gli elementi seguenti:
 
 * Sottoscrizione di Azure AD.
-* Sottoscrizione di eDigitalResearch abilitata per l'accesso Single Sign-On
+* Sottoscrizione di eDigitalResearch abilitata per l'accesso SSO
 
-> [!NOTE]
-> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
-> 
+>[!NOTE]
+>Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione. 
 > 
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 * Non usare l'ambiente di produzione, a meno che non sia necessario.
-* Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+* Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Microsoft Azure AD in un ambiente di test.
+L'obiettivo di questa esercitazione è quello di testare l'accesso Single Sign-On (SSO) di Microsoft Azure AD in un ambiente di test.
 
 Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
@@ -80,23 +80,23 @@ Per configurare l'integrazione di eDigitalResearch in Azure AD, è necessario ag
    
     ![Selezione dell'app nella raccolta](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_edigitalresearch_0001.png)
 
-## <a name="configuring-and-testing-microsoft-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Microsoft Azure AD
+## <a name="configure-and-test-microsoft-azure-ad-sso"></a>Configurare e testare l'accesso Single Sign-On di Microsoft Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Microsoft Azure AD con eDigitalResearch in base a un utente test di nome "Britta Simon".
 
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di eDigitalResearch che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in eDigitalResearch.
+Per il funzionamento dell'accesso SSO, Azure AD deve conoscere qual è l'utente di eDigitalResearch che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in eDigitalResearch.
 
 La relazione di collegamento viene stabilita assegnando il valore di **user name** in Azure AD come valore di **Username** (Nome utente) in eDigitalResearch.
 
 Per configurare e testare l'accesso Single Sign-On di Microsoft Azure AD con eDigitalResearch, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione di Single Sign-On di Microsoft Azure AD](#configuring-azure-ad-single-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
+1. **[Configurazione dell'accesso Single Sign-On di Microsoft Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Microsoft Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente test di eDigitalResearch](#creating-a-edigitalresearch-test-user)** : per avere una controparte di Britta Simon in eDigitalResearch collegata alla relativa rappresentazione in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Microsoft Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
-### <a name="configuring-microsoft-azure-ad-single-sign-on"></a>Configurazione di Single Sign-On di Microsoft Azure AD
-In questa sezione viene abilitato l'accesso Single Sign-On di Microsoft Azure AD nel portale classico e viene configurato l'accesso Single Sign-On nell'applicazione eDigitalResearch.
+### <a name="configure-microsoft-azure-ad-sso"></a>Configurare l'accesso Single Sign-On di Microsoft Azure AD
+In questa sezione viene abilitato l'accesso SSO di Microsoft Azure AD nel portale classico e viene configurato l'accesso SSO nell'applicazione eDigitalResearch.
 
 **Per configurare Single Sign-On di Microsoft Azure AD con eDigitalResearch, seguire questa procedura:**
 
@@ -109,31 +109,23 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Microsoft Azure AD
 3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura e fare clic su **Avanti**:
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_edigitalresearch_04.png)
+  1. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<company name>.edigitalresearch.com/login/consume` 
+  2. Fare clic su **Avanti**.
    
-    a. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente:
-   
-    `https://<company name>.edigitalresearch.com/login/consume`
-   
-    b. Fare clic su **Avanti**
-   
-   > [!NOTE]
-   > Il valore dell'URL di risposta in questa esercitazione è solo un segnaposto. Per ottenere il valore effettivo per l'ambiente, contattare eDigitalResearch.
+   >[!NOTE]
+   >Il valore dell'URL di risposta in questa esercitazione è solo un segnaposto. Per ottenere il valore effettivo per l'ambiente, contattare eDigitalResearch.
    > 
    > 
 4. Nella pagina **Configura accesso Single Sign-On in eDigitalResearch** seguire questa procedura e fare clic su **Avanti**:
    
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_edigitalresearch_05.png)
-   
-    a. Fare clic su **Scarica certificato**e quindi salvare il file nel computer.
-   
-    b. Fare clic su **Next**.
+  ![Configura accesso Single Sign-On](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_edigitalresearch_05.png)
+  1. Fare clic su **Scarica certificato**e quindi salvare il file nel computer.
+  2. Fare clic su **Avanti**.
 5. Per ottenere l'accesso Single Sign-On configurato per l'applicazione, contattare il team di supporto eDigitalResearch e fornire i seguenti elementi: 
-   
-      - File del **certificato scaricato**
-   
-      - **ID entità**
-   
-      - **URL servizio Single Sign-Out**
+
+  *  File del **certificato scaricato**
+  *  L' **ID entità**   
+  *   **URL servizio Single Sign-Out**
 6. Nel portale di Azure classico selezionare la conferma della configurazione e fare clic su **Avanti**.
    
     ![Single Sign-On di Microsoft Azure AD][10]
@@ -141,7 +133,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Microsoft Azure AD
    
     ![Single Sign-On di Microsoft Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 Questa sezione descrive come creare un utente di test chiamato Britta Simon nel portale classico.
 
 ![Creare un utente di Azure AD][20]
@@ -161,43 +153,33 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
 5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_05.png)
-   
-    a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
-   
-    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
-   
-    c. Fare clic su **Avanti**.
+  1. In Tipo di utente selezionare Nuovo utente nell'organizzazione. 
+  2. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
+  3. Fare clic su **Avanti**.
 6. Nella pagina **Profilo utente** seguire questa procedura:
    
    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_06.png)
-   
-   a. Nella casella di testo **Nome** digitare **Britta**.  
-   
-   b. Nella casella di testo **Cognome** digitare **Simon**.
-   
-   c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
-   
-   d. Nell'elenco **Ruolo** selezionare **Utente**.
-   
-   e. Fare clic su **Avanti**.
+  1. Nella casella di testo **Nome** digitare **Britta**.   
+  2. Nella casella di testo **Cognome** digitare **Simon**.
+  3. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
+  4. Nell'elenco **Ruolo** selezionare **Utente**.
+  5. Fare clic su **Avanti**.
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_07.png)
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_08.png)
-   
-    a. Prendere nota del valore visualizzato in **Nuova password**.
-   
-    b. Fare clic su **Complete**.   
+  1. Prendere nota del valore visualizzato in **Nuova password**.
+  2. Fare clic su **Completa**.   
 
-### <a name="creating-a-edigitalresearch-test-user"></a>Creazione di un utente test di eDigitalResearch
+### <a name="create-a-edigitalresearch-test-user"></a>Creare un utente test di eDigitalResearch
 Questa sezione descrive come creare un utente chiamato Britta Simon in eDigitalResearch. 
 
 Per creare gli utenti, collaborare con il team di supporto eDigitalResearch.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
-Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a eDigitalResearch.
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+Questa sezione descrive come abilitare Britta Simon a usare l'accesso Single Sign-On di Azure concedendole l'accesso a eDigitalResearch.
 
 ![Assegna utente][200]
 
@@ -217,7 +199,7 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
    
     ![Assegna utente][205]
 
-### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Microsoft Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro eDigitalResearch nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione eDigitalResearch.
@@ -243,9 +225,4 @@ Quando si fa clic sul riquadro eDigitalResearch nel pannello di accesso, si dovr
 [203]: ./media/active-directory-saas-edigitalresearch-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-edigitalresearch-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-edigitalresearch-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

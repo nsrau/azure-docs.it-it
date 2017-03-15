@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 1cef7ff21a8d076c89688f1fe75cebdb7c468199
-ms.openlocfilehash: c7569177db0821b36e49439ec54224e1aeb9ad9d
+ms.sourcegitcommit: 1c22e4fc17226578aaaf272fdf79178da65c63c2
+ms.openlocfilehash: 6aeeaeef928d483c48f988c71ed8bc8367749229
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -35,7 +36,7 @@ Lo scenario descritto in questa esercitazione include i blocchi predefiniti segu
 3. Configurazione del provisioning utente
 4. Assegnazione degli utenti
 
-![Scenario](./media/active-directory-saas-wikispaces-tutorial/IC787182.png "Sceanrio")
+![Sceanrio](./media/active-directory-saas-wikispaces-tutorial/IC787182.png "Sceanrio")
 
 ## <a name="enabling-the-application-integration-for-wikispaces"></a>Abilitazione dell'integrazione dell'applicazione Wikispaces
 Questa sezione descrive come abilitare l'integrazione dell'applicazione per Wikispaces.
@@ -49,19 +50,19 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Wiki
 
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
    
-    ![Applications](./media/active-directory-saas-wikispaces-tutorial/IC700994.png "Applications")
+    ![Applicazioni](./media/active-directory-saas-wikispaces-tutorial/IC700994.png "Applicazioni")
 
 4. Fare clic su **Add** nella parte inferiore della pagina.
    
-    ![Aggiungi applicazione](./media/active-directory-saas-wikispaces-tutorial/IC749321.png "Add application")
+    ![Aggiungere un'applicazione](./media/active-directory-saas-wikispaces-tutorial/IC749321.png "Aggiungere un'applicazione")
 
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
    
-    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-wikispaces-tutorial/IC749322.png "Add an application from gallerry")
+    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-wikispaces-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
 6. Nella **casella di ricerca** digitare **Wikispaces**.
    
-    ![Raccolta di applicazioni](./media/active-directory-saas-wikispaces-tutorial/IC787186.png "Application Gallery")
+    ![Raccolta di applicazioni](./media/active-directory-saas-wikispaces-tutorial/IC787186.png "Raccolta di applicazioni")
 
 7. Nel riquadro dei risultati selezionare **Wikispaces** e quindi fare clic su **Completa** per aggiungere l'applicazione.
    
@@ -73,19 +74,19 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
 1. Nella pagina di integrazione dell'applicazione **Wikispaces** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787188.png "Configure Single Sign-On")
+    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787188.png "Configurare l'accesso Single Sign-On")
 
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Wikispaces** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
    
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787189.png "Configure Single Sign-On")
+    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787189.png "Configurare l'accesso Single Sign-On")
 
 3. Nella casella di testo **URL di accesso Wikispaces** della pagina **Configura URL app** digitare l'URL usando il modello "*http://company.wikispaces.net*" e quindi fare clic su **Avanti**.
    
-    ![Configura URL app](./media/active-directory-saas-wikispaces-tutorial/IC787190.png "Configure App URL")
+    ![Configurare l'URL dell'app](./media/active-directory-saas-wikispaces-tutorial/IC787190.png "Configurare l'URL dell'app")
 
 4. Nella pagina **Configura accesso Single Sign-On in Wikispaces** fare clic su **Download metadati** e quindi salvare il file dei metadati nel computer.
    
-   ![Configura accesso Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787191.png "Configure Single Sign-On")
+   ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787191.png "Configurare l'accesso Single Sign-On")
 
 5. Inviare il file dei metadati al team di supporto di Wikispaces.
    
@@ -96,7 +97,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Complete** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
    
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787192.png "Configure Single Sign-On")
+    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787192.png "Configurare l'accesso Single Sign-On")
 
 ## <a name="configuring-user-provisioning"></a>Configurazione del provisioning utente
 Per consentire agli utenti di Azure AD di accedere a Wikispaces, è necessario eseguirne il provisioning in Wikispaces.  
@@ -107,15 +108,15 @@ Nel caso di Wikispaces, il provisioning è un'attività manuale.
 
 2. Passare a **Membri**.
    
-    ![Membri](./media/active-directory-saas-wikispaces-tutorial/IC787193.png "Members")
+    ![Members](./media/active-directory-saas-wikispaces-tutorial/IC787193.png "Members")
 
 3. Fare clic su **Invita persone**.
    
-    ![Invita persone](./media/active-directory-saas-wikispaces-tutorial/IC787194.png "Invite People")
+    ![Invitare persone](./media/active-directory-saas-wikispaces-tutorial/IC787194.png "Invitare persone")
 
 4. Nella sezione **Invita Persone** seguire la procedura seguente:
    
-    ![Invita persone](./media/active-directory-saas-wikispaces-tutorial/IC787208.png "Invite People")
+    ![Invitare persone](./media/active-directory-saas-wikispaces-tutorial/IC787208.png "Invitare persone")
    
     a. Nelle apposite caselle di testo immettere i valori di **Usernames o Email Address** di un account Azure AD valido di cui si vuole eseguire il provisioning.
    
@@ -139,17 +140,12 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 
 2. Nella pagina di integrazione dell'applicazione **Wikispaces** fare clic su **Assegna utenti**.
    
-    ![Assegna utenti](./media/active-directory-saas-wikispaces-tutorial/IC787195.png "Assign Users")
+    ![Assegnare utenti](./media/active-directory-saas-wikispaces-tutorial/IC787195.png "Assegnare utenti")
 
 3. Selezionare l'utente di test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
    
-    ![Sì](./media/active-directory-saas-wikispaces-tutorial/IC767830.png "Yes")
+    ![Sì](./media/active-directory-saas-wikispaces-tutorial/IC767830.png "Sì")
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

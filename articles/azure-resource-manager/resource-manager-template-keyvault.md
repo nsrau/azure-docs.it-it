@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 06/23/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: f72ae06c2e31de5d8a1121a9e265c23f016fffe9
+ms.sourcegitcommit: f2d009477a614c3b2876ce98a355d3775abf772b
+ms.openlocfilehash: 04f2d5d8e501ebf41cf95ea925d238f64b096c1d
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -34,7 +35,7 @@ Per creare un insieme di credenziali chiave, aggiungere lo schema seguente alla 
         "properties": {
             "enabledForDeployment": bool,
             "enabledForTemplateDeployment": bool,
-            "enabledForVolumeEncryption": bool,
+            "enabledForDiskEncryption": bool,
             "tenantId": string,
             "accessPolicies": [
                 {
@@ -75,7 +76,7 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 | --- | --- |
 | enabledForDeployment |Boolean<br />Facoltativo<br />**true** o **false**<br /><br />Specifica se l'insieme di credenziali delle chiavi è abilitato per la distribuzione di macchine virtuali o di Service Fabric. |
 | enabledForTemplateDeployment |Boolean<br />Facoltativo<br />**true** o **false**<br /><br />Specifica se l'insieme di credenziali delle chiavi è abilitato per l'uso nelle distribuzioni di modelli di Resource Manager. Per ulteriori informazioni, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md) |
-| enabledForVolumeEncryption |Boolean<br />Facoltativo<br />**true** o **false**<br /><br />Specifica se l'insieme di credenziali delle chiavi è abilitato per la crittografia di volumi. |
+| enabledForDiskEncryption |BOOLEAN<br />Facoltativo<br />**true** o **false**<br /><br />Specifica se l'insieme di credenziali delle chiavi è abilitato per la crittografia di volumi. |
 | TenantId |String<br />Obbligatorio<br />**Identificatore univoco globale**<br /><br />Identificatore del tenant per la sottoscrizione. È possibile recuperarlo con il cmdlet [Get-AzureRmSubscription](https://msdn.microsoft.com/library/azure/mt619284.aspx) di PowerShell o il comando **azure account show** dell'interfaccia della riga di comando di Azure. |
 | accessPolicies |Array<br />Obbligatorio<br />[oggetto accessPolicies](#accesspolicies)<br /><br />Matrice che include al massimo 16 oggetti che specifica le autorizzazioni per l'utente o l'entità servizio. |
 | sku |Oggetto<br />Obbligatorio<br />[oggetto sku](#sku)<br /><br />SKU dell'insieme di credenziali delle chiavi. |
@@ -169,7 +170,7 @@ Nell'esempio seguente vengono distribuiti un insieme di credenziali chiave e una
                     "description": "Specifies if the vault is enabled for ARM template deployment"
                 }
             },
-            "enableVaultForVolumeEncryption": {
+            "enableVaultForDiskEncryption": {
                 "type": "bool",
                 "defaultValue": false,
                 "metadata": {
@@ -201,7 +202,7 @@ Nell'esempio seguente vengono distribuiti un insieme di credenziali chiave e una
             "properties": {
                 "enabledForDeployment": "[parameters('enabledForDeployment')]",
                 "enabledForTemplateDeployment": "[parameters('enabledForTemplateDeployment')]",
-                "enabledForVolumeEncryption": "[parameters('enableVaultForVolumeEncryption')]",
+                "enabledForDiskEncryption": "[parameters('enableVaultForDiskEncryption')]",
                 "tenantId": "[parameters('tenantId')]",
                 "accessPolicies": [
                 {
@@ -240,10 +241,5 @@ Il modello di Guida introduttiva seguente distribuisce un insieme di credenziali
 ## <a name="next-steps"></a>Passaggi successivi
 * Per informazioni generali sugli insiemi di credenziali delle chiavi, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-get-started.md).
 * Per un esempio di riferimento a una chiave privata nell’insieme di credenziali chiave durante la distribuzione di modelli, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

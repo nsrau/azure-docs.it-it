@@ -1,6 +1,6 @@
 ---
-title: Creare un gruppo in anteprima di Azure Active Directory | Microsoft Docs
-description: Come creare un gruppo in Azure Active Directory e aggiungere utenti (membri) al gruppo
+title: Creare un gruppo per gli utenti in anteprima di Azure Active Directory | Documentazione Microsoft
+description: 'Procedura: Creare un gruppo in Azure Active Directory e aggiungere membri al gruppo'
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 24a6ae1b259a1524ec3a8542dcbf55ff0450421e
-ms.openlocfilehash: ab74ff51f6dd1af91c4ec4d5de570ca30fb963bd
+ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
+ms.openlocfilehash: 4b85a754dfa9632f27308a3d9234213533dea4c4
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="create-a-new-group-in-azure-active-directory-preview"></a>Creare un nuovo gruppo in anteprima di Azure Active Directory
+# <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Creare un gruppo e aggiungere membri in Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Portale di Azure](active-directory-groups-create-azure-portal.md)
 > * [Portale di Azure classico](active-directory-accessmanagement-manage-groups.md)
@@ -58,9 +60,4 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 * [Gestire i membri di un gruppo](active-directory-groups-members-azure-portal.md)
 * [Gestire le appartenenze di un gruppo](active-directory-groups-membership-azure-portal.md)
 * [Gestire le regole dinamiche per gli utenti in un gruppo](active-directory-groups-dynamic-membership-azure-portal.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2016
-ms.author: tdykstra
+ms.author: glenga
 translationtype: Human Translation
 ms.sourcegitcommit: 80627139ee253bb6a01241e460781519dac69e71
 ms.openlocfilehash: a8541d5bd5e5becb25e8460b6ca774ec6637563a
@@ -31,7 +31,7 @@ Grazie agli strumenti integrati in Visual Studio, è inoltre semplice creare, di
 
 Il dashboard Processi Web nel portale di Azure include efficaci funzionalità di gestione per controllare completamente l'esecuzione di processi Web, tra cui la possibilità di richiamare singole funzioni nei processi Web. Il dashboard visualizza inoltre i runtime delle funzioni e l'output delle registrazioni. 
 
-## <a name="a-namegetstartedagetting-started-with-webjobs-and-the-webjobs-sdk"></a><a name="getstarted"></a>Introduzione a Processi Web e WebJobs SDK
+## <a name="getstarted"></a>Introduzione a Processi Web e WebJobs SDK
 * [Introduzione a Processi Web di Azure](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx)
 * [Post di blog sui vantaggi offerti da Processi Web di Azure](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (di Troy Hunt)
 * [Funzionalità di Processi Web di Azure](https://azure.microsoft.com/blog/2014/10/22/webjobs-goes-into-full-production/)
@@ -54,7 +54,7 @@ Il dashboard Processi Web nel portale di Azure include efficaci funzionalità di
 
 Vedere anche le sezioni seguenti su [Distribuzione di Processi Web](#deploy) e di [Verifica e debug di Processi Web](#debug).
 
-## <a name="a-namedeployadeploying-webjobs"></a><a name="deploy"></a>Distribuzione di Processi Web
+## <a name="deploy"></a>Distribuzione di Processi Web
 * [Come distribuire Processi Web di Azure mediante Visual Studio](websites-dotnet-deploy-webjobs.md)
 * [Come distribuire Processi Web mediante il portale di Azure](web-sites-create-web-jobs.md)
 * [Abilitazione della distribuzione da riga di comando o continua di processi Web di Azure](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
@@ -65,14 +65,14 @@ Vedere anche le sezioni seguenti su [Distribuzione di Processi Web](#deploy) e d
   * [Introduzione agli strumenti di Processi Web per Visual Studio](http://channel9.msdn.com/Shows/Web+Camps+TV/Introducing-WebJobs-Tooling-for-Visual-Studio-with-Brady-Gaster) 
   * [Strumenti di Processi Web e debug remoto](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
 
-## <a name="a-namescheduleascheduling-webjobs"></a><a name="schedule"></a>Pianificazione di Processi Web
+## <a name="schedule"></a>Pianificazione di Processi Web
 * [Finestra di dialogo Aggiungi processo Web Azure](websites-dotnet-deploy-webjobs.md#configure)
 * [Creare un processo Web pianificato nel portale di Azure](web-sites-create-web-jobs.md#CreateScheduled)
 * [Associazione di un processo Web a un processo di pianificazione](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
 * [Pianificazione dei processi Web di Azure con espressioni cron](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 * [Pianificazione delle singole funzioni di Processi Web tramite WebJobs SDK TimerTrigger](websites-dotnet-webjobs-sdk.md#schedule)
 
-## <a name="a-namedebugatesting-and-debugging-webjobs"></a><a name="debug"></a>Verifica e debug di Processi Web
+## <a name="debug"></a>Verifica e debug di Processi Web
 * [Nuove funzionalità per sviluppatori e debug di Processi Web di Azure in Visual Studio](http://blogs.msdn.com/b/webdev/archive/2014/11/12/new-developer-and-debugging-features-for-azure-webjobs-in-visual-studio.aspx)
 * [Visualizzare il dashboard di WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md#view-the-webjobs-sdk-dashboard)
 * [Come scrivere i log mediante WebJobs SDK e visualizzarli nel dashboard](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs)
@@ -84,13 +84,13 @@ Vedere anche le sezioni seguenti su [Distribuzione di Processi Web](#deploy) e d
 * Video
   * [Strumenti di Processi Web e debug remoto](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
 
-## <a name="a-namescaleascaling-webjobs"></a><a name="scale"></a>Ridimensionamento di Processi Web
+## <a name="scale"></a>Ridimensionamento di Processi Web
 * [Ridimensionamento dell'applicazione Web con Siti Web di Azure](http://msdn.microsoft.com/magazine/dn786914.aspx)
 * [Progettazione di app Web pronte per l'uso in ambito aziendale su vasta scala](https://channel9.msdn.com/Events/Build/2014/3-626). Tratta il ridimensionamento di siti Web di Web con Processi Web e include informazioni anche su WebJobs SDK.
 * Video
   * [Scalabilità orizzontale di Processi Web](http://channel9.msdn.com/Shows/Azure-Friday/Azure-WebJobs-105-Scaling-out-Web-Jobs)
 
-## <a name="a-nameadditionalaadditional-webjobs-resources"></a><a name="additional"></a>Risorse aggiuntive su Processi Web
+## <a name="additional"></a>Risorse aggiuntive su Processi Web
 * [Post di blog di Magnus Mårtensson sulla versione GA di Processi Web di Azure](http://magnusmartensson.com/azure-webjobs-ga)
 * [Esecuzione di processi Web di Powershell in siti Web di Azure](http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx)
 * [Ricevere notifiche quando i processi Web di Azure attivati vengono completati](http://blog.amitapple.com/post/2014/03/webjobs-notification/)
@@ -102,7 +102,7 @@ Vedere anche le sezioni seguenti su [Distribuzione di Processi Web](#deploy) e d
   * [Video di Magnus Mårtensson su Processi Web di Azure](https://www.youtube.com/playlist?list=PLqp1ZOYYUSd81yEzMYLTw8cz91wx_LU9r)
   * [Serie di video su Processi Web su Channel 9](http://channel9.msdn.com/Tags/azurefridaywebjobs)
 
-## <a name="a-nameadditionalsdkaadditional-webjobs-sdk-resources"></a><a name="additionalsdk"></a>Risorse aggiuntive su WebJobs SDK
+## <a name="additionalsdk"></a>Risorse aggiuntive su WebJobs SDK
 * [Note sulla versione di WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes)
 * [Codice sorgente WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk)
 * [Codice sorgente per estensioni WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk-extensions), con una [guida dettagliata al modello di estendibilità](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).  
@@ -114,17 +114,17 @@ Vedere anche le sezioni seguenti su [Distribuzione di Processi Web](#deploy) e d
 * Video
   * [Serie di video su Processi Web su Channel 9](http://channel9.msdn.com/Tags/azurefridaywebjobs)
 
-## <a name="a-namesamplesasample-webjob-applications"></a><a name="samples"></a>Applicazioni Processi Web di esempio
+## <a name="samples"></a>Applicazioni Processi Web di esempio
 * [Applicazioni di esempio fornite dal team di Processi Web su GitHub](https://github.com/azure/azure-webjobs-sdk-samples)
 * [Sito Web di Azure di esempio con back-end di Processi Web mediante WebJobs SDK](http://code.msdn.microsoft.com/Simple-Azure-Website-with-b4391eeb)
 * [SiteMonitR](http://code.msdn.microsoft.com/SiteMonitR-dd4fcf77). Illustra l'uso di processi Web pianificati o guidati dagli eventi. Vedere il post di blog sulla [ricostruzione di SiteMonitR con Azure WebJobs SDK](http://www.bradygaster.com/post/rebuilding-the-sitemonitr-using-windows-azure-webjobs).
 
-## <a name="a-nameblogsablogs"></a><a name="blogs"></a>Blog
+## <a name="blogs"></a>Blog
 * [Blog di Azure](/blog)
 * [Blog di Amit Apple](http://blog.amitapple.com/). Incentrato sui Processi Web (non contiene informazioni sull'SDK).
 * [Blog di Magnus Mårtensson](http://magnusmartensson.com/)
 
-## <a name="a-namegethelpagetting-help-with-webjobs"></a><a name="gethelp"></a>Guida per i Processi Web
+## <a name="gethelp"></a>Guida per i Processi Web
 * [StackOverflow per Processi Web](http://stackoverflow.com/questions/tagged/azure-webjobs)
 * [StackOverflow per WebJobs SDK](http://stackoverflow.com/questions/tagged/azure-webjobssdk)
 * [StackOverflow per Funzioni di Azure](http://stackoverflow.com/questions/tagged/azure-functions)

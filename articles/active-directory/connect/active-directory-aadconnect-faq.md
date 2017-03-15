@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/22/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 85458f4477dadb83a6a2627ef490471ca38ac634
-ms.openlocfilehash: c2b78731feb1993e5c7123ff676f38704120ccff
+ms.sourcegitcommit: c22a8f4a895efc86abc328c6cf82685d7db8c19c
+ms.openlocfilehash: 33de5839e1e8fa70f75636488a0769f7aebf8b95
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -72,12 +73,33 @@ No, attualmente non è supportata.
 **D: È supportata l'impostazione manualmente dell'attributo ImmutableId su oggetti contatto/gruppo Azure AD esistenti per farlo corrispondere a livello rigido a oggetti contatto/gruppo AD locali?**  
 No, attualmente non è supportata.
 
+## <a name="security"></a>Sicurezza
+**D: Gli account vengono bloccati dopo un numero specifico di tentativi non riusciti o la strategia usata è più sofisticata?**</br>
+La strategia usata per bloccare gli account è più sofisticata e  si basa sull'indirizzo IP della richiesta e le password immesse. La durata del blocco aumenta anche in base alla probabilità che sia in corso un attacco.  
+
+**Q: Alcune password (comuni) vengono rifiutate con messaggi indicanti che la password è stata usata molte volte; si fa riferimento alle password usate nell'istanza corrente di Active Directory?**</br>
+Si fa riferimento alle password comuni a livello globale, ad esempio tutte le varianti di "Password" e "123456".
+
+**D: Una richiesta di accesso proveniente da origini sospette (botnet, endpoint tor) sarà bloccata in un tenant B2C o è necessario un tenant della Basic Edition o della Premium Edition?**</br>
+Esiste un gateway che filtra le richieste e fornisce un livello di protezione da botnet e che viene applicato per tutti i tenant B2C. 
+
 ## <a name="custom-configuration"></a>Configurazione personalizzata
 **D: Dove sono documentati i cmdlet PowerShell per Azure AD Connect?**  
 Fatta eccezione per i cmdlet documentati in questo sito, gli altri cmdlet di PowerShell disponibili in Azure AD Connect di non sono supportati per l'utilizzo da parte degli utenti.
 
 **D: Si può usare l'opzione "Server export/server import" disponibile in *Synchronization Service Manager* per spostare la configurazione tra i server?**  
-No. Questa opzione non recupererà tutte le impostazioni di configurazione e non deve essere utilizzata. Si dovrebbe invece utilizzare la procedura guidata per creare la configurazione di base sul secondo server e usare l'editor delle regole di sincronizzazione per generare script di PowerShell per spostare qualsiasi regola personalizzata tra i server. Vedere [Spostare la configurazione personalizzata da server attivo a server di gestione temporanea](active-directory-aadconnect-upgrade-previous-version.md#move-custom-configuration-from-active-to-staging-server).
+No. Questa opzione non recupererà tutte le impostazioni di configurazione e non deve essere utilizzata. Si dovrebbe invece utilizzare la procedura guidata per creare la configurazione di base sul secondo server e usare l'editor delle regole di sincronizzazione per generare script di PowerShell per spostare qualsiasi regola personalizzata tra i server. Vedere [Migrazione swing](active-directory-aadconnect-upgrade-previous-version.md#swing-migration).
+
+**D: Le password per la pagina di accesso di Azure possono essere memorizzate nella cache; è possibile evitare questa condizione poiché contiene un elemento di input della password impostando l'attributo della funzionalità di completamento automatico = "false"?**</br>
+Attualmente la modifica degli attributi HTML del campo di input della password non è supportata, incluso il tag di completamento automatico. Attualmente è in fase di elaborazione una funzionalità che consente un JavaScript personalizzato con cui è possibile aggiungere qualsiasi attributo al campo della password. Dovrebbe essere disponibile più avanti nel 2017.
+
+**D: Nella pagina di accesso di Azure vengono visualizzati i nomi utente per gli utenti che hanno già eseguito l'accesso correttamente.  Questo comportamento può essere disattivato?**</br>
+Attualmente la modifica degli attributi HTML della pagina di accesso non è supportata. Attualmente è in fase di elaborazione una funzionalità che consente un JavaScript personalizzato con cui è possibile aggiungere qualsiasi attributo al campo della password. Dovrebbe essere disponibile più avanti nel 2017.
+
+**D: Esiste un modo per impedire sessioni simultanee?**</br>
+No.
+
+
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 **D: Come è possibile ottenere informazioni su Azure AD Connect?**
@@ -93,10 +115,5 @@ No. Questa opzione non recupererà tutte le impostazioni di configurazione e non
 [Assistenza clienti per Azure AD Connect](https://manage.windowsazure.com/?getsupport=true)
 
 * Usare questo collegamento per ottenere assistenza tramite il portale di Azure.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
