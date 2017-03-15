@@ -1,5 +1,5 @@
 ---
-title: Provisioning dell&quot;app basato su attributi con filtri per la definizione dell&quot;ambito | Microsoft Docs
+title: Eseguire il provisioning delle app con filtri per la definizione dell&quot;ambito | Documentazione Microsoft
 description: Informazioni su come usare i filtri per la definizione dell&quot;ambito per evitare che venga eseguito il provisioning degli oggetti inclusi nelle app che supportano il provisioning automatico degli utenti se un oggetto non soddisfa i requisiti aziendali.
 services: active-directory
 documentationcenter: 
@@ -11,23 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/27/2017
 ms.author: markvi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4b95782793956470fd147a98c17759a1a1a3a0de
+ms.sourcegitcommit: c06c089fb08c19b55246122201c378917a560e14
+ms.openlocfilehash: 3e4458f70afce9ebd9477b00afc39b6e84e49319
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="attribute-based-app-provisioning-with-scoping-filters"></a>Provisioning dell'app basato su attributi con filtri per la definizione dell'ambito
-Questa sezione spiega come usare i filtri per la definizione dell'ambito per definire regole basate su attributi per determinare gli utenti per i quali verrà eseguito il provisioning nell'applicazione.
+# <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisioning dell'applicazione basato su attributi con filtri per la definizione dell'ambito
+Questa sezione spiega come usare i filtri per la definizione dell'ambito per definire regole basate su attributi per determinare gli utenti per i quali viene eseguito il provisioning nell'applicazione.
 
 ## <a name="clauses-and-scope-groups"></a>Clausole e gruppi di ambiti
 ![Filtro per la definizione dell’ambito][1] 
 
 I filtri per la determinazione dell'ambito sono definiti da uno o più **gruppi di ambiti**, ognuno dei quali contiene una o più **clausole**. Per visualizzare le clausole per un gruppo di ambiti specifico, espanderlo facendo clic sulla freccia a sinistra del nome del gruppo.
 
-Una **clausola** determina gli utenti che verranno restituiti dal filtro per la definizione dell'ambito valutando gli attributi di ogni utente. Ad esempio, se una clausola richiede che l'attributo 'state' di un utente sia uguale a New York, nell'applicazione verrà eseguito il provisioning solo degli utenti di New York.
+Una **clausola** determina gli utenti che verranno restituiti dal filtro per la definizione dell'ambito valutando gli attributi di ogni utente. Ad esempio, se una clausola richiede che l'attributo 'state' di un utente sia uguale a New York, nell'applicazione viene eseguito il provisioning solo degli utenti di New York.
 
 ![Nome del gruppo di ambiti][2] 
 
@@ -38,7 +40,7 @@ Per aggiungere nuove clausole o nuovi gruppi di ambiti, fare clic sul pulsante c
 ## <a name="how-scoping-filters-are-evaluated"></a>Modalità di valutazione dei filtri per la definizione dell'ambito
 Durante il provisioning, ogni utente assegnato viene verificato in base ai filtri per la definizione dell'ambito per stabilire se l'utente è autorizzato ad accedere all'applicazione. Si può pensare a una clausola come a un test che deve essere superato affinché l'utente non venga escluso. 
 
-Se sono stati definiti più gruppi di ambiti, ogni utente deve superarne almeno uno per poter accedere all'applicazione. All'interno di ogni gruppo di ambiti, tuttavia, l'utente deve superare ogni singola clausola per soddisfare i criteri del gruppo di ambiti specifico. 
+Se sono stati definiti più gruppi di ambiti, ogni utente deve superarne almeno uno per poter accedere all'applicazione. All'interno di ogni gruppo di ambiti, tuttavia, l'utente deve superare la clausola per soddisfare i criteri del gruppo di ambiti specifico. 
 
 In altre parole, è come se i gruppi di ambiti fossero collegati tramite operatore OR e le clausole in essi contenute fossero collegate tramite operatore AND. Vedere ad esempio il filtro per la definizione dell'ambito seguente:
 
@@ -63,9 +65,4 @@ In base a questo filtro per la definizione dell'ambito, affinché sia possibile 
 [1]: ./media/active-directory-saas-scoping-filters/ic782811.png
 [2]: ./media/active-directory-saas-scoping-filters/ic782812.png
 [3]: ./media/active-directory-saas-scoping-filters/ic782813.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

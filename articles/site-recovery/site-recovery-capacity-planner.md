@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
-ms.openlocfilehash: 7ec48138cf18cf50dc34f28e177c8d774034090b
+ms.sourcegitcommit: d4183b73bcb0441c9ad5f12e7a3a1e4d8e31f4b5
+ms.openlocfilehash: 243fbea75c4ba9b280c65a378d6f2d069add1098
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -38,7 +39,7 @@ Usare Site Recovery Capacity Planner per analizzare l'ambiente di origine e i ca
 2. Identificare la frequenza di modifica giornaliera (varianza) per i dati replicati. A tale scopo, seguire questa procedura:
 
    * Se si esegue la replica di VM Hyper-V, scaricare lo [strumento di pianificazione della capacità per Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) per ottenere la frequenza di modifica. [Altre informazioni](site-recovery-capacity-planning-for-hyper-v-replication.md) su questo strumento. È consigliabile eseguire lo strumento nel corso di una settimana per acquisire le medie.
-   * Se si esegue la replica di macchine virtuali VMware, usare lo [strumento di pianificazione della capacità di vSphere](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance) per determinare la varianza.
+   * Se si replicano macchine virtuali VMware, usare [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md) per determinare la varianza.
    * Per la replica di server fisici, è necessario eseguire la stima manualmente.
 
 ## <a name="run-the-quick-planner"></a>Eseguire lo strumento di pianificazione rapida
@@ -49,7 +50,7 @@ Usare Site Recovery Capacity Planner per analizzare l'ambiente di origine e i ca
 3. Nel foglio di lavoro **Capacity Planner** (Pianificazione capacità) immettere le informazioni necessarie. È necessario compilare tutti i campi contrassegnati con un cerchio rosso nella schermata seguente.
 
    * In **Select your scenario** (Selezionare uno scenario) scegliere **Hyper-V to Azure** (Da Hyper-V ad Azure) o **VMware/Physical to Azure** (Da fisico/VMware ad Azure).
-   * In **Average daily data change rate (%)** (Frequenza di modifica dei dati giornaliera media - %) inserire le informazioni raccolte con lo [strumento di pianificazione della capacità per Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) o lo [strumento di pianificazione della capacità per vSphere](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance).  
+   * In **Average daily data change rate (%)** (Frequenza di modifica dei dati giornaliera media - %) inserire le informazioni raccolte con lo [strumento di pianificazione della capacità per Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) o [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md).  
    * **Compression** si applica solo alla compressione disponibile quando si esegue la replica di macchine virtuali VMware o server fisici in Azure. È stimata una compressione minima del 30%, ma è possibile modificare l'impostazione in base alle esigenze. Per la replica di VM Hyper-V in Azure con compressione, è possibile usare uno strumento di terze parti come Riverbed.
    * In **Retention Inputs** (Input per conservazione) specificare per quanto tempo devono essere conservate le repliche. Se si esegue la replica di server fisici o VMware, inserire il valore in giorni. Se si esegue la replica di Hyper-V, specificare il tempo in ore.
    * In **Number of hours in which initial replication for the batch of virtual machines should complete** (Numero di ore in cui deve essere completata la replica iniziale per il batch delle macchine virtuali) e in **Number of virtual machines per initial replication batch** (Numero di macchine virtuali per batch di replica iniziale) inserire le impostazioni usate per calcolare i requisiti della replica iniziale.  Quando viene distribuito Site Recovery, è necessario caricare l'intero set di dati iniziale.
@@ -119,16 +120,11 @@ Ad esempio, per sei macchine virtuali con i valori riportati nella tabella, lo s
     > Le operazioni di I/O al secondo nell'archiviazione standard e premium vengono calcolate a livello di VM e non a livello di disco. Una macchina virtuale standard è in grado di gestire fino a 500 operazioni totali di input/output per disco. Se le operazioni di I/O al secondo per disco sono superiori a 500, è necessaria l'archiviazione premium. Se le operazioni di I/O al secondo per un disco sono superiori a 500 ma le operazioni di I/O al secondo per i dischi totali della VM rientrano nei limiti di supporto delle VM di Azure standard (dimensioni di VM, numero di dischi, numero di schede, CPU, memoria), tuttavia, lo strumento di pianificazione sceglie una VM standard e non serie DS o GS. È necessario aggiornare manualmente la cella relativa alle dimensioni di Azure per il mapping con le VM serie DS o GS appropriate.
 
 
-1. Dopo aver specificato tutti i dettagli, fare clic su **Submit data to the planner tool** (Invia dati a strumento di pianificazione) per aprire **Capacity Planner**. I carichi di lavoro sono evidenziati per mostrare l'idoneità o meno alla protezione.
+Dopo aver specificato tutti i dettagli, fare clic su **Submit data to the planner tool** (Invia dati a strumento di pianificazione) per aprire **Capacity Planner**. I carichi di lavoro sono evidenziati per mostrare l'idoneità o meno alla protezione.
 
 ### <a name="submit-data-in-the-capacity-planner"></a>Inviare i dati nello strumento di pianificazione
 1. Quando si apre il foglio di lavoro **Capacity Planner** viene compilato in base alle impostazioni specificate. Il termine "Workload" (Carico di lavoro) visualizzato nel campo **Infra inputs source** (Origine input infrastruttura) indica che l'input è costituito dal foglio di lavoro **Workload Qualification** (Qualifica carico di lavoro).
 2. Per apportare modifiche è necessario modificare il foglio di lavoro **Workload Qualification** (Qualifica carico di lavoro) e fare clic di nuovo su **Submit data To the planner tool** (Invia dati a strumento di pianificazione).  
 
    ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

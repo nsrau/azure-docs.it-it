@@ -1,5 +1,5 @@
 ---
-title: Monitorare Surface Hub con Log Analytics | Documentazione Microsoft
+title: Monitorare dispositivi Surface Hub con Log Analytics di Azure | Documentazione Microsoft
 description: "Usare la soluzione Surface Hub per monitorarne l&quot;integrità e comprenderne la modalità d&quot;uso."
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
-ms.openlocfilehash: 9ba6b1b3fcdaf090eee696ba3cb33be5d94be039
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: d568c52a7cbbe593658fb95203bfa98af13a1554
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="monitor-surface-hubs-with-log-analytics"></a>Monitorare Surface Hub con Log Analytics
+# <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Monitorare dispositivi Surface Hub con Log Analytics per tracciare la loro integrità
+
 In questo articolo viene descritto come usare la soluzione Surface Hub in Log Analytics per monitorare i dispositivi di Microsoft Surface Hub con Microsoft Operations Management Suite (OMS). Log Analytics aiuta a monitorare l'integrità di Surface Hub e comprenderne la modalità d'uso.
 
 Per ogni soluzione Surface Hub viene installato il Microsoft Monitoring Agent. L'agente permette di trasferire i dati da Surface Hub a OMS. I file di log vengono letti da Surface Hub, per poi essere inviati al servizio OMS. Nel dashboard di Surface Hub in OMS vengono mostrati i vari problemi, come lo stato offline dei server, il calendario non sincronizzato, o se l'account del dispositivo non riesce ad accedere a Skype. Usando i dati presenti nel dashboard, è possibile identificare i dispositivi che non sono in esecuzione o che hanno altri problemi e, potenzialmente, è possibile apportare le opportune correzioni ai problemi rilevati.
@@ -84,9 +87,4 @@ Monitorare Surface Hub con OMS è molto simile all'attività di monitoraggio di 
 ## <a name="next-steps"></a>Passaggi successivi
 * Usare le [ricerche log in Log Analytics](log-analytics-log-searches.md) per visualizzare i dati dettagliati di Surface Hub.
 * Creare [avvisi](log-analytics-alerts.md) che informano della presenza di problemi relativi a Surface Hub.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

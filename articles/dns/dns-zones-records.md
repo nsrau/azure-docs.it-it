@@ -11,16 +11,18 @@ ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: efa52b5f30cab16bfde4202dbfe2c95f4464e2c4
-ms.openlocfilehash: 4950edd41f58175c675afb7a7ea9f14fe4a59b26
+ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
+ms.openlocfilehash: 4e25ec1ece6017dc58c24ce593802293b7fc12b8
+ms.lasthandoff: 03/01/2017
 
 ---
 
-# <a name="dns-zones-and-records"></a>Zone e record DNS
+# <a name="overview-of-dns-zones-and-records"></a>Panoramica delle zone e dei record DNS
 
 Questa pagina presenta i concetti principali relativi a domini, zone DNS e record e set di record DNS, nonché il modo in cui vengono supportati in DNS di Azure.
 
@@ -64,13 +66,13 @@ Questi vincoli derivano dagli standard DNS e non sono limitazioni di DNS di Azur
 
 ### <a name="ns-records"></a>Record NS
 
-Un set di record NS viene automaticamente creato in corrispondenza del vertice di ogni zona (nome = '@'),) e viene automaticamente eliminato quando viene eliminata la zona (non può essere eliminato separatamente).  È possibile modificare il valore TTL di questo set di record, ma non i record, che sono preconfigurati in modo da fare riferimento ai server dei nomi DNS di Azure assegnati alla zona.
+Un set di record NS viene creato automaticamente in corrispondenza del vertice di ogni zona (nome = '@') e viene eliminato automaticamente quando viene eliminata la zona; non può essere eliminato separatamente.  È possibile modificare il valore TTL di questo set di record, ma non i record, che sono preconfigurati in modo da fare riferimento ai server dei nomi DNS di Azure assegnati alla zona.
 
 È possibile creare ed eliminare altri record NS nella zona, ma non nel vertice della zona.  In questo modo, è possibile configurare zone figlio. Vedere [Delegare un dominio al servizio DNS di Azure](dns-domain-delegation.md#delegating-sub-domains-in-azure-dns).
 
 ### <a name="soa-records"></a>Record SOA
 
-Un set di record SOA viene automaticamente creato in corrispondenza del vertice di ogni zona (nome = '@'),) e viene automaticamente eliminato quando viene eliminata la zona.  I record SOA non possono essere creati o eliminati separatamente.
+Un set di record SOA viene creato automaticamente in corrispondenza del vertice di ogni zona (nome = '@') e viene eliminato automaticamente quando viene eliminata la zona.  I record SOA non possono essere creati o eliminati separatamente.
 
 È possibile modificare tutte le proprietà del record SOA ad eccezione della proprietà "host", che è preconfigurata in modo da fare riferimento al nome del server dei nomi primario fornito da DNS di Azure.
 
@@ -86,7 +88,7 @@ I documenti RFC di DNS in origine hanno introdotto un nuovo tipo di record "SPF"
 
 I [record SRV](https://en.wikipedia.org/wiki/SRV_record) vengono usati da svariati servizi per specificare i percorsi dei server. Quando si specifica un record SRV in DNS di Azure:
 
-* Il *servizio* e il *protocollo* devono essere specificati come parte del nome del set di record, preceduti da caratteri di sottolineatura.  Ad esempio, "\_sip.\_tcp.name".  Per un record nel vertice della zona, non è necessario specificare '@' nel nome del record, ma è sufficiente usare il servizio e il protocollo, ad esempio "\_sip.\_tcp".
+* Il *servizio* e il *protocollo* devono essere specificati come parte del nome del set di record, preceduti da caratteri di sottolineatura.  Ad esempio, "\_sip.\_tcp.name".  Per un record nel vertice della zona non è necessario specificare '@' nel nome del record, ma è sufficiente usare il servizio e il protocollo, ad esempio '\_sip.\_tcp'.
 * La *priorità*, il *peso*, la *porta* e la *destinazione* vengono specificati come parametri di ogni record nel set di record.
 
 ### <a name="txt-records"></a>Record TXT
@@ -139,10 +141,5 @@ Quando si usa DNS di Azure, si applicano i limiti predefiniti seguenti:
 
 * Per iniziare a usare DNS di Azure, è necessario sapere come [creare una zona DNS](dns-getstarted-create-dnszone-portal.md) e come [creare record DNS](dns-getstarted-create-recordset-portal.md).
 * Per eseguire la migrazione di una zona DNS esistente, è necessario saper [importare ed esportare un file di zona DNS](dns-import-export.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -82,7 +82,6 @@ Se si usano assembly registrati nello script U-SQL, il sistema non sarà in grad
 
 1. Fare clic con il tasto destro del mouse su **Solution 'VertexDebug' (Soluzione "VertexDebug")** > **Aggiungi** > **Progetto esistente...** per individuare il codice sorgente degli assembly e aggiungere il progetto alla soluzione di debug.
 
-
     ![Azure Data Lake Analytics U-SQL debug add project](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-add-project-to-debug-solution.png)
 
 2. Fare clic con il tasto destro del mouse su **LocalVertexHost** > **Proprietà** nella soluzione, quindi copiare il percorso copiare **Directory di lavoro**.

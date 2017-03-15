@@ -11,11 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/22/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: c453774b04c7005ce5948617beea8770b499b88d
-ms.openlocfilehash: 2da6d02055616db5f9854481054ff12c69dc4801
+ms.sourcegitcommit: fc6acf7b24bb017e4a93df1c15ed493a4442d6b5
+ms.openlocfilehash: 917261e32845b53f2f2f3d12f60ca5fa87d441c7
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -23,11 +24,15 @@ ms.openlocfilehash: 2da6d02055616db5f9854481054ff12c69dc4801
 # <a name="live-metrics-stream-instant-metrics-for-close-monitoring"></a>Flusso di metriche live: metriche istantanee per un monitoraggio dettagliato
 Flusso metriche attive mostra le metriche [Application Insights](app-insights-overview.md) in questo esatto momento, con una latenza quasi in tempo reale di un secondo. Questo monitoraggio immediato è molto utile quando si sta rilasciando una nuova compilazione e si desidera assicurarsi che tutto funzioni come previsto oppure si sta indagando su un evento imprevisto in tempo reale.
 
-![Nel pannello Panoramica fare clic su Flusso attivo](./media/app-insights-live-stream/live-stream.png)
-
 A differenza di [Esplora metriche](app-insights-metrics-explorer.md), Flusso metriche attive consente di visualizzare un set fisso di metriche. I dati vengono mantenuti finché  si trovano nel grafico, poi vengono eliminati.
 
 I dati di Flusso metriche attive sono gratuiti e non vengono addebitati in fattura.
+
+![Video del flusso di metriche in diretta](./media/app-insights-live-stream/youtube.png) [Video del flusso di metriche in diretta](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
+
+![Nel pannello Panoramica fare clic su Flusso attivo](./media/app-insights-live-stream/live-stream.png)
+
+
 
 ## <a name="live-failures"></a>Errori live
 
@@ -38,6 +43,11 @@ Se vengono registrati errori o eccezioni, Live Stream ne seleziona un esempio. F
 
 Live Metrics Stream è disponibile con la versione più recente di [Application Insights SDK per il Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/).
 
+## <a name="filter-by-server-instance"></a>Filtro per istanza di server
+
+Se si vuole monitorare un'istanza specifica del ruolo server, è possibile applicare un filtro per server.
+
+![Errori live campionati](./media/app-insights-live-stream/live-stream-filter.png)
 
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
@@ -49,10 +59,5 @@ Dati non visualizzati Flusso metriche attive usa porte diverse da quelle di altr
 ## <a name="next-steps"></a>Passaggi successivi
 * [Monitoraggio dell'utilizzo con Application Insights](app-insights-overview-usage.md)
 * [Uso di Ricerca diagnostica](app-insights-diagnostic-search.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

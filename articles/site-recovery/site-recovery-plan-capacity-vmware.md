@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/05/2017
 ms.author: rayne
 translationtype: Human Translation
-ms.sourcegitcommit: 6521cada7adeacd98fae46e5119ceffa0351e9b5
-ms.openlocfilehash: a5c6759d9826084ae339dd291140f8383b55b6db
+ms.sourcegitcommit: 993449b7840f5077f23b3809439b89f27759e35d
+ms.openlocfilehash: 1a991d1e4ac20019695fb557310e1981b5b491ec
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -26,22 +27,7 @@ Consultare questo articolo per scoprire come pianificare la capacità e la scala
 
 ## <a name="how-do-i-start-capacity-planning"></a>Come si inizia per pianificare la capacità?
 
-1. Raccogliere informazioni sull'ambiente di replica usando Azure Site Recovery Capacity Planner. Sono incluse informazioni sulle VM, i dischi per le VM e l'archiviazione per ogni disco.
-2. Stimare la frequenza di modifica giornaliera (varianza) prevista per i dati replicati nell'ambiente.
-
-
-## <a name="gather-information"></a>Raccogliere informazioni
-
-1. Scaricare ed eseguire [Capacity Planner[(https://gallery.technet.microsoft.com/Azure-Recovery-Capacity-d01dc40e)].
-2. [Istruzioni](site-recovery-capacity-planner.md) per l'esecuzione dello strumento.
-
-
-## <a name="estimate-the-daily-churn-rate"></a>Stimare la varianza giornaliera
-
-Capacity Planner di Site Recovery richiede di immettere una frequenza di modifica dei dati giornaliera media espressa come percentuale. Attualmente è possibile ottenere queste informazioni usando l'[appliance di pianificazione della capacità vSphere](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance).
-
-Nello strumento è possibile calcolare la percentuale analizzando con lo strumento di pianificazione vSphere tutte le VM di origine per ottenere il saldo totale giornaliero. Si tratta essenzialmente del traffico di rete. [Altre informazioni](https://blogs.vmware.com/vsphere/2014/04/vsphere-replication-capacity-planning-appliance.html) sull'esecuzione di questo strumento.
-
+Raccogliere informazioni sull'ambiente di replica usando [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc). Sono incluse informazioni sul numero di macchine virtuali che sono compatibili o non compatibili, i dischi per VM, la varianza dei dati per disco, il requisito di larghezza di banda di rete e l'infrastruttura di Azure necessaria per il completamento della replica, del failover di test e del failover.
 
 ## <a name="capacity-considerations"></a>Considerazioni sulla capacità
 
@@ -55,9 +41,9 @@ Nello strumento è possibile calcolare la percentuale analizzando con lo strumen
 
 **CPU** | **Memoria** | **Dimensione disco cache** | **Frequenza di modifica dei dati** | **Computer protetti**
 --- | --- | --- | --- | ---
-8 vCPU (2 socket * 4 core a@ 2,5 GHz) | 16 GB | 300 GB | 500 GB o inferiore | Replicare meno di 100 computer.
-12 vCPU (2 socket * 6 core a@ 2,5 GHz) | 18 GB | 600 GB | Da 500 GB a 1 TB | Replicare tra 100 e 150 computer.
-16 vCPU (2 socket * 8 core a@ 2,5 GHz) | 32 GB | 1 TB | Da 1 TB a 2 TB | Replicare tra 150 e 200 computer.
+8 vCPU (2 socket * 4 core a 2,5 GHz) | 16 GB | 300 GB | 500 GB o inferiore | Replicare meno di 100 computer.
+12 vCPU (2 socket * 6 core a 2,5 GHz) | 18 GB | 600 GB | Da 500 GB a 1 TB | Replicare tra 100 e 150 computer.
+16 vCPU (2 socket * 8 core a 2,5 GHz) | 32 GB | 1 TB | Da 1 TB a 2 TB | Replicare tra 150 e 200 computer.
 Distribuire un altro server di elaborazione | | | Superiore a 2 TB | Distribuire server di elaborazione aggiuntivi se si esegue la replica di più di 200 computer o la frequenza di modifica dei dati giornaliera è superiore a 2 TB.
 
 Dove:
@@ -81,9 +67,9 @@ Questa tabella descrive uno scenario in cui:
 
 **Server di configurazione** | **Server di elaborazione aggiuntivo** | **Dimensione disco cache** | **Frequenza di modifica dei dati** | **Computer protetti**
 --- | --- | --- | --- | ---
-8 vCPU (2 socket * 4 core a@ 2,5 GHz), 16 GB di memoria | 4 vCPU (2 socket * 2 core a@ 2,5 GHz), 8 GB di memoria | 300 GB | 250 GB o inferiore | Replicare un massimo di 85 computer.
-8 vCPU (2 socket * 4 core a@ 2,5 GHz), 16 GB di memoria | 8 vCPU (2 socket * 4 core a@ 2,5 GHz), 12 GB di memoria | 600 GB | Da 250 GB a 1 TB | Replicare tra 85 e 150 computer.
-12 vCPU (2 socket * 6 core a@ 2,5 GHz), 18 GB di memoria | 12 vCPU (2 socket * 6 core a@ 2,5 GHz), 24 GB di memoria | 1 TB | Da 1 TB a 2 TB | Replicare tra 150 e 225 computer.
+8 vCPU (2 socket * 4 core a 2,5 GHz), 16 GB di memoria | 4 vCPU (2 socket * 2 core a 2,5 GHz), 8 GB di memoria | 300 GB | 250 GB o inferiore | Replicare un massimo di 85 computer.
+8 vCPU (2 socket * 4 core a 2,5 GHz), 16 GB di memoria | 8 vCPU (2 socket * 4 core a 2,5 GHz), 12 GB di memoria | 600 GB | Da 250 GB a 1 TB | Replicare tra 85 e 150 computer.
+12 vCPU (2 socket * 6 core a 2,5 GHz), 18 GB di memoria | 12 vCPU (2 socket * 6 core a 2,5 GHz), 24 GB di memoria | 1 TB | Da 1 TB a 2 TB | Replicare tra 150 e 225 computer.
 
 Il modo in cui i server vengono adattati dipende dalle preferenze personali per il modello di scalabilità orizzontale o quello verticale.  L'aumento delle prestazioni si ottiene distribuendo alcuni server di configurazione e di elaborazione avanzati, mentre l'aumento del numero di istanze si ottiene distribuendo più server con meno risorse. Ad esempio, per proteggere 220 computer è possibile eseguire una di queste operazioni:
 
@@ -93,7 +79,7 @@ Il modo in cui i server vengono adattati dipende dalle preferenze personali per 
 
 ## <a name="control-network-bandwidth"></a>Controllare la larghezza di banda della rete
 
-Lo strumento Capacity Planner può essere usato per calcolare la larghezza di banda necessaria per la replica iniziale e poi quella differenziale. Per controllare la quantità di larghezza di banda utilizzata per la replica è possibile scegliere una delle opzioni seguenti:
+Lo [strumento Deployment Planner](https://aka.ms/asr-deployment-planner-doc) può essere usato per calcolare la larghezza di banda necessaria per la replica iniziale e poi quella differenziale. Per controllare la quantità di larghezza di banda utilizzata per la replica è possibile scegliere una delle opzioni seguenti:
 
 * **Limitare la larghezza di banda**: il traffico VMware che viene replicato in Azure passa attraverso un server di elaborazione specifico. È possibile limitare la larghezza di banda nei computer eseguiti come server di elaborazione.
 * **Influire sulla larghezza di banda**: è possibile influire sulla larghezza di banda usata per la replica tramite una coppia di chiavi del Registro di sistema:
@@ -158,10 +144,5 @@ Se è necessario ridimensionare la distribuzione oltre 200 computer di origine o
 
 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

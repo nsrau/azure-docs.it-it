@@ -1,10 +1,10 @@
 ---
-title: "Come impostare un indirizzo IP statico privato in modalità ARM usando il portale di Azure | Documentazione Microsoft"
-description: "Informazioni sugli IP privati (DIP) e istruzioni per gestirli in modalità ARM tramite il portale di Azure"
+title: Configurare indirizzi IP privati per le VM - Portale di Azure | Documentazione Microsoft
+description: Informazioni su come configurare indirizzi IP privati per le VM mediante il portale di Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 11245645-357d-4358-9a14-dd78e367b494
@@ -15,13 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5d56a0d2c9c44d37520c6a9a3db326f9bdc5420e
-ms.openlocfilehash: e4f6d14f79536c58e40d3ac4b48d00a8c397f1b4
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 251a2977d821b710807e00b2aae71992630feb77
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="how-to-set-a-static-private-ip-address-in-the-azure-portal"></a>Come impostare un indirizzo IP statico privato nel portale di Azure
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Configurare indirizzi IP privati per una VM mediante il portale di Azure
 
 > [!div class="op_single_selector"]
 - [Portale di Azure](virtual-networks-static-private-ip-arm-pportal.md)
@@ -104,10 +106,5 @@ Per rimuovere l'indirizzo IP statico privato dalla VM creata in precedenza, atte
 * Informazioni su [indirizzi IP pubblici riservati](virtual-networks-reserved-public-ip.md) .
 * Informazioni su [indirizzi IP pubblici a livello di istanza (ILPIP)](virtual-networks-instance-level-public-ip.md) .
 * Consultare le [API REST dell'indirizzo IP riservato](https://msdn.microsoft.com/library/azure/dn722420.aspx).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

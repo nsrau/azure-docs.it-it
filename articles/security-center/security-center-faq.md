@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2017
+ms.date: 02/22/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 40f8f1b52c39a170a57168db9227a7c2fa069570
-ms.openlocfilehash: 466d4a566ebb426f48e8c271e1305b844842d638
+ms.sourcegitcommit: f07cd15658f7d367bdf364ece449dd5d09b2f9d3
+ms.openlocfilehash: 38503e36f9c0ad981d0239d82a858dbe2c5263a4
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -36,7 +37,7 @@ Il Centro sicurezza è disponibile in due livelli: Gratuito e Standard.
 
 Il livello gratuito consente di impostare criteri di sicurezza e ricevere avvisi di sicurezza, eventi imprevisti e suggerimenti che permettono di eseguire il processo di configurazione dei controlli necessari. Con il livello gratuito è anche possibile monitorare lo stato di sicurezza delle risorse di Azure e delle soluzioni partner integrate con la sottoscrizione di Azure.
 
-Il livello Standard fornisce le funzionalità del livello gratuito più funzionalità di rilevamento avanzato: intelligence per le minacce, analisi dei comportamenti, analisi degli arresti anomali e rilevamento delle anomalie. Per il livello Standard è disponibile una versione di valutazione di 90 giorni gratuita. Per eseguire l'aggiornamento, selezionare il piano tariffario nei [criteri di sicurezza](security-center-policies.md#set-security-policies-for-subscriptions). Per altre informazioni, vedere [Prezzi del Centro sicurezza di Azure](security-center-pricing.md).
+Il livello Standard fornisce le funzionalità del livello gratuito più funzionalità di rilevamento avanzato: intelligence per le minacce, analisi dei comportamenti, analisi degli arresti anomali e rilevamento delle anomalie. Il livello Standard è gratuito per i primi 60 giorni. Se scegli di continuare a usare il servizio dopo questi 60 giorni, l'utilizzo del servizio verrà addebitato automaticamente. Per eseguire l'aggiornamento, selezionare il piano tariffario nei [criteri di sicurezza](security-center-policies.md#set-security-policies-for-subscriptions). Per altre informazioni, vedere [Prezzi del Centro sicurezza di Azure](security-center-pricing.md).
 
 ## <a name="permissions"></a>Autorizzazioni
 Il Centro sicurezza di Azure usa il [controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md), con [ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md) che possono essere assegnati a utenti, gruppi e servizi in Azure.
@@ -161,9 +162,4 @@ Dopo l'abilitazione della raccolta dei dati nel Centro sicurezza di Azure, l'ana
 
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Perché viene visualizzato il messaggio "L'agente di macchine virtuali non è presente?"
 Per abilitare la raccolta dei dati, l'agente di macchine virtuali deve essere installato nelle VM. Per impostazione predefinita, l'agente di macchine virtuali è installato nelle macchine virtuali distribuite da Azure Marketplace. Per altre informazioni su come installare l'agente di maccine virtuali in altre VM, vedere il post di blog [Estensioni e agente di macchine virtuali](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

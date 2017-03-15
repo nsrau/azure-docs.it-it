@@ -1,6 +1,6 @@
 ---
 
-title: Identificazione e risoluzione dei problemi relativi alle licenze per un gruppo in Azure Active Directory | Microsoft Docs
+title: Risoluzione dei problemi relativi alle licenze per un gruppo in Azure Active Directory | Documentazione Microsoft
 description: Come identificare e risolvere problemi di assegnazione delle licenze con le licenze basate sui gruppi in Azure Active Directory
 services: active-directory
 keywords: Licenze di Azure AD
@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 02/28/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6a9cebafd1ad8f513bfab897970241f7b82b2a53
-ms.openlocfilehash: 9a434cf35d7934dc5eb759851fb65ad2a9f06eef
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: ac3f563828c5fa379f328392a3f5cf7c7932f534
+ms.openlocfilehash: 4ed83a1af1c31d41860931d363d93c7d61df9c98
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="identifying-and-resolving-license-problems-for-a-group-in-azure-active-directory"></a>Identificazione e risoluzione dei problemi relativi alle licenze per un gruppo in Azure Active Directory
+# <a name="identifying-and-resolving-license-assignment-problems-when-using-groups-in-azure-active-directory"></a>Identificazione e risoluzione dei problemi relativi all'assegnazione di licenze quando si usano i gruppi in Azure Active Directory
 
 
 Le licenze basate sui gruppi in Azure Active Directory (Azure AD) introducono il concetto di utenti in stato di errore di licenza. Questo articolo illustra il motivo per cui gli utenti possono trovarsi in questo stato. Quando le licenze vengono assegnate direttamente a utenti singoli, senza l'uso di licenze basate sui gruppi, l'operazione di assegnazione può avere esito negativo. Ad esempio, quando l'amministratore esegue il cmdlet `Set-MsolUserLicense` di PowerShell su un utente, il cmdlet potrebbe non riuscire per diversi motivi correlati alla logica di business, come un numero insufficiente di licenze o un conflitto tra due piani di servizio che non è possibile assegnare contemporaneamente. Il problema viene segnalato immediatamente all'utente che esegue il comando.

@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: e331e7aab69890637a74382938e22cca56c4d39a
-ms.openlocfilehash: 223dcbb2b54c9b0de384515b185266dc19653191
+ms.sourcegitcommit: c2b0c6b125ededd30e9db8e7f42796bdf6b413d4
+ms.openlocfilehash: f254b4a9b942004f0d1d1065ec2efb2ea5df8418
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -29,8 +30,8 @@ Questo articolo elenca alcuni dei termini comuni usati negli articoli su Hub IoT
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 L'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) è uno strumento di comando multipiattaforma open source basato sulla shell per creare e gestire le risorse in Microsoft Azure. Questa versione dell'interfaccia della riga di comando viene implementata usando Node.js.
 
-## <a name="azure-cli-20-preview"></a>Interfaccia della riga di comando di Azure 2.0 (anteprima)
-L'[interfaccia della riga di comando di Azure 2.0 (anteprima)](https://docs.microsoft.com/cli/azure/install-az-cli2) è uno strumento di comando multipiattaforma open source basato sulla shell per creare e gestire le risorse in Microsoft Azure. Questa versione di anteprima dell'interfaccia della riga di comando viene implementata usando Python.
+## <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
+L'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) è uno strumento di comando multipiattaforma open source basato sulla shell che consente di creare e gestire le risorse in Microsoft Azure. Questa versione di anteprima dell'interfaccia della riga di comando viene implementata usando Python.
 
 
 ## <a name="azure-iot-device-sdks"></a>SDK dispositivo IoT Azure
@@ -61,7 +62,7 @@ Il [bus di servizio](../service-bus/index.md) offre comunicazione abilitata per 
 Nell'ambito di [Hub IoT](#iot-hub), un'app back-end è un'app che connette a uno degli endpoint per il servizio in un hub IoT. Un'app back-end, ad esempio, può recuperare messaggi [da dispositivo a cloud](#device-to-cloud) o gestire il [registro delle identità](#identity-registry). Un'app back-end in genere viene eseguita nel cloud, ma in molte esercitazioni le app back-end sono app console in esecuzione nel computer di sviluppo locale.
 
 ## <a name="built-in-endpoints"></a>Endpoint predefiniti
-Ogni hub IoT include un [endpoint](iot-hub-devguide-endpoints.md) incorporato compatibile con l'Hub eventi. Per leggere i messaggi da dispositivo a cloud da questo endpoint, è possibile usare qualsiasi meccanismo che funzioni con l'Hub eventi.
+Ogni hub IoT include un [endpoint](iot-hub-devguide-endpoints.md) predefinito compatibile con l'Hub eventi. Per leggere i messaggi da dispositivo a cloud da questo endpoint, è possibile usare qualsiasi meccanismo che funzioni con l'Hub eventi.
 
 ## <a name="cloud-gateway"></a>Gateway cloud
 Un gateway cloud abilita la connettività per i dispositivi che non possono connettersi direttamente a [Hub IoT](#iot-hub). Un gateway cloud, a differenza di un [gateway sul campo](#field-gateway) che viene eseguito in locale nei dispositivi, è ospitato nel cloud. Un caso d'uso tipico per il gateway cloud è l'implementazione della conversione dei protocolli per i dispositivi.
@@ -256,8 +257,3 @@ I dispositivi raccolgono dati di telemetria, ad esempio la velocità del vento o
 
 ## <a name="x509-client-certificate"></a>Certificato client X.509
 Un dispositivo può usare un certificato X.509 per autenticarsi con [Hub IoT](#iot-hub). Usare un certificato X.509 è un'alternativa all'uso di un [token di firma di accesso condiviso](#shared-access-signature).
-
-
-<!--HONumber=Feb17_HO2-->
-
-

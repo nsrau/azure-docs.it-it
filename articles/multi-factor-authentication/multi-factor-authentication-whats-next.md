@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 02/21/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 999361daa2faebe3e88cab0b6085a938d6f40e9d
-ms.openlocfilehash: c8a53cbbfdb0f3d5d5b4b3a1e70f2c08d50c6004
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 042b99a77fae0de2fe65113d9d909a443f5487d4
+ms.openlocfilehash: 3a6020b2c189b4ce9a930a18d78140b7bd8ff8ff
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurare le impostazioni di Azure Multi-Factor Authentication
 Le informazioni in questo articolo sono utili per gestire Azure Multi-Factor Authentication ora che si è operativi.  L'articolo illustra diversi argomenti che permettono di ottenere il massimo da Azure Multi-Factor Authentication.  Non tutte queste funzionalità sono disponibili in ogni versione di Azure Multi-Factor Authentication.
 
-| Funzionalità | Descrizione | |:--- |:--- || | [Avviso di illecito](#fraud-alert) |È possibile configurare e impostare un avviso di illecito in modo che gli utenti possano segnalare i tentativi illeciti di accesso alle risorse. | | [Bypass monouso](#one-time-bypass) |Un bypass monouso consente a un utente di eseguire l'autenticazione una sola volta "ignorando" l'autenticazione a più fattori. | | [Messaggi vocali personalizzati](#custom-voice-messages) |I messaggi vocali personalizzati permettono di usare registrazioni o messaggi introduttivi personalizzati con l'autenticazione a più fattori. | | [Memorizzazione nella cache](#caching-in-azure-multi-factor-authentication) |La memorizzazione nella cache consente di impostare un periodo di tempo specifico in modo che i tentativi di autenticazione successivi abbiano automaticamente esito positivo. | | [Indirizzi IP attendibili](#trusted-ips) |Gli indirizzi IP attendibili consentono agli amministratori di un tenant gestito o federato di ignorare la verifica in due passaggi per gli utenti che accedono dalla rete Intranet locale dell'azienda. | | [Password dell'app](#app-passwords) |Una password dell'app consente a un'applicazione che non riconosce MFA di ignorare l'autenticazione a più fattori e continuare a funzionare. | |  [Memorizza Multi-Factor Authentication per i dispositivi e browser memorizzati](#remember-multi-factor-authentication-for-devices-users-trust) | Consente di memorizzare dispositivi per un determinato numero di giorni dopo che un utente ha eseguito l'accesso tramite MFA. | | [Metodi di verifica selezionabili](#selectable-verification-methods) |Consente di scegliere i metodi di autenticazione disponibili per gli utenti. |
+| Funzionalità | Descrizione | |:--- |:--- || | [Avviso di illecito](#fraud-alert) |È possibile configurare e impostare un avviso di illecito in modo che gli utenti possano segnalare i tentativi illeciti di accesso alle risorse. | | [Bypass monouso](#one-time-bypass) |Un bypass monouso consente a un utente di eseguire l'autenticazione una sola volta "ignorando" l'autenticazione a più fattori. | | [Messaggi vocali personalizzati](#custom-voice-messages) |I messaggi vocali personalizzati permettono di usare registrazioni o messaggi introduttivi personalizzati con l'autenticazione a più fattori. | | [Memorizzazione nella cache](#caching-in-azure-multi-factor-authentication) |La memorizzazione nella cache consente di impostare un periodo di tempo specifico in modo che i tentativi di autenticazione successivi abbiano automaticamente esito positivo. | | [Indirizzi IP attendibili](#trusted-ips) |Gli indirizzi IP attendibili consentono agli amministratori di un tenant gestito o federato di ignorare la verifica in due passaggi per gli utenti che accedono dalla rete Intranet locale dell'azienda. | | [Password dell'app](#app-passwords) |Una password dell'app consente a un'applicazione che non riconosce MFA di ignorare l'autenticazione a più fattori e continuare a funzionare. | |  [Memorizza Multi-Factor Authentication per i dispositivi e browser memorizzati](#remember-multi-factor-authentication-for-devices-that-users-trust) | Consente di memorizzare dispositivi per un determinato numero di giorni dopo che un utente ha eseguito l'accesso tramite MFA. | | [Metodi di verifica selezionabili](#selectable-verification-methods) |Consente di scegliere i metodi di autenticazione disponibili per gli utenti. |
 
 ## <a name="access-the-azure-mfa-management-portal"></a>Accedere al portale di gestione di Azure MFA
 
@@ -164,7 +164,7 @@ La memorizzazione nella cache non può essere usata per gli accessi ad Azure AD.
 <center>![Cloud](./media/multi-factor-authentication-whats-next/cache.png)</center>
 
 ## <a name="trusted-ips"></a>Indirizzi IP attendibili
-Indirizzi IP attendibili è una funzionalità di Azure MFA che consente agli amministratori di un tenant gestito o federato di ignorare la verifica in due passaggi per gli utenti che accedono dalla rete Intranet locale dell'azienda. Questa funzionalità è disponibile con la versione completa di Azure Multi-Factor Authentication, ma non nella versione gratuita per amministratori. Per informazioni dettagliate su come ottenere la versione completa di Azure Multi-Factor Authentication, vedere [Come ottenere Azure Multi-Factor Authentication](multi-factor-authentication.md#how-to-get-azure-multi-factor-authentication).
+Indirizzi IP attendibili è una funzionalità di Azure MFA che consente agli amministratori di un tenant gestito o federato di ignorare la verifica in due passaggi per gli utenti che accedono dalla rete Intranet locale dell'azienda. Questa funzionalità è disponibile con la versione completa di Azure Multi-Factor Authentication, ma non nella versione gratuita per amministratori. Per informazioni dettagliate su come ottenere la versione completa di Azure Multi-Factor Authentication, vedere [Azure Multi-Factor Authentication](multi-factor-authentication.md).
 
 | Tipo di tenant di Azure AD | Opzioni disponibili per gli indirizzi IP attendibili |
 |:--- |:--- |
@@ -260,13 +260,18 @@ Gli utenti possono creare password dell'app anche dopo la registrazione, modific
 ## <a name="remember-multi-factor-authentication-for-devices-that-users-trust"></a>Memorizza Multi-Factor Authentication per i dispositivi considerati attendibili dagli utenti
 La memorizzazione di Multi-Factor Authentication per i dispositivi e i browser che gli utenti considerano attendibili è una funzionalità disponibile gratuitamente per tutti gli utenti di MFA. Con questa funzionalità gli utenti possono scegliere di ignorare MFA per un numero determinato di giorni dopo l'esecuzione di un accesso tramite MFA. Questo permette di migliorare l'usabilità, riducendo al minimo il numero di volte in cui un utente può eseguire la verifica in due passaggi nello stesso dispositivo.
 
+Tuttavia, se un dispositivo o un account viene compromesso, la memorizzazione di MFA per i dispositivi attendibili può influire sulla sicurezza. Se viene compromesso un account aziendale o un dispositivo attendibile viene smarrito o rubato, è necessario [ripristinare Multi-Factor Authentication su tutti i dispositivi](multi-factor-authentication-manage-users-and-devices.md#restore-mfa-on-all-remembered-devices-for-a-user). Questa azione revoca lo stato di attendibilità di tutti i dispositivi e l'utente deve eseguire nuovamente la verifica in due passaggi. È possibile anche istruire gli utenti a ripristinare Azure Multi-Factor Authentication sui propri dispositivi con le istruzioni disponibili in [Gestire le impostazioni per la verifica in due passaggi](./end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted)
+
+### <a name="how-it-works"></a>Funzionamento
+
+Si tenga presente che Multi-Factor Authentication imposta un cookie permanente nel browser quando l'utente seleziona la casella "Non visualizzare più il messaggio per **X** giorni" al momento dell'accesso. Quindi, fino alla scadenza del cookie, il browser non proporrà più all'utente la funzione Multi-Factor Authentication. Se l'utente apre un altro browser sullo stesso dispositivo o cancella il cookie, la verifica verrà richiesta di nuovo. 
+
+La casella di controllo "Non visualizzare più il messaggio per **X** giorni" non viene visualizzata sulle applicazioni diverse dai browser, indipendentemente dal fatto che supportino l'autenticazione moderna. Queste app usano token di aggiornamento che forniscono nuovi token di accesso ogni ora. Quando un token di aggiornamento viene convalidato, Azure AD controlla che l'ultima verifica in due passaggi sia stata eseguita entro il numero di giorni configurato. 
+
+Pertanto si tenga presente che MFA sui dispositivi attendibili riduce il numero di autenticazioni di App Web (la richiesta avviene in genere ogni volta) ma aumenta il numero di autenticazioni per i client con autenticazione moderna (la richiesta avviene normalmente ogni 90 giorni).
+
 > [!NOTE]
-> Questa funzionalità è implementata come una cache di cookie del browser. Non funziona se i cookie del browser non sono abilitati.
-
-Tuttavia, se un dispositivo o un account viene compromesso, la memorizzazione di MFA per i dispositivi attendibili può influire sulla sicurezza. Per garantire la sicurezza dell'account, è disponibile un'opzione che permette di ripristinare Multi-Factor Authentication in tutti i dispositivi. Ciò significa che tutti i dispositivi perdono lo stato di attendibilità e l'utente deve eseguire nuovamente la verifica in due passaggi. È necessario ripristinare Multi-Factor Authentication per i dispositivi in entrambi gli scenari seguenti:
-
-* Se l'account aziendale dell'utente è stato compromesso
-* Se un dispositivo memorizzato viene smarrito o rubato
+>Questa funzionalità non è compatibile con la funzionalità "Mantieni l'accesso" di ADFS quando gli utenti eseguono la verifica in due passaggi per ADFS tramite il Azure MFA Server o una soluzione MFA di terze parti. Se gli utenti selezionano "Mantieni l'accesso" su AD FS e inoltre contrassegnano il dispositivo come attendibile per l'autenticazione a più fattori, non saranno in grado di eseguire la verifica dopo che è passato il numero di giorni "Memorizzazione di MFA". Azure AD richiede una nuova verifica in due passaggi, ma AD FS restituisce un token con l'attestazione MFA e la data originali invece di eseguire di nuovo la verifica in due passaggi. Ciò attiva un ciclo di verifica tra Azure AD e AD FS. 
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Abilitare la funzionalità Memorizza Multi-Factor Authentication
 1. Accedere al [portale di Azure classico](https://portal.azure.com/).

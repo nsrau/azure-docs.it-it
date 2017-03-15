@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: d24fd29cfe453a12d72998176177018f322e64d8
-ms.openlocfilehash: 2000e2005533d4e4d4c7bba9d5168c395af1499f
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 3d5ad974c01e0ee3954da4f990da87338b2d1756
+ms.openlocfilehash: e41620d3192dbb77a26b79663494e441ccd96d40
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -169,9 +169,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 | post_logout_redirect_uri |consigliato |URL di destinazione al quale l'utente deve essere reindirizzato dopo la disconnessione.  Se omesso, all'utente viene visualizzato un messaggio generico. |
 
 ## <a name="single-sign-out"></a>Single Sign-Out
-Azure AD usa i cookie per identificare una sessione utente. L'applicazione Web potrebbe anche impostare i cookie per gestire sessioni all'interno dell'applicazione. Quando un utente accede la prima volta a un'applicazione, Azure AD imposta un cookie nel browser dell'utente. Quando l'utente accede successivamente a un'altra applicazione, Azure AD controlla prima il cookie per stabilire se l'utente dispone di una sessione di accesso valida nell'endpoint di Azure AD anziché ripetere l'autenticazione dell'utente.
-
-In modo analogo, quando l'utente si disconnette da un'applicazione, Azure AD cancella il cookie dal browser. L'utente può tuttavia essere ancora connesso ad altre applicazioni che usano Azure AD per l'autenticazione. Per verificare che l'utente si disconnetta da tutte le applicazioni, Azure AD invia una richiesta HTTP GET all'oggetto `LogoutUrl` di tutte le applicazioni a cui l'utente è attualmente connesso. Le applicazioni devono rispondere a questa richiesta cancellando tutti i cookie che identificano la sessione dell'utente. È possibile impostare `LogoutUrl` nel portale di Azure.
+Quando si reindirizza l'utente all'`end_session_endpoint`, Azure AD cancella la sessione dell'utente dal browser. L'utente può tuttavia essere ancora connesso ad altre applicazioni che usano Azure AD per l'autenticazione. Per consentire che tutte le applicazioni eseguano la disconnessione dell'utente simultaneamente, Azure AD invia una richiesta HTTP GET all'oggetto `LogoutUrl` registrato di tutte le applicazioni a cui l'utente è attualmente connesso. Le applicazioni devono rispondere a questa richiesta cancellando qualsiasi sessione che identifica l'utente e restituendo una risposta `200`.  Se si vuole supportare l'accesso Single Sign-Out nell'applicazione, è necessario implementare questo tipo di oggetto `LogoutUrl` nel codice dell'applicazione.  È possibile impostare `LogoutUrl` nel portale di Azure:
 
 1. Passare al [portale di Azure](https://portal.azure.com).
 2. Fare clic sull'account nell'angolo superiore destro della pagina per scegliere l'istanza di Active Directory.

@@ -37,7 +37,7 @@ Assegnare gli utenti di Collaborazione B2B a un'app come information worker in u
 
 Gli information worker possono aggiungere in modo simile gli utenti di Collaborazione B2B a un gruppo assegnato abilitato per la gestione gruppi self-service.
 > [!NOTE]
-Non è possibile aggiungere utenti di Collaborazione B2B a un gruppo dinamico o a un gruppo sincronizzato con Active Directory locale.
+> Non è possibile aggiungere utenti di Collaborazione B2B a un gruppo dinamico o a un gruppo sincronizzato con Active Directory locale.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

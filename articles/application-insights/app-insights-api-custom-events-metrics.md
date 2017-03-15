@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 08e2e0894810693696b326538a7449ddab30d2f8
-ms.openlocfilehash: 7b156e647bbf27fe31d9c89b764c6c1c363a8827
+ms.sourcegitcommit: 1330d8be444f596b0d1ed2038eaeb1200e8b9285
+ms.openlocfilehash: 6951a50050c5b0c8edb2deb1eb64aef44e94ff96
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -39,7 +40,7 @@ L'API è uniforme in tutte le piattaforme, a parte alcune variazioni di lieve en
 
 È possibile [associare proprietà e metriche](#properties) alla maggior parte di queste chiamate di telemetria.
 
-## <a name="a-nameprepabefore-you-start"></a><a name="prep"></a>Prima di iniziare
+## <a name="prep"></a>Prima di iniziare
 Se queste operazioni non sono state ancora eseguite, completarle:
 
 * Aggiungere Application Insights SDK al progetto:
@@ -399,12 +400,12 @@ In [Esplora metriche](app-insights-metrics-explorer.md) è possibile creare un g
 
 È anche possibile [cercare][diagnostic] i punti dati del client con account e nomi utente specifici.
 
-## <a name="a-namepropertiesafiltering-searching-and-segmenting-your-data-by-using-properties"></a><a name="properties"></a>Filtro, ricerca e segmentazione dei dati mediante le proprietà
+## <a name="properties"></a>Filtro, ricerca e segmentazione dei dati mediante le proprietà
 È possibile associare proprietà e misure agli eventi e anche a metriche, visualizzazioni pagine, eccezioni e altri dati di telemetria.
 
 *proprietà* sono valori di stringa che è possibile usare per filtrare i dati di telemetria nei report di utilizzo. Ad esempio, se l'app offre più giochi, è possibile associare il nome del gioco a ogni evento per vedere quali sono i giochi più diffusi.
 
-Esiste un limite pari a circa 1.000 per la lunghezza della stringa. Se si vogliono inviare grandi quantità di dati, usare il parametro del messaggio di [TrackTrace](#track-trace).
+Esiste un limite di 8192 per la lunghezza della stringa. Se si vogliono inviare grandi quantità di dati, usare il parametro del messaggio di [TrackTrace](#track-trace).
 
 *metriche* sono valori numerici che possono essere rappresentati graficamente. Ad esempio è possibile verificare se esiste un aumento graduale nei punteggi raggiunti dai giocatori. I grafici possono essere segmentati in base alle proprietà inviate con l'evento, in modo da ottenere grafici separati o in pila per giochi diversi.
 
@@ -516,7 +517,7 @@ Se si preferisce, è possibile raccogliere i parametri di un evento in un oggett
 >
 >
 
-## <a name="a-nametimeda-timing-events"></a><a name="timed"></a> Temporizzazione degli eventi
+## <a name="timed"></a> Temporizzazione degli eventi
 A volte si vuole rappresentare in un grafico il tempo necessario per eseguire un'azione. Ad esempio si potrebbe voler sapere quanto tempo occorre agli utenti per scegliere tra le opzioni disponibili in un gioco. Per questo è possibile usare il parametro di misurazione.
 
 *C#*
@@ -539,7 +540,7 @@ A volte si vuole rappresentare in un grafico il tempo necessario per eseguire un
 
 
 
-## <a name="a-namedefaultsadefault-properties-for-custom-telemetry"></a><a name="defaults"></a>Proprietà predefinite per i dati di telemetria personalizzati
+## <a name="defaults"></a>Proprietà predefinite per i dati di telemetria personalizzati
 Se si intende impostare solo i valori di proprietà predefiniti per alcuni degli eventi personalizzati scritti, è possibile impostarli in un'istanza di TelemetryClient. Vengono associati a ogni elemento di telemetria inviato da quel client.
 
 *C#*
@@ -604,7 +605,7 @@ Per *avviare e arrestare in modo dinamico* la raccolta e la trasmissione di dati
 
 Per *disabilitare gli agenti di raccolta standard selezionati*, ad esempio i contatori delle prestazioni, delle richieste HTTP o delle dipendenze, eliminare o impostare come commento le righe pertinenti in [Applicationinsights.config][config]. Ad esempio è possibile eseguire questa operazione se si desidera inviare i propri dati TrackRequest.
 
-## <a name="a-namedebugadeveloper-mode"></a><a name="debug"></a>Modalità di sviluppo
+## <a name="debug"></a>Modalità di sviluppo
 Durante il debug, è utile accelerare i dati di telemetria venga nella pipeline in modo da visualizzare immediatamente i risultati. È possibile che vengano visualizzati anche altri messaggi che consentono di tracciare eventuali problemi con i dati di telemetria. Disattivare questa modalità in fase di produzione poiché potrebbe rallentare l'app.
 
 *C#*
@@ -616,7 +617,7 @@ Durante il debug, è utile accelerare i dati di telemetria venga nella pipeline 
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 
 
-## <a name="a-nameikeya-setting-the-instrumentation-key-for-selected-custom-telemetry"></a><a name="ikey"></a> Impostazione della chiave di strumentazione per la telemetria personalizzata selezionata
+## <a name="ikey"></a> Impostazione della chiave di strumentazione per la telemetria personalizzata selezionata
 *C#*
 
     var telemetry = new TelemetryClient();
@@ -624,7 +625,7 @@ Durante il debug, è utile accelerare i dati di telemetria venga nella pipeline 
     // ...
 
 
-## <a name="a-namedynamic-ikeya-dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a> Chiave di strumentazione dinamica
+## <a name="dynamic-ikey"></a> Chiave di strumentazione dinamica
 Per evitare di combinare i dati di telemetria di ambienti di sviluppo, test e produzione, è possibile [creare risorse distinte di Application Insights][create] e modificare le relative chiavi a seconda dell'ambiente.
 
 Invece di ottenere la chiave di strumentazione dal file di configurazione, è possibile impostarla nel codice. Impostare la chiave in un metodo di inizializzazione, ad esempio global.aspx.cs in un servizio ASP.NET:
@@ -709,7 +710,7 @@ Per determinare quanto tempo i dati vengono conservati, vedere [Raccolta, conser
 
     Sì, l'[API di accesso ai dati](https://dev.applicationinsights.io/). Altri modi per estrarre i dati sono l'[esportazione da Analytics a Power BI](app-insights-export-power-bi.md) e l'[esportazione continua](app-insights-export-telemetry.md).
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Passaggi successivi
+## <a name="next"></a>Passaggi successivi
 * [Cercare eventi e log][diagnostic]
 
 * [Esempi e procedure dettagliate](app-insights-code-samples.md)
@@ -729,9 +730,4 @@ Per determinare quanto tempo i dati vengono conservati, vedere [Raccolta, conser
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
 [trace]: app-insights-search-diagnostic-logs.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

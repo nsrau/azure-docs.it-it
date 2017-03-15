@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/17/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: b520b4672dd403981d218c9855c3beb09ef55021
-ms.openlocfilehash: 6da28e6273d92445e4b14ea22752a6e59b1dd93a
+ms.sourcegitcommit: d7e635f7e84ac53399309bf4ec8a7fa9e70e3728
+ms.openlocfilehash: aa18efb0c622ae38eea0de28f25c72788e6d0f20
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -192,103 +193,135 @@ Negli scenari di esempio verranno creati, aggiornati, collegati ed eliminati cri
 
 1. Per iniziare, scaricare la [versione di anteprima dei cmdlet Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview) più recente. 
 2. Quando si hanno a disposizione i cmdlet Azure AD PowerShell, eseguire il comando Connect per accedere all'account amministratore di Azure AD. Questa operazione dovrà essere eseguita ogni volta che si avvia una nuova sessione.
-   
-     Connect-AzureAD -Confirm
+
+    ```PowerShell
+    Connect-AzureAD -Confirm
+    ```
+
 3. Eseguire questo comando per visualizzare tutti i criteri creati per l'organizzazione.  Questo comando deve essere usato dopo la maggior parte delle operazioni negli scenari indicato di seguito  e consentirà anche di ottenere l'**ID oggetto** dei criteri. 
    
-     Get-AzureADPolicy
+    ```PowerShell
+    Get-AzureADPolicy
+    ```
 
 ### <a name="sample-managing-a-organizations-default-policy"></a>Esempio: Gestione dei criteri predefiniti di un'organizzazione
 In questo esempio verranno creati i criteri che consentono agli utenti di effettuare l'accesso con una frequenza minore nell'ambito dell'intera organizzazione. 
 
 A tale scopo, vengono creati i criteri per la durata dei token di aggiornamento a fattore singolo che vengono applicati all'organizzazione. Questi criteri verranno applicati a ogni applicazione nell'organizzazione e a ogni entità servizio per cui ancora non sono impostati criteri. 
 
-1. **Creare i criteri per la durata dei token.** 
+#### <a name="1-create-a-token-lifetime-policy"></a>1. Creare i criteri per la durata dei token.
 
 Impostare il token di aggiornamento a fattore singolo su "until-revoked", in modo tale che il token non scadrà fino a quando non verrà revocato l'accesso.  Di seguito è indicata la definizione dei criteri che verrà creata:
 
-        @("{
-          `"TokenLifetimePolicy`":
-              {
-                 `"Version`":1, 
-                 `"MaxAgeSingleFactor`":`"until-revoked`"
-              }
-        }")
+```PowerShell
+@('{
+    "TokenLifetimePolicy":
+    {
+        "Version":1, 
+        "MaxAgeSingleFactor":"until-revoked"
+    }
+}')
+```
 
 Eseguire quindi il comando indicato di seguito per creare i criteri. 
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1, `"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName OrganizationDefaultPolicyScenario -IsOrganizationDefault $true -Type TokenLifetimePolicy
+```PowerShell
+New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
+```
 
 Per visualizzare i nuovi criteri e ottenere il relativo ObjectID, eseguire il comando indicato di seguito.
 
-    Get-AzureADPolicy
-&nbsp;&nbsp;2.    **Aggiornare i criteri**
+```PowerShell
+Get-AzureADPolicy
+```
+
+#### <a name="2-update-the-policy"></a>2. Aggiornare i criteri
 
 Si ritiene che i primi criteri non sono abbastanza rigidi per il servizio e si desidera fare in modo che i token di aggiornamento a fattore singolo scadano dopo 2 giorni. Eseguire il comando indicato di seguito. 
 
-    Set-AzureADPolicy -ObjectId <ObjectID FROM GET COMMAND> -DisplayName OrganizationDefaultPolicyUpdatedScenario -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"2.00:00:00`"}}")
+```PowerShell
+Set-AzureADPolicy -ObjectId <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
+```
 
-&nbsp;&nbsp;3. **L'operazione è ora completata.** 
+#### <a name="3-youre-done"></a>3. L'operazione è completata. 
 
 ### <a name="sample-creating-a-policy-for-web-sign-in"></a>Esempio. Creazione di criteri per l'accesso Web
+
 In questo esempio verranno creati i criteri in base ai quali verrà richiesto agli utenti di eseguire più spesso l'autenticazione all'app Web. Questi criteri consentiranno di impostare la durata dei token di accesso/ID e la validità massima di un token di sessione a più fattori per l'entità servizio dell'app Web.
 
-1. **Creare i criteri per la durata dei token.**
+#### <a name="1-create-a-token-lifetime-policy"></a>1. Creare i criteri per la durata dei token.
 
 Questi criteri per l'accesso Web consentiranno di impostare la durata dei token di accesso/ID e la validità massima di un token di sessione a fattore singolo su 2 ore.
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"AccessTokenLifetime`":`"02:00:00`",`"MaxAgeSessionSingleFactor`":`"02:00:00`"}}") -DisplayName WebPolicyScenario -IsOrganizationDefault $false -Type TokenLifetimePolicy
+```PowerShell
+New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+```
 
 Per visualizzare i nuovi criteri e ottenere il relativo ObjectID, eseguire il comando indicato di seguito.
 
-    Get-AzureADPolicy
-&nbsp;&nbsp;2.    **Assegnare i criteri all'entità servizio.**
+```PowerShell
+Get-AzureADPolicy
+```
+
+#### <a name="2-assign-the-policy-to-your-service-principal"></a>2. Assegnare i criteri all'entità servizio.
 
 I nuovi criteri verranno collegati a un'entità servizio  e sarà anche necessario poter accedere a **ObjectId** di tale entità. Per visualizzare tutte le entità servizio dell'organizzazione, è possibile eseguire una query su [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) o passare allo [strumento Graph Explorer](https://graphexplorer.cloudapp.net/) e accedere all'account Azure AD. 
 
 Dopo aver recuperato l'elemento **ObjectId**, eseguire il comando indicato di seguito.
 
-    Add-AzureADServicePrincipalPolicy -ObjectId <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
-&nbsp;&nbsp;3.    **L'operazione è ora completata.** 
+```PowerShell
+Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+```
 
- 
+#### <a name="3-youre-done"></a>3. Operazione completata 
 
 ### <a name="sample-creating-a-policy-for-native-apps-calling-a-web-api"></a>Esempio. Creazione di criteri per app native tramite la chiamata a un'API Web
 In questo esempio verranno creati i criteri in base ai quali verrà richiesto agli utenti di eseguire l'autenticazione con una frequenza minore e verrà aumentato il tempo di inattività consentito prima di dover eseguire di nuovo l'autenticazione. Tali criteri verranno applicati all'API Web, in modo tale da essere applicati quando l'app nativa richiederà tale API come risorsa.
 
-1. **Creare i criteri per la durata dei token.** 
+#### <a name="1-create-a-token-lifetime-policy"></a>1. Creare i criteri per la durata dei token. 
 
 Questo comando consente di creare criteri rigidi per un'API Web. 
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"30.00:00:00`",`"MaxAgeMultiFactor`":`"until-revoked`",`"MaxAgeSingleFactor`":`"180.00:00:00`"}}") -DisplayName WebApiDefaultPolicyScenario -IsOrganizationDefault $false -Type TokenLifetimePolicy
+```PowerShell
+New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+```
 
 Per visualizzare i nuovi criteri e ottenere il relativo ObjectID, eseguire il comando indicato di seguito.
 
-    Get-AzureADPolicy
+```PowerShell
+Get-AzureADPolicy
+```
 
-&nbsp;&nbsp;2.    **Assegnare i criteri all'API Web**.
+#### <a name="2-assign-the-policy-to-your-web-api"></a>2. Assegnare i criteri all'API Web.
 
 I nuovi criteri verranno collegati a un'applicazione  e sarà anche necessario poter accedere a **ObjectId** di tale applicazione. Il modo migliore per trovare l'elemento **ObjectId** dell'app è usando il [portale di Azure](https://portal.azure.com/). 
 
 Dopo aver recuperato l'elemento **ObjectId**, eseguire il comando indicato di seguito.
 
-    Add-AzureADApplicationPolicy -ObjectId <ObjectID of the App> -RefObjectId <ObjectId of the Policy>
+```PowerShell
+Add-AzureADApplicationPolicy -ObjectId <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
+```
 
-&nbsp;&nbsp;3.    **L'operazione è ora completata.** 
+#### <a name="3-youre-done"></a>3. Operazione completata 
 
 ### <a name="sample-managing-an-advanced-policy"></a>Esempio. Gestione di criteri avanzati
 In questo esempio verranno creati alcuni criteri che consentiranno di dimostrare come funziona il sistema di priorità e come è possibile gestire più criteri applicati a diversi oggetti. Verranno fornite informazioni sulla priorità dei criteri descritti in precedenza e verranno indicati dettagli utili per gestire scenari più complicati. 
 
-1. **Creare i criteri per la durata dei token.**
+#### <a name="1-create-a-token-lifetime-policy"></a>1. Creare i criteri per la durata dei token.
 
 Questa operazione è abbastanza semplice. Sono stati creati i criteri predefiniti di un'organizzazione, in base ai quali la durata dei token di aggiornamento a fattore singolo è impostata su 30 giorni. 
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"30.00:00:00`"}}") -DisplayName ComplexPolicyScenario -IsOrganizationDefault $true -Type TokenLifetimePolicy
+```PowerShell
+New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
+```
+
 Per visualizzare i nuovi criteri e ottenere il relativo ObjectID, eseguire il comando indicato di seguito.
 
-    Get-AzureADPolicy
+```PowerShell
+Get-AzureADPolicy
+```
 
-&nbsp;&nbsp;2.    **Assegnare i criteri a un'entità servizio**
+#### <a name="2-assign-the-policy-to-a-service-principal"></a>2. Assegnare i criteri a un'entità servizio.
 
 Sono ora disponibili criteri per l'intera organizzazione.  Si supponga di voler conservare tali criteri della durata di 30 giorni per un'entità servizio specifica, impostando però i criteri predefiniti dell'organizzazione sul valore limite superiore, ovvero "until-revoked" (fino a revoca). 
 
@@ -296,84 +329,104 @@ Come prima operazione, i nuovi criteri verranno collegati a un'entità servizio 
 
 Dopo aver recuperato l'elemento **ObjectId**, eseguire il comando indicato di seguito.
 
-    Add-AzureADServicePrincipalPolicy -ObjectId <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
+```PowerShell
+Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+```
 
-&nbsp;&nbsp;3.    **Impostare il flag IsOrganizationDefault su false usando il comando seguente**. 
+#### <a name="3-set-the-isorganizationdefault-flag-to-false"></a>3. Impostare il flag IsOrganizationDefault su false.
 
-    Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName ComplexPolicyScenario -IsOrganizationDefault $false
-&nbsp;&nbsp;4.    **Creare nuovi criteri predefiniti di un'organizzazione**
+```PowerShell
+Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
+```
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName ComplexPolicyScenarioTwo -IsOrganizationDefault $true -Type TokenLifetimePolicy
+#### <a name="4-create-a-new-organization-default-policy"></a>4. Creare nuovi criteri predefiniti di un'organizzazione.
 
-&nbsp;&nbsp;5.     **L'operazione è ora completata.** 
+```PowerShell
+New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "ComplexPolicyScenarioTwo" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
+```
+
+#### <a name="5-youre-done"></a>5. Operazione completata 
 
 I criteri originali sono ora collegati all'entità servizio e i nuovi criteri sono impostati come criteri predefiniti dell'organizzazione.  È importante ricordare che i criteri applicati alle entità servizio hanno priorità rispetto a quelli predefiniti dell'organizzazione. 
 
 ## <a name="cmdlet-reference"></a>Informazioni di riferimento sui cmdlet
+
 ### <a name="manage-policies"></a>Gestire i criteri
-I cmdlet riportati di seguito possono essere usati per gestire i criteri.</br></br>
+
+I cmdlet riportati di seguito possono essere usati per gestire i criteri.
 
 #### <a name="new-azureadpolicy"></a>New-AzureADPolicy
+
 Crea nuovi criteri.
 
-    New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type> 
+```PowerShell
+New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type> 
+```
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| -Definition |Matrice dell'oggetto stringified JSON contenente tutte le regole dei criteri. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
-| -DisplayName |Stringa relativa al nome dei criteri |-DisplayName MyTokenPolicy |
-| -IsOrganizationDefault |Se true, imposta i criteri come criteri predefiniti dell'organizzazione, se false non esegue alcuna operazione |-IsOrganizationDefault $true |
-| -Type |Tipo di criteri. Per la durata del token usare sempre "TokenLifetimePolicy" |-Type TokenLifetimePolicy |
-| -AlternativeIdentifier [facoltativo] |Imposta un ID alternativo per i criteri. |-AlternativeIdentifier myAltId |
+| <code>&#8209;Definition</code> |Matrice dell'oggetto stringified JSON contenente tutte le regole dei criteri. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;DisplayName</code> |Stringa relativa al nome dei criteri |`-DisplayName "MyTokenPolicy"` |
+| <code>&#8209;IsOrganizationDefault</code> |Se true, imposta i criteri come criteri predefiniti dell'organizzazione, se false non esegue alcuna operazione |`-IsOrganizationDefault $true` |
+| <code>&#8209;Type</code> |Tipo di criteri. Per la durata del token usare sempre "TokenLifetimePolicy" | `-Type "TokenLifetimePolicy"` |
+| <code>&#8209;AlternativeIdentifier</code>[Facoltativo] |Imposta un ID alternativo per i criteri. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
 #### <a name="get-azureadpolicy"></a>Get-AzureADPolicy
 Ottiene tutti i criteri AzureAD o i criteri specificati 
 
-    Get-AzureADPolicy 
+```PowerShell
+Get-AzureADPolicy 
+```
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| -ObjectId [facoltativo] |ID oggetto dei criteri che si desidera ottenere. |-ObjectId &lt;ObjectID dei criteri&gt; |
+| <code>&#8209;ObjectId</code>[Facoltativo] |ObjectID dei criteri da ottenere. |`-ObjectId <ObjectId of Policy>` |
 
 </br></br>
 
 #### <a name="get-azureadpolicyappliedobject"></a>Get-AzureADPolicyAppliedObject
 Ottiene tutte le app e le entità servizio collegate a criteri specifici
 
-    Get-AzureADPolicyAppliedObject -ObjectId <object id of policy> 
+```PowerShell
+Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of Policy> 
+```
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| -ObjectId |ID oggetto dei criteri che si desidera ottenere. |-ObjectId &lt;ObjectID dei criteri&gt; |
+| <code>&#8209;ObjectId</code> |ObjectID dei criteri da ottenere. |`-ObjectId <ObjectId of Policy>` |
 
 </br></br>
 
 #### <a name="set-azureadpolicy"></a>Set-AzureADPolicy
 Aggiorna i criteri esistenti
 
-    Set-AzureADPolicy -ObjectId <object id of policy> -DisplayName <string> 
+```PowerShell
+Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName <string> 
+```
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| -ObjectId |ID oggetto dei criteri che si desidera ottenere. |-ObjectId &lt;ObjectID dei criteri&gt; |
-| -DisplayName |Stringa relativa al nome dei criteri |-DisplayName MyTokenPolicy |
-| -Definition [facoltativo] |Matrice dell'oggetto stringified JSON contenente tutte le regole dei criteri. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
-| -IsOrganizationDefault [facoltativo] |Se true, imposta i criteri come criteri predefiniti dell'organizzazione, se false non esegue alcuna operazione |-IsOrganizationDefault $true |
-| -Type [facoltativo] |Tipo di criteri. Per la durata del token usare sempre "TokenLifetimePolicy" |-Type TokenLifetimePolicy |
-| -AlternativeIdentifier [facoltativo] |Imposta un ID alternativo per i criteri. |-AlternativeIdentifier myAltId |
+| <code>&#8209;ObjectId</code> |ObjectID dei criteri da ottenere. |`-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;DisplayName</code> |Stringa relativa al nome dei criteri |`-DisplayName "MyTokenPolicy"` |
+| <code>&#8209;Definition</code>[Facoltativo] |Matrice dell'oggetto stringified JSON contenente tutte le regole dei criteri. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;IsOrganizationDefault</code>[Facoltativo] |Se true, imposta i criteri come criteri predefiniti dell'organizzazione, se false non esegue alcuna operazione |`-IsOrganizationDefault $true` |
+| <code>&#8209;Type</code>[Facoltativo] |Tipo di criteri. Per la durata del token usare sempre "TokenLifetimePolicy" |`-Type "TokenLifetimePolicy"` |
+| <code>&#8209;AlternativeIdentifier</code>[Facoltativo] |Imposta un ID alternativo per i criteri. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
 #### <a name="remove-azureadpolicy"></a>Remove-AzureADPolicy
 Elimina i criteri specificati
 
-     Remove-AzureADPolicy -ObjectId <object id of policy>
+```PowerShell
+ Remove-AzureADPolicy -ObjectId <ObjectId of Policy>
+```
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| -ObjectId |ID oggetto dei criteri che si desidera ottenere. |-ObjectId &lt;ObjectID dei criteri&gt; |
+| <code>&#8209;ObjectId</code> |ObjectID dei criteri da ottenere. | `-ObjectId <ObjectId of Policy>` |
 
 </br></br>
 
@@ -383,35 +436,41 @@ I cmdlet riportati di seguito possono essere usati per i criteri dell'applicazio
 #### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicationPolicy
 Collega i criteri specificati a un'applicazione
 
-    Add-AzureADApplicationPolicy -ObjectId <object id of application> -RefObjectId <object id of policy>
+```PowerShell
+Add-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -RefObjectId <ObjectId of Policy>
+```
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| -ObjectId |ID oggetto dell'applicazione. |-ObjectId &lt;ObjectID dell'applicazione&gt; |
-| -RefObjectId |ID oggetto dei criteri. |-RefObjectId &lt;ObjectID dei criteri&gt; |
+| <code>&#8209;ObjectId</code> |ObjectID dell'applicazione. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;RefObjectId</code> |ObjectID dei criteri. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
 
 #### <a name="get-azureadapplicationpolicy"></a>Get-AzureADApplicationPolicy
 Ottiene i criteri assegnati a un'applicazione
 
-    Get-AzureADApplicationPolicy -ObjectId <object id of application>
+```PowerShell
+Get-AzureADApplicationPolicy -ObjectId <ObjectId of Application>
+```
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| -ObjectId |ID oggetto dell'applicazione. |-ObjectId &lt;ObjectID dell'applicazione&gt; |
+| <code>&#8209;ObjectId</code> |ObjectID dell'applicazione. | `-ObjectId <ObjectId of Application>` |
 
 </br></br>
 
 #### <a name="remove-azureadapplicationpolicy"></a>Remove-AzureADApplicationPolicy
 Rimuove i criteri da un'applicazione
 
-    Remove-AzureADApplicationPolicy -ObjectId <object id of application> -PolicyId <object id of policy>
+```PowerShell
+Remove-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -PolicyId <ObjectId of Policy>
+```
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| -ObjectId |ID oggetto dell'applicazione. |-ObjectId &lt;ObjectID dell'applicazione&gt; |
-| -PolicyId |ObjectId dei criteri. |-PolicyId &lt;ObjectID dei criteri&gt; |
+| <code>&#8209;ObjectId</code> |ObjectID dell'applicazione. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;PolicyId</code> |ObjectID dei criteri. | `-PolicyId <ObjectId of Policy>` |
 
 </br></br>
 
@@ -421,39 +480,40 @@ I cmdlet riportati di seguito possono essere usati per i criteri dell'entità se
 #### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy
 Collega i criteri specificati a un'entità servizio
 
-    Add-AzureADServicePrincipalPolicy -ObjectId <object id of service principal> -RefObjectId <object id of policy>
+```PowerShell
+Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
+```
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| -ObjectId |ID oggetto dell'applicazione. |-ObjectId &lt;ObjectID dell'applicazione&gt; |
-| -RefObjectId |ID oggetto dei criteri. |-RefObjectId &lt;ObjectID dei criteri&gt; |
+| <code>&#8209;ObjectId</code> |ObjectID dell'applicazione. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;RefObjectId</code> |ObjectID dei criteri. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
 
 #### <a name="get-azureadserviceprincipalpolicy"></a>Get-AzureADServicePrincipalPolicy
 Ottiene i criteri collegati all'entità servizio specificata
 
-    Get-AzureADServicePrincipalPolicy -ObjectId <object id of service principal>
+```PowerShell
+Get-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>
+```
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| -ObjectId |ID oggetto dell'applicazione. |-ObjectId &lt;ObjectID dell'applicazione&gt; |
+| <code>&#8209;ObjectId</code> |ObjectID dell'applicazione. | `-ObjectId <ObjectId of Application>` |
 
 </br></br>
 
 #### <a name="remove-azureadserviceprincipalpolicy"></a>Remove-AzureADServicePrincipalPolicy
 Rimuove i criteri dall'entità servizio specificata
 
-    Remove-AzureADServicePrincipalPolicy -ObjectId <object id of service principal>  -PolicyId <object id of policy>
+```PowerShell
+Remove-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
+```
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| -ObjectId |ID oggetto dell'applicazione. |-ObjectId &lt;ObjectID dell'applicazione&gt; |
-| -PolicyId |ObjectId dei criteri. |-PolicyId &lt;ObjectID dei criteri&gt; |
-
-
-
-
-<!--HONumber=Jan17_HO3-->
+| <code>&#8209;ObjectId</code> |ObjectID dell'applicazione. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;PolicyId</code> |ObjectID dei criteri. | `-PolicyId <ObjectId of Policy>` |
 
 

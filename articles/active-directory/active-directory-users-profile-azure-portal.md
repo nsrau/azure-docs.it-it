@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/24/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bf8930a73c334265c828cd01ca1910201b231f3b
+ms.sourcegitcommit: 0dc1f1ef73334187fe76302ff3bd5a5446dec768
+ms.openlocfilehash: 21370f9c30ac1dcaa979ab9724155c91bda128f7
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -27,7 +28,7 @@ Questo articolo illustra come aggiungere informazioni sul profilo utente, ad ese
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
 2. Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi premere **INVIO**.
 
-   ![Apertura di Gestione utenti](./media/active-directory-users-profile-azure-portal/create-users-user-management.png)
+   ![Apertura del pannello Utenti e gruppi](./media/active-directory-users-profile-azure-portal/create-users-user-management.png)
 3. Nel pannello **Utenti e gruppi** selezionare **Utenti**.
 
    ![Apertura del pannello Utenti](./media/active-directory-users-profile-azure-portal/create-users-open-users-blade.png)
@@ -43,9 +44,4 @@ Questo articolo illustra come aggiungere informazioni sul profilo utente, ad ese
 * [Assegnare un utente ai ruoli di amministratore in anteprima di Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * [Aggiungere o modificare informazioni sul profilo per un utente in anteprima di Azure Active Directory](active-directory-users-work-info-azure-portal.md)
 * [Eliminare un utente da una directory in anteprima di Azure Active Directory](active-directory-users-delete-user-azure-portal.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

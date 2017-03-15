@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 1cef7ff21a8d076c89688f1fe75cebdb7c468199
-ms.openlocfilehash: 11b14aee1ef28cd29976b138919ccea8b4763016
+ms.sourcegitcommit: 1c22e4fc17226578aaaf272fdf79178da65c63c2
+ms.openlocfilehash: e3a93cc039d4e24d19f2df2d859c5899cd2a402e
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -35,7 +36,7 @@ Lo scenario descritto in questa esercitazione include i blocchi predefiniti segu
 3. Configurazione del provisioning utente
 4. Assegnazione degli utenti
 
-![Configura accesso Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/IC798965.png "Configure Single Sign-On")
+![Configurare l'accesso Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/IC798965.png "Configurare l'accesso Single Sign-On")
 
 ## <a name="enabling-the-application-integration-for-tinfoil-security"></a>Abilitazione dell'integrazione dell'applicazione per Tinfoil Security
 In questa sezione viene descritto come abilitare l'integrazione dell'applicazione per Tinfoil Security.
@@ -49,19 +50,19 @@ In questa sezione viene descritto come abilitare l'integrazione dell'applicazion
 
 3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
    
-    ![Applications](./media/active-directory-saas-tinfoil-security-tutorial/IC700994.png "Applications")
+    ![Applicazioni](./media/active-directory-saas-tinfoil-security-tutorial/IC700994.png "Applicazioni")
 
 4. Fare clic su **Add** nella parte inferiore della pagina.
    
-    ![Aggiungi applicazione](./media/active-directory-saas-tinfoil-security-tutorial/IC749321.png "Add application")
+    ![Aggiungere un'applicazione](./media/active-directory-saas-tinfoil-security-tutorial/IC749321.png "Aggiungere un'applicazione")
 
 5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
    
-    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-tinfoil-security-tutorial/IC749322.png "Add an application from gallerry")
+    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-tinfoil-security-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
 
 6. Nella **casella di ricerca** digitare **Tinfoil Security**.
    
-    ![Raccolta di applicazioni](./media/active-directory-saas-tinfoil-security-tutorial/IC798966.png "Application Gallery")
+    ![Raccolta di applicazioni](./media/active-directory-saas-tinfoil-security-tutorial/IC798966.png "Raccolta di applicazioni")
 
 7. Nel riquadro dei risultati selezionare **Tinfoil Security**, quindi fare clic su **Completa** per aggiungere l'applicazione.
    
@@ -75,11 +76,11 @@ Se non si ha familiarità con questa procedura, vedere [Procedura: recuperare l'
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Per configurare l'accesso Single Sign-On, seguire questa procedura:
 1. Nella pagina di integrazione dell'applicazione **Tinfoil Security** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/IC798967.png "Configure Single Sign-On")
+    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/IC798967.png "Configurare l'accesso Single Sign-On")
 
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Tinfoil Security** selezionare **Single Sign-On di Microsoft Azure AD**, quindi fare clic su **Avanti**.
    
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/IC798968.png "Configure Single Sign-On")
+    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/IC798968.png "Configurare l'accesso Single Sign-On")
 
 3. Nella casella di testo **URL di risposta di Tinfoil Security** della pagina **Configura URL app** digitare l'URL del proprio servizio consumer di asserzione (ACS) Tinfoil Security, ad esempio: "*https://www.tinfoilsecurity.com/saml/consume*", quindi fare clic su **Avanti**.
    
@@ -88,11 +89,11 @@ Se non si ha familiarità con questa procedura, vedere [Procedura: recuperare l'
     > 
     > 
    
-    ![Configura URL app](./media/active-directory-saas-tinfoil-security-tutorial/IC798969.png "Configure App URL")
+    ![Configurare l'URL dell'app](./media/active-directory-saas-tinfoil-security-tutorial/IC798969.png "Configurare l'URL dell'app")
 
 4. Nella pagina **Configura accesso Single Sign-On in Tinfoil Security**, per scaricare il file del certificato, fare clic su **Scarica certificato**, quindi salvarlo localmente come **C:\\Tinfoil Security.cer**.
    
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/IC798970.png "Configure Single Sign-On")
+    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/IC798970.png "Configurare l'accesso Single Sign-On")
 
 5. In un'altra finestra del Web browser accedere al sito aziendale di Tinfoil Security come amministratore.
 
@@ -100,9 +101,9 @@ Se non si ha familiarità con questa procedura, vedere [Procedura: recuperare l'
    
     ![Dashboard](./media/active-directory-saas-tinfoil-security-tutorial/IC798971.png "Dashboard")
 
-7. Fare clic su **Sicurezza**.
+7. Fare clic su **Security**.
    
-    ![Sicurezza](./media/active-directory-saas-tinfoil-security-tutorial/IC798972.png "Security")
+    ![Sicurezza](./media/active-directory-saas-tinfoil-security-tutorial/IC798972.png "Sicurezza")
 
 8. Nella pagina di configurazione **Single Sign-On** eseguire la procedura seguente:
    
@@ -127,15 +128,15 @@ Se non si ha familiarità con questa procedura, vedere [Procedura: recuperare l'
 
 9. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Complete** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
    
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/IC798974.png "Configure Single Sign-On")
+    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-tinfoil-security-tutorial/IC798974.png "Configurare l'accesso Single Sign-On")
 
 10. Nel menu in alto fare clic su **Attributi** to open the **SAML Token Attributi** .
     
-    ![Attributi](./media/active-directory-saas-tinfoil-security-tutorial/IC795920.png "Attributes")
+    ![Attributi](./media/active-directory-saas-tinfoil-security-tutorial/IC795920.png "Attributi")
 
 11. Per aggiungere i mapping di attributi obbligatori, eseguire la procedura seguente:
     
-    ![Attributi](./media/active-directory-saas-tinfoil-security-tutorial/IC798975.png "Attributes")
+    ![Attributi](./media/active-directory-saas-tinfoil-security-tutorial/IC798975.png "Attributi")
     
     a. Fare clic su **Aggiungi attributo utente**.
 
@@ -167,17 +168,12 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 1. Nel portale di Azure classico creare un account di test.
 2. Nella pagina di integrazione dell'applicazione **Tinfoil Security** fare clic su **Assegna utenti**.
    
-    ![Assegna utenti](./media/active-directory-saas-tinfoil-security-tutorial/IC798976.png "Assign Users")
+    ![Assegnare utenti](./media/active-directory-saas-tinfoil-security-tutorial/IC798976.png "Assegnare utenti")
 
 3. Selezionare l'utente di test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
    
-    ![Sì](./media/active-directory-saas-tinfoil-security-tutorial/IC767830.png "Yes")
+    ![Sì](./media/active-directory-saas-tinfoil-security-tutorial/IC767830.png "Sì")
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

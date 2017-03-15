@@ -12,20 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 02/26/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 93e3c336fd481b1dc080c0f042e674718fb7c701
+ms.sourcegitcommit: a410fb385ed2960139987a71236b7f84a32c8099
+ms.openlocfilehash: 5e640983825fb521a00b84518eca76f007224269
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workrite"></a>Esercitazione: Integrazione di Azure Active Directory con Workrite
-Questa esercitazione descrive l'integrazione di Workrite con Azure Active Directory (Azure AD).  
+Questa esercitazione descrive l'integrazione di Workrite con Azure Active Directory (Azure AD).
+
 L'integrazione di Workrite con Azure AD offre i vantaggi seguenti: 
 
 * È possibile controllare in Azure AD chi può accedere a Workrite. 
-* È possibile abilitare gli utenti per l'accesso automatico a Workrite (Single Sign-On) con i propri account Azure AD.
+* È possibile abilitare gli utenti per l'accesso automatico a Workrite (Single Sign-On) con i propri account Azure AD
 * È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -34,24 +36,24 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 Per configurare l'integrazione di Azure AD con Workrite, sono necessari gli elementi seguenti:
 
 * Sottoscrizione di Azure AD.
-* Sottoscrizione di Workrite abilitata per l'accesso Single Sign-On
+* Sottoscrizione di Workrite abilitata per l'accesso Single Sign-On (SSO)
 
-> [!NOTE]
-> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
-> 
+>[!NOTE]
+>Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione. 
 > 
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 * Non usare l'ambiente di produzione, a meno che non sia necessario.
-* Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/). 
+* Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test.  
+L'obiettivo di questa esercitazione è quello di testare l'accesso Single Sign-On (SSO) di Azure AD in un ambiente di test.
+
 Lo scenario descritto in questa esercitazione è costituito da tre blocchi principali:
 
 1. Aggiunta di Workrite dalla raccolta 
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+2. Configurazione e test dell'accesso Single Sign-On (SSO) di Microsoft Azure AD
 
 ## <a name="adding-workrite-from-the-gallery"></a>Aggiunta di Workrite dalla raccolta
 Per configurare l'integrazione di Workrite in Azure AD, è necessario aggiungere Workrite dalla raccolta al proprio elenco di app SaaS gestite.
@@ -78,24 +80,25 @@ Per configurare l'integrazione di Workrite in Azure AD, è necessario aggiungere
    
     ![Applicazioni][500]
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
+## <a name="configure-and-test-azure-ad-sso"></a>Configurare e testare l'accesso Single Sign-On (SSO) di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Workrite in base a un utente test di nome "Britta Simon".
 
 Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Workrite che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Workrite.  
+
 La relazione di collegamento viene stabilita assegnando il valore di **nome utente** in Azure AD come valore di **Username** (Nome utente) in Workrite.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Workrite, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente test di Workrite](#creating-a-halogen-software-test-user)** : per avere una controparte di Britta Simon in Workrite collegata alla relativa rappresentazione in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
-In questa sezione viene descritto come abilitare Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione Workrite.
+### <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
+Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione Workrite.
 
-**Per configurare Single Sign-On di Azure AD con Workrite, seguire questa procedura:**
+**Per configurare l'accesso SSO di Azure AD con Workrite, seguire questa procedura:**
 
 1. Nella pagina di integrazione dell'applicazione **Workrite** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
@@ -105,25 +108,19 @@ In questa sezione viene descritto come abilitare Single Sign-On di Azure AD nel 
     ![Single Sign-On di Microsoft Azure AD][7] 
 3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
    
-    ![Accesso Single Sign-On di Azure AD][8] 
-   
-     a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere al sito Workrite, ad esempio: *https://app.workrite.co.uk/securelogin/samlgateway.aspx?id=1a82b5aa-4dd6-4472-9721-7d0193f59e22*.
-   
-   > [!NOTE]
-   > Se non si conosce il valore dell'URL di accesso, contattare il team di supporto di Workrite [support@workrite.co.uk](mailto:support@workrite.co.uk) .
-   > 
-   > 
-   
-     b. Fare clic su **Next**.
+    ![Single Sign-On di Microsoft Azure AD][8] 
+  1. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere al sito Workrite, ad esempio: *https://app.workrite.co.uk/securelogin/samlgateway.aspx?id=1a82b5aa-4dd6-4472-9721-7d0193f59e22*.
+
+    >[!NOTE]
+    >Se non si conosce il valore dell'URL di accesso, contattare il team di supporto di Workrite [support@workrite.co.uk](mailto:support@workrite.co.uk) . 
+    >   
+  2. Fare clic su **Avanti**.
 4. Nella pagina **Configura accesso Single Sign-On in Workrite** seguire questa procedura:
    
-    ![Accesso Single Sign-On di Azure AD][9] 
-   
-    a. Fare clic su Download certificato e quindi salvare il file nel computer.
-   
-    b. Contattare il team di supporto di Workrite all'indirizzo [support@workrite.co.uk](mailto:support@workrite.co.uk), fornire il certificato scaricato, l'**URL dell'autorità di certificazione** (ID entità), l'**URL del servizio Single Sign-On**, l'**URL Single Sign-Out** e quindi chiedere di configurare l'accesso Single Sign-On per l'app Workrite. 
-   
-    c. Fare clic su **Next**.
+    ![Single Sign-On di Microsoft Azure AD][9] 
+ 1. Fare clic su Download certificato e quindi salvare il file nel computer.  
+ 2. Contattare il team di supporto di Workrite all'indirizzo [support@workrite.co.uk](mailto:support@workrite.co.uk), fornire il certificato scaricato, l'**URL dell'autorità di certificazione** (ID entità), l'**URL del servizio Single Sign-On**, l'**URL Single Sign-Out** e quindi chiedere di configurare l'accesso Single Sign-On per l'app Workrite.  
+ 3. Fare clic su **Avanti**.
 5. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**. 
    
     ![Single Sign-On di Microsoft Azure AD][10]
@@ -131,7 +128,7 @@ In questa sezione viene descritto come abilitare Single Sign-On di Azure AD nel 
    
     ![Single Sign-On di Microsoft Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.  
 
 ![Creare un utente di Azure AD][20]
@@ -151,36 +148,27 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 5. Nella pagina **Informazioni sull'utente** seguire questa procedura: 
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-workrite-tutorial/create_aaduser_05.png)  
-   
-    a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
-   
-    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
-   
-    c. Fare clic su **Avanti**.
+ 1. In Tipo di utente selezionare Nuovo utente nell'organizzazione.  
+ 2. Nella casella di testo **Nome utente** digitare **BrittaSimon**. 
+ 3. Fare clic su **Avanti**.
 6. Nella pagina **Profilo utente** seguire questa procedura: 
    
-   ![Creazione di un utente test di Azure AD](./media/active-directory-saas-workrite-tutorial/create_aaduser_06.png) 
-   
-   a. Nella casella di testo **Nome** digitare **Britta**.  
-   
-   b. Nella casella di testo **Cognome** digitare **Simon**.
-   
-   c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
-   
-   d. Nell'elenco **Ruolo** selezionare **Utente**.
-   e. Fare clic su **Avanti**.
+   ![Creazione di un utente test di Azure AD](./media/active-directory-saas-workrite-tutorial/create_aaduser_06.png)  
+ 1. Nella casella di testo **Nome** digitare **Britta**.   
+ 2. Nella casella di testo **Cognome** digitare **Simon**. 
+ 3. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**. 
+ 4. Nell'elenco **Ruolo** selezionare **Utente**.
+ 5. Fare clic su **Avanti**.
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-workrite-tutorial/create_aaduser_07.png) 
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
    
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-workrite-tutorial/create_aaduser_08.png) 
-   
-    a. Prendere nota del valore visualizzato in **Nuova password**.
-   
-    b. Fare clic su **Complete**.   
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-workrite-tutorial/create_aaduser_08.png)  
+ 1. Prendere nota del valore visualizzato in **Nuova password**.  
+ 2. Fare clic su **Complete**.   
 
-### <a name="creating-a-workrite-test-user"></a>Creazione di un utente test di Workrite
+### <a name="create-a-workrite-test-user"></a>Creare un utente test di Workrite
 Questa sezione descrive come creare un utente chiamato Britta Simon in Workrite.
 
 **Per creare un utente test denominato Britta Simon in Workrite, seguire questa procedura:**
@@ -195,15 +183,12 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in Workrite.
 4. Nella finestra di dialogo **Create User** seguire questa procedura:
    
     ![Assegna utente][402]
-   
-    a. Digitare l'**indirizzo di posta elettronica**, il **nome** e il **cognome** di un utente Azure AD valido di cui si vuole eseguire il provisioning.
-   
-    b. Selezionare **Client Administrator** in **Choose Role**. 
-   
-    c. Fare clic su **Save**.   
+ 1. Digitare l'**indirizzo di posta elettronica**, il **nome** e il **cognome** di un utente Azure AD valido di cui si vuole eseguire il provisioning.  
+ 2. Selezionare **Client Administrator** in **Choose Role**.  
+ 3. Fare clic su **Save**.   
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
-L'obiettivo di questa sezione è abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Workrite.
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+Questa sezione descrive come abilitare Britta Simon a usare l'accesso Single Sign-On di Azure concedendole l'accesso a Workrite.
 
     ![Assign User][200] 
 
@@ -223,8 +208,9 @@ L'obiettivo di questa sezione è abilitare Britta Simon all'uso dell'accesso Sin
    
     ![Assegna utente][205]
 
-### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
-Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.  
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
+Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+
 Quando si fa clic sul riquadro Workrite nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Workrite.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
@@ -262,10 +248,5 @@ Quando si fa clic sul riquadro Workrite nel pannello di accesso, si dovrebbe acc
 
 
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: Creare una VM con un IP pubblico statico usando PowerShell | Documentazione Microsoft
-description: Informazioni su come creare una VM con un indirizzo IP pubblico statico tramite Azure Resource Manager usando PowerShell.
+title: Creare una VM con un indirizzo IP pubblico statico - Azure PowerShell | Documentazione Microsoft
+description: Informazioni su come creare una VM con un indirizzo IP pubblico statico mediante Azure PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: ad975ab9-d69f-45c1-9e45-0d3f0f51e87e
@@ -15,13 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 536cb4cd7975283dd61c8c4f2fe1a707a735504e
-ms.openlocfilehash: 989236033c263bae3cc54260e1b2e6c31c30af03
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: fb071365d8d716085d1b1bd1cb52fffc830fd75c
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="create-a-vm-with-a-static-public-ip-using-powershell"></a>Creare una VM con un IP pubblico statico usando PowerShell
+# <a name="create-a-vm-with-a-static-public-ip-address-using-powershell"></a>Creare una VM con un indirizzo IP pubblico statico mediante Azure PowerShell
 
 > [!div class="op_single_selector"]
 - [Portale di Azure](virtual-network-deploy-static-pip-arm-portal.md)
@@ -245,10 +247,5 @@ Dopo aver apportato tutte le modifiche necessarie e aver compreso il funzionamen
         EndTime             : [Subscription Id]
         Error               : 
         ErrorText           : 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

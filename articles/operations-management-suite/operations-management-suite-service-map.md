@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: 638410921c6dad72e1bbe0c035243cea70a3deb1
-ms.openlocfilehash: 4bab1ba9c30cee50baeddc06931a3997aac0f33f
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 48a0060edf30b53f685f25efebcb896af2c6122b
+ms.openlocfilehash: ee69cc8402cd9321d1f47ceb4be045274376f440
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -138,7 +138,7 @@ Di seguito è riportata una visualizzazione drill-down dell'evento di modifica c
 
 
 ## <a name="oms-performance-integration"></a>Integrazione delle prestazioni OMS
-Il pannello relativo alle prestazioni del computer mostra le metriche di prestazioni standard relative al server selezionato.  Le metriche includono l'uso della CPU, l'uso della memoria, i byte di rete inviati e ricevuti e un elenco dei processi principali per byte di rete inviati e ricevuti.
+Il pannello relativo alle prestazioni del computer mostra le metriche di prestazioni standard relative al server selezionato.  Le metriche includono l'uso della CPU, l'uso della memoria, i byte di rete inviati e ricevuti e un elenco dei processi principali per byte di rete inviati e ricevuti.  Si noti che per ottenere i dati sulle prestazioni di rete è necessario anche aver abilitato la soluzione Wire Data 2.0 in OMS.
 ![Pannello di rilevamento modifiche del computer](media/oms-service-map/machine-performance.png)
 
 

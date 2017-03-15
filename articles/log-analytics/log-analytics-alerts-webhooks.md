@@ -1,5 +1,5 @@
 ---
-title: Esempio di un webhook in un avviso di Log Analytics
+title: Esempio di azione di allarme webhook in Log Analytics di OMS | Documentazione Microsoft
 description: "Una delle azioni che è possibile eseguire in risposta a un avviso di Log Analytics è la creazione di un *webhook*, che consente di richiamare un processo esterno tramite una singola richiesta HTTP. Questo articolo illustra un esempio di creazione di un&quot;azione webhook in un avviso di Log Analytics tramite Slack."
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 02/27/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 001f8abfc5862aeb1914f6e93b68cadeed42eba0
+ms.sourcegitcommit: c8e67f2dcd061e3cd92eec40d6e6bb3de5d73b67
+ms.openlocfilehash: 55b66132f7ec5c26c0a7cac1ec0a5c403dbd1082
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="webhooks-in-log-analytics-alerts"></a>Webhook negli avvisi di Log Analytics
+
+# <a name="create-an-alert-webhook-action-in-oms-log-analytics-to-send-message-to-slack"></a>Creare un'azione di avviso webhook in Log Analytics di OMS per inviare messaggi a Slack
 Una delle azioni che è possibile eseguire in risposta a un [avviso di Log Analytics](log-analytics-alerts.md) è la creazione di un *webhook*, che consente di richiamare un processo esterno tramite una singola richiesta HTTP.  Per informazioni dettagliate su avvisi e webhook, vedere [Avvisi in Log Analytics](log-analytics-alerts.md)
 
 Questo articolo illustra un esempio di creazione di un'azione webhook in un avviso di Log Analytics tramite il servizio di messaggistica Slack.
@@ -109,12 +111,7 @@ Con l'attivazione di questa regola, ogni volta che vengono soddisfatti determina
 Questo è solo un esempio delle varie azioni che è possibile creare in risposta a un avviso.  È possibile ad esempio creare un'azione webhook per chiamare un altro servizio esterno, un'azione runbook per avviare un runbook in Automazione di Azure o un'azione di posta elettronica per inviare un messaggio di posta a se stessi o ad altri destinatari.   
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Altre informazioni sugli [avvisi in Log Analytics](log-analytics-alerts.md) e su altre azioni.
-* [Creare runbook in Automazione di Azure](../automation/automation-webhooks.md) che possano essere chiamati da un webhook.
+* Altre informazioni sulle [azioni di avviso in Log Analytics](log-analytics-alerts-actions.md) e su altre azioni.
 
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

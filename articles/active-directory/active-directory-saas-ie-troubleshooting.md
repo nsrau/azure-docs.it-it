@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi di Access Panel Extension per Internet Explorer | Documentazione Microsoft
+title: Risoluzione dei problemi relativi all&quot;estensione Pannello di accesso di Azure per Internet Explorer | Documentazione Microsoft
 description: Come usare Criteri di gruppo per distribuire il componente aggiuntivo di Internet Explorer per il portale App personali.
 services: active-directory
 documentationcenter: 
@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2017
+ms.date: 02/27/2017
 ms.author: markvi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 43768d76e3cdc0dc34a3412675ea4fb84170c021
+ms.sourcegitcommit: f593ecca4f4c82dcbd07e6f57ad120537f7d2134
+ms.openlocfilehash: 4c3f7f95b1052512547a9996019803b6185a3405
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Risoluzione dei problemi di Access Panel Extension per Internet Explorer
-Questo articolo semplificherà la risoluzione dei problemi seguenti:
+Questo articolo semplifica la risoluzione dei problemi seguenti:
 
 * Non è possibile accedere alle app tramite il portale App personali durante l'uso di Internet Explorer.
 * Viene visualizzato il messaggio "Installa software" anche se è già stato installato il software.
@@ -50,7 +52,7 @@ Se l'utente è un amministratore, vedere anche [Come distribuire Access Panel Ex
 ## <a name="check-that-the-access-panel-extension-is-enabled"></a>Verificare che Access Panel Extension sia abilitato.
 Per verificare se Access Panel Extension è abilitato in Internet Explorer:
 
-1. In Internet Explorer fare clic sull' **icona a forma di ingranaggio** nell'angolo superiore destro della finestra. Selezionare quindi **Opzioni Internet**.<br />Nelle versioni precedenti di Internet Explorer scegliere **Strumenti > Opzioni Internet**.
+1. In Internet Explorer fare clic sull'**icona a forma di ingranaggio** nell'angolo superiore destro della finestra. Selezionare quindi **Opzioni Internet**.<br />Nelle versioni precedenti di Internet Explorer scegliere **Strumenti > Opzioni Internet**.
    
     ![Accedere a Strumenti > Opzioni Internet](./media/active-directory-saas-ie-troubleshooting/internetoptions.png)
 2. Fare clic sulla scheda **Programmi** e quindi sul pulsante **Gestione componenti aggiuntivi**.
@@ -64,7 +66,7 @@ Per verificare se Access Panel Extension è abilitato in Internet Explorer:
 ## <a name="enable-extensions-for-inprivate-browsing"></a>Abilitare le estensioni per InPrivate Browsing
 Se si usa la modalità InPrivate Browsing:
 
-1. In Internet Explorer fare clic sull' **icona a forma di ingranaggio** nell'angolo superiore destro della finestra. Selezionare quindi **Opzioni Internet**.<br />Nelle versioni precedenti di Internet Explorer scegliere **Strumenti > Opzioni Internet**.
+1. In Internet Explorer fare clic sull'**icona a forma di ingranaggio** nell'angolo superiore destro della finestra. Selezionare quindi **Opzioni Internet**.<br />Nelle versioni precedenti di Internet Explorer scegliere **Strumenti > Opzioni Internet**.
    
     ![Esempio della finestra di diagnostica](./media/active-directory-saas-ie-troubleshooting/inprivateoptions.png)
 2. Passare alla scheda **Privacy** e **deselezionare** la casella di controllo **Disabilita estensioni e barre degli strumenti all'avvio di InPrivate Browsing**</p>
@@ -78,7 +80,7 @@ Per disinstallare Access Panel Extension dal computer:
 1. Sulla tastiera premere il **tasto Windows** per aprire il menu Start. Quando il menu è aperto, è possibile digitare un testo qualsiasi per eseguire una ricerca. Digitare "Pannello di controllo" e quindi aprire il **Pannello di controllo** quando viene visualizzato nei risultati della ricerca.
    
     ![Cercare Pannello di controllo](./media/active-directory-saas-ie-troubleshooting/search_sm.png)
-2. Nell'angolo in alto a destra del Pannello di controllo modificare l'opzione **Visualizza per** impostandola su **Icone grandi**. Individuare e fare clic sul pulsante **Programmi e funzionalità** .
+2. Nell'angolo in alto a destra del Pannello di controllo modificare l'opzione **Visualizza per** impostandola su **Icone grandi**. Individuare e fare clic sul pulsante **Programmi e funzionalità**.
    
     ![Modificare la visualizzazione in modo da visualizzare le icone grandi](./media/active-directory-saas-ie-troubleshooting/control_panel.png)
 3. Nell'elenco selezionare **Access Panel Extension** e quindi scegliere il pulsante **Disinstalla**.
@@ -92,10 +94,5 @@ Se si verificano problemi durante la disinstallazione dell'estensione, è possib
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 * [Accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 * [Come distribuire l'estensione Pannello di accesso per Internet Explorer con Criteri di gruppo](active-directory-saas-ie-group-policy.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

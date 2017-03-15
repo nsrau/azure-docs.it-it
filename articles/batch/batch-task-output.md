@@ -1,5 +1,5 @@
 ---
-title: "Mantenere l&quot;output di processi e attività: Azure Batch | Documentazione Microsoft"
+title: "Rendere persistenti l&quot;output di attività e processi - Azure Batch | Documentazione Microsoft"
 description: "Informazioni su come usare Archiviazione di Azure come archivio permanente per l&quot;output di attività e processi di Batch e abilitare la visualizzazione di questo output permanente nel portale di Azure."
 services: batch
 documentationcenter: .net
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
-ms.openlocfilehash: e5231970b772f7cc043441954ebab6cb1bb6ed8b
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 2c80f9d2bc788c60c5a7b3a5fd0d38cb86cbf838
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="persist-azure-batch-job-and-task-output"></a>Salvare in modo permanente l'output dei processi processo e delle attività di Azure Batch
+# <a name="persist-results-from-completed-jobs-and-tasks-to-azure-storage"></a>Rendere persistenti i risultati di processi e attività completati in Archiviazione di Azure
+
 Le attività eseguite in Batch in genere producono output che deve essere archiviato e quindi recuperato in un secondo momento da altre attività del processo, dall'applicazione client che ha eseguito il processo o entrambe. L'output può essere costituito da file creati dall'elaborazione dei dati di input o da file di log associati all'esecuzione di attività. Questo articolo presenta una libreria di classi .NET che usa una tecnica basata su convenzioni per salvare in modo permanente l'output delle attività nell'archivio BLOB di Azure, rendendolo disponibile anche dopo l'eliminazione di pool, processi e nodi di calcolo.
 
 Con la tecnica descritta in questo articolo, è anche possibile visualizzare l'output delle attività in **Saved output files** (File di output salvati) e **Saved logs** (Log salvati) nel [portale di Azure][portal].
@@ -248,9 +251,4 @@ Per una panoramica delle diverse modalità di preparazione dei nodi per l'esecuz
 
 [1]: ./media/batch-task-output/task-output-01.png "Selettori di file di output salvati e di log salvati nel portale"
 [2]: ./media/batch-task-output/task-output-02.png "Pannello dei file di output delle attività nel portale di Azure"
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

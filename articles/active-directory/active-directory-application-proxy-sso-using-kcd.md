@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2016
+ms.date: 02/27/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c308524e41047220fbad026edb6a87f196d89580
-ms.openlocfilehash: 3f293996d2565c495f707f99a0bb75bb7c24054e
+ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
+ms.openlocfilehash: aac56543b2b3b7fa8f8baf1cc719ead79b3c1b00
+ms.lasthandoff: 02/28/2017
 
 ---
 
-# <a name="single-sign-on-with-application-proxy"></a>Single Sign-On con il proxy di applicazione
+# <a name="provide-single-sign-on-to-your-apps-with-application-proxy"></a>Fornire l'accesso Single Sign-On alle app con il proxy di applicazione
 Single Sign-On è un elemento chiave del proxy di applicazione di Azure AD. Questo tipo di accesso offre la migliore esperienza utente con i passaggi seguenti:
 
 1. Un utente accede al cloud.  
@@ -125,7 +127,7 @@ Se non diversamente configurato, il proxy di applicazione presuppone che gli ute
 Questa funzionalità consente a molte organizzazioni con diverse identità locali e cloud di disporre dell'accesso Single Sign-On dal cloud ad applicazioni locali senza richiedere agli utenti di immettere nomi utente e password diversi. Sono incluse organizzazioni che:
 
 * Hanno più domini internamente (joe@us.contoso.com, joe@eu.contoso.com) e un singolo dominio nel cloud (joe@contoso.com).
-* Hanno un nome di dominio non instradabile internamente ((joe@contoso.usa)) e un dominio valido nel cloud.
+* Hanno un nome di dominio non instradabile internamente (joe@contoso.usa) e un dominio valido nel cloud.
 * Non usano nomi di dominio internamente (joe).
 * Usano diversi alias locali e nel cloud. Ad esempio, joe-johns@contoso.com e joej@contoso.com  
 
@@ -159,9 +161,4 @@ Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog]
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

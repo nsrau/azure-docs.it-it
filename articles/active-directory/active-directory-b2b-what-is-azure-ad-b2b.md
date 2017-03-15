@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/18/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 5e55afe6eb88a558ea4eb147860ac5e2ebc97dbc
+ms.sourcegitcommit: 14028332ecc17478230d035206e8e00f6af67f7b
+ms.openlocfilehash: 8b6bf676dfa0df45d59763db70655d85fa08809a
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -34,7 +35,7 @@ Nella versione di anteprima corrente, per stabilire una relazione con un'organiz
 
 Il processo di onboarding per gli utenti di Collaborazione B2B è generalmente composto da una fase di invito e una fase di riscatto e funziona nel modo seguente:
 
-1. John Doe di WoodGrove vuole aggiungere Sam Oogle usando il suo indirizzo Gmail (gsamoogle@gmail.com)
+1. John Doe di WoodGrove vuole aggiungere Sam Oogle usando il suo indirizzo Gmail gsamoogle@gmail.com
 
 2. John apre il portale WoodGrove (portal.azure.com) o il riquadro di accesso (myapps.microsoft.com), effettua l'accesso e aggiunge l'utente alla directory, al gruppo o all'applicazione WoodGrove.
 
@@ -84,7 +85,7 @@ Gli utenti hanno reagito molto positivamente alle funzionalità di Collaborazion
 Vedere gli altri articoli su Azure AD B2B Collaboration.
 
 * [Procedura per aggiungere utenti di Collaborazione B2B ad Azure Active Directory da parte degli amministratori](active-directory-b2b-admin-add-users.md)
-* [Procedura per aggiungere utenti di Collaborazione B2B da parte di Information Worker](active-directory-b2b-iw-add-users.md)
+* [Procedura di aggiunta di utenti di Collaborazione B2B da parte di information worker](active-directory-b2b-iw-add-users.md)
 * [Elementi del messaggio di posta elettronica di invito per la Collaborazione B2B](active-directory-b2b-invitation-email.md)
 * [Riscatto dell'invito di Collaborazione B2B](active-directory-b2b-redemption-experience.md)
 * [Licenze per la Collaborazione B2B di Azure AD](active-directory-b2b-licensing.md)
@@ -93,10 +94,7 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 * [API e personalizzazione per Collaborazione B2B di Azure Active Directory](active-directory-b2b-api.md)
 * [Autenticazione a più fattori per utenti di Collaborazione B2B](active-directory-b2b-mfa-instructions.md)
 * [Aggiungere gli utenti per la Collaborazione B2B senza un invito](active-directory-b2b-add-user-without-invite.md)
+
+* [Controllo e creazione di report per un utente di Collaborazione B2B](active-directory-b2b-auditing-and-reporting.md)
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: cd9a73d1830be132a1176fcb6cdeadedcdc96d04
-ms.openlocfilehash: 98bfdc49524edd5cedc85b5f94a74ca8c29ae2e9
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 5598a16511713a76193c13c4521e4884d8f5b75d
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -49,6 +50,10 @@ Per creare un localizzatore di streaming OnDemand e ottenere gli URL, è necessa
    
    Se si pianifica il download progressivo, ottenere i nomi dei file MP4 nell'asset.  
 4. Creare URL che puntano al file manifesto o ai file MP4. 
+
+
+>[!NOTE]
+>È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Usare lo stesso ID criterio se si usano sempre gli stessi giorni/autorizzazioni di accesso, come nel cado di criteri per i localizzatori che devono rimanere attivi per molto tempo (criteri di non caricamento). Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) argomento.
 
 ### <a name="use-media-services-net-sdk"></a>Usare l'SDK di Servizi multimediali per .NET
 Creare URL di streaming 
@@ -173,10 +178,5 @@ Il seguente codice chiama i metodi delle estensioni dell'SDK per .NET che creano
 ## <a name="see-also"></a>Vedere anche
 [Asset mediante download](media-services-deliver-asset-download.md)
 [Configurare i criteri di distribuzione degli asset](media-services-dotnet-configure-asset-delivery-policy.md)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 
