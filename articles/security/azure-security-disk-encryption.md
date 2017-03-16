@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/30/2017
 ms.author: kakhan
 translationtype: Human Translation
-ms.sourcegitcommit: b21867e41acb1e0658041bd931327047095bb159
-ms.openlocfilehash: b5ecba98fd5c3061f68f94f5004c7cf00d0dfb36
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 10cc114451da7e73726772da4159776e76f5b8c9
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -537,7 +537,7 @@ Per abilitare la crittografia in macchine virtuali IaaS Windows esistenti o in e
  ```
 
 ### <a name="enable-encryption-on-an-existing-or-running-iaas-linux-vm-in-azure"></a>Abilitare la crittografia in una VM IaaS Linux esistente o in esecuzione in Azure
-È possibile abilitare la crittografia dei dischi nelle macchine virtuali IaaS Linux esistenti o in esecuzione usando il modello di [Resource Manager](https://github.com/Azure/azure-quick-start-templates/tree/master/201-encrypt-running-linux-vm).
+È possibile abilitare la crittografia dei dischi nelle macchine virtuali IaaS Linux esistenti o in esecuzione usando il modello di [Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm).
 
 1. Nel modello di avvio rapido di Azure fare clic su **Distribuisci in Azure**, immettere la configurazione della crittografia nel pannello **Parametri**, quindi fare clic su **OK**.
 
