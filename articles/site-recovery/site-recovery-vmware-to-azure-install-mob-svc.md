@@ -12,21 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 12/9/2016
+ms.date: 2/20/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: f3f9bc205cd038ae636face742292cb28654fd39
-ms.openlocfilehash: 1212ab52afac346ce6c70e6e6f64b9bc87a13320
+ms.sourcegitcommit: 1f4075d6a3ab81bdbde614bbee400bd23f6cea20
+ms.openlocfilehash: 1fd481d06f355547fd15200999c4bca3a503ec31
+ms.lasthandoff: 02/23/2017
 
 ---
 
 # <a name="installing-mobility-service-vmwarephysical-to-azure"></a>Installazione del servizio Mobility (VMware/fisico in Azure)
-Il servizio Mobility deve essere distribuito in ogni computer, ovvero macchina virtuale VMware o server fisico, di cui si vuole eseguire la replica in Azure. Acquisisce le scritture di dati nel computer e le inoltra al server di elaborazione.  È possibile distribuire il servizio Mobility nei server che richiedono la protezione con i metodi seguenti
+Il servizio Mobility deve essere distribuito in ogni computer, ovvero macchina virtuale VMware o server fisico, di cui si vuole eseguire la replica in Azure. Acquisisce le scritture di dati nel computer e le inoltra al server di elaborazione. È possibile distribuire il servizio Mobility nei server che richiedono la protezione con i metodi seguenti
+
+
 1. [Installare il servizio Mobility con strumenti di distribuzione software come System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
 2. [Installare il servizio Mobility tramite Automazione di Azure e la configurazione dello stato desiderato](site-recovery-automate-mobility-service-install.md)
 3. [Installare manualmente il servizio Mobility tramite interfaccia utente grafica (GUI)](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-using-the-graphical-user-interface)
 4. [Installare manualmente il servizio Mobility tramite la riga di comando](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-using-command-line)
 5. [Installare il servizio Mobilità tramite installazione push da Azure Site Recovery](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-using-push-install-from-azure-site-recovery)
+
+
+>[!IMPORTANT]
+> A partire dalla versione 9.7.0.0, nelle macchine virtuali Windows il programma di installazione del servizio Mobility installa anche l'[agente di macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-extensions-features.md#azure-vm-agent) più recente. Quando la macchina esegue il failover in Azure viene quindi soddisfatto questo prerequisito necessario per l'uso di qualsiasi estensione della macchina virtuale.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Soddisfare questi prerequisiti prima di iniziare a installare manualmente il servizio Mobility nei server.
@@ -76,10 +83,5 @@ Per poter eseguire l'installazione push del servizio Mobility tramite Azure Site
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver installato il servizio Mobility è possibile usare il pulsante **+Replica** pulsante nel portale di Azure per avviare l'abilitazione della protezione per queste macchine virtuali.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+Dopo aver installato il servizio Mobility è possibile usare il pulsante **+Replica** nel portale di Azure per avviare l'abilitazione della protezione per queste macchine virtuali.
 

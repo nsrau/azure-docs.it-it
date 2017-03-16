@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 3ed1b4121e8e64b07abaeb1117f2b8a0cfd75406
-ms.openlocfilehash: 7b2380e45c62684ed29fe819db7e254b968d55d0
+ms.sourcegitcommit: cf8873a3cc5067717edf586da209b05cef3092ff
+ms.openlocfilehash: fc921785e5e4aae84982a348814c1760ddd6bb8c
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -500,7 +501,7 @@ Per leggere i dati da un BLOB in un account di Archiviazione di Azure collegato,
 
     wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/<path to source>
 
-Se, ad esempio, un file di origine (SearchLog.tsv) è archiviato in un contenitore BLOB denominato "samples" nell'account di archiviazione "contso_33", il percorso dell'istruzione FROM sarà:
+Se ad esempio un file di origine (SearchLog.tsv) è archiviato in un contenitore BLOB denominato "samples" nell'account di archiviazione "contoso_33", il percorso dell'istruzione FROM sarà il seguente:
 
     FROM: "wasb://samples@constoso_33.blob.core.windows.net/SearchLog.tsv"
 
@@ -528,9 +529,4 @@ mentre il gruppo di gestione delle risorse può trovarsi anche in un data center
 * [Esercitazione: Introduzione ad Azure Data Lake Analytics con il portale di Azure](data-lake-analytics-get-started-portal.md)
 * [Gestire Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-manage-use-portal.md)
 * [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

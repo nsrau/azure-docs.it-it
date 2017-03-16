@@ -1,5 +1,5 @@
 ---
-title: 'Servizio di sincronizzazione Azure AD Connect: Interfaccia utente di Synchronization Service Manager | Documentazione Microsoft'
+title: Connettori nell&quot;interfaccia utente di Synchronization Service Manager per Azure AD | Microsoft Docs
 description: Comprendere la scheda Connettori in Synchronization Service Manager di Azure AD Connect.
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/27/2017
 ms.author: billmath
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 610dab0af17f927d86b677f647acd0dfe2569583
-ms.openlocfilehash: f6fece979025cb9d4bb3cefdadcdbc929ed12719
-
+ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
+ms.openlocfilehash: 55adbf800c6312371d937ed2da98a4a5ce704e51
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="azure-ad-connect-sync-synchronization-service-manager"></a>Servizio di sincronizzazione Azure AD Connect: Synchronization Service Manager
+# <a name="using-connectors-with-the-auzre-ad-connect-sync-service-manager"></a>Uso dei connettori con Synchronization Service Manager per Azure AD Connect
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectors.png)
 
@@ -112,9 +113,4 @@ Questa scheda consente anche di passare all'[oggetto spazio connettore](#connect
 Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

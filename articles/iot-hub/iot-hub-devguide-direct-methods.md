@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/11/2017
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: 9c2817129162ab17faadf3c5ecf8ef7dcb370c3c
-ms.openlocfilehash: 2c9c4b59077ea7d31677a5e1c690160bf63633a6
+ms.sourcegitcommit: d04f073ebf846955fde81434fd015ee4b943f695
+ms.openlocfilehash: 179abb91438fb20cd6b6adebfedb8a25e0127ad7
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -45,7 +46,7 @@ I metodi diretti sono sincroni e possono solo avere esito positivo o negativo do
 
 I metodi diretti supportano solo HTTP lato cloud e solo MQTT lato dispositivo.
 
-Il payload per le richieste e le risorse del metodo è un documento JSON con dimensioni fino a 8 KB.
+Il payload per le richieste e le risposte del metodo è un documento JSON con dimensioni massime di 8 KB.
 
 ## <a name="reference-topics"></a>Argomenti di riferimento:
 Gli argomenti di riferimento seguenti offrono altre informazioni sull'uso dei metodi diretti.
@@ -141,9 +142,4 @@ Per provare alcuni dei concetti descritti in questo articolo, può essere utile 
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 [lnk-devguide-messages]: iot-hub-devguide-messaging.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
