@@ -45,6 +45,7 @@
 
 ## [Codificare contenuti](media-services-encode-asset.md)
 ### [Confronto tra i codificatori](media-services-compare-encoders.md)
+### [Gestire la velocità e la concorrenza della codifica](media-services-manage-encoding-speed.md)
 ### Media Encoder Standard (MES)
 #### [Formati e codec Media Encoder Standard](media-services-media-encoder-standard-formats.md)
 #### [Usare MES per generare automaticamente una tabella di coppie bitrate-risoluzione](media-services-autogen-bitrate-ladder-with-mes.md)
@@ -120,16 +121,16 @@
 ## [Proteggere](media-services-content-protection-overview.md)
 ### [Configurare la protezione del contenuto nel portale](media-services-portal-protect-content.md)
 ### [Configurare una chiave non crittografata AES-128 per il flusso](media-services-protect-with-aes128.md)
-### [Crittografare i contenuti con la crittografia di archiviazione tramite API REST di AMS](media-services-rest-storage-encryption.md)
+### [Usare REST per crittografare i contenuti con la crittografia di archiviazione](media-services-rest-storage-encryption.md)
 ### [Panoramica del modello di licenza PlayReady di Servizi multimediali](media-services-playready-license-template-overview.md)
 ### [Panoramica del modello di licenza Widevine](media-services-widevine-license-template-overview.md)
 ### [Distribuzione di licenze DRM](media-services-deliver-keys-and-licenses.md)
-### [Uso di partner per distribuire licenze Widevine a Servizi multimediali di Azure](media-services-licenses-partner-integration.md)
+### [Uso di partner per distribuire licenze Widevine a Servizi multimediali](media-services-licenses-partner-integration.md)
 ### [Uso della crittografia comune dinamica PlayReady e/o Widevine](media-services-protect-with-drm.md)
-### [Usare Servizi multimediali di Azure per trasmettere il contenuto HLS in modo protetto con Apple FairPlay](media-services-protect-hls-with-fairplay.md)
-### [CENC con DRM multiplo e controllo di accesso: progettazione di riferimento e implementazione in Azure e in Servizi multimediali di Azure](media-services-cenc-with-multidrm-access-control.md)
-### [Uso di Axinom per fornire licenze Widevine ai Servizi multimediali di Azure](media-services-axinom-integration.md)
-### [Uso di castLabs per distribuire licenze Widevine a Servizi multimediali di Azure](media-services-castlabs-integration.md)
+### [Trasmettere i contenuti HLS in modo protetto con Apple FairPlay](media-services-protect-hls-with-fairplay.md)
+### [CENC con Multi-DRM e controllo di accesso](media-services-cenc-with-multidrm-access-control.md)
+### [Uso di Axinom per distribuire licenze Widevine a Servizi multimediali](media-services-axinom-integration.md)
+### [Uso di castLabs per distribuire licenze Widevine a Servizi multimediali](media-services-castlabs-integration.md)
 
 ### Distribuzione degli asset
 #### Configurare i criteri di distribuzione degli asset
@@ -191,9 +192,10 @@
 ### [Licenza per Microsoft Smooth Streaming Client Porting Kit](media-services-sspk.md)
 
 ## Integrare
-### [Funzioni di Azure](https://github.com/azure-samples/media-services-dotnet-functions-integration)
+### [Usare Funzioni di Azure con Servizi multimediali](media-services-dotnet-how-to-use-azure-functions.md)
+### [Esempi di Funzioni di Azure con Servizi multimediali](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
 
-## Monitoraggio
+## Monitorare
 ### Controllare lo stato dei processi
 #### [REST](media-services-rest-check-job-progress.md)
 #### [Portale](media-services-portal-check-job-progress.md)

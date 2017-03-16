@@ -96,7 +96,10 @@
 #### [Risolvere i problemi](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
 ## Usare un Arduino
-### [Node.js](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+
+### [Adafruit Feather HUZZAH ESP8266](iot-hub-arduino-huzzah-esp8266-get-started.md)
+
+### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### Lezione 1: Configurare il dispositivo
 ##### [Configurare il dispositivo](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
 ##### [Ottenere gli strumenti (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
@@ -116,6 +119,7 @@
 ##### [Eseguire l'applicazione di esempio per ricevere messaggi](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
 ##### [Facoltativo: modificare il comportamento del LED](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
 #### [Risolvere i problemi](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
+
 
 ## Usare Gateway SDK
 ### [Simulazione in Linux](iot-hub-linux-gateway-sdk-get-started.md)
@@ -140,6 +144,8 @@
 ##### [Creare un'app per le funzioni di Azure e un account di archiviazione di Azure](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
 ##### [Leggere i messaggi con salvataggio permanente nell'archivio tabelle di Azure](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md)
 
+#### [Lezione 5: Creare il primo modulo di Azure IoT Gateway](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
+
 #### [Risoluzione dei problemi](iot-hub-gateway-kit-c-sim-troubleshooting.md)
 
 ### [Dispositivo SensorTag](iot-hub-gateway-kit-c-get-started.md)
@@ -159,6 +165,8 @@
 #### Lezione 4: Salvare i messaggi nell'archivio tabelle di Azure
 ##### [Creare un'app per le funzioni di Azure e un account di archiviazione di Azure](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
 ##### [Leggere i messaggi con salvataggio permanente nell'archivio tabelle di Azure](iot-hub-gateway-kit-c-lesson4-read-table-storage.md)
+
+#### [Lezione 5: Creare il primo modulo di Azure IoT Gateway](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
 
 ##### [Risoluzione dei problemi](iot-hub-gateway-kit-c-troubleshooting.md)
 
@@ -219,7 +227,7 @@
 ## Gestisci
 ### Creare un hub IoT 
 #### [Usare il portale](iot-hub-create-through-portal.md)
-#### [Usare l'interfaccia della riga di comando di Azure 2.0 (anteprima)](iot-hub-create-using-cli.md)
+#### [Usare l'interfaccia della riga di comando 2.0](iot-hub-create-using-cli.md)
 #### [Usare l'interfaccia della riga di comando](iot-hub-create-using-cli-nodejs.md)
 #### [Usare l'API REST](iot-hub-rm-rest.md)
 #### [Usare PowerShell](iot-hub-rm-template-powershell.md)
