@@ -1,5 +1,5 @@
 ---
-title: "Gestire la disponibilità delle macchine virtuali Linux | Microsoft Docs"
+title: "Gestire la disponibilità delle macchine virtuali Linux in Azure | Microsoft Docs"
 description: "Informazioni su come usare più macchine virtuali per garantire alta disponibilità per un&quot;applicazione Linux in Azure."
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,14 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2016
 ms.author: cynthn
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c18781ba99276e0aceee0d1d6f4fdf80568fca60
-ms.openlocfilehash: 3c305ed5b1ba35088983050f4a5c0ac56ab3888b
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 73829ac6b0fecfcb524738ecde36b1b524ccb120
+ms.lasthandoff: 03/03/2017
 
 
 ---
 
-# <a name="manage-the-availability-of-virtual-machines"></a>Gestione della disponibilità delle macchine virtuali
+# <a name="manage-the-availability-of-linux-virtual-machines"></a>Gestire la disponibilità delle macchine virtuali Linux
+
 Informazioni su come configurare e gestire più macchine virtuali per garantire disponibilità elevata per un'applicazione Linux in Azure. È anche possibile [gestire la disponibilità delle macchine virtuali Windows](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
@@ -33,10 +36,5 @@ Per istruzioni sulla creazione di un set di disponibilità tramite l'interfaccia
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sul bilanciamento del carico delle macchine virtuali, vedere [Bilanciamento del traffico di Azure per macchine virtuali](virtual-machines-linux-load-balance.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

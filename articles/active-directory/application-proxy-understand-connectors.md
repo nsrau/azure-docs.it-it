@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 02/22/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 36e737ebc3451a190e99dc2bc91ef4242d2f573e
-ms.openlocfilehash: e9dfe8ad62dfa0eec810ecdeeddadbecc25b9163
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 41d6f678dba769cf7f949751da8cacf3df7f88c1
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -26,8 +27,6 @@ Questo articolo illustra i connettori, che sono l'ingrediente segreto del proxy 
 
 > [!NOTE]
 > Il proxy dell’applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
-> 
-> 
 
 ## <a name="what-are-azure-ad-application-proxy-connectors"></a>Cosa sono i connettori del proxy applicazione Azure AD?
 Il proxy applicazione funziona dopo che è stato installato il servizio Windows Server, chiamato connettore, nella rete. È possibile installare i connettori in base alla esigenze di disponibilità elevata e scalabilità. Iniziare con uno e aggiungerne altri in base alle esigenze. Ogni volta che viene installato un connettore, questo viene aggiunto al pool di connettori che serve il tenant.
@@ -51,11 +50,13 @@ Eseguono inoltre il polling del server per verificare se è disponibile una vers
 ## <a name="all-networking-is-outbound"></a>Tutta l'attività di rete è in uscita
 I connettori inviano solo richieste in uscita, pertanto la connessione viene sempre avviata dai connettori. Non c'è la necessità di aprire porte in ingresso perché, una volta stabilita una sessione, il traffico scorre in entrambe le direzioni.
 
-Il traffico in uscita viene inviato al servizio proxy applicazione e alle applicazioni pubblicate. Il traffico verso il servizio viene inviato ai data center di Azure su diversi numeri di porta. Per altre informazioni, vedere [Abilitare il proxy di applicazione nel portale di Azure](active-directory-application-proxy-enable.md).
+Il traffico in uscita viene inviato al servizio proxy applicazione e alle applicazioni pubblicate. Il traffico verso il servizio viene inviato ai data center di Azure su diversi numeri di porta. Per altre informazioni, vedere [Enable Application Proxy in the Azure portal](active-directory-application-proxy-enable.md) (Abilitare il proxy di applicazione nel Portale di Azure).
 
 Siccome il traffico è solo in uscita, non è necessario configurare il bilanciamento del carico tra i connettori o configurare l'accesso in ingresso attraverso il firewall.
 
 Per informazioni sulla configurazione delle regole del firewall in uscita, vedere [Usare server proxy locali esistenti](application-proxy-working-with-proxy-servers.md).
+
+Usare lo [strumento per il test delle porte del connettore Proxy di applicazione Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/) per verificare che il connettore possa raggiungere il servizio Proxy di applicazione. Assicurarsi almeno che l'area Stati Uniti centrali e l'area più vicina all'utente abbiano segni di spunta verde. Tuttavia, la presenza di più segni di spunta verde indica una maggiore resilienza. 
 
 ## <a name="network-security"></a>Sicurezza di rete
 
@@ -114,7 +115,7 @@ Un altro fattore relativo alle prestazioni è la qualità della connessione di r
 * _Le applicazioni back-end:_ in alcuni casi sono presenti altri proxy tra il connettore e le applicazioni back-end. È facile risolvere questo problema aprendo un browser dal computer di connessione e accedendo a queste applicazioni. Se si eseguono i connettori in Azure e le applicazioni sono locali, l'esperienza potrebbe essere diversa da come gli utenti si aspettano.
 * _I controller di dominio:_ se i connettori eseguono l'accesso SSO mediante la delega vincolata Kerberos (KCD), essi contattano i controller di dominio prima di inviare la richiesta al back-end. I connettori hanno una cache dei ticket Kerberos ma in ambienti affollati la velocità di risposta dei controller di dominio può rallentare l'esperienza. Questa situazione è più comune per i connettori in esecuzione in Azure, mentre i controller di dominio sono in locale.
 
-##<a name="automatic-updates-to-the-connector"></a>Aggiornamenti automatici del connettore
+## <a name="automatic-updates-to-the-connector"></a>Aggiornamenti automatici del connettore
 
 Con il servizio di aggiornamento del connettore offriamo un metodo di aggiornamento automatizzato. In questo modo si ottiene il vantaggio continuo di tutte le nuove funzionalità oltre a miglioramenti alla sicurezza e le prestazioni.
 
@@ -152,13 +153,9 @@ Per visualizzarli è necessario attivare l'opzione "Visualizza registri analitic
 
 Per informazioni sulla risoluzione degli errori con il connettore del proxy applicazione, vedere [Risolvere i problemi del proxy applicazione](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-troubleshoot).
 
-##<a name="next-steps"></a>Passaggi successivi
-[Usare server proxy locali esistenti](application-proxy-working-with-proxy-servers.md)<br>
-[Come eseguire un'installazione invisibile all'utente del connettore del proxy applicazione Azure AD](active-directory-application-proxy-silent-installation.md)
+## <a name="next-steps"></a>Passaggi successivi
+[Usare server proxy locali esistenti](application-proxy-working-with-proxy-servers.md)
 
-
-
-
-<!--HONumber=Feb17_HO1-->
+[How to silently install the Azure AD Application Proxy Connector](active-directory-application-proxy-silent-installation.md) (Come eseguire un'installazione invisibile all'utente del connettore del proxy di applicazione di Azure AD)
 
 

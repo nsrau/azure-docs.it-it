@@ -1,6 +1,6 @@
 ---
-title: Aggiungere codice personalizzato alle app per la logica con le Funzioni di Azure | Documentazione Microsoft
-description: Creare codice personalizzato per le app per la logica di Azure con le Funzioni di Azure
+title: Scrivere un codice personalizzato per le app per la logica di Azure con Funzioni di Azure | Microsoft Docs
+description: Creare ed eseguire un codice personalizzato per le app per la logica di Azure con Funzioni di Azure
 services: logic-apps,functions
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -12,25 +12,26 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
+ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: c63dde728eaaf8237970e05cc524c6220b69a074
-ms.openlocfilehash: 8b68f017a2c7a17603508438b0d4bd760bec4f78
-ms.lasthandoff: 02/15/2017
-
+ms.sourcegitcommit: 8a606e5d009fd210212bd9d7a92ddb3e0cb2e3a2
+ms.openlocfilehash: 1c939e26212b2454cf3e666021036680d5494cfb
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="add-custom-code-to-azure-logic-apps-with-azure-functions"></a>Aggiungere codice personalizzato alle app per la logica di Azure con le Funzioni di Azure
 
-È possibile eseguire frammenti di codice personalizzati di C# o node.js usando le Funzioni di Azure da app per la logica. 
+# <a name="add-and-run-custom-code-for-logic-apps-through-azure-functions"></a>Aggiungere ed eseguire un codice personalizzato per le app per la logica di Azure tramite Funzioni di Azure
+
+Per eseguire frammenti di codice personalizzati di C# o Node.js nelle app per la logica, è possibile creare funzioni personalizzate mediante Funzioni di Azure. 
 Le [Funzioni di Azure](../azure-functions/functions-overview.md) offrono funzionalità di calcolo indipendenti dal server in Microsoft Azure e sono utili per eseguire queste attività:
 
 * Formattazione avanzata o calcolo di campi nelle app per la logica
 * Esecuzione di calcoli in un flusso di lavoro.
 * Estensione della funzionalità delle app per la logica con funzioni supportate in C# o node.js
 
-## <a name="create-functions-for-logic-apps"></a>Creazione di funzioni per le app per la logica
+## <a name="create-custom-functions-for-your-logic-apps"></a>Creare funzioni personalizzate per le app per la logica
 
 È consigliabile creare una funzione nel portale Funzioni di Azure dai modelli **Generic Webhook - Node** (Webhook generico - Node) o **Generic Webhook - C#** (Webhook generico - C#). Il risultato crea un modello popolato automaticamente che accetta `application/json` da un'app per la logica. Le funzioni che vengono create da questi modelli sono individuate automaticamente ed elencate nella finestra di progettazione delle app per la logica in **Funzioni di Azure nell'area**.
 

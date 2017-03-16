@@ -15,13 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4bf470737f961219250c37d890ed81eb62409626
-ms.openlocfilehash: feb9370f0241fd860749d32f5db5842cb18463f1
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 57d7475db8183cfaad017fc934210d0481868d5f
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="set-up-gpu-drivers-for-n-series-vms"></a>Configurare i driver GPU per le VM serie N
+# <a name="set-up-gpu-drivers-for-n-series-windows-vms"></a>Installare driver GPU per macchine virtuali Windows serie N
 Per usufruire delle funzionalità GPU delle VM serie N di Azure che eseguono Windows Server, è necessario installare i driver della scheda grafica NVIDIA in ciascuna VM dopo la distribuzione. Questo articolo è disponibile anche per le [VM Linux](virtual-machines-linux-n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Per conoscere le specifiche di base, le capacità di archiviazione e i dettagli relativi ai dischi, vedere [Dimensioni delle macchine virtuali](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -61,16 +63,11 @@ Per eseguire una query sullo stato del dispositivo GPU, eseguire l'utilità dell
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per ulteriori informazioni sulle GPU NVIDIA nelle VM serie N, vedere:
+* Per altre informazioni sulle GPU NVIDIA nelle macchine virtuali serie N, vedere:
     * [NVIDIA Tesla K80](http://www.nvidia.com/object/tesla-k80.html) (per VM NC Azure)
     * [NVIDIA Tesla M60](http://www.nvidia.com/object/tesla-m60.html) (per VM NV Azure)
 
 * Gli sviluppatori che creano applicazioni con accelerazione GPU per GPU NVIDIA Tesla possono inoltre scaricare e installare il [CUDA Toolkit 8](https://developer.nvidia.com/cuda-downloads).
 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

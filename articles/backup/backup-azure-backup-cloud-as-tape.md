@@ -13,14 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 1/10/2017
-ms.author: jimpark;trinadhk;markgal
+ms.author: saurse;trinadhk;markgal
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3bd18e805dafbfae315cab0e1d5c9421c8210b95
+ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
+ms.openlocfilehash: f0f3152daf5f91f7c9e540797bf09b21969d2d33
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="use-azure-backup-to-replace-your-tape-infrastructure"></a>Usare Backup di Azure per sostituire l'infrastruttura basata su nastro
+# <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Spostare lo spazio di archiviazione a lungo termine su nastro nel cloud di Azure
 I clienti di Backup di Azure e System Center Data Protection Manager possono eseguire le attività seguenti:
 
 * Eseguire il backup dei dati secondo le pianificazioni più adatte alle esigenze dell'organizzazione.
@@ -77,9 +79,4 @@ Per ulteriori informazioni sul Backup di Azure vedere:
 
 * [Introduzione a Backup di Azure](backup-introduction-to-azure-backup.md)
 * [Valutazione di Backup di Azure](backup-try-azure-backup-in-10-mins.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

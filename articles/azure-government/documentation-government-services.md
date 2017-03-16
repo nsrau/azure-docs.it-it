@@ -15,9 +15,9 @@ ms.workload: azure-government
 ms.date: 02/13/2017
 ms.author: stemi
 translationtype: Human Translation
-ms.sourcegitcommit: ffe3991f68bbd255ff6f4ffedbd6638f32897d1a
-ms.openlocfilehash: 914870f59b488716bb283162078535849f732018
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 21c2a0faad87b84058093f02c831b374a644b4b6
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -31,7 +31,7 @@ Qualsiasi informazione necessaria su questi servizi è inclusa nella documentazi
 
 Per l'elenco più aggiornato dei servizi, vedere il [Prodotti in base all'area](https://azure.microsoft.com/regions/services/). 
 
-Nelle tabelle seguenti i servizi specificati come abilitati per Resource Manager dispongono di provider di risorse e possono essere gestiti tramite PowerShell. Per altre informazioni sui provider, le versioni API e gli schemi di Resource Manager, vedere [qui](../azure-resource-manager/resource-manager-supported-services.md). I servizi descritti come disponibili nel portale possono essere gestiti nel [portale di Azure per enti pubblici](https://portal.azure.us/). 
+Nelle tabelle seguenti i servizi specificati come abilitati per Resource Manager dispongono di provider di risorse e possono essere gestiti tramite PowerShell. Per informazioni dettagliate su provider, versioni delle API e schemi di Resource Manager, vedere [qui](../azure-resource-manager/resource-manager-supported-services.md). I servizi descritti come disponibili nel portale possono essere gestiti nel [portale di Azure per enti pubblici](https://portal.azure.us/). 
 
 
 ## <a name="computedocumentation-government-computemd"></a>[Calcolo](documentation-government-compute.md)
@@ -95,6 +95,12 @@ Nelle tabelle seguenti i servizi specificati come abilitati per Resource Manager
 | [Cache Redis](documentation-government-services-database.md#azure-redis-cache) | Sì | Sì |
 
 
+## <a name="intelligence--analyticsdocumentation-government-services-intelligenceandanalyticsmd"></a>[Intelligence e analisi](documentation-government-services-intelligenceandanalytics.md)
+
+| Service | Gestione risorse abilitato | Portale |
+| --- | --- | --- |
+| [HDInsights](documentation-government-services-intelligenceandanalytics.md#hdinsight) | Sì | Sì |
+| [Power BI Pro](documentation-government-services-intelligenceandanalytics.md#power-bi) | No | No (Portale di amministrazione di Office 365) |
 
 
 ## <a name="internet-of-things-iot"></a>Internet delle cose
@@ -122,7 +128,6 @@ Nelle tabelle seguenti i servizi specificati come abilitati per Resource Manager
 | Azure Active Directory | Sì | Sì |
 | [Insieme di credenziali delle chiavi](documentation-government-services-securityandidentity.md#key-vault) | Sì | No (disponibile a breve) |
 | Multi-Factor Authentication | Sì | Sì |
-| InTune | Sì | No |
 
 
 ## <a name="intelligence--analytics"></a>Intelligence e analisi
@@ -149,6 +154,6 @@ Nelle tabelle seguenti i servizi specificati come abilitati per Resource Manager
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altri aggiornamenti e informazioni, iscriversi al [blog di Microsoft Azure per enti pubblici](https://blogs.msdn.microsoft.com/azuregov/).
+Per maggiori informazioni e aggiornamenti, iscriversi al [blog di Microsoft Azure per enti pubblici](https://blogs.msdn.microsoft.com/azuregov/).
 
 

@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 96747e898b2d84cbce9251758a90941f85112dd0
-ms.openlocfilehash: 7aa3844b9bdc2c5372c6e54b05296dcde6b1c05f
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: dc8c7beaf5b8e8d4f5467ffe22390c41f446d787
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -55,7 +56,7 @@ Osservare il punto interrogativo accanto al tipo di dati del campo **Durata**. S
 
 Nello script si troveranno i concetti e le parole chiave seguenti:
 
-* Variabili del set di righe: ad ogni espressione di query che produce un set di righe può essere assegnata una variabile. U-SQL segue il modello di denominazione delle variabili T-SQ, ad esempio (@searchlog, nello script.
+* Variabili del set di righe: ad ogni espressione di query che produce un set di righe può essere assegnata una variabile. U-SQL segue il modello di denominazione delle variabili T-SQ, ad esempio @searchlog, nello script.
 
  >[!NOTE]
  >L'assegnazione, tuttavia, non impone l'esecuzione, ma attribuisce un nome all'espressione e offre la possibilità di sviluppare espressioni più complesse.
@@ -64,9 +65,9 @@ Nello script si troveranno i concetti e le parole chiave seguenti:
 
  >[!NOTE]
  >Sebbene i due percorsi siano relativi, è possibile usare anche percorsi assoluti. ad esempio:    
- >     adl://<ADLStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
+ >     adl://\<ADLStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
  >
- >È necessario usare percorsi assoluti per accedere ai file presenti negli account di archiviazione collegati.  La sintassi per i file archiviati in account di archiviazione di Azure collegati è: wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
+ >È necessario usare percorsi assoluti per accedere ai file presenti negli account di archiviazione collegati.  La sintassi per i file archiviati nell'account di archiviazione di Azure collegato è: wasb://\<BlobContainerName>@\<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
  >[!NOTE]
  >Non sono attualmente supportate autorizzazioni di accesso a contenitori pubblici o a contenitori di archiviazione BLOB di Azure con BLOB pubblici.
@@ -410,9 +411,4 @@ Questa esercitazione illustra solo una piccola parte di U-SQL. A causa dell'ambi
 * [Inviare una richiesta di funzionalità](http://aka.ms/adlafeedback)
 * [Ottenere informazioni sui forum](http://aka.ms/adlaforums)
 * [Fornire feedback su U-SQL](http://aka.ms/usqldiscuss)
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

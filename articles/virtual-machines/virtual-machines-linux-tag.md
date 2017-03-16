@@ -1,6 +1,6 @@
 ---
-title: Come assegnare un tag a una macchina virtuale Linux | Documentazione Microsoft
-description: "Informazioni sull’assegnazione di tag a una macchina virtuale Linux creata in Azure con il modello di distribuzione di Resource Manager."
+title: Come assegnare un tag a una macchina virtuale Linux in Azure | Microsoft Docs
+description: Informazioni sull&quot;assegnazione di tag a una macchina virtuale Linux creata in Azure con il modello di distribuzione di Resource Manager.
 services: virtual-machines-linux
 documentationcenter: 
 author: mmccrory
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/05/2016
+ms.date: 02/28/2017
 ms.author: memccror
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 56777605e84326fdde1821b42279bd7fc752c553
+ms.sourcegitcommit: 2ec95674901130c9c24de331257e40311c88cb6a
+ms.openlocfilehash: 8fad89189ba6836c5748c656457ab25564147550
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -27,19 +28,21 @@ Questo articolo descrive diversi modi per contrassegnare una macchina virtuale L
 [!INCLUDE [virtual-machines-common-tag](../../includes/virtual-machines-common-tag.md)]
 
 ## <a name="tagging-with-azure-cli"></a>Assegnazione di tag con Azure CLI
-Per iniziare, [installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-azure-resource-manager.md) e assicurarsi di trovarsi in modalità Resource Manager (`azure config mode arm`).
+Innanzitutto, è necessario aver installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0 (Anteprima)](/cli/azure/install-az-cli2) e aver effettuato l'accesso a un account Azure con il comando [az login](/cli/azure/#login).
+
+È possibile anche eseguire questi passaggi tramite l'[interfaccia della riga di comando di Azure 1.0](virtual-machines-linux-tag-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 È possibile visualizzare tutte le proprietà per una determinata macchina virtuale, compresi i tag, utilizzando questo comando:
 
-        azure vm show -g MyResourceGroup -n MyTestVM
+        az vm show --resource-group MyResourceGroup --name MyTestVM
 
-Per aggiungere un nuovo tag della macchina virtuale tramite la CLI di Azure, è possibile utilizzare il comando `azure vm set` insieme al parametro tag **-t**:
+Per aggiungere un nuovo tag della macchina virtuale tramite l'interfaccia della riga di comando di Azure, è possibile utilizzare il comando `azure vm update` insieme al parametro tag **--set**:
 
-        azure vm set -g MyResourceGroup -n MyTestVM –t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
+        az vm update --resource-group MyResourceGroup --name MyTestVM –-set tags.myNewTagName1=myNewTagValue1 tags.myNewTagName2=myNewTagValue2
 
-Per rimuovere tutti i tag, è possibile usare il parametro **–T** nel comando `azure vm set`.
+Per rimuovere i tag, è possibile usare il parametro **--remove** nel comando `azure vm update`.
 
-        azure vm set – g MyResourceGroup –n MyTestVM -T
+        az vm update –-resource-group MyResourceGroup –-name MyTestVM --remove tags.myNewTagName1
 
 
 Dopo aver applicato i tag alle risorse tramite l'interfaccia della riga di comando di Azure e il portale, esaminare i dettagli di utilizzo per visualizzare i tag nel portale di fatturazione.
@@ -55,9 +58,4 @@ Dopo aver applicato i tag alle risorse tramite l'interfaccia della riga di coman
 [Using Tags to organize your Azure Resources]: ../azure-resource-manager/resource-group-using-tags.md
 [Understanding your Azure Bill]: ../billing/billing-understand-your-bill.md
 [Gain insights into your Microsoft Azure resource consumption]: ../billing/billing-usage-rate-card-overview.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

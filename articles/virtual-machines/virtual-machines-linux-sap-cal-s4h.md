@@ -1,6 +1,6 @@
 ---
-title: Distribuzione di S/4 HANA o BW/4 HANA in una macchina virtuale di Azure | Microsoft Docs
-description: Distribuzione di S/4 HANA o BW/4 HANA in una macchina virtuale di Azure
+title: Distribuire SAP S/4 HANA o BW/4 HANA in una macchina virtuale di Azure | Microsoft Docs
+description: Distribuire SAP S/4HANA o BW/4HANA in una macchina virtuale di Azure
 services: virtual-machines-linux
 documentationcenter: 
 author: hermanndms
@@ -17,82 +17,75 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f653e69590ee15d272543dc58840b1ee6983e953
+ms.sourcegitcommit: 6f345bb816a3fd6f6fb8672b9a43a0d075bd94eb
+ms.openlocfilehash: 939c051cad98590acffb6e550ca45bf5fec90d7e
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="deploying-s4-hana-or-bw4-hana-on-microsoft-azure"></a>Distribuire S/4 HANA o BW/4 HANA in Microsoft Azure
-In questo articolo viene descritto come distribuire S/4 HANA in Microsoft Azure tramite SAP Cloud Appliance Library 3.0.
-Le schermate illustrano la procedura dettagliata. Sul piano procedurale, per le altre soluzioni basate su SAP HANA, come BW/4 HANA, la distribuzione funziona nello stesso modo. L'unica cosa da fare è selezionare un'altra soluzione.
+# <a name="deploy-sap-s4hana-or-bw4hana-on-microsoft-azure"></a>Distribuire SAP S/4HANA o BW/4HANA in Microsoft Azure
+In questo articolo viene descritto come distribuire S/4HANA in Microsoft Azure tramite SAP Cloud Appliance Library (SAP CAL) 3.0. Sul piano procedurale, per le altre soluzioni basate su SAP HANA, come BW/4HANA, la distribuzione funziona nello stesso modo. Semplicemente, si sceglie una soluzione diversa.
 
-Per acquisire familiarità con SAP Cloud Appliance Library (SAP CAL), visitare [questa pagina](https://cal.sap.com/). Esiste anche un blog di SAP sul nuovo [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
+> [!NOTE]
+Per altre informazioni su SAP Cloud Appliance Library, vedere l'[home page del relativo sito](https://cal.sap.com/). Esiste anche un blog di SAP su [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
 
-Le schermate seguenti illustrano in dettaglio come distribuire S/4 HANA in Microsoft Azure. Per altre soluzioni BW/4 HANA, la procedura è sempre la stessa.
+## <a name="step-by-step-process-to-deploy-the-solution"></a>Procedura dettagliata per distribuire la soluzione
 
-![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic-1b.jpg)
+Gli screenshot seguenti illustrano come distribuire S/4HANA in Azure. Per altre soluzioni BW/4HANA, la procedura è sempre la stessa.
 
-La prima figura mostra tutte le soluzioni basate su SAP CAL HANA disponibili in Microsoft Azure.
-Per eseguire la procedura di esempio, è stata scelta la soluzione "SAP S/4 HANA edizione locale" (la soluzione in basso nella schermata).
+Il primo screenshot mostra tutte le soluzioni SAP CAL basate su HANA disponibili in Azure. Si noti **SAP S/4HANA on-premises edition** nella parte inferiore.
 
-![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic-2.jpg)
+![Screenshot della finestra Solutions di SAP Cloud Appliance Library](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic-1b.jpg)
 
-Per prima cosa occorre creare un nuovo account SAP CAL. Attualmente per gli account di Azure sono disponibili due opzioni: Azure standard e Azure in Cina, gestito dal partner 21Vianet.
+Innanzitutto, creare un nuovo account SAP CAL. In **Accounts** (Account) sono presenti due scelte per Azure: Microsoft Azure e un'opzione di Azure gestita da 21Vianet. Per questo esempio, scegliere **Microsoft Azure**.
 
-![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic3b.jpg)
+![Screenshot della finestra Accounts (Account) di SAP Cloud Appliance Library](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic-2.jpg)
 
-È quindi necessario immettere l'ID sottoscrizione di Azure, reperibile nel portale di Azure; per altre informazioni, vedere di seguito. Dopodiché è necessario scaricare un certificato di gestione di Azure.
+Quindi, immettere l'ID sottoscrizione di Azure, reperibile nel Portale di Azure. In seguito, scaricare un certificato di gestione di Azure.
 
-![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic6b.jpg)
+![Screenshot della finestra Accounts (Account) di SAP Cloud Appliance Library](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic3b.jpg)
 
-Sul lato sinistro del nuovo portale di Azure è presente l'elemento "Sottoscrizioni". Fare clic su di esso per visualizzare tutte le sottoscrizioni attive per l'utente.
+> [!NOTE]
+Per trovare l'ID sottoscrizione di Azure, usare il portale di Azure classico, non la versione più recente. Questo perché SAP CAL non è ancora adattato a questo nuovo modello e richiede il portale classico per poter usare i certificati di gestione.
 
-Selezionando una delle sottoscrizioni e scegliendo "Certificati di gestione", viene spiegato che esiste un nuovo concetto di uso delle "entità servizio" per il nuovo modello di Azure Resource Manager.
-Non essendo ancora adattato a questo nuovo modello, SAP CAL richiede che il modello "classico" e il vecchio portale di Azure continuino a usare i certificati di gestione.
+Lo screenshot seguente mostra il portale classico. In **IMPOSTAZIONI**, selezionare la scheda **SOTTOSCRIZIONI** per trovare l'ID sottoscrizione da inserire nella finestra Accounts (Account) di SAP CAL.
 
-![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic4b.jpg)
+![Screenshot del portale di Azure classico](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic4b.jpg)
 
-Qui si può osservare il vecchio portale di Azure. Caricando un certificato di gestione, SAP CAL riceve le autorizzazioni necessarie per creare macchine virtuali in una sottoscrizione del cliente. Nella scheda "SUBSCRIPTIONS" (SOTTOSCRIZIONI) è possibile risalire all'ID della sottoscrizione da inserire nel portale SAP CAL.
+In **IMPOSTAZIONI**, passare alla scheda **CERTIFICATI DI GESTIONE**. Caricando un certificato di gestione, SAP CAL riceve le autorizzazioni necessarie per creare macchine virtuali in una sottoscrizione del cliente. Si carica il certificato di gestione precedentemente scaricato da SAP CAL.
 
-![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic5.jpg)
+![Screenshot del portale di Azure classico, scheda Certificati di gestione](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic5.jpg)
 
-Nella seconda scheda è quindi possibile caricare il certificato di gestione precedentemente scaricato da SAP CAL.
+Viene visualizzata una finestra di dialogo in cui selezionare il file di certificato scaricato.
 
-![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic8.jpg)
+![Screenshot della finestra di dialogo Carica certificato di gestione](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic8.jpg)
 
-Viene visualizzata una piccola finestra di dialogo in cui selezionare il file di certificato scaricato.
+Una volta caricato il certificato, in SAP CAL è possibile testare la connessione tra SAP CAL e la sottoscrizione Azure. Un piccolo messaggio popup indicherà se la connessione è valida.
 
-![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic9.jpg)
+![Screenshot della finestra Accounts (Account) di SAP Cloud Appliance Library](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic9.jpg)
 
-Una volta caricato il certificato, in SAP CAL è possibile testare la connessione tra SAP CAL e la sottoscrizione Azure del cliente. Un piccolo messaggio popup indicherà se la connessione è valida.
+Successivamente, selezionare una soluzione da distribuire e creare un'istanza.
+Immettere un nome da assegnare all'istanza, scegliere un'area di Azure e definire la password master della soluzione.
 
-![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic10.jpg)
+![Screenshot della finestra Solutions (Soluzioni) di SAP Cloud Appliance Library](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic10.jpg)
 
-Dopo aver installato un account, è necessario selezionare una soluzione da distribuire e creare un'istanza.
-Con la modalità di base, si tratta di un'operazione molto semplice. Immettere un nome da assegnare all'istanza, scegliere un'area di Azure e definire la password master della soluzione.
+Dopo alcuni minuti, a seconda della dimensione e della complessità (stimate da SAP CAL), la soluzione viene visualizzata come attiva e pronta all'uso.
 
-![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic11.jpg)
+![Screenshot della finestra Instances (Istanze) di SAP Cloud Appliance Library](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic11.jpg)
 
-Dopo alcuni minuti, a seconda della dimensione e della complessità (stimate da SAP CAL), la soluzione viene visualizzata come attiva e pronta all'uso. È molto semplice.
+È possibile visualizzare alcuni dettagli della soluzione, ad esempio la tipologia di macchine virtuali distribuite. In questo caso sono state create tre macchine virtuali di Azure diverse per dimensioni e scopo.
 
-![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic12.jpg)
+![Screenshot della finestra Instances (Istanze) di SAP Cloud Appliance Library](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic12.jpg)
 
-Esaminando alcuni dettagli della soluzione, è possibile conoscere il tipo di VM distribuite. In questo caso sono state create tre VM di Azure diverse per dimensioni e scopo.
+Nel portale di Azure classico è possibile che le macchine virtuali vengano avviate con lo stesso nome di istanza assegnato in SAP CAL.
 
-![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic13.jpg)
-
-Nel portale di Azure è possibile che le macchine virtuali vengano avviate con lo stesso nome di istanza assegnato in SAP CAL.
-
-![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic14b.jpg)
+![Screenshot che mostra tre macchine virtuali nel portale di Azure classico](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic13.jpg)
 
 A questo punto è possibile connettersi alla soluzione tramite l'apposito pulsante disponibile nel portale di SAP CAL. Nella finestra di dialogo è presente il collegamento a un manuale dell'utente che descrive tutte le credenziali predefinite per l'utilizzo della soluzione.
 
-![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic15.jpg)
+![Screenshot della finestra di dialogo Connect to the Instance (Connettersi all'istanza)](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic14b.jpg)
 
-Un'altra opzione consiste nell'effettuare l'accesso alla VM client di Windows e avviare, ad esempio, la GUI SAP preconfigurata.
+Un'altra opzione consiste nell'accedere alla macchina virtuale client di Windows e avviare, ad esempio, la GUI SAP preconfigurata.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
+![Screenshot della GUI SAP preconfigurata](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic15.jpg)
 

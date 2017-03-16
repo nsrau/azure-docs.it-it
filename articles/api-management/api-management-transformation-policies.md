@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: dc6d0a2d48895da12a95e3f482ad8588b98db4ec
-ms.openlocfilehash: 37726a272b0fbe17c58e627d66106ccbbe083936
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 56eb95f5c8dfb34c0dbaec75efc5509f0c930ec3
+ms.lasthandoff: 03/06/2017
 
 ---
 # <a name="api-management-transformation-policies"></a>Criteri di trasformazione di Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="a-nametransformationpoliciesa-transformation-policies"></a><a name="TransformationPolicies"></a> Criteri di trasformazione  
+##  <a name="TransformationPolicies"></a> Criteri di trasformazione  
   
 -   [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML) : converte il corpo della richiesta o della risposta da JSON a XML.  
   
@@ -44,7 +45,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   [Trasforma XML usando una trasformazione XSLT](api-management-transformation-policies.md#XSLTransform) - applica una trasformazione da XSL a XML nel corpo della richiesta o della risposta.  
   
-##  <a name="a-nameconvertjsontoxmla-convert-json-to-xml"></a><a name="ConvertJSONtoXML"></a> Converti JSON in XML  
+##  <a name="ConvertJSONtoXML"></a> Converti JSON in XML  
  Il criterio `json-to-xml` converte il corpo della richiesta o della risposta da JSON a XML.  
   
 ### <a name="policy-statement"></a>Istruzione del criterio  
@@ -87,7 +88,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   **Ambiti del criterio:** globale, prodotto, API, operazione  
   
-##  <a name="a-nameconvertxmltojsona-convert-xml-to-json"></a><a name="ConvertXMLtoJSON"></a> Converti XML in JSON  
+##  <a name="ConvertXMLtoJSON"></a> Converti XML in JSON  
  Il criterio `xml-to-json` converte il corpo della richiesta o della risposta da XML a JSON. Il criterio può essere applicato per modernizzare le API basate su servizi Web back-end solo di tipo XML.  
   
 ### <a name="policy-statement"></a>Istruzione del criterio  
@@ -131,7 +132,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   **Ambiti del criterio:** globale, prodotto, API, operazione  
   
-##  <a name="a-namefindandreplacestringinbodya-find-and-replace-string-in-body"></a><a name="Findandreplacestringinbody"></a> Trova e sostituisci stringa nel corpo  
+##  <a name="Findandreplacestringinbody"></a> Trova e sostituisci stringa nel corpo  
  Il criterio `find-and-replace` trova una sottostringa di richiesta o risposta e la sostituisce con una sottostringa diversa.  
   
 ### <a name="policy-statement"></a>Istruzione del criterio  
@@ -166,7 +167,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   **Ambiti del criterio:** globale, prodotto, API, operazione  
   
-##  <a name="a-namemaskurlscontenta-mask-urls-in-content"></a><a name="MaskURLSContent"></a> Maschera URL nel contenuto  
+##  <a name="MaskURLSContent"></a> Maschera URL nel contenuto  
  Il criterio `redirect-content-urls` riscrive (maschera) i collegamenti nel corpo della risposta, in modo che facciano riferimento al collegamento equivalente tramite il gateway. Usare la sezione outbound per riscrivere i collegamenti al corpo della risposta affinché facciano riferimento al gateway. Usare la sezione inbound per ottenere l'effetto opposto.  
   
 > [!NOTE]
@@ -197,7 +198,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   **Ambiti del criterio:** globale, prodotto, API, operazione  
   
-##  <a name="a-namesetbackendservicea-set-backend-service"></a><a name="SetBackendService"></a> Imposta servizio back-end  
+##  <a name="SetBackendService"></a> Imposta servizio back-end  
  Usare il criterio `set-backend-service` per reindirizzare una richiesta in ingresso a un back-end diverso da quello specificato nelle impostazioni dell'API per l'operazione. Questo criterio cambia l'URL di base del servizio back-end della richiesta in arrivo con quello specificato nel criterio.  
   
 ### <a name="policy-statement"></a>Istruzione del criterio  
@@ -254,7 +255,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   **Ambiti del criterio:** globale, prodotto, API, operazione  
   
-##  <a name="a-namesetbodya-set-body"></a><a name="SetBody"></a> Imposta corpo  
+##  <a name="SetBody"></a> Imposta corpo  
  Il criterio `set-body` consente di impostare il corpo del messaggio per le richieste in ingresso e in uscita. Per accedere al corpo del messaggio è possibile usare la proprietà `context.Request.Body` o `context.Response.Body`, a seconda che il criterio sia nella sezione inbound o outbound.  
   
 > [!IMPORTANT]
@@ -330,21 +331,79 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   </when>  
 </choose>  
 ```  
-  
+
+### <a name="using-liquid-templates-with-set-body"></a>Uso di modelli Liquid con set body 
+Il criterio `set-body` può essere configurato per l'uso del linguaggio di modellazione [Liquid](https://shopify.github.io/liquid/basics/introduction/) per trasformare il corpo di una richiesta o di una risposta. Può essere molto efficace se si desidera modificare completamente il formato del messaggio.
+
+> [!IMPORTANT]
+> L'implementazione di Liquid usato nel criterio `set-body` è configurato in "modalità C#". Questo è particolarmente importante quando si eseguono operazioni quali l'applicazione del filtro. Ad esempio, l'uso di un filtro data richiede l'uso della convenzione Pascal e della formattazione delle date C#, ad esempio:
+>
+> {{body.foo.startDateTime| Data:"yyyyMMddTHH:mm:ddZ"}}
+
+> [!IMPORTANT]
+> Per eseguire correttamente l'associazione a un corpo XML utilizzando il modello Liquid, usare un criterio `set-header` per impostare il tipo di contenuto su application/xml, text/xml (o su qualsiasi tipo che termini con +xml); per un corpo JSON, deve essere application/json, testo/json (o qualsiasi tipo che termini con +json).
+
+#### <a name="convert-json-to-soap-using-a-liquid-template"></a>Convertire JSON in SOAP usando un modello Liquid
+```xml
+<set-body template="liquid">
+    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+        <soap:Body>
+            <GetOpenOrders>
+                <cust>{{body.getOpenOrders.cust}}</cust>
+            </GetOpenOrders>
+        </soap:Body>
+    </soap:Envelope>
+</set-body>
+```
+
+#### <a name="tranform-json-using-a-liquid-template"></a>Trasformare JSON usando un modello Liquid
+```xml
+{
+"order": {
+    "id": "{{body.customer.purchase.identifier}}",
+    "summary": "{{body.customer.purchase.orderShortDesc}}"
+    }
+}
+```
+
 ### <a name="elements"></a>Elementi  
   
 |Nome|Descrizione|Obbligatorio|  
 |----------|-----------------|--------------|  
 |set-body|Elemento radice. Contiene il testo del corpo o un'espressione che restituisce un corpo.|Sì|  
+
+### <a name="properties"></a>Proprietà  
   
-### <a name="usage"></a>Utilizzo  
+|Nome|Descrizione|Obbligatorio|Default|  
+|----------|-----------------|--------------|-------------|  
+|template|Consente di modificare la modalità di modello in cui verrà eseguito il criterio del corpo impostato. Al momento, l'unico valore supportato è:<br /><br />-liquid - i criteri del corpo impostati useranno il motore del modello liquidi |No|liquid|  
+
+Per accedere alle informazioni sulla richiesta e la risposta, il modello Liquid può essere associato a un oggetto di contesto con le proprietà seguenti: <br />
+<pre>context.
+Request.
+Url Method OriginalMethod OriginalUrl IpAddress MatchedParameters HasBody ClientCertificates Headers
+
+    Response.
+        StatusCode
+        Method
+        Headers
+URL.
+Scheme Host Port Path Query QueryString ToUri ToString
+
+OriginalUrl.
+Scheme Host Port Path Query QueryString ToUri ToString
+</pre>
+
+
+
+### <a name="usage"></a>Uso  
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** inbound, outbound, back-end  
   
 -   **Ambiti del criterio:** globale, prodotto, API, operazione  
   
-##  <a name="a-namesethttpheadera-set-http-header"></a><a name="SetHTTPheader"></a> Imposta intestazione HTTP  
+##  <a name="SetHTTPheader"></a> Imposta intestazione HTTP  
  Il criterio `set-header` assegna un valore a un'intestazione di risposta e/o di richiesta esistente oppure aggiunge una nuova intestazione di risposta e/o di richiesta.  
   
  Inserisce un elenco di intestazioni HTTP in un messaggio HTTP. Se inserito in una pipeline in entrata, questo criterio imposta le intestazioni HTTP per la richiesta passata al servizio di destinazione. Se inserito in una pipeline in uscita, questo criterio imposta le intestazioni HTTP per la risposta inviata al client del gateway.  
@@ -401,7 +460,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   **Ambiti del criterio:** globale, prodotto, API, operazione  
   
-##  <a name="a-namesetquerystringparametera-set-query-string-parameter"></a><a name="SetQueryStringParameter"></a> Imposta parametro di stringa della query  
+##  <a name="SetQueryStringParameter"></a> Imposta parametro di stringa della query  
  Il criterio `set-query-parameter` aggiunge, sostituisce il valore di o elimina il parametro di stringa della query di richiesta. Può essere usato per passare i parametri di query previsti dal servizio back-end che sono facoltativi o non sono mai presenti nella richiesta.  
   
 ### <a name="policy-statement"></a>Istruzione del criterio  
@@ -461,7 +520,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   **Ambiti del criterio:** globale, prodotto, API, operazione  
   
-##  <a name="a-namerewriteurla-rewrite-url"></a><a name="RewriteURL"></a> Riscrivi URL  
+##  <a name="RewriteURL"></a> Riscrivi URL  
  Il criterio `rewrite-uri` converte un URL di richiesta dal formato pubblico al formato previsto dal servizio Web, come mostrato nell'esempio seguente.  
   
 -   URL pubblico - `http://api.example.com/storenumber/ordernumber`  
@@ -539,7 +598,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   **Ambiti del criterio:** prodotto, API, operazione  
   
-##  <a name="a-namexsltransforma-transform-xml-using-an-xslt"></a><a name="XSLTransform"></a>Trasforma XML usando XSLT  
+##  <a name="XSLTransform"></a>Trasforma XML usando XSLT  
  Il criterio `Transform XML using an XSLT` applica una trasformazione XSL all'XML nel corpo della richiesta o della risposta.  
   
 ### <a name="policy-statement"></a>Istruzione del criterio  
@@ -574,7 +633,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   <outbound>  
       <base />  
       <xsl-transform>  
-        <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
+          <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
             <xsl:output omit-xml-declaration="yes" method="xml" indent="yes" />  
             <!-- Copy all nodes directly-->  
             <xsl:template match="node()| @*|*">  
@@ -582,7 +641,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
                     <xsl:apply-templates select="@* | node()|*" />  
                 </xsl:copy>  
             </xsl:template>  
-        </xsl:stylesheet>  
+          </xsl:stylesheet>  
     </xsl-transform>  
   </outbound>  
 </policies>  
@@ -605,9 +664,4 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sull'uso dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

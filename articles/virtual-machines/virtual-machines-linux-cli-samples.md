@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/26/2017
+ms.date: 02/28/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 5a73094c90b2a7400a664a827e07d5ada2184952
-ms.openlocfilehash: 372f6413903fbf7344871a136ffcddcadfc81782
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: ea2124e01753b914ebd1691e5d89091ac5cd5859
+ms.lasthandoff: 03/04/2017
 
 
 ---
-# <a name="azure-virtual-machine-cli-samples"></a>Esempi dell'interfaccia della riga di comando di Macchine virtuali di Azure
+# <a name="azure-cli-samples-for-linux-virtual-machines"></a>Esempi dell'interfaccia della riga di comando di Azure per macchine virtuali Linux
 
 La tabella seguente include collegamenti a script Bash compilati tramite l'interfaccia della riga di comando di Azure.
 
@@ -39,6 +39,8 @@ La tabella seguente include collegamenti a script Bash compilati tramite l'inter
 | [Proteggere il traffico di rete tra le macchine virtuali](./scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Consente di creare due macchine virtuali, tutte le risorse correlate, un gruppo di sicurezza di rete interno e uno esterno. |
 |**Monitorare le macchine virtuali**||
 | [Monitorare una macchina virtuale con Operations Management Suite](./scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Consente di creare una macchina virtuale, installare l'agente Operations Management Suite e registrare la macchina virtuale in un'area di lavoro OMS.  |
+|**Riavviare le macchine virtuali**||
+| [Riavviare le macchine virtuali](./scripts/virtual-machines-linux-cli-sample-restart-by-tag.md) | Crea le macchine virtuali e le riavvia. |
 |**Risolvere i problemi delle macchine virtuali**||
 | [Risolvere i problemi del disco del sistema operativo delle macchine virtuali](./scripts/virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Consente di montare il disco del sistema operativo da una macchina virtuale come disco dati in una seconda macchina virtuale. |
 | | |

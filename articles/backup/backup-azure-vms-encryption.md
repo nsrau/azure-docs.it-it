@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 01/18/2017
 ms.author: pajosh;markgal;trinadhk
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d7a2b9c13b2c3372ba2e83f726c7bf5cc7e98c02
-ms.openlocfilehash: b6ddaf7dc26d0efac782752e55594262531e794a
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
+ms.openlocfilehash: 5de5d42037aee5b0ef7745ea5d0cc748a7b5a60e
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="backup-and-restore-encrypted-vms-using-azure-backup"></a>Backup e ripristino di macchine virtuali crittografate con Azure Backup
+# <a name="how-to-back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Come eseguire il backup e il ripristino delle macchine virtuali crittografate con il Backup di Azure
 Questo articolo illustra la procedura per eseguire il backup e ripristino di macchine virtuali con Backup di Azure. Fornisce anche informazioni sugli scenari supportati, i prerequisiti e i passaggi per la risoluzione dei problemi per i casi di errore.
 
 ## <a name="supported-scenarios"></a>Scenari Supportati

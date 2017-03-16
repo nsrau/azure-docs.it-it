@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/30/2017
 ms.author: kakhan
 translationtype: Human Translation
-ms.sourcegitcommit: 1dd5be3ba3a0fbbb4657a2c0b2ca6757a94cc76a
-ms.openlocfilehash: 1c6b4b45b9e0b018a7cb3f28f7868c89ad0fda61
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: b21867e41acb1e0658041bd931327047095bb159
+ms.openlocfilehash: b5ecba98fd5c3061f68f94f5004c7cf00d0dfb36
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -139,7 +139,7 @@ Prima di abilitare Crittografia dischi di Azure nelle macchine virtuali IaaS di 
 > Crittografia dischi di Azure è supportato nelle versioni dei server Linux seguenti: Ubuntu, CentOS, SUSE e SUSE Linux Enterprise Server (SLES) e Red Hat Enterprise Linux.
 
 > [!NOTE]
-> La crittografia del disco del sistema operativo Linux è attualmente supportata nelle distribuzioni Linux seguenti: RHEL 7.2, CentOS 7.2n e Ubuntu 16.04.
+> La crittografia del disco del sistema operativo Linux è attualmente supportata nelle distribuzioni Linux seguenti: RHEL 7.2, RHEL 7.3, CentOS 7.2n, e Ubuntu 16.04.
 >
 > Tutte le risorse, ad esempio l'insieme di credenziali delle chiavi, l'account di archiviazione e la macchina virtuale, devono appartenere alla stessa area e alla stessa sottoscrizione di Azure.
 

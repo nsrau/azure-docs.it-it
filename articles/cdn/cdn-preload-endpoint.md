@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
-ms.openlocfilehash: df0dec0731031f2dee69719dd03a588ad6589044
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 242c3a6bf656da9b029a780e8b80667405b7b92f
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -49,7 +50,11 @@ Questa esercitazione illustra in modo dettagliato il precaricamento di contenuto
    > [!TIP]
    > Dopo l'immissione di testo verranno visualizzate altre caselle di testo **Percorso** che consentono di compilare un elenco di più asset.  È possibile eliminare gli asset dall'elenco facendo clic sul pulsante con i puntini di sospensione (...).
    > 
-   > I percorsi devono essere un URL relativo che soddisfi l'[espressione regolare](https://msdn.microsoft.com/library/az24scfc.aspx) seguente: `^(?:\/[a-zA-Z0-9-_.\u0020]+)+$`.  Ogni asset deve avere il proprio percorso.  Non esiste alcuna funzionalità con caratteri jolly per il pre-caricamento degli asset.
+   > I percorsi devono essere URL relativi che soddisfino l'[espressione regolare](https://msdn.microsoft.com/library/az24scfc.aspx) seguente:  
+   > >Caricare un singolo percorso di file `@"^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$"`;  
+   > >Caricare un singolo file con stringa di query `@"^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$";`  
+   > 
+   > Ogni asset deve avere il proprio percorso.  Non esiste alcuna funzionalità con caratteri jolly per il pre-caricamento degli asset.
    > 
    > 
    
@@ -66,10 +71,5 @@ Questa esercitazione illustra in modo dettagliato il precaricamento di contenuto
 ## <a name="see-also"></a>Vedere anche
 * [Ripulire un endpoint della rete CDN di Azure](cdn-purge-endpoint.md)
 * [Riferimento API REST della rete CDN di Azure - Ripulire o precaricare un endpoint](https://msdn.microsoft.com/library/mt634451.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

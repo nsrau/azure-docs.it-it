@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 02/28/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: fda7455320e1c043f1f5aa2a92b72329fc20e76a
-ms.openlocfilehash: b4aca222974e3165c9131134a8e1a2171b3d5088
+ms.sourcegitcommit: feb6e388a98cd6e133d010cada97f895140c3f4f
+ms.openlocfilehash: ee9a3b605c5445007f880a37e96c2326dd7c9b89
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -40,7 +41,7 @@ L'utilità di pianificazione stessa è sempre in esecuzione, ma può essere conf
 ## <a name="scheduler-configuration"></a>Configurazione dell'utilità di pianificazione
 Per visualizzare le impostazioni attuali della configurazione, passare a PowerShell ed eseguire il comando `Get-ADSyncScheduler`. Il risultato visualizzato è simile al seguente:
 
-![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings.png)
+![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings2016.png)
 
 Se quando si esegue questo cmdlet viene visualizzato il messaggio **Non è disponibile il comando o il cmdlet di sincronizzazione** , il modulo PowerShell non viene caricato. Questo problema può verificarsi se si esegue Azure AD Connect in un controller di dominio o in un server con livelli di restrizione di PowerShell più elevati rispetto alle impostazioni predefinite. Se si visualizza questo errore, eseguire `Import-Module ADSync` per rendere disponibile il cmdlet.
 
@@ -52,7 +53,8 @@ Se quando si esegue questo cmdlet viene visualizzato il messaggio **Non è dispo
 * **PurgeRunHistoryInterval**. tempo di conservazione dei log operazioni. È possibile esaminare i log in Synchronization Service Manager. Per impostazione predefinita, i log vengono conservati per 7 giorni.
 * **SyncCycleEnabled**. indica se l'utilità di pianificazione esegue i processi di importazione, sincronizzazione ed esportazione come parte del funzionamento normale.
 * **MaintenanceEnabled**. indica se il processo di manutenzione è abilitato. Aggiorna i certificati o le chiavi e ripulisce i log operazioni.
-* **IsStagingModeEnabled**. Indica se la [modalità di gestione temporanea](active-directory-aadconnectsync-operations.md#staging-mode) è abilitata. Se questa impostazione è abilitata, impedisce la riesecuzione delle esportazioni, ma esegue ugualmente l'importazione e la sincronizzazione.
+* **StagingModeEnabled**. Indica se la [modalità di gestione temporanea](active-directory-aadconnectsync-operations.md#staging-mode) è abilitata. Se questa impostazione è abilitata, impedisce la riesecuzione delle esportazioni, ma esegue ugualmente l'importazione e la sincronizzazione.
+* **SchedulerSuspended**. Impostato da Connect durante un aggiornamento per bloccare temporaneamente l'esecuzione dell'utilità di pianificazione.
 
 Alcune di queste impostazioni possono essere modificate con `Set-ADSyncScheduler`. È possibile modificare i parametri seguenti:
 
@@ -61,6 +63,8 @@ Alcune di queste impostazioni possono essere modificate con `Set-ADSyncScheduler
 * PurgeRunHistoryInterval
 * SyncCycleEnabled
 * MaintenanceEnabled
+
+Nelle versioni precedenti di Azure AD Connect, **isStagingModeEnabled** era esposto in Set-ADSyncScheduler. L'impostazione di questa proprietà **non è supportata**. La proprietà **SchedulerSuspended** deve essere modificata solo da Connect. L'impostazione di questa proprietà direttamente con PowerShell **non è supportata**.
 
 La configurazione dell'utilità di pianificazione viene archiviata in Azure AD. Se si ha un server di staging, qualsiasi modifica apportata nel server primario ha effetto anche nel server di staging (fatta eccezione per IsStagingModeEnabled).
 
@@ -169,9 +173,4 @@ Se si avvia l'installazione guidata, l'utilità di pianificazione viene sospesa 
 Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

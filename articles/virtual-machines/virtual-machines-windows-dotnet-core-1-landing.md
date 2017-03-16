@@ -15,14 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 8284fa063d8ffa0d9951b77eb06be14159fc2561
-ms.openlocfilehash: 5b40d5476d85a4eeba65f01320e0ea03ed4debaa
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 3aeefecabb72b57c64fb47aeb5b6523b9ff3239b
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="automating-application-deployments-to-azure-virtual-machines"></a>Automazione della distribuzione di applicazioni nelle macchine virtuali di Azure
+# <a name="automating-application-deployments-to-windows-virtual-machines"></a>Automazione della distribuzione di applicazioni nelle macchine virtuali Windows
+
 Questa serie di quattro articoli descrive in dettaglio la distribuzione e la configurazione di risorse e applicazioni di Azure mediante modelli di Azure Resource Manager. In questa serie viene distribuito un modello di esempio e viene esaminato il modello di distribuzione. L'obiettivo di questa serie è illustrare la relazione tra le risorse di Azure e fornire suggerimenti pratici per la distribuzione di modelli di Azure Resource Manager completamente integrati. Questo documento presuppone un livello base di conoscenze relative ad Azure Resource Manager. Prima di iniziare questa esercitazione, acquisire familiarità con i concetti fondamentali di Azure Resource Manager.
 
 ## <a name="music-store-application"></a>Applicazione Music Store

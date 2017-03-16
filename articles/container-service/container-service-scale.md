@@ -1,6 +1,6 @@
 ---
 title: Ridimensionare un cluster del servizio contenitore di Azure | Microsoft Docs
-description: Come ridimensionare il cluster del servizio contenitore di Azure usando l&quot;interfaccia della riga di comando di Azure o il portale di Azure.
+description: "È possibile ridimensionare il numero di nodi agente in un cluster DC/OS, Docker Swarm o Kubernetes nel servizio contenitore di Azure tramite l&quot;interfaccia della riga di comando o il Portale di Azure."
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/01/2017
 ms.author: saudas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 773eba80715cb990b23ecec548a18c112ba73a42
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 2464901d22bb91cbf396ef60f4bda6d979b578b7
+ms.openlocfilehash: 022e34811de9d2023d113c43d6f85842812dfee3
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="scale-an-azure-container-service-cluster"></a>Ridimensionare un cluster del servizio contenitore di Azure
+# <a name="scale-agent-nodes-in-a-container-service-cluster"></a>Ridimensionare i nodi agente in un cluster del servizio contenitore
 Dopo aver [distribuito un cluster del servizio contenitore di Azure](container-service-deployment.md), potrebbe essere necessario modificare il numero di nodi agente. Ad esempio, potrebbero essere necessari più agenti in modo da eseguire più applicazioni o istanze contenitore. 
 
-È possibile modificare il numero di nodi agente in un cluster DC/OS, Docker Swarm o Kubernetes tramite il portale di Azure o l'interfaccia della riga di comando di Azure 2.0. L'interfaccia della riga di comando di Azure 2.0 è [l'interfaccia della riga di comando di nuova generazione](/cli/azure/old-and-new-clis) per il modello di distribuzione di Resource Manager.
+È possibile modificare il numero di nodi agente in un cluster DC/OS, Docker Swarm o Kubernetes tramite il portale di Azure o l'interfaccia della riga di comando di Azure 2.0. 
 
 ## <a name="scale-with-the-azure-portal"></a>Ridimensionare con il portale di Azure
 

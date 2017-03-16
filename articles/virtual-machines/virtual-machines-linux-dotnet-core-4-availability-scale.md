@@ -15,13 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0dee2c3b92adc4098a51014dd7379aa3d53c1627
-ms.openlocfilehash: 6f352b000ce4e284a1f1cc9ba9b384827ee62003
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 1c8f8a958a6ea6ea096d4a55479879aab7c7e96d
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="availability-and-scale-in-azure-resource-manager-templates"></a>Disponibilità e scalabilità nei modelli di Azure Resource Manager
+# <a name="availability-and-scale-in-azure-resource-manager-templates-for-linux-vms"></a>Disponibilità e scalabilità nei modelli di Azure Resource Manager per macchine virtuali Linux
+
 La disponibilità e la scalabilità sono correlate al tempo di attività e alla possibilità di soddisfare la domanda. Se un'applicazione deve essere attiva durante il 99,9% del tempo, deve avere un'architettura che consente l'esecuzione di più risorse di calcolo simultanee. Ad esempio, anziché avere un singolo sito Web, una configurazione con un livello di disponibilità più elevato include più istanze dello stesso sito, con tecnologia di bilanciamento del carico. In questa configurazione, una singola istanza dell'applicazione può essere arrestata per manutenzione, mentre le altre continuano a funzionare. La scalabilità fa riferimento alla capacità delle applicazioni di soddisfare la domanda. Nel caso di un'applicazione con carico bilanciato, l'aggiunta o la rimozione di istanze dal pool consente a un'applicazione di ridimensionare le risorse in base alla domanda.
 
 Questo documento descrive in che modo è configurata la distribuzione di esempio di Music Store per la disponibilità e la scalabilità. Tutte le dipendenze e le configurazioni univoche sono evidenziate. Per ottenere risultati ottimali, pre-distribuire un'istanza della soluzione alla propria sottoscrizione di Azure ed esercitarsi con il modello di Azure Resource Manager. Il modello completo è disponibile in [Music Store Deployment on Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux)(Distribuzione di Music Store in Ubuntu).
@@ -261,10 +264,5 @@ Per altre informazioni sulla funzione copy, vedere [Creare più istanze di risor
 <hr>
 
 [Passaggio 4: Distribuzione di applicazioni con i modelli di Azure Resource Manager](virtual-machines-linux-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 
