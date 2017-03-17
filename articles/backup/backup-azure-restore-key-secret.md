@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: pajosh
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0c5b2969ddc943b2b15826003f5a9e686e84e1c4
+ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
+ms.openlocfilehash: ddb9e7909eb4ab97204059d21690795ceb6ff9e8
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Ripristinare la chiave dell'insieme di credenziali delle chiavi e il segreto per le macchine virtuali crittografate con Backup di Azure
+# <a name="restore-an-encrypted-virtual-machine-from-an-azure-backup-recovery-point"></a>Ripristinare una macchina virtuale codificata da un punto di ripristino di Backup di Azure
 Questo articolo illustra l'uso di Backup di Azure per eseguire il ripristino delle macchine virtuali crittografate di Azure nel caso in cui la chiave e il segreto non siano presenti nell'insieme di credenziali delle chiavi. Questa procedura può essere usata anche per conservare una copia separata della chiave (chiave di crittografia della chiave) e del segreto (chiave di crittografia BitLocker) per la macchina virtuale ripristinata.
 
 ## <a name="pre-requisites"></a>Prerequisiti
@@ -89,10 +91,10 @@ PS C:\> $rp1 = Get-AzureRmRecoveryServicesBackupRecoveryPoint -RecoveryPointId $
 
 > [!NOTE]
 > Al termine dell'esecuzione di questo cmdlet, nel computer viene generato un file BLOB nella cartella specificata. Il file BLOB rappresenta la chiave di crittografia della chiave in formato crittografato.
-> 
-> 
+>
+>
 
-Ripristinare la chiave nell'insieme di credenziali delle chiavi usando il cmdlet seguente. 
+Ripristinare la chiave nell'insieme di credenziali delle chiavi usando il cmdlet seguente.
 
 ```
 PS C:\> Restore-AzureKeyVaultKey -VaultName "contosokeyvault" -InputFile "C:\Users\downloads\key.blob"
@@ -108,11 +110,11 @@ https://contosokeyvault.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848
 ```
 
 > [!NOTE]
-> Il testo prima di vault.azure.net rappresenta il nome dell'insieme di credenziali delle chiavi originale. Il testo dopo secrets/ rappresenta il nome del segreto. 
-> 
-> 
+> Il testo prima di vault.azure.net rappresenta il nome dell'insieme di credenziali delle chiavi originale. Il testo dopo secrets/ rappresenta il nome del segreto.
+>
+>
 
-Se si vuole usare lo stesso nome del segreto, è possibile ottenere il nome e il valore del segreto dall'output del cmdlet eseguito in precedenza. In caso contrario, aggiornare $secretname di seguito per usare il nuovo nome del segreto. 
+Se si vuole usare lo stesso nome del segreto, è possibile ottenere il nome e il valore del segreto dall'output del cmdlet eseguito in precedenza. In caso contrario, aggiornare $secretname di seguito per usare il nuovo nome del segreto.
 
 ```
 PS C:\> $secretname = "B3284AAA-DAAA-4AAA-B393-60CAA848AAAA"
@@ -120,7 +122,7 @@ PS C:\> $secretdata = $rp1.KeyAndSecretDetails.SecretData
 PS C:\> $Secret = ConvertTo-SecureString -String $secretdata -AsPlainText -Force
 ```
 
-Se è necessario ripristinare anche macchina virtuale, impostare i tag per il segreto. Il nome del tag DiskEncryptionKeyFileName deve contenere il nome del segreto che si intende usare. 
+Se è necessario ripristinare anche macchina virtuale, impostare i tag per il segreto. Il nome del tag DiskEncryptionKeyFileName deve contenere il nome del segreto che si intende usare.
 
 ```
 PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKeyFileName' = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA.BEK';'DiskEncryptionKeyEncryptionKeyURL' = 'https://contosokeyvault.vault.azure.net:443/keys/KeyName/84daaac999949999030bf99aaa5a9f9';'MachineName' = 'vm-name'}
@@ -128,8 +130,8 @@ PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncry
 
 > [!NOTE]
 > Il valore di DiskEncryptionKeyFileName è uguale al nome del segreto ottenuto in precedenza. È possibile ottenere il valore di DiskEncryptionKeyEncryptionKeyURL dall'insieme di credenziali delle chiavi dopo il ripristino delle chiavi, usando il cmdlet [Get-AzureKeyVaultKey](https://msdn.microsoft.com/library/dn868053.aspx).    
-> 
-> 
+>
+>
 
 Impostare di nuovo il segreto nell'insieme di credenziali delle chiavi
 
@@ -139,10 +141,4 @@ PS C:\> Set-AzureKeyVaultSecret -VaultName "contosokeyvault" -Name $secretname -
 
 ### <a name="restore-virtual-machine"></a>Ripristinare la macchina virtuale
 Il cmdlet di PowerShell precedente permette di ripristinare la chiave e il segreto nell'insieme di credenziali delle chiavi, se è stato eseguito il backup della macchina virtuale crittografata tramite Backup di Azure. Successivamente, per ripristinare le macchine virtuali crittografate, vedere l'articolo relativo alla [gestione del backup e ripristino di macchine virtuali di Azure con PowerShell](backup-azure-vms-automation.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

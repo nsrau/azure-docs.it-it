@@ -1,22 +1,27 @@
 ---
-title: Aggiungere l'autenticazione all'app UWP (Universal Windows Platform) | Microsoft Docs
-description: Informazioni su come usare le app per dispositivi mobili del servizio app di Azure per autenticare gli utenti dell'app UWP (Universal Windows Platform) tramite vari provider di identità, tra cui AAD, Google, Facebook, Twitter e Microsoft.
+title: Aggiungere l&quot;autenticazione all&quot;app UWP (Universal Windows Platform) | Documentazione Microsoft
+description: "Informazioni su come usare le app per dispositivi mobili del servizio app di Azure per autenticare gli utenti dell&quot;app UWP (Universal Windows Platform) tramite vari provider di identità, tra cui AAD, Google, Facebook, Twitter e Microsoft."
 services: app-service\mobile
 documentationcenter: windows
-author: ggailey777
-manager: erikre
-editor: ''
-
+author: adrianhall
+manager: adrianha
+editor: 
+ms.assetid: 6cffd951-893e-4ce5-97ac-86e3f5ad9466
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/14/2016
-ms.author: glenga
+ms.date: 10/01/2016
+ms.author: adrianha
+translationtype: Human Translation
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 96b87d4d6cc1adbc9700102ffd4a989451676d81
+ms.lasthandoff: 03/09/2017
+
 
 ---
-# Aggiungere l'autenticazione all'app Windows
+# <a name="add-authentication-to-your-windows-app"></a>Aggiungere l'autenticazione all'app Windows
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 In questo argomento viene illustrato come aggiungere l'autenticazione basata su cloud all’app per dispositivi mobili. In questa esercitazione si aggiungerà l'autenticazione al progetto di guida introduttiva UWP (Universal Windows Platform) per App per dispositivi mobili tramite un provider di identità supportato dal Servizio app di Azure. In seguito all'autenticazione e all'autorizzazione da parte dell'app per dispositivi mobili, viene visualizzato il valore dell'ID utente.
@@ -68,7 +73,7 @@ A questo punto, si aggiornerà l'app in modo che autentichi gli utenti prima di 
         }
    
     L'utente viene autenticato nel codice tramite un account di accesso di Facebook. Se si usa un provider di identità diverso da Facebook, sostituire il valore di **MobileServiceAuthenticationProvider** con il nome del provider.
-2. Impostare come commento o eliminare la chiamata al metodo **ButtonRefresh\_Click** o al metodo **InitLocalStoreAsync** nell'override del metodo **OnNavigatedTo** esistente. Ciò impedisce il caricamento dei dati prima dell'autenticazione dell'utente. A questo punto aggiungere un pulsante di **accesso** all'app che attiva l'autenticazione.
+2. Impostare come commento o eliminare la chiamata al metodo **ButtonRefresh_Click** o al metodo **InitLocalStoreAsync** nell'override del metodo **OnNavigatedTo** esistente. Ciò impedisce il caricamento dei dati prima dell'autenticazione dell'utente. A questo punto aggiungere un pulsante di **accesso** all'app che attiva l'autenticazione.
 3. Aggiungere il seguente frammento di codice alla classe MainPage:
    
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
@@ -111,13 +116,15 @@ Nell'esempio precedente è stato illustrato un accesso standard, che richiede al
 
 [!INCLUDE [mobile-windows-universal-dotnet-authenticate-app-with-token](../../includes/mobile-windows-universal-dotnet-authenticate-app-with-token.md)]
 
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Dopo aver completato questa esercitazione sull'autenticazione di base, provare a continuare fino a una delle esercitazioni seguenti:
 
-* [Aggiungere notifiche push all'app Xamarin.Forms](app-service-mobile-windows-store-dotnet-get-started-push.md) Informazioni su come aggiungere il supporto per le notifiche push all'app e configurare il back-end dell'app per dispositivi mobili per l'uso dell'Hub di notifica di Azure per l'invio di notifiche push.
-* [Abilitare la sincronizzazione offline per l'app](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) Informazioni su come aggiungere il supporto offline all'app usando il back-end di un'app per dispositivi mobili. La sincronizzazione offline consente agli utenti finali di interagire con un'app, visualizzando, aggiungendo e modificando i dati, anche se non è disponibile una connessione di rete.
+* [Aggiungere notifiche push all'app Xamarin.Forms](app-service-mobile-windows-store-dotnet-get-started-push.md)  
+  : informazioni su come aggiungere il supporto per le notifiche push all'app e configurare il back-end dell'app per dispositivi mobili per usare Hub di notifica di Azure per l'invio di notifiche push.
+* [Abilitare la sincronizzazione offline per l'app per dispositivi mobili Xamarin.Forms](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
+  : informazioni su come aggiungere il supporto offline all'app usando il back-end di un'app per dispositivi mobili. La sincronizzazione offline consente agli utenti finali di interagire con un'app&mdash;visualizzando, aggiungendo e modificando i dati&mdash;anche se non è disponibile una connessione di rete.
 
 <!-- URLs. -->
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md
 
-<!---HONumber=AcomDC_0629_2016-->
+

@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi del controllo degli accessi in base al ruolo | Documentazione Microsoft
+title: Risolvere i problemi di RBAC di Azure | Microsoft Docs
 description: Assistenza per problemi o domande sulle risorse del controllo degli accessi in base al ruolo.
 services: azure-portal
 documentationcenter: na
@@ -12,19 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
+ms.date: 03/02/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a6fd242b89e6a7cd61be6ceadf15852e9ef61a8a
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 32b335d8a1f84348ab28bcc081cc42fd79fb08fc
+ms.lasthandoff: 03/04/2017
 
 
 ---
 # <a name="role-based-access-control-troubleshooting"></a>Risoluzione dei problemi del controllo degli accessi in base al ruolo
-## <a name="introduction"></a>Introduzione
-[controllo degli accessi in base al ruolo](role-based-access-control-configure.md) è una funzionalità utile che consente di delegare con estrema precisione l'accesso a risorse di Azure. Ciò significa che si può concedere a una determinata persona l'accesso alle risorse specifiche di cui ha bisogno. Tuttavia, a volte il modello di risorse di Azure può essere complicato e può risultare difficile comprendere esattamente quali autorizzazioni si stanno concedendo.
 
-Questo documento illustra gli effetti prodotti dall'uso di alcuni dei ruoli nel portale di Azure. Questi tre ruoli coprono tutti i tipi di risorsa:
+Questo articolo contiene le risposte alle domande comuni sui diritti di accesso specifici concessi ai ruoli, in modo da sapere cosa accade quando si usano i ruoli nel Portale di Azure e da poter risolvere i problemi di accesso. Questi tre ruoli coprono tutti i tipi di risorsa:
 
 * Proprietario  
 * Collaboratore  
@@ -36,7 +35,7 @@ Proprietari e collaboratori hanno accesso completo all'esperienza di gestione, m
 ### <a name="write-access-capabilities"></a>Funzionalità di accesso in scrittura
 Se si concede a un utente l'accesso in sola lettura a un'unica app Web, sono disabilitate alcune funzionalità non prevedibili. Per le funzionalità di gestione seguenti è necessario avere accesso **in scrittura** a un'app Web, come Collaboratore o Proprietario. Tali funzionalità non saranno disponibili in uno scenario di sola lettura.
 
-* Comandi, ad esempio avvio, interruzione e così via.
+* Comandi (quali avvio, interruzione e così via)
 * Modifica di impostazioni quali la configurazione generale, le impostazioni di scalabilità, di backup e di monitoraggio.
 * Accesso a credenziali di pubblicazione e altri segreti, quali le impostazioni delle app e le stringhe di connessione.
 * Streaming dei log
@@ -88,17 +87,12 @@ Gli elementi seguenti richiedono accesso **in scrittura** sia alla **macchina vi
 * Set con carico bilanciato  
 * Regole di avviso  
 
-Se non è possibile accedere a nessuno di questi titoli, è necessario richiedere all'amministratore l'accesso come Collaboratore per il gruppo di risorse.
+Se non è possibile accedere a nessuno di questi riquadri, è necessario richiedere all'amministratore l'accesso come Collaboratore al gruppo di risorse.
 
 ## <a name="see-more"></a>Altro
 * [Controllo degli accessi in base al ruolo](role-based-access-control-configure.md): introduzione al controllo degli accessi in base al ruolo nel portale di Azure.
 * [Ruoli predefiniti](role-based-access-built-in-roles.md): informazioni dettagliate sui ruoli predefiniti del controllo degli accessi in base al ruolo.
 * [Ruoli personalizzati nel controllo degli accessi in base al ruolo di Azure](role-based-access-control-custom-roles.md): informazioni su come creare ruoli personalizzati per esigenze di accesso specifiche.
 * [Creare un report della cronologia delle modifiche relative all'accesso](role-based-access-control-access-change-history-report.md): monitoraggio delle modifiche nelle assegnazioni dei ruoli nel controllo degli accessi in base al ruolo.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

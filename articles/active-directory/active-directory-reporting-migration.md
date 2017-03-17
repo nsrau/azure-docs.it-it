@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 02/17/2017
 ms.author: dhanyahk;markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 800397efdf2e3e3cb95c77bc90f45bb8852e1e42
-ms.openlocfilehash: d05cf7dc62518ea5519f319a2502e1d261b148f3
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: afd48a77faeeab6d5a8730934345cb7000a59831
+ms.openlocfilehash: e72e49140aaad55a6e66a9f331ce7fde20b8577c
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -35,7 +35,21 @@ I report nel Portale di Azure classico sono suddivisi in diverse categorie:
 
 ### <a name="activity-and-integrated-app-reports"></a>Report attività e app integrate
 
-Passando alla creazione di report basata sul contesto nel Portale di Azure, abbiamo unito i report esistenti in una singola visualizzazione con una singola API sottostante che fornisce i dati per la visualizzazione. È possibile trovare questa visualizzazione in "*Attività*" > Log di controllo nel Portale di Azure (spostamento a sinistra). Di seguito sono indicati i report che sono stati riuniti in questa vista.
+Passando alla creazione di report basata sul contesto nel Portale di Azure, abbiamo unito i report esistenti in una singola visualizzazione con una singola API sottostante che fornisce i dati per la visualizzazione. 
+
+È possibile trovare questa visualizzazione in **Log di controllo** nella sezione **Attività** del pannello **Azure Active Directory**.
+
+
+![Log di controllo](./media/active-directory-reporting-migration/482.png "Log di controllo")
+
+
+
+
+
+
+
+
+Di seguito sono indicati i report che sono stati riuniti in questa vista.
 
 -    Report di controllo
 
@@ -53,13 +67,22 @@ Passando alla creazione di report basata sul contesto nel Portale di Azure, abbi
 -     Errori di provisioning dell'account
 
 
-Il report di utilizzo applicazioni è stato migliorato e incluso in una visualizzazione denominata "*Attività*"-> Accessi (spostamento a sinistra) e include gli accessi di tutti gli utenti, che, a loro volta possono essere derivati per ottenere le informazioni sull'utilizzo dell'applicazione. È possibile trovare informazioni sull'utilizzo di App tramite la schermata di panoramica "Applicazioni aziendali".
+Il report Utilizzo delle applicazioni è stato migliorato e incluso in una visualizzazione denominata **Accessi**. È possibile trovare questa visualizzazione nella sezione **Attività** del pannello **Azure Active Directory**.
+
+
+![Log di controllo](./media/active-directory-reporting-migration/483.png "Log di controllo")
+
+Questa visualizzazione include tutti gli accessi degli utenti, che possono essere a loro volta derivati per ottenere le informazioni sull'utilizzo dell'applicazione. Le informazioni sull'utilizzo dell'app sono disponibili anche tramite la panoramica **Applicazioni aziendali**.
+
+![Log di controllo](./media/active-directory-reporting-migration/484.png "Log di controllo")
+
+
 
 ## <a name="how-can-i-access-a-specific-report-in-this-single-view"></a>Come accedere a un report specifico in questa vista singola?
 
 ### <a name="audit-logs"></a>Log di controllo
 
-Una delle richieste chiave di molti clienti è stata la possibilità di avere più opzioni di filtro per accedere ai log attività all'interno di Azure AD. Invece, abbiamo proposto un meccanismo avanzato di applicazione filtri per filtrare i dati desiderati. Uno dei filtri presentati è chiamato "*Categoria attività*" ed elenca i diversi tipi di registri di attività forniti da Azure AD. Selezionando la categoria desiderata, è possibile restringere i risultati dei log attività a quelli che si desidera visualizzare. 
+Una delle richieste chiave di molti clienti è stata la possibilità di avere più opzioni di filtro per accedere ai log attività all'interno di Azure AD. Invece, abbiamo proposto un meccanismo avanzato di applicazione filtri per filtrare i dati desiderati. Uno dei filtri forniti è denominato **Categoria attività** ed elenca i diversi tipi di log attività disponibili in Azure AD. Scegliendo la categoria preferita, è possibile limitare i risultati e visualizzare solo quelli necessari. 
 
 Ad esempio, se si è interessati solo alle attività relative a **Reimpostazione password self-service**, è possibile scegliere la categoria **Self-service Password Management** (Gestione delle password self-service). Le categorie che è possibile visualizzare sono nel contesto della risorsa a cui si sta lavorando.  
 
@@ -79,7 +102,7 @@ Le diverse categorie attuali includono:
 
 ### <a name="application-usage"></a>Utilizzo applicazioni
 
-È possibile visualizzare l'utilizzo dell'applicazione per tutte le app o per una singola app attraverso la vista Attività-> Accessi. Come illustrato di seguito, questa vista è presente per tutte le applicazioni o per una singola applicazione. Se si desidera limitare i risultati, è possibile filtrare in base al nome utente o al nome dell'applicazione.
+È possibile visualizzare l'utilizzo dell'applicazione per tutte le app o per una singola app attraverso la visualizzazione **Attività-> Accessi**. Come illustrato di seguito, questa vista è presente per tutte le applicazioni o per una singola applicazione. Per limitare i risultati, è possibile filtrare in base a **Nome utente** o **Nome applicazione**.
  
 
 ![Log di controllo](./media/active-directory-reporting-migration/07.png "Log di controllo")
@@ -87,9 +110,10 @@ Le diverse categorie attuali includono:
 
 ### <a name="security-reports"></a>Report sulla sicurezza
 
-I report di sicurezza sono stati consolidati per fornire una visualizzazione di tutti i segnali di rischio che Azure Active Directory può rilevare e segnalare.
+I report sulla sicurezza sono stati consolidati in modo da fornire una panoramica completa di una visualizzazione di tutti gli eventi di rischio correlati alla sicurezza che Azure Active Directory può rilevare e segnalare. Per una panoramica completa, vedere [Eventi di rischio di Azure Active Directory](active-directory-identity-protection-risk-events.md).  
+In questo argomento è disponibile una panoramica del modo in cui i report relativi alle attività anomale di Azure Active Directry sono mappati agli eventi di rischio in Azure AD nella sezione [Report relativi alle attività anomale di Azure AD](active-directory-identity-protection-risk-events.md#azure-ad-anomalous-activity-reports).
 
-Questa vista consolidata contiene dati relativi a:
+Nel portale di Azure è possibile accedere ai report sugli eventi di rischio rilevati nella sezione **Sicurezza** del pannello **Azure Active Directory**. Gli eventi di rischio rilevati vengono registrati nei report seguenti:   
 
 - Utenti a rischio
 - Accessi a rischio 
@@ -97,57 +121,42 @@ Questa vista consolidata contiene dati relativi a:
 
 ![Log di controllo](./media/active-directory-reporting-migration/04.png "Log di controllo")
 
+Per altre informazioni su questi report, vedere:
+
+- [Report di sicurezza per gli utenti a rischio nel portale di Azure Active Directory - Anteprima](active-directory-reporting-security-user-at-risk.md)
+- [Report degli accessi a rischio nel portale di Azure Active Directory - Anteprima](active-directory-reporting-security-risky-sign-ins.md)
+
+
+
+
 
 
 ## <a name="activity-reports-in-azure-classic-portal-versus-azure-portal"></a>Report sulle attività nel Portale di Azure classico rispetto al Portale di Azure
 
 Questa sezione elenca i report esistenti nel Portale di Azure classico e le modalità per ottenere le stesse informazioni nel Portale di Azure.
 
-**Log di controllo:**
 
-1. nel riquadro di spostamento a sinistra fare clic su **Attività** e quindi su **Log di controllo**
-2. Come **Categoria attività** selezionare **Core directory** (Directory principale) 
+Il punto di ingresso a tutti i dati di controllo è **Log di controllo** nella sezione **Attività** del pannello **Azure Active Directory**.
 
-**Attività di reimpostazione password:**
+![Log di controllo](./media/active-directory-reporting-migration/61.png "Log di controllo")
 
-1. nel riquadro di spostamento a sinistra fare clic su **Attività** e quindi su **Log di controllo**
-2. Come **Categoria attività** selezionare **Self service Password Management** (Gestione delle password self-service) 
 
-**Attività di registrazione reimpostazione password:**    
+| portale di Azure classico                 | Procedure del portale di Azure                                                         |
+| ---                                  | ---                                                                        |
+| Log di controllo                           | Come **Categoria attività** selezionare **Core directory** (Directory principale).                       |
+| Attività di reimpostazione password              | Come **Categoria attività** selezionare **Self service Password Management** (Gestione delle password self-service). | 
+| Attività di registrazione reimpostazione password | Come **Categoria attività** selezionare **Self Service Password Management** (Gestione delle password self-service).     |
+| Attività dei gruppi self-service         | Come **Categoria attività** selezionare **Gestione gruppi self-service**.        |
+| Attività di provisioning dell'account        | Come **Categoria attività** selezionare **Account User Provisioning** (Provisioning dell'utente account).         |
+| Stato rollover della password             | Come **Categoria attività** selezionare **Automatic App Password Rollover** (Rollover password app automatico).      |
+| Errori di provisioning dell'account          | Come **Categoria attività** selezionare **Account User Provisioning** (Provisioning dell'utente account).        |
+| Modifiche del nome del gruppo di Office&365;         | Come **Categoria attività** selezionare **Self service Password Management** (Gestione delle password self-service), come **Tipo di risorsa attività** selezionare **Gruppo** e come **Origine attività** selezionare **Gruppi di Office&365;**.|
 
-1. nel riquadro di spostamento a sinistra fare clic su **Attività** e quindi su **Log di controllo**
-2. Come **Categoria attività** selezionare **Self Service Password Management** (Gestione delle password self-service).
+ 
 
-**Attività dei gruppi self-service:**    
+Il punto di ingresso per il report **Utilizzo delle applicazioni** è **Azure Active Directory > Applicazioni aziendali > Accessi**. 
 
-1. nel riquadro di spostamento a sinistra fare clic su **Attività** e quindi su **Log di controllo**
-2. Come **Categoria attività** selezionare **Gestione gruppi self-service**
 
-**Modifiche del nome del gruppo di Office&365;:**
-
-1. nel riquadro di spostamento a sinistra fare clic su **Attività** e quindi su **Log di controllo**
-2. Come **Categoria attività** selezionare **Self Service Password Management** (Gestione delle password self-service)
-3. Come **Activity Resource Type** (Tipo di risorsa attività) selezionare **Gruppo** 
-4. Come **Origine attività** selezionare **O365 groups** (Gruppi di O365) 
-
-**Attività di provisioning dell'account:**    
-
-1. nel riquadro di spostamento a sinistra fare clic su **Attività** e quindi su **Log di controllo**
-2. Come **Categoria attività** selezionare **Account User Provisioning** (Provisioning dell'utente account)
-
-**Stato rollover della password:**    
-
-1. nel riquadro di spostamento a sinistra fare clic su **Attività** e quindi su **Log di controllo**
-2. Come **Categoria attività** selezionare **Automatic App Password Rollover** (Rollover password app automatico)
-
-**Errori di provisioning dell'account:**
-
-1. nel riquadro di spostamento a sinistra fare clic su **Attività** e quindi su **Log di controllo**
-2. Come **Categoria attività** selezionare **Account User Provisioning** (Provisioning dell'utente account)
-
-**Utilizzo applicazioni:**
-
-- nel riquadro di spostamento a sinistra, fare clic su **Applicazioni aziendali**, quindi scegliere **Accessi**
-
+![Log di controllo](./media/active-directory-reporting-migration/199.png "Log di controllo")
 
 

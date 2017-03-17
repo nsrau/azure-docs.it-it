@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2016
+ms.date: 03/06/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 218d41ac352f01a7e03b5b8a1c45e1bf6d5ace28
-ms.openlocfilehash: a3b1289d52207448cebc628466492371d1bf6519
-ms.lasthandoff: 01/11/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: fc917c9c9a92bf944d922a9418e065fa661c69df
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -36,18 +36,18 @@ Questa esercitazione illustra due modi per recuperare le informazioni della stri
 - Un account Azure. Se non si ha un account Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) ora. 
 - Un account DocumentDB. Per istruzioni, vedere [Creare un account DocumentDB da usare con le app MongoDB](documentdb-create-mongodb-account.md).
 
-## <a name="a-idquickstartconnectionaget-the-mongodb-connection-string-using-the-quick-start"></a><a id="QuickStartConnection"></a>Ottenere la stringa di connessione MongoDB usando l'avvio rapido
+## <a id="QuickStartConnection"></a>Ottenere la stringa di connessione MongoDB usando l'avvio rapido
 1. In un browser Internet accedere al [portale di Azure](https://portal.azure.com).
-2. Nel pannello **NoSQL (DocumentDB)** selezionare l'account DocumentDB con il supporto del protocollo per MongoDB. 
+2. Nel pannello **NoSQL (DocumentDB)** selezionare l'account dell'API DocumentDB: per MongoDB. 
 3. Nella barra di **spostamento a sinistra** del pannello Account fare clic su **Avvio rapido**. 
 4. Scegliere la piattaforma (*driver .NET*, *driver Node.js*, *MongoDB Shell*, *driver Java*, *driver Python*). Se il driver o lo strumento non è visualizzato nell'elenco, tenere presente che altri frammenti di codice di connessione vengono continuamente documentati. Aggiungere un commento di seguito sull'elemento desiderato e vedere [Ottenere informazioni sulla stringa di connessione dell'account](#GetCustomConnection) per istruzioni su come creare la propria connessione.
 5. Copiare e incollare il frammento di codice nell'app MongoDB per iniziare.
 
     ![Screenshot del pannello Avvio rapido](./media/documentdb-connect-mongodb-account/QuickStartBlade.png)
 
-## <a name="a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize"></a><a id="GetCustomConnection"></a> Ottenere la stringa di connessione MongoDB da personalizzare
+## <a id="GetCustomConnection"></a> Ottenere la stringa di connessione MongoDB da personalizzare
 1. In un browser Internet accedere al [portale di Azure](https://portal.azure.com).
-2. Nel pannello **NoSQL (DocumentDB)** selezionare l'account DocumentDB con il supporto del protocollo per MongoDB. 
+2. Nel pannello **NoSQL (DocumentDB)** selezionare l'account dell'API DocumentDB: per MongoDB. 
 3. Nella barra di **spostamento a sinistra** del pannello Account fare clic su **Stringa di connessione**. 
 4. Verrà visualizzato il pannello **Informazioni sulla stringa di connessione** con tutte le informazioni necessarie per connettersi all'account usando un driver per MongoDB, inclusa una stringa di connessione predefinita.
 
@@ -82,6 +82,6 @@ Si consideri ad esempio l'account indicato sopra in Informazioni sulla stringa d
     mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@anhohmongo.documents.azure.com:10250/mydatabase?ssl=true
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni su come [usare MongoChef](documentdb-mongodb-mongochef.md) con un account DocumentDB con supporto del protocollo per MongoDB.
-* Esplorare DocumentDB con supporto del protocollo per trovare [esempi](documentdb-mongodb-samples.md)di MongoDB.
+* Informazioni su come [usare MongoChef](documentdb-mongodb-mongochef.md) con un account dell'API DocumentDB: per MongoDB.
+* Esaminare gli [esempi](documentdb-mongodb-samples.md) dell'API DocumentDB: per MongoDB.
 

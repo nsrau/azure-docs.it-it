@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: masnider;
 translationtype: Human Translation
-ms.sourcegitcommit: dafaf29b6827a6f1c043af3d6bfe62d480d31ad5
-ms.openlocfilehash: 0bf0755d1c3155ce0203e8070995c298f50bd4db
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 8ecde1ba2c7a18d0237b92a404eeb1e2d7348378
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -63,7 +64,7 @@ Reliable Services in Service Fabric è diverso da eventuali servizi sviluppati i
 Reliable Services fornisce un ciclo di vita semplice che consente di attivare rapidamente il codice e iniziare a usarlo.  Per garantire l'operatività del servizio, è necessario implementare solo uno o due metodi.
 
 * **CreateServiceReplicaListeners/CreateServiceInstanceListeners**: questo metodo è dove il servizio definisce gli stack di comunicazione da usare. Lo stack di comunicazione, ad esempio [API Web](service-fabric-reliable-services-communication-webapi.md), definisce l'endpoint di ascolto o gli endpoint per il servizio, ovvero il modo in cui i client potranno raggiungerlo. Definisce anche in che modo i messaggi visualizzati interagiscono con il resto del codice del servizio.
-* **RunAsync**: questo metodo è dove il servizio esegue la logica di business e dove avvierà attività in background da eseguire per tutta la durata del servizio. Il token di annullamento fornito indica quando l'operazione deve essere interrotta. Se, ad esempio, il servizio deve effettuare il pull dei messaggi da un oggetto Reliable Queue per elaborarli, `RunAsync()` è l'area in cui vengono eseguite tali attività.
+* **RunAsync**: questo metodo è dove il servizio esegue la logica di business e dove avvierà attività in background da eseguire per tutta la durata del servizio. Il token di annullamento fornito indica quando l'operazione deve essere interrotta. Se, ad esempio, il servizio deve effettuare il pull dei messaggi da un oggetto Reliable Queue per elaborarli, questa è l'area in cui vengono eseguite tali attività.
 
 Se è la prima volta che si sente parlare di Reliable Services, è consigliabile continuare a leggere. Se si sta cercando una procedura dettagliata del ciclo di vita di Reliable Services, vedere [questo articolo](service-fabric-reliable-services-lifecycle.md).
 
@@ -75,18 +76,22 @@ Un servizio senza stato non dispone di uno stato mantenuto tra le varie chiamate
 
 Si consideri ad esempio un servizio Calculator privo di memoria che riceve contemporaneamente tutti i termini e le operazioni da eseguire.
 
-In questo caso il metodo `RunAsync()` del servizio può essere vuoto, dal momento che il servizio non deve eseguire alcuna elaborazione di attività in background. Quando viene creato, il servizio Calculator restituisce un `ICommunicationListener`, ad esempio [Api WEB](service-fabric-reliable-services-communication-webapi.md), che apre un endpoint di ascolto su una porta. L'endpoint di ascolto si collegherà ai diversi metodi, ad esempio di calcolo, ad esempio "Add(n1, n2)", che definiscono l'API pubblica del servizio Calculator.
+In questo caso il metodo `RunAsync()` (C#) o `runAsync()` (Java) del servizio può essere vuoto, dal momento che il servizio non deve eseguire alcuna elaborazione di attività in background. Quando viene creato, il servizio Calculator restituisce un `ICommunicationListener` (C#) o un `CommunicationListener` (Java), ad esempio [API Web](service-fabric-reliable-services-communication-webapi.md), che apre un endpoint di ascolto su una porta. L'endpoint di ascolto si collegherà ai diversi metodi, ad esempio di calcolo, ad esempio "Add(n1, n2)", che definiscono l'API pubblica del servizio Calculator.
 
 Quando viene effettuata una chiamata da un client, viene richiamato il metodo appropriato. Il servizio Calculator esegue le operazioni sui dati forniti e restituisce il risultato, senza archiviare alcuno stato.
 
 La mancata archiviazione di qualsiasi stato interno rende semplice il servizio Calculator di esempio. La maggior parte dei servizi non è però realmente senza stato. Al contrario, esternalizzano il proprio stato in un altro archivio. Ad esempio, un'app Web che mantiene lo stato delle sessioni in una cache o in un archivio di backup non è senza stato.
 
-Un esempio comune di come i servizi senza stato vengono usati in Service Fabric è un servizio front-end che espone l'API pubblica di un'applicazione Web. Il servizio front-end richiede quindi ai servizi con stato di completare la richiesta di un utente. In questo caso, le chiamate provenienti dai client vengono indirizzate a una porta conosciuta, ad esempio la porta 80, dove è in ascolto il servizio senza stato. Il servizio senza stato riceve la chiamata, determina se quest'ultima proviene da una parte attendibile e identifica il servizio a cui è destinata.  Il servizio senza stato inoltra quindi la chiamata alla partizione corretta del servizio con stato e attende una risposta. Quando il servizio senza stato riceve una risposta, risponde al client originale. Un esempio di tale servizio è disponibile [qui](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount/WordCount.WebService). Sono presentati anche altri modelli in altri esempi.
+Un esempio comune di come i servizi senza stato vengono usati in Service Fabric è un servizio front-end che espone l'API pubblica di un'applicazione Web. Il servizio front-end richiede quindi ai servizi con stato di completare la richiesta di un utente. In questo caso, le chiamate provenienti dai client vengono indirizzate a una porta conosciuta, ad esempio la porta 80, dove è in ascolto il servizio senza stato. Il servizio senza stato riceve la chiamata, determina se quest'ultima proviene da una parte attendibile e identifica il servizio a cui è destinata.  Il servizio senza stato inoltra quindi la chiamata alla partizione corretta del servizio con stato e attende una risposta. Quando il servizio senza stato riceve una risposta, risponde al client originale. Un esempio di tale servizio è disponibile in [C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount/WordCount.WebService) / [Java](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/Actors/VisualObjectActor/VisualObjectWebService). Sono presentati anche altri modelli in altri esempi.
 
 ### <a name="stateful-reliable-services"></a>Reliable Services con stato
 Un servizio con stato è un servizio che, per funzionare in modo corretto, deve avere una qualche porzione dello stato coerente e presente. Si consideri, ad esempio, un servizio che deve calcolare costantemente la media mobile di alcuni valori in base agli aggiornamenti ricevuti. Per eseguire questa operazione, deve avere il set corrente di richieste in ingresso, oltre alla media corrente. Qualsiasi servizio che recupera, elabora e archivia informazioni in un archivio esterno, ad esempio un archivio tabelle o un BLOB di Azure, è un servizio con stato. Conserva il proprio stato nell'archivio stati esterno.
 
 Attualmente la maggior parte dei servizi archivia il proprio stato esternamente, perché gli archivi esterni assicurano affidabilità, disponibilità, scalabilità e coerenza dello stato. In Service Fabric, i servizi non devono necessariamente archiviare esternamente il proprio stato. Service Fabric si occupa di questi requisiti sia per il codice che per lo stato del servizio.
+
+> [!NOTE]
+> Il supporto per Reliable Services con stato non è ancora disponibile in Linux (per C# o Java).
+>
 
 Si supponga di voler scrivere un servizio di elaborazione immagini. Per l'elaborazione, il servizio accetta un'immagine e la serie di conversioni da eseguire su di essa. Il servizio restituisce un listener di comunicazione (si supponga che sia un'API Web) che espone un'API come `ConvertImage(Image i, IList<Conversion> conversions)`. Quando riceve una richiesta, il servizio la memorizza in un `IReliableQueue` e restituisce alcun ID al client in modo da tracciare la richiesta.
 
@@ -113,9 +118,4 @@ Una delle caratteristiche di questo servizio è che ha l'aspetto di un normale s
 * [Guida introduttiva a Reliable Services di Microsoft Azure Service Fabric](service-fabric-reliable-services-quick-start.md)
 * [Uso avanzato del modello di programmazione Reliable Services](service-fabric-reliable-services-advanced-usage.md)
 * [Modello di programmazione Reliable Actors](service-fabric-reliable-actors-introduction.md)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

@@ -13,11 +13,12 @@ ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 03/06/2017
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 86391212e70a0f0a8ec0e53dce26b11218a5780c
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: a1e45a1ea15f76bcc7c0cd3bceca703818b3a9ff
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -33,20 +34,11 @@ Per installare la libreria, visitare [Microsoft.Azure.SqlDatabase.ElasticScale.C
 ## <a name="download-and-run-the-sample-app"></a>Scaricare ed eseguire l'app di esempio
 L'applicazione di esempio **Introduzione al database elastico con SQL di Azure** illustra gli aspetti più importanti dell'esperienza di sviluppo delle applicazioni partizionate usando gli strumenti di database elastici con SQL di Azure. L'applicazione è incentrata sui casi di utilizzo chiave per la [gestione delle mappe di partizione](sql-database-elastic-scale-shard-map-management.md), il [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md) e l'[esecuzione di query su più partizionamenti](sql-database-elastic-scale-multishard-querying.md). Per scaricare ed eseguire l'applicazione di esempio, seguire questa procedura: 
 
-1. Aprire Visual Studio e selezionare **File -> Nuovo -> Progetto**.
-2. Nella finestra di dialogo, fare clic su **Online**.
-   
-    ![New Project>Online][2]
-3. Quindi fare clic su **Visual C#** in **Esempi**.
-   
-    ![Fare clic su Visual C#][3]
-4. Nella casella di ricerca digitare **db elastico** per cercare l'esempio. Viene visualizzato il titolo **Strumenti di database elastici per SQL Azure - Guida introduttiva**.
-   
-    ![Search Box][1]
-5. Selezionare l'esempio, scegliere un nome e una posizione per il nuovo progetto e premere **OK** per creare il progetto.
-6. Aprire il file **app.config** nella soluzione per il progetto di esempio e seguire le istruzioni del file per aggiungere il nome del server di database SQL Azure e le informazioni di accesso (nome utente e password).
-7. Compilare ed eseguire l'applicazione. Quando viene richiesto, consentire a Visual Studio di ripristinare i pacchetti NuGet della soluzione. In questo modo verrà scaricata la versione più recente delle librerie client del database elastico da NuGet.
-8. Provare a usare le varie opzioni per ottenere altre informazioni sulle funzionalità della libreria client. Annotare i passaggi eseguiti dall'applicazione nell'output della console ed esplorare liberamente il codice sottostante.
+1. Scaricare l'esempio [Elastic DB Tools for Azure SQL - Getting Started](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-a80d8dc6) (Strumenti di database elastici per SQL Azure - Guida introduttiva) da MSDN. Decomprimere l'esempio in un percorso a piacere.
+2. Aprire la soluzione **ElasticScaleStarterKit.sln** dalla directory **C#** per creare un progetto.
+3. Aprire il file **app.config** nella soluzione per il progetto di esempio e seguire le istruzioni del file per aggiungere il nome del server di database SQL Azure e le informazioni di accesso (nome utente e password).
+4. Compilare ed eseguire l'applicazione. Quando viene richiesto, consentire a Visual Studio di ripristinare i pacchetti NuGet della soluzione. In questo modo verrà scaricata la versione più recente delle librerie client del database elastico da NuGet.
+5. Provare a usare le varie opzioni per ottenere altre informazioni sulle funzionalità della libreria client. Annotare i passaggi eseguiti dall'applicazione nell'output della console ed esplorare liberamente il codice sottostante.
    
     ![progress][4]
 
@@ -58,10 +50,10 @@ L'applicazione di esempio **Introduzione al database elastico con SQL di Azure**
 > 
 
 ### <a name="key-pieces-of-the-code-sample"></a>Elementi chiave dell'esempio di codice
-1. **Gestione di partizionamenti e di mappe con partizionamento**: il codice illustra come usare i partizionamenti, gli intervalli e i mapping nel file **ShardMapManagerSample.cs**. Altre informazioni su questo argomento sono disponibili nella pagina [Gestione mappe partizioni](http://go.microsoft.com/?linkid=9862595).  
+1. **Gestione di partizionamenti e di mappe con partizionamento**: il codice illustra come usare i partizionamenti, gli intervalli e i mapping nel file **ShardManagementUtils.cs**. Altre informazioni su questo argomento sono disponibili nella pagina [Gestione mappe partizioni](http://go.microsoft.com/?linkid=9862595).  
 2. **Routing dipendente dai dati**: il routing delle transazioni al partizionamento appropriato è mostrato in **DataDependentRoutingSample.cs**. Per altri dettagli, vedere [Routing dipendente dai dati](http://go.microsoft.com/?linkid=9862596). 
 3. **Esecuzione di query su più partizionamenti**: l'esecuzione di query su più partizionamenti è illustrata nel file **MultiShardQuerySample.cs**. Per altri dettagli, vedere [Esecuzione di query su più partizionamenti](http://go.microsoft.com/?linkid=9862597).
-4. **Aggiunta di partizionamenti vuoti**: l'aggiunta iterativa di nuovi partizionamenti vuoti viene eseguita dal codice nel file **AddNewShardsSample.cs**. Informazioni dettagliate su questo argomento sono disponibili qui: [Gestione mappe partizioni](http://go.microsoft.com/?linkid=9862595).
+4. **Aggiunta di partizionamenti vuoti**: l'aggiunta iterativa di nuovi partizionamenti vuoti viene eseguita dal codice nel file **CreateShardSample.cs**. Informazioni dettagliate su questo argomento sono disponibili qui: [Gestione mappe partizioni](http://go.microsoft.com/?linkid=9862595).
 
 ### <a name="other-elastic-scale-operations"></a>Altre operazioni di scalabilità elastica
 1. **Suddivisione di un partizionamento esistente**: la possibilità di suddividere partizionamenti viene fornita tramite lo **strumento di suddivisione/unione**. È possibile trovare ulteriori informazioni su questo strumento nella pagina [Panoramica sullo strumento di suddivisione/unione](sql-database-elastic-scale-overview-split-and-merge.md).
@@ -99,10 +91,5 @@ Per ulteriori informazioni sugli strumenti di database elastici, vedere:
 [2]: ./media/sql-database-elastic-scale-get-started/click-online.png
 [3]: ./media/sql-database-elastic-scale-get-started/click-CSharp.png
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

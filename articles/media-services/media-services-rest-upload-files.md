@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/13/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: d58462cbd6578093e00c93c7e2753efc1493441d
-ms.openlocfilehash: 8f17399846eafcac8b86a9b7d7baa7a029005c8c
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: c0ea95ed12a704116e8cdff257dacd7768b45708
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -186,6 +187,10 @@ Dopo avere caricato il file multimediale digitale in un contenitore BLOB, è nec
 
 
 ### <a name="creating-the-accesspolicy-with-write-permission"></a>Creazione dell'entità AccessPolicy con autorizzazioni di scrittura
+
+>[!NOTE]
+>È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Usare lo stesso ID criterio se si usano sempre gli stessi giorni/autorizzazioni di accesso, come nel cado di criteri per i localizzatori che devono rimanere attivi per molto tempo (criteri di non caricamento). Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) argomento.
+
 Prima di caricare i file nell'archiviazione BLOB, impostare i diritti dei criteri di accesso per la scrittura in un asset. A questo scopo, inviare una richiesta HTTP al set di entità AccessPolicies. Definire un valore DurationInMinutes durante la creazione. In caso contrario, si riceverà un messaggio di errore interno del server 500 in risposta. Per altre informazioni su AccessPolicies, vedere [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
 
 Il seguente esempio mostra come creare un'entità AccessPolicy:
@@ -371,7 +376,7 @@ Se l'esito è positivo, viene restituita la seguente risposta:
     HTTP/1.1 204 No Content 
     ...
 
-## <a name="a-iduploadinbulkaupload-assets-in-bulk"></a><a id="upload_in_bulk"></a>Caricare gli asset in blocco
+## <a id="upload_in_bulk"></a>Caricare gli asset in blocco
 ### <a name="create-the-ingestmanifest"></a>Creare l'entità IngestManifest
 IngestManifest è un contenitore per un set di asset, file di asset e informazioni statistiche che possono essere usate per determinare lo stato di avanzamento dell'inserimento in blocco del set.
 
@@ -519,10 +524,5 @@ Ora è possibile codificare gli asset caricati. Per altre informazioni, vedere [
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 [How to Get a Media Processor]: media-services-get-media-processor.md
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

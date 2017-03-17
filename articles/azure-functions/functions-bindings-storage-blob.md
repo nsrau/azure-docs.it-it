@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/11/2017
-ms.author: chrande
+ms.date: 03/06/2017
+ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: c2c9d84bc6699f4487e82b117d27b19f66313018
-ms.openlocfilehash: cde63b21e4bac8f635ef9125101735a07deb1bc2
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 1c071390fd6cd9bb5889cb225696b7782fe2bd6b
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -238,7 +238,7 @@ Nelle funzioni C# l'associazione ai dati del BLOB di input viene eseguita usando
 Il BLOB può essere deserializzato in uno dei tipi seguenti:
 
 * Qualsiasi [oggetto](https://msdn.microsoft.com/library/system.object.aspx), utile per i dati del BLOB serializzati con JSON.
-  Se si dichiara un tipo di input personalizzato, ad esempio `FooType`, Funzioni di Azure tenta di deserializzare i dati JSON nel tipo specificato.
+  Se si dichiara un tipo di input personalizzato, ad esempio `InputType`, Funzioni di Azure tenta di deserializzare i dati JSON nel tipo specificato.
 * Stringa, utile per i dati di testo del BLOB.
 
 Nelle funzioni C# è anche possibile eseguire l'associazione a uno dei seguenti tipi e il runtime di Funzioni tenterà di deserializzare i dati del BLOB usando quel tipo:
@@ -350,7 +350,7 @@ Nelle funzioni C# è possibile eseguire l'associazione al BLOB di output usando 
 È possibile scrivere nel BLOB di output usando uno dei tipi seguenti:
 
 * Qualsiasi [oggetto](https://msdn.microsoft.com/library/system.object.aspx), utile per la serializzazione con JSON.
-  Se si dichiara un tipo di output personalizzato (ad esempio `out FooType paramName`), Funzioni di Azure tenta di serializzare l'oggetto in JSON. Se il parametro di output è null quando la funzione viene chiusa, il runtime di Funzioni crea un BLOB come un oggetto null.
+  Se si dichiara un tipo di output personalizzato (ad esempio `out OutputType paramName`), Funzioni di Azure tenta di serializzare l'oggetto in JSON. Se il parametro di output è null quando la funzione viene chiusa, il runtime di Funzioni crea un BLOB come un oggetto null.
 * Stringa, (`out string paramName`) utile per i dati di testo del BLOB. Il runtime di Funzioni crea un BLOB solo se il parametro di stringa è diverso da null quando la funzione viene chiusa.
 
 Nelle funzioni C# è anche possibile eseguire l'output in uno dei tipi seguenti:
@@ -361,8 +361,6 @@ Nelle funzioni C# è anche possibile eseguire l'output in uno dei tipi seguenti:
 * `ICloudBlob`
 * `CloudBlockBlob` 
 * `CloudPageBlob` 
-* `ICollector<T>` (per restituire più BLOB)
-* `IAsyncCollector<T>` (versione asincrona di `ICollector<T>`)
 
 <a name="outputsample"></a>
 

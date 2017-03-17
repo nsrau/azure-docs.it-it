@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 388e4c8f46662200a0e05db06d417f086ad41b11
-ms.openlocfilehash: b53feeb08d469363a52303cad4577b752a570900
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: d9e79c78f55dc80e113062bf0a134c02787e06a1
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -45,7 +45,7 @@ Managed Disks permette di creare fino a 10.000 **dischi** di macchine virtuali i
 
 Managed Disks offre una maggiore affidabilità per i set di disponibilità, perché fa in modo che i dischi delle macchine virtuali in un set di disponibilità siano sufficientemente isolati gli uni dagli altri per evitare singoli punti di errore. Ciò avviene mediante l'inserimento automatico dei dischi in unità di scala di archiviazione diverse, dette stamp. Se uno stamp non riesce a causa di un errore hardware o software, hanno esito negativo solo le istanze delle macchine virtuali con dischi in tali stamp. Si prenda ad esempio un'applicazione in esecuzione in cinque macchine virtuali, a loro volta inserite in un set di disponibilità. I dischi di tali macchine virtuali non vengono tutti archiviati nello stesso stamp. In caso di inattività di uno stamp, quindi, le altre istanze dell'applicazione continuano l'esecuzione.
 
-### <a name="better-security"></a>Maggiore sicurezza
+### <a name="granular-access-control"></a>Controllo di accesso granulare
 
 Per assegnare autorizzazioni specifiche per un disco gestito a uno o più utenti, è possibile usare il [controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-what-is.md). Managed Disks espone una serie di operazioni, inclusa la lettura, la scrittura (creazione/aggiornamento), l'eliminazione, l'esportazione e il recupero di un [URI di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md) per il disco. È possibile consentire l'accesso solo alle operazioni che servono agli utenti per svolgere il proprio lavoro. Ad esempio, per fare in modo che un utente non possa copiare un disco gestito in un account di archiviazione, è possibile scegliere di non consentire l'accesso all'operazione di esportazione di tale disco gestito. Analogamente, per fare in modo che un utente non possa usare un URI di firma di accesso condiviso per copiare un disco gestito, è possibile scegliere di non concedere l'autorizzazione per il disco gestito.
 
@@ -100,7 +100,7 @@ Per informazioni dettagliate sui prezzi di Managed Disks, vedere [Prezzi di Mana
 
 ## <a name="images"></a>Immagini
 
-Managed Disks supporta anche la creazione di un'immagine personalizzata gestita. È possibile creare un'immagine dal disco rigido virtuale personalizzato in un account di archiviazione oppure direttamente da una macchina virtuale in esecuzione. Tutti i dischi gestiti associati a una macchina virtuale in esecuzione, inclusi i dischi dati e del sistema operativo, vengono acquisiti in un'unica immagine. Questo permette di creare centinaia di macchine virtuali usando l'immagine personalizzata senza dover copiare o gestire alcun account di archiviazione.
+Managed Disks supporta anche la creazione di un'immagine personalizzata gestita. È possibile creare un'immagine dal disco rigido virtuale personalizzato in un account di archiviazione oppure direttamente da una macchina virtuale (preparata con Sysprep) generalizzata. Tutti i dischi gestiti associati a una macchina virtuale, inclusi i dischi dati e del sistema operativo, vengono acquisiti in un'unica immagine. Questo permette di creare centinaia di macchine virtuali usando l'immagine personalizzata senza dover copiare o gestire alcun account di archiviazione.
 
 Per informazioni sulla creazione di immagini, vedere gli articoli seguenti:
 * [Come acquisire un'immagine gestita di una macchina virtuale generalizzata in Azure](../virtual-machines/virtual-machines-windows-capture-image-resource.md)
@@ -112,7 +112,7 @@ Il termine "immagine" viene usato spesso con le macchine virtuali e ora si sta d
 
 Uno snapshot è la copia di un disco nel momento in cui viene creato e si applica esclusivamente a un solo disco. Se la macchina virtuale include solo un disco, quello del sistema operativo, è possibile creare uno snapshot o acquisire un'immagine del disco e creare una macchina virtuale dallo snapshot o dall'immagine.
 
-La situazione cambia se la macchina virtuale include cinque dischi con striping. Si potrebbe scegliere di creare uno snapshot di ogni disco, ma la macchina virtuale non include alcuna informazione sullo stato dei dischi, perché gli snapshot riguardano un solo disco. In tal caso sarebbe necessario coordinare gli snapshot, ma questa funzionalità non è attualmente supportata. Per creare una copia della macchina virtuale, sarà quindi necessario acquisirne un'immagine. Per impostazione predefinita, l'immagine include una copia coordinata di tutti i cinque dischi.
+La situazione cambia se la macchina virtuale include cinque dischi con striping. Si potrebbe scegliere di creare uno snapshot di ogni disco, ma la macchina virtuale non include alcuna informazione sullo stato dei dischi, perché gli snapshot riguardano un solo disco. In tal caso sarebbe necessario coordinare gli snapshot, ma questa funzionalità non è attualmente supportata.
 
 ## <a name="azure-backup-service-support"></a>Supporto del servizio Backup di Azure 
 

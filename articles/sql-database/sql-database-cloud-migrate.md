@@ -17,8 +17,9 @@ ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 21be71a1b4c79ecec8af02d08f65c41128c5ef73
-ms.openlocfilehash: 92c8f2e0f2dfa35c904a1132d72c037ceb7d3765
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 8d4823576fe0d44fa565fdb72e8b229d31dff609
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -50,7 +51,7 @@ L'elenco seguente illustra un flusso di lavoro generico per la migrazione di un 
 
 L'elenco seguente contiene indicazioni che permettono di ottimizzare le prestazioni durante il processo di importazione.
 
-* Scegliere il livello di prestazioni e di servizio più elevato consentito dal budget per ottimizzare le prestazioni di trasferimento. Per risparmiare, è possibile ridurre le prestazioni al termine della migrazione. Vedere come modificare il livello di prestazioni e di servizio di un database singolo usando il [portale di Azure](sql-database-manage-single-databases-portal.md#change-the-service-tier-and-performance-level-of-a-single-database), [PowerShell](sql-database-manage-single-databases-powershell.md#change-the-service-tier-and-performance-level-of-a-single-database) o [Transact-SQL](sql-database-manage-single-databases-tsql.md#change-the-service-tier-and-performance-level-of-a-single-database).
+* Scegliere il livello di prestazioni e di servizio più elevato consentito dal budget per ottimizzare le prestazioni di trasferimento. Per risparmiare, è possibile ridurre le prestazioni al termine della migrazione. 
 * Ridurre al minimo la distanza tra il file BACPAC e il data center di destinazione.
 * Disabilitare le statistiche automatiche durante la migrazione.
 * Partizionare tabelle e indici.
@@ -119,10 +120,5 @@ Oltre a ricerche su Internet e all'uso di queste risorse, usare il [forum della 
 * Per informazioni sull'uso dell'ora UTC dopo la migrazione, vedere [Modifying the default time zone for your local time zone](https://blogs.msdn.microsoft.com/azuresqlemea/2016/07/27/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone/) (Sostituire il fuso orario predefinito con il fuso orario locale).
 * Per informazioni su come modificare la lingua predefinita di un database dopo la migrazione, vedere [How to change the default language of Azure SQL Database](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/) (Come modificare la lingua predefinita del database SQL di Azure).
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

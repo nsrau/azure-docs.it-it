@@ -11,40 +11,34 @@ ms.assetid: c05abd9e-28a7-4c97-9bdf-bc60d08fc92e
 ms.service: sql-database
 ms.custom: overview
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 11/28/2016
+ms.date: 02/22/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 3f9077733725174f1eed61d37d544e4f36822f6e
-ms.openlocfilehash: d935571ccd18bc15baa000fb8c07fed11b66ba6c
+ms.sourcegitcommit: a08d9f2ef29002f10473b0e041737c9c607f3ca0
+ms.openlocfilehash: 7d6de93c99141248ea970ea668fb0b2191267b62
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="azure-sql-database-transact-sql-differences"></a>Differenze di Transact-SQL del Database SQL di Azure   
 La maggior parte delle funzionalità Transact-SQL essenziali per le applicazioni è supportata in Microsoft SQL Server e Database SQL di Azure. Ad esempio, i componenti SQL principali, come tipi di dati, operatori, funzioni di stringa, funzioni aritmetiche, logiche, del cursore e così via, funzionano come nel server SQL.
 
-## <a name="why-some-transact-sql-is-not-supported"></a>Perché alcune funzioni Transact-SQL non sono supportate?
+# <a name="why-some-transact-sql-is-not-supported"></a>Perché alcune funzioni Transact-SQL non sono supportate?
 Il database SQL di Azure è progettato per isolare le funzionalità di tutte le dipendenze nel database master e nel sistema operativo. Di conseguenza molte attività a livello di server non sono appropriate per il database SQL. Le istruzioni Transact-SQL in genere non sono disponibili se configurano opzioni a livello di server e componenti del sistema operativo o se specifica una configurazione del file system. Quando sono necessarie funzionalità esterne al database dell'utente, spesso è disponibile un'alternativa appropriata dal database SQL o da un'altra funzionalità o servizio di Azure. 
 
-Ad esempio, Always On viene sostituito con la replica geografica attiva. Per questo motivo, le istruzioni Transact-SQL relative ai gruppi di disponibilità non sono supportate dal database SQL, come le viste a gestione dinamica correlate a Always On.  
+Ad esempio, Always On non si applica al database SQL di Azure perché la disponibilità elevata è incorporata nel servizio ed è presente in ogni database. Per questo motivo, le istruzioni Transact-SQL relative ai gruppi di disponibilità non sono supportate dal database SQL, come le viste a gestione dinamica correlate a Always On.  
 
 Per un elenco delle funzionalità supportate e non supportate dal database SQL, vedere [Azure SQL Database considerations, guidelines and features](sql-database-features.md) (Considerazioni, linee guida e funzionalità del database SQL di Azure).
 
-La sintassi deprecata in SQL Server in genere non è supportata nel database SQL.
 
 ## <a name="transact-sql-syntax-partially-supported-in-sql-database"></a>Sintassi di Transact-SQL parzialmente supportata nel database SQL
-Il database SQL supporta solo alcuni degli argomenti presenti nelle istruzioni di Transact-SQL di SQL Server 2016 corrispondenti. Ad esempio, è disponibile l'istruzione `CREATE PROCEDURE`, anche se non sono disponibili tutte le opzioni di `CREATE PROCEDURE`. La descrizione della sintassi completa qui genererebbe confusione e risulterebbe ridondante. Per informazioni dettagliate sulle aree supportate di ogni istruzione, vedere gli argomenti sulla sintassi collegati.
+Il database SQL supporta solo alcuni degli argomenti esistenti nelle corrispondenti istruzioni Transact-SQL di SQL Server 2016 per la gestione di database e account di accesso. L'istruzione `CREATE DATABASE`, ad esempio, è disponibile nel database SQL di Azure SQL, ma non tutte le opzioni supportate in SQL Server sono supportate nel database SQL di Azure e viceversa. Per informazioni dettagliate sulle aree supportate di ogni istruzione, vedere gli argomenti sulla sintassi collegati.
 
-- Database: [CREATE](https://msdn.microsoft.com/library/dn268335.aspx)/[ALTER DATABASE](https://msdn.microsoft.com/library/ms174269.aspx)   
-- Funzioni: [CREATE](https://msdn.microsoft.com/library/ms186755.aspx)/[ALTER FUNCTION](https://msdn.microsoft.com/library/ms186967.aspx)   
+- Database: [CREATE](https://msdn.microsoft.com/library/dn268335.aspx)/[ALTER DATABASE](https://msdn.microsoft.com/library/mt574871.aspx)   
 - Account di accesso: [CREATE](https://msdn.microsoft.com/library/ms189751.aspx)/[ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx)   
-- Stored procedure: [CREATE](https://msdn.microsoft.com/library/ms187926.aspx)/[ALTER PROCEDURE](https://msdn.microsoft.com/library/ms189762.aspx)   
-- Tabelle: [CREATE](https://msdn.microsoft.com/library/dn305849.aspx)/[ALTER TABLE](https://msdn.microsoft.com/library/ms190273.aspx)   
-- Tipi (personalizzato): [CREATE TYPE](https://msdn.microsoft.com/library/ms175007.aspx)   
-- Utenti: [CREATE](https://msdn.microsoft.com/library/ms173463.aspx)/[ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx)   
-- Visualizzazioni: [CREATE](https://msdn.microsoft.com/library/ms187956.aspx)/[ALTER VIEW](https://msdn.microsoft.com/library/ms173846.aspx)   
 
 ## <a name="transact-sql-syntax-not-supported-in-sql-database"></a>Sintassi di Transact-SQL non supportata nel database SQL   
 Oltre alle istruzioni Transact-SQL correlate alle funzioni non supportate descritte in [Azure SQL Database considerations, guidelines and features](sql-database-features.md) (Considerazioni, linee guida e funzionalità del database SQL di Azure), non sono supportate le istruzioni e i gruppi di istruzioni seguenti.
@@ -65,7 +59,7 @@ Oltre alle istruzioni Transact-SQL correlate alle funzioni non supportate descri
 - Sintassi delle impostazioni del server relative all'hardware: memoria, thread di lavoro, affinità di CPU, flag di traccia e così via. In alternativa usare i livelli di servizio.
 - `HAS_DBACCESS`
 - `KILL STATS JOB`
-- `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE`, `BULK INSERT` e nomi in quattro parti
+- `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE` e nomi in quattro parti
 - .NET framework [integrazione CLR con SQL Server](http://msdn.microsoft.com/library/ms254963.aspx)
 - Ricerca semantica
 - Credenziali del server. Usare invece le credenziali con ambito database.
@@ -90,9 +84,4 @@ Per ulteriori informazioni sulla grammatica Transact-SQL, uso ed esempi, vedere 
 Il riferimento a Transact-SQL include gli argomenti relativi alle versioni di SQL Server dalla 2008 a quella attuale. Sotto il titolo dell'argomento è presente una barra di icone in cui sono elencate le quattro piattaforme SQL Server e la relativa applicabilità. Ad esempio, i gruppi di disponibilità sono stati introdotti in SQL Server 2012. L'argomento [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) indica che l'istruzione si applica a **SQL Server (a partire dalla versione 2012)**. L'istruzione non si applica a SQL Server 2008, SQL Server 2008 R2, Database SQL di Azure, Azure SQL Data Warehouse o Parallel Data Warehouse.
 
 In alcuni casi, il tema generale di un argomento può essere utilizzato in un prodotto, ma esistono differenze minime tra prodotti. Le differenze sono indicate in punti centrali nell'argomento come appropriato.
-
-
-
-<!--HONumber=Nov16_HO5-->
-
 

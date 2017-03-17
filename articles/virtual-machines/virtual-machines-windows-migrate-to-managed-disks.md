@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 44c1f6ddac328516d707cfe5d328e02e50652e5b
-ms.openlocfilehash: e66857cf6cc05aae2fa102173a2958564ec936e6
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 9974b7a34749e689f6061b61056ae453690792e3
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -53,7 +53,7 @@ Questa sezione consente di prendere le decisioni migliori sui tipi di macchina v
 
 ## <a name="location"></a>Percorso
 
-Selezionare una posizione in cui Azure Managed Disks è disponibile. Se si passa a Managed Disks Premium, assicurarsi anche che l'Archiviazione Premium sia disponibile nell'area di destinazione pianificata. Per informazioni aggiornate sulle località disponibili, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/#services).
+Selezionare una posizione in cui Azure Managed Disks è disponibile. Se si passa a Managed Disks Premium, assicurarsi anche che l'Archiviazione Premium sia disponibile nell'area di destinazione pianificata. Per informazioni aggiornate sulle località disponibili, vedere [Prodotti in base all'area](https://azure.microsoft.com/regions/#services) .
 
 ## <a name="vm-sizes"></a>Dimensioni delle macchine virtuali
 

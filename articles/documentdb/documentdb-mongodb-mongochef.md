@@ -1,6 +1,6 @@
 ---
 title: Usare MongoChef per MongoDB con Azure DocumentDB | Documentazione Microsoft
-description: Informazioni su come usare MongoChef con un account DocumentDB con supporto del protocollo per MongoDB, ora disponibile in anteprima.
+description: 'Informazioni su come usare MongoChef con un account dell&quot;API DocumentDB: per MongoDB'
 keywords: MongoChef
 services: documentdb
 author: AndrewHoh
@@ -13,30 +13,32 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2016
+ms.date: 03/06/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
-ms.openlocfilehash: 26035ac7827eba384268dde266db2ac13cc30f40
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: eb5a10e414a4dcce50b34a54d0e56fd5f7a16737
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="use-mongochef-with-a-documentdb-account-with-protocol-support-for-mongodb"></a>Usare MongoChef con un account DocumentDB con supporto del protocollo per MongoDB
-Per connettersi a un account Azure DocumentDB con il supporto del protocollo per MongoDB usando MongoChef, seguire questa procedura:
+# <a name="use-mongochef-with-a-documentdb-api-for-mongodb-account"></a>Usare MongoChef con un account dell'API DocumentDB: per MongoDB
+
+Per connettersi a un account dell'API Azure DocumentDB: per MongoDB, seguire questa procedura:
 
 * Scaricare e installare [MongoChef](http://3t.io/mongochef)
-* Creare l'account DocumentDB con supporto del protocollo per le informazioni sulla [stringa di connessione](documentdb-connect-mongodb-account.md) di MongoDB
+* Disporre delle informazioni sulla [stringa di connessione](documentdb-connect-mongodb-account.md) dell'account dell'API DocumentDB: per MongoDB
 
 ## <a name="create-the-connection-in-mongochef"></a>Creare la connessione in MongoChef
-Per aggiungere l'account DocumentDB con supporto del protocollo per MongoDB a gestione connessione di MongoChef, seguire questa procedura.
+Per aggiungere l'account dell'API DocumentDB: per MongoDB allo strumento di gestione della connessione MongoChef, seguire questa procedura.
 
-1. Recuperare le informazioni su DocumentDB con supporto del protocollo per MongoDB usando [queste](documentdb-connect-mongodb-account.md)istruzioni.
+1. Recuperare le informazioni sulla connessione dell'API DocumentDB: per MongoDB usando le istruzioni riportate [qui](documentdb-connect-mongodb-account.md).
 
     ![Screenshot del pannello Stringa di connessione](./media/documentdb-mongodb-mongochef/ConnectionStringBlade.png)
 2. Fare clic su **Connect** (Connetti) per aprire la gestione connessioni, quindi fare clic su **New Connection** (Nuova connessione)
 
     ![Screenshot di gestione connessione di MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManager.png)
-3. Nella finestra **New Connection** (Nuova connessione) nella scheda **Server** specificare l'host o il nome di dominio completo dell'account DocumentDB con supporto del protocollo per MongoDB e la porta.
+3. Nella finestra **New Connection** (Nuova connessione), nella scheda **Server**, specificare l'host (nome di dominio completo) dell'account dell'API DocumentDB: per MongoDB e la porta.
 
     ![Screenshot della scheda relativa al server di gestione connessione di MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManagerServerTab.png)
 4. Nella finestra **New Connection** (Nuova connessione) nella scheda **Authentication** (Autenticazione) scegliere la modalità di autenticazione **Standard (MONGODB-CR or SCARM-SHA-1)** (Standard - MONGODB-CR o SCARM-SHA-1) e immettere il nome utente e la password.  Accettare il database di autenticazione predefinito (admin) o specificare un valore personalizzato.
@@ -114,10 +116,5 @@ Per creare un database, una raccolta e documenti usando MongoChef, seguire quest
     ![Screenshot dei risultati della query di MongoChef](./media/documentdb-mongodb-mongochef/QueryDocument1.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Esplorare DocumentDB con supporto del protocollo per trovare [esempi](documentdb-mongodb-samples.md)di MongoDB.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+* Esaminare gli [esempi](documentdb-mongodb-samples.md) dell'API DocumentDB: per MongoDB.
 

@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 12/27/2016
 ms.author: dugill;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
-ms.openlocfilehash: cacb2ce368a09c71c6f02548c5a1836ad77f540a
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 32f5959a9b96318208c46789ec406d614081bc8d
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -27,7 +28,7 @@ Questo argomento illustra agli sviluppatori software, che devono creare un'app p
 L'app può accedere alle API di Resource Manager in due modi:
 
 1. **Accesso utente + app**: per le app che accedono alle risorse per conto di un utente connesso. Questo approccio funziona per le app, ad esempio le app Web e gli strumenti da riga di comando, che trattano solo la "gestione interattiva" delle risorse di Azure.
-2. **Accesso solo app**: per le app che eseguono servizi daemon e processi pianificati. All'identità dell'app viene concesso l'accesso diretto alle risorse. Questo approccio funziona per le app che richiedono l'accesso "offline" a lungo termine in Azure.
+2. **Accesso solo app**: per le app che eseguono servizi daemon e processi pianificati. All'identità dell'app viene concesso l'accesso diretto alle risorse. Questo approccio funziona per le app che richiedono l'accesso headless (automatico) a lungo termine ad Azure.
 
 Questo argomento include istruzioni dettagliate per la creazione di un'app che usa entrambi i metodi di autorizzazione. Illustra come eseguire ogni passaggio con l'API REST o C#. L'applicazione ASP.NET MVC completa è disponibile all'indirizzo [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
@@ -362,10 +363,5 @@ Come si è consentito all'utente di connettere le sottoscrizioni all'applicazion
 Il metodo [RevokeRoleFromServicePrincipalOnSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L200) dell'app di esempio ASP.NET MVC implementa questa chiamata.
 
 Gli utenti ora possono connettere e gestire facilmente le sottoscrizioni di Azure con l'applicazione.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: dafaf29b6827a6f1c043af3d6bfe62d480d31ad5
-ms.openlocfilehash: bebfd5e0cc209d8c1fc28d2300c57e3519410954
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: cc61146e0353455c5c763297a002afb86b76887a
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -83,11 +84,11 @@ La tabella seguente elenca le azioni disponibili per ogni entità:
 | Applicazione |Elimina applicazione |Eliminare l'applicazione, inclusi tutti i servizi correlati e il relativo stato, se presente. |
 | Service |Eliminare il servizio |Eliminare il servizio e il relativo stato (se presente). |
 | Nodo |Activate |Attivare il nodo. |
-| Disattivare (sospendere) |Sospendere il nodo nello stato corrente. I servizi continueranno a essere eseguiti, tuttavia Service Fabric non sposterà in modo proattivo alcun elemento a meno che non sia necessario per impedire un'interruzione o un caso di incoerenza di dati. Questa azione viene in genere usata per abilitare i servizi di debug in un nodo specifico in modo da garantire che non si spostino durante l'ispezione. | |
-| Disattivare (riavviare) |Spostare tutti i servizi in memoria all'esterno di un nodo e chiudere i servizi permanenti in modo sicuro. Questa azione viene in genere usata quando i processi host o i computer devono essere riavviati. | |
-| Disattivare (rimuovere i dati) |Chiudere in modo sicuro tutti i servizi in esecuzione sul nodo dopo la creazione di un numero sufficiente di repliche riserva. Questa azione viene in genere usata quando un nodo (o almeno lo spazio di archiviazione correlato) viene reso improduttivo in modo permanente. | |
-| Rimuovere lo stato del nodo |Rimuovere le repliche di un nodo dal cluster. Questa azione viene in genere usata quando un nodo che ha già avuto esito negativo viene ritenuto non recuperabile. | |
-| Nodo | Riavvia | Riavviare il nodo per simularne un errore. Altre informazioni sono disponibili [qui](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/Restart-ServiceFabricNode) ||
+| Nodo | Disattivare (sospendere) | Sospendere il nodo nello stato corrente. I servizi continueranno a essere eseguiti, tuttavia Service Fabric non sposterà in modo proattivo alcun elemento a meno che non sia necessario per impedire un'interruzione o un caso di incoerenza di dati. Questa azione viene in genere usata per abilitare i servizi di debug in un nodo specifico in modo da garantire che non si spostino durante l'ispezione. | |
+| Nodo | Disattivare (riavviare) | Spostare tutti i servizi in memoria all'esterno di un nodo e chiudere i servizi permanenti in modo sicuro. Questa azione viene in genere usata quando i processi host o i computer devono essere riavviati. | |
+| Nodo | Disattivare (rimuovere i dati) | Chiudere in modo sicuro tutti i servizi in esecuzione sul nodo dopo la creazione di un numero sufficiente di repliche riserva. Questa azione viene in genere usata quando un nodo (o almeno lo spazio di archiviazione correlato) viene reso improduttivo in modo permanente. | |
+| Nodo | Rimuovere lo stato del nodo | Rimuovere le repliche di un nodo dal cluster. Questa azione viene in genere usata quando un nodo che ha già avuto esito negativo viene ritenuto non recuperabile. | |
+| Nodo | Riavvia | Riavviare il nodo per simularne un errore. Altre informazioni sono disponibili [qui](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/Restart-ServiceFabricNode) | |
 
 Poiché molte azioni sono distruttive, viene richiesto di confermare la finalità prima del completamento dell'azione.
 
@@ -132,9 +133,4 @@ Se si prova a connettersi a Service Fabric Explorer in un cluster sicuro, a seco
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 [sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/SfxCreateAppInstance.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

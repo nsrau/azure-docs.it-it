@@ -1,6 +1,7 @@
 ---
-title: Come ottenere la fattura e i dati di utilizzo giornalieri di Azure | Documentazione Microsoft
-description: Descrive come ottenere la fattura e i dati di utilizzo giornalieri di Azure
+title: Scaricare la fattura e i dati di uso giornalieri di Azure | Microsoft Docs
+description: L&quot;articolo descrive come scaricare o visualizzare la fatturazione e dati di uso giornalieri di Azure.
+keywords: fatturazione, scaricare la fatture, fattura di Azure, uso di Azure
 services: 
 documentationcenter: 
 author: genlin
@@ -13,19 +14,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/28/2017
 ms.author: genli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4d974590ee7677a4f3fcebd9e2474c99a974f663
-ms.openlocfilehash: 60ac57fd22f237b7fe62773486fe46913aca8dd0
+ms.sourcegitcommit: 9c181935e7ba897087d286bea22ebf500ef36e52
+ms.openlocfilehash: 307bfae0e7161782a9ddb97f4ca0d510fc772ab7
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="how-to-get-your-azure-billing-invoice-and-daily-usage-data"></a>Come ottenere la fattura e i dati di utilizzo giornalieri di Azure
-Per ricevere una fattura di Azure tramite posta elettronica, è possibile fornire il consenso esplicito e configurare altri destinatari. La fattura può anche essere scaricata dal [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). È inoltre possibile scaricare un file CSV relativo ai dati di utilizzo nel [Centro account di Azure](https://account.windowsazure.com). Solo l'amministratore account dispone dell'autorizzazione per ottenere le informazioni di fatturazione e i dati di utilizzo. Per individuare l'amministratore account della sottoscrizione, vedere la sezione relativa al [Trasferimento di proprietà di una sottoscrizione di Azure (Domande frequenti)](billing-subscription-transfer.md#faq).
+# <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Scaricare o visualizzare la fattura e i dati di uso giornalieri di Azure
+La fattura può essere scaricata dal [Portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) o inviata via email. Per scaricare l'uso giornaliero, accedere al [Centro account di Azure](https://account.windowsazure.com). Solo l'amministratore account dispone dell'autorizzazione per ottenere le informazioni di fatturazione e i dati di utilizzo. Per individuare l'amministratore account della sottoscrizione, vedere la sezione relativa al [Trasferimento di proprietà di una sottoscrizione di Azure (Domande frequenti)](billing-subscription-transfer.md#faq).
 
-## <a name="get-your-invoice-over-email-pdf"></a>Ottenere la fattura tramite posta elettronica (PDF)
-1. Selezionare la sottoscrizione dal [pannello delle sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). È necessario fornire il consenso esplicito per ogni sottoscrizione posseduta. Fare clic su **Invoices** (Fatture) quindi su **Email my invoice** (Invia fattura tramite posta elettronica). Questa opzione potrebbe non essere visibile per utenti diversi dall'amministratore account.
+## <a name="get-your-invoice-in-email-pdf"></a>Ottenere la fattura tramite posta elettronica (formato PDF)
+Per ricevere una fattura di Azure tramite posta elettronica, è possibile fornire il consenso esplicito e configurare altri destinatari. Questa funzionalità potrebbe non essere disponibile per alcune sottoscrizioni, ad esempio offerte di supporto, contratti Enterprise o Azure in Open.
+
+1. Selezionare la sottoscrizione dal [pannello delle sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Dare il consenso esplicito per ogni sottoscrizione posseduta. Fare clic su **Invoices** (Fatture) quindi su **Email my invoice** (Invia fattura tramite posta elettronica). 
 
     ![Schermata che mostra il flusso per il consenso esplicito](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
     
@@ -37,12 +42,8 @@ Per ricevere una fattura di Azure tramite posta elettronica, è possibile fornir
 
     ![Schermata che mostra il flusso per il consenso esplicito](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
     
-È inoltre possibile accedere a questo collegamento diretto al pannello tramite il messaggio di posta elettronica di notifica dell'estratto conto mensile
+Se non si riceve un'email dopo aver eseguito i passaggi seguenti, assicurarsi che l'indirizzo email sia corretto nelle [preferenze di comunicazione del proprio profilo](https://account.windowsazure.com/profile).
 
-### <a name="i-cant-access-the-email-settings-blade"></a>Non è possibile accedere al pannello delle impostazioni della posta elettronica
-* Cosa significa che per configurare questa impostazione è necessario essere l'amministratore account? Fare clic [qui](billing-add-change-azure-subscription-administrator.md) per altre informazioni.
-* Se si dispone di una fattura mensile ma non si riceve un messaggio di posta elettronica, accertarsi di aver [impostato correttamente l'indirizzo di posta elettronica di comunicazione](https://account.windowsazure.com/profile).
-* Questa funzionalità potrebbe non essere disponibile per alcune sottoscrizioni, ad esempio offerte di supporto, contratti Enterprise o Azure in Open.
 
 ## <a name="download-invoice-from-azure-portal-pdf"></a>Scaricare la fattura dal portale di Azure (PDF)
 
@@ -86,18 +87,13 @@ Per altre informazioni sulla fattura, vedere [Comprendere la fattura per Microso
 
 Per altre informazioni sui dati di utilizzo giornalieri, vedere [Comprendere la fattura per Microsoft Azure](billing-understand-your-bill.md).
 
-## <a name="a-namenoinvoicea-why-dont-i-see-an-invoice-for-the-last-billing-period"></a><a name="noinvoice"></a> Perché non viene visualizzata una fattura per l'ultimo periodo di fatturazione?
+## <a name="noinvoice"></a> Perché non viene visualizzata una fattura per l'ultimo periodo di fatturazione?
 Potrebbero esserci diversi motivi per cui non è visualizzata alcuna fattura:
-- Si dispone di un credito mensile per la sottoscrizione che non è stato superato oppure si sta usando una versione di prova gratuita. La fattura viene generata solo se occorre corrispondere un importo in denaro.
+- Si dispone di un credito mensile per la sottoscrizione che non è stato superato oppure si sta usando una versione di prova gratuita. La fattura viene generata solo quando si possiede del denaro.
 - Sono passati meno di trenta giorni dalla data della sottoscrizione di Azure.
 - La fattura non è stata ancora generata. Attendere la fine del periodo di fatturazione.
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

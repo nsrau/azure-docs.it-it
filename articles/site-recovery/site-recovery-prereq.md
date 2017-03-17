@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 12/11/2016
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: 080dce21c2c803fc05c945cdadb1edd55bd7fe1c
-ms.openlocfilehash: a8e374c247be49d4b1390fb4061b4c9b1311f58a
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: b20d1a20119e8bffa3ece7105c38b3ee51c942d5
+ms.lasthandoff: 03/15/2017
 
 ---
 
@@ -104,6 +104,20 @@ Di seguito sono elencati i componenti necessari per il ripristino di emergenza i
 | --- | --- |
 | **Virtual Machine Manager** |  È consigliabile distribuire un server Virtual Machine Manager nel sito primario e un server Virtual Machine Manager nel sito secondario.<br/><br/> È possibile [eseguire la replica tra cloud in un unico server VMM](site-recovery-vmm-to-vmm.md#prepare-for-single-server-deployment). A tale scopo, sono necessari almeno due cloud configurati sul server Virtual Machine Manager.<br/><br/> I server Virtual Machine Manager devono eseguire almeno System Center 2012 SP1 con gli aggiornamenti più recenti.<br/><br/> Ogni server Virtual Machine Manager deve essere configurato con uno o più cloud. In tutti i cloud deve essere impostato il profilo della capacità Hyper-V. <br/><br/>I cloud devono contenere uno o più gruppi di host Virtual Machine Manager. Per altre informazioni sull'impostazione di cloud Virtual Machine Manager, vedere [Preparare la distribuzione di Azure Site Recovery](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric). |
 | **Hyper-V** | I server Hyper-V devono eseguire almeno Windows Server 2012 con ruolo Hyper-V e con gli ultimi aggiornamenti installati.<br/><br/> Il server Hyper-V deve contenere una o più macchine virtuali.<br/><br/>  I server host Hyper-V devono trovarsi nei gruppi host disponibili nei cloud VMM primario e secondario.<br/><br/> Se si esegue Hyper-V in un cluster in Windows Server 2012 R2 è consigliabile installare l'[aggiornamento 2961977](https://support.microsoft.com/kb/2961977).<br/><br/> Se si esegue Hyper-V in un cluster basato su indirizzi IP statici in Windows Server 2012, il broker del cluster non viene creato automaticamente. È necessario configurare manualmente il broker del cluster. Per altre informazioni sul broker del cluster, vedere [Configurare la replica da cluster a cluster con il ruolo del broker di replica](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx). |
-
 | **Provider** | Durante la distribuzione di Site Recovery, installare il provider di Azure Site Recovery in server Virtual Machine Manager. Il provider comunica con Site Recovery su HTTPS 443 per coordinare la replica. La replica dei dati viene eseguita tra il server Hyper-V primario e quello secondario attraverso la rete LAN o una connessione VPN.<br/><br/> Il provider in esecuzione nel server Virtual Machine Manager deve poter accedere agli URL seguenti:<br/><br/>[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)] <br/><br/>Il provider deve consentire la comunicazione del firewall dai server Virtual Machine Manager agli [intervalli IP dei data center di Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e il protocollo HTTPS (443). |
+
+
+## <a name="url-access"></a>Accesso a URL
+Gli URL seguenti dovranno essere disponibili dai server host Hyper-V, VMware e VMM.
+
+|**URL** | **Da VMM a VMM** | **Da VMM ad Azure** | **Da Hyper-V ad Azure** | **Da VMware ad Azure** |
+|--- | --- | --- | --- | --- |
+|``*.accesscontrol.windows.net`` | Consenti | Consenti | Consenti | Consenti |
+|``*.backup.windowsazure.com`` | Facoltativo | Consenti | Consenti | Consenti |
+|``*.hypervrecoverymanager.windowsazure.com`` | Consenti | Consenti | Consenti | Consenti |
+|``*.store.core.windows.net`` | Consenti | Consenti | Consenti | Consenti |
+|``*.blob.core.windows.net`` | Facoltativo | Consenti | Consenti | Consenti |
+|``https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi`` | Facoltativo | Facoltativo | Facoltativo | Consentire download SQL |
+|``time.windows.com`` | Consenti | Consenti | Consenti | Consenti|
+|``time.nist.gov`` | Consenti | Consenti | Consenti | CONSENTI |
 

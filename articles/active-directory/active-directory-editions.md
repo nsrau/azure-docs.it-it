@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
-ms.openlocfilehash: 8dd4c5ab11c43ca09085004ee4dce3e616b19d8e
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: b875c83ba7d87a572e78625e4038840aadcf9c85
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -144,7 +145,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 **Altre informazioni:**
 
-* [Come aggiornare la password](active-directory-passwords-update-your-own-password.md)
+* [Come aggiornare la password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password)
 
 #### <a name="connect--sync-engine-that-extends-on-premises-directories-to-azure-active-directory"></a>Connect (motore di sincronizzazione che estende le directory locali ad Azure Active Directory)
 **Tipo:** funzionalità comuni
@@ -241,7 +242,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 ## <a name="premium-features"></a>Funzionalità Premium
 
 
-#### <a name="a-nameself-service-groupaself-service-group-and-app-managementself-service-application-additionsdynamic-groups"></a><a name="self-service-group"></a>Gestione self-service dei gruppi e delle app, aggiunta self-service di applicazioni, gruppi dinamici
+#### <a name="self-service-group"></a>Gestione self-service dei gruppi e delle app, aggiunta self-service di applicazioni, gruppi dinamici
 **Tipo:** funzionalità Premium
 
 **Disponibilità:**
@@ -273,7 +274,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 * [Informazioni su Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
 
-#### <a name="a-namemim-cal-mim-serveramim-cal--mim-server"></a><a name="mim-cal-mim-server"></a>Licenze CAL MIM e server MIM
+#### <a name="mim-cal-mim-server"></a>Licenze CAL MIM e server MIM
 I diritti software di Microsoft Identity Manager Server vengono concessi attraverso licenze di Windows Server (qualsiasi edizione). Poiché Microsoft Identity Manager viene eseguito nel sistema operativo Windows Server, purché il server esegua una copia con licenza valida di Windows Server, allora Microsoft Identity Manager può essere installato e utilizzato su tale server. Nessuna altra licenza separata è necessaria per il Server di gestione identità Microsoft.
 
 **Tipo:** funzionalità Premium
@@ -344,7 +345,7 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 | ![Controllo][12] |![Controllo][12] |![Controllo][12] |![Controllo][12] |
 
 
-#### <a name="a-namemdm-auto-enrollmentamdm-auto-enrollment-self-service-bitlocker-recovery-additional-local-administrators-to-windows-10-devices-via-azure-ad-join"></a><a name="mdm-auto-enrollment"></a>Iscrizione automatica MDM, ripristino Bitlocker self-service, amministratori locali aggiuntivi per dispositivi Windows 10 tramite aggiunta ad Azure AD
+#### <a name="mdm-auto-enrollment"></a>Iscrizione automatica MDM, ripristino Bitlocker self-service, amministratori locali aggiuntivi per dispositivi Windows 10 tramite aggiunta ad Azure AD
 **Tipo:** Aggiunta ad Azure Active Directory - Solo funzionalità correlate a Windows 10
 
 **Disponibilità:**
@@ -384,9 +385,4 @@ Oltre alle funzionalità disponibili a livello generale delle edizioni Free, Bas
 
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

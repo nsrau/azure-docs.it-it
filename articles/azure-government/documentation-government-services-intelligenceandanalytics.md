@@ -15,16 +15,16 @@ ms.workload: azure-government
 ms.date: 12/06/2016
 ms.author: MeganYount
 translationtype: Human Translation
-ms.sourcegitcommit: 14fb62669e15873770ef9b8470e34db70f1ca2ca
-ms.openlocfilehash: 2b89d78e20cccee81c9581e762e4c61bacd84fd4
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 0233aa66bc4f4f135456ec15bd09756e63192b14
+ms.lasthandoff: 03/06/2017
 
 
 ---
 # <a name="azure-government-intelligence--analytics"></a>Intelligence e analisi in Azure per enti pubblici
 Questo articolo descrive le variazioni ai servizi di intelligence e analisi e presenta alcune considerazioni sull'ambiente di Azure per enti pubblici.
 
-## <a name="azure-hdinsight"></a>HDInsight di Azure
+## <a name="hdinsight"></a>HDInsight
 HDInsight su Linux Standard è disponibile a livello generale in Azure per enti pubblici. <a href=https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government/>Qui</a> è possibile visualizzare una dimostrazione su come creare soluzioni incentrate sui dati in Azure per enti pubblici usando HDInsight.
 
 HDInsight in Linux Premium sarà presto disponibile.
@@ -33,7 +33,7 @@ HDInsight in Linux Premium sarà presto disponibile.
 Le funzionalità di HDInsight seguenti non sono attualmente disponibili in Azure per enti pubblici.
 
 * HDInsight non è disponibile in Windows.
-* Azure Data Lake Store non è attualmente disponibile in Azure per enti pubblici. Archiviazione BLOB di Azure è al momento l'unica opzione di archiviazione disponibile.
+* Azure Data Lake Store non è attualmente disponibile in Azure per enti pubblici. L'archivio BLOB di Azure è al momento l'unica opzione di archiviazione disponibile.
 
 Gli URL per Log Analytics sono diversi in Azure per enti pubblici:
 
@@ -57,5 +57,5 @@ Gli URL per Power BI sono diversi nel Governo degli Stati Uniti:
 | URL di Power BI | app.powerbi.com | app.powerbigov.us |
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per ulteriori informazioni e aggiornamenti, iscriversi al <a href="https://blogs.msdn.microsoft.com/azuregov/">blog di Microsoft Azure per enti pubblici</a>.
+Per informazioni aggiuntive e aggiornamenti, sottoscrivere il <a href="https://blogs.msdn.microsoft.com/azuregov/">blog di Microsoft Azure per enti pubblici. </a>
 

@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 06/22/2015
 ms.author: rashimg
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 89618f7549d8589d5ac684772832748ab9765d1a
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: c292772cb21c90bf4373803bfcaa47787c3980b5
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -58,7 +59,7 @@ Informazioni su come elaborare e analizzare file JSON usando Hive in HDInsight. 
         ]
     }
 
-Il file è disponibile in wasbs://processjson@hditutorialdata.blob.core.windows.net/. Per altre informazioni sull'uso dell'archivio BLOB di Azure con HDInsight, vedere [Usare l'archivio BLOB di Azure compatibile con Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md). È possibile copiare il file nel contenitore predefinito del cluster, se necessario.
+Il file è disponibile in wasbs://processjson@hditutorialdata.blob.core.windows.net/. Per altre informazioni sull'uso dell'archivio BLOB di Azure con HDInsight, vedere [Usare un archivio BLOB di Azure compatibile con HDFS con Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md). È possibile copiare il file nel contenitore predefinito del cluster, se necessario.
 
 In questa esercitazione si userà la console di Hive.  Per istruzioni sull'apertura della console Hive, vedere [Usare Hive con Hadoop in HDInsight con Desktop remoto](hdinsight-hadoop-use-hive-remote-desktop.md).
 
@@ -173,7 +174,7 @@ SerDe è la scelta migliore per l'analisi di documenti JSON annidati, perché co
 
     add jar json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar;
 
-    ![Adding JAR to your project][image-hdi-hivejson-addjar]
+   ![Aggiunta di JAR al progetto][image-hdi-hivejson-addjar]
 
 A questo punto è possibile usare SerDe per eseguire le query sul documento JSON.
 
@@ -257,9 +258,4 @@ Per altri articoli correlati, vedere
 [image-hdi-hivejson-serde_query2]: ./media/hdinsight-using-json-in-hive/serde_query2.png
 [image-hdi-hivejson-serde_query3]: ./media/hdinsight-using-json-in-hive/serde_query3.png
 [image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

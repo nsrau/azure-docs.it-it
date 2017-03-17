@@ -15,13 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4bf470737f961219250c37d890ed81eb62409626
-ms.openlocfilehash: f03026212dfcbe2faa22188ebfb2e953114a87fd
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 0d7eba02757fb1b2263cf11c561b374eab837f21
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="set-up-gpu-drivers-for-n-series-vms"></a>Installare driver GPU per macchine virtuali serie N
+# <a name="set-up-gpu-drivers-for-n-series-linux-vms"></a>Installare driver GPU per macchine virtuali Linux serie N
 Per usufruire delle funzionalità per GPU delle macchine virtuali serie N di Azure che eseguono una distribuzione Linux supportata, dopo la distribuzione è necessario installare driver di grafica NVIDIA in ogni macchina virtuale. Questo articolo è disponibile anche per le [VM Windows](virtual-machines-windows-n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Per conoscere le specifiche, le capacità di archiviazione e i dettagli dei dischi delle macchine virtuali serie N, vedere [Dimensioni delle macchine virtuali](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -107,12 +109,7 @@ L'installazione può richiedere alcuni minuti.
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per altre informazioni sulle GPU NVIDIA nelle macchine virtuali serie N, vedere:
-    * [NVIDIA Tesla K80](http://www.nvidia.com/object/tesla-k80.html) (per macchine virtuali NC di Azure)
+    * [NVIDIA Tesla K80](http://www.nvidia.com/object/tesla-k80.html) (per VM NC Azure)
     * [NVIDIA Tesla M60](http://www.nvidia.com/object/tesla-m60.html) (per macchine virtuali NC di Azure)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

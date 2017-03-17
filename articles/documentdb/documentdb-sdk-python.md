@@ -1,5 +1,5 @@
 ---
-title: API Python e risorse SDK per Azure DocumentDB | Documentazione Microsoft
+title: API Python, risorse e SDK per Azure DocumentDB | Microsoft Docs
 description: Altre informazioni sulle date di rilascio e le date di ritiro dell&quot;SDK e dell&quot;API per Python e sulle modifiche apportate tra le versioni dell&quot;SDK per Python di DocumentDB.
 services: documentdb
 documentationcenter: python
@@ -14,13 +14,15 @@ ms.devlang: python
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: rnagpal
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
-ms.openlocfilehash: 377b1c5a5f1a3425f255d227c6d2800b9ec61a33
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 4c83bcbf3e5849afd15060947ef5f0faab17ce19
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="documentdb-apis-and-sdks"></a>SDK e API di DocumentDB
+# <a name="documentdb-python-sdk-release-notes-and-resources"></a>DocumentDB Python SDK: note sulla versione e risorse
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -33,7 +35,6 @@ ms.openlocfilehash: 377b1c5a5f1a3425f255d227c6d2800b9ec61a33
 > 
 > 
 
-## <a name="documentdb-python-api-and-sdk"></a>SDK e API per Python di DocumentDB
 <table>
 
 <tr><td>**Download dell'SDK**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
@@ -138,10 +139,5 @@ Qualsiasi richiesta inviata a DocumentDB con un SDK ritirato verrà rifiutata da
 
 ## <a name="see-also"></a>Vedere anche
 Per altre informazioni su DocumentDB, vedere la pagina del servizio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) . 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

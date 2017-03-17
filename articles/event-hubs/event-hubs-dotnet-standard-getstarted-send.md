@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 02/31/2017
 ms.author: jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: 57175ddc53d5856cd3492d4c631a92d4bf9247c4
-ms.openlocfilehash: a6c5ff034450c9c6a01feb4ae6d84cebd75a5682
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
+ms.openlocfilehash: dcb8bb1dcf287ecb2d91e19bf4df38765fe79114
+ms.lasthandoff: 03/01/2017
 
 ---
 
@@ -34,9 +34,9 @@ In questa esercitazione si scriverà un'applicazione console .NET Core per invia
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1. [Visual Studio 2015](http://www.visualstudio.com).
+1. [Microsoft Visual Studio 2015 o 2017](http://www.visualstudio.com).
 
-2. [Strumenti di Visual Studio 2015 per .NET Core](http://www.microsoft.com/net/core).
+2. [Strumenti di Visual Studio 2015 o 2017 per .NET Core](http://www.microsoft.com/net/core).
 
 3. Una sottoscrizione di Azure.
 

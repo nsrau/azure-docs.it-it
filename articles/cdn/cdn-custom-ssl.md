@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: casoper
 translationtype: Human Translation
-ms.sourcegitcommit: aea6f0fedb447e953b9db40342e5091bd35486af
-ms.openlocfilehash: 9b80ae8c247480e69025b86fac322166a4d5cb4c
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: b334ba6bbec1d0a7e23a514174bffae01c7fff05
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -59,7 +60,13 @@ Alcuni attributi chiave della funzionalità HTTPS sono:
 >[!IMPORTANT] 
 >Prima che la funzionalità HTTPS sia attiva nel dominio personalizzato, è necessario completare la convalida del dominio. Per l'approvazione del dominio sono disponibili 6 giorni lavorativi. La richiesta verrà annullata se non si riceve l'approvazione entro 6 giorni lavorativi.  
 
-Dopo l'abilitazione di HTTPS nel dominio personalizzato, DigiCert, il provider del certificato HTTPS, convaliderà la proprietà del dominio contattando il registrante per il dominio usando le informazioni sul registrante WHOIS tramite posta elettronica (per impostazione predefinita) o telefono. Se le informazioni sul registrante WHOIS sono riservate, DigiCert invierà il messaggio di verifica a **admin@*<nome-proprio-dominio.com>***.
+Dopo l'abilitazione di HTTPS nel dominio personalizzato, DigiCert, il provider del certificato HTTPS, convaliderà la proprietà del dominio contattando il registrante per il dominio usando le informazioni sul registrante WHOIS tramite posta elettronica (per impostazione predefinita) o telefono. DigiCert invierà l'email di verifica anche agli indirizzi seguenti. Se le informazioni sui registranti WHOIS sono private, assicurarsi di poterle approvare direttamente da uno di questi indirizzi.
+
+>admin@<your-domain-name.com> administrator@<your-domain-name.com>  
+>webmaster@<your-domain-name.com>  
+>hostmaster@<your-domain-name.com>  
+>postmaster@<your-domain-name.com>
+
 
 Alla ricezione del messaggio di posta elettronica sono disponibili due opzioni di verifica:
 
@@ -104,10 +111,5 @@ Dopo la convalida del nome di dominio sono necessarie a 6-8 ore per l'attivazion
 
 - Informazioni su come configurare un [dominio personalizzato nell'endpoint della rete CDN di Azure](./cdn-map-content-to-custom-domain.md)
 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

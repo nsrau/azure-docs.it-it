@@ -53,6 +53,7 @@
 ### [Opzioni di archiviazione](hdinsight-hadoop-r-server-storage.md)
 ### [Installare RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [Contesti di calcolo](hdinsight-hadoop-r-server-compute-contexts.md)
+### [ScaleR e SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Usare Spark per l'elaborazione in memoria
 ### [Con Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [Con gli strumenti di business intelligence](hdinsight-apache-spark-use-bi-tools.md)

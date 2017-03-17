@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/30/2017
 ms.author: kakhan
 translationtype: Human Translation
-ms.sourcegitcommit: 1dd5be3ba3a0fbbb4657a2c0b2ca6757a94cc76a
-ms.openlocfilehash: 1c6b4b45b9e0b018a7cb3f28f7868c89ad0fda61
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 10cc114451da7e73726772da4159776e76f5b8c9
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -139,7 +139,7 @@ Prima di abilitare Crittografia dischi di Azure nelle macchine virtuali IaaS di 
 > Crittografia dischi di Azure è supportato nelle versioni dei server Linux seguenti: Ubuntu, CentOS, SUSE e SUSE Linux Enterprise Server (SLES) e Red Hat Enterprise Linux.
 
 > [!NOTE]
-> La crittografia del disco del sistema operativo Linux è attualmente supportata nelle distribuzioni Linux seguenti: RHEL 7.2, CentOS 7.2n e Ubuntu 16.04.
+> La crittografia del disco del sistema operativo Linux è attualmente supportata nelle distribuzioni Linux seguenti: RHEL 7.2, RHEL 7.3, CentOS 7.2n, e Ubuntu 16.04.
 >
 > Tutte le risorse, ad esempio l'insieme di credenziali delle chiavi, l'account di archiviazione e la macchina virtuale, devono appartenere alla stessa area e alla stessa sottoscrizione di Azure.
 
@@ -537,7 +537,7 @@ Per abilitare la crittografia in macchine virtuali IaaS Windows esistenti o in e
  ```
 
 ### <a name="enable-encryption-on-an-existing-or-running-iaas-linux-vm-in-azure"></a>Abilitare la crittografia in una VM IaaS Linux esistente o in esecuzione in Azure
-È possibile abilitare la crittografia dei dischi nelle macchine virtuali IaaS Linux esistenti o in esecuzione usando il modello di [Resource Manager](https://github.com/Azure/azure-quick-start-templates/tree/master/201-encrypt-running-linux-vm).
+È possibile abilitare la crittografia dei dischi nelle macchine virtuali IaaS Linux esistenti o in esecuzione usando il modello di [Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm).
 
 1. Nel modello di avvio rapido di Azure fare clic su **Distribuisci in Azure**, immettere la configurazione della crittografia nel pannello **Parametri**, quindi fare clic su **OK**.
 

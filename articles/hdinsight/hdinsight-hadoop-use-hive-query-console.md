@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 translationtype: Human Translation
 ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
 ms.openlocfilehash: 0c7f570db388b0ed96479e994a4a2f79e7919b17
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -31,13 +33,13 @@ In questo articolo si apprenderà come usare Query Console per eseguire query Hi
 >
 > Per HDInsight 3.4 o versione successiva, vedere [Run Hive queries in Ambari Hive View](hdinsight-hadoop-use-hive-ambari-view.md) (Eseguire query Hive nella vista Ambari Hive) per informazioni sull'esecuzione di query Hive da un Web browser.
 
-## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Prerequisiti
+## <a id="prereq"></a>Prerequisiti
 Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
 
 * Un cluster HDInsight Hadoop basato su Windows
 * Un Web browser moderno
 
-## <a name="a-idruna-run-hive-queries-using-the-query-console"></a><a id="run"></a> Eseguire query Hive usando Query Console
+## <a id="run"></a> Eseguire query Hive usando Query Console
 1. Aprire un Web browser e passare a **https://CLUSTERNAME.azurehdinsight.net**, dove **CLUSTERNAME** è il nome del cluster HDInsight. Quando richiesto, immettere il nome utente e la password usati durante la creazione del cluster.
 2. Nei collegamenti nella parte superiore della pagina fare clic su **Hive Editor**. Verrà visualizzato un modulo che può essere usato per immettere le istruzioni HiveQL che si desidera eseguire nel cluster HDInsight.
    
@@ -70,12 +72,12 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 3. Fare clic su **Submit**. L'opzione **Job Session** nella parte inferiore della pagina dovrebbe visualizzare i dettagli del processo.
 4. Quando il campo **Status** (Stato) viene impostato su **Completed** (Operazione completata), fare clic su **View Details** (Visualizza dettagli) per il processo. Nella pagina dei dettagli il campo **Job Output** (Output processo) contiene `[ERROR]    3`. È possibile usare il pulsante **Download** al di sotto di questo campo per scaricare un file contenente l'output del processo.
 
-## <a name="a-idsummaryasummary"></a><a id="summary"></a>Riepilogo
+## <a id="summary"></a>Riepilogo
 Come è possibile notare, Query Console fornisce un modo semplice per eseguire query Hive in un cluster HDInsight, monitorare lo stato del processo e recuperare l'output.
 
 Per altre informazioni sull'uso Query Console di Hive per eseguire processi Hive, fare clic su **Getting Started** nella parte superiore di Query Console, quindi usare gli esempi. Ogni esempio illustra il processo di utilizzo di Hive per l'analisi dei dati, fornendo anche spiegazioni sulle istruzioni HiveQL usate nell'esempio.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Passaggi successivi
+## <a id="nextsteps"></a>Passaggi successivi
 Per informazioni generali su Hive in HDInsight:
 
 * [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
@@ -122,9 +124,4 @@ Se si usa Tez con Hive, vedere i documenti seguenti per le informazioni di debug
 
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

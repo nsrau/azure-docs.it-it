@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/15/2017
 ms.author: trinadhk;jimpark;markgal;
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dca042ce1684b35e6a874075e0de28b9d8766331
-ms.openlocfilehash: 981c8652629e96f482d9a62b70b0f0992517019f
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
+ms.openlocfilehash: 72f1ed52c9e0f39009efc54967d7cc68517182a3
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="back-up-azure-vms-to-a-recovery-services-vault"></a>Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino
+# <a name="back-up-azure-virtual-machines-to-a-recovery-services-vault"></a>Backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino
 > [!div class="op_single_selector"]
 > * [Eseguire il backup di macchine virtuali in un insieme di credenziali di Servizi di ripristino](backup-azure-arm-vms.md)
 > * [Eseguire il backup di macchine virtuali in un insieme di credenziali per il backup](backup-azure-vms.md)

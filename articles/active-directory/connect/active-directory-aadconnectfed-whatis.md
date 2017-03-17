@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: anandy
 translationtype: Human Translation
-ms.sourcegitcommit: fd3699e4ce423ae9490d5bf788729c43eaa623eb
-ms.openlocfilehash: 19ebfae5de8576402348e3163f99a54b9308a078
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 39b0b15dba098c0ddc59e39a81bfb6809f8cb2eb
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -39,6 +39,7 @@ Questo argomento è il punto centrale per le informazioni sulle funzionalità re
 | [Aggiunta di un nuovo server AD FS](active-directory-aadconnect-federation-management.md#addadfsserver) |Espansione della farm AD FS con un server AD FS aggiuntivo successivamente all'installazione iniziale |
 | [Aggiunta di un nuovo server WAP AD FS](active-directory-aadconnect-federation-management.md#addwapserver) |Espansione della farm AD FS con un server WAP aggiuntivo successivamente all'installazione iniziale |
 | [Aggiungere un nuovo dominio federato](active-directory-aadconnect-federation-management.md#addfeddomain) |Aggiunta di un altro dominio per la federazione con Azure AD |
+| [Aggiornare il certificato SSL](active-directory-aadconnectfed-ssl-update.md)| Aggiornare il certificato SSL per una farm Active Directory Federation Services (AD FS)|
 | **Attività successive all'installazione** | |
 | [Aggiungere l'illustrazione o il logo personalizzato della società](active-directory-aadconnect-federation-management.md#customlogo) |Come modificare l'esperienza di accesso specificando il logo personalizzato da visualizzare nella pagina di accesso di AD FS |
 | [Aggiungere una descrizione di accesso](active-directory-aadconnect-federation-management.md#addsignindescription) |Modifica della descrizione di accesso nella pagina di accesso di AD FS |

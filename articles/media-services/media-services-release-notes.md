@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 03/02/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f76277ab93c58098648ee65ea5aba0757495da68
-ms.openlocfilehash: 1222a670a1bf530871a19c79b7da441c03f8df51
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 353677bc7eb7fe791d23bcfdb79f3a0df6366c6f
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -44,6 +44,13 @@ Nelle presenti note sulla versione vengono riepilogati le modifiche rispetto all
 
 ## <a id="rest_version_history"></a>Cronologia delle versioni dell'API REST
 Per informazioni sulla cronologia versioni dell'API REST di Servizi multimediali, vedere [Informazioni di riferimento sull'API REST di Servizi multimediali di Azure].
+
+## <a name="march-2017-release"></a>Versione di marzo 2017
+
+Ora è possibile usare Azure Media Standard per [generare automaticamente una scala di velocità in bit](media-services-autogen-bitrate-ladder-with-mes.md) specificando la stringa predefinita "Flusso adattivo" durante la creazione di un'attività di codifica. "Flusso adattivo" è l'impostazione predefinita consigliata se si vuole codificare un video per lo streaming con Servizi multimediali. Per personalizzare un'impostazione predefinita di codifica per uno scenario specifico, è possibile iniziare con [queste impostazioni predefinite](media-services-mes-presets-overview.md).
+
+Ora è possibile usare Azure Media Standard o il flusso di lavoro Premium del codificatore multimediale per [creare un'attività di codifica che genera blocchi fMP4](media-services-generate-fmp4-chunks.md). 
+
 
 ## <a name="febuary-2017-release"></a>Versione di febbraio 2017
 

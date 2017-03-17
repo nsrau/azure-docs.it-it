@@ -1,6 +1,6 @@
 ---
-title: Come modificare le informazioni sul profilo dell&quot;account Azure| Documentazione Microsoft
-description: "L&quot;articolo descrive come modificare il profilo dell&quot;account Azure e fornisce le risposte alle domande comuni, ad esempio perché non è possibile modificare il paese nel Centro account di Azure."
+title: Modificare le informazioni sul profilo dell&quot;account Azure| Microsoft Docs
+description: "L&quot;articolo descrive come modificare il profilo dell&quot;account di Azure e fornisce le risposte alle domande comuni, ad esempio perché non è possibile modificare il paese nel Centro account di Azure"
 services: 
 documentationcenter: 
 author: genlin
@@ -13,15 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 03/01/2017
 ms.author: genli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 8587b157886f2d0f5778573aeec55c072a50bf93
-ms.openlocfilehash: dd28c37bc63d1c457d7c8ffc60b1bad1f2831f31
-
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: c4f76065996c7db43ec5503ff76fc7a1bbeb87ed
+ms.lasthandoff: 03/03/2017
 
 ---
-# <a name="how-to-change-profile-information-of-your-azure-account-such-as-contact-email-address-and-phone-number"></a>Come modificare le informazioni sul profilo dell'account Azure, ad esempio indirizzo di posta elettronica, indirizzo e numero di telefono di contatto
+# <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>Modificare le informazioni sul profilo dell'account di Azure, ad esempio indirizzo di posta elettronica, indirizzo e numero di telefono di contatto
 L'indirizzo di posta elettronica nel profilo dell'amministratore account viene usato da Microsoft per comunicare aggiornamenti importanti relativi alla fatturazione per la sottoscrizione. È consigliabile specificare un indirizzo di posta elettronica di contatto che viene controllato regolarmente.
 
 ## <a name="how-to-change-your-profile-information"></a>Come modificare le informazioni sul profilo
@@ -51,10 +52,5 @@ Le notifiche di avviso vengono ricevute all'indirizzo di posta elettronica aggiu
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema. 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

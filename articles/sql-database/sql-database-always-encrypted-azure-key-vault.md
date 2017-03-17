@@ -14,12 +14,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2016
+ms.date: 03/02/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: a2a738ef1df470e17b805e843a159e0abc23efdf
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 9d654904e06758bc8634efa9b18ea3bac2b64523
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -60,8 +60,8 @@ Per questa esercitazione occorrono:
 7. Copiare l' **ID CLIENT**. Sarà necessario immettere questo valore nel codice in un secondo momento.
 8. Nella sezione relativa alle **chiavi** selezionare **1 anno** dall'elenco a discesa **Seleziona durata**. La chiave verrà copiata dopo il salvataggio nel passaggio 13.
 9. Scorrere verso il basso e fare clic su **Aggiungi applicazione**.
-10. Lasciare **MOSTRA** impostato su **App Microsoft** e selezionare **Microsoft Azure Service Management (Gestione servizio di Microsoft Azure)**. Fare clic sul segno di spunta per continuare.
-11. Nell'elenco a discesa **Autorizzazioni delegate** selezionare **Access Azure Service Management (Gestione servizio di accesso Azure)**.
+10. Lasciare **MOSTRA** impostato su **App Microsoft** e selezionare **API di gestione del servizio Microsoft Azure**. Fare clic sul segno di spunta per continuare.
+11. Nell'elenco a discesa **Autorizzazioni delegate** selezionare **Access Azure Service Management...** (Gestione servizio di accesso Azure).
 12. Fare clic su **SAVE**.
 13. Al termine del salvataggio copiare il valore della chiave nella sezione **Chiavi** . Sarà necessario immettere questo valore nel codice in un secondo momento.
 

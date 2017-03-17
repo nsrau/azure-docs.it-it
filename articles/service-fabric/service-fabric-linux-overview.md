@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/02/2017
 ms.author: SubramaR
 translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: 175edd2c45319f197d1df65ae22853ca0dc3d310
-ms.lasthandoff: 01/30/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: c4c83345596900162826feab9fe549bc261e7d00
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -27,16 +27,16 @@ L'anteprima di Service Fabric su Linux, consente di compilare, distribuire e ges
 Concettualmente, Service Fabric in Linux è equivalente a ServiceFabric in Windows (tranne per le specifiche del sistema operativo e il supporto del linguaggio di programmazione). Di conseguenza, la maggior parte della [documentazione esistente](http://aka.ms/servicefabricdocs) è valida e consente di acquisire familiarità con la tecnologia.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Service-Fabric-Linux-Preview/player]
-> 
-> 
+>
+>
 
 ## <a name="supported-operating-systems-and-programming-languages"></a>Sistemi operativi e linguaggi di programmazione supportati
 L'anteprima limitata supporta la creazione di cluster di sviluppo con un solo computer, oltre ai cluster con più computer in Azure che eseguono Ubuntu Server 16.04. L'anteprima supporta i framework Reliable Actors e Reliable Services senza stato in Java e C#, oltre a eseguibili guest e contenitori Docker di orchestrazione.  
 
 > [!NOTE]
 > Le raccolte Reliable Collections non sono ancora supportate in Linux. Non sono supportati anche i cluster autonomi. Nell'anteprima sono supportati solo cluster con un solo computer e più computer Linux di Azure.
-> 
-> 
+>
+>
 
 
 ## <a name="supported-tooling"></a>Strumenti supportati
@@ -47,5 +47,5 @@ L'anteprima supporta l'interazione con il cluster tramite l'interfaccia della ri
 2. [Preparare l'ambiente di sviluppo in Linux](service-fabric-get-started-linux.md)
 3. [Preparare l'ambiente di sviluppo in OSX](service-fabric-get-started-mac.md)
 4. [Creare la prima applicazione Java di Service Fabric in Linux](service-fabric-create-your-first-linux-application-with-java.md)
-
+5. [Configurare l'integrazione e la distribuzione continue di Service Fabric con Jenkins e GitHub](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 

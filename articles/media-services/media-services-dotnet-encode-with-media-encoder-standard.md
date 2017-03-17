@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 775578cb4e89f561449eea10b21a300f20646424
+ms.sourcegitcommit: 452b6a541309736ee4bd7e1dbbf5288289e70922
+ms.openlocfilehash: 6a48bae7cd5c394f7b400f6870dba4da7f0d19f2
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -57,7 +58,7 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 
 * Creare un processo di codifica.
 * Ottenere un riferimento al codificatore Media Encoder Standard.
-* Specificare l'utilizzo del set di impostazioni "H264 più velocità in bit 720p". È possibile visualizzare tutti i set di impostazioni [qui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409). È inoltre possibile esaminare lo schema al quale questi set predefiniti devono essere conformi [qui](https://msdn.microsoft.com/library/mt269962.aspx) .
+* Specificare l'uso del set di impostazioni [Flusso adattivo](media-services-autogen-bitrate-ladder-with-mes.md). 
 * Aggiungere una singola attività di codifica al processo. 
 * Specificare l’asset di input da codificare.
 * Creare un asset di output che conterrà l'asset codificato.
@@ -73,10 +74,10 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
             IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
             // Create a task with the encoding details, using a string preset.
-            // In this case "H264 Multiple Bitrate 720p" preset is used.
+            // In this case "Adaptive Streaming" preset is used.
             ITask task = job.Tasks.AddNew("My encoding task",
                 processor,
-                "H264 Multiple Bitrate 720p",
+                "Adaptive Streaming",
                 TaskOptions.None);
 
             // Specify the input asset to be encoded.
@@ -146,10 +147,5 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 ## <a name="see-also"></a>Vedere anche
 [Come generare l'anteprima mediante Media Encoder Standard con .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
 [Panoramica della codifica dei servizi multimediali](media-services-encode-asset.md)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

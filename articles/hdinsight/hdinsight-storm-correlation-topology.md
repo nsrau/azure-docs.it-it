@@ -13,31 +13,31 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/13/2017
+ms.date: 03/01/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d391c5c6289aa63e969f63f189eb5db680883f0a
-ms.openlocfilehash: 2f2792c409b579ba721195e5749a38c6396f339d
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: a16b3eee9ed52a197b5407dc7ebe71c0710d6fa1
+ms.lasthandoff: 03/07/2017
 
 ---
-# <a name="correlate-events-that-arrive-at-differnet-times-using-storm-and-hbase"></a>Correlare eventi che arrivano in momenti diversi tramite Storm e HBase
+# <a name="correlate-events-that-arrive-at-different-times-using-storm-and-hbase"></a>Correlare eventi che arrivano in momenti diversi tramite Storm e HBase
 
 Utilizzando un archivio dati permanente con Apache Storm, è possibile correlare le voci di dati che arrivano in momenti diversi. Ad esempio, il collegamento degli eventi di accesso e disconnessione di una sessione utente per calcolare il tempo di esecuzione della sessione.
 
-Questo documento descrive come creare una topologia di Storm C# di base che tenga traccia degli eventi di accesso e disconnessione per le sessioni utente e che calcoli la durata della sessione. La topologia utilizza HBase come archivio dati permanente. HBase consente di eseguire query in batch su dati cronologici per ottenere informazioni aggiuntive, ad esempio il numero di sessioni utente avviate o terminate durante un periodo di tempo specifico.
+Questo documento descrive come creare una topologia di Storm C# di base che tenga traccia degli eventi di accesso e disconnessione per le sessioni utente e che calcoli la durata della sessione. La topologia utilizza HBase come archivio dati permanente. HBase consente inoltre di eseguire query in batch sui dati cronologici per ottenere informazioni aggiuntive, ad esempio il numero di sessioni utente avviate o terminate in un determinato periodo di tempo.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Visual Studio e gli strumenti HDInsight per Visual Studio. Per informazioni sull'installazione, vedere [Introduzione all'uso di HDInsight Hadoop Tools per Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+* Visual Studio e gli strumenti di HDInsight per Visual Studio. Per altre informazioni, vedere [Introduzione all'uso di strumenti di HDInsight per Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-* Cluster Apache Storm in HDInsight, basato su Windows. Esegue la topologia Storm, che elabora i dati in ingresso e li archivia in HBase.
+* Cluster Apache Storm in HDInsight, basato su Windows.
   
   > [!IMPORTANT]
   > Anche se le topologie SCP.NET sono supportate nei cluster Storm basati su Linux creati dopo il 28/10/2016, il pacchetto HBase SDK per .NET disponibile dal 28/10/2016 non funziona correttamente in Linux.
 
-* Cluster Apache HBase in HDInsight, basato su Linux o su Windows. È l'archivio dati per questo esempio.
+* Cluster Apache HBase in HDInsight, basato su Linux o su Windows.
 
   > [!IMPORTANT]
   > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
@@ -81,7 +81,7 @@ La topologia di esempio è costituita dai seguenti componenti:
 
 * Session.cs: simula una sessione utente tramite la creazione di un ID di sessione casuale, l'ora di inizio e la durata della sessione.
 
-* Spout.cs: crea 100 sessioni, genera un evento START, attende il timeout casuale per ogni sessione, quindi genera un evento END. Successivamente, ricicla le sessioni terminate per generarne di nuove.
+* Spout.cs: crea 100 sessioni, genera un evento START, attende il timeout casuale per ogni sessione e quindi genera un evento END. Successivamente, ricicla le sessioni terminate per generarne di nuove.
 
 * HBaseLookupBolt.cs: utilizza l'ID di sessione per cercare le informazioni di sessione da HBase. Quando viene elaborato un evento END, consente di trovare l'evento START corrispondente e calcola la durata della sessione.
 
@@ -106,7 +106,7 @@ In HBase, i dati vengono archiviati in una tabella con lo schema e le impostazio
 * VERSIONS: la famiglia 'cf' è impostata per conservare 5 versioni di ogni riga.
   
   > [!NOTE]
-  > Le versioni sono un registro dei valori precedentemente memorizzati per una chiave di riga specifica. Per impostazione predefinita, HBase restituisce solo il valore relativo alla versione più recente di una riga. In questo caso, la stessa riga viene utilizzata per tutti gli eventi (START, END) ogni versione di una riga viene identificata dal valore di timestamp. Fornisce una visualizzazione cronologica di eventi registrati per un ID specifico.
+  > Le versioni sono un registro dei valori precedentemente memorizzati per una chiave di riga specifica. Per impostazione predefinita, HBase restituisce solo il valore relativo alla versione più recente di una riga. In questo caso, la stessa riga viene utilizzata per tutti gli eventi (START, END) ogni versione di una riga viene identificata dal valore di timestamp. Le versioni forniscono una visualizzazione cronologica degli eventi registrati per un ID specifico.
 
 ## <a name="download-the-project"></a>Scaricare il progetto
 
@@ -146,9 +146,9 @@ Il download contiene i seguenti progetti C#:
 
 1. Aprire la soluzione **CorrelationTopology** in Visual Studio.
 
-2. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **CorrelationTopology**, quindi scegliere Proprietà.
+2. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **CorrelationTopology** e quindi scegliere Proprietà.
 
-3. Nella finestra Proprietà selezionare **Impostazioni** e fornire le informazioni seguenti. I primi 5 devono essere gli stessi valori utilizzati per il progetto **SessionInfo** :
+3. Nella finestra Proprietà selezionare **Impostazioni** e immettere i valori di configurazione per questo progetto. I primi cinque sono gli stessi valori usati dal progetto **SessionInfo**:
    
    * HBaseClusterURL: l'URL del cluster HBase. Ad esempio, https://myhbasecluster.azurehdinsight.net.
 
@@ -156,16 +156,16 @@ Il download contiene i seguenti progetti C#:
 
    * HBaseClusterPassword: la password per l'account amministratore/utente HTTP.
 
-   * HBaseTableName: il nome della tabella da utilizzare in questo esempio. Deve contenere lo stesso nome di tabella utilizzato nel progetto SessionInfo.
+   * HBaseTableName: il nome della tabella da utilizzare in questo esempio. Questo valore deve corrispondere al nome di tabella usato nel progetto SessionInfo.
 
-   * HBaseTableColumnFamily: il nome di famiglia di colonne. Deve contenere lo stesso nome di famiglia di colonne utilizzato nel progetto SessionInfo.
+   * HBaseTableColumnFamily: il nome di famiglia di colonne. Questo valore deve corrispondere al nome di famiglia di colonne usato nel progetto SessionInfo.
    
    > [!IMPORTANT]
    > Non modificare HBaseTableColumnNames, poiché i valori predefiniti sono i nomi utilizzati da **SessionInfo** per recuperare i dati.
 
 4. Salvare le proprietà, quindi compilare il progetto.
 
-5. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e selezionare **Submit to Storm on HDInsight**. Se richiesto, immettere le credenziali per la sottoscrizione di Azure.
+5. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Submit to Storm on HDInsight** (Invia a Storm in HDInsight). Se richiesto, immettere le credenziali per la sottoscrizione di Azure.
    
    ![Immagine della voce di menu Submit to Storm](./media/hdinsight-storm-correlation-topology/submittostorm.png)
 
@@ -174,7 +174,7 @@ Il download contiene i seguenti progetti C#:
    > [!NOTE]
    > La prima volta che si invia una topologia potrebbe richiedere alcuni secondi per recuperare il nome dei cluster HDInsight.
 
-7. Dopo che la topologia è stata caricata e inviata al cluster, la finestra **Storm Topology View** (Visualizzazione topologia Storm) si apre e visualizza la topologia in esecuzione. Selezionare **CorrelationTopology** e utilizzare il pulsante Aggiorna nella parte superiore destra della pagina per aggiornare le informazioni di topologia.
+7. Dopo che la topologia è stata caricata e inviata al cluster, la finestra **Storm Topology View** (Visualizzazione topologia Storm) si apre e visualizza la topologia in esecuzione. Per aggiornare i dati, selezionare **CorrelationTopology** e usare il pulsante di aggiornamento nella parte superiore destra della pagina.
    
    ![Immagine della visualizzazione topologia](./media/hdinsight-storm-correlation-topology/topologyview.png)
    
@@ -184,7 +184,7 @@ Il download contiene i seguenti progetti C#:
    > Se la finestra **Storm Topology View** non veniva visualizzato automaticamente, utilizzare i passaggi seguenti per aprirlo:
    > 
    > 1. Da **Esplora soluzioni** espandere **Azure**, quindi **HDInsight**.
-   > 2. Fare clic sul cluster di Storm la topologia è in esecuzione e quindi selezionare **View Storm Topologies**
+   > 2. Fare clic con il pulsante destro del mouse sul cluster di Storm su cui è in esecuzione la topologia e quindi scegliere **View Storm Topologies** (Visualizza topologie Storm).
 
 ## <a name="query-the-data"></a>Eseguire query sui dati
 
@@ -196,11 +196,11 @@ Una volta generati i dati, utilizzare la procedura seguente per eseguire query s
    
     Utilizzare i seguenti formati quando si immette l'ora di inizio e fine: HH:MM e 'M'' e 'am' o 'pm'. Ad esempio, 11:20 pm.
    
-    Poiché la topologia è stata appena avviata, utilizzare una data di inizio precedente alla distribuzione e l'attuale ora di fine. In questo modo dovrebbero essere acquisiti la maggior parte degli eventi START generati durante l'avvio. Quando viene eseguita la query, dovrebbe essere visualizzato un elenco di voci simili al seguente:
+    Per tornare agli eventi registrati, usare una data di inizio precedente alla distribuzione della topologia Storm e un'ora di fine corrispondente all'ora attuale. I dati restituiti contengano voci simili al testo seguente:
    
         Session e6992b3e-79be-4991-afcf-5cb47dd1c81c started at 6/5/2015 6:10:15 PM. Timestamp = 1433527820737
 
-La ricerca degli eventi END funziona come gli eventi START. Tuttavia, gli eventi END vengono generati in modo casuale in un tempo compreso tra 1 e 5 minuti dopo l'evento START. Pertanto, potrebbe essere necessario provare alcuni intervalli di tempo per trovare gli eventi END. Gli eventi END contengono anche la durata della sessione, ovvero la differenza tra l'ora dell'evento START e l'ora dell'evento END. Di seguito è riportato un esempio di dati per gli eventi END:
+La ricerca degli eventi END funziona come gli eventi START. Tuttavia, gli eventi END vengono generati in modo casuale in un tempo compreso tra 1 e 5 minuti dopo l'evento START. Può essere necessario provare alcuni intervalli di tempo per trovare gli eventi END. Gli eventi END contengono anche la durata della sessione, ovvero la differenza tra l'ora dell'evento START e l'ora dell'evento END. Di seguito è riportato un esempio di dati per gli eventi END:
 
     Session fc9fa8e6-6892-4073-93b3-a587040d892e lasted 2 minutes, and ended at 6/5/2015 6:12:15 PM
 

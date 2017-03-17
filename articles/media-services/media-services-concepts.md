@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/25/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 672d1518e22c5ab5595fb5c7c708f584e80b68e9
-ms.openlocfilehash: c6117296c8bd12e3bb8f276709bc4d4c2aa81719
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 59ccb7a043e1db750e596f173af0791099ea1827
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -59,6 +59,9 @@ Per poter trasmettere l'asset crittografato di archiviazione, è necessario conf
 
 ### <a name="access-policy"></a>Criterio di accesso
 Un'entità [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) definisce le autorizzazioni, ad esempio di lettura, scrittura ed elenco, nonché la durata dell'accesso a un asset. In genere, si passa un oggetto AccessPolicy a un localizzatore, che viene quindi usato per l'accesso ai file contenuti in un asset.
+
+>[!NOTE]
+>È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Usare lo stesso ID criterio se si usano sempre gli stessi giorni/autorizzazioni di accesso, come nel cado di criteri per i localizzatori che devono rimanere attivi per molto tempo (criteri di non caricamento). Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) argomento.
 
 ### <a name="blob-container"></a>Contenitore BLOB
 Un contenitore BLOB consente di raggruppare un insieme di BLOB. I contenitori BLOB vengono usati in Servizi multimediali come delimitazione per il controllo di accesso e per i localizzatori di firma di accesso condiviso negli asset. Un account di archiviazione di Azure può includere un numero illimitato di contenitori BLOB, In un contenitore può essere archiviato un numero illimitato di BLOB.

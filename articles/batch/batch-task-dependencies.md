@@ -1,6 +1,6 @@
 ---
-title: "Configurare attività che dipendono da altre attività: Azure Batch | Documentazione Microsoft"
-description: "È possibile creare attività che dipendono dal completamento corretto di altre attività per l&quot;elaborazione di carichi di lavoro di tipo MapReduce e carichi di lavoro Big Data simili in Azure Batch."
+title: "Usare le relazioni tra attività per eseguire attività basate sul completamento di altre attività: Azure Batch | Microsoft Docs"
+description: "Creare attività che dipendono dal completamento di altre attività per l&quot;elaborazione di carichi di lavoro di tipo MapReduce e carichi di lavoro Big Data simili in Azure Batch."
 services: batch
 documentationcenter: .net
 author: tamram
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 32293e15b6f610a3613d6b666bdd0eea0495b2b8
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: d7cca5d71d3db45599b47328755c53a023e9c4ae
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="task-dependencies-in-azure-batch"></a>Relazioni tra attività in Azure Batch
+# <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Creare relazioni tra attività per eseguire attività che dipendono da altre attività
+
 La funzionalità relazioni tra attività di Azure Batch è ideale se si vogliono elaborare:
 
 * Carichi di lavoro di tipo MapReduce nel cloud.
@@ -166,9 +169,4 @@ Per una panoramica delle diverse modalità di preparazione dei nodi per l'esecuz
 [1]: ./media/batch-task-dependency/01_one_to_one.png "Diagramma: relazione uno-a-uno"
 [2]: ./media/batch-task-dependency/02_one_to_many.png "Diagramma: relazione uno-a-molti"
 [3]: ./media/batch-task-dependency/03_task_id_range.png "Diagramma: relazione tra intervalli di ID attività"
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

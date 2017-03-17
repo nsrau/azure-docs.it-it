@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/26/2017
+ms.date: 03/08/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 5a73094c90b2a7400a664a827e07d5ada2184952
-ms.openlocfilehash: 372f6413903fbf7344871a136ffcddcadfc81782
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: ea9ee62b28069f87404b665151a51c5b73edf353
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="azure-virtual-machine-cli-samples"></a>Esempi dell'interfaccia della riga di comando di Macchine virtuali di Azure
+# <a name="azure-cli-samples-for-linux-virtual-machines"></a>Esempi dell'interfaccia della riga di comando di Azure per macchine virtuali Linux
 
 La tabella seguente include collegamenti a script Bash compilati tramite l'interfaccia della riga di comando di Azure.
 

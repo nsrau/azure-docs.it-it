@@ -13,11 +13,12 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 50b30a64fab9a7c996040c5a0380975b11b5966f
-ms.openlocfilehash: 9d62ea6d75b48bbc84194635da792764871617e7
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 535364a9da46b137c4d32e1c3049a5be3496e5d2
+ms.lasthandoff: 03/15/2017
 
 ---
-#<a name="application-gateway-documentation"></a>Documentazione sul gateway applicazione
+# <a name="application-gateway-documentation"></a>Documentazione sul gateway applicazione
 
 Informazioni su come distribuire un gateway applicazione, un controller della distribuzione di applicazioni come servizio. Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come configurare servizi di routing e bilanciamento del carico a livello di applicazione per creare un front-end Web scalabile e a disponibilità elevata.
 
@@ -125,7 +126,7 @@ Informazioni su come distribuire un gateway applicazione, un controller della di
                     <div class="cardText">
                         <h3>Riga di comando</h3>
                         <p><a href="/powershell/resourcemanager">PowerShell</a></p>
-                        <p><a href="/cli/azure/network/application-gateway">Anteprima dell'interfaccia della riga di comando di Azure 2.0</a></p>
+                        <p><a href="/cli/azure/network/application-gateway">Interfaccia della riga di comando di Azure 2.0</a></p>
                     </div>
                 </div>
             </div>
@@ -162,10 +163,5 @@ Informazioni su come distribuire un gateway applicazione, un controller della di
     </li>
 </ul>    
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

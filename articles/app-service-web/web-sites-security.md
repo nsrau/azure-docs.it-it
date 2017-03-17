@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: 641fe31fc4b160fe5f0628df717006fb540394b9
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: eaf3df69428124127ef3daf134bc948cd0988ec6
+ms.openlocfilehash: c1956e97444077f197ab5d0fd67097ddea0f7244
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -55,7 +55,7 @@ Uno dei modi più semplici per iniziare a eseguire test di vulnerabilità per le
 
 Se si preferisce eseguire i propri test di penetrazione o usare un altro gruppo o fornitore di strumenti di scansione, è necessario seguire il [processo di approvazione dei test di penetrazione di Azure](https://security-forms.azure.com/penetration-testing/terms) e ottenere l'approvazione preventiva per eseguire i test di penetrazione desiderati.
 
-## <a name="a-namehttpsa-secure-communication-with-customers"></a><a name="https"></a> Garantire la sicurezza delle comunicazioni con i clienti
+## <a name="https"></a> Garantire la sicurezza delle comunicazioni con i clienti
 Se si usa il nome di dominio **\*.azurewebsites.net** creato per l'app del servizio app, è possibile usare immediatamente HTTPS, in quanto viene reso disponibile un certificato SSL per tutti i nomi di dominio **\*.azurewebsites.net**. Se il sito usa un [nome di dominio personalizzato](web-sites-custom-domain-name.md) è possibile caricare un certificato SSL per [abilitare HTTPS](web-sites-configure-ssl-certificate.md) per il dominio personalizzato.
 
 L'abilitazione di [HTTPS](https://en.wikipedia.org/wiki/HTTPS) aumenta la protezione da attacchi MITM nelle comunicazioni tra l'app e gli utenti.
@@ -65,7 +65,7 @@ Il servizio app si integra strettamente con il database SQL, in modo che tutte l
 
 Se si usa un provider di database di terze parti, ad esempio ClearDB, è consigliabile consultare direttamente la documentazione del fornitore per le procedure di sicurezza consigliate.  
 
-## <a name="a-namedevelopa-secure-development-and-deployment"></a><a name="develop"></a> Garantire la sicurezza dello sviluppo e della distribuzione
+## <a name="develop"></a> Garantire la sicurezza dello sviluppo e della distribuzione
 ### <a name="publishing-profiles-and-publish-settings"></a>Profili e impostazioni di pubblicazione
 Quando si sviluppano applicazioni, si eseguono attività di gestione o si automatizzano attività usando utilità come **Visual Studio**, **Web Matrix**, **Azure PowerShell** o l'**interfaccia della riga di comando di Azure**, è possibile usare un file di *impostazioni di pubblicazione* o un *profilo di pubblicazione*. Entrambi i tipi di file eseguono l'autenticazione dell'utente con Azure e devono essere protetti per evitare accessi non autorizzati.
 

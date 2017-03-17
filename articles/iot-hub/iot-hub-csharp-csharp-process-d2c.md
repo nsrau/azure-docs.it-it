@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
-ms.openlocfilehash: 88b75c2b222ee153c935898dbece0c366c7f198d
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: ff0b234f27e2d5068cc0dcdc73e32e60f8622633
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -42,7 +43,7 @@ Al termine di questa esercitazione vengono eseguite tre app di console .NET:
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Microsoft Visual Studio 2015
+* Visual Studio 2015 o Visual Studio 2017.
 * Un account Azure attivo. <br/>Se non si ha un account, è possibile creare un [account gratuito](https://azure.microsoft.com/free/) in pochi minuti.
 
 È necessaria una conoscenza di base di [Archiviazione di Azure] e del [bus di servizio di Azure].
@@ -129,7 +130,7 @@ Per altre informazioni su come elaborare i messaggi dalle code del bus di serviz
 ## <a name="read-from-the-queue-endpoint"></a>Lettura dell'endpoint della coda
 In questa sezione è possibile leggere i messaggi dell'endpoint della coda.
 
-1. Nella soluzione di Visual Studio corrente creare un progetto di Windows in Visual C# usando il modello di progetto **Applicazione console** . Denominare il progetto **ReadCriticalQueue**.
+1. In Visual Studio aggiungere un progetto desktop di Windows classico in Visual C# usando il modello di progetto **App console (.NET Framework)**. Denominare il progetto **ReadCriticalQueue**.
 
 2. In Esplora soluzioni fare clic con il tasto destro del mouse sul progetto **ReadCriticalQueue** e quindi scegliere **Gestisci pacchetti NuGet**. Viene visualizzata la finestra **Gestione pacchetti NuGet**.
 
@@ -225,9 +226,4 @@ Per ulteriori informazioni sul routing dei messaggi nell'hub IoT, vedere [Inviar
 [lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

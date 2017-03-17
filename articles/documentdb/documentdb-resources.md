@@ -1,5 +1,5 @@
 ---
-title: Modello di risorse gerarchico e concetti relativi a DocumentDB | Documentazione Microsoft
+title: Modello di risorse e concetti relativi a Azure DocumentDB | Microsoft Docs
 description: Informazioni sul modello gerarchico di DocumentDB di database, raccolte, funzione definita dall&quot;utente (UDF), documenti, autorizzazioni per gestire le risorse e altro ancora.
 keywords: Modello gerarchico, documentdb, azure, Microsoft azure
 services: documentdb
@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: anhoh
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4125a8d930ead541420c83ef5d8aa3ae1ea2a263
-ms.openlocfilehash: 520dc84bfd882d33d32719d5225af91eb124f015
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 456ff5cd0c91232ace87e02363f812a36cc38297
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="documentdb-hierarchical-resource-model-and-concepts"></a>Modello di risorse gerarchico e concetti relativi a DocumentDB
+# <a name="documentdb-hierarchical-resource-model-and-core-concepts"></a>Modello di risorse gerarchico e concetti di base relativi a DocumentDB
 Le entità del database gestite da DocumentDB vengono chiamate **risorse**. Ogni risorsa viene identificata in modo univoco da un URI logico. È possibile interagire con le risorse usando verbi HTTP, intestazioni di richiesta/risposta e codici di stato standard. 
 
 Dopo aver letto questo articolo, si riuscirà a rispondere alle domande seguenti:

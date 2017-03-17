@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 10/18/2016
+ms.date: 3/1/2017
 ms.author: mcoskun
 translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 287707d528d2327637ad3d17633ef830657c04f8
+ms.sourcegitcommit: 4952dfded6ec5c4512a61cb18d4c754bf001dade
+ms.openlocfilehash: b5fab7cf91493d477cafd66e27e346ea3ad02f04
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -147,6 +148,7 @@ In questo modo, quando è necessario riavviare la replica, le raccolte Reliable 
 * Usare il blocco di aggiornamento durante la lettura di un elemento con l'intenzione di aggiornarlo in modo da evitare una determinata classe di deadlock.
 * Per il ripristino di emergenza, è consigliabile usare la funzionalità di backup e ripristino.
 * Evitare di combinare nella stessa transazione le operazioni a singola entità e a più entità, ad esempio `GetCountAsync`, `CreateEnumerableAsync`, a causa dei diversi livelli di isolamento.
+* Gestire InvalidOperationException. Le transazioni utente possono essere interrotte dal sistema per diversi motivi. Ad esempio, quando cambia il Gestore dello stato affidabile cambia il proprio ruolo da ruolo primario o quando una transazione a esecuzione prolungata blocca il troncamento del log delle transazioni. In questi casi, l'utente può ricevere InvalidOperationException che indica che la transazione è già stata terminata. Supponendo che l'interruzione della transazione non è stata richiesta dall'utente, il modo migliore per gestire questa eccezione è di eliminare la transazione, verificare se il token di annullamento è stato segnalato (o se il ruolo della replica è stato modificato) e in caso contrario creare una nuova transazione e riprovare.  
 
 Occorre tenere presente i concetti seguenti:
 
@@ -167,10 +169,5 @@ Occorre tenere presente i concetti seguenti:
 * [Introduzione ai servizi API Web di Microsoft Azure Service Fabric](service-fabric-reliable-services-communication-webapi.md)
 * [Uso avanzato del modello di programmazione Reliable Services](service-fabric-reliable-services-advanced-usage.md)
 * [Guida di riferimento per gli sviluppatori per Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 02/24/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: f2e48e290f59efb5ab6271b7b2882ca8ea8887a6
-ms.openlocfilehash: 15fd64f21eb20ae412f4d0cf1930e99e2e9fc62b
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 8441a5318bfee3fc45482a61db13adaa034b824a
+ms.openlocfilehash: 7d50a2861e4dae06d4de09417a2208b453fa499b
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -63,7 +63,7 @@ Per una definizione espansa di ogni risorsa elencata nelle tabelle precedenti, v
 | --- | --- | --- |
 | Database che usano l'esportazione automatizzata per ogni sottoscrizione |10 |L’esportazione automatizzata consente di creare una pianificazione personalizzata per il backup dei database SQL. L'anteprima di questa funzionalità terminerà il 1° marzo 2017.  |
 | Database per server |Fino a 5000 |Nei server V12 sono permessi fino a 5000 database per server. |
-| DTU per server |45000 |Nei server V12 sono disponibili&45000; DTU per server per il provisioning di database, pool elastici e data warehouse. |
+| DTU per server |45000 |In ogni server V12 sono consentite&45000; DTU per il provisioning di database autonomi e pool elastici. Il numero totale di database autonomi e pool consentito per ogni server è limitato solo dal numero di DTU del server.  
 
 > [!IMPORTANT]
 > La funzionalità di esportazione automatizzata di database SQL di Azure, ora disponibile in anteprima, verrà ritirata il 1° marzo 2017. A partire dal 1° dicembre 2016 non è più possibile configurare l'esportazione automatizzata per i database SQL. Tutti i processi di esportazione automatizzata esistenti continueranno a funzionare fino al 1° marzo 2017. Dal 1° dicembre 2016, è possibile usare la [conservazione dei backup a lungo termine](sql-database-long-term-retention.md) o [Automazione di Azure](../automation/automation-intro.md) per archiviare periodicamente i database SQL con PowerShell in base alla pianificazione desiderata. È possibile scaricare uno [script di esempio da GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export). 

@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 ms.author: nberdy
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 52eb502054120af4c03c649dee810366f99d326b
+ms.sourcegitcommit: c76870c49f5c8e51f521fd4be920d976e4cdbcef
+ms.openlocfilehash: 7100856b02935fba7bbf1427d86859ddb7a2b5f3
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="use-direct-methods-node"></a>Usare metodi diretti (Node)
+# <a name="use-direct-methods-on-your-iot-device-with-nodejs"></a>Usare i metodi diretti sul dispositivo IoT con Node. js
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
 Al termine di questa esercitazione si avranno due app console Node.js:
@@ -210,9 +212,4 @@ Per informazioni su come estendere la soluzione IoT e pianificare le chiamate al
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
 [Introduzione all'hub IoT]: iot-hub-node-node-getstarted.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 
