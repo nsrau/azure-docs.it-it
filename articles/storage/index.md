@@ -13,8 +13,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: f7bd1007aeff86faf7a1d744602e5184f0ce1d6f
-ms.openlocfilehash: cdb001f960ea5d505bc757195abf14b505f77103
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 8c76eaa6681b10370fd4db3df88e0c50c46df44d
+ms.lasthandoff: 03/14/2017
 
 ---
 
@@ -121,7 +122,7 @@ Informazioni su come usare l'Archiviazione di Azure, un servizio di archiviazion
                     <div class="cardText">
                         <h3>Lingue</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.storage">.NET: Resource Manager</a></p>
-                        <p><a href="https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx">.NET: spostamento dei dati</a></p>
+                        <p><a href="/dotnet/api/microsoft.windowsazure.storage.datamovement">.NET: spostamento dei dati</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/mt347887.aspx">.NET: BLOB, code, tabelle e file</a></p>
                         <p><a href="/java/api/">Java</a></p>
                         <p><a href="http://azure.github.io/azure-storage-node">Node.js</a></p>
@@ -152,10 +153,5 @@ Informazioni su come usare l'Archiviazione di Azure, un servizio di archiviazion
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
