@@ -17,15 +17,15 @@ ms.date: 02/10/2017
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1a218c8b9a1119ed284bc55071eed2a082122802
-ms.openlocfilehash: 78efd3d80f066d6b182b142564dbd0a7a9e01431
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: d149e51441dbf440732b1930245d27a6ff144970
+ms.lasthandoff: 03/03/2017
+
 
 ---
+# <a name="resize-a-linux-virtual-machine-using-cli-20"></a>Ridimensionare una macchina virtuale Linux con l'interfaccia della riga di comando 2.0
 
-# <a name="resize-a-linux-vm-with-the-azure-cli-20"></a>Ridimensionare una VM Linux con l'interfaccia della riga di comando di Azure 2.0
-
-Dopo aver eseguito il provisioning di una macchina virtuale (VM), è possibile scalare la macchina virtuale in verticale o orizzontale modificando le [dimensioni della VM][vm-sizes]. In alcuni casi, è necessario prima deallocare la macchina virtuale. Se le dimensioni desiderate non sono disponibili nel cluster hardware che ospita la VM, è necessario deallocare la VM. 
+Dopo aver eseguito il provisioning di una macchina virtuale (VM), è possibile scalare la macchina virtuale in verticale o orizzontale modificando le [dimensioni della VM][vm-sizes]. In alcuni casi, è necessario prima deallocare la macchina virtuale. Se le dimensioni desiderate non sono disponibili nel cluster hardware che ospita la VM, è necessario deallocare la VM. Questo articolo illustra come ridimensionare una VM Linux con l'interfaccia della riga di comando di Azure 2.0. È possibile anche eseguire questi passaggi tramite l'[interfaccia della riga di comando di Azure 1.0](virtual-machines-linux-change-vm-size-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="cli-versions-to-complete-the-task"></a>Versioni dell'interfaccia della riga di comando per completare l'attività
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
