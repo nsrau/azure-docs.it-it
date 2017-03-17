@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 4bab9f44d1c91f05618ea510b83beb06540429f2
-ms.openlocfilehash: f744a29e12fb693dd422f359d0faacaae004351b
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 168022e2e642b3e6a6f1c9d872839aa54e1a5846
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="set-password-expiration-policies-in-azure-active-directory"></a>Impostare i criteri di scadenza della password in Azure Active Directory
 > [!IMPORTANT]
-> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
+> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
@@ -44,7 +45,7 @@ Per utilizzare i cmdlet di Windows PowerShell, è innanzitutto necessario instal
 1. Connettersi a Windows PowerShell utilizzando le credenziali aziendali di amministratore.
 2. Eseguire una di queste operazioni:
 
-   * Per vedere se la password di un singolo utente è impostata per non scadere mai, eseguire il cmdlet seguente usando il nome principale utente (UPN) (ad esempio, aprilr@contoso.onmicrosoft.com)) o l'ID utente dell'utente che si desidera controllare: `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
+   * Per vedere se la password di un singolo utente è impostata per non scadere mai, eseguire il cmdlet seguente usando il nome principale utente (UPN) (ad esempio, aprilr@contoso.onmicrosoft.com) o l'ID utente dell'utente che si desidera controllare: `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
    * Per visualizzare l'impostazione "Nessuna scadenza per la Password" per tutti gli utenti, eseguire il cmdlet seguente: `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
 
 ## <a name="set-a-password-to-expire"></a>Impostare una scadenza della password
@@ -62,10 +63,5 @@ Per utilizzare i cmdlet di Windows PowerShell, è innanzitutto necessario instal
    * Per impostare le password degli utenti in un'organizzazione in modo che non scadano mai, eseguire il cmdlet seguente: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
 ## <a name="next-steps"></a>Passaggi successivi
-* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 

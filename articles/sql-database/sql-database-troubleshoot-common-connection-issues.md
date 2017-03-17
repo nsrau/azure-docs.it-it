@@ -13,12 +13,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 03/03/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: 676cecdd886cfb557e7859e1e9583f0a0f9f749c
-ms.openlocfilehash: 222b9fe98592e0c78ec3d7c5ae4804bf75dd0d1e
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 7e48069b84c1048617a86fbc334a04462b52deda
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -47,12 +47,26 @@ I problemi di connessione al database SQL di Azure possono essere classificati a
 Se si verifica un errore di connessione specifico, provare [questo strumento](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database)che consente di identificare rapidamente e risolvere il problema.
 
 ## <a name="troubleshoot-transient-errors"></a>Risolvere i problemi causati da errori temporanei
-Se l'applicazione presenta errori temporanei, esaminare i seguenti argomenti per suggerimenti sulla risoluzione dei problemi e per ridurre la frequenza di questi errori:
 
-* [Risoluzione dei problemi database &lt;x&gt; sul server &lt;y&gt; non disponibile (errore: 40613)](sql-database-troubleshoot-connection.md)
-* [Risolvere, diagnosticare ed evitare gli errori di connessione SQL e gli errori temporanei per il database SQL](sql-database-connectivity-issues.md)
+Quando un'applicazione si connette a un database SQL di Azure, viene visualizzato il messaggio di errore seguente:
 
-<a id="troubleshoot-the-persistent-errors" name="troubleshoot-the-persistent-errors"></a>
+```
+Error code 40613: "Database <x> on server <y> is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of <z>"
+```
+
+> [!NOTE]
+> Questo messaggio di errore è in genere temporaneo.
+> 
+> 
+
+Questo errore si verifica quando il database di Azure viene spostato o riconfigurato e di conseguenza l'applicazione perde la connessione al database SQL. La riconfigurazione del database SQL avviene in seguito a eventi pianificati, nel caso ad esempio degli aggiornamenti software, o non pianificati, ad esempio per l'arresto di un processo o il bilanciamento del carico. La maggior parte degli eventi di riconfigurazione è di breve durata e deve essere completata in meno di 60 secondi al massimo. Tuttavia, il completamento di questi eventi in alcuni casi può richiedere più tempo, ad esempio quando una transazione di grandi dimensioni provoca un ripristino a esecuzione prolungata.
+
+### <a name="steps-to-resolve-transient-connectivity-issues"></a>Passaggi per risolvere problemi di connettività temporanei
+
+1. Controllare nel [Dashboard dei servizi di Microsoft Azure](https://azure.microsoft.com/status) le eventuali interruzioni note che si sono verificate durante il periodo nel quale sono stati segnalati errori dall'applicazione.
+2. Le applicazioni che si connettono a un servizio cloud, come il database SQL di Azure, devono prevedere il verificarsi periodico di eventi di riconfigurazione e implementare la logica di ripetizione per gestire gli errori, invece di lasciare che vengano visualizzati dagli utenti come errori dell'applicazione. Per altre informazioni e per le strategie generali di ripetizione dei tentativi, vedere la sezione [Errori temporanei](sql-database-connectivity-issues.md) e le procedure consigliate e linee guida per la progettazione in [Panoramica dello sviluppo di database SQL](sql-database-develop-overview.md). Per informazioni dettagliate, vedere gli esempi di codice in: [Raccolte di connessioni per database SQL e Server SQL](sql-database-libraries.md) .
+3. Quando un database sta per raggiungere i limiti delle risorse, può sembrare che si stia verificando un problema di connettività temporaneo. Vedere la pagina relativa alla [risoluzione dei problemi di prestazioni](sql-database-troubleshoot-performance.md).
+4. Se i problemi di connettività persistono oppure se l'applicazione rileva l'errore per più di 60 secondi o se vengono visualizzate più occorrenze dell'errore in un dato giorno, inoltrare una richiesta di supporto tecnico di Azure selezionando **Ottieni supporto** nel sito [Supporto tecnico di Azure](https://azure.microsoft.com/support/options) .
 
 ## <a name="troubleshoot-persistent-errors-non-transient-errors"></a>Risolvere i problemi causati da errori permanenti (errori non temporanei)
 Se l'applicazione non riesce a connettersi in maniera costante al database SQL di Azure, il problema è uno dei seguenti:
