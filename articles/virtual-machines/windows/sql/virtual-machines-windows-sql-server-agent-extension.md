@@ -1,5 +1,5 @@
 ---
-title: Estensione di SQL Server Agent per VM di SQL Server (Resource Manager) | Documentazione Microsoft
+title: "Automatizzare le attività di gestione in macchine virtuali SQL (Resource Manager) | Microsoft Docs"
 description: "Questo argomento descrive come gestire l&quot;estensione di SQL Server Agent, che consente di automatizzare attività di amministrazione di SQL Server specifiche. Queste includono il backup automatizzato, l&quot;applicazione automatica delle patch e l&quot;integrazione dell&quot;insieme di credenziali delle chiavi di Azure. Questo argomento usa il modello di distribuzione Resource Manager."
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,13 +15,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/09/2017
 ms.author: jroth
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 407b189af12116d633ed505facf4bcfde9be5822
-ms.openlocfilehash: 9480c6e2d7f58bfa3934c5895dca8c6a82acbfe8
-
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 00832fcabfb3d1f6d9b7b9745335d4154a2caae3
+ms.lasthandoff: 03/07/2017
 
 ---
-# <a name="sql-server-agent-extension-for-sql-server-vms-resource-manager"></a>Estensione di SQL Server Agent per VM di SQL Server (Resource Manager)
+# <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatizzare le attività di gestione in macchine virtuali SQL con l'estensione SQL Server Agent (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Gestione risorse](virtual-machines-windows-sql-server-agent-extension.md)
 > * [Classico](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)
@@ -103,10 +104,5 @@ Nel portale di Azure è possibile disinstallare l'estensione facendo clic sui pu
 Iniziare a usare uno dei servizi supportati dall'estensione. Per altre informazioni, vedere gli argomenti citati nella sezione [Servizi supportati](#supported-services) di questo articolo.
 
 Per altre informazioni sull'esecuzione di SQL Server in Macchine virtuali di Azure, vedere [Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

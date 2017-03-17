@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 13c524cdc5ef0d9e70820cc3dac8d747e5bb5845
-ms.openlocfilehash: 12e832b8e0d0509f5b59d588b43f062fb07ddcde
-ms.lasthandoff: 02/11/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: ca96cd4ddf1be5ab70475d40fa65e73d248fd67b
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -101,8 +101,8 @@ Di seguito sono illustrate solo le richieste che hanno restituito un particolare
 L'operatore `where` accetta un'espressione booleana. Tenere presente i punti chiave seguenti:
 
 * `and`, `or`: operatori booleani
-* `==`, `<>`: uguale a e non uguale a
-* `=~`, `!=`: stringa senza distinzione tra maiuscole e minuscole uguale a e non uguale a. Sono disponibili numerosi altri operatori di confronto delle stringhe.
+* `==`, `<>`, `!=`: uguale a e non uguale a
+* `=~`, `!~`: stringa senza distinzione tra maiuscole e minuscole uguale a e non uguale a. Sono disponibili numerosi altri operatori di confronto delle stringhe.
 
 Informazioni dettagliate sulle [espressioni scalari](app-insights-analytics-reference.md#scalars).
 

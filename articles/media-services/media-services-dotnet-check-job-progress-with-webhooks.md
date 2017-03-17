@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/19/2017
+ms.date: 03/06/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: a13850cf09424f7e4402204d97d1f6755d691550
-ms.openlocfilehash: 0d3f6dc80141d26cace60f177b35d527fd294261
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: c0cf8a3d4e257f88f81fca9a6a1161c158b335b8
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -31,7 +31,7 @@ Per completare l'esercitazione è necessario quanto segue:
 * Un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Account di Servizi multimediali. Per creare un account Servizi multimediali, vedere [Creare un account Servizi multimediali di Azure con il portale di Azure](media-services-portal-create-account.md).
 * .NET Framework 4.0 o versione successiva.
-* Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express) o versioni successive.
+* Visual Studio.
 * Comprensione della [modalità d'uso delle funzioni di Azure](../azure-functions/functions-overview.md). Rivedere anche [Associazioni HTTP e webhook in Funzioni di Azure](../azure-functions/functions-bindings-http-webhook.md).
 
 Questo argomento illustra come
@@ -46,7 +46,7 @@ Questo argomento illustra come
     
 * Aggiungere un webhook all'attività di codifica e specificarne l'URL e la chiave privata a cui risponde. Nell'esempio riportato di seguito il codice che crea l'attività di codifica è un'applicazione console.
 
-## <a name="getting-webhook-notifications"></a>Ottenere le notifiche di webhook
+## <a name="setting-up-webhook-notification-azure-functions"></a>Configurazione delle funzioni di Azure per la notifica di webhook
 
 Il codice in questa sezione mostra un'implementazione di una funzione di Azure corrispondente a un webhook. In questo esempio la funzione è in attesa del callback del webhook dalle notifiche di Servizi multimediali e pubblica l'asset di output al termine del processo.
 
@@ -56,7 +56,20 @@ Nel codice seguente il metodo **VerifyWebHookRequestSignature** esegue la verifi
 
 È possibile trovare la definizione della seguente funzione di Azure .NET di Servizi multimediali [qui](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/Notification_Webhook_Function).
 
-L'elenco codice seguente mostra le definizioni dei tre file associati con la funzione di Azure: function.json, project.json e run.csx.
+Il listato di codice seguente mostra le definizioni dei parametri della funzione di Azure e dei tre file associati a tale funzione: function.json, project.json e run.csx.
+
+### <a name="application-settings"></a>Impostazioni dell'applicazione 
+
+La tabella seguente illustra i parametri usati dalla funzione di Azure definita in questa sezione. 
+
+|Nome|Definizione|Esempio| 
+|---|---|---|
+|AMSAccount|Nome dell'account AMS. |juliakomediaservices|
+|AMSKey |Chiave dell'account AMS. | JUWJdDaOHQQqsZeiXZuE76eDt2SO+YMJk25Lghgy2nY=|
+|MediaServicesStorageAccountName |Nome dell'account di archiviazione associato all'account AMS.| storagepkeewmg5c3peq|
+|MediaServicesStorageAccountKey |Chiave dell'account di archiviazione associato all'account AMS.|
+|SigningKey |Chiave di firma.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
+|WebHookEndpoint | Indirizzo di un endpoint di webhook. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
 
 ### <a name="functionjson"></a>function.json
 
@@ -410,7 +423,6 @@ Questa sezione mostra il codice che aggiunge una notifica di webhook a un'attivi
                 processor,
                 "Adaptive Streaming",
                 TaskOptions.None);
-
 
                 // Specify the input asset to be encoded.
                 task.InputAssets.Add(newAsset);

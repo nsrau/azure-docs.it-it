@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 03/07/2017
 ms.author: davidmu
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 32e30b44c2f7cfa9c1069190fdc53dbe6e9f4cd5
-ms.openlocfilehash: c1c301b5687cf35e93698a66fac7103b0cc90aed
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 8bff8d1d3f2a1211fe301e4079bf732544943e92
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -33,32 +33,34 @@ Per una descrizione dettagliata della risorsa macchina virtuale, vedere [Virtual
 L'esecuzione della procedura illustrata in questo articolo richiede circa cinque minuti.
 
 ## <a name="step-1-install-azure-powershell"></a>Passaggio 1: installare Azure PowerShell
+
 Per informazioni su come installare la versione più recente di Azure PowerShell, selezionare la sottoscrizione e accedere all'account, vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
 
 ## <a name="step-2-create-a-resource-group"></a>Passaggio 2: Creare un gruppo di risorse
+
 Tutte le risorse devono essere distribuite in un [gruppo di risorse](../azure-resource-manager/resource-group-overview.md).
 
 1. Ottenere un elenco di località disponibili in cui possono essere create le risorse.
    
-  ```powershell   
-  Get-AzureRmLocation | sort DisplayName | Select DisplayName
-  ```
+    ```powershell   
+    Get-AzureRmLocation | sort DisplayName | Select DisplayName
+    ```
 
 2. Creare il gruppo di risorse nella località selezionata. Questo esempio descrive la creazione di un gruppo di risorse denominato **myResourceGroup** nella località **Stati Uniti centrali**:
 
-  ```powershell   
-  New-AzureRmResourceGroup -Name "myResourceGroup" -Location "Central US"
-  ```
+    ```powershell   
+    New-AzureRmResourceGroup -Name "myResourceGroup" -Location "Central US"
+    ```
    
   L'output sarà simile all'esempio seguente:
 
-  ```
-  ResourceGroupName : myResourceGroup
-  Location          : centralus
-  ProvisioningState : Succeeded
-  Tags              :
-  ResourceId        : /subscriptions/{subscription-id}/resourceGroups/myResourceGroup
-  ```
+    ```powershell 
+    ResourceGroupName : myResourceGroup
+    Location          : centralus
+    ProvisioningState : Succeeded
+    Tags              :
+    ResourceId        : /subscriptions/{subscription-id}/resourceGroups/myResourceGroup
+    ```
 
 ## <a name="step-3-create-the-resources"></a>Passaggio 3: creare le risorse
 Distribuire il modello e specificare i valori dei parametri, quando richiesto. In questo esempio viene distribuito il modello 101-vm-simple-windows nel gruppo di risorse creato:
@@ -70,35 +72,35 @@ Viene chiesto di indicare il nome dell'account amministratore della macchina vir
 
 L'output sarà simile all'esempio seguente:
 
-```
-DeploymentName    : azuredeploy
-ResourceGroupName : myResourceGroup
-ProvisioningState : Succeeded
-Timestamp         : 12/29/2016 8:11:37 PM
-Mode              : Incremental
-TemplateLink      :
-                    Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/
-                    101-vm-simple-windows/azuredeploy.json
-                    ContentVersion : 1.0.0.0
-Parameters        :
-                    Name             Type                       Value
-                    ===============  =========================  ==========
-                    adminUsername    String                     myAdminUser
-                    adminPassword    SecureString
-                    dnsLabelPrefix   String                     myDomain
-                    windowsOSVersion String                     2016-Datacenter
-Outputs           :
-                    Name             Type                       Value
-                    ===============  =========================  ===========
-                    hostname         String                     myDomain.centralus.cloudapp.azure.com
-DeploymentDebugLogLevel :
-```
+    DeploymentName    : azuredeploy
+    ResourceGroupName : myResourceGroup
+    ProvisioningState : Succeeded
+    Timestamp         : 12/29/2016 8:11:37 PM
+    Mode              : Incremental
+    TemplateLink      :
+       Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/
+                        101-vm-simple-windows/azuredeploy.json
+       ContentVersion : 1.0.0.0
+    Parameters        :
+      Name             Type                       Value
+      ===============  =========================  ==========
+      adminUsername    String                     myAdminUser
+      adminPassword    SecureString
+      dnsLabelPrefix   String                     myDomain
+      windowsOSVersion String                     2016-Datacenter
+    Outputs           :
+      Name             Type                       Value
+      ===============  =========================  ===========
+      hostname         String                     myDomain.centralus.cloudapp.azure.com
+    DeploymentDebugLogLevel :
 
 > [!NOTE]
 > È inoltre possibile distribuire modelli e parametri da file locali. Per altre informazioni, vedere [Uso di Azure PowerShell con Archiviazione di Azure](../storage/storage-powershell-guide-full.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Se si sono verificati problemi con la distribuzione, è consigliabile vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md)
-* Per informazioni su come gestire la macchina virtuale creata, vedere [Gestire macchine virtuali con Azure Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
+- Se si sono verificati problemi con la distribuzione, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
+- Per informazioni su come usare Azure PowerShell per creare una macchina virtuale, vedere [Creare una VM Windows con Azure Resource Manager e PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Per informazioni su come gestire la macchina virtuale creata, vedere [Gestire macchine virtuali con Azure Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

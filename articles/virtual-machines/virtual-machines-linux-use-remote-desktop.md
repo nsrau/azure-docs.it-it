@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 03/07/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 1aeb983730f732a021b828c658cc741f8659c487
-ms.openlocfilehash: 01a19f1070c1096b41599705bba246bd0cc45d09
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: ff0c1a4f06888c09d31ac65caf75b3d9544e57f9
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -31,7 +31,7 @@ Questo articolo richiede l'esistenza di una VM Linux di Azure. Se è necessario 
 - [Interfaccia della riga di comando di Azure 2.0](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o [interfaccia della riga di comando di Azure 1.0](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - Il[portale di Azure](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-È necessario anche aver installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) o dell'[interfaccia della riga di comando di Azure 1.0](../xplat-cli-install.md) e aver eseguito l'accesso a un [account Azure attivo](https://azure.microsoft.com/pricing/free-trial/).
+È inoltre necessario essere connessi a un [account Azure attivo](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="quick-commands"></a>Comandi rapidi

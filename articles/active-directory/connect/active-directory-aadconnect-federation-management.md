@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: anandy
 translationtype: Human Translation
-ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
-ms.openlocfilehash: 4ed22092621949d53da5b8c961a080270dde1db7
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: da3b8a375d380a0e2f1c2e243a475f2f3ff94bfc
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -31,6 +32,7 @@ Questo articolo descrive in dettaglio le attività correlate ad Active Directory
 | [Aggiungere un server AD FS](#addadfsserver) |Espansione della farm AD FS con un server AD FS aggiuntivo |
 | [Aggiungere un server proxy applicazione Web AD FS](#addwapserver) |Espansione della farm AD FS con un server WAP aggiuntivo |
 | [Aggiunta di un dominio federato](#addfeddomain) |Aggiunta di un dominio federato |
+| [Aggiornare il certificato SSL](active-directory-aadconnectfed-ssl-update.md)| Aggiornare il certificato SSL per una farm Active Directory Federation Services (AD FS)|
 | **Personalizzazione di AD FS** | |
 | [Aggiungere un'illustrazione o il logo personalizzato della società](#customlogo) |Personalizzazione della pagina di accesso ad AD FS con un'illustrazione o il logo della società |
 | [Aggiungere una descrizione di accesso](#addsignindescription) |Aggiunta di una descrizione della pagina di accesso |
@@ -39,7 +41,7 @@ Questo articolo descrive in dettaglio le attività correlate ad Active Directory
 ## <a name="ad-fs-management"></a>Gestione di AD FS.
 Azure AD Connect offre diverse attività correlate ad AD FS che possono essere eseguite tramite la procedura guidata di Azure AD Connect con un intervento minimo dell'utente. Al termine dell'installazione guidata di Azure AD Connect, è possibile eseguire nuovamente la procedura guidata per eseguire attività aggiuntive.
 
-### <a name="repair-the-trust-a-namerepairthetrusta"></a>Ripristinare il trust <a name=repairthetrust></a>
+## Ripristinare il trust <a name=repairthetrust></a>
 Azure AD Connect può controllare lo stato di integrità corrente della relazione di trust tra AD FS e Azure Active Directory e intraprendere le azioni necessarie per ripristinare il trust. Per ripristinare la relazione di trust tra Azure AD e AD FS, seguire questa procedura.
 
 1. Selezionare **Ripristino del trust di AAD e AD FS** nell'elenco delle attività aggiuntive.
@@ -63,7 +65,8 @@ Azure AD Connect può controllare lo stato di integrità corrente della relazion
 >
 >
 
-### <a name="add-an-ad-fs-server-a-nameaddadfsservera"></a>Aggiungere un server AD FS <a name=addadfsserver></a>
+## Aggiungere un server AD FS <a name=addadfsserver></a>
+
 > [!NOTE]
 > Per aggiungere un server AD FS, Azure AD Connect richiede il file PFX del certificato. È quindi possibile eseguire questa operazione solo se la farm AD FS è stata configurata con Azure AD Connect.
 >
@@ -86,7 +89,8 @@ Azure AD Connect può controllare lo stato di integrità corrente della relazion
 
     ![Installazione completata](media/active-directory-aadconnect-federation-management/AddNewADFSServer8.PNG)
 
-### <a name="add-an-ad-fs-web-application-proxy-server-a-nameaddwapservera"></a>Aggiungere un server proxy applicazione Web AD FS <a name=addwapserver></a>
+## Aggiungere un server proxy applicazione Web AD FS <a name=addwapserver></a>
+
 > [!NOTE]
 > Per aggiungere un server proxy applicazione Web AD FS, Azure AD Connect richiede il file PFX del certificato. Sarà quindi possibile eseguire questa operazione solo se la farm AD FS è stata configurata con Azure AD Connect.
 >
@@ -109,7 +113,8 @@ Azure AD Connect può controllare lo stato di integrità corrente della relazion
 7. Fare clic su **Installa** per completare la configurazione. Al termine della configurazione, la procedura guidata offre la possibilità di verificare la connettività ai server. Fare clic su **Verifica** per controllare la connettività.
    ![Installazione completata](media/active-directory-aadconnect-federation-management/WapServer8.PNG)
 
-### <a name="add-a-federated-domain-a-nameaddfeddomaina"></a>Aggiunta di un dominio federato <a name=addfeddomain></a>
+## Aggiunta di un dominio federato <a name=addfeddomain></a>
+
 Con Azure AD Connect è facile aggiungere un dominio per la federazione con Azure AD. Azure AD Connect aggiunge il dominio per la federazione e modifica le regole attestazioni per riflettere correttamente l'autorità di certificazione quando sono presenti più domini federati con Azure AD.
 
 1. Per aggiungere un dominio federato, selezionare l'attività **Aggiunta di un altro dominio di Azure AD**.
@@ -128,11 +133,11 @@ Con Azure AD Connect è facile aggiungere un dominio per la federazione con Azur
 ## <a name="ad-fs-customization"></a>Personalizzazione di AD FS
 Le sezioni seguenti forniscono informazioni dettagliate su alcune attività comuni che potrebbe essere necessario eseguire durante la configurazione della pagina di accesso ad AD FS.
 
-### <a name="add-a-custom-company-logo-or-illustration-a-namecustomlogoa"></a>Aggiungere un'illustrazione o il logo personalizzato della società <a name=customlogo></a>
+## Aggiungere un'illustrazione o il logo personalizzato della società <a name=customlogo></a>
 Per modificare il logo della società visualizzato nella pagina **Accesso** , usare la sintassi e il cmdlet di Windows PowerShell seguenti.
 
 > [!NOTE]
-> Le dimensioni consigliate per il logo sono 260x35 @ 96 DPI, con una dimensione di file non maggiore di 10 KB.
+> Le dimensioni consigliate per il logo sono 260 x 35 a 96 DPI, con dimensioni del file non maggiori di 10 KB.
 >
 >
 
@@ -143,17 +148,17 @@ Per modificare il logo della società visualizzato nella pagina **Accesso** , us
 >
 >
 
-### <a name="add-a-sign-in-description-a-nameaddsignindescriptiona"></a>Aggiungere una descrizione di accesso <a name=addsignindescription></a>
+## Aggiungere una descrizione di accesso <a name=addsignindescription></a>
 Per aggiungere una descrizione alla **Pagina di accesso**stessa, usare la sintassi e il cmdlet di Windows PowerShell seguenti.
 
     Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
 
-### <a name="modify-ad-fs-claim-rules-a-namemodclaimsa"></a>Modificare le regole attestazioni per AD FS <a name=modclaims></a>
+## Modificare le regole attestazioni per AD FS <a name=modclaims></a>
 AD FS supporta un linguaggio di attestazione avanzato che può essere usato per creare regole attestazioni personalizzate. Per altre informazioni, vedere [Ruolo del linguaggio delle regole attestazioni](https://technet.microsoft.com/library/dd807118.aspx).
 
 Le sezioni seguenti descrivono come scrivere regole personalizzate per alcuni scenari relativi alla federazione di AD FS e Azure AD.
 
-#### <a name="immutable-id-conditional-on-a-value-being-present-in-the-attribute"></a>ID non modificabile in base alla presenza di un valore nell'attributo
+### <a name="immutable-id-conditional-on-a-value-being-present-in-the-attribute"></a>ID non modificabile in base alla presenza di un valore nell'attributo
 Azure AD Connect consente di specificare un attributo da usare come ancoraggio di origine durante la sincronizzazione degli oggetti con Azure AD. Se il valore dell'attributo personalizzato non è vuoto, è consigliabile rilasciare un'attestazione con ID non modificabile. Ad esempio, è possibile selezionare **ms-ds-consistencyguid** come attributo per l'ancoraggio di origine e rilasciare **ImmutableID** come **ms-ds-consistencyguid** nel caso in cui il valore dell'attributo non sia vuoto. Se non esiste un valore a fronte dell'attributo, rilasciare **objectGuid** come ID non modificabile.  È possibile costruire il set di regole attestazioni personalizzate come descritto nella sezione seguente.
 
 **Regola 1: Attributi della query**
@@ -192,7 +197,7 @@ In questa regola si verifica semplicemente il flag temporaneo **idflag**. Decide
 >
 >
 
-#### <a name="sso-with-a-subdomain-upn"></a>SSO con un UPN di sottodominio
+### <a name="sso-with-a-subdomain-upn"></a>SSO con un UPN di sottodominio
 È possibile aggiungere più domini per la federazione usando Azure AD Connect, come descritto in [Aggiungere un nuovo dominio federato](active-directory-aadconnect-federation-management.md#addfeddomain). È necessario modificare l'attestazione basata su UPN, in modo che l'ID autorità di certificazione corrisponda al dominio radice e non al sottodominio, perché il dominio radice federato include anche il dominio figlio.
 
 Per impostazione predefinita, la regola attestazioni per l'ID autorità di certificazione è impostata come:
@@ -221,9 +226,4 @@ Perché il valore attestazione dell'autorità di certificazione contenga solo il
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni sulle [opzioni di accesso utente](active-directory-aadconnect-user-signin.md).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

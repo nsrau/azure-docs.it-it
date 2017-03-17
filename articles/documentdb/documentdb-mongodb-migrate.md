@@ -1,6 +1,6 @@
 ---
 title: Usare mongoimport e mongorestore con Azure DocumentDB | Documentazione Microsoft
-description: Informazioni su come usare mongoimport e mongorestore per importare dati in un account DocumentDB con supporto del protocollo per MongoDB, ora disponibile in anteprima.
+description: 'Informazioni su come usare mongoimport e mongorestore per importare dati in un account dell&quot;API DocumentDB: per MongoDB'
 keywords: mongoimport, mongorestore
 services: documentdb
 author: AndrewHoh
@@ -13,16 +13,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 03/06/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
-ms.openlocfilehash: df43600a11aa829ba7fc6b858d64b5f8e98d22fb
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 2af8691326550c631e6668890cb0d6b893fa7740
+ms.lasthandoff: 03/08/2017
 
 
 ---
 # <a name="migrate-data-to-documentdb-by-using-mongoimport-and-mongorestore"></a>Eseguire la migrazione di dati in DocumentDB usando mongoimport e mongorestore
-Per eseguire la migrazione di dati a un account Azure DocumentDB con supporto del protocollo per MongoDB, è necessario:
+> [!div class="op_single_selector"]
+> * [Eseguire l'importazione in DocumentDB](documentdb-import-data.md)
+> * [Eseguire l'importazione nell'API per MongoDB](documentdb-mongodb-migrate.md)
+>
+>
+
+Per eseguire la migrazione a un account dell'API Azure DocumentDB: per MongoDB, seguire questa procedura:
 
 * Scaricare *mongoimport.exe* o *mongorestore.exe* dall'[area download MongoDB](https://www.mongodb.com/download-center).
 * Ottenere il [supporto DocumentDB per la stringa di connessione MongoDB](documentdb-connect-mongodb-account.md).
@@ -42,7 +49,7 @@ Il riquadro destro contiene tutte le informazioni necessarie per connettersi cor
 
     ![Pannello "Stringa di connessione"](./media/documentdb-mongodb-migrate/ConnectionStringBlade.png)
 
-## <a name="import-data-to-documentdb-with-protocol-support-for-mongodb-with-mongoimport"></a>Importare dati in DocumentDB con supporto del protocollo per MongoDB con mongoimport
+## <a name="import-data-to-api-for-mongodb-with-mongoimport"></a>Eseguire l'importazione di dati nell'API per MongoDB con mongoimport
 
 Per importare dati nell'account DocumentDB, usare il modello seguente per eseguire l'importazione. Per *host*, *username* e *password* inserire i valori specifici dell'account.  
 
@@ -54,7 +61,7 @@ Esempio:
 
     mongoimport.exe --host anhoh-host.documents.azure.com:10250 -u anhoh-host -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates --db sampleDB --collection sampleColl --type json --file C:\Users\anhoh\Desktop\*.json
 
-## <a name="import-data-to-documentdb-with-protocol-support-for-mongodb-with-mongorestore"></a>Importare dati in DocumentDB con supporto del protocollo per MongoDB con mongorestore
+## <a name="import-data-to-api-for-mongodb-with-mongorestore"></a>Eseguire l'importazione di dati nell'API per MongoDB con mongorestore
 
 Per ripristinare dati nell'account DocumentDB, usare il modello seguente per eseguire l'importazione. Per *host*, *username* e *password* inserire i valori specifici dell'account.
 
@@ -67,10 +74,5 @@ Esempio:
     mongorestore.exe --host anhoh-host.documents.azure.com:10250 -u anhoh-host -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per altre informazioni, vedere [Esempi di supporto del protocollo DocumentDB per MongoDB](documentdb-mongodb-samples.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+* Per altre informazioni, vedere [Esempi dell'API DocumentDB: per MongoDB](documentdb-mongodb-samples.md).
 

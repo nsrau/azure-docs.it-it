@@ -1,6 +1,6 @@
 ---
-title: Usare Robomongo per MongoDB con Azure DocumentDB | Documentazione Microsoft
-description: Informazioni su come usare Robomongo con un account DocumentDB con supporto del protocollo per MongoDB, ora disponibile in anteprima.
+title: Usare Robomongo per MongoDB con Azure DocumentDB | Microsoft Docs
+description: 'Informazioni su come usare Robomongo con un account dell&quot;API DocumentDB: per MongoDB'
 keywords: robomongo
 services: documentdb
 author: AndrewHoh
@@ -13,24 +13,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2016
+ms.date: 03/06/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
-ms.openlocfilehash: 141154f9e8236e595f77bd4880c4f63d480da445
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: a8db7fbde5d6cd01b558ec351719bae361710efd
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="use-robomongo-with-a-documentdb-account-with-protocol-support-for-mongodb"></a>Usare Robomongo con un account DocumentDB con supporto del protocollo per MongoDB
-Per connettersi a un account Azure DocumentDB con il supporto del protocollo per MongoDB usando Robomongo, seguire questa procedura:
+# <a name="use-robomongo-with-a-documentdb-api-for-mongodb-account"></a>Usare Robomongo con un account dell'API DocumentDB: per MongoDB
+Per connettersi a un account dell'API Azure DocumentDB: per MongoDB usando Robomongo, seguire questa procedura:
 
 * Scaricare e installare [Robomongo](https://robomongo.org/)
-* Creare l'account DocumentDB con supporto del protocollo per le informazioni sulla [stringa di connessione](documentdb-connect-mongodb-account.md) di MongoDB
+* Disporre delle informazioni sulla [stringa di connessione](documentdb-connect-mongodb-account.md) dell'account dell'API DocumentDB: per MongoDB
 
 ## <a name="connect-using-robomongo"></a>Connettersi tramite Robomongo
-Per aggiungere l'account DocumentDB con supporto del protocollo per MongoDB alle connessioni Robomongo MongoDB, eseguire questa procedura.
+Per aggiungere l'account dell'API DocumentDB: per MongoDB alle connessioni Robomongo MongoDB, seguire questa procedura.
 
-1. Recuperare le informazioni su DocumentDB con supporto del protocollo per MongoDB usando [queste](documentdb-connect-mongodb-account.md)istruzioni.
+1. Recuperare le informazioni sulla connessione dell'account dell'API DocumentDB: per MongoDB usando le istruzioni riportate [qui](documentdb-connect-mongodb-account.md).
 
     ![Screenshot del pannello Stringa di connessione](./media/documentdb-mongodb-robomongo/connectionstringblade.png)
 2. Eseguire *Robomongo.exe*
@@ -50,10 +51,5 @@ I valori per i campi **User Name** (Nome utente) e **Password** possono essere t
 7. Infine, fare clic su **Test** per verificare che sia possibile connettersi, quindi su **Save** (Salva).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Esplorare DocumentDB con supporto del protocollo per trovare [esempi](documentdb-mongodb-samples.md)di MongoDB.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+* Esaminare gli [esempi](documentdb-mongodb-samples.md) dell'API DocumentDB: per MongoDB.
 

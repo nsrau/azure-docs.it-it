@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c93d0d47721546f25e72d97f4e019886ef801eba
-ms.openlocfilehash: a7ffc5e2547ca7ac52a56ec82b493b14acd7aaaa
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 0644efd8753c33c0404b45f567759c0be666bcef
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -42,10 +42,10 @@ Per concedere le [autorizzazioni](#iot-hub-permissions) è possibile procedere n
 * **Criteri di accesso condivisi a livello di hub IoT**. I criteri di accesso condiviso possono concedere qualsiasi combinazione di [autorizzazioni](#iot-hub-permissions). È possibile definire i criteri nel [portale di Azure][lnk-management-portal] o a livello di codice usando le [API REST del provider di risorse dell'hub IoT][lnk-resource-provider-apis]. Un hub IoT appena creato ha i criteri predefiniti seguenti:
   
   * **iothubowner**: criteri con tutte le autorizzazioni.
-  * **service**: criteri con autorizzazione ServiceConnect.
-  * **device**: criteri con autorizzazione DeviceConnect.
-  * **registryRead**: criteri con autorizzazione RegistryRead.
-  * **registryReadWrite**: criteri con autorizzazioni RegistryRead e RegistryWrite.
+  * **service**: criteri con autorizzazione **ServiceConnect**.
+  * **device**: criteri con autorizzazione **DeviceConnect**.
+  * **registryRead**: criteri con autorizzazione **RegistryRead**.
+  * **registryReadWrite**: criteri con autorizzazioni **RegistryRead** e RegistryWrite.
   * **Credenziali di sicurezza specifiche del dispositivo**. Ogni hub IoT contiene un [registro delle identità][lnk-identity-registry]. Per ogni dispositivo presente in questo registro delle identità è possibile configurare credenziali di sicurezza che concedono autorizzazioni **DeviceConnect** con ambito agli endpoint di dispositivo corrispondenti.
 
 Ad esempio, in una soluzione IoT tipica:
@@ -55,7 +55,10 @@ Ad esempio, in una soluzione IoT tipica:
 * Il componente della logica di business di runtime del dispositivo usa i criteri *service* .
 * I singoli dispositivi si connettono usando le credenziali archiviate nel registro delle identità dell'hub IoT.
 
-## <a name="authentication"></a>Autenticazione
+> [!NOTE]
+> Per informazioni dettagliate, vedere [Autorizzazioni](#iot-hub-permissions).
+
+## <a name="authentication"></a>Authentication
 L'hub IoT di Azure concede l'accesso agli endpoint tramite la verifica di un token rispetto ai criteri di accesso condiviso e alle credenziali di sicurezza del registro delle identità.
 
 Le credenziali di sicurezza, ad esempio le chiavi asimmetriche, non vengono mai trasmesse in rete.
@@ -370,10 +373,10 @@ La tabella seguente elenca le autorizzazioni che è possibile usare per controll
 
 | Autorizzazione | Note |
 | --- | --- |
-| **RegistryRead** |Concede l'accesso di sola lettura al registro di identità. Per altre informazioni, vedere [Registro delle identità][lnk-identity-registry]. |
-| **RegistryReadWrite** |Concede l'accesso di lettura e scrittura al registro di identità. Per altre informazioni, vedere [Registro delle identità][lnk-identity-registry]. |
-| **ServiceConnect** |Concede l'accesso alle comunicazioni per il servizio cloud e al monitoraggio degli endpoint. Ad esempio, concede ai servizi cloud back-end l'autorizzazione per la ricezione di messaggi da dispositivo a cloud, l'invio di messaggi da cloud a dispositivo e il recupero degli acknowledgment di recapito corrispondenti. |
-| **DeviceConnect** |Concede l'accesso agli endpoint per il dispositivo. Ad esempio, concede l'autorizzazione per l'invio di messaggi da dispositivo a cloud e la ricezione di messaggi da cloud a dispositivo. Questa autorizzazione viene usata dai dispositivi. |
+| **RegistryRead** |Concede l'accesso di sola lettura al registro di identità. Per altre informazioni, vedere [Registro delle identità][lnk-identity-registry]. <br/>Questa autorizzazione viene usata dai servizi cloud back-end. |
+| **RegistryReadWrite** |Concede l'accesso di lettura e scrittura al registro di identità. Per altre informazioni, vedere [Registro delle identità][lnk-identity-registry]. <br/>Questa autorizzazione viene usata dai servizi cloud back-end. |
+| **ServiceConnect** |Concede l'accesso alle comunicazioni per il servizio cloud e al monitoraggio degli endpoint. <br/>Concede l'autorizzazione per la ricezione di messaggi da dispositivo a cloud, l'invio di messaggi da cloud a dispositivo e il recupero degli acknowledgment di recapito corrispondenti. <br/>Concede l'autorizzazione per il recupero degli acknowledgement di recapito per caricamenti di file. <br/>Concede l'autorizzazione per l'accesso a dispositivi gemelli per l'aggiornamento dei tag e delle proprietà indicate, il recupero delle proprietà segnalate e l'esecuzione di query. <br/>Questa autorizzazione viene usata dai servizi cloud back-end. |
+| **DeviceConnect** |Concede l'accesso agli endpoint per il dispositivo. <br/>Concede l'autorizzazione per l'invio di messaggi da dispositivo a cloud e la ricezione di messaggi da cloud a dispositivo. <br/>Concede l'autorizzazione per il caricamento di file da un dispositivo. <br/>Concede l'autorizzazione per la ricezione di notifiche su particolari proprietà del dispositivo gemello e l'aggiornamento delle proprietà segnalate di quest'ultimo. <br/>Concede l'autorizzazione per il caricamento di file. <br/>Questa autorizzazione viene usata dai dispositivi. |
 
 ## <a name="additional-reference-material"></a>Materiale di riferimento
 Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida per gli sviluppatori dell'hub IoT:

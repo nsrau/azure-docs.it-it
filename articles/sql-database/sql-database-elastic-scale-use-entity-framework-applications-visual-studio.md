@@ -13,11 +13,12 @@ ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2016
+ms.date: 03/06/2017
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 91fe35cb57775c1ab9c30fdfe5cf82cd1afafd14
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 2a7229c9658cbbab676801f5c532a50bc0adedce
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -28,13 +29,10 @@ Questo documento illustra le modifiche necessarie in un'applicazione Entity Fram
 Per scaricare il codice per questo articolo:
 
 * È richiesto Visual Studio 2012 o versione successiva. 
+* Scaricare l'esempio [Elastic DB Tools for Azure SQL - Entity Framework Integration](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-bae904ba) (Strumenti del database elastico per SQL di Azure - Integrazione con Entity Framework) da MSDN. Decomprimere l'esempio in un percorso a piacere.
 * Avviare Visual Studio. 
-* In Visual Studio selezionare File -> Nuovo progetto. 
-* Nella finestra di dialogo "Nuovo progetto" passare agli **esempi online** per **Visual C#** e digitare "database elastico" nella casella di ricerca in alto a destra.
-  
-    ![Entity Framework e applicazione di esempio dei database elastici][1] 
-  
-    Selezionare l'esempio denominato **Strumenti del database elastico per SQL di Azure - Integrazione con Entity Framework**. Dopo aver accettato la licenza, l'esempio verrà caricato. 
+* In Visual Studio selezionare File -> Apri progetto/soluzione. 
+* Nella finestra di dialogo **Apri progetto** passare all'esempio scaricato e selezionare **EntityFrameworkCodeFirst.sln** per aprirlo. 
 
 Per eseguire l'esempio è necessario creare tre database vuoti nel database SQL di Azure:
 
@@ -266,9 +264,4 @@ Seguendo le procedure descritte in questo documento, le applicazioni Entity Fram
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

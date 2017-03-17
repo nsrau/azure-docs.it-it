@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/24/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 691e2e9156a825e64890f035b23cb2526d502107
-ms.openlocfilehash: c7d8cea9a15ec79356c89f628ef9d8e8ccbaaec3
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 41b75cf3059cd3758f1bce149ad8fcad4e5644ac
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -27,15 +28,10 @@ Informazioni su come usare il portale di Azure per eseguire la replica in più a
 
 Per informazioni sul funzionamento della replica di database globale in DocumentDB, vedere [Distribuire i dati a livello globale con DocumentDB](documentdb-distribute-data-globally.md). Per informazioni su come eseguire la replica di database globale a livello di codice, vedere [Sviluppo con account DocumentDB in più aree](documentdb-developing-with-multiple-regions.md).
 
-> [!NOTE]
-> La distribuzione globale di database di DocumentDB è disponibile a livello generale ed è abilitata automaticamente per tutti gli account DocumentDB appena creati. Stiamo lavorando per abilitare la distribuzione globale per tutti gli account esistenti, ma nel frattempo, se si vuole che la distribuzione globale sia abilitata per il proprio account, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) .
-> 
-> 
-
-## <a name="a-idaddregionaadd-global-database-regions"></a><a id="addregion"></a>Aggiungere aree di database globali
+## <a id="addregion"></a>Aggiungere aree di database globali
 DocumentDB è disponibile nella maggior parte delle [aree di Azure][azureregions]. Dopo aver selezionato il livello di coerenza predefinito per l'account di database, è possibile associare una o più aree, a seconda del livello di coerenza predefinito e delle esigenze di distribuzione globale scelti.
 
-1. Nell'indice del [portale di Azure](https://portal.azure.com/) fare clic su **DocumentDB (NoSQL)**.
+1. Nel [portale di Azure](https://portal.azure.com/), nella barra di sinistra, fare clic su **NoSQL (DocumentDB)**.
 2. Nel pannello **DocumentDB (NoSQL)** selezionare l'account di database da modificare.
 3. Nel pannello dell'account fare clic su **Replica i dati a livello globale** dal menu.
 4. Nel pannello **Replica i dati a livello globale** selezionare le aree da aggiungere o rimuovere e quindi fare clic su **Salva**. L'aggiunta di aree ha un costo. Per altre informazioni, vedere la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/documentdb/) o l'articolo [Distribuire i dati a livello globale con DocumentDB](documentdb-distribute-data-globally.md).
@@ -65,7 +61,7 @@ While all regions associated with your DocumentDB database account can serve rea
     ![Change the write region by reordering the region list under DocumentDB Account > Settings > Change Write Regions][3]
 -->
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>Passaggi successivi
+## <a id="next"></a>Passaggi successivi
 Per informazioni su come gestire la coerenza dell'account con replica globale, vedere [Livelli di coerenza in DocumentDB](documentdb-consistency-levels.md).
 
 Per informazioni sul funzionamento della replica di database globale in DocumentDB, vedere [Distribuire i dati a livello globale con DocumentDB](documentdb-distribute-data-globally.md). Per informazioni su come eseguire la replica di dati in più aree a livello di codice, vedere [Sviluppo con account DocumentDB in più aree](documentdb-developing-with-multiple-regions.md).
@@ -80,9 +76,4 @@ Per informazioni sul funzionamento della replica di database globale in Document
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
 [azureregions]: https://azure.microsoft.com/en-us/regions/#services
 [offers]: https://azure.microsoft.com/en-us/pricing/details/documentdb/
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

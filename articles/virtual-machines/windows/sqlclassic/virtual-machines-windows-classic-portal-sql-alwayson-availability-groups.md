@@ -1,5 +1,5 @@
 ---
-title: "Configurare gruppi di disponibilità AlwaysOn in macchine virtuali di Azure - Versione classica"
+title: "Configurare gruppi di disponibilità AlwaysOn in macchine virtuali di Azure (distribuzione classica) | Microsoft Docs"
 description: "Creare un gruppo di disponibilità AlwaysOn con le macchine virtuali di Azure. Questa esercitazione usa principalmente l&quot;interfaccia utente e gli strumenti invece dello scripting."
 services: virtual-machines-windows
 documentationcenter: na
@@ -16,12 +16,13 @@ ms.workload: iaas-sql-server
 ms.date: 09/22/2016
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 87f16f54958b20b8b321d09c734923269bd0503e
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: c1a1c7d2fd56e20d30cf0468de2d7d6c2935ef3e
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="configure-always-on-availability-group-in-azure-vm---classic"></a>Configurare gruppi di disponibilità AlwaysOn in macchine virtuali di Azure - Versione classica
+# <a name="configure-always-on-availability-group-in-azure-vm-classic"></a>Configurare gruppi di disponibilità AlwaysOn in macchine virtuali di Azure (distribuzione classica)
 > [!div class="op_single_selector"]
 > * [Resource Manager: modello](../sql/virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 > * [Resource Manager: manuale](../sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
@@ -260,7 +261,7 @@ Seguire questa procedura per effettuare le seguenti attività e configurare comp
    | --- | --- |
    | Prima di iniziare |Valori predefiniti |
    | Selezione dei server |Digitare **ContosoSQL1** in **Immettere il nome del server** e fare clic su **Aggiungi** |
-   | Avviso di convalida |Selezionare **No. Non è necessario il supporto di Microsoft per il cluster e pertanto non desidero eseguire i test di convalida. Facendo clic su Avanti verrà proseguita la creazione del cluster.**. |
+   | Avviso di convalida |Selezionare **No. Non è necessario il supporto di Microsoft per il cluster e pertanto non desidero eseguire i test di convalida. Facendo clic su Avanti verrà proseguita la creazione del cluster**. |
    | Punto di accesso per l'amministrazione del cluster |Digitare **Cluster1** in **Nome cluster** |
    | Conferma |Usare le impostazioni predefinite a meno a meno che non si usino spazi di archiviazione. Vedere la nota che segue questa tabella. |
    
@@ -415,10 +416,5 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
 SQL Server AlwaysOn è stato correttamente implementato mediante la creazione di un gruppo di disponibilità in Azure. Per configurare un listener per questo gruppo di disponibilità, vedere [Configurare un listener ILB per gruppi di disponibilità AlwaysOn in Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
 Per altre informazioni sull'uso di SQL Server in Azure, vedere [SQL Server in Macchine virtuali di Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 02/22/2017
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5172ce4edbea0f5587075308c97d07aac98e9699
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: c6d26aca309597cf9552e97a22e84b6c122fe58b
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -74,7 +75,7 @@ Per un video dimostrativo e un elenco di esercitazioni dettagliate, vedere la do
 ### <a name="static-ip-addresses-must-be-configured-with-azure-powershell"></a>Gli indirizzi IP statici devono essere configurati con Azure PowerShell.
 Gli indirizzi dinamici vengono allocati per impostazione predefinita, ma per assegnare un indirizzo IP statico si usa invece il cmdlet Set-AzureStaticVNetIP. L'indirizzo IP statico impostato sarà mantenuto durante la correzione del servizio e l'arresto o il riavvio della macchina virtuale. Per altre informazioni, vedere il blog relativo all' [indirizzo IP interno statico per le macchine virtuali](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/).
 
-## <a name="a-namebkmkglossaryaterms-and-definitions"></a><a name="BKMK_Glossary"></a>Termini e definizioni
+## <a name="BKMK_Glossary"></a>Termini e definizioni
 Di seguito è riportato un elenco non esaustivo dei termini relativi alle diverse tecnologie di Azure a cui viene fatto riferimento in questo articolo.
 
 * **Macchine virtuali di Azure**: offerta IaaS di Azure che consente ai clienti di distribuire VM che eseguono quasi tutti i carichi di lavoro server tradizionalmente locali.
@@ -107,7 +108,7 @@ Per altre informazioni sull'impatto sui controller di dominio, vedere la sezione
 A partire da Windows Server 2012 sono state [introdotte misure di sicurezza aggiuntive in Servizi di dominio Active Directory](https://technet.microsoft.com/library/hh831734.aspx). Queste misure di sicurezza consentono di proteggere i controller di dominio virtualizzati dai problemi precedenti, purché la piattaforma hypervisor sottostante supporti VM-GenerationID. Azure supporta VM-GenerationID e ciò significa che nei controller di dominio che eseguono Windows Server 2012 o versione successiva in macchine virtuali di Azure sono disponibili misure di sicurezza aggiuntive.
 
 > [!NOTE]
-> È consigliabile arrestare e riavviare una VM che esegue il ruolo controller di dominio in Azure nel sistema operativo guest, invece di usare l'opzione **Arresta** opzione nel portale di Azure classico. Attualmente l'uso del portale classico per arrestare una VM ne comporta la deallocazione. Una VM deallocata ha il vantaggio di non essere soggetta ad addebiti, ma reimposta anche l'attributo VM-GenerationID, un approccio sconsigliato per un controller di dominio. Quando VM-GenerationID viene reimpostato, anche l'attributo invocationID del database di Servizi di dominio Active Directory viene reimpostato, il pool di RID viene eliminato e SYSVOL è contrassegnato come non autorevole. Per altre informazioni, vedere [Introduzione alla virtualizzazione di Servizi di dominio Active Directory](https://technet.microsoft.com/library/hh831734.aspx) e il blog relativo alla [virtualizzazione di DFSR in modo sicuro](http://blogs.technet.com/b/filecab/archive/2013/04/05/safely-virtualizing-dfsr.aspx).
+> È consigliabile arrestare e riavviare una macchina virtuale che esegue il ruolo controller di dominio in Azure nel sistema operativo guest, anziché usare l'opzione **Arresta** nel portale di Azure o nel portale classico. Attualmente l'uso del portale per arrestare una macchina virtuale ne comporta la deallocazione. Una VM deallocata ha il vantaggio di non essere soggetta ad addebiti, ma reimposta anche l'attributo VM-GenerationID, un approccio sconsigliato per un controller di dominio. Quando VM-GenerationID viene reimpostato, anche l'attributo invocationID del database di Servizi di dominio Active Directory viene reimpostato, il pool di RID viene eliminato e SYSVOL è contrassegnato come non autorevole. Per altre informazioni, vedere [Introduzione alla virtualizzazione di Servizi di dominio Active Directory](https://technet.microsoft.com/library/hh831734.aspx) e il blog relativo alla [virtualizzazione di DFSR in modo sicuro](http://blogs.technet.com/b/filecab/archive/2013/04/05/safely-virtualizing-dfsr.aspx).
 > 
 > 
 
@@ -119,7 +120,7 @@ Azure è ideale anche come soluzione alternativa a siti di ripristino di emergen
 Infine è possibile distribuire un'applicazione di rete in Azure, ad esempio SharePoint, che richiede Active Directory di Windows Server, ma non ha dipendenze dalla rete locale o dall'istanza di Active Directory di Windows Server aziendale. In questo caso, la distribuzione di una foresta isolata in Azure per soddisfare requisiti del server SharePoint è la soluzione ottimale. La distribuzione di applicazioni di rete che richiedono la connettività alla rete locale e all'istanza di Active Directory aziendale è supportata anche in questo caso.
 
 > [!NOTE]
-> Poiché offre una connessione di livello 3, il componente VPN che fornisce la connettività tra una rete virtuale di Azure e una rete locale può anche consentire a server membri eseguiti in locale di sfruttare i controller di dominio eseguiti come VM nella rete virtuale di Azure. Se però la VPN non è disponibile, la comunicazione tra i computer locali e i controller di dominio basati su Azure non funzionerà, generando errori di autenticazione e di altra natura.  
+> Poiché offre una connessione di livello&3;, il componente VPN che fornisce la connettività tra una rete virtuale di Azure e una rete locale può anche consentire a server membri eseguiti in locale di sfruttare i controller di dominio eseguiti come VM nella rete virtuale di Azure. Se però la VPN non è disponibile, la comunicazione tra i computer locali e i controller di dominio basati su Azure non funzionerà, generando errori di autenticazione e di altra natura.  
 > 
 > 
 
@@ -205,7 +206,7 @@ Uno svantaggio di questa opzione è la necessità di configurare gli ACL di rete
 
 Un'altra opzione consiste nell'usare il dispositivo [Barracuda NG Firewall](https://www.barracuda.com/products/ngfirewall) per controllare il traffico tra i server proxy AD FS e i server AD FS. Questa opzione è conforme alle procedure consigliate per la sicurezza e la disponibilità elevata e richiede meno attività di amministrazione dopo l'installazione iniziale, perché il dispositivo Barracuda NG Firewall offre una modalità di tipo elenco elementi consentiti per l'amministrazione del firewall e può essere installato direttamente in una rete virtuale di Azure. Questo approccio elimina la necessità di configurare gli ACL di rete ogni volta che si aggiunge un nuovo server alla distribuzione. Questa opzione comporta tuttavia maggiori costi e complessità per la distribuzione iniziale.
 
-In questo caso, vengono distribuite due reti virtuali invece di una, ad esempio rete virtuale 1 e rete virtuale 2. La rete virtuale 1 contiene i proxy, mentre la rete virtuale 2 contiene i servizi token di sicurezza e la connessione di rete alla rete aziendale. La rete virtuale 1 è quindi fisicamente, anche se virtualmente, isolata dalla rete virtuale 2 e di conseguenza anche dalla rete aziendale. La rete virtuale 1 è quindi connessa alla rete virtuale 2 con una speciale tecnologia di tunneling chiamata Transport Independent Network Architecture (TINA). Il tunnel TINA è collegato a ognuna delle reti virtuali tramite un dispositivo Barracuda NG Firewall, uno in ogni rete virtuale.  Per garantire la disponibilità elevata, è consigliabile distribuire due dispositivi Barracuda in ogni rete virtuale, uno attivo e l'altro passivo. Questi dispositivi offrono funzionalità firewall complesse che consentono di simulare il funzionamento di una tradizionale rete perimetrale locale in Azure.
+In questo caso, vengono distribuite due reti virtuali invece di una, ad esempio rete virtuale&1; e rete virtuale&2;. La rete virtuale&1; contiene i proxy, mentre la rete virtuale&2; contiene i servizi token di sicurezza e la connessione di rete alla rete aziendale. La rete virtuale&1; è quindi fisicamente, anche se virtualmente, isolata dalla rete virtuale&2; e di conseguenza anche dalla rete aziendale. La rete virtuale&1; è quindi connessa alla rete virtuale&2; con una speciale tecnologia di tunneling chiamata Transport Independent Network Architecture (TINA). Il tunnel TINA è collegato a ognuna delle reti virtuali tramite un dispositivo Barracuda NG Firewall, uno in ogni rete virtuale.  Per garantire la disponibilità elevata, è consigliabile distribuire due dispositivi Barracuda in ogni rete virtuale, uno attivo e l'altro passivo. Questi dispositivi offrono funzionalità firewall complesse che consentono di simulare il funzionamento di una tradizionale rete perimetrale locale in Azure.
 
 ![AD FS in Azure con firewall.](media/active-directory-deploying-ws-ad-guidelines/ADFS_Azure_firewall.png)
 
@@ -254,7 +255,7 @@ La sezione seguente descrive scenari di distribuzione comuni per mettere in evid
    
     Ad esempio, un'applicazione compatibile con LDAP, che supporta l'autenticazione integrata di Windows e usa Servizi di dominio Active Directory di Windows Server come archivio per i dati di configurazione e del profilo utente, viene distribuita in una macchina virtuale di Azure. È consigliabile che l'applicazione sfrutti Servizi di dominio Active Directory di Windows Server aziendale esistente e fornisca l'accesso Single Sign-On. L'applicazione non è in grado di riconoscere attestazioni.
 
-### <a name="a-namebkmkcloudonlya1-ad-ds-deploy-an-ad-ds-aware-application-with-no-requirement-for-corporate-network-connectivity"></a><a name="BKMK_CloudOnly"></a>1. Servizi di dominio Active Directory: distribuire un'applicazione compatibile con Servizi di dominio Active Directory senza requisiti per la connettività di rete aziendale
+### <a name="BKMK_CloudOnly"></a>1. Servizi di dominio Active Directory: distribuire un'applicazione compatibile con Servizi di dominio Active Directory senza requisiti per la connettività di rete aziendale
 ![Distribuzione di Servizi di dominio Active Directory solo cloud](media/active-directory-deploying-ws-ad-guidelines/ADDS_cloud.png)
 **Figura 1**
 
@@ -274,7 +275,7 @@ SharePoint viene distribuito in una macchina virtuale di Azure e l'applicazione 
 * [Posizione del database di Servizi di dominio Active Directory di Windows Server e di SYSVOL](#BKMK_PlaceDB): aggiungere un disco dati ai controller di dominio eseguiti come VM di Azure per archiviare il database di Active Directory di Windows Server, i log e SYSVOL.
 * [Backup e ripristino](#BKMK_BUR): determinare la posizione in cui archiviare i backup dello stato del sistema. Se necessario, aggiungere un altro disco dati alla VM del controller di dominio per archiviare i backup.
 
-### <a name="a-namebkmkcloudonlyfeda2-ad-fs-extend-a-claims-aware-on-premises-front-end-application-to-the-internet"></a><a name="BKMK_CloudOnlyFed"></a>2. AD FS: estendere a Internet un'applicazione front-end locale in grado di riconoscere attestazioni
+### <a name="BKMK_CloudOnlyFed"></a>2. AD FS: estendere a Internet un'applicazione front-end locale in grado di riconoscere attestazioni
 ![Federazione con connettività cross-premise](media/active-directory-deploying-ws-ad-guidelines/Federation_xprem.png)
 **Figura 2**
 
@@ -298,7 +299,7 @@ Per semplificare il processo e soddisfare le esigenze di configurazione e distri
 
 Per altre informazioni, vedere la [Guida alla distribuzione di Servizi di dominio Active Directory](https://technet.microsoft.com/library/cc753963).
 
-### <a name="a-namebkmkhybridexta3-ad-ds-deploy-a-windows-server-ad-ds-aware-application-that-requires-connectivity-to-the-corporate-network"></a><a name="BKMK_HybridExt"></a>3. Servizi di dominio Active Directory: distribuire un'applicazione compatibile con Servizi di dominio Active Directory di Windows Server che richiede la connettività di rete aziendale
+### <a name="BKMK_HybridExt"></a>3. Servizi di dominio Active Directory: distribuire un'applicazione compatibile con Servizi di dominio Active Directory di Windows Server che richiede la connettività di rete aziendale
 ![Distribuzione di Servizi di dominio Active Directory cross-premise](media/active-directory-deploying-ws-ad-guidelines/ADDS_xprem.png)
 **Figura 3**
 
@@ -344,12 +345,12 @@ Ad esempio, se si distribuisce un controller di dominio di replica in una rete v
 | [Requisiti del server federativo per l'indirizzamento IP pubblico e privato (confronto tra indirizzo IP dinamico e indirizzo IP virtuale)](#BKMK_FedReqVIPDIP) |<li>L'istanza di AD FS di Windows Server deve essere raggiunta direttamente da Internet?</li> <li>L'applicazione distribuita nel cloud richiede una porta e un indirizzo IP con connessione Internet specifici?</li> |Creare un servizio cloud per ogni indirizzo IP virtuale necessario per la distribuzione |
 | [Configurazione con disponibilità elevata di AD FS di Windows Server](#BKMK_ADFSHighAvail) |<li>Quanti nodi sono necessari nella server farm AD FS di Windows Server?</li> <li>Quanti nodi occorre distribuire nella farm del proxy AD FS di Windows Server?</li> |Resilienza e tolleranza di errore |
 
-### <a name="a-namebkmknetworktopologyanetwork-topology"></a><a name="BKMK_NetworkTopology"></a>Topologia di rete
+### <a name="BKMK_NetworkTopology"></a>Topologia di rete
 Per soddisfare i requisiti di DNS e di coerenza degli indirizzi IP di Servizi di dominio Active Directory di Windows Server, è necessario creare prima di tutto la [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) a cui connettere le macchine virtuali. Durante la creazione è necessario stabilire se estendere facoltativamente la connettività alla rete aziendale locale, che connette in modo trasparente le macchine virtuali di Azure ai computer locali. A questo scopo si usano le tecnologie VPN tradizionali ed è richiesta l'esposizione di un endpoint VPN sul perimetro della rete aziendale. In altre parole, la rete VPN viene avviata da Azure alla rete aziendale, non viceversa.
 
 Si noti che, oltre agli addebiti standard per ogni VM, vengono applicate spese aggiuntive quando si estende una rete virtuale alla rete locale. In particolare, vengono addebitati per il tempo di CPU del gateway di rete virtuale di Azure e il traffico in uscita generato dalle comunicazioni di ogni VM con i computer locali nella VPN. Per altre informazioni sugli addebiti per il traffico di rete, vedere [Prezzi di Azure](http://azure.microsoft.com/pricing/).
 
-### <a name="a-namebkmkdeploymentconfigadc-deployment-configuration"></a><a name="BKMK_DeploymentConfig"></a>Configurazione della distribuzione di un controller di dominio
+### <a name="BKMK_DeploymentConfig"></a>Configurazione della distribuzione di un controller di dominio
 La modalità di configurazione del controller di dominio dipende dai requisiti per il servizio che si vuole eseguire in Azure. Ad esempio, è possibile distribuire una nuova foresta, isolata dalla propria foresta aziendale, per testare un modello di verifica, una nuova applicazione o altri progetti a breve termine che richiedono servizi directory, ma non l'accesso specifico a risorse aziendali interne.
 
 Il vantaggio che deriva dalla mancata replica di un controller di dominio di una foresta isolata con i controller di dominio locali consente di ridurre il traffico di rete in uscita generato dal sistema stesso e di conseguenza i costi. Per altre informazioni sugli addebiti per il traffico di rete, vedere [Prezzi di Azure](http://azure.microsoft.com/pricing/).
@@ -360,7 +361,7 @@ Se si crea una nuova foresta, scegliere se usare [trust di Active Directory](htt
 
 Anche i requisiti di disponibilità e tolleranza di errore influiscono sulla scelta, Ad esempio, se il collegamento viene interrotto, è possibile che lo siano anche le applicazioni che usano un trust Kerberos o un trust federativo, a meno che non sia stata distribuita un'infrastruttura sufficiente in Azure. Le configurazioni di distribuzione alternative come i controller di dominio di replica (controller di dominio di sola lettura o scrivibili) aumentano la probabilità di tolleranza delle interruzioni del collegamento.
 
-### <a name="a-namebkmkadsitetopologyawindows-server-active-directory-site-topology"></a><a name="BKMK_ADSiteTopology"></a>Topologia del sito Active Directory di Windows Server
+### <a name="BKMK_ADSiteTopology"></a>Topologia del sito Active Directory di Windows Server
 È necessario definire correttamente i siti e i collegamenti di sito per ottimizzare il traffico e ridurre i costi. Siti, collegamenti di sito e subnet influiscono sulla topologia di replica tra i controller di dominio e il flusso del traffico di autenticazione. Considerare gli addebiti per il traffico seguenti e quindi distribuire e configurare i controller di dominio in base ai requisiti del proprio scenario di distribuzione:
 
 * Esiste una tariffa nominale oraria per il gateway stesso:
@@ -376,7 +377,7 @@ Anche i requisiti di disponibilità e tolleranza di errore influiscono sulla sce
 * Se la riduzione dei costi è una priorità, assicurarsi che la replica venga pianificata e che la notifica delle modifiche non sia abilitata. Questa è la configurazione predefinita per la replica tra siti. Ciò non è importante se si distribuisce un controller di dominio di sola lettura in una rete virtuale, perché questo tipo di controller non replica le modifiche in uscita. Se però si distribuisce un controller di dominio scrivibile, assicurarsi che il collegamento di sito non sia configurato per la replica degli aggiornamenti con una frequenza non necessaria. Se si distribuisce un server di catalogo globale, verificare che tutti gli altri siti che contengono un catalogo globale replichino le partizioni di dominio da un controller di dominio di origine in un sito connesso con collegamenti di sito che hanno un costo inferiore rispetto al catalogo globale nel sito di Azure.
 * È possibile ridurre ancora di più il traffico di rete generato dalla replica tra siti modificando l'algoritmo di compressione della replica. L'algoritmo di compressione è controllato dalla voce del Registro di sistema REG_DWORD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Replicator compression algorithm. Il valore predefinito è 3, che è correlato all'algoritmo di compressione Xpress. È possibile impostare il valore su 2, che modifica l'algoritmo in MSZip. Nella maggior parte dei casi ciò comporta un aumento della compressione, che però incide sull'utilizzo della CPU. Per altre informazioni, vedere l'articolo relativo al [funzionamento della topologia di replica di Active Directory](https://technet.microsoft.com/library/cc755994).
 
-### <a name="a-namebkmkipaddressdnsaip-addressing-and-dns"></a><a name="BKMK_IPAddressDNS"></a>Indirizzamento IP e DNS
+### <a name="BKMK_IPAddressDNS"></a>Indirizzamento IP e DNS
 Alle macchine virtuali di Azure vengono allocati "indirizzi con lease DHCP" per impostazione predefinita. Poiché gli indirizzi dinamici della rete virtuale di Azure sono persistenti in una macchina virtuale per la durata della macchina virtuale stessa, i requisiti di Servizi di dominio Active Directory di Windows Server vengono soddisfatti.
 
 Di conseguenza, quando si usa un indirizzo dinamico in Azure, si usa in effetti un indirizzo IP statico, perché è instradabile per il periodo del lease, che a sua volta equivale alla durata del servizio cloud.
@@ -395,7 +396,7 @@ Le VM registrano il relativo nome DNS automaticamente all'avvio o in caso di mod
 
 Per altre informazioni su questo esempio e su un altro che illustra il provisioning della prima VM e l'installazione in quest'ultima di Servizi di dominio Active Directory, vedere [Installare una nuova foresta Active Directory in una rete virtuale di Azure](active-directory-new-forest-virtual-machine.md). Per altre informazioni sull'uso di Windows PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) e [Cmdlet di gestione di Azure](https://msdn.microsoft.com/library/azure/jj152841).
 
-### <a name="a-namebkmkdistributeddcsageo-distributed-dcs"></a><a name="BKMK_DistributedDCs"></a>Controller di dominio con distribuzione geografica
+### <a name="BKMK_DistributedDCs"></a>Controller di dominio con distribuzione geografica
 Azure offre vantaggi quando si ospitano più controller di dominio in reti virtuali diverse:
 
 * Tolleranza di errore multisito
@@ -403,7 +404,7 @@ Azure offre vantaggi quando si ospitano più controller di dominio in reti virtu
 
 Per informazioni sulla configurazione della comunicazione diretta tra reti virtuali, vedere [Configurare una connessione da rete virtuale a rete virtuale](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
-### <a name="a-namebkmkrodcaread-only-dcs"></a><a name="BKMK_RODC"></a>Controller di dominio di sola lettura
+### <a name="BKMK_RODC"></a>Controller di dominio di sola lettura
 È necessario scegliere se distribuire controller di dominio scrivibili o di sola lettura. Si potrebbe pensare di distribuire controller di dominio di sola lettura perché non si avrà un controllo fisico su di essi, ma questi controller sono progettati per essere distribuiti nelle sedi in cui la sicurezza fisica è a rischio, ad esempio le succursali.
 
 Azure non presenta rischi di sicurezza fisica di una succursale, ma i controller di dominio di sola lettura potrebbero comunque risultare più economici perché le funzionalità che forniscono sono adatte a questi ambienti, anche se per motivi molto diversi. Ad esempio, i controller di dominio di sola lettura non hanno repliche in uscita e consentono di popolare selettivamente i segreti (password). D'altra parte, la mancanza di questi segreti potrebbe richiedere traffico in uscita su richiesta per la relativa convalida al momento dell'autenticazione di un utente o un computer. I segreti possono però essere prepopolati e memorizzati nella cache in modo selettivo.
@@ -412,14 +413,14 @@ I controller di dominio di sola lettura forniscono un vantaggio aggiuntivo per q
 
 Verificare che le applicazioni siano compatibili con i controller di dominio di sola lettura che si prevede di usare. Molte applicazioni abilitate per Active Directory di Windows Server funzionano bene con i controller di dominio di sola lettura, ma l'esecuzione di alcune di queste può risultare inefficiente o non riuscire se non hanno accesso a un controller di dominio scrivibile. Per altre informazioni, vedere la Guida alla [Compatibilità delle applicazioni con i controller di dominio di sola lettura](https://technet.microsoft.com/library/cc755190).
 
-### <a name="a-namebkmkgcaglobal-catalog"></a><a name="BKMK_GC"></a>Catalogo globale
+### <a name="BKMK_GC"></a>Catalogo globale
 È necessario scegliere se installare un catalogo globale. In una foresta a dominio singolo è necessario configurare tutti i controller di dominio come server di catalogo globale. I costi non aumenteranno perché non vi sarà alcun traffico di replica aggiuntivo.
 
 In una foresta con più domini i cataloghi globali sono necessari per espandere le appartenenze a gruppi universali durante il processo di autenticazione. Se non si distribuisce un catalogo globale, i carichi di lavoro nella rete virtuale che eseguono l'autenticazione in un controller di dominio in Azure genereranno indirettamente traffico di autenticazione in uscita per l'esecuzione di query sui cataloghi globali locali durante ogni tentativo di autenticazione.
 
 I costi associati ai cataloghi globali sono meno prevedibili perché ospitano ogni dominio (in parte). Se il carico di lavoro ospita un servizio con connessione Internet e autentica gli utenti in Servizi di dominio Active Directory di Windows Server, potrebbe essere difficile prevedere i costi. Per ridurre le query dei cataloghi globali al di fuori del sito cloud durante l'autenticazione, è possibile [abilitare la memorizzazione nella cache dell'appartenenza al gruppo universale](https://technet.microsoft.com/library/cc816928).
 
-### <a name="a-namebkmkinstallmethodainstallation-method"></a><a name="BKMK_InstallMethod"></a>Metodo di installazione
+### <a name="BKMK_InstallMethod"></a>Metodo di installazione
 È necessario scegliere come installare i controller di dominio nella rete virtuale:
 
 * Alzare di livello nuovi controller di dominio. Per altre informazioni, vedere [Installare una nuova foresta Active Directory in una rete virtuale di Azure](active-directory-new-forest-virtual-machine.md).
@@ -429,7 +430,7 @@ Usare solo macchine virtuali per i controller di dominio, invece di macchine vir
 
 Non usare SYSPREP per distribuire o clonare i controller di dominio. La possibilità di clonare i controller di dominio è disponibile solo a partire da Windows Server 2012. La funzionalità di clonazione richiede il supporto per VMGenerationID nell'hypervisor sottostante. Hyper-V in Windows Server 2012 e le reti virtuali di Azure supportano entrambi VMGenerationID, come fanno i fornitori di software di virtualizzazione di terze parti.
 
-### <a name="a-namebkmkplacedbaplacement-of-the-windows-server-ad-ds-database-and-sysvol"></a><a name="BKMK_PlaceDB"></a>Posizione del database di Servizi di dominio Active Directory di Windows Server e di SYSVOL
+### <a name="BKMK_PlaceDB"></a>Posizione del database di Servizi di dominio Active Directory di Windows Server e di SYSVOL
 Selezionare la posizione per il database di Servizi di dominio Active Directory di Windows Server, i log e SYSVOL. Devono essere distribuiti nei dischi dati di Azure.
 
 > [!NOTE]
@@ -446,14 +447,14 @@ La procedura consigliata per i controller di dominio virtuali prevede quanto seg
 * Impostare Preferenze cache dell'host del disco dati di Azure su NESSUNA. In questo modo si evitano problemi di memorizzazione nella cache in scrittura per le operazioni di Servizi di dominio Active Directory.
 * Archiviare il database, i log e SYSVOL nello stesso disco dati o in dischi dati separati. In genere, si tratta di un disco separato da quello usato per il sistema operativo stesso. L'aspetto più importante è che il database di Servizi di dominio Active Directory di Windows Server e SYSVOL non devono essere archiviati in un tipo di disco del sistema operativo Azure. Per impostazione predefinita, il processo di installazione di Servizi di dominio Active Directory di Windows Server installa i componenti nella cartella %systemroot%, ma questa NON è una soluzione consigliata per Azure.
 
-### <a name="a-namebkmkburabackup-and-restore"></a><a name="BKMK_BUR"></a>Backup e ripristino
+### <a name="BKMK_BUR"></a>Backup e ripristino
 Tenere presente quali elementi sono o meno supportati per il backup e ripristino di un controller di dominio in generale e, più in particolare, quelli in esecuzione in una VM. Vedere [Considerazioni sul backup e il ripristino dei controller di dominio virtualizzati](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv#backup_and_restore_considerations_for_virtualized_domain_controllers).
 
 Creare backup dello stato del sistema usando solo software per backup che riconosca specificatamente i requisiti di backup per Servizi di dominio Active Directory di Windows Server, ad esempio Windows Server Backup.
 
 Non copiare o clonare file VHD di controller di dominio invece di eseguire backup regolari. Se è necessario un ripristino e l'operazione viene eseguita usando VHD clonati o copiati senza Windows Server 2012 e un hypervisor supportato, verranno introdotti gap USN.
 
-### <a name="a-namebkmkfedsrvconfigafederation-server-configuration"></a><a name="BKMK_FedSrvConfig"></a>Configurazione del server federativo
+### <a name="BKMK_FedSrvConfig"></a>Configurazione del server federativo
 La configurazione di server federativi AD FS di Windows Server (servizi token di sicurezza) dipende in parte dal fatto che le applicazioni da distribuire in Azure richiedano o meno l'accesso alle risorse nella rete locale.
 
 Se le applicazioni soddisfano i criteri seguenti, possono essere distribuite isolate dalla rete locale.
@@ -479,15 +480,15 @@ Questa configurazione offre il vantaggio di ridurre l'esposizione delle risorse 
 
 Si noti che in entrambi gli scenari è possibile stabilire relazioni di trust con più provider di identità, se è necessaria la collaborazione business-to-business.
 
-### <a name="a-namebkmkcloudsvcconfigacloud-services-configuration"></a><a name="BKMK_CloudSvcConfig"></a>Configurazione di servizi cloud
+### <a name="BKMK_CloudSvcConfig"></a>Configurazione di servizi cloud
 I servizi cloud sono necessari se si vuole esporre una VM direttamente a Internet o esporre un'applicazione con bilanciamento del carico con connessione Internet. Ciò è possibile perché ogni servizio cloud offre un singolo indirizzo IP virtuale configurabile.
 
-### <a name="a-namebkmkfedreqvipdipafederation-server-requirements-for-public-and-private-ip-addressing-dynamic-ip-vs-virtual-ip"></a><a name="BKMK_FedReqVIPDIP"></a>Requisiti del server federativo per l'indirizzamento IP pubblico e privato (confronto tra indirizzo IP dinamico e indirizzo IP virtuale)
+### <a name="BKMK_FedReqVIPDIP"></a>Requisiti del server federativo per l'indirizzamento IP pubblico e privato (confronto tra indirizzo IP dinamico e indirizzo IP virtuale)
 Ogni macchina virtuale di Azure riceve un indirizzo IP dinamico. Un indirizzo IP dinamico è un indirizzo privato accessibile solo all'interno di Azure. Nella maggior parte dei casi sarà tuttavia necessario configurare un indirizzo IP virtuale per le distribuzioni di AD FS di Windows Server. L'indirizzo IP virtuale è necessario per esporre a Internet gli endpoint AD FS di Windows Server che saranno usati da partner e client federativi per l'autenticazione e la gestione continuativa. Un indirizzo IP virtuale è una proprietà di un servizio cloud che contiene una o più macchine virtuali di Azure. Se le sessioni dell'applicazione in grado di riconoscere attestazioni distribuita in Azure e AD FS di Windows Server sono entrambi con connessione Internet e condividono porte comuni, per ognuna sarà necessario un indirizzo IP virtuale specifico e sarà quindi necessario creare un servizio cloud per l'applicazione e un altro per AD FS di Windows Serve.
 
 Per le definizioni dei termini "indirizzo IP virtuale", "condizioni" e "indirizzo IP dinamico", vedere [Termini e definizioni](#BKMK_Glossary).
 
-### <a name="a-namebkmkadfshighavailawindows-server-ad-fs-high-availability-configuration"></a><a name="BKMK_ADFSHighAvail"></a>Configurazione con disponibilità elevata di AD FS di Windows Server
+### <a name="BKMK_ADFSHighAvail"></a>Configurazione con disponibilità elevata di AD FS di Windows Server
 Anche se è possibile distribuire servizi federativi AD FS di Windows Server autonomi, è consigliabile distribuire una farm con almeno due nodi sia per il servizio token di sicurezza di AD FS che per i proxy per gli ambienti di produzione.
 
 Per stabilire le opzioni di configurazione della distribuzione che meglio soddisfano esigenze particolari, vedere [Considerazioni sulla topologia di distribuzione di AD FS 2.0](https://technet.microsoft.com/library/gg982489) nella [Guida alla progettazione di AD FS 2.0](https://technet.microsoft.com/library/dd807036).
@@ -497,10 +498,5 @@ Per stabilire le opzioni di configurazione della distribuzione che meglio soddis
 > Il bilanciamento del carico di rete di Windows Server non è supportato in Azure.
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 
