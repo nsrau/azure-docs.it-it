@@ -4,7 +4,7 @@ description: Informazioni su come configurare l&quot;autenticazione di Azure Act
 author: mattchenderson
 services: app-service
 documentationcenter: 
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.service: app-service-mobile
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 425ecfeec54df9c52a4325964b2b48f6a2856693
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 1f8813370995a7a55c9d87b8ec1b60ae0fe623f5
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -45,7 +46,7 @@ Questo argomento descrive come configurare i servizi app di Azure per usare Azur
 
 ### <a name="register"> </a>Registrare l'applicazione con Azure Active Directory
 1. Accedere al [portale di Azure], e passare all'applicazione. Copiare l' **URL**. L'URL verrà utilizzato per configurare l'app di Azure Active Directory.
-2. Accedere al [portale di Azure classico] e passare ad **Active Directory**.
+2. Accedere al [Portale di Azure classico] e passare ad **Active Directory**.
    
     ![][2]
 3. Selezionare la directory, quindi la scheda **Applicazioni** nella parte superiore. Fare clic su **AGGIUNGI** in basso per creare una nuova registrazione dell'app.
@@ -75,7 +76,7 @@ Questo argomento descrive come configurare i servizi app di Azure per usare Azur
 ## <a name="optional-configure-a-native-client-application"></a>(Facoltativo) Configurare un'applicazione client nativa
 Azure Active Directory consente inoltre di registrare i client nativi, il che offre maggiore controllo sul mapping delle autorizzazioni. È utile se si desidera eseguire l'account di accesso mediante una libreria, come ad esempio il **Active Directory Authentication Library**.
 
-1. Passare a **Active Directory** nel [portale di Azure classico]
+1. Passare a **Active Directory** nel [Portale di Azure classico]
 2. Selezionare la directory, quindi la scheda **Applicazioni** nella parte superiore. Fare clic su **AGGIUNGI** in basso per creare una nuova registrazione dell'app.
 3. Fare clic su **Aggiungi un'applicazione che l'organizzazione sta sviluppando**.
 4. Nella procedura guidata di aggiunta applicazione immettere un **Nome** per l'applicazione e fare clic sul tipo **Applicazione client nativa**. Fare quindi clic per continuare.
@@ -100,11 +101,6 @@ Ora è stata configurata un'applicazione client nativa che può accedere all'app
 <!-- URLs. -->
 
 [portale di Azure]: https://portal.azure.com/
-[portale di Azure classico]: https://manage.windowsazure.com/
-[metodo alternativo]:#advanced
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Portale di Azure classico]: https://manage.windowsazure.com/
+[alternative method]:#advanced
 

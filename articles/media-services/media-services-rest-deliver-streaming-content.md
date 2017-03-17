@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4234def6200b8beb6db7e4bd96ca1b8ebcc11c03
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: bb3ae3d26d174d0f37cc348cde570250699bf067
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -49,6 +50,10 @@ Per creare un localizzatore di streaming OnDemand e ottenere gli URL, è necessa
 5. Si noti che non è possibile creare un localizzatore di streaming utilizzando un criterio di accesso che include autorizzazioni alla scrittura o all’eliminazione.
 
 ### <a name="create-an-access-policy"></a>Creare i criteri di accesso
+
+>[!NOTE]
+>È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Usare lo stesso ID criterio se si usano sempre gli stessi giorni/autorizzazioni di accesso, come nel cado di criteri per i localizzatori che devono rimanere attivi per molto tempo (criteri di non caricamento). Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) argomento.
+
 Richiesta:
 
     POST https://media.windows.net/api/AccessPolicies HTTP/1.1
@@ -154,7 +159,7 @@ esempio:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-## <a name="a-idtypesaenum-types"></a><a id="types"></a>Tipi enum
+## <a id="types"></a>Tipi enum
     [Flags]
     public enum AccessPermissions
     {
@@ -180,10 +185,5 @@ esempio:
 
 ## <a name="see-also"></a>Vedere anche
 [Configurare i criteri di distribuzione dell'asset](media-services-rest-configure-asset-delivery-policy.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

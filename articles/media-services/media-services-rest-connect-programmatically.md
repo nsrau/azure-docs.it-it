@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9ec07aacbde3f218d7a1bbddadad7552e737e1ea
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 4feb0eb81823835e8e0b701463d85b27f5598019
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -50,11 +51,14 @@ I seguenti passaggi descrivono i flussi di lavoro comuni relativi all'uso dell'A
    
     Si consiglia di inviare le successive chiamate API a https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
+    >[!NOTE]
+    >È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Usare lo stesso ID criterio se si usano sempre gli stessi giorni/autorizzazioni di accesso, come nel cado di criteri per i localizzatori che devono rimanere attivi per molto tempo (criteri di non caricamento). Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) argomento.
+
 ## <a name="access-control-address"></a>Indirizzo del controllo di accesso
 L'indirizzo del controllo di accesso di Servizi multimediali è https://wamsprodglobal001acs.accesscontrol.windows.net, eccetto per la Cina settentrionale, dove è https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn.
 
 ## <a name="getting-an-access-token"></a>Recupero di un token di accesso
-Per accedere a Servizi multimediali direttamente dall'API REST, recuperare un token di accesso da Servizi di controllo di accesso e usarlo per ogni richiesta HTTP effettuata nel servizio. Questo token è simile ad altri token forniti da Servizi di controllo di accesso in base alle attestazioni di accesso riportate nell'intestazione di una richiesta HTTP che usano il protocollo OAuth versione 2. Non sono previsti altri prerequisiti per connettersi direttamente a Servizi multimediali.
+Per accedere a Servizi multimediali direttamente dall'API REST, recuperare un token di accesso da Servizi di controllo di accesso e usarlo per ogni richiesta HTTP effettuata nel servizio. Questo token è simile ad altri token forniti da Servizi di controllo di accesso in base alle attestazioni di accesso riportate nell'intestazione di una richiesta HTTP che usano il protocollo OAuth versione&2;. Non sono previsti altri prerequisiti per connettersi direttamente a Servizi multimediali.
 
 Il seguente esempio illustra l'intestazione e il corpo della richiesta HTTP usati per recuperare un token.
 
@@ -182,10 +186,5 @@ L'esempio seguente illustra la richiesta HTTP all'URI radice di Servizi multimed
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

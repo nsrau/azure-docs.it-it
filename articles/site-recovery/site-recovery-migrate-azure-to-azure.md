@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/19/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: c33b69dbdccd2a894b494175dec2bd423af478b1
-ms.openlocfilehash: 0019b64ba545d91cf32ed2945c5c0d4844e264e1
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: b0fb6e2b86aa0a47b7250face90be8ab2d06b78e
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -35,7 +35,7 @@ Per inviare commenti o domande, è possibile usare la parte inferiore di questo 
 ## <a name="prerequisites"></a>Prerequisiti
 Per la distribuzione è necessario quanto segue:
 
-* **Server di configurazione**: una VM locale che esegue Windows Server 2012 R2 e agisce da server di configurazione. Installare gli altri componenti di Site Recovery anche in questa VM, inclusi il server di elaborazione e il server di destinazione master. Per altre informazioni, leggere [Architettura dello scenario](site-recovery-components.md#vmware-replication-to-azure) e [Prerequisiti del server di configurazione](site-recovery-vmware-to-azure.md#prerequisites).
+* **Server di configurazione**: una VM locale che esegue Windows Server 2012 R2 e agisce da server di configurazione. Installare gli altri componenti di Site Recovery anche in questa VM, inclusi il server di elaborazione e il server di destinazione master. Per altre informazioni, leggere [Architettura dello scenario](site-recovery-components.md#vmware-to-azure) e [Prerequisiti del server di configurazione](site-recovery-vmware-to-azure.md#prerequisites).
 * **Macchine virtuali IaaS**: le VM di cui si desidera eseguire la migrazione. Nella migrazione queste VM vengono considerate macchine fisiche.
 
 ## <a name="deployment-steps"></a>Passaggi di distribuzione

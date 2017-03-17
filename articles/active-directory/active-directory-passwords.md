@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
-ms.openlocfilehash: 760c248c92948af2c7e9ae54b0c42f396f0376f6
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 68334eab580e7117cf0b18f84ba56ed699fea12e
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="azure-active-directory-password-reset-for-it-administrators"></a>Reimpostazione delle password in Azure Active Directory per gli amministratori IT
 > [!IMPORTANT]
-> Si desidera reimpostare la password di Azure o di O365?  Se sì, [passare a questa sezione](#users-how-to-manage-your-own-password).
+> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
@@ -118,8 +118,8 @@ Per altre informazioni sui prezzi di Azure AD Premium o Basic, visitare la pagin
 | Argomento |  |
 | --- | --- |
 | Dove è possibile visualizzare i report di reimpostazione della password? |[Informazioni generali sui report di gestione delle password](active-directory-passwords-get-insights.md#overview-of-password-management-reports) |
-| Dove si possono trovare informazioni sul modo in cui gli utenti aziendali usano la funzione di reimpostazione della password? |[Visualizzare le attività di reimpostazione delle password nell'organizzazione](active-directory-passwords-get-insights.md#view-password-reset-activity) |
-| Dove è possibile visualizzare quanti utenti stanno effettuando la registrazione e a cosa si stanno registrando? |[Visualizzare le attività di registrazione per la reimpostazione delle password](active-directory-passwords-get-insights.md#view-password-reset-registration-activity) |
+| Dove si possono trovare informazioni sul modo in cui gli utenti aziendali usano la funzione di reimpostazione della password? |[Visualizzare le attività di reimpostazione delle password nell'organizzazione](active-directory-passwords-get-insights.md#how-to-view-password-management-reports) |
+| Dove è possibile visualizzare quanti utenti stanno effettuando la registrazione e a cosa si stanno registrando? |[Visualizzare le attività di registrazione per la reimpostazione delle password](active-directory-passwords-get-insights.md#how-to-view-password-management-reports) |
 | Come è possibile ottenere i report di reimpostazione della password da un'API? |[Creazione di un'applicazione in Azure AD per accedere all'API di generazione di report](active-directory-reporting-api-getting-started.md) |
 | Che tipo di informazioni sulla generazione dei report di reimpostazione della password sono disponibili tramite un'API? |[Eventi di registrazione e reimpostazione della password disponibili nell'API per la generazione di report](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview#SsprActivityEvent) |
 
@@ -213,7 +213,7 @@ Di seguito sono riportate alcune interessanti funzionalità in fase di elaborazi
 ## <a name="next-steps"></a>Passaggi successivi
 Di seguito sono disponibili i collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
+* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 * [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
 * [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
 * [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione

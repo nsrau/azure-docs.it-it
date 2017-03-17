@@ -16,9 +16,9 @@ ms.workload: web
 ms.date: 02/21/2017
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 97ab792a0ad7420e97dbab378736b9815356e8a4
-ms.openlocfilehash: 6eb40d9a771bf68125008890777e90e2061a56fb
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 76f63464dc9cad9b911642d09e34b862d6f729fc
+ms.lasthandoff: 03/11/2017
 
 ---
 
@@ -34,13 +34,7 @@ Questo esempio funziona in una shell Bash. Per le opzioni sull'esecuzione di scr
 
 [!code-azurecli[main](../../../cli_scripts/app-service/deploy-linux-docker/deploy-linux-docker.sh?highlight=6 "Linux Docker")]
 
-## <a name="clean-up-deployment"></a>Pulire la distribuzione
-
-Dopo l'esecuzione dello script di esempio, eseguire il comando seguente per rimuovere il gruppo di risorse, l'app del servizio app e tutte le risorse correlate.
-
-```azurecli
-az group delete --name myResourceGroup
-```
+[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## <a name="script-explanation"></a>Spiegazione dello script
 

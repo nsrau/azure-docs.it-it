@@ -15,15 +15,14 @@ ms.topic: article
 ms.date: 03/01/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f1b8c68639fd2b778e7e56a6826e91d5bffd4ae8
-ms.openlocfilehash: c6f843e452353edc7c4c7e9bacf653c555145afe
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 52f672dcf42a19bf10935fcf733b8f07ff559a8d
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introduzione alla distribuzione di contenuti su richiesta usando REST
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
-
 
 Questa guida introduttiva illustra il processo di implementazione di un'applicazione di distribuzione di contenuti Video on Demand (VoD) usando le API REST di Servizi multimediali di Azure.
 
@@ -52,6 +51,9 @@ Questa guida introduttiva illustra come effettuare le seguenti attività.
 5. Pubblicare l'asset e ottenere gli URL di streaming e di download progressivo con l'API REST.
 6. Riprodurre i contenuti.
 
+>[!NOTE]
+>È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Usare lo stesso ID criterio se si usano sempre gli stessi giorni/autorizzazioni di accesso, come nel cado di criteri per i localizzatori che devono rimanere attivi per molto tempo (criteri di non caricamento). Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) argomento.
+
 
 Per altre informazioni sulle entità di REST AMS usate in questo argomento, vedere [Informazioni generali sull'API REST di Servizi multimediali](/rest/api/media/services/azure-media-services-rest-api-reference). Vedere anche [Concetti relativi ai Servizi multimediali di Azure](media-services-concepts.md).
 
@@ -73,7 +75,7 @@ Per avviare l'endpoint di streaming, eseguire queste operazioni:
 4. Fare clic sull'icona di avvio.
 5. Fare clic sul pulsante Salva per salvare le modifiche apportate.
 
-## <a name="a-idconnectaconnect-to-the-media-services-account-with-rest-api"></a><a id="connect"></a>Connettersi all'account di servizi multimediali con l'API REST
+## <a id="connect"></a>Connettersi all'account di servizi multimediali con l'API REST
 Quando si accede a Servizi multimediali di Azure sono necessari due elementi: un token di accesso fornito da Servizi di controllo di accesso di Azure e l'URI di Servizi multimediali. Per creare queste richieste è possibile procedere come si preferisce, ma è necessario specificare i valori di intestazione corretti e passare correttamente il token di accesso quando si esegue una chiamata in Servizi multimediali.
 
 I seguenti passaggi descrivono i flussi di lavoro comuni relativi all'uso dell'API REST per connettersi a Servizi multimediali:
@@ -216,7 +218,7 @@ L'esempio seguente illustra la richiesta HTTP all'URI radice di Servizi multimed
 >
 >
 
-## <a name="a-iduploadacreate-a-new-asset-and-upload-a-video-file-with-rest-api"></a><a id="upload"></a>Creare un nuovo asset e caricare un file video con l'API REST
+## <a id="upload"></a>Creare un nuovo asset e caricare un file video con l'API REST
 
 In Servizi multimediali è possibile caricare i file digitali in un asset. L'entità **Asset** può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli codificati, oltre ai metadati relativi a questi file.  Dopo il caricamento dei file nell'asset, i contenuti vengono archiviati in modo sicuro nel cloud per altre operazioni di elaborazione e streaming.
 
@@ -540,7 +542,7 @@ Se l'esito è positivo, viene restituita la seguente risposta:
     HTTP/1.1 204 No Content
     ...
 
-## <a name="a-idencodeaencode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a><a id="encode"></a>Codificare il file di origine in un set di file MP4 a velocità in bit adattiva
+## <a id="encode"></a>Codificare il file di origine in un set di file MP4 a velocità in bit adattiva
 
 Dopo aver inserito gli asset in Servizi multimediali, i file multimediali possono essere codificati, sottoposti a transmux e all'applicazione di filigrana e così via prima di essere distribuiti ai client. Queste attività vengono pianificate ed eseguite in più istanze del ruolo in background per assicurare prestazioni e disponibilità elevate. Queste attività vengono chiamate processi. Ogni processo è formato da attività atomiche che svolgono le procedure effettive nel file di asset (per altre informazioni, vedere le descrizioni di [processi](/rest/api/media/services/job) e [attività](/rest/api/media/services/task)).
 
@@ -829,7 +831,7 @@ Il seguente codice mostra come richiedere l'ID dell'asset di output.
 
 
 
-## <a name="a-idpublishgeturlsapublish-the-asset-and-get-streaming-and-progressive-download-urls-with-rest-api"></a><a id="publish_get_urls"></a>Pubblicare l'asset e ottenere gli URL di streaming e di download progressivo con l'API REST
+## <a id="publish_get_urls"></a>Pubblicare l'asset e ottenere gli URL di streaming e di download progressivo con l'API REST
 
 Per eseguire lo streaming o il download di un asset è necessario prima "pubblicarlo" creando un localizzatore. I localizzatori forniscono l'accesso ai file contenuti nell'asset. Servizi multimediali supporta due tipi di localizzatori: localizzatori OnDemandOrigin, usati per lo streaming dei file multimediali (ad esempio, MPEG DASH, HLS o Smooth Streaming) e localizzatori di firma di accesso condiviso, usati per scaricare i file multimediali. Per altre informazioni sui localizzatori della firma di accesso condiviso, vedere [questo](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog.
 
@@ -1052,7 +1054,7 @@ Per trasmettere in streaming contenuti MPEG DASH, aggiungere (format=mpd-time-cs
     http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
 
-## <a name="a-idplayaplay-your-content"></a><a id="play"></a>Riprodurre i contenuti
+## <a id="play"></a>Riprodurre i contenuti
 Per riprodurre il video, utilizzare [Lettore di Servizi multimediali di Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 Per testare il download progressivo, incollare un URL in un browser (ad esempio, IE, Chrome, Safari).

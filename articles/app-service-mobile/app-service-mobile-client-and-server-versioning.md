@@ -4,7 +4,7 @@ description: "Elenco degli SDK del client e compatibilità con versioni SDK del 
 services: app-service\mobile
 documentationcenter: 
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
 ms.service: app-service-mobile
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1d1ef7821eee67f4b9ace01af7e41bd7fdd28b5e
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: d74137dc3c994cb05e02c4f866043eabf134fcdd
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -63,12 +64,12 @@ Il grafico seguente illustra la compatibilità tra tutti i tipi di client e serv
 
 <!-- NOTE: the fwlink to this document is http://go.microsoft.com/fwlink/?LinkID=690568 -->
 
-## <a name="a-name100amobile-services-client-and-server"></a><a name="1.0.0"></a>Client e server di Servizi mobili
+## <a name="1.0.0"></a>Client e server di Servizi mobili
 Gli SDK del client nella tabella seguente sono compatibili con **Servizi mobili**.
 
 Nota: gli SDK del client di Servizi mobili *non* inviano un valore di intestazione per `ZUMO-API-VERSION`. Se il servizio riceve questo valore di intestazione o di stringa di query, verrà restituito un errore, a meno che non lo si abbia rifiutato in modo esplicito come descritto sopra.
 
-### <a name="a-namemobileservicesclientsa-mobile-services-client-sdks"></a><a name="MobileServicesClients"></a> SDK del client di *Servizi* mobili
+### <a name="MobileServicesClients"></a> SDK del client di *Servizi* mobili
 | Piattaforma client | Versione | Valore dell'intestazione della versione |
 | --- | --- | --- |
 | Client gestito (Windows, Xamarin) |[1.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) |n/d |
@@ -91,8 +92,8 @@ Nota: gli SDK del client di Servizi mobili *non* inviano un valore di intestazio
 | Qualsiasi valore |True |200 - OK |
 | Qualsiasi valore |False/Non specificato |400 - Richiesta non valida |
 
-## <a name="a-name200aazure-mobile-apps-client-and-server"></a><a name="2.0.0"></a>Client e server di App per dispositivi mobili di Azure
-### <a name="a-namemobileappsclientsa-mobile-apps-client-sdks"></a><a name="MobileAppsClients"></a> SDK del client di *App* per dispositivi mobili
+## <a name="2.0.0"></a>Client e server di App per dispositivi mobili di Azure
+### <a name="MobileAppsClients"></a> SDK del client di *App* per dispositivi mobili
 Il controllo della versione è stata introdotta a partire dalle seguenti versioni dell’SDK del client per **App per dispositivi mobili di Azure**:
 
 | Piattaforma client | Versione | Valore dell'intestazione della versione |
@@ -129,10 +130,5 @@ Il controllo della versione è incluso nelle seguenti versioni dell’SDK del se
 
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Eseguire la migrazione di un servizio mobile al servizio app di Azure]: app-service-mobile-migrating-from-mobile-services.md
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
