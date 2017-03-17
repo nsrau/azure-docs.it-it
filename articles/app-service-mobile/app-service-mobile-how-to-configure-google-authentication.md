@@ -4,7 +4,7 @@ description: Informazioni su come configurare l&quot;autenticazione Google per u
 services: app-service
 documentationcenter: 
 author: mattchenderson
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.service: app-service-mobile
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 015f26c108a10ca346fc990cf1c6435493e137a4
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 09db38cfb5fb4277d4ca259eb10e388af33f1773
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -65,13 +66,8 @@ Per completare la procedura descritta in questo argomento, è necessario avere u
 
 <!-- URLs. -->
 
-[API di Google]: http://go.microsoft.com/fwlink/p/?LinkId=268303
+[Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 
 [portale di Azure]: https://portal.azure.com/
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

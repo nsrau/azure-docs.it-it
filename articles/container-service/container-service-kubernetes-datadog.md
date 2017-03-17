@@ -1,6 +1,6 @@
 ---
-title: Monitorare un cluster Azure Kubernetes con DataDog | Documentazione Microsoft
-description: Monitoraggio di cluster Kubernetes nel servizio contenitore di Azure con DataDog
+title: Monitorare un cluster Azure Kubernetes con Datadog | Microsoft Docs
+description: Monitoraggio di un cluster Kubernetes nel servizio contenitore di Azure con Datadog
 services: container-service
 documentationcenter: 
 author: bburns
@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
 translationtype: Human Translation
-ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
-ms.openlocfilehash: 2984a3811eba670b54fd253a8d7dc84acd8c8ec4
+ms.sourcegitcommit: f7377b3d0c0b89d7e196a31890173575688687cf
+ms.openlocfilehash: 901cbf5093c6a547f5dffa7ed6d71fe67caaadb9
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -59,12 +60,8 @@ Prima è necessario [creare un account](https://www.datadoghq.com/lpg/)
 Gli elementi DaemonSet vengono usati da Kubernetes per eseguire una singola istanza di un contenitore in ogni host del cluster.
 Sono ideali per l'esecuzione di agenti di monitoraggio.
 
-Dopo l'accesso a DataDog, è possibile seguire le [istruzioni di DataDog](https://app.datadoghq.com/account/settings#agent/kubernetes) per installare gli agenti DataDog nel cluster usando DaemonSet.
+Dopo l'accesso a Datadog, è possibile seguire le [istruzioni di Datadog](https://app.datadoghq.com/account/settings#agent/kubernetes) per installare gli agenti Datadog nel cluster usando DaemonSet.
 
 ## <a name="conclusion"></a>Conclusioni
 L'operazione è terminata. Con gli agenti operativi, i dati verranno visualizzati nella console entro alcuni minuti. È possibile visitare il [dashboard di Kubernetes](https://app.datadoghq.com/screen/integration/kubernetes) integrato per visualizzare un riepilogo del cluster.
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/09/2017
 ms.author: markgal;trinadhk
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9b5cdc89985c43250e082518087d2ef209ff0217
-ms.openlocfilehash: 9574d30b228c9254ef57d0d3253cd5fc841efad4
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
+ms.openlocfilehash: 754ad53c46fd6bc00be0282138480e73d560fdc6
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="deploy-and-manage-backups-for-resource-manager-deployed-vms-using-powershell"></a>Distribuire e gestire i backup per le macchina virtuali distribuite con Resource Manager utilizzando PowerShell
+# <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Usare i cmdlet AzureRM.RecoveryServices.Backup per eseguire il backup di macchine virtuali
 > [!div class="op_single_selector"]
 > * [Gestione risorse](backup-azure-vms-automation.md)
 > * [Classico](backup-azure-vms-classic-automation.md)

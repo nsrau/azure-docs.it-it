@@ -38,7 +38,8 @@
 ### [Spostare le risorse in un nuovo gruppo o sottoscrizione](resource-group-move-resources.md)
 ## Controllare l'accesso
 ### [Creare un'entità servizio con PowerShell](resource-group-authenticate-service-principal.md)
-### [Creare un'entità servizio con l'interfaccia della riga di comando di Azure](resource-group-authenticate-service-principal-cli.md)
+### [Creare un'entità servizio con l'interfaccia della riga di comando 2.0 di Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Creare un'entità servizio con l'interfaccia della riga di comando 1.0 di Azure](resource-group-authenticate-service-principal-cli.md)
 ### [Creare un'entità servizio con il portale](resource-group-create-service-principal-portal.md)
 ### [API di autenticazione per accedere alle sottoscrizioni](resource-manager-api-authentication.md)
 ### [Bloccare le risorse](resource-group-lock-resources.md)

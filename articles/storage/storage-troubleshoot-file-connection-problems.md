@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 7aa2a60f2a02e0f9d837b5b1cecc03709f040898
-ms.openlocfilehash: cce72f374e2cc6f1a42428d9f8e1f3ab8be50f7b
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 0479db07710d7ff6037dc692e5387a314bed32ca
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -36,18 +36,18 @@ Questo articolo elenca i problemi comuni correlati all'archiviazione file di Mic
 * [Rallentamento delle prestazioni quando si accede all'archiviazione file di Azure da Windows 8.1 o Windows Server 2012 R2](#windowsslow)
 * [Errore 53 durante il tentativo di montare una condivisione file di Azure](#error53)
 * [Errore 87 indicante che il parametro non è corretto durante il tentativo di montare una condivisione file di Azure](#error87)
-* [Il comando net use è stato eseguito, ma la condivisione file di Azure montata in Esplora risorse non è visibile](#netuse)
+* [Il comando net use è stato eseguito, ma la condivisione file di Azure montata o la lettera dell'unità non è visibile nell'interfaccia utente di Esplora risorse](#netuse)
 * [L'account di archiviazione contiene "/" e il comando net use non viene eseguito](#slashfails)
 * [L'applicazione o il servizio non può accedere all'unità File di Azure montata](#accessfiledrive)
 * [Consigli aggiuntivi per ottimizzare le prestazioni](#additional)
+* [Errore "You are copying a file to a destination that does not support encryption" (La destinazione in cui si sta copiando il file non supporta la crittografia) quando si caricano o si copiano file in File di Azure](#encryption)
 
 **Problemi relativi a client Linux**
 
-* [Errore "You are copying a file to a destination that does not support encryption" (La destinazione in cui si sta copiando il file non supporta la crittografia) quando si caricano o si copiano file in File di Azure](#encryption)
-* [Errore di I/O intermittente indicante l'host inattivo su condivisioni file esistenti o blocco della shell quando si eseguono comandi list sul punto di montaggio](#errorhold)
+* [Errore di I/O intermittente: "Host is down (Error 112)" (Host inattivo - Errore 112) su condivisioni file esistenti o blocco della shell quando si eseguono comandi list sul punto di montaggio](#errorhold)
 * [Errore di montaggio 115 quando si tenta di montare File di Azure sulla macchina virtuale Linux](#error15)
-* [La macchina virtuale Linux presenta ritardi casuali nell'esecuzione di comandi come "ls"](#delayproblem)
-* [Errore 112 - Errore di timeout](#error112)
+* [Nella condivisione file di Azure montata nella macchina virtuale Linux viene riscontrato un rallentamento delle prestazioni](#delayproblem)
+
 
 **Accedere da altre applicazioni**
 
@@ -193,7 +193,7 @@ Le unità vengono montate per utente. Se l'applicazione o il servizio viene eseg
 ### <a name="solution"></a>Soluzione
 Montare l'unità dallo stesso account utente con cui viene eseguita l'applicazione. Questa operazione può essere eseguita mediante strumenti quali psexec.
 
-In alternativa, è possibile creare un nuovo utente con gli stessi privilegi dell'account di sistema o del servizio di rete e quindi eseguire **cmdkey** e **net use** con questo account. Il nome utente e la password devono corrispondere rispettivamente al nome e alla chiave dell'account di archiviazione. Un'altra opzione per **net use** consiste nel passare il nome e la chiave dell'account di archiviazione nei parametri di nome utente e password del comando **net use**.
+Un'altra opzione per **net use** consiste nel passare il nome e la chiave dell'account di archiviazione nei parametri di nome utente e password del comando **net use**.
 
 Dopo aver seguito le istruzioni, è possibile che venga visualizzato il messaggio seguente: "Errore di sistema 1312. Una sessione di accesso specificata non esiste. Potrebbe essere già stata terminata"quando si esegue **net use** per l'account di sistema o del servizio di rete. In questo caso, assicurarsi che il nome utente passato a **net use** includa informazioni di dominio (ad esempio: "[nome account archiviazione].file.core.windows.net").
 
@@ -219,14 +219,34 @@ Si noti, tuttavia, che l'impostazione della chiave del Registro di sistema influ
 
 <a id="errorhold"></a>
 
-## <a name="host-is-down-error-on-existing-file-shares-or-the-shell-hangs-when-you-run-list-commands-on-the-mount-point"></a>Errore "Host is down" (Host inattivo) su condivisioni file esistenti o blocco della shell quando si eseguono comandi list sul punto di montaggio
+## <a name="host-is-down-error-112-on-existing-file-shares-or-the-shell-hangs-when-you-run-list-commands-on-the-mount-point"></a>"Host is down (Error 112)" (Host inattivo - Errore 112) su condivisioni file esistenti o blocco della shell quando si eseguono comandi list sul punto di montaggio
 ### <a name="cause"></a>Causa
-Questo errore si verifica quando il client Linux rimane inattivo per un periodo di tempo prolungato. Quando l'errore si verifica, il client si disconnette provocando il timeout della connessione.
+Questo errore si verifica quando il client Linux rimane inattivo per un periodo di tempo prolungato. Quando rimane a lungo inattivo, il client si disconnette provocando il timeout della connessione. 
+
+La connessione può rimanere inattiva per vari motivi. Ad esempio, possono verificarsi errori di comunicazione che impediscono di ristabilire una connessione TCP al server quando viene usata l'opzione di montaggio "soft", ossia l'impostazione predefinita.
+
+Il problema può anche essere dovuto ad alcune correzioni per la riconnessione che non sono presenti nei kernel precedenti.
 
 ### <a name="solution"></a>Soluzione
-Questo problema è stato corretto nel kernel di Linux nell'ambito di un [insieme di modifiche](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93), in attesa del backport nella distribuzione di Linux.
 
-Per risolvere il problema, sostenere la connessione ed evitare di trovarsi in uno stato di inattività, tenere un file nella condivisione file di Azure in cui si eseguono operazioni di scrittura periodiche. Deve trattarsi di un'operazione di scrittura, ad esempio la riscrittura della data di creazione o di modifica nel file. In caso contrario, si potrebbero ottenere risultati memorizzati nella cache e l'operazione potrebbe non attivare la connessione.
+Se si specifica un'opzione di montaggio "hard", il client viene forzato ad attendere fino a quando la connessione non è stabilita o interrotta in modo esplicito; può essere usata per evitare gli errori causati dai timeout di rete. Tuttavia, gli utenti devono essere consapevoli che ciò potrebbe provocare attese indefinite e devono pertanto poter gestire l'arresto di una connessione se necessario.
+
+Questo problema di riconnessione nel kernel Linux è stato corretto come parte dei set di modifiche seguenti:
+
+* [Fix reconnect to not defer smb3 session reconnect long after socket reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93) (Correggere la funzionalità di riconnessione in modo da non rinviare la riconnessione della sessione smb3 a molto tempo dopo la riconnessione del socket)
+
+* [Call echo service immediately after socket reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7) (Chiamare il servizio echo immediatamente dopo la riconnessione del socket)
+
+* [CIFS: Fix a possible memory corruption during reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b) (CIFS: correggere un possibile danneggiamento della memoria dopo la riconnessione)
+
+* [CIFS: Fix a possible double locking of mutex during reconnect - for kernels v4.9 and higher](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183) (CIFS: Correggere un possibile doppio blocco del mutex durante la riconnessione, per i kernel&4;.9 e versioni successive) 
+
+È tuttavia possibile che queste modifiche non siano state ancora applicate a tutte le distribuzioni di Linux. Questo è l'elenco dei kernel Linux più diffusi a cui sono state applicate queste e altre correzioni di riconnessione: 4.4.40+ 4.8.16+ 4.9.1+.
+È possibile passare alle versioni del kernel consigliate sopra per usare le correzioni più recenti.
+
+### <a name="workaround"></a>Soluzione alternativa
+Se non è possibile passare a tali versioni, una soluzione alternativa a questo problema consiste nel mantenere un file nella condivisione file di Azure in cui si eseguono operazioni di scrittura al massimo ogni 30 secondi. Deve trattarsi di un'operazione di scrittura, ad esempio la riscrittura della data di creazione o di modifica nel file. In caso contrario, i risultati verrebbero memorizzati nella cache e l'operazione potrebbe non attivare la riconnessione. 
+
 
 <a id="error15"></a>
 
@@ -239,36 +259,21 @@ Se il client SMB Linux usato non supporta la crittografia, procedere al montaggi
 
 <a id="delayproblem"></a>
 
-## <a name="linux-vm-experiencing-random-delays-in-commands-like-ls"></a>La macchina virtuale Linux presenta ritardi casuali nell'esecuzione di comandi come "ls"
-### <a name="cause"></a>Causa
-Questo problema può verificarsi quando il comando di montaggio non include l'opzione **serverino**. Senza **serverino**, il comando ls esegue **stat** su ogni file.
+## <a name="azure-file-share-mounted-on-linux-vm-experiencing-slow-performance"></a>Nella condivisione file di Azure montata nella macchina virtuale Linux viene riscontrato un rallentamento delle prestazioni
 
-### <a name="solution"></a>Soluzione
-Verificare la presenza dell'opzione **serverino** nella voce "/etc/fstab":
+Un motivo del rallentamento delle prestazioni può essere la disattivazione del caching. Per verificare se il caching è abilitato, cercare "cache =".  *cache=none* indica che il caching è disabilitato. Rimontare la condivisione con il comando di montaggio predefinito o aggiungere in modo esplicito l'opzione **cache=strict** al comando di montaggio per verificare se è abilitato il caching predefinito o il caching in modalità "strict".
+
+In alcuni scenari l'opzione di montaggio serverino può far sì che il comando ls esegua stat su ogni voce di directory, con un conseguente calo delle prestazioni quando la directory è di grandi dimensioni. È possibile controllare le opzioni di montaggio nella voce "/etc/fstab":
 
 `//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
-È possibile anche verificare se questa opzione è in uso eseguendo il comando **sudo mount | grep cifs** ed esaminando l'output:
+È inoltre possibile verificare se vengono usate le opzioni corrette eseguendo il comando **sudo mount | grep cifs** ed esaminando l'output:
 
-`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
+`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs
+(rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,
+dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
-Se l'opzione **serverino** non è presente, smontare e montare nuovamente File di Azure con l'opzione **serverino** selezionata.
-
-Un altro motivo per il rallentamento delle prestazioni potrebbe essere la disattivazione del caching. Per verificare se il caching è abilitato, cercare "cache =".  *cache=none* indica che il caching è disabilitato. Rimontare la condivisione con il comando di montaggio predefinito o aggiungere in modo esplicito l'opzione **cache=strict** al comando di montaggio per verificare se è abilitato il caching predefinito o il caching in modalità "strict".
-
-<a id="error112"></a>
-## <a name="error-112---timeout-error"></a>Errore 112 - Errore di timeout
-
-Questo errore indica errori di comunicazione che impediscono di ristabilire una connessione TCP al server quando è usata l'opzione di montaggio "soft", ossia l'impostazione predefinita.
-
-### <a name="cause"></a>Causa
-
-Questo errore può essere causato da un problema di riconnessione di Linux o da altri problemi che impediscono la riconnessione, ad esempio errori di rete. Se si specifica un'opzione di montaggio "hard", il client viene forzato ad attendere fino a quando la connessione non è stabilita o interrotta in modo esplicito; può essere usata per evitare gli errori causati dai timeout di rete. Tuttavia, gli utenti devono essere consapevoli che ciò potrebbe provocare attese indefinite e devono pertanto poter gestire l'arresto di una connessione se necessario.
-
-
-### <a name="workaround"></a>Soluzione alternativa
-
-Il problema di Linux è stato risolto, ma ancora non applicato alle distribuzioni Linux. Se è causato dalla mancata riuscita della connessione in Linux, è possibile ovviare al problema evitando di entrare in uno stato inattivo. A tale scopo, nella condivisione file di Azure mantenere un file nel quale si esegue un'operazione di scrittura ogni 30 secondi o meno. Deve trattarsi di un'operazione di scrittura, ad esempio la riscrittura della data di creazione o di modifica nel file. In caso contrario, si potrebbero ottenere risultati memorizzati nella cache e l'operazione potrebbe non attivare la connessione. Il seguente è un elenco dei kernel Linux più diffusi che dispongono di questa e altre correzioni di riconnessione: 4.4.40+ 4.8.16+ 4.9.1+
+Se le opzioni cache=strict o serverino non sono presenti, smontare e montare nuovamente i file di Azure eseguendo il comando mount, come indicato nella [documentazione](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share), e verificare nuovamente la presenza di opzioni corrette nella voce "/etc/fstab".
 
 <a id="webjobs"></a>
 

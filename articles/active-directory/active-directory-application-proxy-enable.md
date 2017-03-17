@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 02/22/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2d5ea8109f5fde5f2b480ceeea34c365b619fab5
-ms.openlocfilehash: 5f42292fa9238dadd717d5c2e9530b22ee10d943
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: c979e6328f09618642aa7a432c873c7ce20c072b
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -46,6 +47,7 @@ Prima di poter abilitare e utilizzare i servizi del proxy dell'applicazione, è 
   | 9091 |Abilitare il rinnovo automatico dei certificati di attendibilità del connettore |
   
     Se il firewall impone il traffico in base agli utenti di origine, aprire queste porte per il traffico proveniente da servizi di Windows in esecuzione come servizio di rete. Assicurarsi anche di abilitare la porta 8080 per NT Authority\System.
+* Usare lo [strumento per il test delle porte del connettore Proxy di applicazione Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/) per verificare che il connettore possa raggiungere il servizio Proxy di applicazione. Assicurarsi almeno che l'area Stati Uniti centrali e l'area più vicina all'utente abbiano segni di spunta verde. Tuttavia, la presenza di più segni di spunta verde indica una maggiore resilienza. 
 * Se l'organizzazione usa server proxy per la connessione a Internet, vedere il post di blog [Working with existing on-premises proxy servers](https://blogs.technet.microsoft.com/applicationproxyblog/2016/03/07/working-with-existing-on-prem-proxy-servers-configuration-considerations-for-your-connectors/) (Utilizzo di server proxy locali esistenti) per informazioni dettagliate sulla relativa configurazione.
 
 ## <a name="step-1-enable-application-proxy-in-azure-ad"></a>Passaggio 1: abilitare il proxy dell’applicazione in Azure AD
@@ -87,10 +89,5 @@ Per disinstallare il connettore, disinstallare sia il servizio connettore che il
 È ora possibile [pubblicare applicazioni con il proxy di applicazione](active-directory-application-proxy-publish.md).
 
 Se sono presenti applicazioni in reti separate o posizioni diverse, è possibile usare gruppi di connettori per organizzare i diversi connettori in unità logiche. Per altre informazioni, vedere [Pubblicare applicazioni in reti e posizioni separate tramite i gruppi di connettori](active-directory-application-proxy-connectors.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

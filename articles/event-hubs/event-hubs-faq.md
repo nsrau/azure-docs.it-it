@@ -13,11 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/16/2017
-ms.author: sethm;jotaub
+ms.author: sethm;jotaub;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: 8e483b17e453dedf17a21c673d3b2231b9bfba3a
-ms.openlocfilehash: 3c04f0225ec36f700fff59d87c6d0939ab74355c
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 59622f283daeca59464dfb7a13ca76c7a0148a21
+ms.lasthandoff: 03/03/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/21/2017
 ## <a name="general"></a>Generale
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>Qual è la differenza tra i livelli Standard e Base di Hub eventi?
-Il livello Standard di Hub eventi offre funzionalità superiori a quelle disponibili con il livello Basic e con alcuni sistemi della concorrenza. Le funzionalità includono periodi di conservazione superiori a 24 ore e la possibilità di usare una singola connessione AMQP per inviare comandi a un numero elevato di dispositivi con latenze inferiori al secondo, oltre a inviare dati di telemetria da tali dispositivi a Hub eventi. Per l'elenco delle funzionalità, vedere i [dettagli dei prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/).
+Il livello Standard di Hub eventi offre funzionalità superiori a quelle disponibili con il livello Basic e con alcuni sistemi della concorrenza. Le funzionalità includono periodi di conservazione superiori a 24 ore e la possibilità di usare una singola connessione AMQP per inviare comandi a un numero elevato di dispositivi con latenze inferiori al secondo, oltre a inviare dati di telemetria da tali dispositivi a Hub eventi. Il livello Standard offre inoltre la funzionalità [Archivio](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview) di Hub Eventi. Per un elenco delle funzionalità, vedere [Hub eventi Prezzi](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### <a name="what-are-event-hubs-throughput-units"></a>Cosa sono le unità elaborate in Hub eventi?
 Le unità elaborate in Hub eventi vengono selezionate in modo esplicito tramite il portale di Azure o i modelli di Resource Manager in Hub eventi. Le unità elaborate sono applicabili a tutti gli hub eventi in uno spazio dei nomi di Hub eventi e ogni unità elaborata offre allo spazio dei nomi le capacità seguenti:
@@ -49,7 +49,7 @@ Esiste una quota predefinita di 20 unità elaborate per ogni spazio dei nomi. È
 Sì, purché tutti gli hub eventi si trovino nello stesso spazio dei nomi.
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>Qual è il periodo di conservazione massimo per gli eventi?
-Il livello Standard di Hub eventi supporta attualmente un periodo di conservazione massimo di 7 giorni. Si noti che gli Hub eventi non sono intesi come archivi dati permanenti. Sono previsti periodi di conservazione maggiori di 24 ore per scenari in cui è opportuno riprodurre un flusso di eventi negli stessi sistemi, ad esempio, per la formazione o per verificare un nuovo modello di machine learning sui dati esistenti.
+Il livello Standard di Hub eventi supporta attualmente un periodo di conservazione massimo di 7 giorni. Si noti che gli Hub eventi non sono intesi come archivi dati permanenti. Sono previsti periodi di conservazione maggiori di 24 ore per scenari in cui è opportuno riprodurre un flusso di eventi negli stessi sistemi, ad esempio, per la formazione o per verificare un nuovo modello di machine learning sui dati esistenti. Se è necessario conservare i messaggi per più di 7 giorni, con l'abilitazione dell'[archivio](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview) in Hub eventi verrà effettuato il pull dei dati da Hub eventi all'archiviazione di propria scelta. L'abilitazione dell'archivio prevede un costo in base alle unità elaborate acquistate.
 
 ### <a name="where-is-azure-event-hubs-available"></a>Dove sono disponibili gli hub eventi di Azure?
 Hub eventi di Azure è disponibile in tutte le aree di Azure supportate. Per un elenco, visitare la pagina [Aree di Azure](https://azure.microsoft.com/regions/).  
@@ -69,7 +69,7 @@ Tuttavia, se si dispone di un modello in cui l'applicazione ha un'affinità con 
 Per informazioni complete sui prezzi di Hub eventi, vedere [Prezzi Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### <a name="is-there-a-charge-for-retaining-event-hubs-events-for-more-than-24-hours"></a>È previsto un addebito per conservare gli eventi di Hub eventi per più di 24 ore?
-Il livello standard di Hub eventi consente periodi di conservazione dei messaggi superiori alle 24 ore, per un massimo di 30 giorni. Se le dimensioni del numero totale di eventi archiviati supera i limiti di archiviazione per il numero di unità elaborate selezionate, ovvero&84; GB per unità elaborata, alle dimensioni che superano i limiti saranno applicate le tariffe pubblicate per l'archivio BLOB di Azure. La capacità di archiviazione consentita in ogni unità elaborata copre tutti i costi di archiviazione per periodi di conservazione di 24 ore (impostazione predefinita) anche se l'unità elaborata viene utilizzata fino alla massima capacità consentita in ingresso.
+Il livello Standard di Hub eventi consente periodi di conservazione dei messaggi superiori alle 24 ore, per un massimo di 7 giorni. Se le dimensioni del numero totale di eventi archiviati supera i limiti di archiviazione per il numero di unità elaborate selezionate, ovvero&84; GB per unità elaborata, alle dimensioni che superano i limiti saranno applicate le tariffe pubblicate per l'archivio BLOB di Azure. La capacità di archiviazione consentita in ogni unità elaborata copre tutti i costi di archiviazione per periodi di conservazione di 24 ore (impostazione predefinita) anche se l'unità elaborata viene utilizzata fino alla massima capacità consentita in ingresso.
 
 ### <a name="how-is-the-event-hubs-storage-size-calculated-and-charged"></a>Come vengono calcolate e addebitate le dimensioni di archiviazione di Hub eventi?
 Le dimensioni totali di tutti gli eventi archiviati, incluso il sovraccarico interno per le intestazioni degli eventi o nelle strutture di archiviazione su disco in tutti gli Hub eventi vengono misurate nel corso della giornata. Alla fine della giornata, viene calcolata la dimensione di archiviazione massima. L'archiviazione giornaliera consentita viene calcolata in base al numero minimo di unità elaborate selezionate durante il giorno (ogni unità elaborata fornisce una capacità massima di 84 GB). Se la dimensione totale supera la capacità massima di archiviazione giornaliera calcolata, l'archiviazione in eccesso viene fatturata in base alle tariffe di archiviazione BLOB di Azure (alla tariffa di **archiviazione con ridondanza locale** ).
@@ -80,7 +80,14 @@ Ogni evento inviato a un Hub eventi conta come messaggio fatturabile. Un *evento
 Gli eventi utilizzati da un Hub eventi, nonché le operazioni di gestione e le chiamate di controllo come i checkpoint, non vengono conteggiati come eventi in ingresso fatturabili, ma si accumulano fino alla capacità massima di unità elaborate.
 
 ### <a name="do-brokered-connection-charges-apply-to-event-hubs"></a>Si applicano costi di connessione negoziata ad Hub eventi?
-I costi di connessione si applicano solo quando viene usato il protocollo AMQP. Non sono previsti costi di connessione per l'invio di eventi tramite HTTP, indipendentemente dal numero di sistemi o dispositivi di invio. Se si prevede di usare AMQP, ad esempio per ottenere un flusso di eventi più efficiente o consentire la comunicazione bidirezionale in scenari di comando e controllo IoT, vedere la pagina delle [informazioni sui prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/event-hubs/) per i dettagli relativi al numero di connessioni incluse in ogni livello del servizio.
+I costi di connessione si applicano solo quando viene usato il protocollo AMQP. Non sono previsti costi di connessione per l'invio di eventi tramite HTTP, indipendentemente dal numero di sistemi o dispositivi di invio. Se si prevede di usare AMQP, ad esempio per ottenere un flusso di eventi più efficiente o consentire la comunicazione bidirezionale in scenari di comando e controllo IoT, vedere la pagina con le [informazioni sui prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/) per i dettagli relativi al numero di connessioni incluse in ogni livello del servizio.
+
+### <a name="how-is-event-hubs-archive-billed"></a>Come viene eseguita la fatturazione per l'archivio di Hub eventi?
+L'archivio è abilitato quando in qualsiasi hub eventi nello spazio dei nomi è abilitata la funzionalità di archivio. L'archivio viene fatturato su base oraria in base alle unità elaborate acquistate. Man mano che il numero di unità elaborate aumenta o diminuisce, queste variazioni si riflettono sulla fatturazione dell'archivio di Hub eventi in incrementi di ore intere.
+Per conoscere i dettagli sulla fatturazione dell'archivio di Hub eventi, consultare le [informazioni sui prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/).
+
+### <a name="will-i-be-billed-for-the-storage-account-i-select-for-event-hubs-archive"></a>Come viene fatturato l'account di archiviazione selezionato per l'archivio di Hub eventi?
+L'archivio usa un account di archiviazione fornito dall'utente, quando la funzione è abilitata in un hub eventi. Poiché si tratta dell'account di archiviazione dell'utente, eventuali addebiti verranno fatturati sulla sua sottoscrizione di Azure.
 
 ## <a name="quotas"></a>Quote
 

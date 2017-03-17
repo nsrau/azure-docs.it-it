@@ -1,6 +1,7 @@
 ---
-title: "Trasferimento di proprietà di una sottoscrizione di Azure | Documentazione Microsoft"
-description: Come trasferire una sottoscrizione di Azure a un altro utente e alcune domande frequenti sul processo
+title: "Trasferire la proprietà della sottoscrizione di Azure a un altro account | Microsoft Docs"
+description: Questo articolo descrive come trasferire una sottoscrizione di Azure a un altro utente e contiene alcune domande frequenti (FAQ) sul processo
+keywords: trasferire la sottoscrizione di Azure, trasferimento della sottoscrizione di Azure, spostare una sottoscrizione di Azure su account, cambiare il proprietario della sottoscrizione di Azure, trasferire la sottoscrizione di Azure a un altro account
 services: 
 documentationcenter: 
 author: genlin
@@ -13,15 +14,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 02/28/2017
 ms.author: genli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1faa99b774d5f6cc4e4939ee465809710fd31524
-ms.openlocfilehash: 0cb3237f923faa32d77285775dafde55d678c7db
-
+ms.sourcegitcommit: 0ec56111847300833ba92cc9149e8a276ba2c6c1
+ms.openlocfilehash: af7cabf3d5286dc3cd368db191bc5218cd9c5893
+ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="transferring-ownership-of-an-azure-subscription"></a>Trasferimento di proprietà di una sottoscrizione di Azure
+# <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Trasferimento della proprietà di una sottoscrizione di Azure a un altro account
 
 Il trasferimento di proprietà di una sottoscrizione a un altro utente è previsto per le sottoscrizioni con pagamento in base al consumo, Visual Studio, Action Pack o BizSpark nel Centro account. Il trasferimento dei servizi esterni di Azure è supportato anche per questi tipi di sottoscrizione. 
 
@@ -34,7 +36,7 @@ Potrebbe essere necessario trasferire la proprietà di una sottoscrizione di Azu
 
 Per modificare la sottoscrizione passando a un'offerta diversa, vedere [Trasferire la sottoscrizione di Azure a un'altra offerta](billing-how-to-switch-azure-offer.md). 
 
-## <a name="how-to-transfer-ownership-of-an-azure-subscription"></a>Trasferimento della proprietà di una sottoscrizione di Azure
+## <a name="transfer-ownership-of-an-azure-subscription"></a>Trasferimento della proprietà di una sottoscrizione di Azure
 > [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Transfer-an-Azure-subscription/player]
 >
 >
@@ -46,7 +48,7 @@ Per modificare la sottoscrizione passando a un'offerta diversa, vedere [Trasferi
 3. Fare clic sull'opzione **Trasferisci sottoscrizione** . Se non viene visualizzato il pulsante, vedere [Domande frequenti](#no-button).
 
    ![Scheda delle sottoscrizioni dell'account Azure](./media/billing-subscription-transfer/image1.png)
-4. Seguire le istruzioni per specificare il destinatario.
+4. Specificare il destinatario.
 
    ![Finestra di dialogo Trasferisci sottoscrizione](./media/billing-subscription-transfer/image2.PNG)
 5. Il destinatario riceve automaticamente un messaggio e-mail con un link per l'accettazione.
@@ -58,6 +60,26 @@ Per modificare la sottoscrizione passando a un'offerta diversa, vedere [Trasferi
 
    ![Seconda pagina Web del trasferimento della sottoscrizione](./media/billing-subscription-transfer/image5.png)
 7. Completamento della procedura La sottoscrizione è stata trasferita.
+
+## <a name="transfer-subscription-ownership-for-enterprise-agreement-ea-customers"></a>Trasferire la proprietà di una sottoscrizione per i clienti con contratto Enterprise (EA, Enterprise Agreement)
+L'amministratore Enterprise può trasferire la proprietà delle sottoscrizioni nell'ambito di una registrazione. Per iniziare, vedere [Transfer Account Ownership](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) (Trasferire la proprietà account) nel portale EA.
+
+## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Passaggi successivi all'accettazione della proprietà di una sottoscrizione
+1. A questo punto si è l'amministratore dell'account. Rivedere e aggiornare l’amministratore del servizio e i co-amministratori. Gestire gli amministratori nel [portale di Azure classico](https://manage.windowsazure.com) accedendo alle impostazioni. [Altre informazioni sui ruoli di amministratore](billing-add-change-azure-subscription-administrator.md).
+
+2. Per la sottoscrizione e i servizi è anche usare il controllo degli accessi in base al ruolo. Visitare il [portale di Azure](https://portal.azure.com). [Altre informazioni sul controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md)
+
+3. Aggiornare le credenziali associate ai servizi della sottoscrizione, tra cui:
+   
+   * Certificati di gestione che concedono all'utente privilegi di amministratore per le risorse della sottoscrizione. Per altre informazioni, vedere [Create and upload a management certificate for Azure](../cloud-services/cloud-services-certs-create.md)
+   
+   * Chiavi di accesso per servizi quali Archiviazione. Per altre informazioni, vedere [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md).
+   
+   * Credenziali di accesso remoto per servizi quali macchine virtuali di Azure. 
+
+4. [Aggiornare gli avvisi di fatturazione per questa sottoscrizione](billing-set-up-alerts.md) tramite il [Centro account di Azure](https://account.windowsazure.com/Subscriptions). 
+
+5. Se si lavora con un partner, è consigliabile aggiornare l'ID partner nella sottoscrizione. È possibile aggiornare l'ID partner nel [Centro account di Azure](https://account.windowsazure.com/Subscriptions).
 
 <a id="faq"></a>
 
@@ -95,7 +117,7 @@ Per modificare la sottoscrizione passando a un'offerta diversa, vedere [Trasferi
   * Chiavi di accesso per servizi quali Archiviazione. Per altre informazioni, vedere [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md).
   * Credenziali di accesso remoto per servizi quali macchine virtuali di Azure.
 
-  L'elenco non è completo. Il destinatario dovrà prendere in considerazione l'aggiornamento degli eventuali segreti associati al servizio se deve limitare l'accesso alle proprie risorse. La maggior parte delle risorse può essere aggiornata come segue:
+ Se il destinatario deve limitare l'accesso alle risorse, deve prendere in considerazione l'aggiornamento degli eventuali segreti associati al servizio. La maggior parte delle risorse può essere aggiornate usando la procedura seguente:
 
     1. Accedere al [portale di Azure](https://portal.azure.com).
     2. Scegliere **Tutte le risorse** dal menu Hub.
@@ -124,40 +146,16 @@ Per modificare la sottoscrizione passando a un'offerta diversa, vedere [Trasferi
 
 * **Il metodo di pagamento è in qualche modo interessato dal trasferimento di una sottoscrizione di Azure?**
 
-  Per accettare un trasferimento di sottoscrizione, è necessario specificare una carta di credito o un metodo di pagamento analogo. Ad esempio, se Bob trasferisce una sottoscrizione a Jane e Jane accetta il trasferimento, Jane deve specificare anche un metodo di pagamento usato per la sottoscrizione. Al termine del trasferimento, a Bob non verrà più addebitato alcun importo per la sottoscrizione che ha trasferito a Jane.
+  Per accettare un trasferimento di sottoscrizione, è necessario specificare una carta di credito o un metodo di pagamento analogo. Ad esempio, se Bob trasferisce una sottoscrizione a Jane e Jane accetta il trasferimento, Jane deve specificare anche il metodo di pagamento usato per la sottoscrizione. Al termine del trasferimento, la fattura per la sottoscrizione viene fatta a Jane, non a Bob.
 
 * **Come si esegue la migrazione di dati e servizi per la sottoscrizione di Azure a una nuova sottoscrizione?**
 
   Se non è possibile trasferire la proprietà di una sottoscrizione, eseguire la migrazione manuale delle risorse. Vedere [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md) (Spostare le risorse in un nuovo gruppo o sottoscrizione).
 
-## <a name="transfer-subscription-ownership-for-enterprise-agreement-ea-customers"></a>Trasferire la proprietà di una sottoscrizione per i clienti con contratto Enterprise (EA, Enterprise Agreement)
-L'amministratore Enterprise può trasferire la proprietà delle sottoscrizioni nell'ambito di una registrazione. Per iniziare, vedere [Transfer Account Ownership](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) (Trasferire la proprietà account) nel portale EA.
-
-## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Passaggi successivi all'accettazione della proprietà di una sottoscrizione
-1. A questo punto si è l'amministratore dell'account. Rivedere e aggiornare l’amministratore del servizio e i co-amministratori. Gestire gli amministratori nel [portale di Azure classico](https://manage.windowsazure.com) accedendo alle impostazioni. [Altre informazioni sui ruoli di amministratore](billing-add-change-azure-subscription-administrator.md).
-
-2. Per la sottoscrizione e i servizi è anche usare il controllo degli accessi in base al ruolo. Visitare il [portale di Azure](https://portal.azure.com). [Altre informazioni sul controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md)
-
-3. Aggiornare le credenziali associate ai servizi della sottoscrizione, inclusi i seguenti:
-   
-   * Certificati di gestione che concedono all'utente privilegi di amministratore per le risorse della sottoscrizione. Per altre informazioni, vedere [Create and upload a management certificate for Azure](../cloud-services/cloud-services-certs-create.md)
-   
-   * Chiavi di accesso per servizi quali Archiviazione. Per altre informazioni, vedere [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md).
-   
-   * Credenziali di accesso remoto per servizi quali macchine virtuali di Azure. 
-
-4. [Aggiornare gli avvisi di fatturazione per questa sottoscrizione](billing-set-up-alerts.md) tramite il [Centro account di Azure](https://account.windowsazure.com/Subscriptions). 
-
-5. Se si lavora con un partner, è consigliabile aggiornare l'ID partner nella sottoscrizione. È possibile aggiornare l'ID partner nel [Centro account di Azure](https://account.windowsazure.com/Subscriptions).
 
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema. 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

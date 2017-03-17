@@ -37,8 +37,10 @@
 ### [Abilitare le impostazioni di diagnostica usando i modelli di Resource Manager](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md)
 ## Usare l'API REST
 ### [Procedura dettagliata sull'uso dell'API REST](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
+## Usare Diagnostica di Azure
+### [Inviare dati ad Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-applicationinsights.md)
 
-# riferimento
+# Riferimento
 ## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
@@ -52,8 +54,3 @@
 ## [Esempi di PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
 ## [Esempi dell'interfaccia della riga di comando di Azure 1.0](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [Elenco delle metriche supportate](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/06/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: ecee44194c32569f1d50001543ef4b37ecdb5eb3
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 0868eb2269b3675a132e106cd66740b0ce52b00a
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -76,7 +76,7 @@ Prima di installare o distribuire gli agenti, esaminare i dettagli seguenti per 
 8. Al termine, verrà visualizzato **Microsoft Monitoring Agent** nel **Pannello di controllo**. È possibile rivedere la configurazione e verificare che l'agente sia connesso a Operational Insights (OMS). Quando si è connessi a OMS, l'agente visualizza un messaggio nel quale è indicato che **Microsoft Monitoring Agent ha eseguito la connessione al servizio Microsoft Operations Management Suite.**
 
 ## <a name="install-the-agent-using-the-command-line"></a>Installare l'agente usando la riga di comando
-- Modificare e usare il seguente esempio per installare l'agente mediante la riga di comando.
+- Modificare e usare il seguente esempio per installare l'agente mediante la riga di comando. L'esempio esegue un'installazione completamente automatica.
 
     >[!NOTE]
     Per aggiornare un agente è necessario usare l'API di scripting di Log Analytics. La procedura per aggiornare un agente è descritta nella sezione successiva.
@@ -84,6 +84,8 @@ Prima di installare o distribuire gli agenti, esaminare i dettagli seguenti per 
     ```
     MMASetup-AMD64.exe /Q:A /R:N /C:"setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1"
     ```
+
+L'agente usa IExpress come programma di autoestrazione tramite il comando `/c`. È possibile esaminare le opzioni della riga di comando in [Command-line switches for IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) (Opzioni della riga di comando di IExpress) e quindi aggiornare l'esempio in base alle esigenze.
 
 ## <a name="upgrade-the-agent-and-add-a-workspace-using-a-script"></a>Aggiornare l'agente e aggiungere un'area di lavoro usando uno script
 È possibile aggiornare un agente e aggiungere un'area di lavoro usando l'API di scripting di Log Analytics con il seguente codice PowerShell di esempio.

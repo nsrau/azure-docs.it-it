@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/16/2017
+ms.date: 03/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: a87a4a8b290318bb9fdd1ae0b5fdce00085f59df
-ms.openlocfilehash: 3fe19196ce6af2aeb52bf941ced1892a9a172d87
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: c682f9eac1a6ff5e3771aa9e4dfa5b5ffefc1223
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -75,6 +75,7 @@ La seguente tabella fornisce un riepilogo dei problemi risolti nell'aggiornament
 | 3 |Pacchetto di supporto |Nella versione precedente, si verificavano problemi relativi al pacchetto di supporto che causavano un'eccezione System.OutOfMemory o altri errori, risultanti nell'esito negativo della creazione del pacchetto. Tali bug sono stati risolti in questa versione. |Sì |Sì |
 | 4 |Monitoraggio |Nella versione precedente, si verificava un problema con i grafici di monitoraggio per i volumi aggiunti localmente, per cui l'utilizzo veniva mostrato in EB. Questo bug è stato risolto in questa versione. |Sì |Sì |
 | 5 |Migrazione |Nella versione precedente, si verificavano diversi problemi legati all'affidabilità della migrazione dai dispositivi delle serie 5000-7000 a quelli della serie 8000. I problemi sono stati risolti in questa versione. |Sì |Sì |
+| 6 |Aggiornare |Se nelle versioni precedenti si è verificato un errore di aggiornamento, i controller vengono inseriti in modalità di ripristino, pertanto l'utente non può procedere con l'aggiornamento e deve contattare il supporto tecnico Microsoft. <br> In questa versione il comportamento è stato modificato. Se l'utente sperimenta un errore di aggiornamento con entrambi i controller che eseguono la stessa versione (aggiornamento 4), i controller non entrano in modalità di ripristino. Se l'utente sperimenta questo errore, è consigliabile che attenda un po' e poi riprovi a eseguire l'aggiornamento. Il nuovo tentativo potrebbe avere esito positivo. Se il nuovo tentativo non riesce, è necessario contattare il supporto tecnico Microsoft. |Sì |Sì |
 
 
 ## <a name="known-issues-in-update-4-from-previous-releases"></a>Problemi noti nell'aggiornamento 4 rispetto alle versioni precedenti

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/19/2017
+ms.date: 03/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
-ms.openlocfilehash: c4129d5b5ebd0295035e81760b2a39f3caf16499
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: c7ef2a9535362a3dc352b92732abcdf6cd4836c2
+ms.lasthandoff: 03/06/2017
 
 ---
 
@@ -121,8 +121,8 @@ Per avviare le attività iniziali, scegliere la modalità di distribuzione di Si
 ## <a name="step-1-choose-your-protection-goals"></a>Passaggio 1: Scegliere gli obiettivi della protezione
 Selezionare gli elementi da replicare e la posizione in cui eseguire la replica.
 
-1. Nel pannello **Insiemi di credenziali dei servizi di ripristino** selezionare l'insieme di credenziali e fare clic su **Impostazioni**.
-2. In **Impostazioni** > **Attività iniziali** fare clic su **Site Recovery** > **Passaggio 1: Preparare l'infrastruttura** > **Obiettivo di protezione**.
+1. In **Insiemi di credenziali dei servizi di ripristino** selezionare l'insieme di credenziali.
+2. In **Introduzione** fare clic su **Site Recovery** > **Passaggio 1: Preparare l'infrastruttura** > **Obiettivo di protezione**.
 
     ![Scegliere gli obiettivi](./media/site-recovery-hyper-v-site-to-azure/choose-goals.png)
 3. In **Obiettivo di protezione** selezionare **In Azure** e scegliere **Sì, con Hyper-V**. Scegliere **No** per confermare che non si sta usando VMM. Fare quindi clic su **OK**.
@@ -168,7 +168,7 @@ Configurare il sito Hyper-V, installare il provider di Azure Site Recovery e l'a
 
     ![Percorso di installazione](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
 
-7. Al termine della registrazione, i metadati del server Hyper-V vengono recuperati da Azure Site Recovery e il server viene visualizzato nel pannello **Impostazioni** > **Infrastruttura di Site Recovery** > **Host Hyper-V**.
+7. Al termine della registrazione, i metadati del server Hyper-V vengono recuperati da Azure Site Recovery e il server viene visualizzato nel pannello **Site Recovery Infrastructure** >  (Infrastruttura di Site Recovery)**Hyper-V Hosts** (Host Hyper-V).
 
 ### <a name="command-line-installation"></a>Installazione dalla riga di comando
 Il provider di Azure Site Recovery può essere installato anche usando la riga di comando seguente. Questo metodo può essere usato per installare il provider in un Server Core per Windows Server 2012 R2.
@@ -204,7 +204,7 @@ Specificare l'account di archiviazione di Azure da usare per la replica e la ret
 
 3. Site Recovery verifica la disponibilità di uno o più account di archiviazione di Azure e reti compatibili.
 
-      ![Archiviazione](./media/site-recovery-vmware-to-azure/enable-rep3.png))
+      ![Archiviazione](./media/site-recovery-vmware-to-azure/enable-rep3.png)
 
 
 4. Per creare un account di archiviazione con Resource Manager, se non è già stato fatto, fare clic su **+ Account di archiviazione** per eseguire l'operazione inline. Nel pannello **Crea account di archiviazione** specificare il nome, il tipo, la sottoscrizione e la località dell'account. L'account deve trovarsi nella stessa località dell'insieme di credenziali di Servizi di ripristino.
@@ -233,7 +233,7 @@ Per creare una rete con il modello di distribuzione classica è necessario usare
 
     ![Criteri di replica](./media/site-recovery-hyper-v-site-to-azure/gs-replication2.png)
 
-Quando si creano nuovi criteri, questi vengono associati automaticamente al sito Hyper-V. Fare clic su **OK**. È possibile associare un sito Hyper-V e le VM che contiene a più criteri di replica in **Impostazioni** > **Replica**nome criteri **Associa sito Hyper-V**.
+Quando si creano nuovi criteri, questi vengono associati automaticamente al sito Hyper-V. Fare clic su **OK**. È possibile associare un sito Hyper-V e le VM che contiene a più criteri di replica in **Replica** > nome criteri > **Associate Hyper-V Site** (Associa sito Hyper-V).
 
 ## <a name="step-5-capacity-planning"></a>Passaggio 5: Pianificazione della capacità
 Dopo aver configurato l'infrastruttura di base è possibile passare alla pianificazione della capacità e valutare se sono necessarie altre risorse.
@@ -304,16 +304,16 @@ Per abilitare la replica, procedere come descritto di seguito.
     >
     >       
 
-8. In **Impostazioni della replica** > **Configurare le impostazioni di replica** selezionare i criteri di replica da applicare per le VM protette. Fare quindi clic su **OK**. È possibile modificare i criteri di replica in **Impostazioni** > **Criteri di replica** > nome dei criteri > **Modifica impostazioni**. Le modifiche applicate verranno usate per i computer di cui è già in corso la replica e per i nuovi computer.
+8. In **Impostazioni della replica** > **Configurare le impostazioni di replica** selezionare i criteri di replica da applicare per le VM protette. Fare quindi clic su **OK**. È possibile modificare i criteri di replica in **Criteri di replica** > nome del criterio > **Modifica impostazioni**. Le modifiche applicate verranno usate per i computer di cui è già in corso la replica e per i nuovi computer.
 
    ![Abilitare la replica](./media/site-recovery-hyper-v-site-to-azure/enable-replication7.png)
 
-È possibile tenere traccia dello stato del processo **Abilita protezione** in **Impostazioni** > **Processi** > **Processi di Site Recovery**. Dopo l'esecuzione del processo **Finalizza protezione** la macchina virtuale è pronta per il failover.
+È possibile tenere traccia dello stato del processo **Abilita protezione** in **Processi** > **Site Recovery jobs** (Processi di Site Recovery). Dopo l'esecuzione del processo **Finalizza protezione** la macchina virtuale è pronta per il failover.
 
 ### <a name="view-and-manage-vm-properties"></a>Visualizzare e gestire le proprietà della macchina virtuale
 È consigliabile verificare le proprietà del computer di origine.
 
-1. Fare clic su **Impostazioni** > **Elementi protetti** > **Elementi replicati** e selezionare la macchina virtuale.
+1. In **Elementi protetti** fare clic su **Elementi replicati** e selezionare il computer.
 
     ![Abilitare la replica](./media/site-recovery-hyper-v-site-to-azure/test-failover1.png)
 2. In **Proprietà** sono disponibili le informazioni su replica e failover per la VM.
@@ -369,10 +369,10 @@ Per accedere a una macchina virtuale di Azure che esegue Linux dopo il failover 
 ## <a name="step-7-run-a-test-failover"></a>Passaggio 7: Eseguire un failover di test
 Per testare la distribuzione è possibile eseguire un failover di test per una singola macchina virtuale o un piano di ripristino che contenga una o più macchine virtuali.
 
-1. Per eseguire il failover di una singola macchina, in **Impostazioni** > **Elementi replicati** fare clic sulla VM > sull'icona ** +Failover di test**.
-2. Per eseguire il failover di un piano di ripristino, in **Impostazioni** > **Piani di ripristino** fare clic con il pulsante destro del mouse sul piano e quindi scegliere **Failover di test**. Per creare un piano di ripristino, [seguire queste istruzioni](site-recovery-create-recovery-plans.md).
+1. Per eseguire il failover di una singola macchina, in **Elementi replicati** fare clic sulla VM e quindi sull'icona **+Failover di test**.
+2. Per eseguire il failover di un piano di ripristino, in **Piani di ripristino** fare clic con il pulsante destro del mouse sul piano e quindi su **Failover di test**. Per creare un piano di ripristino, [seguire queste istruzioni](site-recovery-create-recovery-plans.md).
 3. In **Failover di test** selezionare la rete di Azure a cui dovranno connettersi le VM di Azure dopo il failover.
-4. Fare clic su **OK** per iniziare il failover. Per tenere traccia dello stato del processo, fare clic sulla VM per visualizzarne le proprietà oppure fare clic sul processo **Failover di test** nel nome dell'insieme di credenziali > **Impostazioni** > **Processi** > **Processi di Site Recovery**.
+4. Fare clic su **OK** per iniziare il failover. Per tenere traccia dello stato del processo, fare clic sulla VM per visualizzarne le proprietà oppure fare clic sul processo **Failover di test** nel nome dell'insieme di credenziali > **Processi** > **Site Recovery jobs** (Processi di Site Recovery).
 5. Al termine del failover sarà possibile visualizzare la macchina virtuale di Azure di replica in **Macchine virtuali** nel portale di Azure. Assicurarsi che la macchina virtuale sia delle dimensioni appropriate, che sia connessa alla rete giusta e che sia in esecuzione.
 6. Se sono state [preparate le connessioni dopo il failover](#prepare-to-connect-to-azure-vms-after-failover), sarà possibile connettersi alla VM di Azure.
 7. Al termine, fare clic su **Cleanup test failover** (Pulizia failover di test) nel piano di ripristino. Fare clic su **Note** per registrare e salvare eventuali osservazioni associate al failover di test. Verranno eliminate le macchine virtuali create durante il failover di test.
@@ -417,10 +417,10 @@ Si dovrebbe ricorrere a tale operazione quando un sito primario diventa inaccess
 >
 
 1. Eseguire il failover pianificato come indicato [qui](site-recovery-failover.md)
-2. In **Impostazioni > Elementi replicati**, fare clic con il pulsante destro sulla macchina virtuale e selezionare **Completa migrazione**
+2. In **Elementi replicati**, fare clic con il pulsante destro sulla macchina virtuale e selezionare **Completa la migrazione**
 
     ![Completare la migrazione](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
-3. Fare clic su **OK** per completare l'operazione. Per tenere traccia dello stato di avanzamento del processo, fare clic sulla macchina virtuale per visualizzarne le proprietà oppure usare il processo Completa migrazione in **Impostazioni > Processi di Site Recovery**.
+3. Fare clic su **OK** per completare l'operazione. Per tenere traccia dello stato di avanzamento del processo, fare clic sulla macchina virtuale per visualizzarne le proprietà oppure usare il processo Completa la migrazione in **Site Recovery jobs** (Processi di Site Recovery).
 
 ## <a name="monitor-your-deployment"></a>Monitorare la distribuzione
 Per monitorare le impostazioni di configurazione, lo stato e l'integrità della distribuzione di Site Recovery, seguire questa procedura:
@@ -429,5 +429,5 @@ Per monitorare le impostazioni di configurazione, lo stato e l'integrità della 
 
     ![Informazioni di base](./media/site-recovery-hyper-v-site-to-azure/essentials.png)
 2. Nel riquadro **Integrità** è possibile monitorare i server del sito in cui si verifica il problema e gli eventi generati da Site Recovery nelle ultime 24 ore.
-3. È possibile gestire e monitorare la replica nei riquadri **Elementi replicati**, **Piani di ripristino** e **Processi di Site Recovery**. Per eseguire il drill-down dei processi, accedere a **Impostazioni** -> **Processi** -> **Processi di Site Recovery**.
+3. È possibile gestire e monitorare la replica nei riquadri **Elementi replicati**, **Piani di ripristino** e **Processi di Site Recovery**. È possibile eseguire il drill-down dei processi altri dettagli in **Processi** > **Site Recovery Jobs** (Processi di Site Recovery).
 

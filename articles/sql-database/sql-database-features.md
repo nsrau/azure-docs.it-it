@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 03/03/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 3f8ad9bf72555b9ab19af4c7a15f66b982fe66fe
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: e052109ff10f21c3a737f336479fe43fb54e500e
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -60,7 +60,7 @@ Altre funzionalità continueranno a essere aggiunte alla versione&12;. È quindi
 | Ruoli applicazione | [Supportato](https://msdn.microsoft.com/library/ms190998.aspx) | [Supportato](https://msdn.microsoft.com/library/ms190998.aspx) |
 | Scalabilità automatica | Non supportate | [Supportato](sql-database-service-tiers.md) |
 | Azure Active Directory | Non supportate | [Supportato](sql-database-aad-authentication.md) |
-| Data factory di Azure | Non supportato: vedere [SQL Server Integration Services (SSIS)](https://msdn.microsoft.com/library/ms141026.aspx) | [Supportato](https://azure.microsoft.com/services/data-factory/) |
+| Data factory di Azure | [Supportato](../data-factory/data-factory-introduction.md) | [Supportato](../data-factory/data-factory-introduction.md) |
 | Controllo | [Supportato](https://msdn.microsoft.com/library/cc280386.aspx) | [Supportato](sql-database-auditing.md) |
 | File BACPAC (esportazione) | [Supportato](https://msdn.microsoft.com/library/hh213241.aspx) | [Supportato](sql-database-export.md) |
 | File BACPAC (importazione) | [Supportato](https://msdn.microsoft.com/library/hh710052.aspx) | [Supportato](sql-database-import-portal.md) |

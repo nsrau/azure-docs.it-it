@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 02/09/2017
+ms.date: 02/28/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
-ms.openlocfilehash: 09bc875449ecdf48c2570f1029df68d28ae5e798
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 6654b49658818a3dfd5297dc551a45de0f0968dc
+ms.openlocfilehash: 196a627b4c5cf921ddc99a0634f48f807593f8cc
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -79,7 +79,7 @@ Per consentire alle applicazioni da Azure di stabilire la connessione al server 
 La prima impostazione del firewall a livello di server può essere creata usando il [portale di Azure](https://portal.azure.com/) o a livello di programmazione con l'API REST o Azure PowerShell. Le regole del firewall a livello di server successive possono essere create e gestite utilizzando questi metodi e tramite Transact-SQL. Per migliorare le prestazioni, le regole del firewall a livello di server vengono temporaneamente memorizzate nella cache a livello di database. Per aggiornare la cache, vedere [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx). Per altre informazioni sulle regole del firewall a livello di server, vedere [Procedura: Configurare un firewall del server SQL di Azure con il portale di Azure](sql-database-configure-firewall-settings.md).
 
 ## <a name="creating-database-level-firewall-rules"></a>Creazione di regole del firewall a livello di database
-Dopo aver configurato il primo firewall a livello di server, è possibile limitare l'accesso a determinati database. Se nella regola del firewall a livello di database si specifica un intervallo di indirizzi IP che non rientra nell'intervallo specificato nella regola del firewall a livello di server, solo i client che dispongono di indirizzi IP compresi nell'intervallo a livello di database possono accedere al database. Per un database è possibile avere un massimo di 128 regole del firewall a livello di database. Le regole del firewall a livello di database per database master e utente possono essere create e gestite tramite Transact-SQL. Per altre informazioni su come configurare le regole del firewall a livello di database, vedere [sp_set_database_firewall_rule (Database SQL di Azure)](https://msdn.microsoft.com/library/dn270010.aspx).
+ Dopo aver configurato il primo firewall a livello di server, è possibile limitare l'accesso a determinati database. Se nella regola del firewall a livello di database si specifica un intervallo di indirizzi IP che non rientra nell'intervallo specificato nella regola del firewall a livello di server, solo i client che dispongono di indirizzi IP compresi nell'intervallo a livello di database possono accedere al database. Per un database è possibile avere un massimo di 128 regole del firewall a livello di database. Le regole del firewall a livello di database per database master e utente possono essere create e gestite tramite Transact-SQL. Per altre informazioni su come configurare le regole del firewall a livello di database, vedere [sp_set_database_firewall_rule (Database SQL di Azure)](https://msdn.microsoft.com/library/dn270010.aspx).
 
 ## <a name="programmatically-managing-firewall-rules"></a>Gestione di regole del firewall a livello di programmazione
 Oltre al portale di Azure, le regole del firewall possono essere gestite a livello di programmazione usando Transact-SQL, API REST e Azure PowerShell. Le tabelle seguenti descrivono il set di comandi disponibili per ogni metodo.
@@ -112,8 +112,26 @@ Oltre al portale di Azure, le regole del firewall possono essere gestite a livel
 
 > [!NOTE]
 > le modifiche alle impostazioni del firewall potrebbero impiegare fino a cinque minuti prima di avere effetto.
-> 
-> 
+ 
+ 
+### <a name="faq-when-should-you-use-a-server-level-firewall-rule-and-when-should-you-use-a-database-level-firewall-rule"></a>Domande frequenti: Quando è necessario usare una regola del firewall a livello di server e quando, invece, una regola del firewall a livello di database?   
+D: Gli utenti di un database devono essere completamente isolati da un altro database?   
+  In caso affermativo, concedere l'accesso tramite le regole del firewall a livello di database. Per evitare di usare le regole del firewall a livello di server, consentendo l'accesso attraverso il firewall a tutti i database, ridurre la profondità delle difese.   
+ 
+D: Gli utenti degli indirizzi IP devono avere accesso a tutti i database?   
+  Usare le regole del firewall a livello di server per ridurre il numero di volte in cui è necessario configurare le regole del firewall.   
+
+D: La persona o il team che configura le regole del firewall ha accesso solo attraverso il Portale di Azure, PowerShell o l'API REST?   
+  È necessario usare le regole del firewall a livello di server. Le regole del firewall a livello di database possono essere configurate solo con Transact-SQL.  
+
+D: Alla persona o al team che configura le regole del firewall è vietato avere autorizzazioni elevate a livello di database?   
+  Usare le regole del firewall a livello di server. Per configurare regole del firewall a livello di database tramite Transact-SQL, è necessaria almeno l'autorizzazione `CONTROL DATABASE` a livello di database.  
+
+D: La persona o il team che configura o controlla le regole del firewall gestisce centralmente le regole del firewall per molti database (forse centinaia)?   
+  Questa selezione dipende dalle esigenze e degli ambienti. Le regole del firewall a livello di server potrebbero essere più facili da configurare, tuttavia lo scripting consente di configurare le regole a livello di database. E anche se si usano le regole del firewall a livello di server, potrebbe essere necessario controllare le regole del firewall di database, per verificare se gli utenti con l'autorizzazione `CONTROL` nel database hanno creato le regole del firewall a livello di database.   
+
+D: È possibile usare un insieme di regole del firewall a livello di server e di database?   
+  Sì. Alcuni utenti, ad esempio gli amministratori, potrebbero aver bisogno di regole del firewall a livello di server. Altri utenti, ad esempio gli utenti di un'applicazione di database, potrebbero aver bisogno di regole del firewall a livello di database.   
 
 ## <a name="troubleshooting-the-database-firewall"></a>Risoluzione dei problemi del firewall del database
 Quando l'accesso al servizio di database SQL di Microsoft Azure non si comporta come previsto, considerare quanto segue:
@@ -128,7 +146,7 @@ Quando l'accesso al servizio di database SQL di Microsoft Azure non si comporta 
   * Ottenere indirizzi IP statici per i computer client, quindi aggiungere gli indirizzi IP come regole del firewall.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni sulla creazione di regole firewall a livello di server e di database, vedere:
+Per informazioni sulla creazione di regole del firewall a livello di server e di database, vedere:
 
 * [Configurare regole firewall a livello di server del database SQL di Azure tramite il portale di Azure](sql-database-configure-firewall-settings.md)
 * [Configurare le regole firewall a livello di server e di database per il database SQL di Azure tramite T-SQL](sql-database-configure-firewall-settings-tsql.md)
@@ -137,7 +155,8 @@ Per informazioni sulla creazione di regole firewall a livello di server e di dat
 
 Per un'esercitazione sulla creazione di un database, vedere [Primo database SQL di Azure](sql-database-get-started.md).
 Per informazioni sulla connessione a un database SQL di Azure da applicazioni open source o di terze parti, vedere [Esempi di codice di avvio rapido del client per il database SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
-Per informazioni su come passare ai database, vedere [Gestire l'accesso al database e la sicurezza degli account di accesso](https://msdn.microsoft.com/library/azure/ee336235.aspx).
+Per informazioni su come passare ai database, vedere [Gestire l'accesso al database e la sicurezza degli account di accesso](https://msdn.microsoft.com/library/azure/ee336235.aspx).   
+Per un'esercitazione end-to-end sulla creazione di accessi, utenti e firewall, vedere [Autenticazione di SQL Server, accesso e regole del firewall a livello di database](sql-database-control-access-sql-authentication-get-started.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Protezione del database](sql-database-security-overview.md)

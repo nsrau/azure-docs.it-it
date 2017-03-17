@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 98060e27d72605934d773b3cb6291c7c5d0df6f8
+ms.sourcegitcommit: 01448fcff64e99429e2ee7df916b110c869307fb
+ms.openlocfilehash: 7776ac35f1a8a30c959286a9e31beb666f5fc799
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -27,18 +28,7 @@ ms.openlocfilehash: 98060e27d72605934d773b3cb6291c7c5d0df6f8
 
 Questo argomento descrive come personalizzare i set d impostazioni di Media Encoder Standard. L'argomento [Codifica avanzata con Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md) mostra come usare .NET per creare un'attività di codifica e un processo per l'esecuzione di tale attività. Dopo aver personalizzato un set di impostazioni, fornire tali impostazioni all'attività di codifica. 
 
-In questo argomento vengono illustrati i set di impostazioni personalizzati che eseguono le attività di codifica seguenti:
-
-- [Generare anteprime](#thumbnails)
-- [Tagliare un video (ritaglio)](#trim_video)
-- [Creare una sovrimpressione](#overlay)
-- [Inserire una traccia audio silenziosa quando l'input è privo di audio](#silent_audio)
-- [Disabilitare il deinterlacciamento automatico](#deinterlacing)
-- [Impostazioni predefinite solo audio](#audio_only)
-- [Concatenare due o più file video](#concatenate)
-- [Ritagliare video con Media Encoder Standard](#crop)
-- [Inserire una traccia video quando l'input non ha video](#no_video)
-- [Ruotare un video](#rotate_video)
+In questo argomento vengono illustrati i set di impostazioni personalizzati che eseguono le attività di codifica seguenti.
 
 ## <a name="support-for-relative-sizes"></a>Supporto per le dimensioni relative
 
@@ -52,7 +42,7 @@ Quando si generano anteprime, non è sempre necessario specificare la larghezza 
     <Width>100%</Width>
     <Height>100%</Height>
 
-## <a name="a-idthumbnailsagenerate-thumbnails"></a><a id="thumbnails"></a>Generare anteprime
+## <a id="thumbnails"></a>Generare anteprime
 
 Questa sezione illustra come personalizzare un set di impostazioni che genera anteprime. Il set di impostazioni definito di seguito contiene informazioni su come codificare il file, nonché le informazioni necessarie per generare le anteprime. È possibile usare uno dei set di impostazioni per Media Encoder Standard documentati in [questa](media-services-mes-presets-overview.md) sezione e aggiungere il codice che genera le anteprime.  
 
@@ -65,7 +55,7 @@ Per informazioni sullo schema, vedere [questo](media-services-mes-schema.md) arg
 
 Assicurarsi di esaminare la sezione [Considerazioni](#considerations) .
 
-### <a name="a-idjsonajson-preset"></a><a id="json"></a>Set di impostazioni JSON
+### <a id="json"></a>Set di impostazioni JSON
     {
       "Version": 1.0,
       "Codecs": [
@@ -165,7 +155,7 @@ Assicurarsi di esaminare la sezione [Considerazioni](#considerations) .
     }
 
 
-### <a name="a-idxmlaxml-preset"></a><a id="xml"></a>Set di impostazioni XML
+### <a id="xml"></a>Set di impostazioni XML
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -255,12 +245,12 @@ Si applicano le considerazioni seguenti:
   * Impostazioni predefinite: Start: {Best}
 * Il formato di output deve essere specificato in modo esplicito per ogni formato immagine: Jpg/Png/BmpFormat. Quando è presente, MES collega JpgVideo a JpgFormat e così via. OutputFormat presenta una nuova Macro specifica di codec di immagine : {Index}, che deve essere presente (una volta e una sola volta) per i formati immagine.
 
-## <a name="a-idtrimvideoatrim-a-video-clipping"></a><a id="trim_video"></a>Tagliare un video (ritaglio)
+## <a id="trim_video"></a>Tagliare un video (ritaglio)
 Questa sezione descrive la modifica di set di impostazioni del codificatore per tagliare o ritagliare il video di input quando l'input è un file in formato intermedio o su richiesta. Il codificatore può anche essere usato per tagliare o ritagliare un asset acquisito o archiviato da un flusso in tempo reale. Per i relativi dettagli, vedere [questo blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
 Per tagliare i video, è possibile eseguire uno dei set di impostazioni di Media Encoder Standard documentati in [questa](media-services-mes-presets-overview.md) sezione e modificare l'elemento **Sources** (come illustrato di seguito). Il valore di StartTime deve corrispondere ai timestamp assoluti del video di input. Ad esempio, se il primo fotogramma del video di input ha un timestamp di 12:00:10.000, il valore di StartTime deve essere di almeno 12:00:10.000 o superiore. Nell'esempio seguente, si presuppone che il video di input abbia un timestamp iniziale pari a zero. **Sources** deve essere posizionato all'inizio del set di impostazioni.
 
-### <a name="a-idjsonajson-preset"></a><a id="json"></a>Set di impostazioni JSON
+### <a id="json"></a>Set di impostazioni JSON
     {
       "Version": 1.0,
       "Sources": [
@@ -497,7 +487,7 @@ Per tagliare i video, è possibile eseguire un’impostazione predefinita MES do
       </Outputs>
     </Preset>
 
-## <a name="a-idoverlayacreate-an-overlay"></a><a id="overlay"></a>Creare una sovrimpressione
+## <a id="overlay"></a>Creare una sovrimpressione
 
 Il Media Encoder Standard consente di sovrapporre un'immagine a un video esistente. Attualmente, sono supportati i seguenti formati: png, jpg, gif e bmp. Il set di impostazioni definito di seguito è un esempio di base di una sovrimpressione video.
 
@@ -707,7 +697,7 @@ Se si usa .NET, aggiungere le due funzioni seguenti all'esempio .NET definito in
     </Preset>
 
 
-## <a name="a-idsilentaudioainsert-a-silent-audio-track-when-input-has-no-audio"></a><a id="silent_audio"></a>Inserire una traccia audio silenziosa quando l'input è privo di audio
+## <a id="silent_audio"></a>Inserire una traccia audio silenziosa quando l'input è privo di audio
 Per impostazione predefinita, se si invia al codificatore un input che contiene solo video e nessun audio, l'asset di output contiene file di soli dati video. Alcuni lettori non possono gestire flussi di output di questo tipo. In tal caso, è possibile usare questa impostazione per forzare l'aggiunta di una traccia audio silenziosa all'output da parte del codificatore.
 
 Per forzare la generazione di un asset contenente una traccia audio silenziosa da parte del codificatore quando l'input è privo di audio, specificare il valore "InsertSilenceIfNoAudio".
@@ -730,7 +720,7 @@ Per forzare la generazione di un asset contenente una traccia audio silenziosa d
       <Bitrate>96</Bitrate>
     </AACAudio>
 
-## <a name="a-iddeinterlacingadisable-auto-de-interlacing"></a><a id="deinterlacing"></a>Disabilitare il deinterlacciamento automatico
+## <a id="deinterlacing"></a>Disabilitare il deinterlacciamento automatico
 I clienti non devono eseguire alcuna operazione se desiderano che il contenuto interlacciato sia automaticamente deinterlacciato. Quando il deinterlacciamento automatico è attivato (impostazione predefinita) il MES rileva automaticamente i fotogrammi interlacciati e deinterlaccia solo i fotogrammi contrassegnati come interlacciati.
 
 È possibile disattivare il deinterlacciamento automatico. Questa opzione non è consigliata.
@@ -758,7 +748,7 @@ I clienti non devono eseguire alcuna operazione se desiderano che il contenuto i
     </Sources>
 
 
-## <a name="a-idaudioonlyaaudio-only-presets"></a><a id="audio_only"></a>Impostazioni predefinite solo audio
+## <a id="audio_only"></a>Impostazioni predefinite solo audio
 In questa sezione vengono illustrate due impostazioni predefinite MES solo audio: Audio AAC e Audio AAC di buona qualità.
 
 ### <a name="aac-audio"></a>Audio ACC
@@ -805,7 +795,7 @@ In questa sezione vengono illustrate due impostazioni predefinite MES solo audio
       ]
     }
 
-## <a name="a-idconcatenateaconcatenate-two-or-more-video-files"></a><a id="concatenate"></a>Concatenare due o più file video
+## <a id="concatenate"></a>Concatenare due o più file video
 
 Nell'esempio seguente viene illustrato come generare un set di impostazioni per concatenare due o più file video. Lo scenario più comune è l'aggiunta di un'intestazione o una sequenza finale al video principale. L'uso previsto sono i file video modificati insieme che condividono proprietà: risoluzione video, frequenza dei fotogrammi, conteggio tracce audio e così via. Prestare attenzione a non combinare video con frequenze dei fotogrammi diverse o con un numero diverso di tracce audio.
 
@@ -915,10 +905,10 @@ Aggiornare il set di impostazioni personalizzate con gli ID degli asset che si v
       ]
     }
 
-## <a name="a-idcropacrop-videos-with-media-encoder-standard"></a><a id="crop"></a>Ritagliare video con Media Encoder Standard
+## <a id="crop"></a>Ritagliare video con Media Encoder Standard
 Vedere l'argomento [Ritagliare video con Media Encoder Standard](media-services-crop-video.md) .
 
-## <a name="a-idnovideoainsert-a-video-track-when-input-has-no-video"></a><a id="no_video"></a>Inserire una traccia video quando l'input non ha video
+## <a id="no_video"></a>Inserire una traccia video quando l'input non ha video
 Per impostazione predefinita, se si invia al codificatore un input che contiene solo audio e nessun video, l'asset di output contiene file di soli dati audio. Alcuni lettori, tra cui Azure Media Player (vedere [qui](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)) potrebbero non essere in grado di gestire tali flussi. In tal caso, è possibile usare questa impostazione per forzare l'aggiunta di una traccia video monocromatica all'output da parte del codificatore.
 
 > [!NOTE]
@@ -927,7 +917,7 @@ Per impostazione predefinita, se si invia al codificatore un input che contiene 
 >
 
 ### <a name="inserting-video-at-only-the-lowest-bitrate"></a>Inserimento di video alla sola velocità in bit più bassa
-Si supponga di usare un'impostazione di codifica a bitrate multipli, ad esempio ["H264 bitrate multipli 720p"](https://msdn.microsoft.com/library/mt269960.aspx) per codificare l'intero catalogo di input per lo streaming, che contiene una combinazione di file video e file di solo audio. In questo scenario, quando l'input non ha video, è opportuno forzare il codificatore a inserire una traccia video monocromatica solo alla velocità in bit più bassa, anziché inserire il video a tutte le velocità in bit. A tale scopo è necessario specificare il flag "InsertBlackIfNoVideoBottomLayerOnly".
+Si supponga di usare un'impostazione di codifica a bitrate multipli, ad esempio ["H264 bitrate multipli 720p"](media-services-mes-preset-h264-multiple-bitrate-720p.md) per codificare l'intero catalogo di input per lo streaming, che contiene una combinazione di file video e file di solo audio. In questo scenario, quando l'input non ha video, è opportuno forzare il codificatore a inserire una traccia video monocromatica solo alla velocità in bit più bassa, anziché inserire il video a tutte le velocità in bit. A tale scopo è necessario specificare il flag "InsertBlackIfNoVideoBottomLayerOnly".
 
 È possibile usare uno dei set di impostazioni di Media Encoder Standard documentati in [questa](media-services-mes-presets-overview.md) sezione e apportare la modifica seguente:
 
@@ -966,7 +956,7 @@ Si supponga di usare un'impostazione di codifica a bitrate multipli, ad esempio 
     <StretchMode>AutoSize</StretchMode>
     <Condition>InsertBlackIfNoVideo</Condition>
 
-## <a name="a-idrotatevideoarotate-a-video"></a><a id="rotate_video"></a>Ruotare un video
+## <a id="rotate_video"></a>Ruotare un video
 Il [codificatore multimediale standard](media-services-dotnet-encode-with-media-encoder-standard.md) supporta la rotazione in base ad angoli di 0/90/180/270. Il comportamento predefinito è "Auto", che tenta di rilevare i metadati di rotazione nel file video in arrivo per la compensazione. Includere l'elemento **Sources** seguente in uno dei set di impostazioni definiti in [questa](media-services-mes-presets-overview.md) sezione:
 
 ### <a name="json-preset"></a>Set di impostazioni JSON
@@ -1003,9 +993,4 @@ Per altre informazioni sul modo in cui il codificatore interpreta le impostazion
 
 ## <a name="see-also"></a>Vedere anche
 [Panoramica sulla codifica dei servizi multimediali](media-services-encode-asset.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

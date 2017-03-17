@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2017
+ms.date: 03/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 9eb2d7f4b431c01983620cb0cfcffd63a9f4d4e2
-ms.openlocfilehash: f7251dffc3dd922a6abeba0faca90843de64430f
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: dc533f46d71ec1bbe49b3e19821e4fc6009773fc
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -34,7 +34,7 @@ Questo articolo illustra come replicare macchine virtuali VMware locali in Azure
 
 Inserire commenti e domande nella parte inferiore di questo articolo oppure nel [forum sui servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## <a name="steps"></a>Passi
+## <a name="deployment-summary"></a>Riepilogo della distribuzione
 
 È necessario eseguire queste operazioni:
 
@@ -103,6 +103,7 @@ Inserire commenti e domande nella parte inferiore di questo articolo oppure nel 
     - Per aggiungere la voce del Registro di sistema per Windows da un'interfaccia della riga di comando, digitare:   ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
     - Per Linux, l'account deve essere radice nel server Linux di origine.
 
+## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
 [!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
 
@@ -110,11 +111,11 @@ Inserire commenti e domande nella parte inferiore di questo articolo oppure nel 
 
 Selezionare gli elementi da replicare e la posizione in cui eseguire la replica.
 
-1. Fare clic su **Insiemi di credenziali dei servizi di ripristino** e quindi sull'insieme di credenziali.
-2. Nel menu delle risorse fare clic su **Site Recovery** > **Passaggio 1: Preparare l'infrastruttura** > **Obiettivo di protezione**.
+1. Fare clic su **Insiemi di credenziali dei servizi di ripristino** > <vault name>.
+2. In **Attività iniziali** fare clic su **Site Recovery** > **Passaggio 1: Preparare l'infrastruttura** > **Obiettivo di protezione**.
 
     ![Scegliere gli obiettivi](./media/site-recovery-vmware-to-azure/choose-goals.png)
-3. In **Obiettivo di protezione** selezionare **In Azure** e scegliere **Sì, con VMware vSphere Hypervisor**.
+3. In **In quale destinazione si vuole eseguire la replica dei computer**selezionare **To Azure** (In Azure) e in **I computer sono virtualizzati**selezionare **Yes, with VMware vSphere Hypervisor** (Sì, con l'hypervisor VMware vSphere).
 
     ![Scegliere gli obiettivi](./media/site-recovery-vmware-to-azure/choose-goals2.png)
 
@@ -122,16 +123,16 @@ Selezionare gli elementi da replicare e la posizione in cui eseguire la replica.
 
 Configurare il server di configurazione, registrarlo nell'insieme di credenziali e individuare le VM.
 
-1. Fare clic su **Site Recovery** > **Passaggio 1: Preparare l'infrastruttura** > **Origine**.
+1. Fare clic su **Passaggio 1: Preparare l'infrastruttura** fare clic su **Origine**.
 2. Se non è disponibile un server di configurazione, fare clic su **+Server di configurazione**.
 
     ![Impostare l'origine](./media/site-recovery-vmware-to-azure/set-source1.png)
 3. In **Aggiungi server** verificare che **Tipo di server** contenga **Server di configurazione**.
-4. Scaricare il file di installazione per l'Installazione unificata di Azure Site Recovery.
+4. Scaricare il file di installazione per l'**installazione unificata di Microsoft Azure Site Recovery**.
 5. Scaricare la chiave di registrazione dell'insieme di credenziali, che sarà necessaria quando si esegue l'Installazione unificata. La chiave è valida per cinque giorni dal momento in cui viene generata.
 
    ![Impostare l'origine](./media/site-recovery-vmware-to-azure/set-source2.png)
-6. Nella VM del server di configurazione, verificare che il clock di sistema sia sincronizzato con un [server di riferimento ora](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) e quindi eseguire l'Installazione unificata per installare il server di configurazione, il server di elaborazione e il server di destinazione master.
+6. Nel computer del server di configurazione, verificare che il clock di sistema sia sincronizzato con un [server di riferimento ora](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-2016-accurate-time) e quindi eseguire l'Installazione unificata per installare il server di configurazione, il server di elaborazione e il server di destinazione master.
 
 ## <a name="run-site-recovery-unified-setup"></a>Eseguire l'Installazione unificata di Site Recovery
 
@@ -147,7 +148,7 @@ Eseguire quindi il file di installazione per l'Installazione unificata nel serve
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> Il server di configurazione può essere installato tramite la riga di comando. Per altre informazioni, vedere l'argomento relativo all'[installazione del server di configurazione con gli strumenti da riga di comando](http://aka.ms/installconfigsrv).
+> Il server di configurazione può essere installato tramite la riga di comando. [Altre informazioni](http://aka.ms/installconfigsrv).
 
 ### <a name="add-the-account-for-automatic-discovery"></a>Aggiungere l'account per l'individuazione automatica
 
@@ -257,7 +258,7 @@ Per impostazione predefinita, vengono replicati tutti i dischi in un computer. �
     * È consigliabile raggruppare le macchine virtuali e i server fisici in modo da rispecchiare i carichi di lavoro. L'abilitazione della coerenza tra più VM può influire sulle prestazioni del carico di lavoro e deve essere usata solo se i computer eseguono lo stesso carico di lavoro ed è necessaria la coerenza.
 
     ![Abilitare la replica](./media/site-recovery-vmware-to-azure/enable-replication7.png)
-13. Fare clic su **Abilita la replica**. È possibile tenere traccia dello stato del processo **Abilita protezione** in **Impostazioni** > **Processi** > **Processi di Site Recovery**. Dopo l'esecuzione del processo **Finalizza protezione** la macchina virtuale è pronta per il failover.
+13. Fare clic su **Abilita la replica**. È possibile tenere traccia dello stato del processo **Abilita protezione** in **Processi** > **Site Recovery jobs** (Processi di Site Recovery). Dopo l'esecuzione del processo **Finalizza protezione** la macchina virtuale è pronta per il failover.
 
 Se si configura l'installazione push, dopo l'abilitazione della replica verrà installato il servizio Mobility. Dopo l'installazione push del servizio Mobility in una VM, verrà avviato un processo di protezione che avrà esito negativo. Dopo l'errore, è necessario riavviare manualmente tutti i computer. Il processo di protezione verrà quindi avviato nuovamente e verrà eseguita la replica iniziale.
 
@@ -291,15 +292,15 @@ Se si configura l'installazione push, dopo l'abilitazione della replica verrà i
 Dopo aver completato la configurazione, eseguire un failover di test per verificare che tutti gli elementi funzionino come previsto.
 
 
-1. Per eseguire il failover di una singola macchina, in **Impostazioni** > **Elementi replicati** fare clic sulla VM > sull'icona ** +Failover di test**.
+1. Per eseguire il failover di una singola macchina, in **Elementi replicati** fare clic sulla VM e quindi sull'icona **+Failover di test**.
 
     ![Failover di test](./media/site-recovery-vmware-to-azure/TestFailover.png)
 
-1. Per eseguire il failover di un piano di ripristino, in **Impostazioni** > **Piani di ripristino** fare clic con il pulsante destro del mouse sul piano e quindi scegliere **Failover di test**. Per creare un piano di ripristino, [seguire queste istruzioni](site-recovery-create-recovery-plans.md).  
+1. Per eseguire il failover di un piano di ripristino, in **Piani di ripristino** fare clic con il pulsante destro del mouse sul piano e quindi su **Failover di test**. Per creare un piano di ripristino, [seguire queste istruzioni](site-recovery-create-recovery-plans.md).  
 
 1. In **Failover di test** selezionare la rete di Azure a cui dovranno connettersi le VM di Azure dopo il failover.
 
-1. Fare clic su **OK** per iniziare il failover. Per tenere traccia dello stato del processo, fare clic sulla VM per visualizzarne le proprietà oppure fare clic sul processo **Failover di test** nel nome dell'insieme di credenziali > **Impostazioni** > **Processi** > **Processi di Site Recovery**.
+1. Fare clic su **OK** per iniziare il failover. Per tenere traccia dello stato del processo, fare clic sulla VM per visualizzarne le proprietà oppure fare clic sul processo **Failover di test** nel nome dell'insieme di credenziali > > **Processi** > **Site Recovery jobs** (Processi di Site Recovery).
 
 1. Al termine del failover sarà possibile visualizzare la macchina virtuale di Azure di replica in **Macchine virtuali** nel portale di Azure. Assicurarsi che la macchina virtuale sia delle dimensioni appropriate, che sia connessa alla rete giusta e che sia in esecuzione.
 

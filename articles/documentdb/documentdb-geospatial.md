@@ -1,5 +1,5 @@
 ---
-title: Uso dei dati geospaziali in Azure DocumentDB | Documentazione Microsoft
+title: Uso dei dati geospaziali in Azure DocumentDB | Microsoft Docs
 description: Informazioni su come creare, indice ed eseguire query su oggetti spaziali con Azure DocumentDB.
 services: documentdb
 documentationcenter: 
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/16/2016
 ms.author: arramac
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: f78c0fc1959f72164508af9d8945744b67fac68b
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 60219a9c78884e01fcf46e18ac03e2a955787bc5
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="working-with-geospatial-data-in-azure-documentdb"></a>Utilizzo dei dati geospaziali in Azure DocumentDB
+# <a name="working-with-geospatial-and-geojson-location-data-in-documentdb"></a>Uso dei dati geospaziali e dei dati GeoJSON sulla posizione in DocumentDB
 In questo articolo viene fornita un'introduzione alla funzionalità geospaziale in [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 
 * Come è possibile archiviare i dati spaziali in Azure DocumentDB?
@@ -387,10 +389,5 @@ Ora che si è appreso come iniziare a utilizzare il supporto geospaziale in Docu
 * Utilizzare le query geospaziali nel [Query Playground di DocumentDB](http://www.documentdb.com/sql/demo#geospatial)
 * Altre informazioni sulle [query di DocumentDB](documentdb-sql-query.md)
 * Ulteriori informazioni sui [criteri di indicizzazione di DocumentDB](documentdb-indexing-policies.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

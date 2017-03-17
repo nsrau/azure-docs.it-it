@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 01/19/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5ef0bd33cb37474573cd136b882ca5141f365476
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 664a1bd9df9ace4993a8389dbeb049e721932082
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -35,12 +36,12 @@ Per configurare il ripristino del database tra due sedi locali, è necessario sc
 ![Distribuzione del sito Virtual Machine Manager per la replica tra siti locali](media/site-recovery-monitoring-and-troubleshooting/image1.png)
 
 ### <a name="virtual-machine-manager-site-deployment-for-replication-between-on-premises-locations-and-azure"></a>Distribuzione del sito Virtual Machine Manager per la replica tra le sedi locali e Azure
-Quando si configura il ripristino del database tra sedi locali e Azure, è necessario scaricare il provider di Azure Site Recovery e installarlo nel server Virtual Machine Manager. È anche necessario installare l'agente di Servizi di ripristino di Azure in ogni host Hyper-V. Per altre informazioni, fare riferimento a [Replica Hyper-V con Azure Site Recovery](site-recovery-understanding-site-to-azure-protection.md) .
+Quando si configura il ripristino del database tra sedi locali e Azure, è necessario scaricare il provider di Azure Site Recovery e installarlo nel server Virtual Machine Manager. È anche necessario installare l'agente di Servizi di ripristino di Azure in ogni host Hyper-V. Per altre informazioni [approfondire qui](site-recovery-hyper-v-azure-architecture.md).
 
 ![Distribuzione del sito Virtual Machine Manager per la replica tra le sedi locali e Azure](media/site-recovery-monitoring-and-troubleshooting/image2.png)
 
 ### <a name="hyper-v-site-deployment-for-replication-between-on-premises-locations-and-azure"></a>Distribuzione del sito Hyper-V per la replica tra sedi locali e Azure
-Questo processo è simile alla distribuzione di Virtual Machine Manager. L'unica differenza è rappresentata dal fatto che il provider di Azure Site Recovery e l'agente di Servizi di ripristino di Azure vengono installati nell'host Hyper-V stesso. Per altre informazioni, fare riferimento a [Replica Hyper-V con Azure Site Recovery](site-recovery-understanding-site-to-azure-protection.md) .
+Questo processo è simile alla distribuzione di Virtual Machine Manager. L'unica differenza è rappresentata dal fatto che il provider di Azure Site Recovery e l'agente di Servizi di ripristino di Azure vengono installati nell'host Hyper-V stesso. [Altre informazioni](site-recovery-hyper-v-azure-architecture.md). .
 
 ## <a name="monitor-configuration-protection-and-recovery-operations"></a>Monitorare le operazioni di configurazione, protezione e ripristino
 Ogni operazione in Azure Site Recovery viene controllata e monitorata nella scheda **Processi**. In caso di errori di configurazione, protezione o ripristino, passare alla scheda **Processi** e controllare se vi sono errori.
@@ -80,8 +81,8 @@ Come illustrato nello screenshot precedente, l'integrità della macchina virtual
 
 > [!NOTE]
 > Se vi sono operazioni attive in corso o non riuscite, passare alla visualizzazione **Processi** come indicato in precedenza per visualizzare l'errore per un processo specifico.
-> 
-> 
+>
+>
 
 ## <a name="troubleshoot-on-premises-hyper-v-issues"></a>Risoluzione dei problemi di Hyper-V a livello locale
 Connettersi alla console Hyper-V Manager locale, selezionare la macchina virtuale e controllare l'integrità della replica.
@@ -194,10 +195,4 @@ Di seguito sono elencati gli errori comuni e le relative soluzioni. Ogni errore 
 Se il pulsante **Connetti** nel portale è disattivato e non si è connessi ad Azure tramite una connessione Express Route o VPN da sito a sito, per poter usare Desktop remoto o la shell condivisa è necessario creare un indirizzo IP pubblico e assegnarlo alla macchina virtuale. È quindi possibile aggiungere un indirizzo IP pubblico nell'interfaccia di rete della macchina virtuale.  
 
 ![Aggiunta di un indirizzo IP pubblico nell'interfaccia di rete sulla macchina virtuale](media/site-recovery-monitoring-and-troubleshooting/createpublicip.gif)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

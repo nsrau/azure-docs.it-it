@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2017
 ms.author: arramac
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 788a1b9ef6a470c8f696228fd8fe51052c4f7007
-ms.openlocfilehash: 15c5a8be1097253e88af3a9f36b9067f0e2fbba3
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: d6292567bbf7afd71b21be3b236537c609c63644
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="multi-master-database-architectures-with-azure-documentdb"></a>Architetture di database multimaster con Azure DocumentDB
+# <a name="multi-master-globally-replicated-database-architectures-with-documentdb"></a>Architetture di database multimaster replicate a livello globale con DocumentDB
 DocumentDB supporta la [replica globale](documentdb-distribute-data-globally.md) chiavi in mano, che consente di distribuire i dati in più aree con accesso a bassa latenza in qualsiasi punto del carico di lavoro. Questo modello viene usato in genere per carichi di lavoro di pubblicazione/consumer in cui è presente un writer in una singola area geografica e con lettori distribuiti a livello globale in altre aree (lettura). 
 
 È anche possibile usare il supporto per la replica globale di DocumentDB per creare applicazioni in cui i writer e i lettori sono distribuiti in modo globale. Questo documento illustra un modello che consente di ottenere l'accesso in scrittura e lettura locale per i writer distribuiti mediante Azure DocumentDB.
 
-## <a name="a-idexamplescenarioacontent-publishing---an-example-scenario"></a><a id="ExampleScenario"></a>Pubblicazione del contenuto: scenario di esempio
+## <a id="ExampleScenario"></a>Pubblicazione del contenuto: scenario di esempio
 È possibile esaminare uno scenario concreto per illustrare il modo in cui possono essere usati i modelli di lettura e scrittura in più aree e multimaster distribuiti a livello globale con DocumentDB. Esaminare una piattaforma di pubblicazione di contenuti creata in DocumentDB. Ecco alcuni requisiti che devono essere rispettati da questa piattaforma per offrire un'esperienza utente ottimale per server di pubblicazione e consumer.
 
 * Gli autori e i sottoscrittori sono distribuiti in tutto il mondo. 
@@ -39,7 +41,7 @@ Supponendo che siano presenti milioni di consumer e server di pubblicazione con 
 
 Per altre informazioni sul partizionamento e sulle chiavi di partizione, vedere [Partizionamento e scalabilità in Azure DocumentDB](documentdb-partition-data.md).
 
-## <a name="a-idmodelingnotificationsamodeling-notifications"></a><a id="ModelingNotifications"></a>Modellazione delle notifiche
+## <a id="ModelingNotifications"></a>Modellazione delle notifiche
 Le notifiche sono feed di dati specifici per un utente. I modelli di accesso per i documenti di notifica sono quindi sempre nel contesto di un singolo utente. È ad esempio possibile "inserire una notifica per un utente" o "recuperare tutte le notifiche per un utente specifico". La scelta ottimale di chiave di partizionamento per questo tipo sarebbe quindi `UserId`.
 
     class Notification 
@@ -66,7 +68,7 @@ Le notifiche sono feed di dati specifici per un utente. I modelli di accesso per
         public string ArticleId { get; set; } 
     }
 
-## <a name="a-idmodelingsubscriptionsamodeling-subscriptions"></a><a id="ModelingSubscriptions"></a>Modellazione delle sottoscrizioni
+## <a id="ModelingSubscriptions"></a>Modellazione delle sottoscrizioni
 Le sottoscrizioni possono essere create per diversi criteri, ad esempio per una categoria di articoli rilevanti o un server di pubblicazione specifico. `SubscriptionFilter` è quindi una scelta appropriata per la chiave di partizione.
 
     class Subscriptions 
@@ -89,7 +91,7 @@ Le sottoscrizioni possono essere create per diversi criteri, ad esempio per una 
         } 
     }
 
-## <a name="a-idmodelingarticlesamodeling-articles"></a><a id="ModelingArticles"></a>Modellazione degli articoli
+## <a id="ModelingArticles"></a>Modellazione degli articoli
 Dopo l'identificazione di un articolo tramite le notifiche, le query successive sono in genere basate su `ArticleId`. Scegliendo `ArticleID` come chiave di partizione si ottiene quindi la distribuzione ottimale per l'archiviazione di articoli all'interno di una raccolta di DocumentDB. 
 
     class Article 
@@ -118,7 +120,7 @@ Dopo l'identificazione di un articolo tramite le notifiche, le query successive 
         //... 
     }
 
-## <a name="a-idmodelingreviewsamodeling-reviews"></a><a id="ModelingReviews"></a>Modellazione delle revisioni
+## <a id="ModelingReviews"></a>Modellazione delle revisioni
 Analogamente agli articoli, le revisioni vengono in genere scritte e lette nel contesto dell'articolo. Scegliendo `ArticleId` come chiave di partizione si ottiene quindi la distribuzione ottimale e l'accesso più efficiente per le revisioni associate all'articolo. 
 
     class Review 
@@ -144,7 +146,7 @@ Analogamente agli articoli, le revisioni vengono in genere scritte e lette nel c
         public int Rating { get; set; } }
     }
 
-## <a name="a-iddataaccessmethodsadata-access-layer-methods"></a><a id="DataAccessMethods"></a>Metodi per i livelli di accesso ai dati
+## <a id="DataAccessMethods"></a>Metodi per i livelli di accesso ai dati
 È possibile esaminare i metodi di accesso ai dati principali da implementare. Ecco l'elenco di metodi necessari per `ContentPublishDatabase`:
 
     class ContentPublishDatabase 
@@ -160,7 +162,7 @@ Analogamente agli articoli, le revisioni vengono in genere scritte e lette nel c
         public async Task<IEnumerable<Review>> ReadReviewsAsync(string articleId); 
     }
 
-## <a name="a-idarchitectureadocumentdb-account-configuration"></a><a id="Architecture"></a>Configurazione dell'account DocumentDB
+## <a id="Architecture"></a>Configurazione dell'account DocumentDB
 Per assicurare operazioni di lettura e scrittura locali, è necessario partizionare i dati non solo nella chiave di partizione, ma anche in base al modello di accesso geografico nelle aree. Il modello si basa sulla presenza di un account di database di Azure DocumentDB con replica geografica per ogni area. Ad esempio, con due aree si può ottenere uno scenario come il seguente per le operazioni di scrittura in più aree:
 
 | Nome account | Area di scrittura | Area di lettura |
@@ -200,7 +202,7 @@ Con la configurazione precedente, il livello di accesso ai dati può inoltrare t
 | `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |`Southeast Asia` |
 | `contentpubdatabase-asia.documents.azure.com` | `Southeast Asia` |`North Europe` |`West US` |
 
-## <a name="a-iddataaccessimplementationadata-access-layer-implementation"></a><a id="DataAccessImplementation"></a>Implementazione del livello di accesso ai dati
+## <a id="DataAccessImplementation"></a>Implementazione del livello di accesso ai dati
 È ora possibile esaminare l'implementazione del livello di accesso ai dati per un'applicazione con due aree scrivibili. Il livello di accesso ai dati deve implementare i passaggi seguenti:
 
 * Creare più istanze di `DocumentClient` per ogni account. Con due aree, ogni istanza del livello di accesso ai dati ha un valore `writeClient` e un valore `readClient`. 
@@ -309,15 +311,10 @@ Per le notifiche e le revisioni di lettura, è necessario leggere da entrambe le
 
 Se si sceglie una chiave di partizione ottimale e un partizionamento basato su account statici, è possibile ottenere operazioni di scrittura e lettura locali in più aree usando Azure DocumentDB.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="NextSteps"></a>Passaggi successivi
+## <a id="NextSteps"></a>Passaggi successivi
 In questo articolo è stato illustrato come è possibile usare modelli di lettura e scrittura in più aree con distribuzione globale con DocumentDB usando la pubblicazione di contenuti come scenario di esempio.
 
 * Altre informazioni sul modo in cui DocumentDB supporta la [distribuzione globale](documentdb-distribute-data-globally.md)
 * Altre informazioni sui [failover automatici o manuali in Azure DocumentDB](documentdb-regional-failovers.md)
 * Altre informazioni sulla [coerenza globale con DocumentDB](documentdb-consistency-levels.md)
 * Sviluppare in più aree usando [Azure DocumentDB SDK](documentdb-developing-with-multiple-regions.md)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

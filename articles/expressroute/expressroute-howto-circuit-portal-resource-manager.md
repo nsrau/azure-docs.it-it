@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 03/02/2017
 ms.author: cherylmc;ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 81face4253f50f17d48b940c1e355565958c829d
-ms.openlocfilehash: 7edda7d64f6bf1d2b8eb03bb6c14db68cc81eca9
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 46b4e1b149a3e9427e1384abc0d95eb616002ab6
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -123,7 +123,7 @@ Selezionare un circuito per visualizzarne lo stato.
 ![Stato di un circuito ExpressRoute](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
 
 ## <a name="modifying-an-expressroute-circuit"></a>Modifica di un circuito ExpressRoute
-È possibile modificare determinate proprietà di un circuito ExpressRoute senza conseguenze per la connettività. A questo punto, non è possibile modificare le proprietà del circuito ExpressRoute usando il portale di Azure. È tuttavia possibile usare PowerShell per modificare le proprietà del circuito. Per altre informazioni, vedere la sezione dell'articolo relativa alla [modifica di un circuito ExpressRoute tramite PowerShell](expressroute-howto-circuit-arm.md#modify).
+È possibile modificare determinate proprietà di un circuito ExpressRoute senza conseguenze per la connettività.
 
 È possibile eseguire le operazioni seguenti senza tempi di inattività:
 
@@ -133,6 +133,19 @@ Selezionare un circuito per visualizzarne lo stato.
 * È possibile abilitare e disabilitare l'opzione **Consenti operazioni classiche**.
 
 Per altre informazioni su limiti e limitazioni, vedere [Domande frequenti su ExpressRoute](expressroute-faqs.md).
+
+Per modificare un circuito ExpressRoute, fare clic su **Configurazione**, come illustrato nella figura seguente.
+
+![Modificare il circuito](./media/expressroute-howto-circuit-portal-resource-manager/modifycircuit.png)
+
+È possibile modificare larghezza di banda, SKU e modello di fatturazione e consentire operazioni classiche nel pannello di configurazione.
+
+> [!IMPORTANT]
+> Non è possibile ridurre la larghezza di banda di un circuito ExpressRoute senza interruzioni. Il downgrade della larghezza di banda richiede il deprovisioning del circuito ExpressRoute e quindi il provisioning di un nuovo circuito ExpressRoute.
+> 
+> La disabilitazione dell'operazione aggiuntiva premium può avere esito negativo se si usano più risorse di quelle consentite per il circuito standard.
+> 
+> 
 
 ## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a>Deprovisioning ed eliminazione di un circuito ExpressRoute
 È possibile eliminare il circuito ExpressRoute selezionando l'icona di **eliminazione** . Tenere presente quanto segue:

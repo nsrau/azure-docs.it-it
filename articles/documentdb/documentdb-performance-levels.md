@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: mimig
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: b9902de45477bb7970da6c8f2234775bdb6edba8
-ms.openlocfilehash: 65f19191bbb736d3b7fbdd94d73f2308ee6dea83
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 659d6bd63ea996af7b7b172f998884354e5d5858
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="performance-levels-in-documentdb"></a>Livelli di prestazioni in DocumentDB
+# <a name="retiring-the-s1-s2-and-s3-performance-levels-in-documentdb"></a>Ritiro dei livelli di prestazioni S1, S2 e S3 in DocumentDB
 
 > [!IMPORTANT] 
 > I livelli di prestazioni S1, S2 e S3 descritti in questo articolo sono in fase di ritiro e non sono più disponibili per le nuove raccolte di DocumentDB.
@@ -175,7 +176,7 @@ Il prezzo resterà bloccato per i clienti EA fino alla scadenza del contratto in
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sui prezzi e sulla gestione dei dati con Azure DocumentDB, esplorare queste risorse:
 
-1.  [Partizionamento dei dati in DocumentDB](documentdb-partition-data.md). Spiegazione della differenza tra le raccolte a partizione singola e le raccolte partizionate e suggerimenti su come implementare una strategia di partizionamento per un perfetto ridimensionamento.
-2.  [Prezzi di DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/). Informazioni sui costi del provisioning della velocità effettiva e del consumo di spazio di archiviazione.
-3.  [Unità richiesta](documentdb-request-units.md). Analisi del consumo di velocità effettiva per i diversi tipi di operazione, ad esempio lettura, scrittura, query.
-4.  [Modellazione dei dati in DocumentDB](documentdb-modeling-data.md). Informazioni sulla modellazione dei dati per DocumentDB.
+1.    [Partizionamento dei dati in DocumentDB](documentdb-partition-data.md). Spiegazione della differenza tra le raccolte a partizione singola e le raccolte partizionate e suggerimenti su come implementare una strategia di partizionamento per un perfetto ridimensionamento.
+2.    [Prezzi di DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/). Informazioni sui costi del provisioning della velocità effettiva e del consumo di spazio di archiviazione.
+3.    [Unità richiesta](documentdb-request-units.md). Analisi del consumo di velocità effettiva per i diversi tipi di operazione, ad esempio lettura, scrittura, query.
+4.    [Modellazione dei dati in DocumentDB](documentdb-modeling-data.md). Informazioni sulla modellazione dei dati per DocumentDB.

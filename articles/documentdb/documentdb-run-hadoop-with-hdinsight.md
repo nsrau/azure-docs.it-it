@@ -1,5 +1,5 @@
 ---
-title: Eseguire un processo Hadoop usando DocumentDB e HDInsight | Documentazione Microsoft
+title: Eseguire un processo Hadoop usando Azure DocumentDB e HDInsight | Microsoft Docs
 description: Informazioni su come eseguire un semplice processo Hive, Pig e MapReduce con DocumentDB e Azure HDInsight.
 services: documentdb
 author: dennyglee
@@ -14,13 +14,15 @@ ms.devlang: java
 ms.topic: article
 ms.date: 09/20/2016
 ms.author: denlee
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: f7b508071e76deb47bfbaf397ce168ebc78aa068
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 9304acd9f99b7f492a37bc4243ed8fb617998c6f
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="a-namedocumentdb-hdinsightarun-a-hadoop-job-using-documentdb-and-hdinsight"></a><a name="DocumentDB-HDInsight"></a>Eseguire un processo Hadoop usando DocumentDB e HDInsight
+# <a name="DocumentDB-HDInsight"></a>Eseguire un processo Apache Hive, Pig o Hadoop usando DocumentDB e HDInsight
 Questa esercitazione illustra come eseguire processi [Apache Hive][apache-hive], [Apache Pig][apache-pig] e [Apache Hadoop][apache-hadoop] MapReduce in Azure HDInsight con il connettore Hadoop di DocumentDB. Il connettore Hadoop di DocumentDB consente a quest'ultimo di fungere da origine e sink per i processi Hive, Pig e MapReduce. Questa esercitazione userà DocumentDB come origine e destinazione dati per i processi Hadoop.
 
 Dopo aver completato questa esercitazione, si potrà rispondere alle domande seguenti:
@@ -43,7 +45,7 @@ Quindi, tornare a questo articolo, dove si riceveranno tutti i dettagli su come 
 
 Se non si ha tempo di completare l'esercitazione e si vogliono ottenere gli script PowerShell completi di esempio per Hive, Pig e MapReduce, È possibile ottenerli [qui][documentdb-hdinsight-samples]. Il download contiene anche i file hql, pig e java per questi esempi.
 
-## <a name="a-namenewestversionanewest-version"></a><a name="NewestVersion"></a>Versione più recente
+## <a name="NewestVersion"></a>Versione più recente
 <table border='1'>
     <tr><th>Versione di Hadoop Connector</th>
         <td>1.2.0</td></tr>
@@ -59,7 +61,7 @@ Se non si ha tempo di completare l'esercitazione e si vogliono ottenere gli scri
         </td></tr>
 </table>
 
-## <a name="a-nameprerequisitesaprerequisites"></a><a name="Prerequisites"></a>Prerequisiti
+## <a name="Prerequisites"></a>Prerequisiti
 Prima di seguire le istruzioni di questa esercitazione, verificare che siano disponibili gli elementi seguenti:
 
 * Un DocumentDB, un database e una raccolta di documenti all'interno. Per altre informazioni, vedere [Introduzione a DocumentDB][getting-started]. Importare dati di esempio nell'account DocumentDB con lo [strumento di importazione DocumentDB][documentdb-import-data].
@@ -73,7 +75,7 @@ Prima di seguire le istruzioni di questa esercitazione, verificare che siano dis
 >
 >
 
-## <a name="a-nameprovisionhdinsightastep-1-create-a-new-hdinsight-cluster"></a><a name="ProvisionHDInsight"></a>Passaggio 1: Creare un nuovo cluster HDInsight
+## <a name="ProvisionHDInsight"></a>Passaggio 1: Creare un nuovo cluster HDInsight
 Questa esercitazione usa Azioni script del portale di Azure per personalizzare il cluster HDInsight. In questa esercitazione si userà il portale di Azure per creare un cluster HDInsight. Per istruzioni su come usare i cmdlet di PowerShell oppure HDInsight .NET SDK, vedere l'articolo [Personalizzare cluster HDInsight mediante Azione script][hdinsight-custom-provision].
 
 1. Accedere al [portale di Azure][azure-portal].
@@ -139,7 +141,7 @@ Questa esercitazione usa Azioni script del portale di Azure per personalizzare i
 11. Creare un nuovo **gruppo di risorse** oppure usare un gruppo di risorse esistente nella sottoscrizione di Azure.
 12. Selezionare ora **Aggiungi al dashboard** per tenere traccia della distribuzione e fare clic su **Crea**.
 
-## <a name="a-nameinstallcmdletsastep-2-install-and-configure-azure-powershell"></a><a name="InstallCmdlets"></a>Passaggio 2: Installare e configurare Azure PowerShell
+## <a name="InstallCmdlets"></a>Passaggio 2: Installare e configurare Azure PowerShell
 1. Installare Azure PowerShell. Le istruzioni sono consultabili [qui][powershell-install-configure].
 
    > [!NOTE]
@@ -160,7 +162,7 @@ Questa esercitazione usa Azioni script del portale di Azure per personalizzare i
 
     ![Diagramma per Azure PowerShell][azure-powershell-diagram]
 
-## <a name="a-namerunhiveastep-3-run-a-hive-job-using-documentdb-and-hdinsight"></a><a name="RunHive"></a>Passaggio 3: Eseguire un processo Hive usando DocumentDB e HDInsight
+## <a name="RunHive"></a>Passaggio 3: Eseguire un processo Hive usando DocumentDB e HDInsight
 > [!IMPORTANT]
 > Tutte le variabili indicate da < > devono essere compilate usando le proprie impostazioni di configurazione.
 >
@@ -261,7 +263,7 @@ Questa esercitazione usa Azioni script del portale di Azure per personalizzare i
 
    ![Risultati della query relativa alla tabella][image-hive-query-results]
 
-## <a name="a-namerunpigastep-4-run-a-pig-job-using-documentdb-and-hdinsight"></a><a name="RunPig"></a>Passaggio 4: Eseguire un processo Pig usando DocumentDB e HDInsight
+## <a name="RunPig"></a>Passaggio 4: Eseguire un processo Pig usando DocumentDB e HDInsight
 > [!IMPORTANT]
 > Tutte le variabili indicate da < > devono essere compilate usando le proprie impostazioni di configurazione.
 >
@@ -348,7 +350,7 @@ Questa esercitazione usa Azioni script del portale di Azure per personalizzare i
 
     ![Risultati della query SQL][image-pig-query-results]
 
-## <a name="a-namerunmapreduceastep-5-run-a-mapreduce-job-using-documentdb-and-hdinsight"></a><a name="RunMapReduce"></a>Passaggio 5: Eseguire un processo MapReduce usando DocumentDB e HDInsight
+## <a name="RunMapReduce"></a>Passaggio 5: Eseguire un processo MapReduce usando DocumentDB e HDInsight
 1. Impostare le variabili seguenti nel riquadro di script di PowerShell.
 
         $subscriptionName = "<SubscriptionName>"   # Azure subscription name
@@ -389,7 +391,7 @@ Questa esercitazione usa Azioni script del portale di Azure per personalizzare i
 
       ![Risultati della query MapReduce][image-mapreduce-query-results]
 
-## <a name="a-namenextstepsanext-steps"></a><a name="NextSteps"></a>Passaggi successivi
+## <a name="NextSteps"></a>Passaggi successivi
 Congratulazioni. Sono stati eseguiti i primi processi Hive, Pig e MapReduce usando Azure DocumentDB e HDInsight.
 
 Abbiamo reso Open Source il connettore Hadoop. Se si è interessati, è possibile contribuire in [GitHub][documentdb-github].
@@ -433,9 +435,4 @@ Per altre informazioni, vedere gli articoli seguenti:
 [image-pig-query-results]: ./media/documentdb-run-hadoop-with-hdinsight/pigqueryresults.PNG
 
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

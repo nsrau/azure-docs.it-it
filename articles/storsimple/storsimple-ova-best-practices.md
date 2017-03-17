@@ -4,7 +4,7 @@ description: Descrive le procedure consigliate per la distribuzione e la gestion
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 57ac6eeb-c47c-442d-a5f4-b360d81a76a6
 ms.service: storsimple
@@ -12,16 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/18/2016
+ms.date: 03/01/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 242951777b80d249cb2e0ef4ec497c3447246c19
+ms.sourcegitcommit: 48f89fd53f88f7bd757265d248e5aa6e53ae8d38
+ms.openlocfilehash: 27cfc75c90a5ba0699af0491f52747e8a1ea711a
+ms.lasthandoff: 03/02/2017
 
 
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Procedure consigliate per l'array virtuale StorSimple
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Array virtuale Microsoft Azure StorSimple è una soluzione di archiviazione integrata che consente di gestire le attività di archiviazione tra un dispositivo virtuale locale eseguito in un hypervisor e la risorsa di archiviazione cloud di Microsoft Azure. L'array virtuale StorSimple è un'alternativa efficace e conveniente all'array fisico serie 8000. L'array virtuale può essere eseguito nell'infrastruttura di hypervisor esistente, supporta i protocolli iSCSI e SMB ed è adatto per scenari con uffici remoti o succursali. Per altre informazioni sulle soluzioni StorSimple, vedere [Microsoft Azure StorSimple Overview](https://www.microsoft.com/en-us/server-cloud/products/storsimple/overview.aspx)(Panoramica di Microsoft Azure StorSimple).
 
 Questo articolo descrive le procedure consigliate implementate durante l'installazione, la distribuzione e la gestione iniziali dell'array virtuale StorSimple. Le procedure consigliate forniscono le linee guida convalidate per l'installazione e la gestione dell'array virtuale. L'articolo è destinato agli amministratori IT che si occupano della distribuzione e gestione di array virtuali nei data center.
@@ -48,7 +49,7 @@ Quando si ridimensiona l'array virtuale StorSimple, considerare i fattori seguen
 
 * Prenotazione locale per volumi o condivisioni. Circa il 12% dello spazio viene riservato a livello locale per ogni volume o condivisione a livelli con provisioning. Anche circa il 10% dello spazio è riservato per un volume aggiunto in locale per il file system.
 * Sovraccarico di snapshot. Circa il 15% dello spazio a livello locale è riservato per gli snapshot.
-* Necessità di ripristini. Se l'esecuzione del ripristino fa parte di una nuova operazione, il ridimensionamento deve tenere conto dello spazio necessario per il ripristino. Il ripristino viene eseguito in una condivisione o un volume con dimensioni uguali o maggiori.
+* Necessità di ripristini. Se l'esecuzione del ripristino fa parte di una nuova operazione, il ridimensionamento deve tenere conto dello spazio necessario per il ripristino. Il ripristino viene eseguito in una condivisione o un volume con dimensioni uguali.
 * È necessario allocare una parte del buffer per un'eventuale crescita imprevista.
 
 In base ai fattori precedenti, i requisiti per il ridimensionamento possono essere rappresentati dall'equazione seguente:
@@ -157,9 +158,9 @@ Tenere presenti le procedure consigliate seguenti quando si effettua il provisio
 
 * Le dimensioni dei file in relazione alle dimensioni con cui è stato effettuato il provisioning di una condivisione a livelli possono compromettere le prestazioni della suddivisione in livelli. L'utilizzo di file di grandi dimensioni può comportare il rallentamento della suddivisione in livelli. Durante l'uso di file di grandi dimensioni, è consigliabile che il file più grande sia più piccolo del 3% rispetto alle dimensioni della condivisione.
 * Nell'array virtuale è possibile creare un massimo di 16 volumi o condivisioni. Se aggiunti in locale, volumi o condivisioni possono avere dimensioni comprese tra 50 GB e 2 TB. Se a livelli, volumi o condivisioni devono avere dimensioni comprese tra 500 GB e 20 TB. 
-* Quando si crea un volume, tenere conto anche dell'utilizzo di dati previsto, nonché della crescita futura. Mentre non è possibile espandere il volume in un secondo momento, è sempre possibile ripristinare un volume più grande.
+* Quando si crea un volume, tenere conto anche dell'utilizzo di dati previsto, nonché della crescita futura. Il volume non può essere espanso in un secondo momento.
 * Dopo aver creato il volume, non sarà possibile ridurne le dimensioni in StorSimple.
-* Quando si scrive in un volume a livelli in StorSimple, le operazioni di I/O vengono limitate quando i dati del volume raggiungono una determinata soglia, relativamente allo spazio locale riservato per il volume. Se si continua a scrivere in questo volume, le operazioni di I/O rallentano in modo significativo. Anche se è possibile scrivere in un volume a livelli oltre la capacità di cui è stato effettuato il provisioning (non viene attivamente impedito all'utente di scrivere oltre tale capacità), viene visualizzato un messaggio di notifica per segnalare il superamento della sottoscrizione. Dopo aver visualizzato l'avviso, è fondamentale adottare misure correttive, ad esempio eliminare i dati del volume o ripristinare un volume più grande. L'espansione di un volume non è attualmente supportata.
+* Quando si scrive in un volume a livelli in StorSimple, le operazioni di I/O vengono limitate quando i dati del volume raggiungono una determinata soglia, relativamente allo spazio locale riservato per il volume. Se si continua a scrivere in questo volume, le operazioni di I/O rallentano in modo significativo. Anche se è possibile scrivere in un volume a livelli oltre la capacità di cui è stato effettuato il provisioning (non viene attivamente impedito all'utente di scrivere oltre tale capacità), viene visualizzato un messaggio di notifica per segnalare il superamento della sottoscrizione. Dopo aver visualizzato l'avviso, è fondamentale adottare misure correttive, ad esempio eliminare i dati del volume. L'espansione di un volume non è attualmente supportata.
 * Per i casi d'uso di ripristino di emergenza, poiché il numero di condivisioni o volumi consentiti è pari a 16 e il numero massimo di condivisioni o volumi che possono essere elaborati in parallelo è 16, il numero di condivisioni o volumi non ha un impatto su RPO e RTO. 
 
 #### <a name="volumeshare-type"></a>Tipo di volumi o condivisioni
@@ -285,10 +286,5 @@ Può essere necessario distribuire più array virtuali per tenere conto di un wo
 
 ## <a name="see-also"></a>Vedere anche
 Informazioni su come [amministrare l'array virtuale StorSimple](storsimple-ova-manager-service-administration.md) usando il servizio StorSimple Manager.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: ab0b218a99ab3ff98edfa075eabbd3eb2c2bd1d4
-ms.openlocfilehash: 996fc80ff926117dc12180efe1949b3dbeba3f91
-ms.lasthandoff: 02/06/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 4ee741cbec8db6b6400ff9f27daa2a0120bd2618
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -46,7 +46,12 @@ Un'app per le funzioni ospita l'esecuzione delle funzioni in Azure. Se non si di
 
 3. Fare clic su **Crea** per effettuare il provisioning della nuova app per le funzioni e distribuirla.  
 
-Dopo aver effettuato il provisioning dell'app per le funzioni è possibile creare la prima funzione.
+### <a name="storage-account-requirements"></a>Requisiti dell'account di archiviazione
+
+Quando si crea un'app per le funzioni, è necessario creare o collegare un account di archiviazione di Azure generico che supporta l'archivio BLOB, l'archiviazione code e l'archivio tabelle. Funzioni di Azure usa internamente l'Archiviazione di Azure per operazioni quali la gestione dei trigger e la registrazione dell'esecuzione delle funzioni. Alcuni account di archiviazione, come account di archiviazione solo BLOB (inclusa l'archiviazione premium) e gli account di archiviazione generici con replica ZRS, non supportano code e tabelle. Questi account vengono filtrati dal pannello Account di archiviazione quando si crea una nuova app per le funzioni.
+Quando si usa il piano di hosting Consumo, i contenuti delle app per le funzioni (ad esempio i file di codice di funzione e la configurazione dell'associazione) vengono archiviati nelle condivisioni di File di Azure nell'account di archiviazione principale. Se si elimina l'account di archiviazione principale, il contenuto verrà eliminato e non potrà essere recuperato.
+
+Per altre informazioni sui tipi di account di archiviazione, vedere [Introduzione ai servizi di archiviazione di Azure] (../storage/storage-introduction.md#introducing-the-azure-storage-services).
 
 ## <a name="create-a-function"></a>Creare una funzione
 Seguire questa procedura per creare una funzione dall'avvio rapido di Funzioni di Azure.
@@ -56,6 +61,7 @@ Seguire questa procedura per creare una funzione dall'avvio rapido di Funzioni d
     ![](./media/functions-create-first-azure-function-azure-portal/function-app-quickstart-node-webhook.png)
 
 2. (Facoltativo) A questo punto dell'avvio rapido è possibile scegliere di seguire una demo introduttiva sulle funzionalità di Funzioni di Azure nel portale.    Dopo aver completato o ignorato la demo introduttiva, è possibile testare la nuova funzione usando il trigger HTTP.
+
 
 ## <a name="test-the-function"></a>Testare la funzione
 [!INCLUDE [Functions quickstart test](../../includes/functions-quickstart-test.md)]

@@ -13,8 +13,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: dc240443ab6163eb296eaa4d93a17bbe1723ba2c
-ms.openlocfilehash: 7123c27b8e21e7db77245a5119b20840214d9ac2
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 9075b2da7a4caa88328ef7220c4d543ff7cdebdf
+ms.lasthandoff: 03/15/2017
 
 ---
 # <a name="azure-web-apps-documentation"></a>Documentazione di App Web di Azure
@@ -198,7 +199,7 @@ Informazioni su come usare le app Web del servizio app per creare e ospitare sit
                 <div class="card">
                     <div class="cardText">
                         <h3>Riga di comando</h3>
-                        <p><a href="/cli/azure/appservice">Anteprima dell'interfaccia della riga di comando di Azure 2.0</a></p>
+                        <p><a href="/cli/azure/appservice">Interfaccia della riga di comando di Azure 2.0</a></p>
                     </div>
                 </div>
             </div>
@@ -231,10 +232,5 @@ Informazioni su come usare le app Web del servizio app per creare e ospitare sit
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

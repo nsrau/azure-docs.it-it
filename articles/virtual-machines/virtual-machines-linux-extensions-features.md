@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/17/2016
+ms.date: 03/06/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 31c6cb19827279995502c68ed6d86d23ef9eacd0
-ms.openlocfilehash: 5d98f086b4ccee300b18c8271f940272f618e93e
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: c6c92f0d357909921a9f3ee2f484ff355ddde0be
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -36,7 +37,7 @@ Sono disponibili numerose estensioni della macchina virtuale di Azure, ognuna co
 - Configurare il monitoraggio dell'infrastruttura di Azure con l'estensione Datadog. Per altre informazioni, vedere il [blog Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 - Configurare un host Docker in una macchina virtuale di Azure usando l'estensione macchina virtuale Docker. Per altre informazioni, vedere [Estensione macchina virtuale per Docker](virtual-machines-linux-dockerextension.md).
 
-Oltre alle estensioni specifiche del processo, è disponibile un'estensione dello script personalizzata per le macchine virtuali Linux e Windows. L'estensione dello script personalizzata per Linux consente l'esecuzione di qualsiasi script Bash su una macchina virtuale. È utile per la progettazione di distribuzioni di Azure che richiedono una configurazione, in aggiunta a quella offerta dagli strumenti nativi di Azure. Per altre informazioni, vedere [Estensione di script personalizzata per le VM Linux](virtual-machines-linux-extensions-customscript.md).
+Oltre alle estensioni specifiche del processo, è disponibile un'estensione dello script personalizzata per le macchine virtuali Linux e Windows. L'estensione dello script personalizzata per Linux consente l'esecuzione di qualsiasi script Bash su una macchina virtuale. Gli script personalizzati sono utili per la progettazione di distribuzioni di Azure che richiedono una configurazione in aggiunta a quella offerta dagli strumenti nativi di Azure. Per altre informazioni, vedere [Estensione di script personalizzata per le VM Linux](virtual-machines-linux-extensions-customscript.md).
 
 Per illustrare un esempio d'uso di un'estensione macchina virtuale in una distribuzione di applicazioni end-to-end, vedere [Automazione della distribuzione di applicazioni nelle macchine virtuali di Azure](virtual-machines-linux-dotnet-core-1-landing.md).
 
@@ -60,7 +61,7 @@ azure vm extension-image list westus
 
 ## <a name="run-vm-extensions"></a>Eseguire le estensioni della macchina virtuale
 
-Le estensioni della macchina virtuale di Azure possono essere eseguite nelle macchine virtuali esistenti e sono utili quando è necessario apportare modifiche alla configurazione o ripristinare la connettività in una VM già distribuita. Le estensioni della macchina virtuale possono essere anche unite in bundle con le distribuzioni di modelli di Azure Resource Manager. L'uso delle estensioni con i modelli di Resource Manager consente di distribuire e configurare le macchine virtuali di Azure senza l'intervento post-distribuzione.
+Le estensioni della macchina virtuale di Azure possono essere eseguite nelle macchine virtuali esistenti e sono utili quando è necessario apportare modifiche alla configurazione o ripristinare la connettività in una macchina virtuale già distribuita. Le estensioni della macchina virtuale possono essere anche unite in bundle con le distribuzioni del modello di Azure Resource Manager. L'uso delle estensioni con i modelli di Resource Manager consente di distribuire e configurare le macchine virtuali di Azure senza l'intervento post-distribuzione.
 
 Per eseguire un'estensione in una macchina virtuale esistente, è possibile usare i metodi seguenti.
 
@@ -74,7 +75,7 @@ azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensi
   --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
 ```
 
-L'output ha un aspetto simile al testo seguente:
+Lo script genera un output simile al testo seguente:
 
 ```azurecli
 info:    Executing command vm extension set
@@ -85,15 +86,15 @@ info:    vm extension set command OK
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Le estensioni della macchina virtuale possono essere applicate a una macchina virtuale esistente tramite il portale di Azure. A tale scopo, selezionare la macchina virtuale, scegliere **Estensioni**, fare clic su **Aggiungi**. Viene fornito un elenco di estensioni disponibili. Selezionare quella desiderata e seguire le istruzioni nella procedura guidata.
+Le estensioni della macchina virtuale possono essere applicate a una macchina virtuale esistente tramite il portale di Azure. A tale scopo, selezionare la macchina virtuale, scegliere **Estensioni**, fare clic su **Aggiungi**. Selezionare l'estensione desiderata dall'elenco di quelle disponibili e quindi seguire le istruzioni della procedura guidata.
 
 L'immagine seguente illustra l'installazione dell'estensione di script personalizzata per Linux dal portale di Azure.
 
-![Estensione di script personalizzati](./media/virtual-machines-linux-extensions-features/script-extension-linux.jpg)
+![Installare l'estensione di script personalizzata](./media/virtual-machines-linux-extensions-features/installscriptextensionlinux.png)
 
 ### <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
 
-Le estensioni della macchina virtuale possono essere aggiunte a un modello di Azure Resource Manager ed eseguite con la distribuzione del modello. Quando si distribuisce un'estensione con un modello, è possibile creare distribuzioni di Azure completamente configurate. Ad esempio, il codice JSON seguente viene eseguito da un modello di Resource Manager che consente di distribuire un set di macchine virtuali con carico bilanciato e un database SQL di Azure, quindi installa un'applicazione .NET Core in ogni VM. L'estensione macchina virtuale gestisce l'installazione del software.
+Le estensioni della macchina virtuale possono essere aggiunte a un modello di Azure Resource Manager ed eseguite con la distribuzione del modello. Quando si distribuisce un'estensione con un modello, è possibile creare distribuzioni di Azure completamente configurate. Il codice JSON seguente, ad esempio, è tratto da un modello di Resource Manager. Il modello distribuisce un set di macchine virtuali con carico bilanciato e un database SQL di Azure, quindi installa un'applicazione .NET Core in ogni macchina virtuale. L'estensione della macchina virtuale gestisce l'installazione del software.
 
 Per altre informazioni, vedere il [modello di Resource Manager](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux) completo.
 
@@ -222,7 +223,7 @@ Lo stato di esecuzione dell'estensione è disponibile anche nel portale di Azure
 
 ### <a name="rerun-a-vm-extension"></a>Rieseguire un'estensione macchina virtuale
 
-In alcuni casi potrebbe essere necessario rieseguire un'estensione macchina virtuale. È possibile farlo rimuovendo l'estensione e quindi eseguendo di nuovo l'estensione con il metodo di esecuzione scelto. Per rimuovere un'estensione, eseguire il comando seguente con l'interfaccia della riga di comando di Azure. Sostituire i nomi dei parametri di esempio con i valori desiderati.
+In alcuni casi potrebbe essere necessario rieseguire un'estensione della macchina virtuale. È possibile eseguire tale operazione rimuovendo l'estensione e quindi eseguendola di nuovo con il metodo scelto. Per rimuovere un'estensione, eseguire il comando seguente con l'interfaccia della riga di comando di Azure. Sostituire i nomi dei parametri di esempio con i valori desiderati.
 
 ```azurecli
 azure vm extension set myResourceGroup myVM --uninstall CustomScript Microsoft.Azure.Extensions 2.0
@@ -243,9 +244,4 @@ azure vm extension set myResourceGroup myVM --uninstall CustomScript Microsoft.A
 | Estensione dell'accesso alle macchine virtuali |Ripristinare l'accesso a una macchina virtuale di Azure |[Estensione dell'accesso alle macchine virtuali](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Estensione di Diagnostica di Azure |Gestisce Diagnostica di Azure. |[Estensione di Diagnostica di Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Estensione dell'accesso alla VM di Azure |Gestire gli utenti e le credenziali |[Estensione dell'accesso alla VM per Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

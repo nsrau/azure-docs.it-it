@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: e25eaee75b1637447447ace88c2bf1d9aed83880
-ms.openlocfilehash: 484cc6419150b84ee6ed7d2c92960a4d0202e10b
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 59798ae9412a7550c94f8fa67c39f504aad8d00c
+ms.openlocfilehash: 3867c57d40a218c80403578d30cb999bf9f6cd38
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -48,17 +48,6 @@ Non è possibile convertire una macchina virtuale non gestita creata nel modello
 2.    Copiare il disco rigido virtuale del sistema operativo in un account di archiviazione che non è mai stato abilitato per SSE. Per copiare il disco in un altro account di archiviazione, utilizzare [AzCopy](../storage/storage-use-azcopy.md):`AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:myVhd.vhd`
 3.    Creare una macchina virtuale che usi dischi gestiti e allega il file del disco rigido virtuale come disco del sistema operativo durante la creazione.
 
-
-## <a name="before-you-begin"></a>Prima di iniziare
-Se si usa PowerShell, verificare di avere la versione più recente del modulo di PowerShell AzureRM.Compute. Eseguire il comando seguente per installarlo.
-
-```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
-```
-Per altre informazioni, vedere [Controllo delle versioni di Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
-
-
-
 ## <a name="convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set"></a>Convertire le macchine virtuali che si trovano in un set disponibilità in dischi gestiti all'interno di un set di disponibilità gestito
 
 Se le macchine virtuali che si desidera convertire in dischi gestiti si trovano in un set di disponibilità, è innanzitutto necessario convertire il set di disponibilità in un set di disponibilità gestito.
@@ -87,7 +76,7 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 ## <a name="convert-existing-azure-vms-to-managed-disks-of-the-same-storage-type"></a>Convertire le macchine virtuali di Azure esistenti in dischi gestiti dello stesso tipo di archiviazione
 
 > [!IMPORTANT]
-> Dopo aver eseguito la procedura seguente, un solo BLOB in blocchi rimane nel contenitore predefinito/VHDS. Il nome del file è "VMName.xxxxxxx.status". Non eliminare questo oggetto di stato rimanente. Le prossime procedure mirano a risolvere questo problema.
+> Dopo aver eseguito la procedura seguente, un solo BLOB in blocchi rimane nel contenitore predefinito/VHDS. Il nome del file è "VMName.xxxxxxx.status". Questo file viene creato da Azure solo dopo aver installato le [estensioni di macchina virtuale](virtual-machines-windows-classic-agents-and-extensions.md) nella macchina virtuale. Non eliminare questo oggetto di stato rimanente. Le prossime procedure mirano a risolvere questo problema.
 
 Questa sezione descrive come convertire le macchine virtuali di Azure esistenti da dischi non gestiti negli account di archiviazione a dischi gestiti quando si userà lo stesso tipo di archiviazione. È possibile usare questo processo per passare dai dischi non gestiti Premium (SSD) ai dischi gestiti o dai dischi non gestiti standard (HDD) ai dischi gestiti standard. 
 
@@ -149,7 +138,7 @@ In questa sezione viene illustrato come convertire le macchine virtuali di Azure
 1. Arrestare (deallocare) la macchina virtuale.
 
     ```powershell
-    Stop-AzureRmVM -ResourceGroupName $resourceGroupName -VMName $vmName -Force
+    Stop-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName -Force
     ```
 2.  Aggiornare tutti i dischi all'Archiviazione Premium.
 
@@ -168,7 +157,7 @@ In questa sezione viene illustrato come convertire le macchine virtuali di Azure
 1. Avviare la VM.
 
     ```powershell
-    Start-AzureRmVM -ResourceGroupName $resourceGroupName -VMName $vmName
+    Start-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName
     ```
     
 È inoltre possibile avere una combinazione di dischi che usi l'archiviazione Premium e quella standard.

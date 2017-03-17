@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/08/2017
+ms.date: 03/06/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 5ec4b964066687b506686709c3dc5ed5b402fbaf
-ms.openlocfilehash: 8045f9d927e9c877573085eb43eaadcd60f96a67
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: a09fc0052538316a37a9ff07dfddd89de00cb499
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -51,9 +52,17 @@ Quando si utilizza un tunnel SSH per il traffico web, è necessario disporre di 
   > [!NOTE]
   > Se si vuole usare un client SSH diverso da `ssh` o PuTTY, consultare la documentazione per il client su come stabilire un tunnel SSH.
 
-* Un browser Web che può essere configurato per usare un proxy SOCKS
+* Un Web browser che può essere configurato per l'uso di un proxy SOCKS5.
 
-## <a name="a-nameusesshacreate-a-tunnel-using-the-ssh-command"></a><a name="usessh"></a>Creare un tunnel con il comando SSH
+    > [!WARNING]
+    > Il supporto per il proxy SOCKS integrato in Windows non include il supporto per SOCKS5 e non può quindi essere usato per la procedura descritta in questo documento. I browser seguenti si basano sulle impostazioni proxy di Windows e non possono essere usati per la procedura illustrata in questo documento:
+    > 
+    > * Microsoft Edge
+    > * Microsoft Internet Explorer
+    >
+    > Anche Google Chrome si basa sulle impostazioni proxy di Windows. In questo caso, tuttavia, è possibile installare estensioni che supportano SOCKS5, tra cui [FoxyProxy Standard](https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp) (opzione consigliata).
+
+## <a name="usessh"></a>Creare un tunnel con il comando SSH
 
 Utilizzare il comando seguente per creare un SSH tunnel utilizzando il comando `ssh` . Sostituire **USERNAME** con un utente SSH per il cluster HDInsight e **CLUSTERNAME** con il nome del cluster HDInsight.
 
@@ -76,7 +85,7 @@ Se il cluster è stato configurato con una chiave SSH, potrebbe essere necessari
 
 Al termine del comando, il traffico inviato alla porta 9876 nel computer locale viene instradato su SSL (Secure Sockets Layer) al nodo head del cluster e sembra provenire da tale nodo.
 
-## <a name="a-nameuseputtyacreate-a-tunnel-using-putty"></a><a name="useputty"></a>Creare un tunnel utilizzando PuTTY
+## <a name="useputty"></a>Creare un tunnel utilizzando PuTTY
 
 Utilizzare la procedura seguente per creare un tunnel SSH utilizzando PuTTY.
 
@@ -100,8 +109,8 @@ Utilizzare la procedura seguente per creare un tunnel SSH utilizzando PuTTY.
 
 ## <a name="use-the-tunnel-from-your-browser"></a>Usare il tunnel dal browser
 
-> [!NOTE]
-> I passaggi descritti in questa sezione usano il browser FireFox, poiché è disponibile gratuitamente per i sistemi Linux, Unix, Macintosh OS X e Windows. È possibile usare anche altri browser recenti che supportano l'uso di un proxy SOCKS.
+> [!IMPORTANT]
+> Nella procedura illustrata in questa sezione viene usato il browser Mozilla FireFox, poiché prevede le stesse impostazioni proxy per tutte le piattaforme. È possibile che altri browser moderni, tra cui Google Chrome, richiedano un'estensione come FoxyProxy per poter interagire con il tunnel.
 
 1. Configurare il browser in modo che usi **localhost** e la porta usata al momento della creazione del tunnel come proxy **SOCKS v5**. Ecco visualizzate le impostazioni di Firefox. Se si usa una porta diversa da quella 9876, cambiare la porta con quella usata:
    
@@ -144,6 +153,7 @@ Una volta stabilito il cluster, utilizzare la procedura seguente per verificare 
    > 
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Ora che si è appreso come creare e utilizzare un tunnel SSH, vedere gli argomenti seguenti per informazioni sul monitoraggio e la gestione del cluster utilizzando Ambari:
 
 * [Gestire i cluster HDInsight mediante Ambari](hdinsight-hadoop-manage-ambari.md)
@@ -152,10 +162,5 @@ Per altre informazioni sull'uso di SSH con HDInsight, vedere gli articoli seguen
 
 * [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

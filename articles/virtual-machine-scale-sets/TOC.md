@@ -2,15 +2,18 @@
 ## [Informazioni sui set di scalabilità di macchine virtuali](virtual-machine-scale-sets-overview.md)
 
 # Attività iniziali
-## [Creare un set di scalabilità nel portale](virtual-machine-scale-sets-portal-create.md)
-## [Creare un set di scalabilità con l'interfaccia della riga di comando di Azure](virtual-machine-scale-sets-linux-create-cli.md)
-## [Creare un set di scalabilità con un modello di Resource Manager](virtual-machine-scale-sets-mvss-start.md)
+## [Distribuire un set di scalabilità nel portale](virtual-machine-scale-sets-portal-create.md)
+## [Distribuire un set di scalabilità con l'interfaccia della riga di comando di Azure](virtual-machine-scale-sets-linux-create-cli.md)
+## [Distribuire un set di scalabilità semplice con un modello di Resource Manager](virtual-machine-scale-sets-mvss-start.md)
 
 # Procedure
 ## Pianificare e progettare
 ### [Considerazioni sulla progettazione](virtual-machine-scale-sets-design-overview.md)
+## Scrivere modelli di set di scalabilità per
+### [Distribuire un set di scalabilità semplice](virtual-machine-scale-sets-mvss-start.md)
+### [Distribuire un set di scalabilità in una rete virtuale esistente](virtual-machine-scale-sets-mvss-existing-vnet.md)
 
-## Distribuire
+## Distribuisci
 ### [Set di scalabilità tramite il portale](virtual-machine-scale-sets-portal-create.md)
 ### [Set di scalabilità con Managed Disks](virtual-machine-scale-sets-managed-disks.md)
 ### [Set di scalabilità con Visual Studio](virtual-machine-scale-sets-vs-create.md)
@@ -36,6 +39,9 @@
 
 ## Risoluzione dei problemi
 ### [Autoscale](virtual-machine-scale-sets-troubleshoot.md)
+
+## Domande frequenti
+### [Domande frequenti sui set di scalabilità](virtual-machine-scale-sets-faq.md)
 
 # Riferimento
 ## [PowerShell](/powershell/azureps-cmdlets-docs)

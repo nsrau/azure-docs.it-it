@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/24/2017
+ms.date: 03/06/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 9faf3e48983ded91016e39992bc03a0b62720c06
-ms.openlocfilehash: 4b46a46e6a9de58b9640830852ca19939b3eabdb
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 01850cbf8967fd5f79db64103fb18c6ec01babea
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -37,10 +38,10 @@ Dopo aver completato questa esercitazione, si sarà in grado di:
 Per completare questa esercitazione, sono necessari i prerequisiti seguenti:
 
 * La versione più recente di [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-* Visual Studio 2015 o la versione gratuita [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
+* Visual Studio 2017, 2015 o la versione gratuita [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 * Una [sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/)
 * Privilegi di amministratore nel computer
-* Download di [TollApp.zip](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) dall'Area download Microsoft
+* Download di [TollApp.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) dall'Area download Microsoft
 * Facoltativo: codice sorgente del generatore di eventi TollApp in [GitHub](https://aka.ms/azure-stream-analytics-toll-source)
 
 ## <a name="scenario-introduction-hello-toll"></a>Presentazione dello scenario: il casello
@@ -135,7 +136,7 @@ Questa esercitazione richiede due hub eventi per ricevere i flussi di dati *in i
 
 È possibile usare lo script Setup.ps1 nella cartella TollApp in GitHub per creare tutte le risorse necessarie. Per ottimizzare i tempi, si consiglia di eseguirlo. Per altre informazioni sulla configurazione di queste risorse nel portale di Azure, vedere l'appendice relativa alla configurazione delle risorse per l'esercitazione nel portale di Azure.
 
-Scaricare e salvare la cartella e i file di supporto di [TollApp](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) .
+Scaricare e salvare la cartella e i file di supporto di [TollApp](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) .
 
 Aprire una finestra di **Microsoft Azure PowerShell***come amministratore*. Se ancora non si ha Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) per istruzioni su come installarlo.
 
@@ -441,10 +442,5 @@ Per altre informazioni su Analisi di flusso di Azure, vedere la [documentazione 
    > 
    > 
 
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

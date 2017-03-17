@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2016
+ms.date: 03/02/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: c0af680c83a72a9f2a415999141f9913c8b724a4
-ms.openlocfilehash: 85e0212ed9d7bde001f9b5cd4776d34ad1f01816
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: e972446ea92e8fd31406c9ccff7832b7441f3a2a
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -26,28 +27,37 @@ ms.openlocfilehash: 85e0212ed9d7bde001f9b5cd4776d34ad1f01816
 > Lo scopo di questo articolo è di illustrare un'esperienza di accesso tipico. Per informazioni sull’accesso o per la risoluzione dei problemi, vedere [Problemi con Multi-Factor Authentication di Azure](multi-factor-authentication-end-user-troubleshoot.md).
 
 ## <a name="what-will-your-sign-in-experience-be"></a>Come sarà l'esperienza di accesso?
-A seconda di come si accede e di come si utilizza l'autenticazione a più fattori, l'esperienza sarà diversa. Scegliere l'opzione che meglio descrive l'operazione:
+L'esperienza di accesso varia a seconda di ciò che si desidera usare come secondo fattore: una telefonata, un'app di autenticazione o un messaggio. Scegliere l'opzione che meglio descrive l'operazione:
 
 | Come si accede? | 
 | --- |
-| [Con telefono cellulare o dell'ufficio](#signing-in-with-mobile-or-office-phone) |
+| [Con una telefonata al cellulare o al telefono dell'ufficio](#signing-in-with-a-phone-call) |
+| [Con un messaggio sul cellulare](#signing-in-with-a-text-message)
 | [Con le notifiche dell'app Microsoft Authenticator](#signing-in-with-the-microsoft-authenticator-app-using-notification) |
 | [Con i codici di verifica dell'app Microsoft Authenticator](#signing-in-with-the-microsoft-authenticator-app-using-verification-code) |
 | [Con un metodo alternativo, perché non è possibile usare subito il metodo preferito](#signing-in-with-an-alternate-method) |
 
-## <a name="signing-in-with-mobile-or-office-phone"></a>Accesso con telefono cellulare o dell'ufficio
-Le informazioni seguenti descriveranno l'esperienza di utilizzo dell'autenticazione a più fattori con il telefono cellulare o dell'ufficio.
+## <a name="signing-in-with-a-phone-call"></a>Accesso tramite telefonata
+Le informazioni seguenti descrivono l'esperienza di verifica in due passaggi con una telefonata al cellulare o al telefono dell'ufficio.
 
-1. Accedere a un'applicazione o servizio come Office 365 utilizzando nome utente e password.  
-2. Microsoft effettuerà una telefonata.  
+1. Accedere a un'applicazione o servizio come Office 365 usando nome utente e password.  
+2. Microsoft telefona all'utente.  
 3. Rispondere al telefono e premere il tasto #.  
 4. Ora dovrebbe essere stato effettuato l'accesso.  
 
+## <a name="signing-in-with-a-text-message"></a>Accesso tramite messaggio di testo
+Le informazioni seguenti descrivono l'esperienza di verifica in due passaggi tramite messaggio di testo al telefono cellulare:
+
+1. Accedere a un'applicazione o servizio come Office 365 usando nome utente e password. 
+2. Microsoft invia un messaggio di testo che contiene un codice numerico. 
+3. Immettere il codice nell'apposita casella sulla pagina di accesso. 
+4. Ora dovrebbe essere stato effettuato l'accesso. 
+
 ## <a name="signing-in-with-the-microsoft-authenticator-app"></a>Accesso con l'app Authenticator Microsoft 
-Le informazioni seguenti descriveranno l'esperienza d'uso dell'app Microsoft Authenticator di Microsoft per le verifiche in due passaggi. Esistono due modi diversi di usare l'app. È possibile ricevere notifiche push sul dispositivo oppure aprire l'app per ottenere un codice di verifica.
+Le informazioni seguenti descrivono l'esperienza d'uso dell'app Microsoft Authenticator per le verifiche in due passaggi. Esistono due modi diversi di usare l'app. È possibile ricevere notifiche push sul dispositivo oppure aprire l'app per ottenere un codice di verifica.
 
 ### <a name="to-sign-in-with-a-notification-from-the-microsoft-authenticator-app"></a>Per eseguire l'accesso con una notifica dell'app Microsoft Authenticator
-1. Accedere a un'applicazione o servizio come Office 365 utilizzando nome utente e password.
+1. Accedere a un'applicazione o servizio come Office 365 usando nome utente e password.
 2. Microsoft invia una notifica all'app Microsoft Authenticator sul dispositivo dell'utente.
 
   ![Microsoft invia una notifica](./media/multi-factor-authentication-end-user-signin/notify.png)
@@ -57,10 +67,10 @@ Le informazioni seguenti descriveranno l'esperienza d'uso dell'app Microsoft Aut
 
 ### <a name="to-sign-in-using-a-verification-code-with-the-microsoft-authenticator-app"></a>Per effettuare l'accesso usando un codice di verifica con l'app Microsoft Authenticator
 
-Se si usa l'app Authenticator di Microsoft per ottenere i codici di verifica, quando si apre l'app verrà visualizzato un numero nel nome dell'account. Questo numero cambia ogni trenta secondi, pertanto non è possibile usare lo stesso numero di due volte. Quando viene richiesto un codice di verifica, aprire l'app e utilizzare il numero attualmente visualizzato. 
+Se si usa l'app Microsoft Authenticator per ottenere i codici di verifica, quando si apre l'app verrà visualizzato un numero nel nome dell'account. Questo numero cambia ogni trenta secondi, pertanto non è possibile usare lo stesso numero di due volte. Quando viene richiesto un codice di verifica, aprire l'app e utilizzare il numero attualmente visualizzato. 
 
-1. Accedere a un'applicazione o servizio come Office 365 utilizzando nome utente e password.
-2. Microsoft richiederà un codice di verifica.
+1. Accedere a un'applicazione o servizio come Office 365 usando nome utente e password.
+2. Microsoft richiede un codice di verifica.
 
   ![Inserire il codice di verifica dell'app](./media/multi-factor-authentication-end-user-signin/verify3.png)
 
@@ -68,9 +78,9 @@ Se si usa l'app Authenticator di Microsoft per ottenere i codici di verifica, qu
 4. Ora dovrebbe essere stato effettuato l'accesso.
 
 ## <a name="signing-in-with-an-alternate-method"></a>Accesso con un metodo alternativo
-A volte non si dispone del telefono o del dispositivo configurato come metodo di verifica preferito. Per questo motivo è consigliabile configurare metodi di backup per l'account. Nella sezione seguente si mostrerà come effettuare l'accesso con un metodo alternativo quando il metodo principale può non essere disponibile.
+A volte non si dispone del telefono o del dispositivo configurato come metodo di verifica preferito. Per questo motivo è consigliabile configurare metodi di backup per l'account. Nella sezione seguente viene mostrato come effettuare l'accesso con un metodo alternativo quando il metodo principale può non essere disponibile.
 
-1. Accedere a un'applicazione o servizio come Office 365 utilizzando nome utente e password.
+1. Accedere a un'applicazione o servizio come Office 365 usando nome utente e password.
 2. Selezionare **Usa un'opzione di verifica diversa**. Verranno visualizzate diverse opzioni di verifica in base al numero di opzioni configurate.
 
   ![Utilizzare un metodo alternativo](./media/multi-factor-authentication-end-user-signin/alt.png)
@@ -84,8 +94,3 @@ In caso di problemi di accesso con la verifica in due passaggi, è possibile ott
 Informazioni su come [Gestire le impostazioni della verifica in due passaggi](multi-factor-authentication-end-user-manage-settings.md).
 
 Altre informazioni sull'[introduzione all'app Microsoft Authenticator](microsoft-authenticator-app-how-to.md) per poter effettuare l'accesso tramite notifiche, invece che con messaggi e telefonate. 
-
-
-<!--HONumber=Feb17_HO1-->
-
-

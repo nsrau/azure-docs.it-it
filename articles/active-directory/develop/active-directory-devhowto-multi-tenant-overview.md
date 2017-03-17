@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 01/23/2017
 ms.author: skwan;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 7d6525f4614c6301f0ddb621b0483da70842a71b
-ms.openlocfilehash: 8daad095d80b244f53b4ee94c48ae9421172f062
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: f87aedd989ab091efeac5f99e198fb60b6781ab2
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -163,6 +164,10 @@ Il consenso è supportato in Azure AD tramite i protocolli OAuth, OpenID Connect
 ## <a name="multi-tenant-applications-and-caching-access-tokens"></a>Applicazioni multi-tenant e memorizzazione nella cache dei token di accesso
 Le applicazioni multi-tenant possono anche ottenere i token di accesso per eseguire chiamate alle API protette da Azure AD.  Un errore comune quando si usa Active Directory Authentication Library (ADAL) con un'applicazione multi-tenant è quello di richiedere inizialmente un token per un utente tramite /common, ricevere una risposta e quindi richiedere un token successivo per lo stesso utente usando sempre /common.  Poiché la risposta da Azure AD proviene da un tenant, non /common, la libreria ADAL memorizza nella cache il token come proveniente dal tenant. Nella chiamata successiva a /common per ottenere un token di accesso per l'utente non è presente la voce della cache e all'utente viene richiesto di accedere di nuovo.  Per evitare questo errore della cache, assicurarsi che le chiamate successive per un utente già connesso vengano eseguite all'endpoint del tenant.
 
+## <a name="next-steps"></a>Passaggi successivi
+In questo articolo è stato descritto come compilare un'applicazione che consente a un utente di accedere da qualsiasi tenant Azure Active Directory. Dopo aver abilitato l'accesso Single Sign-On tra l'app e Azure Active Directory, è inoltre possibile aggiornare l'applicazione per accedere alle API esposte dalle risorse di Microsoft, come Office 365. Pertanto, è possibile offrire un'esperienza personalizzata nell'applicazione, ad esempio mostrando informazioni contestuali per gli utenti, ad esempio l'immagine del profilo o il successivo appuntamento nel calendario. Per altre informazioni sulle chiamate API ai servizi di Azure Active Directory e Office 365 come Exchange, SharePoint, OneDrive, OneNote, pianificazione, Excel e altri ancora, visitare: [API di Microsoft Graph][MSFT-Graph-overview].
+
+
 ## <a name="related-content"></a>Contenuti correlati
 * [Esempi di applicazioni multi-tenant][AAD-Samples-MT]
 * [Linee guida sulla personalizzazione per le applicazioni][AAD-App-Branding]
@@ -170,7 +175,7 @@ Le applicazioni multi-tenant possono anche ottenere i token di accesso per esegu
 * [Oggetti applicazione e oggetti entità servizio][AAD-App-SP-Objects]
 * [Integrazione di applicazioni con Azure Active Directory][AAD-Integrating-Apps]
 * [Panoramica del framework di consenso][AAD-Consent-Overview]
-* [Ambiti di autorizzazione di Microsoft API Graph][MSFT-Graph-AAD]
+* [Ambiti di autorizzazione di Microsoft API Graph][MSFT-Graph-permision-scopes]
 * [Ambiti di autorizzazione di Azure AD API Graph][AAD-Graph-Perm-Scopes]
 
 La sezione dei commenti di seguito consente di fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.
@@ -189,7 +194,8 @@ La sezione dei commenti di seguito consente di fornire commenti e suggerimenti u
 [AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
-[MSFT-Graph-AAD]: https://graph.microsoft.io/en-us/docs/authorization/permission_scopes
+[MSFT-Graph-overview]: https://graph.microsoft.io/en-us/docs/overview/overview
+[MSFT-Graph-permision-scopes]: https://graph.microsoft.io/en-us/docs/authorization/permission_scopes
 
 <!--Image references-->
 [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
@@ -235,10 +241,5 @@ La sezione dei commenti di seguito consente di fornire commenti e suggerimenti u
 
 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/14/2016
+ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e95d00d0ff9bcb825bfe3fcc787386c8c8133c69
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: caeb0569de89b1af7b87f393601c7aa1a1e293dc
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -52,23 +53,18 @@ Quanto detto sopra presuppone l'esistenza di un singolo servizio con stato. Se s
 ## <a name="use-a-spreadsheet-for-cost-calculation"></a>Usare un foglio di calcolo per il calcolo dei costi
 È ora opportuno inserire alcuni dati reali nella formula. Un [foglio di calcolo di esempio](https://servicefabricsdkstorage.blob.core.windows.net/publicrelease/SF%20VM%20Cost%20calculator-NEW.xlsx) illustra come pianificare la capacità di un'applicazione contenente tre tipi di oggetti dati. Per ogni oggetto sono stati definiti in modo approssimativo la dimensione e il numero di oggetti che dovrebbe contenere. Viene anche definito il numero di repliche per ogni tipo di oggetto. Il foglio di calcolo consente di calcolare la quantità totale di memoria da archiviare nel cluster.
 
-Viene quindi immessa una dimensione di VM e il costo mensile. In base alla dimensione della VM, il foglio di calcolo indica il numero minimo di partizioni da usare per suddividere i dati affinché possano fisicamente adattarsi ai nodi. È possibile che si desideri un numero maggiore di partizioni per soddisfare le esigenze di calcolo specifiche dell'applicazione e del traffico di rete. Il foglio di calcolo illustra che il numero di partizioni che gestiscono gli oggetti del profilo utente è aumentato da 1 a 6.
+Viene quindi immessa una dimensione di VM e il costo mensile. In base alla dimensione della VM, il foglio di calcolo indica il numero minimo di partizioni da usare per suddividere i dati affinché possano fisicamente adattarsi ai nodi. È possibile che si desideri un numero maggiore di partizioni per soddisfare le esigenze di calcolo specifiche dell'applicazione e del traffico di rete. Il foglio di calcolo illustra che il numero di partizioni che gestiscono gli oggetti del profilo utente è aumentato da&1; a&6;.
 
 A questo punto, in base a tali informazioni, il foglio di calcolo mostra che è possibile contenere tutti i dati con le partizioni e le repliche desiderate in un cluster a 26 nodi. Tale cluster risulta tuttavia compresso e possono essere necessari alcuni nodi aggiuntivi per gestire gli aggiornamenti e gli errori del nodo. Il foglio di calcolo mostra inoltre che la disponibilità di più di 57 nodi non offre alcun valore aggiuntivo in quanto alcuni nodi possono rimanere vuoti. Anche in questo caso, può essere comunque necessario superare i 57 nodi per gestire gli aggiornamenti e gli errori del nodo. È possibile apportare modifiche al foglio di calcolo in modo che corrisponda alle esigenze specifiche dell'applicazione.   
 
 ![Foglio di calcolo per il calcolo dei costi][Image1]
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sul partizionamento del servizio, vedere [Partizionamento dei servizi di Service Fabric][10].
+Per altre informazioni sul partizionamento del servizio, consultare [Partizionamento dei servizi di Service Fabric][10].
 
 <!--Image references-->
 [Image1]: ./media/SF-Cost.png
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-concepts-partitioning.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

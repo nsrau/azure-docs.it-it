@@ -3,13 +3,19 @@ In questa sezione si usa uno strumento di Node.js denominato [IoT Hub Explorer][
 
 1. Eseguire il codice seguente nell'ambiente della riga di comando:
    
+    ```
     npm install -g iothub-explorer@latest
+    ```
 2. Eseguire quindi il comando seguente per accedere all'hub, ricordando di sostituire `{iot hub connection string}` con la stringa di connessione dell'hub IoT copiata in precedenza:
-   
-    iothub-explorer login "{stringa di connessione hub iot}"
+
+    ```
+    iothub-explorer login "{iot hub connection string}"
+    ```
 3. Creare infine una nuova identità del dispositivo denominata `myDeviceId` con il comando:
    
+    ```
     iothub-explorer create myDeviceId --connection-string
+    ```
 
 Annotare la stringa di connessione del dispositivo visualizzata nei risultati. Questa stringa di connessione del dispositivo viene usata dall'app del dispositivo per la connessione all'hub IoT come dispositivo.
 
@@ -23,8 +29,3 @@ Per informazioni su come creare identità del dispositivo a livello di codice, v
 [iot-hub-explorer]: https://github.com/Azure/iothub-explorer/blob/master/readme.md
 
 [lnk-getstarted]: ../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md
-
-
-<!--HONumber=Dec16_HO1-->
-
-

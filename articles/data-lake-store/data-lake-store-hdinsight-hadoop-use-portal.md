@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 02/16/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 9e480c13f48e93da32ff5a3c8d3064e98fed0265
-ms.openlocfilehash: 0ec19832d395547e8ebd3eee0d44dcf466a2ace7
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 8876a37b78fa8a80eba7af133d661c3d7ed425d7
+ms.openlocfilehash: 76e098525951d122799f11bdcd9ee5451c9a3777
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/17/2017
 >
 >
 
-Informazioni su come usare il portale di Azure per creare un cluster HDInsight con accesso ad Azure Data Lake Store. Per i tipi di cluster supportati, Data Lake Store deve essere usato come risorsa di archiviazione predefinita o come account di archiviazione aggiuntivo. Quando Data Lake Store viene usato come risorsa di archiviazione aggiuntiva, l'account di archiviazione predefinito per i cluster saranno i BLOB del servizio di archiviazione di Azure (WASB) e i file correlati ai cluster (ad esempio log e così via) vengono scritti nella risorsa di archiviazione predefinita, mentre i dati da elaborare possono essere archiviati in un account di Data Lake Store. L'uso di Archivio Data Lake come account di archiviazione aggiuntivo non ha impatto sulle prestazioni o sulla possibilità di leggere/scrivere nella risorsa di archiviazione dal cluster.
+Informazioni su come usare il portale di Azure per creare un cluster HDInsight con accesso ad Azure Data Lake Store. Per i tipi di cluster supportati, Data Lake Store può essere usato come risorsa di archiviazione predefinita o come account di archiviazione aggiuntivo. Quando Data Lake Store viene usato come risorsa di archiviazione aggiuntiva, l'account di archiviazione predefinito per i cluster saranno i BLOB del servizio di archiviazione di Azure (WASB) e i file correlati ai cluster (ad esempio log e così via) vengono scritti nella risorsa di archiviazione predefinita, mentre i dati da elaborare possono essere archiviati in un account di Data Lake Store. L'uso di Archivio Data Lake come account di archiviazione aggiuntivo non ha impatto sulle prestazioni o sulla possibilità di leggere/scrivere nella risorsa di archiviazione dal cluster.
 
 ## <a name="using-data-lake-store-for-hdinsight-cluster-storage"></a>Udo di Data Lake Store per l'archiviazione di cluster HDInsight
 
@@ -65,7 +65,7 @@ In questa sezione si creerà un cluster HDInsight Hadoop che usa Archivio Data L
 
 3. Nel pannello **Archiviazione** specificare se si desidera impostare Archiviazione di Azure (WASB) o Data Lake Store come risorsa di archiviazione predefinita. Se si desidera usare Azure Data Lake Store, andare al passaggio successivo.
 
-    Se si vuole usare i BLOB di archiviazione di Azure come risorsa di archiviazione predefinita, fare clic su **Archiviazione di Azure** per **Primary Storage Type** (Tipo di archiviazione primaria). Successivamente, per **Metodo di selezione**, è possibile scegliere **Sottoscrizioni personali** se si desidera specificare un account di archiviazione che fa parte della sottoscrizione Azure e quindi selezionare l'account di archiviazione. In caso contrario, fare clic su **Chiave di accesso** e fornire le informazioni dell'account di archiviazione che si desidera scegliere all'esterno della sottoscrizione Azure. Per **Contenitore predefinito**, è possibile scegliere di usare il nome del contenitore predefinito suggerito dal portale oppure specificarne uno personale. 
+    Se si vuole usare i BLOB di archiviazione di Azure come risorsa di archiviazione predefinita, fare clic su **Archiviazione di Azure** per **Primary Storage Type** (Tipo di archiviazione primaria). Successivamente, per **Metodo di selezione**, è possibile scegliere **Sottoscrizioni personali** se si desidera specificare un account di archiviazione che fa parte della sottoscrizione Azure e quindi selezionare l'account di archiviazione. In caso contrario, fare clic su **Chiave di accesso** e fornire le informazioni relative all'account di archiviazione che si desidera scegliere all'esterno della sottoscrizione Azure. Per **Contenitore predefinito**, è possibile scegliere di usare il nome del contenitore predefinito suggerito dal portale oppure specificarne uno personale. 
 
     Quando si usano i BLOB del servizio di archiviazione di Azure come risorsa di archiviazione predefinita, è comunque possibile usare Azure Data Lake Store come archiviazione aggiuntiva per il cluster. A tale scopo, fare clic su **Accesso a Data Lake Store** e quindi procedere al passaggio 5.
 
@@ -97,7 +97,7 @@ In questa sezione si creerà un cluster HDInsight Hadoop che usa Archivio Data L
     ![Aggiungere l'entità servizio al cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "Aggiungere l'entità servizio al cluster HDInsight")
 
     > [!NOTE]
-    > Se si usa l'account di Data Lake Store come risorsa di archiviazione predefinita per un cluter, **è necessario** assegnare le autorizzazioni all'entità servizio a livello radice dell'account di Data Lake Store.
+    > Se si usa l'account di Data Lake Store come risorsa di archiviazione predefinita per un cluster, **è necessario** assegnare le autorizzazioni all'entità servizio a livello radice dell'account di Data Lake Store.
 
 7. Se si vuole assegnare autorizzazioni per i file o le cartelle all'interno di un account, selezionare l'account di Data Lake Store per visualizzare i file e le cartelle nel riquadro successivo. Selezionare file e cartelle, quindi scegliere le relative autorizzazioni (LETTURA/SCRITTURA/ESECUZIONE) da assegnare ad essi, specificare se queste autorizzazioni devono essere applicate in modo ricorsivo anche agli elementi figlio e fare clic su **Seleziona**.
 

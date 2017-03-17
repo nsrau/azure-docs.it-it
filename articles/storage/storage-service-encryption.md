@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: a5cce0da15941e91cbe74cdd1e0306ebd8db362c
-ms.openlocfilehash: d228ceb1a99e8fe11b59e6372b60bbfc93adac27
+ms.sourcegitcommit: 47398863e01204b840a965767cf2a022242d92fe
+ms.openlocfilehash: ea4d46e2d555c6572d0d741310abc4ee492767df
 ms.lasthandoff: 03/01/2017
 
 
@@ -42,7 +42,8 @@ L'anteprima della crittografia del servizio di archiviazione per i file è ora d
 Per partecipare all'anteprima della crittografia del servizio di archiviazione per i file, contattare ssediscussions@microsoft.com.
 
 Per altre informazioni, vedere le domande frequenti.
-Disponibilità per Archiviazione file. La crittografia del servizio di archiviazione per Archiviazione file è attualmente disponibile nelle aree Asia orientale, Europa settentrionale e Stati Uniti orientali 2.
+### <a name="availability-for-file-storage"></a>Disponibilità per Archiviazione file
+La crittografia del servizio di archiviazione per Archiviazione file è attualmente disponibile nelle aree Asia orientale, Europa settentrionale e Stati Uniti orientali 2.
 
 
 Per abilitare o disabilitare la crittografia del servizio di archiviazione per un account di archiviazione, accedere al [portale di Azure](https://azure.portal.com) e selezionare un account di archiviazione. Nel pannello delle impostazioni cercare la sezione Servizio BLOB, illustrata in questo screenshot, e fare clic su Crittografia.

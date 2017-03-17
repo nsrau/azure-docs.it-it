@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 01/07/2017
+ms.date: 03/07/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: 9c27ea02ae341197a70d2b399cf8d534d79c9e4c
-ms.openlocfilehash: 001cc873960733bfe3e37fad95dbac29872ba00a
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: f5f5597e09128236fd659b68c70d587d87a0832a
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="get-started-with-azure-log-integration-preview"></a>Introduzione all'integrazione dei log di Azure (Anteprima)
+# <a name="get-started-with-azure-log-integration"></a>Introduzione all'integrazione dei log di Azure
 L'integrazione dei log di Azure consente di integrare log non elaborati delle risorse di Azure nei sistemi di gestione di informazioni ed eventi di sicurezza locali. Questa integrazione fornisce un dashboard unificato per tutti gli asset, locali o su cloud, consentendo di aggregare, correlare, analizzare e inviare avvisi per gli eventi di sicurezza associati alle applicazioni.
 
 Questa esercitazione illustra come installare l'integrazione dei log di Azure e integrare i log dall'archiviazione di Azure, i log di controllo di Azure e gli avvisi del Centro sicurezza di Azure. Il tempo previsto per il completamento dell'esercitazione è di un'ora.
@@ -129,15 +129,22 @@ Se gli eventi non compaiono ancora, procedere come segue:
 
 ## <a name="integrate-azure-active-directory-audit-logs"></a>Integrare i log di controllo di Azure Active Directory
 1. Aprire il prompt dei comandi e digitare **cd** per passare alla directory **c:\Program Files\Microsoft Azure Log Integration**
-2. Eseguire il comando .\AZLOG.exe authorizedirectoryreader <TenantID> Sample - 
+2. Eseguire il comando specificando l'ID del tenant. Per eseguire il comando è necessario essere membri del ruolo di amministratore tenant.
 
-.\AZLOG.exe authorizedirectoryreader ba2c0023-d24b-4f4e-92b1 -&48;c&44699;99
+AZLOG.exe authorizedirectoryreader IDtenant
 
-3. Verificare che siano stati creati i file JSON del log di controllo di Azure Active Directory nelle cartelle seguenti 
-* **C:\Users\azlog\AzureActiveDirectoryJson**   
+Esempio:
+
+AZLOG.exe authorizedirectoryreader ba2c0023-d24b-4f4e-92b1-48c4469999
+
+
+3. Verificare che siano stati creati i file JSON del log di controllo di Azure Active Directory nelle cartelle seguenti
+* **C:\Users\azlog\AzureActiveDirectoryJson**  
 * **C:\Users\azlog\AzureActiveDirectoryJsonLD**
 
 4. Puntare il connettore del server di inoltro del file SIEM standard alla cartella appropriata per reindirizzare i dati all'istanza di SIEM. A seconda del prodotto SIEM in uso, potrebbe essere necessario il mapping dei campi.
+
+[Elenco degli eventi attualmente registrati come eventi di controllo in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events)
 
 Se si verificano problemi durante l'installazione e la configurazione, aprire una [richiesta di supporto](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request), selezionare "Integrazione log" come servizio per cui si richiede il supporto.
 

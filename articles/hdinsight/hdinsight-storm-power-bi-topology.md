@@ -13,33 +13,32 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/09/2017
+ms.date: 03/01/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
-ms.openlocfilehash: 0d03c745557d22238d79ca294f472cd7bcc37b80
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 75ab31176abaeed2865a77689a5733666f95a253
+ms.lasthandoff: 03/07/2017
 
 
 ---
 # <a name="use-power-bi-to-visualize-data-from-an-apache-storm-topology"></a>Usare Power BI per visualizzare i dati provenienti da una topologia Apache Storm
 
-Power BI consente di mostrare visivamente i dati sotto forma di report. Con i modelli di Visual Studio per Storm in HDInsight è possibile usare facilmente in SQL Azure i dati archiviati da una topologia in esecuzione in Apache Storm in un cluster HDInsight e quindi visualizzarli tramite Power BI.
-
-Questo documento illustra come usare Power BI per creare un report dai dati generati da una topologia Apache Storm e archiviati nel database SQL di Azure.
+Power BI consente di mostrare visivamente i dati sotto forma di report. Questo documento fornisce un esempio dell'uso di Apache Storm in HDInsight per la generazione di dati per Power BI.
 
 > [!NOTE]
 > Anche se i passaggi illustrati in questo documento si basano su un ambiente di sviluppo Windows con Visual Studio, il progetto compilato può essere inviato a un cluster HDInsight basato su Linux o su Windows. Solo i cluster basati su Linux creati dopo il 28/10/2016 supportano le topologie SCP.NET.
 > 
-> Per usare una topologia C# con un cluster basato su Linux, è necessario aggiornare il pacchetto NuGet Microsoft.SCP.Net.SDK usato dal progetto alla versione 0.10.0.6 o successiva. La versione del pacchetto deve anche corrispondere alla versione principale di Storm installata in HDInsight. Ad esempio, le versioni 3.3 e 3.4 di Storm in HDInsight usano Storm versione 0.10.x, mentre HDInsight 3.5 usa Storm 1.0.x.
+> Per usare una topologia C# con un cluster basato su Linux, aggiornare il pacchetto NuGet Microsoft.SCP.Net.SDK usato dal progetto alla versione 0.10.0.6 o successiva. La versione del pacchetto deve anche corrispondere alla versione principale di Storm installata in HDInsight. Ad esempio, le versioni 3.3 e 3.4 di Storm in HDInsight usano Storm versione 0.10.x, mentre HDInsight 3.5 usa Storm 1.0.x.
 > 
-> Le topologie C# nei cluster basati su Linux devono usare .NET 4.5 e devono usare Mono per l'esecuzione nel cluster HDInsight. Anche se non dovrebbero verificarsi problemi, è consigliabile vedere il documento sulla [compatibilità di Mono](http://www.mono-project.com/docs/about-mono/compatibility/) per le potenziali incompatibilità.
+> Le topologie C# nei cluster basati su Linux devono usare .NET 4.5 e devono usare Mono per l'esecuzione nel cluster HDInsight. Anche se non dovrebbero verificarsi problemi, è consigliabile vedere il documento [Mono Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) (Compatibilità di Mono) per potenziali incompatibilità.
 > 
-> Per una versione Java di questo progetto, che funzionerà anche in un cluster basato su Windows o Linux, vedere [Elaborare gli eventi da hub eventi di Azure con Storm in HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
+> Per una versione Java di questo progetto, che funziona con HDInsight basato su Linux o Windows, vedere [Elaborare eventi dell'hub eventi di Azure con Storm in HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un utente di Azure Active Directory con accesso [Power BI](https://powerbi.com).
-* Un cluster HDInsight. Per informazioni sulla creazione di un nuovo cluster, vedere [Introduzione a Storm in HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md).
+* Un cluster HDInsight. Per altre informazioni, vedere [Introduzione a Storm in HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md).
 
   > [!IMPORTANT]
   > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
@@ -49,6 +48,7 @@ Questo documento illustra come usare Power BI per creare un report dai dati gene
   * Visual Studio 2012 con [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
   * Visual Studio 2013 con [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) o [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?linkid=517284&clcid=0x409)
   * [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
+  * Visual Studio 2017, qualsiasi edizione
 
 * Gli strumenti HDInsight per Visual Studio. Per informazioni sull'installazione, vedere [Introduzione all'uso di HDInsight Tools per Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
@@ -56,13 +56,13 @@ Questo documento illustra come usare Power BI per creare un report dai dati gene
 
 Questo esempio contiene una topologia Storm C# che genera in modo casuale i dati di log di Internet Information Services (IIS). I dati vengono quindi scritti in un database SQL e da qui vengono usati per generare report in Power BI.
 
-Di seguito è riportato un elenco dei file che implementano la funzionalità principale di questo esempio.
+I file seguenti implementano la funzionalità principale di questo esempio:
 
 * **SqlAzureBolt.cs**: scrive nel database SQL le informazioni generate nella topologia Storm.
 * **IISLogsTable.sql**: istruzioni Transact-SQL usate per generare il database in cui vengono archiviati i dati.
 
 > [!WARNING]
-> È necessario creare la tabella nel database SQL prima di avviare la topologia nel cluster HDInsight.
+> Creare la tabella nel database SQL prima di avviare la topologia nel cluster HDInsight.
 
 ## <a name="download-the-example"></a>Scaricare l'esempio
 
@@ -70,13 +70,11 @@ Scaricare l' [esempio di Power BI per C# Storm in HDInsight](https://github.com/
 
 ## <a name="create-a-database"></a>Creare un database
 
-1. Usare i passaggi nel documento [Esercitazione sul database SQL](../sql-database/sql-database-get-started.md) per creare un nuovo database SQL.
+1. Per creare un database, seguire la procedura riportata nel documento [Esercitazione sul database SQL](../sql-database/sql-database-get-started.md).
 
-2. Connettersi al database seguendo i passaggi nel documento [Connettersi al database SQL con SQL Server Management Studio](../sql-database/sql-database-connect-query.md) per stabilire la connessione al database.
+2. Connettersi al database seguendo la procedura riportata nel documento [Connettersi a un database SQL con Visual Studio](../sql-database/sql-database-connect-query.md).
 
-3. Fare clic con il pulsante destro del mouse sul database in Esplora oggetti e creare una **Nuova query**. Incollare il contenuto del file **IISLogsTable.sql** incluso nel progetto scaricato nella finestra di query e quindi usare CTRL+MAIUSC+E per eseguire la query. Verrà visualizzato un messaggio per informare che i comandi sono stati eseguiti correttamente.
-   
-    Al termine, nel database sarà disponibile una nuova tabella denominata **IISLOGS** .
+3. In Esplora oggetti fare clic con il pulsante destro del mouse sul database e scegliere **Nuova query**. Incollare il contenuto del file **IISLogsTable.sql** incluso nel progetto scaricato nella finestra di query e quindi usare CTRL+MAIUSC+E per eseguire la query. Verrà visualizzato un messaggio per informare che i comandi sono stati eseguiti correttamente.
 
 ## <a name="configure-the-sample"></a>Configurare l'esempio
 
@@ -99,17 +97,17 @@ Scaricare l' [esempio di Power BI per C# Storm in HDInsight](https://github.com/
    > 
    > Se richiesto, immettere le credenziali di accesso per la sottoscrizione di Azure. Se si dispone di più di una sottoscrizione, accedere a quella che contiene il cluster Storm in HDInsight.
 
-2. Dopo che la topologia è stata inviata correttamente, verrà visualizzato l'elenco Topologie Storm relativo al cluster. Selezionare dall'elenco la voce SqlAzureWriterTopology per visualizzare le informazioni sulla topologia in esecuzione.
+2. Dopo l'invio della topologia, verrà aperto __Storm Topologies Viewer__ (Visualizzatore topologie Storm). Per visualizzare la topologia, selezionare dall'elenco la voce SqlAzureWriterTopology.
    
     ![Topologie con la topologia selezionata](./media/hdinsight-storm-power-bi-topology/topologyview.png)
    
-    È possibile usare questa visualizzazione per ottenere informazioni sulla topologia o fare doppio clic sulle voci, ad esempio SqlAzureBolt, per visualizzare informazioni specifiche di un componente della topologia.
+    È possibile usare questa visualizzazione per ottenere informazioni sulla topologia. In alternativa, fare doppio clic su una voce, ad esempio SqlAzureBolt, per visualizzare informazioni specifiche di un componente della topologia.
 
-3. Dopo l'esecuzione della topologia per alcuni minuti, tornare alla finestra di query SQL usata per creare il database. Sostituire le istruzioni esistenti con le seguenti:
+3. Dopo l'esecuzione della topologia per alcuni minuti, tornare alla finestra di query SQL usata per creare il database. Sostituire le istruzioni esistenti con la query seguente:
    
         select * from iislogs;
    
-    Usare CTRL+MAIUSC+E per eseguire la query. Verranno visualizzati risultati simili ai seguenti.
+    Usare CTRL+MAIUSC+E per eseguire la query. Verranno visualizzati risultati simili ai seguenti:
    
         1    2016-05-27 17:57:14.797    255.255.255.255    /bar    GET    200
         2    2016-05-27 17:57:14.843    127.0.0.1    /spam/eggs    POST    500
@@ -135,7 +133,7 @@ Scaricare l' [esempio di Power BI per C# Storm in HDInsight](https://github.com/
  
 5. Dopo avere stabilito la connessione, verrà visualizzato un nuovo set di dati con lo stesso nome del database al cui ci si è connessi. Selezionare il set di dati per iniziare a progettare un report.
 
-6. In **Campi** espandere la voce **IISLOGS**. Selezionare la casella di controllo **URISTEM**. Verrà creato un nuovo report che elenca le origini URI (/ foo, /bar e così via) registrate nel database.
+6. In **Campi** espandere la voce **IISLOGS**. Selezionare la casella di controllo **URISTEM**. Verrà creato un report che elenca le origini URI (/foo, /bar e così via) registrate nel database.
    
     ![Creazione di un report](./media/hdinsight-storm-power-bi-topology/createreport.png)
 
@@ -143,7 +141,7 @@ Scaricare l' [esempio di Power BI per C# Storm in HDInsight](https://github.com/
    
     ![aggiunta dei dati di method](./media/hdinsight-storm-power-bi-topology/uristemandmethod.png)
 
-8. Nella colonna **Visualizzazioni** selezionare l'icona **Campi** e quindi selezionare la freccia a discesa accanto a **METHOD** nella sezione **Valori**. Nell'elenco visualizzato selezionare **Conteggio**. Il report verrà modificato per elencare un conteggio degli accessi a un URI specifico.
+8. Nella colonna **Visualizzazioni** selezionare l'icona **Campi** e quindi selezionare la freccia a discesa accanto a **METHOD** nella sezione **Valori**. Nell'elenco visualizzato selezionare **Conteggio**. Il report viene modificato per elencare un conteggio degli accessi a un URI specifico.
    
     ![Modifica di un conteggio di method](./media/hdinsight-storm-power-bi-topology/count.png)
 
@@ -151,11 +149,11 @@ Scaricare l' [esempio di Power BI per C# Storm in HDInsight](https://github.com/
    
     ![Modifica in un grafico in pila](./media/hdinsight-storm-power-bi-topology/stackedcolumn.png)
 
-10. Una volta ottenuto il report desiderato, scegliere la voce **Salva** dal menu per immettere un nome e salvare il report.
+10. Per salvare il report, selezionare **Salva** e immettere un nome per il report.
 
 ## <a name="stop-the-topology"></a>Arrestare la topologia
 
-La topologia rimarrà in esecuzione fino all'arresto o all'eliminazione del cluster Storm in HDInsight. Per arrestare la topologia, eseguire la procedura seguente.
+La topologia rimane in esecuzione fino all'arresto o all'eliminazione del cluster Storm in HDInsight. Per arrestare la topologia, eseguire la procedura seguente.
 
 1. In Visual Studio tornare al visualizzatore della topologia e selezionarla.
 
@@ -172,10 +170,5 @@ La topologia rimarrà in esecuzione fino all'arresto o all'eliminazione del clus
 In questo documento è stato illustrato come inviare dati da una topologia Storm al database SQL e quindi visualizzare i dati tramite Power BI. Per informazioni su come usare altre tecnologie di Azure con Storm in HDInsight, vedere:
 
 * [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 
