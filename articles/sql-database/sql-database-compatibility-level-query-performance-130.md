@@ -1,6 +1,6 @@
 ---
 title: "Livello 130 di compatibilità del database - Database SQL di Azure | Documentazione Microsoft"
-description: "In questo articolo, vengono illustrati i vantaggi dell&quot;esecuzione del database SQL di Azure al livello di compatibilità 130 e dei vantaggi delle nuove funzionalità Query Optimizer e Query Processor. Vengono discussi anche i possibili effetti collaterali sulle prestazioni delle query per le applicazioni SQL esistenti."
+description: "In questo articolo, vengono illustrati i vantaggi dell&quot;esecuzione del database SQL di Azure al livello di compatibilità 130 e viene descritto come usare i vantaggi delle nuove funzionalità Query Optimizer e Query Processor. Vengono discussi anche i possibili effetti collaterali sulle prestazioni delle query per le applicazioni SQL esistenti."
 services: sql-database
 documentationcenter: 
 author: alainlissoir
@@ -13,18 +13,19 @@ ms.workload: data-management
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 03/03/2017
 ms.author: alainl
 translationtype: Human Translation
-ms.sourcegitcommit: 1df9f3549db8417445a5a012d31ed662977a9990
-ms.openlocfilehash: 3ad25fe844c75941303034ca1037fdb99a5c679b
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 5649895d1ae39d9a7fa863407b5341f1cdf567ee
+ms.lasthandoff: 03/04/2017
 
 
 ---
 # <a name="improved-query-performance-with-compatibility-level-130-in-azure-sql-database"></a>Miglioramento delle prestazioni delle query con il livello di compatibilità 130 nel database SQL di Azure
 Il database SQL di Azure esegue in modo trasparente centinaia di migliaia di database a vari livelli di compatibilità diversi, mantenendo e garantendo la compatibilità con le versioni precedenti corrispondenti di Microsoft SQL Server per tutti i clienti.
 
-In questo articolo, vengono illustrati i vantaggi dell'esecuzione del database SQL di Azure al livello di compatibilità 130 e dei vantaggi delle nuove funzionalità Query Optimizer e Query Processor. Vengono discussi anche i possibili effetti collaterali sulle prestazioni delle query per le applicazioni SQL esistenti.
+In questo articolo, vengono illustrati i vantaggi dell'esecuzione del database SQL di Azure al livello di compatibilità 130 e viene descritto come usare i vantaggi delle nuove funzionalità Query Optimizer e Query Processor. Vengono discussi anche i possibili effetti collaterali sulle prestazioni delle query per le applicazioni SQL esistenti.
 
 Di seguito è riportato un promemoria relativo all'allineamento delle versioni di SQL ai livelli di compatibilità predefiniti.
 
@@ -34,9 +35,9 @@ Di seguito è riportato un promemoria relativo all'allineamento delle versioni d
 * 130: in SQL Server 2016 e database SQL di Azure versione 12.
 
 > [!IMPORTANT]
-> A partire dalla **metà di giugno 2016**, nel database SQL di Azure il livello di compatibilità predefinito sarà 130 anziché 120 per i database **di nuova creazione**.
+> Il livello di compatibilità predefinito è 130 per i database **appena creati**.
 > 
-> I database creati prima della metà di giugno 2016 *non* saranno interessati dalla modifica e manterranno il livello di compatibilità corrente (100, 110 o 120). I database di cui viene eseguita la migrazione dalla versione 11 alla versione 12 del database SQL di Azure avranno un livello di compatibilità di 100 o 110. 
+> I database creati prima della metà di giugno 2016 dispongono di un livello di compatibilità al momento della loro creazione. I database di cui viene eseguita la migrazione da una versione precedente del database SQL di Azure avranno un livello di compatibilità di 100 o 110. Un server creato prima della metà di giungo 2016 dispone di un livello di compatibilità del database master al momento della creazione del server che non può essere modificato. Un livello di compatibilità diverso tra il database master e un database utente non influisce sulle prestazioni e le funzionalità dei database utente.
 > 
 
 ## <a name="about-compatibility-level-130"></a>Informazioni sul livello di compatibilità 130
@@ -49,9 +50,9 @@ SELECT compatibility_level
 ```
 
 
-Prima del passaggio al livello 130 per i database **di nuova creazione** , questo articolo esamina da vicino la modifica attraverso alcuni esempi di query molto semplici, per valutarne i vantaggi effettivi.
+Prima del passaggio al livello 130 per i database **di nuova** creazione, questo articolo esamina da vicino la modifica attraverso alcuni esempi di query molto semplici, per valutarne i vantaggi effettivi.
 
-L'elaborazione delle query nei database relazionali può risultare molto complessa e richiedere competenze informatiche e matematiche per comprendere le scelte di progettazione e i comportamenti intrinseci. In questo documento il contenuto è stato semplificato intenzionalmente perché che chiunque abbia una minima competenza tecnica possa comprendere l'impatto della modifica del livello di compatibilità e valutarne i vantaggi per le applicazioni.
+L'elaborazione delle query nei database relazionali può risultare molto complessa e richiedere competenze informatiche e matematiche approfondite per comprendere le scelte di progettazione e i comportamenti intrinseci. In questo documento il contenuto è stato semplificato intenzionalmente perché che chiunque abbia una minima competenza tecnica possa comprendere l'impatto della modifica del livello di compatibilità e valutarne i vantaggi per le applicazioni.
 
 Di seguito è riportato un breve riepilogo delle caratteristiche del livello di compatibilità 130.  Per altre informazioni, vedere [Livello di compatibilità ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/bb510680.aspx):
 
@@ -60,13 +61,13 @@ Di seguito è riportato un breve riepilogo delle caratteristiche del livello di 
 * Le statistiche per la tabella con ottimizzazione per la memoria ora possono essere campionate e vengono aggiornate automaticamente. Per altre informazioni, vedere [Novità (Motore di database): OLTP in memoria](https://msdn.microsoft.com/library/bb510411.aspx#InMemory) .
 * Modifiche alla modalità batch rispetto alla modalità riga con gli indici columnstore:
   * L'ordinamento in una tabella con un indice columnstore viene ora eseguito in modalità batch.
-  * Le aggregazioni finestra ora vengono eseguite in modalità batch, ad esempio con istruzioni TSQL LAG/LEAD.
+  * Le aggregazioni Windowing ora vengono eseguite in modalità batch, ad esempio con istruzioni TSQL LAG/LEAD.
   * Le query sulle tabelle columnstore con più clausole distinte operano in modalità batch.
   * Anche le query in esecuzione con DOP=1 o con un piano seriale vengono eseguite in modalità batch.
-* I miglioramenti relativi alla stima di cardinalità sono legati effettivamente al livello di compatibilità 120, ma se si esegue un livello di compatibilità inferiore, ovvero 100 o 110, il passaggio al livello di compatibilità 130 porterà anche questi vantaggi, utili per le prestazioni di query delle applicazioni.
+* I miglioramenti relativi alla stima di cardinalità sono legati al livello di compatibilità 120, ma se si esegue un livello di compatibilità inferiore, ovvero 100 o 110, il passaggio al livello di compatibilità 130 porterà anche questi vantaggi, utili per le prestazioni di query delle applicazioni.
 
 ## <a name="practicing-compatibility-level-130"></a>Esercitazione sul livello di compatibilità 130
-Preparare, prima di tutto, alcune tabelle, indici e dati casuali creati per provare alcune di queste nuove funzionalità. Gli esempi di script TSQL possono essere eseguiti in SQL Server 2016 o nel database SQL di Azure. Tuttavia, quando si crea un database SQL di Azure, assicurarsi di scegliere come minimo un database P2. Sono necessari almeno due core per consentire il multithreading e poter trarre vantaggio da queste funzionalità.
+Preparare, prima di tutto, alcune tabelle, indici e dati casuali creati per provare alcune di queste nuove funzionalità. Gli esempi di script T-SQL possono essere eseguiti in SQL Server 2016 o nel database SQL di Azure. Tuttavia, quando si crea un database SQL di Azure, assicurarsi di scegliere come minimo un database P2. Sono necessari almeno due core per consentire il multithreading e poter trarre vantaggio da queste funzionalità.
 
 ```
 -- Create a Premium P2 Database in Azure SQL Database
@@ -107,7 +108,7 @@ GO 10
 Vengono ora prese in esame alcune delle funzionalità di elaborazione query offerte dal livello di compatibilità 130.
 
 ## <a name="parallel-insert"></a>INSERT in parallelo
-Le istruzioni TSQL seguenti permettono di eseguire l'operazione INSERT con i livelli di compatibilità 120 e 130. Questi eseguono l'operazione INSERT rispettivamente in un modello a thread singolo (120) e in un modello multithread (130).
+Le istruzioni T-SQL seguenti permettono di eseguire l'operazione INSERT con i livelli di compatibilità 120 e 130. Questi eseguono l'operazione INSERT rispettivamente in un modello a thread singolo (120) e in un modello multithread (130).
 
 ```
 -- Parallel INSERT … SELECT … in heap or CCI
@@ -143,7 +144,7 @@ SET STATISTICS XML OFF;
 ```
 
 
-Richiedendo il piano di query effettivo ed esaminandone la rappresentazione grafica o il contenuto XML è possibile determinare la funzione di stima di cardinalità usata. La visualizzazione affiancata della figura 1 mostra chiaramente che l'esecuzione dell'operazione INSERT sull'indice columnstore passa da seriale, nel livello 120, a parallela, nel livello 130. Si noti anche la modifica dell'icona iteratore nel piano 130, con due frecce parallele a indicare il fatto che ora l'esecuzione dell'iteratore è effettivamente parallela. Per il completamento di operazioni INSERT di grandi dimensioni, l'esecuzione parallela, collegata al numero di core disponibili per il database, offre prestazioni migliori e può risultare fino a un 100 volte più veloce, a seconda delle situazioni.
+Richiedendo il piano di query effettivo ed esaminandone la rappresentazione grafica o il contenuto XML è possibile determinare la funzione di stima di cardinalità usata. La visualizzazione affiancata della figura 1 mostra chiaramente che l'esecuzione dell'operazione INSERT sull'indice columnstore passa da seriale, nel livello 120, a parallela, nel livello 130. Si noti anche la modifica dell'icona iteratore nel piano 130, con due frecce parallele a indicare il fatto che ora l'esecuzione dell'iteratore è effettivamente parallela. Per il completamento di operazioni INSERT di grandi dimensioni, l'esecuzione parallela, collegata al numero di core disponibili per il database, offre prestazioni migliori e può risultare fino a 100 volte più veloce, a seconda delle situazioni.
 
 *Figura 1: L'operazione INSERT passa da seriale a parallela con il livello di compatibilità 130.*
 
@@ -187,14 +188,14 @@ SET STATISTICS XML OFF;
 ```
 
 
-Come mostra la visualizzazione affiancata dei piani di query nella figura 2, anche la modalità di elaborazione è cambiata con il livello di compatibilità. Di conseguenza, quando si eseguono query in entrambi i livelli di compatibilità si vede come la maggior parte del tempo di elaborazione sia dedicata alla modalità riga (86%), rispetto alla modalità batch (14%) usata per elaborare due batch. Aumentando le dimensioni del set di dati, aumentano anche i vantaggi.
+La visualizzazione affiancata dei piani di query nella figura 2 mostra che la modalità di elaborazione è cambiata con il livello di compatibilità. Di conseguenza, quando si eseguono query in entrambi i livelli di compatibilità si vede come la maggior parte del tempo di elaborazione sia dedicata alla modalità riga (86%), rispetto alla modalità batch (14%) usata per elaborare due batch. Aumentando le dimensioni del set di dati, aumentano anche i vantaggi.
 
 *Figura 2: L'operazione SELECT passa da seriale alla modalità batch con il livello di compatibilità 130.*
 
 ![Figura 2](./media/sql-database-compatibility-level-query-performance-130/figure-2.jpg)
 
 ## <a name="batch-mode-on-sort-execution"></a>Modalità batch per l'esecuzione dell'ordinamento
-Quanto appena visto si applica anche a un'operazione di ordinamento. La transizione dalla modalità riga nel livello di compatibilità 120 alla modalità batch nel livello di compatibilità 130 migliora le prestazioni dell'operazione SORT, per gli stessi motivi.
+Quanto visto nell'esempio precedente si applica anche a un'operazione di ordinamento. La transizione dalla modalità riga nel livello di compatibilità 120 alla modalità batch nel livello di compatibilità 130 migliora le prestazioni dell'operazione SORT, per gli stessi motivi.
 
 ```
 -- Batch mode on sort execution
@@ -247,7 +248,7 @@ La nuova funzionalità di stima di cardinalità è stata introdotta con SQL Serv
 Come accennato in precedenza, le stime e l'ottimizzazione delle query sono un argomento complesso. Per informazioni più approfondite sui piani di query e sulla stima di cardinalità, vedere il documento [Optimizing Your Query Plans with the SQL Server 2014 Cardinality Estimator](https://msdn.microsoft.com/library/dn673537.aspx) (Ottimizzazione dei piani di query con la funzionalità di stima di cardinalità di SQL Server 2014).
 
 ## <a name="which-cardinality-estimation-do-you-currently-use"></a>Stima di cardinalità corrente
-Per determinare la stima di cardinalità in cui vengono eseguite le query è possibile usare gli esempi di query seguenti. Si noti che il primo esempio viene eseguito con il livello di compatibilità 110 e implica l'uso delle funzioni di stima di cardinalità precedenti.
+Per determinare la stima di cardinalità in cui vengono eseguite le query è possibile usare gli esempi di query seguenti. Il primo esempio viene eseguito con il livello di compatibilità 110 e implica l'uso delle funzioni di stima di cardinalità precedenti.
 
 ```
 -- Old CE
@@ -267,13 +268,13 @@ SET STATISTICS XML OFF;
 ```
 
 
-Al termine dell'esecuzione, fare clic sul collegamento XML ed esaminare le proprietà del primo iteratore, come illustrato di seguito. Si noti che il nome della proprietà CardinalityEstimationModelVersion attualmente è impostato su 70. Questo non significa che il livello di compatibilità del database sia impostato su SQL Server versione 7.0. Come si può vedere nelle istruzioni TSQL precedenti, è impostato su 110. Il valore 70 rappresenta semplicemente la funzionalità di stima di cardinalità legacy disponibile a partire da SQL Server 7.0, che non ha subito modifiche importanti fino a SQL Server 2014 e al relativo livello di compatibilità 120.
+Al termine dell'esecuzione, fare clic sul collegamento XML ed esaminare le proprietà del primo iteratore. Si noti che il nome della proprietà CardinalityEstimationModelVersion attualmente è impostato su 70. Questo non significa che il livello di compatibilità del database sia impostato su SQL Server versione 7.0. Come si può vedere nelle istruzioni T-SQL precedenti, è impostato su 110. Il valore 70 rappresenta la funzionalità di stima di cardinalità legacy disponibile a partire da SQL Server 7.0, che non ha subito modifiche importanti fino a SQL Server 2014 e al relativo livello di compatibilità 120.
 
 *Figura 4: CardinalityEstimationModelVersion impostato su 70 quando si usa un livello di compatibilità 110 o inferiore.*
 
 ![Figura 4](./media/sql-database-compatibility-level-query-performance-130/figure-4.png)
 
-In alternativa, è possibile modificare il livello di compatibilità in 130 e disabilitare l'uso della nuova funzione di stima di cardinalità impostando LEGACY_CARDINALITY_ESTIMATION su ON con l'istruzione [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx). In termini di funzione di stima di cardinalità questo equivale a usare il livello 110, pur facendo uso del livello di compatibilità più recente per l'elaborazione delle query. Così facendo, è possibile sfruttare le nuove funzionalità di elaborazione query incluse nel livello di compatibilità più recente, ovvero la modalità batch, ma poter fare uso all'occorrenza della funzione di stima di cardinalità precedente.
+In alternativa, è possibile modificare il livello di compatibilità in 130 e disabilitare l'uso della nuova funzione di stima di cardinalità impostando LEGACY_CARDINALITY_ESTIMATION su ON con l'istruzione [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx). In termini di funzione di stima di cardinalità questo equivale a usare il livello 110, pur facendo uso del livello di compatibilità più recente per l'elaborazione delle query. Così facendo, è possibile sfruttare le nuove funzionalità di elaborazione query incluse nel livello di compatibilità più recente, ovvero la modalità batch, ma è ancora possibile far uso all'occorrenza della funzione di stima di cardinalità precedente.
 
 ```
 -- Old CE
@@ -298,7 +299,7 @@ SET STATISTICS XML OFF;
 ```
 
 
-Il semplice passaggio al livello di compatibilità 120 o 130 abilita la nuova funzionalità di stima di cardinalità. In tal caso, il valore predefinito di CardinalityEstimationModelVersion sarà impostato su 120 o 130, come mostrato nella figura seguente.
+Il passaggio al livello di compatibilità 120 o 130 abilita la nuova funzionalità di stima di cardinalità. In tal caso, il valore predefinito per CardinalityEstimationModelVersion è impostato su 120 o 130.
 
 ```
 -- New CE
@@ -359,7 +360,7 @@ SET STATISTICS XML OFF;
 ```
 
 
-L'esecuzione di questa query restituisce in effetti 200.704 righe, mentre la stima delle righe prodotta dalla funzione di stima di cardinalità precedente indica 194.284 righe. Come detto in precedenza, i risultati di conteggio delle righe variano anche in base alla frequenza con cui sono stati eseguiti gli esempi precedenti, che a ogni esecuzione popolano le tabelle di esempio. Anche i predicati della query hanno un effetto sulla stima effettiva, insieme alla forma della tabella, al contenuto dei dati e al modo in cui i dati sono effettivamente correlati tra loro.
+L'esecuzione di questa query restituisce in effetti 200.704 righe, mentre la stima delle righe prodotta dalla funzione di stima di cardinalità precedente indica 194.284 righe. Come detto in precedenza e com'è naturale, i risultati di conteggio delle righe variano anche in base alla frequenza con cui sono stati eseguiti gli esempi precedenti, che a ogni esecuzione popolano le tabelle di esempio. Ovviamente, anche i predicati della query hanno un effetto sulla stima effettiva, insieme alla forma della tabella, al contenuto dei dati e al modo in cui i dati sono correlati tra loro.
 
 *Figura 6: La stima del conteggio delle righe è 194.284. 6.000 righe di differenza rispetto alle 200.704 righe effettive.*
 
@@ -396,39 +397,35 @@ SET STATISTICS XML OFF;
 ```
 
 
-Esaminando la figura seguente, si nota che la stima delle righe è ora 202.877. Molto più vicina al conteggio effettivo e superiore alla stima di cardinalità precedente.
+Si nota che la stima delle righe è ora 202.877. Molto più vicina e superiore alla stima di cardinalità precedente.
 
 *Figura 7: La stima del conteggio delle righe è ora 202.877 anziché 194.284.*
 
 ![Figura 7](./media/sql-database-compatibility-level-query-performance-130/figure-7.jpg)
 
-Il risultato effettivo è di 200.704 righe. Tale risultato dipende però dalla frequenza con cui sono state eseguite le query degli esempi precedenti. È importante sottolineare anche che dato l'uso dell'istruzione RAND() in TSQL, i valori effettivi restituiti possono variare da un'esecuzione all'altra. In questo particolare esempio, quindi, con una stima del numero di righe pari a 202.877, la nuova stima di cardinalità si avvicina di più al risultato effettivo di 200.704, rispetto alle 194.284 della funzionalità precedente. Infine, se si modificano i predicati della clausola WHERE in uguaglianze anziché usare, ad esempio, il simbolo ">", la differenza tra le stime della nuova funzione di cardinalità e di quella precedente può aumentare ancora di più, a seconda del numero di corrispondenze che è possibile ottenere.
+Il risultato predefinito è di 200.704 righe. Tale risultato dipende però dalla frequenza con cui sono state eseguite le query degli esempi precedenti. È importante sottolineare anche che dato l'uso dell'istruzione RAND() in T-SQL, i valori effettivi restituiti possono variare da un'esecuzione all'altra. In questo particolare esempio, quindi, con una stima del numero di righe pari a 202.877, la nuova stima di cardinalità si avvicina di più al risultato effettivo di 200.704, rispetto alle 194.284 della funzionalità precedente. Infine, se si modificano i predicati della clausola WHERE in uguaglianze anziché usare, ad esempio, il simbolo ">", la differenza tra le stime della nuova funzione di cardinalità e di quella precedente può aumentare ancora di più, a seconda del numero di corrispondenze che è possibile ottenere.
 
 In questo caso, naturalmente, una differenza di circa&6000; righe rispetto al conteggio effettivo non rappresenta una grande quantità di dati, in alcune situazioni. Nella realtà si tratta spesso di milioni di righe su numerose tabelle e di query più complesse. In alcuni casi le stime possono sbagliare di milioni di righe e questo può portare a scegliere un piano di esecuzione sbagliato o a richiedere concessioni di memoria insufficienti, con conseguenti eventi di spill di TempDB e aumento delle operazioni di I/O.
 
-Se possibile, provare a fare questo confronto con le query e i set di dati più usati, per scoprire le differenze tra le vecchie e le nuove stime. Alcune potrebbero discostarsi ancora di più dai valori effettivi, mentre altre potrebbero avvicinarsi di più al conteggio delle righe effettivamente restituito nei set di risultati. Tutto dipende dalla forma delle query, dalle caratteristiche del database SQL di Azure, dalla natura e dalle dimensioni dei set di dati e dalle relative statistiche disponibili. Se l'istanza di database SQL di Azure è stata appena creata, Query Optimizer dovrà compilare le informazioni da zero anziché riutilizzare le statistiche relative alle esecuzioni precedenti della query. Le stime, quindi, dipendono molto dal contesto sono quasi specifiche dei singoli server e delle situazioni relative alle applicazioni. Questo è un aspetto importante da tenere presente.
+Se possibile, provare a fare questo confronto con le query e i set di dati più usati, per scoprire le differenze tra le vecchie e le nuove stime. Alcune potrebbero discostarsi ancora di più dai valori effettivi, mentre altre potrebbero avvicinarsi di più al conteggio effettivo delle righe restituito nei set di risultati. Tutto dipende dalla forma delle query, dalle caratteristiche del database SQL di Azure, dalla natura e dalle dimensioni dei set di dati e dalle relative statistiche disponibili. Se l'istanza di database SQL di Azure è stata appena creata, Query Optimizer deve compilare le informazioni da zero anziché riutilizzare le statistiche relative alle esecuzioni precedenti della query. Le stime, quindi, dipendono molto dal contesto sono quasi specifiche dei singoli server e delle situazioni relative alle applicazioni. Questo è un aspetto importante da tenere presente.
 
 ## <a name="some-considerations-to-take-into-account"></a>Alcune considerazioni importanti
 Anche se la maggior parte dei carichi di lavoro può trarre vantaggio dal livello di compatibilità 130, prima di adottare questo livello di compatibilità per l'ambiente di produzione occorre valutare le tre opzioni disponibili:
 
-1. Passare al livello di compatibilità 130 e osservare i risultati. Se si nota un peggioramento, è sufficiente impostare di nuovo il livello di compatibilità sul valore originale. In alternativa, è possibile lasciare il livello impostato su 130 ma ripristinare la modalità legacy della stima di cardinalità, come descritto in precedenza. Quest'ultima operazione potrebbe già risolvere il problema.
+1. Passare al livello di compatibilità 130 e osservare i risultati. Se si nota un peggioramento, impostare di nuovo il livello di compatibilità sul valore originale. In alternativa, è possibile lasciare il livello impostato su 130 ma ripristinare la modalità legacy della stima di cardinalità, come descritto in precedenza. Quest'ultima operazione potrebbe già risolvere il problema.
 2. Eseguire test approfonditi sulle applicazioni esistenti con un carico di produzione simile, ottimizzare e convalidare le prestazioni prima di passare all'ambiente di produzione. In caso di problemi, come per l'opzione precedente è possibile tornare al livello di compatibilità originale o semplicemente ripristinare la modalità legacy della stima di cardinalità.
-3. Usare Archivio query. Quest'ultima opzione rappresenta il modo più recente di risolvere il problema ed è anche l'opzione consigliata. Per semplificare l'analisi delle query al di sotto del livello di compatibilità 120 rispetto al livello 130, la soluzione più efficace è sicuramente Archivio query. Archivio query è disponibile con la versione più recente del database SQL di Azure V12 ed è progettato per la risoluzione dei problemi di prestazioni delle query. Archivio query agisce nel database come una scatola nera, che registra dati e raccoglie e presenta informazioni cronologiche dettagliate su tutte le query. Questo semplifica notevolmente le analisi sulle prestazioni riducendo il tempo necessario per diagnosticare e risolvere i problemi. Per altre informazioni, vedere il post di blog relativo ad [Archivio query, la scatola nera del database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database/).
+3. L'ultima opzione e anche il modo più recente per affrontare le domande consiste nell'usare Archivio query. Quest'ultima opzione rappresenta il modo più recente di risolvere il problema ed è anche l'opzione consigliata. Per semplificare l'analisi delle query al livello di compatibilità 120 o inferiore rispetto al livello 130, la soluzione più efficace è sicuramente Archivio query. Archivio query è disponibile con la versione più recente del database SQL di Azure V12 ed è progettato per la risoluzione dei problemi di prestazioni delle query. Archivio query agisce nel database come una scatola nera, che registra dati e raccoglie e presenta informazioni cronologiche dettagliate su tutte le query. Questo semplifica notevolmente le analisi sulle prestazioni riducendo il tempo necessario per diagnosticare e risolvere i problemi. Per altre informazioni, vedere il post di blog relativo ad [Archivio query, la scatola nera del database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database/).
 
-A livello generale, se è già disponibile un set di database in esecuzione al livello di compatibilità 120 o inferiore e si prevede di impostare alcuni di essi sul livello 130, o se il carico di lavoro effettua automaticamente il provisioning di nuovi database che verranno presto impostati su 130 come valore predefinito, prendere in considerazione quanto segue:
+A livello generale, se è già disponibile un set di database in esecuzione al livello di compatibilità 120 o inferiore e si prevede di impostare alcuni di essi sul livello 130, o se il carico di lavoro effettua automaticamente il provisioning di nuovi database che verranno impostati su 130 come valore predefinito, prendere in considerazione quanto segue:
 
 * Prima di passare al nuovo livello di compatibilità nell'ambiente di produzione, abilitare Archivio query. Per altre informazioni, vedere l'articolo relativo alla [modifica della modalità di compatibilità del database e uso di Archivio query](https://msdn.microsoft.com/library/bb895281.aspx) .
 * Successivamente, testare tutti i carichi di lavoro critici con query e dati rappresentativi di un ambiente di produzione e confrontare le prestazioni registrate e segnalate da Archivio query. Se si verifica un peggioramento è possibile usare Archivio query per identificare le query peggiorate e usare l'opzione di Archivio query per l'uso forzato del piano, anche detta associazione del piano. In tal caso, si può lasciare il livello di compatibilità impostato su 130 e usare il piano di query precedente come indicato da Archivio query.
-* Se si vuole sfruttare le nuove funzionalità del database SQL di Azure, che esegue SQL Server 2016, ma si preferisce evitare le modifiche introdotte con il livello di compatibilità 130, come ultima soluzione è possibile forzare il ripristino del livello di compatibilità al livello appropriato per il carico di lavoro tramite un'istruzione ALTER DATABASE. Tenere presente, però, che l'opzione di Archivio query per l'uso forzato del piano rimane comunque la soluzione migliore. Questo perché usare un livello di compatibilità diverso da 130 significa sostanzialmente rimanere al livello di funzionalità di una versione precedente di SQL Server.
-* Se sono presenti applicazioni multi-tenant in più database, potrebbe essere necessario aggiornare la logica di provisioning dei database per garantire la coerenza del livello di compatibilità in tutti i database di cui è stato eseguito il provisioning più di recente o meno. Le prestazioni del carico di lavoro dell'applicazione potrebbero risentire del fatto che alcuni database vengono eseguiti a livelli di compatibilità diversi. La coerenza del livello di compatibilità in tutti i database potrebbe quindi essere necessaria per fornire la stessa esperienza a tutti i clienti. Si noti che la coerenza non è obbligatoria. Dipende unicamente dall'effetto del livello di compatibilità sull'applicazione.
-* Riguardo alla stima di cardinalità, come per la modifica del livello di compatibilità, prima di procedere nell'ambiente di produzione è consigliabile testare il carico di lavoro di produzione con le nuove condizioni, per determinare se l'applicazione trae vantaggio dai miglioramenti alla stima di cardinalità.
+* Se si vogliono sfruttare le nuove funzionalità del database SQL di Azure, che esegue SQL Server 2016, ma si preferisce evitare le modifiche introdotte con il livello di compatibilità 130, come ultima soluzione è possibile forzare il ripristino del livello di compatibilità al livello appropriato per il carico di lavoro tramite un'istruzione ALTER DATABASE. Tenere presente, però, che l'opzione di Archivio query per l'uso forzato del piano rimane comunque la soluzione migliore. Questo perché usare un livello di compatibilità diverso da 130 significa sostanzialmente rimanere al livello di funzionalità di una versione precedente di SQL Server.
+* Se sono presenti applicazioni multi-tenant in più database, potrebbe essere necessario aggiornare la logica di provisioning dei database per garantire la coerenza del livello di compatibilità in tutti i database di cui è stato eseguito il provisioning più di recente o meno. Le prestazioni del carico di lavoro dell'applicazione potrebbero risentire del fatto che alcuni database vengono eseguiti a livelli di compatibilità diversi. La coerenza del livello di compatibilità in tutti i database potrebbe quindi essere necessaria per fornire la stessa esperienza a tutti i clienti. Non è obbligatorio, dipende unicamente dall'effetto del livello di compatibilità sull'applicazione.
+* Infine, riguardo alla stima di cardinalità, è consigliabile testare il carico di lavoro di produzione con le nuove condizioni, per determinare se l'applicazione trae vantaggio dai miglioramenti alla stima di cardinalità.
 
-## <a name="conclusion"></a>Conclusione
-L'uso del database SQL di Azure per sfruttare i vantaggi dei miglioramenti di SQL Server 2016 può migliorare notevolmente l'esecuzione delle query. È un dato di fatto. Naturalmente, come per qualsiasi nuova funzionalità è necessaria un'attenta valutazione per determinare le condizioni esatte in cui il carico di lavoro del database funziona al meglio. L'esperienza dimostra che, al livello di compatibilità 130, la maggior parte dei carichi di lavoro viene eseguita almeno in modo trasparente, sfruttando le nuove funzioni di elaborazione delle query e la nuova stima di cardinalità. Ciò detto, esistono sempre alcune eccezioni ed è importante eseguire le opportune verifiche per quantificare il vantaggio effettivo di tali miglioramenti. Anche in questo caso Archivio query può rivelarsi una risorsa molto utile.
-
-Con l'evoluzione di SQL Azure, si arriverà probabilmente a un livello di compatibilità 140. Al momento opportuno verranno trattate anche le nuove caratteristiche del futuro livello di compatibilità 140, come si è fatto brevemente in questo articolo per il livello di compatibilità 130.
-
-Per ora è importante sottolineare ancora una volta che, a partire da giugno 2016, il livello di compatibilità predefinito nel database SQL di Azure per i database di nuova creazione passerà da 120 a 130. Tenere presente questa informazione.
+## <a name="conclusion"></a>Conclusioni
+L'uso del database SQL di Azure per sfruttare i vantaggi dei miglioramenti di SQL Server 2016 può migliorare notevolmente l'esecuzione delle query. Naturalmente, come per qualsiasi nuova funzionalità è necessaria un'attenta valutazione per determinare le condizioni esatte in cui il carico di lavoro del database funziona al meglio. L'esperienza dimostra che, al livello di compatibilità 130, la maggior parte dei carichi di lavoro viene eseguita almeno in modo trasparente, usando le nuove funzioni di elaborazione delle query e la nuova stima di cardinalità. Ciò detto, esistono sempre alcune eccezioni ed è importante eseguire le opportune verifiche per quantificare il vantaggio effettivo di tali miglioramenti. Anche in questo caso Archivio query può rivelarsi una risorsa molto utile.
 
 ## <a name="references"></a>Riferimenti
 * [Novità (Motore di database)](https://msdn.microsoft.com/library/bb510411.aspx#InMemory)
@@ -439,28 +436,5 @@ Per ora è importante sottolineare ancora una volta che, a partire da giugno 201
 * [Ottimizzazione dei piani di query con la funzionalità di stima di cardinalità di SQL Server 2014](https://msdn.microsoft.com/library/dn673537.aspx)
 * [Descrizione degli indici columnstore](https://msdn.microsoft.com/library/gg492088.aspx)
 * [Post di blog: Miglioramento delle prestazioni delle query con il livello di compatibilità 130 nel database SQL di Azure, di Alain Lissoir, 6 maggio 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/05/06/improved-query-performance-with-compatibility-level-130-in-azure-sql-database/)
-
-<!--
-Improved Query Performance with Compatibility Level 130 in Azure SQL Database
-
-May 6, 2016 by Alain Lissoir (AlainL), on GitHub 'alainlissoir'.
-
-https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/05/06/improved-query-performance-with-compatibility-level-130-in-azure-sql-database/
-
-..... Now, above.
-....................
-..... Soon, below?
-
-CAPS / MSDN ideally, but instead on ACom:
-.. # Assess effects of latest compatibility level on query performance, how to
-
-sql-database-compatibility-level-query-performance-130.md
-
-genemi = MightyPen , 2016-05-20  Friday  17:00pm
--->
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

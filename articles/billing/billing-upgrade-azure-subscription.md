@@ -1,6 +1,7 @@
 ---
 title: Aggiornare la sottoscrizione gratuita di Azure alla sottoscrizione con pagamento in base al consumo | Documentazione Microsoft
-description: Descrive il processo e i requisiti per aggiornare una sottoscrizione gratuita alla sottoscrizione con pagamento in base al consumo
+description: Viene descritto come passare a un pagamento a consumo da una sottoscrizione gratuita e vengono elencati i requisiti
+keywords: pagamento a consumo
 services: 
 documentationcenter: 
 author: adpick
@@ -13,30 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 03/01/2017
 ms.author: jlian
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 09c18ca6a967c2930ddd2b16d37f0bc606712ea1
-ms.openlocfilehash: 9d58a61521fe4e9171bf570e386e54ca79c7a26d
-
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 3ffb5d9828c167953c6553ff34e2d0dcdfe701b0
+ms.lasthandoff: 03/03/2017
 
 ---
-# <a name="upgrade-your-free-azure-subscription-to-pay-as-you-go"></a>Aggiornare la sottoscrizione gratuita di Azure alla sottoscrizione con pagamento in base al consumo
-È possibile aggiornare la propria sottoscrizione [Versione di valutazione gratuita](https://azure.microsoft.com/free/) o [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) alla sottoscrizione con [pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) dal portale dell'account di Azure. 
+# <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Aggiornare la versione di valutazione gratuita o la sottoscrizione di Azure per Microsoft Imagine alla sottoscrizione con pagamento in base al consumo
+Aggiornare la propria sottoscrizione [Versione di valutazione gratuita](https://azure.microsoft.com/free/) o [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) alla sottoscrizione con [pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) dal portale dell'account di Azure. 
 
 1. Accedere al [portale dell'account di Azure](https://account.windowsazure.com/subscriptions) e passare alla scheda **sottoscrizioni**.
 2. Nella sezione relativa allo stato della sottoscrizione, selezionare il banner **Aggiorna ora**.
    
-    ![Avviso per l'aggiornamento dalla versione di valutazione gratuita alla versione con pagamento in base al consumo](./media/billing-upgrade-azure-subscription/billpage.png)
+    ![Schermata che mostra il punto in cui fare clic per eseguire l'aggiornamento dalla versione di valutazione gratuita a quella a pagamento a consumo](./media/billing-upgrade-azure-subscription/billpage.png)
 3. Confermare l'aggiornamento.
    
-    ![Conferma dell'aggiornamento della sottoscrizione](./media/billing-upgrade-azure-subscription/Upgrade.png)
+    ![Schermata che mostra gli elementi da selezionare per confermare che si desidera aggiornare la sottoscrizione](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
-Quando si aggiorna la versione di valutazione gratuita alla versione con pagamento in base al consumo, si continua a usufruire dei vantaggi rimanenti della versione di valutazione, come il credito di 200 dollari o il limite di 30 giorni, fino alla data di fine validità. L'aggiornamento della sottoscrizione viene eseguito dopo tale data.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
+Usare i vantaggi rimasti della versione di valutazione gratuita come il credito di 200 dollari o il limite di 30 giorni. Dopo aver usato tutti i vantaggi, la sottoscrizione viene aggiornata.
 
 

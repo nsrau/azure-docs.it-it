@@ -1,25 +1,28 @@
-
-
 ---
-title: Usare i modelli di Azure Resource Manager per creare e configurare un'area di lavoro di Log Analytics | Microsoft Docs
-description: È possibile usare i modelli di Azure Resource Manager per creare e configurare aree di lavoro di Log Analytics.
+title: Usare i modelli di Azure Resource Manager per creare e configurare un&quot;area di lavoro di Log Analytics | Microsoft Docs
+description: "È possibile usare i modelli di Azure Resource Manager per creare e configurare aree di lavoro di Log Analytics."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: richrundmsft
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: d21ca1b0-847d-4716-bb30-2a8c02a606aa
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 11/01/2016
 ms.author: richrund
+translationtype: Human Translation
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: f392b3c0ab6b4d2e133d59766732188ce97c2f3e
+ms.lasthandoff: 03/03/2017
+
 
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gestire Log Analytics usando i modelli di Azure Resource Manager
-È possibile usare [i modelli di Azure Resource Manager](../resource-group-authoring-templates.md) per creare e configurare le aree di lavoro di Log Analytics. Ecco alcuni esempi di attività eseguibili con i modelli:
+È possibile usare i [modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) per creare e configurare aree di lavoro di Log Analytics. Ecco alcuni esempi di attività eseguibili con i modelli:
 
 * Creare un'area di lavoro
 * Aggiungere una soluzione
@@ -38,7 +41,7 @@ Questo articolo presenta esempi di modelli che illustrano alcune configurazioni 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Creare e configurare un'area di lavoro di Log Analytics
 Il modello di esempio seguente illustra come:
 
-1. Creare un'area di lavoro
+1. Creare un'area di lavoro che includa la conservazione dei dati delle impostazioni
 2. Aggiungere soluzioni all'area di lavoro
 3. Creare le ricerche salvate
 4. Creare un gruppo di computer
@@ -65,11 +68,20 @@ Il modello di esempio seguente illustra come:
       "type": "string",
       "allowedValues": [
         "Free",
-        "Standard",
-        "Premium"
+        "Standalone",
+        "PerNode"
       ],
       "metadata": {
-        "description": "Service Tier: Free, Standard, or Premium"
+        "description": "Service Tier: Free, Standalone, or PerNode"
+    }
+      },
+    "dataRetention": {
+      "type": "int",
+      "defaultValue": 30,
+      "minValue": 7,
+      "maxValue": 730,
+      "metadata": {
+        "description": "Number of days of retention. Free plans can only have 7 days, Standalone and OMS plans include 30 days for free"
       }
     },
     "location": {
@@ -118,7 +130,8 @@ Il modello di esempio seguente illustra come:
       "properties": {
         "sku": {
           "Name": "[parameters('serviceTier')]"
-        }
+        },
+    "retentionInDays": "[parameters('dataRetention')]"
       },
       "resources": [
         {
@@ -444,7 +457,5 @@ La raccolta dei modelli di avvio rapido di Azure include alcuni modelli di Log A
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Distribuire gli agenti nelle macchine virtuali di Azure usando i modelli di Resource Manager](log-analytics-azure-vm-extension.md)
-
-<!--HONumber=Oct16_HO2-->
 
 

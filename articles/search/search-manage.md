@@ -13,11 +13,12 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/17/2016
+ms.date: 03/05/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 71cfd2ea327cad22cdb1085558658934804c15f1
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: e0de3b12b98bf9bf361607dac4b087e4eacabf1e
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -41,13 +42,10 @@ Ricerca di Azure è un servizio di ricerca basato sul cloud completamente gestit
 
 *prestazioni delle query* non rientrano nell'ambito di questi argomento. Per altre informazioni, vedere [Monitorare l'utilizzo e le statistiche in un servizio Ricerca di Azure](search-monitor-usage.md) e [Prestazioni e ottimizzazione](search-performance-optimization.md).
 
-Ricerca di Azure eseguirà il failover in altri cluster e data center in caso di interruzione ma non offre soluzioni predefinite per le operazioni manuali di backup e ripristino, se l'indice o il servizio viene eliminato inavvertitamente o intenzionalmente. Per i clienti che effettuano il push di oggetti e dati nel servizio, il codice sorgente per la creazione e il popolamento di un indice è di fatto l'opzione di ripristino se si elimina un indice per errore. 
-
-Ricerca di Azure non fornisce la replica geografica degli indici nei servizi. Se la copertura della soluzione è globale, è consigliabile aggiungere ridondanza tramite un servizio aggiuntivo in un data center in un'area geografica differente in modo che tutti i componenti dell'applicazione vengano ospitati in un'unica posizione. Per altre informazioni, vedere [Prestazioni e ottimizzazione in Ricerca di Azure](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
-## <a name="administrator-rights-in-azure-search"></a>Diritti di amministratore in Ricerca di Azure
+## <a name="administrator-rights"></a>Diritti di amministratore
 Il provisioning o il ritiro delle autorizzazioni per il servizio in sé può essere effettuato da un amministratore o da un coamministratore della sottoscrizione di Azure.
 
 In un servizio chiunque abbia accesso all'URL del servizio e a una chiave API di amministrazione ha accesso in lettura/scrittura al servizio, con la relativa possibilità di aggiungere, eliminare o modificare gli oggetti server, ad esempio chiavi API, indici, indicizzatori, origini dati, pianificazioni e assegnazioni di ruolo, implementati tramite i [ruoli definiti dal controllo degli accessi in base al ruolo](#rbac).
@@ -56,7 +54,21 @@ Ogni interazione dell'utente con Ricerca di Azure rientra in una di queste modal
 
 <a id="sys-info"></a>
 
-## <a name="logging-in-azure-search-and-system-information"></a>Accesso a Ricerca di Azure e informazioni sul sistema
+## <a name="set-rbac-roles-for-administrative-access"></a>Impostare i ruoli RBAC per l'accesso amministrativo
+Azure offre un [modello di autorizzazione basata sui ruoli globali](../active-directory/role-based-access-control-configure.md) per tutti i servizi gestiti tramite il portale o le API di Resource Manager. I ruoli Proprietario, Collaboratore e Lettore determinano il livello di amministrazione del servizio per gli utenti, i gruppi e le entità di sicurezza di Active Directory assegnati a ogni ruolo. 
+
+Per Ricerca di Azure, le autorizzazioni del controllo degli accessi in base al ruolo determinano le attività amministrative seguenti:
+
+| Ruolo | Attività |
+| --- | --- |
+| Proprietario |Creare o eliminare il servizio o qualsiasi oggetto nel servizio, inclusi chiavi API, indici, indicizzatori, origini dati di un indicizzatore e pianificazioni di indicizzatore.<p>Visualizzare lo stato del servizio, inclusi conteggi e dimensioni.<p>Aggiunta o eliminazione dell'appartenenza al ruolo, che può essere gestita solo da un Proprietario.<p>Gli amministratori delle sottoscrizioni e i proprietari del servizio vengono aggiunti automaticamente al ruolo proprietario. |
+| Collaboratore |Stesso livello di accesso del Proprietario, tranne la gestione dei ruoli Controllo degli accessi in base al ruolo. Ad esempio, un Collaboratore può visualizzare e rigenerare `api-key`, ma non può modificare le appartenenze ai ruoli. |
+| Reader |Può visualizzare lo stato e le chiavi di query. I membri di questo ruolo non possono modificare la configurazione del servizio né visualizzare le chiavi amministratore. |
+
+Si noti che i ruoli non concedono diritti di accesso all'endpoint del servizio. Le operazioni del servizio di ricerca, ad esempio la gestione e il popolamento degli indici e le query sui dati di ricerca, sono controllate tramite le chiavi API, non tramite i ruoli. Per altre informazioni, vedere "Autorizzazioni per le operazioni di gestione e per le operazioni di dati" in [Che cos'è il controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md).
+
+<a id="secure-keys"></a>
+## <a name="logging-and-system-information"></a>Informazioni di sistema e registrazione
 Ricerca di Azure non espone i file di log di un singolo servizio né tramite il portale né tramite interfacce programmatiche. Nel piano Basic Microsoft monitora tutti i servizi di Ricerca di Azure per verificare la disponibilità del 99,9% per ogni contratto di servizio. Se il servizio è lento o la velocità effettiva delle richieste è al di sotto delle soglie dei contratti di servizio, i team di supporto esaminano i file di log disponibili e risolvono il problema.
 
 In termini di informazioni generali sul servizio, è possibile ottenere informazioni nei modi seguenti:
@@ -67,7 +79,7 @@ In termini di informazioni generali sul servizio, è possibile ottenere informaz
 
 <a id="manage-keys"></a>
 
-## <a name="manage-the-api-keys"></a>Gestire le chiavi API
+## <a name="manage-api-keys"></a>Gestire le chiavi API
 Tutte le richieste indirizzate a un servizio di ricerca necessitano di una chiave API generata specificamente per il proprio servizio. Questa chiave API è l'unico meccanismo di autenticazione dell'accesso all'endpoint di servizio di ricerca. 
 
 Una chiave API è una stringa composta da lettere e numeri generati casualmente. Viene generata esclusivamente dal servizio. Tramite le [autorizzazioni RBAC](#rbac), è possibile eliminare o leggere le chiavi, ma non è possibile eseguire l'override di una chiave generata con una stringa definita dall'utente. In particolare, in caso di password usate periodicamente, non è possibile sostituire una chiave API con una password definita dall'utente. 
@@ -87,22 +99,7 @@ Per ottenere o rigenerare le chiavi API, aprire il Dashboard servizi. Fare clic 
 
 <a id="rbac"></a>
 
-## <a name="set-rbac-roles-on-administrative-access-for-azure-search"></a>Impostare i ruoli Controllo degli accessi in base al ruolo nell'accesso amministrativo per Ricerca di Azure
-Azure offre un [modello di autorizzazione basata sui ruoli globali](../active-directory/role-based-access-control-configure.md) per tutti i servizi gestiti tramite il portale o le API di Resource Manager. I ruoli Proprietario, Collaboratore e Lettore determinano il livello di amministrazione del servizio per gli utenti, i gruppi e le entità di sicurezza di Active Directory assegnati a ogni ruolo. 
-
-Per Ricerca di Azure, le autorizzazioni del controllo degli accessi in base al ruolo determinano le attività amministrative seguenti:
-
-| Ruolo | Attività |
-| --- | --- |
-| Proprietario |Creare o eliminare il servizio o qualsiasi oggetto nel servizio, inclusi chiavi API, indici, indicizzatori, origini dati di un indicizzatore e pianificazioni di indicizzatore.<p>Visualizzare lo stato del servizio, inclusi conteggi e dimensioni.<p>Aggiunta o eliminazione dell'appartenenza al ruolo, che può essere gestita solo da un Proprietario.<p>Gli amministratori delle sottoscrizioni e i proprietari del servizio vengono aggiunti automaticamente al ruolo proprietario. |
-| Collaboratore |Stesso livello di accesso del Proprietario, tranne la gestione dei ruoli Controllo degli accessi in base al ruolo. Ad esempio, un Collaboratore può visualizzare e rigenerare `api-key`, ma non può modificare le appartenenze ai ruoli. |
-| Reader |Può visualizzare lo stato e le chiavi di query. I membri di questo ruolo non possono modificare la configurazione del servizio né visualizzare le chiavi amministratore. |
-
-Si noti che i ruoli non concedono diritti di accesso all'endpoint del servizio. Le operazioni del servizio di ricerca, ad esempio la gestione e il popolamento degli indici e le query sui dati di ricerca, sono controllate tramite le chiavi API, non tramite i ruoli. Per altre informazioni, vedere "Autorizzazioni per le operazioni di gestione e per le operazioni di dati" in [Che cos'è il controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md).
-
-<a id="secure-keys"></a>
-
-## <a name="secure-the-api-keys"></a>Proteggere le chiavi API
+## <a name="secure-api-keys"></a>Proteggere le chiavi API
 La sicurezza delle chiavi viene garantita limitando l'accesso tramite il portale o le interfacce di Resource Manager (PowerShell o interfaccia della riga di comando). Come indicato, gli amministratori delle sottoscrizioni possono visualizzare e rigenerare tutte le chiavi API. Per precauzione, esaminare le assegnazioni di ruolo per sapere chi ha accesso alle chiavi amministratore.
 
 1. Nel dashboard del servizio fare clic sull'icona Accesso per aprire il pannello Utenti con effetto scorrimento.
@@ -126,6 +123,21 @@ Usando l'API del servizio di ricerca, è possibile ottenere un conteggio dei doc
 > Il comportamento della cache può determinare la dichiarazione di un limite più alto. Ad esempio, quando si usa il servizio condiviso, è possibile che venga visualizzato un conteggio documenti superiore al limite rigido di 10.000. Questa stima in eccesso è temporanea e verrà rilevata al successivo controllo di imposizione del limite. 
 > 
 > 
+
+## <a name="disaster-recovery-and-service-outages"></a>Interruzioni di servizio e ripristino di emergenza
+
+Sebbene sia possibile recuperare i dati, Ricerca di Azure non offre il failover immediato del servizio se è presente un'interruzione a livello di data center o di cluster. Se un cluster non funziona nel data center, il team operativo lo rileverà e provvederà a ripristinare il servizio. Si verificheranno tempi di inattività durante il ripristino del servizio. È possibile richiedere i crediti del servizio per compensarne la non disponibilità per il [Contratto di servizio (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
+
+Per garantire un servizio continuo, che includa gli errori irreversibili che Microsoft non può controllare, è necessario [eseguire il provisioning di un servizio aggiuntivo](search-create-service-portal.md) in un'area diversa e implementare una strategia di replica geografica per garantire che gli indici siano completamente ridondanti in tutti i servizi.
+
+I clienti che usano gli indicizzatori per compilare e aggiornare gli indici gestiscono il ripristino di emergenza tramite gli indicizzatori specifici per l'area geografica che sfruttando la stessa origine dati. Invece degli indicizzatori, l'utente userà il codice dell'applicazione per eseguire il push sugli oggetti e i dati per diversi servizi in parallelo. Per altre informazioni, vedere [Prestazioni e ottimizzazione in Ricerca di Azure](search-performance-optimization.md).
+
+## <a name="backup-and-restore"></a>Backup e ripristino
+
+Poiché Ricerca di Azure non è una soluzione di archiviazione dati primaria, Microsoft non fornisce un meccanismo formale per il backup e il ripristino self-service. Il codice dell'applicazione usato per la creazione e la compilazione di un indice è l'opzione di ripristino di fatto se si elimina un indice per errore. 
+
+Per ricompilare un indice, è necessario eliminarlo (supponendo che sia presente), ricreare l'indice nel servizio e ricaricare recuperando i dati dall'archivio dati primario. In alternativa, è possibile raggiungere [il supporto tecnico]() per salvare gli indici di recupero se è presente un'interruzione nell'area.
+
 
 <a id="scale"></a>
 
@@ -162,7 +174,7 @@ Per pianificare in anticipo le esigenze future, è possibile verificare l'archiv
 
 <a id="advanced-deployment"></a>
 
-## <a name="best-practices-on-scale-and-deployment-video"></a>Procedure consigliate su scalabilità e distribuzione (video)
+## <a name="best-practices-on-scale-and-deployment"></a>Procedure consigliate su scalabilità e distribuzione
 Questo video di 30 minuti esamina le procedure consigliate per gli scenari di distribuzione avanzata, inclusi i carichi di lavoro con distribuzione geografica. Per le pagine della guida che illustrano gli stessi argomenti, è anche possibile vedere [Prestazioni e ottimizzazione in Ricerca di Azure](search-performance-optimization.md) .
 
 > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
@@ -186,10 +198,5 @@ Se non è già stato fatto, vedere anche l' [articolo su prestazioni e ottimizza
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png
 
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

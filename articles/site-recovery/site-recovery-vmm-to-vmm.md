@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2017
+ms.date: 03/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 7ff27bb866bd9b1f2a24b5c0ff5d83dea2227f49
-ms.openlocfilehash: 70a71bae81d4e499041c140b1d61b621e168ec43
-ms.lasthandoff: 02/14/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 8af22f98b5dfde35df441ba054875616ced9988a
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/14/2017
 >
 >
 
-Questo articolo illustra come usare [Azure Site Recovery](site-recovery-overview.md) nel portale di Azure per eseguire la replica di macchine virtuali Hyper-V locali gestite nei cloud di System Center Virtual Machine Manager (VMM) in un sito secondario. Ulteriori informazioni sull'[architettura dello scenario](site-recovery-components.md#replicate-hyper-v-vms-to-a-secondary-site).
+Questo articolo illustra come usare [Azure Site Recovery](site-recovery-overview.md) nel portale di Azure per eseguire la replica di macchine virtuali Hyper-V locali gestite nei cloud di System Center Virtual Machine Manager (VMM) in un sito secondario. Ulteriori informazioni sull'[architettura dello scenario](site-recovery-components.md#hyper-v-vm-replication-to-a-secondary-site).
 
 È possibile inviare commenti nella parte inferiore di questo articolo oppure nel [forum sui servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -44,7 +44,7 @@ Questo articolo illustra come usare [Azure Site Recovery](site-recovery-overview
 **Hyper-V** | I server Hyper-V devono eseguire almeno Windows Server 2012 con ruolo Hyper-V e con gli ultimi aggiornamenti installati.<br/><br/> Il server Hyper-V deve contenere una o più macchine virtuali.<br/><br/>  I server host Hyper-V devono trovarsi nei gruppi host disponibili nei cloud VMM primario e secondario.<br/><br/> Se si esegue Hyper-V in un cluster in Windows Server 2012 R2 installare l'[aggiornamento 2961977](https://support.microsoft.com/kb/2961977)<br/><br/> Se si esegue Hyper-V in un cluster basato su indirizzi IP statici in Windows Server 2012, il broker del cluster non viene creato automaticamente. Configurare manualmente il broker del cluster. [Altre informazioni](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx).<br/><br/> I server Hyper-V richiedono l'accesso a Internet.
 **URL** | I server VMM e gli host Hyper-V devono poter raggiungere i seguenti URL:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
 
-## <a name="steps"></a>Passi
+## <a name="deployment-steps"></a>Passaggi di distribuzione
 
 È necessario eseguire queste operazioni:
 
@@ -65,7 +65,7 @@ Preparare la distribuzione:
 
     - Accertarsi che le macchine virtuali nel server host Hyper-V di origine siano connesse a una rete VM di VMM. È necessario che tale rete sia collegata a una rete logica associata al cloud.
     Verificare che per il cloud secondario in cui verrà eseguito il ripristino sia configurata una rete VM corrispondente. collegata a una rete logica associata al cloud secondario.
-    
+
 3. Preparare un [singolo server di distribuzione](#single-vmm-server-deployment), se si desidera replicare le macchine virtuali tra cloud nello stesso server VMM.
 
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
@@ -174,7 +174,7 @@ Selezionare il server VMM di destinazione e il cloud.
 10. Se si esegue la replica in rete, in **Metodo di replica iniziale** specificare se si preferisce avviare la replica iniziale o pianificarla. Per risparmiare larghezza di banda di rete, è opportuno pianificarla al di fuori dell'orario di lavoro. Fare quindi clic su **OK**.
 
      ![Criteri di replica](./media/site-recovery-vmm-to-vmm/gs-replication2.png)
-11. Quando si creano nuovi criteri, questi vengono associati automaticamente al cloud VMM. In **Criteri di replica** fare clic su **OK**. È possibile associare altri cloud VMM, e le VM che contengono, a questi criteri di replica in **Impostazioni** > Replica**> nome dei criteri > **Associate VMM Cloud** (Associa cloud VMM)**.
+11. Quando si creano nuovi criteri, questi vengono associati automaticamente al cloud VMM. In **Criteri di replica** fare clic su **OK**. È possibile associare altri cloud VMM (e le VM in essi contenute) a questi criteri di replica in **Replica** > nome del criterio > **Associate VMM Cloud** (Associa cloud VMM).
 
      ![Criteri di replica](./media/site-recovery-vmm-to-vmm/policy-associate.png)
 
@@ -185,7 +185,7 @@ Selezionare il server VMM di destinazione e il cloud.
 - Verificare che le macchine virtuali sui server VMM siano connesse a una rete VM.
 
 
-1. In **Impostazioni** > **Site Recovery Infrastructure (Infrastruttura di Site Recovery)** > **Mapping di rete** > **Mapping di rete** fare clic su **+Mapping di rete**.
+1. In **Site Recovery Infrastructure** >  (Infrastruttura di Site Recovery) **Mapping di rete** > **Mapping di rete** fare clic su **+Mapping di rete**.
 
     ![Mapping di rete](./media/site-recovery-vmm-to-azure/network-mapping1.png)
 2. Nella scheda **Aggiungi mapping di rete** selezionare i server VMM di origine e di destinazione. Vengono recuperate le reti VM associate ai server VMM.
@@ -225,12 +225,12 @@ Dopo avere configurato l'infrastruttura di base, passare alla pianificazione del
 
     ![Abilitare la protezione delle macchine virtuali](./media/site-recovery-vmm-to-vmm/enable-replication5.png)
 
-È possibile tenere traccia dello stato di avanzamento dell'azione **Abilita protezione** in **Impostazioni** > **Processi** > **Processi di Site Recovery**. Dopo il completamento del **processo di finalizzazione** della protezione la macchina virtuale è pronta per il failover.
+È possibile tenere traccia dello stato del processo **Abilita protezione** in **Processi** > **Site Recovery jobs** (Processi di Site Recovery). Dopo il completamento del **processo di finalizzazione** della protezione la macchina virtuale è pronta per il failover.
 
 Si noti che:
 
 - È anche possibile abilitare la protezione per le macchine virtuali nella console VMM. Fare clic su **Abilita protezione** nella barra degli strumenti della scheda **Azure Site Recovery** nelle proprietà della macchina virtuale.
-- Dopo aver abilitato la replica è possibile visualizzare le proprietà della macchina virtuale in **Impostazioni** > **Elementi replicati**. Nel dashboard **Informazioni di base** è possibile visualizzare informazioni sui criteri di replica per la macchina virtuale e il relativo stato. Per altri dettagli, fare clic su **Proprietà** .
+- Dopo aver abilitato la replica è possibile visualizzare le proprietà della macchina virtuale in **Elementi replicati**. Nel dashboard **Informazioni di base** è possibile visualizzare informazioni sui criteri di replica per la macchina virtuale e il relativo stato. Per altri dettagli, fare clic su **Proprietà** .
 
 ### <a name="onboard-existing-virtual-machines"></a>Caricare le macchine virtuali esistenti
 Se in VMM sono presenti macchine virtuali replicate tramite la replica Hyper-V, è possibile caricarle per la replica in Azure Site Recovery nel modo seguente:
@@ -243,10 +243,6 @@ Se in VMM sono presenti macchine virtuali replicate tramite la replica Hyper-V, 
 
 Per testare la distribuzione è possibile eseguire un [failover di test](site-recovery-test-failover-vmm-to-vmm.md) per una singola macchina virtuale o [creare un piano di ripristino](site-recovery-create-recovery-plans.md) che contenga una o più macchine virtuali.
 
-
-## <a name="next-steps"></a>Passaggi successivi
-
-Dopo aver testato la distribuzione, leggere altre informazioni sugli altri tipi di [failover](site-recovery-failover.md)
 
 
 ## <a name="prepare-for-offline-initial-replication"></a>Preparare la replica iniziale offline
@@ -444,4 +440,8 @@ Questa tabella descrive come vengono riepilogati i dati in questo scenario:
 | **Piano di ripristino** | I piani di ripristino consentono di creare un piano di orchestrazione per il data center di ripristino. È possibile definire l'ordine con cui le macchine virtuali o un gruppo di macchine virtuali deve essere avviato presso il sito di ripristino. Per ogni macchina virtuale, inoltre, è possibile specificare l'esecuzione di script automatizzati o di azioni manuali al momento del ripristino. Il failover viene in genere attivato a livello del piano di ripristino per consentire un ripristino coordinato. | Site Recovery raccoglie, elabora e trasmette i metadati per il piano di ripristino, inclusi i metadati della macchina virtuale e i metadati di qualsiasi script di automazione e nota di azione manuale. |I metadati vengono quindi usati per creare il piano di ripristino nel portale di Azure. |Questa funzionalità è una parte essenziale del servizio e non può essere disattivata. Se non si vogliono inviare queste informazioni a Site Recovery, non sarà possibile creare piani di ripristino. |
 | **Mapping di rete** | Consente di eseguire il mapping delle informazioni di rete dal data center principale al data center di ripristino. Se le macchine virtuali vengono ripristinate presso il sito di ripristino, il mapping di rete consente di ristabilire la connettività di rete. |Site Recovery raccoglie, elabora e trasmette i metadati delle reti logiche per ogni sito (primario e data center). |I metadati vengono quindi usati per popolare le impostazioni di rete, in modo da poter eseguire il mapping delle informazioni di rete. | Questa funzionalità è una parte essenziale del servizio e non può essere disattivata. Se non si vogliono inviare queste informazioni a Site Recovery, non sarà possibile usare il mapping di rete. |
 | **Failover (pianificato/non pianificato/test)** | Il failover di macchine virtuali non può essere eseguito tra due data center gestiti da VMM. L'azione di failover viene attivata manualmente nel portale di Azure. |Il provider del server VMM riceve la notifica dell'evento da Site Recovery ed esegue un'azione di failover sull'host Hyper-V tramite le interfacce VMM. Il failover effettivo di una macchina virtuale viene eseguito da un host Hyper-V a un altro e viene gestito dalla tecnologia di replica Hyper-V disponibile in Windows Server 2012 o Windows Server 2012 R2. Site Recovery usa le informazioni inviate per popolare lo stato dell'azione di failover nel portale di Azure. | Questa funzionalità è una parte essenziale del servizio e non può essere disattivata. Se non si vogliono inviare queste informazioni a Site Recovery, non sarà possibile usare il failover. |
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Dopo aver testato la distribuzione, leggere altre informazioni sugli altri tipi di [failover](site-recovery-failover.md)
 
