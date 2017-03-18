@@ -17,6 +17,7 @@ ms.author: robmcm
 translationtype: Human Translation
 ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
 ms.openlocfilehash: 09878cccc847040c59cbf285f40ac6a1a310c993
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -103,9 +104,4 @@ Quando le connessioni di desktop remoto alle istanze del ruolo nel cloud non son
 
 [Accesso remoto alle istanze del ruolo in Azure]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
 [Uso di Desktop remoto con i ruoli Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
