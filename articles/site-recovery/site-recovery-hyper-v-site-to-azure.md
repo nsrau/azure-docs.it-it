@@ -393,7 +393,7 @@ Al termine della replica iniziale per le macchine, è possibile chiamare i failo
 
 1. Selezionare **Piani di ripristino > nome_pianodiripristino**.
 2. Nel pannello del piano di ripristino fare clic su **Failover pianificato**.
-3. Nella pagina **Conferma failover pianificato **selezionare il percorso di origine e destinazione.
+3. Nella pagina **Conferma failover pianificato**selezionare il percorso di origine e destinazione.
 4. Quando si avvia un failover pianificato, il primo passaggio è l’arresto delle macchine virtuali per garantire che non si verifichino perdite di dati. Nella scheda **Processi** è possibile monitorare l’avanzamento del failover. Se si verifica un errore nel failover (in una macchina virtuale o in uno script incluso nel piano di ripristino), il failover pianificato di un piano di ripristino si interrompe. È possibile avviare nuovamente il failover.
 6. Dopo la replica le macchine virtuali create sono in uno stato di attesa di commit. Fare clic su **Commit** per eseguire il commit del failover.
 7. Dopo il completamento della replica, le macchine virtuali vengono avviate nella località secondaria.

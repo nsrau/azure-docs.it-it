@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: arramac
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5ed72d95ae258d6fa8e808cd72ab6e8a665901c9
-ms.openlocfilehash: 0a8b53f7860548a2a013bfc7813cdf798b6a4910
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 1f5f0b1aca581900b94f0f87563c5c7e720f46c8
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="partitioning-and-scaling-in-azure-documentdb"></a>Partizionamento e scalabilità in Azure DocumentDB
+# <a name="partitioning-partition-keys-and-scaling-in-documentdb"></a>Partizionamento, chiavi di partizione e scalabilità in DocumentDB
+
 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) è progettato per ottenere prestazioni rapide e prevedibili e per eseguire facilmente la scalabilità in base allo sviluppo dell'applicazione. Questo articolo offre una panoramica del funzionamento del partizionamento in DocumentDB e descrive come configurare raccolte di DocumentDB per scalare in modo efficace le applicazioni.
 
 Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:   

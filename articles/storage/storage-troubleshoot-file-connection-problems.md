@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 0479db07710d7ff6037dc692e5387a314bed32ca
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 62d2cd990bff4ffc982eef507ad69c68c00a65ab
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -48,10 +48,6 @@ Questo articolo elenca i problemi comuni correlati all'archiviazione file di Mic
 * [Errore di montaggio 115 quando si tenta di montare File di Azure sulla macchina virtuale Linux](#error15)
 * [Nella condivisione file di Azure montata nella macchina virtuale Linux viene riscontrato un rallentamento delle prestazioni](#delayproblem)
 
-
-**Accedere da altre applicazioni**
-
-* [È possibile far riferimento alla condivisione file di Azure per l'applicazione tramite un processo Web?](#webjobs)
 
 <a id="quotaerror"></a>
 
@@ -275,11 +271,6 @@ dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=10
 
 Se le opzioni cache=strict o serverino non sono presenti, smontare e montare nuovamente i file di Azure eseguendo il comando mount, come indicato nella [documentazione](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share), e verificare nuovamente la presenza di opzioni corrette nella voce "/etc/fstab".
 
-<a id="webjobs"></a>
-
-## <a name="accessing-from-other-applications"></a>Accedere da altre applicazioni
-### <a name="can-i-reference-the-azure-file-share-for-my-application-through-a-webjob"></a>È possibile far riferimento alla condivisione file di Azure dell'applicazione tramite un processo Web?
-Non è possibile montare condivisioni SMB in un ambiente sandbox appservice. In alternativa, è possibile connettere la condivisione file di Azure come unità mappata e consentire all'applicazione di accedervi come lettera di unità.
 ## <a name="learn-more"></a>Altre informazioni
 * [Introduzione ad Archiviazione file di Azure in Windows](storage-dotnet-how-to-use-files.md)
 * [Introduzione all'archiviazione file di Azure in Linux](storage-how-to-use-files-linux.md)

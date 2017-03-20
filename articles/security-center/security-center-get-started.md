@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2017
+ms.date: 03/06/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 56a61479971c4a03345bee8a044dbc17d16371ce
-ms.openlocfilehash: 8e87f9bd8122ec3c80d11e8ac563849f540e0cc5
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 40636aa9d847b97ea872bf4689a1da6e3eb23eb4
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -92,7 +92,7 @@ Nel portale seguire questa procedura per accedere al Centro sicurezza:
    ![Avvisi di sicurezza nel Centro sicurezza di Azure][7]
 
    > [!NOTE]
-   > Gli avvisi di sicurezza sono disponibili solo se è abilitato il livello Standard del Centro sicurezza. Per il livello Standard è disponibile una versione di valutazione gratuita di 90 giorni. Vedere [Passaggi successivi](#next-steps) per informazioni su come ottenere il livello Standard.
+   > Gli avvisi di sicurezza sono disponibili solo se è abilitato il livello Standard del Centro sicurezza. Per il livello Standard è disponibile una versione di valutazione gratuita di 60 giorni. Vedere [Passaggi successivi](#next-steps) per informazioni su come ottenere il livello Standard.
    >
    >
 2. Selezionare un avviso per visualizzare informazioni aggiuntive. In questo esempio verrà selezionato **Modified system binary discovered** (Individuato file binario di sistema modificato). Si apriranno pannelli con altri dettagli dell'avviso.

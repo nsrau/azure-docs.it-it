@@ -15,9 +15,9 @@ ms.workload: backup-recovery
 ms.date: 2/20/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: 1f4075d6a3ab81bdbde614bbee400bd23f6cea20
-ms.openlocfilehash: 1fd481d06f355547fd15200999c4bca3a503ec31
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 7e82ac74a8aef4e3cc8aff4dea3c572dcb9d9c40
+ms.lasthandoff: 03/03/2017
 
 ---
 
@@ -82,6 +82,30 @@ Per poter eseguire l'installazione push del servizio Mobility tramite Azure Site
 [!INCLUDE [site-recovery-prepare-push-install-mob-svc-lin](../../includes/site-recovery-prepare-push-install-mob-svc-lin.md)]
 
 
-## <a name="next-steps"></a>Passaggi successivi
+> [!NOTE]
 Dopo aver installato il servizio Mobility è possibile usare il pulsante **+Replica** nel portale di Azure per avviare l'abilitazione della protezione per queste macchine virtuali.
+
+## <a name="uninstall-mobility-service-on-windows-servers"></a>Disinstallare il servizio Mobility in server di Windows
+Esistono due modi per disinstallare il servizio Mobility in un server di Windows
+
+### <a name="uninstall-using-graphical-user-interface"></a>Disinstallare tramite l'interfaccia utente grafica
+1. Aprire Pannello di controllo > Programmi
+2. Selezionare **Servizio Mobility di Microsoft Azure Site Recovery/server di destinazione master** e fare clic su Disinstalla.
+
+### <a name="uninstall-using-command-line"></a>Disinstallare tramite la riga di comando
+1. Aprire un prompt dei comandi come amministratore
+2. Eseguire il comando seguente per disinstallare il servizio Mobility.
+
+```
+MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
+```
+
+## <a name="uninstall-mobility-service-on-linux-computers"></a>Disinstallare il servizio Mobility in computer Linux
+1. Accedere come **ROOT** nell server Linux
+2. Nel **Terminale** passare a /user/local/ASR
+3. Eseguire il comando seguente per disinstallare il servizio Mobility
+
+```
+uninstall.sh -Y
+```
 

@@ -17,6 +17,7 @@ ms.author: brandwe
 translationtype: Human Translation
 ms.sourcegitcommit: 7950cc1df19ddf0a5d12ff8cba8615bb920e58ba
 ms.openlocfilehash: 37666c8c2e1214f8754375efab1f8e6020dbb2e8
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -49,7 +50,7 @@ Al termine dell'esercitazione, verrà fornita anche l'applicazione completata.
 
 3. Selezionare **More services** (Altri servizi) nel menu a sinistra della schermata, quindi scegliere **Azure Active Directory**.
 
-4. Selezionare **Registrazioni per l'app **, quindi scegliere **Aggiungi**.
+4. Selezionare **Registrazioni per l'app**, quindi scegliere **Aggiungi**.
 
 5. Seguire le istruzioni e creare una nuova **applicazione Web** e/o **API Web**.
   * Il **nome** dell'applicazione descrive l'applicazione agli utenti.
@@ -417,9 +418,4 @@ Ora è possibile passare ad argomenti più avanzati. È consigliabile provare:
 [Proteggere un'API Web con Azure AD](active-directory-devquickstarts-webapi-nodejs.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

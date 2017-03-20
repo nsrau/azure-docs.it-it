@@ -75,7 +75,7 @@ In questo articolo viene fornito un esempio di come è possibile usare System Ce
 7. Nella pagina **Scegliere il tipo di programma da creare** selezionare **Programma standard** e fare clic su **Avanti**
 
   ![create-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
-8. Nella pagina **Specificare le informazioni sul programma standard	** indicare gli input seguenti e fare clic su **Avanti**. (gli altri input possono mantenere i valori predefiniti).
+8. Nella pagina **Specificare le informazioni sul programma standard** indicare gli input seguenti e fare clic su **Avanti**. (gli altri input possono mantenere i valori predefiniti).
 
   ![sccm-package-properties](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties.png)   
 | **Nome parametro** | **Valore** |
@@ -158,7 +158,7 @@ In questo articolo viene fornito un esempio di come è possibile usare System Ce
 7. Nella pagina **Scegliere il tipo di programma da creare** selezionare **Programma standard** e fare clic su **Avanti**
 
   ![create-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
-8. Nella pagina **Specificare le informazioni sul programma standard	** indicare gli input seguenti e fare clic su **Avanti**. (gli altri input possono mantenere i valori predefiniti).
+8. Nella pagina **Specificare le informazioni sul programma standard** indicare gli input seguenti e fare clic su **Avanti**. (gli altri input possono mantenere i valori predefiniti).
 
   ![sccm-package-properties](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-linux.png)   
 | **Nome parametro** | **Valore** |
