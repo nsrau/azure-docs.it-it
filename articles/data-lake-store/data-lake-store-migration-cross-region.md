@@ -1,11 +1,11 @@
 ---
-title: Indicazioni sulla migrazione tra aree per Azure Data Lake Store | Microsoft Docs
-description: Indicazioni sulla migrazione tra aree per Azure Data Lake Store
+title: Migrazione tra aree di Azure Data Lake Store | Microsoft Docs
+description: Informazioni sulla migrazione tra aree per Azure Data Lake Store.
 services: data-lake-store
 documentationcenter: 
-author: stewu
+author: swums
 manager: amitkul
-editor: stewu
+editor: swums
 ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
@@ -15,43 +15,43 @@ ms.workload: big-data
 ms.date: 01/27/2017
 ms.author: stewu
 translationtype: Human Translation
-ms.sourcegitcommit: 3c83a76c589178d5a2a01ed4edd208e42fb2e83e
-ms.openlocfilehash: 785f97a28c060f88a0e0f3a5aa9cf6555ed2b5a4
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 34b449b251672619aec6e86b9343343a9404126a
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="guidance-to-migrate-azure-data-lake-store-across-regions"></a>Indicazioni per la migrazione di Azure Data Lake Store tra aree
+# <a name="migrate-data-lake-store-across-regions"></a>Eseguire la migrazione di Data Lake Store tra aree
 
-Quando Azure Data Lake Store viene reso disponibile in nuove aree, è possibile che si decida di eseguire una migrazione occasionale per sfruttare i vantaggi di una nuova area.  Ecco alcune indicazioni sugli elementi da prendere in considerazione durante la pianificazione e l'esecuzione della migrazione.
+Man mano che Azure Data Lake Store viene reso disponibile in nuove aree, è possibile scegliere di eseguire una migrazione occasionale per sfruttare i vantaggi di una nuova area. Ecco gli aspetti da considerare per la pianificazione e il completamento della migrazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un account Azure Data Lake Store in due aree diverse**. Per istruzioni su come crearne uno, vedere [Introduzione ad Azure Data Lake Store](data-lake-store-get-started-portal.md).
-* **Azure Data Factory**.  Per altre informazioni, vedere [Introduzione ad Azure Data Factory](../data-factory/data-factory-introduction.md).
+* **Una sottoscrizione di Azure**. Per altre informazioni, vedere [Crea subito il tuo account Azure gratuito](https://azure.microsoft.com/pricing/free-trial/).
+* **Un account Data Lake Store in due aree diverse**. Per altre informazioni, vedere l'[introduzione ad Azure Data Lake Store](data-lake-store-get-started-portal.md).
+* **Azure Data Factory**. Per altre informazioni, vedere l'[introduzione ad Azure Data Factory](../data-factory/data-factory-introduction.md).
 
 
-## <a name="guidance-for-migration"></a>Indicazioni per la migrazione
+## <a name="migration-considerations"></a>Considerazioni sulla migrazione
 
-È consigliabile identificare prima di tutto la strategia di migrazione appropriata per l'applicazione che scrive, legge o elabora i dati in Azure Data Lake Store. Quando si sceglie una strategia, è necessario considerare i requisiti di disponibilità dell'applicazione, ad esempio il tempo di inattività. L'approccio più semplice consiste quindi nel trasferire i dati in modalità lift-and-shift,  ovvero sospendere le applicazioni nell'area precedente mentre tutti i dati vengono copiati nella nuova area.  Al termine del processo di copia, è possibile riprendere l'applicazione nella nuova area ed eliminare l'account Azure Data Lake Store precedente.  La migrazione comporta tuttavia del tempo di inattività.
+Identificare prima di tutto la strategia di migrazione più appropriata per l'applicazione che scrive, legge o elabora i dati in Data Lake Store. Quando si sceglie una strategia, considerare i requisiti di disponibilità dell'applicazione e il tempo di inattività che si verifica durante una migrazione. L'approccio più semplice potrebbe ad esempio consistere nell'uso del modello di migrazione cloud noto come "trasferire in modalità lift-and-shift". In questo approccio, è necessario sospendere l'applicazione nell'area esistente mentre tutti i dati vengono copiati nella nuova area. Al termine del processo di copia, è possibile riprendere l'applicazione nella nuova area e quindi eliminare l'account Data Lake Store precedente. Durante la migrazione è necessario del tempo di inattività.
 
-In alternativa, per ridurre il tempo di inattività, è possibile iniziare a inserire immediatamente nuovi dati nella nuova area e iniziare ad eseguire le applicazioni nella nuova area non appena sono disponibili i dati minimi necessari.  In background è possibile copiare i dati precedenti dall'account Azure Data Lake Store precedente al nuovo account Azure Data Lake Store account nella nuova area.  Ciò consente di passare alla nuova area con tempi di inattività ridotti.  Al termine della copia di tutti i dati precedenti, è possibile eliminare l'account Azure Data Lake Store precedente.
+Per ridurre il tempo di inattività, è possibile iniziare immediatamente a inserire nuovi dati nella nuova area. Quando sono disponibili i dati minimi necessari, eseguire l'applicazione nella nuova area. Continuare a copiare in background i dati precedenti dall'account Data Lake Store esistente al nuovo account Data Lake Store nella nuova area. Questo approccio consente di passare alla nuova area con un tempo di inattività ridotto. Al termine della copia di tutti i dati precedenti, eliminare l'account Data Lake Store precedente.
 
 Ecco altri dettagli importanti da considerare durante la pianificazione della migrazione:
 
-* **Volume dei dati**: il volume dei dati (GB, numero di file e cartelle e così via) influirà sul tempo e sulle risorse necessari per lo spostamento.
+* **Volume dei dati**. Il volume dei dati (gigabyte, numero di file e cartelle e così via) influisce sul tempo e sulle risorse necessari per la migrazione.
 
-* **Nome dell'account Azure Data Lake Store**: il nome del nuovo account nella nuova area dovrà essere univoco a livello globale. Ad esempio, se contosoeastus2.azuredatalakestore.net è il nome dell'account di archiviazione precedente in Stati Uniti orientali 2, è possibile assegnare all'account di archiviazione il nome contosonortheu.azuredatalakestore.net in Europa settentrionale.
+* **Nome dell'account Data Lake Store**. Il nome del nuovo account nella nuova area deve essere univoco a livello globale. Il nome dell'account Data Lake Store precedente nell'area Stati Uniti orientali 2 potrebbe ad esempio essere contosostatiunitiorientali2.azuredatalakestore.net. Per il nuovo account Data Lake Store nell'area Europa settentrionale è possibile usare il nome contosoeuropasettentrionale.azuredatalakestore.net.
 
-* **Scelta degli strumenti**: per copiare i file di Azure Data Lake Store è consigliabile usare l'[attività di copia di Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md).   Azure Data Factory supporta lo spostamento dei dati con prestazioni e affidabilità elevate.  Occorre ricordare che Azure Data Factory copierà solo la gerarchia di cartelle e il contenuto dei file. Eventuali elenchi di controllo di accesso applicati dovranno essere copiati manualmente nel nuovo account.  Le [indicazioni sull'ottimizzazione delle prestazioni di Azure Data Factory](../data-factory/data-factory-copy-activity-performance.md) sono un riferimento utile e offrono obiettivi di prestazioni per gli scenari ottimali.  Se si vuole copiare i dati in modo più veloce, potrebbe essere necessario usare unità di spostamento dati cloud aggiuntive.  Si noti che altri strumenti, ad esempio ADLCopy, non supportano la copia dei dati tra le aree.  
+* **Strumenti**. Per copiare i file di Data Lake Store è consigliabile usare l'[attività di copia di Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md). Data Factory supporta lo spostamento dei dati con prestazioni e affidabilità elevate. Tenere presente che Data Factory copia solo la gerarchia di cartelle e il contenuto dei file. Eventuali elenchi di controllo di accesso usati nell'account precedente devono essere applicati manualmente al nuovo account. Per altre informazioni, inclusi gli obiettivi di prestazioni per gli scenari ottimali, vedere la [Guida alle prestazioni dell'attività di copia e all'ottimizzazione](../data-factory/data-factory-copy-activity-performance.md). Se si vuole che i dati vengano copiati più rapidamente, potrebbe essere necessario usare altre unità di spostamento dei dati nel cloud. Altri strumenti, come AdlCopy, non supportano la copia di dati tra aree.  
 
-* **[Addebiti per la larghezza di banda](https://azure.microsoft.com/en-us/pricing/details/bandwidth/)** Saranno applicabili addebiti perché i dati verranno trasferiti all'esterno di un'area di Azure.
+* **Costi per la larghezza di banda**. Vengono applicati [costi per la larghezza di banda](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) perché i dati vengono trasferiti all'esterno di un'area di Azure.
 
-* **Elenchi di controllo di accesso applicati ai dati**: proteggere i dati nella nuova area applicando elenchi di controllo di accesso ai file e alle cartelle.  Per indicazioni, vedere [qui](data-lake-store-secure-data.md).  È consigliabile approfittare della migrazione per aggiornare e modificare gli elenchi di controllo di accesso .  Se si vogliono usare impostazioni simili, è possibile vedere gli elenchi di controllo di accesso applicati a qualsiasi file tramite il portale, i [cmdlet di PowerShell](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/get-azurermdatalakestoreitempermission) o gli SDK.  
+* **Elenchi di controllo di accesso applicati ai dati**. Proteggere i dati nella nuova area applicando elenchi di controllo di accesso ai file e alle cartelle. Per altre informazioni, vedere [Protezione dei dati archiviati in Azure Data Lake Store](data-lake-store-secure-data.md). È consigliabile approfittare della migrazione per aggiornare e modificare gli elenchi di controllo di accesso. Se si vogliono usare impostazioni simili a quelle correnti, è possibile vedere gli elenchi di controllo di accesso applicati a qualsiasi file usando il portale di Azure, i [cmdlet di PowerShell](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/get-azurermdatalakestoreitempermission) o gli SDK.  
 
-* **Posizione dei servizi di analisi**: per prestazioni ottimali, i servizi di analisi, ad esempio Data Lake Analytics o HDInsight, devono essere situati nella stessa area dei dati.  
+* **Posizione dei servizi di analisi**. Per prestazioni ottimali, i servizi di analisi, come Azure Data Lake Analytics o HDInsight, devono trovarsi nella stessa area dei dati.  
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 * [Panoramica dell’Archivio Data Lake di Azure](data-lake-store-overview.md)
 

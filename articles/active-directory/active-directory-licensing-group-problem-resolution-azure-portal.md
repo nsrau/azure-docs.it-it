@@ -18,9 +18,9 @@ ms.date: 02/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ac3f563828c5fa379f328392a3f5cf7c7932f534
-ms.openlocfilehash: 4ed83a1af1c31d41860931d363d93c7d61df9c98
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 5d1c24f0423feffcbde0387ebf3f23a32fda50ce
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -30,9 +30,9 @@ ms.lasthandoff: 03/01/2017
 
 Le licenze basate sui gruppi in Azure Active Directory (Azure AD) introducono il concetto di utenti in stato di errore di licenza. Questo articolo illustra il motivo per cui gli utenti possono trovarsi in questo stato. Quando le licenze vengono assegnate direttamente a utenti singoli, senza l'uso di licenze basate sui gruppi, l'operazione di assegnazione può avere esito negativo. Ad esempio, quando l'amministratore esegue il cmdlet `Set-MsolUserLicense` di PowerShell su un utente, il cmdlet potrebbe non riuscire per diversi motivi correlati alla logica di business, come un numero insufficiente di licenze o un conflitto tra due piani di servizio che non è possibile assegnare contemporaneamente. Il problema viene segnalato immediatamente all'utente che esegue il comando.
 
-Quando si usano licenze basate sui gruppi, possono verificarsi gli stessi errori, ma questo avviene in background durante l'assegnazione delle licenze da parte del servizio Azure AD. Per questo motivo non è possibile comunicare immediatamente le licenze all'amministratore. Vengono invece registrate nell'oggetto utente e segnalate tramite il portale amministrativo. L'intento originale di assegnare una licenza all'utente resta, ma può essere applicata in stato attivo o registrata in stato di errore per l'analisi e la risoluzione in un secondo momento.
+Quando si usano licenze basate sui gruppi, possono verificarsi gli stessi errori, ma questo avviene in background durante l'assegnazione delle licenze da parte del servizio Azure AD. Per questo motivo non è possibile comunicare immediatamente le licenze all'amministratore. Vengono invece registrate nell'oggetto utente e segnalate tramite il portale amministrativo. L'intento originale di assegnare una licenza all'utente resta, ma la licenza viene registrata in stato di errore per l'analisi e la risoluzione in un secondo momento.
 
-Per trovare gli utenti in stato di errore per ogni gruppo, aprire il pannello del gruppo specifico. In caso di utenti in stato di errore, verrà visualizzata una notifica in **Licenze**. Selezionare la notifica per aprire una vista in cui sono elencati tutti gli utenti interessati, visualizzabili singolarmente allo scopo di comprendere il problema sottostante. Questo articolo illustra tutti i potenziali problemi e come risolverli.
+Per trovare gli utenti in stato di errore per ogni gruppo, aprire il pannello del gruppo specifico. In caso di utenti in stato di errore, verrà visualizzata una notifica in **Licenze**. Selezionare la notifica per aprire un elenco di tutti gli utenti interessati, visualizzabili singolarmente allo scopo di comprendere il problema sottostante. Questo articolo illustra tutti i potenziali problemi e come risolverli.
 
 ## <a name="not-enough-licenses"></a>Le licenze non sono sufficienti
 
@@ -46,7 +46,7 @@ Per vedere quali utenti e gruppi utilizzano le licenze, fare clic su un prodotto
 
 Uno dei prodotti specificati nel gruppo contiene un piano di servizio in conflitto con un altro piano di servizio già assegnato all'utente tramite un prodotto diverso. Alcuni piani di servizio vengono configurati in modo che non sia possibile assegnarli allo stesso utente come un altro piano di servizio correlato.
 
-Si consideri l'esempio seguente: a un utente viene assegnata direttamente una licenza per Office 365 Enterprise **E1**, con tutti i piani abilitati. L'utente è stato aggiunto a un gruppo a cui è assegnato il prodotto Office 365 Enterprise **E3**. Questo prodotto contiene piani di servizio che non possono sovrapporsi tra E1 ed E3. Quindi, l'assegnazione della licenza di gruppo non riuscirà, generando il messaggio di errore "Piani di servizio in conflitto". In questo esempio, i piani di servizio in conflitto sono:
+Si consideri l'esempio seguente: a un utente viene assegnata direttamente una licenza per Office 365 Enterprise **E1**, con tutti i piani abilitati. L'utente è stato aggiunto a un gruppo a cui è assegnato il prodotto Office 365 Enterprise **E3**. Questo prodotto contiene piani di servizio che non possono sovrapporsi con i piani inclusi in E1, quindi l'assegnazione della licenza di gruppo non riuscirà, generando il messaggio di errore "Piani di servizio in conflitto". In questo esempio, i piani di servizio in conflitto sono:
 
 -   SharePoint Online (piano 2) in conflitto con SharePoint Online (piano 1)
 
@@ -60,13 +60,18 @@ La decisione sulla risoluzione dei problemi relativi a licenze dei prodotti in c
 
 Uno dei prodotti specificati nel gruppo contiene un piano di servizio che per funzionare deve essere abilitato per un altro piano di servizio, in un altro prodotto. Questo errore si verifica quando Azure AD prova a rimuovere il piano di servizio sottostante, ad esempio in seguito alla rimozione dell'utente dal gruppo.
 
+Per risolvere questo problema, è necessario assicurarsi che il piano richiesto sia ancora assegnato agli utenti tramite un altro metodo oppure che i servizi dipendenti siano disabilitati per tali utenti. Solo così sarà possibile rimuovere la licenza di gruppo da tali utenti.
+
 ## <a name="usage-location-not-allowed"></a>La località di utilizzo non è consentita
 
 Alcuni servizi Microsoft non sono disponibili in tutte le località a causa di leggi e regolamenti locali. Per poter assegnare una licenza a un utente, l'amministratore deve prima specificare la proprietà "Località di utilizzo" per l'utente. A tale scopo è possibile usare la sezione **Utente &gt; Profilo &gt; Impostazioni** nel portale di Azure.
 
-Quando si usa l'assegnazione di licenze in base al gruppo, eventuali utenti per cui non è specificata una località di utilizzo erediteranno la località della directory. Se gli utenti si trovano in località in cui i piani non sono disponibili, è possibile modificare l'assegnazione di licenze a livello di gruppo per disabilitare i piani interessati. In alternativa, è possibile spostare gli utenti in un altro gruppo in cui le assegnazioni di licenze non siano in conflitto con la località.
+Quando Azure AD tenta di assegnare una licenza di gruppo a un utente la cui località di utilizzo non è supportata, l'operazione non riesce e per l'utente viene registrato un errore.
 
-Se gli utenti si trovano in località diverse, assicurarsi che questo sia rispecchiato correttamente negli oggetti utente prima di aggiungere utenti ai gruppi con licenze.
+Per risolvere questo problema, rimuovere gli utenti di località non supportate dal gruppo con licenza. In alternativa, se i valori correnti relativi alla località di utilizzo non rappresentano la località effettiva degli utenti, è possibile modificarli in modo che la volta successiva le licenze vengano assegnate correttamente (se la nuova località è supportata).
+
+> [!NOTE]
+> Quando Azure AD assegna licenze di gruppo, gli utenti per cui non è specificata una località di utilizzo erediteranno la località della directory. Si consiglia agli amministratori di impostare valori corretti per la località di utilizzo degli utenti prima di usare licenze basate sul gruppo, in modo da rispettare le normative e le leggi locali. 
 
 ## <a name="what-happens-when-there-is-more-than-1-product-license-on-a-group"></a>Cosa accade quando un gruppo include più di una licenza del prodotto
 
@@ -80,7 +85,7 @@ Azure AD tenterà di assegnare a ogni utente tutte le licenze specificate nel gr
 
 A seconda delle azioni intraprese per risolvere gli errori, potrebbe essere necessario attivare manualmente l'elaborazione di un gruppo per aggiornare lo stato dell'utente.
 
-Ad esempio, se sono state acquistate più licenze per coprire tutti gli utenti, è necessario attivare l'elaborazione dei gruppi che in precedenza hanno dato esito negativo per poter assegnare le licenze a tutti i membri utente. A tale scopo, nel pannello del gruppo aprire **Licenze** e fare clic sul pulsante **Rielabora** nella barra degli strumenti.
+Ad esempio, se sono state liberate alcune licenze rimuovendo le assegnazioni di licenza dirette dagli utenti, sarà necessario attivare l'elaborazione dei gruppi che in precedenza hanno dato esito negativo per poter assegnare licenze complete a tutti i membri utente. A tale scopo, nel pannello del gruppo aprire **Licenze** e fare clic sul pulsante **Rielabora** nella barra degli strumenti.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

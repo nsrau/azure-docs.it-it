@@ -15,9 +15,9 @@ ms.date: 02/15/2017
 ms.author: heidist
 experiment_id: heidist-20170221
 translationtype: Human Translation
-ms.sourcegitcommit: 71694028366f48682881523c0220a4158078a76c
-ms.openlocfilehash: b851f906b57225dce516d9704fdace80c44c4897
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 8f4947ba2641bc8a39a71945ff2a6818d1ff7830
+ms.lasthandoff: 03/08/2017
 
 ---
 # <a name="what-is-azure-search"></a>Che cos'è la Ricerca di Azure?
@@ -49,7 +49,7 @@ I servizi dedicati vengono eseguiti 24 ore su 24 e 7 giorni su 7 in base alla sc
 
 Alcuni provider di servizi cloud offrono motori di ricerca personalizzati con funzionalità per disporre di una barra di ricerca nelle app personalizzate. Alcuni offrono simili funzionalità di base, con ricerca full-text, ricerca geografica e la possibilità di gestire un certo livello di ambiguità negli input di ricerca. In genere sono una [funzionalità specializzata](#feature-drilldown) o la semplicità e la facilità d'uso generale di API, strumenti e gestione a determinare la scelta ideale.
 
-Paragonata con altre soluzioni di ricerca, Ricerca di Azure offre le migliori prestazioni nei carichi di lavoro con ricerca full-text in archivi di contenuti e database in Azure, con un livello di funzionalità aggiuntive necessarie per le app che fanno principalmente affidamento sulla ricerca per il recupero delle informazioni e l'esplorazione dei contenuti. 
+Paragonata con altre soluzioni di ricerca, Ricerca di Azure offre le migliori prestazioni nei carichi di lavoro con ricerca full-text in archivi di contenuti e database in Azure, con un livello di funzionalità aggiuntive necessarie per le app che fanno principalmente affidamento sulla ricerca per il recupero delle informazioni e l'esplorazione dei contenuti. Ecco i principali vantaggi:
 
 + Integrazione dei dati in Azure (crawler) al livello di indicizzazione
 + Portale di Azure per la gestione centralizzata

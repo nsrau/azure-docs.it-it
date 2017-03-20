@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: aelnably
 translationtype: Human Translation
-ms.sourcegitcommit: 842eb16768fd5064bd57a0c3672e7ae57885720e
-ms.openlocfilehash: 6ed0f07268715102be197bb8a6654fb05b52b0c4
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 148bc76b7f3e09745cbecfa41710a5e949704948
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -61,6 +61,10 @@ In caso di domande, scrivere un commento all'articolo; si riceverà una risposta
 **D:** È presente il supporto per le app .NET Core non compilate?
 
 **R:** No. È necessario distribuire le app .NET Core compilate con tutte le dipendenze. Desideriamo sviluppare una distribuzione completa e compilare l'esperienza in una versione futura.
+
+**R:** È previsto il supporto per lo strumento Composer come gestore delle dipendenze per le app PHP?
+
+**R:** No. È necessario distribuire le app PHP con tutte le dipendenze. Per il futuro, è prevista l'implementazione di un'esperienza di distribuzione completa.
 
 ## <a name="custom-containers"></a>Contenitori personalizzati
 

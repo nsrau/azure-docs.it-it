@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 02/21/2017
 ms.author: sethm;jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: e293dcfc872ba95ca7a0d0faed9b4a824d3fa42c
-ms.openlocfilehash: ee9a19c8ae85867a0dfcb896b9c33fd4c51be7fa
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 8ada071c9ef7c534f6e048e4804aa1b4b2b787e0
+ms.openlocfilehash: f9b28b177e83e49bd83328919efbd5887b46c7d4
+ms.lasthandoff: 03/01/2017
 
 ---
 
@@ -34,17 +34,17 @@ Il teorema di Brewer definisce coerenza e disponibilità come segue:
 * Coerenza: una lettura garantisce la restituzione della scrittura più recente per un determinato client.
 
 ## <a name="partition-tolerance"></a>Tolleranza di partizione
-L'Hub eventi si basa su un modello partizionato. È possibile configurare il numero di partizioni nell'Hub eventi durante l'installazione, ma non è possibile modificare questo valore in un secondo momento. Poiché è obbligatorio usare le partizioni con l'Hub eventi, è necessario solo prendere una decisione relativa a disponibilità e coerenza dell'applicazione.
+L'Hub eventi si basa su un modello di dati partizionato. È possibile configurare il numero di partizioni nell'Hub eventi durante l'installazione, ma non è possibile modificare questo valore in un secondo momento. Poiché è obbligatorio usare le partizioni con l'Hub eventi, è necessario solo prendere una decisione relativa a disponibilità e coerenza dell'applicazione.
 
 ## <a name="availability"></a>Disponibilità
-Il modo più semplice per iniziare a usare l'Hub eventi è il comportamento predefinito. Se si crea un nuovo `EventHubClient` e si usa la funzione di invio, gli eventi vengono automaticamente distribuiti tra le partizioni nell'Hub eventi. Questo comportamento consente la maggiore quantità di tempo di attività.
+Il modo più semplice per iniziare a usare l'Hub eventi è il comportamento predefinito. Se si crea un nuovo oggetto `EventHubClient` e si usa il metodo `Send`, gli eventi vengono distribuiti automaticamente tra le partizioni nell'Hub eventi. Questo comportamento consente la maggiore quantità di tempo di attività.
 
-Per i casi di utilizzo che richiedono il massimo del tempo di attività, è preferibile usare questo modello.
+Per i casi di uso che richiedono il massimo del tempo di attività, è preferibile usare questo modello.
 
 ## <a name="consistency"></a>Coerenza
-In scenari particolari, l'ordinamento degli eventi può essere importante. È ad esempio, potrebbe essere necessario che il sistema back-end elabori un comando di aggiornamento prima di un comando di eliminazione. In questo caso, è possibile impostare la chiave di partizione su un evento oppure usare un `PartitionSender` solo per inviare eventi a una determinata partizione. In tal modo, quando questi eventi vengono letti dalla partizione, vengono letti nell'ordine.
+In alcuni scenari, l'ordinamento degli eventi può essere importante. È ad esempio, potrebbe essere necessario che il sistema back-end elabori un comando di aggiornamento prima di un comando di eliminazione. In questo caso, è possibile impostare la chiave di partizione su un evento oppure usare un oggetto `PartitionSender` solo per inviare eventi a una determinata partizione. In tal modo, quando questi eventi vengono letti dalla partizione, vengono letti nell'ordine.
 
-Con questo tipo di configurazione, è necessario tenere presente che se la partizione specifica alla quale si esegue l'invio non è disponibile, si riceverà una risposta di errore. Per fare un confronto, se non fosse presente un'affinità a una singola partizione, il servizio dell'Hub eventi invierebbe l'evento alla partizione successiva disponibile.
+Con questo tipo di configurazione, è necessario tenere presente che se la partizione specifica alla quale si esegue l'invio non è disponibile, si riceverà una risposta di errore. Per fare un confronto, se non è presente un'affinità a una singola partizione, il servizio dell'Hub eventi invia l'evento alla partizione successiva disponibile.
 
 Una possibile soluzione per garantire l'ordinamento ottimizzando allo stesso tempo i tempi di attività sarebbe l'aggregazione di eventi come parte dell'applicazione di elaborazione di eventi. Il modo più semplice per eseguire questa operazione è contrassegnare l'evento con una proprietà con numero di sequenza personalizzato. Di seguito è riportato un esempio:
 
@@ -59,7 +59,7 @@ data.Properties.Add("SequenceNumber", sequenceNumber);
 await eventHubClient.SendAsync(data);
 ```
 
-Nell'esempio precedente, l'evento verrebbe inviato a una delle partizioni disponibili nell'Hub eventi e il numero di sequenza corrispondente verrebbe impostato dall'applicazione. Questa soluzione richiede che l'applicazione di elaborazione mantenga lo stato, ma proporrebbe ai mittenti un endpoint che ha maggiori probabilità di essere disponibile.
+Nell'esempio precedente, l'evento viene inviato a una delle partizioni disponibili nell'Hub eventi e il numero di sequenza corrispondente viene impostato dall'applicazione. Questa soluzione richiede che l'applicazione di elaborazione mantenga lo stato, ma propone ai mittenti un endpoint che ha maggiori probabilità di essere disponibile.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/27/2017
+ms.date: 03/06/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: a2892343432f7dced535efb3917d915736580dfb
-ms.openlocfilehash: cf8eba0f68e1e803026079f02b91f1bbaec189da
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: de803447ec379f35b453890d92359a91f4fd8427
+ms.lasthandoff: 03/06/2017
 
 ---
 
@@ -30,20 +30,7 @@ Analisi di flusso garantisce che i processi nelle aree abbinate vengano aggiorna
 
 _Con l'eccezione dell'India centrale_ (nella cui area abbinata, India meridionale, non è presente Analisi di flusso), la distribuzione di un aggiornamento in Analisi di flusso non viene eseguita contemporaneamente in un set di aree abbinate. Le distribuzioni in più aree **dello stesso gruppo** possono essere eseguite **contemporaneamente**.
 
-Per un elenco dei gruppi di coppie, vedere il grafico seguente:
+L'articolo su **[disponibilità e aree abbinate](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** contiene le informazioni più aggiornate su quali aree sono abbinate.
 
-Aree gruppo A |  | Aree gruppo B
-------- | ------- | -------
-Giappone orientale | abbinata a | Giappone occidentale
-Europa settentrionale |  | Europa occidentale
-Stati Uniti centrali |  | Stati Uniti Orientali&2;
-Asia orientale |  | Asia sudorientale
-Stati Uniti centro-settentrionali |  | Stati Uniti centro-meridionali
-Australia orientale |  | Australia sud-orientale
-Stati Uniti orientali |  | Stati Uniti occidentali
-Brasile meridionale |  | Stati Uniti centro-meridionali
-Cina settentrionale |  | Cina orientale
-Germania nord-orientale |  | Germania centrale
-
-Per i clienti è consigliabile distribuire processi identici in entrambe le aree abbinate. In aggiunta al monitoraggio interno di Analisi di flusso, è anche consigliabile monitorare i processi come se fossero **entrambi** processi di produzione. Se la causa identificata di un'interruzione è l'aggiornamento del servizio Analisi di flusso, eseguire l'escalation appropriata e il failover degli utenti downstream all'output del processo integro. L'escalation al supporto tecnico impedirà che l'area abbinata sia interessata dalla nuova distribuzione, in modo da mantenere l'integrità dei processi abbinati.
+Per i clienti è consigliabile distribuire processi identici in entrambe le aree abbinate. In aggiunta alle funzionalità di monitoraggio interno di Analisi di flusso, è anche consigliabile monitorare i processi come se fossero **entrambi** processi di produzione. Se la causa identificata di un'interruzione è l'aggiornamento del servizio Analisi di flusso, eseguire l'escalation appropriata e il failover degli utenti downstream all'output del processo integro. L'escalation al supporto tecnico impedirà che l'area abbinata sia interessata dalla nuova distribuzione, in modo da mantenere l'integrità dei processi abbinati.
 

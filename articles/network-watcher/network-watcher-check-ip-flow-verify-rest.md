@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1d0136b044f6049e59fa09d824cf244cac703c45
-ms.openlocfilehash: 5c2054800d2234653c60c35f9c009499e231fd31
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 18b98300ee103e3f3118f6db4e1c1a0e169eecad
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -36,6 +36,8 @@ La verifica del flusso IP è una funzionalità di Network Watcher che consente d
 ARMclient viene usato per chiamare l'API REST con PowerShell. ARMClient è reperibile in Chocolatey in [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient) (ARMClient in Chocolatey)
 
 Questo scenario presuppone il completamento dei passaggi descritti in [Creare un servizio Network Watcher](network-watcher-create.md) per creare un servizio Network Watcher.
+
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>Scenario
 
@@ -102,7 +104,7 @@ pute/virtualMachines/ContosoVM/extensions/CustomScriptExtension"
 L'esempio seguente crea una richiesta per verificare il traffico per una macchina virtuale specificata. La risposta restituita indica se il traffico è consentito o negato. Se il traffico viene negato, restituisce anche la regola che blocca il traffico.
 
 > [!NOTE]
-> Per la verifica del flusso IP è necessario che la risorsa macchina virtuale sia allocata.
+> La verifica del flusso IP richiede che la risorsa VM sia allocata.
 
 Lo script richiede l'ID risorsa di una macchina virtuale e di una scheda di interfaccia di rete nella macchina virtuale. Questi valori sono disponibili nell'output precedente.
 

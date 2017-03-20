@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 03/01/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 47c897afd6321a59f540d1f0cb86602d4ea18ed1
-ms.openlocfilehash: 5aed4eb336d55c2954da563422972644e25d0140
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 03e0f5b6fa26806083cd7852e123495c898bcf0c
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -40,13 +40,14 @@ ms.lasthandoff: 02/23/2017
 * [Documentazione su Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics)
 * [API REST di Log Analytics](/rest/api/loganalytics)
 * [Log Analytics HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md) (API di raccolta dati HTTP di Log Analytics)
-* [API REST di Log Analytics per la ricerca nei log](../log-analytics/log-analytics-log-search-api.md)
-* [API REST degli avvisi di Log Analytics](../log-analytics/log-analytics-api-alerts.md)
+* [API REST per la ricerca log](../log-analytics/log-analytics-log-search-api.md)
+* [API REST per gli avvisi](../log-analytics/log-analytics-api-alerts.md)
 * [Log Analytics PowerShell Cmdlets](https://msdn.microsoft.com/library/mt188224.aspx) (Cmdlet PowerShell di Log Analytics)
 * [Log Analytics .NET Library](https://www.nuget.org/packages/Microsoft.Azure.Management.OperationalInsights/0.16.0-preview) (Libreria .NET di Log Analytics)
 
 ## <a name="service-map"></a>Elenco dei servizi
 * [Documentazione sull'elenco dei servizi](operations-management-suite-service-map.md)
+* [Service Map REST API](https://docs.microsoft.com/rest/api/servicemap/) (API REST per l'elenco dei servizi)
 
 ## <a name="site-recovery"></a>Site Recovery
 * [Site Recovery PowerShell cmdlets](https://msdn.microsoft.com/library/mt637930.aspx) (Cmdlet PowerShell di Site Recovery)
@@ -56,6 +57,6 @@ ms.lasthandoff: 02/23/2017
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni sulle diverse opzioni per l'[integrazione con servizi OMS](operations-management-suite-integration.md).
-* Creare una soluzione personalizzata in OMS (presto disponibile).
+* Creare una [soluzione personalizzata in OMS](operations-management-suite-solutions-creating.md).
 
 

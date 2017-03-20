@@ -18,9 +18,9 @@ ms.date: 02/27/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f8b63e5831897d3a45298b0415bb2d6d44ab0de1
-ms.openlocfilehash: 73727d8d1e5de01794589538bd67d3d698d325a0
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 909402b0c603433883757dc3082676462a7c6683
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/01/2017
 
 Questo articolo illustra in modo dettagliato uno scenario di base relativo all'assegnazione di licenze a un gruppo e alla verifica che tutti i membri del gruppo ottengano correttamente la licenza.
 
-Nell'esempio, il tenant contiene un gruppo di sicurezza denominato **Reparto risorse umane** che include tutti i membri del reparto risorse umane, che in questo caso corrisponde a circa 1.000 utenti. L'amministratore desidera assegnare le licenze di Office 365 Enterprise E3 a tutto il reparto; il servizio Enterprise Yammer incluso nel prodotto deve essere disabilitato temporaneamente fino a un secondo momento quando il reparto sarà pronto per iniziare a usarlo. L'amministratore desidera inoltre distribuire le licenze Enterprise Mobility + Security allo stesso gruppo di utenti.
+Nell'esempio il tenant contiene un gruppo di sicurezza denominato **Reparto risorse umane** che include tutti i membri del reparto risorse umane, che in questo caso sono circa 1.000 utenti. L'amministratore desidera assegnare le licenze di Office 365 Enterprise E3 a tutto il reparto; il servizio Enterprise Yammer incluso nel prodotto deve essere disabilitato temporaneamente fino a un secondo momento quando il reparto sarà pronto per iniziare a usarlo. L'amministratore desidera inoltre distribuire le licenze Enterprise Mobility + Security allo stesso gruppo di utenti.
 
 ## <a name="step-1-assign-the-required-licenses"></a>Passaggio 1: assegnare le licenze necessarie
 
@@ -47,7 +47,7 @@ Nell'esempio, il tenant contiene un gruppo di sicurezza denominato **Reparto ris
 
   ![Selezionare un gruppo](media/active-directory-licensing-group-assignment-azure-portal/select-a-group.png)
 
-6. Nel pannello **Assegna licenza** fare clic su **Opzioni di assegnazione (facoltativo)** che consente di visualizzare tutti i piani di servizio compresi i due prodotti selezionati in precedenza. Trovare Enterprise Yammer e disattivarlo (**Off**) per disattivare il servizio dalla licenza del prodotto. Confermare facendo clic su **OK** nella parte inferiore di **Opzioni di assegnazione**.
+6. Nel pannello **Assegna licenza** fare clic su **Opzioni di assegnazione (facoltativo)** per visualizzare tutti i piani di servizio inclusi nei due prodotti selezionati in precedenza. Trovare Enterprise Yammer e disattivarlo (**Off**) per disattivare il servizio dalla licenza del prodotto. Confermare facendo clic su **OK** nella parte inferiore di **Opzioni di assegnazione**.
 
   ![opzioni di assegnazione](media/active-directory-licensing-group-assignment-azure-portal/assignment-options.png)
 
@@ -64,11 +64,11 @@ Ora è stato specificato un modello di licenza nel gruppo del reparto risorse um
 
 1. Passare a **Azure Active Directory &gt; Users and groups &gt; All groups** (Azure Active Directory > Utenti e gruppi > Tutti i gruppi) e trovare il gruppo *Reparto risorse umane* al quale sono state assegnate le licenze.
 
-2. Nel pannello del gruppo *Reparto risorse umane* selezionare **Licenze** per verificare rapidamente se le licenze sono state completamente assegnate agli utenti e se sono presenti errori che richiedono attenzione, tra cui:
+2. Nel pannello del gruppo *Reparto risorse umane* selezionare **Licenze** per verificare rapidamente se le licenze sono state completamente assegnate agli utenti e se ci sono errori che richiedono attenzione. Sono disponibili le informazioni seguenti:
 
-  - Licenze di prodotto assegnate al gruppo. Selezionare una voce per visualizzare i servizi specifici che sono stati abilitati e apportare modifiche.
+  - Elenco delle licenze di prodotto attualmente assegnate al gruppo. Selezionare una voce per visualizzare i servizi specifici che sono stati abilitati e apportare modifiche.
 
-  - Stato delle modifiche più recenti dell'assegnazione delle licenze: se le modifiche vengono elaborate o se è stata completata l'elaborazione per tutti i membri utente.
+  - Stato delle modifiche più recenti delle licenze apportate al gruppo: se è in corso l'elaborazione delle modifiche o se l'elaborazione è stata completata per tutti i membri utente.
 
   - Se si sono verificati errori, informazioni sugli utenti in stato di errore, per cui non è stato possibile assegnare le licenze.
 
@@ -85,7 +85,7 @@ Ora è stato specificato un modello di licenza nel gruppo del reparto risorse um
 
 1. Passare a **Azure Active Directory &gt; Users and groups &gt; All groups** (Azure Active Directory > Utenti e gruppi > Tutti i gruppi) e trovare il gruppo *Reparto risorse umane* al quale sono state assegnate le licenze.
 
-2. Nel pannello del gruppo **Reparto Risorse umane** selezionare **Licenze**. La notifica in alto nel pannello indica che esistono 10 utenti per cui non è possibile assegnare le licenze. Viene aperto un elenco di tutti gli utenti che presentano un errore di licenza per questo gruppo.
+2. Nel pannello del gruppo **Reparto Risorse umane** selezionare **Licenze**. La notifica nella parte superiore del pannello indica che ci sono 10 utenti per cui non è stato possibile assegnare le licenze. Facendo clic su di essa viene aperto un elenco di tutti gli utenti che presentano un errore di licenza per questo gruppo.
 
 3. La colonna **Failed assignments** (Assegnazioni non riuscite) indica che è stato impossibile assegnare entrambe le licenze prodotto agli utenti. **Principali cause dell'errore** contiene la causa dell'errore, in questo caso **Piani di servizio in conflitto**.
 
