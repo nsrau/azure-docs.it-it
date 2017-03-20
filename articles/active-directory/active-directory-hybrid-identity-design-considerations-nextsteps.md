@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e1c926e2fbd13c3f942ee0f635915393e7befe57
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f64ced0a708516c12110bb6bbf3a70a438ddcbb5
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -48,10 +49,5 @@ Il monitoraggio frequente di queste risorse consente di ottenere informazioni su
 
 ## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
