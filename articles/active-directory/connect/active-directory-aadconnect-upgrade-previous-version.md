@@ -15,9 +15,9 @@ ms.workload: Identity
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: b6ec60f9e15e459f70127448eb7d9c03e4b118e8
-ms.openlocfilehash: 3bd1ca8e0bb9f17b76dda68a6cb2f9f64a5d05dd
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 085706dacdcb0cd5a4169ccac4dc7fd8b8ddb6e0
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -40,15 +40,15 @@ Per informazioni sulle autorizzazioni, vedere le [autorizzazioni necessarie per 
 > Dopo avere consentito al nuovo server Azure AD Connect di avviare la sincronizzazione delle modifiche ad Azure AD, non si deve più usare DirSync o Azure AD Sync. Il downgrade da Azure AD Connect ai client legacy, inclusi DirSync e Azure AD Sync, non è supportato e può causare problemi come la perdita di dati in Azure AD.
 
 ## <a name="in-place-upgrade"></a>Aggiornamento sul posto
-Un aggiornamento sul posto è indicato per il passaggio da Azure AD Sync o Azure AD Connect. Non è possibile usarlo per lo spostamento da DirSync o per una soluzione con Forefront Identity Manager (FIM) e Azure AD Connector.
+Un aggiornamento sul posto è indicato per il passaggio da Azure AD Sync o Azure AD Connect. Non è possibile usarlo per lo spostamento da DirSync o per una soluzione con Forefront Identity Manager (FIM) e Azure AD Connect.
 
-Questo metodo è preferibile quando sono presenti un singolo server e meno di 100.000 oggetti. Se sono state apportate modifiche alle regole di sincronizzazione predefinite, vengono eseguite un'importazione e una sincronizzazione complete. In questo modo, la nuova configurazione viene applicata a tutti gli oggetti presenti nel sistema. Questa operazione può richiedere alcune ore, a seconda del numero di oggetti nell'ambito del motore di sincronizzazione. Viene sospesa la normale sincronizzazione differenziale pianificata, per impostazione predefinita ogni 30 minuti, mentre continua la sincronizzazione delle password. È consigliabile eseguire l'aggiornamento sul posto durante il fine settimana. Se sono state apportate modifiche alla configurazione predefinita con la nuova versione di Azure AD Connect, verrà avviata un'importazione/sincronizzazione differenziale normale.  
+Questo metodo è preferibile quando sono presenti un singolo server e meno di 100.000 oggetti. Se sono state apportate modifiche alle regole di sincronizzazione predefinite, vengono eseguite un'importazione e una sincronizzazione complete. Questo metodo si assicura che la nuova configurazione venga applicata a tutti gli oggetti presenti nel sistema. L'esecuzione può richiedere alcune ore, a seconda del numero di oggetti nell'ambito del motore di sincronizzazione. Viene sospesa la normale sincronizzazione differenziale pianificata, per impostazione predefinita ogni 30 minuti, mentre continua la sincronizzazione delle password. È consigliabile eseguire l'aggiornamento sul posto durante il fine settimana. Se sono state apportate modifiche alla configurazione predefinita con la nuova versione di Azure AD Connect, verrà avviata un'importazione/una sincronizzazione differenziale normale.  
 ![Aggiornamento sul posto](./media/active-directory-aadconnect-upgrade-previous-version/inplaceupgrade.png)
 
-Se sono state apportate modifiche alle regole di sincronizzazione predefinite, verranno reimpostate sui valori predefiniti della configurazione al momento dell'aggiornamento. Per assicurarsi che la configurazione venga mantenuta tra un aggiornamento e l'altro, verificare che le modifiche vengano apportate come descritto in [Procedure consigliate per modificare la configurazione predefinita](active-directory-aadconnectsync-best-practices-changing-default-configuration.md).
+Se sono state apportate modifiche alle regole di sincronizzazione predefinite, queste regole verranno reimpostate sui valori predefiniti della configurazione al momento dell'aggiornamento. Per assicurarsi che la configurazione venga mantenuta tra un aggiornamento e l'altro, verificare che le modifiche vengano apportate come descritto in [Procedure consigliate per modificare la configurazione predefinita](active-directory-aadconnectsync-best-practices-changing-default-configuration.md).
 
 ## <a name="swing-migration"></a>Migrazione swing
-Se è presente una distribuzione complessa o molti oggetti, può essere impraticabile eseguire un aggiornamento sul posto nel sistema attivo. Per alcuni clienti questa operazione può richiedere più giorni, durante i quali non verranno elaborate modifiche differenziali. È possibile usare questo metodo anche quando si pianificano modifiche sostanziali della configurazione e si vogliono provare tali modifiche prima di effettuarne il push nel cloud.
+Se è presente una distribuzione complessa o molti oggetti, può essere impraticabile eseguire un aggiornamento sul posto nel sistema attivo. Per alcuni clienti questa procedura potrebbe richiedere più giorni, durante i quali non verranno elaborate modifiche differenziali. È possibile usare questo metodo anche quando si pianificano modifiche sostanziali della configurazione e si vogliono provare tali modifiche prima di effettuarne il push nel cloud.
 
 Il metodo consigliato per questi scenari è una migrazione swing. Sono necessari almeno due server, uno attivo e uno di staging. Il server attivo (linee blu continue nell'immagine seguente) è responsabile del carico di produzione attivo. Il server di staging (linee tratteggiate viola) viene preparato con la nuova versione o configurazione. Quando la preparazione è completa, il server viene reso attivo. Il server precedentemente attivo, su cui ora è installata la versione o configurazione precedente, diventa il server di staging e viene aggiornato.
 
@@ -70,9 +70,9 @@ Questa procedura è indicata anche per il passaggio da Azure AD Sync o da una so
 7. Se si esegue l'aggiornamento di Azure AD Connect, eseguire ora l'aggiornamento del server in modalità di staging alla versione più recente. Seguire gli stessi passaggi descritti in precedenza per aggiornare i dati e la configurazione. Se si esegue l'aggiornamento da Azure AD Sync, è possibile disattivare e rimuovere le autorizzazioni dal server precedente.
 
 ### <a name="move-a-custom-configuration-from-the-active-server-to-the-staging-server"></a>Spostare una configurazione personalizzata dal server attivo al server di staging
-Se sono state apportate modifiche di configurazione al server attivo, è necessario assicurarsi che le stesse modifiche vengano applicate al server di staging.
+Se sono state apportate modifiche di configurazione al server attivo, è necessario assicurarsi che le stesse modifiche vengano applicate al server di staging. Per facilitare lo spostamento, è possibile usare l'[analizzatore di configurazione Azure AD Connect](https://github.com/Microsoft/AADConnectConfigDocumenter).
 
-È possibile spostare le regole di sincronizzazione personalizzate create usando PowerShell. È necessario applicare altre modifiche allo stesso modo in entrambi i sistemi e non è possibile eseguire la migrazione delle modifiche.
+È possibile spostare le regole di sincronizzazione personalizzate create usando PowerShell. È necessario applicare altre modifiche allo stesso modo in entrambi i sistemi e non è possibile eseguire la migrazione delle modifiche. L'[analizzatore di configurazione](https://github.com/Microsoft/AADConnectConfigDocumenter) consente di confrontare i due sistemi per assicurarsi che siano identici. Lo strumento è anche utile per automatizzare la procedura illustrata in questa sezione.
 
 È necessario configurare gli elementi seguenti nello stesso modo in entrambi i server:
 
