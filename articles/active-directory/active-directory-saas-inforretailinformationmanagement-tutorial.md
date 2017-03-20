@@ -78,7 +78,7 @@ Per configurare l'integrazione di Infor Retail – Information Management in Azu
 
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_001.png)
 
-5. Nel pannello dei risultati selezionare **Infor Retail – Information Management ** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+5. Nel pannello dei risultati selezionare **Infor Retail – Information Management** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_0001.png)
 

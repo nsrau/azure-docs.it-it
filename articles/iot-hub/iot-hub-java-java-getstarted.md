@@ -16,9 +16,9 @@ ms.date: 03/07/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: a8bc1b0a1011cc2d7719d93fad9db76a7b0f0795
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: b7dbfff716806e8b91488d3eb5eafab582e173ba
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -64,9 +64,13 @@ In questa sezione si scriverà un'app console Java che crea un'identità del dis
     ```
     <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.0.14</version>
+      <version>1.0.15</version>
     </dependency>
     ```
+    
+    > [!NOTE]
+    > È possibile cercare la versione più recente di **iot-service-client** usando la [ricerca di Maven][lnk-maven-service-search].
+
 4. Salvare e chiudere il file pom.xml.
 5. Usando un editor di testo, aprire il file create-device-identity\src\main\java\com\mycompany\app\App.java.
 6. Aggiungere al file le istruzioni **import** seguenti:
@@ -150,6 +154,10 @@ In questa sezione si crea un'app console di Java che legge i messaggi da disposi
         <version>0.11.0</version> 
     </dependency>
     ```
+
+    > [!NOTE]
+    > È possibile cercare la versione più recente di **azure-eventhubs** usando la [ricerca di Maven][lnk-maven-eventhubs-search].
+
 4. Salvare e chiudere il file pom.xml.
 5. Usando un editor di testo, aprire il file read-d2c-messages\src\main\java\com\mycompany\app\App.java.
 6. Aggiungere al file le istruzioni **import** seguenti:
@@ -280,7 +288,7 @@ In questa sezione si crea un'app console di Java che simula un dispositivo che i
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.0.20</version>
+      <version>1.0.21</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -288,6 +296,10 @@ In questa sezione si crea un'app console di Java che simula un dispositivo che i
       <version>2.3.1</version>
     </dependency>
     ```
+
+    > [!NOTE]
+    > È possibile cercare la versione più recente di **iot-device-client** usando la [ricerca di Maven][lnk-maven-device-search].
+
 4. Salvare e chiudere il file pom.xml.
 5. Usando un editor di testo, aprire il file simulated-device\src\main\java\com\mycompany\app\App.java.
 6. Aggiungere al file le istruzioni **import** seguenti:
@@ -470,3 +482,6 @@ Per informazioni sull'estensione della soluzione IoT e l'elaborazione di messagg
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 [lnk-maven]: https://maven.apache.org/what-is-maven.html
+[lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22
+[lnk-maven-device-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22
+[lnk-maven-eventhubs-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22

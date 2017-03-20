@@ -51,7 +51,7 @@ Per aggiungere un utente come amministratore per una sottoscrizione nel portale 
 **portale di Azure classico**
 
 1. Accedere al [portale di Azure classico](https://manage.windowsazure.com/).
-2. Nel riquadro di spostamento selezionare **Impostazioni**> **Amministratori**> ** Aggiungi**. </br>
+2. Nel riquadro di spostamento selezionare **Impostazioni**> **Amministratori**> **Aggiungi**. </br>
 
     ![Schermata che mostra come ottenere il pulsante Aggiungi](./media/billing-add-change-azure-subscription-administrator/addcoadmin.png)
 3. Digitare l'indirizzo di posta elettronica della persona che si vuole aggiungere come coamministratore e quindi selezionare la sottoscrizione a cui il coamministratore potrà accedere.</br>

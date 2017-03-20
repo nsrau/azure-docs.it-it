@@ -17,6 +17,7 @@ ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: c18ef38661e31e16114b88bdfad36320776ef12b
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -122,9 +123,4 @@ Ulteriori istruzioni del responsabile del programma Microsoft Rob de Jong sono d
 
 * [Gestione dell'accesso alle risorse tramite i gruppi di Azure Active Directory](active-directory-manage-groups.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

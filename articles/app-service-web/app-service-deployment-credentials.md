@@ -32,13 +32,13 @@ Il [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) suppor
 
 * **Credenziali a livello di applicazione**: un insieme di credenziali per ogni applicazione. Può essere usato per distribuire solo in quella app. Le credenziali per ogni app sono generate automaticamente alla creazione dell'app stessa e si trovano nel suo profilo di pubblicazione. Non è possibile configurare manualmente le credenziali per un'applicazione, ma è possibile reimpostarle in qualsiasi momento.
 
-## <a name="a-nameuserscopeaset-and-reset-user-level-credentials"></a><a name="userscope"></a>Impostare e reimpostare le credenziali a livello di utente
+## <a name="userscope"></a>Impostare e reimpostare le credenziali a livello di utente
 
 È possibile configurare le credenziali a livello di utente nel [pannello risorse](../azure-resource-manager/resource-group-portal.md#manage-resources) di ogni app. Indipendentemente dall'app, le credenziali configurate si applicano a tutte le app e a tutte le sottoscrizioni nell'account di Azure dell'utente. 
 
 Per configurare le credenziali a livello di utente:
 
-1. Nel [portale di Azure](https://portal.azure.com), fare clic su Servizio app > ** &lt;qualsiasi_app>** > **Credenziali per la distribuzione**.
+1. Nel [portale di Azure](https://portal.azure.com), fare clic su Servizio app > **&lt;qualsiasi_app>** > **Credenziali per la distribuzione**.
 
     > [!NOTE]
     > È necessario disporre di almeno un'app nel portale prima di poter accedere al pannello delle credenziali per la distribuzione. Tuttavia, con l'[interfaccia della riga di comando di Azure](app-service-web-app-azure-resource-manager-xplat-cli.md) è possibile configurare le credenziali a livello di utente senza un'app esistente.
@@ -60,12 +60,12 @@ oltre a un nome utente per la distribuzione *FTP* nelle **Proprietà** dell'app.
 >
 >  
 
-## <a name="a-nameappscopeaget-and-reset-app-level-credentials"></a><a name="appscope"></a>Ottenere e reimpostare le credenziali a livello di utente
+## <a name="appscope"></a>Ottenere e reimpostare le credenziali a livello di utente
 Per ogni app nel servizio app, le credenziali a livello di app vengono archiviate nel file XML del profilo di pubblicazione.
 
 Per ottenere le credenziali a livello di app:
 
-1. Nel [portale di Azure](https://portal.azure.com), fare clic su Servizio app > ** &lt;qualsiasi_app>** > **Panoramica**.
+1. Nel [portale di Azure](https://portal.azure.com), fare clic su Servizio app > **&lt;qualsiasi_app>** > **Panoramica**.
 
 2. Fare clic su **...More** (...Altro) > **Recupera profilo di pubblicazione** per avviare il download di un file .PublishSettings.
 
@@ -80,7 +80,7 @@ Si tratta delle credenziali a livello di app.
 
 Per reimpostare le credenziali a livello di app:
 
-1. Nel [portale di Azure](https://portal.azure.com), fare clic su Servizio app > ** &lt;qualsiasi_app>** > **Panoramica**.
+1. Nel [portale di Azure](https://portal.azure.com), fare clic su Servizio app > **&lt;qualsiasi_app>** > **Panoramica**.
 
 2. Fare clic su **...More** (...Altro) > **Reimposta profilo di pubblicazione**. Fare clic su **Sì** per confermare la reimpostazione.
 

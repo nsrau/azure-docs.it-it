@@ -103,7 +103,7 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
 ## <a id="download"></a>Scaricare l'applicazione
 1. Scaricare e decomprimere la [soluzione completata](http://code.msdn.microsoft.com/Simple-Azure-Website-with-b4391eeb).
 2. Avviare Visual Studio.
-3. Nel menu **File** scegliere** Apri > Progetto/Soluzione**, passare alla cartella in cui è stata scaricata la soluzione, quindi aprire il file di soluzione.
+3. Nel menu **File** scegliere **Apri > Progetto/Soluzione**, passare alla cartella in cui è stata scaricata la soluzione, quindi aprire il file di soluzione.
 4. Premere CTRL+MAIUSC+B per compilare la soluzione.
 
     Per impostazione predefinita, Visual Studio ripristina automaticamente il contenuto del pacchetto NuGet, che non era incluso nel file con estensione *zip* . In caso di mancato ripristino dei pacchetti, installarli manualmente passando alla finestra di dialogo **Gestisci pacchetti NuGet per la soluzione**, quindi facendo clic sul pulsante **Ripristina** in alto a destra.
@@ -338,7 +338,7 @@ In questa sezione verranno eseguite le attività seguenti:
 
     Visual Studio crea la soluzione e il progetto Web.
 8. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla soluzione, non sul progetto, quindi scegliere **Aggiungi** > **Nuovo progetto**.
-9. Nella finestra di dialogo **Aggiungi nuovo progetto**, scegliere **Visual C#** > **Windows Desktop ** > **modello Libreria di classi**.  
+9. Nella finestra di dialogo **Aggiungi nuovo progetto**, scegliere **Visual C#** > **Windows Desktop** > **modello Libreria di classi**.  
 10. Assegnare il nome *ContosoAdsCommon*al progetto, quindi fare clic su **OK**.
 
     Questo progetto conterrà il contesto Entity Framework e il modello di dati che verranno usati sia dal front-end che dal back-end. In alternativa, è possibile definire le classi correlate a Entity Framework nel progetto Web e fare riferimento a tale progetto dal progetto processo Web. In tale caso, tuttavia, il progetto processo Web includerebbe un riferimento ad assembly Web non necessari.

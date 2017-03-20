@@ -38,8 +38,10 @@ Nella tabella seguente sono elencate le limitazioni che si applicano alle risors
 
 > [!NOTE]
 > Se sono necessari più di 10 hub IoT a pagamento in una sottoscrizione di Azure, contattare il supporto tecnico Microsoft.
-> 
-> 
+
+
+> [!NOTE]
+> Attualmente, il numero massimo di dispositivi che è possibile connettere a un singolo hub IoT è 500.000. Per aumentare questo limite, contattare il [supporto tecnico Microsoft](https://azure.microsoft.com/en-us/support/options/).
 
 Il servizio IoT Hub limita le richieste quando vengono superate le quote seguenti:
 

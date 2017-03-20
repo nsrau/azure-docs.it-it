@@ -40,7 +40,7 @@ Il portale di Azure è uno strumento di gestione basato sul Web per servizi e ri
 Il portale di Azure espone la maggior parte delle proprietà del cluster. Con il modello di Azure Resource Manager è possibile nascondere molti dettagli. Per altre informazioni, vedere [Creare cluster Hadoop basati su Linux in HDInsight tramite modelli di Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
 1. Accedere al [Portale di Azure](https://portal.azure.com).
-2. Fare clic su **+ **, **Intelligence e analisi** e quindi su **HDInsight**.
+2. Fare clic su **+**, **Intelligence e analisi** e quindi su **HDInsight**.
    
     ![Creazione di un nuovo cluster nel portale di Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Creazione di un nuovo cluster nel portale di Azure")
 

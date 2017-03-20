@@ -68,7 +68,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 
 **Per configurare l'accesso Single Sign-On, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **LogicMonitor ** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On **.
+1. Nella pagina di integrazione dell'applicazione **LogicMonitor** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-logicmonitor-tutorial/IC790048.png "Configurare l'accesso Single Sign-On")
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a LogicMonitor** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.

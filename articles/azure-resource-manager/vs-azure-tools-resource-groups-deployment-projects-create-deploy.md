@@ -1,5 +1,5 @@
 ---
-title: Progetti Gruppo di risorse di Azure con Visual Studio | Microsoft Docs
+title: Progetti Gruppo di risorse di Azure in Visual Studio | Microsoft Docs
 description: Usare Visual Studio per creare un progetto Gruppo di risorse di Azure e distribuire le risorse in Azure.
 services: azure-resource-manager
 documentationcenter: na
@@ -12,11 +12,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2016
+ms.date: 03/10/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e3df10acf4a6c123186c72687a56ccb4856c46fe
-ms.openlocfilehash: 07499f9b1c9668d8cb4037405478210e0738e03d
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 14fbfbc5abd6d95744832d9b39e377bbffe652ac
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -25,17 +26,17 @@ Con Visual Studio e [Azure SDK](https://azure.microsoft.com/downloads/)è possib
 
 I progetti di tipo Gruppo di risorse di Azure includono modelli JSON di Azure Resource Manager, che definiscono le risorse che vengono distribuite in Azure. Per informazioni sugli elementi del modello di Gestione risorse, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md). Visual Studio consente di modificare questi modelli e offre strumenti utili per semplificare l'utilizzo dei modelli.
 
-In questo argomento si distribuisce un'app Web e un database SQL. I passaggi sono però quasi identici per qualsiasi tipo di risorsa. È possibile distribuire con altrettanta facilità una macchina virtuale e le rispettive risorse. Visual Studio offre molti modelli di partenza per la distribuzione di scenari comuni.
+In questo articolo viene eseguita la distribuzione di un'app Web e un database SQL. I passaggi sono però quasi identici per qualsiasi tipo di risorsa. È possibile distribuire con altrettanta facilità una macchina virtuale e le rispettive risorse. Visual Studio offre molti modelli di partenza per la distribuzione di scenari comuni.
 
-Questo articolo si basa su Visual Studio 2015 Update 2 e Microsoft Azure SDK per .NET 2.9. Se si usa Visual Studio 2013 con Azure SDK 2.9, l'esperienza sarà molto simile. È anche possibile usare Azure SDK 2.6 o versione successiva, ma l'esperienza dell'interfaccia utente può essere diversa da quella illustrata in questo articolo. È consigliabile installare la versione più recente di [Azure SDK](https://azure.microsoft.com/downloads/) prima di iniziare la procedura. 
+Questo articolo illustra la procedura per Visual Studio 2017. Se si usa Visual Studio 2015 Update 2 e Microsoft Azure SDK per .NET 2.9 oppure Visual Studio 2013 con Azure SDK 2.9, l'esperienza è sostanzialmente uguale. È anche possibile usare Azure SDK 2.6 o versione successiva, ma l'esperienza dell'interfaccia utente può essere diversa da quella illustrata in questo articolo. È consigliabile installare la versione più recente di [Azure SDK](https://azure.microsoft.com/downloads/) prima di iniziare la procedura. 
 
 ## <a name="create-azure-resource-group-project"></a>Creare un progetto Gruppo di risorse di Azure
 In questa procedura verrà creato un progetto Gruppo di risorse di Azure con un modello **App Web e SQL** .
 
-1. In Visual Studio scegliere **File**, **Nuovo progetto**, scegliere **C#** o **Visual Basic**. Scegliere quindi **Cloud** e infine scegliere il progetto **Gruppo di risorse di Azure**.
+1. In Visual Studio scegliere **File**, **Nuovo progetto**, scegliere **C#** o **Visual Basic**. Scegliere quindi **Cloud** e scegliere il progetto **Gruppo di risorse di Azure**.
    
     ![Progetto Distribuzione cloud](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
-2. Scegliere il modello da distribuire in Gestione risorse di Azure. Si noti che sono disponibili molte opzioni diverse in base al tipo di progetto da distribuire. Per questo argomento scegliere il modello **App Web e SQL** .
+2. Scegliere il modello da distribuire in Gestione risorse di Azure. Si noti che sono disponibili molte opzioni diverse in base al tipo di progetto da distribuire. Per questo articolo scegliere il modello **App Web e SQL** .
    
     ![Scelta di un modello](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-project.png)
    
@@ -47,7 +48,7 @@ In questa procedura verrà creato un progetto Gruppo di risorse di Azure con un 
    > 
    
     Visual Studio crea un progetto di distribuzione di tipo Gruppo di risorse per l'app Web e il database SQL.
-3. Per visualizzare gli elementi creati, espandere i nodi nel progetto di distribuzione.
+3. Per visualizzare gli elementi creati, esaminare i nodi nel progetto di distribuzione.
    
     ![visualizzazione dei nodi](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
    
@@ -113,7 +114,7 @@ Visual Studio fornisce anche il supporto per IntelliSense, per semplificare l'in
 ## <a name="deploy-the-resource-group-project-to-azure"></a>Distribuire il progetto di tipo Gruppo di risorse in Azure
 È ora possibile distribuire il progetto. Quando si distribuisce un progetto di Azure Resource Manager, lo si distribuisce in un gruppo di risorse di Azure. Il gruppo di risorse è un raggruppamento logico di risorse che condividono un ciclo di vita comune.
 
-1. Dal menu di scelta rapida del nodo del progetto di distribuzione scegliere **Distribuisci** > **New Distribuisciment**.
+1. Dal menu di scelta rapida del nodo del progetto di distribuzione scegliere **Distribuisci** > **Nuovo**.
    
     ![Voce di menu Distribuisci, Nuova distribuzione](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/deploy.png)
    
@@ -141,7 +142,7 @@ Visual Studio fornisce anche il supporto per IntelliSense, per semplificare l'in
     **databaseName** specifica un nome per il database da creare. 
    
     ![Finestra di dialogo Modifica parametri](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/provide-parameters.png)
-5. Scegliere il pulsante **Distribuisci** per distribuire il progetto in Azure. Una console di PowerShell viene aperta al di fuori dell'istanza di Visual Studio. Immettere la password di amministratore di SQL Server nella console di PowerShell quando richiesto. **La console di PowerShell potrebbe essere nascosta dietro altri elementi o ridotta a icona nella barra delle applicazioni.**  Cercare la console e selezionarla per immettere la password.
+5. Scegliere il pulsante **Distribuisci** per distribuire il progetto in Azure. Una console di PowerShell viene aperta al di fuori dell'istanza di Visual Studio. Immettere la password di amministratore di SQL Server nella console di PowerShell quando richiesto. **La console di PowerShell potrebbe essere nascosta dietro altri elementi o ridotta a icona nella barra delle applicazioni.** Cercare la console e selezionarla per immettere la password.
    
    > [!NOTE]
    > È possibile che Visual Studio richieda l'installazione dei cmdlet di Azure PowerShell. Per distribuire correttamente i gruppi di risorse, è necessario il cmdlet di Azure PowerShell. Se richiesto, occorre installarli.
@@ -150,7 +151,7 @@ Visual Studio fornisce anche il supporto per IntelliSense, per semplificare l'in
 6. La distribuzione può richiedere alcuni minuti. Nelle finestre **Output** viene visualizzato lo stato della distribuzione. Al termine della distribuzione, l'ultimo messaggio indica una distribuzione riuscita con un testo simile al seguente:
    
         ... 
-        18:00:58 - Successfully deployed template 'c:\users\user\documents\visual studio 2015\projects\azureresourcegroup1\azureresourcegroup1\templates\websitesqldatabase.json' to resource group 'DemoSiteGroup'.
+        18:00:58 - Successfully deployed template 'websitesqldatabase.json' to resource group 'DemoSiteGroup'.
 7. In un browser aprire il [portale di Azure](https://portal.azure.com/) e accedere con il proprio account. Per visualizzare il gruppo di risorse, selezionare **Gruppi di risorse** e il gruppo di risorse in cui è stata effettuata la distribuzione.
    
     ![selezione di un gruppo](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-group.png)
@@ -162,7 +163,7 @@ Visual Studio fornisce anche il supporto per IntelliSense, per semplificare l'in
     ![Gruppo di risorse di Azure distribuito](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy.png)
 
 ## <a name="deploy-code-with-your-infrastructure"></a>Distribuire codice con l'infrastruttura
-A questo punto è stata distribuita l'infrastruttura per l'app, ma non è stato ancora distribuito codice effettivo con il progetto. Questo argomento illustra come distribuire un'app Web e tabelle del database SQL durante la distribuzione. Se si sta distribuendo una macchina virtuale invece di un'app Web, è consigliabile eseguire codice nella macchina virtuale come parte della distribuzione. Il processo di distribuzione di codice per un'app Web o per la configurazione di una macchina virtuale è quasi uguale.
+A questo punto è stata distribuita l'infrastruttura per l'app, ma non è stato ancora distribuito codice effettivo con il progetto. Questo articolo illustra come distribuire un'app Web e tabelle del database SQL durante la distribuzione. Se si sta distribuendo una macchina virtuale invece di un'app Web, è consigliabile eseguire codice nella macchina virtuale come parte della distribuzione. Il processo di distribuzione di codice per un'app Web o per la configurazione di una macchina virtuale è quasi uguale.
 
 1. Aggiungere un progetto alla soluzione Visual Studio. Fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Aggiungi** > **Nuovo progetto**.
    
@@ -170,7 +171,7 @@ A questo punto è stata distribuita l'infrastruttura per l'app, ma non è stato 
 2. Aggiungere un' **Applicazione Web ASP.NET**. 
    
     ![aggiunta di un'app Web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-app.png)
-3. Selezionare **MVC** e deselezionare il campo per **Host nel cloud**, perché il progetto Gruppo di risorse esegue questa attività.
+3. Selezionare **MVC**.
    
     ![selezione di MVC](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-mvc.png)
 4. Dopo che Visual Studio ha creato l'app Web, vengono visualizzati entrambi i progetti nella soluzione.
@@ -194,7 +195,7 @@ A questo punto è stata distribuita l'infrastruttura per l'app, ma non è stato 
    * Il valore predefinito di **Build;Package** consente alla distribuzione di sviluppare e creare un pacchetto di distribuzione Web (package.zip).  
      
      Il profilo di pubblicazione non è necessario, perché la distribuzione ottiene le informazioni necessarie dalle proprietà per creare il pacchetto.
-7. Aggiungere una risorsa al modello.
+7. Tornare a WebSiteSQLDatabase.json e aggiungere una risorsa al modello.
    
     ![aggiungere una risorsa](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
 8. Questa volta selezionare **Distribuzione Web per app Web**. 
@@ -215,10 +216,5 @@ A questo punto è stata distribuita l'infrastruttura per l'app, ma non è stato 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per informazioni sulla gestione delle risorse tramite il portale, vedere [Gestire le risorse di Azure mediante il portale](resource-group-portal.md).
 * Per altre informazioni sui modelli, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

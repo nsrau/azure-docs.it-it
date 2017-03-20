@@ -103,7 +103,7 @@ Nell'esempio precedente **ExternalBackupStore** corrisponde alla classe di esemp
 
 Si noti che:
 
-* In un dato momento può essere in corso una sola operazione di backup per replica. Più chiamate** BackupAsync** contemporanee provocheranno l'eccezione **FabricBackupInProgressException** che richiede di limitare a una le esecuzioni dei backup.
+* In un dato momento può essere in corso una sola operazione di backup per replica. Più chiamate**BackupAsync** contemporanee provocheranno l'eccezione **FabricBackupInProgressException** che richiede di limitare a una le esecuzioni dei backup.
 * In caso di failover di una replica durante l'esecuzione di un backup, è possibile che il backup non venga completato. Al termine del failover, il servizio dovrà quindi riavviare il backup richiamando **BackupAsync** , se necessario.
 
 ## <a name="restore-reliable-services"></a>Ripristinare Reliable Services

@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: 30b30513d5563cf64679e29c4858bf15f65d3a44
-ms.openlocfilehash: 015c997135eae9c936af1a1ec0b0064912baaa04
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 51732acdad74dd6dbfc47fae62efc87df6ce5c15
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -50,7 +50,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 * Azure PowerShell **versione minima 1.0.1**. Per installare Azure PowerShell e associarlo alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs). Se Azure PowerShell è già stato installato ma non si conosce la versione, dalla console di Azure PowerShell digitare `(Get-Module azure -ListAvailable).Version`.  
 * Spazio di archiviazione sufficiente in Azure per i log dell'insieme di credenziali delle chiavi.
 
-## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>Connettersi alle sottoscrizioni
+## <a id="connect"></a>Connettersi alle sottoscrizioni
 Avviare una sessione di Azure PowerShell e accedere all'account Azure con il comando seguente:  
 
     Login-AzureRmAccount
@@ -65,9 +65,14 @@ Per specificare quindi la sottoscrizione associata all'insieme di credenziali de
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
+> [!NOTE]
+> Si tratta di un passaggio importante e risulta particolarmente utile se si hanno più sottoscrizioni associate all'account. Se questo passaggio viene ignorato potrebbe essere visualizzato un messaggio di errore che chiede di eseguire la registrazione di Microsoft.Insights. 
+>   
+>
+
 Per altre informazioni sulla configurazione di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-## <a name="a-idstorageacreate-a-new-storage-account-for-your-logs"></a><a id="storage"></a>Creare un nuovo account di archiviazione per i log
+## <a id="storage"></a>Creare un nuovo account di archiviazione per i log
 Anche se è possibile usare un account di archiviazione esistente per i log, si creerà un nuovo account di archiviazione dedicato ai log dell'insieme di credenziali delle chiavi. Per praticità, si archivieranno i dettagli in una variabile denominata **sa**, in modo che siano disponibili quando sarà necessario specificarli in seguito.
 
 Per rendere la gestione ancora più facile, si userà anche lo stesso gruppo di risorse che contiene l'insieme di credenziali delle chiavi. Dall' [esercitazione introduttiva](key-vault-get-started.md)questo gruppo di risorse è denominato **ContosoResourceGroup** e si continuerà a usare l'area geografica East Asia. Sostituire questi valori con i propri, a seconda dei casi:
@@ -80,13 +85,13 @@ Per rendere la gestione ancora più facile, si userà anche lo stesso gruppo di 
 > 
 > 
 
-## <a name="a-ididentifyaidentify-the-key-vault-for-your-logs"></a><a id="identify"></a>Identificare l'insieme di credenziali delle chiavi per i log
+## <a id="identify"></a>Identificare l'insieme di credenziali delle chiavi per i log
 Nell'esercitazione introduttiva, il nome dell'insieme di credenziali delle chiavi è **ContosoKeyVault**, quindi si continuerà a usarlo e si archivieranno i dettagli in una variabile denominata **kv**:
 
     $kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
 
-## <a name="a-idenableaenable-logging"></a><a id="enable"></a>Abilitare la registrazione
+## <a id="enable"></a>Abilitare la registrazione
 Per abilitare la registrazione dell'insieme di credenziali delle chiavi, si userà il cmdlet Set-AzureRmDiagnosticSetting e le variabili create per il nuovo account di archiviazione e l'insieme di credenziali delle chiavi. Il flag **-Enabled** verrà impostato su **$true** e la categoria su AuditEvent, la sola disponibile per la registrazione dell'insieme di credenziali delle chiavi:
 
     Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
@@ -117,11 +122,16 @@ Informazioni registrate:
 * Operazioni su chiavi e segreti nell'insieme di credenziali delle chiavi, ad esempio creazione, modifica o eliminazione di chiavi o segreti. Operazioni quali accesso, verifica, crittografia, decrittografia, esecuzione e annullamento del wrapping delle chiavi, recupero di segreti, nonché elenco di chiavi e segreti e delle relative versioni.
 * Richieste non autenticate che generano una risposta 401. Ad esempio, richieste che non hanno un token di connessione, hanno un formato non valido, sono scadute o hanno un token non valido.  
 
-## <a name="a-idaccessaaccess-your-logs"></a><a id="access"></a>Accedere ai log
+## <a id="access"></a>Accedere ai log
 I log dell'insieme di credenziali delle chiavi vengono archiviati nel contenitore **insights-log-auditevent** nell'account di archiviazione specificato. Per elencare tutti i BLOB in questo contenitore, digitare:
 
-    Get-AzureStorageBlob -Container 'insights-logs-auditevent' -Context $sa.Context
+Creare prima una variabile per il nome contenitore. Questa variabile verrà usata nel resto della procedura dettagliata.
 
+    $container = 'insights-logs-auditevent'
+
+Per elencare tutti i BLOB in questo contenitore, digitare:
+
+    Get-AzureStorageBlob -Container $container -Context $sa.Context
 L'output sarà simile al seguente:
 
 **Uri contenitore: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
@@ -172,7 +182,7 @@ A questo punto si può iniziare a osservare il contenuto dei log. Prima di conti
 * Per eseguire una query sullo stato delle impostazioni di diagnostica per la risorsa insieme di credenziali delle chiavi, usare:`Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
 * Per disabilitare la registrazione per la risorsa insieme di credenziali delle chiavi, usare: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
 
-## <a name="a-idinterpretainterpret-your-key-vault-logs"></a><a id="interpret"></a>Interpretare i log dell'insieme di credenziali delle chiavi
+## <a id="interpret"></a>Interpretare i log dell'insieme di credenziali delle chiavi
 I singoli BLOB vengono archiviati come testo, formattati come BLOB JSON. Questo è un esempio di voce di log generata dall'esecuzione di `Get-AzureRmKeyVault -VaultName 'contosokeyvault'`:
 
     {
@@ -253,11 +263,11 @@ La tabella seguente include un elenco di operationName con il comando API REST c
 | SecretList |[Elencare i segreti in un insieme di credenziali](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
 | SecretListVersions |[Elencare le versioni di un segreto](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
 
-## <a name="a-idloganalyticsause-log-analytics"></a><a id="loganalytics"></a>Usare Log Analytics
+## <a id="loganalytics"></a>Usare Log Analytics
 
 È possibile usare la soluzione Insieme di credenziali delle chiavi di Azure in Log Analytics per esaminare i log AuditEvent dell'Insieme di credenziali delle chiavi di Azure. Per altre informazioni e per approfondire l'impostazione di questa funzionalità vedere [Soluzione Insieme di credenziali delle chiavi di Azure in Log Analytics](../log-analytics/log-analytics-azure-key-vault.md). Questo articolo contiene inoltre istruzioni su come eseguire la migrazione, nel caso fosse necessario, dalla soluzione Key Vault offerta nell'anteprima di Log Analytics, dove sono stati indirizzati la prima volta i log a un account di Archiviazione di Azure e da dove è stato configurato Log Analytics per la lettura.
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>Passaggi successivi
+## <a id="next"></a>Passaggi successivi
 Per un'esercitazione sull'uso dell'insieme di credenziali delle chiavi di Azure in un'applicazione Web, vedere [Usare l'insieme di credenziali delle chiavi di Azure da un'applicazione Web](key-vault-use-from-web-application.md).
 
 Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell’insieme di credenziali chiave Azure](key-vault-developers-guide.md).

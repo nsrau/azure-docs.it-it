@@ -16,6 +16,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 3400d00112b4b66cceef602dba5cb8666e49e0e4
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -44,10 +45,5 @@ Questo approccio viene applicato ai criteri di MFA e di posizione, oltre ai disp
 ## <a name="see-also"></a>Vedere anche
 * [Protezione dell'accesso a Office 365 e ad altre app connesse ad Azure Active Directory](active-directory-conditional-access.md)
 * [Guida introduttiva all'accesso condizionale ad Azure AD](active-directory-conditional-access-azuread-connected-apps.md) 
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

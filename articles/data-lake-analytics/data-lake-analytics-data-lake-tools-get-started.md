@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 12/08/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 3c8406efd9d716df56ed3ca10fc596684945c2f2
-ms.openlocfilehash: 3281b001aeab42aace951b5bdd5d4ec901de396f
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 2fa2d26b996435c18c2f88396991bf7210350553
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -28,7 +29,7 @@ Informazioni su come installare Strumenti di Data Lake per Visual Studio e usarl
 U-SQL è un linguaggio estremamente scalabile e facilmente estendibile per la preparazione, la trasformazione e l'analisi di tutti i dati presenti nel data lake e non solo. Per altre informazioni, vedere la pagina di [riferimento su U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 ## <a name="prerequisites"></a>Prerequisiti
-* **Visual Studio 2015, Visual Studio 2013 Update 4 oppure Visual Studio 2012. Sono supportate le edizioni Enterprise (Ultimate/Premium), Professional e Community. L'edizione Express non è supportata. Visual Studio 2017 non è attualmente supportato.**
+* **Visual Studio 2015 Update 3, Visual Studio 2013 Update 4 o Visual Studio 2012. Sono supportate le edizioni Enterprise (Ultimate/Premium), Professional e Community. L'edizione Express non è supportata. Visual Studio 2017 non è attualmente supportato.**
 * **Microsoft Azure SDK per .NET versione 2.7.1 o successiva**.  Installarlo usando il [programma di installazione della piattaforma Web](http://www.microsoft.com/web/downloads/platform.aspx).
 * **[Data Lake Tools per Visual Studio](http://aka.ms/adltoolsvs)**.
 
@@ -349,9 +350,4 @@ Lo script di PowerShell seguente prepara automaticamente i dati di origine e un 
     Write-Host "List the source data ..."  -ForegroundColor Green
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
