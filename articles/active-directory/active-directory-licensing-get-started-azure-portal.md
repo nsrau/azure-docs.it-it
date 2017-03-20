@@ -18,9 +18,9 @@ ms.date: 02/27/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 09f0ed3f7624bb242c40868710fb3eae49cda906
-ms.openlocfilehash: a798de49ed08eedaf27267c6bac12f8b0b64739f
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: bbad7fbd1395c3982ecba03ab6ba90d833c889a9
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -59,7 +59,9 @@ Ogni sottoscrizione è costituita da uno o più piani di servizio, ognuno associ
 
 Anche se per configurare le funzionalità a pagamento è sufficiente ottenere una sottoscrizione, l'uso delle funzionalità a pagamento di Azure AD richiede la distribuzione delle licenze agli utenti giusti. In generale, a tutti gli utenti che devono accedere a una funzionalità a pagamento di Azure AD o gestiti tramite tale funzionalità, deve essere assegnata una licenza. Un'assegnazione di licenze è un mapping tra un utente e un servizio acquistato, ad esempio Azure AD Premium, Basic o Enterprise Mobility Suite.
 
-Gestire quali utenti nella directory devono disporre di una licenza è semplice. Questo è possibile assegnando le licenze a gruppi nel Portale di Azure o assegnando le licenze direttamente agli utenti giusti tramite il portale, PowerShell o le API. Quando si assegnano le licenze a un gruppo, a tutti i membri del gruppo verrà assegnata una licenza. Quando gli utenti vengono aggiunti al gruppo oppure rimossi dal gruppo, anche la licenza appropriata verrà assegnata o rimossa. L’opzione di assegnazione al gruppo può utilizzare qualsiasi tipo di gestione del gruppo disponibile ed è coerente con l’assegnazione alle applicazioni in base al gruppo. Utilizzando questo approccio, è possibile impostare regole che prevedano l’assegnazione automatica a tutti gli utenti nella directory, assicurarsi che tutti gli utenti con la posizione appropriata dispongano di una licenza o anche delegare la decisione ad altri responsabili dell'organizzazione. Per una discussione dettagliata sull'assegnazione delle licenze ai gruppi, inclusi scenari di gestione licenze di Office 365 e scenari avanzati, vedere questo articolo.
+Gestire quali utenti nella directory devono disporre di una licenza è semplice. Questo è possibile assegnando le licenze a gruppi nel Portale di Azure o assegnando le licenze direttamente agli utenti giusti tramite il portale, PowerShell o le API. Quando si assegnano le licenze a un gruppo, a tutti i membri del gruppo verrà assegnata una licenza. Quando gli utenti vengono aggiunti al gruppo oppure rimossi dal gruppo, anche la licenza appropriata verrà assegnata o rimossa. L’opzione di assegnazione al gruppo può utilizzare qualsiasi tipo di gestione del gruppo disponibile ed è coerente con l’assegnazione alle applicazioni in base al gruppo. Utilizzando questo approccio, è possibile impostare regole che prevedano l’assegnazione automatica a tutti gli utenti nella directory, assicurarsi che tutti gli utenti con la posizione appropriata dispongano di una licenza o anche delegare la decisione ad altri responsabili dell'organizzazione. 
+
+Per una discussione dettagliata sull'assegnazione delle licenze ai gruppi, inclusi scenari di gestione licenze di Office 365 e scenari avanzati, vedere [questo articolo](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-assignment-azure-portal).
 
 ## <a name="getting-started-with-azure-ad-licensing"></a>Introduzione alle licenze di Azure AD
 
@@ -152,6 +154,7 @@ A questo punto si è pronti per configurare e utilizzare alcune delle funzionali
 * [Gestione di gruppi self-service](active-directory-accessmanagement-self-service-group-management.md)
 * [Stato di Azure AD Connect](active-directory-aadconnect-health.md)
 * [Assegnazione di gruppi alle applicazioni](active-directory-manage-groups.md)
+* [Assegnazione delle licenze a un gruppo](active-directory-licensing-group-assignment-azure-portal.md)
 * [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 * [Acquisto diretto di licenze di Azure AD Premium](http://aka.ms/buyaadp)
 

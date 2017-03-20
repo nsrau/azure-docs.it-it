@@ -1,5 +1,5 @@
 ---
-title: API Java e risorse SDK - Azure DocumentDB | Documentazione Microsoft
+title: API Java, risorse e SDK per Azure DocumentDB | Microsoft Docs
 description: Altre informazioni sulle date di rilascio e le date di ritiro dell&quot;SDK e dell&quot;API per Java e sulle modifiche apportate tra le versioni di DocumentDB Java SDK.
 services: documentdb
 documentationcenter: java
@@ -14,14 +14,15 @@ ms.devlang: java
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: khdang
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 64858123a75686ba460de5e0f26b143c29f9f067
-ms.openlocfilehash: 7b7afa0ac55327b83e7ea8983a5e25782bda9f07
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 50f8f6a2d64959a1981f95bfe821a2a79f6cafc6
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="documentdb-apis-and-sdks"></a>SDK e API di DocumentDB
+# <a name="documentdb-java-sdk-release-notes-and-resources"></a>DocumentDB Java SDK: note sulla versione e risorse
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -34,7 +35,6 @@ ms.lasthandoff: 02/23/2017
 > 
 > 
 
-## <a name="documentdb-java-api-and-sdk"></a>SDK e API di DocumentDB Java
 <table>
 
 <tr><td>**Download dell'SDK**</td><td>[Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
