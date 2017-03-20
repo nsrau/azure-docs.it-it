@@ -42,7 +42,7 @@ Per inviare commenti o domande è possibile usare la parte inferiore di questo a
 
     - Per la replica da un server VMM in un altro server VMM, selezionare **Tipo origine** > **VMM**, nonché i server VMM di origine e destinazione. Fare clic su **Hyper-V** per visualizzare i cloud protetti.
     - Per la replica da VMM ad Azure, selezionare **Tipo origine** > **VMM**.  Selezionare il server VMM di origine e **Azure** come destinazione.
-    - Per la replica Hyper-V in Azure (senza VMM), selezionare **Tipo origine** > **Sito Hyper-V**. Selezionare il sito come origine e **Azure **come destinazione.
+    - Per la replica Hyper-V in Azure (senza VMM), selezionare **Tipo origine** > **Sito Hyper-V**. Selezionare il sito come origine e **Azure**come destinazione.
     - Per una VM VMware o un server fisico locale in Azure, selezionare un server di configurazione come origine e **Azure** come destinazione.
 2. In **Seleziona macchine virtuali** selezionare le macchine virtuali (o il gruppo di replica) che si vuole aggiungere al gruppo predefinito (gruppo 1) nel piano di ripristino.
 
@@ -52,7 +52,7 @@ Per inviare commenti o domande è possibile usare la parte inferiore di questo a
 
 - **Aggiungere nuovi gruppi**: è possibile aggiungere gruppi del piano di ripristino aggiuntivi (fino a sette) al gruppo predefinito e quindi aggiungere più computer o gruppi di replica ai gruppi del piano di ripristino. I gruppi vengono numerati nell'ordine in cui vengono aggiunti. Una macchina virtuale o un gruppo di replica può essere incluso solo in un gruppo del piano di ripristino.
 - **Aggiungere un'azione manuale**: è possibile aggiungere azioni manuali da eseguire prima o dopo un gruppo del piano di ripristino. Quando viene eseguito il piano di ripristino, questo si interrompe in corrispondenza del punto in cui è stata inserita l'azione manuale. Una finestra di dialogo richiede all'utente di specificare che l'azione manuale è stata completata.
-- **Aggiungere uno script **: è possibile aggiungere script che vengono eseguiti prima o dopo un gruppo del piano di ripristino. Quando si aggiunge uno script, viene aggiunto un nuovo set di azioni per il gruppo. Ad esempio, verrà creato un set di passaggi preliminari per il gruppo 1 denominato: Gruppo 1: passaggi preliminari. Tutti i passaggi preliminari verranno elencati in questo set. Se si dispone di un server VMM distribuito, è possibile aggiungere solo uno script nel sito primario.
+- **Aggiungere uno script**: è possibile aggiungere script che vengono eseguiti prima o dopo un gruppo del piano di ripristino. Quando si aggiunge uno script, viene aggiunto un nuovo set di azioni per il gruppo. Ad esempio, verrà creato un set di passaggi preliminari per il gruppo 1 denominato: Gruppo 1: passaggi preliminari. Tutti i passaggi preliminari verranno elencati in questo set. Se si dispone di un server VMM distribuito, è possibile aggiungere solo uno script nel sito primario.
 - **Aggiungere runbook di Azure**: è possibile estendere i piani di ripristino con i runbook di Azure. Ad esempio, per automatizzare le attività o per creare un ripristino in un solo passaggio. [Altre informazioni](site-recovery-runbook-automation.md).
 
 ## <a name="add-scripts"></a>Aggiungere script

@@ -18,6 +18,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 5ec4b964066687b506686709c3dc5ed5b402fbaf
 ms.openlocfilehash: a846d5a70451ed3082b90d87b90bef0eb6da5993
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: a846d5a70451ed3082b90d87b90bef0eb6da5993
 
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-Ambari è un'utilità per la gestione e il monitoraggio fornita con i cluster HDInsight basati su Linux. Una delle funzionalità fornite da Ambari è un'interfaccia utente Web che può essere usata per eseguire query Hive. Si tratta della **vista Hive **, elemento delle visualizzazioni di Ambari fornite con il cluster HDInsight.
+Ambari è un'utilità per la gestione e il monitoraggio fornita con i cluster HDInsight basati su Linux. Una delle funzionalità fornite da Ambari è un'interfaccia utente Web che può essere usata per eseguire query Hive. Si tratta della **vista Hive**, elemento delle visualizzazioni di Ambari fornite con il cluster HDInsight.
 
 > [!NOTE]
 > Ambari include numerose funzionalità non illustrate in questo documento. Per altre informazioni, vedere [Gestire i cluster HDInsight usando l'interfaccia utente Web di Ambari](hdinsight-hadoop-manage-ambari.md).
@@ -61,7 +62,7 @@ Nella sezione **Database Explorer** (Esplora database) della pagina selezionare 
 
 Poiché vengono aggiunte tabelle tramite la procedura descritta in questo documento, è possibile usare l'icona di aggiornamento nell'angolo superiore destro di Database Explorer per aggiornare l'elenco.
 
-## <a name="a-namehivequeryaquery-editor"></a><a name="hivequery"></a>Query editor
+## <a name="hivequery"></a>Query editor
 
 Attenersi alla seguente procedura dalla vista di Hive per eseguire una query Hive.
 
@@ -224,7 +225,7 @@ Per altre informazioni sull'uso di funzioni definite dall'utente con Hive in HDI
 * [Usare Python con Hive e Pig in HDInsight](hdinsight-python.md)
 * [Come aggiungere una funzione definita dall'utente Hive personalizzata in HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Passaggi successivi
+## <a id="nextsteps"></a>Passaggi successivi
 Per informazioni generali su Hive in HDInsight:
 
 * [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
@@ -233,10 +234,5 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
