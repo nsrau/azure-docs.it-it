@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: aadeff581e6134144ddc43416d4d5f9daea1b9f4
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -79,10 +80,5 @@ Sono stati installati gli strumenti di sviluppo e il software necessari per la p
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Creare e distribuire l'applicazione per il lampeggiamento](iot-hub-raspberry-pi-kit-c-lesson1-deploy-blink-app.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

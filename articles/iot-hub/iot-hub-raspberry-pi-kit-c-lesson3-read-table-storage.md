@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: 41e89f524bf9ae67489ab3a0eb09ceda6b211f15
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -70,10 +71,5 @@ Per leggere i messaggi nell'archiviazione tabelle di Azure, seguire questi passa
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Eseguire un'applicazione di esempio per ricevere messaggi da cloud a dispositivo](iot-hub-raspberry-pi-kit-c-lesson4-send-cloud-to-device-messages.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

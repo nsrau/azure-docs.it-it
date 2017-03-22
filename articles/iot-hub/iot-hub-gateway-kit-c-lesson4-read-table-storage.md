@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: 293343e5db58bebc8c2e27d54d6396212fe6d3a1
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -99,8 +100,3 @@ I messaggi inviati e ricevuti vengono visualizzati tutti immediatamente nella st
 ## <a name="summary"></a>Riepilogo
 
 È stato eseguito il codice di esempio per leggere i messaggi nell'archivio tabelle di Azure, salvati dall'applicazione per le funzioni di Azure.
-
-
-<!--HONumber=Jan17_HO4-->
-
-

@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: a9f689c0b231af3cdf9257e2179bf86ff7bc9a31
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -159,8 +160,3 @@ L'applicazione di esempio continua a raccogliere dati sulla temperatura e li inv
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Leggere messaggi dall'hub IoT](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

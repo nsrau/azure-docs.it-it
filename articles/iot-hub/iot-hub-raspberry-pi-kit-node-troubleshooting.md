@@ -13,11 +13,12 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: 2c5e2955584b165ca0ca95ce424a2050fb3f6ccd
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -150,10 +151,5 @@ Un'interfaccia della riga di comando completa consente di creare e gestire tutte
 
 ## <a name="azure-storage-issues"></a>Problemi di Archiviazione di Azure
 [Microsoft Azure Storage Explorer (anteprima)](http://storageexplorer.com) è un'app autonoma di Microsoft che consente di utilizzare i dati di Archiviazione di Azure in Windows, macOS e Linux. Questo strumento permette di connettersi alla tabella e visualizzarne i dati. È possibile usare questo strumento per risolvere i problemi di Archiviazione di Azure.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

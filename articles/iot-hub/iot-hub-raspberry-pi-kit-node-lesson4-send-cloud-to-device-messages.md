@@ -15,11 +15,12 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: 92ee9d6faae9f539c663395e47714609a146f2df
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -89,10 +90,5 @@ Sono stati inviati messaggi dall'hub IoT al dispositivo Pi per far lampeggiare i
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Modificare il comportamento di accensione e spegnimento del LED](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
