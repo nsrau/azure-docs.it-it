@@ -67,7 +67,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 **Per configurare l'accesso Single Sign-On, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **Chromeriver** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On **.
+1. Nella pagina di integrazione dell'applicazione **Chromeriver** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-chromeriver-tutorial/IC802757.png "Configurare l'accesso Single Sign-On")
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Chromeriver** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
@@ -112,7 +112,7 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 **Per assegnare gli utenti a Chromeriver seguire questa procedura:**
 
 1. Nel portale di Azure classico creare un account di test.
-2. Nella pagina di integrazione dell'applicazione **Chromeriver **fare clic su **Assegna utenti**.
+2. Nella pagina di integrazione dell'applicazione **Chromeriver**fare clic su **Assegna utenti**.
    
    ![Assegnare utenti](./media/active-directory-saas-chromeriver-tutorial/IC802762.png "Assegnare utenti")
 3. Selezionare l'utente di test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.

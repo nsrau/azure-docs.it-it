@@ -20,15 +20,15 @@
 | Numero massimo di file in una condivisione file |L'unico limite è quello relativo alla capacità totale della condivisione file (5 TB) |
 | Numero massimo di contenitori BLOB, BLOB, condivisioni file, tabelle, code, entità o messaggi per account di archiviazione |L'unico limite è quello relativo alla capacità dell'account di archiviazione (500 TB) |
 | Numero massimo di criteri di accesso archiviati per ogni contenitore, condivisione di file, tabella o coda |5 |
-| Frequenza di richiesta totale (presupponendo oggetti con dimensione di 1 KB) per account di archiviazione |Fino a 20.000 IOPS, entità al secondo o messaggi al secondo |
+| Frequenza massima di richieste per account di archiviazione |BLOB: 20.000 richieste al secondo per BLOB di qualsiasi dimensione valida (con i soli limiti di ingresso/uscita dell'account) <br />File: 1000 operazioni di I/O al secondo (con dimensione di 8 KB) per condivisione file <br />Code: 20.000 messaggi al secondo (supponendo una dimensione dei messaggi di 1 KB)<br />Tabelle: 20.000 transazioni al secondo (supponendo una dimensione delle entità di 1 KB) |
 | Velocità effettiva da raggiungere per BLOB singolo |Fino a 60 MB al secondo o fino 500 richieste al secondo |
-| Velocità effettiva da raggiungere per coda singola (messaggi di 1 KB) |Fino a 2000 messaggi al secondo |
-| Velocità effettiva da raggiungere per partizione di tabella singola (entità di 1 KB) |Fino a 2000 entità al secondo |
+| Velocità effettiva da raggiungere per coda singola (messaggi di&1; KB) |Fino a 2000 messaggi al secondo |
+| Velocità effettiva da raggiungere per partizione di tabella singola (entità di&1; KB) |Fino a 2000 entità al secondo |
 | Velocità effettiva da raggiungere per singola condivisione di file |Fino a 60 MB al secondo |
 | Numero massimo in entrata <sup>2</sup> per account di archiviazione (aree US) |10 Gbps se GRS/ZRS<sup>3</sup> è abilitato, 20 Gbps per LRS |
 | Numero massimo in uscita <sup>2</sup> per account di archiviazione (aree US) |20 Gbps se RA-GRS/GRS/ZRS<sup>3</sup> è abilitato, 30 Gbps per LRS |
-| Numero massimo in entrata <sup>2</sup> per account di archiviazione (aree europee e asiatiche) |5 Gbps se GRS/ZRS<sup>3</sup> è abilitato, 10 Gbps per LRS |
-| Numero massimo in uscita <sup>2</sup> per account di archiviazione (aree europee e asiatiche) |10 Gbps se RA-GRS/GRS/ZRS<sup>3</sup> è abilitato, 15 Gbps per LRS |
+| Traffico in ingresso massimo<sup>2</sup> per account di archiviazione (aree non degli Stati Uniti) |5 Gbps se GRS/ZRS<sup>3</sup> è abilitato, 10 Gbps per LRS |
+| Traffico in uscita massimo<sup>2</sup> per account di archiviazione (aree non degli Stati Uniti) |10 Gbps se RA-GRS/GRS/ZRS<sup>3</sup> è abilitato, 15 Gbps per LRS |
 
 <sup>1</sup>Sono inclusi gli account di archiviazione Standard e Premium. Se sono necessari più di 200 account di archiviazione, inviare una richiesta tramite il [supporto tecnico di Azure](https://azure.microsoft.com/support/faq/). Il team di Archiviazione di Azure esaminerà il caso aziendale e potrà approvare fino a un massimo di 250 account di archiviazione. 
 
@@ -40,9 +40,4 @@
 * **GRS**: archiviazione con ridondanza geografica. 
 * **ZRS**: archiviazione con ridondanza della zona. Disponibile solo per i BLOB in blocchi. 
 * **LRS**: archiviazione con ridondanza locale. 
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

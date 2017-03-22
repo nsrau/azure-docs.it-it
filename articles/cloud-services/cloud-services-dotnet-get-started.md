@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 02474f8ab77763be1b40da95f5d7cd935ba7f121
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: f72a3650de5b1d43c992a801ffce1384774594f2
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -54,8 +55,9 @@ Le istruzioni dell'esercitazione sono applicabili ai prodotti seguenti:
 
 * Visual Studio 2013
 * Visual Studio 2015
+* Visual Studio 2017
 
-Se uno di questi prodotti non è disponibile, Visual Studio 2015 sarà installato automaticamente quando si installa Azure SDK.
+Se uno di questi prodotti non è disponibile, Visual Studio potrà essere installato automaticamente quando si installa Azure SDK.
 
 ## <a name="application-architecture"></a>Architettura dell'applicazione
 L'app archivia inserzioni pubblicitarie in un database SQL usando Code First di Entity Framework per creare le tabelle e accedere ai dati. Il database archivia due URL per ogni inserzione, uno per l'immagine con dimensioni normali e uno per l'anteprima.
@@ -76,7 +78,7 @@ Quando un utente carica un'immagine, il front-end in esecuzione in un ruolo Web 
 
     Per impostazione predefinita, Visual Studio ripristina automaticamente il contenuto del pacchetto NuGet, che non era incluso nel file con estensione *zip* . In caso di mancato ripristino dei pacchetti, installarli manualmente passando alla finestra di dialogo **Gestisci pacchetti NuGet per la soluzione**, quindi facendo clic sul pulsante **Ripristina** in alto a destra.
 5. In **Esplora soluzioni** verificare che come progetto di avvio sia selezionato **ContosoAdsCloudService**.
-6. Se si usa Visual Studio 2015, modificare la stringa di connessione di SQL Server nel file *Web.config* dell'applicazione per il progetto ContosoAdsWeb e nel file *ServiceConfiguration.Local.cscfg* per il progetto ContosoAdsCloudService. In ogni caso, cambiare "(localdb)\v11.0" in "(localdb)\MSSQLLocalDB".
+6. Se si usa Visual Studio 2015 o versione successiva, modificare la stringa di connessione di SQL Server nel file *Web.config* dell'applicazione per il progetto ContosoAdsWeb e nel file *ServiceConfiguration.Local.cscfg* per il progetto ContosoAdsCloudService. In ogni caso, cambiare "(localdb)\v11.0" in "(localdb)\MSSQLLocalDB".
 7. Premere CTRL+F5 per eseguire l'applicazione.
 
     Quando si esegue localmente un progetto di servizio cloud, Visual Studio richiama automaticamente l'*emulatore di calcolo* di Azure e l'*emulatore di archiviazione* di Azure. L'emulatore di calcolo usa le risorse del computer per simulare gli ambienti del ruolo Web e del ruolo di lavoro. L'emulatore di archiviazione usa un database [LocalDB di SQL Server Express](http://msdn.microsoft.com/library/hh510202.aspx) per simulare la risorsa di archiviazione cloud di Azure.
@@ -364,7 +366,7 @@ In questa sezione saranno configurate le stringhe di connessione di Archiviazion
     </connectionStrings>
     ```
 
-    Se si usa Visual Studio 2015, sostituire "v11.0" con "MSSQLLocalDB".
+    Se si usa Visual Studio 2015 o versione successiva, sostituire "v11.0" con "MSSQLLocalDB".
 2. Salvare le modifiche.
 3. Nel progetto ContosoAdsCloudService fare clic con il pulsante destro del mouse su ContosoAdsWeb in **Ruoli**, quindi scegliere **Proprietà**.
 
@@ -381,7 +383,7 @@ In questa sezione saranno configurate le stringhe di connessione di Archiviazion
 
    * Nome: ContosoAdsDbConnectionString
    * Tipo: String
-   * Valore: incollare la stessa stringa di connessione usata per il progetto di ruolo Web. L'esempio seguente è destinato a Visual Studio 2013, quindi se si copia questo esempio e si usa Visual Studio 2015, è necessario modificare l'origine dati.
+   * Valore: incollare la stessa stringa di connessione usata per il progetto di ruolo Web. L'esempio seguente si riferisce a Visual Studio 2013, quindi se si copia questo esempio e si usa Visual Studio 2015 o versione successiva è necessario modificare l'origine dati.
 
        ```
        Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
@@ -769,9 +771,4 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Come gestire i servizi cloud](cloud-services-how-to-manage.md)
 * [Archiviazione di Azure](/documentation/services/storage/)
 * [Come scegliere un provider di servizi cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

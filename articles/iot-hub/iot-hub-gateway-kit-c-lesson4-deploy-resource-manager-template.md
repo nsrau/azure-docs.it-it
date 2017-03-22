@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: 3672804218dbbe3a545536b8c4baccb2b9171cdc
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -86,9 +87,4 @@ Usare `iot-gateway` come valore di `{resource group name}` se nella lezione 2 no
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Leggere i messaggi con salvataggio permanente in Archiviazione di Azure](iot-hub-gateway-kit-c-lesson4-read-table-storage.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

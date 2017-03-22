@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: 0a5dd7e010ba46b724bb6a2526dc2a2730acc10f
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -97,10 +98,5 @@ I messaggi inviati e ricevuti vengono visualizzati tutti immediatamente nella st
 ## <a name="next-steps"></a>Passaggi successivi
 [Creare un'app per le funzioni di Azure e un account di Archiviazione di Azure](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

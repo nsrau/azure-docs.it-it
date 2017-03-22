@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: f09ad1624f8a7ce4e1b13217d085cfc172d870ca
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -121,9 +122,4 @@ Sono stati installati tutto il software e tutti gli strumenti necessari nel comp
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Creare un hub IoT e registrare il dispositivo](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

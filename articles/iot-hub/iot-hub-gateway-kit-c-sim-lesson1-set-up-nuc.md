@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: 399ac2d571b65503da7d9cc47d2dec9aa5e4c3d7
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -135,9 +136,4 @@ Congratulazioni. La configurazione di Intel NUC come gateway è completata. È o
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Preparare il computer host e l'hub IoT di Azure](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

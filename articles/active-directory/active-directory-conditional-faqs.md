@@ -16,6 +16,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 3980b99206c9f0c81ba3d03778777878e25db7c8
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -36,10 +37,5 @@ I criteri non sono attualmente applicati agli utenti guest di SharePoint. La rel
 
 ## <a name="does-a-conditional-access-policy-apply-to-service-accounts"></a>Un criterio di accesso condizionale è applicabile agli account del servizio?
 **R:** I criteri di accesso condizionale vengono applicati a tutti gli account utente, inclusi gli account utente usati come account del servizio. In molti casi un account del servizio in esecuzione automatica non è in grado di rispettare un criterio, ad esempio nel caso in cui sia necessaria l'autenticazione MFA. In questi casi gli account del servizio possono essere esclusi da un criterio mediante le impostazione di gestione dei criteri di accesso condizionale. Per altre informazioni sull'applicazione di un criterio agli utenti, vedere qui.
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

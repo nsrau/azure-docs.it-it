@@ -35,7 +35,7 @@ Questo articolo descrive come usare Azure AD Connect per aggiornare il certifica
 
 ##<a name="pre-requisites"></a>Prerequisiti
 
-* **Farm AD FS**: la versione della farm AD FS deve essere 2012R2 or successiva
+* **Farm AD FS**: la versione della farm AD FS deve essere 2012R2 o successiva
 * **Azure AD Connect**: assicurarsi che la versione di Azure AD Connect sia 1.1.443.0 o successiva. Si troverà l'attività "Aggiorna il certificato SSL di AD FS".
 
 ![Attività Aggiorna SSL](./media/active-directory-aadconnectfed-ssl-update/updatessltask.png)
@@ -43,14 +43,14 @@ Questo articolo descrive come usare Azure AD Connect per aggiornare il certifica
 ##<a name="step-1-provide-ad-fs-farm-information"></a>Passaggio 1: Specificare informazioni sulla farm AD FS
 
 AAD Connect proverà a ottenere automaticamente informazioni sulla farm AD FS nei modi seguenti:
-1. Chiedendo informazioni sulla farm da AD FS (2016 o versione successiva)
+1. Chiedendo informazioni sulla farm ad AD FS (2016 o versione successiva)
 2. Facendo riferimento alle informazioni ottenute da esecuzioni precedenti (archiviate localmente con Azure AD Connect). 
 
 L'elenco dei server visualizzati può essere modificato aggiungendo o rimuovendo i server in modo da riflettere la configurazione corrente della farm AD FS. Non appena riesce a ottenere informazioni sui server, Azure AD Connect visualizza la connettività e lo stato corrente del certificato SSL.
 
 ![Informazioni sui server AD FS](./media/active-directory-aadconnectfed-ssl-update/adfsserverinfo.png)
 
-Se l'elenco contiene un server che non fa più parte della farm AD FS, fare clic sull'icona di rimozione per eliminare il server dall'elenco dei server della farm AD FS. 
+Se l'elenco contiene un server che non fa più parte della farm AD FS, fare clic su Remove (Rimuovi) per eliminare il server dall'elenco dei server della farm AD FS. 
 
 ![Server offline nell'elenco](./media/active-directory-aadconnectfed-ssl-update/offlineserverlist.png)
  
@@ -91,7 +91,7 @@ Al termine della configurazione, in Azure AD Connect verrà visualizzato un mess
 
 * **Se il server appare offline, cosa è necessario fare?**
 
-    Se il server è offline, Azure AD Connect non può eseguire alcuna operazione. Se il server fa parte della farm AD FS, verificare la connettività al server e, dopo aver risolto il problema, fare clic sull'icona di aggiornamento per aggiornare lo stato nella procedura guidata. Se il server faceva parte della farm in precedenza, ma ora non esiste più, fare clic sull'icona di rimozione per eliminarlo dall'elenco dei server gestiti da Azure AD Connect.  L'eliminazione del server dall'elenco di Azure AD Connect non modifica in alcun modo la configurazione di AD FS e, se si usa AD FS 2016 o versione successiva, il server rimarrà nelle impostazioni di configurazione e verrà nuovamente visualizzato alla successiva esecuzione dell'attività.
+    Se il server è offline, Azure AD Connect non può eseguire alcuna operazione. Se il server fa parte della farm AD FS, verificare la connettività al server e, dopo aver risolto il problema, fare clic sull'icona di aggiornamento per aggiornare lo stato nella procedura guidata. Se il server faceva parte della farm in precedenza, ma ora non esiste più, fare clic su Remove (Rimuovi) per eliminarlo dall'elenco dei server gestiti da Azure AD Connect.  L'eliminazione del server dall'elenco di Azure AD Connect non modifica in alcun modo la configurazione di AD FS e, se si usa AD FS 2016 o versione successiva, il server rimarrà nelle impostazioni di configurazione e verrà nuovamente visualizzato alla successiva esecuzione dell'attività.
 
 * **È possibile aggiornare un subset di server della farm con il nuovo certificato SSL?**
 

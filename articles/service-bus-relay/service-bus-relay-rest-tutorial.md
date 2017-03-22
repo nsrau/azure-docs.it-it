@@ -163,7 +163,7 @@ Come per i passaggi precedenti, è impercettibile la differenza tra l'implementa
    
     Quando si aggiunge il file, assicurarsi che **Tutti i file** sia selezionato nell'elenco a discesa accanto al campo **Nome file:**. Nella parte restante di questa esercitazione si presuppone che il nome dell'immagine sia "image.jpg". Se si dispone di un file diverso, è necessario rinominare l'immagine o modificare il codice per compensare.
 4. Per assicurarsi che il servizio in esecuzione riesca a trovare il file di immagine, in **Esplora soluzioni** fare clic con il pulsante destro del mouse sul file di immagine e scegliere **Proprietà**. Nel riquadro **Proprietà** impostare il valore di **Copia in directory di output** su **Copia se più recente**.
-5. Aggiungere al progetto un riferimento all'assembly **System.Drawing.dll`using` e anche le istruzioni ** associate riportate qui sotto.  
+5. Aggiungere al progetto un riferimento all'assembly **System.Drawing.dll** e anche le istruzioni `using` associate riportate qui sotto.  
    
     ```csharp
     using System.Drawing;

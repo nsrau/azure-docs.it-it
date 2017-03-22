@@ -1,5 +1,5 @@
 ---
-title: Panoramica dei dati fondamentali del bus di servizio di Azure | Documentazione Microsoft
+title: Panoramica dei dati fondamentali del bus di servizio di Azure | Microsoft Docs
 description: Introduzione all&quot;uso del bus di servizio per connettere le applicazioni Azure ad altri software.
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 03/08/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 9c7f4b6f6417b6eef90dc5b92eeaca3a004d2955
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 4d7523c2bd865039cc989b3d6a288f870288b102
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -32,7 +33,7 @@ Il bus di servizio è un servizio cloud multi-tenant, il che significa che il se
 
 **Figura 1: il bus di servizio offre un servizio multi-tenant per la connessione di applicazioni attraverso il cloud.**
 
-All'interno di uno spazio dei nomi è possibile usare una o più istanze di quattro meccanismi di comunicazione diversi, ognuno dei quali consente di connettere le applicazioni in modo diverso. Le opzioni disponibili sono:
+All'interno di uno spazio dei nomi è possibile utilizzare una o più istanze di tre meccanismi di comunicazione diversi, ognuno dei quali consente di connettere le applicazioni in modo diverso. Le opzioni disponibili sono:
 
 * *Code*: consentono la comunicazione unidirezionale. Ogni coda funge da intermediario (talvolta è infatti denominata *broker*) che archivia i messaggi inviati fino a quando non vengono ricevuti. Ogni messaggio viene ricevuto da un singolo destinatario.
 * *Argomenti*: garantiscono la comunicazione unidirezionale mediante *sottoscrizioni*. Un singolo argomento può avere più sottoscrizioni. Come la coda, un argomento funge da broker ma ogni sottoscrizione può facoltativamente usare un filtro per ricevere solo messaggi corrispondenti a criteri specifici.
@@ -40,7 +41,7 @@ All'interno di uno spazio dei nomi è possibile usare una o più istanze di quat
 
 Quando si crea una coda, un argomento o un inoltro, occorre assegnargli un nome. Questo nome, associato a quello assegnato allo spazio dei nomi, costituisce un identificatore univoco per l'oggetto. Le applicazioni possono fornire questo nome al bus di servizio e quindi usare tale coda, argomento o inoltro per comunicare tra loro. 
 
-In uno scenario di inoltro le applicazioni Windows possono usare questi oggetti tramite Windows Communication Foundation (WCF). Per le code e gli argomenti, le applicazioni Windows possono usare API del sistema di messaggistica definite dal bus di servizio. Per rendere questi oggetti più semplici da usare da applicazioni non Windows, Microsoft fornisce SDK per Java, Node.js e altri linguaggi. È anche possibile accedere a code e argomenti tramite le API REST su HTTP. 
+In uno scenario di inoltro le applicazioni Windows possono usare questi oggetti tramite Windows Communication Foundation (WCF). Per le code e gli argomenti, le applicazioni Windows possono usare API del sistema di messaggistica definite dal bus di servizio. Per rendere questi oggetti più semplici da usare da applicazioni non Windows, Microsoft fornisce SDK per Java, Node.js e altri linguaggi. È anche possibile accedere a code e argomenti tramite le [API REST](/rest/api/servicebus/) su HTTP. 
 
 È importante comprendere che, sebbene il bus di servizio stesso sia in esecuzione nel cloud, ovvero nei data center di Microsoft Azure, le applicazioni che lo usano possono essere eseguite ovunque. È possibile usare il bus di servizio per connettere applicazioni in esecuzione in Azure o all'interno del proprio data center. È inoltre possibile usarlo per connettere un'applicazione in esecuzione in Azure o in un'altra piattaforma cloud a un'applicazione locale o a tablet e telefoni. È altresì possibile connettere elettrodomestici, sensori e altri dispositivi a un'applicazione centrale o gli uni agli altri. Il bus di servizio è un meccanismo di comunicazione nel cloud accessibile praticamente ovunque. Il modo in cui lo si usa dipende dalle operazioni che le applicazioni devono eseguire.
 
@@ -55,15 +56,15 @@ Il processo è semplice: un mittente invia un messaggio a una coda del bus di se
 
 Ogni messaggio è costituito da due parti: un set di proprietà, ognuno costituito da una coppia chiave-valore, e un payload dei messaggi. Il payload può essere di tipo binario, testo o anche XML. Il modo in cui vengono usati dipende dall'operazione che l'applicazione sta tentando di eseguire. Ad esempio, un'applicazione che invia un messaggio relativo a una vendita recente, potrebbe includere le proprietà *Seller="Ava"* e *Amount=10000*. Il corpo del messaggio potrebbe contenere un'immagine digitalizzata del contratto di vendita firmato, oppure, se questo non è disponibile, rimanere vuoto.
 
-Un ricevitore può leggere un messaggio da una coda del bus di servizio in due modi. La prima opzione, denominata *[ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)*, rimuove un messaggio dalla coda e lo elimina immediatamente. Se, tuttavia, il ricevitore si arresta in modo anomalo prima di aver terminato l'elaborazione del messaggio, il messaggio andrà perso. Poiché è stato rimosso dalla coda, nessun altro ricevitore potrà accedervi. 
+Un ricevitore può leggere un messaggio da una coda del bus di servizio in due modi. La prima opzione, denominata *[ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode)*, rimuove un messaggio dalla coda e lo elimina immediatamente. Se, tuttavia, il ricevitore si arresta in modo anomalo prima di aver terminato l'elaborazione del messaggio, il messaggio andrà perso. Poiché è stato rimosso dalla coda, nessun altro ricevitore potrà accedervi. 
 
-La seconda opzione, *[PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)*, consente di risolvere il problema. Come **ReceiveAndDelete**, anche la modalità di lettura **PeekLock** rimuove un messaggio dalla coda, ma non lo elimina. Il messaggio viene invece bloccato e quindi reso invisibile agli altri utenti e rimane in attesa di uno dei tre eventi seguenti:
+La seconda opzione, *[PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode)*, consente di risolvere il problema. Come **ReceiveAndDelete**, anche la modalità di lettura **PeekLock** rimuove un messaggio dalla coda, ma non lo elimina. Il messaggio viene invece bloccato e quindi reso invisibile agli altri utenti e rimane in attesa di uno dei tre eventi seguenti:
 
-* Se il ricevitore elabora correttamente il messaggio, chiama il metodo **[Complete()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)** e la coda elimina il messaggio. 
-* Se il ricevitore stabilisce che non è possibile elaborare il messaggio, chiama il metodo **[Abandon()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon)**. La coda rimuove quindi il blocco dal messaggio e lo rende disponibile per gli altri ricevitori.
+* Se il ricevitore elabora correttamente il messaggio, chiama il metodo [Complete()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) e la coda elimina il messaggio. 
+* Se il ricevitore stabilisce che non è possibile elaborare il messaggio, chiama il metodo [Abandon()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon). La coda rimuove quindi il blocco dal messaggio e lo rende disponibile per gli altri ricevitori.
 * Se il ricevitore non chiama uno di questi metodi entro un periodo di tempo configurabile (per impostazione predefinita, 60 secondi) la coda presuppone che si sia verificato un errore nel ricevitore. In questo caso si comporta come se il ricevitore avesse chiamato il metodo **Abandon**, rendendo così il messaggio disponibile per altri ricevitori.
 
-Possibili risultati: lo stesso messaggio potrebbe essere recapitato due volte, anche a due ricevitori diversi. Le applicazioni che usano le code del bus di servizio devono prevedere questa possibilità. Per semplificare il rilevamento dei duplicati, ogni messaggio ha una proprietà **[MessageID](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId)** univoca che per impostazione predefinita rimane invariata indipendentemente dal numero di letture del messaggio da una coda. 
+Possibili risultati: lo stesso messaggio potrebbe essere recapitato due volte, anche a due ricevitori diversi. Le applicazioni che usano le code del bus di servizio devono prevedere questa possibilità. Per semplificare il rilevamento dei duplicati, ogni messaggio ha una proprietà [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) univoca che per impostazione predefinita rimane invariata indipendentemente dal numero di letture del messaggio da una coda. 
 
 Le code risultano utili in un numero limitato di situazioni. Permettono alle applicazioni di comunicare anche se non sono in esecuzione contemporaneamente, sono quindi ideali per l'uso con applicazioni batch e mobili. Una coda con più ricevitori garantisce inoltre il bilanciamento del carico automatico, in quanto i messaggi vengono distribuiti tra i vari ricevitori.
 
@@ -80,7 +81,7 @@ Un *argomento* e una coda presentano caratteristiche simili. I mittenti inviano 
 * Il sottoscrittore 2 riceve i messaggi che contengono la proprietà *Seller="Ruby"* e/o che contengono una proprietà *Amount* il cui valore è maggiore di 100.000. Ruby potrebbe essere una responsabile vendite che vuole visualizzare sia le proprie vendite che le vendite di importo elevato, indipendentemente da chi le abbia concluse.
 * Il sottoscrittore 3 presenta un filtro impostato su *True*e pertanto riceve tutti i messaggi. Questa applicazione potrebbe ad esempio essere responsabile del mantenimento di un audit trail, pertanto è necessario che possa visualizzare tutti i messaggi.
 
-Come con le code, i sottoscrittori di un argomento possono leggere i messaggi usando la modalità di ricezione [**ReceiveAndDelete** o **PeekLock**](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). A differenza delle code, tuttavia, un singolo messaggio inviato a un argomento può essere ricevuto da più sottoscrizioni. Questo approccio, comunemente denominato di *pubblicazione e sottoscrizione* o *pub/sub*, risulta utile qualora più applicazioni siano interessate agli stessi messaggi. Con la definizione del filtro corretto, ogni sottoscrittore può accedere solo alla parte del flusso dei messaggi che gli interessa.
+Come con le code, i sottoscrittori di un argomento possono leggere i messaggi usando la modalità di ricezione [ReceiveAndDelete o PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode). A differenza delle code, tuttavia, un singolo messaggio inviato a un argomento può essere ricevuto da più sottoscrizioni. Questo approccio, comunemente denominato di *pubblicazione e sottoscrizione* o *pub/sub*, risulta utile qualora più applicazioni siano interessate agli stessi messaggi. Con la definizione del filtro corretto, ogni sottoscrittore può accedere solo alla parte del flusso dei messaggi che gli interessa.
 
 ## <a name="relays"></a>Inoltri
 Le code e gli argomenti consentono la comunicazione asincrona unidirezionale tramite un broker. Il traffico scorre in una sola direzione e non esiste una connessione diretta tra mittenti e ricevitori. Talvolta questo potrebbe non essere sufficiente, ad esempio se è necessario che le applicazioni possano inviare e ricevere messaggi o se occorre un collegamento diretto tra esse e non serve che i messaggi vengano archiviati tramite un broker. In questi scenari nel bus di servizio sono disponibili gli *inoltri*, come illustrato nella figura 4.
@@ -116,9 +117,4 @@ A questo punto, dopo aver appreso le nozioni di base del bus di servizio di Azur
 [2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

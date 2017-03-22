@@ -243,7 +243,7 @@ Se non si vuole che la sovrimpressione venga aggiunta all'attività e se non si 
               <meta-data android:name="engagement:notification:overlay" android:value="false"/>
             </activity>
 
-#### <a name="a-namecategoriesa-categories"></a><a name="categories"></a> Categorie
+#### <a name="categories"></a> Categorie
 Quando si modificano i layout forniti, si modifica l'aspetto di tutte le notifiche. Le categorie consentono di definire diversi aspetti assegnati (comportamenti) delle notifiche. Quando si crea una campagna Reach, è possibile specificare una categoria. Tenere presente che le categorie consentono di personalizzare annunci e sondaggi, come descritto successivamente nel documento.
 
 Per registrare un gestore di categorie per le notifiche, è necessario aggiungere una chiamata durante l'inizializzazione dell'applicazione.
@@ -321,7 +321,7 @@ Per usare semplicemente layout alternativi per una categoria specifica, è possi
               }
             }
 
-**Esempio di `my_notification_overlay.xml`: **
+**Esempio di `my_notification_overlay.xml`:**
 
             <?xml version="1.0" encoding="utf-8"?>
             <RelativeLayout
@@ -336,7 +336,7 @@ Per usare semplicemente layout alternativi per una categoria specifica, è possi
 
 Come si può notare, l'identificatore visualizzazione di sovrimpressione è diverso da quello standard. È importante che ogni layout usi un identificatore univoco per le sovrimpressioni.
 
-**Esempio di `my_notification_area.xml`: **
+**Esempio di `my_notification_area.xml`:**
 
             <?xml version="1.0" encoding="utf-8"?>
             <merge
