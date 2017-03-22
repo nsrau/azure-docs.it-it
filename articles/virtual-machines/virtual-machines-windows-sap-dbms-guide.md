@@ -70,7 +70,7 @@ ms.lasthandoff: 03/03/2017
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
-[azure-cli]:../xplat-cli-install.md
+[azure-cli]:../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
@@ -243,7 +243,7 @@ ms.lasthandoff: 03/03/2017
 [vpn-gateway-cross-premises-options]:../vpn-gateway/vpn-gateway-plan-design.md
 [vpn-gateway-site-to-site-create]:../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
 [vpn-gateway-vpn-faq]:../vpn-gateway/vpn-gateway-vpn-faq.md
-[xplat-cli]:../xplat-cli-install.md
+[xplat-cli]:../cli-install-nodejs.md
 [xplat-cli-azure-resource-manager]:../azure-resource-manager/xplat-cli-azure-resource-manager.md
 
 Questa guida fa parte della documentazione relativa all'implementazione e alla distribuzione del software SAP in Microsoft Azure. Prima di leggere questa Guida, leggere la [Guida alla pianificazione e all'implementazione][planning-guide]. Questo documento illustra la distribuzione di vari sistemi di gestione di database relazionali (RDBMS) e dei prodotti correlati in combinazione con SAP in macchine virtuali di Microsoft Azure tramite le funzionalità di infrastruttura distribuita come servizio (IaaS) di Azure.

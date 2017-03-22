@@ -13,13 +13,13 @@ ms.custom: business continuity
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.date: 12/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 93efe1a08149e7c027830b03a9e426ac5a05b27b
-ms.openlocfilehash: 444954fa2152fbd8b7e25b9787a13fa4a62ec77f
-ms.lasthandoff: 02/18/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 797d91b21fcd71672890c6c77bc81eadd73b47ff
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -39,11 +39,15 @@ In questa esercitazione si apprenderà come usare il portale di Azure per:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* È necessario un account Azure. È possibile [aprire un account Azure gratuito](https://azure.microsoft.com/free/) o [attivare i benefici della sottoscrizione di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
+* **Account Azure**. È necessario un account Azure. È possibile [aprire un account Azure gratuito](https://azure.microsoft.com/free/) o [attivare i benefici della sottoscrizione di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
-* È necessario essere in grado di connettersi al portale di Azure usando un account membro del ruolo proprietario o collaboratore della sottoscrizione. Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Introduzione alla gestione degli accessi nel portale di Azure](../active-directory/role-based-access-control-what-is.md).
+* **Autorizzazioni di creazione di Azure**. È necessario essere in grado di connettersi al portale di Azure usando un account membro del ruolo proprietario o collaboratore della sottoscrizione. Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Introduzione alla gestione degli accessi nel portale di Azure](../active-directory/role-based-access-control-what-is.md).
 
-* Aver completato l'esercitazione [Introduzione ai server del database SQL di Azure, ai database e alle regole del firewall usando il portale di Azure ed SQL Server Management Studio](sql-database-get-started.md) o la [versione per PowerShell](sql-database-get-started-powershell.md) equivalente. In caso contrario, completare questa esercitazione obbligatoria oppure eseguire lo script di PowerShell in fondo alla [versione per PowerShell](sql-database-get-started-powershell.md) di questa esercitazione prima di continuare.
+* **SQL Server Management Studio**. Per scaricare e installare l'ultima versione di SQL Server Management Studio (SSMS), vedere [Scaricare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Per la connessione al database SQL di Azure usare sempre l'ultima versione di SSMS, perché vengono continuamente rilasciate nuove funzionalità.
+
+* **Server e database di base** Per installare e configurare un server e i due database usati in questa esercitazione, fare clic sul pulsante **Distribuisci in Azure**. Facendo clic sul pulsante, si apre il pannello **Deploy from a template** (Distribuisci da un modello). Creare un nuovo gruppo di risorse e specificare la **password di accesso amministratore** per il nuovo server che verrà creato:
+
+   [![Download](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fsqldbtutorial.blob.core.windows.net%2Ftemplates%2Fsqldbgetstarted.json)
 
 
 > [!NOTE]

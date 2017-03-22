@@ -49,7 +49,7 @@ Per configurare la delega vincolata Kerberos per un server SharePoint, usare le 
 
 ### <a name="ensure-that-sharepoint-is-running-under-a-service-account"></a>Verificare che SharePoint sia in esecuzione in un account di servizio
 
-Verificare che SharePoint sia in esecuzione in un account di servizio, non in un sistema locale, un servizio locale o un servizio di rete. È necessario eseguire questa operazione in modo da poter associare i nomi di entità servizio (SPN) a un account valido. I nomi SPN sono usati dal protocollo Kerberos per identificare i diversi servizi e saranno necessari in seguito per configurare la delega vincolata Kerberos.
+Verificare che SharePoint sia in esecuzione in un account di servizio definito, non in un sistema locale, un servizio locale o un servizio di rete. È necessario eseguire questa operazione in modo da poter associare i nomi di entità servizio (SPN) a un account valido. I nomi SPN sono usati dal protocollo Kerberos per identificare i diversi servizi e saranno necessari in seguito per configurare la delega vincolata Kerberos.
 
 Per garantire che i siti siano in esecuzione in un account di servizio definito, procedere come segue:
 
@@ -63,7 +63,7 @@ Per garantire che i siti siano in esecuzione in un account di servizio definito,
 5. Selezionare **Registra nuovo account gestito**. Dopo aver creato l'account, prima di poterlo usare è necessario impostare l'opzione **Pool di applicazioni Web**.
 
 > [!NOTE]
-È necessario avere un account di Azure AD creato in precedenza per il servizio. Si consiglia di consentire la modifica automatica della password. Per altre informazioni sull'insieme completo di passaggi e sulla risoluzione di problemi, vedere [Configure automatic password change in SharePoint 2013](https://technet.microsoft.com/EN-US/library/ff724280.aspx) (Configurare la modifica automatica della password in SharePoint 2013).
+È necessario avere un account di Azure AD creato in precedenza per il servizio. Si consiglia di consentire la modifica automatica della password. Per altre informazioni sull'insieme completo di passaggi e sulla risoluzione di problemi, vedere [Configurare la modifica automatica della password in SharePoint 2013](https://technet.microsoft.com/EN-US/library/ff724280.aspx).
 
 ### <a name="configure-sharepoint-for-kerberos"></a>Configurare SharePoint per Kerberos
 
@@ -115,7 +115,7 @@ Il nome SPN sarà:
 HTTP/ sharepoint.demo.o365identity.us demo
 ```
 
-È possibile che sia necessario anche impostare nomi SPN per siti specifici sul server. Per altre informazioni, vedere [Configurare l'autenticazione Kerberos](https://technet.microsoft.com/en-us/library/cc263449(v=office.12).aspx). Leggere con attenzione la sezione "Creare nomi delle entità servizio per applicazioni Web mediante l'autenticazione Kerberos".
+Potrebbe essere necessario anche impostare nomi SPN per siti specifici sul server. Per altre informazioni, vedere [Configurare l'autenticazione Kerberos](https://technet.microsoft.com/en-us/library/cc263449(v=office.12).aspx). Leggere con attenzione la sezione "Creare nomi delle entità servizio per applicazioni Web mediante l'autenticazione Kerberos".
 
 Il modo più semplice per impostare nomi SPN è quello di seguire i formati dei nomi SPN già presenti per altri siti. Copiare i nomi SPN per la registrazione con l'account del servizio. A tale scopo, seguire questa procedura:
 

@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cd861d2ce2c6acaec507c45032debd5146b9956a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 58f4227fc6ac6ca1bd76c440d3d4441786693b3b
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -66,10 +67,5 @@ Quando si pianifica una soluzione di identità ibrida, assicurarsi che venga for
 
 ## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

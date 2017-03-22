@@ -66,7 +66,7 @@ In questa sezione verrà creato un progetto di Visual Studio usando un modello d
 Per effettuare operazioni di archiviazione, è necessario un account di archiviazione di Azure. Per creare un account di archiviazione, attenersi alla procedura riportata di seguito
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Fare clic sull'icona **Nuovo** nella parte inferiore sinistra del portale, quindi fare clic su **Dati e archiviazione** > ** Account di archiviazione**.  Fare clic sul pulsante **Crea** quindi assegnare un nome univoco all'account di archiviazione e creare un nuovo [gruppo di risorse](../azure-resource-manager/resource-group-overview.md) correlato.
+2. Fare clic sull'icona **Nuovo** nella parte inferiore sinistra del portale, quindi fare clic su **Dati e archiviazione** > **Account di archiviazione**.  Fare clic sul pulsante **Crea** quindi assegnare un nome univoco all'account di archiviazione e creare un nuovo [gruppo di risorse](../azure-resource-manager/resource-group-overview.md) correlato.
    
       ![Quick Create](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png)
    

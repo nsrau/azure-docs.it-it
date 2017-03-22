@@ -148,7 +148,7 @@ I computer Windows locali e le macchine virtuali Windows in cloud non di Azure, 
 
 1. Assicurarsi che nei computer da caricare in Automation DSC per Azure sia installata la versione più recente di [WMF 5](http://aka.ms/wmf5latest) .
 2. Seguire le istruzioni riportate nella sezione [**Generazione di metaconfigurazioni DSC**](#generating-dsc-metaconfigurations) di seguito per generare una cartella contenente le metaconfigurazioni DSC necessarie.
-3. Applicare in remoto la metaconfigurazione di PowerShell DSC ai computer da caricare. **Nel computer dal quale viene eseguito questo comando deve essere installata la versione più recente di [WMF 5](http://aka.ms/wmf5latest) **:
+3. Applicare in remoto la metaconfigurazione di PowerShell DSC ai computer da caricare. **Nel computer dal quale viene eseguito questo comando deve essere installata la versione più recente di [WMF 5](http://aka.ms/wmf5latest)**:
 
     ```powershell
     Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2

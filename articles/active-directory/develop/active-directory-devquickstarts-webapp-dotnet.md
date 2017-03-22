@@ -73,7 +73,7 @@ In questo passaggio, verrà configurato il middleware OWIN per l'uso del protoco
      }
      ```
 
-4. Aprire il file App_Start\Startup.Auth.cs e quindi implementare il metodo **ConfigureAuth(...) **. I parametri forniti in *OpenIDConnectAuthenticationOptions* fungeranno da coordinate per consentire all'app di comunicare con Azure AD. È inoltre necessario impostare l'autenticazione tramite cookie poiché il middleware OpenID Connect usa i cookie in background.
+4. Aprire il file App_Start\Startup.Auth.cs e quindi implementare il metodo **ConfigureAuth(...)**. I parametri forniti in *OpenIDConnectAuthenticationOptions* fungeranno da coordinate per consentire all'app di comunicare con Azure AD. È inoltre necessario impostare l'autenticazione tramite cookie poiché il middleware OpenID Connect usa i cookie in background.
 
      ```C#
      public void ConfigureAuth(IAppBuilder app)

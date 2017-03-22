@@ -16,8 +16,9 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: cea81f16ecc6203f487fdf15310638b123312dde
-ms.openlocfilehash: caee6a14bd988f2355c9683519b5f5480428a709
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 75f4792ff2aa2b73ebc3ff976887a74ce09988f3
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -35,7 +36,7 @@ In questa esercitazione si usa il portale di Azure per creare un'istanza di SQL 
 Per iniziare, è necessario:
 
 * **Account Azure**: per creare un account, vedere la [versione di valutazione gratuita][Azure Free Trial] o [MSDN Azure Credits][MSDN Azure Credits] (Crediti Azure MSDN).
-* **Server SQL di Azure**: per altri dettagli, vedere la sezione su come [creare un server logico del database SQL di Azure con il portale di Azure][Create an Azure SQL Database logical server with the Azure portal].
+* **Server SQL di Azure**: per altre informazioni dettagliate, vedere [Create an Azure SQL database with the Azure portal][Create an Azure SQL database in the Azure portal] (Creare un database SQL di Azure con il portale di Azure).
 
 > [!NOTE]
 > La creazione di un'istanza di SQL Data Warehouse può avere come risultato un nuovo servizio fatturabile.  Per altri dettagli, vedere la pagina relativa ai [prezzi di SQL Data Warehouse][SQL Data Warehouse pricing].
@@ -82,11 +83,11 @@ Le regole firewall possono anche essere configurate con Transact-SQL. Per altre 
 È anche opportuno vedere le [procedure consigliate][Best practices].
 
 <!--Article references-->
-[Create an Azure SQL Database logical server with the Azure portal]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
-[Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[Create an Azure SQL database in the Azure portal]: ../sql-database/sql-database-get-started.md
+[Create an Azure SQL database with PowerShell]: ../sql-database/sql-database-create-and-configure-database-powershell
 [resource groups]: ../azure-resource-manager/resource-group-template-deploy-portal.md
 [Best practices]: sql-data-warehouse-best-practices.md
-[DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[DWU]: sql-data-warehouse-overview-what-is.md
 [sottoscrizione]: ../azure-glossary-cloud-terminology.md#subscription
 [resource group]: ../azure-glossary-cloud-terminology.md#resource-group
 [T-SQL]: ./sql-data-warehouse-get-started-create-database-tsql.md
@@ -99,9 +100,4 @@ Le regole firewall possono anche essere configurate con Transact-SQL. Per altre 
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

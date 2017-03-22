@@ -1,5 +1,5 @@
 ---
-title: Panoramica del servizio Azure Batch | Documentazione Microsoft
+title: Azure Batch esegue soluzioni di calcolo parallele su larga scala nel cloud | Microsoft Docs
 description: Informazioni sull&quot;uso del servizio Azure Batch per carichi di lavoro HPC e paralleli su larga scala
 services: batch
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 3a01764b6a0e777e947cf8648606cdd568d118ff
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 9ea205cb5034fea66c770ec71934e302ee818a89
+ms.lasthandoff: 03/09/2017
 
 
 ---
-# <a name="basics-of-azure-batch"></a>Nozioni di base su Azure Batch
+# <a name="run-intrinsically-parallel-workloads-with-batch"></a>Eseguire carichi di lavoro intrinsecamente paralleli con Batch
+
 Azure Batch è un servizio di piattaforma per eseguire in modo efficiente applicazioni parallele e HPC (High Performance Computing) su larga scala nel cloud. Azure Batch pianifica l'esecuzione del lavoro a elevato utilizzo di calcolo su una raccolta gestita di macchine virtuali e può ridimensionare automaticamente le risorse di calcolo in base alle esigenze dei processi.
 
 Con Azure Batch, è possibile definire facilmente le risorse di calcolo di Azure per eseguire le applicazioni in parallelo e su larga scala. Non è necessario creare, configurare e gestire manualmente un cluster HPC, singole macchine virtuali, reti virtuali o un'infrastruttura complessa di pianificazione di processi e attività. Azure Batch automatizza o semplifica queste attività.
@@ -156,9 +159,4 @@ Ora che è stata esaminata una panoramica generale del servizio Batch è necessa
 
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

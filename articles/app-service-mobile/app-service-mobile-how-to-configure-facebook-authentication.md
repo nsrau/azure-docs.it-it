@@ -4,7 +4,7 @@ description: Informazioni su come configurare l&quot;autenticazione Facebook per
 services: app-service
 documentationcenter: 
 author: mattchenderson
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: b6b4f062-fcb4-47b3-b75a-ec4cb51a62fd
 ms.service: app-service-mobile
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e4f23ba29401892092550cf73e56ec7ec6373c05
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: e23725539a354b0c813e5206e8ca4de37be0b49b
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -30,7 +31,7 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 ## <a name="register"> </a>Registrare l'applicazione con Facebook
 1. Accedere al [portale di Azure], e passare all'applicazione. Copiare l' **URL**. Verrà usato per configurare l'app Facebook.
 2. In un'altra finestra del browser passare al sito Web [Facebook Developers] e accedere con le credenziali dell'account Facebook.
-3. (Facoltativo) Se non è ancora stata effettuata la registrazione, fare clic su **Apps** > **Register as a Developer** (Registrarsi come sviluppatore), quindi accettare le condizioni e seguire la procedura di registrazione.
+3. (Facoltativo) Se non è ancora stata effettuata la registrazione, fare clic su **Apps** (App)  > **Register as a Developer** (Registrarsi come sviluppatore), quindi accettare le condizioni e seguire la procedura di registrazione.
 4. Fare clic su **My Apps** (App personali)  > **Add a New App** (Aggiungi una nuova app)  > **Website** (Sito Web)  > **Skip and Create App ID** (Ignora e crea ID app). 
 5. In **Display Name** (Nome visualizzato) digitare un nome univoco per l'app, digitare un indirizzo in **Contact Email** (Indirizzo di posta elettronica di contatto), scegliere una categoria per l'app in **Category** (Categoria), quindi fare clic su **Create App ID** (Crea ID app) e completare il controllo di sicurezza. Si passerà al dashboard dello sviluppatore per la nuova app di Facebook.
 6. In "Facebook Login" (Accesso a Facebook) fare clic su **Get Started**(Informazioni di base). Aggiungere l'URI di **Redirect URI** (URI di reindirizzamento) dell'applicazione in **Valid OAuth redirect URIs** (URI di reindirizzamento OAuth validi) e quindi fare clic su **Save Changes** (Salva modifiche). 
@@ -68,11 +69,6 @@ Per completare la procedura descritta in questo argomento, è necessario disporr
 <!-- URLs. -->
 [Facebook Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268286
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
-[Introduzione all'autenticazione]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
 [portale di Azure]: https://portal.azure.com/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

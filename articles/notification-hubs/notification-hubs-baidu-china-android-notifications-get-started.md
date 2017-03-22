@@ -143,7 +143,7 @@ Verrà visualizzato il messaggio **保存成功！** (**Salvataggio completato**
     ![][22]
 
 ## <a name="connect-your-app-to-the-notification-hub"></a>Connettere l'app all'hub di notifica
-1. Nel plug-in Eclipse ADT creare un nuovo progetto Android selezionando **File** > **New (Nuovo) ** > **Android Application Project (Progetto applicazione Android) **.
+1. Nel plug-in Eclipse ADT creare un nuovo progetto Android selezionando **File** > **New (Nuovo)** > **Android Application Project (Progetto applicazione Android)**.
    
     ![][23]
 2. Immettere un nome in **Application Name** (Nome applicazione) e verificare che la versione dell'**SDK richiesta minima** sia impostata su **API 16: Android 4.1**.

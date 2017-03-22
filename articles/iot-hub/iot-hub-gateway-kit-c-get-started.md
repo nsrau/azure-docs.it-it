@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: dd14d137c23fbccb3616b60db8a63e668ae7ea80
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -107,8 +108,3 @@ In caso di problemi durante le lezioni, è possibile cercare soluzioni nell'arti
 
 ## <a name="explore-more"></a>Scopri di più
 Per ulteriori informazioni, visitare la pagina relativa a [Intel IoT Gateway Kit in Developer Zone](http://software.intel.com/iot/microsoft-azure).
-
-
-<!--HONumber=Jan17_HO4-->
-
-

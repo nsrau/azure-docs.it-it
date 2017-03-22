@@ -69,7 +69,7 @@ Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione
 
 **Per configurare l'accesso Single Sign-On, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **Aha!** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On **.
+1. Nella pagina di integrazione dell'applicazione **Aha!** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-aha-tutorial/IC798946.png "Configurare l'accesso Single Sign-On")
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Aha!** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.

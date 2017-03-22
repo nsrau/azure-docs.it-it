@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: d75f6a9db55595ab6b40052b8609709eacf30d4e
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: e4b1907b95576468654703c843a5f6e06846814b
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -68,7 +68,7 @@ Dopo la modifica, la nuova password sarà utilizzabile in Servizi di dominio Azu
 <br>
 
 ## <a name="related-content"></a>Contenuti correlati
-* [Come aggiornare la password](../active-directory/active-directory-passwords-update-your-own-password.md)
+* [Come aggiornare la password](../active-directory/active-directory-passwords-update-your-own-password.md#how-to-reset-your-password)
 * [Introduzione alla gestione delle password](../active-directory/active-directory-passwords-getting-started.md)
 * [Abilitare la sincronizzazione password in Servizi di dominio AAD per un tenant di Azure AD sincronizzato](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Amministrare un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-administer-domain.md)

@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 02/23/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 46b829ce52994a5112494145a02e78859c5fae2d
-ms.openlocfilehash: d4c7fa2058b1c07671329304c37630d2e6e8e8a7
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: bc7b0d4037effd7bcc8685a357a49de339e31d7b
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -34,7 +34,7 @@ L'SDK offre la raccolta automatica delle risposte e delle frequenze delle richie
 
 * Una sottoscrizione a [Microsoft Azure](http://azure.com). Se il team o l'organizzazione ha una sottoscrizione di Azure, il proprietario potrà aggiungere l'utente alla sottoscrizione usando il rispettivo [account Microsoft](http://live.com).
 
-## <a name="a-nameaddacreate-an-application-insights-resource"></a><a name="add"></a>Creare una risorsa di Application Insights
+## <a name="add"></a>Creare una risorsa di Application Insights
 Accedere al [Portale di Azure][portal] e creare una nuova risorsa di Application Insights. Una [risorsa][roles] in Azure è un'istanza di un servizio. In questa risorsa la telemetria dell'app verrà analizzata e visualizzata.
 
 ![Fare clic su Nuovo, Application Insights](./media/app-insights-nodejs/01-new-asp.png)
@@ -46,7 +46,7 @@ La chiave identifica la risorsa e verrà installata subito nell'SDK per indirizz
 
 ![Fare clic su Proprietà, selezionare il tasto e premere CTRL+C](./media/app-insights-nodejs/02-props-asp.png)
 
-## <a name="a-namesdka-install-the-sdk-in-your-application"></a><a name="sdk"></a> Installare l’SDK nell'applicazione
+## <a name="sdk"></a> Installare l’SDK nell'applicazione
 ```
 npm install applicationinsights --save
 ```
@@ -64,10 +64,10 @@ appInsights.setup("<instrumentation_key>").start();
 
 È possibile provare l'SDK senza invio di dati di telemetria, impostando la chiave di strumentazione su una stringa non vuota.
 
-## <a name="a-nameruna-run-your-project"></a><a name="run"></a> Eseguire il progetto
+## <a name="run"></a> Eseguire il progetto
 Eseguire l'applicazione e provarla aprendo pagine diverse per generare alcuni dati di telemetria.
 
-## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> Visualizzare i dati di telemetria
+## <a name="monitor"></a> Visualizzare i dati di telemetria
 Tornare al [portale di Azure](https://portal.azure.com) e passare alla risorsa Application Insights.
 
 Cercare i dati nella pagina di panoramica. All'inizio si vedranno solo uno o due punti. Ad esempio:
@@ -86,10 +86,7 @@ Fare clic su qualsiasi grafico per visualizzare metriche più dettagliate. [Altr
 Ora distribuire l'applicazione a ISS o ad Azure e osservare l'accumulo dei dati.
 
 #### <a name="no-data-after-you-publish-to-your-server"></a>Nessun dato dopo la pubblicazione nel server?
-Aprire le seguenti porte per il traffico in uscita nel firewall del server:
-
-* `dc.services.visualstudio.com:443`
-* `f5.services.visualstudio.com:443`
+Controllare che [le porte del firewall necessarie siano aperte](app-insights-ip-addresses.md).
 
 #### <a name="trouble-on-your-build-server"></a>Problemi del server di compilazione
 Vedere [questa sezione sulla risoluzione dei problemi](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).

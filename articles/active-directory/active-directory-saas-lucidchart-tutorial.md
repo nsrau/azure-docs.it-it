@@ -119,7 +119,7 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
 **Per assegnare gli utenti a Lucidchart eseguire la procedura seguente:**
 
 1. Nel portale di Azure classico creare un account di test.
-2. Nella pagina di integrazione dell'applicazione **Lucidchart **fare clic su **Assegna utenti**.
+2. Nella pagina di integrazione dell'applicazione **Lucidchart**fare clic su **Assegna utenti**.
    
    ![Assegnare utenti](./media/active-directory-saas-lucidchart-tutorial/IC791197.png "Assegnare utenti")
 3. Selezionare l'utente di test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
