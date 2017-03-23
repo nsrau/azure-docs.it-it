@@ -17,6 +17,7 @@ ms.author: magoedte;bwren
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: cf3d1ae66483fed4aa9cd31f674729e4b875653c
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -68,7 +69,7 @@ I parametri per un runbook figlio avviato con un cmdlet vengono forniti come una
 Nell'esempio seguente viene avviato un runbook figlio con parametri e si attende il suo completamento con il parametro Start-AzureRmAutomationRunbook -wait. Una volta completato, l'output viene raccolto dal runbook figlio.
 
     $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true} 
-    $joboutput = Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" -ResouceGroupName "LabRG" –Parameters $params –wait
+    $joboutput = Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" -ResourceGroupName "LabRG" –Parameters $params –wait
 
 
 ## <a name="comparison-of-methods-for-calling-a-child-runbook"></a>Confronto di metodi per chiamare un runbook figlio
@@ -86,10 +87,5 @@ Nella tabella seguente vengono riepilogate le differenze tra i due metodi per ch
 ## <a name="next-steps"></a>Passaggi successivi
 * [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md)
 * [Output di runbook e messaggi in automazione di Azure](automation-runbook-output-and-messages.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
