@@ -74,7 +74,7 @@ Per creare un gruppo di sicurezza di rete denominato *NSG-FrontEnd* in base allo
    Output:
 
         Access    Desc                                                    DestPortRange    Direction      Priority
-        --------  ------------------------------------------------------  ---------------  -----------  ----------
+        
         Allow     Allow inbound traffic from all VMs in VNET              *                Inbound           65000
         Allow     Allow inbound traffic from azure load balancer          *                Inbound           65001
         Deny      Deny all inbound traffic                                *                Inbound           65500
@@ -183,10 +183,10 @@ Per creare un gruppo di sicurezza di rete denominato *NSG-FrontEnd* in base allo
         
     ```azurecli
     az network vnet subnet update \
-    > --vnet-name TestVNET \
-    > --name FrontEnd \
-    > --resource-group testrg \
-    > --network-security-group NSG-FrontEnd
+    --vnet-name TestVNET \
+    --name FrontEnd \
+    --resource-group testrg \
+    --network-security-group NSG-FrontEnd
     ```
    
     Output previsto:
