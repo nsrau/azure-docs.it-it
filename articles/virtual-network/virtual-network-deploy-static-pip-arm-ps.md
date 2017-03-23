@@ -26,11 +26,11 @@ ms.lasthandoff: 02/28/2017
 # <a name="create-a-vm-with-a-static-public-ip-address-using-powershell"></a>Creare una VM con un indirizzo IP pubblico statico mediante Azure PowerShell
 
 > [!div class="op_single_selector"]
-- [Portale di Azure](virtual-network-deploy-static-pip-arm-portal.md)
-- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-- [Interfaccia della riga di comando di Azure](virtual-network-deploy-static-pip-arm-cli.md)
-- [Modello](virtual-network-deploy-static-pip-arm-template.md)
-- [PowerShell (Classic)](virtual-networks-reserved-public-ip.md) (PowerShell (classico))
+> * [Portale di Azure](virtual-network-deploy-static-pip-arm-portal.md)
+> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+> * [Interfaccia della riga di comando di Azure](virtual-network-deploy-static-pip-arm-cli.md)
+> * [Modello](virtual-network-deploy-static-pip-arm-template.md)
+> * [PowerShell (Classic)](virtual-networks-reserved-public-ip.md) (PowerShell (classico))
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
