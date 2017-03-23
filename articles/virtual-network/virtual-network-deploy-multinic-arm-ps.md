@@ -26,11 +26,11 @@ ms.lasthandoff: 02/28/2017
 # <a name="create-a-vm-with-multiple-nics-using-powershell"></a>Creare una macchina virtuale con più schede di interfaccia di rete usando PowerShell
 
 > [!div class="op_single_selector"]
-- [PowerShell](virtual-network-deploy-multinic-arm-ps.md)
-- [Interfaccia della riga di comando di Azure](virtual-network-deploy-multinic-arm-cli.md)
-- [Modello](virtual-network-deploy-multinic-arm-template.md)
-- [PowerShell (Classic)](virtual-network-deploy-multinic-classic-ps.md) (PowerShell (classico))
-- [Interfaccia della riga di comando di Azure (versione classica)](virtual-network-deploy-multinic-classic-cli.md)
+> * [PowerShell](virtual-network-deploy-multinic-arm-ps.md)
+> * [Interfaccia della riga di comando di Azure](virtual-network-deploy-multinic-arm-cli.md)
+> * [Modello](virtual-network-deploy-multinic-arm-template.md)
+> * [PowerShell (Classic)](virtual-network-deploy-multinic-classic-ps.md) (PowerShell (classico))
+> * [Interfaccia della riga di comando di Azure (versione classica)](virtual-network-deploy-multinic-classic-cli.md)
 
 [!INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 

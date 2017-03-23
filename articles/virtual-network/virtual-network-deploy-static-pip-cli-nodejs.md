@@ -26,12 +26,12 @@ ms.lasthandoff: 02/28/2017
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli-10"></a>Creare una VM con un IP pubblico statico usando l'interfaccia della riga di comando 1.0 di Azure
 
 > [!div class="op_single_selector"]
-- [Portale di Azure](virtual-network-deploy-static-pip-arm-portal.md)
-- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-- [Interfaccia della riga di comando di Azure 2.0](virtual-network-deploy-static-pip-arm-cli.md)
-- [Interfaccia della riga di comando di Azure 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
-- [Modello](virtual-network-deploy-static-pip-arm-template.md)
-- [PowerShell (Classic)](virtual-networks-reserved-public-ip.md) (PowerShell (classico))
+> * [Portale di Azure](virtual-network-deploy-static-pip-arm-portal.md)
+> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+> * [Interfaccia della riga di comando di Azure 2.0](virtual-network-deploy-static-pip-arm-cli.md)
+> * [Interfaccia della riga di comando di Azure 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
+> * [Modello](virtual-network-deploy-static-pip-arm-template.md)
+> * [PowerShell (Classic)](virtual-networks-reserved-public-ip.md) (PowerShell (classico))
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 02/28/2017
 
 È possibile completare questa attività usando l'interfaccia della riga di comando di Azure 1.0 (questo articolo) o l'[interfaccia della riga di comando di Azure 2.0](virtual-network-deploy-static-pip-arm-cli.md). 
 
-## <a name="a-name--createastep-1---start-your-script"></a><a name = "create"></a>Passaggio 1 - avviare lo script
+## <a name = "create"></a>Passaggio 1 - avviare lo script
 È possibile scaricare lo script di bash completo utilizzato [qui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-cli.sh). Per modificare lo script da usare nell'ambiente, seguire questa procedura:
 
 Modificare i valori delle variabili indicate di seguito in base ai valori che si desidera usare per la distribuzione. I valori seguenti si riferiscono allo scenario usato in questo articolo:

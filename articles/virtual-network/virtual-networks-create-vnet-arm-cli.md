@@ -38,13 +38,13 @@ Azure offre due modelli di distribuzione, ovvero Azure Resource Manager e la dis
     È anche possibile creare una rete virtuale tramite Resource Manager usando altri strumenti oppure tramite il modello di distribuzione classica selezionando un'opzione diversa dall'elenco seguente:
 
 > [!div class="op_single_selector"]
-- [Portale](virtual-networks-create-vnet-arm-pportal.md)
-- [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-- [CLI](virtual-networks-create-vnet-arm-cli.md)
-- [Modello](virtual-networks-create-vnet-arm-template-click.md)
-- [Portale (versione classica)](virtual-networks-create-vnet-classic-pportal.md)
-- [PowerShell (versione classica)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-- [Interfaccia della riga di comando (versione classica)](virtual-networks-create-vnet-classic-cli.md)
+> * [Portale](virtual-networks-create-vnet-arm-pportal.md)
+> * [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+> * [CLI](virtual-networks-create-vnet-arm-cli.md)
+> * [Modello](virtual-networks-create-vnet-arm-template-click.md)
+> * [Portale (versione classica)](virtual-networks-create-vnet-classic-pportal.md)
+> * [PowerShell (versione classica)](virtual-networks-create-vnet-classic-netcfg-ps.md)
+> * [Interfaccia della riga di comando (versione classica)](virtual-networks-create-vnet-classic-cli.md)
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
@@ -65,22 +65,22 @@ Per creare una rete virtuale usando l'interfaccia della riga di comando di Azure
 
     ```azurecli
     az network vnet create \
-        --name TestVNet \
-        --resource-group TestRG \
-        --location centralus \
-        --address-prefix 192.168.0.0/16 \
-        --subnet-name FrontEnd \
-        --subnet-prefix 192.168.1.0/24
+    --name TestVNet \
+    --resource-group TestRG \
+    --location centralus \
+    --address-prefix 192.168.0.0/16 \
+    --subnet-name FrontEnd \
+    --subnet-prefix 192.168.1.0/24
     ```
 
     Output previsto:
-   
+    
     ```json
     {
         "newVNet": {
             "addressSpace": {
             "addressPrefixes": [
-                "192.168.0.0/16"
+            "192.168.0.0/16"
             ]
             },
             "dhcpOptions": {
@@ -100,7 +100,7 @@ Per creare una rete virtuale usando l'interfaccia della riga di comando di Azure
                 "resourceGroup": "TestRG"
             }
             ]
-        }
+            }
     }
     ```
 
@@ -121,20 +121,20 @@ Per creare una rete virtuale usando l'interfaccia della riga di comando di Azure
 
     L'output ottenuto sarà il seguente:
 
-            Where      Name      Group
-            ---------  --------  -------
-            centralus  TestVNet  TestRG
+        Where      Name      Group
+
+        centralus  TestVNet  TestRG
 
 4. Creare una subnet:
 
     ```azurecli
     az network vnet subnet create \
-        --address-prefix 192.168.2.0/24 \
-        --name BackEnd \
-        --resource-group TestRG \
-        --vnet-name TestVNet
+    --address-prefix 192.168.2.0/24 \
+    --name BackEnd \
+    --resource-group TestRG \
+    --vnet-name TestVNet
     ```
-   
+
     Output previsto:
 
     ```json
@@ -168,11 +168,11 @@ Per creare una rete virtuale usando l'interfaccia della riga di comando di Azure
     --query '{Name:name,Where:location,Group:resourceGroup,Status:provisioningState,SubnetCount:subnets | length(@)}' \
     -o table
     ```
-   
+
     Output previsto:
-   
+
         Name      Where      Group    Status       SubnetCount
-        --------  ---------  -------  ---------  -------------
+
         TestVNet  centralus  TestRG   Succeeded              2
 
 6. Eseguire query sulle proprietà delle subnet:
@@ -188,7 +188,7 @@ Per creare una rete virtuale usando l'interfaccia della riga di comando di Azure
     Output previsto:
 
         Name      CIDR            Status
-        --------  --------------  ---------
+
         FrontEnd  192.168.1.0/24  Succeeded
         BackEnd   192.168.2.0/24  Succeeded
 
