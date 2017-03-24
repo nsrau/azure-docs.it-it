@@ -17,10 +17,14 @@ ms.author: dobett
 translationtype: Human Translation
 ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
 ms.openlocfilehash: aadbee1388e2c2aafaf0a5c50d2af195284d2bec
+ms.lasthandoff: 12/07/2016
 
 
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Configurare i caricamenti dei file nell'hub IoT con il portale di Azure
+
+[!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
+
 ## <a name="file-upload"></a>Caricamento di file
 Per usare la [funzionalità di caricamento di file nell'hub IoT][lnk-upload], è prima di tutto necessario associare un account di archiviazione di Azure all'hub. Selezionare le impostazioni di **Caricamento del file** per visualizzare un elenco di proprietà di caricamento del file per l'hub IoT da modificare.
 
@@ -68,9 +72,4 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-securing]: iot-hub-security-ground-up.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 
