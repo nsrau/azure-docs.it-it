@@ -28,7 +28,7 @@
 
 # Riferimento
 ## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)
-## [Interfaccia della riga di comando di Azure 2.0 (anteprima)](/cli/azure/keyvault)
+## [Interfaccia della riga di comando di Azure 2.0](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)

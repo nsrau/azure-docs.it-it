@@ -55,7 +55,6 @@
 ### [Creare una VM con C# e un modello](../virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Creare una VM con Chef](../virtual-machines-windows-chef-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Creare una VM con framework applicazioni comuni](../virtual-machines-windows-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Copiare una macchina virtuale](../virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Spostare una macchina virtuale tra sottoscrizioni](../virtual-machines-windows-move-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 
@@ -80,22 +79,18 @@
 ### [Vantaggio Azure Hybrid Use](../virtual-machines-windows-hybrid-use-benefit-licensing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Usare immagini client Windows](../virtual-machines-windows-client-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Preparare un disco rigido virtuale per il caricamento](../virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Generalizzare una VM con Sysprep](../virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Caricare un VHD](../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Caricare e creare una VM da un disco rigido virtuale generalizzato](../virtual-machines-windows-upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Caricare e creare una VM da un disco rigido virtuale specializzato](../virtual-machines-windows-upload-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Creare l'immagine di un disco gestito](../virtual-machines-windows-capture-image-resource.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Creare una VM da un'immagine di disco gestito generalizzato](../virtual-machines-windows-create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Creare una VM non gestita da un disco rigido virtuale generalizzato](../virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Creare una VM da un disco rigido virtuale specializzato](../virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Acquisire una macchina virtuale non gestita nell'archivio BLOB](../virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+
+
 
 ## Gestire le risorse di archiviazione delle VM
 ### [Azure Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Domande frequenti](../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Creare un disco gestito](../virtual-machines-windows-create-managed-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Convertire una VM in dischi gestiti](../virtual-machines-windows-migrate-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Azure PowerShell](../virtual-machines-windows-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Eseguire la migrazione di VM a Managed Disks](../virtual-machines-windows-migrate-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Conversione da dischi non gestiti a Managed Disks](../virtual-machines-windows-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Eseguire la migrazione di una VM classica in Managed Disks](../virtual-machines-windows-migrate-single-classic-to-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Creare uno snapshot di un disco gestito](../virtual-machines-windows-snapshot-copy-managed-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### Collegare il disco dati
 #### [Azure PowerShell](../virtual-machines-windows-attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -104,6 +99,12 @@
 ### [Espandere il disco del sistema operativo](../virtual-machines-windows-expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Espandere un disco dati](../virtual-machines-windows-expand-data-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Usare D: come disco dati](../virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### Creare VM con dischi non gestiti
+#### [Caricare un VHD](../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Creare un'immagine non gestita](../virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Creare una VM non gestita da un disco rigido virtuale generalizzato](../virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Copiare una macchina virtuale](../virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Creare una VM da un disco rigido virtuale specializzato](../virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## [Rete VM](../virtual-machines-windows-ps-common-network-ref.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Creare reti virtuali](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -169,10 +170,11 @@
 ## Eseguire la migrazione di VM
 ### [Eseguire la migrazione di VM locali e AWS ad Azure: panoramica](../virtual-machines-windows-on-prem-to-azure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Eseguire la migrazione da Amazon Web Services (AWS) ad Azure](../virtual-machines-windows-aws-to-azure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Caricare e creare una VM da un disco rigido virtuale generalizzato](../virtual-machines-windows-upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Caricare e creare una VM da un disco rigido virtuale specializzato](../virtual-machines-windows-upload-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Eseguire la migrazione dal modello di distribuzione classica ad Azure Resource Manager](../virtual-machines-windows-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Pianificare la migrazione](../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Eseguire la migrazione di tutte le macchine virtuali in una rete virtuale tramite PowerShell](../virtual-machines-windows-ps-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Eseguire la migrazione di una singola macchina virtuale tramite PowerShell](../virtual-machines-windows-migrate-single-classic-to-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Errori comuni di migrazione](../virtual-machines-migration-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Strumenti della community per la migrazione](../virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

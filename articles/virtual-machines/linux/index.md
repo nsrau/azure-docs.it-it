@@ -13,14 +13,24 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 2b6d6cf497987aeb4ff80f2bb22aade44b015fb0
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: a83884a61475d6bc06e405bc7c72d4ac2435c398
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="linux-virtual-machine-documentation"></a>Documentazione delle macchine virtuali Linux
 
+<div class="introHolder">
+    <div class="intro">
 Informazioni su come eseguire macchine virtuali in Azure con la distribuzione Linux di propria scelta. Documenti, informazioni di riferimento sulle API e campioni mostrano i diversi modi per creare e distribuire i modelli di macchine virtuali.
+    </div>
+    <div class="calloutHolder">
+        <div class="callout">
+            <a href="https://azure.microsoft.com/community/training/courses/managing-infrastructure-microsoft-azure-getting-started/">
+                <img src="media/index/pluralsight.svg" /> Training video gratuito PluralSight: Gestione dell'infrastruttura con Microsoft Azure </a>
+        </div>
+    </div>
+</div>
 
 <ul class="panelContent cardsFTitle">
     <li>

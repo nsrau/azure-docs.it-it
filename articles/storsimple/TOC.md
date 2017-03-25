@@ -161,6 +161,7 @@
 
 ### Risolvere i problemi
 #### [Problemi di distribuzione](storsimple-troubleshoot-deployment.md)
+#### [Uso dello strumento di diagnostica](storsimple-8000-diagnostics.md)
 #### [Problemi operativi](storsimple-troubleshoot-operational-device.md)
 #### [Sostituzione dell'hardware](storsimple-hardware-component-replacement.md)
 ##### [Sostituire il controller del dispositivo](storsimple-controller-replacement.md)
@@ -208,7 +209,9 @@
 ### [Uso di StorSimple Data Manager](storsimple-data-manager-ui.md)
 
 ## Procedure
-### [Usare .NET per trasformare i dati](storsimple-data-manager-dotnet-jobs.md)
+### [Usare .NET per avviare processi](storsimple-data-manager-dotnet-jobs.md)
+### [Usare Automazione per avviare processi](storsimple-data-manager-job-using-automation.md)
+### [Modificare il percorso BLOB predefinito](storsimple-data-manager-change-default-blob-path.md)
 
 # StorSimple per i partner
 ## Panoramica
@@ -235,10 +238,5 @@
 ## [Blog di supporto tecnico](http://blogs.msdn.com/b/storsimple/)
 ## [Comunicazioni di terze parti](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
