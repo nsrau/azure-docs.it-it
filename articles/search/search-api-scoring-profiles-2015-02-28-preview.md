@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.author: heidist
 ms.date: 10/27/2016
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 076e97d1a264216d7f51914ed53dc70450aa2677
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 960880e44ad4de74339df7d0786dd8aa34962e3f
+ms.lasthandoff: 03/15/2017
 
 ---
 
@@ -257,7 +258,7 @@ Questa sezione illustra la sintassi e il modello per i profili di punteggio. Per
 | `magnitude:boostingRangeEnd` |Imposta il valore finale dell'intervallo su cui è basato il calcolo della funzione magnitude. Il valore deve essere un numero intero o a virgola mobile. Per le classificazioni a stelle da 1 a 4, corrisponde a 4. |
 | `magnitude:constantBoostBeyondRange` |I valori validi sono true o false (predefinito). Se impostato su true, l'aumento completo della priorità continuerà a essere applicato a documenti che includono un valore per il campo di destinazione maggiore rispetto al limite superiore dell'intervallo. Se false, l'aumento di priorità di questa funzione non verrà applicato ai documenti che includono un valore per il campo di destinazione che non rientra nell'intervallo. |
 | `freshness` |La funzione freshness per l'assegnazione di punteggio viene usata per modificare i punteggi di classificazione per gli elementi in base ai valori dei campi DateTimeOffset fields. Ad esempio, un elemento con una data più recente può essere classificato con una priorità maggiore rispetto agli elementi meno recenti. (Si noti che è anche possibile classificare elementi come eventi di calendario con date future in modo che gli elementi più vicini possano essere classificate in un livello superiore rispetto agli elementi più lontani nel futuro.) Nella versione attuale del servizio un'estremità dell'intervallo sarà fissata all'ora attuale. L'altra estremità è un momento del passato basato su `boostingDuration`. Per aumentare la priorità di un intervallo di tempo nel futuro usare un valore negativo di `boostingDuration`. La frequenza della modifica dell'aumento di priorità da un intervallo massimo e un intervallo minimo viene determinata dall'interpolazione applicata al profilo di punteggio (vedere la figura seguente). Per invertire il fattore di aumento di priorità applicato, scegliere un fattore di aumento di priorità inferiore a 1. |
-| `freshness:boostingDuration` |Imposta un periodo di scadenza, dopo il quale l'aumento di priorità non verrà più applicato a un determinato documento. Per informazioni sulla sintassi ed esempi, vedere [Impostare boostingDuration][#bkmk_boostdur] nella sezione seguente. |
+| `freshness:boostingDuration` |Imposta un periodo di scadenza, dopo il quale l'aumento di priorità non verrà più applicato a un determinato documento. Per informazioni sulla sintassi ed esempi, vedere [Impostare boostingDuration](#bkmk_boostdur) nella sezione seguente. |
 | `distance` |La funzione distance per l'assegnazione di punteggio viene usata per influire sul punteggio di documenti in base alla vicinanza o lontananza rispetto a una posizione geografica di riferimento. La posizione di riferimento viene specificata come parte della query in un parametro (usando il parametro di query `scoringParameter` ) sotto forma di argomento lon,lat. |
 | `distance:referencePointParameter` |Parametro da passare nelle query e da usare come posizione di riferimento. scoringParameter è un parametro di query. Per descrizioni dei parametri di query, vedere [Eseguire ricerche nei documenti](search-api-2015-02-28-preview.md#SearchDocs) . |
 | `distance:boostingDistance` |Numero che indica la distanza, in chilometri, dalla posizione di riferimento in cui termina l'intervallo di aumento della priorità. |
@@ -304,9 +305,4 @@ Per altri esempi, vedere il sito Web relativo ai [tipi di dati dello schema XML 
 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

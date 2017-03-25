@@ -17,8 +17,9 @@ ms.workload: big-data
 ms.date: 03/07/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: e2d78b7e71cd17c88ce4e283cc0b0ddc9bf7b479
-ms.openlocfilehash: 0b12dcfbf69c0f66df7587f6a755f74089090960
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 8a925c38a561d11f1c0e394b8c993f739e912f54
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -157,8 +158,8 @@ Per completare questa parte dell'esercitazione, è necessario disporre di Excel 
 2. Scegliere **Da altre origini** dal menu **Power Query**, quindi fare clic su **Da Azure HDInsight**.
    
     ![Menu di importazione PowerQuery in Excel per Azure HDInsight.][image-hdi-gettingstarted-powerquery-importdata]
-3. Immettere il **nome account** per l'account di archiviazione BLOB di Azure associato al cluster e quindi fare clic su **OK**. Si tratta dell'account di archiviazione creato in precedenza nell'esercitazione.
-4. Immettere la **chiave account** per l'account di archiviazione BLOB di Azure e quindi fare clic su **Salva**.
+3. Immettere il **nome account** per l'account di Archiviazione di Azure associato al cluster e quindi fare clic su **OK**. Si tratta dell'account di archiviazione creato in precedenza nell'esercitazione.
+4. Immettere la **chiave account** per l'account di Archiviazione di Azure e quindi fare clic su **Salva**.
 5. Nel riquadro destro fare doppio clic sul nome del BLOB. Per impostazione predefinita, il nome del BLOB corrisponde al nome del cluster.
 6. Trovare **stdout** nella colonna **Nome**. Assicurarsi che il GUID nella colonna **Percorso cartella** corrispondente sia uguale al GUID annotato in precedenza. Una corretta corrispondenza indica che i dati di output corrispondono al processo inviato. Fare clic su **Binario** nella colonna a sinistra di **stdout**.
    
@@ -190,7 +191,7 @@ In questa esercitazione di Hadoop si è appreso come creare un cluster Hadoop in
 
 * [Introduzione all'uso di HDInsight Hadoop Tools per Visual Studio][1]
 * [Introduzione a HDInsight Emulator][hdinsight-emulator]
-* [Usare l'archivio BLOB di Azure con HDInsight][hdinsight-storage]
+* [Usare l'Archiviazione di Azure con HDInsight][hdinsight-storage]
 * [Amministrare HDInsight con PowerShell][hdinsight-admin-powershell]
 * [Caricare dati in HDInsight][hdinsight-upload-data]
 * [Usare MapReduce con HDInsight][hdinsight-use-mapreduce]
@@ -252,10 +253,5 @@ In questa esercitazione di Hadoop si è appreso come creare un cluster Hadoop in
 
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

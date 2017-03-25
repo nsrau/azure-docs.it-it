@@ -1,6 +1,6 @@
 ---
-title: Creare un contratto AS2 nelle app per la logica di Azure | Documentazione Microsoft
-description: Creare un contratto AS2 per Enterprise Integration Pack | App per la logica di Azure
+title: Messaggi AS2 per l&quot;integrazione aziendale B2B - App per la logica di Azure | Documentazione Microsoft
+description: Scambiare messaggi AS2 per l&quot;integrazione aziendale B2B con App per la logica di Azure
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: MandiOhlinger
@@ -15,140 +15,163 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 6a947ea997bbcfe1b6b28c7cbb49911836750e6a
-ms.openlocfilehash: a490b89c5420aecdfb3f79289979faab9a4630e9
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 5733592fc1633d8722905c33dd267b4cbe1fe184
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="enterprise-integration-with-as2"></a>Enterprise Integration con AS2
-Per usare le funzionalità aziendali nelle app per la logica, è prima di tutto necessario creare contratti.
+# <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Scambiare messaggi AS2 per l'integrazione aziendale con le app per la logica di Azure
 
-## <a name="prerequisites"></a>Prerequisiti
-* Un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-accounts.md) definito nella sottoscrizione di Azure.  
-* Almeno due [partner](logic-apps-enterprise-integration-partners.md) già definiti nell'account di integrazione.  
+Per poter scambiare messaggi AS2 con App per la logica di Azure, è necessario creare un contratto AS2 e archiviarlo nell'account di integrazione. Di seguito viene illustrata la procedura per la creazione di un contratto AS2.
+
+## <a name="before-you-start"></a>Prima di iniziare
+
+Sono necessari gli elementi seguenti:
+
+* Un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-accounts.md) già definito e associato alla sottoscrizione di Azure.
+* Almeno due [partner](logic-apps-enterprise-integration-partners.md) già definiti nell'account di integrazione e configurati con il qualificatore AS2 in **Identità di business**.
 
 > [!NOTE]
 > Quando si crea un contratto, il contenuto del file del contratto deve corrispondere al tipo di contratto.    
 
-Dopo aver creato un account di integrazione e aggiunto i partner, è possibile creare un contratto usando le procedure contenute nelle sezioni seguenti.  
+Dopo aver [creato un account di integrazione](../logic-apps/logic-apps-enterprise-integration-accounts.md) e [aggiunto i partner](logic-apps-enterprise-integration-partners.md), è possibile creare un contratto AS2 attenendosi alla procedura seguente.
 
-## <a name="create-an-agreement"></a>Creare un contratto
+## <a name="create-an-as2-agreement"></a>Creare un contratto AS2
 
-1. Accedere al [Portale di Azure](http://portal.azure.com "Portale di Azure").  
-2. Selezionare **Altri servizi**, inserire **integrazione** nella casella di ricerca del filtro e quindi selezionare **Account di integrazione** nell'elenco dei risultati.
+1.    Accedere al [Portale di Azure](http://portal.azure.com "Portale di Azure").  
 
- ![Selezionare "Account di integrazione" nell'elenco dei risultati della ricerca.](./media/logic-apps-enterprise-integration-agreements/overview-1.png)    
-3. Selezionare l'account di integrazione a cui aggiungere il certificato.
+2.    Fare clic su **Altri servizi** nel menu a sinistra. Nella casella di ricerca, digitare **integrazione** come filtro. Nell'elenco dei risultati selezionare **Account di integrazione**.
 
- ![Selezionare l'account di integrazione.](./media/logic-apps-enterprise-integration-overview/overview-3.png)  
-4. Selezionare il riquadro **Accordi** . Se il riquadro non è visualizzato, aggiungerlo.
+    > [!TIP]
+    > Se **Altri servizi** non viene visualizzato, potrebbe essere necessario espandere il menu. Nella parte superiore del menu compresso, selezionare **Visualizza menu**.
 
- ![Selezionare il riquadro "Contratti".](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)   
-5. Nel pannello **Contratti** selezionare **Aggiungi**.
+    ![Altri servizi, filtro su "integrazione", selezionare "Account di integrazione"](./media/logic-apps-enterprise-integration-agreements/overview-1.png)
 
- ![Selezionare "Aggiungi"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)  
-6. Immettere il nome del contratto, selezionare **AS2** nell'elenco **Tipo di contratto** e inserire le informazioni appropriare negli elenchi **Partner host**, **Identità host**, **Partner guest** e **Identità guest**.
+3. Nel pannello **Account di integrazione** visualizzato selezionare l'account di integrazione nel quale creare il contratto.
+Se non viene visualizzato alcun account di integrazione, [crearne prima uno](../logic-apps/logic-apps-enterprise-integration-accounts.md "Tutte le informazioni sugli account di integrazione").  
 
- ![Immettere un nome per il contratto.](./media/logic-apps-enterprise-integration-agreements/agreement-3.png)  
+    ![Selezionare l'account di integrazione in cui si vuole creare il contratto.](./media/logic-apps-enterprise-integration-overview/overview-3.png)
 
- La tabella seguente descrive le proprietà nella finestra di dialogo **Aggiungi**:
+4. Selezionare il riquadro **Accordi**. Se non è presente il riquadro dei contratti, aggiungerlo.
+
+    ![Selezionare il riquadro "Contratti"](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
+
+5. Nel pannello Contratti visualizzato, selezionare **Aggiungi**.
+
+    ![Selezionare "Aggiungi"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
+
+6. In **Aggiungi**, digitare un **nome** per il contratto. In **Tipo di contratto**selezionare **AS2**. Selezionare il **Partner host**, l'**Identità host**, il **Partner guest**, e l'**Identità guest** per il contratto.
+
+    ![Fornire i dettagli relativi al contratto](./media/logic-apps-enterprise-integration-agreements/agreement-3.png)  
 
     | Proprietà | Descrizione |
     | --- | --- |
-    | Host Partner (Partner host) | Un contratto richiede un partner host e un partner guest. Il partner host rappresenta l'organizzazione che sta configurando il contratto. |
-    | Host Identity (Identità host) | Un identificatore per il partner host. |
-    | Guest Partner (Partner guest) | Un contratto richiede un partner host e un partner guest. Il partner guest rappresenta l'organizzazione che intrattiene attività commerciali con il partner host. |
-    | identità guest | Un identificatore per il partner guest. |
-    | Receive Settings (Impostazioni di ricezione) | Proprietà che si applicano a tutti i messaggi ricevuti dal contratto. |
-    | Send Settings (Impostazioni di invio) | Proprietà che si applicano a tutti i messaggi inviati dal contratto. |
+    | Nome |Nome del contratto |
+    | Tipo di contratto | Deve essere AS2 |
+    | Host Partner (Partner host) |Un contratto prevede un partner host e un partner guest. Il partner host rappresenta l'organizzazione che configura il contratto. |
+    | Host Identity (Identità host) |Un identificatore per il partner host |
+    | Guest Partner (Partner guest) |Un contratto prevede un partner host e un partner guest. Il partner guest rappresenta l'organizzazione che intrattiene attività commerciali con il partner host. |
+    | identità guest |Un identificatore per il partner guest |
+    | Receive Settings (Impostazioni di ricezione) |Queste proprietà si applicano a tutti i messaggi ricevuti da un contratto. |
+    | Send Settings (Impostazioni di invio) |Queste proprietà si applicano a tutti i messaggi inviati da un contratto. |
 
-7. Per configurare la gestione dei messaggi ricevuti tramite questo contratto, procedere come segue:
+## <a name="configure-how-your-agreement-handles-received-messages"></a>Configurare il modo in cui il contratto riceve i messaggi
 
- a. Selezionare **Impostazioni di ricezione**.
+Dopo aver impostato le proprietà del contratto, è possibile configurare il modo in cui il contratto identifica e gestisce i messaggi in arrivo ricevuti dal partner tramite il presente contratto.
 
- b. Facoltativamente, è possibile eseguire l'override delle proprietà dei messaggi in ingresso selezionando la casella di controllo **Ignora proprietà del messaggio**.
+1.    In **Aggiungi**, selezionare **Impostazioni di ricezione**.
+Configurare queste proprietà in base al contratto con il partner con cui si scambiano i messaggi. Per le descrizioni delle proprietà, vedere la tabella in questa sezione.
 
- c. Selezionare la casella di controllo **Il messaggio deve essere firmato** per richiedere la firma di tutti i messaggi in ingresso. Se si seleziona questa opzione, convalidare la firma dei messaggi selezionando il **certificato pubblico del partner guest** nell'elenco **Certificato**.
+    ![Configurare "Impostazioni di ricezione"](./media/logic-apps-enterprise-integration-agreements/agreement-4.png)
 
- d. Per richiedere la firma di tutti i messaggi in ingresso, selezionare la casella di controllo **Il messaggio deve essere firmato**. Se si seleziona questa opzione, decrittografare i messaggi in ingresso selezionando il **certificato privato del partner host** nell'elenco **Certificato**.
+2. Facoltativamente, è possibile eseguire l'override delle proprietà dei messaggi in arrivo selezionando **Ignora proprietà del messaggio**.
 
- e. Per richiedere la compressione dei messaggi, selezionare la casella di controllo **Il messaggio deve essere compresso**.    
+3. Selezionare **Il messaggio deve essere firmato** per richiedere la firma di tutti i messaggi in arrivo. Per convalidare la firma dei messaggi, selezionare un **certificato pubblico del partner guest** nell'elenco [Certificato](../logic-apps/logic-apps-enterprise-integration-certificates.md). Se non si dispone del certificato, crearne uno.
 
- f. Per inviare una notifica sulla ricezione del messaggio (MDN) per i messaggi ricevuti, selezionare la casella di controllo **Invia notifica sulla ricezione del messaggio**.
+4.    Per richiedere la crittografia di tutti i messaggi in arrivo, selezionare **Il messaggio deve essere crittografato**. Per decrittografare i messaggi in arrivo, dall'elenco **Certificato** selezionare un [certificato privato del partner host](../logic-apps/logic-apps-enterprise-integration-certificates.md). Se non si dispone del certificato, crearne uno.
 
- g. Per inviare notifiche sulla ricezione del messaggio firmate per i messaggi ricevuti, selezionare la casella di controllo **Invia notifica sulla ricezione del messaggio firmata**.
+5. Per richiedere la compressione dei messaggi, selezionare **Il messaggio deve essere compresso**.
 
- h. Per inviare notifiche asincrone sulla ricezione del messaggio per i messaggi ricevuti, selezionare la casella di controllo **Invia notifica sulla ricezione del messaggio asincrona**.
+6. Per inviare una notifica sulla ricezione del messaggio (MDN) per i messaggi ricevuti, selezionare **Invia notifica sulla ricezione del messaggio**.
 
- ![Impostare le proprietà "Impostazioni di ricezione"](./media/logic-apps-enterprise-integration-agreements/agreement-4.png)  
+7. Per inviare notifiche sulla ricezione del messaggio firmate per i messaggi ricevuti, selezionare **Invia notifica sulla ricezione del messaggio firmata**.
 
- La tabella seguente illustra le proprietà delle **Impostazioni di ricezione**:  
+8. Per inviare notifiche asincrone sulla ricezione del messaggio per i messaggi ricevuti, selezionare **Invia notifica sulla ricezione del messaggio asincrona**.
 
- | Proprietà | Descrizione |
- | --- | --- |
- | Override message properties | Indica che è possibile eseguire l'override delle proprietà nei messaggi ricevuti. |
- | Il messaggio deve essere firmato | Richiede la firma digitale dei messaggi. Configurare il certificato pubblico del partner guest per la verifica della firma.  |
- | Il messaggio deve essere crittografato | Richiede la crittografia dei messaggi. I messaggi non crittografati verranno rifiutati. Configurare il certificato privato del partner host per la decrittografia dei messaggi.  |
- | Il messaggio deve essere compresso | Richiede la compressione dei messaggi. I messaggi non compressi verranno rifiutati. |
- | Testo MDN | Notifica sulla ricezione del messaggio (MDN) predefinita da inviare al mittente del messaggio. |
- | Send MDN (Invia MDN) | Richiede l'invio della MDN. |
- | Send signed MDN (Invia MDN firmato) | Richiede la firma delle MDN. |
- | MIC Algorithm (Algoritmo MIC) | |
- | Send asynchronous MDN (Invia MDN asincrono) | Richiede l'invio asincrono dei messaggi. |
- | URL | URL a cui devono essere inviate le MDN. |
+9. Al termine, assicurarsi di salvare le impostazioni selezionando **OK**.
 
-8. Per configurare la gestione dei messaggi inviati tramite questo contratto, procedere come segue:
+Il contratto è pronto per gestire i messaggi in arrivo conformi alle impostazioni selezionate.
 
- a. Selezionare **Impostazioni di invio**.  
+| Proprietà | Descrizione |
+| --- | --- |
+| Override message properties |Indica che è possibile eseguire l'override delle proprietà nei messaggi ricevuti. |
+| Il messaggio deve essere firmato |Richiede la firma digitale dei messaggi. Configurare il certificato pubblico del partner guest per la verifica della firma.  |
+| Il messaggio deve essere crittografato |Richiede la crittografia dei messaggi. I messaggi non crittografati vengono rifiutati. Configurare il certificato privato del partner host per la decrittografia dei messaggi.  |
+| Il messaggio deve essere compresso |Richiede la compressione dei messaggi. I messaggi non compressi vengono rifiutati. |
+| Testo MDN |Notifica sulla ricezione del messaggio (MDN) predefinita da inviare al mittente del messaggio. |
+| Send MDN (Invia MDN) |Richiede l'invio della MDN. |
+| Send signed MDN (Invia MDN firmato) |Richiede la firma delle MDN. |
+| MIC Algorithm (Algoritmo MIC) |Selezionare l'algoritmo da usare per firmare i messaggi. |
+| Send asynchronous MDN (Invia MDN asincrono) | Richiede l'invio asincrono dei messaggi. |
+| URL | Specificare l'URL al quale inviare le MDN. |
 
- b. Per inviare messaggi firmati al partner, selezionare la casella di controllo **Abilita firma del messaggio**. Se si seleziona questa opzione, firmare i messaggi selezionando l'**algoritmo per il controllo di integrità delle credenziali del certificato privato del partner host** nell'elenco **Algoritmo per il controllo di integrità delle credenziali** e il **certificato privato del partner host** nell'elenco **Certificato**.
+## <a name="configure-how-your-agreement-sends-messages"></a>Configurare il modo in cui il contratto invia messaggi
 
- c. Per inviare messaggi crittografati al partner, selezionare la casella di controllo **Abilita crittografia messaggio**. Se si seleziona questa opzione, crittografare i messaggi selezionando l'**algoritmo per il controllo del certificato pubblico del partner guest** nell'elenco **Algoritmo di crittografia** e il **certificato pubblico del partner guest** nell'elenco **Certificato**.
+È possibile configurare il modo in cui il contratto identifica e gestisce i messaggi in uscita inviati ai partner tramite il presente contratto.
 
- d. Per comprimere il messaggio, selezionare la casella di controllo **Abilita compressione messaggio**.
+1.    In **Aggiungi**, selezionare **Impostazioni di avvio**.
+Configurare queste proprietà in base al contratto con il partner con cui si scambiano i messaggi. Per le descrizioni delle proprietà, vedere la tabella in questa sezione.
 
- e. Per espandere l'intestazione HTTP del tipo di contenuto in una singola riga, selezionare la casella di controllo **Espandi intestazioni HTTP**.
+    ![Impostare le proprietà "Impostazioni di invio"](./media/logic-apps-enterprise-integration-agreements/agreement-5.png)
 
- f. Per ricevere notifiche sincrone sulla ricezione del messaggio per i messaggi inviati, selezionare la casella di controllo **Richiedi notifica sulla ricezione del messaggio**.
+2. Per inviare messaggi firmati al partner, selezionare **Abilita firma del messaggio**. Per firmare i messaggi, nell'elenco **Algoritmo per il controllo di integrità delle credenziali**, selezionare l'*algoritmo per il controllo di integrità delle credenziali del certificato privato del partner host*. Dall'elenco **Certificato**, selezionare un [certificato privato del partner host](../logic-apps/logic-apps-enterprise-integration-certificates.md) esistente.
 
- g. Per ricevere notifiche sulla ricezione del messaggio firmate per i messaggi inviati, selezionare la casella di controllo **Richiedi notifica sulla ricezione del messaggio firmata**.
+3. Per inviare messaggi crittografati al partner, selezionare **Abilita crittografia messaggio**. Per crittografare i messaggi, nell'elenco **Algoritmo di crittografia** selezionare l'*algoritmo del certificato pubblico del partner guest*.
+Dall'elenco **Certificato**, selezionare un [certificato pubblico del partner guest](../logic-apps/logic-apps-enterprise-integration-certificates.md) esistente.
 
- h. Per ricevere notifiche asincrone sulla ricezione del messaggio per i messaggi inviati, selezionare la casella di controllo **Richiedi notifica sulla ricezione del messaggio asincrona**. Se si seleziona questa opzione, immettere l'URL a cui inviare le MDN.  
+4. Per comprimere il messaggio, selezionare **Abilita compressione messaggio**.
 
- i. Per richiedere il non ripudio della ricezione, selezionare la casella di controllo **Abilita rilevamento messaggi (NRR)**.
+5. Per espandere l'intestazione HTTP del tipo di contenuto in una singola riga, selezionare **Espandi intestazioni HTTP**.
 
- j. Selezionare **OK**.
+6. Per ricevere notifiche sincrone sulla ricezione del messaggio per i messaggi inviati, selezionare **Richiedi notifica sulla ricezione del messaggio**.
 
- ![Impostare le proprietà "Impostazioni di invio"](./media/logic-apps-enterprise-integration-agreements/agreement-5.png)  
+7. Per ricevere notifiche sulla ricezione del messaggio firmate per i messaggi inviati, selezionare **Richiedi notifica sulla ricezione del messaggio firmata**.
 
- La tabella seguente illustra le proprietà delle **Impostazioni di invio**:  
+8. Per ricevere notifiche asincrone sulla ricezione del messaggio per i messaggi inviati, selezionare **Richiedi notifica sulla ricezione del messaggio asincrona**. Se si seleziona questa opzione, immettere l'URL a cui inviare le MDN.
 
- | Proprietà | Descrizione |
- | --- | --- |
- | Enable message signing (Abilita la firma dei messaggi) | Richiede la firma di tutti i messaggi inviati dal contratto. |
- | MIC Algorithm (Algoritmo MIC) | Algoritmo da usare per firmare i messaggi. Configura algoritmo per il controllo di integrità delle credenziali del certificato privato del partner host per la firma dei messaggi. |
- | Certificate | Certificato da usare per firmare i messaggi. Configura il certificato privato del partner host per la firma dei messaggi. |
- | Enable message encryption (Abilita la crittografia dei messaggi) | Richiede la crittografia di tutti i messaggi inviati da questo contratto. Configura l'algoritmo del certificato pubblico del partner guest per la crittografia dei messaggi. |
- | Algoritmo di crittografia | Algoritmo di crittografia da usare per la crittografia dei messaggi. Configura il certificato pubblico del partner guest per la crittografia dei messaggi. |
- | Certificate | Certificato da usare per crittografare i messaggi. Configura il certificato privato del partner guest per crittografare i messaggi. |
- | Abilita compressione messaggio | Richiede la compressione di tutti i messaggi inviati da questo contratto. |
- | Espandi intestazioni HTTP | Posiziona l'intestazione HTTP del tipo di contenuto in una singola riga. |
- | Richiedi MDN | Richiede un MDN per tutti i messaggi inviati da questo contratto. |
- | Richiedi MDN firmato | Richiede la firma di tutti gli MDN che vengono inviati a questo contratto. |
- | Richiedi MDN asincrono | Richiede l'invio di MDN asincroni a questo contratto. |
- | URL | URL a cui devono essere inviate le MDN. |
- | Enable NRR (Attiva NRR) | Richiede il non ripudio della ricezione (NRR), un attributo di comunicazione che fornisce prova di ricezione dei dati come inviati. |
+9. Per richiedere il non ripudio della ricezione, selezionare **Abilita rilevamento messaggi (NRR)**.
 
-## <a name="view-the-agreements-list"></a>Visualizzare l'elenco Contratti
-Per visualizzare il nuovo contratto aggiunto, selezionare il riquadro **Contratti** nel pannello **Account di integrazione**.
+10. Al termine, assicurarsi di salvare le impostazioni selezionando **OK**.
 
-![Visualizzare l'elenco "Contratti"](./media/logic-apps-enterprise-integration-agreements/agreement-6.png)
+Il contratto è pronto per gestire i messaggi in uscita conformi alle impostazioni selezionate.
+
+| Proprietà | Descrizione |
+| --- | --- |
+| Enable message signing (Abilita la firma dei messaggi) |Richiede la firma di tutti i messaggi inviati dal contratto. |
+| MIC Algorithm (Algoritmo MIC) |L'algoritmo da usare per firmare i messaggi. Configura algoritmo per il controllo di integrità delle credenziali del certificato privato del partner host per la firma dei messaggi. |
+| Certificate |Selezionare il certificato da usare per firmare i messaggi. Configura il certificato privato del partner host per la firma dei messaggi. |
+| Enable message encryption (Abilita la crittografia dei messaggi) |Richiede la crittografia di tutti i messaggi inviati da questo contratto. Configura l'algoritmo del certificato pubblico del partner guest per la crittografia dei messaggi. |
+| Algoritmo di crittografia |Algoritmo di crittografia da usare per la crittografia dei messaggi. Configura il certificato pubblico del partner guest per la crittografia dei messaggi. |
+| Certificate |Certificato da usare per crittografare i messaggi. Configura il certificato privato del partner guest per crittografare i messaggi. |
+| Abilita compressione messaggio |Richiede la compressione di tutti i messaggi inviati da questo contratto. |
+| Espandi intestazioni HTTP |Posiziona l'intestazione HTTP del tipo di contenuto in una singola riga. |
+| Richiedi MDN |Richiede un MDN per tutti i messaggi inviati da questo contratto. |
+| Richiedi MDN firmato |Richiede la firma di tutti gli MDN che vengono inviati a questo contratto. |
+| Richiedi MDN asincrono |Richiede l'invio di MDN asincroni a questo contratto. |
+| URL |Specificare l'URL al quale inviare le MDN. |
+| Enable NRR (Attiva NRR) |Richiede il non ripudio della ricezione (NRR), un attributo di comunicazione che fornisce prova di ricezione dei dati come inviati. |
+
+## <a name="find-your-created-agreement"></a>Individuare il contratto creato
+
+1.    Dopo aver impostato tutte le proprietà del contratto, scegliere **OK** nel pannello **Aggiungi** per completare la creazione del contratto e tornare al pannello dell'account di integrazione.
+
+    Il contratto appena aggiunto viene visualizzato nell'elenco **Contratti**.
+
+2.    È anche possibile visualizzare i contratti nella panoramica dell'account di Integrazione. Nel pannello dell'account di integrazione, selezionare **Panoramica**, quindi selezionare il riquadro **Contratti**. 
+
+    ![Scegliere il riquadro Contratti per visualizzare tutti i contratti](./media/logic-apps-enterprise-integration-agreements/agreement-6.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Altre informazioni su Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack")  
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

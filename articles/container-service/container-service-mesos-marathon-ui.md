@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 12/02/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
-ms.openlocfilehash: de250fbc3982cdc493f74976914290d8ac89bb08
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: f26b191d9d98768d766e4c974138c9d191340027
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -40,7 +41,7 @@ Dopo aver [stabilito](container-service-connect.md) un tunnel SSH (Secure Shell)
 ![Interfaccia utente di DC/OS](./media/dcos/dcos2.png)
 
 ## <a name="explore-the-marathon-ui"></a>Esplorare l'interfaccia utente di Marathon
-Per visualizzare l'interfaccia utente di Marathon, passare a http://localhost/Marathon. In questa schermata è possibile avviare un nuovo contenitore o un'altra applicazione nel cluster DC/OS del servizio contenitore di Azure. È anche possibile visualizzare le informazioni sull'esecuzione di contenitori e applicazioni.  
+Per visualizzare l'interfaccia utente di Marathon, andare su http://localhost/marathon. In questa schermata è possibile avviare un nuovo contenitore o un'altra applicazione nel cluster DC/OS del servizio contenitore di Azure. È anche possibile visualizzare le informazioni sull'esecuzione di contenitori e applicazioni.  
 
 ![Interfaccia utente di Marathon](./media/dcos/dcos3.png)
 
@@ -110,9 +111,4 @@ Al termine dell'operazione di ridimensionamento verranno visualizzate più istan
 
     > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON203/player]
     > 
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

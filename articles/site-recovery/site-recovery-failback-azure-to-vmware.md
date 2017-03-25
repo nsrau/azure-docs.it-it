@@ -1,5 +1,5 @@
 ---
-title: Eseguire il failback di una macchina virtuale VMware da Azure al sito locale | Documentazione Microsoft
+title: Eseguire il failback di una macchina virtuale VMware da Azure al sito locale | Microsoft Docs
 description: Informazioni sul failback nel sito locale dopo il failover dei server fisici e delle macchine virtuali VMware in Azure.
 services: site-recovery
 documentationcenter: 
@@ -15,19 +15,21 @@ ms.workload: required
 ms.date: 10/05/2016
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 7688df2aac74d10de7c188ad46f8ab2ec38bbe86
-ms.openlocfilehash: 34c335d17641e9df9b64a7882448afc268e4da7c
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: ba801c69cf2d0d542bebf54e99ef981854284ab0
+ms.lasthandoff: 03/09/2017
 
 
 ---
 # <a name="fail-back-vmware-virtual-machines-and-physical-servers-to-the-on-premises-site"></a>Eseguire il failback di server fisici e macchine virtuali VMware nel sito locale
 > [!div class="op_single_selector"]
-> * [Portale di Azure](site-recovery-failback-azure-to-vmware.md)
-> * [Portale di Azure classico](site-recovery-failback-azure-to-vmware-classic.md)
-> * [Portale di Azure classico (legacy)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+> * [Computer VMware/fisici da Azure](site-recovery-failback-azure-to-vmware.md)
+> * [Macchine virtuali Hyper-V da Azure](site-recovery-failback-from-azure-to-hyper-v.md)
 
-Questo articolo descrive come eseguire il failback di macchine virtuali di Azure da Azure al sito locale. Seguire le istruzioni riportate di seguito per eseguire il failback delle macchine virtuali VMware o dei server fisici Windows o Linux dopo aver eseguito il failover dal sito locale in Azure seguendo questa [esercitazione](site-recovery-vmware-to-azure-classic.md).
+Questo articolo descrive come eseguire il failback di macchine virtuali di Azure da Azure al sito locale. Seguire le istruzioni riportate di seguito per eseguire il failback delle macchine virtuali VMware o dei server fisici Windows o Linux dopo avere riprotetto i computer seguendo queste [informazioni di riferimento](site-recovery-how-to-reprotect.md).
+
+>[!NOTE]
+>Se si usa il portale di Azure classico, vedere le istruzioni indicate [qui](site-recovery-failback-azure-to-vmware-classic.md) per l'architettura avanzata da VMware ad Azure e [qui](site-recovery-failback-azure-to-vmware-classic-legacy.md) per l'architettura legacy
 
 ## <a name="overview"></a>Panoramica
 I diagrammi riportati in questa sezione illustrano l'architettura di failback per questo scenario.

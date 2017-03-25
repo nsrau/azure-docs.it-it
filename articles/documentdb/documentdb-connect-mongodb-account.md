@@ -16,19 +16,19 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: fc917c9c9a92bf944d922a9418e065fa661c69df
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 6d376b9db07a46c467bd772959de3f7acf9c123d
+ms.lasthandoff: 03/15/2017
 
 
 ---
 
-# <a name="connect-a-mongodb-app-to-a-documentdb-account-using-a-mongodb-connection-string"></a>Connettere un'app MongoDB a un account DocumentDB usando una stringa di connessione MongoDB
+# <a name="connect-an-application-to-documentdb-api-for-mongodb"></a>Connettere un'applicazione a DocumentDB: API per MongoDB
 Informazioni su come connettere l'app MongoDB a un account Azure DocumentDB usando una stringa di connessione MongoDB. Connettendo l'app MongoDB a un database Azure DocumentDB, è possibile usare un database DocumentDB come archivio dati per l'app MongoDB. 
 
 Questa esercitazione illustra due modi per recuperare le informazioni della stringa di connessione:
 
-- [Metodo di avvio rapido](#QuickStartConnection), da usare con driver Python, Java, MongoDB Shell, Node.js e .NET.
+- [Metodo di avvio rapido](#QuickstartConnection), da usare con driver Python, Java, MongoDB Shell, Node.js e .NET.
 - [Metodo basato sulla stringa di connessione personalizzata](#GetCustomConnection), da usare con gli altri driver.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -36,7 +36,7 @@ Questa esercitazione illustra due modi per recuperare le informazioni della stri
 - Un account Azure. Se non si ha un account Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) ora. 
 - Un account DocumentDB. Per istruzioni, vedere [Creare un account DocumentDB da usare con le app MongoDB](documentdb-create-mongodb-account.md).
 
-## <a id="QuickStartConnection"></a>Ottenere la stringa di connessione MongoDB usando l'avvio rapido
+## <a id="QuickstartConnection"></a>Ottenere la stringa di connessione MongoDB usando l'avvio rapido
 1. In un browser Internet accedere al [portale di Azure](https://portal.azure.com).
 2. Nel pannello **NoSQL (DocumentDB)** selezionare l'account dell'API DocumentDB: per MongoDB. 
 3. Nella barra di **spostamento a sinistra** del pannello Account fare clic su **Avvio rapido**. 

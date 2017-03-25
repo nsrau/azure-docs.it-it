@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 33521eca953c0e14a7fdaa99edef2997397286eb
-ms.openlocfilehash: cd79a485feddc68924f9b7f5e7d8d614b4e28d28
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 7ad7dce6fc7025a6a6e7935d74b3b71a7bfee097
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -77,7 +77,7 @@ Per abilitare l'iscrizione nell'applicazione, è necessario creare i criteri di 
 7. Fare clic su **Attestazioni applicazione**. Qui si scelgono le attestazioni che verranno restituite all'applicazione nei token inviati al termine di una corretta esperienza di iscrizione. Selezionare ad esempio "Nome visualizzato", "Provider di identità", "Codice postale", "L'utente è nuovo" e l'"ID oggetto dell'utente".
 8. Fare clic su **Crea**. Si noti che il criterio appena creato è visualizzato come "**B2C_1_SiUp**" (il frammento **B2C\_1\_** viene aggiunto automaticamente) nel pannello **Criteri di iscrizione**.
 9. Aprire il criterio facendo clic su "**B2C_1_SiUp**".
-10. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni`https://localhost:44321/` e ** nel menu a discesa **URL di risposta / URI di reindirizzamento**.
+10. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni`https://localhost:44321/` e** nel menu a discesa **URL di risposta / URI di reindirizzamento**.
 11. Fare clic su **Esegui adesso**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di iscrizione per l'applicazione.
     
     > [!NOTE]
@@ -96,7 +96,7 @@ Per abilitare l'accesso nell'applicazione, è necessario creare i criteri di acc
 6. Fare clic su **Attestazioni applicazione**. Qui è possibile scegliere le attestazioni che verranno restituite all'applicazione nei token inviati al termine di una corretta esperienza di accesso. Selezionare ad esempio "Nome visualizzato", "Provider di identità", "Codice postale" e l'"ID oggetto dell'utente". Fare clic su **OK**.
 7. Fare clic su **Crea**. Si noti che il criterio appena creato è visualizzato come "**B2C_1_SiIn**" (il frammento **B2C\_1\_** viene aggiunto automaticamente come prefisso) nel pannello **Criteri di accesso**.
 8. Aprire i criteri facendo clic su "**B2C_1_SiIn**".
-9. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni`https://localhost:44321/` e ** nel menu a discesa **URL di risposta/URI di reindirizzamento**.
+9. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni`https://localhost:44321/` e** nel menu a discesa **URL di risposta/URI di reindirizzamento**.
 10. Fare clic su **Esegui adesso**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di accesso all'applicazione.
     
     > [!NOTE]
@@ -116,7 +116,7 @@ Questo criterio consente di gestire le esperienze di iscrizione e accesso dei co
 7. Fare clic su **Attestazioni applicazione**. Qui è possibile scegliere le attestazioni che verranno restituite all'applicazione nei token inviati al termine di una corretta esperienza di iscrizione o accesso. Selezionare ad esempio "Nome visualizzato", "Provider di identità", "Codice postale", "L'utente è nuovo" e l'"ID oggetto dell'utente".
 8. Fare clic su **Crea**. Si noti che il criterio appena creato è visualizzato come "**B2C_1_SiUpIn**" (il frammento **B2C\_1\_** viene aggiunto automaticamente) nel pannello **Criteri di iscrizione o di accesso**.
 9. Aprire il criterio facendo clic su "**B2C_1_SiUpIn**".
-10. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni`https://localhost:44321/` e ** nel menu a discesa **URL di risposta/URI di reindirizzamento**.
+10. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni`https://localhost:44321/` e** nel menu a discesa **URL di risposta/URI di reindirizzamento**.
 11. Fare clic su **Esegui adesso**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di iscrizione o accesso all'applicazione, a seconda della configurazione.
     
     > [!NOTE]
@@ -131,12 +131,12 @@ Per abilitare la modifica del profilo nell'applicazione, è necessario creare i 
 2. Fare clic su **Criteri di modifica del profilo**.
 3. Fare clic su **+Aggiungi** nella parte superiore del pannello.
 4. Il **Nome** determina il nome dei criteri di modifica del profilo usati dall'applicazione. Ad esempio, immettere "SiPe".
-5. Fare clic su **Provider di identità** e selezionare "Indirizzo di posta elettronica". Facoltativamente, è anche possibile selezionare i provider di identità tramite social network, se già configurati. Fare clic su **OK**.
+5. Fare clic su **Provider di identità** e selezionare "Accesso all'account locale". Facoltativamente, è anche possibile selezionare i provider di identità tramite social network, se già configurati. Fare clic su **OK**.
 6. Fare clic su **Attributi profilo**. Qui è possibile scegliere gli attributi che l'utente potrà visualizzare e modificare. Ad esempio, selezionare "Paese/Area", "Nome visualizzato" e "Codice postale". Fare clic su **OK**.
 7. Fare clic su **Attestazioni applicazione**. Qui si scelgono le attestazioni che verranno restituite all'applicazione nei token inviati al termine di una corretta esperienza di modifica del profilo. Ad esempio, selezionare "Nome visualizzato" e "Codice postale".
 8. Fare clic su **Crea**. Si noti che il criterio appena creato è visualizzato come "**B2C_1_SiPe**" (il frammento **B2C\_1\_** viene aggiunto automaticamente) nel pannello **Criteri di modifica del profilo**.
 9. Aprire il criterio facendo clic su "**B2C_1_SiPe**".
-10. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni`https://localhost:44321/` e ** nel menu a discesa **URL di risposta/URI di reindirizzamento**.
+10. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni`https://localhost:44321/` e** nel menu a discesa **URL di risposta/URI di reindirizzamento**.
 11. Fare clic su **Esegui adesso**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di modifica del profilo nell'applicazione.
     
     > [!NOTE]
@@ -155,7 +155,7 @@ Per abilitare una reimpostazione dettagliata delle password nell'applicazione, �
 6. Fare clic su **Attestazioni applicazione**. Qui si scelgono le attestazioni che verranno restituite all'applicazione nei token inviati al termine di una corretta esperienza di reimpostazione delle password. Ad esempio, selezionare "ID oggetto dell'utente".
 7. Fare clic su **Crea**. Si noti che il criterio appena creato viene visualizzato come "**B2C_1_SSPR**" (il frammento **B2C\_1\_** viene aggiunto automaticamente) nel pannello **Criteri di reimpostazione password**.
 8. Aprire il criterio facendo clic su "**B2C_1_SSPR**".
-9. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni`https://localhost:44321/` e ** nel menu a discesa **URL di risposta/URI di reindirizzamento**.
+9. Selezionare "Contoso B2C app" nel menu a discesa **Applicazioni`https://localhost:44321/` e** nel menu a discesa **URL di risposta/URI di reindirizzamento**.
 10. Fare clic su **Esegui adesso**. Verrà visualizzata una nuova scheda del browser in cui è possibile eseguire l'esperienza utente di reimpostazione delle password nell'applicazione.
     
     > [!NOTE]

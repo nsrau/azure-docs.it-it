@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/07/2017
+ms.date: 03/14/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 0abe257f3c1c2f35c92fa5f382e9778217f01159
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 4b7ed095729e810f7f1112d3b6becfaf186bf508
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -72,8 +72,6 @@ Gli utenti di Collaborazione B2B non avranno bisogno di accedere al portale di A
 
   >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player]
 
-  Se il video non è incorporato, è possibile guardarlo [qui](https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user).
-
 ### <a name="what-is-the-timeline-by-which-azure-ad-b2b-collaboration-will-start-support-for-mfa-and-consumer-email-accounts"></a>Qual è la sequenza temporale entro cui Collaborazione B2B di Azure AD inizierà a supportare l'autenticazione a più fattori e gli account di posta elettronica dei clienti?
 Sia l'autenticazione a più fattori che gli account di posta elettronica dei clienti sono ora supportati in questo aggiornamento dell'anteprima pubblica.
 
@@ -89,8 +87,16 @@ No, per il momento.
 ### <a name="does-microsoft-crm-provide-online-support-to-azure-ad-b2b-collaboration"></a>Microsoft CRM offre supporto online per Collaborazione B2B di Azure AD?
 CRM offrirà il supporto per Collaborazione B2B di Azure AD quando sarà disponibile a livello generale.
 
+### <a name="are-b2b-collaboration-guest-users-visible-in-sharepoint-onlineonedrive-people-picker"></a>Gli utenti guest di Collaborazione B2B sono visibili nella selezione utenti di SharePoint Online/OneDrive?
+ 
+È possibile usarlo. Tuttavia, la possibilità di cercare gli utenti guest esistenti nella selezione utenti di SharePoint Online è disattivata per impostazione predefinita per corrispondenza con il comportamento legacy. È possibile abilitarla usando l'impostazione "ShowPeoplePickerSuggestionsForGuestUsers" a livello di tenant e raccolta di siti. Può essere impostata tramite i cmdlet Set-SPOTenant e Set-SPOSite, che consentono ai membri di cercare tutti gli utenti guest esistenti nella directory. Le modifiche nell'ambito tenant non influiscono sui siti di SharePoint Online di cui si è già eseguito il provisioning.
+
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>Qual è la durata di una password iniziale per un nuovo utente di Collaborazione B2B?
 Azure AD ha requisiti fissi per il set di caratteri, la complessità della password e il blocco account che si applicano equamente a tutti gli account utente cloud di Azure AD. Gli account utente cloud sono account non federati con un altro provider di identità, ad esempio Account Microsoft, Facebook, AD FS o anche un altro tenant cloud (nel caso di Collaborazione B2B). Per gli account federati, i criteri password dipendono dai criteri della tenancy locale e dalle impostazioni dell'account Microsoft dell'utente.
+
+### <a name="applications-want-to-differentiate-their-experience-between-a-tenant-user-and-a-guest-user-is-there-standard-guidance-for-this-is-the-presence-of-the-identity-provider-claim-the-right-model-for-this"></a>Le applicazioni vogliono differenziare l'esperienza tra un utente di tenant e un utente guest. Ci sono linee guida standard per questo? La presenza dell'attestazione del provider di identità è il modello appropriato per questo?
+ 
+Un utente guest può usare qualsiasi provider di identità per autenticarsi, come spiegato in [Proprietà di un utente di Collaborazione B2B di Azure Active Directory](active-directory-b2b-user-properties.md). Di conseguenza, UserType è la proprietà giusta per determinare questo. L'attestazione UserType non è attualmente inclusa nel token. Le applicazioni devono usare l'API Graph per eseguire una query nella directory per l'utente e ottenere il suo UserType.
 
 ### <a name="next-steps"></a>Passaggi successivi
 

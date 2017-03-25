@@ -1,5 +1,5 @@
 ---
-title: Maschera dati dinamica del database SQL di Azure | Documentazione Microsoft
+title: Maschera dati dinamica del database SQL di Azure | Microsoft Docs
 description: La funzione Maschera dati dinamica del database SQL limita l&quot;esposizione dei dati sensibili, nascondendoli agli utenti senza privilegi
 services: sql-database
 documentationcenter: 
@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 11/22/2016
+ms.date: 03/09/2017
 ms.author: ronitr; ronmat
 translationtype: Human Translation
-ms.sourcegitcommit: 9a61012ad0ff34e5332618a74494fd56f1f1fa57
-ms.openlocfilehash: 241454dfd89378afd8ae44255bd733d814c995d0
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: cf13c0290cc0356db0885d6762a4ebebac304431
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -28,7 +28,7 @@ La funzione Maschera dati dinamica del database SQL limita l'esposizione dei dat
 
 Il mascheramento dei dati dinamici impedisce l'accesso non autorizzato ai dati sensibili consentendo agli utenti di definire la quantità di dati sensibili da rivelare, con un impatto minimo sul livello dell'applicazione. Si tratta di una funzionalità di sicurezza basata su criteri che consente di nascondere i dati sensibili nel set di risultati di una query in campi del database designati, senza alcuna modifica dei dati contenuti nel database.
 
-Ad esempio, un addetto all'assistenza in un call center può identificare i chiamanti da alcune cifre del codice fiscale o del numero di carta di credito, ma tali elementi di dati non devono essere completamente visibili all'addetto dell'assistenza. È possibile definire una regola di maschera che renda visibili solo le ultime quattro cifre del codice fiscale o del numero di carta di credito nel set di risultati di tutte le query. Oppure, è possibile definire una maschera dati appropriata per la protezione di informazioni personali identificabili (PII), in modo che uno sviluppatore possa eseguire una query negli ambienti di produzione a scopi di risoluzione dei problemi senza violare le normative di conformità.
+Ad esempio, un addetto all'assistenza in un call center può identificare i chiamanti da alcune cifre del numero di carta di credito, ma tali elementi di dati non devono essere completamente visibili all'addetto all'assistenza. È possibile definire una regola di maschera che renda visibili solo le ultime quattro cifre del numero di carta di credito nel set di risultati di tutte le query. Oppure, è possibile definire una maschera dati appropriata per la protezione di informazioni personali identificabili (PII), in modo che uno sviluppatore possa eseguire una query negli ambienti di produzione a scopi di risoluzione dei problemi senza violare le normative di conformità.
 
 ## <a name="sql-database-dynamic-data-masking-basics"></a>Nozioni fondamentali sulla funzione Maschera dati dinamica del database SQL
 Per impostare un criterio di maschera dati dinamica del database SQL nel portale di Azure, selezionare l'operazione Maschera dati dinamica nel pannello di configurazione o delle impostazioni del database SQL.
@@ -37,18 +37,17 @@ Per impostare un criterio di maschera dati dinamica del database SQL nel portale
 Il mascheramento dei dati dinamici può essere configurato dall'amministratore del database di Azure, dall'amministratore del server o dal responsabile della sicurezza.
 
 ### <a name="dynamic-data-masking-policy"></a>Criteri di mascheramento dei dati dinamici
-* **Utenti SQL esclusi dalla maschera** : set di utenti SQL o identità AAD che visualizzano dati senza maschera nei risultati delle query SQL. Si noti che gli utenti con privilegi di amministratore verranno sempre esclusi dalla maschera e potranno visualizzare i dati originali senza maschera.
-* **Regole di maschera** : set di regole che definiscono i campi designati a cui applicare la maschera e la funzione maschera da usare. I campi designati possono essere definiti tramite uno schema, un nome di tabella e un nome di colonna del database.
+* **Utenti SQL esclusi dalla maschera**: set di utenti SQL o identità AAD che visualizzano dati senza maschera nei risultati delle query SQL. Gli utenti con privilegi di amministratore sono sempre esclusi dalla maschera e possono visualizzare i dati originali senza maschera.
+* **Regole di maschera**: set di regole che definiscono i campi designati a cui applicare la maschera e la funzione maschera da usare. I campi designati possono essere definiti tramite uno schema, un nome di tabella e un nome di colonna del database.
 * **Funzioni maschera** : set di metodi che consentono di controllare l'esposizione dei dati per scenari diversi.
 
 | Funzione di mascheramento | Logica di mascheramento |
 | --- | --- |
 | **Default** |**Mascheramento completo in base ai tipi di dati dei campi designati**<br/><br/>• Usare XXXX o un numero minore di X se la dimensione del campo è inferiore a 4 caratteri per i tipi di dati di stringa (nchar, ntext, nvarchar).<br/>• Usare un valore pari a zero per i tipi di dati numerici (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).<br/>• Usare 01-01-1900 per i tipi di dati data/ora (date, datetime2, datetime, datetimeoffset, smalldatetime, time).<br/>• Per sql_variant viene usato il valore predefinito del tipo corrente.<br/>• Per XML viene usato il documento <masked/>.<br/>• Usare un valore vuoto per i tipi di dati speciali (timestamp table, hierarchyid, GUID, binary, image, varbinary spatial types). |
 | **Carta di credito** |**Metodo di mascheramento che espone le ultime quattro cifre dei campi designati** e aggiunge una stringa costante come prefisso sotto forma di carta di credito.<br/><br/>XXXX-XXXX-XXXX-1234 |
-| **Codice fiscale** |**Metodo di maschera che rende visibili le ultime quattro cifre dei campi designati** e aggiunge una stringa costante come prefisso sotto forma di codice fiscale.<br/><br/>XXX-XX-1234 |
 | **Indirizzo di posta elettronica** |**Metodo di mascheramento che rende visibile la prima lettera e sostituisce il dominio con XXX.com** usando un prefisso stringa costante sotto forma di indirizzo di posta elettronica.<br/><br/>aXX@XXXX.com |
-| **Numero casuale** |**Metodo di mascheramento che genera un numero casuale** secondo i limiti selezionati e i tipi di dati effettivi. Se i limiti designati sono uguali, la funzione maschera sarà un numero costante.<br/><br/>![Riquadro di spostamento](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
-| **Testo personalizzato** |**Metodo di maschera che rende visibile il primo e l'ultimo carattere** e aggiunge una stringa di riempimento personalizzata al centro. Se la stringa originale è più corta del prefisso e del suffisso visibili, verrà usata solo la stringa di riempimento. <br/>prefisso[riempimento]suffisso<br/><br/>![Riquadro di spostamento](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) |
+| **Numero casuale** |**Metodo di mascheramento che genera un numero casuale** secondo i limiti selezionati e i tipi di dati effettivi. Se i limiti designati sono uguali, la funzione maschera è un numero costante.<br/><br/>![Riquadro di spostamento](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
+| **Testo personalizzato** |**Metodo di mascheramento che rende visibile il primo e l'ultimo carattere** e aggiunge una stringa di riempimento personalizzata al centro. Se la stringa originale è più corta del prefisso e del suffisso visibili, viene usata solo la stringa di riempimento. <br/>prefisso[riempimento]suffisso<br/><br/>![Riquadro di spostamento](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) |
 
 <a name="Anchor1"></a>
 

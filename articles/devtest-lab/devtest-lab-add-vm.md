@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/24/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 7bac59810ee3c1da239716b58d41b97088035133
-ms.openlocfilehash: e8de45686102cd6c4671484a05568a10dd22fa67
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: d4618e70ed3a940c686f9ed539ce207fd59306e8
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -50,7 +50,7 @@ ms.lasthandoff: 02/27/2017
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Dopo avere creato la VM, è possibile connettersi ad essa selezionando **Connetti** nel pannello della VM.
-* Esplorare la [raccolta dei modelli Azure Resource Manager di avvio rapido di DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
+* Esplorare la [raccolta dei modelli di Azure Resource Manager di avvio rapido di DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
 
 
 

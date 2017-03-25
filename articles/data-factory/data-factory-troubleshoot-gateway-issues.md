@@ -2,7 +2,6 @@
 title: Risolvere i problemi del gateway di gestione dati | Documentazione Microsoft
 description: Questo articolo offre suggerimenti per risolvere i problemi correlati al gateway di gestione dati.
 services: data-factory
-documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
@@ -14,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2017
 ms.author: jingwang
+published: true
 translationtype: Human Translation
-ms.sourcegitcommit: 03e15660e04e192d9035c25f1a8030310413c118
-ms.openlocfilehash: 738fcd1e2b33bf072f004eb95265ed87e6e931c0
-
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 4bc78bdf71c6de0c35197e84f4bb800d13bda6c0
+ms.lasthandoff: 03/14/2017
 
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Risolvere i problemi nell'uso del gateway di gestione dati
@@ -91,10 +91,12 @@ Durante la registrazione di un gateway può essere visualizzato il messaggio di 
 ![La chiave del gateway non è valida oppure è vuota](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
 
 #### <a name="cause"></a>Causa
-La chiave del gateway è stata rigenerata oppure il gateway è stato eliminato nel portale.
+La chiave del gateway è stata rigenerata oppure il gateway è stato eliminato nel portale di Azure. Il problema può verificarsi anche quando la versione del programma di installazione del Gateway di gestione dati non è la più recente.
 
 #### <a name="resolution"></a>Risoluzione
-Se il gateway esiste ancora, rigenerare la chiave del gateway nel portale e usare il pulsante Copia per copiare la chiave intera. Incollarla nella finestra per registrare il gateway. Altrimenti, ricreare il gateway e ricominciare.
+Controllare che la versione del programma di installazione del Gateway di gestione dati sia la più recente (fare riferimento al [Download Center](https://go.microsoft.com/fwlink/p/?LinkId=271260) di Microsoft).
+
+Se la versione del programma di installazione è quella attuale o la più recente e il gateway è ancora presente sul Portale, rigenerare la chiave del gateway nel Portale di Azure e usare il pulsante Copia per copiare l'intera chiave, quindi incollarla in questa finestra per registrare il gateway. In caso contrario ricreare il gateway e ricominciare.
 
 ### <a name="6-problem"></a>6. Problema
 Durante la registrazione di un gateway può essere visualizzato il messaggio di errore seguente:
@@ -124,7 +126,7 @@ Il gateway è stato registrato in precedenza in altri computer. Durante la regis
 Quando si ripristina il gateway in un computer host diverso, la registrazione guidata richiede questo certificato per decrittografare le credenziali crittografate in precedenza con questo certificato.  Senza questo certificato, le credenziali non possono essere decrittografate dal nuovo gateway e le successive attività di copia associate al nuovo gateway avranno esito negativo.  
 
 #### <a name="resolution"></a>Risoluzione
-Se il certificato delle credenziali è stato esportato dal computer gateway originale con il pulsante **Esporta** disponibile nella scheda** Impostazioni** di Gestione configurazione di Gateway di gestione dati, usare il certificato in quel computer.
+Se il certificato delle credenziali è stato esportato dal computer gateway originale con il pulsante **Esporta** disponibile nella scheda**Impostazioni** di Gestione configurazione di Gateway di gestione dati, usare il certificato in quel computer.
 
 Non è possibile ignorare questo passaggio quando si recupera un gateway. Se il certificato è mancante, è necessario eliminare il gateway dal portale e crearne uno nuovo.  Inoltre, tutti i servizi collegati relativi al gateway devono essere aggiornati immettendo di nuovo le credenziali.
 
@@ -284,9 +286,4 @@ Per informazioni dettagliate sui log del gateway, vedere il registro eventi di W
  Per risolvere i problemi correlati al gateway, cercare gli eventi a livello di errore nel Visualizzatore eventi.
 
 ![Gateway di gestione dati - Log nel Visualizzatore eventi](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

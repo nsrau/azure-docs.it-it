@@ -1,6 +1,6 @@
 ---
-title: Connessione al gateway dati locale delle app per la logica | Documentazione Microsoft
-description: Informazioni su come creare una connessione al gateway dati locale da un&quot;app per la logica.
+title: Accesso ai dati locali - App per la logica di Azure | Microsoft Docs
+description: Procedura per consentire alle app per la logica di accedere ai dati locali tramite la connessione a un gateway dati locale.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -15,48 +15,74 @@ ms.workload: integration
 ms.date: 07/05/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: 0a16f22b6e3bb60091409c64b631afcba3d6db10
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: ce0be184fe11a7e5873639d79961e98de730ec86
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="connect-to-the-on-premises-data-gateway-for-logic-apps"></a>Connessione al gateway dati locale per le app per la logica
-I connettori delle app per la logica supportati consentono di configurare la connessione per accedere ai dati locali tramite il gateway dati locale.  La procedura seguente illustra come installare e configurare il gateway dati locale per integrarsi con una app per la logica.
+# <a name="connect-to-on-premises-data-from-logic-apps"></a>Connettersi ai dati locali dalle app per la logica
 
-## <a name="prerequisites"></a>Prerequisiti
-  * Uso di un indirizzo di posta elettronica aziendale o dell'istituto di istruzione in Azure per associare il gateway dati locale con l'account (account basato su Azure Active Directory)
-  * Se si usa un account Microsoft, ad esempio @outlook.com, o @live.com), è possibile usare l'account Azure per creare un indirizzo di posta elettronica aziendale o dell'istituito d'istruzione [seguendo questa procedura](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal) 
-  * Gateway dati locale [installato in un computer locale](logic-apps-gateway-install.md).
-  * Per il gateway non deve esistere un'attestazione da parte di un altro gateway dati locale di Azure. L'[attestazione viene eseguita con la creazione illustrata nel passaggio 2 di seguito](#2-create-an-azure-on-premises-data-gateway-resource). Un'installazione può essere associata a una sola risorsa gateway.
+Per accedere ai dati locali è possibile configurare una connessione a un gateway dati locale per i connettori di App per la logica di Azure supportati. La procedura seguente illustra come installare e configurare il gateway dati locale per affinché si integri con le app per la logica.
+Il gateway dati locale supporta le connessioni all'origine dati seguenti:
 
-## <a name="installing-and-configuring-the-connection"></a>Installazione e configurazione della connessione
+*   BizTalk Server
+*    DB2  
+*   File system
+*   Informix
+*   MQ
+*    Oracle Database 
+*   Server applicazioni SAP 
+*   Server messaggi SAP
+*    SQL Server
+
+Per altre informazioni su queste connessioni, vedere [Connettori per App per la logica di Azure](https://docs.microsoft.com/azure/connectors/apis-list).
+
+## <a name="requirements"></a>Requisiti
+
+* È necessario un indirizzo di posta elettronica aziendale o dell'istituto di istruzione in Azure per associare il gateway dati locale con l'account (account basato su Azure Active Directory).
+
+* Se si usa un account Microsoft, ad esempio @outlook.com, è possibile usare l'account di Azure per [creare un indirizzo di posta elettronica aziendale o dell'istituito d'istruzione](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal).
+
+* [Il gateway dati locale deve essere già installato in un computer locale](logic-apps-gateway-install.md).
+
+* È possibile associare l'installazione solo a una risorsa per il gateway. Il gateway non può essere reclamato da un altro gateway dati locale di Azure. L'attestazione si verifica durante la ([creazione nel passaggio 2 in questo argomento](#2-create-an-azure-on-premises-data-gateway-resource)).
+
+## <a name="install-and-configure-the-connection"></a>Installare e configurare la connessione
+
 ### <a name="1-install-the-on-premises-data-gateway"></a>1. Installare il gateway dati locale
-Per informazioni sull'installazione del gateway dati locale, vedere [questo articolo](logic-apps-gateway-install.md).  Prima di procedere con il resto della procedura, è necessario installare il gateway in un computer locale.
+
+Se l'utente non lo hai già fatto, seguire questa procedura per [installare il gateway dati locale](logic-apps-gateway-install.md). Prima di continuare con gli altri passaggi, assicurarsi che il gateway dati sia installato in un computer locale.
 
 ### <a name="2-create-an-azure-on-premises-data-gateway-resource"></a>2. Creare una risorsa gateway dati locale di Azure
-Una volta installata, è necessario associare la sottoscrizione di Azure al gateway dati locale.
 
-1. Accedere ad Azure con lo stesso o indirizzo di posta elettronica aziendale o dell'istituto di istruzione usato durante l'installazione del gateway
-2. Fare clic sul pulsante **Nuovo**
-3. Cercare e selezionare **Gateway dati locale**
-4. Completare le informazioni per associare il gateway al proprio account, selezionando anche il **nome installazione**
+Dopo l'installazione del gateway, è necessario associare la sottoscrizione di Azure al gateway.
+
+1. Accedere ad Azure con lo stesso indirizzo di posta elettronica aziendale o dell'istituto di istruzione usato durante l'installazione del gateway.
+2. Scegliere **Nuovo**.
+3. Trovare e selezionare **Gateway dati locale**.
+4. Completare le informazioni per associare il gateway al proprio account, selezionando anche il **Nome installazione** appropriato.
    
     ![Connessione al gateway dati locale][1]
-5. Fare clic sul pulsante **Crea** per creare la risorsa
 
-### <a name="3-create-a-logic-app-connection-in-the-designer"></a>3. Creare una connessione della app per la logica nella finestra di progettazione
-Ora che la sottoscrizione di Azure è associata a un'istanza del gateway dati locale, è possibile creare una connessione ad essa dall'interno di una app per la logica.
+5. Scegliere **Crea** per creare la risorsa.
 
-1. Aprire una app per la logica e scegliere un connettore che supporta la connettività locale, che al momento della stesura di questo articolo è SQL Server
-2. Selezionare la casella di controllo **Connetti tramite gateway dati locale**
+### <a name="3-create-a-logic-app-connection-in-logic-app-designer"></a>3. Creare una connessione dell'app per la logica nella Finestra di progettazione di app per la logica
+
+Ora che la sottoscrizione di Azure è associata a un'istanza del gateway dati locale, è possibile creare una connessione al gateway dall'app per la logica.
+
+1. Aprire un'app per la logica e scegliere un connettore che supporta la connettività locale, ad esempio SQL Server.
+2. Selezionare **Connect via on-premises data gateway** (Connetti tramite gateway dati locale).
    
     ![Creazione del gateway nella finestra di progettazione della app per la logica][2]
-3. Selezionare il **gateway** a cui connettersi e completare eventuali altre informazioni di connessione necessarie
-4. Fare clic su **Crea** per creare la connessione
 
-La connessione deve ora essere configurata correttamente per l'uso nella app per la logica.  
+3. Selezionare il **gateway** a cui si desidera connettersi e completare eventuali altre informazioni di connessione necessarie.
+4. Scegliere **Crea** per creare la connessione.
+
+La connessione è ora configurata per l'app per la logica da usare.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * [Esempi e scenari comuni per le app per la logica](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Funzionalità di Enterprise Integration](../logic-apps/logic-apps-enterprise-integration-overview.md)
 
@@ -64,9 +90,4 @@ La connessione deve ora essere configurata correttamente per l'uso nella app per
 [1]: ./media/logic-apps-gateway-connection/createblade.png
 [2]: ./media/logic-apps-gateway-connection/blankconnection.png
 [3]: ./media/logic-apps-logic-gateway-connection/checkbox.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

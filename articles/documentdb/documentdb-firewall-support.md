@@ -14,11 +14,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 03/10/2017
 ms.author: ankshah
 translationtype: Human Translation
-ms.sourcegitcommit: 08cac64a6b08266f78bca03f1139a13e9686ebc3
-ms.openlocfilehash: 819602cda932ea698287724e307ebbd73f1af988
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 7acbdda2e8179219c21370d20d30a94feb405fce
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -47,25 +48,32 @@ Quando si aggiungono istanze di macchina virtuale al gruppo, a queste viene auto
 ## <a name="connections-from-the-internet"></a>Connessioni da Internet
 Quando si accede a un account del database di DocumentDB da un computer in Internet, l'indirizzo IP o l'intervallo di indirizzi IP client del computer deve essere aggiunto all'elenco di indirizzi IP consentiti per l'account del database di DocumentDB. 
 
-## <a name="a-idconfigure-ip-policya-configuring-the-ip-access-control-policy"></a><a id="configure-ip-policy"></a> Configurazione dei criteri di controllo di accesso IP
-I criteri di controllo di accesso agli indirizzi IP possono essere configurati a livello di codice tramite l'[interfaccia della riga di comando di Azure](documentdb-automation-resource-manager-cli.md), [Azure Powershell](documentdb-manage-account-with-powershell.md) o l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) aggiornando la proprietà `ipRangeFilter`. Gli intervalli di indirizzi IP o i singoli indirizzi IP devono essere delimitati da virgole e non devono contenere spazi. Esempio: "13.91.6.132,13.91.6.1/24". Quando si aggiornano gli account del database con questi metodi, è necessario assicurarsi di popolare tutte le proprietà per impedire il ripristino delle impostazioni predefinite.
+## <a id="configure-ip-policy"></a> Configurazione dei criteri di controllo di accesso IP
+I criteri di controllo di accesso agli indirizzi IP possono essere configurati nel portale di Azure o a livello di codice tramite l'[interfaccia della riga di comando di Azure](documentdb-automation-resource-manager-cli.md), [Azure Powershell](documentdb-manage-account-with-powershell.md) o l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) aggiornando la proprietà `ipRangeFilter`. Gli intervalli di indirizzi IP o i singoli indirizzi IP devono essere delimitati da virgole e non devono contenere spazi. Esempio: "13.91.6.132,13.91.6.1/24". Quando si aggiornano gli account del database con questi metodi, è necessario assicurarsi di popolare tutte le proprietà per impedire il ripristino delle impostazioni predefinite.
 
 > [!NOTE]
 > Abilitando criteri di controllo di accesso IP per l'account del database di DocumentDB, qualsiasi accesso all'account del database di DocumentDB da computer non inclusi nell'elenco degli intervalli di indirizzi IP consentiti viene bloccato. Grazie a questo modello, viene bloccata anche l'esplorazione dell'operazione del piano dati dal portale per garantire l'integrità del controllo di accesso.
 
+Per semplificare lo sviluppo, il portale di Azure consente di identificare e aggiungere l'indirizzo IP del computer client all'elenco di indirizzi consentiti, in modo che le app in esecuzione nella macchina virtuale possano accedere all'account DocumentDB. Si noti che l'indirizzo IP del client viene rilevato in base a quanto visualizzato dal portale. Potrebbe trattarsi dell'indirizzo IP del client della macchina virtuale oppure dell'indirizzo IP del gateway di rete. Non dimenticare di rimuoverlo prima di passare all'ambiente di produzione.
+
+Per configurare i criteri di controllo di accesso agli indirizzi IP nel portale di Azure, passare al pannello dell'account DocumentDB, fare clic su **Firewall** nel menu di navigazione e infine su **SÌ** 
+
+![Screenshot che mostra come aprire il pannello Firewall nel portale di Azure](./media/documentdb-firewall-support/documentdb-azure-portal-firewall.png)
+
+Nel nuovo riquadro specificare se il portale di Azure può accedere all'account, quindi aggiungere altri indirizzi e intervalli, in base alla necessità, e infine fare clic su **Salva**.  
+
+![Screenshot che mostra come configurare le impostazioni del firewall nel portale di Azure](./media/documentdb-firewall-support/documentdb-azure-portal-firewall-configure.png)
+
 ## <a name="troubleshooting-the-ip-access-control-policy"></a>Risoluzione dei problemi relativi ai criteri di controllo di accesso IP
 ### <a name="portal-operations"></a>Operazioni nel portale
-Abilitando criteri di controllo di accesso IP per l'account del database di DocumentDB, qualsiasi accesso all'account del database di DocumentDB da computer non inclusi nell'elenco degli intervalli di indirizzi IP consentiti viene bloccato. Grazie a questo modello, viene bloccata anche l'esplorazione dell'operazione del piano dati dal portale per garantire l'integrità del controllo di accesso. 
+Abilitando criteri di controllo di accesso IP per l'account del database di DocumentDB, qualsiasi accesso all'account del database di DocumentDB da computer non inclusi nell'elenco degli intervalli di indirizzi IP consentiti viene bloccato. Se si vogliono abilitare operazioni sul piano dati del portale, ad esempio l'esplorazione di raccolte e le query nei documenti, è quindi necessario consentire esplicitamente l'accesso al portale di Azure usando il pannello **Firewall** nel portale. 
+
+![Screenshot che mostra come abilitare l'accesso al portale di Azure](./media/documentdb-firewall-support/documentdb-azure-portal-access-firewall.png)
 
 ### <a name="sdk--rest-api"></a>SDK e API REST
 Per motivi di sicurezza, l'accesso tramite SDK o API REST da computer non inclusi nell'elenco degli indirizzi IP consentiti restituisce una risposta generica 404 Non trovato senza altri dettagli. Controllare l'elenco degli indirizzi IP consentiti per l'account del database di DocumentDB per verificare che all'account sia applicata la configurazione dei criteri corretta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per suggerimenti relativi alle prestazioni di rete, vedere [Suggerimenti sulle prestazioni per DocumentDB](documentdb-performance-tips.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

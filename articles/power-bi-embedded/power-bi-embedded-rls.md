@@ -13,15 +13,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2f0f36e7ffeec52bacc35ac5039cd183976dc3aa
-ms.openlocfilehash: c0b3e2de393c53dab4c9e9341269f792603eec18
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 1cde5b9ee4c716af07d427d4d0eb3f0775d456ac
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="row-level-security-with-power-bi-embedded"></a>Sicurezza a livello di riga con Power BI Embedded
+
 La sicurezza a livello di riga può essere usata per limitare l'accesso utente a dati specifici in un report o a un set di dati, consentendo a più utenti diversi di usare lo stesso report visualizzando al tempo stesso dati diversi. Power BI Embedded supporta ora i set di dati configurati con la sicurezza a livello di riga.
 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-flow-1.png)
@@ -35,6 +37,7 @@ Per sfruttare i vantaggi della sicurezza a livello di riga, è importante compre
 **Regole** : i ruoli hanno regole e tali regole sono i filtri effettivi che vengono applicati ai dati. È ad esempio possibile usare un filtro semplice come "Paese = USA" o un filtro più dinamico.
 
 ### <a name="example"></a>Esempio
+
 Per il resto di questo articolo verrà fornito un esempio di creazione di sicurezza a livello di riga e quindi di utilizzo di tale funzionalità in un'applicazione incorporata. Il nostro esempio usa il file PBIX [Retail Analysis Sample](http://go.microsoft.com/fwlink/?LinkID=780547) .
 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-scenario-2.png)
@@ -81,7 +84,8 @@ I filtri possono essere ora applicati anche dalla tabella Sales alla tabella **I
 
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-diagram-view-11.png)
 
-**Nota** Se si usa la modalità DirectQuery per i dati, sarà necessario abilitare il filtro incrociato bidirezionale selezionando queste due opzioni:
+> [!NOTE]
+> Se si usa la modalità DirectQuery per i dati, sarà necessario abilitare il filtro incrociato bidirezionale selezionando queste due opzioni:
 
 1. **File** -> **Opzioni e impostazioni** -> **Funzionalità di anteprima** -> **Abilita il filtro incrociato in entrambe le direzioni per DirectQuery**.
 2. **File** -> **Opzioni e impostazioni** -> **DirectQuery** -> **Consenti misure senza limitazioni in modalità DirectQuery**.
@@ -112,11 +116,11 @@ Al termine di queste procedure, se un utente accede all'applicazione per visuali
 ![](media/power-bi-embedded-rls/pbi-embedded-rls-dashboard-13.png)
 
 ## <a name="see-also"></a>Vedere anche
-[Sicurezza a livello di riga con Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-admin-rls/)
 
-
-
-
-<!--HONumber=Jan17_HO1-->
+[Sicurezza a livello di riga con Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-admin-rls/)  
+[Autenticazione e autorizzazione con Power BI Embedded](power-bi-embedded-app-token-flow.md)  
+[Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
+[Esempio di incorporamento con JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
+Altre domande? [Contattare la community di Power BI](http://community.powerbi.com/)
 
 

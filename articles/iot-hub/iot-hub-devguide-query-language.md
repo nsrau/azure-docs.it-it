@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: 64f44c176633db4179f954d2f70cdf26d08b60b4
-ms.openlocfilehash: 28ea238484d86b044899aa9f95861bbdbbf3a06c
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 44169ba74f6af2b1c27ea4c2a8fd0214892f90d5
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -421,7 +421,7 @@ Nelle condizioni di route, sono supportate le funzioni matematiche seguenti:
 | ABS(x) | Restituisce il valore assoluto (positivo) dell'espressione numerica specificata. |
 | EXP(x) | Restituisce il valore esponente dell'espressione numerica specificata (e^x). |
 | POWER(x,y) | Restituisce il valore dell'espressione specificata alla potenza specificata (x^y).|
-| SQUARE(x) | Restituisce il quadrato del valore numerico specificato. |
+| SQUARE(x)    | Restituisce il quadrato del valore numerico specificato. |
 | CEILING(x) | Restituisce il più piccolo valore integer maggiore di o uguale all'espressione numerica specificata. |
 | FLOOR(x) | Restituisce il valore integer più alto, minore di o uguale all'espressione numerica specificata. |
 | SIGN(x) | Restituisce il segno positivo (+1), zero (0) o negativo (-1) dell'espressione numerica specificata.|

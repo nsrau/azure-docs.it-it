@@ -18,9 +18,9 @@ ms.date: 02/27/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: bbad7fbd1395c3982ecba03ab6ba90d833c889a9
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 3bad24f35cf7867f1e02e8470c602a7f6a9ce8fb
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -146,7 +146,7 @@ Le estensioni delle versioni di valutazione per i clienti sono disponibili come 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sugli scenari avanzati per la gestione delle licenze tramite i gruppi, consultare questo articolo.
+Per altre informazioni sugli scenari avanzati per la gestione delle licenze tramite i gruppi, vedere questo articolo.
 
 A questo punto si è pronti per configurare e utilizzare alcune delle funzionalità di Azure AD Premium.
 

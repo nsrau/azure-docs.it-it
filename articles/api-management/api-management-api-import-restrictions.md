@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: fff43da07603be1e54cb9948dfd442491bb8f35a
-ms.openlocfilehash: 8103c85cf27c46acf2a46d87d73ecc7227723479
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: f941f87019a667deba5ec3e5cd054d04318689db
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -29,7 +30,7 @@ In generale, se si ricevono errori durante l'importazione del documento Open API
 
 * **Nome host** è necessario un attributo per il nome host.
 * **Percorso base** è necessario un attributo per il percorso base.
-* **Schemi** è necessaria una matrice di schemi.
+* **Schemi** è necessaria una matrice di schemi. 
 
 ## <a name="wsdl"> </a>WSDL
 I file WSDL vengono usati per generare le API SOAP pass-through o come back-end dell'API SOAP-REST.
@@ -38,6 +39,7 @@ I file WSDL vengono usati per generare le API SOAP pass-through o come back-end 
 * **Messaggi con più parti**: non sono attualmente supportati.
 * **WCF wsHttpBinding**: i servizi SOAP creati con Windows Communication Foundation devono usare basicHttpBinding - wsHttpBinding.
 * **MTOM**: i servizi che usano MTOM <em>potrebbero</em> funzionare. Al momento il supporto ufficiale non è previsto.
+* Non sono supportati i tipi **ricorsivi** che sono definiti in modo ricorsivo, ad esempio che fanno riferimento a una matrice di se stessi.
 
 ## <a name="wadl"> </a>WADL
 Attualmente non sono noti problemi di importazione del formato WADL.
@@ -79,9 +81,4 @@ Attualmente non sono noti problemi di importazione del formato WADL.
 [How to add operations to an API]: api-management-howto-add-operations.md
 [How to create and publish a product]: api-management-howto-add-products.md
 [How to cache operation results in Azure API Management]: api-management-howto-cache.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: Analisi del sentiment di Twitter in tempo reale con Analisi di flusso | Documentazione Microsoft
+title: Analisi del sentiment di Twitter in tempo reale con Analisi di flusso | Microsoft Docs
 description: Imparare a utilizzare Analisi di flusso per l&quot;analisi dei sentimenti di Twitter in tempo reale. Istruzioni dettagliate, dalla generazione degli eventi fino ai dati in un dashboard in tempo reale.
 keywords: analisi delle tendenze twitter in tempo reale, analisi dei sentimenti, analisi dei social media, esempio di analisi di tendenza
 services: stream-analytics
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/03/2017
+ms.date: 03/09/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 576d8663f61d344628a38a98bf9902f4194949d0
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 09860b34bf4b1664e8d82af0e049cfd1a2d8defa
+ms.lasthandoff: 03/10/2017
 
 ---
 
@@ -172,7 +172,7 @@ Quando il processo è in esecuzione ed elabora il flusso di Twitter in tempo rea
 
 ![powerbi](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 
-## <a name="another-query-of-interest--in-this-scenario"></a>Un'altra query di interesse in questo scenario
+## <a name="another-query-of-interest-in-this-scenario"></a>Un'altra query di interesse in questo scenario
 
 Un'altra query di esempio creata per questo scenario e basata su una [finestra temporale scorrevole](https://msdn.microsoft.com/library/azure/dn835051.aspx). Per identificare gli argomenti di tendenza si cercheranno gli argomenti che superano un valore di soglia per i riferimenti entro un determinato periodo di tempo. Ai fini di questa esercitazione, verranno selezionati gli argomenti menzionati più di 20 volte negli ultimi cinque secondi.
 
@@ -182,6 +182,19 @@ FROM TwitterStream TIMESTAMP BY CreatedAt
 GROUP BY SLIDINGWINDOW(s, 5), topic
 HAVING COUNT(*) > 20
 ```
+
+## <a name="table-of-the-field-headers"></a>Tabella delle intestazioni di campo
+
+Le etichette dei campi che è possibile usare in questo esercizio sono elencate in questa tabella. È possibile sperimentare nell'editor di query.
+
+Proprietà JSON | Definizione
+--- | ---
+CreatedAt | Orario di creazione del tweet
+Argomento | Argomento che corrisponde alla parola chiave specificata
+SentimentScore | Punteggio del sentiment da Sentiment140
+Autore | Handle di Twitter che ha inviato il tweet
+Testo | Corpo completo del tweet
+
 
 ## <a name="get-support"></a>Supporto
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).

@@ -1,5 +1,5 @@
 ---
-title: 'Connettere Raspberry Pi (C) ad Azure IoT: lezione 2: Strumenti di Azure (Windows) | Documentazione Microsoft'
+title: 'Connettere Arduino ad Azure IoT: lezione 2: Strumenti di Azure (Windows) | Documentazione Microsoft'
 description: Installare Python e l&quot;interfaccia della riga di comando di Azure in Windows 7 e versioni successive.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: 8c87408538cd4c2088cc1a546458c6a76291730c
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 74f4448cbd5348988c185c86cadad5337da3a0da
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -82,8 +83,3 @@ Se l'installazione ha esito positivo, verrà visualizzato l'output seguente.
 [macos]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac.md
 [output]: media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson2/az_iot_help_win.png
 [create-your-iot-hub-and-register-your-arduino-board]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md
-
-
-<!--HONumber=Jan17_HO4-->
-
-

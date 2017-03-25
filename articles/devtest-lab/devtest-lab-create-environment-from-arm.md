@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: bd280fabf22d569f3c4dae9f00f44b08700c8fc4
-ms.openlocfilehash: f034f028b0b1e0011e152b88d304dd54cfbc8320
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: c17ea1f078c424d855109da07113a4c2f8f84ab3
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -71,7 +71,7 @@ La procedura seguente consente di aggiungere un repository nel lab tramite il po
     - **Nome**: immettere il nome del repository usato nel lab.
     - **URL clone Git**: immettere l'URL del clone Git HTTPS copiato in precedenza da GitHub o da Visual Studio Team Services.  
     - **Ramo**: immettere il nome del ramo per accedere alle definizioni dei modelli di Azure Resource Manager. 
-    - **Token di accesso personale**: il token di accesso personale usato per accedere in modo sicuro al repository. Per ottenere il token da Visual Studio Team Services, selezionare ** &lt;YourName> > My profile > Security > Public access token** (NomeUtente > Profilo personale > Sicurezza > Token di accesso pubblico). Per ottenere il token da GitHub, selezionare l'avatar e quindi selezionare **Settings > Public access token** (Impostazioni > Token di accesso pubblico). 
+    - **Token di accesso personale**: il token di accesso personale usato per accedere in modo sicuro al repository. Per ottenere il token da Visual Studio Team Services, selezionare **&lt;YourName> > My profile > Security > Public access token** (NomeUtente > Profilo personale > Sicurezza > Token di accesso pubblico). Per ottenere il token da GitHub, selezionare l'avatar e quindi selezionare **Settings > Public access token** (Impostazioni > Token di accesso pubblico). 
     - **Percorsi delle cartelle**: usando uno dei due campi di input, immettere il percorso della cartella che inizia con la barra rovesciata - / - ed è relativo all'URI del clone Git delle definizioni di elemento (primo campo di input) o delle definizioni di modello di Azure Resource Manager.   
     
         ![Repository pubblico](./media/devtest-lab-create-environment-from-arm/repo-values.png)
@@ -115,5 +115,5 @@ Dopo aver configurato un repository di modelli di Azure Resource Manager nel lab
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Dopo aver creato la macchina virtuale, è possibile connettersi ad essa selezionando **Connetti** nel pannello della macchina virtuale.
-* Leggere l'articolo [Modelli di Azure Resource Manager dalla raccolta dei modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates)
+* Esplorare i [modelli di Azure Resource Manager dalla raccolta di modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates)
 

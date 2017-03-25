@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/08/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 4f8235ae743a63129799972ca1024d672faccbe9
-ms.openlocfilehash: 441e2adf6a222a0fc2e7e06c9b0140548655d542
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 8ebc1aa663f298d1f3f495523d85bda8777d5d29
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -59,7 +59,7 @@ Non esiste alcun limite alla quantità totale di dati che una raccolta può arch
 Non esiste alcun limite alla quantità totale di velocità effettiva che una raccolta può supportare in DocumentDB, se il carico di lavoro può essere distribuito in modo abbastanza uniforme tra un numero sufficientemente elevato di chiavi di partizioni.
 
 ### <a name="how-much-does-microsoft-azure-documentdb-cost"></a>Quando costa Microsoft Azure DocumentDB?
-Per informazioni dettagliate sui prezzi, vedere [Prezzi di DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/). Gli addebiti per l'uso di DocumentDB sono determinati dal numero di raccolte in uso, dal numero di ore in cui le raccolte sono state online, dalla quantità di archivio utilizzata e dalla velocità effettiva di cui è stato effettuato il provisioning per ogni raccolta.
+Per informazioni dettagliate sui prezzi, vedere [Prezzi di DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/). Gli addebiti per l'uso di DocumentDB sono determinati dal numero di raccolte con provisioning, dal numero di ore in cui le raccolte sono state online e dalla velocità effettiva di cui è stato effettuato il provisioning per ogni raccolta.
 
 ### <a name="is-there-a-free-account-available"></a>È disponibile un account gratuito?
 I nuovi utenti possono iscriversi per ottenere un [account gratuito di Azure](https://azure.microsoft.com/free/)che è valido 30 giorni e include un credito di 200 dollari statunitensi per provare tutti i servizi di Azure. Se si possiede una sottoscrizione a Visual Studio si ha invece diritto a [150 dollari statunitensi di crediti Azure gratuiti al mese](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) da usare per qualsiasi servizio di Azure.  
@@ -122,6 +122,26 @@ Sì. Dal momento che DocumentDB è un servizio RESTful, i collegamenti alle riso
 
 ### <a name="is-a-local-instance-of-documentdb-available"></a>È disponibile un'istanza locale di DocumentDB?
 Sì. L'[emulatore DocumentDB di Azure](documentdb-nosql-local-emulator.md) offre un'emulazione ultra fedele del servizio DocumentDB. Supporta le stesse funzionalità di Azure DocumentDB, incluso il supporto per la creazione e l'esecuzione di query su documenti JSON, il provisioning e la scalabilità delle raccolte e l'esecuzione di stored procedure e trigger. È possibile sviluppare e testare le applicazioni usando l'emulatore di DocumentDB e distribuirle in Azure su scala globale semplicemente apportando una singola modifica di configurazione all'endpoint di connessione per DocumentDB.
+
+## <a name="database-questions-about-developing-against-api-for-mongodb"></a>Domande sui database relative allo sviluppo con l'API per MongoDB
+### <a name="what-is-documentdbs-api-for-mongodb"></a>Che cos'è l'API per MongoDB di DocumentDB?
+L'API per MongoDB di Microsoft Azure DocumentDB è un livello di compatibilità che consente alle applicazioni di comunicare in modo facile e trasparente con il motore di database nativo di DocumentDB, con le API e i driver di Apache MongoDB supportati dalla community. Gli sviluppatori possono ora usare le catene di strumenti e le competenze esistenti di MongoDB per creare applicazioni che sfruttano i vantaggi di DocumentDB e le funzionalità specifiche di DocumentDB, tra cui l'indicizzazione automatica, la manutenzione di backup, i Contratti di servizio con supporto finanziario e così via.
+
+### <a name="how-to-do-i-connect-to-my-api-for-mongodb-database"></a>Come ci si connette al database dell'API per MongoDB?
+Il modo più veloce per connettersi all'API per MongoDB di DocumentDB consiste nel passare al [portale di Azure](https://portal.azure.com). Passare al proprio account. Nel *riquadro di spostamento sinistro* dell'account fare clic su *Avvio rapido*. L'*Avvio rapido* è l'approccio ottimale per ottenere frammenti di codice per la connessione al database. 
+
+DocumentDB applica standard e requisiti di sicurezza restrittivi. Gli account DocumentDB richiedono l'autenticazione e la comunicazione sicura tramite *SSL*. Assicurarsi quindi di usare TLSv1.2.
+
+Per informazioni dettagliate, vedere [Connettersi al database dell'API per MongoDB](documentdb-connect-mongodb-account.md).
+
+### <a name="are-there-additional-error-codes-for-an-api-for-mongodb-database"></a>Sono disponibili codici errore aggiuntivi per un database dell'API per MongoDB?
+L'API per MongoDB include codici errore specifici, oltre ai codici errore comuni di MongoDB.
+
+
+| Errore               | Codice  | Descrizione  | Soluzione  |
+|---------------------|-------|--------------|-----------|
+| TooManyRequests     | 16500 | Il numero totale di unità richiesta utilizzate ha superato il livello di unità di richiesta con provisioning per la raccolta ed è stata applicata la limitazione. | Prendere in considerazione il ridimensionamento della velocità effettiva della raccolta dal portale di Azure o la ripetizione del tentativo. |
+| ExceededMemoryLimit | 16501 | In quanto servizio multi-tenant, l'operazione ha superato il limite di allocazione di memoria del client. | Ridurre l'ambito dell'operazione tramite criteri di query più restrittivi o contattare il supporto tecnico dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>*Esempio: &nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 [azure-portal]: https://portal.azure.com
 [query]: documentdb-sql-query.md

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 1/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 787f54ca2c19d87866ede452ea1cce0b1c37f263
-ms.openlocfilehash: 50f66d229b80489e429b5db3f2c6cc5787b6884c
-ms.lasthandoff: 12/20/2016
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: c30203120a155fd3fc431009baa3e8b318e1330f
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -250,8 +250,8 @@ Il primo passaggio nell'importazione di dati tramite il servizio Importazione/Es
 1. Identificare i dati da importare. Potrebbe trattarsi di directory e file autonomi nel server locale o in una condivisione di rete.  
 2. Determinare il numero di unità che serviranno in base alla dimensione totale dei dati. Procurare il numero necessario di unità SSD da 2,5 pollici o dischi rigidi SATA II/III da 2,5 o 3,5 pollici.
 3. Identificare l'account di archiviazione di destinazione, il contenitore, le directory virtuali e i BLOB.
-4.  Determinare le directory e/o i file autonomi che verranno copiati in ciascuna unità disco rigido.
-5.  Creare i file CSV per set di dati e driveset.
+4.    Determinare le directory e/o i file autonomi che verranno copiati in ciascuna unità disco rigido.
+5.    Creare i file CSV per set di dati e driveset.
     
     **File CSV del set di dati**
     
@@ -271,7 +271,7 @@ Il primo passaggio nell'importazione di dati tramite il servizio Importazione/Es
 
     **File CSV del driveset**
 
-    Il valore del flag del driveset è un file CSV che contiene l'elenco dei dischi in cui vengono mappate le lettere di unità in modo che lo strumento possa rilevare correttamente l'elenco dei dischi da preparare. 
+    Il valore del flag driveset è un file CSV che contiene l'elenco dei dischi a cui viene eseguito il mapping delle lettere di unità, in modo che lo strumento possa scegliere correttamente l'elenco dei dischi da preparare. 
 
     Di seguito è riportato l'esempio di un file CSV del driveset:
     
@@ -285,8 +285,8 @@ Il primo passaggio nell'importazione di dati tramite il servizio Importazione/Es
 
     Ulteriori informazioni su [come preparare un file CSV del driveset](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file).
 
-6.  Usare lo [strumento WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) per copiare i dati in uno o più dischi rigidi.
-7.  È possibile specificare il parametro "Encrypt" nel campo di crittografia del CSV del driveset per abilitare la crittografia BitLocker sull'unità disco rigido. In alternativa è possibile anche abilitare la crittografia BitLocker manualmente nell'unità disco rigido, specificare "AlreadyEncrypted" e indicare la chiave nel CSV del driveset durante l'esecuzione dello strumento.
+6.    Usare lo [strumento WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) per copiare i dati in uno o più dischi rigidi.
+7.    È possibile specificare il parametro "Encrypt" nel campo di crittografia del CSV del driveset per abilitare la crittografia BitLocker sull'unità disco rigido. In alternativa è possibile anche abilitare la crittografia BitLocker manualmente nell'unità disco rigido, specificare "AlreadyEncrypted" e indicare la chiave nel CSV del driveset durante l'esecuzione dello strumento.
 
 8. Non modificare i dati sulle unità disco rigido o sul file journal dopo aver completato la preparazione del disco.
 
@@ -423,7 +423,7 @@ No, il servizio Importazione/Esportazione di Azure supporta solo i BLOB in blocc
 
 **Il servizio Importazione/Esportazione di Azure è disponibile per le sottoscrizioni CSP?**
 
-No, il servizio Importazione/Esportazione di Azure non supporta le sottoscrizioni CSP. Il supporto verrà aggiunto in futuro.
+Il servizio di importazione/esportazione di Azure supporta le sottoscrizioni CSP.
 
 **È possibile saltare il passaggio di preparazione dell'unità per un processo di importazione o preparare un disco senza copiare?**
 
