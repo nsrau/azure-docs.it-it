@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 1aeb983730f732a021b828c658cc741f8659c487
-ms.openlocfilehash: 60e4ee8ff7e9252e3116d15e19ae378570e37196
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 97b5e4c3bda8d66297a43b4e430fec92d9588686
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -36,7 +36,7 @@ Questo articolo illustra come caricare un disco rigido virtuale su Azure usando 
 ## <a name="quick-commands"></a>Comandi rapidi
 Se si vuole eseguire rapidamente l'attività, la sezione seguente indica in dettaglio i comandi base per caricare una VM in Azure. Altre informazioni dettagliate e il contesto per ogni passaggio sono disponibili nelle sezioni successive del documento, [a partire da qui](#requirements).
 
-Controllare di aver effettuato l'accesso tramite l'[interfaccia della riga di comando di Azure 1.0](../xplat-cli-install.md) e di usare la modalità Resource Manager:
+Controllare di aver effettuato l'accesso tramite l'[interfaccia della riga di comando di Azure 1.0](../cli-install-nodejs.md) e di usare la modalità Resource Manager:
 
 ```azurecli
 azure config mode arm
@@ -102,7 +102,7 @@ Per completare la procedura seguente, è necessario:
   * Creare un account di archiviazione e un contenitore in cui inserire l'immagine personalizzata e le VM create.
   * Una volta create tutte le VM, è possibile eliminare l'immagine.
 
-Controllare di aver effettuato l'accesso tramite l'[interfaccia della riga di comando di Azure 1.0](../xplat-cli-install.md) e di usare la modalità Resource Manager:
+Controllare di aver effettuato l'accesso tramite l'[interfaccia della riga di comando di Azure 1.0](../cli-install-nodejs.md) e di usare la modalità Resource Manager:
 
 ```azurecli
 azure config mode arm

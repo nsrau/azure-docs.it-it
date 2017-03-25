@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/18/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 4232c27926c2d48adb91eedd15884e44cc004ac2
-ms.openlocfilehash: 2fad0a4e7c4ac282802c2bc0dd10c7d86b651e08
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f09aa6cffbbaa2a3df7f84edee2d3e03aa23a719
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -39,7 +40,7 @@ La maggior parte delle violazioni della sicurezza si verifica quando utenti mali
 
 Di conseguenza, è necessario:
 
-- Proteggere tutte le identità indipendentemente dal livello di privilegi 
+- Proteggere tutte le identità indipendentemente dal livello di privilegi
 
 - Impedire in modo proattivo l'uso improprio delle identità compromesse
 
@@ -74,12 +75,12 @@ Azure Active Directory Identity Protection è ben più di un semplice strumento 
 
 ### <a name="vulnerabilities"></a>Vulnerabilità
 
-Azure Active Directory Identity Protection analizza la configurazione e rileva le vulnerabilità che possono avere effetto sulle identità dell'utente. Per altri dettagli, vedere [Vulnerabilità rilevate da Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md). 
+Azure Active Directory Identity Protection analizza la configurazione e rileva le vulnerabilità che possono avere effetto sulle identità dell'utente. Per altri dettagli, vedere [Vulnerabilità rilevate da Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md).
 
 ### <a name="risk-events"></a>Eventi di rischio
 
 Azure Active Directory usa l'euristica e algoritmi adattivi di apprendimento automatico per rilevare azioni sospette correlate alle identità dell'utente. Il sistema crea un record per ogni azione sospetta rilevata. Questi record sono denominati anche eventi di rischio.  
-Per altre informazioni, vedere [Eventi di rischio di Azure Active Directory](active-directory-identity-protection-risk-events.md). 
+Per altre informazioni, vedere [Eventi di rischio di Azure Active Directory](active-directory-identity-protection-risk-events.md).
 
 
 ## <a name="investigation"></a>Analisi
@@ -101,11 +102,11 @@ Le sezioni seguenti forniscono altre informazioni e i passaggi relativi a un'ana
 
 ## <a name="risky-sign-ins"></a>Accessi a rischio
 
-Aure Active Directory rileva alcuni [tipi di eventi di rischio](active-directory-identity-protection-risk-events.md#risk-event-types) in tempo reale. Tutti gli eventi di rischio in tempo reale rilevati durante un accesso di un utente rientrano nel concetto logico degli *accessi a rischio*. Un accesso a rischio è indicativo di un tentativo di accesso che potrebbe non essere stato eseguito dal legittimo proprietario di un account utente. Il ciclo di vita di un accesso a rischio termina quando un utente effettua la disconnessione.
+Aure Active Directory rileva alcuni [tipi di eventi di rischio](active-directory-reporting-risk-events.md#risk-event-types) in tempo reale. Tutti gli eventi di rischio in tempo reale rilevati durante un accesso di un utente rientrano nel concetto logico degli *accessi a rischio*. Un accesso a rischio è indicativo di un tentativo di accesso che potrebbe non essere stato eseguito dal legittimo proprietario di un account utente. Il ciclo di vita di un accesso a rischio termina quando un utente effettua la disconnessione.
 
 ### <a name="sign-in-risk-level"></a>Livello di rischio di un accesso
 
-Il livello di rischio di un accesso è un'indicazione (Alto, Medio o Basso) della probabilità che un tentativo di accesso non sia stato eseguito dal legittimo proprietario di un account utente. 
+Il livello di rischio di un accesso è un'indicazione (Alto, Medio o Basso) della probabilità che un tentativo di accesso non sia stato eseguito dal legittimo proprietario di un account utente.
 
 ### <a name="mitigating-sign-in-risk-events"></a>Mitigazione degli eventi di rischio di accesso
 
@@ -395,9 +396,4 @@ Per una panoramica dell'esperienza utente correlata, vedere:
 * [Azure Active Directory Identity Protection: come sbloccare gli utenti](active-directory-identityprotection-unblock-howto.md)
 
 * [Introduzione ad Azure Active Directory Identity Protection e a Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

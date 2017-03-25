@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/08/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: ba75d58b6e0ce6a75173c6d38ea27e7917a054c8
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 88351f0c3333fb06b1949a8ab9f63deea7259a41
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -61,9 +61,9 @@ Azure richiede chiavi pubbliche e private nel formato **ssh-rsa** almeno a 2048 
 
 Di seguito sono descritti gli scenari di distribuzione e i tipi di file da usare per ognuno:
 
-1. Le chiavi **ssh-rsa** sono necessarie per qualsiasi distribuzione che usa il [portale di Azure](https://portal.azure.com) e le distribuzioni di Resource Manager che usano l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+1. Le chiavi **ssh-rsa** sono necessarie per qualsiasi distribuzione che usa il [portale di Azure](https://portal.azure.com) e le distribuzioni di Resource Manager che usano l'[interfaccia della riga di comando di Azure](../cli-install-nodejs.md).
    * Queste chiavi sono in genere tutto ciò che serve alla maggior parte degli utenti.
-2. Il file `.pem` è necessario per creare VM mediante la distribuzione classica. Queste chiavi sono supportate nelle distribuzioni classiche quando si usa il [portale di Azure](https://portal.azure.com) o l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+2. Il file `.pem` è necessario per creare VM mediante la distribuzione classica. Queste chiavi sono supportate nelle distribuzioni classiche quando si usa il [portale di Azure](https://portal.azure.com) o l'[interfaccia della riga di comando di Azure](../cli-install-nodejs.md).
    * È necessario creare questi certificati e chiavi aggiuntive solo se si gestiscono risorse create usando il modello di distribuzione classica.
 
 ## <a name="install-git-for-windows"></a>Installare Git per Windows

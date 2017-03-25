@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/23/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: d6a9be6c5c681cba04fa8ba216c89234ae35b846
-ms.openlocfilehash: 8e554fc73906a912c426cabf6f6dffdc10002c9b
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 2289c99ddd08c1e7ba356e233180cf59d99de182
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -277,7 +277,7 @@ Le entità di Data Factory seguenti vengono definite nel modello JSON:
 * [Pipeline di dati con un'attività di copia](#data-pipeline)
 
 #### <a name="azure-storage-linked-service"></a>Servizio collegato Archiviazione di Azure
-Il servizio collegato Archiviazione di Azure collega l'account di archiviazione di Azure alla data factory. In questa esercitazione lo stesso account di archiviazione viene usato come account di archiviazione di HDInsight predefinito, come archivio dati di input e come archivio dati di output. Di conseguenza, si definisce un solo servizio collegato Archiviazione di Azure. Nella definizione del servizio collegato si specificano il nome e la chiave dell'account di archiviazione di Azure. Per informazioni dettagliate sulle proprietà JSON usate per definire un servizio collegato di Archiviazione di Azure, vedere [Servizio collegato Archiviazione di Azure](../data-factory/data-factory-azure-blob-connector.md#azure-storage-linked-service). 
+Il servizio collegato Archiviazione di Azure collega l'account di archiviazione di Azure alla data factory. In questa esercitazione lo stesso account di archiviazione viene usato come account di Archiviazione HDInsight predefinito, come archivio dati di input e come archivio dati di output. Di conseguenza, si definisce un solo servizio collegato Archiviazione di Azure. Nella definizione del servizio collegato si specificano il nome e la chiave dell'account di archiviazione di Azure. Per informazioni dettagliate sulle proprietà JSON usate per definire un servizio collegato di Archiviazione di Azure, vedere [Servizio collegato Archiviazione di Azure](../data-factory/data-factory-azure-blob-connector.md#azure-storage-linked-service). 
 
 ```json
 {

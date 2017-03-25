@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
-ms.openlocfilehash: 263b3a1edc94a60e756850b2d917840be87e7a5a
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a7392f543321e9038c9318588dca23217eabf35b
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -42,7 +42,7 @@ Tutta la documentazione necessaria per creare e gestire macchine virtuali di Azu
 
 [Installare Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
-[Installare l'interfaccia da riga di comando di Azure](../xplat-cli-install.md)
+[Installare l'interfaccia da riga di comando di Azure](../cli-install-nodejs.md)
 
 ## <a name="get-started"></a>Introduzione
 [Percorso di apprendimento per le macchine virtuali Windows](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)

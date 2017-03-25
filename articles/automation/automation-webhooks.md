@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: magoedte;bwren;sngun
 translationtype: Human Translation
-ms.sourcegitcommit: deb32f98bbfc0032ffbdcf168a2b4c42f1c4ae76
-ms.openlocfilehash: 4cf402877d5ddee8f4944a104163a55025013cc0
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 6c65427fcd18e41a90dfb872aa9525f758b17b87
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -74,7 +74,7 @@ Passare quindi il seguente valore JSON nell'interfaccia utente per il parametro 
 
 > [!NOTE]
 > I valori di tutti i parametri di input vengono registrati con il processo di Runbook.  Qualsiasi input fornito dal client nella richiesta del webhook verrà quindi registrato e sarà disponibile per chiunque abbia accesso al processo di automazione.  Per questo motivo è consigliabile procedere con cautela quando si includono dati sensibili nelle chiamate di webhook.
-> 
+>
 
 ## <a name="security"></a>Sicurezza
 La sicurezza di un webhook si basa sulla privacy dell'URL che contiene un token di sicurezza che consente di richiamarlo. Automazione di Azure non esegue alcuna autenticazione per la richiesta, purché venga inviata all'URL corretto. Per questo motivo, non è consigliabile usare i webhook per i Runbook che eseguono funzioni sensibili senza usare una modalità alternativa di convalida della richiesta.
@@ -267,6 +267,4 @@ Il seguente runbook di esempio viene attivato quando la regola dell'avviso diven
 * Per informazioni dettagliate sulle diverse modalità disponibili per l'avvio dei runbook, vedere [Avvio di un runbook](automation-starting-a-runbook.md).
 * Per informazioni sulla visualizzazione dello stato di un processo del runbook, vedere [Esecuzione di runbook in Automazione di Azure](automation-runbook-execution.md).
 * Per informazioni su come usare Automazione di Azure per agire sugli avvisi di Azure, vedere [Soluzione di Automazione di Azure: risolvere gli avvisi delle macchine virtuali di Azure](automation-azure-vm-alert-integration.md).
-* Per informazioni su come richiamare un runbook da un avviso di Log Analytics di OMS, vedere [Runbook Actions with Log Analytics Alerts](../log-analytics/log-analytics-alerts.md#runbook-actions) (Azioni di runbook con gli avvisi di Log Analytics).
-
 

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 9ebf15e5f2ca21f3ec39af9be93253694a97cdf8
-ms.openlocfilehash: ba2f9d965528e69ce2d1fce62e5b16e738263c87
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4725f4200446434bfcb8754aac9bf0d99f8a7526
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -34,7 +34,7 @@ In questo articolo viene illustrato come creare un account Azure DocumentDB usan
 Gli account del database DocumentDB sono attualmente l'unica risorsa DocumentDB che può essere creata mediante i modelli di Resource Manager e l'interfaccia della riga di comando di Azure 1.0.
 
 ## <a name="getting-ready"></a>Preparazione
-Prima di poter usare l'interfaccia della riga di comando di Azure 1.0 con i gruppi di risorse di Azure, è necessario disporre della versione corretta dell'interfaccia e di un account Azure. Se non è disponibile l'interfaccia della riga di comando di Azure 1.0 è necessario [installarla](../xplat-cli-install.md).
+Prima di poter usare l'interfaccia della riga di comando di Azure 1.0 con i gruppi di risorse di Azure, è necessario disporre della versione corretta dell'interfaccia e di un account Azure. Se non è disponibile l'interfaccia della riga di comando di Azure 1.0 è necessario [installarla](../cli-install-nodejs.md).
 
 ### <a name="update-your-azure-cli-10-version"></a>Aggiornamento della versione dell'interfaccia della riga di comando di Azure 1.0
 Al prompt dei comandi digitare `azure --version` per verificare se è già installata la versione 0.10.4 o una versione successiva. In questa fase è possibile che venga richiesto di partecipare alla raccolta dei dati dell’interfaccia della riga di comando di Microsoft Azure ed è possibile accettare o rifiutare.
@@ -42,7 +42,7 @@ Al prompt dei comandi digitare `azure --version` per verificare se è già insta
     azure --version
     0.10.4 (node: 4.2.4)
 
-Se la versione installata non è la 0.10.4 o una versione successiva, sarà necessario [installare l'interfaccia della riga di comando di Azure 1.0](../xplat-cli-install.md) o l'aggiornamento usando uno dei programmi di installazione nativi o con **npm** digitando `npm update -g azure-cli` per effettuare l'aggiornamento o `npm install -g azure-cli` per l'installazione.
+Se la versione installata non è la 0.10.4 o una versione successiva, sarà necessario [installare l'interfaccia della riga di comando di Azure 1.0](../cli-install-nodejs.md) o l'aggiornamento usando uno dei programmi di installazione nativi o con **npm** digitando `npm update -g azure-cli` per effettuare l'aggiornamento o `npm install -g azure-cli` per l'installazione.
 
 ### <a name="set-your-azure-account-and-subscription"></a>Impostare l'account e la sottoscrizione di Azure
 Se non si dispone ancora di una sottoscrizione Azure, ma si dispone di una sottoscrizione Visual Studio, è possibile attivare i [vantaggi per i titolari di sottoscrizioni Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi a una [versione di prova gratuita](https://azure.microsoft.com/pricing/free-trial/).
@@ -64,7 +64,7 @@ L'output ottenuto sarà il seguente:
 
 Aprire [https://aka.ms/devicelogin](https://aka.ms/devicelogin) in un browser e immettere il codice indicato nell'output del comando.
 
-![Schermata che illustra la finestra di accesso del dispositivo per l'interfaccia della riga di comando di Microsoft Azure 1.0](media/documentdb-automation-resource-manager-cli/azure-cli-login-code.png)
+![Screenshot che illustra la finestra di accesso del dispositivo per l'interfaccia della riga di comando di Microsoft Azure 1.0](media/documentdb-automation-resource-manager-cli/azure-cli-login-code.png)
 
 Dopo aver immesso il codice, selezionare l'identità da utilizzare nel browser e, se necessario, fornire il nome utente e la password.
 
@@ -137,10 +137,10 @@ La maggior parte delle applicazioni è costituita da un insieme di diversi tipi 
 
 Per altre informazioni sui gruppi di risorse di Azure e su come usarli, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Se si è interessati alla creazione di modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md).
 
-## <a name="a-idquick-create-documentdb-accountatask-create-a-single-region-documentdb-account"></a><a id="quick-create-documentdb-account"></a>Attività: creazione di un account DocumentDB per una singola area
+## <a id="quick-create-documentdb-account"></a>Attività: creazione di un account DocumentDB per una singola area
 Le istruzioni in questa sezione consentono di creare un account DocumentDB per una singola area. A questo scopo, è necessario usare l'interfaccia della riga di comando di Azure 1.0 con o senza modelli di Resource Manager.
 
-### <a name="a-idcreate-single-documentdb-account-cli-arma-create-a-single-region-documentdb-account-using-azure-cli-10-without-resource-manager-templates"></a><a id="create-single-documentdb-account-cli-arm"></a> Creare un account DocumentDB per una singola area tramite l'interfaccia della riga di comando di Azure 1.0 senza modelli di Resource Manager
+### <a id="create-single-documentdb-account-cli-arm"></a> Creare un account DocumentDB per una singola area tramite l'interfaccia della riga di comando di Azure 1.0 senza modelli di Resource Manager
 Creare un account DocumentDB nel gruppo di risorse nuovo o esistente immettendo il comando seguente nel prompt dei comandi:
 
 > [!TIP]
@@ -180,7 +180,7 @@ In caso di errori, vedere [Risoluzione dei problemi](#troubleshooting).
 
 Dopo il completamento del comando, lo stato dell'account sarà **Creazione in corso** per alcuni minuti, poi passerà a **Online** quando sarà pronto per l'uso. È possibile controllare lo stato dell'account nel [portale di Azure](https://portal.azure.com)nel pannello **Account DocumentDB** .
 
-### <a name="a-idcreate-single-documentdb-account-cli-arma-create-a-single-region-documentdb-account-using-azure-cli-10-with-resource-manager-templates"></a><a id="create-single-documentdb-account-cli-arm"></a> Creare un account DocumentDB per una singola area tramite l'interfaccia della riga di comando di Azure 1.0 con modelli di Resource Manager
+### <a id="create-single-documentdb-account-cli-arm"></a> Creare un account DocumentDB per una singola area tramite l'interfaccia della riga di comando di Azure 1.0 con modelli di Resource Manager
 Nelle istruzioni di questa sezione viene descritto come creare un account DocumentDB con un modello di Azure Resource Manager e un file dei parametri facoltativi, entrambi in formato JSON. Utilizzare un modello consente di descrivere esattamente cosa si desidera e ripeterlo senza errori.
 
 Creare un file di modello locale con il contenuto seguente. Denominare il file azuredeploy.json.
@@ -292,10 +292,10 @@ In caso di errori, vedere [Risoluzione dei problemi](#troubleshooting).
 
 Dopo il completamento del comando, lo stato dell'account sarà **Creazione in corso** per alcuni minuti, poi passerà a **Online** quando sarà pronto per l'uso. È possibile controllare lo stato dell'account nel [portale di Azure](https://portal.azure.com)nel pannello **Account DocumentDB** .
 
-## <a name="a-idquick-create-documentdb-with-mongodb-api-accountatask-create-a-single-region-documentdb-api-for-mongodb-account"></a><a id="quick-create-documentdb-with-mongodb-api-account"></a>Attività: Creare un account DocumentDB per una singola area: API per l'account MongoDB
+## <a id="quick-create-documentdb-with-mongodb-api-account"></a>Attività: Creare un account DocumentDB per una singola area: API per l'account MongoDB
 Le istruzioni in questa sezione consentono di creare un'API per una singola area per un account MongoDB. A questo scopo, è necessario usare l'interfaccia della riga di comando di Azure 1.0 con i modelli di Resource Manager.
 
-### <a name="a-idcreate-single-documentdb-with-mongodb-api-account-cli-arma-create-a-single-region-mongodb-account-using-azure-cli-10-with-resource-manager-templates"></a><a id="create-single-documentdb-with-mongodb-api-account-cli-arm"></a> Creare un account MongoDB per una singola area tramite l'interfaccia della riga di comando di Azure 1.0 con modelli di Resource Manager
+### <a id="create-single-documentdb-with-mongodb-api-account-cli-arm"></a> Creare un account MongoDB per una singola area tramite l'interfaccia della riga di comando di Azure 1.0 con modelli di Resource Manager
 Nelle istruzioni di questa sezione viene descritto come creare un'API per un account MongoDB con un modello di Azure Resource Manager e un file dei parametri facoltativi, entrambi in formato JSON. Utilizzare un modello consente di descrivere esattamente cosa si desidera e ripeterlo senza errori.
 
 Creare un file di modello locale con il contenuto seguente. Denominare il file azuredeploy.json.
@@ -410,10 +410,10 @@ In caso di errori, vedere [Risoluzione dei problemi](#troubleshooting).
 
 Dopo il completamento del comando, lo stato dell'account sarà **Creazione in corso** per alcuni minuti, poi passerà a **Online** quando sarà pronto per l'uso. È possibile controllare lo stato dell'account nel [portale di Azure](https://portal.azure.com)nel pannello **Account DocumentDB** .
 
-## <a name="a-idcreate-multi-documentdb-accountatask-create-a-multi-region-documentdb-account"></a><a id="create-multi-documentdb-account"></a>Attività: creazione di un account DocumentDB per più aree
+## <a id="create-multi-documentdb-account"></a>Attività: creazione di un account DocumentDB per più aree
 DocumentDB ha la funzionalità per [distribuire dati a livello globale][distribute-globally] in varie [aree di Azure](https://azure.microsoft.com/regions/#services). Quando si crea un account DocumentDB, è possibile specificare le aree in cui si desidera che esista il servizio. Le istruzioni in questa sezione consentono di creare un account DocumentDB per più aree. A questo scopo, è necessario usare l'interfaccia della riga di comando di Azure 1.0 con o senza modelli di Resource Manager.
 
-### <a name="a-idcreate-multi-documentdb-account-clia-create-a-multi-region-documentdb-account-using-azure-cli-10-without-resource-manager-templates"></a><a id="create-multi-documentdb-account-cli"></a> Creare un account DocumentDB per più aree tramite l'interfaccia della riga di comando di Azure 1.0 senza modelli di Resource Manager
+### <a id="create-multi-documentdb-account-cli"></a> Creare un account DocumentDB per più aree tramite l'interfaccia della riga di comando di Azure 1.0 senza modelli di Resource Manager
 Creare un account DocumentDB nel gruppo di risorse nuovo o esistente immettendo il comando seguente nel prompt dei comandi:
 
 > [!TIP]
@@ -453,7 +453,7 @@ In caso di errori, vedere [Risoluzione dei problemi](#troubleshooting).
 
 Dopo il completamento del comando, lo stato dell'account sarà **Creazione in corso** per alcuni minuti, poi passerà a **Online** quando sarà pronto per l'uso. È possibile controllare lo stato dell'account nel [portale di Azure](https://portal.azure.com)nel pannello **Account DocumentDB** .
 
-### <a name="a-idcreate-multi-documentdb-account-cli-arma-create-a-multi-region-documentdb-account-using-azure-cli-10-with-resource-manager-templates"></a><a id="create-multi-documentdb-account-cli-arm"></a> Creare un account DocumentDB per più aree tramite l'interfaccia della riga di comando di Azure 1.0 con modelli di Resource Manager
+### <a id="create-multi-documentdb-account-cli-arm"></a> Creare un account DocumentDB per più aree tramite l'interfaccia della riga di comando di Azure 1.0 con modelli di Resource Manager
 Nelle istruzioni di questa sezione viene descritto come creare un account DocumentDB con un modello di Azure Resource Manager e un file dei parametri facoltativi, entrambi in formato JSON. Utilizzare un modello consente di descrivere esattamente cosa si desidera e ripeterlo senza errori.
 
 Creare un file di modello locale con il contenuto seguente. Denominare il file azuredeploy.json.

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 27bf5b15ebeed13733df2ddd9dbda5d5cfe4e49d
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 6a000e84f38e7e2b56f1d79d5c88f1704b6789a0
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -29,7 +29,7 @@ L'articolo illustra inoltre l'uso del [portale di Azure](https://portal.azure.co
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="a-namewhatisdiagaweb-server-diagnostics-and-application-diagnostics"></a><a name="whatisdiag"></a>Diagnostica del server Web e diagnostica dell'applicazione
+## <a name="whatisdiag"></a>Diagnostica del server Web e diagnostica dell'applicazione
 App Web del servizio app offre funzionalità diagnostiche per la registrazione di informazioni sia dal server Web sia dall'applicazione Web, logicamente separate in **diagnostica server Web** e **diagnostica applicazioni**.
 
 ### <a name="web-server-diagnostics"></a>Diagnostica del server Web
@@ -48,7 +48,7 @@ La diagnostica applicazioni consente di acquisire le informazioni prodotte da un
 
 Le app Web del servizio app registrano anche le informazioni di distribuzione dei log quando si pubblicano contenuti in un'app Web. Ciò avviene automaticamente e non sono disponibili impostazioni di configurazione per la registrazione di distribuzione. La registrazione di distribuzione consente di determinare il motivo per cui una distribuzione non è riuscita. Ad esempio, se si utilizza uno script di distribuzione personalizzata, si potrebbe usare la registrazione di distribuzione per determinare il motivo per cui lo script non è riuscito.
 
-## <a name="a-nameenablediagahow-to-enable-diagnostics"></a><a name="enablediag"></a>Come abilitare la diagnostica
+## <a name="enablediag"></a>Come abilitare la diagnostica
 Per abilitare la diagnostica nel [Portale di Azure](https://portal.azure.com), passare al pannello dell'app Web e fare clic su **Impostazioni > Log di diagnostica**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
@@ -90,7 +90,7 @@ Benché tutti e tre i percorsi di archiviazione offrano le stesse informazioni d
 >
 >
 
-## <a name="a-namedownloada-how-to-download-logs"></a><a name="download"></a> Procedura: Scaricare i log
+## <a name="download"></a> Procedura: Scaricare i log
 Le informazioni diagnostiche memorizzate nel file system dell'app Web sono accessibili direttamente tramite FTP. È inoltre possibile scaricarle come archivio zip mediante Azure PowerShell o l'interfaccia della riga di comando di Azure.
 
 La struttura di directory in cui sono memorizzati i log è la seguente:
@@ -129,7 +129,7 @@ Per scaricare i file di log mediante l'interfaccia della riga di comando di Azur
 In tal modo, i log dell'app Web denominata "nomeappWeb" verranno salvati in un file denominato **diagnostics.zip** nella directory corrente.
 
 > [!NOTE]
-> Se l'interfaccia della riga di comando di Azure non è stata installata o configurata per l'uso della sottoscrizione di Azure, vedere [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+> Se l'interfaccia della riga di comando di Azure non è stata installata o configurata per l'uso della sottoscrizione di Azure, vedere [Installare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md).
 >
 >
 
@@ -145,7 +145,7 @@ Visual Studio Application Insights fornisce strumenti per il filtro e ricerca de
 
 [Ulteriori informazioni sulle prestazioni di rilevamento con Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
-## <a name="a-namestreamlogsa-how-to-stream-logs"></a><a name="streamlogs"></a> Procedura: Eseguire lo streaming dei log
+## <a name="streamlogs"></a> Procedura: Eseguire lo streaming dei log
 Durante lo sviluppo di un'applicazione, è spesso utile visualizzare le informazioni di registrazione in tempo quasi reale. A tale scopo, eseguire lo streaming delle informazioni di registrazione nel proprio ambiente di sviluppo mediante Azure PowerShell o l'interfaccia della riga di comando di Azure.
 
 > [!NOTE]
@@ -194,11 +194,11 @@ Per filtrare tipi di log specifici, ad esempio HTTP, usare il parametro **--Path
     azure site log tail webappname --path http
 
 > [!NOTE]
-> Se l'interfaccia della riga di comando di Azure non è stata installata o configurata per l'uso della sottoscrizione di Azure, vedere [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+> Se l'interfaccia della riga di comando di Azure non è stata installata o configurata per l'uso della sottoscrizione di Azure, vedere [Installare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md).
 >
 >
 
-## <a name="a-nameunderstandlogsa-how-to-understand-diagnostics-logs"></a><a name="understandlogs"></a> Procedura: Comprendere i log di diagnostica
+## <a name="understandlogs"></a> Procedura: Comprendere i log di diagnostica
 ### <a name="application-diagnostics-logs"></a>Log di diagnostica applicazioni
 La diagnostica applicazioni consente di memorizzare le informazioni in un formato specifico per le applicazioni .NET, a seconda della destinazione di archiviazione dei log: file system, archiviazione tabelle o archiviazione BLOB. L'insieme di dati memorizzati di base è lo stesso in tutti e tre i tipi di archiviazione: data e ora in cui si è verificato l'evento, l'ID del processo che ha prodotto l'evento, il tipo di evento (informazioni, avviso, errore) e il messaggio di evento.
 
@@ -274,7 +274,7 @@ I log del server Web vengono formattati con il [formato file di log esteso W3C](
 >
 >
 
-## <a name="a-namenextstepsa-next-steps"></a><a name="nextsteps"></a> Passaggi successivi
+## <a name="nextsteps"></a> Passaggi successivi
 * [Come monitorare le app Web](/manage/services/web-sites/how-to-monitor-websites/)
 * [Risoluzione dei problemi delle app Web di Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 * [Analisi dei log delle app Web in HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

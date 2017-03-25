@@ -17,9 +17,9 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 67d4fee2fc59651903d4c02d1fce84c7b81e5da1
-ms.openlocfilehash: 03356c0499c595f73221d05d941233de5f01f357
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: e8ee93cacba552bc7a6ec559dd8aa1fb773fadc2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -36,20 +36,20 @@ Nell'ambiente sono presenti:
 
 ![Panoramica sull'ambiente di base](./media/virtual-machines-linux-create-cli-complete/environment_overview.png)
 
-Per creare questo ambiente personalizzato, è necessario aver installato l'[interfaccia della riga di comando di Azure 1.0](../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) in modalità Resource Manager (`azure config mode arm`). È inoltre necessario uno strumento di analisi JSON. In questo esempio viene utilizzato [jq](https://stedolan.github.io/jq/).
+Per creare questo ambiente personalizzato, è necessario aver installato l'[interfaccia della riga di comando di Azure 1.0](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) in modalità Resource Manager (`azure config mode arm`). È inoltre necessario uno strumento di analisi JSON. In questo esempio viene utilizzato [jq](https://stedolan.github.io/jq/).
 
 
 ## <a name="cli-versions-to-complete-the-task"></a>Versioni dell'interfaccia della riga di comando per completare l'attività
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - [Interfaccia della riga di comando di Azure 1.0](#quick-commands): l'interfaccia della riga di comando per i modelli di distribuzione classica e di gestione delle risorse (questo articolo)
-- [Interfaccia della riga di comando di Azure 2.0](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): interfaccia avanzata per il modello di distribuzione di gestione delle risorse
+- [Interfaccia della riga di comando di Azure 2.0](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): interfaccia della riga di comando di prossima generazione per il modello di distribuzione di Gestione risorsa
 
 
 ## <a name="quick-commands"></a>Comandi rapidi
 Se si vuole eseguire rapidamente l'attività, la sezione seguente indica in dettaglio i comandi base per caricare una VM in Azure. Altre informazioni dettagliate e il contesto per ogni passaggio sono disponibili nelle sezioni successive del documento, a partire da [qui](#detailed-walkthrough).
 
-Controllare di aver effettuato l'accesso tramite l'[interfaccia della riga di comando di Azure 1.0](../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e di usare la modalità Resource Manager:
+Controllare di aver effettuato l'accesso tramite l'[interfaccia della riga di comando di Azure 1.0](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e di usare la modalità Resource Manager:
 
 ```azurecli
 azure config mode arm
@@ -273,7 +273,7 @@ azure group export myResourceGroup
 ## <a name="detailed-walkthrough"></a>Procedura dettagliata
 La procedura dettagliata seguente illustra il funzionamento di ciascun comando durante la creazione dell'ambiente. Questi concetti torneranno utili in fase di creazione degli ambienti personalizzati per lo sviluppo o per la produzione.
 
-Controllare di aver effettuato l'accesso tramite l'[interfaccia della riga di comando di Azure 1.0](../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e di usare la modalità Resource Manager:
+Controllare di aver effettuato l'accesso tramite l'[interfaccia della riga di comando di Azure 1.0](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e di usare la modalità Resource Manager:
 
 ```azurecli
 azure config mode arm

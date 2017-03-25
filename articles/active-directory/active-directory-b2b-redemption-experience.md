@@ -14,12 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/16/2017
+ms.date: 03/13/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
-ms.openlocfilehash: 92bf625a9e62a24287b752bc1cbe061f1ef83a03
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: a063918766ccff6f5d0ec8a344160b912657d55a
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -33,7 +33,7 @@ Per gli utenti con account Azure AD o account Microsoft esistenti, l'esperienza 
 ## <a name="social-id-user-first-time-redemption"></a>Primo riscatto dell'ID utente per social network
 Collaborazione B2B di Azure AD semplifica l'uso di qualsiasi indirizzo di posta elettronica per il riscatto. È possibile esaminare l'esperienza di riscatto quando si usa un indirizzo di posta elettronica non Microsoft per Collaborazione B2B. Si tratta di un flusso di riscatto più complesso, perché richiede la creazione di un account al momento del riscatto. Per altre informazioni, guardare il video seguente:
 
->[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group/Player]
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-collaboration-redemption/Player]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

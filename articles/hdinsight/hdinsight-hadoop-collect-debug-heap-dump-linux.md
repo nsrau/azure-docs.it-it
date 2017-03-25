@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 8f151adb-f687-41e4-aca0-82b551953725
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
 ms.openlocfilehash: 9c5f3c36cc317a4e3700610799872d35c05d386f
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -31,7 +33,7 @@ I dump dell'heap includono uno snapshot della memoria dell'applicazione, ad esem
 > [!IMPORTANT]
 > I passaggi descritti in questo documento funzionano solo con i cluster HDInsight che usano Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
-## <a name="a-namewhichservicesaservices"></a><a name="whichServices"></a>Services
+## <a name="whichServices"></a>Services
 È possibile abilitare dump dell'heap per i servizi seguenti:
 
 * **hcatalog** - tempelton
@@ -42,7 +44,7 @@ I dump dell'heap includono uno snapshot della memoria dell'applicazione, ad esem
 
 È inoltre possibile abilitare dump dell'heap per la mappa e ridurre i processi eseguiti da HDInsight.
 
-## <a name="a-nameconfigurationaunderstanding-heap-dump-configuration"></a><a name="configuration"></a>Informazioni sulla configurazione dei dump dell'heap
+## <a name="configuration"></a>Informazioni sulla configurazione dei dump dell'heap
 I dump dell'heap vengono abilitati mediante il passaggio di opzioni (talvolta noto come parametri) a JVM quando viene avviato un servizio. Per la maggior parte dei servizi Hadoop è possibile modificare lo script della shell usato per avviare il servizio.
 
 In ogni script è presente un'esportazione per **\*\_OPTS**, che contiene le opzioni passate a JVM. Ad esempio, nello script **hadoop-env.sh**, la riga che inizia con `export HADOOP_NAMENODE_OPTS=` contiene le opzioni per il servizio NameNode.
@@ -130,10 +132,5 @@ Per modificare la configurazione di un servizio, attenersi alla procedura seguen
    > 
    > 
 8. Dopo il riavvio dei servizi, usare il pulsante **Service Actions** per **Disattivare la modalità di manutenzione**. Questa opzione indica ad Ambari di riprendere il monitoraggio per gli avvisi relativi al servizio.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

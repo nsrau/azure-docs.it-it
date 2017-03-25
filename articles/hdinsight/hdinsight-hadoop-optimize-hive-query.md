@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: d6174c08-06aa-42ac-8e9b-8b8718d9978e
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,6 +19,7 @@ ms.author: rashimg
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 5054865a4321bb5d2c188e485b033b16f49cb525
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -199,7 +201,7 @@ Esistono altri metodi di ottimizzazione che è possibile considerare, ad esempio
 * **Ottimizzazione join:** ottimizzazione dell'esecuzione di query Hive pianificata per migliorare l'efficienza di join e ridurre la necessità di suggerimenti dell'utente. Per altre informazioni, vedere [Ottimizzazione join](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
 * **aumentare i reducer**
 
-## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Passaggi successivi
+## <a id="nextsteps"></a> Passaggi successivi
 In questo articolo sono stati illustrati vari metodi di ottimizzazione delle query comuni di Hive. Per altre informazioni, vedere gli articoli seguenti:
 
 * [Usare Apache Hive in HDInsight](hdinsight-use-hive.md)
@@ -212,9 +214,4 @@ In questo articolo sono stati illustrati vari metodi di ottimizzazione delle que
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

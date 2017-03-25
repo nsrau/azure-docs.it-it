@@ -15,23 +15,25 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: b8a54b6ca0b13c161a35595af7f09e6c5ab203c0
-ms.openlocfilehash: 21190b985860a79e4bebf7bf4845e5954c657b9f
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 3893c98ed72ee7b4ed5aa879047293285e9af071
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usare attività personalizzate in una pipeline di Azure Data Factory
 
 > [!div class="op_single_selector" title1="Transformation Activities"]
-> * [Hive](data-factory-hive-activity.md) 
-> * [Pig](data-factory-pig-activity.md)
-> * [MapReduce](data-factory-map-reduce.md)
-> * [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
-> * [Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
-> * [Stored procedure](data-factory-stored-proc-activity.md)
+> * [Attività Hive](data-factory-hive-activity.md) 
+> * [Attività di Pig](data-factory-pig-activity.md)
+> * [Attività MapReduce](data-factory-map-reduce.md)
+> * [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
+> * [Attività Spark](data-factory-spark.md)
+> * [Attività di esecuzione batch di Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+> * [Attività della risorsa di aggiornamento di Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+> * [Attività stored procedure](data-factory-stored-proc-activity.md)
 > * [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
-> * [Attività personalizzata .NET](data-factory-use-custom-activities.md)
+> * [Attività personalizzata di .NET](data-factory-use-custom-activities.md)
 
 
 In una pipeline di Azure Data Factory è possibile usare due tipi di attività.
@@ -253,7 +255,7 @@ Il metodo restituisce un dizionario che può essere usato per concatenare le att
         // get the folder path from the output dataset definition
         folderPath = GetFolderPath(outputDataset);
 
-        // log the output folder path   
+        // log the output folder path    
         logger.Write("Writing blob to the folder: {0}", folderPath);
     
         // create a storage object for the output blob.
@@ -289,7 +291,7 @@ Il metodo restituisce un dizionario che può essere usato per concatenare le att
             return null;
         }
 
-        // get type properties of the dataset   
+        // get type properties of the dataset    
         AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
         if (blobDataset == null)
         {

@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/19/2017
+ms.date: 03/08/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 102be620e8812cc551aebafe7c8df4e4eac0ae90
-ms.openlocfilehash: 2ad3bd7b846693c637fd843383802651a619b128
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 6c0c6b24f9d669e7ed45e6b2acf2e75390e5e1f4
+ms.lasthandoff: 03/09/2017
 
 ---
 
@@ -42,6 +43,16 @@ Il problema con gli aggiornamenti del sistema operativo è che solitamente richi
 In futuro Microsoft supporterà un criterio di aggiornamento del sistema operativo completamente automatico e coordinato tra i vari domini di aggiornamento, per garantire la disponibilità nonostante i riavvii e altri guasti o errori imprevisti.
 
 Nel frattempo è stato [messo a disposizione uno script](https://blogs.msdn.microsoft.com/azureservicefabric/2017/01/09/os-patching-for-vms-running-service-fabric/) che un amministratore del cluster può usare per avviare manualmente l'applicazione sicura di patch di ogni nodo.
+
+### <a name="can-i-use-large-virtual-scale-sets-in-my-sf-cluster"></a>È possibile usare set di scalabilità di macchine virtuali di grandi dimensioni nel cluster di Service Fabric? 
+
+**Risposta breve**: no. 
+
+**Risposta lunga**: anche se è possibile ridimensionare un set di scalabilità di macchine virtuali di grandi dimensioni fino a 1000 istanze di VM, per farlo, è necessario usare i gruppi di posizionamento. I domini di errore e i domini di aggiornamento sono coerenti solo in un gruppo di posizionamento. Service Fabric usa i domini di errore e i domini di aggiornamento per prendere decisioni relative al posizionamento delle repliche del servizio/istanze del servizio. Poiché i domini di errore e i domini di aggiornamento sono confrontabili solo in un gruppo di posizionamento, Service Fabric non può usarli. Se, ad esempio, VM1 nel gruppo di posizionamento&1; ha una topologia di dominio di errore&0; e VM9 nel gruppo di posizionamento&2; ha una topologia di domini di errore&4;, non significa che VM1 e VM2 siano in due diversi rack hardware, quindi Service Fabric in questo caso non può usare i valori dei domini di errore per prendere decisioni relative al posizionamento.
+
+Esistono attualmente altri problemi relativi ai set di scalabilità di macchine virtuali di grandi dimensioni, ad esempio la mancanza di supporto per il bilanciamento del carico di livello&4;. Per altre informazioni, vedere i [dettagli sui set di scalabilità di macchine virtuali di grandi dimensioni](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
+
+
 
 ### <a name="what-is-the-minimum-size-of-a-service-fabric-cluster-why-cant-it-be-smaller"></a>Qual è la dimensione minima di un cluster di Service Fabric? Perché non può essere di dimensioni minori?
 
@@ -118,9 +129,4 @@ Non si prevede attualmente di rendere disponibile in open source il runtime di S
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Informazioni sui concetti chiave e sulle procedure consigliate di Service Fabric](https://mva.microsoft.com/en-us/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

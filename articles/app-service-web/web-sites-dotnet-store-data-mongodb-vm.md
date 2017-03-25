@@ -459,7 +459,7 @@ Per altre informazioni sullo sviluppo di applicazioni C# con MongoDB, vedere [CS
 [ASP.NET]: http://www.asp.net/
 [MongoConnectionStrings]: http://www.mongodb.org/display/DOCS/Connections
 [MongoDB]: http://www.mongodb.org
-[InstallMongoOnWindowsVM]: ../virtual-machines/virtual-machines-windows-classic-install-mongodb.md
+[InstallMongoOnWindowsVM]:../virtual-machines/windows/classic/install-mongodb.md
 [VSEWeb]: http://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express
 [VSUlt]: http://www.microsoft.com/visualstudio/eng/2013-downloads
 

@@ -12,35 +12,49 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 03/12/2017
 ms.author: johnkem; magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 2e011fbde0ee1b070d51a38b23193a4b48a3a154
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 5675a65e3b48e39f44dc320b7b87910ab759b764
+ms.lasthandoff: 03/14/2017
 
 
 ---
-# <a name="overview-of-azure-diagnostic-logs"></a>Panoramica dei log di diagnostica di Azure
-I **log di diagnostica di Azure** sono log generati da una risorsa che forniscono dati completi e frequenti sul funzionamento di tale risorsa. Il contenuto di questi log varia in base al tipo di risorsa. Ad esempio, i log eventi del sistema di Windows sono una categoria di log di diagnostica per le VM, mentre i log delle code, delle tabelle e dei BLOB sono categorie di log di diagnostica per gli account di archiviazione. I log di diagnostica sono diversi dal [log attività](monitoring-overview-activity-logs.md), precedentemente noto come log di controllo o log operativo, che fornisce informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione. Non tutte le risorse supportano il nuovo tipo di log di diagnostica descritto di seguito. L'elenco dei servizi supportati seguente illustra i tipi di risorse che supportano i nuovi log di diagnostica.
+# <a name="collect-and-consume-diagnostic-data-from-your-azure-resources"></a>Raccogliere e usare i dati di diagnostica dalle risorse di Azure
 
-![Posizione logica dei log di diagnostica](./media/monitoring-overview-of-diagnostic-logs/logical-placement-chart.png)
+## <a name="what-are-azure-diagnostic-logs"></a>Definizione di log di diagnostica di Azure
+I **log di diagnostica di Azure** sono log generati da una risorsa che forniscono dati completi e frequenti sul funzionamento di tale risorsa. Il contenuto di questi log varia in base al tipo di risorsa. Ad esempio, i log del sistema eventi di Windows sono una categoria di log di diagnostica per le macchine virtuali, i BLOB e le tabelle, mentre i log della coda sono categorie di log di diagnostica per gli account di archiviazione.
+
+I log di diagnostica sono diversi dai [log attività (precedentemente conosciuti come log di controllo o log operativi)](monitoring-overview-activity-logs.md). Il log attività fornisce informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione. I log di diagnostica forniscono informazioni approfondite sulle operazioni che la risorsa esegue automaticamente.
+
+Non tutte le risorse supportano il nuovo tipo di log di diagnostica descritto di seguito. Questo articolo contiene una sezione che elenca i tipi di risorsa supportati dai nuovi log di diagnostica.
+
+![Log di diagnostica e altri tipi di log ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_vs_other_logs_v5.png)
+
+Figura 1: Log di diagnostica e altri tipi di log
 
 ## <a name="what-you-can-do-with-diagnostic-logs"></a>Che cosa si può fare con i log di diagnostica
 Ecco alcune delle attività che è possibile eseguire con i log di diagnostica:
+
+![Posizione logica dei log di diagnostica](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
+
 
 * Salvarli in un [**account di archiviazione**](monitoring-archive-diagnostic-logs.md) per il controllo o l'ispezione manuale. È possibile specificare il tempo di conservazione in giorni tramite le **Impostazioni di diagnostica**.
 * [Trasmetterli a **Hub eventi**](monitoring-stream-diagnostic-logs-to-event-hubs.md) per l'inserimento da parte di un servizio di terze parti o una soluzione di analisi personalizzata come Power BI.
 * Analizzarli con [OMS Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 
-Lo spazio dei nomi dell'account di archiviazione o per l'hub eventi non deve trovarsi nella stessa sottoscrizione della risorsa che emette i log, fintanto che l'utente che configura l'impostazione ha un accesso RBAC appropriato a entrambe le sottoscrizioni.
+È possibile usare un account di archiviazione o un hub eventi dello spazio dei nomi che non si trovi nella stessa sottoscrizione di quello che crea i log. L'utente che configura l'impostazione deve disporre dell'accesso RBAC appropriato a entrambe le sottoscrizioni.
 
 ## <a name="diagnostic-settings"></a>Impostazioni di diagnostica
 I log di diagnostica per le risorse non di calcolo vengono configurati tramite le impostazioni di diagnostica. **Impostazioni di diagnostica** per una risorsa permettono di controllare quanto segue:
 
 * Destinazione dei log di diagnostica, ad esempio un account di archiviazione, un hub eventi e/o OMS Log Analytics.
 * Categorie di log da inviare.
-* Tempo di conservazione di ogni categoria di log in un account di archiviazione. Se impostato su zero giorni, i log vengono conservati all'infinito. In caso contrario, questo valore può variare da 1 a 2147483647. Se i criteri di conservazione sono impostati, ma la memorizzazione dei log in un account di archiviazione è disabilitata, ad esempio se sono selezionate solo le opzioni Hub eventi o OMS, i criteri di conservazione non hanno alcun effetto. I criteri di conservazione vengono applicati su base giornaliera. Al termine della giornata, i log relativi a tale giornata che non rientrano più nei criteri di conservazione verranno eliminati. Se, ad esempio, è presente un criterio di conservazione di un giorno, all'inizio della giornata vengono eliminati i log relativi al giorno precedente.
+* Periodo di tempo in cui ogni log di categoria deve essere mantenuto nell'account di archiviazione
+    - Un periodo di conservazione di zero giorni significa che i log vengono conservati all'infinito. Se impostato su zero giorni, i log vengono conservati all'infinito.
+    - Se i criteri di conservazione sono impostati, ma la memorizzazione dei log in un account di archiviazione è disabilitata, ad esempio se sono selezionate solo le opzioni Hub eventi o OMS, i criteri di conservazione non hanno alcun effetto.
+    - I criteri di conservazione vengono applicati su base giornaliera. Al termine della giornata (UTC), i log relativi a tale giornata che non rientrano più nei criteri di conservazione verranno eliminati. Se, ad esempio, è presente un criterio di conservazione di un giorno, all'inizio della giornata vengono eliminati i log relativi al giorno precedente.
 
 È possibile configurare facilmente queste impostazioni usando il pannello Diagnostica della risorsa nel portale di Azure, i comandi di Azure PowerShell o l'interfaccia della riga di comando oppure l'[API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
@@ -141,13 +155,13 @@ Per consentire l'invio dei log di diagnostica all'area di lavoro di Log Analytic
 Per modificare le impostazioni di diagnostica usando l'API REST di Monitoraggio di Azure, vedere [questo documento](https://msdn.microsoft.com/library/azure/dn931931.aspx).
 
 ## <a name="manage-diagnostic-settings-in-the-portal"></a>Gestire le impostazioni di diagnostica nel portale
-Per garantire che tutte le risorse siano configurate correttamente con le impostazioni di diagnostica, è possibile accedere al pannello **Monitoraggio** nel portale e aprire il pannello **Log di diagnostica**.
+Verificare che tutte le risorse siano configurate con le impostazioni di diagnostica. Passare al pannello **Monitoraggio** nel portale e aprire il pannello **Log di diagnostica**.
 
 ![Pannello Log di diagnostica nel portale](./media/monitoring-overview-of-diagnostic-logs/manage-portal-nav.png)
 
 Potrebbe essere necessario fare clic su "Altri servizi" per individuare il pannello Monitoraggio.
 
-Qui è possibile visualizzare e filtrare tutte le risorse che supportano i log di diagnostica per verificare che sia stata abilitata la diagnostica e in quali account di archiviazione, hub eventi, e/o area di lavoro di Log Analytics confluiscano tali log.
+In questo pannello, è possibile visualizzare e filtrare tutte le risorse che supportano i Log di diagnostica per vedere se la diagnostica è abilitata. È inoltre possibile controllare in quali account di archiviazione, hub eventi e/o aree di lavoro di Log Analytics è presente il flusso di tali log.
 
 ![Risultati del pannello Log di diagnostica nel portale](./media/monitoring-overview-of-diagnostic-logs/manage-portal-blade.png)
 
@@ -160,14 +174,14 @@ Facendo clic su una risorsa vengono visualizzati tutti i log memorizzati nell'ac
 >
 >
 
-Quando si fa clic su collegamento per le **impostazioni di diagnostica**, verrà visualizzato il pannello Impostazioni di diagnostica, in cui è possibile abilitare, disabilitare o modificare tali impostazioni per la risorsa selezionata.
+Facendo clic sul collegamento per le **impostazioni di diagnostica**, verrà visualizzato il pannello Impostazioni di diagnostica, in cui è possibile abilitare, disabilitare o modificare tali impostazioni per la risorsa selezionata.
 
 ## <a name="supported-services-and-schema-for-diagnostic-logs"></a>Servizi supportati e schema per i log di diagnostica
-Lo schema per i log di diagnostica varia a seconda della risorsa e della categoria di log. Di seguito sono riportati i servizi supportati e il relativo schema.
+Lo schema per i log di diagnostica varia a seconda della risorsa e della categoria di log.   
 
 | Service | Schema e documenti |
 | --- | --- |
-| Bilanciamento del carico |[Analisi dei log per il servizio di bilanciamento del carico di Azure (anteprima)](../load-balancer/load-balancer-monitor-log.md) |
+| Bilanciamento del carico |[Analisi dei log per Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
 | Gruppi di sicurezza di rete |[Analisi dei log per i gruppi di sicurezza di rete](../virtual-network/virtual-network-nsg-manage-log.md) |
 | Gateway applicazione |[Registrazione diagnostica per il gateway applicazione](../application-gateway/application-gateway-diagnostics.md) |
 | Insieme di credenziali di chiave |[Registrazione dell'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-logging.md) |
@@ -211,7 +225,8 @@ Lo schema per i log di diagnostica varia a seconda della risorsa e della categor
 |Microsoft.StreamAnalytics/streamingjobs|Creazione|Creazione|
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * [Trasmettere log di diagnostica di Azure a **Hub eventi**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Modificare le impostazioni di diagnostica usando l'API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931931.aspx)
-* [Analyze the logs with OMS Log Analytics (Analizzare i log con OMS Log Analytics)](../log-analytics/log-analytics-azure-storage.md)
+* [Analizzare i log di Archiviazione di Azure con Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 

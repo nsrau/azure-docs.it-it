@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 928f8d2a-684d-48cb-894c-11c59a5599ae
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,6 +19,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
 ms.openlocfilehash: 41c3e20dc059ecc344cba6ca09ec04892e202d63
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -195,10 +197,5 @@ Dopo avere appreso come usare JDBC con Hive, vedere i collegamenti seguenti per 
 * [Usare Hive con HDInsight](hdinsight-use-hive.md)
 * [Usare Pig con HDInsight](hdinsight-use-pig.md)
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

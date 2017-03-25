@@ -12,12 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 03/08/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 256d215deb2224dca188e373a1bf2cf7fc55be1f
-ms.openlocfilehash: 9089a14f1f0b1fa5265f616e0bd9f0f30aff0c60
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 705e64d52d796ae861465f71de397d11bf14086e
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -59,6 +59,7 @@ Le domande frequenti riportate di seguito riguardano i concetti e le domande di 
 * [Come si eseguono i comandi Redis?](#how-can-i-run-redis-commands)
 * [Perché la Cache Redis di Azure non offre un riferimento alla libreria di classi MSDN, analogamente ad altri servizi di Azure?](#why-doesnt-azure-redis-cache-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
 * [Posso utilizzare Cache Redis di Azure come una cache di sessione PHP?](#can-i-use-azure-redis-cache-as-a-php-session-cache)
+* [Cosa sono i database Redis?](#what-are-redis-databases)
 
 ## <a name="security-faqs"></a>Domande frequenti sulla sicurezza
 * [Quando è consigliabile abilitare la porta non SSL per la connessione a Redis?](#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis)
@@ -263,6 +264,16 @@ Sì, per utilizzare Cache Redis di Azure come una cache di sessione PHP, specifi
 >
 
 Per ulteriori informazioni sull'utilizzo di Cache Redis come cache di sessione PHP con il client PhpRedis, vedere [Gestore della sessione PHP](https://github.com/phpredis/phpredis#php-session-handler).
+
+### <a name="what-are-redis-databases"></a>Cosa sono i database Redis?
+
+I database Redis sono semplicemente una separazione logica dei dati nella stessa istanza Redis. La memoria cache viene condivisa tra tutti i database e il consumo effettivo della memoria di un determinato database dipende da chiavi/valori memorizzati nel database. Ad esempio una cache C6 ha 53 GB di memoria. È possibile scegliere di inserire tutti i 53 GB in un unico database o dividerli tra più database. 
+
+> [!NOTE]
+> Quando si usa una Cache Redis di Azure Premium con il clustering abilitato, è disponibile solo il database 0. Questa limitazione è intrinseca di Redis e non specifica di Cache Redis di Azure. Per altre informazioni, vedere [È necessario apportare modifiche all'applicazione client per usare il clustering?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+> 
+> 
+
 
 <a name="cache-ssl"></a>
 

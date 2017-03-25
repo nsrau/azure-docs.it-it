@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 9e75c5af6cb6d2f2a25f18269ec6822aa86459fc
-ms.openlocfilehash: 95ea1a9bc8fe80c39ca9f0683855cc3a4e7a77c4
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f9d15570aeeb398b34198918b78590948020f256
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -56,7 +56,7 @@ Quando si crea un nuovo account di archiviazione, si seleziona un modello di dis
 Questa guida è incentrata sul modello di Resource Manager, ovvero il mezzo consigliato per la creazione di account di archiviazione. Con gli account di archiviazione di Resource Manager, invece di concedere l'accesso all'intera sottoscrizione, è possibile controllare l'accesso al piano di gestione in base a un livello più limitato usando il controllo degli accessi in base al ruolo.
 
 ### <a name="how-to-secure-your-storage-account-with-role-based-access-control-rbac"></a>Come proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo
-Si vedrà ora cos'è il controllo degli accessi in base al ruolo e come è possibile usarlo. Ogni sottoscrizione di Azure è associata a un'istanza di Azure Active Directory. A utenti, gruppi e applicazioni in questa directory può essere consentito l'accesso per gestire le risorse nella sottoscrizione di Azure che usa il modello di distribuzione di Resource Manager. Questo approccio è detto controllo degli accessi in base al ruolo. Per gestire l'accesso è possibile usare il [portale di Azure](https://portal.azure.com/), gli [strumenti dell'interfaccia della riga di comando di Azure](../xplat-cli-install.md), [PowerShell](/powershell/azureps-cmdlets-docs) o le [API REST del provider di risorse di Archiviazione di Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx).
+Si vedrà ora cos'è il controllo degli accessi in base al ruolo e come è possibile usarlo. Ogni sottoscrizione di Azure è associata a un'istanza di Azure Active Directory. A utenti, gruppi e applicazioni in questa directory può essere consentito l'accesso per gestire le risorse nella sottoscrizione di Azure che usa il modello di distribuzione di Resource Manager. Questo approccio è detto controllo degli accessi in base al ruolo. Per gestire l'accesso è possibile usare il [portale di Azure](https://portal.azure.com/), gli [strumenti dell'interfaccia della riga di comando di Azure](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) o le [API REST del provider di risorse di Archiviazione di Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx).
 
 Con il modello di Resource Manager si inserisce l'account di archiviazione in un gruppo di risorse e si controlla l'accesso al piano di quell'account di archiviazione specifico tramite Azure Active Directory. Ad esempio, è possibile concedere a utenti specifici la possibilità di accedere alle chiavi dell'account di archiviazione, mentre altri utenti possono visualizzare le informazioni sull'account di archiviazione, ma non accedere alle relative chiavi.
 

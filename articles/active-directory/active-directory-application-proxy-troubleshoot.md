@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/07/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
-ms.openlocfilehash: 0762f69968e19e55229a9d5b08b202b4ac595a46
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 0051bbeaac458e8df07e5c7aa186fbefb526f50e
+ms.lasthandoff: 03/15/2017
 
 ---
 
@@ -32,7 +32,7 @@ Se si verificano errori durante l'accesso a un'applicazione pubblicata o durante
 * Aprire il Visualizzatore eventi e cercare gli eventi correlati al connettore del proxy di applicazione in **Registri applicazioni e servizi** > **Microsoft** > **AadApplicationProxy** > **Connector** > **Admin**.
 * Se necessario, sono disponibili log più dettagliati attivando i log di analisi e debug e il log della sessione del connettore proxy di applicazione.
 
-Per altre informazioni sullo strumento di risoluzione dei problemi di Azure A D, vedere [Troubleshooting tool to validate connector networking prerequisites (Strumento di risoluzione dei problemi per convalidare i prerequisiti di rete del connettore)} (https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites).
+Per altre informazioni sullo strumento di risoluzione dei problemi di Azure AD, vedere [Troubleshooting tool to validate connector networking prerequisites](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites) (Strumento di risoluzione dei problemi per convalidare i prerequisiti di rete del connettore).
 
 ## <a name="the-page-is-not-rendered-correctly"></a>La pagina non viene visualizzata correttamente
 È possibile che si verifichino problemi di rendering o di funzionamento dell'applicazione, ma che non vengano visualizzati messaggi di errore specifici. Ciò può verificarsi se è stato pubblicato il percorso dell'articolo, ma l'applicazione richiede contenuto esistente al di fuori di tale percorso.
@@ -42,6 +42,8 @@ Se ad esempio si pubblica il percorso https://yourapp/app, ma l'applicazione chi
 Se si modifica il percorso per includere il contenuto a cui viene fatto riferimento, ma è comunque necessario che gli utenti possano accedere a un collegamento più diretto del percorso, vedere il post di blog [Setting the right link for Application Proxy Applications in the Azure AD access panel and Office 365 app launcher](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/)(Impostazione del collegamento corretto per le applicazioni del proxy di applicazione nel pannello di accesso di Azure AD e nell'icona di avvio delle app di Office 365).
 
 ## <a name="connector-errors"></a>Errori del connettore
+
+Usare lo [strumento per il test delle porte del connettore Proxy di applicazione Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/) per verificare che il connettore possa raggiungere il servizio proxy di applicazione. Assicurarsi almeno che l'area Stati Uniti centrali e l'area più vicina all'utente abbiano segni di spunta verdi. La presenza di più segni di spunta verdi indica una maggiore resilienza. 
 
 Se la registrazione non riesce durante l'installazione guidata del connettore, esistono due modi per visualizzare il motivo dell'errore. È possibile eseguire una ricerca nel registro eventi in **Registri applicazioni e servizi\Microsoft\AadApplicationProxy\Connector\Admin** oppure eseguire il comando di Windows PowerShell seguente.
 

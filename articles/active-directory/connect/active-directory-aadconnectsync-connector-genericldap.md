@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/10/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
-ms.openlocfilehash: 5eacb832ba2a20eae35c58704296c9d03e94ef0e
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 9245a2ce63746f039a3015a5a0cda2ff05cf950e
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -228,10 +229,18 @@ Per ogni spazio dei nomi è anche possibile configurare le impostazioni di conne
 
 È anche possibile selezionare i contenitori e le OU in cui il connettore deve esportare e importare.
 
+Quando si esegue una ricerca, l'operazione viene eseguita in tutti i contenitori della partizione. Se è presente un numero elevato di contenitori ciò comporta un peggioramento delle prestazioni.
+
+>[!NOTE]
+A partire dall'aggiornamento di marzo 2017 del connettore Generic LDAP le ricerche possono essere limitate nell'ambito solo ai contenitori selezionati. Questa operazione può essere eseguita selezionando la casella di controllo "Search only in selected containers" ("Cerca solo in contenitori selezionati") come illustrato nell'immagine seguente.
+
+![Eseguire la ricerca solo in contenitori selezionati](./media/active-directory-aadconnectsync-connector-genericldap/partitions-only-selected-containers.png)
+
 ### <a name="configure-anchors"></a>Configurare gli ancoraggi
 Questa pagina ha  sempre un valore preconfigurato e non può essere modificato. Se il fornitore del server è stato identificato, l'ancoraggio potrebbe essere popolato con un attributo non modificabile, ad esempio, il GUID di un oggetto. Se non è stato rilevato o non ha un attributo non modificabile, il connettore usa un DN (nome distinto) come ancoraggio.
 
 ![ancoraggi](./media/active-directory-aadconnectsync-connector-genericldap/anchors.png)
+
 
 Di seguito è riportato un elenco di server LDAP e l' ancoraggio usato:
 
@@ -261,9 +270,4 @@ Per le directory con un log delle modifiche differenziali basato su data/ora, è
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 * Per informazioni su come abilitare la registrazione per risolvere i problemi relativi al connettore, vedere l'articolo relativo a [come abilitare la traccia ETW per i connettori](http://go.microsoft.com/fwlink/?LinkId=335731).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

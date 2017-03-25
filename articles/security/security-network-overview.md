@@ -1,6 +1,6 @@
 ---
 title: Concetti e requisiti per la sicurezza di rete in Azure | Documentazione Microsoft
-description: " Questo articolo rende più facilmente comprensibile ciò che Microsoft Azure può offrire nell&quot;area della sicurezza di rete. Vengono fornite spiegazioni di base per i principali concetti e requisiti per la sicurezza di rete, nonché informazioni sulle funzionalità offerte da Azure in ognuna di queste aree. "
+description: " Questo articolo rende più facilmente comprensibile ciò che Microsoft Azure può offrire nell&quot;area della sicurezza di rete. Vengono fornite spiegazioni di base per i principali concetti e requisiti della sicurezza di rete, nonché informazioni sulle funzionalità offerte da Azure in ognuna di queste aree. "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 03/13/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
-ms.openlocfilehash: 8b0266a86221b379a105b87f130cd0a4f97385f7
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 4f8ff754858dfb12a7c1fb6e11b1ea99d99d4aeb
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -203,7 +204,7 @@ Altre informazioni:
 ## <a name="logging"></a>Registrazione
 La registrazione a livello di rete è una funzione chiave per qualsiasi scenario di sicurezza di rete. In Azure è possibile registrare le informazioni ottenute per i gruppi di sicurezza di rete per avere informazioni di registrazione a livello di rete. Con la registrazione dei gruppi di sicurezza di rete si ottengono informazioni da:
 
-* Log di controllo: vengono usati per visualizzare tutte le operazioni inviate alle sottoscrizioni di Azure. Questi log sono abilitati per impostazione predefinita e possono essere usati nel portale di Azure.
+* [Log attività](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md): vengono usati per visualizzare tutte le operazioni inviate alle sottoscrizioni di Azure. Questi log sono abilitati per impostazione predefinita e possono essere usati nel portale di Azure. In precedenza erano noti come "log di controllo" o "log operativi".
 * Log eventi: forniscono informazioni sulle regole applicate ai gruppi di sicurezza di rete.
 * Log contatori: consentono di sapere quante volte ogni regola dei gruppi di sicurezza di rete è stata applicata per rifiutare o consentire il traffico.
 
@@ -267,9 +268,4 @@ Il Centro sicurezza di Azure aiuta a ottimizzare e monitorare la sicurezza di re
 Altre informazioni:
 
 * [Introduzione al Centro sicurezza di Azure](../security-center/security-center-intro.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

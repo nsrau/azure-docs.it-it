@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 625f4cc08ba023309ac4a9a8b7834d9ab4f4c116
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: e43a3920da0baafa1be0d3a9a8596f19bf7ebc3e
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -55,7 +55,7 @@ Si noti che i metodi di configurazione descritti qui non funzioneranno per il po
 ## <a name="prerequisites"></a>Prerequisiti
 * **Agente Linux di Azure 2.0.6 o versione successiva**.
   Si noti che la maggior parte delle immagini della raccolta Linux di macchine virtuali di Azure include la versione 2.0.6 o successive. È possibile eseguire **WAAgent -version** per verificare la versione installata nella macchina virtuale. Se la macchina virtuale esegue una versione precedente alla 2.0.6, è possibile seguire queste [istruzioni in GitHub](https://github.com/Azure/WALinuxAgent "istruzioni") per aggiornarla.
-* **Interfaccia della riga di comando di Azure**. Seguire le linee guida in [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) per configurare l'ambiente dell'interfaccia della riga di comando di Azure nella macchina virtuale. Dopo l'installazione dell'interfaccia della riga di comando di Azure, sarà possibile usare il comando **azure** nell'interfaccia della riga di comando (Bash, terminale o prompt dei comandi) per accedere ai relativi comandi. Ad esempio:
+* **Interfaccia della riga di comando di Azure**. Seguire le linee guida in [Installare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md) per configurare l'ambiente dell'interfaccia della riga di comando di Azure nella macchina virtuale. Dopo l'installazione dell'interfaccia della riga di comando di Azure, sarà possibile usare il comando **azure** nell'interfaccia della riga di comando (Bash, terminale o prompt dei comandi) per accedere ai relativi comandi. Ad esempio:
   
   * Eseguire **azure vm extension set --help** per informazioni della Guida dettagliate.
   * Eseguire **azure login** per accedere ad Azure.

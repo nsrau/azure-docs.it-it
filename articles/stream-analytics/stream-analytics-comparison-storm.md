@@ -16,8 +16,9 @@ ms.workload: big-data
 ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 528266346733fff72113104d585540d75512b3a6
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9dcac84fdc33515ef12ab5b8154f700bb8618290
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -27,6 +28,7 @@ Informazioni utili per scegliere una piattaforma di analisi cloud tramite confro
 Entrambe le piattaforme di analisi offrono i vantaggi di una soluzione PaaS, tuttavia si differenziano per alcune importanti funzionalità specifiche. Di seguito sono riportate sia le funzionalità che le limitazioni di questi servizi, per facilitare la scelta della soluzione più adatta per il raggiungimento dei propri obiettivi.
 
 ## <a name="storm-comparison-to-stream-analytics-general-features"></a>Confronto tra Storm e Analisi di flusso: caratteristiche generali
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -137,7 +139,9 @@ Per Apache Storm in HDInsight, l'unità di acquisto è basata su cluster e l'add
         </tr>
     </tbody>
 </table>
-## Creazione nelle due piattaforme di analisi ##
+
+## <a name="authoring-on-each-analytics-platform"></a>Creazione nelle due piattaforme di analisi ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -261,7 +265,9 @@ Sì, è possibile scrivere codice personalizzato in C#, Java o altri linguaggi s
         </tr>
     </tbody>
 </table>
-## Origini dati e output ##
+
+## <a name="data-sources-and-outputs"></a>Origini dati e output ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -350,7 +356,9 @@ Qualsiasi formato di codifica dati può essere implementato tramite codice perso
         </tr>
     </tbody>
 </table>
-## Gestione e operazioni ##
+
+## <a name="management-and-operations"></a>Gestione e operazioni ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -509,7 +517,9 @@ Tempo di attività per il contratto di servizio del 99,9% del cluster Storm. Apa
         </tr>
     </tbody>
 </table>
-## Funzionalità avanzate ##
+
+## <a name="advanced-features"></a>Funzionalità avanzate ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -585,9 +595,4 @@ Disponibile tramite i bolt di Storm.
         </tr>
     </tbody>
 </table>
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

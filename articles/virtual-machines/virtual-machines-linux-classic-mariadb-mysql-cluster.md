@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/15/2015
 ms.author: asabbour
 translationtype: Human Translation
-ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
-ms.openlocfilehash: 72aed50d3dd86c5875d3b741a6fff16cb8f17a2d
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: bcb4fa81971ee1276cb8e7b0b249e970423bd630
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -45,7 +45,7 @@ In questo articolo viene descritto come completare i passaggi seguenti:
 ![Architettura di sistema](media/virtual-machines-linux-classic-mariadb-mysql-cluster/Setup.png)
 
 > [!NOTE]
-> In questo argomento vengono usati gli strumenti dell'[interfaccia della riga di comando di Azure](../xplat-cli-install.md); accertarsi quindi di scaricarli e connetterli alla sottoscrizione di Azure in base alle istruzioni. Per informazioni sui comandi disponibili nell’interfaccia della riga di comando di Azure, vedere il [riferimento all'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2). Sarà inoltre necessario [creare una chiave SSH per l'autenticazione] e prendere nota del percorso del file .pem.
+> In questo argomento vengono usati gli strumenti dell'[interfaccia della riga di comando di Azure](../cli-install-nodejs.md); accertarsi quindi di scaricarli e connetterli alla sottoscrizione di Azure in base alle istruzioni. Per informazioni sui comandi disponibili nell’interfaccia della riga di comando di Azure, vedere il [riferimento all'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2). Sarà inoltre necessario [creare una chiave SSH per l'autenticazione] e prendere nota del percorso del file .pem.
 >
 >
 

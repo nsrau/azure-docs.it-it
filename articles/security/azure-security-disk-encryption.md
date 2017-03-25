@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/30/2017
 ms.author: kakhan
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 10cc114451da7e73726772da4159776e76f5b8c9
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f52b9064d4771c714b829a409037ef6f03c54161
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -177,7 +177,7 @@ Prima di abilitare Crittografia dischi di Azure nelle macchine virtuali IaaS di 
   > Crittografia dischi di Azure non è supportata in [Azure PowerShell SDK versione 1.1.0](https://github.com/Azure/azure-powershell/releases/tag/v1.1.0-January2016). Se viene visualizzato un errore relativo all'uso di Azure PowerShell 1.1.0, vedere [Azure Disk Encryption Error Related to Azure PowerShell 1.1.0](http://blogs.msdn.com/b/azuresecurity/archive/2016/02/10/azure-disk-encryption-error-related-to-azure-powershell-1-1-0.aspx) (Errore di Crittografia dischi di Azure correlato ad Azure PowerShell 1.1.0).
 
 * Per eseguire uno dei comandi dell'interfaccia della riga di comando di Azure e associarla alla sottoscrizione di Azure, è necessario installare prima di tutto l'interfaccia della riga di comando di Azure:
-  * Per installare l'interfaccia della riga di comando di Azure e associarla alla sottoscrizione di Azure, vedere [Come installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+  * Per installare l'interfaccia della riga di comando di Azure e associarla alla sottoscrizione di Azure, vedere [Come installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md).
   * Per usare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Manager, vedere [Comandi dell'interfaccia della riga di comando Azure in modalità Resource Manager](../virtual-machines/azure-cli-arm-commands.md).
 * La soluzione Crittografia dischi di Azure usa la protezione con chiave esterna BitLocker per macchine virtuali IaaS Windows. Se le VM sono aggiunte a un dominio, non effettuare il push dei criteri di gruppo che applicano protezioni TPM. Per informazioni sui Criteri di gruppo per consentire BitLocker senza un TPM compatibile, vedere [BitLocker Group Policy Reference](https://technet.microsoft.com/library/ee706521) (Informazioni di riferimento sui Criteri di gruppo BitLocker).
 * Per creare un'applicazione Azure AD, creare un insieme di credenziali delle chiavi o configurare un insieme di credenziali delle chiavi esistente e abilitare la crittografia, vedere lo [script di PowerShell prerequisito per Crittografia dischi di Azure](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
@@ -338,7 +338,7 @@ Per informazioni su alcuni dei termini comuni usati da questa tecnologia, vedere
 | ARM | Gestione risorse di Azure |
 | BitLocker |[BitLocker](https://technet.microsoft.com/library/hh831713.aspx) è una tecnologia di crittografia del volume di Windows riconosciuta nel settore, usata per abilitare la crittografia dei dischi nelle macchine virtuali IaaS di Windows. |
 | BEK | Le chiavi di crittografia BitLocker vengono usate per crittografare il volume di avvio del sistema operativo e i volumi dati. Le chiavi BitLocker sono protette nell'insieme di credenziali delle chiavi come segreti. |
-| CLI | Vedere [Interfaccia della riga di comando di Azure](../xplat-cli-install.md). |
+| CLI | Vedere [Interfaccia della riga di comando di Azure](../cli-install-nodejs.md). |
 | DM-Crypt |[DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) è il sottosistema di crittografia del disco trasparente basato su Linux usato per abilitare la crittografia del disco nelle macchine virtuali IaaS Linux. |
 | KEK | La chiave di crittografia della chiave (KEK, Key Encryption Key) è la chiave asimmetrica (RSA 2048) che è possibile usare per proteggere o per eseguire il wrapping del segreto. È possibile fornire una chiave protetta tramite modulo di protezione hardware o una chiave protetta tramite software. Per altre informazioni, vedere la documentazione di [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). |
 | Cmdlet PS | Vedere [Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs) (Cmdlet di Azure PowerShell). |
@@ -560,7 +560,7 @@ La tabella seguente elenca i parametri del modello di Resource Manager per macch
 > _KeyEncryptionKeyURL_ è un parametro facoltativo. È possibile specificare la chiave di crittografia della chiave (KEK) personalizzata per la protezione aggiuntiva della chiave DEK (segreto passphrase) nell'insieme di credenziali delle chiavi.
 
 #### <a name="cli-commands"></a>Comandi dell'interfaccia della riga di comando
-È possibile abilitare la crittografia dei dischi nel disco rigido virtuale crittografato installando e usando il [comando dell'interfaccia della riga di comando](../xplat-cli-install.md). Per abilitare la crittografia in macchine virtuali IaaS Linux esistenti o in esecuzione in Azure usando i comandi dell'interfaccia della riga di comando, seguire questa procedura:
+È possibile abilitare la crittografia dei dischi nel disco rigido virtuale crittografato installando e usando il [comando dell'interfaccia della riga di comando](../cli-install-nodejs.md). Per abilitare la crittografia in macchine virtuali IaaS Linux esistenti o in esecuzione in Azure usando i comandi dell'interfaccia della riga di comando, seguire questa procedura:
 
 1. Configurare i criteri di accesso nell'insieme di credenziali delle chiavi:
 
@@ -597,7 +597,7 @@ La tabella seguente elenca i parametri del modello di Resource Manager per macch
 
 2. Nella pagina superiore della pagina **Macchine virtuali** fare clic su **Colonne**.
 
-3. Nel pannello ** Scegli colonna** selezionare **Crittografia del disco**, quindi fare clic su **Aggiorna**. Verrà visualizzata la colonna relativa alla crittografia dei dischi, che mostra lo stato della crittografia, ovvero _Abilitato_ o _Non abilitato_, per ogni macchina virtuale, come illustrato nella figura seguente:
+3. Nel pannello **Scegli colonna** selezionare **Crittografia del disco**, quindi fare clic su **Aggiorna**. Verrà visualizzata la colonna relativa alla crittografia dei dischi, che mostra lo stato della crittografia, ovvero _Abilitato_ o _Non abilitato_, per ogni macchina virtuale, come illustrato nella figura seguente:
 
  ![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig2.png)
 

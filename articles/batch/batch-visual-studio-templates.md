@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: dd7c67bf83e4b95b978b793c8169b7e9c98bc939
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 53c9b75599af48be82c63bc7a9df31d4c2de13a3
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -55,7 +55,7 @@ Come illustrato nel diagramma seguente, un processo di calcolo che usa questi mo
 ## <a name="prerequisites"></a>Prerequisiti
 Per usare i modelli di Batch, sarà necessario quanto segue:
 
-* Un computer con Visual Studio 2015 o versione successiva già installato.
+* Un computer con Visual Studio 2015 o versione successiva installata.
 * I modelli di Batch, disponibili in [Visual Studio Gallery][vs_gallery] come estensioni di Visual Studio. È possibile ottenere i modelli in due modi:
   
   * Installare i modelli usando la finestra di dialogo **Estensioni e aggiornamenti** in Visual Studio. Per altre informazioni, vedere [Ricerca e uso delle estensioni di Visual Studio][vs_find_use_ext]. Nella finestra di dialogo **Estensioni e aggiornamenti** cercare e scaricare le due estensioni seguenti:
@@ -68,7 +68,7 @@ Per usare i modelli di Batch, sarà necessario quanto segue:
 ## <a name="preparation"></a>Operazioni preliminari
 Si consiglia di creare una soluzione che possa contenere il gestore di processi oltre all'elaboratore di attività, perché può semplificare la condivisione del codice tra i programmi del gestore di processi e dell'elaboratore di attività. Per creare la soluzione, seguire questi passaggi:
 
-1. Aprire Visual Studio 2015 e selezionare **File** > **Nuovo** > **Progetto**.
+1. Aprire Visual Studio e selezionare **File** > **Nuovo** > **Progetto**.
 2. In **Modelli** espandere **Altri tipi di progetti**, fare clic su **Soluzioni di Visual Studio** e selezionare **Soluzione vuota**.
 3. Digitare un nome che descriva l'applicazione e lo scopo di questa soluzione, ad esempio "ProgrammiAttivitàBatchLitware".
 4. Per creare la nuova soluzione, fare clic su **OK**.
@@ -87,7 +87,7 @@ Il modello Job Manager (Gestore di processi) consente di implementare un'attivit
 ### <a name="create-a-job-manager-using-the-template"></a>Creare un gestore di processi usando il modello
 Per aggiungere un gestore di processi alla soluzione creata prima, seguire questi passaggi:
 
-1. Aprire la soluzione esistente in Visual Studio 2015.
+1. Aprire la soluzione esistente in Visual Studio.
 2. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e selezionare **Aggiungi** > **Nuovo progetto**.
 3. In **Visual C#** fare clic su **Cloud** e su **Azure Batch Job Manager with Job Splitter** (Gestore di processi di Azure Batch con componente di suddivisione dei processi).
 4. Digitare un nome che descriva l'applicazione e identifichi questo progetto come gestore di processi, ad esempio "GestoreProcessiLitware".
@@ -256,7 +256,7 @@ Le azioni eseguite dall'elaboratore di attività possono essere semplici o compl
 ### <a name="create-a-task-processor-using-the-template"></a>Creare un elaboratore delle attività usando il modello
 Per aggiungere un elaboratore di attività alla soluzione creata prima, seguire questi passaggi:
 
-1. Aprire la soluzione esistente in Visual Studio 2015.
+1. Aprire la soluzione esistente in Visual Studio.
 2. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione scegliere **Aggiungi**, quindi fare clic su **Nuovo progetto**.
 3. In **Visual C#** fare clic su **Cloud** e su **Azure Batch Task Processor** (Elaboratore di attività di Azure Batch).
 4. Digitare un nome che descriva l'applicazione e identifichi questo progetto come elaboratore di attività, ad esempio "ElaboratoreAttivitàLitware".

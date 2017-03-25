@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 1aeb983730f732a021b828c658cc741f8659c487
-ms.openlocfilehash: 214d968c95fec4695f22152cca53a369299b6e10
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 5dba93fdf9b0f0ca73b47743aa0188dd47094a3f
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -42,7 +42,7 @@ I passaggi per la risoluzione dei problemi sono i seguenti:
 4. Smontare e scollegare il disco rigido virtuale dalla macchina virtuale usata per la risoluzione dei problemi.
 5. Creare una VM usando il disco rigido virtuale originale.
 
-Controllare di aver installato la [versione più recente dell'interfaccia della riga di comando di Azure 1.0 ](../xplat-cli-install.md), di aver eseguito l'accesso e di usare la modalità Resource Manager:
+Controllare di aver installato la [versione più recente dell'interfaccia della riga di comando di Azure 1.0 ](../cli-install-nodejs.md), di aver eseguito l'accesso e di usare la modalità Resource Manager:
 
 ```azurecli
 azure config mode arm

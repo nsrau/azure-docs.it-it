@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: 10b1998789feafaf0c28155bc8a96a28ff78cf02
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 51aabf4938714c597ae0cfb2ec524f326b6e355a
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -233,7 +233,7 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 ## <a name="azure-command-line-interface-azure-cli-commands-for-deployment-slots"></a>Comandi dell'interfaccia della riga di comando di Azure per gli slot di distribuzione
 L'interfaccia della riga di comando di Azure fornisce comandi multipiattaforma che è possibile usare con Azure, incluso il supporto per la gestione degli slot di distribuzione del servizio app.
 
-* Per istruzioni sull'installazione e la configurazione dell'interfaccia della riga di comando di Azure, incluse le informazioni su come collegarla alla sottoscrizione di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+* Per istruzioni sull'installazione e la configurazione dell'interfaccia della riga di comando di Azure, incluse le informazioni su come collegarla alla sottoscrizione di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md).
 * Per l'elenco dei comandi disponibili per il servizio app di Azure, chiamare `azure site -h`.
 
 > [!NOTE] 

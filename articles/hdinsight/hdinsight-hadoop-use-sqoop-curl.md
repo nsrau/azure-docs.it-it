@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 39798321-78ca-428c-bcfe-322e49af4059
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,8 +17,9 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 6c468c8ed0d817a32c343d55cac780b904ee8668
-ms.openlocfilehash: 02674646a0dac8a468b8c4f9f079630103058a3a
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: eabcd8b70411a915722a2f1b8e8b70271cd8c7c2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -94,7 +96,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
    > 
 2. Dopo che lo stato del processo risulta essere **SUCCEEDED**, è possibile recuperare i risultati del processo dall'archivio BLOB di Azure. Il parametro `statusdir` passato con la query contiene il percorso del file di output, in questo caso **wasbs:///example/curl**. Questo indirizzo consente di archiviare l'output del processo nella directory **example/curl** del contenitore di archiviazione predefinito usato dal cluster HDInsight.
    
-    È possibile elencare e scaricare questi file usando l' [Interfaccia della riga di comando di Azure](../xplat-cli-install.md). Ad esempio, per elencare i file contenuti in **example/curl**, usare il seguente comando:
+    È possibile elencare e scaricare questi file usando l' [Interfaccia della riga di comando di Azure](../cli-install-nodejs.md). Ad esempio, per elencare i file contenuti in **example/curl**, usare il seguente comando:
    
         azure storage blob list <container-name> example/curl
    
@@ -152,10 +154,5 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

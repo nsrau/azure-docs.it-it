@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 2af5d275bb331101b370e4a12043e27b6cdf5b68
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 8be5e1525a7c481de5cb02edd26da305af2d4798
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -140,10 +140,7 @@ SparkJob2
 > [!IMPORTANT]
 > Per conoscere la procedura dettagliata completa per creare una pipeline con un'attività di trasformazione, vedere l'articolo [Creare una pipeline per trasformare i dati](data-factory-build-your-first-pipeline-using-editor.md). 
 
-## <a name="spark-sample-on-github"></a>Esempio di Spark in GitHub
-Prima che l'attività Spark fosse supportata, la soluzione alternativa per l'esecuzione di programmi Spark dalla pipeline di Data Factory consisteva nell'usare un'attività MapReduce. È possibile usare ancora l'[attività MapReduce](data-factory-map-reduce.md) in una pipeline di Data Factory per eseguire programmi Spark nel cluster Spark HDInsight. È consigliabile usare l'attività Spark invece dell'attività MapReduce. 
 
-L' [esempio Spark - Data Factory in GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/Spark) spiega come usare l'attività MapReduce per chiamare un programma Spark. Il programma Spark si limita a copiare i dati da un contenitore BLOB di Azure a un altro. 
 
 ## <a name="see-also"></a>Vedere anche
 * [Attività Hive](data-factory-hive-activity.md)

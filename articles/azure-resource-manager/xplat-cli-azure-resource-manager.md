@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 08/22/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
-ms.openlocfilehash: 7fcf16ac835089a1c4127fd34264f2cf7cb098ac
-ms.lasthandoff: 01/14/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: bd6f81ee12a7bb655166cf059236175bfb9994e5
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/14/2017
 L'interfaccia della riga di comando di Azure è uno degli strumenti che è possibile usare per distribuire e gestire le risorse con Resource Manager. Questo articolo illustra i metodi comuni per gestire risorse e gruppi di risorse di Azure usando l'interfaccia della riga di comando di Azure in modalità Resource Manager. Per informazioni sull'uso dell'interfaccia della riga di comando per distribuire le risorse, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](resource-group-template-deploy-cli.md). Per informazioni sulle risorse di Azure e su Resource Manager, vedere [Panoramica di Azure Resource Manager](resource-group-overview.md).
 
 > [!NOTE]
-> Per gestire le risorse di Azure con l'interfaccia della riga di comando di Azure, è necessario [installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e [accedere ad Azure](../xplat-cli-connect.md) usando il comando `azure login`. Verificare che l'interfaccia della riga di comando sia in modalità Resource Manager eseguendo `azure config mode arm`. Se queste operazioni sono già state eseguite, si è pronti per proseguire.
+> Per gestire le risorse di Azure con l'interfaccia della riga di comando di Azure, è necessario [installare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md) e [accedere ad Azure](../xplat-cli-connect.md) usando il comando `azure login`. Verificare che l'interfaccia della riga di comando sia in modalità Resource Manager eseguendo `azure config mode arm`. Se queste operazioni sono già state eseguite, si è pronti per proseguire.
 > 
 > 
 

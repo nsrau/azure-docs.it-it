@@ -9,6 +9,7 @@ tags: azure-portal
 documentationcenter: 
 ms.assetid: 4f26c79f-8540-44bd-a470-84722a9e4eca
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,16 +17,16 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 53973b27ae6531d5c4eaceb862ca5bd2bc5f9249
-ms.openlocfilehash: dec07803397ec5df17dfb57703e276ba071e942a
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: e70e24951481c33525a852479c9c9647a45e71ac
+ms.lasthandoff: 03/21/2017
 
 
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>Gestire cluster Hadoop in HDInsight tramite la CLI di Azure
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Informazioni su come usare l' [Interfaccia della riga di comando di Azure](../xplat-cli-install.md) per gestire i cluster Hadoop in Azure HDInsight. L'interfaccia della riga di comando di Azure viene implementata in Node.js. Può essere usato in tutte le piattaforme che supportano Node.js, incluse Windows, Mac e Linux.
+Informazioni su come usare l' [Interfaccia della riga di comando di Azure](../cli-install-nodejs.md) per gestire i cluster Hadoop in Azure HDInsight. L'interfaccia della riga di comando di Azure viene implementata in Node.js. Può essere usato in tutte le piattaforme che supportano Node.js, incluse Windows, Mac e Linux.
 
 In questo articolo viene illustrato solo l’uso dell’interfaccia della riga di comando di Azure con HDInsight. Per una guida generale sull'uso dell'interfaccia della riga di comando di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure][azure-command-line-tools].
 
@@ -35,7 +36,7 @@ In questo articolo viene illustrato solo l’uso dell’interfaccia della riga d
 Per eseguire le procedure descritte nell'articolo è necessario:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Interfaccia della riga di comando di Azure** : per informazioni sull’installazione e la configurazione vedere [Installare e configurare l’interfaccia della riga di comando di Azure](../xplat-cli-install.md) .
+* **Interfaccia della riga di comando di Azure** : per informazioni sull’installazione e la configurazione vedere [Installare e configurare l’interfaccia della riga di comando di Azure](../cli-install-nodejs.md) .
 * **Collegarsi ad Azure**, usando il comando seguente:
   
         azure login
@@ -92,7 +93,7 @@ In questo articolo si è appreso come eseguire diverse attività amministrative 
 * [Introduzione ad Azure HDInsight][hdinsight-get-started]
 * [Come usare l'interfaccia della riga di comando di Azure][azure-command-line-tools]
 
-[azure-command-line-tools]: ../xplat-cli-install.md
+[azure-command-line-tools]: ../cli-install-nodejs.md
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

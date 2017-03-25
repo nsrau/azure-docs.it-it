@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 6ce18163-63b5-4df6-9bb6-8fcbd4db05d8
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,8 +17,9 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
-ms.openlocfilehash: 0842cbcceb7ac96d4283efdd6c178b08dd728254
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a8058d8a2af2836b9e1ac611b272408b10804f24
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -32,14 +34,14 @@ Curl viene usato per illustrare come sia possibile interagire con HDInsight tram
 > Se si ha già familiarità con l'uso di server Hadoop basati su Linux, ma non si ha esperienza con HDInsight, vedere [Informazioni utili su Hadoop in HDInsight basato su Linux](hdinsight-hadoop-linux-information.md).
 
 
-## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Prerequisiti
+## <a id="prereq"></a>Prerequisiti
 Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
 
 * Un cluster Hadoop in HDInsight
 * [Curl](http://curl.haxx.se/)
 * [jq](http://stedolan.github.io/jq/)
 
-## <a name="a-idcurlarun-hive-queries-by-using-curl"></a><a id="curl"></a>Eseguire query Hive usando Curl
+## <a id="curl"></a>Eseguire query Hive usando Curl
 > [!NOTE]
 > Quando si usa Curl o qualsiasi altra forma di comunicazione REST con WebHCat, è necessario autenticare le richieste fornendo il nome utente e la password dell'amministratore cluster HDInsight. È inoltre necessario specificare il nome del cluster come parte dell'URI (Uniform Resource Identifier) usato per inviare le richieste al server.
 > 
@@ -121,7 +123,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
    > 
 4. Dopo che lo stato del processo risulta essere **SUCCEEDED**, è possibile recuperare i risultati del processo dall'archivio BLOB di Azure. Il parametro `statusdir` passato con la query contiene il percorso del file di output, in questo caso **wasbs:///example/curl**. Questo indirizzo consente di archiviare l'output del processo nella directory **example/curl** del contenitore di archiviazione predefinito usato dal cluster HDInsight.
    
-    È possibile elencare e scaricare questi file usando l' [Interfaccia della riga di comando di Azure](../xplat-cli-install.md). Ad esempio, per elencare i file contenuti in **example/curl**, usare il seguente comando:
+    È possibile elencare e scaricare questi file usando l' [Interfaccia della riga di comando di Azure](../cli-install-nodejs.md). Ad esempio, per elencare i file contenuti in **example/curl**, usare il seguente comando:
    
         azure storage blob list <container-name> example/curl
    
@@ -151,13 +153,13 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 6. Usare l'ID processo restituito per verificare lo stato del processo. Se il processo è stato completato correttamente, usare l'interfaccia della riga di comando di Azure come spiegato in precedenza per scaricare e visualizzare i risultati. L'output dovrebbe contenere tre righe, tutte contenenti **ERROR**.
 
-## <a name="a-idsummaryasummary"></a><a id="summary"></a>Riepilogo
+## <a id="summary"></a>Riepilogo
 
 Come illustrato in questo documento, è possibile usare una richiesta HTTP non elaborata per eseguire, monitorare e visualizzare i risultati dei processi Hive nel cluster HDInsight.
 
 Per altre informazioni sull'interfaccia REST usata in questo articolo, vedere le <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference" target="_blank">informazioni di riferimento su WebHCat</a>.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Passaggi successivi
+## <a id="nextsteps"></a>Passaggi successivi
 
 Per informazioni generali su Hive con HDInsight:
 
@@ -197,10 +199,5 @@ Se si usa Tez con Hive, vedere i documenti seguenti per le informazioni di debug
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

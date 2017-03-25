@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
-ms.openlocfilehash: 138560f4bc8e400f7b3ca2d5a1b80ea0c25ec4da
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: cdf233c2b141f4c73abcabc199b5fc583f14962c
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="password-management-frequently-asked-questions"></a>Domande frequenti sulla gestione delle password
 > [!IMPORTANT]
-> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
+> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
@@ -35,6 +35,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
 
 * [**Domande sulla registrazione per la reimpostazione della password**](#password-reset-registration)
 * [**Domande sulla reimpostazione della password**](#password-reset)
+* [**Domande sulla modifica della password**](#password-change)
 * [**Domande relative ai report di gestione delle password**](#password-management-reports)
 * [**Domande sul writeback delle password**](#password-writeback)
 
@@ -169,6 +170,18 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   >
   >
 
+## <a name="password-change"></a>Modifica della password
+* **D: Dove devono andare gli utenti per modificare la password?**
+
+  > **R:** Gli utenti possono modificare le password in qualsiasi punto visualizzino l'immagine o l'icona del profilo, come anche nell'angolo in alto a destra della sezione [Office 365](https://portal.office.com) o [Pannello di accesso](https://myapps.microsoft.com). Gli utenti possono modificare le password dalla [pagina profilo del Pannello di accesso](https://account.activedirectory.windowsazure.com/r#/profile). Se la password è scaduta, gli utenti potrebbero dover modificare la password automaticamente nella schermata di accesso di Azure AD. Infine, se desiderano modificare la password, gli utenti possono accedere direttamente al [portale di modifica della password di Azure AD](https://account.activedirectory.windowsazure.com/ChangePassword.aspx).
+  >
+  >
+* **D: Gli utenti possono ricevere una notifica nel portale di Office alla scadenza della propria password locale?**
+
+  > **R:** Attualmente è possibile se si usa ADFS seguendo le istruzioni riportate di seguito: [Sending Password Policy Claims with ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396) (Invio delle attestazioni dei criteri delle password con ADFS). Se si usa la sincronizzazione dell'hash della password, al momento non è possibile. Ciò avviene perché i criteri della password locale non vengono sincronizzati, pertanto non è possibile inviare notifiche sulla scadenza nel cloud. In entrambi i casi, è anche possibile [inviare notifiche tramite PowerShell agli utenti le cui password stanno per scadere](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  >
+  >
+  
 ## <a name="password-management-reports"></a>Report di gestione delle password
 * **D: Quanto tempo trascorre prima che i dati vengono visualizzati nei report di gestione delle password?**
 
@@ -184,7 +197,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   ![][002]
 * **D: qual è il numero massimo di eventi che vengono archiviati nei report di gestione della password?**
 
-  > **R:** Nei report di gestione della password vengono archiviati fino a 1.000 eventi di reimpostazione della password o di registrazione della reimpostazione della password.  Stiamo lavorando per espandere questo numero al fine di includere un maggior numero di eventi.
+  > **R:** Nei report di gestione della password vengono archiviati fino a 75.000 eventi di reimpostazione della password o di registrazione della reimpostazione della password, con un backup fino a 30 giorni.  Stiamo lavorando per espandere questo numero al fine di includere un maggior numero di eventi.
   >
   >
 * **D: Fino a quando risalgono i report di gestione delle password?**
@@ -194,7 +207,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   >
 * **D: Esiste un limite al numero massimo di righe visualizzabili nei report di gestione delle password?**
 
-  > **R:** Sì, è possibile visualizzare un massimo di 1.000 righe nei report di gestione delle password, sia quando vengono riprodotti nell'interfaccia utente sia quando vengono scaricati. Attualmente si sta esaminando come aumentare questo limite.
+  > **R:** Sì, è possibile visualizzare un massimo di 75.000 righe nei report di gestione delle password, sia quando vengono riprodotti nell'interfaccia utente sia quando vengono scaricati. Attualmente si sta esaminando come aumentare questo limite.
   >
   >
 * **D: Esiste un'API per accedere alla reimpostazione della password o alla raccolta dei dati di registrazione?**
@@ -233,7 +246,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
 ## <a name="next-steps"></a>Passaggi successivi
 Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
+* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 * [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
 * [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
 * [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione

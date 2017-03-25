@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 03/14/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: f85c6bcc2abbd14c7879462f7013a97f550fdca5
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 66c0084c89b5c7510196142afd27b58953d0dc86
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -34,6 +35,11 @@ Se l'utente esterno che si vuole invitare ha già un oggetto contatto esistente,
 
 Nei casi in cui gli utenti esterni non vengono inseriti nell'elenco, potrebbero essere necessari alcuni minuti per la replica dell'oggetto.
 
+## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>Un utente guest B2B non compare nella selezione utenti di SharePoint Online/OneDrive 
+ 
+La possibilità di cercare gli utenti guest esistenti nella selezione utenti di SharePoint Online è disattivata per impostazione predefinita per corrispondenza con il comportamento legacy.
+È possibile abilitarla usando l'impostazione "ShowPeoplePickerSuggestionsForGuestUsers" a livello di tenant e raccolta di siti. Può essere impostata tramite i cmdlet Set-SPOTenant e Set-SPOSite, che consentono ai membri di cercare tutti gli utenti guest esistenti nella directory. Le modifiche nell'ambito tenant non influiscono sui siti di SPO di cui si è già stato eseguito il provisioning.
+
 ## <a name="invitations-have-been-disabled-for-directory"></a>Gli inviti sono stati disabilitati per la directory
 
 Se si riceve un messaggio di errore che indica che non si è autorizzati a invitare utenti, verificare che l'account utente abbia le autorizzazioni necessarie per invitare utenti esterni. A tale scopo è possibile usare le impostazioni utente:
@@ -48,7 +54,7 @@ Di seguito sono riportati gli errori più comuni.
 
 ### <a name="invitees-admin-has-disallowed-emailverified-users-from-being-created-in-their-tenant"></a>L'amministratore dell'invitato non consente la creazione di utenti EmailVerified nel tenant
 
-Questo si verifica quando si invitano utenti la cui organizzazione usa Azure Active Directory dove l'account dell'utente specifico non esiste, ad esempio se l'utente non esiste in contoso.com AAD. L'amministratore di contoso.com potrebbe aver impostato criteri che impediscono la creazione di utenti. L'utente esterno deve rivolgersi all'amministratore per determinare se gli utenti esterni sono consentiti. Per la creazione di utenti EmailVerified nel dominio, potrebbe essere necessario il consenso dell'amministratore. Per altre informazioni in proposito, vedere [questo articolo](https://docs.microsoft.com/en-us/powershell/msonline/v1/set-msolcompanysettings#parameters).
+Questo si verifica quando si invitano utenti la cui organizzazione usa Azure Active Directory, ma dove l'account dell'utente specifico non esiste (ad esempio se l'utente non esiste in contoso.com di Azure AD). L'amministratore di contoso.com potrebbe aver impostato criteri che impediscono la creazione di utenti. L'utente deve rivolgersi all'amministratore per determinare se gli utenti esterni sono consentiti. L'amministratore dell'utente esterno potrebbe dover consentire gli utenti verificati tramite posta elettronica nel dominio (vedere questo [articolo](https://docs.microsoft.com/powershell/msonline/v1/set-msolcompanysettings#parameters) su come consentire gli utenti verificati tramite posta elettronica).
 
 ![](media/active-directory-b2b-troubleshooting/allow-email-verified-users.png)
 
@@ -58,9 +64,9 @@ Nei casi in cui l'utente esterno usa una soluzione di federazione in cui l'auten
 
 Per risolvere questo problema, l'amministratore dell'utente esterno deve sincronizzare l'account dell'utente con Azure Active Directory.
 
-## <a name="how-does--which-is-normally-an-invalid-character-sync-with-azure-ad"></a>Sincronizzazione di "\#", che in genere è un carattere non valido, con Azure AD
+## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>In che modo "\#", che in genere è un carattere non valido, viene sincronizzato con Azure AD?
 
-Negli UPN "\#" è un carattere riservato per Collaborazione B2B di Azure AD o per gli utenti esterni, vale a dire che &lt;user@contoso.com&gt; invitato diventa &lt;user_contoso.com#EXT@fabrikam.onmicrosoft.com&gt;. Non è quindi consentito l'accesso al portale di Azure a "\#" negli UPN locali.
+"\#" è un carattere riservato negli UPN per Collaborazione B2B di Azure AD o per gli utenti esterni, vale a dire che &lt;user@contoso.com&gt; invitato diventa &lt;user_contoso.com#EXT@fabrikam.onmicrosoft.com&gt;. Non è quindi consentito l'accesso al portale di Azure a "\#" negli UPN locali.
 
 ## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>Viene visualizzato un errore durante l'aggiunta di utenti esterni a un gruppo sincronizzato
 
@@ -89,9 +95,4 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 * [Autenticazione a più fattori per utenti di Collaborazione B2B](active-directory-b2b-mfa-instructions.md)
 * [Aggiungere gli utenti per la Collaborazione B2B senza un invito](active-directory-b2b-add-user-without-invite.md)
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

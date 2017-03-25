@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: b8cad4541d4e17f98a35289c6c031b9331ab4a8b
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 9dbfa813ea64666779f1f85b3ccda2b4fa1a755b
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -240,7 +240,7 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 A causa del ritardo nella disponibilità dei campioni citato in precedenza, è anche importante specificare sempre un intervallo di tempo con un'ora di inizio antecedente di almeno un minuto. La propagazione dei campioni attraverso il sistema richiede infatti un minuto circa, quindi i campioni nell'intervallo `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` spesso non saranno disponibili. Anche in questo caso, è possibile usare il parametro percentuale di `GetSample()` per imporre uno specifico requisito di percentuale dei campioni.
 
 > [!IMPORTANT]
-> È **consigliabile** **evitare di basarsi *solo* su `GetSample(1)` nelle formule di scalabilità automatica**. `GetSample(1)` indica infatti essenzialmente al servizio Batch di restituire l'ultimo campione disponibile, indipendentemente da quanto tempo prima è stato ottenuto. Essendo solo un singolo campione, che potrebbe anche non essere recente, potrebbe non essere rappresentativo dell'immagine più ampia dello stato recente di attività o risorse. Se si usa `GetSample(1)`, accertarsi che faccia parte di un'istruzione di dimensioni maggiori e non sia il solo punto dati su cui si basa la formula.
+> È **consigliabile** **evitare di basarsi*solo* su `GetSample(1)` nelle formule di scalabilità automatica**. `GetSample(1)` indica infatti essenzialmente al servizio Batch di restituire l'ultimo campione disponibile, indipendentemente da quanto tempo prima è stato ottenuto. Essendo solo un singolo campione, che potrebbe anche non essere recente, potrebbe non essere rappresentativo dell'immagine più ampia dello stato recente di attività o risorse. Se si usa `GetSample(1)`, accertarsi che faccia parte di un'istruzione di dimensioni maggiori e non sia il solo punto dati su cui si basa la formula.
 > 
 > 
 
@@ -355,7 +355,7 @@ pool.AutoScaleEvaluationInterval = TimeSpan.FromMinutes(30);
 pool.Commit();
 ```
 
-Oltre alle API REST di Batch e l'SDK .NET, è possibile usare qualsiasi altro [SDK Batch](batch-technical-overview.md#batch-development-apis), [cmdlet PowerShell di Batch](batch-powershell-cmdlets-get-started.md) e [interfaccia della riga di comando di Batch](batch-cli-get-started.md) da usare per la scalabilità automatica.
+Oltre alle API REST di Batch e l'SDK .NET, è possibile usare qualsiasi altro [SDK Batch](batch-apis-tools.md#batch-development-apis), [cmdlet PowerShell di Batch](batch-powershell-cmdlets-get-started.md) e [interfaccia della riga di comando di Batch](batch-cli-get-started.md) da usare per la scalabilità automatica.
 
 > [!IMPORTANT]
 > Quando si crea un pool abilitato per la scalabilità automatica, **non** specificare il parametro `targetDedicated`. Si noti anche che per ridimensionare manualmente un pool abilitato per la scalabilità automatica, ad esempio con [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool], è necessario **disabilitare** prima la scalabilità automatica nel pool e quindi ridimensionarlo.

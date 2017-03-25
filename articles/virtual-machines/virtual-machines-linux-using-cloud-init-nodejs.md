@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 10/26/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 7d804c93933fd53b0a74696391e3ade228e66560
-ms.openlocfilehash: 4895bd1a47a918df8029ef0d2e0343d9b0da0903
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: cdd446dbacb531c3778d232446231bfae08c74ac
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/27/2017
 Questo articolo illustra come creare script cloud-init per impostare il nome host, aggiornare i pacchetti installati e gestire gli account utente.  Gli script cloud-init vengono richiamati durante la creazione della VM dall'interfaccia della riga di comando di Azure.  L'articolo richiede:
 
 * Un account Azure. È possibile [ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Accesso tramite `azure login` per l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+* Accesso tramite `azure login` per l'[interfaccia della riga di comando di Azure](../cli-install-nodejs.md).
 * L'interfaccia della riga di comando di Azure *deve essere impostata obbligatoriamente* sulla modalità Azure Resource Manager `azure config mode arm`.
 
 ## <a name="cli-versions-to-complete-the-task"></a>Versioni dell'interfaccia della riga di comando per completare l'attività

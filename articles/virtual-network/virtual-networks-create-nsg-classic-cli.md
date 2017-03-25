@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d3ea05a1f98dbec4adc9ceea17ece00b19200107
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 115a1937a4c88ba2b986a40c84b1b759ed5e03b5
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -37,7 +38,7 @@ I comandi di esempio dell'interfaccia della riga di comando di Azure riportati d
 ## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Come creare il gruppo di sicurezza di rete per la subnet front-end
 Per creare un gruppo di sicurezza di rete denominato **NSG-FrontEnd** in base allo scenario precedente, seguire questa procedura.
 
-1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
+1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
 2. Eseguire il comando **`azure config mode`** per passare alla modalità classica, come illustrato di seguito.
    
         azure config mode asm
@@ -234,10 +235,5 @@ Per creare un gruppo di sicurezza di rete denominato *NSG-BackEnd* in base allo 
         info:    Looking up network configuration
         info:    Creating a network security group "NSG-BackEndX"
         info:    network nsg subnet add command OK
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

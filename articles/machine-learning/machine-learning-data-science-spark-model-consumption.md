@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/24/2017
+ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 138c1182ea173ff2f14672e692ff79ae1015dcfc
-ms.openlocfilehash: 52319ff75817e75b31388aa03030a4f0e63c182d
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: cfab4ea7491d15321d54cd9482e35a89fe7c7275
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -30,7 +30,7 @@ Questo argomento illustra come rendere operativo un modello di apprendimento aut
 La procedura di configurazione e il codice per rendere operativo un modello ML, forniti in questa procedura dettagliata, sono applicabili sia con cluster HDInsight Spark 1.6 sia che con cluster Spark 2.0. Il codice per queste procedure è fornito anche nel notebook di Jupyter.
 
 ### <a name="notebook-for-spark-16"></a>Notebook per Spark 1.6
-Il notebook di Jupyter [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) illustra come rendere operativo un modello salvato usando Python sui cluster di HDInsight. 
+Il notebook di Jupyter [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) illustra come rendere operativo un modello salvato usando Python sui cluster di HDInsight. 
 
 ### <a name="notebook-for-spark-20"></a>Notebook per Spark 2.0
 Al fine di modificare il notebook di Jupyter per Spark 1.6 per l'uso di un cluster HDInsight Spark 2.0, sostituire il file di codice Python con [questo file](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py). Questo codice illustra come usare i modelli creati in Spark 2.0.

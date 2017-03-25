@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 05/23/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: cbd1c7e7d915e8a10d69c7a2f1679835dcee23b7
-ms.openlocfilehash: b64129b77385685b41aac55c52a34e9d0495124e
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 531fdbbeab09a67be9636b3a70eabbb4148f7400
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -122,15 +122,12 @@ Si noterà che la query di aggregare i risultati di tutte le partizioni e produc
 
 Tutte le righe dalla tabella **Clienti** , archiviate in diverse partizioni sono riportate nel foglio Excel.
 
-## <a name="next-steps"></a>Passaggi successivi
 È ora possibile utilizzare funzioni di visualizzazione avanzata dei dati di Excel. È possibile utilizzare la stringa di connessione con il nome del server, nome del database e credenziali per gli strumenti di integrazione di Business Intelligence e i dati di connettersi al database query elastica. Assicurarsi che SQL Server sia supportato come origine dati per lo strumento. È possibile fare riferimento al database elastica query e tabelle esterne come qualsiasi altro database di SQL Server e tabelle di SQL Server è necessario connettersi allo strumento.
 
 ### <a name="cost"></a>Costi
 Non esiste senza alcun costo aggiuntivo per utilizzare la funzione elastica Query del Database.
 
 Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
-
-## <a name="next-steps"></a>Passaggi successivi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
