@@ -17,6 +17,7 @@ ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: b344136bdcfba22416933ced9a91ef2a82082d11
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -43,9 +44,4 @@ Questo articolo illustra come aggiungere o modificare le informazioni di lavoro,
 * [Assegnare un utente ai ruoli di amministratore in anteprima di Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * [Aggiungere o modificare informazioni sul profilo per un utente in anteprima di Azure Active Directory](active-directory-users-profile-azure-portal.md)
 * [Eliminare un utente da una directory in anteprima di Azure Active Directory](active-directory-users-delete-user-azure-portal.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
