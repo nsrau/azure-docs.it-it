@@ -65,7 +65,7 @@ Gli utenti che creano l'insieme di credenziali per i servizi di ripristino dovre
    Come parte delle funzionalità di sicurezza, quando si eseguono operazioni critiche in Backup di Azure è necessario immettere il PIN di sicurezza disponibile nel portale di Azure. Abilitando Azure Multi-Factor Authentication si aggiunge un livello di sicurezza, garantendo la possibilità di accedere al portale di Azure ed eseguire operazioni critiche solo agli utenti autorizzati con credenziali di Azure valide che si sono autenticati dal secondo dispositivo.
 6. Usare il pulsante di attivazione/disattivazione per **abilitare** l'opzione e fare clic sul pulsante **Salva** nella parte superiore della schermata per salvare le impostazioni di sicurezza, come illustrato nella figura. È possibile selezionare **Abilita** solo dopo aver selezionato un valore dall'elenco a discesa "È stata eseguita la configurazione di Azure multi-Factor Authentication?" .
 
-    ![Abilitazione delle impostazioni di sicurezza](./media/backup-azure-security-feature/enable-security-settings.png)
+    ![Abilitazione delle impostazioni di sicurezza](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
 ## <a name="recovering-deleted-backup-data"></a>Ripristino dei dati di backup eliminati
 Come misura di sicurezza, Backup di Azure conserva i dati di backup eliminati per altri 14 giorni anziché eliminarli immediatamente quando viene eseguita l'interruzione del backup con la cancellazione dei dati di backup. Per ripristinare i dati entro i 14 giorni previsti, attenersi alla procedura seguente:
