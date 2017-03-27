@@ -17,6 +17,7 @@ ms.author: dhanyahk;markvi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: dce65678f9fc96d5802a7b705689cc63e6532c84
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -180,10 +181,5 @@ Sono disponibili due opzioni per loginStatus: 0 - esito positivo, 1 - esito nega
 ## <a name="next-steps"></a>Passaggi successivi
 * Si desidera vedere esempi sulle attività di accesso filtrate? Consultare la pagina [Esempi dell'API del report sull'attività di accesso di Azure Active Directory](active-directory-reporting-api-sign-in-activity-samples.md).
 * Si desiderano altre informazioni sull'API di creazione report di Azure AD? Vedere [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
