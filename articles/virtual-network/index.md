@@ -13,9 +13,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 53a008afdba7bd280a51c07a6a7514368904324d
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: d65301d1ca71f62b52c97f1de772a61c33933b8a
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="virtual-network-documentation"></a>Documentazione sulla rete virtuale
@@ -127,7 +127,7 @@ Informazioni su come usare una rete virtuale, una rappresentazione logica della 
                         <h3>Riga di comando</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network">PowerShell (Resource Manager)</a></p>
                         <p><a href="/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking">PowerShell (Classic)</a> (PowerShell (classico))</p>
-                        <p><a href="/cli/azure">Interfaccia della riga di comando di Azure</a></p>
+                        <p><a href="/cli/azure/network">Interfaccia della riga di comando di Azure</a></p>
                     </div>
                 </div>
             </div>

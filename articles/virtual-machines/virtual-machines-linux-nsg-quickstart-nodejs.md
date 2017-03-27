@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 7f3abdd63e43713d9d1f7ff28e44efc08167fddb
-ms.openlocfilehash: 33c658bc15ee266d519a2ca403d2fc0d057b36fd
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 96d34c176e028b89617c1f09d7baba7b31eb1601
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -32,7 +32,7 @@ Aprire una porta o creare un endpoint in una macchina virtuale (VM) di Azure tra
 
 
 ## <a name="quick-commands"></a>Comandi rapidi
-Per creare un gruppo di sicurezza di rete e le regole, è necessario che sia installata e usata l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) versione 1.0 in modalità Resource Manager:
+Per creare un gruppo di sicurezza di rete e le regole, è necessario che sia installata e usata l'[interfaccia della riga di comando di Azure](../cli-install-nodejs.md) versione 1.0 in modalità Resource Manager:
 
 ```azurecli
 azure config mode arm

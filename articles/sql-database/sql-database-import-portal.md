@@ -1,5 +1,5 @@
 ---
-title: Importare un file BACPAC per creare un database SQL di Azure | Documentazione Microsoft
+title: Importare un file BACPAC per creare un database SQL di Azure | Microsoft Docs
 description: Creare un database SQL di Azure importando un file BACPAC esistente.
 services: sql-database
 documentationcenter: 
@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 60bcd02d24e2084b9020ce56ef6a9f8268c6b1b5
-ms.openlocfilehash: e77a3ba82e7620e23441d9296ebed46d41cb525c
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: ca15248d7ac5232e6308d8188332975f1d21c09b
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -27,7 +28,7 @@ Questo articolo include istruzioni per la creazione di un database SQL di Azure 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per importare un database SQL da un file PACPAC, è necessario quanto segue:
+Per importare un database SQL da un file BACPAC è necessario quanto segue:
 
 * Una sottoscrizione di Azure. 
 * Un server V12 del Database SQL di Azure. Se non si dispone di un server V12, crearne uno seguendo i passaggi indicati in questo articolo: [Creare il primo database SQL di Azure](sql-database-get-started.md).
@@ -83,9 +84,4 @@ Facendo clic su **Crea** si invia una richiesta di importazione del database al 
 [4]: ./media/sql-database-import/create.png
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

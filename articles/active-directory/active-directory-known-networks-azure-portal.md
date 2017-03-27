@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 71116ade676677c5b6d14b07a038d043fba46032
-ms.openlocfilehash: 02a1aae805aa36aa68f341197e44b19bc6236b7b
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 161d36f0bef4b3cd1ac1ad85d0844a3dd8e51e16
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -24,26 +25,26 @@ ms.openlocfilehash: 02a1aae805aa36aa68f341197e44b19bc6236b7b
 > [!div class="op_single_selector"]
 > * [Portale di Azure](active-directory-known-networks-azure-portal.md)
 > * [portale di Azure classico](active-directory-known-networks.md)
-> 
-> 
+>
+>
 
 
 Azure Active Directory crea un record per ogni [evento di rischio](active-directory-identity-protection-risk-events.md) rilevato. Le informazioni sugli eventi di rischio disponibili nei report di sicurezza di Azure Active Directory permettono di ottenere dati dettagliati sulla probabile presenza di account utente compromessi nell'ambiente.   
 
-È possibile che Azure Active Directory rilevi falsi positivi dei [tipi di eventi di rischio](active-directory-identity-protection-risk-events.md#risk-event-types) di *trasferimento impossibile a posizioni atipiche* e di *accessi da indirizzi IP con attività sospetta* di proprietà effettiva dell'organizzazione. 
+È possibile che Azure Active Directory rilevi falsi positivi dei [tipi di eventi di rischio](active-directory-reporting-risk-events.md#risk-event-types) di *trasferimento impossibile a posizioni atipiche* e di *accessi da indirizzi IP con attività sospetta* di proprietà effettiva dell'organizzazione. 
 
-Questo può avvenire, ad esempio, nei casi seguenti: 
+Questo può avvenire, ad esempio, nei casi seguenti:
 
-- L'accesso di un utente dell'ufficio di Boston in modalità remota al data center di San Francisco genera un evento di rischio di *accessi da più aree geografiche* 
+- L'accesso di un utente dell'ufficio di Boston in modalità remota al data center di San Francisco genera un evento di rischio di *accessi da più aree geografiche*
 
-- Un utente dell'organizzazione prova ad accedere più volte con una password non corretta, generando un evento di rischio di *accessi da indirizzi IP con attività sospetta* 
+- Un utente dell'organizzazione prova ad accedere più volte con una password non corretta, generando un evento di rischio di *accessi da indirizzi IP con attività sospetta*
 
 Per impedire che casi come questi generino eventi di rischio fuorvianti, è necessario aggiungere gli intervalli di indirizzi IP denominati all'elenco di indirizzi IP pubblici dell'organizzazione.    
 
 ### <a name="to-add-your-organizations-public-ip-address-ranges-perform-the-following-steps"></a>Per aggiungere gli intervalli di indirizzi IP pubblici dell'organizzazione, seguire questa procedura:
 
 1. Accedere al portale di gestione di Azure.
- 
+
 2. Nel riquadro di sinistra fare clic su **Active Directory**.
 
     ![Reti note](./media/active-directory-known-networks-azure-portal/01.png)
@@ -73,10 +74,4 @@ Per impedire che casi come questi generino eventi di rischio fuorvianti, è nece
 * [Visualizzare i report di accesso e utilizzo](active-directory-view-access-usage-reports.md)
 * [Accessi da indirizzi IP con attività sospetta](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
 * [Accessi da più aree geografiche](active-directory-reporting-sign-ins-from-multiple-geographies.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

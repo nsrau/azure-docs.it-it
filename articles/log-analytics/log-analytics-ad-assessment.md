@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: d5caa7a6c1b1a36a4ad08e1b28c7f9157a2c6349
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: d50d25e4ea594b5231d29a862f3a98f07de70324
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -43,7 +43,7 @@ Usare le informazioni seguenti per installare e configurare le soluzioni.
 
 * Gli agenti devono essere installati nei controller di dominio membri del dominio da valutare.
 * La soluzione Active Directory Assessment richiede l'installazione di una versione di .NET Framework 4 (4.5.2 o superiore) supportata in ogni computer che contiene un agente OMS.
-* Aggiungere la soluzione Active Directory Assessment all'area di lavoro OMS usando la procedura descritta in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).  Non è richiesta alcuna ulteriore configurazione.
+* Aggiungere la soluzione Active Directory Assessment all'area di lavoro OMS da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ADAssessmentOMS?tab=Overview) o seguendo la procedura descritta in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).  Non è richiesta alcuna ulteriore configurazione.
 
   > [!NOTE]
   > Dopo aver aggiunto la soluzione, il file AdvisorAssessment.exe viene aggiunto al server con agenti. I dati di configurazione vengono letti e quindi inviati al servizio OMS nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud.

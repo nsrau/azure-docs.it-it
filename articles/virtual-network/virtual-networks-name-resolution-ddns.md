@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
+ms.date: 02/23/2017
 ms.author: garbrad
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: b4fffba6d95f4c9c30ab3a1ecd9dfeb7acd9119d
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -57,8 +58,8 @@ I client Linux solitamente non si registrano con il server DNS all'avvio, presup
               nsupdate $nsupdatecmds
         fi
 
-        #done
-        exit 0;
+        
+        
 
 È anche possibile usare il comando *nsupdate* per eseguire gli aggiornamenti dinamici protetti DNS. Ad esempio, quando si usa un server DNS con Bind, viene [generata](http://linux.yyz.us/nsupdate/)una coppia di chiavi pubblica/privata.  Il server DNS è [configurato](http://linux.yyz.us/dns/ddns-server.html) con la parte pubblica della chiave, che consente di verificare la firma della richiesta. È necessario usare l'opzione *-k* per indicare la coppia di chiavi a *nsupdate*, in modo da firmare la richiesta di aggiornamento DNS dinamico.
 
@@ -67,10 +68,5 @@ Quando si usa un server DNS Windows, è possibile usare l'autenticazione Kerbero
 Se necessario, aggiungere un suffisso di ricerca DNS alle VM. Il suffisso DNS è specificato nel file */etc/resolv.conf* . La maggior parte delle distribuzioni Linux gestiscono automaticamente il contenuto di questo file, quindi solitamente non può essere modificato. Tuttavia, è possibile ignorare il suffisso usando il comando *supersede* del client DHCP. A tale scopo, in */etc/dhcp/dhclient.conf*aggiungere:
 
         supersede domain-name <required-dns-suffix>;
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

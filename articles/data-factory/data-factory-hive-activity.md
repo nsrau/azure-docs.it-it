@@ -15,23 +15,24 @@ ms.topic: article
 ms.date: 01/25/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
-ms.openlocfilehash: 5fe5a990423cd24de0ada90a3a7f76899c4ffadc
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: e22f76f912e568f1ef0ae636a4b5c0ef24e8854c
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Trasformare dati usando l'attività Hive in Azure Data Factory 
-> [!div class="op_single_selector"]
-> * [Hive](data-factory-hive-activity.md)  
-> * [Pig](data-factory-pig-activity.md)  
-> * [MapReduce](data-factory-map-reduce.md)  
-> * [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
-> * [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
-> * [Stored procedure](data-factory-stored-proc-activity.md)
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Attività Hive](data-factory-hive-activity.md) 
+> * [Attività di Pig](data-factory-pig-activity.md)
+> * [Attività MapReduce](data-factory-map-reduce.md)
+> * [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
+> * [Attività Spark](data-factory-spark.md)
+> * [Attività di esecuzione batch di Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+> * [Attività della risorsa di aggiornamento di Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+> * [Attività stored procedure](data-factory-stored-proc-activity.md)
 > * [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
-> * [Attività personalizzata .NET](data-factory-use-custom-activities.md)
-> 
-> 
+> * [Attività personalizzata di .NET](data-factory-use-custom-activities.md)
 
 L'attività Hive di HDInsight in una [pipeline](data-factory-create-pipelines.md) di Data Factory esegue query Hive sul [proprio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) cluster HDInsight o sul cluster HDInsight [su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) basato su Windows o Linux. Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](data-factory-data-transformation-activities.md) che presenta una panoramica generale della trasformazione dei dati e le attività di trasformazione supportate.
 
@@ -133,9 +134,9 @@ Per eseguire lo script Hive in una pipeline di Data factory, è necessario segui
 5. Creare la pipeline riportata con l'attività HDInsightHive. L'attività elabora/trasforma i dati.
 
     ```JSON   
-    {   
+    {    
         "name": "HiveActivitySamplePipeline",
-        "properties": {
+           "properties": {
         "activities": [
             {
                 "name": "HiveActivitySample",
@@ -145,21 +146,21 @@ Per eseguire lo script Hive in una pipeline di Data factory, è necessario segui
                     "name": "HiveSampleIn"
                 }
                 ],
-                "outputs": [
-                {
+                 "outputs": [
+                   {
                     "name": "HiveSampleOut"
-                }
-                ],
-                "linkedServiceName": "HDInsightLinkedService",
-                "typeproperties": {
-                    "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
-                    "scriptLinkedService": "StorageLinkedService"
-                },
+                   }
+                 ],
+                 "linkedServiceName": "HDInsightLinkedService",
+                 "typeproperties": {
+                       "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
+                       "scriptLinkedService": "StorageLinkedService"
+                 },
                 "scheduler": {
                     "frequency": "Hour",
-                    "interval": 1
-                }
-            }
+                       "interval": 1
+                 }
+               }
             ]
         }
     }
@@ -242,10 +243,5 @@ Per usare lo script con parametri Hive, eseguire le operazioni seguenti:
 * [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
 * [Chiamare i programmi Spark](data-factory-spark.md)
 * [Chiamare gli script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

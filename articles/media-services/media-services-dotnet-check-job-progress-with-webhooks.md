@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: c0cf8a3d4e257f88f81fca9a6a1161c158b335b8
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: c3a7c0196b3ff1a7bd939f4224cb109ce71872f2
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -30,8 +30,6 @@ Per completare l'esercitazione è necessario quanto segue:
 
 * Un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Account di Servizi multimediali. Per creare un account Servizi multimediali, vedere [Creare un account Servizi multimediali di Azure con il portale di Azure](media-services-portal-create-account.md).
-* .NET Framework 4.0 o versione successiva.
-* Visual Studio.
 * Comprensione della [modalità d'uso delle funzioni di Azure](../azure-functions/functions-overview.md). Rivedere anche [Associazioni HTTP e webhook in Funzioni di Azure](../azure-functions/functions-bindings-http-webhook.md).
 
 Questo argomento illustra come
@@ -54,9 +52,9 @@ Il webhook prevede una chiave di firma (credenziale) che corrisponda a quella tr
 
 Nel codice seguente il metodo **VerifyWebHookRequestSignature** esegue la verifica sul messaggio di notifica. Lo scopo di questa convalida è garantire che il messaggio sia stato inviato da Servizi multimediali di Azure e che non sia stato alterato. La firma è facoltativa per le funzioni di Azure dal momento che ha il valore **Code** come un parametro di query su Transport Layer Security (TLS). 
 
-È possibile trovare la definizione della seguente funzione di Azure .NET di Servizi multimediali [qui](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/Notification_Webhook_Function).
+È possibile trovare la definizione delle varie funzioni di Azure .NET di Servizi multimediali (incluso quello illustrato in questo argomento) [qui](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
-Il listato di codice seguente mostra le definizioni dei parametri della funzione di Azure e dei tre file associati a tale funzione: function.json, project.json e run.csx.
+L'elenco codici seguente mostra le definizioni dei parametri della funzione di Azure e dei tre file associati a tale funzione: function.json, project.json e run.csx.
 
 ### <a name="application-settings"></a>Impostazioni dell'applicazione 
 
@@ -115,6 +113,10 @@ Il file project.json contiene dipendenze.
 ### <a name="runcsx"></a>run.csx
 
 Il codice C# seguente mostra una definizione di una funzione di Azure corrispondente a un webhook. La funzione è in attesa del callback del webhook dalle notifiche di Servizi multimediali e pubblica l'asset di output al termine del processo. 
+
+
+>[!NOTE]
+>È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Usare lo stesso ID criterio se si usano sempre gli stessi giorni/autorizzazioni di accesso, come nel cado di criteri per i localizzatori che devono rimanere attivi per molto tempo (criteri di non caricamento). Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) argomento.
 
     ///////////////////////////////////////////////////
     #r "Newtonsoft.Json"
@@ -345,7 +347,7 @@ L'esempio precedente ha prodotto il seguente output; i valori possono variare.
 Questa sezione mostra il codice che aggiunge una notifica di webhook a un'attività. È inoltre possibile aggiungere una notifica di livello di processo, che dovrebbe essere più utile per un processo con attività concatenate.  
 
 1. Creare una nuova applicazione console C# in Visual Studio. Immettere un valore nei campi Nome, Percorso e Nome soluzione, quindi fare clic su OK.
-2. Usare [Nuget](https://www.nuget.org/packages/windowsazure.mediaservices) per installare Servizi multimediali di Azure.
+2. Usare [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) per installare Servizi multimediali di Azure.
 3. Aggiornare il file App.config con valori appropriati: 
     
     * Nome e chiave di Servizi multimediali di Azure che invieranno notifiche, 

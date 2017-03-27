@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 03/07/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 16ec322d0c921f97819375cfe52d2c3f02a2c53b
-ms.openlocfilehash: d573090fb2dc4ea02308e0711c24371e17fb3cde
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 87c3b66a8789254e962ccfd7fc1eb7842c0db638
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -63,7 +64,7 @@ Prima di approfondire i dettagli tecnici, è fondamentale comprendere i concetti
 
 Attualmente SAP HANA Cloud Platform Identity Authentication funge da provider di identità proxy per applicazioni SAP. Azure Active Directory a sua volta agisce come provider di identità iniziale in questa configurazione. Il diagramma seguente illustra questo processo:    
 
-![Creazione di un utente test di Azure AD](./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/architecture-01.png)
+![Creazione di un utente test di Azure AD](./media/active-directory-saas-sap-hana-cloud-tutorial/architecture-01.png)
 
 Con questa configurazione, il tenant di SAP HANA Cloud Platform Identity Authentication viene configurato come applicazione attendibile in Azure Active Directory. 
 
@@ -95,11 +96,11 @@ Per configurare l'integrazione di SAP HANA Cloud Platform Identity Authenticatio
 
 4. Nella casella di ricerca digitare **SAP HANA Cloud Platform Identity Authentication**.
 
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sap_cloud_identity_01.png)
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sap-hana-cloud-tutorial/tutorial_sap_cloud_identity_01.png)
 
 5. Nel pannello risultati selezionare **SAP HANA Cloud Platform Identity Authentication**, quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sap_cloud_identity_02.png)
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sap-hana-cloud-tutorial/tutorial_sap_cloud_identity_02.png)
 
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -123,7 +124,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 L'applicazione SAP HANA Cloud Platform Identity Authentication prevede le asserzioni SAML in un formato specifico. È possibile gestire i valori di questi attributi dalla sezione "**Attributi utente**" nella pagina di integrazione dell'applicazione. La schermata seguente illustra un esempio relativo a questa operazione.
 
-![Configura accesso Single Sign-On](./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sap_cloud_identity_03.png)
+![Configura accesso Single Sign-On](./media/active-directory-saas-sap-hana-cloud-tutorial/tutorial_sap_cloud_identity_03.png)
 
 **Per configurare l'accesso Single Sign-On di Azure AD con SAP HANA Cloud Platform Identity Authentication, eseguire la procedura seguente:**
 
@@ -135,13 +136,13 @@ L'applicazione SAP HANA Cloud Platform Identity Authentication prevede le asserz
  
     ![Configura accesso Single Sign-On][5]
 
-3. Nella sezione **Attributi utente** nella finestra di dialogo **Single Sign-On**, se l'applicazione SAP prevede un attributo, ad esempio "firstName", nella finestra degli attributi del token SAML aggiungere l'attributo "firstName".
+3. Nella sezione **Attributi utente** nella finestra di dialogo **Single Sign-On**, se l'applicazione SAP prevede un attributo, ad esempio "firstName". Nella finestra di dialogo relativa agli attributi del token SAML aggiungere l'attributo "firstName".
 
     a. Fare clic su **Aggiungi attributo** per aprire la finestra di dialogo **Aggiungi attributo**.
 
     ![Configura accesso Single Sign-On][6]
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sap_cloud_identity_05.png)
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-sap-hana-cloud-tutorial/tutorial_sap_cloud_identity_05.png)
     
     b. Nella casella di testo **Nome attributo** digitare il nome dell'attributo "firstName".
 
@@ -152,24 +153,31 @@ L'applicazione SAP HANA Cloud Platform Identity Authentication prevede le asserz
 
 4. Nella sezione **URL e dominio di SAP HANA Cloud Platform Identity Authentication** eseguire la procedura seguente:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sap_cloud_identity_06.png)
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-sap-hana-cloud-tutorial/tutorial_sap_cloud_identity_06.png)
 
     a. Nella casella di testo **URL di accesso** digitare l'URL di accesso per l'applicazione SAP.
 
-    b. Nella casella di testo **Identificatore** digitare il valore nel formato seguente: `<tenant-id>.accounts.ondemand.com`. Se non si conosce questo valore, seguire la documentazione di SAP HANA Cloud Platform Identity Authentication in [Tenant SAML 2.0 Configuration](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html)(Configurazione del tenant SAML 2.0).
+    b. Nella casella di testo **Identificatore** digitare il valore nel formato seguente: `<entity-id>.accounts.ondemand.com`. Se non si conosce questo valore, seguire la documentazione di SAP HANA Cloud Platform Identity Authentication in [Tenant SAML 2.0 Configuration](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html)(Configurazione del tenant SAML 2.0).
 
 
 5. Nella sezione **SAP HANA Cloud Platform Identity Authentication Configuration** (Configurazione di SAP HANA Cloud Platform Identity Authentication) fare clic su **Configure SAP HANA Cloud Platform Identity Authentication** (Configura SAP HANA Cloud Platform Identity Authentication) per aprire la finestra di dialogo **Configura accesso**. Fare clic su **Metadati SAML XML** e salvare il file nel computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sap_cloud_identity_07.png) 
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-sap-hana-cloud-tutorial/tutorial_sap_cloud_identity_07.png) 
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sap_cloud_identity_08.png)
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-sap-hana-cloud-tutorial/tutorial_sap_cloud_identity_08.png)
 
 
 6. Per configurare SSO per l'applicazione, passare alla console di amministrazione di SAP HANA Cloud Platform Identity Authentication. L'URL ha il formato seguente: `https://<tenant-id>.accounts.ondemand.com/admin`. Seguire la documentazione di SAP HANA Cloud Platform Identity Authentication per [configurare Microsoft Azure AD come provider di identità aziendale in SAP HANA Cloud Platform Identity Authentication](https://help.hana.ondemand.com/cloud_identity/frameset.htm?626b17331b4d4014b8790d3aea70b240.html) 
 
-10. Nel portale di gestione di Azure fare clic sul pulsante **Salva**.  
-  
+7. Nel portale di gestione di Azure fare clic sul pulsante **Salva**.
+8. Continuare la procedura seguente solo se si vuole aggiungere e abilitare l'accesso SSO per un'altra applicazione SAP. Ripetere i passaggi nella sezione "Aggiunta di SAP HANA Cloud Platform Identity Authentication dalla raccolta" per aggiungere un'altra istanza di SAP HANA Cloud Platform Identity Authentication.
+9. Nel portale di gestione di Azure, nella pagina di integrazione di **SAP HANA Cloud Platform Identity Authentication** fare clic su **Accesso collegato**.
+
+     ![Configurare l'accesso collegato](./media/active-directory-saas-sap-hana-cloud-tutorial/linked_sign_on.png)
+10. Salvare quindi la configurazione.
+
+>[!NOTE] 
+>La nuova applicazione sfrutterà la configurazione del processo SSO per l'applicazione SAP precedente. Assicurarsi di usare gli stessi provider di identità aziendale nella console di amministrazione di SAP HANA Cloud Platform Identity Authentication.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente test denominato Britta Simon nel nuovo portale di Azure.
@@ -180,19 +188,19 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel n
 
 1. Nel **portale di gestione di Azure** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_01.png) 
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sap-hana-cloud-tutorial/create_aaduser_01.png) 
 
 2. Andare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
     
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_02.png) 
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sap-hana-cloud-tutorial/create_aaduser_02.png) 
 
 3. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
  
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_03.png) 
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sap-hana-cloud-tutorial/create_aaduser_03.png) 
 
 4. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
  
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_04.png) 
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sap-hana-cloud-tutorial/create_aaduser_04.png) 
 
     a. Nella casella di testo **Nome** digitare **BrittaSimon**.
 
@@ -227,7 +235,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 2. Nell'elenco delle applicazioni, selezionare **SAP HANA Cloud Platform Identity Authentication**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sap_cloud_identity_09.png)
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-sap-hana-cloud-tutorial/tutorial_sap_cloud_identity_09.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
@@ -261,22 +269,16 @@ Quando si fa clic sul riquadro di SAP HANA Cloud Platform Identity Authenticatio
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_general_04.png
-[5]: ./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_general_05.png
-[6]: ./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_general_06.png
+[1]: ./media/active-directory-saas-sap-hana-cloud-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-sap-hana-cloud-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-sap-hana-cloud-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-sap-hana-cloud-tutorial/tutorial_general_04.png
+[5]: ./media/active-directory-saas-sap-hana-cloud-tutorial/tutorial_general_05.png
+[6]: ./media/active-directory-saas-sap-hana-cloud-tutorial/tutorial_general_06.png
 
-[100]: ./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-sap-hana-cloud-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_general_203.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-
+[200]: ./media/active-directory-saas-sap-hana-cloud-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-sap-hana-cloud-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-sap-hana-cloud-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-sap-hana-cloud-tutorial/tutorial_general_203.png

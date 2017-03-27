@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2016
+ms.date: 03/09/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 3d24c0c29da8c97e5fcff524dc88746982fda77c
-ms.openlocfilehash: a34a30a301e213ad227c21196a0b6299dbc4d357
-ms.lasthandoff: 12/15/2016
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 900f0b4c38f08d1e3017954db01cf32362765578
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -34,7 +34,7 @@ Per completare questa esercitazione, sono necessari:
 
 * Una sottoscrizione di Azure attiva. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][lnk_free_trial].
 * [Node.js][lnk-node] versione 0.12.x o successiva per creare un dispositivo simulato.
-* Microsoft Visual Studio 2015 per modificare nuovamente il back-end della soluzione preconfigurata con le nuove regole.
+* Visual Studio 2015 o Visual Studio 2017 per modificare nuovamente il back-end della soluzione preconfigurata con le nuove regole.
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
@@ -217,7 +217,7 @@ Dopo aver completato la distribuzione, è possibile aggiornare il processo di an
  
 ## <a name="additional-information"></a>Informazioni aggiuntive
 
-Modificare l'operatore ** > ** è più complesso ed esula dalla procedura descritta in questa esercitazione. Mentre è possibile modificare il processo di analisi di flusso perché usi qualsiasi operatore desiderato, riflettere tale operatore nel portale della soluzione è un'attività più complessa. 
+Modificare l'operatore **>** è più complesso ed esula dalla procedura descritta in questa esercitazione. Mentre è possibile modificare il processo di analisi di flusso perché usi qualsiasi operatore desiderato, riflettere tale operatore nel portale della soluzione è un'attività più complessa. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Ora che si è appreso come creare regole personalizzate, è possibile vedere altre informazioni sulle soluzioni preconfigurate:

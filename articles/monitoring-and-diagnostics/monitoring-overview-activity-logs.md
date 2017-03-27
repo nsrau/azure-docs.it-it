@@ -12,47 +12,61 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/2/2017
+ms.date: 03/02/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 97edd5eaa3cfa4a122556583dff28c4a9b6f5adc
-ms.openlocfilehash: 18035fe2a30707f701098cef4b1391b1d5ab2012
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 4ec026a5b95170d0eba244123c37cd3c8fab150a
+ms.lasthandoff: 03/09/2017
 
 
 ---
 # <a name="overview-of-the-azure-activity-log"></a>Panoramica del log attività di Azure
-Il **log attività di Azure** fornisce informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione. Il log attività era noto in precedenza come "log di controllo" o "log operativo", perché segnala eventi del piano di controllo per le sottoscrizioni. L'uso del log attività permette di acquisire informazioni dettagliate su qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita sulle risorse nella sottoscrizione. Consente inoltre di comprendere lo stato dell'operazione e altre proprietà specifiche. Il log attività non include le operazioni di lettura (GET) o quelle per le risorse che utilizzano il modello classico/"RDFE".
+Il **log attività di Azure** fornisce informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione. Il log attività era noto in precedenza come "log di controllo" o "log operativo", perché segnala eventi del piano di controllo per le sottoscrizioni. L'uso del log attività permette di acquisire informazioni dettagliate su qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita sulle risorse nella sottoscrizione. Consente inoltre di comprendere lo stato dell'operazione e altre proprietà specifiche. Il log attività non include le operazioni di lettura (GET) o quelle per le risorse che usano il modello classico/"RDFE".
 
-e si distingue dai [log di diagnostica](monitoring-overview-of-diagnostic-logs.md), che invece vengono generati da una risorsa. Questi log forniscono dati sull'operazione eseguita dalla risorsa, anziché sulle operazioni eseguite sulla risorsa.
+![Log attività o altri tipi di log ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
+
+Figura 1: Log attività o altri tipi di log
+
+Il log attività è diverso dal [log di diagnostica](monitoring-overview-of-diagnostic-logs.md). I log attività contengono dati relativi alle operazioni su una risorsa esterna. I log di diagnostica vengono generati da una risorsa e contengono informazioni sul funzionamento di tale risorsa.
 
 Per recuperare eventi dal log attività è possibile usare il portale di Azure, l'interfaccia della riga di comando, i cmdlet di PowerShell e l'API REST di Monitoraggio di Azure.
 
-Guardare il [video di introduzione al log attività](https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz).  
 
 > [!WARNING]
-> Il log attività di Azure è principalmente per le attività che si verificano in Azure Resource Manager, non quelle che utilizzano il modello classico/RDFE. Si noti che alcuni tipi di risorse classiche dispongono di un provider di risorse proxy in Azure Resource Manager (ad esempio, Microsoft.ClassicCompute). Se un utente interagisce con un tipo di risorsa classica tramite Azure Resource Manager con questi provider di risorse di proxy, le operazioni verranno visualizzate nel log attività. Se un utente interagisce con un tipo di risorsa classica nel portale classico o all'esterno dei proxy di Azure Resource Manager, le azioni dell'utente verranno registrate solo nel Registro operazioni, che è accessibile solo nel portale classico.
+> Il log attività di Azure è destinato principalmente alle attività che si verificano in Azure Resource Manager. Non tiene traccia delle risorse che usano il modello classico/RDFE. Alcuni tipi di risorse classiche dispongono di un provider di risorse proxy in Azure Resource Manager (ad esempio, Microsoft.ClassicCompute). Se un utente interagisce con un tipo di risorsa classica tramite Azure Resource Manager con questi provider di risorse di proxy, le operazioni verranno visualizzate nel log attività. Se un utente interagisce con un tipo di risorsa classica nel portale classico o all'esterno dei proxy di Azure Resource Manager, le azioni dell'utente verranno registrate solo nel log delle operazioni. Il log delle operazioni è accessibile solo nel portale classico.
 >
 >
+
+Guardare il video seguente di introduzione al log attività.
+[!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
 
 ## <a name="what-you-can-do-with-the-activity-log"></a>Che cosa si può fare con il log attività
 Ecco alcune delle attività che è possibile eseguire con il log attività:
 
+![Log attività di Azure](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
+
+
+* [Creare un avviso di posta elettronica o webhook che attiva un evento del log attività.](insights-auditlog-to-webhook-email.md)
+* [Trasmetterlo a un **hub eventi**](monitoring-stream-activity-logs-event-hubs.md) per l'inserimento da parte di un servizio di terze parti o di una soluzione di analisi personalizzata come Power BI.
+* Analizzarlo in Power BI usando il [**pacchetto di contenuto di Power BI**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
+* [Salvarlo in un **account di archiviazione** per fini di archiviazione o di ispezione manuale](monitoring-archive-activity-log.md). È possibile specificare il tempo di conservazione in giorni tramite i **profili di log**.
 * Eseguire query e visualizzarlo nel **portale di Azure**.
 * Eseguire query tramite l'API REST, i cmdlet di PowerShell o l'interfaccia della riga di comando.
-* [Creare un avviso di posta elettronica o webhook che attiva un evento del log attività.](insights-auditlog-to-webhook-email.md)
-* [Salvarlo in un **account di archiviazione** per fini di archiviazione o di ispezione manuale](monitoring-archive-activity-log.md). È possibile specificare il tempo di conservazione in giorni tramite i **profili di log**.
-* Analizzarlo in Power BI usando il [**pacchetto di contenuto di Power BI**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
-* [Trasmetterlo a un **hub eventi**](monitoring-stream-activity-logs-event-hubs.md) per l'inserimento da parte di un servizio di terze parti o di una soluzione di analisi personalizzata come Power BI.
 
-Lo spazio dei nomi dell'account di archiviazione o per l'hub eventi non deve trovarsi nella stessa sottoscrizione che emette log, purché l'utente che configura l'impostazione abbia un accesso RBAC appropriato a entrambe le sottoscrizioni.
+
+È possibile usare un account di archiviazione o un hub eventi dello spazio dei nomi che non si trovi nella stessa sottoscrizione di quello che crea i log. L'utente che configura l'impostazione deve disporre dell'accesso RBAC appropriato a entrambe le sottoscrizioni.
 
 ## <a name="export-the-activity-log-with-log-profiles"></a>Esportare il log attività con i profili di log
 Un **profilo di log** controlla la modalità di esportazione del log attività. Un profilo di log permette di configurare quanto segue:
 
 * Destinazione del log attività, ad esempio un account di archiviazione o un hub eventi.
-* Categorie di eventi da inviare (scrittura, eliminazione o azione). *Si noti che il significato di "categoria" nel contesto del profilo di log è diverso dal significato della proprietà "category" in un evento di log attività. Mentre "category" nel profilo di log rappresenta il tipo di operazione (azione, scrittura, eliminazione), la proprietà "category" in un evento di log attività rappresenta l'origine o un tipo di evento (amministrazione, avviso, integrità del servizio).*
+* Categorie di eventi da inviare (scrittura, eliminazione o azione). *Il significato di "categoria" nei profili del log è diverso da quello negli eventi del log attività. Nel profilo del log, la "Categoria" rappresenta il tipo di operazione (scrittura, eliminazione, azione). In un evento del log attività, la proprietà "categoria" rappresenta l'origine o il tipo di evento (ad esempio, amministrazione, ServiceHealth, avviso e altro).*
 * Aree o località da esportare.
-* Tempo di conservazione del log attività in un account di archiviazione. Se impostato su zero giorni, i log vengono conservati all'infinito. Se i criteri di conservazione sono impostati, ma la memorizzazione dei log in un account di archiviazione è disabilitata, ad esempio se sono selezionate solo le opzioni Hub eventi o OMS, i criteri di conservazione non hanno alcun effetto. I criteri di conservazione vengono applicati su base giornaliera. Al termine della giornata, i log relativi a tale giornata non rientrano quindi più nei criteri di conservazione e verranno eliminati. Se, ad esempio, è presente un criterio di conservazione di un giorno, all'inizio della giornata attuale vengono eliminati i log relativi alla giornata precedente a ieri.
+* Per quanto tempo il log attività deve essere mantenuto nell'account di archiviazione.
+    - Un periodo di conservazione di zero giorni significa che i log vengono conservati all'infinito. Se impostato su zero giorni, i log vengono conservati all'infinito.
+    - Se i criteri di conservazione sono impostati, ma la memorizzazione dei log in un account di archiviazione è disabilitata, ad esempio se sono selezionate solo le opzioni Hub eventi o OMS, i criteri di conservazione non hanno alcun effetto.
+    - I criteri di conservazione vengono applicati su base giornaliera. Al termine della giornata (UTC), i log relativi a tale giornata che non rientrano più nei criteri di conservazione verranno eliminati. Se, ad esempio, è presente un criterio di conservazione di un giorno, all'inizio della giornata vengono eliminati i log relativi al giorno precedente.
 
 Queste impostazioni possono essere configurate tramite l'opzione "Esporta" nel pannello Log attività nel portale oppure a livello di codice tramite l'[API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931927.aspx), i cmdlet di PowerShell o l'interfaccia della riga di comando. Una sottoscrizione può avere un solo profilo di log.
 
@@ -60,18 +74,18 @@ Queste impostazioni possono essere configurate tramite l'opzione "Esporta" nel p
 È possibile trasmettere il log attività a un hub eventi o memorizzarlo in un account di archiviazione usando l'opzione "Esporta" nel portale di Azure.
 
 1. Passare al pannello **Log attività** usando il menu sul lato sinistro del portale.
-   
+
     ![Passare al log attività nel portale](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Fare clic sul pulsante **Esporta** nella parte superiore del pannello.
-   
+
     ![Pulsante Esporta nel portale](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
 3. Nel pannello visualizzato è possibile selezionare:  
-   
+
    * aree per cui esportare gli eventi
    * account di archiviazione in cui salvare gli eventi
    * numero di giorni di conservazione degli eventi nella risorsa di archiviazione (se si impostano 0 giorni, i log vengono conservati all'infinito)
    * spazio dei nomi del bus di servizio in cui creare un hub eventi per la trasmissione di questi eventi.
-     
+
      ![Pannello Esporta log di controllo](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
 4. Fare clic su **Salva** per salvare le impostazioni. Le impostazioni vengono applicate immediatamente alla sottoscrizione.
 
@@ -240,10 +254,4 @@ Per ogni evento nel log attività esiste un BLOB JSON simile all'esempio seguent
 ## <a name="next-steps"></a>Passaggi successivi
 * [Altre informazioni sul log attività (in precedenza, log di controllo)](../azure-resource-manager/resource-group-audit.md)
 * [Trasmettere il log attività di Azure a Hub eventi](monitoring-stream-activity-logs-event-hubs.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

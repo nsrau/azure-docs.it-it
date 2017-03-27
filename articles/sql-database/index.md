@@ -13,15 +13,25 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b7084081381aa9c4211f8bc0d0685541246a5ddb
-ms.openlocfilehash: 7adb6fcb0c9a673523feaad494e6bc8af5c7fe77
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: e982e07b6279c1338398980aa07d46ce08ede11c
+ms.lasthandoff: 03/22/2017
 
 ---
 
 # <a name="sql-database-documentation"></a>Documentazione sul database SQL
 
+<div class="introHolder">
+    <div class="intro">
 Informazioni su come usare il database SQL, un database relazionale distribuito come servizio nel cloud e basato sul motore Microsoft SQL Server. Esercitazioni, video e altri documenti in cui viene illustrato come impostare, collegare e gestire un database SQL.
+    </div>
+    <div class="calloutHolder">
+        <div class="callout">
+            <a href="https://azure.microsoft.com/community/training/courses/managing-infrastructure-microsoft-azure-getting-started/">
+                <img src="media/index/pluralsight.svg" /> Training video gratuito PluralSight: Gestione dell'infrastruttura con Microsoft Azure </a>
+        </div>
+    </div>
+</div>
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -128,6 +138,7 @@ Informazioni su come usare il database SQL, un database relazionale distribuito 
                         <h3>Riga di comando</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">PowerShell</a></p>
                         <p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">PowerShell (database elastico)</a></p>
+                        <p><a href="/cli/azure/sql">Interfaccia della riga di comando di Azure 2.0</a></p>
                     </div>
                 </div>
             </div>

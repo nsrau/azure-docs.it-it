@@ -4,7 +4,7 @@ description: "Vengono descritte le condizioni di avviso StorSimple e la loro gra
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: bee49253-9ac7-4131-95f6-6bf0e72b8438
 ms.service: storsimple
@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/18/2016
+ms.date: 03/08/2017
 ms.author: anbacker
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c09a105bd321ec29f4331d2ba4c8cf80a796da45
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 2a1e44920581771af77fb46984b1cea31a957d67
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -155,6 +156,7 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 |:--- |:--- |:--- |
 | Lo stato del componente hardware <*ID componente*> è segnalato come <*stato*>. | |Le condizioni temporanee possono talvolta provocare questi avvisi. In tal caso, l'avviso viene cancellato automaticamente dopo un periodo di tempo. Se il problema persiste, contattare il supporto tecnico Microsoft. |
 | Malfunzionamento del controller passivo. |Il controller passivo (secondario) non funziona. |Il dispositivo è operativo, ma uno dei controller non funziona correttamente. Provare a riavviare il controller. Se il problema persiste, contattare il supporto tecnico Microsoft. |
+| È stato rilevato un errore imminente dell'unità. | È stato rilevato un errore imminente dell'unità. |È stato rilevato un errore imminente dell'unità per il componente hardware 'Unità in slot <*ID slot*>. Chassis <*ID chassis*>'. Provare a sostituire l'unità. <br> Prima di iniziare la sostituzione del disco, esaminare le informazioni seguenti.<br><br>Se il dispositivo contiene più dischi danneggiati, non rimuovere più unità SSD o HDD alla volta. Ciò potrebbe causare una perdita dei dati.<br><br>Assicurarsi di inserire un'unità SSD sostitutiva in uno slot che in precedenza conteneva un'unità SSD. Lo stesso vale per le unità HDD.<br><br>Gli slot sono numerati da 0 a 11. Un disco danneggiato nello slot 2 è associato a un disco danneggiato nello slot 3 del dispositivo (a partire dalla posizione in alto a sinistra).<br><br>Per altre informazioni sulla sostituzione dei dischi, vedere https://go.microsoft.com/fwlink/?linkid=838653. Se il problema persiste, contattare il supporto tecnico Microsoft tramite la pagina https://go.microsoft.com/fwlink/?linkid=838654. |
 
 ### <a name="job-failure-alerts"></a>Avvisi di errore di processo
 | Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
@@ -213,10 +215,5 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su [Errori di StorSimple e risoluzione dei problemi relativi a un dispositivo operativo](storsimple-troubleshoot-operational-device.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

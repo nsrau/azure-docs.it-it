@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: 9d43405539ced1dadcaa0cb11bb0c3dd42dee2b9
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 1818f48b94754589a2dc5d89c2ba24d2ff2681bc
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -40,13 +40,13 @@ Avere una conoscenza pratica di Sails.js. Questa esercitazione non fornisce info
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - [Interfaccia della riga di comando di Azure 1.0](app-service-web-nodejs-sails-cli-nodejs.md): l'interfaccia della riga di comando per i modelli di distribuzione classici e di gestione delle risorse
-- [Interfaccia della riga di comando di Azure 2.0](app-service-web-nodejs-sails.md): interfaccia avanzata per il modello di distribuzione di gestione delle risorse
+- [Interfaccia della riga di comando di Azure 2.0](app-service-web-nodejs-sails.md): interfaccia della riga di comando di prossima generazione per il modello di distribuzione di Gestione risorsa
 
 ## <a name="prerequisites"></a>Prerequisiti
 * [Node.JS](https://nodejs.org/)
 * [Sails.js](http://sailsjs.org/get-started)
 * [Git](http://www.git-scm.com/downloads)
-* [Interfaccia della riga di comando di Azure](../xplat-cli-install.md)
+* [Interfaccia della riga di comando di Azure](../cli-install-nodejs.md)
 * Un account Microsoft Azure. Se non si ha un account, è possibile [iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) oppure [attivare i vantaggi per i sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]

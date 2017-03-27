@@ -15,8 +15,9 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dde5397405b64d394cdff9c69c05a565c5427f56
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: a0582c71e786ae5365e39a5f161b63e946435b2e
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -51,7 +52,7 @@ Ecco alcuni presupposti riportati nella tabella seguente:
 
 Il limite delle dimensioni delle transazioni viene applicato per transazione o per operazione. Non viene applicato in tutte le transazioni simultanee. A ogni transazione è quindi consentito scrivere questa quantità di dati nel log. 
 
-Per ottimizzare e ridurre al minimo la quantità di dati scritti nel log, fare riferimento all'articolo [Transactions best practices ][Ottimizzazione delle transazioni per SQL Data Warehouse] (Procedure consigliate per le transazioni).
+Per ottimizzare e ridurre al minimo la quantità di dati scritti nel log, vedere [Ottimizzazione delle transazioni per SQL Data Warehouse][Transactions best practices].
 
 > [!WARNING]
 > Le dimensioni massime delle transazioni possono essere ottenute solo per le tabelle distribuite HASH o ROUND_ROBIN in cui i dati sono distribuiti in modo uniforme. Se la transazione scrive dati in modo asimmetrico nelle distribuzioni, è probabile che il limite venga raggiunto prima di raggiungere le dimensioni massime delle transazioni.
@@ -153,7 +154,7 @@ A questo punto si osserva il comportamento previsto. L'errore della transazione 
 Ciò dimostra che il `ROLLBACK` della transazione doveva essere eseguito prima della lettura delle informazioni sull'errore nel blocco `CATCH`.
 
 ## <a name="errorline-function"></a>Funzione Error_Line()
-È importante sottolineare anche che SQL Data Warehouse non implementa né supporta la funzione ERROR_LINE(). Se è contenuta nel codice sarà necessario rimuoverla per renderlo compatibile con SQL Data Warehouse. Anziché implementare una funzionalità equivalente, usare etichette di query nel codice. Per altre informazioni su questa funzionalità, vedere l'articolo relativo alle [etichette][Usare etichette per instrumentare query in SQL Data Warehouse].
+È importante sottolineare anche che SQL Data Warehouse non implementa né supporta la funzione ERROR_LINE(). Se è contenuta nel codice sarà necessario rimuoverla per renderlo compatibile con SQL Data Warehouse. Anziché implementare una funzionalità equivalente, usare etichette di query nel codice. Per altre informazioni su questa funzionalità, vedere l'articolo [Usare etichette per instrumentare query in SQL Data Warehouse][LABEL].
 
 ## <a name="using-throw-and-raiserror"></a>Uso di THROW e RAISERROR
 THROW è l'implementazione più moderna per la generazione di eccezioni in SQL Data Warehouse, ma è supportata anche RAISERROR. Esistono tuttavia alcune differenze a cui vale la pena prestare attenzione.
@@ -175,23 +176,18 @@ Ecco quali sono:
 * Nessun supporto per DDL come `CREATE TABLE` all'interno di una transazione definita dall'utente
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sull'ottimizzazione delle transazioni, vedere l'articolo [Ottimizzazione delle transazioni per SQL Data Warehouse][Ottimizzazione delle transazioni per SQL Data Warehouse] (Procedure consigliate per le transazioni).  Per altre informazioni sulle procedure consigliate per SQL Data Warehouse, vedere [Procedure consigliate per Azure SQL Data Warehouse][Procedure consigliate per Azure SQL Data Warehouse].
+Per altre informazioni sull'ottimizzazione delle transazioni, vedere [Ottimizzazione delle transazioni per SQL Data Warehouse][Transactions best practices].  Per altre informazioni sulle procedure consigliate per SQL Data Warehouse, vedere [Procedure consigliate per Azure SQL Data Warehouse][SQL Data Warehouse best practices].
 
 <!--Image references-->
 
 <!--Article references-->
-[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
-[panoramica sullo sviluppo]: ./sql-data-warehouse-overview-develop.md
-[Ottimizzazione delle transazioni per SQL Data Warehouse]: ./sql-data-warehouse-develop-best-practices-transactions.md
-[Procedure consigliate per Azure SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
-[Usare etichette per instrumentare query in SQL Data Warehouse]: ./sql-data-warehouse-develop-label.md
+[DWU]: ./sql-data-warehouse-overview-what-is.md
+[development overview]: ./sql-data-warehouse-overview-develop.md
+[Transactions best practices]: ./sql-data-warehouse-develop-best-practices-transactions.md
+[SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
+[LABEL]: ./sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

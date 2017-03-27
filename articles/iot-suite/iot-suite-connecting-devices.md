@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/17/2017
+ms.date: 03/08/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: df9772796796f7383aafc583b01f299a53679d88
-ms.openlocfilehash: 77e05bf2b7a4ab6c6e6d3d82773cc03628f5342c
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 3536777690a9b00ded7c7fdf4d5f39638dad71b0
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -28,13 +28,13 @@ ms.lasthandoff: 02/27/2017
 ## <a name="create-a-c-sample-solution-on-windows"></a>Creare una soluzione di esempio C in Windows
 La procedura seguente illustra come creare un'applicazione client che comunica con la soluzione di monitoraggio remoto preconfigurata. Questa applicazione è scritta in C e compilata ed eseguita in Windows.
 
-Creare un progetto iniziale in Visual Studio 2015 e aggiungere i pacchetti NuGet del client dispositivo hub IoT:
+Creare un progetto iniziale in Visual Studio 2015 o Visual Studio 2017 e aggiungere i pacchetti NuGet del client dispositivo hub IoT:
 
-1. In Visual Studio 2015 creare un'applicazione console C usando il modello **Applicazione console Win32** di Visual C++ . Assegnare al progetto il nome **RMDevice**.
-2. Nella pagina **Impostazioni applicazione** della **Creazione guidata applicazione Win32**, verificare che l'opzione **Applicazione console** sia selezionata e deselezionare **Intestazione precompilata** e **Controlli Security Development Lifecycle (SDL)**.
+1. In Visual Studio creare un'applicazione console C usando il modello **Applicazione console Win32** di Visual C++ . Assegnare al progetto il nome **RMDevice**.
+2. Nella pagina **Impostazioni applicazione** della **Creazione guidata applicazione Win32** verificare che l'opzione **Applicazione console** sia selezionata e deselezionare **Intestazione precompilata** e **Controlli Security Development Lifecycle (SDL)**.
 3. In **Esplora soluzioni**eliminare i file stdafx.h, targetver.h e stdafx.cpp.
 4. In **Esplora soluzioni**rinominare il file RMDevice.cpp in RMDevice.c.
-5. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **RMDevice** e quindi scegliere **Gestisci pacchetti NuGet**. Fare clic su **Sfoglia**, quindi cercare e installare i seguenti pacchetti NuGet nel progetto:
+5. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **RMDevice** e quindi scegliere **Gestisci pacchetti NuGet**. Fare clic su **Sfoglia**, quindi cercare e installare i seguenti pacchetti NuGet:
    
    * Microsoft.Azure.IoTHub.Serializer
    * Microsoft.Azure.IoTHub.IoTHubClient

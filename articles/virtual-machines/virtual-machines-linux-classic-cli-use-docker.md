@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 0daa75e1d4fccf7d7c7785422a9607787e55ca8b
-ms.lasthandoff: 12/02/2016
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f79f6fb82a74d6195491f243dc79db0c6753a894
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -38,7 +38,7 @@ Il processo completo di utilizzo di Docker su Azure è semplice:
 * Usare i comandi locali di Docker per gestire i contenitori Docker nella VM Docker in Azure.
 
 ### <a name="install-the-azure-command-line-interface-azure-cli"></a>Installare l'interfaccia della riga di comando di Azure 
-Per installare e configurare l’interfaccia della riga di comando di Azure, vedere [Come installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md). Per confermare l'installazione, digitare `azure` nel prompt dei comandi. Dopo pochi secondi verrà visualizzata la grafica ASCII dell’interfaccia della riga di comando di Azure, in cui sono elencati i comandi di base disponibili. Se l'installazione è andata a buon fine, sarà possibile digitare `azure help vm` e verificare che uno dei comandi elencati corrisponda a "docker".
+Per installare e configurare l’interfaccia della riga di comando di Azure, vedere [Come installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md). Per confermare l'installazione, digitare `azure` nel prompt dei comandi. Dopo pochi secondi verrà visualizzata la grafica ASCII dell’interfaccia della riga di comando di Azure, in cui sono elencati i comandi di base disponibili. Se l'installazione è andata a buon fine, sarà possibile digitare `azure help vm` e verificare che uno dei comandi elencati corrisponda a "docker".
 
 > [!NOTE]
 > Docker include strumenti per Windows, ovvero [Docker Machine](https://docs.docker.com/installation/windows/), che consentono anche di automatizzare la creazione di un client Docker da usare per gestire macchine virtuali di Azure come host Docker.

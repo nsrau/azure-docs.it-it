@@ -15,24 +15,24 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: a42dbefe6805cff5fb2df604265f0e62e2c25f69
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 7faa27220bcc07fff0bb2a77e7b90c386cc5ae1e
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Attività di stored procedure di SQL Server
-
-> [!div class="op_single_selector"]
-> * [Hive](data-factory-hive-activity.md) 
-> * [Pig](data-factory-pig-activity.md)
-> * [MapReduce](data-factory-map-reduce.md)
-> * [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
-> * [Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
-> * [Stored procedure](data-factory-stored-proc-activity.md)
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Attività Hive](data-factory-hive-activity.md) 
+> * [Attività di Pig](data-factory-pig-activity.md)
+> * [Attività MapReduce](data-factory-map-reduce.md)
+> * [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
+> * [Attività Spark](data-factory-spark.md)
+> * [Attività di esecuzione batch di Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+> * [Attività della risorsa di aggiornamento di Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+> * [Attività stored procedure](data-factory-stored-proc-activity.md)
 > * [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
-> * [Attività personalizzata .NET](data-factory-use-custom-activities.md)
->
+> * [Attività personalizzata di .NET](data-factory-use-custom-activities.md)
 
 Le attività di trasformazione dei dati in una [pipeline](data-factory-create-pipelines.md) di Data factory trasformano ed elaborano i dati non elaborati in stime e approfondimenti. L'attività di stored procedure è una delle attività di trasformazione supportate da Data factory. Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](data-factory-data-transformation-activities.md) che presenta una panoramica generale della trasformazione dei dati e le attività di trasformazione supportate.
 

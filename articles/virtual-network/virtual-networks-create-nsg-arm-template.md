@@ -17,9 +17,9 @@ ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: 627dba0f3a0a65ad75ef2799b7e5df56e9d8bfcb
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 9c36ed4ed16b53a7cca2d2eba93ad5063e60569b
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -152,7 +152,7 @@ Per distribuire il modello ARM scaricato tramite PowerShell, attenersi alla proc
 ## <a name="deploy-the-arm-template-by-using-the-azure-cli"></a>Distribuire il modello ARM tramite l'interfaccia della riga di comando di Azure
 Per distribuire il modello ARM tramite l'interfaccia della riga di comando di Azure, seguire la procedura di seguito.
 
-1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
+1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
 2. Eseguire il comando **`azure config mode`** per passare alla modalità Gestione risorse, come illustrato di seguito.
 
     ```azurecli

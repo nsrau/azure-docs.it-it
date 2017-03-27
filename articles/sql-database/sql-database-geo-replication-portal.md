@@ -1,6 +1,6 @@
 ---
-title: Configurare la replica geografica per il database SQL di Azure con il portale di Azure | Documentazione Microsoft
-description: Configurare la replica geografica per il database SQL di Azure usando il portale di Azure
+title: 'Portale di Azure: replica geografica di database SQL | Microsoft Docs'
+description: Configurare la replica geografica per il database SQL di Azure nel portale di Azure e avviare il failover
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -13,18 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/22/2016
+ms.date: 03/062/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: fe2d2ef731fb94c7e4e8da0e518bcef8c1ada650
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 6f646b3776f0aa0bbfba227c81ac5fc4fde9265f
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="configure-active-geo-replication-for-azure-sql-database-with-the-azure-portal"></a>Configurare la replica geografica attiva per il database SQL di Azure con il portale di Azure
+# <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurare la replica geografica attiva per il database SQL di Azure nel portale di Azure e avviare il failover
 
-Questo articolo illustra come configurare la replica geografica attiva per un database SQL usando il [portale di Azure](http://portal.azure.com).
+Questo articolo illustra come configurare la replica geografica attiva per il database SQL nel [portale di Azure](http://portal.azure.com) e avviare il failover.
 
 Per avviare un failover con il portale di Azure, vedere [Avviare un failover pianificato o non pianificato per il database SQL di Azure con il portale di Azure](sql-database-geo-replication-failover-portal.md).
 
@@ -51,9 +51,7 @@ Dopo aver creato ed eseguito il seeding del database secondario, inizia la repli
 > [!NOTE]
 > Se il database partner esiste già, ad esempio come risultato della terminazione di una precedente relazione di replica geografica, il comando non riesce.
 > 
-> 
 
-### <a name="add-secondary"></a>Aggiunta del secondario
 1. Nel [portale di Azure](http://portal.azure.com) passare al database per cui si vuole installare la replica geografica.
 2. Nella pagina del database SQL, selezionare **Replica geografica** e selezionare l'area per creare il database secondario. Sebbene sia possibile selezionare qualsiasi area diversa dall'area che ospita il database primario, si consiglia di scegliere l'[area abbinata](../best-practices-availability-paired-regions.md).
    
@@ -69,6 +67,26 @@ Dopo aver creato ed eseguito il seeding del database secondario, inizia la repli
 7. Una volta completato il processo di seeding il database secondario visualizza il relativo stato.
    
     ![Seeding completo](./media/sql-database-geo-replication-portal/seeding-complete.png)
+
+## <a name="initiate-a-failover"></a>Avviare un failover
+
+Il database secondario può diventare il database primario.  
+
+1. Nel [portale di Azure](http://portal.azure.com) passare al database primario nella relazione di replica geografica.
+2. Nel pannello del database SQL selezionare **Tutte le impostazioni** > **Replica geografica**.
+3. Nell'elenco **SECONDARI** selezionare il database che si vuole usare come nuovo database primario e fare clic su **Failover**.
+   
+    ![Failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)
+4. Fare clic su **Sì** per avviare il failover.
+
+Il comando passa immediatamente il database secondario al ruolo di database primario. 
+
+Per un breve periodo, da 0 a 25 secondi, entrambi i database non sono disponibili mentre vengono scambiati i ruoli. Se il database primario ha più database secondari, il comando riconfigura automaticamente gli altri database secondari per la connessione al nuovo database primario. Il completamento dell'intera operazione dovrebbe richiedere meno di un minuto in circostanze normali. 
+
+> [!NOTE]
+> Se il database primario è online sta eseguendo il commit di transazioni al momento dell'esecuzione del comando, può verificarsi la perdita di dati.
+> 
+> 
 
 ## <a name="remove-secondary-database"></a>Rimuovere un database secondario
 Questa operazione interrompe in modo permanente la replica al database secondario e modifica il ruolo del database secondario in un database di lettura/scrittura normale. Se la connettività al database secondario viene interrotta il comando ha esito positivo ma il database secondario non diventa un database di lettura-scrittura fino a quando la connettività non verrà ripristinata.  

@@ -1,29 +1,30 @@
 # Panoramica
 ## [Gestione traffico di Azure](traffic-manager-overview.md)
-## [Modalità di funzionamento di Gestione traffico](traffic-manager-how-traffic-manager-works.md)
-## [Endpoint di Gestione traffico](traffic-manager-endpoint-types.md)
-## [Monitoraggio e failover degli endpoint di Gestione traffico](traffic-manager-monitoring.md)
-## [Metodi di instradamento del traffico](traffic-manager-routing-methods.md)
-## [Profili annidati](traffic-manager-nested-profiles.md)
-## [Considerazioni sulle prestazioni per Gestione traffico](traffic-manager-performance-considerations.md)
-## [Supporto per Azure Resource Manager](traffic-manager-powershell-arm.md)
+## [Metodi di routing](traffic-manager-routing-methods.md)
+### [Gerarchia paese/area geografica usata da Gestione traffico](traffic-manager-geographic-regions.md)
+## [Tipi di endpoint](traffic-manager-endpoint-types.md)
+## [Monitoraggio endpoint](traffic-manager-monitoring.md)
+## [Domande frequenti](traffic-manager-FAQs.md)
 
 # Attività iniziali
-## [Gestire gli endpoint](traffic-manager-manage-endpoints.md)
-## [Gestire i profili](traffic-manager-manage-profiles.md)
-## [Indirizzare il dominio Internet a Gestione traffico](traffic-manager-point-internet-domain.md)
+## [Creare un profilo di Gestione traffico](traffic-manager-create-profile.md)
 
 # Procedure
-## [Configurare un metodo di routing](traffic-manager-configure-routing-method.md)
-## [Testare le impostazioni](traffic-manager-testing-settings.md)
+
+## [Configurare un metodo di routing geografico](traffic-manager-configure-geographic-routing-method.md)
+## [Configurare il metodo di routing Priorità](traffic-manager-configure-priority-routing-method.md)
+## [Configurare il metodo di routing Ponderato](traffic-manager-configure-weighted-routing-method.md)
+## [Configurare un metodo di routing del traffico delle prestazioni](traffic-manager-configure-performance-routing-method.md)
+## [Gestire gli endpoint](traffic-manager-manage-endpoints.md)
+## [Gestire i profili](traffic-manager-manage-profiles.md)
+## [Verificare le impostazioni di Gestione traffico](traffic-manager-testing-settings.md)
 ## [Combinare i servizi di bilanciamento del carico](traffic-manager-load-balancing-azure.md)
-## [Usare le risorse di rete](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
-## Risoluzione dei problemi
-### [Risolvere i problemi relativi a un endpoint danneggiato](traffic-manager-troubleshooting-degraded.md)
+## [Misurare le prestazioni di Gestione traffico](traffic-manager-performance-considerations.md)
+## [Usare PowerShell per gestire Gestione traffico](traffic-manager-powershell-arm.md)
+## [Indirizzare il dominio Internet a Gestione traffico](traffic-manager-point-internet-domain.md)
 
 # Riferimento
-## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.3.0/azurerm.trafficmanager)
-## [PowerShell (classico)](/powershell/servicemanagement/azure.trafficmanager/v3.1.0/azure.trafficmanager)
+## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)

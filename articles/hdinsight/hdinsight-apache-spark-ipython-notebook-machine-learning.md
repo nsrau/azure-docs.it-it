@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: f584ca5e-abee-4b7c-ae58-2e45dfc56bf4
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: 94c7aca175543b94742ad57af6949b3fcdda6356
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -32,7 +34,7 @@ Informazioni su come creare un'applicazione che usa un cluster Apache Spark in H
 * Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo relativo alla [creazione di cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md). 
 
-## <a name="a-namedataashow-me-the-data"></a><a name="data"></a>Mostra i dati
+## <a name="data"></a>Mostra i dati
 Prima di iniziare la compilazione dell'applicazione, possiamo comprendere la struttura dei dati e il tipo di analisi che facciamo sui dati. 
 
 In questo articolo viene usato il file di dati di esempio **HVAC.csv** disponibile nell'account di archiviazione di Azure associato al cluster HDInsight. All'interno dell'account di archiviazione, il file si trova nel percorso: **\HdiSamples\HdiSamples\SensorSampleData\hvac**. Scaricare e aprire il file con estensione csv per ottenere uno snapshot dei dati.  
@@ -43,7 +45,7 @@ I dati illustrano la temperatura di destinazione e la temperatura effettiva di u
 
 Questi dati sono usati per stimare se un edificio è caldo o freddo in base alla temperatura di destinazione, in base a un ID di sistema e all'età di sistema.
 
-## <a name="a-nameappawrite-a-machine-learning-application-using-spark-mllib"></a><a name="app"></a>Scrivere un'applicazione di formazione machine utilizzando MLlib Spark
+## <a name="app"></a>Scrivere un'applicazione di formazione machine utilizzando MLlib Spark
 In questa applicazione viene usata una pipeline di Spark ML per eseguire una classificazione di documento. Nella pipeline si è suddiviso il documento in parole, convertite le parole in un vettore di funzionalità numerico e infine creato un modello di stima usando i vettori di funzionalità e le etichette. Procedere come descritto di seguito per creare l'applicazione.
 
 1. Dalla Schermata iniziale del [portale di Azure](https://portal.azure.com/)fare clic sul riquadro del cluster Spark (se è stato aggiunto sulla Schermata iniziale). È anche possibile passare al cluster da **Esplora tutto** > **Cluster HDInsight**.   
@@ -193,10 +195,10 @@ In questa applicazione viene usata una pipeline di Spark ML per eseguire una cla
    Nella prima riga di stima, si noterà che per un sistema HVAC con ID 20 e validità del sistema di 25 anni, l’edificio sarà caldo (**stima = 1.0**). Il primo valore per DenseVector (0.49999) corrisponde alla stima 0.0 e il secondo valore (0.5001) corrisponde alla stima 1.0. Nell'output, anche se il secondo valore è solo leggermente superiore, viene illustrato il modello **stima =&1;.0**.
 4. Al termine dell'esecuzione dell'applicazione, è necessario arrestare il notebook per rilasciare le risorse. A tale scopo, dal menu **File** del notebook fare clic su **Close and Halt** (Chiudi e interrompi). Questa operazione consente di arrestare e chiudere il notebook.
 
-## <a name="a-nameanacondaause-anaconda-scikit-learn-library-for-machine-learning"></a><a name="anaconda"></a>Usare la libreria Anaconda scikit-informazioni per machine learning
+## <a name="anaconda"></a>Usare la libreria Anaconda scikit-informazioni per machine learning
 I cluster Apache Spark in HDInsight includono librerie Anaconda. Include inoltre la libreria **scikit-informazioni** per machine learning. La libreria include inoltre diversi set di dati che è possibile usare per compilare applicazioni di esempio direttamente da un notebook Jupyter. Per esempi sull'uso della libreria scikit-learn, vedere [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Vedere anche
+## <a name="seealso"></a>Vedere anche
 * [Panoramica: Apache Spark su Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenari
@@ -233,9 +235,4 @@ I cluster Apache Spark in HDInsight includono librerie Anaconda. Include inoltre
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

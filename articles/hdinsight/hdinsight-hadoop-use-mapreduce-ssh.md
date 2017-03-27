@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 844678ba-1e1f-4fda-b9ef-34df4035d547
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,6 +19,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 2ecc141c9afa46f23d31de4356068ef4f98a92aa
 ms.openlocfilehash: 79e04b1569f6e3ca221b673ebe4eb9825d89abe1
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -30,7 +32,7 @@ Questo articolo illustra come usare SSH (Secure Shell) per connettersi a un clus
 > [!NOTE]
 > Se si ha già familiarità con l'uso di server Hadoop basati su Linux ma non si è esperti di HDInsight, vedere [Informazioni sull'uso di HDInsight in Linux](hdinsight-hadoop-linux-information.md).
 
-## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Prerequisiti
+## <a id="prereq"></a>Prerequisiti
 
 Per seguire la procedura descritta in questo articolo, sono necessari gli elementi seguenti:
 
@@ -41,7 +43,7 @@ Per seguire la procedura descritta in questo articolo, sono necessari gli elemen
 
 * Un client SSH. I sistemi operativi Linux, Unix e Mac dovrebbero essere dotati di un client SSH. Per gli utenti di Windows è necessario scaricare un client, ad esempio [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-## <a name="a-idsshaconnect-with-ssh"></a><a id="ssh"></a>Connettersi con SSH
+## <a id="ssh"></a>Connettersi con SSH
 
 Connettersi al nome di dominio completo (FQDN) del cluster HDInsight usando il comando SSH. L'FQDN è costituito dal nome assegnato al cluster, seguito da **.azurehdinsight.net**. Ad esempio, il seguente comando stabilirà la connessione a un cluster denominato **myhdinsight**:
 
@@ -61,7 +63,7 @@ Le versioni precedenti di Windows non integrano il client SSH. È consigliabile 
 
 Per altre informazioni sull'uso di PuTTY, vedere [Usare SSH (PuTTY) con Hadoop basato su Linux in HDInsight da Windows ](hdinsight-hadoop-linux-use-ssh-windows.md).
 
-## <a name="a-idhadoopause-hadoop-commands"></a><a id="hadoop"></a>Usare i comandi Hadoop
+## <a id="hadoop"></a>Usare i comandi Hadoop
 
 1. Dopo essersi connessi al cluster HDInsight, usare il seguente comando **Hadoop** per l'avvio di un processo MapReduce:
    
@@ -108,11 +110,11 @@ Per altre informazioni sull'uso di PuTTY, vedere [Usare SSH (PuTTY) con Hadoop b
         wretched        6
         wriggling       1
 
-## <a name="a-idsummaryasummary"></a><a id="summary"></a>Riepilogo
+## <a id="summary"></a>Riepilogo
 
 Come è possibile notare, i comandi Hadoop forniscono un modo semplice per eseguire processi MapReduce in un cluster HDInsight e visualizzare l'output del processo.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Passaggi successivi
+## <a id="nextsteps"></a>Passaggi successivi
 
 Per informazioni generali sui processi MapReduce in HDInsight:
 
@@ -122,10 +124,5 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
 * [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

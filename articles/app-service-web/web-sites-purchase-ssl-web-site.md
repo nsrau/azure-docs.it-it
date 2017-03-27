@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: apurvajo
 translationtype: Human Translation
-ms.sourcegitcommit: 3629280101a6c8c53dacf9f80c09becf1db53f03
-ms.openlocfilehash: e4331c6d5a07e6450c1fdde43d4c226e9a06de54
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: edcb6d37eb4d82ff5928ee33cf456c3795eb8131
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/27/2017
 > 
 > 
 
-Per impostazione predefinita, il **[servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714)** abilita già HTTPS per un'app Web con un certificato con caratteri jolly per il dominio *.azurewebsites.net. Se non si intende configurare un dominio personalizzato, è possibile usare il certificato HTTPS predefinito. Come tutti i *[domini con caratteri jolly](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates), tuttavia, non è sicuro quanto un dominio personalizzato con il proprio certificato. Il servizio app di Azure offre ora un modo molto semplice per acquistare e gestire un certificato SSL direttamente dal portale di Azure, senza mai uscire dal portale stesso.  
+Per impostazione predefinita, il **[servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714)** abilita già HTTPS per un'app Web con un certificato con caratteri jolly per il dominio *.azurewebsites.net. Se non si intende configurare un dominio personalizzato, è possibile usare il certificato HTTPS predefinito. Come tutti i*[domini con caratteri jolly](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates), tuttavia, non è sicuro quanto un dominio personalizzato con il proprio certificato. Il servizio app di Azure offre ora un modo molto semplice per acquistare e gestire un certificato SSL direttamente dal portale di Azure, senza mai uscire dal portale stesso.  
 Questo articolo spiega come acquistare e configurare un certificato SSL per il **[Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714)** in 3 semplici passaggi. 
 
 > [!NOTE]
@@ -170,8 +170,11 @@ Se è stata selezionata l'opzione **SSL basato su IP** e il dominio personalizza
   
     Si noti che questo indirizzo IP sarà diverso rispetto all'indirizzo IP virtuale utilizzato in precedenza per la configurazione del record A per il dominio. Se è stato impostato l'uso del metodo SSL basato su SNI o se non è stato impostato l'uso del metodo SSL, per questa voce non verrà elencato alcun indirizzo.
 
-1. Usando gli strumenti forniti dal registrar, modificare il record A per il nome di dominio personalizzato, in modo che faccia riferimento all'indirizzo IP riportato nel passaggio precedente.
+* Usando gli strumenti forniti dal registrar, modificare il record A per il nome di dominio personalizzato, in modo che faccia riferimento all'indirizzo IP riportato nel passaggio precedente.
    A questo punto si dovrebbe poter andare all'app usando HTTPS:// anziché HTTP:// per verificare che il certificato sia stato configurato correttamente.
+
+## <a name="bkmk_Rekey"></a>Esportare il certificato del servizio app
+È possibile creare una copia PFX locale di un certificato del servizio app per poterla usare con altri servizi di Azure. Per altre informazioni, **[vedere questo post di blog](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/)**
 
 ## <a name="bkmk_Rekey"></a>Reimpostare e sincronizzare il certificato
 1. Per motivi di sicurezza, sarà possibile reimpostare il certificato semplicemente selezionando l'opzione **"Reimposta e sincronizza"** nel pannello **"Proprietà del certificato"**. 

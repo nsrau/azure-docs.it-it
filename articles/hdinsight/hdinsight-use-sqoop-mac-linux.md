@@ -9,6 +9,7 @@ author: Blackmist
 tags: azure-portal
 ms.assetid: 303649a5-4be5-4933-bf1d-4b232083c354
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
 ms.openlocfilehash: e6a3e91e5821e761af0ff710da2a817eb7c185bb
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -196,9 +198,4 @@ In questa esercitazione si è appreso come usare Sqoop. Per altre informazioni, 
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

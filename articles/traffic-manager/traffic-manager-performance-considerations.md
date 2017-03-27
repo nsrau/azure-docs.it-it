@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 69b94c93ad3e9c9745af8485766b4237cac0062c
-ms.openlocfilehash: 680c3dd7bbc5ac86d021e119b31352cbfb3451f7
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f686685138625a53971f1fc5fc754fd22c9d67b2
+ms.lasthandoff: 03/18/2017
 
 ---
 
@@ -26,13 +27,13 @@ Questa pagina illustrati alcune considerazioni sulle prestazioni di Gestione tra
 
 Sono presenti istanze del sito Web nelle aree Stati Uniti occidentali e Asia orientale. Una delle istanze non ha superato il controllo di integrità per il probe di Gestione traffico. Il traffico delle applicazioni viene indirizzato all'area integra. Questo failover è previsto, ma si verifica un problema di prestazioni in base alla latenza del traffico che viene ora indirizzato a un'area distante.
 
-## <a name="how-traffic-manager-works"></a>Modalità di funzionamento di Gestione traffico
+## <a name="performance-considerations-for-traffic-manager"></a>Considerazioni sulle prestazioni per Gestione traffico
 
 L'unico impatto sulle prestazioni prodotto da Gestione traffico in un sito Web è la ricerca DNS iniziale. Il server radice DNS Microsoft che ospita la zona trafficmanager.net gestisce una richiesta DNS per il nome del profilo di Gestione traffico. Gestione traffico popola e aggiorna regolarmente i server radice DNS Microsoft in base ai criteri e ai risultati dei probe. Di conseguenza, a Gestione traffico non viene inviata alcuna query DNS nemmeno durante la ricerca DNS iniziale.
 
 Gestione traffico è costituito da diversi componenti: server dei nomi DNS, un servizio API, il livello di archiviazione e un servizio di monitoraggio degli endpoint. Un eventuale errore in uno di questi componenti non ha alcun effetto sul nome DNS associato al profilo di Gestione traffico. I record presenti nel server DNS Microsoft rimangono invariati. Il monitoraggio degli endpoint e l'aggiornamento DNS, tuttavia, non vengono eseguiti. Di conseguenza, in caso di arresto del sito primario, Gestione traffico non è in grado di aggiornare DNS in modo che punti al sito di failover.
 
-La risoluzione dei nomi DNS è rapida e i risultati vengono memorizzati nella cache. La velocità della ricerca DNS iniziale dipende dai server DNS usati dal client per la risoluzione dei nomi. In genere, un client è in grado di eseguire una ricerca DNS in circa 50 ms. I risultati della ricerca vengono memorizzati nella cache per la durata (TTL) del DNS. Per Gestione traffico, la durata (TTL) predefinita è 300 secondi.
+La risoluzione dei nomi DNS è rapida e i risultati vengono memorizzati nella cache. La velocità della ricerca DNS iniziale dipende dai server DNS usati dal client per la risoluzione dei nomi. In genere, un client è in grado di eseguire una ricerca DNS in circa&50; ms. I risultati della ricerca vengono memorizzati nella cache per la durata (TTL) del DNS. Per Gestione traffico, la durata (TTL) predefinita è 300 secondi.
 
 Il traffico NON attraversa Gestione traffico. Dopo il completamento della ricerca DNS, il client dispone di un indirizzo IP per un'istanza del sito Web. Il client si connette direttamente a tale indirizzo e non passa attraverso Gestione traffico. I criteri di Gestione traffico scelti non producono alcun effetto sulle prestazioni DNS. Il metodo di routing del traffico Prestazioni, tuttavia, può avere un impatto negativo sull'esperienza dell'applicazione. Se, ad esempio, i criteri reindirizzano il traffico dall'America del Nord a un'istanza ospitata in Asia, la latenza di rete per tali sessioni può essere un problema di prestazioni.
 
@@ -85,10 +86,5 @@ Gli strumenti disponibili in questi siti misurano la latenza DNS e visualizzano 
 [Operazioni per Gestione traffico (informazioni di riferimento API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/25/2016
+ms.date: 03/16/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1821aa2a3d6428ca98cad14b0bf5e8b37ec6cb9c
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 8c5ce9570541def245ca33f5841a8392e73569b4
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -39,25 +40,27 @@ I passaggi seguenti descrivono la procedura per aggiungere una rete virtuale esi
    
     ![Selezionare una rete virtuale esistente](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png)
 9. Nel pannello **Scegli rete virtuale** selezionare la rete virtuale desiderata. Il pannello mostra tutte le reti virtuali presenti nella stessa area nella sottoscrizione del lab.  
-10. Dopo aver selezionato una rete virtuale, viene visualizzato nuovamente il pannello **Rete virtuale** con diversi campi abilitati.  
+10. Dopo aver selezionato una rete virtuale, viene visualizzato nuovamente il pannello **Rete virtuale**. Fare clic sulla subnet nell'elenco nella parte inferiore del pannello.
+
+    ![Elenco di subnet](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png)
     
-     ![Selezionare una rete virtuale esistente](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png)
-11. Specificare una descrizione per la combinazione rete virtuale/lab.
-12. Per consentire l'uso di una subnet nella creazione della VM per il lab, selezionare **USA NELLA CREZIONE DI MACCHINE VIRTUALI**.
-13. Per consentire gli indirizzi IP pubblici in una subnet, selezionare **CONSENTI IP PUBBLICO**.
-14. Nel campo **MAX MACCHINE VIRTUALI PER UTENTE** specificare per ogni utente il massimo di VM per ogni subnet. Se si desidera un numero illimitato di VM, lasciare vuoto questo campo.
-15. Selezionare **Salva**.
-16. Dopo aver configurato la rete virtuale, è possibile selezionarla quando si crea una VM. 
+    Viene visualizzato il pannello Lab subnet (Subnet lab).
+
+    ![Pannello Lab Subnet (Subnet lab)](./media/devtest-lab-configure-vnet/lab-subnet.png)
+
+11. Specificare un **nome per la subnet del lab**.
+12. Per consentire l'uso di una subnet nella creazione della macchina virtuale del lab, selezionare **Use in virtual machine creation** (Usa nella creazione di macchine virtuali).
+13. Per abilitare un [indirizzo IP pubblico condiviso](devtest-lab-shared-ip.md), selezionare **Enable shared public IP** (Abilita indirizzo IP pubblico condiviso).
+14. Per consentire gli indirizzi IP pubblici in una subnet, selezionare **Allow public IP creation** (Consenti la creazione di un indirizzo IP pubblico).
+15. Nel campo **Maximum virtual machines per user** (Numero massimo di macchine virtuali per utente) specificare per ogni utente il numero massimo di macchine virtuali per ogni subnet. Se si desidera un numero illimitato di VM, lasciare vuoto questo campo.
+16. Selezionare **OK** per chiudere il pannello Lab Subnet (Subnet lab).
+17. Selezionare **Salva** per chiudere il pannello Rete virtuale.
+18. Dopo aver configurato la rete virtuale, è possibile selezionarla quando si crea una VM. 
     Per informazioni su come creare una VM e specificare una rete virtuale, vedere l'articolo [Aggiungere una VM con elementi a un lab](devtest-lab-add-vm-with-artifacts.md). 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo avere aggiunto la rete virtuale desiderata al lab, il passaggio successivo consiste nell' [aggiungere una VM a un lab](devtest-lab-add-vm-with-artifacts.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -15,21 +15,24 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 7c9f14503a7cf5c0808e26884a73cd2918ff1c74
-ms.openlocfilehash: 7a26b44f1c2c97174fb98ffdf0cb74a71d27710a
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: b41d906d6948f0f9e3cdb38b4a478b39f55ce219
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Trasformare i dati eseguendo script U-SQL in Azure Data Lake Analytics 
-> [!div class="op_single_selector"]
-> * [Hive](data-factory-hive-activity.md)  
-> * [Pig](data-factory-pig-activity.md)  
-> * [MapReduce](data-factory-map-reduce.md)  
-> * [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
-> * [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
-> * [Stored procedure](data-factory-stored-proc-activity.md)
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Attività Hive](data-factory-hive-activity.md) 
+> * [Attività di Pig](data-factory-pig-activity.md)
+> * [Attività MapReduce](data-factory-map-reduce.md)
+> * [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
+> * [Attività Spark](data-factory-spark.md)
+> * [Attività di esecuzione batch di Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+> * [Attività della risorsa di aggiornamento di Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+> * [Attività stored procedure](data-factory-stored-proc-activity.md)
 > * [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
-> * [Attività personalizzata .NET](data-factory-use-custom-activities.md)
+> * [Attività personalizzata di .NET](data-factory-use-custom-activities.md)
 
 Una pipeline in un'istanza di Data factory di Azure elabora i dati nei servizi di archiviazione collegati usando i servizi di calcolo collegati. Contiene una sequenza di attività in cui ogni attività esegue una specifica operazione di elaborazione. Questo articolo descrive l'**attività U-SQL di Data Lake Analytics** che esegue uno script **U-SQL** in un servizio di calcolo collegato di **Azure Data Lake Analytics**. 
 
@@ -78,7 +81,7 @@ Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scaden
 
 | Tipo di utente | Scade dopo |
 |:--- |:--- |
-| Account utente NON gestiti da Azure Active Directory ((@hotmail.com,, @live.com, e così via). |12 ore |
+| Account utente NON gestiti da Azure Active Directory (@hotmail.com, @live.com e così via). |12 ore |
 | Account utente gestiti da Azure Active Directory (AAD) |14 giorni dopo l'esecuzione dell'ultima sezione. <br/><br/>90 giorni, se viene eseguita una sezione basata sul servizio collegato OAuth almeno una volta ogni 14 giorni. |
 
 Per evitare/risolvere questo problema, alla **scadenza del token** ripetere l'autorizzazione usando il pulsante **Autorizza** e ridistribuire il servizio collegato. È anche possibile generare valori per le proprietà **sessionId** e **authorization** a livello di codice usando il codice riportato nella sezione seguente. 
@@ -299,10 +302,5 @@ Nell'esempio di definizione di pipeline i parametri in e out vengono assegnati c
 ```
 
 In questo caso, i file di input vengono prelevati dalla cartella /datalake/input e i file di output vengono generati nella cartella /datalake/output. I nomi dei file sono dinamici e si basano sull'ora di inizio della sezione.  
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

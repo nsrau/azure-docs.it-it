@@ -13,11 +13,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: e80bf82df28fbce8a1019c6eb07cfcae4cbba930
-ms.openlocfilehash: 49bec6125bcd76c3bb52f1237b0f0e0ceff85ffb
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: b615f97484033bb406022e84fbcf50f88458de3c
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -44,7 +45,7 @@ Per altre informazioni sull'uso delle autorizzazioni con HDInsight aggiunto a un
 
 ## <a name="access-control"></a>Controllo di accesso
 
-Se si usa una sottoscrizione di Azure di cui non si è l'amministratore o il proprietario, ad esempio una sottoscrizione aziendale, è necessario verificare che l'account di accesso Azure abbia almeno l'accesso **Collaboratore** al gruppo di risorse di Azure che contiene il cluster HDInsight.
+Se si usa una sottoscrizione di Azure di cui non si è l'amministratore o il proprietario, ad esempio una sottoscrizione aziendale, è necessario verificare che l'account Azure abbia almeno l'accesso **Collaboratore** al gruppo di risorse di Azure che contiene il cluster HDInsight.
 
 Se si crea un cluster HDInsight, è necessario che un utente con almeno l'accesso **Collaboratore** alla sottoscrizione di Azure abbia registrato in precedenza il provider per HDInsight. La registrazione del provider viene eseguita quando un utente con accesso Collaboratore alla sottoscrizione crea una risorsa per la prima volta nella sottoscrizione stessa. Può essere eseguita anche senza creare una risorsa [registrando un provider tramite REST](https://msdn.microsoft.com/library/azure/dn790548.aspx).
 
@@ -55,7 +56,7 @@ Per altre informazioni sull'uso della gestione degli accessi, vedere i documenti
 
 ## <a name="understanding-script-actions"></a>Informazioni sulle azioni script
 
-Un'azione script è semplicemente uno script bash a cui si forniscono parametri e un URI e che viene quindi eseguito nei nodi del cluster HDInsight. Di seguito sono riportate le caratteristiche e funzionalità delle azioni script.
+Un'azione script è semplicemente uno script Bash a cui si forniscono parametri e un URI. Lo script viene eseguito nei nodi del cluster HDInsight. Di seguito sono riportate le caratteristiche e funzionalità delle azioni script.
 
 * Devono essere archiviate in un URI accessibile dal cluster HDInsight. Di seguito vengono indicate alcune tra le posizioni di archiviazione possibili:
 
@@ -66,12 +67,14 @@ Un'azione script è semplicemente uno script bash a cui si forniscono parametri 
         > [!NOTE]
         > L'entità servizio usata da HDInsight per accedere a Data Lake Store deve avere accesso in lettura allo script.
 
-    * **Account di archiviazione BLOB** che rappresenta l'account di archiviazione primario o aggiuntivo per il cluster HDInsight. Poiché HDInsight può accedere a entrambi i tipi di account di archiviazione durante la creazione del cluster, questi consentono di usare un'azione script non pubblica.
+    * Un BLOB in un **account di archiviazione di Azure** che rappresenta l'account di archiviazione primario o aggiuntivo per il cluster HDInsight. Poiché HDInsight può accedere a entrambi i tipi di account di archiviazione durante la creazione del cluster, questi consentono di usare un'azione script non pubblica.
 
-    * https://docs.microsoft.com/it-it/azure/service-bus/, ad esempio BLOB di Azure, GitHub, OneDrive, Dropbox e così via.
+    * Un servizio di condivisione file pubblico, ad esempio BLOB di Azure, GitHub, OneDrive, Dropbox e così via.
 
         Per esempi di URI per gli script archiviati nel contenitore BLOB (leggibili pubblicamente), vedere la sezione [Script di Azione script di esempio](#example-script-action-scripts) .
 
+        > [!WARNING]
+        > HDInsight supporta solo account di archiviazione di Azure __per utilizzo generico__. Non supporta attualmente il tipo di account di __archiviazione BLOB__.
 
 * Possono essere limitate all'**esecuzione solo in alcuni tipi di nodi**, ad esempio nodi head o del ruolo di lavoro.
 
@@ -80,7 +83,7 @@ Un'azione script è semplicemente uno script bash a cui si forniscono parametri 
 
 * Possono essere **persistenti** o **ad hoc**.
 
-    Gli script **persistenti** vengono applicati ai nodi del ruolo di lavoro e vengono eseguiti automaticamente nei nuovi nodi creati durante l'aumento delle prestazioni di un cluster.
+    Gli script **con salvataggio permanente** vengono applicati ai nodi del ruolo di lavoro e vengono eseguiti automaticamente nei nuovi nodi creati quando si aumentano le prestazioni di un cluster.
 
     Uno script persistente potrebbe anche applicare le modifiche a un altro tipo di nodo, ad esempio un nodo head, ma nel caso di una funzionalità l'unico motivo per rendere persistente uno script è per fare in modo che venga applicata ai nuovi nodi di lavoro creati durante l'aumento delle istanze di un cluster.
 
@@ -95,7 +98,7 @@ Un'azione script è semplicemente uno script bash a cui si forniscono parametri 
   > Gli script che hanno esito negativo non vengono resi persistenti, anche in presenza di indicazioni specifiche in tal senso.
 
 * Possono accettare **parametri** usati dallo script durante l'esecuzione.
-* Vengono eseguite con **privilegi a livello radice** sui nodi del cluster.
+* Eseguire lo script con **privilegi a livello radice** nei nodi del cluster.
 * Possono essere usate con il **portale di Azure**, **Azure PowerShell**, l'**interfaccia della riga di comando di Azure** o **HDInsight .NET SDK**.
 
 Per trovare gli script applicati a un cluster e determinarne l'ID per l'innalzamento o l'abbassamento di livello, è possibile vedere la cronologia creata dal cluster di tutti gli script eseguiti.
@@ -126,7 +129,7 @@ Nel corso della creazione del cluster è possibile specificare più azioni scrip
 > [!IMPORTANT]
 > Le azioni di script devono essere completate entro 60 minuti; in caso contrario si verifica un timeout. Durante il provisioning dei cluster, lo script viene eseguito contemporaneamente ad altri processi di installazione e configurazione. In caso di concorrenza per risorse come il tempo di CPU o la larghezza di banda di rete, lo script può richiedere più tempo per completare l'operazione rispetto al tempo che impiegherebbe in un ambiente di sviluppo.
 >
-> Per ridurre al minimo il tempo necessario per eseguire lo script, evitare attività come il download e la compilazione di applicazioni dall'origine. Al contrario, precompilare l'applicazione e archiviare il file binario nell'archivio BLOB di Azure in modo che possa essere rapidamente scaricato nel cluster.
+> Per ridurre al minimo il tempo necessario per eseguire lo script, evitare attività come il download e la compilazione di applicazioni dall'origine. Al contrario, precompilare l'applicazione e archiviare il file binario in Archiviazione di Azure in modo che possa essere rapidamente scaricato nel cluster.
 
 
 ### <a name="script-action-on-a-running-cluster"></a>Azione script in un cluster in esecuzione
@@ -540,7 +543,7 @@ Prima di procedere, assicurarsi di aver installato e configurato Azure PowerShel
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-cli"></a>Applicare un'azione script a un cluster in esecuzione dall'interfaccia della riga di comando di Azure
 
-Prima di procedere, assicurarsi di aver installato e configurato l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+Prima di procedere, assicurarsi di aver installato e configurato l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Installare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md).
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
@@ -697,7 +700,7 @@ Il servizio HDInsight permette di usare i componenti personalizzati in molti mod
 
     ![Schermata delle operazioni](./media/hdinsight-hadoop-customize-cluster-linux/ambariscriptaction.png)
 
-    Selezionare questa voce ed eseguire il drill-down dei collegamenti per visualizzare l'output di STDOUT e STDERR generato durante l'esecuzione dello script sul cluster.
+    Selezionare questa voce run\customscriptaction ed eseguire il drill-down dei collegamenti per visualizzare l'output di STDOUT e STDERR. Questo output viene generato all'esecuzione dello script e può contenere informazioni utili.
 
 ### <a name="access-logs-from-the-default-storage-account"></a>Accesso ai registri dall'account di archiviazione predefinito
 
@@ -727,7 +730,7 @@ Se la creazione del cluster non è riuscita a causa di un errore nell'azione di 
 
 * Se in uno stesso giorno si creano più cluster dell'azione di script con lo stesso nome, è possibile usare il prefisso univoco per identificare i file di registro corrispondenti.
 
-* Se si crea un cluster alla fine del giorno, è possibile che i file di registro si estendano su due giorni. In questo caso, per lo stesso cluster vengono visualizzate due diverse cartelle della data.
+* Se si crea un cluster alla fine del giorno, è possibile che i file di registro si estendano su due giorni. In questi casi, per lo stesso cluster vengono visualizzate due diverse cartelle della data.
 
 * Il caricamento dei file di registro nel contenitore predefinito può richiedere fino a 5 minuti, soprattutto per i cluster di grandi dimensioni. Se si desidera accedere ai file di registro, quindi, è opportuno non eliminare immediatamente il cluster in caso di esito negativo di un'azione di script.
 
@@ -783,9 +786,4 @@ Per informazioni ed esempi sulla creazione e l'uso di script per personalizzare 
 * [Add additional storage to an HDInsight cluster](hdinsight-hadoop-add-storage.md) (Aggiungere altra memoria a un cluster HDInsight)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Fasi durante la creazione di un cluster"
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

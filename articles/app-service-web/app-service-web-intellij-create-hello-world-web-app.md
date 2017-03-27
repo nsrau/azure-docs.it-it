@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm;asirveda
 translationtype: Human Translation
-ms.sourcegitcommit: 2687011c449715d2ce5f491c3da501f38035d631
-ms.openlocfilehash: 9c7b708c2bd923733cd034116453fcca2ada949b
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 756c9fa079782f8f0cb194ca07c637d083f9ebd7
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -69,7 +70,7 @@ Prima di pubblicare l'applicazione è necessario configurare le impostazioni del
 2. Nella finestra di dialogo Project Structure (Struttura progetto):
 
    a. Fare clic su **Artifacts** (Elementi) nell'elenco **Project Settings** (Impostazioni progetto).
-   b. Modificare il nome dell'elemento nella casella **Name** (Nome) in modo che contenga caratteri speciali o spazi vuoti; questa operazione è necessaria perché il nome verrà usato nell'URI (Uniform Resource Identifier).
+   b. Modificare il nome dell'elemento nella casella **Nome** in modo che non contenga caratteri speciali o spazi vuoti; questa operazione è necessaria perché il nome verrà usato nell'URI (Uniform Resource Identifier).
    c. Modificare il valore di **Type** (Tipo) in **Web Application: Archive** (Applicazione Web: archivio).
    d. Fare clic su **OK** per chiudere la finestra di dialogo Project Structure (Struttura progetto).
 
@@ -254,9 +255,4 @@ Per altre informazioni sulla creazione di App Web di Azure, vedere la [Panoramic
 [16]: ./media/app-service-web-intellij-create-hello-world-web-app/16-Progress-Indicator.png
 [17]: ./media/app-service-web-intellij-create-hello-world-web-app/17-Browse-Web-App.png
 [18]: ./media/app-service-web-intellij-create-hello-world-web-app/18-Stop-Web-App.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

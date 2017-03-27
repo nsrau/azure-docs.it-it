@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 02/10/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: 97dd91986751031daef24fc806adc7021b2f94fc
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: c6acdf97ee5e947ac48866c003480e393dd4bf35
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -27,7 +27,7 @@ Per migliorare gli aspetti di sicurezza e conformità delle macchine virtuali (V
 ## <a name="quick-commands"></a>Comandi rapidi
 Se si necessita di eseguire rapidamente l'attività, nella sezione seguente sono illustrati i comandi di base per crittografare i dischi rigidi della VM. Altre informazioni dettagliate e il contesto per ogni passaggio sono disponibili nelle sezioni successive del documento, [a partire da qui](#overview-of-disk-encryption).
 
-È necessario installare e registrare l'[ultima versione dell'interfaccia della riga di comando di Azure](../xplat-cli-install.md) usando la modalità di Resource Manager nel modo seguente:
+È necessario installare e registrare l'[ultima versione dell'interfaccia della riga di comando di Azure](../cli-install-nodejs.md) usando la modalità di Resource Manager nel modo seguente:
 
 ```azurecli
 azure config mode arm
@@ -157,7 +157,7 @@ La crittografia del disco non è attualmente supportata negli scenari seguenti:
 * Aggiornare le chiavi di crittografia in una VM Linux già crittografata.
 
 ## <a name="create-the-azure-key-vault-and-keys"></a>Creare le chiavi e l'insieme di credenziali delle chiavi di Azure
-Per completare il resto della presente guida, è necessario installare e registrare l'[ultima versione dell'interfaccia della riga di comando di Azure](../xplat-cli-install.md) usando la modalità di Resource Manager nel modo seguente:
+Per completare il resto della presente guida, è necessario installare e registrare l'[ultima versione dell'interfaccia della riga di comando di Azure](../cli-install-nodejs.md) usando la modalità di Resource Manager nel modo seguente:
 
 ```azurecli
 azure config mode arm

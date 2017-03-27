@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2017
+ms.date: 03/08/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c4330dd4b32119c1950f402c5c589d403960c80f
-ms.openlocfilehash: 0e5f420833276d23565ae0aa83f79bbbe47faf67
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: e9185862bd1f15adacf7fd407a6f5165b2b337f5
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -34,16 +34,16 @@ ms.lasthandoff: 02/09/2017
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Microsoft Visual Studio 2015
+* Visual Studio 2015 o Visual Studio 2017.
 * Un account Azure attivo. <br/>Se non si ha un account, è possibile crearne uno [gratuito][lnk-free-trial] in pochi minuti.
 * [Azure PowerShell 1.0][lnk-powershell-install] o versione successiva.
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
 ## <a name="prepare-your-visual-studio-project"></a>Preparare il progetto di Visual Studio
-1. In Visual Studio creare un nuovo progetto Windows Visual C# usando il modello di progetto **Applicazione console** . Denominare il progetto **CreateIoTHubREST**.
+1. In Visual Studio creare un progetto desktop classico di Windows Visual C# usando il modello di progetto **App console (.NET Framework)**. Denominare il progetto **CreateIoTHubREST**.
 2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Gestisci pacchetti NuGet**.
-3. In Gestione pacchetti NuGet selezionare **Includi versione preliminare** e cercare **Microsoft.Azure.Management.ResourceManager**. Fare clic su **Installa**, in **Rivedi modifiche** fare clic su **OK**, quindi fare clic su **I Accept** (Accetto) per accettare le licenze.
+3. In Gestione pacchetti NuGet selezionare **Includi versione preliminare** e nella pagina **Sfoglia** cercare **Microsoft.Azure.Management.ResourceManager**. Selezionare il pacchetto, fare clic su **Installa**, in **Rivedi modifiche** fare clic su **OK**, quindi fare clic su **I Accept** (Accetto) per accettare le licenze.
 4. In Gestione pacchetti NuGet cercare **Microsoft.IdentityModel.Clients.ActiveDirectory**.  Fare clic su **Installa**, in **Rivedi modifiche** fare clic su **OK**, quindi fare clic su **I Accept** (Accetto) per accettare la licenza.
 5. In Program.cs sostituire le istruzioni **using** esistenti con il codice seguente:
    

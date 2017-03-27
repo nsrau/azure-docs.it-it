@@ -22,13 +22,15 @@
 #### [Associazioni di app per dispositivi mobili](functions-bindings-mobile-apps.md)
 #### [Associazione di output di Hub di notifica](functions-bindings-notification-hubs.md)
 #### [Trigger e associazioni del bus di servizio per code e argomenti](functions-bindings-service-bus.md)
+#### [Associazioni SendGrid](functions-bindings-sendgrid.md)
 #### Associazioni di archiviazione
 ##### [Associazioni di BLOB](functions-bindings-storage-blob.md)
 ##### [Associazioni di code](functions-bindings-storage-queue.md)
 ##### [Associazioni di tabelle](functions-bindings-storage-table.md)
+##### [Associazioni SendGrid](functions-bindings-sendgrid.md)
 #### [Trigger timer](functions-bindings-timer.md)
 #### [Associazione output di Twilio](functions-bindings-twilio.md)
-### [Creare una funzione dal portale di Azure](functions-create-first-azure-function-azure-portal.md) 
+### [Creare un'app per le funzioni dal portale di Azure](functions-create-function-app-portal.md) 
 ### [Test di Funzioni di Azure](functions-test-a-function.md)
 ### [Sviluppare ed eseguire il debug in locale](functions-run-local.md)
 ### [Procedure consigliate per Funzioni di Azure](functions-best-practices.md)
@@ -50,8 +52,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
 ## [Repository GitHub di Funzioni di Azure](https://github.com/Azure/Azure-Functions/) 
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

@@ -12,16 +12,16 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2017
+ms.date: 03/12/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: dc533f46d71ec1bbe49b3e19821e4fc6009773fc
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: d811cdabe35f28ab8f2496b08c959107c10ef1be
+ms.lasthandoff: 03/14/2017
 
 
 ---
-# <a name="replicate-vmware-virtual-machines-to-azure-with-azure-site-recovery"></a>Replicare macchine virtuali VMware in Azure con Azure Site Recovery
+# <a name="replicate-vmware-virtual-machines-to-azure-with--site-recovery"></a>Replicare macchine virtuali VMware in Azure con Site Recovery
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](site-recovery-vmware-to-azure.md)
@@ -30,11 +30,11 @@ ms.lasthandoff: 03/06/2017
 
 Questo articolo illustra come replicare macchine virtuali VMware locali in Azure usando il servizio [Azure Site Recovery](site-recovery-overview.md) nel portale di Azure.
 
- Se si intende eseguire la migrazione di macchine virtuali VMware in Azure, leggere [questo articolo](site-recovery-migrate-to-azure.md) per ottenere altre informazioni prima di continuare.
+Per eseguire la migrazione di macchine virtuali VMware in Azure (solo failover), vedere [questo articolo](site-recovery-migrate-to-azure.md) per altre informazioni.
 
 Inserire commenti e domande nella parte inferiore di questo articolo oppure nel [forum sui servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## <a name="deployment-summary"></a>Riepilogo della distribuzione
+## <a name="deployment-steps"></a>Passaggi di distribuzione
 
 È necessario eseguire queste operazioni:
 
@@ -92,7 +92,7 @@ Inserire commenti e domande nella parte inferiore di questo articolo oppure nel 
 
 ## <a name="prepare-for-automatic-discovery-and-push-installation"></a>Preparare l'individuazione automatica e l'installazione push
 
-- **Preparare un account per l'individuazione automatica**: il server di elaborazione di Site Recovery individua automaticamente le VM. A tale scopo, Site Recovery necessita di credenziali che consentano di accedere ai server vCenter o agli host vSphere ESXi.
+- **Preparare un account per l'individuazione automatica**: il server di elaborazione di Site Recovery individua automaticamente le VM. A tale scopo, Site Recovery necessita di credenziali che consentano di accedere ai server vCenter e agli host vSphere ESXi.
 
     1. Per usare un account dedicato, creare un ruolo a livello di vCenter con queste [autorizzazioni](#vmware-account-permissions). Assegnare un nome all'account, ad esempio **Azure_Site_Recovery**.
     2. Creare quindi un utente nell'host vSphere o nel server vCenter e assegnare il ruolo all'utente. Questo account utente viene specificato durante la distribuzione di Site Recovery.
@@ -111,11 +111,11 @@ Inserire commenti e domande nella parte inferiore di questo articolo oppure nel 
 
 Selezionare gli elementi da replicare e la posizione in cui eseguire la replica.
 
-1. Fare clic su **Insiemi di credenziali dei servizi di ripristino** > <vault name>.
-2. In **Attività iniziali** fare clic su **Site Recovery** > **Passaggio 1: Preparare l'infrastruttura** > **Obiettivo di protezione**.
+1. Fare clic su **Insiemi di credenziali dei servizi di ripristino** e quindi sull'insieme di credenziali.
+2. Nel menu delle risorse fare clic su **Site Recovery** > **Passaggio 1: Preparare l'infrastruttura** > **Obiettivo di protezione**.
 
     ![Scegliere gli obiettivi](./media/site-recovery-vmware-to-azure/choose-goals.png)
-3. In **In quale destinazione si vuole eseguire la replica dei computer**selezionare **To Azure** (In Azure) e in **I computer sono virtualizzati**selezionare **Yes, with VMware vSphere Hypervisor** (Sì, con l'hypervisor VMware vSphere).
+3. In **Obiettivo di protezione** selezionare **In Azure** > **Sì, con VMware vSphere Hypervisor**.
 
     ![Scegliere gli obiettivi](./media/site-recovery-vmware-to-azure/choose-goals2.png)
 
@@ -123,32 +123,35 @@ Selezionare gli elementi da replicare e la posizione in cui eseguire la replica.
 
 Configurare il server di configurazione, registrarlo nell'insieme di credenziali e individuare le VM.
 
-1. Fare clic su **Passaggio 1: Preparare l'infrastruttura** fare clic su **Origine**.
+1. Fare clic su **Site Recovery** > **Passaggio 1: Preparare l'infrastruttura** > **Origine**.
 2. Se non è disponibile un server di configurazione, fare clic su **+Server di configurazione**.
 
     ![Impostare l'origine](./media/site-recovery-vmware-to-azure/set-source1.png)
 3. In **Aggiungi server** verificare che **Tipo di server** contenga **Server di configurazione**.
-4. Scaricare il file di installazione per l'**installazione unificata di Microsoft Azure Site Recovery**.
+4. Scaricare il file di installazione per l'Installazione unificata di Azure Site Recovery.
 5. Scaricare la chiave di registrazione dell'insieme di credenziali, che sarà necessaria quando si esegue l'Installazione unificata. La chiave è valida per cinque giorni dal momento in cui viene generata.
 
    ![Impostare l'origine](./media/site-recovery-vmware-to-azure/set-source2.png)
-6. Nel computer del server di configurazione, verificare che il clock di sistema sia sincronizzato con un [server di riferimento ora](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-2016-accurate-time) e quindi eseguire l'Installazione unificata per installare il server di configurazione, il server di elaborazione e il server di destinazione master.
+
 
 ## <a name="run-site-recovery-unified-setup"></a>Eseguire l'Installazione unificata di Site Recovery
 
-Prima di iniziare:
+Seguire questa procedura prima di iniziare, quindi eseguire l'Installazione unificata per installare il server di configurazione, il server di elaborazione e il server di destinazione master.
+    - Ottenere una breve panoramica video
 
-- Verificare che l'ora nella VM sia uguale all'ora nel fuso orario locale. Deve corrispondere. Se è avanti o indietro di 15 minuti, l'installazione potrebbe avere esito negativo.
-- Eseguire l'installazione come amministratore locale nella VM del server di configurazione.
-- Verificare che nella VM sia abilitato TLS 1.0.
+        > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video1-Source-Infrastructure-Setup/player]
 
-Eseguire quindi il file di installazione per l'Installazione unificata nel server di configurazione.
+    - Nella VM del server di configurazione verificare che il clock di sistema sia sincronizzato con un [server di riferimento ora](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). Deve corrispondere. Se è avanti o indietro di 15 minuti, l'installazione potrebbe avere esito negativo.
+    - Eseguire l'installazione come amministratore locale nella VM del server di configurazione.
+    - Verificare che nella VM sia abilitato TLS 1.0.
 
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> Il server di configurazione può essere installato tramite la riga di comando. [Altre informazioni](http://aka.ms/installconfigsrv).
+> Il server di configurazione può essere installato anche [dalla riga di comando](http://aka.ms/installconfigsrv).
+
+
 
 ### <a name="add-the-account-for-automatic-discovery"></a>Aggiungere l'account per l'individuazione automatica
 
@@ -160,7 +163,7 @@ Connettersi agli host vSphere ESXi o ai server vCenter per individuare le VM VMw
 
 - Se si aggiungono gli host vSphere o il server vCenter con un account senza privilegi di amministratore per il server, per l'account devono essere abilitati i privilegi seguenti:
     - Datacenter (Data center), Datastore (Archivio dati), Folder (Cartella), Host, Network (Rete), Resource (Risorsa), Virtual machine (Macchina virtuale) e vSphere Distributed Switch (Switch distribuito vSphere).
-    - Per il server vCenter è necessario il privilegio Storage views (Viste archiviazione).
+    - Per il server vCenter sono necessarie le autorizzazioni Storage views (Viste archiviazione).
 - Quando si aggiungono server VMware, possono trascorrere 15 minuti o più prima che vengano visualizzati nel portale.
 Per consentire ad Azure Site Recovery di individuare macchine virtuali in esecuzione nell'ambiente locale, è necessario connettere il server VMware vCenter o gli host vSphere ESXi a Site Recovery.
 
@@ -183,6 +186,9 @@ Prima di configurare l'ambiente di destinazione, verificare di avere [una rete e
 
 ## <a name="set-up-replication-settings"></a>Configurare le impostazioni di replica
 
+Ottenere una rapida panoramica video prima di iniziare:
+> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video2-vCenter-Server-Discovery-and-Replication-Policy/player]
+
 1. Per creare nuovi criteri di replica, fare clic su **Infrastruttura di Site Recovery** > **Criteri di replica** > **+Criteri di replica**.
 2. In **Creare i criteri di replica** specificare un nome per i criteri.
 3. In **Soglia RPO**specificare il limite per RPO. Questo valore specifica la frequenza con cui vengono creati punti di ripristino dei dati. Se la replica continua supera questo limite, viene generato un avviso.
@@ -190,7 +196,8 @@ Prima di configurare l'ambiente di destinazione, verificare di avere [una rete e
 5. In **Frequenza snapshot coerenti con l'app**specificare la frequenza, in minuti, per la creazione di punti di ripristino contenenti snapshot coerenti con l'applicazione. Fare clic su **OK** per creare i criteri.
 
     ![Criteri di replica](./media/site-recovery-vmware-to-azure/gs-replication2.png)
-8. Quando si creano nuovi criteri, questi vengono associati automaticamente al server di configurazione. Per impostazione predefinita vengono creati automaticamente criteri corrispondenti per il failback. Ad esempio se i criteri di replica sono **rep-policy** i criteri di failback saranno **rep-policy-failback**. Questi criteri non vengono usati fino a quando non si avvia un failback da Azure.  
+8. Quando si creano nuovi criteri, questi vengono associati automaticamente al server di configurazione. Per impostazione predefinita vengono creati automaticamente criteri corrispondenti per il failback. Se, ad esempio, il criterio di replica è **rep-policy**, il criterio di failback sarà **rep-policy-failback**. Questi criteri non vengono usati fino a quando non si avvia un failback da Azure.  
+
 
 
 ## <a name="plan-capacity"></a>Pianificare la capacità
@@ -203,7 +210,7 @@ Prima di configurare l'ambiente di destinazione, verificare di avere [una rete e
 
 ## <a name="prepare-vms-for-replication"></a>Preparare le VM per la replica
 
-In tutti i computer da replicare deve essere installo il servizio Mobility. È possibile installare il servizio Mobility in diversi modi:
+Il servizio Mobility deve essere installato in tutte le VM VMware da replicare. È possibile installare il servizio Mobility in diversi modi:
 
 1. Installazione push dal server di elaborazione. Per usare questo metodo è necessario preparare le VM.
 2. Installazione con strumenti di distribuzione come System Center Configuration Manager o Automation DSC per Azure.
@@ -227,6 +234,10 @@ Prima di iniziare:
 Per impostazione predefinita, vengono replicati tutti i dischi in un computer. È possibile escludere dischi dalla replica. Ad esempio, è possibile evitare di replicare i dischi con dati temporanei o dati che vengono aggiornati ogni volta che un computer o un'applicazione viene riavviata, come pagefile.sys o tempdb di SQL Server.
 
 ### <a name="replicate-vms"></a>Replicare le VM
+
+Prima di iniziare, guardare una rapida panoramica video
+
+>[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video3-Protect-VMware-Virtual-Machines/player]
 
 1. Fare clic su **Passaggio 2: Eseguire la replica dell'applicazione** > **Origine**.
 2. In **Origine** selezionare il server di configurazione.
@@ -258,9 +269,10 @@ Per impostazione predefinita, vengono replicati tutti i dischi in un computer. �
     * È consigliabile raggruppare le macchine virtuali e i server fisici in modo da rispecchiare i carichi di lavoro. L'abilitazione della coerenza tra più VM può influire sulle prestazioni del carico di lavoro e deve essere usata solo se i computer eseguono lo stesso carico di lavoro ed è necessaria la coerenza.
 
     ![Abilitare la replica](./media/site-recovery-vmware-to-azure/enable-replication7.png)
-13. Fare clic su **Abilita la replica**. È possibile tenere traccia dello stato del processo **Abilita protezione** in **Processi** > **Site Recovery jobs** (Processi di Site Recovery). Dopo l'esecuzione del processo **Finalizza protezione** la macchina virtuale è pronta per il failover.
+13. Fare clic su **Abilita la replica**. È possibile tenere traccia dello stato del processo **Abilita protezione** in **Impostazioni** > **Processi** > **Processi di Site Recovery**. Dopo l'esecuzione del processo **Finalizza protezione** la macchina virtuale è pronta per il failover.
 
 Se si configura l'installazione push, dopo l'abilitazione della replica verrà installato il servizio Mobility. Dopo l'installazione push del servizio Mobility in una VM, verrà avviato un processo di protezione che avrà esito negativo. Dopo l'errore, è necessario riavviare manualmente tutti i computer. Il processo di protezione verrà quindi avviato nuovamente e verrà eseguita la replica iniziale.
+
 
 
 ### <a name="view-and-manage-vm-properties"></a>Visualizzare e gestire le proprietà della macchina virtuale
@@ -289,26 +301,30 @@ Se si configura l'installazione push, dopo l'abilitazione della replica verrà i
 
 ## <a name="run-a-test-failover"></a>Eseguire un failover di test
 
-Dopo aver completato la configurazione, eseguire un failover di test per verificare che tutti gli elementi funzionino come previsto.
+
+Dopo aver completato la configurazione, eseguire un failover di test per verificare che tutti gli elementi funzionino come previsto. Ottenere una rapida panoramica video prima di iniziare
+>[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video4-Recovery-Plan-DR-Drill-and-Failover/player]
 
 
-1. Per eseguire il failover di una singola macchina, in **Elementi replicati** fare clic sulla VM e quindi sull'icona **+Failover di test**.
+1. Per eseguire il failover di una singola macchina, in **Impostazioni** > **Elementi replicati** fare clic sulla VM > sull'icona **+Failover di test**.
 
     ![Failover di test](./media/site-recovery-vmware-to-azure/TestFailover.png)
 
-1. Per eseguire il failover di un piano di ripristino, in **Piani di ripristino** fare clic con il pulsante destro del mouse sul piano e quindi su **Failover di test**. Per creare un piano di ripristino, [seguire queste istruzioni](site-recovery-create-recovery-plans.md).  
+1. Per eseguire il failover di un piano di ripristino, in **Impostazioni** > **Piani di ripristino** fare clic con il pulsante destro del mouse sul piano e quindi scegliere **Failover di test**. Per creare un piano di ripristino, [seguire queste istruzioni](site-recovery-create-recovery-plans.md).  
 
 1. In **Failover di test** selezionare la rete di Azure a cui dovranno connettersi le VM di Azure dopo il failover.
 
-1. Fare clic su **OK** per iniziare il failover. Per tenere traccia dello stato del processo, fare clic sulla VM per visualizzarne le proprietà oppure fare clic sul processo **Failover di test** nel nome dell'insieme di credenziali > > **Processi** > **Site Recovery jobs** (Processi di Site Recovery).
+1. Fare clic su **OK** per iniziare il failover. Per tenere traccia dello stato del processo, fare clic sulla VM per visualizzarne le proprietà oppure fare clic sul processo **Failover di test** nel nome dell'insieme di credenziali > **Impostazioni** > **Processi** > **Processi di Site Recovery**.
 
 1. Al termine del failover sarà possibile visualizzare la macchina virtuale di Azure di replica in **Macchine virtuali** nel portale di Azure. Assicurarsi che la macchina virtuale sia delle dimensioni appropriate, che sia connessa alla rete giusta e che sia in esecuzione.
 
 1. Se sono state [preparate le connessioni dopo il failover](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover), sarà possibile connettersi alla VM di Azure.
 
-1. Al termine, fare clic su **Cleanup test failover** (Pulizia failover di test) nel piano di ripristino. Fare clic su **Note** per registrare e salvare eventuali osservazioni associate al failover di test. Verranno eliminate le macchine virtuali create durante il failover di test.
+1. Al termine, fare clic su **Cleanup test failover** (Pulizia failover di test) nel piano di ripristino. Fare clic su **Note** per registrare e salvare eventuali osservazioni associate al failover di test. Verranno eliminate le VM create durante il failover di test.
 
-Per altri dettagli, vedere il documento relativo al [failover di test in Azure](site-recovery-test-failover-to-azure.md).
+[Altre informazioni](site-recovery-test-failover-to-azure.md) sui failover di test.
+
+
 ## <a name="vmware-account-permissions"></a>Autorizzazioni dell'account VMware
 
 Site Recovery deve avere accesso a VMware per l'individuazione automatica delle VM da parte del server di elaborazione e per il failover e il failback delle VM.

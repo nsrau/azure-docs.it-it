@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 2/21/2017
 ms.author: juluk
 translationtype: Human Translation
-ms.sourcegitcommit: 59af3469a5b2d5cca68bf18dca1aa1e3ab684adb
-ms.openlocfilehash: 0675b6471e37e89e426df85e2fb696fcff2927fd
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: c216b573e91894f2b9e17bf870c03b7d2a0f7161
+ms.lasthandoff: 03/21/2017
 
 
 ---
 # <a name="deploy-lamp-stack-with-the-azure-cli-10"></a>Distribuire lo stack LAMP con l'interfaccia della riga di comando di Azure 1.0
-Questo articolo illustra come distribuire un server Web Apache, MySQL e PHP (lo stack LAMP) in Azure. Sono necessari un account Azure ([richiedere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/)) e l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) [connessa all'account Azure](../xplat-cli-connect.md).
+Questo articolo illustra come distribuire un server Web Apache, MySQL e PHP (lo stack LAMP) in Azure. Sono necessari un account Azure ([richiedere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/)) e l'[interfaccia della riga di comando di Azure](../cli-install-nodejs.md) [connessa all'account Azure](../xplat-cli-connect.md).
 
 ## <a name="cli-versions-to-complete-the-task"></a>Versioni dell'interfaccia della riga di comando per completare l'attività
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
@@ -98,13 +98,13 @@ Verrà visualizzata una risposta che chiede alcuni input aggiuntivi:
     data:    ubuntuOSVersion           String        14.04.2-LTS
     info:    group deployment create command OK
 
-È stata creata una VM Linux con LAMP già installato. Se si desidera verificare l'installazione si può passare direttamente a [Verificare l'installazione di LAMP](#verify-lamp-successfully-installed).
+È stata creata una VM Linux con LAMP già installato. Se si desidera verificare l'installazione, si può passare direttamente a [Verificare l'installazione di LAMP](#verify-lamp-successfully-installed).
 
 ## <a name="deploy-lamp-on-existing-vm-walkthrough"></a>Procedura dettagliata per distribuire LAMP in una macchina virtuale esistente
-Per assistenza nella creazione di una VM Linux, è possibile vedere [qui per informazioni su come creare una VM Linux](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). È quindi necessario connettersi tramite SSH alla macchina virtuale Linux. Per assistenza nella creazione di una chiave SSH è possibile dirigersi [qui per informazioni su come creare una chiave SSH in Linux/Mac](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-Se si dispone già di una chiave SSH, continuare connettendosi tramite SSH alla VM Linux con `ssh exampleUsername@exampleDNS` dalla riga di comando.
+Per assistenza nella creazione di una macchina virtuale Linux, [qui sono disponibili informazioni su come creare una macchina virtuale Linux](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). È quindi necessario connettersi tramite SSH alla macchina virtuale Linux. Per assistenza nella creazione di una chiave SSH, [qui sono disponibili informazioni su come creare una chiave SSH in Linux/Mac](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Se si dispone già di una chiave SSH, continuare connettendosi tramite SSH dalla riga di comando alla macchina virtuale Linux con `ssh exampleUsername@exampleDNS`.
 
-Ora che la macchina virtuale Linux è disponibile è possibile illustrare l'installazione dello stack LAMP nelle distribuzioni basate su Debian. I comandi possono essere leggermente diversi per le altre distribuzioni Linux.
+Ora che la macchina virtuale Linux è disponibile, viene illustrata l'installazione dello stack LAMP nelle distribuzioni basate su Debian. I comandi possono essere leggermente diversi per le altre distribuzioni Linux.
 
 #### <a name="installing-on-debianubuntu"></a>Installazione in Debian/Ubuntu
 È necessario che siano installati i pacchetti seguenti: `apache2`, `mysql-server`, `php5` e `php5-mysql`. È possibile installare questi pacchetti catturandoli direttamente o usando Tasksel. Di seguito sono fornite le istruzioni per entrambi le opzioni.
@@ -117,7 +117,7 @@ Uso di apt-get:
 
     user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
 
-##### <a name="using-tasksel"></a>Uso di tasksel
+##### <a name="using-tasksel"></a>Uso di Tasksel
 In alternativa è possibile scaricare Tasksel, uno strumento Debian/Ubuntu che installa più pacchetti correlati come "attività" coordinata nel sistema.
 
     user@ubuntu$ sudo apt-get install tasksel
@@ -147,12 +147,12 @@ Nell'editor di testo GNU Nano aggiungere le righe seguenti:
 
 Quindi salvare e chiudere l'editor di testo.
 
-Riavviare Apache con questo comando per applicare tutte le nuove installazioni.
+Riavviare Apache con questo comando, in modo che tutte le nuove installazioni vengano applicate.
 
     user@ubuntu$ sudo service apache2 restart
 
 ## <a name="verify-lamp-successfully-installed"></a>Verificare l'installazione di LAMP
-A questo punto è possibile controllare la pagina di informazioni PHP creata aprendo un browser e andando a http://youruniqueDNS/info.php. Dovrebbe essere simile a questa immagine.
+A questo punto è possibile aprire un browser e accedere a http://youruniqueDNS/info.php per controllare la pagina di informazioni PHP creata. Dovrebbe avere un aspetto simile a questa immagine.
 
 ![][2]
 

@@ -1,9 +1,9 @@
 ---
 title: Eseguire la migrazione a Resource Manager con PowerShell | Microsoft Docs
-description: Questo articolo illustra la migrazione di risorse IaaS supportata dalla piattaforma dal modello di distribuzione classica ad Azure Resource Manager tramite comandi di Azure PowerShell
+description: Questo articolo illustra la migrazione di risorse IaaS supportata dalla piattaforma come macchine virtuali (VM), reti virtuali (VNET) e account di archiviazione dal modello di distribuzione classica ad Azure Resource Manager (ARM) tramite comandi di Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
+author: singhkays
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
-ms.author: cynthn
+ms.date: 03/14/2017
+ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 30faf4b99414e5f7b5131c231b4dccf3a7272d25
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: f5ef5242a565358fb4af90cf10bb332b9c942fce
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -211,7 +211,9 @@ Se la configurazione preparata appare corretta, è possibile procedere ed esegui
 ```
 
 ### <a name="migrate-virtual-machines-in-a-virtual-network"></a>Eseguire la migrazione delle macchine virtuali in una rete virtuale
-Per eseguire la migrazione delle macchine virtuali in una rete virtuale, migrare la rete. Le macchine virtuali migreranno automaticamente con la rete. Selezionare la rete virtuale per cui si vuole eseguire la migrazione. 
+Per eseguire la migrazione delle macchine virtuali in una rete virtuale, migrare la rete virtuale. Le macchine virtuali migreranno automaticamente con la rete virtuale. Selezionare la rete virtuale per cui si vuole eseguire la migrazione. 
+> [!NOTE]
+> [Eseguire la migrazione della singola macchina virtuale classica](./virtual-machines-windows-migrate-single-classic-to-resource-manager.md) creando una nuova macchina virtuale di Resource Manager con dischi gestiti usando i file VHD (sistema operativo e dati) della macchina virtuale. 
 
 In questo esempio viene impostato il nome **myVnet** per la rete virtuale. Sostituire il nome della rete virtuale di esempio con il nome della propria rete virtuale. 
 
@@ -251,6 +253,50 @@ Se la configurazione preparata appare corretta, è possibile procedere ed esegui
 ### <a name="migrate-a-storage-account"></a>Migrare un account di archiviazione
 Dopo aver completato la migrazione delle macchine virtuali, si consiglia di migrare gli account di archiviazione.
 
+Prima di eseguire la migrazione dell'account di archiviazione, eseguire i controlli dei prerequisiti:
+
+* **Eseguire la migrazione di macchine virtuali classiche con dischi archiviati nell'account di archiviazione**
+
+    Il comando precedente restituisce le proprietà RoleName e DiskName di tutti i dischi delle VM classiche nell'account di archiviazione. RoleName è il nome della macchina virtuale a cui il disco è collegato. Se il comando precedente restituisce uno o più dischi, assicurarsi che le macchine virtuali a cui sono collegati tali dischi siano migrate prima della migrazione degli account di archiviazione.
+    ```powershell
+     $storageAccountName = 'yourStorageAccountName'
+      Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Select-Object -ExpandProperty AttachedTo -Property `
+      DiskName | Format-List -Property RoleName, DiskName 
+
+    ```
+* **Eliminare i dischi di VM classiche archiviati nell'account di archiviazione**
+ 
+    Trovare i dischi di VM classiche nello spazio di archiviazione account tramiti il seguente comando: 
+
+    ```powershell
+        $storageAccountName = 'yourStorageAccountName'
+        Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Format-List -Property DiskName  
+
+    ```
+    Se il comando sopra restituisce uno o più dischi, eliminare tali dischi tramite il seguente comando:
+
+    ```powershell
+       Remove-AzureDisk -DiskName 'yourDiskName'
+    ```
+* **Eliminare immagini di VM archiviate nell'account di archiviazione**
+
+    Il comando precedente restituisce tutte le immagini di VM con il disco del sistema operativo archiviato nell'account di archiviazione.
+     ```powershell
+        Get-AzureVmImage | Where-Object { $_.OSDiskConfiguration.MediaLink -ne $null -and $_.OSDiskConfiguration.MediaLink.Host.Contains($storageAccountName)`
+                                } | Select-Object -Property ImageName, ImageLabel
+     ```
+     Il comando precedente restituisce tutte le immagini di VM con il disco dei dati archiviato nell'account di archiviazione.
+     ```powershell
+
+        Get-AzureVmImage | Where-Object {$_.DataDiskConfigurations -ne $null `
+                                         -and ($_.DataDiskConfigurations | Where-Object {$_.MediaLink -ne $null -and $_.MediaLink.Host.Contains($storageAccountName)}).Count -gt 0 `
+                                        } | Select-Object -Property ImageName, ImageLabel
+     ```
+    Eliminare tutte le immagini di VM restituite dal comando precedente tramite il seguente comando:
+    ```powershell
+    Remove-AzureVMImage -ImageName 'yourImageName'
+    ```
+    
 Preparare ogni account di archiviazione per la migrazione con il comando seguente. In questo esempio il nome dell'account di archiviazione è **myStorageAccount**. Sostituire il nome di esempio con il nome del proprio account di archiviazione. 
 
 ```powershell

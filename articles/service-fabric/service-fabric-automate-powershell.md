@@ -1,5 +1,5 @@
 ---
-title: Automatizzare la gestione dell&quot;applicazione di Service Fabric tramite PowerShell | Documentazione Microsoft
+title: Automatizzare la gestione dell&quot;applicazione di Azure Service Fabric | Microsoft Docs
 description: Distribuire, aggiornare, testare e rimuovere le applicazioni di Service Fabric tramite PowerShell.
 services: service-fabric
 documentationcenter: .net
@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 03/14/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: d4a08f7eec5f57b06d87d13abe46942ddc24b482
-ms.openlocfilehash: d1909225a950b961491d3fe426f1e0d6aa5bdd53
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 59133d11d2d66daa44f28ef5b9aa3aae92e56a1e
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -113,7 +113,7 @@ Get-ServiceFabricApplicationUpgrade fabric:/WordCount
 In pochi minuti, il cmdlet [Get-ServiceFabricApplicationUpgrade](/powershell/servicefabric/vlatest/get-servicefabricapplicationupgrade) indica che tutti i domini di aggiornamento sono stati aggiornati (completati).
 
 ## <a name="task-test-a-service-fabric-application"></a>Attività: Testare un'applicazione di Service Fabric
-Per scrivere servizi di qualità elevata, gli sviluppatori devono essere in grado di mettere alla prova i difetti di un'infrastruttura inaffidabile per testarne la stabilità dei servizi. Service Fabric offre agli sviluppatori la possibilità di causare azioni di errore e testare i servizi in presenza di errori usando gli scenari di test chaos e failover.  Per altre informazioni, leggere [Panoramica di testabilità](service-fabric-testability-overview.md) .
+Per scrivere servizi di qualità elevata, gli sviluppatori devono essere in grado di mettere alla prova i difetti di un'infrastruttura inaffidabile per testarne la stabilità dei servizi. Service Fabric offre agli sviluppatori la possibilità di causare azioni di errore e testare i servizi in presenza di errori usando gli scenari di test chaos e failover.  Per altre informazioni, vedere [Introduzione al servizio di analisi degli errori](service-fabric-testability-overview.md).
 
 ### <a name="step-1-run-the-chaos-test-scenario"></a>Passaggio 1: Eseguire lo scenario di test chaos
 Lo scenario di test chaos genera errori nell'intero cluster di Service Fabric. Lo scenario comprime in alcune ore gli errori che in genere si osservano in mesi o anni. La combinazione di errori interfoliati con la frequenza di errori elevata consente di trovare casi limite che altrimenti non verrebbero considerati. Nell'esempio seguente viene eseguito lo scenario di test chaos per 60 minuti.

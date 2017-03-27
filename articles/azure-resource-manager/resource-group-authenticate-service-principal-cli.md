@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/17/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: 76c5bdeb2a27b733d8566c7a19f9457feebdc273
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a99b55c98f29356fb78e053434f6f3fc5c9d0efc
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -34,7 +35,7 @@ Quando si ha un'app o uno script che deve accedere alle risorse, è possibile co
 * Non è necessario modificare le credenziali dell'app in caso di cambiamento delle responsabilità dell'utente. 
 * È possibile usare un certificato per automatizzare l'autenticazione in caso di esecuzione di uno script automatico.
 
-Questo argomento illustra come usare l'[interfaccia della riga di comando di Azure per Mac, Linux e Windows](../xplat-cli-install.md) per configurare un'applicazione per l'esecuzione con credenziali e identità proprie.
+Questo argomento illustra come usare l'[interfaccia della riga di comando di Azure per Mac, Linux e Windows](../cli-install-nodejs.md) per configurare un'applicazione per l'esecuzione con credenziali e identità proprie.
 
 Con l'interfaccia della riga di comando di Azure, per l'autenticazione di un'applicazione AD sono disponibili due opzioni:
 
@@ -372,10 +373,5 @@ Le applicazioni di esempio seguenti illustrano come effettuare l'accesso come en
 ## <a name="next-steps"></a>Passaggi successivi
 * Per informazioni dettagliate sull'integrazione di un'applicazione in Azure per la gestione delle risorse, vedere [Guida per gli sviluppatori all'autorizzazione con l'API di Azure Resource Manager](resource-manager-api-authentication.md).
 * Per altre informazioni sull'uso dei certificati e dell'interfaccia della riga di comando di Azure, vedere [Certificate-based auth with Azure Service Principals from Linux command line](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx)(Autenticazione basata su certificati con le entità servizio di Azure dalla riga di comando di Linux). 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

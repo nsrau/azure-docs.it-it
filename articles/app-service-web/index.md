@@ -13,14 +13,24 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 9075b2da7a4caa88328ef7220c4d543ff7cdebdf
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 71c2d5cff0a2deb1f44127a3483b696d1a695898
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="azure-web-apps-documentation"></a>Documentazione di App Web di Azure
 
+<div class="introHolder">
+    <div class="intro">
 Informazioni su come usare le app Web del servizio app per creare e ospitare siti e applicazioni Web. Esercitazioni, video, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come sviluppare su questa piattaforma di calcolo completamente gestita.
+    </div>
+    <div class="calloutHolder">
+        <div class="callout">
+            <a href="https://azure.microsoft.com/community/training/courses/developing-dotnet-microsoft-azure-getting-started/">
+                <img src="media/index/pluralsight.svg" /> Training video gratuito PluralSight: Sviluppo con .NET in Microsoft Azure</a>
+        </div>
+    </div>
+</div>
 
 <ul class="panelContent cardsFTitle">
     <li>

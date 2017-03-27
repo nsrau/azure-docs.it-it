@@ -15,21 +15,24 @@ ms.topic: article
 ms.date: 2/24/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 49545648a069f25820f6a6e483072be8410b091e
-ms.openlocfilehash: 56754bde961708f04477be74e1ae80acddf2c0cd
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 2748838279462a493983c397454cbcf13b2a82e6
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Trasformare dati usando l'attività di streaming di Hadoop in Azure Data Factory
-> [!div class="op_single_selector"]
-> * [Hive](data-factory-hive-activity.md)  
-> * [Pig](data-factory-pig-activity.md)  
-> * [MapReduce](data-factory-map-reduce.md)  
-> * [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
-> * [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
-> * [Stored procedure](data-factory-stored-proc-activity.md)
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Attività Hive](data-factory-hive-activity.md) 
+> * [Attività di Pig](data-factory-pig-activity.md)
+> * [Attività MapReduce](data-factory-map-reduce.md)
+> * [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
+> * [Attività Spark](data-factory-spark.md)
+> * [Attività di esecuzione batch di Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+> * [Attività della risorsa di aggiornamento di Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+> * [Attività stored procedure](data-factory-stored-proc-activity.md)
 > * [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
-> * [Attività personalizzata .NET](data-factory-use-custom-activities.md)
+> * [Attività personalizzata di .NET](data-factory-use-custom-activities.md)
 
 È possibile usare l'attività HDInsightStreamingActivity per richiamare un processo di Hadoop Streaming da una pipeline di Data factory di Azure. Il frammento JSON seguente illustra la sintassi per l'uso di HDInsightStreamingActivity in un file JSON della pipeline. 
 
@@ -90,7 +93,7 @@ Tenere presente quanto segue:
 2. Impostare il tipo di attività su **HDInsightStreaming**.
 3. Per la proprietà **mapper** specificare il nome dell'eseguibile del mapper. Nell'esempio cat.exe è l'eseguibile del mapper.
 4. Per la proprietà **reducer** specificare il nome dell'eseguibile del reducer. Nell'esempio wc.exe è l'eseguibile del mapper.
-5. Per la proprietà di tipo **input** specificare il file di input (incluso il percorso) per il mapper. Nell'esempio: "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample è il contenitore BLOB, example/data/Gutenberg è la cartella e davinci.txt è il BLOB.
+5. Per la proprietà di tipo **input** specificare il file di input (incluso il percorso) per il mapper. Nell'esempio "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt" adfsample è il contenitore BLOB, example/data/Gutenberg è la cartella e davinci.txt è il BLOB.
 6. Per la proprietà di tipo **output** specificare il file di output (incluso il percorso) per il reducer. L'output del processo di Hadoop Streaming viene scritto nel percorso specificato per questa proprietà.
 7. Nella sezione **filePaths** specificare i percorsi dei file eseguibili del mapper e del reducer. Nell'esempio: "adfsample/example/apps/wc.exe", adfsample è il contenitore BLOB, example/apps è la cartella e wc.exe è l'eseguibile.
 8. Per la proprietà **fileLinkedService** specificare il servizio collegato Archiviazione di Azure che rappresenta l'archivio di Azure contenente i file specificati nella sezione filePaths.
@@ -220,10 +223,5 @@ Il cluster HDInsight viene popolato automaticamente con programmi di esempio (wc
 * [Attività MapReduce](data-factory-map-reduce.md)
 * [Chiamare i programmi Spark](data-factory-spark.md)
 * [Chiamare gli script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

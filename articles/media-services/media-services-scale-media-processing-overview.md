@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 03/13/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 1cde923ad0aef1ce1c91d1240f7b3e3d3c26e105
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: eb77dd2aaaeced8c71c2c89937f7f1cc10c7b292
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -47,7 +47,16 @@ La tabella seguente consente di scegliere tra diverse velocità di codifica. Ind
 * Se si usa il pool condiviso, vale a dire senza unità riservate, le attività di codifica hanno le stesse prestazioni di quando si usano le unità riservate S1. Non c'è tuttavia alcun limite superiore al tempo che le attività possono trascorrere nello stato in coda e in qualsiasi momento può essere eseguita al massimo una sola attività.
 * I data center Brasile meridionale e India occidentale non offrono il tipo di unità riservata **S2**.
 * Il data center India occidentale non offre il tipo di unità riservata **S3**.
-* Il numero più alto di unità specificato in un periodo di 24 ore è quello che verrà usato per il calcolo del costo.
+
+## <a name="billing"></a>Fatturazione
+
+Vengono addebitati i minuti di uso effettivo di Media Reserved Unit. Ecco un esempio più dettagliato. Supponiamo che Joe avesse inizialmente zero Media Reserved Unit (UR) e che alle ore 10:00 abbia impostato l'account per usare due UR S1. Nel pomeriggio arrivano altri video, così alle 13:15 Joe modifica l'account per usare quattro UR S3. Tutti i video vengono elaborati entro le 16:00, quindi Joe disattiva le UR nell'account (impostando il numero di UR su zero). L'uso di Joe viene calcolato in questo modo.
+
+Media Reserved Unit S1: 2 unità x 3,25 ore (dalle 10:00 alle 13:15) x $ 0,02/ora =$ 0,13 Media Reserved Unit S3: 4 unità x 2,75 ore (dalle 13:15 alle 16:00) x $ 0,08/ora = $ 0,88
+
+Pertanto il costo totale dell'uso di Media Reserved Unit per Joe è $&0;,13 + $&0;,88 = $&1;,01 Diversamente dalle Media Reserved Unit, le unità di streaming sono addebitate in base al numero maggiore di unità di streaming di cui si esegue il provisioning ogni giorno (limite massimo).
+
+Per altre informazioni, vedere la pagina dedicata al [tariffario dei servizi multimediali](https://azure.microsoft.com/pricing/details/media-services/). La sezione Domande frequenti contiene spiegazioni dettagliate.  
 
 ## <a name="quotas-and-limitations"></a>Quote e limitazioni
 Per informazioni su quote e limitazioni e su come aprire un ticket di supporto, vedere [Quote e limitazioni](media-services-quotas-and-limitations.md).

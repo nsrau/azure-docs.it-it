@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: 2c80f9d2bc788c60c5a7b3a5fd0d38cb86cbf838
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 3b3aa18eb52993843be1feeb8e0b2a43339413c3
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -210,9 +210,9 @@ Per visualizzare gli output delle attività e i log nel portale di Azure, passar
 ![Pannello dei file di output delle attività nel portale di Azure][2]
 
 ## <a name="code-sample"></a>Esempio di codice
-Il progetto di esempio [PersistOutputs][github_persistoutputs] è uno degli [esempi di codice di Azure Batch][github_samples] disponibili in GitHub. Questa soluzione di Visual Studio 2015 descrive come usare la libreria Azure Batch File Conventions per salvare in modo permanente l'output dell'attività in una risorsa di archiviazione permanente. Per eseguire l'esempio, seguire questa procedura:
+Il progetto di esempio [PersistOutputs][github_persistoutputs] è uno degli [esempi di codice di Azure Batch][github_samples] disponibili in GitHub. Questa soluzione di Visual Studio descrive come usare la libreria Azure Batch File Conventions per salvare in modo permanente l'output dell'attività in una risorsa di archiviazione permanente. Per eseguire l'esempio, seguire questa procedura:
 
-1. Aprire il progetto in **Visual Studio 2015**.
+1. Aprire il progetto in **Visual Studio 2015 o in una versione più recente**.
 2. Aggiungere **le credenziali dell'account** di archiviazione e Batch a **AccountSettings.settings** nel progetto Microsoft.Azure.Batch.Samples.Common.
 3. **Compilare** , ma non eseguire, la soluzione. Se richiesto, ripristinare tutti i pacchetti NuGet.
 4. Usare il portale di Azure per caricare un [pacchetto dell'applicazione](batch-application-packages.md) per **PersistOutputsTask**. Includere `PersistOutputsTask.exe` e relativi assembly dipendenti nel pacchetto ZIP, impostare l'ID applicazione su "PersistOutputsTask" e la versione del pacchetto dell'applicazione su "1.0".

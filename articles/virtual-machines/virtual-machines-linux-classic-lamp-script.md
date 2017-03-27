@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 09/13/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 6fe3bd55b23432a8fddb1ffeeed33bc113b8bd73
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f63649cc3b6c4acad6e39356f0210d3726548b17
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -40,7 +41,7 @@ Per informazioni sulla creazione delle macchine virtuali Linux in Azure, fare ri
 
 I comandi di installazione presuppongono Ubuntu, ma è possibile adattare l'installazione per qualsiasi distro Linux supportata.
 
-La macchina virtuale script-vm richiede l'interfaccia della riga di comando di Azure installata e una connessione ad Azure attiva. Per informazioni, fare riferimento a [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure](../xplat-cli-install.md).
+La macchina virtuale script-vm richiede l'interfaccia della riga di comando di Azure installata e una connessione ad Azure attiva. Per informazioni, fare riferimento a [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure](../cli-install-nodejs.md).
 
 ## <a name="upload-a-script"></a>Caricamento di uno script
 Si utilizzerà l'estensione CustomScript per eseguire uno script in una macchina virtuale remota per installare lo stack LAMP e creare una pagina PHP. Per accedere ovunque ci si trovi, lo script viene caricato come blob di Azure.
@@ -105,10 +106,5 @@ Di seguito sono riportate alcune risorse aggiuntive per l’interfaccia della ri
 [Estensioni per Linux di Azure (GitHub)](https://github.com/Azure/azure-linux-extensions)
 
 [Computing Linux e open source in Azure](virtual-machines-linux-opensource-links.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -16,9 +16,9 @@ ms.date: 10/10/2016
 ms.author: richrund
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: 3bb103a8def2e1c56695169568c2d3c64b7f291f
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 844f7d6fa4191a54d14010adf974401d3a94ba69
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -64,6 +64,12 @@ Quando si usa la raccolta basata su agenti per i dati di log, è necessario conf
    ![Connessione effettuata](./media/log-analytics-azure-vm-extension/oms-connect-azure-05.png)
 
 ## <a name="enable-the-vm-extension-using-powershell"></a>Abilitare l'estensione macchina virtuale con PowerShell
+Quando si configura la macchina virtuale con PowerShell, è necessario specificare il **workspaceId**e la **workspaceKey**. Si noti che i nomi di proprietà nella configurazione json fanno distinzione **tra maiuscole e minuscole**.
+
+L'ID e la chiave sono riportati nella pagina **Impostazioni** del portale di OMS o sono reperibili usando PowerShell come illustrato nell'esempio precedente.
+
+![ID area di lavoro e chiave primaria](./media/log-analytics-azure-vm-extension/oms-analyze-azure-sources.png)
+
 I comandi per le macchine virtuali classiche di Azure e per le macchine virtuali di Resource Manager sono diversi. Di seguito sono riportati esempi sia per le macchine virtuali classiche che per quelle di Resource Manager.
 
 Per le macchine virtuali classiche usare l'esempio di PowerShell seguente:
@@ -115,9 +121,6 @@ $location = $vm.Location
 
 
 ```
-Quando si configura la macchina virtuale con PowerShell, è necessario specificare l'**ID area di lavoro**e la **chiave primaria**. L'ID e la chiave sono riportati nella pagina **Impostazioni** del portale di OMS o sono reperibili usando PowerShell come illustrato nell'esempio precedente.
-
-![ID area di lavoro e chiave primaria](./media/log-analytics-azure-vm-extension/oms-analyze-azure-sources.png)
 
 ## <a name="deploy-the-vm-extension-using-a-template"></a>Distribuire l'estensione macchina virtuale usando un modello
 Azure Resource Manager consente di creare un modello semplice (in formato JSON) che definisce la distribuzione e la configurazione dell'applicazione. Questo modello è noto come modello di Resource Manager e permette di definire la distribuzione in modo dichiarativo. Usando un modello, è possibile distribuire ripetutamente l'applicazione in tutto il ciclo di vita dell'app avendo la certezza che le risorse verranno distribuite in uno stato coerente.
@@ -363,7 +366,20 @@ Di seguito è riportato un modello di Resource Manager di esempio usato per dist
 New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath
 ```
 
-## <a name="troubleshooting-windows-virtual-machines"></a>Risoluzione dei problemi delle macchine virtuali Windows
+## <a name="troubleshooting-the-log-analytics-vm-extension"></a>Risoluzione dei problemi relativi all'estensione della VM di Log Analytics
+In genere si riceverà un messaggio quando si verifica un malfunzionamento dal portale Azure o da Azure PowerShell.
+
+1. Accedere al [portale di Azure](http://portal.azure.com).
+2. Individuare la VM e aprire i relativi dettagli.
+3. Fare clic su **Estensioni** per verificare se l'estensione OMS è abilitata o disabilitata.
+
+   ![Visualizzazione dell'estensione della VM](./media/log-analytics-azure-vm-extension/oms-vmview-extensions.png)
+
+4. Fare clic sull'estensione *MicrosoftMonitoringAgent*(Windows) o *OmsAgentForLinux* (Linux) e visualizzare i dettagli. 
+
+   ![Dettagli dell'estensione VM](./media/log-analytics-azure-vm-extension/oms-vmview-extensiondetails.png)
+
+### <a name="troubleshooting-windows-virtual-machines"></a>Risoluzione dei problemi delle macchine virtuali Windows
 Se l'estensione dell'agente di macchine virtuali *Microsoft Monitoring Agent* non viene installata o non segnala dati, è possibile seguire queste procedure per risolvere il problema.
 
 1. Controllare che l'agente di macchine virtuali di Azure sia installato e funzioni correttamente seguendo la procedura descritta nell'articolo [KB 2965986](https://support.microsoft.com/kb/2965986#mt1).
@@ -383,7 +399,7 @@ Se l'estensione dell'agente di macchine virtuali *Microsoft Monitoring Agent* no
 
 Per altre informazioni, vedere l'articolo relativo alla [risoluzione dei problemi delle estensioni Windows](../virtual-machines/virtual-machines-windows-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a name="troubleshooting-linux-virtual-machines"></a>Risoluzione dei problemi delle macchine virtuali Linux
+### <a name="troubleshooting-linux-virtual-machines"></a>Risoluzione dei problemi delle macchine virtuali Linux
 Se l'estensione dell'agente di macchine virtuali per l'*agente OMS per Linux* non viene installata o non segnala dati, è possibile seguire queste procedure per risolvere il problema.
 
 1. Se lo stato dell'estensione è *Sconosciuto*, controllare che l'agente di macchine virtuali di Azure sia installato e funzioni correttamente esaminando il relativo file di log `/var/log/waagent.log`

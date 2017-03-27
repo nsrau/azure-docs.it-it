@@ -1,5 +1,5 @@
 ---
-title: 'T-SQL: gestire un pool elastico di database SQL di Azure | Documentazione Microsoft'
+title: 'T-SQL: gestire un pool elastico di database SQL di Azure | Microsoft Docs'
 description: Usare T-SQL per gestire un pool elastico di database SQL di Azure.
 services: sql-database
 documentationcenter: 
@@ -16,14 +16,14 @@ ms.workload: data-management
 ms.date: 05/27/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 6453cca9f876e6c363fbed463263c0f9684a3e70
-ms.openlocfilehash: 11b1a6dd9ecaaa3abaf088b1fed73aae783252f5
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: a3acd5f4ec63061254b550737ae9fb4d39b343c6
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="monitor-and-manage-an-elastic-pool-with-transact-sql"></a>Monitorare e gestire un pool elastico con Transact-SQL
-Questo argomento illustra come gestire [pool elastici](sql-database-elastic-pool.md) scalabili con Transact-SQL.  È anche possibile creare e gestire un pool elastico di Azure tramite il [portale di Azure](https://portal.azure.com/), [PowerShell](sql-database-elastic-pool-manage-powershell.md), l'API REST o [C#][Creare e gestire un pool elastico con C#](sql-database-elastic-pool-manage-csharp.md). È anche possibile creare e spostare database verso e dai pool elastici usando [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
+Questo argomento illustra come gestire [pool elastici](sql-database-elastic-pool.md) scalabili con Transact-SQL.  È anche possibile creare e gestire un pool elastico di Azure con il [portale di Azure](https://portal.azure.com/), [PowerShell](sql-database-elastic-pool-manage-powershell.md), l'API REST o [C#](sql-database-elastic-pool-manage-csharp.md). È anche possibile creare e spostare database verso e dai pool elastici usando [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
 
 
 Usare i comandi [Create Database (database SQL di Azure)](https://msdn.microsoft.com/library/dn268335.aspx) e [Alter Database (database SQL di Azure)](https://msdn.microsoft.com/library/mt574871.aspx) per creare e spostare i database all'interno e all'esterno di pool elastici. Il pool elastico deve essere già disponibile per poter usare questi comandi, che hanno effetto solo sui database. La creazione di nuovi pool e l'impostazione delle proprietà dei pool, ad esempio eDTU min/max, non possono essere modificate con i comandi T-SQL.

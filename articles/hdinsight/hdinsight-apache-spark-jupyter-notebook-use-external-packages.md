@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 2a8bc545-064e-436f-8b5f-e67c26cfbf98
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: 2dd0d456d0c6b1c83a409fead63dacff26c03198
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -97,7 +99,7 @@ In questo articolo si apprenderà a usare il pacchetto [spark-csv](http://search
    
         df.select("Time").count()
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Vedere anche
+## <a name="seealso"></a>Vedere anche
 * [Panoramica: Apache Spark su Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenari
@@ -123,10 +125,5 @@ In questo articolo si apprenderà a usare il pacchetto [spark-csv](http://search
 ### <a name="manage-resources"></a>Gestire risorse
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-job-debugging.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

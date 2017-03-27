@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 03/07/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 38c7ea11091bb65432589df4d72e5efef3cb7ea3
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 612b58db48e160cb1b4cfef1f8f4c2b203061064
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -39,7 +39,7 @@ In questa sezione viene illustrato come creare un progetto in Visual Studio e co
 
 Questa sezione illustra come usare **NuGet** per aggiungere Media Services .NET SDK e altre librerie dipendenti.
 
-In alternativa, è possibile ottenere i bit più recenti di Media Services .NET SDK da GitHub ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) e [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), compilare la soluzione e quindi aggiungere i riferimenti al progetto client. Si noti che tutte le dipendenze necessarie vengono scaricate ed estratte automaticamente.
+In alternativa, è possibile ottenere i bit più recenti di Media Services .NET SDK da GitHub ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) o [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), compilare la soluzione e quindi aggiungere i riferimenti al progetto client. Tutte le dipendenze necessarie vengono scaricate ed estratte automaticamente.
 
 1. Creare una nuova applicazione console C# in Visual Studio. Immettere un valore nei campi **Nome**, **Percorso** e **Nome soluzione**, quindi fare clic su OK.
 2. Compilare la soluzione.

@@ -1,5 +1,5 @@
 ---
-title: Prestazioni del database SQL di Azure per i singoli database | Documentazione Microsoft
+title: Prestazioni del database SQL di Azure per i singoli database | Microsoft Docs
 description: "Questo articolo può essere utile per determinare il livello di servizio da scegliere per l&quot;applicazione. Illustra anche come ottimizzare l&quot;applicazione per ottenere il massimo dal database SQL di Azure."
 services: sql-database
 documentationcenter: na
@@ -13,30 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 02/09/2017
+ms.date: 03/06/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 12da8c9f7b55a8758d7f4bf743cd85e493fb24b9
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: a9d496d696298d800bc40b1f3880c95f84e5f29f
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="azure-sql-database-and-performance-for-single-databases"></a>Database SQL di Azure e prestazioni per i singoli database
-Il database SQL di Azure offre tre [livelli di servizio](sql-database-service-tiers.md): Basic, Standard e Premium. Ogni livello di servizio isola rigorosamente le risorse che possono essere usate dal database SQL e assicura prestazioni prevedibili per tale livello di servizio. In questo articolo sono disponibili indicazioni utili per scegliere il livello di servizio per l'applicazione. Viene illustrato anche come ottimizzare l'applicazione per ottenere il massimo dal database SQL di Azure.
+Il database SQL di Azure offre quattro [livelli di servizio](sql-database-service-tiers.md): Basic, Standard, Premium e Premium RS. Ogni livello di servizio isola rigorosamente le risorse che possono essere usate dal database SQL e assicura prestazioni prevedibili per tale livello di servizio. In questo articolo sono disponibili indicazioni utili per scegliere il livello di servizio per l'applicazione. Viene illustrato anche come ottimizzare l'applicazione per ottenere il massimo dal database SQL di Azure.
 
 > [!NOTE]
 > Questo articolo è incentrato sulle indicazioni relative alle prestazioni per singoli database nel database SQL di Azure. Per indicazioni sulle prestazioni relative ai pool elastici, vedere le [considerazioni su prezzo e prestazioni per i pool elastici](sql-database-elastic-pool-guidance.md). Si noti, tuttavia, che molte raccomandazioni sull'ottimizzazione contenute in questo articolo possono essere applicate ai database in un pool elastico ottenendo vantaggi simili a livello di prestazioni.
 > 
 > 
-
-Ecco i tre livelli di servizio del database SQL di Azure disponibili. Le prestazioni vengono misurate in base a unità [DTU](sql-database-what-is-a-dtu.md) (Database Throughput Unit):
-
-* **Basic**. Il livello di servizio Basic offre una prevedibilità di prestazioni soddisfacente per ogni database calcolata a intervalli di un'ora ciascuno. In un database Basic una quantità di risorse sufficiente supporta prestazioni ottimali in un database di piccole dimensioni senza richieste simultanee multiple.
-* **Standard**. Il livello di servizio Standard offre una migliore prevedibilità delle prestazioni e fornisce prestazioni adeguate per i database con più richieste simultanee, quali gruppi di lavoro e applicazioni Web. Quando si sceglie un database con livello di servizio Standard, è possibile ridimensionare le applicazioni di database in base alle prestazioni prevedibili minuto per minuto.
-* **Premium**. Il livello di servizio Premium offre una prevedibilità delle prestazioni calcolata secondo per secondo per ogni database Premium. Quando si sceglie il livello di servizio Premium, è possibile ridimensionare l'applicazione di database in base al picco di carico per il database specifico. Il piano rimuove i casi in cui la varianza di prestazione può provocare un'esecuzione più lunga del previsto per query di piccole dimensioni in operazioni sensibili alla latenza. Questo modello può semplificare notevolmente i cicli di sviluppo e di convalida del prodotto per applicazioni per cui occorre fare dichiarazioni forti sulle esigenze di risorse relative ai picchi, sulla varianza di prestazioni o sulla latenza di query.
-
-È possibile configurare il livello di prestazioni per ogni livello di servizio. Questa flessibilità consente di pagare solo la capacità necessaria. È possibile [regolare la capacità](sql-database-service-tiers.md), in base alle modifiche del carico di lavoro. Ad esempio, se il carico di lavoro del database è intenso durante il periodo di acquisti per il ritorno a scuola, è possibile aumentare il livello di prestazioni per il database per un periodo specifico, da luglio a settembre. È quindi possibile ridurlo al termine del picco stagionale. È possibile ridurre al minimo i costi del servizio ottimizzando l'ambiente cloud in base alla stagionalità della propria attività. Questo modello è adatto anche per i cicli di rilascio di prodotti software. Un team di test può allocare la capacità durante l'esecuzione di test e quindi rilasciare tale capacità al termine dei test. In un modello basato sulla richiesta di capacità, si paga la capacità necessaria, evitando i costi per risorse dedicate usate raramente.
 
 ## <a name="why-service-tiers"></a>Vantaggi dei livelli di servizio
 Anche se ogni carico di lavoro può presentare caratteristiche diverse, lo scopo dei livelli di servizio è offrire la prevedibilità delle prestazioni a diversi livelli. I clienti con requisiti di risorse di database su larga scala possono operare in un ambiente di calcolo più dedicato.
@@ -56,12 +48,18 @@ La maggior parte dei casi d'uso del livello di servizio Premium presenta una o p
 * **Molte richieste simultanee**. Alcune applicazioni di database gestiscono molte richieste simultanee, ad esempio durante l'utilizzo di un sito Web con un elevato volume di traffico. Per i livelli di servizio Basic e Standard sono previsti limiti al numero di richieste simultanee per ogni database. Per le applicazioni per cui sono richieste più connessioni devono essere selezionate dimensioni di prenotazione appropriate per gestire il numero massimo di richieste necessarie.
 * **Bassa latenza**. Alcune applicazioni devono garantire una risposta dal database in tempi minimi. Se una stored procedure specifica viene chiamata durante un'operazione più ampia del cliente, potrebbe essere necessario che la risposta alla chiamata in questione venga assicurata in non più di 20 millisecondi nel 99% dei casi. Questo tipo di applicazione trarrà vantaggio dal livello di servizio Premium per assicurare la disponibilità della potenza di calcolo necessaria.
 
+* **Premium RS**. Progettato per i clienti con carichi di lavoro con un numero elevato di operazioni di I/O, ma che non richiedono una garanzia di disponibilità massima. Gli esempi includono test di carichi di lavoro ad alte prestazioni e carichi di lavoro di analisi in cui il database non è il sistema di registrazione.
+
 Il livello di servizio esatto necessario per il database SQL dipende dai requisiti del carico massimo per ogni dimensione di risorsa. È possibile che alcune applicazioni usino quantità irrilevanti di una singola risorsa, ma abbiano requisiti significativi per altre.
 
 ## <a name="service-tier-capabilities-and-limits"></a>Limiti e funzionalità dei livelli di servizio
 Ogni livello di servizio e prestazione è associato a limiti e caratteristiche di prestazione differenti. La tabella descrive queste caratteristiche per un singolo database.
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
+
+> [!IMPORTANT]
+> I clienti che scelgono livelli di prestazioni P11 e P15 possono usare fino a 4 TB di spazio di archiviazione incluso senza alcun costo aggiuntivo. L'opzione 4 TB è attualmente in anteprima pubblica nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti occidentali, Europa occidentale, Asia sud-orientale, Giappone orientale, Australia orientale, Canada centrale e Canada orientale. Per altre informazioni, vedere le [limitazioni correnti per l'opzione 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize).
+>
 
 ### <a name="maximum-in-memory-oltp-storage"></a>Archiviazione di OLTP in memoria massima
 Per monitorare l'uso dell'archiviazione in memoria di Azure è possibile usare la vista **sys.dm_db_resource_stats**. Per altre informazioni sul monitoraggio, vedere [Monitorare l'archiviazione OLTP in memoria](sql-database-in-memory-oltp-monitoring.md).
@@ -189,7 +187,7 @@ L'esempio successivo mostra i diversi modi in cui è possibile usare la vista de
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
 3. Con queste informazioni sui valori medi e massimi di ogni metrica delle risorse è possibile valutare l'idoneità del livello di prestazioni scelto in rapporto al carico di lavoro. I valori medi di **sys.resource_stats** offrono in genere una buona baseline da usare nelle dimensioni di destinazione. Deve trattarsi dello strumento di misurazione principale. È ad esempio possibile che si usi il livello di servizio Standard con il livello di prestazioni S2. Le percentuali medie di uso per la CPU e per operazioni di scrittura e lettura I/O sono inferiori al 40%, il numero medio di thread di lavoro è inferiore a 50 e il numero medio di sessioni è inferiore a 200. Il carico di lavoro potrebbe essere idoneo per il livello di prestazioni S1. È facile verificare se il database rientra nei limiti dei thread di lavoro e delle sessioni. Per verificare se un database può rientrare in un livello di prestazioni inferiore prendendo in considerazione la CPU e le operazioni di lettura e scrittura, è sufficiente dividere il numero di DTU del livello di prestazioni inferiore per il numero di DTU del livello di prestazioni corrente e moltiplicare il risultato per 100:
    
-    **S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40**
+    **S1 DTU / S2 DTU * 100 = 20 / 50* 100 = 40**
    
     Il risultato rappresenta la differenza di prestazioni relativa, in percentuale, tra i due livelli di prestazioni. Se l'uso delle risorse non supera questa quantità, il carico di lavoro potrebbe essere idoneo per il livello di prestazioni inferiore. È tuttavia necessario esaminare anche tutti gli intervalli dei valori di uso delle risorse e determinare, a livello di percentuale, la frequenza con cui il carico di lavoro del database può rientrare nel livello di prestazioni inferiore. La query seguente genera questa percentuale per ogni dimensione di risorsa, in base alla soglia del 40% calcolata in questo esempio:
    

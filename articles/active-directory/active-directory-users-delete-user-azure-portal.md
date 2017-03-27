@@ -17,6 +17,7 @@ ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: d33da5ca6cf1768fc7ca6d9f2035be7edbb8ad36
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -42,9 +43,4 @@ Questo articolo illustra come eliminare un utente da una directory in anteprima 
 * [Assegnare un utente ai ruoli di amministratore in anteprima di Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * [Aggiungere o modificare informazioni sul profilo per un utente in anteprima di Azure Active Directory](active-directory-users-work-info-azure-portal.md)
 * [Eliminare un utente da una directory in anteprima di Azure Active Directory](active-directory-users-profile-azure-portal.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

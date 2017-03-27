@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 59be15f2d17bbcbc4db6dd9d291cb1ea5991db2e
-ms.openlocfilehash: a753ac16e3329c85656682314824eb14ad8a4e52
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 86ba122b406d8a3d633184982fbacab078d7c0d1
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/01/2017
 
 Questa pagina è stata visualizzata perché si è verificato un problema durante l'uso del portale App personali. Vi sono casi in cui viene è necessario contattare il supporto tecnico o l'amministratore per la risoluzione di un problema. In questo argomento sono presenti passaggi relativi alle domande più comuni che è possibile provare prima autonomamente. 
 
-Per informazioni sulla gestione delle password, provare [questo](active-directory-passwords-update-your-own-password.md).
+Per informazioni sulla gestione delle password, provare [questo](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).#how-to-reset-your-password).
   
 
 ## <a name="what-is-the-myapps-portal"></a>Che cos'è il portale App personali?
@@ -49,7 +49,7 @@ Per informazioni sulla gestione delle password, provare [questo](active-director
 3.    Digitare la vecchia password, quindi digitare una nuova password e confermarla.
 4.    Fare clic su **Submit**.
 
-Per maggiori informazioni, vedere [Come aggiornare la password](active-directory-passwords-update-your-own-password.md).
+Per maggiori informazioni, vedere [Come aggiornare la password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 
 
 ## <a name="how-do-i-setup-password-reset"></a>Come si configura la reimpostazione della password?

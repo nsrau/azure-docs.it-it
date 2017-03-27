@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/18/2017
+ms.date: 03/15/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 5aa0677e6028c58b7a639f0aee87b04e7bd233a0
-ms.openlocfilehash: 2093c6220ea01a83b7e43b3084d13b719feca3ca
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: b31ecb83665208151e48f81e6148928bbf21d1b5
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -48,6 +49,7 @@ In questo argomento sono descritti i codici di errore seguenti:
 * [Authorization failed](#authorization-failed)
 * [BadRequest](#badrequest)
 * [DeploymentFailed](#deploymentfailed)
+* [DisallowedOperation](#disallowedoperation)
 * [InvalidContentLink](#invalidcontentlink)
 * [InvalidTemplate](#invalidtemplate)
 * [MissingSubscriptionRegistration](#noregisteredproviderfound)
@@ -122,6 +124,40 @@ Questo errore viene visualizzato quando lo SKU della risorsa selezionato, ad ese
   ```
 
 Se non si riesce a trovare uno SKU appropriato in tale area o un'area alternativa che soddisfi le esigenze aziendali, contattare il [supporto di Azure](https://portal.azure.com/#create/Microsoft.Support).
+
+### <a name="disallowedoperation"></a>DisallowedOperation
+
+```
+Code: DisallowedOperation
+Message: The current subscription type is not permitted to perform operations on any provider 
+namespace. Please use a different subscription.
+```
+
+Se viene visualizzato questo errore, si sta usando una sottoscrizione a cui non è consentito accedere a nessun altro servizio di Azure tranne Azure Active Directory. Questo tipo di sottoscrizione può essere in uso quando è necessario accedere al portale classico, ma non è consentito distribuire le risorse. Per risolvere questo problema, è necessario usare una sottoscrizione con l'autorizzazione a distribuire le risorse.  
+
+Per visualizzare le sottoscrizioni disponibili con PowerShell, usare:
+
+```powershell
+Get-AzureRmSubscription
+```
+
+Per impostare la sottoscrizione corrente, usare:
+
+```powershell
+Set-AzureRmContext -SubscriptionName {subscription-name}
+```
+
+Per visualizzare le sottoscrizioni disponibili con l'interfaccia della riga di comando di Azure 2.0, usare:
+
+```azurecli
+az account list
+```
+
+Per impostare la sottoscrizione corrente, usare:
+
+```azurecli
+az account set --subscription {subscription-name}
+```
 
 ### <a name="invalidtemplate"></a>InvalidTemplate
 Questo errore può essere causato da diversi tipi di errori.
@@ -387,19 +423,19 @@ Per ottenere le versioni di API supportate per un tipo di risorsa particolare è
 Per vedere se il provider è registrato, usare il comando `azure provider list` .
 
 ```azurecli
-azure provider list
+az provider list
 ```
 
 Per registrare un provider di risorse, usare il comando `azure provider register` e specificare lo *spazio dei nomi* per la registrazione.
 
 ```azurecli
-azure provider register Microsoft.Cdn
+az provider register --namespace Microsoft.Cdn
 ```
 
-Per visualizzare le versioni di API e i percorsi supportati per un provider di risorse, usare:
+Per visualizzare le versioni di API e i percorsi supportati per un tipo di risorsa, usare:
 
 ```azurecli
-azure provider show -n Microsoft.Compute --json > compute.json
+az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
 <a id="quotaexceeded" />
@@ -410,18 +446,23 @@ Per informazioni complete sulle quote, vedere [Sottoscrizione di Azure e limiti,
 Per esaminare le quote per i core della sottoscrizione, è possibile usare il comando `azure vm list-usage` nell'interfaccia della riga di comando di Azure. L'esempio seguente mostra che la quota di core per un account della versione di valutazione gratuita è quattro:
 
 ```azurecli
-azure vm list-usage
+az vm list-usage --location "South Central US"
 ```
 
 Che restituisce:
 
 ```azurecli
-info:    Executing command vm list-usage
-Location: westus
-data:    Name   Unit   CurrentValue  Limit
-data:    -----  -----  ------------  -----
-data:    Cores  Count  0             4
-info:    vm list-usage command OK
+[
+  {
+    "currentValue": 0,
+    "limit": 2000,
+    "name": {
+      "localizedValue": "Availability Sets",
+      "value": "availabilitySets"
+    }
+  },
+  ...
+]
 ```
 
 Se si distribuisce un modello che crea più di quattro core nell'area Stati Uniti occidentali, verrà visualizzato un errore di distribuzione come il seguente:
@@ -479,13 +520,13 @@ Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/p
 e specificarlo in **PowerShell** come parametro **Id** per recuperare i dettagli relativi al criterio che ha bloccato la distribuzione.
 
 ```powershell
-(Get-AzureRmPolicyAssignment -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
+(Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 ```
 
-Nell'**interfaccia della riga di comando di Azure** specificare il nome della definizione del criterio:
+Nell'**interfaccia della riga di comando di Azure 2.0** specificare il nome della definizione del criterio:
 
 ```azurecli
-azure policy definition show regionPolicyDefinition --json
+az policy definition show --name regionPolicyAssignment
 ```
 
 Per altre informazioni sui criteri, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
@@ -522,21 +563,13 @@ Per informazioni importanti sulle modalità di elaborazione della distribuzione,
 
    Queste informazioni consentono di stabilire se nel modello sia impostato un valore errato.
 
-- Interfaccia della riga di comando di Azure
+- Interfaccia della riga di comando di Azure 2.0
 
-   Nell'interfaccia della riga di comando di Azure impostare il parametro **--debug-setting** su All, ResponseContent o RequestContent.
-
-  ```azurecli
-  azure group deployment create --debug-setting All -f c:\Azure\Templates\storage.json -g examplegroup -n ExampleDeployment
-  ```
-
-   Esaminare il contenuto della richiesta e della risposta registrate con il comando seguente:
+   Esaminare le operazioni di distribuzione con il comando seguente:
 
   ```azurecli
-  azure group deployment operation list --resource-group examplegroup --name ExampleDeployment --json
+  az group deployment operation list --resource-group ExampleGroup --name vmlinux
   ```
-
-   Queste informazioni consentono di stabilire se nel modello sia impostato un valore errato.
 
 - Modello annidato
 
@@ -662,7 +695,7 @@ La tabella seguente elenca gli argomenti sulla risoluzione dei problemi di altri
 | Automazione |[Suggerimenti sulla risoluzione dei problemi relativi agli errori comuni in Automazione di Azure](../automation/automation-troubleshooting-automation-errors.md) |
 | Azure Stack |[Microsoft Azure Stack troubleshooting (Risoluzione dei problemi di Microsoft Azure Stack)](../azure-stack/azure-stack-troubleshooting.md) |
 | Data factory |[Risolvere i problemi di Data factory](../data-factory/data-factory-troubleshoot.md) |
-| Service Fabric |[Risolvere i problemi comuni quando si distribuiscono servizi in Azure Service Fabric](../service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md) |
+| Service Fabric |[Monitorare e diagnosticare le applicazioni di Azure Service Fabric](../service-fabric/service-fabric-diagnostics-overview.md) |
 | Site Recovery |[Monitorare e risolvere i problemi di protezione per le macchine virtuali e i server fisici](../site-recovery/site-recovery-monitoring-and-troubleshooting.md) |
 | Archiviazione |[Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione di Microsoft Azure](../storage/storage-monitoring-diagnosing-troubleshooting.md) |
 | StorSimple |[Risoluzione dei problemi di distribuzione del dispositivo StorSimple](../storsimple/storsimple-troubleshoot-deployment.md) |
@@ -672,9 +705,4 @@ La tabella seguente elenca gli argomenti sulla risoluzione dei problemi di altri
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sulle azioni di controllo, vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).
 * Per altre informazioni sulle azioni che consentono di determinare gli errori di distribuzione, vedere [Visualizzare le operazioni di distribuzione con il portale di Azure](resource-manager-deployment-operations.md).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

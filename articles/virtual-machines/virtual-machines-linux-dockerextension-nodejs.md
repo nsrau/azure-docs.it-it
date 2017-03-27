@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 722c867f00628731f4001b050c5f4df0f2f21db7
-ms.openlocfilehash: bdbd2323b1fda2b4e4b4d3ce6755b04cec03085b
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a6230ae2e9b22655988cd25e5f3660bf1bc214d7
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -44,7 +44,7 @@ I modelli di Azure Resource Manager definiscono l'intera struttura dell'ambiente
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Distribuire un modello con l'estensione di VM Docker di Azure
 Usare un modello di avvio rapido esistente per creare una macchina virtuale Ubuntu che usa l'estensione di VM Docker di Azure per installare e configurare l'host Docker. Per visualizzare il modello, vedere [Distribuzione semplice di una VM Ubuntu con Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). 
 
-È necessario installare e registrare l'[interfaccia della riga di comando Azure più recente](../xplat-cli-install.md) usando la modalità di Resource Manager nel modo seguente:
+È necessario installare e registrare l'[interfaccia della riga di comando Azure più recente](../cli-install-nodejs.md) usando la modalità di Resource Manager nel modo seguente:
 
 ```azurecli
 azure config mode arm

@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 12/21/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 1aeb983730f732a021b828c658cc741f8659c487
-ms.openlocfilehash: c17b96fa5d37a8cfbb0b6a5c026891cb84523fac
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 8df7eff135b6cb316562a503bb938b051d87562f
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -136,7 +136,7 @@ azure vm extension set myResourceGroup myVM \
 ```
 
 ## <a name="use-the-azure-cli-10"></a>Usare l'interfaccia della riga di comando di Azure 1.0
-Se necessario, [installare l'interfaccia della riga di comando di Azure 1.0 e connettersi alla sottoscrizione di Azure](../xplat-cli-install.md). Verificare di usare la modalità di Resource Manager come indicato di seguito:
+Se necessario, [installare l'interfaccia della riga di comando di Azure 1.0 e connettersi alla sottoscrizione di Azure](../cli-install-nodejs.md). Verificare di usare la modalità di Resource Manager come indicato di seguito:
 
 ```azurecli
 azure config mode arm

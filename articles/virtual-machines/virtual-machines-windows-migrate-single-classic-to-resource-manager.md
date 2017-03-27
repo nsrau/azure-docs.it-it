@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/05/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
-ms.openlocfilehash: a46db1815b84f0ecf93c805f3ea36e4e3d4282ac
-ms.lasthandoff: 02/11/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 42d9e68c3c18d04c02ab818d84a653ece811fc52
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -27,14 +27,6 @@ ms.lasthandoff: 02/11/2017
 
 
 Questa sezione illustra come eseguire la migrazione di una macchina virtuale di Azure esistente dal modello di distribuzione classica a [Managed Disks](../storage/storage-managed-disks-overview.md) nel modello di distribuzione di Resource Manager.
-
-## <a name="before-you-begin"></a>Prima di iniziare
-Se si usa PowerShell, verificare di disporre della versione più recente del modulo di PowerShell AzureRM.Compute. Eseguire il comando seguente per installarlo.
-
-```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
-```
-Per altre informazioni, vedere [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning) (Controllo delle versioni di Azure PowerShell).
 
 
 ## <a name="plan-for-the-migration-to-managed-disks"></a>Pianificare la migrazione a Managed Disks
@@ -48,7 +40,7 @@ Selezionare una posizione in cui Azure Managed Disks è disponibile. Se si esegu
 
 ### <a name="vm-sizes"></a>Dimensioni delle macchine virtuali
 
-Se si sta eseguendo la migrazione a Managed Disks Premium, sarà necessario aggiornare le dimensioni della macchina virtuale alle dimensioni di Archiviazione Premium disponibili nell'area in cui si trova la macchina virtuale stessa. Esaminare le dimensioni delle macchine virtuali in grado di supportare Archiviazione Premium. Le specifiche delle dimensioni delle VM di Azure sono elencate in [Dimensioni delle macchine virtuali](virtual-machines-windows-sizes.md).
+Se si sta eseguendo la migrazione a Managed Disks Premium, sarà necessario aggiornare le dimensioni della macchina virtuale alle dimensioni di Archiviazione Premium disponibili nell'area in cui si trova la VM. Esaminare le dimensioni delle macchine virtuali in grado di supportare Archiviazione Premium. Le specifiche delle dimensioni delle VM di Azure sono elencate in [Dimensioni delle macchine virtuali](virtual-machines-windows-sizes.md).
 Esaminare le caratteristiche delle prestazioni delle Macchine virtuali che usano Archiviazione Premium e scegliere le dimensioni delle VM maggiormente indicate per i propri carichi di lavoro. Assicurarsi che nella macchina virtuale sia disponibile larghezza di banda sufficiente per gestire il traffico dei dischi.
 
 ### <a name="disk-sizes"></a>Dimensione disco
@@ -65,7 +57,7 @@ Esaminare le caratteristiche delle prestazioni delle Macchine virtuali che usano
 
 **Managed Disks Standard**
 
-Esistono cinque tipi di dischi gestiti della versione Standard utilizzabili con la macchina virtuale. Si differenziano per capacità ma presentano gli stessi limiti IOP e di velocità effettiva. Scegliere il tipo di disco gestito della versione Standard in base alle esigenze in termini di capacità dell'applicazione.
+Esistono cinque tipi di dischi gestiti della versione Standard che possono essere usati con la macchina virtuale. Si differenziano per capacità ma presentano gli stessi limiti IOP e di velocità effettiva. Scegliere il tipo di disco gestito della versione Standard in base alle esigenze in termini di capacità dell'applicazione.
 
 | Tipo di disco Standard  | S4               | S6               | S10              | S20              | S30              |
 |---------------------|------------------|------------------|------------------|------------------|------------------|
@@ -81,7 +73,7 @@ Per impostazione predefinita, il criterio di memorizzazione nella cache su disco
 
 ### <a name="pricing"></a>Prezzi
 
-Esaminare i [prezzi per Managed Disks](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Il prezzo di Managed Disks Premium è uguale a quello della versione Premium dei dischi non gestiti. Tuttavia, il prezzo di Managed Disks Standard è diverso da quello della versione Standard dei dischi non gestiti.
+Esaminare i [prezzi per Managed Disks](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Il prezzo della versione Premium dei dischi gestiti è uguale a quello della versione Premium dei dischi non gestiti. Tuttavia, il prezzo di Managed Disks Standard è diverso da quello della versione Standard dei dischi non gestiti.
 
 
 ## <a name="checklist"></a>Elenco di controllo

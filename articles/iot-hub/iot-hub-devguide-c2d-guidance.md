@@ -12,19 +12,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2016
+ms.date: 03/09/2017
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: dea438c8b1bd3d6331f84de01def989f66b6f387
-ms.openlocfilehash: 88ae905708a421052666316eb81c1dd97d6c9635
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 65a9815525c612bdfac569e5ec56a1db53d82c78
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Indicazioni sulle comunicazioni da cloud a dispositivo
 L'hub IoT fornisce tre opzioni per le app per dispositivo che consentono di esporre le funzionalità a un'app back-end:
 
-* [Metodi diretti][lnk-methods], per comunicazioni che necessitano di una conferma immediata del risultato, in genere per il controllo interattivo del dispositivo, ad esempio l'accensione di un ventilatore.
+* [Metodi diretti] [ lnk-methods] per le comunicazioni che richiedono la conferma immediata del risultato. I metodi diretti vengono spesso usati per il controllo interattivo dei dispositivi, ad esempio l'accensione di una ventola.
 * [Proprietà desiderate del dispositivo gemello][lnk-twins], per comandi a esecuzione prolungata che consentono di impostare uno stato specifico per il dispositivo, ad esempio per impostare l'intervallo di invio dei dati di telemetria su 30 minuti.
 * [Messaggi da cloud a dispositivo][lnk-c2d], per le notifiche unidirezionali verso l'app per dispositivo.
 
@@ -32,9 +32,9 @@ Ecco un confronto dettagliato delle diverse opzioni di comunicazione da cloud a 
 
 |  | Metodi diretti | Proprietà desiderate del dispositivo gemello | Messaggi da cloud a dispositivo |
 | ---- | ------- | ---------- | ---- |
-| Scenario | Comandi che richiedono una conferma immediata, ad esempio l'accensione di un ventilatore. | Comandi a esecuzione prolungata che consentono di impostare uno stato specifico per il dispositivo, ad esempio per impostare l'intervallo di invio dei dati di telemetria su 30 minuti. | Notifiche unidirezionali verso l'app per dispositivo. |
+| Scenario | Comandi che richiedono una conferma immediata, ad esempio l'accensione di una ventola. | Comandi a esecuzione prolungata che consentono di impostare uno stato specifico per il dispositivo, ad esempio per impostare l'intervallo di invio dei dati di telemetria su 30 minuti. | Notifiche unidirezionali verso l'app per dispositivo. |
 | Flusso di dati | Bidirezionale. L'app per dispositivo può rispondere immediatamente al metodo. Il back-end della soluzione riceve il risultato insieme alla richiesta. | Unidirezionale. L'app per dispositivo riceve una notifica quando la proprietà viene modificata. | Unidirezionale. L'app per dispositivo riceve il messaggio.
-| Durabilità | I dispositivi disconnessi non vengono contattati. Il back-end riceve una notifica che indica che il dispositivo non è connesso. | I valori delle proprietà vengono conservati nel dispositivo gemello. Il dispositivo li leggerà alla riconnessione successiva. I valori delle proprietà possono essere recuperati con il [linguaggio di query dell'hub IoT][lnk-query]. | I messaggi possono essere conservati dall'hub IoT per un massimo di 48 ore. |
+| Durabilità | I dispositivi disconnessi non vengono contattati. Il back-end della soluzione riceve una notifica che indica che il dispositivo non è connesso. | I valori delle proprietà vengono conservati nel dispositivo gemello. Il dispositivo li leggerà alla riconnessione successiva. I valori delle proprietà possono essere recuperati con il [linguaggio di query dell'hub IoT][lnk-query]. | I messaggi possono essere conservati dall'hub IoT per un massimo di 48 ore. |
 | Destinazioni | Singolo dispositivo che usa **deviceId** o più dispositivi che usano [processi][lnk-jobs]. | Singolo dispositivo che usa **deviceId** o più dispositivi che usano [processi][lnk-jobs]. | Singolo dispositivo in base a **deviceId**. |
 | Dimensione | Fino a 8 KB di richieste e 8 KB di risposte. | Le dimensioni massime per le proprietà desiderate sono 8 KB. | Messaggi di un massimo di 64 KB. |
 | Frequenza | Elevata. Per altre informazioni, vedere i [limiti dell'hub IoT][lnk-quotas]. | Media. Per altre informazioni, vedere i [limiti dell'hub IoT][lnk-quotas]. | Bassa. Per altre informazioni, vedere i [limiti dell'hub IoT][lnk-quotas]. |

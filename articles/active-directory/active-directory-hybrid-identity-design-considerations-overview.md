@@ -15,13 +15,20 @@ ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 813d4c5b88796032e0f094b32f4f3ee1ff41eb95
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: b22e34f9ad0644def8a344b261077b44c34420cb
+ms.lasthandoff: 03/09/2017
 
 
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Considerazioni di progettazione dell'identità ibrida di Azure Active Directory 
-I dispositivi basati sull’utente stanno proliferando nel mondo aziendale, e le applicazioni software come servizio (SaaS) basate sul cloud sono facili da utilizzare. Come risultato, mantenere il controllo sull’accesso alle applicazioni degli utenti tra centri dati interni e piattaforme cloud è arduo.  Le soluzioni di gestione delle identità di Microsoft abbracciano funzionalità locali e basate sul cloud, creando una singola identità utente per l’autenticazione e l’autorizzazione per tutte le risorse, indipendentemente dalla loro ubicazione. Tutto questo viene chiamato Identità ibrida. Esistono diverse opzioni di progettazione e configurazione per le identità ibride che utilizzano soluzioni Microsoft e in alcuni casi può essere difficile determinare quale combinazione soddisfa al meglio le necessità dell’organizzazione. Questa Guida alle considerazioni di progettazione dell’entità ibrida aiuta a capire come progettare la soluzione con identità ibrida che soddisfa al meglio le necessità commerciali e tecnologiche dell’organizzazione.  Questa guida presenta una serie di passaggi e attività che possono essere seguiti per progettare una soluzione con identità ibrida che soddisfa i requisiti specifici della propria organizzazione. Nel corso dei passaggi e delle attività, la guida presenta tecnologie rilevanti e opzioni delle funzionalità disponibili per le organizzazioni per soddisfare i requisiti di qualità funzionale e del servizio (come disponibilità, scalabilità, prestazioni, maneggevolezza e sicurezza). In particolare, la finalità della guida alle considerazioni sulla progettazione dell’identità ibrida è quella di rispondere alle seguenti domande: 
+I dispositivi basati sull’utente stanno proliferando nel mondo aziendale, e le applicazioni software come servizio (SaaS) basate sul cloud sono facili da utilizzare. Come risultato, mantenere il controllo sull’accesso alle applicazioni degli utenti tra centri dati interni e piattaforme cloud è arduo.  
+
+Le soluzioni di gestione delle identità di Microsoft abbracciano funzionalità locali e basate sul cloud, creando una singola identità utente per l’autenticazione e l’autorizzazione per tutte le risorse, indipendentemente dalla loro ubicazione. Tutto questo viene chiamato Identità ibrida. Esistono diverse opzioni di progettazione e configurazione per le identità ibride che utilizzano soluzioni Microsoft e in alcuni casi può essere difficile determinare quale combinazione soddisfa al meglio le necessità dell’organizzazione. 
+
+Questa Guida alle considerazioni di progettazione dell’entità ibrida aiuta a capire come progettare la soluzione con identità ibrida che soddisfa al meglio le necessità commerciali e tecnologiche dell’organizzazione.  Questa guida presenta una serie di passaggi e attività che possono essere seguiti per progettare una soluzione con identità ibrida che soddisfa i requisiti specifici della propria organizzazione. Nel corso dei passaggi e delle attività, la guida presenta tecnologie rilevanti e opzioni delle funzionalità disponibili per le organizzazioni per soddisfare i requisiti di qualità funzionale e del servizio (come disponibilità, scalabilità, prestazioni, maneggevolezza e sicurezza). 
+
+In particolare, la finalità della guida alle considerazioni sulla progettazione dell’identità ibrida è quella di rispondere alle seguenti domande: 
 
 * Quali domande e risposte sono necessarie per guidare una specifica progettazione di una identità ibrida che permetta di avere la migliore tecnologia o risoluzione dei problemi in grado di soddisfare i propri requisiti?
 * Quale sequenza di attività deve essere portata a termine per progettare una soluzione con identità ibrida che permetta di avere la migliore tecnologia o risoluzione dei problemi? 
@@ -31,11 +38,15 @@ I dispositivi basati sull’utente stanno proliferando nel mondo aziendale, e le
  CIO, CITO, Chief Identity Architects, Enterprise Architects e IT Architects responsabili per la progettazione di una soluzione con identità ibrida per medie o grandi organizzazioni.
 
 ## <a name="how-can-this-guide-help-you"></a>Come può essere d’aiuto questa guida?
-E’ possibile utilizzare la guida per capire come progettare una soluzione con identità ibrida che possa integrare un sistema di gestione delle identità basato sul cloud alla propria soluzione con identità locale. Il seguente grafico mostra un esempio di soluzione con identità ibrida che permette agli amministratori IT di integrare la propria soluzione Windows Server Active Directory in locale con Microsoft Azure Active Directory per permettere agli utenti di utilizzare Single Sign-On (SSO) nelle applicazioni situate nel cloud e in locale.
+E’ possibile utilizzare la guida per capire come progettare una soluzione con identità ibrida che possa integrare un sistema di gestione delle identità basato sul cloud alla propria soluzione con identità locale. 
+
+Il seguente grafico mostra un esempio di soluzione con identità ibrida che permette agli amministratori IT di integrare la propria soluzione Windows Server Active Directory in locale con Microsoft Azure Active Directory per permettere agli utenti di utilizzare Single Sign-On (SSO) nelle applicazioni situate nel cloud e in locale.
 
 ![](./media/hybrid-id-design-considerations/hybridID-example.png)
 
-L’illustrazione precedente è un esempio di soluzione con identità ibrida che sta spingendo i servizi cloud a integrare funzionalità locali per fornire un’esperienza unica di autenticazione all’utente finale e facilitare l’informatica nella gestione di queste risorse. Sebbene questo possa essere uno scenario molto comune, il progetto di identità ibrida di ogni organizzazione è diverso dall’esempio illustrato nella Figura 1 poiché ogni organizzazione presenta diversi requisiti. Questa guida fornisce una serie di passaggi e attività che possono essere seguiti per progettare una soluzione con identità ibrida che soddisfa i requisiti specifici della propria organizzazione. Nel corso dei passaggi e delle attività, la guida presenta tecnologie rilevanti e opzioni delle funzionalità disponibili per soddisfare i requisiti di qualità delle funzionalità e del servizio della propria organizzazione.
+L’illustrazione precedente è un esempio di soluzione con identità ibrida che sta spingendo i servizi cloud a integrare funzionalità locali per fornire un’esperienza unica di autenticazione all’utente finale e facilitare l’informatica nella gestione di queste risorse. Sebbene questo possa essere uno scenario molto comune, il progetto di identità ibrida di ogni organizzazione è diverso dall’esempio illustrato nella Figura 1 poiché ogni organizzazione presenta diversi requisiti. 
+
+Questa guida fornisce una serie di passaggi e attività che possono essere seguiti per progettare una soluzione con identità ibrida che soddisfa i requisiti specifici della propria organizzazione. Nel corso dei passaggi e delle attività, la guida presenta tecnologie rilevanti e opzioni delle funzionalità disponibili per soddisfare i requisiti di qualità delle funzionalità e del servizio della propria organizzazione.
 
 **Presupposti**: Avere esperienza con Windows Server, Servizi di Dominio di Active Directory e Azure Active Directory. In questo documento, si presuppone che il lettore cerchi il modo in cui queste soluzioni possano soddisfare le proprie necessità commerciali nella propria soluzione o in una soluzione integrata.
 
@@ -52,10 +63,5 @@ Si otterrà il progetto che soddisfa al meglio i propri requisiti solo dopo aver
 
 ## <a name="download-this-guide"></a>Scaricare questa guida
 È possibile scaricare una versione pdf della Guida alle considerazioni sulla progettazione di identità ibride di [raccolta Technet](https://gallery.technet.microsoft.com/Azure-Hybrid-Identity-b06c8288). 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

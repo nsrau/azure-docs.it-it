@@ -13,18 +13,19 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
-ms.author: ronitr; giladm
+ms.date: 2/25/2017
+ms.author: ronitr;giladm
 translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: 2882c41ced74c35e28a9237f3f08b6e6f687b846
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: d1350081aa4f70660802c61a77250496e1e7fc2a
+ms.lasthandoff: 03/10/2017
 
 
 ---
+
 # <a name="configure-and-manage-sql-database-auditing-in-the-azure-portal"></a>Configurare e gestire il controllo del database SQL nel portale di Azure
 
-La sezione seguente descrive come configurare e gestire il controllo usando il portale di Azure. Per configurare e gestire il controllo tramite PowerShell, vedere [Configurare il controllo con PowerShell](sql-database-auditing-powershell.md). Per configurare e gestire il controllo tramite l'API REST, vedere [Configurare il controllo con l'API REST](sql-database-auditing-rest.md).
+La sezione seguente descrive come configurare e gestire il controllo usando il portale di Azure. Per configurare e gestire il controllo tramite PowerShell, vedere [Configurare il controllo con PowerShell](sql-database-auditing-powershell.md). 
 
 Per una panoramica sul del controllo, vedere [Controllo del database SQL](sql-database-auditing.md).
 
@@ -34,34 +35,36 @@ Per una panoramica sul del controllo, vedere [Controllo del database SQL](sql-da
 2. Passare al pannello di configurazione del database SQL/SQL Server che si vuole controllare. Nel pannello Impostazioni selezionare **Controllo e rilevamento delle minacce**.
 
     ![Riquadro di spostamento](./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png)
-3. Nel pannello per la configurazione del controllo del database è possibile selezionare la casella di controllo **Eredita impostazioni di controllo del server** per indicare che il database sarà controllato in base alle impostazioni del relativo server. Se questa opzione è selezionata, viene visualizzato un collegamento per **visualizzare le impostazioni di controllo del server** che consente di visualizzare o modificare le impostazioni di controllo del server da questo contesto.
+3. Nel pannello per la configurazione del controllo del database è possibile selezionare la casella di controllo **Eredita impostazioni di controllo del server** per indicare che il database viene controllato in base alle impostazioni del relativo server. Se questa opzione è selezionata, viene visualizzato il collegamento **Visualizza impostazioni di controllo del server** che consente di visualizzare o modificare le impostazioni di controllo del server da questo contesto.
 
     ![Riquadro di spostamento][2]
 4. Se si vuole abilitare il controllo BLOB a livello di database, in aggiunta o al posto del controllo a livello di server, **deselezionare** l'opzione **Eredita impostazioni di controllo del server**, **attivare** Controllo e scegliere il tipo di controllo **BLOB**.
 
     ![Riquadro di spostamento][3]
-5. Selezionare i **Dettagli di archiviazione** per aprire il pannello di archiviazione dei log di controllo. Selezionare l'account di archiviazione di Azure in cui verranno salvati i log e il periodo di conservazione, dopo il quale verranno eliminati i vecchi log, quindi fare clic su **OK** nella parte inferiore. **Suggerimento:** per sfruttare al massimo i modelli di report preconfigurati, usare lo stesso account di archiviazione per tutti i database controllati.
+5. Selezionare i **Dettagli di archiviazione** per aprire il pannello di archiviazione dei log di controllo. Selezionare l'account di archiviazione di Azure in cui vengono salvati i log e il periodo di conservazione, dopo il quale vengono eliminati i vecchi log, quindi fare clic su **OK** nella parte inferiore. **Suggerimento:** per sfruttare al massimo i modelli di report preconfigurati, usare lo stesso account di archiviazione per tutti i database controllati.
 
     <a id="storage-screenshot"></a>
     ![Riquadro di spostamento][4]
-6. Per personalizzare gli eventi controllati, è possibile usare [PowerShell](sql-database-auditing-powershell.md) o [API REST](sql-database-auditing-rest.md).
-7. Fare clic su **Save**.
+6. Per personalizzare gli eventi controllati, è possibile usare PowerShell o l'API REST.
+7. Dopo aver configurato le impostazioni di controllo, è possibile attivare la nuova funzionalità Rilevamento delle minacce (anteprima) e configurare gli indirizzi di posta elettronica per ricevere gli avvisi di sicurezza. La funzione di Rilevamento delle minacce consente di ricevere avvisi proattivi sulle attività del database anomale che possono indicare potenziali minacce alla protezione. Vedere [Rilevamento delle minacce](sql-database-threat-detection.md) per altre informazioni.
+8. Fare clic su **Save**.
+
 
 ## <a name="table-auditing"></a>Controllo Tabella
 
 > [!IMPORTANT]
-> Prima di impostare il **controllo Tabella** verificare se è in uso un ["Client di livello inferiore"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). Inoltre, se le impostazioni del firewall sono restrittive, tenere presente che l'[endpoint IP del database verrà modificato](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) quando si abilita il controllo Tabella.
+> Prima di impostare il **controllo Tabella** verificare se è in uso un ["Client di livello inferiore"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). Se le impostazioni del firewall sono restrittive, tenere anche presente che l'[endpoint IP del database viene modificato](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) quando si abilita il controllo tabelle.
 >
 
 1. Avviare il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 2. Passare al pannello di configurazione del database SQL/SQL Server che si vuole controllare. Nel pannello Impostazioni selezionare **Controllo e rilevamento minacce** (*[vedere la schermata illustrata nella sezione Controllo BLOB](#auditing-screenshot)*).
-3. Nel pannello per la configurazione del controllo del database è possibile selezionare la casella di controllo **Eredita impostazioni di controllo del server** per indicare che il database sarà controllato in base alle impostazioni del relativo server. Se questa opzione è selezionata, viene visualizzato un collegamento per **visualizzare le impostazioni di controllo del server** che consente di visualizzare o modificare le impostazioni di controllo del server da questo contesto.
+3. Nel pannello per la configurazione del controllo del database è possibile selezionare la casella di controllo **Eredita impostazioni di controllo del server** per indicare che il database viene controllato in base alle impostazioni del relativo server. Se questa opzione è selezionata, viene visualizzato il collegamento **Visualizza impostazioni di controllo del server** che consente di visualizzare o modificare le impostazioni di controllo del server da questo contesto.
 
     ![Riquadro di spostamento][2]
 4. Se si preferisce non ereditare le impostazioni di controllo dal server, **deselezionare** l'opzione **Eredita impostazioni di controllo dal server**, **attivare** Controllo e scegliere il tipo di controllo **Tabella**.
 
     ![Riquadro di spostamento][3-tbl]
-5. Selezionare i **Dettagli di archiviazione** per aprire il pannello di archiviazione dei log di controllo. Selezionare l'account di archiviazione di Azure in cui verranno salvati i log e il periodo di conservazione, dopo il quale verranno eliminati i vecchi log. **Suggerimento:** per sfruttare al meglio i modelli di report preconfigurati, usare lo stesso account di archiviazione per tutti i database controllati (*[vedere la schermata illustrata nella sezione Controllo BLOB](#storage-screenshot)*).
+5. Selezionare i **Dettagli di archiviazione** per aprire il pannello di archiviazione dei log di controllo. Selezionare l'account di archiviazione di Azure in cui vengono salvati i log e il periodo di conservazione, dopo il quale vengono eliminati i vecchi log. **Suggerimento:** per sfruttare al meglio i modelli di report preconfigurati, usare lo stesso account di archiviazione per tutti i database controllati (*[vedere la schermata illustrata nella sezione Controllo BLOB](#storage-screenshot)*).
 6. Fare clic su **Eventi controllati** per personalizzare gli eventi da controllare. Nel pannello Registrazione per evento fare clic su **Operazione riuscita** e **Operazione non riuscita** per registrare tutti gli eventi oppure scegliere singole categorie di eventi.
 
     ![Riquadro di spostamento][5]
@@ -80,10 +83,10 @@ Se si usano database con replica geografica è possibile configurare il controll
 2. **Database secondario**: il controllo BLOB può essere attivato/disattivato solo dalle impostazioni di controllo del database primario.
 
    * Attivare il controllo BLOB nel database primario. Il controllo BLOB deve essere abilitato nello *stesso database primario* e non nel server.
-   * Dopo che il controllo BLOB è stato abilitato nel database primario, risulta abilitato anche nel database secondario.
+   * Dopo che il controllo BLOB è stato abilitato nel database primario, viene abilitato anche nel database secondario.
 
     > [!IMPORTANT]
-    > Per impostazione predefinita, le impostazioni di archiviazione per il database secondario sono identiche a quelle del database primario, e causano traffico tra le aree. È possibile evitare questo problema attivando il controllo BLOB sul server secondario e configurando una risorsa di archiviazione locale nelle impostazioni di archiviazione del server secondario. In questo modo viene ignorato il percorso di archiviazione per il database secondario e di conseguenza ogni database salva i log di controllo in una risorsa di archiviazione locale.  
+    > Per impostazione predefinita, le impostazioni di archiviazione per il database secondario sono identiche a quelle del database primario e generano traffico tra aree. È possibile evitare questo problema abilitando il controllo BLOB sul server secondario e configurando la risorsa di archiviazione locale nelle impostazioni di archiviazione del server secondario. In questo modo viene eseguito l'override del percorso di archiviazione per il database secondario e di conseguenza ogni database salva i log di controllo nella risorsa di archiviazione locale.  
 
 ## <a name="viewing-blob-auditing-logs"></a>Visualizzare log di controllo BLOB
 
@@ -97,7 +100,7 @@ Esistono diversi metodi per visualizzare i log di controllo BLOB:
 
     ![Riquadro di spostamento][10]
 
-    Verrà aperto il pannello Record di controllo in cui sarà possibile visualizzare i log.
+    Viene aperto il pannello Record di controllo in cui sarà possibile visualizzare i log.
 
     - Si può scegliere di visualizzare date specifiche facendo clic su **Filtro** nell'area superiore del pannello Record di controllo
     - È possibile passare dai record di controllo creati da criteri del server ai record di controllo creati dai criteri del database e viceversa
@@ -133,7 +136,7 @@ Esistono diversi metodi per visualizzare i log di controllo Tabella:
 
     ![Riquadro di spostamento][10]
 
-    Verrà aperto il pannello Record di controllo in cui sarà possibile visualizzare i log.
+    Viene aperto il pannello Record di controllo in cui sarà possibile visualizzare i log.
 
     * Si può scegliere di visualizzare date specifiche facendo clic su **Filtro** nell'area superiore del pannello Record di controllo
     * È possibile scaricare e visualizzare i log di controllo in formato Excel facendo clic su **Apri in Excel** nell'area superiore del pannello Record di controllo
@@ -186,7 +189,6 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per configurare e gestire il controllo tramite PowerShell, vedere [Configurare il controllo del database con PowerShell](sql-database-auditing-powershell.md).
-* Per configurare e gestire il controllo tramite l'API REST, vedere [Configurare il controllo con l'API REST](sql-database-auditing-rest.md).
 * Per una panoramica sul del controllo, vedere [Controllo del database](sql-database-auditing.md).
 
 

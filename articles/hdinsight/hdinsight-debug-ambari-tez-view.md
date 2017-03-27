@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 9c39ea56-670b-4699-aba0-0f64c261e411
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,6 +18,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
 ms.openlocfilehash: 0c288989a2b1662bcbec6fd2c74dffaefedc82b8
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -127,10 +129,5 @@ A questo punto, dopo avere appreso come usare la visualizzazione Tez, è possibi
 Per informazioni tecniche più dettagliate su Tez, vedere la [pagina di Tez in Hortonworks](http://hortonworks.com/hadoop/tez/).
 
 Per altre informazioni sull'uso di Ambari con HDInsight, vedere [Gestire i cluster HDInsight usando l'interfaccia utente Web di Ambari](hdinsight-hadoop-manage-ambari.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

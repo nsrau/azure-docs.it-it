@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 68894e75-3ffa-47bd-8982-96cdad38b7d0
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: ef0757914828128ed4edf569aeb3716300b17dee
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -306,7 +308,7 @@ L'output dovrebbe essere simile al seguente:
     004a11a9-0c2c-4bc0-a7d5-2e0ebd947ab9
 
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Vedere anche
+## <a name="seealso"></a>Vedere anche
 * [Panoramica: Apache Spark su Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenari
@@ -340,9 +342,4 @@ L'output dovrebbe essere simile al seguente:
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

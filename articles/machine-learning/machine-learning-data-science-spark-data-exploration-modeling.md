@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 116344308a1173994ec85bcb8a7112ce158f4f60
-ms.openlocfilehash: d4cb0ad3ad88aad6cabc67b32d048da9ed797d07
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 711407f7dd9e6d442e3f04a23962487f4808e8e2
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -51,14 +51,14 @@ La procedura di installazione e il codice forniti in questa procedura dettagliat
 
 ### <a name="spark-16-notebooks"></a>Notebook Spark 1.6
 
-[pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb): fornisce informazioni su come eseguire l'esplorazione dei dati, la modellazione e l'assegnazione del punteggio con diversi algoritmi.
+[pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb): fornisce informazioni su come eseguire l'esplorazione dei dati, la modellazione e l'assegnazione del punteggio con diversi algoritmi.
 
 ### <a name="spark-20-notebooks"></a>Notebook Spark 2.0
 Le attività di classificazione e regressione implementate con un cluster Spark 2.0 si trovano in notebook diversi e il notebook di classificazione usa un dataset diverso:
 
-- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): questo file fornisce informazioni su come eseguire l'esplorazione dei dati, la modellazione e l'assegnazione del punteggio nei cluster Spark 2.0 usando i dati relativi alle corse e alle tariffe dei taxi di NYC descritti [qui](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Questo notebook può essere un buon punto di partenza per esplorare velocemente il codice fornito per Spark 2.0. Per un notebook più dettagliato che analizza i dati dei taxi di NYC, vedere il notebook successivo di questo elenco. Vedere le note dopo l'elenco che confrontano questi notebook. 
-- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): questo file mostra come eseguire la gestione dei dati (Spark SQL e operazioni del frame di dati), l'esplorazione, il modellamento e l'assegnazione del punteggio utilizzando il set di dati delle corse e delle tariffe dei taxi di NYC descritti [qui](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
-- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): questo file mostra come eseguire la gestione dei dati (Spark SQL e operazioni del frame di dati), l'esplorazione, il modellamento e l'assegnazione del punteggio utilizzando il set di dati relativi alle partenze puntuali dei voli del 2011 e 2012 di una compagnia area. Abbiamo integrato il set di dati della compagnia aerea con i dati delle condizioni atmosferiche dell'aeroporto (ad esempio, velocità del vento, temperatura, altitudine e così via) prima del modellamento, in modo da poterli includere nel modello.
+- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): questo file fornisce informazioni su come eseguire l'esplorazione dei dati, la modellazione e l'assegnazione del punteggio nei cluster Spark 2.0 usando i dati relativi alle corse e alle tariffe dei taxi di NYC descritti [qui](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Questo notebook può essere un buon punto di partenza per esplorare velocemente il codice fornito per Spark 2.0. Per un notebook più dettagliato che analizza i dati dei taxi di NYC, vedere il notebook successivo di questo elenco. Vedere le note dopo l'elenco che confrontano questi notebook. 
+- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): questo file mostra come eseguire la gestione dei dati (Spark SQL e operazioni del frame di dati), l'esplorazione, il modellamento e l'assegnazione del punteggio utilizzando il set di dati delle corse e delle tariffe dei taxi di NYC descritti [qui](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
+- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): questo file mostra come eseguire la gestione dei dati (Spark SQL e operazioni del frame di dati), l'esplorazione, il modellamento e l'assegnazione del punteggio utilizzando il set di dati relativi alle partenze puntuali dei voli del 2011 e 2012 di una compagnia area. Abbiamo integrato il set di dati della compagnia aerea con i dati delle condizioni atmosferiche dell'aeroporto (ad esempio, velocità del vento, temperatura, altitudine e così via) prima del modellamento, in modo da poterli includere nel modello.
 
 <!-- -->
 
@@ -76,7 +76,7 @@ Le attività di classificazione e regressione implementate con un cluster Spark 
 <!-- -->
 
 > [!NOTE]
-L'esecuzione dei notebook Spark 2.0 sui dati dei taxi di NYC e sui ritardi dei voli può impiegare 10 minuti o più (in base alla dimensione del cluster HDI). Il primo notebook dell'elenco precedente illustra molti aspetti dell'esplorazione dei dati, della visualizzazione e dell'addestramento del modello ML in un notebook che richiede meno tempo di esecuzione con dataset di NYC ricampionati, in cui i file dei dati di taxi e tariffe sono stati precedentemente uniti: [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) Questo notebook termina in un tempo molto più breve (2-3 minuti) e può essere un buon punto di partenza per esplorare rapidamente il codice fornito per Spark 2.0. 
+L'esecuzione dei notebook Spark 2.0 sui dati dei taxi di NYC e sui ritardi dei voli può impiegare 10 minuti o più (in base alla dimensione del cluster HDI). Il primo notebook dell'elenco precedente illustra molti aspetti dell'esplorazione dei dati, della visualizzazione e dell'addestramento del modello ML in un notebook che richiede meno tempo di esecuzione con dataset di NYC ricampionati, in cui i file dei dati di taxi e tariffe sono stati precedentemente uniti: [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) Questo notebook termina in un tempo molto più breve (2-3 minuti) e può essere un buon punto di partenza per esplorare rapidamente il codice fornito per Spark 2.0. 
 
 <!-- -->
 
@@ -970,7 +970,7 @@ Tempo impiegato per eseguire questa cella: 49,21 secondi.
 ### <a name="gradient-boosting-trees-regression"></a>Regressione tramite alberi con boosting a gradienti
 Il codice riportato in questa sezione illustra come eseguire il training, valutare e salvare un modello di alberi con boosting a gradienti, che consente di prevedere l'importo della mancia per il set di dati relativo alle corse in taxi di NYC.
 
-**Eseguire il training e valutare **
+**Eseguire il training e valutare**
 
     #PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 

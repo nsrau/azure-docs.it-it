@@ -1,5 +1,5 @@
 ---
-title: Installare l&quot;aggiornamento 4 nel dispositivo StorSimple | Documentazione Microsoft
+title: Installare l&quot;aggiornamento 4 nel dispositivo StorSimple | Microsoft Docs
 description: Illustra come installare l&quot;aggiornamento 4 di StorSimple serie 8000 in un dispositivo StorSimple serie 8000.
 services: storsimple
 documentationcenter: NA
@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/06/2017
+ms.date: 03/13/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 988d859e2cc9cd723e23704193b6c3bbdce08379
-ms.openlocfilehash: 976aa382e34cdc417a79b513c0e8e063b30d9e01
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 3457601f1d295d17d50725ec19cae96ae6efb5b6
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -85,7 +85,7 @@ Potrebbe essere necessario anche installare gli aggiornamenti del firmware del d
 
 | Ordine | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione | Installare nella cartella|
 | --- | --- | --- | --- | --- | --- |
-| 3. |KB3121899 |Firmware del disco |Manutenzione  <br></br>Con interruzioni |~ 30 min. | ThirdOrderUpdate |
+| 3. |KB4011837 |Firmware del disco |Manutenzione  <br></br>Con interruzioni |~ 30 min. | ThirdOrderUpdate |
 
 <br></br>
 

@@ -14,20 +14,20 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2016
+ms.date: 03/10/2017
 ms.author: jhubbard
 translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: d70c0350809325234db366acc676e381ff042c13
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 0bab2cde451687311936ee74f304580a2a3b4b5e
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>Connettere Excel a un database SQL di Azure e creare un report
 
-Informazioni su come connettere Excel a un database SQL nel cloud per importare dati e creare tabelle e grafici in base ai valori nel database. In questa esercitazione sarà necessario configurare la connessione tra Excel e una tabella di database, salvare il file che archivia i dati e le informazioni di connessione per Excel e quindi creare un grafico pivot dai valori del database.
+Connettere Excel a un database SQL nel cloud, importare dati e creare tabelle e grafici in base ai valori nel database. In questa esercitazione sarà necessario configurare la connessione tra Excel e una tabella di database, salvare il file che archivia i dati e le informazioni di connessione per Excel e quindi creare un grafico pivot dai valori del database.
 
-Per iniziare, è necessario un database SQL in Azure. Se non ne è già stato creato uno, vedere [Creare il primo database SQL di Azure](sql-database-get-started.md) per ottenere un database con dati di esempio operativo in pochi minuti. Questo articolo descrive come importare i dati di esempio in Excel, ma è anche possibile seguire la procedura usando dati personalizzati.
+Per iniziare, è necessario un database SQL in Azure. Se non ne è già stato creato uno, vedere [Creare il primo database SQL di Azure](sql-database-get-started.md) per ottenere un database con dati di esempio operativo in pochi minuti. Questo articolo descrive come importare i dati di esempio in Excel, ma è anche possibile seguire la procedura con dati personalizzati.
 
 Sarà necessaria anche una copia di Excel. In questa esercitazione viene usato [Microsoft Excel 2016](https://products.office.com/en-US/).
 

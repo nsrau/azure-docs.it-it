@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/20/2017
+ms.date: 03/14/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 72d9c639a6747b0600c5ce3a1276f3c1d2da64b2
-ms.openlocfilehash: 8c3ced706c26e09d709d7cfb4d81534c362e1628
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 8e1fccf953579beb138d47d1897bf702461fc39a
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -91,8 +91,31 @@ DocumentDB supporta il failover automatico in caso di una o più interruzioni di
 ### <a id="GranularFailover"></a>Progettato per varie granularità di failover
 Attualmente le funzionalità di failover automatico e manuale sono esposte al livello di granularità dell'account del database. Si noti che internamente DocumentDB è progettato per offrire funzionalità di failover *automatico* a granularità più fini di un database, di una raccolta o persino di una partizione (di una raccolta proprietaria di un intervallo di chiavi). 
 
-### <a id="MultiHomingAPIs"></a>API multihosting
+### <a id="MultiHomingAPIs"></a>API multihosting in DocumentDB
 DocumentDB consente di interagire con il database tramite endpoint logici (indipendenti dall'area) o fisici (specifici dell'area). L'uso di endpoint logici garantisce che l'applicazione possa usufruire del multihosting in modo trasparente in caso di failover. Gli endpoint fisici, invece, offrono all'applicazione un controllo con granularità fine per reindirizzare le letture e le scritture ad aree specifiche.
+
+### <a id="ReadPreferencesAPIforMongoDB"></a> Preferenze di lettura configurabili nell'API per MongoDB
+L'API per MongoDB consente di specificare le preferenze di lettura della raccolta per un database distribuito globalmente. Per ottenere letture a bassa latenza e disponibilità elevata globale, è consigliabile impostare le preferenze di lettura della raccolta su *nearest*. Una preferenza di lettura di tipo *nearest* viene configurata per la lettura dall'area più vicina.
+
+```csharp
+var collection = database.GetCollection<BsonDocument>(collectionName);
+collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Nearest));
+```
+
+Per applicazioni con un'area di lettura/scrittura primaria e un'area secondaria per scenari di ripristino di emergenza, è consigliabile impostare le preferenze di lettura della raccolta su *secondary preferred*. Una preferenza di lettura di tipo *secondary preferred* viene configurata per la lettura dall'area secondaria quando l'area primaria non è disponibile.
+
+```csharp
+var collection = database.GetCollection<BsonDocument>(collectionName);
+collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.SecondaryPreferred));
+```
+
+Se infine si vogliono specificare manualmente le aree di lettura, è possibile impostare il valore Tag per l'area entro la preferenza di lettura.
+
+```csharp
+var collection = database.GetCollection<BsonDocument>(collectionName);
+var tag = new Tag("region", "Southeast Asia");
+collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Secondary, new[] { new TagSet(new[] { tag }) }));
+```
 
 ### <a id="TransparentSchemaMigration"></a>Migrazione di indici e di schemi del database trasparente e coerente 
 DocumentDB è completamente [indipendente dallo schema](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). La struttura esclusiva del motore di database consente di indicizzare automaticamente e in modo sincrono tutti i dati inseriti senza richiedere all'utente schemi o indici secondari. In questo modo è possibile iterare rapidamente l'applicazione distribuita a livello globale senza preoccuparsi della migrazione dell'indice o dello schema del database o del coordinamento di implementazioni di modifiche dello schema dell'applicazione in più fasi. DocumentDB garantisce che qualsiasi modifica ai criteri di indicizzazione effettuata dall'utente non comporti un calo significativo di prestazioni o disponibilità.  
@@ -237,3 +260,4 @@ DocumentDB espone in modo trasparente le metriche per velocità effettiva, laten
 7. Naor e Wool. [Load, Capacity and Availability in Quorum Systems](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) (Carico, capacità e disponibilità nei sistemi di quorum)
 8. Herlihy e Wing. [Lineralizability: A correctness condition for concurrent objects](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) (Linearizzabilità: una condizione di correttezza per gli oggetti simultanei)
 9. Contratto di servizio di Azure DocumentDB (ultimo aggiornamento: dicembre 2016)
+

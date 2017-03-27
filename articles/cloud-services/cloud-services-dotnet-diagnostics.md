@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/25/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: c3540d86a12935cea100248f7f6669df34ae2209
-ms.openlocfilehash: cedc52b514eacb6cf7bc32634819573f5ee154c3
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 81f814ebb977f0f192d450b9c75aab84d2e1c069
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -28,10 +28,10 @@ Vedere [Cenni preliminari sulla diagnostica di Azure](../azure-diagnostics.md) p
 Questa procedura dettagliata descrive come implementare un ruolo di lavoro di Azure che emette i dati di telemetria con la classe EventSource .NET. Il modulo Diagnostica Azure viene usato per raccogliere i dati di telemetria e memorizzarli in un account di archiviazione di Azure. Quando si crea un ruolo di lavoro, Visual Studio abilita automaticamente Diagnostica 1.0 come parte della soluzione in Azure SDK per .NET 2.4 e versioni precedenti. Le seguenti istruzioni descrivono il processo per creare il ruolo di lavoro, disabilitare Diagnostica 1.0 dalla soluzione e implementare Diagnostica 1.2 o 1.3 nel ruolo di lavoro.
 
 ### <a name="prerequisites"></a>Prerequisiti
-In questo articolo si presuppone che l'utente abbia una sottoscrizione di Azure e usi Visual Studio 2013 con Azure SDK. Se non si ha una sottoscrizione di Azure, è possibile ottenere una [versione di prova gratuita][Free Trial]. Assicurarsi di [installare e configurare Azure PowerShell versione 0.8.7 o successiva][Install and configure Azure PowerShell version 0.8.7 or later].
+In questo articolo si presuppone che l'utente disponga di una sottoscrizione di Azure e che usi Visual Studio con Azure SDK. Se non si ha una sottoscrizione di Azure, è possibile ottenere una [versione di prova gratuita][Free Trial]. Assicurarsi di [installare e configurare Azure PowerShell versione 0.8.7 o successiva][Install and configure Azure PowerShell version 0.8.7 or later].
 
 ### <a name="step-1-create-a-worker-role"></a>Passaggio 1: Creare un ruolo di lavoro
-1. Avviare **Visual Studio 2013**.
+1. Avviare **Visual Studio**.
 2. Creare un nuovo progetto **Servizio cloud di Azure** dal modello **Cloud** per .NET Framework 4.5.  Assegnare al progetto il nome "WadExample" e fare clic su OK.
 3. Selezionare **Ruolo di lavoro** e fare clic su OK. Verrà creato il progetto.
 4. In **Esplora soluzioni** fare doppio clic sul file delle proprietà **WorkerRole1**.
@@ -174,7 +174,7 @@ namespace WorkerRole1
 I cmdlet di PowerShell per la gestione della diagnostica in un ruolo Web o di lavoro sono: : Set-AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension e Remove-AzureServiceDiagnosticsExtension.
 
 1. Aprire Azure PowerShell.
-2. Eseguire lo script per installare la diagnostica nel ruolo di lavoro (sostituire *StorageAccountKey* con la chiave dell'account di archiviazione di wadexample):
+2. Eseguire lo script per installare la diagnostica nel ruolo di lavoro (sostituire *StorageAccountKey* con la chiave dell'account di archiviazione di wadexample e *config_path* con il percorso del file *WadExample.xml*):
 
 ```powershell
 $storage_name = "wadexample"

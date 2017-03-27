@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
-ms.openlocfilehash: 289bf7ab1ba91bd9edc6288af93e06170d8f2def
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: b246d8813a41d353a9c0fa31fe838e025fc93046
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/27/2017
 
 L'interfaccia della riga di comando di Azure fornisce un insieme di comandi open source e multipiattaforma per utilizzare la piattaforma Azure. Fornisce gran parte delle funzionalità disponibili nel [portale di Azure](https://portal.azure.com) , nonché funzionalità di accesso ai dati complessi.
 
-In questa guida verrà illustrato come usare l'[interfaccia della riga di comando di Azure (Azure CLI)](../xplat-cli-install.md) per eseguire una serie di attività di sviluppo e amministrazione con Archiviazione di Azure. Si consiglia di scaricare e installare oppure di aggiornare il modulo alla versione di Azure PowerShell più recente prima di usare questa guida.
+In questa guida verrà illustrato come usare l'[interfaccia della riga di comando di Azure (Azure CLI)](../cli-install-nodejs.md) per eseguire una serie di attività di sviluppo e amministrazione con Archiviazione di Azure. Si consiglia di scaricare e installare oppure di aggiornare il modulo alla versione di Azure PowerShell più recente prima di usare questa guida.
 
 Questa guida si presuppone che si conoscano i concetti di base dell'archiviazione di Azure. La guida fornisce diversi script che mostrano come usare PowerShell con Archiviazione di Azure. Prima di eseguire gli script, è necessario aggiornarne le variabili in base alla configurazione.
 
@@ -47,7 +47,7 @@ Per altre informazioni sulle sottoscrizioni di Azure, vedere [Assegnazione dei r
 
 **Dopo aver creato una sottoscrizione e un account di Microsoft Azure:**
 
-1. Scaricare e installare CLI Azure seguendo le istruzioni riportate nel [installare CLI Azure](../xplat-cli-install.md).
+1. Scaricare e installare CLI Azure seguendo le istruzioni riportate nel [installare CLI Azure](../cli-install-nodejs.md).
 2. Dopo l'installazione dell'interfaccia della riga di comando di Azure, sarà possibile utilizzare il comando azure dall'interfaccia della riga di comando (Bash, terminale, prompt dei comandi) per accedere ai relativi comandi. Digitare il comando _azure_. Verrà visualizzato l'output seguente.
 
     ![Output del comando di esempio:][Image1]
@@ -239,7 +239,7 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
 È possibile trovare riferimenti ai comandi dell'interfaccia della riga di comando 1.0 di Azure da usare con le risorse di Archiviazione qui:
 
 * [Comandi dell'interfaccia della riga di comando Azure in modalità Resource Manager](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
-* [Comandi dell'interfaccia della riga di comando di Azure in modalità Gestione servizi di Azure](../xplat-cli-install.md)
+* [Comandi dell'interfaccia della riga di comando di Azure in modalità Gestione servizi di Azure](../cli-install-nodejs.md)
 
 È anche possibile provare l'[interfaccia della riga di comando di Azure 2.0](storage-azure-cli.md), ovvero l'interfaccia della riga di comando di nuova generazione scritta in Python per il modello di distribuzione di Resource Manager.
 

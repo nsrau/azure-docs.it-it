@@ -94,6 +94,7 @@
 ### Collegare un disco
 #### [Interfaccia della riga di comando di Azure](../virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Portale di Azure](../virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Scollegare un disco](../virtual-machines-linux-detach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Espandere il disco del sistema operativo](../virtual-machines-linux-expand-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Configurare RAID software](../virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Configurare la LVM](../virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

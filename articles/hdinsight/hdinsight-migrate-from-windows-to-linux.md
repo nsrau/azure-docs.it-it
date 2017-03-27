@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: ff35be59-bae3-42fd-9edc-77f0041bab93
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,9 +16,9 @@ ms.workload: big-data
 ms.date: 01/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: a4d30ffc0a5c5ef9fe7bb892d17f0859ff27f569
-ms.openlocfilehash: bf6ef38ba28d11d7894a30115174582903f84580
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 1a2a08a844f1502d970cb7686d512387263d1d13
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -86,7 +87,7 @@ Usare la procedura seguente per copiare i dati dal cluster di produzione al clus
 In alternativa si può usare il cmdlet `Start-AzureStorageBlobCopy` di Azure PowerShell per copiare i BLOB tra gli account di archiviazione all'esterno di HDInsight. Per altre informazioni, vedere la sezione Come gestire i BLOB di Azure del documento Uso di Azure PowerShell con Archiviazione di Azure.
 
 ## <a name="client-side-technologies"></a>Tecnologie lato client
-In generale le tecnologie lato client, ad esempio i [cmdlet di Azure PowerShell](/powershell/azureps-cmdlets-docs), l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) o [.NET SDK per Hadoop](https://hadoopsdk.codeplex.com/) continuano a funzionare nello stesso modo con i cluster basati su Linux, perché si basano su API REST che sono uguali in entrambi i tipi di sistema operativo del cluster.
+In generale le tecnologie lato client, ad esempio i [cmdlet di Azure PowerShell](/powershell/azureps-cmdlets-docs), l'[interfaccia della riga di comando di Azure](../cli-install-nodejs.md) o [.NET SDK per Hadoop](https://hadoopsdk.codeplex.com/) continuano a funzionare nello stesso modo con i cluster basati su Linux, perché si basano su API REST che sono uguali in entrambi i tipi di sistema operativo del cluster.
 
 ## <a name="server-side-technologies"></a>Tecnologie lato server
 Nella tabella seguente vengono fornite indicazioni sulla migrazione dei componenti lato server specifici di Windows.
@@ -94,7 +95,7 @@ Nella tabella seguente vengono fornite indicazioni sulla migrazione dei componen
 | Se si usa questa tecnologia... | Eseguire questa operazione... |
 | --- | --- |
 | **PowerShell** (script sul lato server, incluse le Azioni script usate durante la creazione del cluster) |Riscriverli come script di Bash. Per le azioni script vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md) e [Sviluppo di azioni script con HDInsight basati su Linux](hdinsight-hadoop-script-actions-linux.md). |
-| **Interfaccia della riga di comando di Azure** (script lato server) |Anche se l'interfaccia della riga di comando di Azure è disponibile in Linux, non è preinstallata nei nodi head del cluster HDInsight. Se occorre per gli script lato server, vedere [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) per informazioni sull'installazione su piattaforme basate su Linux. |
+| **Interfaccia della riga di comando di Azure** (script lato server) |Anche se l'interfaccia della riga di comando di Azure è disponibile in Linux, non è preinstallata nei nodi head del cluster HDInsight. Se occorre per gli script lato server, vedere [Installare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md) per informazioni sull'installazione su piattaforme basate su Linux. |
 | **Componenti .NET** |.NET non è completamente supportato in tutti i tipi di cluster HDInsight basati su Linux. Storm basato su Linux nei cluster HDInsight creati dopo il 28/10/2016 supporta topologie Storm C# con il framework SCP.NET. Il supporto aggiuntivo per .NET verrà aggiunto negli aggiornamenti futuri. |
 | **Componenti di Win32 o altre tecnologie esclusive di Windows** |La procedura dipende dal componente o dalla tecnologia. Si potrebbe trovare una versione compatibile con Linux o potrebbe essere necessario trovare una soluzione alternativa o riscrivere il componente. |
 

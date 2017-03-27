@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 73304272-6c8b-482e-af7c-cd25d95dab4d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -239,7 +240,7 @@ Anche se è previsto il supporto della visualizzazione diretta degli output di S
 
 Per eventuali commenti o suggerimenti oppure se vengono riscontrati problemi durante l'utilizzo di questo strumento, inviare un messaggio di posta elettronica all'indirizzo hdivstool@microsoft.com.
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Vedere anche
+## <a name="seealso"></a>Vedere anche
 * [Panoramica: Apache Spark su Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenari

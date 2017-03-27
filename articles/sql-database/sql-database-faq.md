@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti sul database SQL di Azure | Documentazione Microsoft
+title: Domande frequenti sul database SQL di Azure | Microsoft Docs
 description: Le risposte a domande comuni dei clienti su database cloud e Database SQL di Azure, sistema di gestione di database relazionali di Microsoft (RDBMS) e database come servizio nel cloud.
 services: sql-database
 documentationcenter: 
@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 02/06/2017
+ms.date: 02/07/2017
 ms.author: sashan;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 20183f482b7c7ec10c2b1f2d759b160434c9174c
-ms.openlocfilehash: 208a38aea6b4673f93c4c1fe4252c788e1f3425b
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: ef58f595ff58b9156df813cf92e2306654a8b3ed
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -119,4 +119,9 @@ La replica geografica secondaria è una replica asincrona per la quale non viene
 ## <a name="what-tools-are-available-to-monitor-the-replication-lag-between-the-primary-database-and-geo-secondary"></a>Quali strumenti sono disponibili per monitorare l'intervallo di replica tra il database primario e la replica geografica secondaria?
 L'intervallo di replica in tempo reale tra il database primario e la replica geografica secondaria è esposto attraverso una vista a gestione dinamica (DMV). Per informazioni dettagliate, vedere [sys.dm_geo_replication_link_status](https://msdn.microsoft.com/library/mt575504.aspx).
 
+## <a name="to-move-a-database-to-a-different-server-in-the-same-subscription"></a>Per spostare un database in un server diverso nella stessa sottoscrizione
+* Nel [portale di Azure](https://portal.azure.com) fare clic su **Database SQL**, selezionare un database dall'elenco e quindi fare clic su **Copia**. Per altre informazioni, vedere [Copiare un database SQL di Azure](sql-database-copy.md) .
+
+## <a name="to-move-a-database-between-subscriptions"></a>Per spostare un database tra sottoscrizioni
+* Nel [portale di Azure](https://portal.azure.com)fare clic su **SQL Server** e quindi selezionare dall'elenco il server che ospita il database. Fare clic su **Sposta**, quindi selezionare le risorse da spostare e la sottoscrizione in cui spostarle.
 

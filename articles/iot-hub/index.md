@@ -13,12 +13,13 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: eb364084e5f5155399c8a052b036ec0316616366
-ms.openlocfilehash: 36b9070260b334f1713cf575eb94007ce1b556f5
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9a27b7dc57772a8e4c82c96546463576daa6b1d9
+ms.lasthandoff: 03/18/2017
 
 ---
 
-#<a name="iot-hub-documentation"></a>Documentazione sull'hub IoT
+# <a name="iot-hub-documentation"></a>Documentazione sull'hub IoT
 
 Informazioni su come usare hub IoT per connettersi a miliardi di asset IoT (Internet of Things) per monitorarli e controllarli. Esercitazioni, informazioni di riferimento sulle API, video e altri documenti in cui viene illustrato come distribuire comunicazioni affidabili e bidirezionali tra dispositivi IoT e un backend di soluzione. 
 
@@ -141,8 +142,8 @@ Informazioni su come usare hub IoT per connettersi a miliardi di asset IoT (Inte
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (dispositivi)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.service.auth">Java (servizio)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (dispositivi)</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.17/index.html">Nodo (servizio)</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.15/index.html">Nodo (dispositivi)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.7/index.html">Nodo (servizio)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.7/index.html">Nodo (dispositivi)</a></p>
                         <p><a href="http://azure.github.io/azure-iot-sdks/">Azure IoT SDK</a></p>
                         <p><a href="http://azure.github.io/azure-iot-gateway-sdk">Gateway SDK</a></p>
                     </div>
@@ -167,10 +168,5 @@ Informazioni su come usare hub IoT per connettersi a miliardi di asset IoT (Inte
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
