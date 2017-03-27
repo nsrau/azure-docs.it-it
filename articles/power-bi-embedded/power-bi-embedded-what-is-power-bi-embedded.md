@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 81215430b5731a53d4f4700499c1d9af963e712c
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 1fb7b268e83da66a4bb9fe6d3e053b7a673d3555
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -33,6 +33,7 @@ Power BI Embedded è un **servizio di Azure** che consente ai fornitori di softw
 Nel modello di utilizzo di **Microsoft Power BI Embedded** l'utente finale non è il responsabile della gestione delle licenze di Power BI.  Le **sessioni** sono in realtà acquistate dallo sviluppatore dell'app che impiega gli oggetti visivi e sono addebitate alla sottoscrizione che comprende tali risorse. Altre informazioni sono disponibili nella pagina relativa ai prezzi (https://azure.microsoft.com/en-us/pricing/details/power-bi-embedded/).
 
 ## <a name="microsoft-power-bi-embedded-conceptual-model"></a>Modello concettuale di Microsoft Power BI Embedded
+
 ![](media/powerbi-embedded-whats-is/model.png)
 
 Come per qualsiasi altro servizio di Azure, il provisioning delle risorse di Power BI Embedded avviene tramite le [API di Azure Resource Manager](https://msdn.microsoft.com/library/mt712306.aspx). In questo caso la risorsa di cui si effettua il provisioning è una **Raccolta di aree di lavoro di Power BI**.
@@ -45,13 +46,13 @@ La **Raccolta di aree di lavoro** è il contenitore di Azure di primo livello pe
 * **Area**: nell'ambito del provisioning di una **accolta di aree di lavoro** è possibile selezionare un'area in cui effettuare il provisioning. Per altre informazioni, vedere [Aree di Azure](https://azure.microsoft.com/regions/).
 
 ## <a name="workspace"></a>Area di lavoro
-L' **Area di lavoro** è un contenitore di contenuto Power BI che può includere set di dati, report e dashboard. L' **Area di lavoro** è vuota quando viene creata. Nella versione di anteprima sarà necessario creare tutto il contenuto usando Power BI Desktop e distribuire a livello di codice il PBIX nell'area di lavoro con l'[API di importazione di Power BI](https://msdn.microsoft.com/library/mt711504.aspx).
+Un'**area di lavoro** è un contenitore di contenuto Power BI che può includere set di dati e report. L' **Area di lavoro** è vuota quando viene creata. Si crea il contenuto con Power BI Desktop e si distribuisce il file PBIX nell'area di lavoro a livello di codice con l'[API di importazione di Power BI](https://msdn.microsoft.com/library/mt711504.aspx). Invece di usare Power BI Desktop, è anche possibile creare il set di dati a livello di codice e quindi creare report nell'applicazione.
 
 ## <a name="using-workspace-collections-and-workspaces"></a>Uso delle raccolte di aree di lavoro e delle aree di lavoro
 Le **raccolte di aree di lavoro** e le **aree di lavoro** sono contenitori di contenuto usate e organizzate nel modo più efficiente perché si adattino alla progettazione dell'applicazione che si sta compilando. I modi per organizzare il contenuto all'interno di questi elementi possono essere molteplici. È possibile scegliere di inserire tutto il contenuto all'interno di un'area di lavoro e di usare successivamente i token delle app per suddividere ulteriormente il contenuto tra i clienti. È possibile anche decidere di inserire tutti i clienti in aree di lavoro distinte in modo che rimangano separati. In alternativa è possibile organizzare gli utenti per area anziché per cliente. Questa progettazione flessibile consente di scegliere il modo migliore per organizzare il contenuto.
 
 ## <a name="cached-datasets"></a>Set di dati memorizzati nella cache
-Nella versione di anteprima è possibile usare i set di dati memorizzati nella cache.  Non è tuttavia possibile aggiornare i dati memorizzati nella cache dopo averli caricati in **Microsoft Power BI Embedded**.
+È possibile usare set di dati memorizzati nella cache.  Non è tuttavia possibile aggiornare i dati memorizzati nella cache dopo averli caricati in **Microsoft Power BI Embedded**. Un set di dati memorizzato nella cache indica che si sono importati i dati in Power BI Desktop anziché usare DirectQuery.
 
 ## <a name="authentication-and-authorization-with-app-tokens"></a>Autenticazione e autorizzazione con token delle app
 **Microsoft Power BI Embedded** incarica l'applicazione dell'utente affinché esegua tutte le operazioni necessarie per l'autenticazione e l'autorizzazione utente. Non è necessario che gli utenti finali siano clienti di Azure Active Directory.  Sarà invece l'applicazione ad autorizzare il rendering di un report di Power BI in **Microsoft Power BI Embedded** usando **token di autenticazione dell'applicazione**.  I **token dell'app** vengono creati nel momento in cui l'app intende eseguire il rendering di un report.
@@ -66,7 +67,19 @@ I**token di autenticazione dell'applicazione (token dell'app)** vengono usati pe
 
 Questi token si usano nelle varie fasi di interazione con **Microsoft Power BI Embedded**.  I token sono progettati in modo che sia possibile delegare le autorizzazioni dalla propria app a Power BI. Per altre informazioni, vedere [Flusso dei token delle app](power-bi-embedded-app-token-flow.md).
 
+## <a name="create-or-edit-reports-within-your-application"></a>Creare o modificare report nell'applicazione
+
+È ora possibile modificare report esistenti o creare nuovi report direttamente nell'applicazione senza dover usare Power BI Desktop. A tale scopo è necessario che nell'area di lavoro sia presente un set di dati.
+
 ## <a name="see-also"></a>Vedere anche
-* [Scenari comuni di Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
-* [Introduzione a Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
+
+[Scenari comuni di Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)  
+[Introduzione a Microsoft Power BI Embedded](power-bi-embedded-get-started.md)  
+[Esempio introduttivo](power-bi-embedded-get-started-sample.md)  
+[Incorporare un report](power-bi-embedded-embed-report.md)  
+[Autenticazione e autorizzazione con Power BI Embedded](power-bi-embedded-app-token-flow.md)  
+[Esempio di incorporamento con JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
+[Repository Git PowerBI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)  
+[Repository Git PowerBI-Node](https://github.com/Microsoft/PowerBI-Node)  
+Altre domande? [Contattare la community di Power BI](http://community.powerbi.com/)
 

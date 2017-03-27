@@ -16,19 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 39dafb04f2b155790d58db524a3ff52960891e16
-ms.openlocfilehash: fdce1c32d7c538a29328f0e1f0c847af2e731e17
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: e9564d223cb85529f1fa97bc398d35c6debcedae
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>Controllare il routing e usare dispositivi virtuali di rete (distribuzione classica) mediante PowerShell
 
 > [!div class="op_single_selector"]
-- [PowerShell](virtual-network-create-udr-arm-ps.md)
-- [Interfaccia della riga di comando di Azure](virtual-network-create-udr-arm-cli.md)
-- [Modello](virtual-network-create-udr-arm-template.md)
-- [PowerShell (versione classica)](virtual-network-create-udr-classic-ps.md)
-- [Interfaccia della riga di comando (versione classica)](virtual-network-create-udr-classic-cli.md)
+> * [PowerShell](virtual-network-create-udr-arm-ps.md)
+> * [Interfaccia della riga di comando di Azure](virtual-network-create-udr-arm-cli.md)
+> * [Modello](virtual-network-create-udr-arm-template.md)
+> * [PowerShell (versione classica)](virtual-network-create-udr-classic-ps.md)
+> * [Interfaccia della riga di comando (versione classica)](virtual-network-create-udr-classic-cli.md)
 
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
@@ -52,11 +53,6 @@ Per creare la tabella di route e la route necessarie per la subnet front-end in 
     -Label "Route table for front end subnet"
     ```
 
-    Output:
-   
-        Name         Location   Label                          
-        ----         --------   -----                          
-        UDR-FrontEnd West US    Route table for front end subnet
 2. Eseguire il comando seguente per creare una route nella tabella della route creata in precedenza per inviare tutto il traffico destinato alla subnet back-end (192.168.2.0/24) alla VM **FW1** (192.168.0.4):
 
     ```powershell
@@ -65,16 +61,7 @@ Per creare la tabella di route e la route necessarie per la subnet front-end in 
     -NextHopType VirtualAppliance `
     -NextHopIpAddress 192.168.0.4
     ```
-   
-    Output:
-   
-        Name     : UDR-FrontEnd
-        Location : West US
-        Label    : Route table for frontend subnet
-        Routes   : 
-                   Name                 Address Prefix    Next hop type        Next hop IP address
-                   ----                 --------------    -------------        -------------------
-                   RouteToBackEnd       192.168.2.0/24    VirtualAppliance     192.168.0.4  
+
 3. Eseguire il comando seguente per associare la tabella di route creata in precedenza alla subnet **FrontEnd**:
 
     ```powershell
@@ -97,8 +84,10 @@ Per creare la tabella di route e la route necessarie per la subnet back-end in b
 2. Eseguire il comando seguente per creare una route nella tabella della route creata in precedenza per inviare tutto il traffico destinato alla subnet front-end (192.168.1.0/24) alla VM **FW1** (192.168.0.4):
 
     ```powershell
-    Get-AzureRouteTable UDR-BackEnd `
-    |Set-AzureRoute -RouteName RouteToFrontEnd -AddressPrefix 192.168.1.0/24 `
+    Get-AzureRouteTable UDR-BackEnd
+    | Set-AzureRoute `
+    -RouteName RouteToFrontEnd `
+    -AddressPrefix 192.168.1.0/24 `
     -NextHopType VirtualAppliance `
     -NextHopIpAddress 192.168.0.4
     ```
@@ -122,18 +111,10 @@ Per abilitare l'inoltro dell'indirizzo IP nella macchina virtuale FW1, seguire q
     | Get-AzureIPForwarding
     ```
 
-    Output:
-   
-        Disabled
 2. Per abilitare l'inoltro dell'indirizzo IP per la macchina virtuale *FW1*, eseguire il comando seguente:
 
     ```powershell
     Get-AzureVM -Name FW1 -ServiceName TestRGFW `
     | Set-AzureIPForwarding -Enable
     ```
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

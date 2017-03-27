@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/09/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 2b427d37a144b947d8d905e8f310ea35785ddf61
-ms.openlocfilehash: f397266afa269831d3791c625342454054b86ff2
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 7e9ca0c15c29fb670b742d939107bb5d4a48245c
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -61,7 +61,19 @@ Gli agenti monitorano la connettività di rete (collegamenti) tra gli host, non 
 
 ### <a name="configure-agents"></a>Configurazione degli agenti
 
-Per usare il protocollo ICMP per le transazioni sintetiche, non è necessario configurare gli agenti. È quindi possibile iniziare a configurare la soluzione. Se tuttavia si vuole usare il protocollo TCP, è necessario aprire le porte del firewall per tali computer per assicurarsi che gli agenti possano comunicare. È necessario scaricare ed eseguire lo [script di PowerShell EnableRules.ps1](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) senza parametri in una finestra di PowerShell con privilegi amministrativi
+Se si prevede di usare il protocollo ICMP per le transazioni sintetiche, è necessario abilitare le seguenti regole firewall per usare in modo affidabile il protocollo:
+
+```
+netsh advfirewall firewall add rule name="NPMDICMPV4Echo" protocol="icmpv4:8,any" dir=in action=allow
+netsh advfirewall firewall add rule name="NPMDICMPV6Echo" protocol="icmpv6:128,any" dir=in action=allow
+netsh advfirewall firewall add rule name="NPMDICMPV4DestinationUnreachable" protocol="icmpv4:3,any" dir=in action=allow
+netsh advfirewall firewall add rule name="NPMDICMPV6DestinationUnreachable" protocol="icmpv6:1,any" dir=in action=allow
+netsh advfirewall firewall add rule name="NPMDICMPV4TimeExceeded" protocol="icmpv4:11,any" dir=in action=allow
+netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmpv6:3,any" dir=in action=allow
+```
+
+
+Se si vuole usare il protocollo TCP, è necessario aprire le porte del firewall per questi computer per assicurarsi che gli agenti possano comunicare. È necessario scaricare ed eseguire lo [script di PowerShell EnableRules.ps1](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) senza parametri in una finestra di PowerShell con privilegi amministrativi.
 
 Lo script crea le chiavi del Registro di sistema richieste dal monitoraggio delle prestazioni di rete e crea regole del firewall Windows per consentire agli agenti di creare connessioni TCP tra loro. Le chiavi del Registro di sistema create dallo script inoltre specificano se registrare i log di debug e il percorso al file di log. Inoltre definiscono la porta TCP agente usata per la comunicazione. I valori per queste chiavi vengono impostati automaticamente dallo script, quindi non bisogna modificare manualmente le chiavi.
 
@@ -76,7 +88,10 @@ La porta aperta per impostazione predefinita è 8084. È possibile usare una por
 Usare le informazioni seguenti per installare e configurare la soluzione.
 
 1. La soluzione di monitoraggio delle prestazioni di rete acquisisce i dati dai computer che eseguono Windows Server 2008 SP 1 o versioni successive o Windows 7 SP1 o versioni successive, che sono gli stessi requisiti di Microsoft Monitoring Agent (MMA). Gli agenti NPM possono essere eseguiti anche in sistemi operativi desktop/client Windows (Windows 10, Windows 8.1, Windows 8 e Windows 7).
-2. Aggiungere la soluzione di monitoraggio delle prestazioni di rete all'area di lavoro usando la procedura descritta nell'articolo [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).  
+    >[!NOTE]
+    >Gli agenti per i sistemi operativi server Windows supportano sia TCP che ICMP come protocolli per la transazione sintetica. Tuttavia, gli agenti per i sistemi operativi client Windows supportano solo TCP come protocollo per la transazione sintetica.
+
+2. Aggiungere la soluzione di monitoraggio delle prestazioni di rete all'area di lavoro da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) o usando la procedura descritta nell'articolo [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).  
    ![Simbolo del monitoraggio delle prestazioni di rete](./media/log-analytics-network-performance-monitor/npm-symbol.png)
 3. Nel portale di OMS si noterà un nuovo riquadro chiamato **Monitoraggio delle prestazioni di rete** con il messaggio *La soluzione richiede configurazione aggiuntiva*. È necessario configurare la soluzione in modo da aggiungere reti in base alle subnet e ai nodi rilevati dagli agenti. Fare clic su **Monitoraggio delle prestazioni di rete** per avviare la configurazione della rete predefinita.  
    ![La soluzione richiede configurazione aggiuntiva](./media/log-analytics-network-performance-monitor/npm-config.png)
@@ -290,6 +305,11 @@ Ora che è stata eseguita una panoramica sul monitoraggio delle prestazioni di r
 
    Nell'immagine seguente si può vedere chiaramente la causa radice delle aree relative al problema nella sezione specifica della rete analizzando i percorsi e gli hop in rosso. Facendo clic su un nodo nella mappa topologica vengono visualizzate le proprietà del nodo, inclusi FQDN e indirizzo IP. Facendo clic su un hop viene mostrato il relativo indirizzo IP.  
    ![topologia non integra - esempio di dettagli del percorso](./media/log-analytics-network-performance-monitor/npm-investigation06.png)
+
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+
+- **UserVoice**: è possibile pubblicare le proprie idee sulle funzionalità di monitoraggio delle prestazioni di rete che si ritiene possano essere migliorate. Visitare la [pagina UserVoice](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring).
+- **Partecipa alla coorte**: l'aggiunta di nuovi clienti alla coorte è sempre motivo di grande interesse. In questo contesto si otterrà un accesso in anteprima alle nuove funzionalità e si contribuirà a migliorare il monitoraggio delle prestazioni di rete. Per partecipare, compilare questo [sondaggio rapido](https://aka.ms/npmcohort).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Effettuare una ricerca nei log](log-analytics-log-searches.md) per visualizzare i record dettagliati dei dati delle prestazioni di rete.

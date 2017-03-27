@@ -15,17 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 78f367de862e4fa9203cc794549abb935f117848
-ms.openlocfilehash: f27a98894e3414479ce10adabbabe0f32a8cae54
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: c7576ce3e802e66ebea6ba83927609ed81fe0869
+ms.lasthandoff: 03/09/2017
 
 ---
 
 # <a name="diagnose-on-premise-connectivity-via-vpn-gateways"></a>Diagnosticare la connettività locale tramite gateway VPN
 
-Il gateway VPN di Azure consente di creare una soluzione ibrida per soddisfare l'esigenza di una connessione sicura tra la rete locale e la rete virtuale di Azure. I requisiti variano a seconda dell'organizzazione, quindi la scelta del dispositivo VPN locale varia di conseguenza. Azure supporta attualmente [diversi dispositivi VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices) costantemente convalidati in collaborazione con i fornitori di dispositivi. Esaminare le impostazioni di configurazione specifiche del dispositivo prima di configurare il dispositivo VPN locale. Analogamente, il gateway VPN di Azure viene configurato con un set di [parametri IPsec supportati](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec-parameters) che vengono usati per stabilire le connessioni. Non è attualmente possibile immettere o selezionare una combinazione specifica di parametri IPsec dal gateway VPN di Azure. Per stabilire una connessione tra la rete locale e Azure, le impostazioni del dispositivo VPN locale devono essere conformi ai parametri IPsec prescritti dal gateway VPN di Azure per evitare la perdita della connettività. La risoluzione di questi problemi era sinora complessa ed erano generalmente necessarie ore per identificare e risolvere il problema.
+Il gateway VPN di Azure consente di creare una soluzione ibrida per soddisfare l'esigenza di una connessione sicura tra la rete locale e la rete virtuale di Azure. I requisiti variano a seconda dell'organizzazione, quindi la scelta del dispositivo VPN locale varia di conseguenza. Azure supporta attualmente [diversi dispositivi VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices) costantemente convalidati in collaborazione con i fornitori di dispositivi. Esaminare le impostazioni di configurazione specifiche del dispositivo prima di configurare il dispositivo VPN locale. Analogamente, il gateway VPN di Azure viene configurato con un set di [parametri IPsec supportati](../vpn-gateway/vpn-gateway-about-vpn-devices.md#IPSec) che vengono usati per stabilire le connessioni. Non è attualmente possibile immettere o selezionare una combinazione specifica di parametri IPsec dal gateway VPN di Azure. Per stabilire una connessione tra la rete locale e Azure, le impostazioni del dispositivo VPN locale devono essere conformi ai parametri IPsec prescritti dal gateway VPN di Azure per evitare la perdita della connettività. La risoluzione di questi problemi era sinora complessa ed erano generalmente necessarie ore per identificare e risolvere il problema.
 
 Con la funzionalità di risoluzione dei problemi di Azure Network Watcher è possibile diagnosticare eventuali problemi con il gateway e le connessioni e ottenere in pochi minuti informazioni sufficienti per prendere una decisione informata per risolvere il problema.
+
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>Scenario
 
@@ -57,7 +59,7 @@ Questi problemi sono difficili da risolvere e le cause principali sono spesso no
 
 ## <a name="troubleshooting-using-azure-network-watcher"></a>Risoluzione dei problemi tramite Azure Network Watcher
 
-Per diagnosticare la connessione, connettersi ad Azure PowerShell e avviare il cmdlet `Start-AzureRmNetworkWatcherResourceTroubleshooting`. I dettagli sull'uso di questo cmdlet sono disponibili in Risolvere i problemi relativi al gateway di rete virtuale e alle connessioni di Azure tramite PowerShell. L'esecuzione del cmdlet può richiedere alcuni minuti. 
+Per diagnosticare la connessione, connettersi ad Azure PowerShell e avviare il cmdlet `Start-AzureRmNetworkWatcherResourceTroubleshooting`. I dettagli sull'uso di questo cmdlet sono disponibili in [Risolvere i problemi relativi al gateway di rete virtuale e alle connessioni di Azure - PowerShell](network-watcher-troubleshoot-manage-powershell.md). L'esecuzione del cmdlet può richiedere alcuni minuti. 
 
 Al termine del cmdlet è possibile passare al percorso di archiviazione specificato nel cmdlet per ottenere informazioni dettagliate sul problema e i log. Azure Network Watcher crea una cartella ZIP contenente i file di log seguenti:
 
@@ -114,3 +116,4 @@ La funzionalità di risoluzione dei problemi di Azure Network Watcher consente d
 Per informazioni su come verificare la connettività del gateway VPN con PowerShell e Automazione di Azure, vedere [Monitorare i gateway VPN con la risoluzione dei problemi di Network Watcher](network-watcher-monitor-with-azure-automation.md)
 
 [1]: ./media/network-watcher-diagnose-on-premises-connectivity/figure1.png
+

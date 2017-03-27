@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2017
+ms.date: 03/22/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: da98bc3e4dda1a05cba38701c0042f1c023c419a
-ms.openlocfilehash: 40b172356b3171557d6309a6bb2984fba34f485d
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: f4c225c97ac997c412704b278c033c519d4424ed
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -73,7 +74,7 @@ L'attività di copia esegue anche operazioni di lettura e scrittura in formati s
 * Copiare i dati nell'istanza locale di SQL Server e scrivere in Azure Data Lake Store nel formato ORC.
 * Copiare i file compressi dal file system locale e decomprimerli in Azure Data Lake Store.
 
-## <a name="a-nameglobalaglobally-available-data-movement"></a><a name="global"></a>Spostamento dei dati disponibile a livello globale
+## <a name="global"></a>Spostamento dei dati disponibile a livello globale
 Azure Data Factory è disponibile solo nelle seguenti aree: Stati Uniti occidentali, Stati Uniti orientali ed Europa settentrionale. Tuttavia, il servizio alla base dell'attività di copia è disponibile a livello globale nelle aree geografiche seguenti. La topologia disponibile a livello globale garantisce uno spostamento di dati efficiente e di solito consente di evitare passaggi tra diverse aree. Per la disponibilità del servizio Data Factory e lo spostamento dei dati in un'area, vedere [Servizi in base all'area](https://azure.microsoft.com/regions/#services) .
 
 ### <a name="copy-data-between-cloud-data-stores"></a>Copiare dati tra archivi dati cloud
@@ -82,29 +83,29 @@ Quando sia gli archivi dati di origine che gli archivi dati sink risiedono nel c
 | Geografia dell'archivio dati di destinazione | Area dell'archivio dati di destinazione | Area usata per lo spostamento dei dati |
 |:--- |:--- |:--- |
 | Stati Uniti | Stati Uniti orientali | Stati Uniti orientali |
-| . | Stati Uniti orientali 2 | Stati Uniti orientali 2 |
-| . | Stati Uniti centrali | Stati Uniti centrali |
-| . | Stati Uniti centro-settentrionali | Stati Uniti centro-settentrionali |
-| . | Stati Uniti centro-meridionali | Stati Uniti centro-meridionali |
-| . | Stati Uniti centro-occidentali | Stati Uniti centro-occidentali |
-| . | Stati Uniti occidentali | Stati Uniti occidentali |
-| . | Stati Uniti occidentali 2 | Stati Uniti occidentali |
+| &nbsp; | Stati Uniti orientali 2 | Stati Uniti orientali 2 |
+| &nbsp; | Stati Uniti centrali | Stati Uniti centrali |
+| &nbsp; | Stati Uniti centro-settentrionali | Stati Uniti centro-settentrionali |
+| &nbsp; | Stati Uniti centro-meridionali | Stati Uniti centro-meridionali |
+| &nbsp; | Stati Uniti centro-occidentali | Stati Uniti centro-occidentali |
+| &nbsp; | Stati Uniti occidentali | Stati Uniti occidentali |
+| &nbsp; | Stati Uniti occidentali 2 | Stati Uniti occidentali |
 | Canada | Canada orientale | Canada centrale |
-| . | Canada centrale | Canada centrale |
+| &nbsp; | Canada centrale | Canada centrale |
 | Brasile | Brasile meridionale | Brasile meridionale |
 | Europa | Europa settentrionale | Europa settentrionale |
-| . | Europa occidentale | Europa occidentale |
+| &nbsp; | Europa occidentale | Europa occidentale |
 | Asia/Pacifico | Asia sudorientale | Asia sudorientale |
-| . | Asia orientale | Asia sudorientale |
+| &nbsp; | Asia orientale | Asia sudorientale |
 | Australia | Australia orientale | Australia orientale |
-| . | Australia sudorientale | Australia sudorientale |
+| &nbsp; | Australia sudorientale | Australia sudorientale |
 | Giappone | Giappone orientale | Giappone orientale |
-| . | Giappone occidentale | Giappone orientale |
+| &nbsp; | Giappone occidentale | Giappone orientale |
 | India | India centrale | India centrale |
-| . | India occidentale | India centrale |
-| . | India meridionale | India centrale |
+| &nbsp; | India occidentale | India centrale |
+| &nbsp; | India meridionale | India centrale |
 
-In alternativa, è possibile indicare esplicitamente l'area del servizio Data Factory da usare per eseguire la copia specificando la proprietà `executionLocation` in `typeProperties` nell'attività di copia. I valori supportati per questa proprietà sono elencati nella colonna **Area usata per lo spostamento dei dati** precedente. Si noti che i dati verranno trasferiti in rete attraverso tale area durante la copia. Per eseguire ad esempio la copia tra archivi di Azure nel Regno Unito, è possibile specificare `executionLocation` come "Europa settentrionale" per indirizzare i dati tramite l'Europa settentrionale.
+In alternativa, è possibile indicare esplicitamente l'area del servizio Data Factory da usare per eseguire la copia specificando la proprietà `executionLocation` in `typeProperties` nell'attività di copia. I valori supportati per questa proprietà sono elencati nella colonna **Area usata per lo spostamento dei dati** precedente. Si noti che i dati verranno trasferiti in rete attraverso tale area durante la copia. Ad esempio, per eseguire la copia tra archivi di Azure nel Regno Unito è possibile specificare `"executionLocation": "North Europe"` per instradare i dati tramite l'Europa settentrionale (vedere l'[esempio JSON](#by-using-json-scripts) come riferimento).
 
 > [!NOTE]
 > Se l'area dell'archivio dati di destinazione non è nell'elenco precedente o non è rilevabile, per impostazione predefinita l'attività di copia non viene completata invece di passare attraverso un'area alternativa, a meno che non sia specificato `executionLocation`. L'elenco di aree supportate verrà ampliato nel tempo.
@@ -124,7 +125,7 @@ La copia guidata di Data Factory aiuta a creare una pipeline con l'attività di 
 
 Per tutti i tipi di attività sono disponibili proprietà JSON come nome, descrizione, tabelle di input e output e criteri. Le proprietà disponibili nella sezione `typeProperties` dell'attività variano per ogni tipo di attività.
 
-Per l'attività di copia, la sezione `typeProperties` varia a seconda dei tipi di origine e sink. Fare clic su un'origine o un sink nella sezione relativa [alle origini e ai sink supportati](#supported-data-stores) per informazioni sulle proprietà supportate dall'attività di copia per l'archivio dati.   
+Per l'attività di copia, la sezione `typeProperties` varia a seconda dei tipi di origine e sink. Fare clic su un'origine o un sink nella sezione relativa [alle origini e ai sink supportati](#supported-data-stores-and-formats) per informazioni sulle proprietà supportate dall'attività di copia per l'archivio dati.
 
 Di seguito è riportata una definizione JSON di esempio:
 
@@ -152,10 +153,9 @@ Di seguito è riportata una definizione JSON di esempio:
             "type": "BlobSource"
           },
           "sink": {
-            "type": "SqlSink",
-            "writeBatchSize": 10000,
-            "writeBatchTimeout": "60:00:00"
-          }
+            "type": "SqlSink"
+          },
+          "executionLocation": "North Europe"          
         },
         "Policy": {
           "concurrency": 1,
@@ -191,9 +191,4 @@ Il mapping da un sistema di tipo nativo a un tipo .NET per un archivio dati è d
 ## <a name="next-steps"></a>Passaggi successivi
 * Per ulteriori informazioni sull'attività di copia, vedere [Copiare i dati dall'archiviazione BLOB di Azure al database SQL di Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 * Per informazioni sullo spostamento dei dati da un archivio di dati locale a un archivio di dati cloud, vedere l'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

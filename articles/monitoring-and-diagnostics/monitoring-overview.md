@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 03/02/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 3693b90509646fd7292861979cd7c2d1c0100d68
-ms.openlocfilehash: 30e92d17a99a0c751397e448108d488aefdd557a
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: ca55f1c295d99ff92abaef1a919d4c90d3c33b8a
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -32,13 +32,13 @@ Le applicazioni cloud sono complesse e hanno molte parti mobili. Il monitoraggio
 
 Il diagramma seguente mostra una visualizzazione concettuale del monitoraggio di Azure, incluso il tipo di log che è possibile raccogliere e cosa fare con i dati.   
 
-![Modello logico per il monitoraggio e la diagnostica per risorse non di calcolo](./media/monitoring-overview/MonitoringAzureResources-non-compute_v3.png)
+![Modello di monitoraggio e diagnostica per risorse non di calcolo](./media/monitoring-overview/Monitoring_Azure_Resources-compute_v4.png)
 
 Figura 1: Modello logico per il monitoraggio e la diagnostica per le risorse non di calcolo
 
 <br/>
 
-![Modello logico per il monitoraggio e la diagnostica per risorse di calcolo](./media/monitoring-overview/MonitoringAzureResources-compute_v3.png)
+![Modello di monitoraggio e diagnostica per risorse di calcolo](./media/monitoring-overview/Monitoring_Azure_Resources-non-compute_v4.png)
 
 Figura 2: Modello concettuale per il monitoraggio e la diagnostica per le risorse di calcolo
 
@@ -114,7 +114,8 @@ Tra gli esempi sono inclusi:
 * Invio a Hub eventi per il routing a strumenti di terze parti per eseguire l'analisi in tempo reale.
 
 ### <a name="automate"></a>Automazione
-È possibile usare i dati di monitoraggio per attivare avvisi o anche interi processi. Tra gli esempi sono inclusi:
+È possibile usare i dati di monitoraggio per attivare avvisi o anche interi processi.
+Tra gli esempi sono inclusi:
 
 * Usare i dati per la scalabilità automatica delle istanze di calcolo in base al carico dell'applicazione.
 * Inviare messaggi di posta elettronica quando una metrica supera una soglia predeterminata.

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: e3de500e3dc64abbbe7a5983db0ad14a0a9b76c8
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4f5c04525437aefeccbe58e06b084433d0413dc1
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -65,7 +66,7 @@ Per creare un'app Web di Azure, abilitare la pubblicazione Git e quindi abilitar
 > 
 > 
 
-1. Installare l'interfaccia della riga di comando di Azure e connettersi alla propria sottoscrizione. Vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+1. Installare l'interfaccia della riga di comando di Azure e connettersi alla propria sottoscrizione. Vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md).
 2. Se si tratta della prima impostazione di un repository in Azure, è necessario creare le credenziali di accesso. Dall'interfaccia della riga di comando di Azure, immettere il comando seguente:
    
         azure site deployment user set [username] [password]
@@ -283,7 +284,7 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Node.js]
 [app Web del servizio app]: http://go.microsoft.com/fwlink/?LinkId=529714
 [pagina dei dettagli dei prezzi di App Web]: http://go.microsoft.com/fwlink/?LinkId=511643
 [Creazione di un'applicazione di chat Node.js con Socket.IO in un servizio cloud di Azure]: ../cloud-services/cloud-services-nodejs-chat-app-socketio.md
-[Install and Configure the Azure CLI]: ../xplat-cli-install.md
+[Install and Configure the Azure CLI]: ../cli-install-nodejs.md
 [Servizio app di Azure e i servizi di Azure esistenti]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Centro per sviluppatori di Node.js]: /develop/nodejs/
 [Prova il servizio app]: https://azure.microsoft.com/try/app-service/
@@ -299,9 +300,4 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Node.js]
 [chat-example-view]: ./media/web-sites-nodejs-chat-app-socketio/socketio-2.png
 [npm-output]: ./media/web-sites-nodejs-chat-app-socketio/socketio-7.png
 [completed-app]: ./media/web-sites-nodejs-chat-app-socketio/websitesocketcomplete.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

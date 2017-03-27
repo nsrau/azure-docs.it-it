@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1d0136b044f6049e59fa09d824cf244cac703c45
-ms.openlocfilehash: af1bb9618492827bfae5f55a30fd165dbd5be11e
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: c8d5fe6177b36aa73febe308b47b1fc330181924
+ms.lasthandoff: 03/22/2017
 
 ---
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/23/2017
 > - [API REST](network-watcher-topology-rest.md)
 
 La funzionalità per la visualizzazione della topologia di Network Watcher offre una rappresentazione visiva delle risorse di rete in una sottoscrizione. Nel portale, questa visualizzazione è automatica. È possibile recuperare le informazioni sottostanti alla visualizzazione della topologia nel portale usando PowerShell.
-Questa funzionalità rende le informazioni sulla topologia più versatile, poiché i dati possono essere usati anche da altri strumenti.
+Questa funzionalità rende le informazioni sulla topologia più versatili, poiché i dati possono essere usati anche da altri strumenti per compilare la visualizzazione.
 
 [!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
@@ -137,7 +137,7 @@ Resources       : [
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come visualizzare i log dei flussi dei gruppi di sicurezza di rete con Power BI, vedere [Visualize NSG flows logs with Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md) (Visualizzare i log dei flussi dei gruppi di sicurezza di rete con Power BI)
+Per informazioni su come visualizzare i log dei flussi dei gruppi di sicurezza di rete con Power BI, vedere [Visualizzare i log dei flussi dei gruppi di sicurezza di rete con Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
 
 

@@ -12,121 +12,130 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 03/08/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 9f4105d1ab366994add0f75d634917ab9a063733
-ms.openlocfilehash: 4d84c11a4b91727f60c4c266a23cc5f3946898f5
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: a12d3a5c25decdc88df0c9f9b3216bfaae33d5a6
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="securing-access-to-documentdb-data"></a>Protezione dell'accesso ai dati in DocumentDB
 Questo articolo fornisce una panoramica della protezione dell'accesso ai dati archiviati in [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-Dopo la lettura di questa panoramica, si potrà rispondere alle domande seguenti:  
+DocumentDB usa due tipi di chiavi per autenticare gli utenti e fornire accesso ai relativi dati e risorse. 
 
-* Cosa sono le chiavi master di DocumentDB?
-* Cosa sono le chiavi di sola lettura di DocumentDB?
-* Cosa sono i token delle risorse di DocumentDB?
-* Come è possibile usare gli utenti e le autorizzazioni di DocumentDB per proteggere l'accesso ai dati in DocumentDB?
+|Tipo di chiave|Risorse|
+|---|---|
+|[Chiavi master](#master-keys) |Usate per risorse amministrative, ovvero account di database, database, utenti e autorizzazioni|
+|[Token delle risorse](#resource-tokens)|Usati per le risorse dell'applicazione, ovvero raccolte, documenti, allegati, stored procedure, trigger e funzioni definite dall'utente|
 
-## <a name="documentdb-access-control-concepts"></a>Concetti di controllo di accesso in DocumentDB
-DocumentDB offre concetti avanzati per controllare l'accesso alle risorse in DocumentDB.  Nell'ambito di questo argomento, le risorse di DocumentDB sono raggruppate in due categorie:
+<a id="master-keys"></a>
 
-* Risorse amministrative
-  * Account
-  * Database
-  * Utente
-  * Autorizzazione
-* Risorse dell'applicazione
-  * Raccolta
-  * Offerta
-  * Documento
-  * Attachment
-  * Stored procedure
-  * Trigger
-  * Funzione definita dall'utente
+## <a name="master-keys"></a>Chiavi master 
 
-Nel contesto di queste due categorie, DocumentDB supporta tre tipi di utente tipo di controllo di accesso: amministratore account, amministratore di sola lettura e utente database.  I diritti di ogni utente tipo di controllo di accesso sono:
+Le chiavi master consentono di accedere a tutte le risorse amministrative per l'account del database. Chiavi master:  
+- Consentono di accedere ad account, database, utenti e autorizzazioni. 
+- Non possono essere usate per fornire l'accesso granulare a raccolte e documenti.
+- Vengono create durante la creazione di un account.
+- Possono essere rigenerate in qualsiasi momento.
 
-* Amministratore account: accesso completo a tutte le risorse (amministrative e dell'applicazione) in un determinato account di DocumentDB.
-* Amministratore di sola lettura: accesso di sola lettura a tutte le risorse (amministrative e dell'applicazione) in un determinato account di DocumentDB. 
-* Utente database: risorsa utente di DocumentDB associata a uno specifico set di risorse database di DocumentDB (ad esempio, raccolte, documenti, script).  Una o più risorse utente possono essere associate a un determinato database e a ogni risorsa utente può essere associate una o più autorizzazioni.
+Ogni account è costituito da due chiavi master: una chiave primaria e una chiave secondaria. Lo scopo delle due chiavi è consentire la rigenerazione o la rotazione delle chiavi mantenendo l'accesso continuo ai dati e all'account. 
 
-Tenendo presenti le suddette categorie e risorse, il modello di controllo di accesso di DocumentDB definisce tre tipi di costrutto di accesso:
+Oltre alle due chiavi master per l'account DocumentDB, sono disponibili due chiavi di sola lettura. Queste chiavi consentono solo operazioni di lettura per l'account. Le chiavi di sola lettura non forniscono l'accesso in lettura alle risorse di autorizzazione.
 
-* Chiavi master: al momento della creazione di un account di DocumentDB, vengono create due chiavi master (primaria e secondaria).  Queste chiavi consentono l'accesso amministrativo completo a tutte le risorse nell'account di DocumentDB.
+Le chiavi master primaria, secondaria, di sola lettura e di lettura/scrittura possono essere recuperate e rigenerate nel portale di Azure. Per istruzioni, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso](documentdb-manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
 
-![Illustrazione di chiavi master di DocumentDB](./media/documentdb-secure-access-to-data/masterkeys.png)
+![Controllo di accesso (IAM) nel portale di Azure: dimostrazione della sicurezza del database NoSQL](./media/documentdb-secure-access-to-data/nosql-database-security-master-key-portal.png)
 
-* Chiavi di sola lettura: al momento della creazione di un account di DocumentDB, vengono create due chiavi di sola lettura (primaria e secondaria).  Queste chiavi consentono l'accesso di sola lettura a tutte le risorse nell'account di DocumentDB.
+Il processo di rotazione della chiave master è semplice. Passare al portale di Azure per recuperare la chiave secondaria, quindi sostituire la chiave primaria con la chiave secondaria nell'applicazione e ruotare la chiave primaria nel portale di Azure.
 
-![Illustrazione di chiavi di sola lettura DocumentDB](./media/documentdb-secure-access-to-data/readonlykeys.png)
+![Rotazione delle chiavi master nel portale di Azure: dimostrazione della sicurezza del database NoSQL](./media/documentdb-secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png)
 
-* Token risorsa: un token di una risorsa è associato a una risorsa autorizzazione di DocumentDB e acquisisce la relazione tra l'utente di un database e l'autorizzazione dell'utente per una risorsa applicazione di DocumentDB specifica (ad esempio, raccolta, documento).
+### <a name="code-sample-to-use-a-master-key"></a>Esempio di codice per l'uso di una chiave master
 
-![Illustrazione di token DocumentDB risorse](./media/documentdb-secure-access-to-data/resourcekeys.png)
+Il frammento di codice seguente illustra come usare un endpoint dell'account di DocumentDB e la chiave master per creare un'istanza di DocumentClient e un database. 
 
-## <a name="working-with-documentdb-master-and-read-only-keys"></a>Uso delle chiavi master e di sola lettura di DocumentDB
-Come accennato in precedenza, le chiavi master di DocumentDB forniscono l'accesso amministrativo completo a tutte le risorse in un account di DocumentDB, mentre le chiavi di sola lettura consentono l'accesso in lettura a tutte le risorse nell'account.  Il seguente frammento di codice illustra come usare un endpoint dell'account di DocumentDB e la chiave master per creare un'istanza di DocumentClient e per creare un nuovo database. 
+```csharp
+//Read the DocumentDB endpointUrl and authorization keys from config.
+//These values are available from the Azure portal on the NOSQL (DocumentDB) account blade under "Keys".
+//NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
 
-    //Read the DocumentDB endpointUrl and authorization keys from config.
-    //These values are available from the Azure Classic Portal on the DocumentDB Account Blade under "Keys".
-    //NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
+private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
+private static readonly SecureString authorizationKey = ToSecureString(ConfigurationManager.AppSettings["AuthorizationKey"]);
 
-    private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
-    private static readonly SecureString authorizationKey = ToSecureString(ConfigurationManager.AppSettings["AuthorizationKey"]);
+client = new DocumentClient(new Uri(endpointUrl), authorizationKey);
 
-    client = new DocumentClient(new Uri(endpointUrl), authorizationKey);
+// Create Database
+Database database = await client.CreateDatabaseAsync(
+    new Database
+    {
+        Id = databaseName
+    });
+```
 
-    // Create Database
-    Database database = await client.CreateDatabaseAsync(
-        new Database
-        {
-            Id = databaseName
-        });
+<a id="resource-tokens"></a>
 
+## <a name="resource-tokens"></a>Token delle risorse
 
-## <a name="overview-of-documentdb-resource-tokens"></a>Panoramica dei token delle risorse di DocumentDB
-È possibile usare un token delle risorse (creando utenti e autorizzazioni di DocumentDB) quando si desidera fornire l'accesso alle risorse dell'account di DocumentDB a un client al quale non si vuole fornire la chiave master. Le chiavi master di DocumentDB includono una chiave primaria e una chiave secondaria, ciascuna delle quali garantisce accesso amministrativo all'account e a tutte le risorse in esso presenti. Se si espone una delle chiavi master, è possibile che l'account venga usato in modo dannoso o non appropriato. 
+I token delle risorse consentono di accedere alle risorse dell'applicazione all'interno di un database. Token delle risorse:
+- Consentono di accedere a raccolte, documenti, allegati, stored procedure, trigger e funzioni definite dall'utente.
+- Vengono creati quando a un [utente](#users) vengono concesse [autorizzazioni](#permissions) per una risorsa specifica.
+- Vengono ricreati quando si interviene su una risorsa di autorizzazione tramite chiamata POST, GET o PUT.
+- Usano un token di risorsa hash costruito specificamente per l'utente, la risorsa e l'autorizzazione.
+- Hanno un limite di tempo con un periodo di validità personalizzabile. L'intervallo di tempo predefinito è un'ora. La durata del token può essere tuttavia specificata in modo esplicito, fino a un massimo di cinque ore.
+- Rappresentano un'alternativa sicura alla divulgazione della chiave master. 
+- Consentono ai client di leggere, scrivere ed eliminare risorse nell'account di DocumentDB in base alle autorizzazioni concesse.
 
-Allo stesso modo, le chiavi di sola lettura di DocumentDB forniscono l'accesso in lettura a tutte le risorse (a eccezione ovviamente delle risorse autorizzazione) in un account di DocumentDB e non possono essere usate per fornire un accesso più granulare a risorse specifiche di DocumentDB.
+È possibile usare un token delle risorse (creando utenti e autorizzazioni di DocumentDB) quando si desidera fornire l'accesso alle risorse dell'account di DocumentDB a un client al quale non si vuole fornire la chiave master.  
 
-I token delle risorse di DocumentDB costituiscono un'alternativa sicura per consentire ai client di leggere, scrivere ed eliminare risorse nell'account di DocumentDB sulla base delle autorizzazioni concesse e senza richiedere la chiave master o di sola lettura.
+I token delle risorse di DocumentDB costituiscono un'alternativa sicura che consente ai client di leggere, scrivere ed eliminare risorse nell'account di DocumentDB sulla base delle autorizzazioni concesse e senza richiedere la chiave master o di sola lettura.
 
-Ecco un tipico schema progettuale in cui i token delle risorse possono essere richiesti, generati e forniti ai client:
+Di seguito è riportato un tipico schema progettuale in cui i token delle risorse possono essere richiesti, generati e forniti ai client:
 
-1. Un servizio di livello intermedio viene configurato per gestire un'applicazione per dispositivi mobili per condividere le foto dell'utente.
+1. Un servizio di livello intermedio viene configurato per gestire un'applicazione per dispositivi mobili per condividere le foto dell'utente. 
 2. Il servizio di livello intermedio possiede la chiave master dell'account di DocumentDB.
 3. L'app per le foto viene installata nei dispositivi mobili dell'utente finale. 
 4. All'accesso, l'app per le foto stabilisce l'identità dell'utente con il servizio di livello intermedio. Questo meccanismo per stabilire l'identità dipende completamente dall'applicazione.
 5. Una volta stabilita l'identità, il servizio di livello intermedio richiede le autorizzazioni in base all'identità.
 6. Il servizio di livello intermedio invia di nuovo un token delle risorse all'app per il telefono.
 7. L'app per il telefono può continuare a usare il token delle risorse per accedere direttamente alle risorse di DocumentDB con le autorizzazioni definite dal token delle risorse e per l'intervallo consentito dal token delle risorse. 
-8. Quando il token delle risorse scade, le richieste successive riceveranno un'eccezione 401 Non autorizzato.  A questo punto, l'app per il telefono ristabilisce l'identità e richiede un nuovo token delle risorse.
+8. Quando il token delle risorse scade, le richieste successive ricevono un'eccezione 401 Non autorizzato.  A questo punto, l'app per il telefono ristabilisce l'identità e richiede un nuovo token delle risorse.
 
-![Flusso di lavoro di DocumentDB risorse token](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
+    ![Flusso di lavoro di DocumentDB risorse token](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
 
-## <a name="working-with-documentdb-users-and-permissions"></a>Uso di utenti e autorizzazioni di DocumentDB
-Una risorsa utente di DocumentDB è associata a un database di DocumentDB.  Ogni database può includere zero o più utenti di DocumentDB.  Il frammento di codice seguente mostra come creare una risorsa utente di DocumentDB.
+ La generazione e la gestione dei token delle risorse vengono gestite tramite le librerie client di DocumentDB native. Se tuttavia si usa REST è necessario creare le intestazioni di richiesta/autenticazione. Per altre informazioni sulla creazione di intestazioni di autenticazione per REST, vedere [Access Control on DocumentDB Resources](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources) (Controllo di accesso per risorse DocumentDB) oppure il [codice sorgente per gli SDK di Microsoft](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
+ 
+ Per un esempio di servizio di livello intermedio usato per generare o negoziare i token delle risorse, vedere l'app [ResourceTokenBroker](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
-    //Create a user.
-    User docUser = new User
-    {
-        Id = "mobileuser"
-    };
+<a id="users"></a>
 
-    docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUser);
+## <a name="users"></a>Utenti
+Gli utenti di DocumentDB sono associati a un database di DocumentDB.  Ogni database può contenere zero o più utenti di DocumentDB.  Il frammento di codice seguente illustra come creare una risorsa utente di DocumentDB.
+
+```csharp
+//Create a user.
+User docUser = new User
+{
+    Id = "mobileuser"
+};
+
+docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUser);
+```
 
 > [!NOTE]
-> Ogni utente di DocumentDB dispone di una proprietà PermissionsLink che può essere usata per recuperare l'elenco di autorizzazioni associate all'utente.
+> Ogni utente di DocumentDB ha una proprietà PermissionsLink che può essere usata per recuperare l'elenco di [autorizzazioni](#permissions) associate all'utente.
 > 
 > 
 
+<a id="permissions"></a>
+
+## <a name="permissions"></a>autorizzazioni
 Una risorsa autorizzazione di DocumentDB è associata a un utente di DocumentDB.  Ogni utente può includere zero o più autorizzazioni di DocumentDB.  Una risorsa autorizzazione fornisce l'accesso a un token di sicurezza di cui l'utente ha bisogno quando deve accedere a una risorsa applicazione specifica.
-Sono disponibili due livelli di accesso che possono essere forniti da una risorsa autorizzazione:
+Sono disponibili due livelli di accesso che possono essere forniti da una risorsa di autorizzazione:
 
-* Tutto: l'utente dispone dell'autorizzazione completa sulla risorsa.
+* Tutto: l'utente ha l'autorizzazione completa per la risorsa.
 * Lettura: l'utente può solo leggere i contenuti della risorsa, ma non può eseguire operazioni di scrittura, aggiornamento o eliminazione sulla risorsa.
 
 > [!NOTE]
@@ -134,49 +143,46 @@ Sono disponibili due livelli di accesso che possono essere forniti da una risors
 > 
 > 
 
-Il frammento di codice seguente illustra come creare una risorsa autorizzazione, leggere il token delle risorse della risorsa autorizzazione e associare le autorizzazioni all'utente creato in precedenza.
+### <a name="code-sample-to-create-permission"></a>Esempio di codice per la creazione dell'autorizzazione
 
-    // Create a permission.
-    Permission docPermission = new Permission
-    {
-        PermissionMode = PermissionMode.Read,
-        ResourceLink = documentCollection.SelfLink,
-        Id = "readperm"
-    };
-    
-    docPermission = await client.CreatePermissionAsync(UriFactory.CreateUserUri("db", "user"), docPermission);
-    Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
+L'esempio di codice seguente illustra come creare una risorsa di autorizzazione, leggere il token delle risorse della risorsa di autorizzazione e associare le autorizzazioni all'[utente](#users) creato in precedenza.
 
-Se è stato specificata una chiave di partizione per la raccolta, l'autorizzazione per la raccolta, le risorse di documenti e allegati devono includere anche ResourcePartitionKey oltre a ResourceLink.
+```csharp
+// Create a permission.
+Permission docPermission = new Permission
+{
+    PermissionMode = PermissionMode.Read,
+    ResourceLink = documentCollection.SelfLink,
+    Id = "readperm"
+};
+  
+docPermission = await client.CreatePermissionAsync(UriFactory.CreateUserUri("db", "user"), docPermission);
+Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
+```
 
-Per ottenere facilmente tutte le risorse autorizzazione associate a un particolare utente, DocumentDB rende disponibile un feed di autorizzazioni per ogni oggetto utente.  Il frammento di codice seguente illustra come recuperare l'autorizzazione associata all'utente creato in precedenza, costruire un elenco di autorizzazioni e creare un'istanza di un nuovo DocumentClient per conto dell'utente.
+Se è stato specificata una chiave di partizione per la raccolta, l'autorizzazione per le risorse di raccolta, documenti e allegati deve includere anche ResourcePartitionKey oltre a ResourceLink.
 
-    //Read a permission feed.
-    FeedResponse<Permission> permFeed = await client.ReadPermissionFeedAsync(
-      UriFactory.CreateUserUri("db", "myUser"));
+### <a name="code-sample-to-read-permissions-for-user"></a>Codice di esempio per la lettura di autorizzazioni dell'utente
 
-    List<Permission> permList = new List<Permission>();
+Per ottenere facilmente tutte le risorse di autorizzazione associate a un particolare utente, DocumentDB rende disponibile un feed di autorizzazioni per ogni oggetto utente.  Il frammento di codice seguente illustra come recuperare l'autorizzazione associata all'utente creato in precedenza, costruire un elenco di autorizzazioni e creare un'istanza di un nuovo DocumentClient per conto dell'utente.
 
-    foreach (Permission perm in permFeed)
-    {
-        permList.Add(perm);
-    }
+```csharp
+//Read a permission feed.
+FeedResponse<Permission> permFeed = await client.ReadPermissionFeedAsync(
+  UriFactory.CreateUserUri("db", "myUser"));
+ List<Permission> permList = new List<Permission>();
 
-    DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
+foreach (Permission perm in permFeed)
+{
+    permList.Add(perm);
+}
 
-> [!TIP]
-> I token delle risorse hanno un intervallo di tempo valido predefinito di 1 ora.  La durata del token, tuttavia, può essere specificata in modo esplicito, fino a un massimo di 5 ore.
-> 
-> 
+DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per altre informazioni su DocumentDB, vedere [qui](http://azure.com/docdb).
-* Per informazioni sulla gestione delle chiavi master e di sola lettura, fare clic [qui](documentdb-manage-account.md).
-* Per informazioni su come costruire i token di autorizzazione di DocumentDB, fare clic [qui](https://msdn.microsoft.com/library/azure/dn783368.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+* Per altre informazioni sulla sicurezza dei database di DocumentDB, vedere [DocumentDB NoSQL database security](documentdb-nosql-database-security.md) (Sicurezza dei database DocumentDB NoSQL).
+* Per informazioni sulla gestione delle chiavi master e di sola lettura, vedere [Come gestire un account DocumentDB](documentdb-manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
+* Per informazioni su come costruire i token di autorizzazione di DocumentDB, vedere [Access Control on DocumentDB Resources](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources) (Controllo di accesso per risorse DocumentDB).
 
 

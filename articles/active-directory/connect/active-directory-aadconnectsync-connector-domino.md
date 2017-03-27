@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/10/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
-ms.openlocfilehash: da949459f734ea08527fe2380ab2a6a06e6976e7
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: aebe0b74c952045375e264bed88d33d936e34b92
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -147,6 +148,11 @@ Il parametro **Domino Server Time Zone** definisce la posizione del server Domin
 
 Questa opzione di configurazione è necessaria per supportare le operazioni di **importazione delta** , perché consente al servizio di sincronizzazione di determinare le modifiche tra le ultime due importazioni.
 
+>[!Note]
+A partire dall'aggiornamento di marzo 2017, la schermata dei parametri globali include l'opzione di eliminare il database di posta dell'utente durante l'eliminazione dell'utente.
+
+![Eliminare la cassetta postale di un utente](./media/active-directory-aadconnectsync-connector-domino/AdminP.png)
+
 #### <a name="import-settings-method"></a>Impostazioni di importazione, metodo
 Per **Perform Full Import By** sono disponibili le opzioni seguenti:
 
@@ -185,7 +191,7 @@ In un'implementazione di Domino di grandi dimensioni è possibile che più ogget
 Se l'opzione **Use AdminP for updating references** (Usa AdminP per aggiornare i riferimenti) non è selezionata, l'esportazione degli attributi di riferimento, ad esempio member, è una chiamata diretta e non usa il processo AdminP. Usare questa opzione solo se AdminP non è stato configurato per mantenere l'integrità referenziale.
 
 #### <a name="routing-information"></a>Informazioni di routing
-In Domino è possibile che in un attributo di riferimento siano incorporate informazioni di routing come suffisso del DN. Ad esempio, l'attributo member di un gruppo può contenere **CN=example/organization@ABC**). Il suffisso @ABC si riferisce alle informazioni di routing. Le informazioni di routing vengono usate da Domino per inviare messaggi di posta elettronica al sistema Domino corretto, che può essere un sistema in un'altra organizzazione. Nel campo relativo alle informazioni di routing è possibile specificare i suffissi di routing usati all'interno dell'organizzazione nell'ambito del connettore. Se uno di questi valori viene trovato come suffisso in un attributo di riferimento, le informazioni di routing vengono rimosse dal riferimento. Se non è possibile far corrispondere il suffisso di routing in un valore di riferimento a uno dei valori specificati, viene creato un oggetto \_Contact. Questi oggetti \_Contact vengono creati con **RO=@<RoutingSuffix>** inserito nel DN. Per questi oggetti \_Contact vengono aggiunti anche gli attributi seguenti per consentirne l'unione a un oggetto reale, se necessario: \_routingName, \_contactName, \_displayName e UniversalID.
+In Domino è possibile che in un attributo di riferimento siano incorporate informazioni di routing come suffisso del DN. Ad esempio, l'attributo member di un gruppo può contenere **CN=example/organization@ABC**. Il suffisso @ABC si riferisce alle informazioni di routing. Le informazioni di routing vengono usate da Domino per inviare messaggi di posta elettronica al sistema Domino corretto, che può essere un sistema in un'altra organizzazione. Nel campo relativo alle informazioni di routing è possibile specificare i suffissi di routing usati all'interno dell'organizzazione nell'ambito del connettore. Se uno di questi valori viene trovato come suffisso in un attributo di riferimento, le informazioni di routing vengono rimosse dal riferimento. Se non è possibile far corrispondere il suffisso di routing in un valore di riferimento a uno dei valori specificati, viene creato un oggetto \_Contact. Questi oggetti \_Contact vengono creati con **RO=@<RoutingSuffix>** inserito nel DN. Per questi oggetti \_Contact vengono aggiunti anche gli attributi seguenti per consentirne l'unione a un oggetto reale, se necessario: \_routingName, \_contactName, \_displayName e UniversalID.
 
 #### <a name="additional-address-books"></a>Altre rubriche
 Se non è installata la funzionalità **Directory Assistance** , che fornisce il nome della rubrica secondaria, è possibile immettere manualmente le rubriche.
@@ -320,7 +326,7 @@ Per altre informazioni sulla configurazione del database Resource Reservation, v
 ### <a name="mail-in-databases"></a>Database di posta elettronica in ingresso
 Mail-In Database è un database progettato per ricevere messaggi di posta elettronica. Si tratta di una cassetta postale di Lotus Domino che non è associata a un account utente di Lotus Domino specifico, ovvero non ha un proprio file di ID e password. Un database di posta elettronica in ingresso ha una proprietà UserID univoca ("nome breve") associata ad esso e il proprio indirizzo di posta elettronica.
 
-Se è necessario avere una cassetta postale separata con il proprio indirizzo di posta elettronica che può essere condiviso tra diversi utenti, ad esempio group@contoso.com),, viene creato un database di posta elettronica in ingresso. L'accesso a questa cassetta postale è controllato tramite l'elenco di controllo di accesso (ACL), che contiene i nomi degli utenti di Notes ai quali è consentito aprire la cassetta postale.
+Se è necessario avere una cassetta postale separata con il proprio indirizzo di posta elettronica che può essere condiviso tra diversi utenti, ad esempio group@contoso.com, viene creato un database di posta elettronica in ingresso. L'accesso a questa cassetta postale è controllato tramite l'elenco di controllo di accesso (ACL), che contiene i nomi degli utenti di Notes ai quali è consentito aprire la cassetta postale.
 
 Per un elenco degli attributi richiesti, vedere la sezione intitolata [Attributi obbligatori](#mandatory-attributes) più avanti in questo articolo.
 
@@ -489,9 +495,4 @@ Esistono diverse modalità in Domino per estendere lo schema in modo che venga v
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 * Per informazioni su come abilitare la registrazione per risolvere i problemi relativi al connettore, vedere l'articolo relativo a [come abilitare la traccia ETW per i connettori](http://go.microsoft.com/fwlink/?LinkId=335731).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

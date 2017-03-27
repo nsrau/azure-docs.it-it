@@ -17,20 +17,20 @@ ms.date: 04/27/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: 0aa12ea5fd7df7bee57aa7bcacd4c1fe4d6542b8
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 1bb49c0c03a3103194d068b511fa92ecb996caf3
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-an-azure-resource-manager-template"></a>Creare una VM con un indirizzo IP pubblico statico mediante un modello di Azure Resource Manager
 
 > [!div class="op_single_selector"]
-- [Portale di Azure](virtual-network-deploy-static-pip-arm-portal.md)
-- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-- [Interfaccia della riga di comando di Azure](virtual-network-deploy-static-pip-arm-cli.md)
-- [Modello](virtual-network-deploy-static-pip-arm-template.md)
-- [PowerShell (Classic)](virtual-networks-reserved-public-ip.md) (PowerShell (classico))
+> * [Portale di Azure](virtual-network-deploy-static-pip-arm-portal.md)
+> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+> * [Interfaccia della riga di comando di Azure](virtual-network-deploy-static-pip-arm-cli.md)
+> * [Modello](virtual-network-deploy-static-pip-arm-template.md)
+> * [PowerShell (Classic)](virtual-networks-reserved-public-ip.md) (PowerShell (classico))
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
@@ -171,7 +171,7 @@ Per distribuire il modello scaricato tramite PowerShell, seguire questa procedur
 ## <a name="deploy-the-template-by-using-the-azure-cli"></a>Distribuire il modello tramite l'interfaccia della riga di comando di Azure
 Per distribuire il modello tramite l'interfaccia della riga di comando di Azure, completare la procedura seguente:
 
-1. Se non è stata mai usata l'interfaccia della riga di comando di Azure, seguire la procedura riportata nell'articolo [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) per installarla e configurarla.
+1. Se non è stata mai usata l'interfaccia della riga di comando di Azure, seguire la procedura riportata nell'articolo [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md) per installarla e configurarla.
 2. Eseguire il comando `azure config mode` per passare alla modalità Gestione risorse, come illustrato di seguito.
 
     ```azurecli

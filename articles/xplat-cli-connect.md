@@ -17,9 +17,9 @@ ms.date: 10/04/2016
 ms.author: rasquill
 "\"/": 
 translationtype: Human Translation
-ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
-ms.openlocfilehash: 88414392c4ee03e0b140bba0f73e44b6886c4038
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 31efab60690b54faf7992251fcd01e307c4464f2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -29,7 +29,7 @@ L'interfaccia della riga di comando di Azure è un insieme di comandi multipiatt
 * Eseguire il comando `azure login` dell'interfaccia della riga di comando per l'autenticazione con Azure Active Directory. Questo metodo consente di accedere ai comandi dell'interfaccia della riga di comando in entrambe le [modalità di comando](#cli-command-modes). Quando si esegue il comando senza opzioni aggiuntive, `azure login` chiede di continuare la procedura di accesso in modo interattivo da un portale Web. Per le opzioni di comando aggiuntive di `azure login`, vedere gli scenari in questo articolo o digitare `azure login --help`.
 * Se è solo necessario usare i comandi dell'interfaccia della riga di comando CLI in modalità di gestione del servizio Azure (non consigliati per le distribuzioni più nuove), è possibile scaricare e installare un file di impostazioni di pubblicazione nel computer in uso.
 
-Se l'interfaccia non è stata ancora installata, vedere [Installare l'interfaccia della riga di comando di Azure](xplat-cli-install.md). Se non si dispone di una sottoscrizione di Azure, è possibile creare un [account gratuito](http://azure.microsoft.com/free/) in pochi minuti.
+Se l'interfaccia non è stata ancora installata, vedere [Installare l'interfaccia della riga di comando di Azure](cli-install-nodejs.md). Se non si dispone di una sottoscrizione di Azure, è possibile creare un [account gratuito](http://azure.microsoft.com/free/) in pochi minuti.
 
 Per informazioni sulle diverse identità dell'account e sulle sottoscrizioni di Azure, vedere [Associare le sottoscrizioni di Azure ad Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md).
 

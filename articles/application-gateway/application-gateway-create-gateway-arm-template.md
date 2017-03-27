@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 5cdd26529ed06b7903ae232ab8da4527e79a8a68
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 02b758b06332abe190b322c83da7c4135d358fa4
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -164,7 +165,7 @@ Per distribuire il modello di Azure Resource Manager scaricato usando l'interfac
 
 ### <a name="step-1"></a>Passaggio 1
 
-Se è la prima volta che si usa l'interfaccia della riga di comando di Azure, vedere [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
+Se è la prima volta che si usa l'interfaccia della riga di comando di Azure, vedere [Installare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
 
 ### <a name="step-2"></a>Passaggio 2
 
@@ -246,10 +247,5 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 
 * [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

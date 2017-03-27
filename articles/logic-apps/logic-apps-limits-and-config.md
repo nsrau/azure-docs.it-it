@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 084919e9dbe3647c45cf67e6836a8c9de6a5cd70
-ms.openlocfilehash: 307a70b5efb22642e54212d8d3517bf5d9070505
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 7427a5740dd7fe32aeb4d8396568706399c66bd7
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -35,13 +35,13 @@ Di seguito sono riportati i limiti per una singola richiesta e/o chiamata al con
 
 |Nome|Limite|Note|
 |----|----|----|
-|Timeout richiesta|90 secondi|La compensazione necessaria può essere offerta da un [modello asincrono](../logic-apps/logic-apps-create-api-app.md) o un [ciclo Until](logic-apps-loops-and-scopes.md)|
+|Timeout richiesta|120 secondi|La compensazione necessaria può essere offerta da un [modello asincrono](../logic-apps/logic-apps-create-api-app.md) o un [ciclo Until](logic-apps-loops-and-scopes.md)|
 
 #### <a name="message-size"></a>Dimensioni dei messaggi
 
 |Nome|Limite|Note|
 |----|----|----|
-|Dimensioni dei messaggi|50 MB|Alcuni connettori e alcune API potrebbero non supportare 50 MB |
+|Dimensioni dei messaggi|100 MB|Alcuni connettori e alcune API potrebbero non supportare 100 MB |
 |Limite per la valutazione delle espressioni|131.072 caratteri|`@concat()`, `@base64()` e `string` non possono superare tale lunghezza|
 
 #### <a name="retry-policy"></a>Criteri di ripetizione
@@ -50,7 +50,7 @@ Di seguito sono riportati i limiti per una singola richiesta e/o chiamata al con
 |----|----|----|
 |Tentativi|4|Configurabile con il [parametro dei criteri di ripetizione](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
 |Intervallo massimo tra i tentativi|1 ora|Configurabile con il [parametro dei criteri di ripetizione](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
-|Intervallo minimo tra i tentativi|20 secondi|Configurabile con il [parametro dei criteri di ripetizione](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
+|Intervallo minimo tra i tentativi|5 secondi|Configurabile con il [parametro dei criteri di ripetizione](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
 
 ### <a name="run-duration-and-retention"></a>Durata dell'esecuzione e conservazione
 
@@ -93,7 +93,7 @@ Di seguito sono riportati i limiti per una singola definizione di app per la log
 |----|----|----|
 |Azioni per flusso di lavoro|250|È possibile aggiungere flussi di lavoro annidati per estendere questo valore, se necessario|
 |Livello di annidamento azioni consentito|5|È possibile aggiungere flussi di lavoro annidati per estendere questo valore, se necessario|
-|Flussi per area per sottoscrizione|1000||
+|Flussi di lavoro per area per sottoscrizione|1000||
 |Trigger per flusso di lavoro|10||
 |Numero massimo di caratteri per espressione|8.192||
 |Dimensioni massime di `trackedProperties` in caratteri|16.000|
@@ -134,6 +134,8 @@ Le chiamate effettuate direttamente da un'app per la logica (tramite [HTTP](../c
 |Australia orientale|13.75.153.66, 104.210.89.222, 104.210.89.244, 13.75.149.4, 104.210.91.55, 104.210.90.241|
 |Australia sudorientale|13.73.115.153, 40.115.78.70, 40.115.78.237, 13.73.114.207, 13.77.3.139, 13.70.159.205|
 |Brasile meridionale|191.235.86.199, 191.235.95.229, 191.235.94.220, 191.235.82.221, 191.235.91.7, 191.234.182.26|
+|Canada centrale|52.233.29.92,52.228.39.241,52.228.39.244|
+|Canada orientale|52.232.128.155,52.229.120.45,52.229.126.25|
 |India centrale|52.172.157.194, 52.172.184.192, 52.172.191.194, 52.172.154.168, 52.172.186.159, 52.172.185.79|
 |Stati Uniti centrali|13.67.236.76, 40.77.111.254, 40.77.31.87, 13.67.236.125, 104.208.25.27, 40.122.170.198|
 |Asia orientale|168.63.200.173, 13.75.89.159, 23.97.68.172, 13.75.94.173, 40.83.127.19, 52.175.33.254|
@@ -159,6 +161,8 @@ Le chiamate effettuate da un [connettore](../connectors/apis-list.md) proverrann
 |Australia orientale|40.126.251.213|
 |Australia sudorientale|40.127.80.34|
 |Brasile meridionale|191.232.38.129|
+|Canada centrale|52.233.31.197,52.228.42.205,52.228.33.76,52.228.34.13|
+|Canada orientale|52.229.123.98,52.229.120.178,52.229.126.202,52.229.120.52|
 |India centrale|104.211.98.164|
 |Stati Uniti centrali|40.122.49.51|
 |Asia orientale|23.99.116.181|

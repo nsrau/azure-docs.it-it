@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 11/03/2016
 ms.author: wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
-ms.openlocfilehash: f349dea2ba1a080312cf07f19eded201775c9cd1
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 831b7cc21ee34f900f7e35885a36f6e0faf38211
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -78,7 +79,7 @@ Queste statistiche sono in tempo reale, ma la creazione effettiva dei grafici re
 
 ### <a name="monitoring-function-app-log-files-with-the-azure-cli"></a>Monitoraggio dei file di log dell'app per le funzioni con l'interfaccia della riga di comando di Azure
 
-Per iniziare, [installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md)
+Per iniziare, [installare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md)
 
 Accedere all'account di Azure usando il comando seguente o una delle altre opzioni illustrate in [Accedere ad Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md).
 
@@ -124,10 +125,5 @@ Per altre informazioni, vedere le seguenti risorse:
 
 * [Test di Funzioni di Azure](functions-test-a-function.md)
 * [Scalabilità di Funzioni di Azure](functions-scale.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: jahogg
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 2e2978f6e81b3f584eb73ce10fb373b62f7b85ff
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: a5193cb222fab1f3ed3e700d45c4a51676707d5a
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -305,7 +305,7 @@ Questa sezione fornisce un supporto per la diagnosi e la risoluzione di alcuni d
 
 **Albero delle decisioni per la risoluzione dei problemi**
 
-- - -
+---
 Il problema riguarda le prestazioni di uno dei servizi di archiviazione?
 
 * [Le metriche indicano un valore AverageE2ELatency alto e un valore AverageServerLatency basso]
@@ -313,39 +313,39 @@ Il problema riguarda le prestazioni di uno dei servizi di archiviazione?
 * [Le metriche indicano un valore AverageServerLatency alto]
 * [Si stanno verificando ritardi imprevisti nel recapito dei messaggi di una coda]
 
-- - -
+---
 Il problema riguarda la disponibilità di uno dei servizi di archiviazione?
 
 * [Le metriche indicano un aumento di PercentThrottlingError]
 * [Le metriche indicano un aumento di PercentTimeoutError]
 * [Le metriche indicano un aumento di PercentNetworkError]
 
-- - -
-L'applicazione client riceve una risposta HTTP 4XX (ad esempio 404) da un servizio di archiviazione?
+---
+ L'applicazione client riceve una risposta HTTP 4XX (ad esempio 404) da un servizio di archiviazione?
 
 * [Il client sta ricevendo messaggi HTTP 403 (Accesso negato)]
 * [Il client sta ricevendo messaggi HTTP 404 (Non trovato)]
 * [Il client sta ricevendo messaggi HTTP 409 (Conflitto)]
 
-- - -
-[Le metriche indicano un valore PercentSuccess basso o le voci del log di analisi contengono operazioni con stato della transazione ClientOtherErrors]
+---
+[Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors]
 
-- - -
+---
 [Le metriche della capacità indicano un aumento imprevisto dell'uso della capacità di archiviazione]
 
-- - -
-[Si stanno verificando riavvii imprevisti delle macchine virtuali con un numero elevato di VHD allegati]
+---
+[You are experiencing unexpected reboots of Virtual Machines that have a large number of attached VHDs]
 
-- - -
+---
 [Il problema è dovuto all'uso dell'emulatore di archiviazione per attività di sviluppo o test]
 
-- - -
-[Si stanno verificando problemi di installazione di Azure SDK per .NET]
+---
+[You are encountering problems installing the Azure SDK for .NET]
 
-- - -
+---
 [Si è verificato un problema diverso con un servizio di archiviazione]
 
-- - -
+---
 ### <a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>Le metriche indicano un valore AverageE2ELatency alto e un valore AverageServerLatency basso
 L'illustrazione dello strumento di monitoraggio del [portale di Azure](https://portal.azure.com) mostra un esempio in cui il valore **AverageE2ELatency** è notevolmente superiore al valore **AverageServerLatency**.
 
@@ -475,12 +475,12 @@ Se l'applicazione client genera errori HTTP 403 (Accesso negato), probabilmente 
 | Microsoft.WindowsAzure.Storage |Informazioni |3 |85d077ab-… |Avvio operazione con posizione primaria in base alla modalità di posizionamento PrimaryOnly. |
 | Microsoft.WindowsAzure.Storage |Informazioni |3 |85d077ab-… |Avvio richiesta sincrona a https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14. |
 | Microsoft.WindowsAzure.Storage |Informazioni |3 |85d077ab-… |In attesa di risposta. |
-| Microsoft.WindowsAzure.Storage |Avviso |2 |85d077ab-… |Eccezione generata in attesa di risposta: il server remoto ha restituito un errore: (403) Accesso negato.. |
+| Microsoft.WindowsAzure.Storage |Avviso |2 |85d077ab-… |Eccezione generata in attesa di risposta: il server remoto ha restituito un errore: (403) Accesso negato. |
 | Microsoft.WindowsAzure.Storage |Informazioni |3 |85d077ab-… |Risposta ricevuta. Codice stato = 403, ID richiesta = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
-| Microsoft.WindowsAzure.Storage |Avviso |2 |85d077ab-… |Eccezione generata durante l'operazione: il server remoto ha restituito un errore: (403) Accesso negato.. |
-| Microsoft.WindowsAzure.Storage |Informazioni |3 |85d077ab-… |Verifica se l'operazione deve essere ritentata. Conteggio tentativi = 0, codice di stato HTTP = 403, Eccezione = il server remoto ha restituito un errore: (403) Accesso negato.. |
+| Microsoft.WindowsAzure.Storage |Avviso |2 |85d077ab-… |Eccezione generata durante l'operazione: il server remoto ha restituito un errore: (403) Accesso negato. |
+| Microsoft.WindowsAzure.Storage |Informazioni |3 |85d077ab-… |Verifica se l'operazione deve essere ritentata. Conteggio tentativi = 0, codice di stato HTTP = 403, Eccezione = il server remoto ha restituito un errore: (403) Accesso negato. |
 | Microsoft.WindowsAzure.Storage |Informazioni |3 |85d077ab-… |La posizione successiva è stata impostata come primaria, in base alla modalità di posizionamento. |
-| Microsoft.WindowsAzure.Storage |Tipi di errore |1 |85d077ab-… |Il criterio di ripetizione non ha consentito un nuovo tentativo. Errore con server remoto che ha restituito un errore: (403) Accesso negato.. |
+| Microsoft.WindowsAzure.Storage |Tipi di errore |1 |85d077ab-… |Il criterio di ripetizione non ha consentito un nuovo tentativo. Errore con server remoto che ha restituito un errore: (403) Accesso negato. |
 
 In questo scenario, è necessario verificare perché il token SAS scade prima che il client invii il token al server:
 
@@ -538,7 +538,7 @@ Voci del log:
 | de8b1c3c-... |Avvio richiesta sincrona a https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |Preparazione della scrittura dei dati della richiesta. |
-| e2d06d78-... |Eccezione generata in attesa di risposta: il server remoto ha restituito un errore: (404) Non trovato.. |
+| e2d06d78-... |Eccezione generata in attesa di risposta: il server remoto ha restituito un errore: (404) Non trovato. |
 | e2d06d78-... |Risposta ricevuta. Codice stato = 404, ID richiesta = 353ae3bc-..., Content-MD5 = , ETag =. |
 | e2d06d78-... |Intestazioni della risposta elaborate correttamente, si procede con il resto dell'operazione. |
 | e2d06d78-... |Download del corpo della risposta. |
@@ -548,14 +548,14 @@ Voci del log:
 | e2d06d78-... |In attesa di risposta. |
 | de8b1c3c-... |Scrittura dei dati della richiesta. |
 | de8b1c3c-... |In attesa di risposta. |
-| e2d06d78-... |Eccezione generata in attesa di risposta: il server remoto ha restituito un errore: (409) Conflitto.. |
+| e2d06d78-... |Eccezione generata in attesa di risposta: il server remoto ha restituito un errore: (409) Conflitto. |
 | e2d06d78-... |Risposta ricevuta. Codice stato = 409, ID richiesta = c27da20e-..., Content-MD5 = , ETag =. |
 | e2d06d78-... |Download del corpo della risposta con errore. |
-| de8b1c3c-... |Eccezione generata in attesa di risposta: il server remoto ha restituito un errore: (404) Non trovato.. |
+| de8b1c3c-... |Eccezione generata in attesa di risposta: il server remoto ha restituito un errore: (404) Non trovato. |
 | de8b1c3c-... |Risposta ricevuta. Codice stato = 404, ID richiesta = 0eaeab3e-..., Content-MD5 = , ETag =. |
-| de8b1c3c-... |Eccezione generata durante l'operazione: il server remoto ha restituito un errore: (404) Non trovato.. |
-| de8b1c3c-... |Il criterio di ripetizione non ha consentito un nuovo tentativo. Errore con server remoto che ha restituito un errore: (404) Non trovato.. |
-| e2d06d78-... |Il criterio di ripetizione non ha consentito un nuovo tentativo. Errore con server remoto che ha restituito un errore: (409) Conflitto.. |
+| de8b1c3c-... |Eccezione generata durante l'operazione: il server remoto ha restituito un errore: (404) Non trovato. |
+| de8b1c3c-... |Il criterio di ripetizione non ha consentito un nuovo tentativo. Errore con server remoto che ha restituito un errore: (404) Non trovato. |
+| e2d06d78-... |Il criterio di ripetizione non ha consentito un nuovo tentativo. Errore con server remoto che ha restituito un errore: (409) Conflitto. |
 
 In questo esempio, il log indica che il client sta eseguendo un'interfoliazione delle richieste del metodo **CreateIfNotExists** (ID richiesta e2d06d78…) con le richieste del metodo **UploadFromStream** (de8b1c3c-...); ciò si verifica perché l'applicazione client sta chiamando questi metodi in modo asincrono. È necessario modificare il codice asincrono nel client per assicurarsi che crei il contenitore prima di tentare di caricare dati in un BLOB in tale contenitore. La soluzione migliore sarebbe creare prima tutti i contenitori.
 

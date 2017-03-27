@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 23a01938-3fe5-4e2e-8e8b-3368e1bbe2ca
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: aaff4a7aa717f42dedb96eceeb4315b31a6e7b17
-ms.openlocfilehash: 1ea77289ead60af067a0d07bac6c2e40a1684a04
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 31821203c18f1310c6a781bd28022efd3da7f03d
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -156,29 +157,29 @@ Con i cluster HDInsight è possibile configurare due account utente durante la c
   >
 
 ### <a name="data-source"></a>Origine dati
-Hadoop Distributed File System (HDFS) originale usa molti dischi locali nel cluster. HDInsight usa l'archiviazione BLOB di Azure per l'archiviazione dei dati. L'archiviazione BLOB di Azure è una soluzione di archiviazione affidabile, con finalità generali che si integra facilmente con HDInsight. Grazie a un'interfaccia HDFS, tutti i componenti disponibili in HDInsight possono agire direttamente sui dati strutturati o non strutturati presenti nell'archivio BLOB. L'archiviazione dei dati nell'archivio BLOB consente l'eliminazione sicura dei cluster HDInsight usati per i calcoli, senza perdita di dati utente.
 
-Durante la configurazione è necessario specificare un account di archiviazione di Azure e un contenitore di archiviazione BLOB di Azure nell'account di archiviazione di Azure. Alcuni processi di creazione richiedono prima di tutto la creazione dell'account di archiviazione di Azure e del contenitore di archiviazione BLOB. Il contenitore di archiviazione BLOB viene usato dal cluster come posizione di archiviazione predefinita. Facoltativamente, è possibile specificare account di archiviazione di Azure aggiuntivi, ovvero account di archiviazione collegati, a cui il cluster può accedere. Il cluster può accedere anche a eventuali contenitori di archiviazione BLOB configurati con accesso in lettura pubblico completo o accesso in lettura pubblico solo per i BLOB.  Per altre informazioni, vedere [Gestire l'accesso alle risorse di archiviazione di Azure](../storage/storage-manage-access-to-resources.md).
+Hadoop Distributed File System (HDFS) originale usa molti dischi locali nel cluster. HDInsight usa i BLOB in Archiviazione di Azure. Archiviazione di Azure è una soluzione di archiviazione affidabile, con finalità generali che si integra facilmente con HDInsight. Grazie a un'interfaccia HDFS, tutti i componenti disponibili in HDInsight possono agire direttamente sui dati strutturati o non strutturati archiviati nei BLOB. L'archiviazione dei dati in Archiviazione di Azure consente l'eliminazione sicura dei cluster HDInsight usati per i calcoli, senza perdita di dati utente.
+
+> [!WARNING]
+> HDInsight supporta solo account di archiviazione di Azure __per utilizzo generico__. Non supporta attualmente il tipo di account di __archiviazione BLOB__.
+
+Durante la configurazione è necessario specificare un account di archiviazione di Azure e un contenitore BLOB nell'account di Archiviazione di Azure. Alcuni processi di creazione richiedono prima di tutto la creazione dell'account di Archiviazione di Azure e del contenitore BLOB. Il contenitore BLOB viene usato dal cluster come posizione di archiviazione predefinita. Facoltativamente, è possibile specificare account di Archiviazione di Azure aggiuntivi, ovvero account di archiviazione collegati, a cui il cluster può accedere. Il cluster può accedere anche a eventuali contenitori BLOB configurati con accesso in lettura pubblico completo o accesso in lettura pubblico solo per i BLOB.  Per altre informazioni, vedere [Gestire l'accesso alle risorse di archiviazione di Azure](../storage/storage-manage-access-to-resources.md).
 
 ![Archiviazione di HDInsight](./media/hdinsight-provision-clusters/HDInsight.storage.png)
 
 > [!NOTE]
-> Un contenitore di archiviazione BLOB offre un raggruppamento di un set di BLOB, come illustrato nell'immagine seguente.
->
->
+> Un contenitore BLOB offre un raggruppamento di un set di BLOB, come illustrato nell'immagine seguente.
 
-![Archivio BLOB di Azure](./media/hdinsight-provision-clusters/Azure.blob.storage.jpg)
+![BLOB di Azure](./media/hdinsight-provision-clusters/Azure.blob.storage.jpg)
 
-Non è consigliabile usare il contenitore dell'archivio BLOB predefinito per l'archiviazione dei dati aziendali. È consigliabile eliminare il contenitore di archiviazione BLOB predefinito dopo ogni uso per ridurre i costi di archiviazione. Si noti che il contenitore predefinito include registri di sistema e applicazioni. Assicurarsi di recuperare i registri prima di eliminare il contenitore.
+Non è consigliabile usare il contenitore BLOB predefinito per l'archiviazione dei dati aziendali. È consigliabile eliminare il contenitore BLOB predefinito dopo ogni uso per ridurre i costi di archiviazione. Si noti che il contenitore predefinito include registri di sistema e applicazioni. Assicurarsi di recuperare i registri prima di eliminare il contenitore.
 
 > [!WARNING]
-> La condivisione di un contenitore di archiviazione BLOB tra più cluster non è supportata.
->
->
+> La condivisione di un contenitore BLOB tra più cluster non è supportata.
 
-Per altre informazioni sull'uso degli archivi BLOB secondari, vedere [Uso dell'archivio BLOB di Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md).
+Per altre informazioni sull'uso di un account di Archiviazione di Azure secondario, vedere [Uso di Archiviazione di Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
-Oltre all'archivio BLOB di Azure, è possibile usare [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) come account di archiviazione predefinito per il cluster HBase in HDInsight e come archivio collegato per tutti e quattro i tipi di cluster HDInsight. Per altre informazioni, vedere [Creare un cluster HDInsight con Data Lake Store tramite il portale di Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Oltre ad Archiviazione di Azure, è possibile usare [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) come account di archiviazione predefinito per il cluster HBase in HDInsight e come archiviazione collegata per tutti e quattro i tipi di cluster HDInsight. Per altre informazioni, vedere [Creare un cluster HDInsight con Data Lake Store tramite il portale di Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 ### <a name="location-region"></a>Località (area)
 Il cluster HDInsight e l'account di archiviazione predefinito devono trovarsi nella stessa località di Azure.
@@ -250,7 +251,7 @@ In alcuni casi è possibile aggiungere altre risorse al cluster, ad esempio se s
 
 Quando si crea un cluster HDInsight o dopo aver creato un cluster, è possibile aggiungere account di archiviazione.  Vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md).
 
-Per altre informazioni sugli archivi BLOB secondari, vedere [Uso dell'archivio BLOB di Azure compatibile con HDFS con Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md). Per altre informazioni sull'uso degli archivi Data Lake secondari, vedere [Creare un cluster HDInsight con Data Lake Store tramite il portale di Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Per altre informazioni sull'account di Archiviazione di Azure secondario, vedere [Uso di Archiviazione di Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md). Per altre informazioni sull'uso degli archivi Data Lake secondari, vedere [Creare un cluster HDInsight con Data Lake Store tramite il portale di Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 ## <a name="use-hiveoozie-metastore"></a>Usare metastore Hive/Oozie
 È consigliabile usare un metastore personalizzato per conservare le tabelle Hive dopo aver eliminato il cluster HDInsight. Sarà possibile associare il metastore a un altro cluster HDInsight.
@@ -314,7 +315,7 @@ Per mantenere le modifiche per tutta la durata del cluster, è possibile usare l
 ## <a name="customize-clusters-using-script-action"></a>Personalizzare i cluster con l'azione script
 L'uso di script durante la creazione consente di installare componenti aggiuntivi o personalizzare la configurazione di un cluster. Gli script vengono chiamati tramite un' **azione script**, ovvero un'opzione di configurazione che può essere usata da portale di Azure, dai cmdlet di Windows PowerShell per HDInsight o da .NET SDK per HDInsight. Per altre informazioni, vedere [Personalizzare cluster HDInsight mediante le azioni script](hdinsight-hadoop-customize-cluster-linux.md).
 
-Nel cluster è possibile eseguire alcuni componenti Java nativi, come Mahout e Cascading, sotto forma di file JAR (Java Archive). Questi file JAR possono essere distribuiti nell'archivio BLOB di Azure e inviati ai cluster HDInsight usando i meccanismi di invio dei processi Hadoop. Per altre informazioni, vedere [Inviare processi Hadoop a livello di codice](hdinsight-submit-hadoop-jobs-programmatically.md).
+Nel cluster è possibile eseguire alcuni componenti Java nativi, come Mahout e Cascading, sotto forma di file JAR (Java Archive). Questi file JAR possono essere distribuiti in Archiviazione di Azure e inviati ai cluster HDInsight usando i meccanismi di invio dei processi Hadoop. Per altre informazioni, vedere [Inviare processi Hadoop a livello di codice](hdinsight-submit-hadoop-jobs-programmatically.md).
 
 > [!NOTE]
 > In caso di problemi durante la distribuzione di file JAR in cluster HDInsight o nella chiamata di file JAR in cluster HDInsight, contattare il [Supporto Microsoft](https://azure.microsoft.com/support/options/).

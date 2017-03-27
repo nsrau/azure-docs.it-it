@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 69b94c93ad3e9c9745af8485766b4237cac0062c
-ms.openlocfilehash: 2ced9e73a65160f4f3c8ba92affc143ca554d07c
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: c27b6ed05faa5d9c408e6812d4ecbb8e0e2bbbab
+ms.lasthandoff: 03/17/2017
 
 ---
 
@@ -89,49 +90,11 @@ Per altre informazioni, vedere [Informazioni sul monitoraggio di Gestione traffi
 
 Se tutti gli endpoint di un profilo sono disabilitati o se il profilo stesso è disabilitato, Gestione traffico invia una risposta "NXDOMAIN" a una nuova query DNS.
 
-## <a name="faq"></a>Domande frequenti
-
-### <a name="can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions"></a>È possibile usare Gestione traffico con endpoint di più sottoscrizioni?
-
-L'uso di endpoint di più sottoscrizioni non è possibile con app Web di Azure. Per le app Web di Azure è necessario che ogni nome di dominio personalizzato usato con app Web venga usato solo all'interno di una singola sottoscrizione. Non è possibile usare app Web da più sottoscrizioni con lo stesso nome di dominio.
-
-Per altri tipi di endpoint, è possibile utilizzare Gestione traffico con gli endpoint da più di una sottoscrizione. La configurazione di Gestione traffico varia a seconda che si usi il modello di distribuzione classica o l'esperienza Resource Manager.
-
-* In Resource Manager è possibile aggiungere endpoint di qualsiasi sottoscrizione a Gestione traffico, purché la persona che configura il profilo di Gestione traffico abbia accesso in lettura all'endpoint. Queste autorizzazioni possono essere concesse tramite il [controllo di accesso in base al ruolo di Azure Resource Manager](../active-directory/role-based-access-control-configure.md).
-* Nell'interfaccia del modello di distribuzione classica Gestione traffico richiede che tutti i servizi cloud e le app Web configurati come endpoint di Azure si trovino nella stessa sottoscrizione del profilo di Gestione traffico. È possibile aggiungere endpoint del servizio cloud di altre sottoscrizioni a Gestione traffico come endpoint esterni. Questi endpoint esterni vengono fatturati come endpoint di Azure e non in base alla tariffa degli endpoint esterni.
-
-### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>È possibile usare Gestione traffico con slot di "staging" del servizio cloud?
-
-Sì. Gli slot di "staging" del servizio cloud possono essere configurati come endpoint esterni in Gestione traffico. I controlli di integrità vengono fatturati in base alla tariffa degli endpoint di Azure. Dato che viene usato il tipo di endpoint esterno, le modifiche al servizio sottostante non vengono rilevate automaticamente. Se si usano endpoint esterni, Gestione traffico non è in grado di rilevare l'eventuale arresto o eliminazione del servizio cloud. Di conseguenza, Gestione traffico continua a fatturare i controlli di integrità fino a quando l'endpoint non viene disabilitato o eliminato.
-
-### <a name="does-traffic-manager-support-ipv6-endpoints"></a>Gestione traffico supporta endpoint IPv6?
-
-Attualmente Gestione traffico non fornisce server dei nomi indirizzabili tramite IPv6. Può comunque essere usato da client IPv6 che si connettono a endpoint IPv6. Un client non invia richieste DNS direttamente a Gestione traffico, ma usa un servizio DNS ricorsivo. Un client solo IPv6 invia richieste al servizio DNS ricorsivo tramite IPv6. Il servizio ricorsivo può quindi contattare i server dei nomi di Gestione traffico tramite IPv4.
-
-Gestione traffico risponde con il nome DNS dell'endpoint. Per supportare un endpoint IPv6, è necessaria la presenza di un record AAAA DNS che punti il nome DNS dell'endpoint all'indirizzo IPv6. I controlli di integrità di Gestione traffico supportano soltanto gli indirizzi IPv4. Il servizio deve esporre un endpoint IPv4 sullo stesso nome DNS.
-
-### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>È possibile usare Gestione traffico con più app Web nella stessa area?
-
-In genere, Gestione traffico viene usato per indirizzare il traffico ad applicazioni distribuite in aree diverse. Tuttavia, può anche essere usato in un'applicazione che abbia più distribuzioni nella stessa area. Gli endpoint di Azure di Gestione traffico non permettono l'aggiunta di più endpoint di app Web della stessa area di Azure allo stesso profilo di Gestione traffico.
-
-I passaggi seguenti offrono una soluzione alternativa a questo vincolo:
-
-1. Verificare che gli endpoint si trovino in unità di scala diverse dell'app Web. Un nome di dominio deve eseguire il mapping a un unico sito in un'unità di scala specificata. Di conseguenza, due app Web nella stessa unità di scala non possono condividere un profilo di Gestione traffico.
-2. Aggiungere il nome di dominio personale come nome host personalizzato a ogni app Web. Ogni App Web deve trovarsi in un'unità di scala diversa. Tutte le app Web devono appartenere alla stessa sottoscrizione.
-3. Aggiungere un unico endpoint di app Web al profilo di Gestione traffico, come endpoint di Azure.
-4. Aggiungere gli altri endpoint di app Web al profilo di Gestione traffico come endpoint esterni. È possibile aggiungere endpoint esterni solo usando il modello di distribuzione di Resource Manager.
-5. Nel proprio dominio personale creare un record CNAME DNS che punti al nome DNS del profilo di Gestione traffico (<...>.trafficmanager.net).
-6. Accedere al sito tramite il nome di dominio personalizzato anziché dal nome DNS del profilo di Gestione traffico.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni sul [funzionamento di Gestione traffico](traffic-manager-how-traffic-manager-works.md).
 * Informazioni sul [monitoraggio degli endpoint e sul failover automatico](traffic-manager-monitoring.md)di Gestione traffico.
 * Informazioni sui [metodi di routing del traffico](traffic-manager-routing-methods.md)di Gestione traffico.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

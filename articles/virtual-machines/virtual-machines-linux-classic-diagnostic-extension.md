@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 11a1f6ea289db38aeb8c2fff2c9b0e6b1f0f044c
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: e43a3920da0baafa1be0d3a9a8596f19bf7ebc3e
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -40,12 +41,12 @@ Nella versione 2.3 i dati includono:
 Questa estensione funziona sia con i modelli classici che con i modelli di distribuzione Resource Manager.
 
 ### <a name="current-version-of-the-extension-and-deprecation-of-old-versions"></a>Versione corrente dell'estensione e versioni precedenti deprecate
-La versione più recente dell'estensione è la **2.3**, mentre ** tutte le versioni precedenti (2.0, 2.1 e 2.2) verranno deprecate, annullandone la pubblicazione entro la fine di quest'anno (2016)**. Se è installata l'estensione di diagnostica Linux con disabilitato l'aggiornamento automatico della versione secondaria, è consigliabile disinstallare l'estensione e reinstallarla abilitando l'aggiornamento automatico della versione secondaria. Nelle macchine virtuali classiche (ASM), è possibile ottenere questo risultato specificando '2.*' come versione, se si installa l'estensione tramite Powershell o l'interfaccia della riga di comando XPLAT di Azure. Nelle macchine virtuali ARM, è possibile ottenere questo risultato includendo '"autoUpgradeMinorVersion": true' nel modello di distribuzione della macchina virtuale. Inoltre, in qualsiasi nuova installazione dell'estensione dovrebbe essere attivata l'opzione di aggiornamento automatico alla versione secondaria.
+La versione più recente dell'estensione è la **2.3**, mentre **tutte le versioni precedenti (2.0, 2.1 e 2.2) verranno deprecate, annullandone la pubblicazione entro la fine di quest'anno (2016)**. Se è installata l'estensione di diagnostica Linux con disabilitato l'aggiornamento automatico della versione secondaria, è consigliabile disinstallare l'estensione e reinstallarla abilitando l'aggiornamento automatico della versione secondaria. Nelle macchine virtuali classiche (ASM), è possibile ottenere questo risultato specificando '2.*' come versione, se si installa l'estensione tramite Powershell o l'interfaccia della riga di comando XPLAT di Azure. Nelle macchine virtuali ARM, è possibile ottenere questo risultato includendo '"autoUpgradeMinorVersion": true' nel modello di distribuzione della macchina virtuale. Inoltre, in qualsiasi nuova installazione dell'estensione dovrebbe essere attivata l'opzione di aggiornamento automatico alla versione secondaria.
 
 ## <a name="enable-the-extension"></a>Abilitare l'estensione
 È possibile abilitare questa estensione usando il [portale di Azure](https://portal.azure.com/#), Azure PowerShell o gli script dell'interfaccia della riga di comando di Azure.
 
-Per visualizzare e configurare le prestazioni e i dati di sistema direttamente dal portale di Azure, seguire [questi passaggi descritti nel blog di Azure] (https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL to the Windows blog"/).
+Per visualizzare e configurare i dati di sistema e le prestazioni direttamente dal portale di Azure, seguire questa [procedura nel blog di Azure](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/).
 
 Questo articolo illustra come abilitare e configurare l'estensione usando i comandi dell'interfaccia della riga di comando di Azure. In questo modo è possibile leggere e visualizzare i dati direttamente dalla tabella di archiviazione.
 
@@ -54,7 +55,7 @@ Si noti che i metodi di configurazione descritti qui non funzioneranno per il po
 ## <a name="prerequisites"></a>Prerequisiti
 * **Agente Linux di Azure 2.0.6 o versione successiva**.
   Si noti che la maggior parte delle immagini della raccolta Linux di macchine virtuali di Azure include la versione 2.0.6 o successive. È possibile eseguire **WAAgent -version** per verificare la versione installata nella macchina virtuale. Se la macchina virtuale esegue una versione precedente alla 2.0.6, è possibile seguire queste [istruzioni in GitHub](https://github.com/Azure/WALinuxAgent "istruzioni") per aggiornarla.
-* **Interfaccia della riga di comando di Azure**. Seguire le linee guida in [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) per configurare l'ambiente dell'interfaccia della riga di comando di Azure nella macchina virtuale. Dopo l'installazione dell'interfaccia della riga di comando di Azure, sarà possibile usare il comando **azure** nell'interfaccia della riga di comando (Bash, terminale o prompt dei comandi) per accedere ai relativi comandi. Ad esempio:
+* **Interfaccia della riga di comando di Azure**. Seguire le linee guida in [Installare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md) per configurare l'ambiente dell'interfaccia della riga di comando di Azure nella macchina virtuale. Dopo l'installazione dell'interfaccia della riga di comando di Azure, sarà possibile usare il comando **azure** nell'interfaccia della riga di comando (Bash, terminale o prompt dei comandi) per accedere ai relativi comandi. Ad esempio:
   
   * Eseguire **azure vm extension set --help** per informazioni della Guida dettagliate.
   * Eseguire **azure login** per accedere ad Azure.
@@ -147,10 +148,5 @@ Se è stato abilitato fileCfg o perfCfg (come illustrato negli scenari 2 e 3), �
 
 ## <a name="known-issues"></a>Problemi noti
 * Nella versione&2;.3 dell'estensione di diagnostica Linux le informazioni di Rsyslog e il file di log specificato dal cliente sono accessibili solo tramite scripting.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -17,8 +17,9 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: telmos
 translationtype: Human Translation
-ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
-ms.openlocfilehash: 0843651c8fcddbc171bb485ce9c96b53b170881d
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f6df10ce5edefbff24011fc20cad8ae927ba5125
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -61,15 +62,10 @@ Con [PowerShell](/powershell/azureps-cmdlets-docs) è possibile usare una riga d
 * **Cmdlet PowerShell con un modello di Gestione risorse di Azure:** è possibile usare PowerShell per creare risorse di Azure con un modello di Gestione risorse di Azure. È possibile salvare i modelli e controllarne la versione. Per altre informazioni leggere l'articolo [Distribuire un'applicazione con un modello di Gestione risorse di Azure](resource-group-template-deploy.md) . Esistono anche diversi [modelli di Guida introduttiva](https://azure.microsoft.com/documentation/templates/) per soluzioni comuni che è possibile scaricare e modificare.
 
 ## <a name="cli"></a>CLI
-È possibile creare e configurare le risorse di Azure da computer Windows, OS X o Linux usando l'interfaccia della riga di comando.  Per installare l'interfaccia della riga di comando nel sistema operativo prescelto, leggere l'articolo [Installare l'interfaccia della riga di comando di Azure](xplat-cli-install.md) . Come PowerShell, sono disponibili diversi comandi che devono essere usati a seconda che si creino risorse con i modelli di distribuzione [Resource Manager](xplat-cli-azure-resource-manager.md) o [Classico (Gestione dei servizi)](virtual-machines/virtual-machines-linux-classic-manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+È possibile creare e configurare le risorse di Azure da computer Windows, OS X o Linux usando l'interfaccia della riga di comando.  Per installare l'interfaccia della riga di comando nel sistema operativo prescelto, leggere l'articolo [Installare l'interfaccia della riga di comando di Azure](cli-install-nodejs.md) . Come PowerShell, sono disponibili diversi comandi che devono essere usati a seconda che si creino risorse con i modelli di distribuzione [Resource Manager](xplat-cli-azure-resource-manager.md) o [Classico (Gestione dei servizi)](virtual-machines/virtual-machines-linux-classic-manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni, vedere [Resource Manager](azure-resource-manager/resource-group-overview.md).
 * Informazioni su come [progettare i modelli](best-practices-resource-manager-design-templates.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

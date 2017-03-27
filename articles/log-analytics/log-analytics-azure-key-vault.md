@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
 translationtype: Human Translation
-ms.sourcegitcommit: abea89ceab4c606a574ad739e9feca5b5dafacf0
-ms.openlocfilehash: bc87bafd1ce6926d787915fae2f72727940bb90e
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 6cf48883d397a4b04e707111306d4596cd7af683
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -35,8 +35,8 @@ Per usare la soluzione, è necessario abilitare la registrazione diagnostica di 
 ## <a name="install-and-configure-the-solution"></a>Installare e configurare la soluzione
 Usare le istruzioni seguenti per installare e configurare la soluzione Insieme di credenziali delle chiavi di Azure:
 
-1. Abilitare la registrazione diagnostica per le risorse di Key Vault da monitorare, utilizzando il portale o PowerShell 
-2. Abilitare la soluzione Insieme di credenziali delle chiavi di Azure seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md). 
+1. Abilitare la soluzione Azure Key Vault da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md). 
+2. Abilitare la registrazione diagnostica per le risorse di Key Vault da monitorare, usando il [portale](#enable-key-vault-diagnostics-in-the-portal) o [PowerShell](#enable-key-vault-diagnostics-using-powershell) 
 
 ### <a name="enable-key-vault-diagnostics-in-the-portal"></a>Abilitare la diagnostica di Key Vault nel portale
 
@@ -76,7 +76,7 @@ La tabella seguente illustra i metodi di raccolta dei dati e altri dettagli sull
 | Azure |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![Sì](./media/log-analytics-azure-keyvault/oms-bullet-green.png) |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) | all'arrivo |
 
 ## <a name="use-azure-key-vault"></a>Usare l'Insieme di credenziali delle chiavi di Azure
-Dopo aver installato la soluzione, è possibile visualizzare i dati Key Vault facendo clic sul riquadro **Azure Key Vault** dalla pagina **Panoramica** di Log Analytics.
+Dopo aver [installato la soluzione](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), è possibile visualizzare i dati Key Vault facendo clic sul riquadro **Azure Key Vault** dalla pagina **Panoramica** di Log Analytics.
 
 ![Immagine del riquadro Insieme di credenziali delle chiavi di Azure](./media/log-analytics-azure-keyvault/log-analytics-keyvault-tile.png)
 

@@ -16,9 +16,9 @@ ms.date: 02/17/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: 50e96211c0655fb0c47929626d7f5cca9985aaee
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: ca8c182651e3c9f2f1f3a85b94361755d8e638d4
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -45,7 +45,7 @@ I comandi di esempio dell'interfaccia della riga di comando di Azure riportati d
 ## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Come creare il gruppo di sicurezza di rete per la subnet front-end
 Per creare un gruppo di sicurezza di rete denominato *NSG-FrontEnd* in base allo scenario precedente, seguire questa procedura.
 
-1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
+1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
 2. Eseguire il comando **azure config mode** per passare alla modalità Gestione risorse, come illustrato di seguito.
    
         azure config mode arm

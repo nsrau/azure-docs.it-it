@@ -16,45 +16,64 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: b292a02770fa74812e74fa38f870e47ed7473b63
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: be1c613744d510e4ace636b47fdf730462a2ae07
+ms.lasthandoff: 03/15/2017
 
 ---
 
-# <a name="restart-vms-by-tag"></a>Riavviare le macchine virtuali in base al tag
+# <a name="restart-vms"></a>Riavviare le VM
 
-In questo esempio vengono create macchine virtuali con un tag specifico in più gruppi di risorse.
-Le macchine virtuali vengono create in parallelo tramite `--no-wait`, quindi attendono il completamento collettivo.
+Questo esempio illustra un paio di modi per ottenere alcune VM e riavviarle.
 
-Dopo la creazione, le macchine virtuali vengono riavviate tramite due meccanismi di query diversi.
+Il primo riavvia tutte le VM nel gruppo di risorse.
 
-Il primo riavvia le macchine virtuali della stessa query usata per attenderne la creazione asincrona.
 ```bash
-az vm restart --ids $(az vm list --query "join(' ', ${GROUP_QUERY}] | [].id)" \
-    -o tsv) $1>/dev/null
+az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id" -o tsv)
 ```
 
-Il secondo usa un elenco di risorse e una query generici per reperire i relativi ID in base al tag.
+Il secondo ottiene le VM con tag tramite `az resouce list` e filtra le risorse che sono VM quindi riavvia queste VM.
+
 ```bash
-az vm restart --ids $(az resource list --tag ${TAG} \
-    --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv) $1>/dev/null
+az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)
 ```
 
 Questo esempio funziona in una shell Bash. Per le opzioni sull'esecuzione di script dell'interfaccia della riga di comando di Azure nel client Windows, vedere [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md) (Esecuzione dell'interfaccia della riga di comando di Azure in Windows).
 
+
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/restart-by-tag/restart-by-tag.sh "Riavviare le macchine virtuali in base al tag")]
+L'esempio prevede tre script.
+Il primo esegue il provisioning delle macchine virtuali.
+Usa l'opzione senza attesa in modo che il comando ritorni senza attendere per ogni VM di cui eseguire il provisioning.
+Il secondo attende il provisioning completo delle VM.
+Il terzo script riavvia tutte le VM di cui è stato eseguito il provisioning e quindi solo le VM con tag.
+
+### <a name="provision-the-vms"></a>Eseguire il provisioning delle VM
+
+Questo script crea un gruppo di risorse e quindi crea tre VM da riavviare.
+Due di queste vengono contrassegnate con tag.
+
+[!code-azurecli[main](../../../cli_scripts/virtual-machine/restart-by-tag/provision.sh "Eseguire il provisioning delle VM")]
+
+### <a name="wait"></a>Attesa
+
+Questo script verifica lo stato del provisioning ogni 20 secondi, fino a quando viene completato il provisioning di tutte e tre le VM oppure il provisioning di una delle VM fallisce.
+
+[!code-azurecli[main](../../../cli_scripts/virtual-machine/restart-by-tag/wait.sh "Attendere che venga completato il provisioning della VM")]
+
+### <a name="restart-the-vms"></a>Riavviare le VM
+
+Questo script riavvia tutte le VM nel gruppo di risorse e quindi riavvia solo le VM con tag.
+
+[!code-azurecli[main](../../../cli_scripts/virtual-machine/restart-by-tag/restart.sh "Riavviare le macchine virtuali in base al tag")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
 
 Dopo l'esecuzione dello script di esempio, eseguire il comando seguente per rimuovere i gruppi di risorse, le macchine virtuali e tutte le risorse correlate.
 
 ```azurecli
-az group delete -n GROUP1 --no-wait --yes && \ 
-az group delete -n GROUP2 --no-wait --yes && \
-az group delete -n GROUP3 --no-wait --yes
+az group delete -n myResourceGroup --no-wait --yes
 ```
 
 ## <a name="script-explanation"></a>Spiegazione dello script
@@ -65,7 +84,8 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, la macchin
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#create) | Crea le macchine virtuali.  |
-| [az vm list](https://docs.microsoft.com/cli/azure/vm#list) | Usato con `--query` per assicurare il provisioning delle macchine virtuali prima di riavviarle. |
+| [az vm list](https://docs.microsoft.com/cli/azure/vm#list) | Si usa con `--query` per assicurare che venga eseguito il provisionign delle VM prima del loro riavvio e poi per ottenere gli ID delle VM e riavviarle. |
+| [az resource list](https://docs.microsoft.com/cli/azure/vm#list) | Si usa con `--query` per ottenere gli ID delle VM con il tag. |
 | [az vm restart](https://docs.microsoft.com/cli/azure/vm#list) | Riavvia le macchine virtuali. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 

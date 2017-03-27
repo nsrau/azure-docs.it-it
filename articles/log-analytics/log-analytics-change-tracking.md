@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/13/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: 3953a83b20ee2d1ca0035b31824ca167e92f4864
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: becb179da6bc6b6df629a07d3ddb5d50edbaa577
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -32,7 +32,7 @@ La soluzione viene installata per aggiornare il tipo di agente che è stato inst
 Usare le informazioni seguenti per installare e configurare la soluzione.
 
 * È necessario avere un agente [Windows](log-analytics-windows-agents.md), [Operations Manager](log-analytics-om-agents.md) o [Linux](log-analytics-linux-agents.md) su ogni computer in cui si vuole monitorare le modifiche.
-* Aggiungere la soluzione di rilevamento modifiche all'area di lavoro OMS usando la procedura descritta nell'articolo sull' [aggiunta di soluzioni di Log Analytics dalla raccolta soluzioni](log-analytics-add-solutions.md).  Non è richiesta alcuna ulteriore configurazione.
+* Aggiungere la soluzione Rilevamento modifiche all'area di lavoro OMS da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).  Non è richiesta alcuna ulteriore configurazione.
 
 ### <a name="configure-windows-files-to-track"></a>Configurare i file di Windows da rilevare
 Seguire questa procedura per configurare i file da rilevare in computer Windows.
@@ -66,7 +66,21 @@ La tabella seguente mostra i metodi di raccolta di dati e altre informazioni det
 
 | piattaforma | Agente diretto | Agente SCOM | Agente Linux | Archiviazione di Azure | SCOM obbligatorio? | Dati dell'agente SCOM inviati con il gruppo di gestione | Frequenza della raccolta |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows e Linux |![Sì](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Sì](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Sì](./media/log-analytics-change-tracking/oms-bullet-green.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Sì](./media/log-analytics-change-tracking/oms-bullet-green.png) | Da 15 minuti a 1 ora, a seconda del tipo di modifica |
+| Windows e Linux |![Sì](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Sì](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Sì](./media/log-analytics-change-tracking/oms-bullet-green.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Sì](./media/log-analytics-change-tracking/oms-bullet-green.png) | Da 5 minuti a 50 minuti, a seconda del tipo di modifica. Per altre informazioni, vedere di seguito. |
+
+
+La tabella seguente mostra la frequenza di raccolta dati per i tipi di modifiche.
+
+| **tipo di modifica** | **frequency** | **L'****agente** **invia le differenze quando vengono rilevate?** |
+| --- | --- | --- |
+| Registro di sistema di Windows | 50 minuti | no |
+| File Windows | 30 minuti | Sì. Se non si verifica alcun cambiamento in 24 ore, viene inviato uno snapshot. |
+| File Linux | 15 minuti | Sì. Se non si verifica alcun cambiamento in 24 ore, viene inviato uno snapshot. |
+| Servizi Windows | 30 minuti | Sì, ogni 30 minuti quando vengono rilevate modifiche. Ogni 24 ore viene inviato uno snapshot, indipendentemente dalle modifiche. Pertanto, lo snapshot viene inviato anche se sono state apportate modifiche. |
+| Daemon Linux | 5 minuti | Sì. Se non si verifica alcun cambiamento in 24 ore, viene inviato uno snapshot. |
+| Software Windows | 30 minuti | Sì, ogni 30 minuti quando vengono rilevate modifiche. Ogni 24 ore viene inviato uno snapshot, indipendentemente dalle modifiche. Pertanto, lo snapshot viene inviato anche se sono state apportate modifiche. |
+| Software Linux | 5 minuti | Sì. Se non si verifica alcun cambiamento in 24 ore, viene inviato uno snapshot. |
+
 
 ## <a name="use-change-tracking"></a>Uso di Change Tracking
 Dopo l'installazione della soluzione, è possibile visualizzare il riepilogo delle modifiche per i server monitorati usando il riquadro **Rilevamento modifiche** nella pagina **Panoramica** di OMS.

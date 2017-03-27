@@ -1,5 +1,5 @@
 ---
-title: Integrare il Key Vault con SQL Server in macchine virtuali Windows in Azure | Documentazione Microsoft
+title: Integrare il Key Vault con SQL Server in VM Windows in Azure (Resource Manager) | Documentazione Microsoft
 description: Informazioni su come automatizzare la configurazione della crittografia di SQL Server per l&quot;uso con l&quot;insieme di credenziali delle chiavi di Azure. Questo argomento illustra come usare l&quot;integrazione dell&quot;insieme di credenziali delle chiavi di Azure con le macchine virtuali di SQL Server create con Gestione risorse.
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/25/2016
+ms.date: 03/14/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7a285920888bdfb46922d8708cf778229efff0a3
-ms.openlocfilehash: 3a10beb423ee0068508ddb06262aeba5e575bf94
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: f42e1934ce163e26c1a3f526b4589fb175aac446
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-vms-resource-manager"></a>Configurare l'integrazione dell'insieme di credenziali delle chiavi di Azure per SQL Server in macchine virtuali di Azure (Gestione risorse)
+# <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Configurare l'integrazione di Azure Key Vault per SQL Server in macchine virtuali di Azure (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Gestione risorse](virtual-machines-windows-ps-sql-keyvault.md)
 > * [Classico](../sqlclassic/virtual-machines-windows-classic-ps-sql-keyvault.md)
@@ -64,10 +65,5 @@ Al termine, fare clic sul pulsante **OK** in fondo al pannello **Configurazione 
 > 
 
 [!INCLUDE [AKV Integration Next Steps](../../../../includes/virtual-machines-sql-server-akv-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

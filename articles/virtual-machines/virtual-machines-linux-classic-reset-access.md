@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 68786e2c2f92f8d716c7aa2b3584342ea96c073d
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: ccd4dda3d7077c9884331c7bfa8021ade398ea42
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -44,15 +45,15 @@ Con l’interfaccia della riga di comando di Azure è possibile eseguire le atti
 ## <a name="prerequisites"></a>Prerequisiti
 Sarà necessario eseguire le operazioni seguenti:
 
-* Sarà necessario [installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e [connettersi alla proprio sottoscrizione](../xplat-cli-connect.md) per usare le risorse di Azure associate al proprio account.
+* Sarà necessario [installare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md) e [connettersi alla proprio sottoscrizione](../xplat-cli-connect.md) per usare le risorse di Azure associate al proprio account.
 * Impostare la modalità corretta per il modello di distribuzione classico digitando quanto segue al prompt dei comandi:
     ``` 
         azure config mode asm
     ```
 * Procurarsi una nuova password o un set di chiavi SSH, se si desidera reimpostare l'una o l'altro. Queste non saranno necessarie se si vuole reimpostare la configurazione di SSH.
 
-## <a name="a-namepwresetcliareset-the-password"></a><a name="pwresetcli"></a>Reimpostare la password
-1. Creare un file denominato PrivateConf.json nel computer locale con queste righe. Sostituire **myUserName** e ** myP@ssW0rd ** con il proprio nome utente e password e impostare la data di scadenza.
+## <a name="pwresetcli"></a>Reimpostare la password
+1. Creare un file denominato PrivateConf.json nel computer locale con queste righe. Sostituire **myUserName** e **myP@ssW0rd** con il proprio nome utente e password e impostare la data di scadenza.
 
     ```   
         {
@@ -68,7 +69,7 @@ Sarà necessario eseguire le operazioni seguenti:
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* –-private-config-path PrivateConf.json
     ```
 
-## <a name="a-namesshkeyresetcliareset-the-ssh-key"></a><a name="sshkeyresetcli"></a>Reimpostare la chiave SSH
+## <a name="sshkeyresetcli"></a>Reimpostare la chiave SSH
 1. Creare un file denominato PrivateConf.json con questo contenuto. Sostituire i valori **myUserName** e **mySSHKey** con le proprie informazioni.
 
     ```   
@@ -81,7 +82,7 @@ Sarà necessario eseguire le operazioni seguenti:
    
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
-## <a name="a-nameresetbothcliareset-both-the-password-and-the-ssh-key"></a><a name="resetbothcli"></a>Reimpostare sia la password sia la chiave SSH
+## <a name="resetbothcli"></a>Reimpostare sia la password sia la chiave SSH
 1. Creare un file denominato PrivateConf.json con questo contenuto. Sostituire i valori **myUserName**, **mySSHKey** e **myP@ssW0rd** con le proprie informazioni.
 
     ``` 
@@ -98,7 +99,7 @@ Sarà necessario eseguire le operazioni seguenti:
         azure vm extension set MyVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
     ```
 
-## <a name="a-namecreatenewsudocliacreate-a-new-sudo-user-account"></a><a name="createnewsudocli"></a>Creare un nuovo account utente sudo
+## <a name="createnewsudocli"></a>Creare un nuovo account utente sudo
 
 Se si dimentica il nome utente, è possibile usare VMAccess per crearne uno nuovo con privilegi sudo. In questo caso, il nome utente e la password esistenti non verranno modificati.
 
@@ -108,7 +109,7 @@ Per creare un nuovo utente sudo con accesso tramite chiave SSH, usare lo script 
 
 È inoltre possibile usare [Reimpostare la password e la chiave SSH](#resetbothcli) per creare un nuovo utente con accesso tramite password e chiave SSH.
 
-## <a name="a-namesshconfigresetcliareset-the-ssh-configuration"></a><a name="sshconfigresetcli"></a>Reimpostare la configurazione SSH
+## <a name="sshconfigresetcli"></a>Reimpostare la configurazione SSH
 Se la configurazione SSH è in uno stato indesiderato, si potrebbe perdere anche l'accesso alla macchina virtuale. È possibile usare l'estensione VMAccess per reimpostare la configurazione allo stato predefinito. A tale scopo, è sufficiente impostare la chiave "reset_ssh" su "True". L'estensione riavvia il server SSH, apre la porta SSH nella VM e ripristina la configurazione SSH predefinita. L'account utente (nome, password o chiavi SSH) non verrà modificato.
 
 > [!NOTE]
@@ -130,7 +131,7 @@ Se la configurazione SSH è in uno stato indesiderato, si potrebbe perdere anche
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
     ```
 
-## <a name="a-namedeletecliadelete-a-user"></a><a name="deletecli"></a>Eliminare un utente
+## <a name="deletecli"></a>Eliminare un utente
 Se si desidera eliminare un account utente senza accedere alla macchina virtuale direttamente, è possibile usare questo script.
 
 1. Creare un file denominato PrivateConf.json con questo contenuto, sostituendo il nome utente da rimuovere in **removeUserName**. 
@@ -147,14 +148,14 @@ Se si desidera eliminare un account utente senza accedere alla macchina virtuale
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
     ```
 
-## <a name="a-namestatuscliadisplay-the-status-of-the-vmaccess-extension"></a><a name="statuscli"></a>Visualizzare lo stato dell'estensione VMAccess
+## <a name="statuscli"></a>Visualizzare lo stato dell'estensione VMAccess
 Per visualizzare lo stato dell'estensione VMAccess, eseguire questo comando.
 
 ```
         azure vm extension get
 ```
 
-## <a name="a-namecheckdiskacheck-consistency-of-added-disks"></a><a name='checkdisk'></a>Verificare la coerenza dei dischi aggiunti
+## <a name='checkdisk'></a>Verificare la coerenza dei dischi aggiunti
 Per eseguire fsck su tutti i dischi nella macchina virtuale Linux, è necessario eseguire le operazioni seguenti:
 
 1. Creare un file denominato PublicConf.json con questo contenuto. Il controllo del disco accetta un valore booleano che indica se controllare o meno i dischi collegati alla macchina virtuale. 
@@ -171,7 +172,7 @@ Per eseguire fsck su tutti i dischi nella macchina virtuale Linux, è necessario
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json 
     ```
 
-## <a name="a-namerepairdiskarepair-disks"></a><a name='repairdisk'></a>Riparare i dischi
+## <a name='repairdisk'></a>Riparare i dischi
 Per ripristinare i dischi che presentano problemi di montaggio o errori di configurazione di montaggio, usare l'estensione VMAccess per reimpostare la configurazione di montaggio nella macchina virtuale Linux. Sostituire il nome del disco in **myDisk**.
 
 1. Creare un file denominato PublicConf.json con questo contenuto. 
@@ -193,10 +194,5 @@ Per ripristinare i dischi che presentano problemi di montaggio o errori di confi
 * Se per reimpostare la password o la chiave SSH, correggere la configurazione SSH e verificare la coerenza dei dischi si vogliono usare cmdlet Azure PowerShell o modelli di Azure Resource Manager, vedere la [documentazione dell'estensione VMAccess in GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess). 
 * Per reimpostare la password o la chiave SSH di una VM Linux distribuita con il modello di distribuzione classica è anche possibile usare il [portale di Azure](https://portal.azure.com) . Non è attualmente possibile usare il portale per eseguire queste operazioni per una VM Linux distribuita con il modello di distribuzione Resource Manager.
 * Per altre informazioni sull'uso di estensioni VM per macchine virtuali di Azure vedere [Informazioni sulle estensioni e sulle funzionalità delle macchine virtuali](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -26,6 +26,7 @@
 ### [Gestire elementi](devtest-lab-add-vm-with-artifacts.md)
 
 ## Gestire basi e modelli per VM
+### [Creare VM a disposizione degli utenti](devtest-lab-add-claimable-vm.md)
 ### [Creare un ambiente con più VM con i modelli di Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
 ### [Configurare immagini del Marketplace](devtest-lab-configure-marketplace-images.md)
 ### [Confronto tra immagini e formule](devtest-lab-comparing-vm-base-image-types.md)

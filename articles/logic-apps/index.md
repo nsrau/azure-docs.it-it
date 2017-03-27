@@ -13,9 +13,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 80047e6da5a09b4e7856fff9faf85740d86e6de7
-ms.openlocfilehash: 278662adc5bc9a5bf77956f5362ccaec39764fc3
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: a942b83d1089667a5a9960bfbba849bd243746ec
+ms.lasthandoff: 03/17/2017
 
 ---
 
@@ -138,8 +138,8 @@ Informazioni su come sviluppare app per la logica in grado di semplificare e int
                 <div class="card">
                     <div class="cardText">
                         <h3>Schemi</h3>
-                        <p><a href="/rest/api/logic/definition-language">Linguaggio di definizione del flusso di lavoro</a></p>
-                        <p><a href="/rest/api/logic/actions-and-triggers">Azioni e trigger del flusso di lavoro</a></p>
+                        <p><a href="/azure/logic-apps/logic-apps-workflow-definition-language">Linguaggio di definizione del flusso di lavoro</a></p>
+                        <p><a href="/azure/logic-apps/logic-apps-workflow-actions-triggers">Azioni e trigger del flusso di lavoro</a></p>
                    </div>
                 </div>
             </div>

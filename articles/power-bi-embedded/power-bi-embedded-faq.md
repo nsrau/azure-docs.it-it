@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 03/02/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: f57b400dc20dc08221c0a8a770fd78f5885f634c
-ms.openlocfilehash: 0beb98220f043dc7c66cc494c3de00e0993798a6
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: be485debb4d8a2d1f64e1752bc204f1634d53c97
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -32,7 +33,7 @@ Microsoft Power BI Embedded è ora disponibile a livello generale. Power BI Embe
 Microsoft Power BI Embedded è rivolto agli sviluppatori di applicazioni che vogliono offrire esperienze di visualizzazione dei dati straordinarie e interattive ai loro utenti su qualsiasi dispositivo senza doverle creare loro stessi. Con Power BI Embedded gli sviluppatori possono mostrare visualizzazioni sempre aggiornate mediante DirectQuery. Gli sviluppatori possono anche effettuare la distribuzione e gestire l'automazione di Power BI a livello di codice con le API di Azure Resource Manager e le API di Power BI. Come il servizio Power BI generico, Power BI Embedded viene dimensionato automaticamente in base all'uso e alle esigenze dell'applicazione. Il servizio Power BI Embedded è a pagamento in base al consumo e prevede un preciso modello di definizione dei prezzi.
 
 ## <a name="how-does-power-bi-embedded-relate-to-the-power-bi-service"></a>Qual è la correlazione tra Power BI Embedded e il servizio Power BI?
-Power BI Embedded e il servizio Power BI sono due offerte separate. Power BI Embedded è caratterizzato da un modello di fatturazione in base al consumo, è distribuito mediante il Portale di Azure ed è progettato in modo da consentire ai fornitori di software indipendenti di incorporare le visualizzazioni dei dati nelle applicazioni affinché i loro clienti possano usarle. Il servizio Power BI viene fatturato e distribuito tramite il portale di Office 365 ed è un'offerta autonoma per uso generico riservata prevalentemente all'uso interno nelle organizzazioni. Per altre informazioni sul servizio Power BI, vedere [www.powerbi.com](https://powerbi.microsoft.com).
+Power BI Embedded e il servizio Power BI sono due offerte separate. Power BI Embedded è caratterizzato da un modello di fatturazione in base al consumo, è distribuito mediante il Portale di Azure ed è progettato in modo da consentire ai fornitori di software indipendenti di incorporare le visualizzazioni dei dati nelle applicazioni affinché i loro clienti possano usarle. Il servizio Power BI viene fatturato e distribuito tramite il portale di Office&365; ed è un'offerta autonoma per uso generico riservata prevalentemente all'uso interno nelle organizzazioni. Per altre informazioni sul servizio Power BI, vedere [www.powerbi.com](https://powerbi.microsoft.com).
 
 ## <a name="how-does-power-bi-embedded-improve-my-app"></a>In che modo Power BI Embedded migliora le app?
 Le applicazioni sono molto più potenti quando è possibile sfruttare visualizzazioni dei dati accattivanti e interattive per consentire agli utenti di prendere decisioni consapevoli direttamente nell'applicazione. Power BI Embedded consente di perfezionate le app con visualizzazioni avanzate interattive e sempre aggiornate, migliorando così l'utilità delle app stesse, la soddisfazione e la fedeltà dei clienti e offrendo la possibilità di eseguire analisi contestuali con facilità su qualsiasi dispositivo.
@@ -89,14 +90,11 @@ Gli sviluppatori/dipendenti che lavorano all'applicazione dovranno avere un acco
 Ora è possibile iniziare gratuitamente! Se si dispone di una sottoscrizione di Azure, è possibile ottenere Power BI Embedded direttamente dal Portale di Azure.  È anche possibile creare un [account di Azure gratuito](https://azure.microsoft.com/free/). Dopo aver ottenuto il servizio Power BI Embedded, è possibile usare direttamente e con facilità le API REST di Power BI o usare l'SDK di programmazione disponibile su [GitHub](http://go.microsoft.com/fwlink/?LinkID=746472). Sono disponibili esempi di come sfruttare l'SDK di sviluppo.
 
 ## <a name="see-also"></a>Vedere anche
-* [Cos'è Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
-* [Introduzione a Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
+[Informazioni su Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
+[Introduzione a Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
+[Introduzione all'esempio](power-bi-embedded-get-started-sample.md)   
+[Esempio di incorporamento con JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 Altre domande? [Contattare la community di Power BI](http://community.powerbi.com/)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

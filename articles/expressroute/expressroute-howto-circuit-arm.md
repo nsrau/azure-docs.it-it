@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 9a8a72f5255184a1ac571532355c7f7a23d7f7bd
-ms.openlocfilehash: 0aacbdafdb5ded81dbc8495a30837e2f4941075f
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: ced4347baf7eca4dd8fc9cf1c8c0b451314f0ad2
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -286,13 +286,13 @@ La risposta ha un aspetto simile all'esempio seguente:
     get-help get-azurededicatedcircuit -detailed
 
 
-## <a name="a-namemodifyamodifying-an-expressroute-circuit"></a><a name="modify"></a>Modifica di un circuito ExpressRoute
+## <a name="modify"></a>Modifica di un circuito ExpressRoute
 È possibile modificare determinate proprietà di un circuito ExpressRoute senza conseguenze per la connettività.
 
 È possibile eseguire le operazioni seguenti senza tempi di inattività:
 
 * Abilitare o disabilitare un componente aggiuntivo ExpressRoute Premium per il circuito ExpressRoute.
-* Aumentare la larghezza di banda del circuito ExpressRoute. Si noti che il downgrade della larghezza di banda di un circuito non è supportato.
+* Aumentare la larghezza di banda del circuito ExpressRoute, a condizione che sulla porta sia disponibile capacità. Si noti che il downgrade della larghezza di banda di un circuito non è supportato. 
 * Modificare il piano di misurazione da Dati a consumo a Dati senza limiti. Si noti che la modifica del piano di misurazione da Dati senza limiti a Dati a consumo non è supportata.
 * È possibile abilitare e disabilitare l'opzione *Consenti operazioni classiche*.
 
@@ -337,8 +337,9 @@ Tenere presente quanto segue:
 Per le opzioni relative alla larghezza di banda supportate per il provider, vedere [Domande frequenti su ExpressRoute](expressroute-faqs.md). È possibile scegliere qualsiasi dimensione maggiore della dimensione del circuito esistente.
 
 > [!IMPORTANT]
+> Se la capacità sulla porta esistente non è sufficiente, potrebbe essere necessario ricreare il circuito ExpressRoute. Il circuito non può essere aggiornato se in tale posizione non è disponibile capacità aggiuntiva.
+>
 > Non è possibile ridurre la larghezza di banda di un circuito ExpressRoute senza interruzioni. Il downgrade della larghezza di banda richiede il deprovisioning del circuito ExpressRoute e quindi il provisioning di un nuovo circuito ExpressRoute.
-> 
 > 
 
 Una volta stabilite le dimensioni necessarie, usare il comando seguente per ridimensionare il circuito:

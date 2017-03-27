@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/16/2017
+ms.date: 03/13/2017
 ms.author: sethm;jotaub;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: 59622f283daeca59464dfb7a13ca76c7a0148a21
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 7bae4ae6d41e6dc6515a3fcdf574ffd193ae1aa3
+ms.lasthandoff: 03/14/2017
 
 ---
 
@@ -26,7 +26,13 @@ ms.lasthandoff: 03/03/2017
 ## <a name="general"></a>Generale
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>Qual è la differenza tra i livelli Standard e Base di Hub eventi?
-Il livello Standard di Hub eventi offre funzionalità superiori a quelle disponibili con il livello Basic e con alcuni sistemi della concorrenza. Le funzionalità includono periodi di conservazione superiori a 24 ore e la possibilità di usare una singola connessione AMQP per inviare comandi a un numero elevato di dispositivi con latenze inferiori al secondo, oltre a inviare dati di telemetria da tali dispositivi a Hub eventi. Il livello Standard offre inoltre la funzionalità [Archivio](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview) di Hub Eventi. Per un elenco delle funzionalità, vedere [Hub eventi Prezzi](https://azure.microsoft.com/pricing/details/event-hubs/).
+Il piano Standard di Hub eventi di Azure offre funzionalità superiori a quelle disponibili con il piano Basic. Il piano Standard offre le funzionalità seguenti:
+* Periodo di conservazione degli eventi più lungo
+* Connessioni negoziate aggiuntive, con sovrapprezzo per un numero di connessioni superiore a quello incluso
+* Più di un singolo gruppo di consumer
+* [Archiviazione](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview)
+
+Per informazioni dettagliate sui piani tariffari, incluso il livello Dedicato di Hub eventi, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### <a name="what-are-event-hubs-throughput-units"></a>Cosa sono le unità elaborate in Hub eventi?
 Le unità elaborate in Hub eventi vengono selezionate in modo esplicito tramite il portale di Azure o i modelli di Resource Manager in Hub eventi. Le unità elaborate sono applicabili a tutti gli hub eventi in uno spazio dei nomi di Hub eventi e ogni unità elaborata offre allo spazio dei nomi le capacità seguenti:

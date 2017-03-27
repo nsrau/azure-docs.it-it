@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 01/25/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: 511e61552ec0a2c862ebd99fd881f87b56b69398
-ms.openlocfilehash: 84eabb9c898d32efeb6e1c4b1f17b683940b4c04
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: da63e54b3f4e27ed3c4a1fd909c6c28295c6730d
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -50,7 +50,7 @@ In questo articolo vengono riepilogati le configurazioni e i componenti supporta
 **Hyper-V (con Virtual Machine Manager)** | System Center Virtual Machine Manager 2016 e System Center Virtual Machine Manager 2012 R2
 
   >[!Note]
-  > Un cloud System Center Virtual Machine Manager 2016 con una combinazione di host Windows Server 2016 e 2012 R2 non è attualmente supportato.
+  > Un cloud System Center Virtual Machine Manager 2016 con una combinazione di host Windows Server 2016 e 2012 R2 non è attualmente supportato. 
 
 ### <a name="host-servers"></a>Server host
 
@@ -61,7 +61,7 @@ In questo articolo vengono riepilogati le configurazioni e i componenti supporta
 **Hyper-V (con Virtual Machine Manager)** | Windows Server 2016, Windows Server 2012 R2 con gli aggiornamenti più recenti.<br/><br/> Gli host Windows Server 2016 devono essere gestiti da System Center Virtual Machine Manager 2016.
 
   >[!Note]
-  >Un sito di Hyper-V con una combinazione di host che eseguono Windows Server 2016 e 2012 R2 non è attualmente supportato.
+  >Un sito di Hyper-V con una combinazione di host che eseguono Windows Server 2016 e 2012 R2 non è attualmente supportato. Il ripristino in un percorso alternativo per le VM in un host Windows Server 2016 non è attualmente supportato.
 
 ## <a name="support-for-replicated-machine-os-versions"></a>Supporto per le versioni dei sistemi operativi dei computer replicati
 

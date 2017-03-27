@@ -12,15 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 03/08/2017
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 6af64c0f4049e2597b7a101a0e0f735623fc18a0
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 150e7a1b2f86594d91b044b1b697f035ed1d270b
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="send-cloud-to-device-messages-with-iot-hub-net"></a>Inviare messaggi da cloud a dispositivo con l'hub IoT (.NET)
+# <a name="send-messages-from-the-cloud-to-your-simulated-device-with-iot-hub-net"></a>Inviare messaggi da cloud a dispositivo simulato con Hub IoT (.NET)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## <a name="introduction"></a>Introduzione
@@ -40,13 +41,13 @@ Al termine di questa esercitazione vengono eseguite due app console .NET:
 * **SendCloudToDevice**, che invia un messaggio da cloud a dispositivo all'app per dispositivo simulato tramite l'hub IoT e quindi riceve l'acknowledgement di recapito.
 
 > [!NOTE]
-> L’hub IoT dispone del supporto SDK per molte piattaforme e linguaggi (inclusi C, Java e Javascript) tramite gli SDK del dispositivo IoT Azure. Per istruzioni dettagliate su come connettere il dispositivo al codice dell'esercitazione e in generale all'hub IoT di Azure, vedere il [Centro per sviluppatori Azure IoT].
+> L’hub IoT dispone del supporto SDK per molte piattaforme e linguaggi, tra cui C, Java e Javascript, tramite gli [SDK del dispositivo IoT Azure]. Per istruzioni dettagliate su come connettere il dispositivo al codice dell'esercitazione e in generale all'hub IoT di Azure, vedere la [Guida per sviluppatori dell'hub IoT].
 > 
 > 
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 o Visual Studio 2017
 * Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito][lnk-free-trial] in pochi minuti.
 
 ## <a name="receive-messages-in-the-simulated-device-app"></a>Ricevere messaggi nell'app per dispositivo simulato
@@ -96,7 +97,7 @@ In questa sezione viene scritta un'app console di .NET che invia messaggi da clo
 2. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e quindi scegliere **Gestisci pacchetti NuGet per la soluzione**. 
    
     L'azione consente di visualizzare la finestra **Gestisci pacchetti NuGet**.
-3. Cercare `Microsoft Azure Devices`, fare clic su **Installa**e accettare le condizioni per l'uso. 
+3. Cercare **Microsoft.Azure.Devices**, fare clic su **Installa** e quindi accettare le condizioni per l'uso. 
    
     Verrà quindi scaricato e installato il [pacchetto NuGet Azure IoT Service SDK] e verrà aggiunto un riferimento a tale pacchetto.
 
@@ -115,7 +116,7 @@ In questa sezione viene scritta un'app console di .NET che invia messaggi da clo
             await serviceClient.SendAsync("myFirstDevice", commandMessage);
         }
    
-    Questo metodo invia un nuovo messaggio da cloud a dispositivo al dispositivo con ID `myFirstDevice`. Modificare questo parametro di conseguenza, nel caso in cui sia stato modificato rispetto a quello usato in [Introduzione all'hub IoT di Azure].
+    Questo metodo invia un nuovo messaggio da cloud a dispositivo al dispositivo con ID `myFirstDevice`. Modificare questo parametro solo nel caso in cui sia stato modificato rispetto a quello usato in [Introduzione all'hub IoT di Azure].
 7. Aggiungere infine le righe seguenti al metodo **Main** :
    
         Console.WriteLine("Send Cloud-to-Device message\n");
@@ -125,7 +126,7 @@ In questa sezione viene scritta un'app console di .NET che invia messaggi da clo
         Console.ReadLine();
         SendCloudToDeviceMessageAsync().Wait();
         Console.ReadLine();
-8. In Visual Studio fare clic con il pulsante destro del mouse sulla soluzione e selezionare **Imposta progetti di avvio**. Selezionare **Progetti di avvio multipli**, quindi selezionare l'azione **Start** per **ProcessDeviceToCloudMessages**, **SimulatedDevice** e **SendCloudToDevice**.
+8. In Visual Studio fare clic con il pulsante destro del mouse sulla soluzione e selezionare **Imposta progetti di avvio**. Selezionare **Progetti di avvio multipli**, quindi selezionare l'azione **Start** per **ReadDeviceToCloudMessages**, **SimulatedDevice** e **SendCloudToDevice**.
 9. Premere **F5**. Devono avviarsi tutte e tre le applicazioni. Selezionare la finestra **SendCloudToDevice** e premere **INVIO**. Verrà visualizzato il messaggio ricevuto dall'app per dispositivo simulato.
    
    ![Ricezione di un messaggio da parte dell'app][21]
@@ -155,8 +156,8 @@ In questa sezione viene modificata l'app **SendCloudToDevice** per richiedere fe
             }
         }
    
-    Si noti che il modello di ricezione è identico a quello utilizzato per ricevere messaggi da cloud a dispositivo dall'app dispositivo.
-2. Aggiungere il metodo seguente nel metodo **Main`serviceClient = ServiceClient.CreateFromConnectionString(connectionString)` immediatamente dopo la riga **:
+    Si noti che il modello di ricezione è identico a quello usato per ricevere messaggi da cloud a dispositivo dall'app per dispositivo.
+2. Aggiungere il metodo seguente nel metodo **Main`serviceClient = ServiceClient.CreateFromConnectionString(connectionString)` immediatamente dopo la riga**:
    
         ReceiveFeedbackAsync();
 3. Per richiedere feedback del recapito del messaggio da cloud a dispositivo, è necessario specificare una proprietà nel metodo **SendCloudToDeviceMessageAsync** . Aggiungere la riga seguente, subito dopo la riga `var commandMessage = new Message(...);` :
@@ -176,7 +177,7 @@ In questa esercitazione è stato descritto come inviare e ricevere messaggi da c
 
 Per avere degli esempi di soluzioni complete che utilizzano l'hub IoT, vedere la [Azure IoT Suite].
 
-Per altre informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [Guida per gli sviluppatori dell'hub IoT].
+Per altre informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [Guida per sviluppatori dell'hub IoT].
 
 <!-- Images -->
 [20]: ./media/iot-hub-csharp-csharp-c2d/create-identity-csharp1.png
@@ -190,14 +191,8 @@ Per altre informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [
 
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 
-[Guida per gli sviluppatori dell'hub IoT]: iot-hub-devguide.md
+[Guida per sviluppatori dell'hub IoT]: iot-hub-devguide.md
 [Introduzione all'hub IoT di Azure]: iot-hub-csharp-csharp-getstarted.md
-[Centro per sviluppatori Azure IoT]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-
+[Azure IoT Suite]: https://docs.microsoft.com/en-us/azure/iot-suite/
+[SDK del dispositivo IoT Azure]: iot-hub-devguide-sdks.md

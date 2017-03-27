@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 47398863e01204b840a965767cf2a022242d92fe
-ms.openlocfilehash: ea4d46e2d555c6572d0d741310abc4ee492767df
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: cd727a02716323c54d1c54a23cd4edd8f4940da1
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -42,8 +42,9 @@ L'anteprima della crittografia del servizio di archiviazione per i file è ora d
 Per partecipare all'anteprima della crittografia del servizio di archiviazione per i file, contattare ssediscussions@microsoft.com.
 
 Per altre informazioni, vedere le domande frequenti.
+
 ### <a name="availability-for-file-storage"></a>Disponibilità per Archiviazione file
-La crittografia del servizio di archiviazione per Archiviazione file è attualmente disponibile nelle aree Asia orientale, Europa settentrionale e Stati Uniti orientali 2.
+La crittografia del servizio di archiviazione per Archiviazione file è attualmente disponibile nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali&2;, Stati Uniti centrali, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti occidentali, Stati Uniti occidentali&2;, Asia orientale, Europa settentrionale, Europa occidentale, Australia orientale e Australia sud-orientale.
 
 
 Per abilitare o disabilitare la crittografia del servizio di archiviazione per un account di archiviazione, accedere al [portale di Azure](https://azure.portal.com) e selezionare un account di archiviazione. Nel pannello delle impostazioni cercare la sezione Servizio BLOB, illustrata in questo screenshot, e fare clic su Crittografia.
@@ -174,7 +175,7 @@ R: Non attualmente. Le chiavi vengono gestite completamente da Microsoft.
 
 R: La funzionalità Crittografia del servizio di archiviazione e non è abilitata per impostazione predefinita. È possibile usare il portale di Azure per abilitarla. È anche possibile abilitare questa funzionalità a livello di codice usando l'API REST del provider di risorse di archiviazione.
 
-**D: Quali sono le differenze rispetto alla crittografia delle unità di Azure?**
+**D: Quali sono le differenze rispetto alla Crittografia dischi di Azure?**
 
 R: Questa funzionalità viene usata per crittografare i dati nell'archivio BLOB di Azure. Crittografia dischi di Azure viene usata per crittografare i dischi del sistema operativo e i dischi dati nelle VM IaaS. Per altre informazioni, vedere la [Guida alla sicurezza delle risorse di archiviazione](storage-security-guide.md).
 

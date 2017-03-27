@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 03/14/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 9e70638af1ecdd0bf89244b2a83cd7a51d527037
-ms.openlocfilehash: 98b841e300d5b704d134bcfab0968523f3b9c3f0
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: c5daac3b8374927c094e79299ce52031181ea24d
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -33,7 +34,11 @@ Questo connettore supporta le edizioni di Salesforce seguenti: Developer Edition
 * Per copiare dati da Salesforce in archivi dati locali, è necessario che nell'ambiente locale sia installato almeno Gateway di gestione dati 2.0.
 
 ## <a name="salesforce-request-limits"></a>Limiti delle richieste Salesforce
-Salesforce presenta limiti per le richieste API totali e per le richieste API simultanee. Per i dettagli, vedere la sezione API Request Limits (Limiti delle richieste API) nell'articolo [Salesforce API Request Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Limiti delle richieste API di Salesforce). Si tenga in considerazione che, se il numero di richieste simultanee supera il limite, subentra la limitazione e verranno visualizzati errori casuali. Se il numero totale di richieste supera il limite, l'account di Salesforce verrà bloccato per 24 ore. In entrambi gli scenari è anche possibile che venga visualizzato l'errore "REQUEST_LIMIT_EXCEEDED".
+Salesforce presenta limiti per le richieste API totali e per le richieste API simultanee. Tenere presente quanto segue:
+* Se il numero di richieste simultanee supera il limite, si verifica una limitazione e vengono visualizzati errori casuali.
+* Se il numero totale di richieste supera il limite, l'account di Salesforce verrà bloccato per 24 ore.
+
+In entrambi gli scenari è anche possibile che venga visualizzato l'errore "REQUEST_LIMIT_EXCEEDED" ("LIMITE_RICHIESTE_SUPERATO"). Per i dettagli, vedere la sezione API Request Limits (Limiti delle richieste API) nell'articolo [Salesforce API Request Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Limiti delle richieste API di Salesforce).
 
 ## <a name="copy-data-wizard"></a>Copia dati guidata
 Il modo più semplice per creare una pipeline che copia i dati da Salesforce in uno degli archivi dati sink supportati è la procedura guidata Copia dati. Per una rapida procedura dettagliata di creazione di una pipeline mediante la copia guidata dei dati, vedere [Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory](data-factory-copy-data-wizard-tutorial.md) .
@@ -250,8 +255,10 @@ Nell'attività di copia, quando l'origine è di tipo **RelationalSource** (che i
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Recupero di dati tramite la clausola where nella colonna DateTime
 Quando si specifica la query SQL o SOQL, prestare attenzione alla differenza di formato di DateTime. Ad esempio:
 
-* **Esempio SOQL**: $$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)
-* **Esempio SQL**: $$Text.Format('SELECT * FROM Account  WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate  < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`.
+* **Esempio SOQL**: `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
+* **Esempio SQL**:
+    * **Uso della procedura di copia guidata per specificare la query:** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
+    * **Uso della modifica JSON per specificare la query (usare correttamente il carattere di escape):** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
 
 ### <a name="retrieving-data-from-salesforce-report"></a>Recupero di dati dal report di Salesforce
 È possibile recuperare i dati dai report di Salesforce specificando una query come `{call "<report name>"}`, ad es. `"query": "{call \"TestReport\"}"`.
@@ -259,8 +266,8 @@ Quando si specifica la query SQL o SOQL, prestare attenzione alla differenza di 
 ### <a name="retrieving-deleted-records-from-salesforce-recycle-bin"></a>Recupero dei record eliminati dal Cestino di Salesforce
 Per eseguire una query sui record eliminati temporaneamente dal Cestino di Salesforce, è possibile specificare **"IsDeleted = 1"** nella query. Ad esempio,
 
-* Per eseguire una query solo sui record eliminati, specificare "select * from MyTable__c **where IsDeleted= 1**"
-* Per eseguire query su tutti i record inclusi quelli esistenti ed eliminati, specificare "select * from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**"
+* Per eseguire una query solo sui record eliminati, specificare "select *from MyTable__c**where IsDeleted= 1**"
+* Per eseguire query su tutti i record inclusi quelli esistenti ed eliminati, specificare "select *from MyTable__c**where IsDeleted = 0 or IsDeleted = 1**"
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -293,9 +300,4 @@ Per eseguire una query sui record eliminati temporaneamente dal Cestino di Sales
 
 ## <a name="performance-and-tuning"></a>Prestazioni e ottimizzazione
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md) .
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

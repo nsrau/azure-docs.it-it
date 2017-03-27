@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: 48a0060edf30b53f685f25efebcb896af2c6122b
-ms.openlocfilehash: ee69cc8402cd9321d1f47ceb4be045274376f440
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: d616a8574d2087be66bc10dfdf3bf6f5a14c11fd
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -55,10 +55,26 @@ Gli agenti dell'elenco dei servizi raccolgono informazioni su tutti i processi c
 
 Per impostazione predefinita, le mappe dell'elenco dei servizi mostrano le informazioni sulle dipendenze degli ultimi 10 minuti.  Usando i controlli di tempo in alto a sinistra, è possibile cercare nelle mappe intervalli di tempo cronologici della durata massima di un'ora per visualizzare l'aspetto delle dipendenze nel passato, ad esempio durante un evento imprevisto o prima di una modifica.    I dati dell'elenco dei servizi vengono archiviati per 30 giorni nelle aree di lavoro a pagamento e per 7 giorni nelle aree di lavoro gratuite.
 
-## <a name="status-badges"></a>Notifiche di stato
+## <a name="status-badges-and-border-coloring"></a>Notifiche di stato e colorazione del bordo
 Nella parte inferiore di ogni server nella mappa potrebbe essere presente un elenco di notifiche di stato con informazioni relative allo stato del server.  Le notifiche indicano che sono presenti alcune informazioni rilevanti per il server da una delle integrazioni della soluzione OMS.  Facendo clic su una notifica, l’utente visualizzerà direttamente i dettagli dello stato nel pannello di destra.  Le notifiche di stato attualmente disponibili includono Avvisi, Modifiche, Sicurezza e Aggiornamenti.
 
-![Connessioni non riuscite](media/oms-service-map/status-badges.png)
+In base alla gravità della notifica di stato, i bordi del nodo del computer possono essere colorati di rosso (critico), giallo (avviso) o blu (informativi).  Il colore rappresenta lo stato di gravità di una notifica di stato.  Un bordo grigio indica un nodo senza alcun indicatore di stato corrente.
+
+![Notifiche di stato](media/oms-service-map/status-badges.png)
+
+## <a name="role-icons"></a>Icone di ruolo
+Alcuni processi svolgono ruoli particolari nei computer: server web, server applicazioni, database e così via.  Elenco dei servizi annoterà le caselle del processo e del computer con le icone di ruolo per consentire di identificare rapidamente il ruolo svolto dal processo o dal server.
+
+| Icona del ruolo | Descrizione |
+|:--|:--|
+| ![Server Web](media/oms-service-map/role-web-server.png) | Server web |
+| ![Server app](media/oms-service-map/role-application-server.png) | Server applicazioni |
+| ![Server di database](media/oms-service-map/role-database.png) | Server di database |
+| ![Server LDAP](media/oms-service-map/role-ldap.png) | Server LDAP |
+| ![Server SMB](media/oms-service-map/role-smb.png) | Server SMB |
+
+![Icone di ruolo](media/oms-service-map/role-icons.png)
+
 
 ## <a name="failed-connections"></a>Connessioni non riuscite
 Le connessioni a processi e computer non riuscite sono visualizzate nelle mappe dell'elenco dei servizi con una linea rossa tratteggiata, che indica se un sistema client non riesce a raggiungere un processo o una porta.  Vengono visualizzate le connessioni non riuscite di qualsiasi sistema con un agente dell'elenco dei servizi distribuito, a condizione che il sistema corrisponda a quello che esegue la connessione non riuscita.  L'elenco dei servizi esegue questo calcolo osservando i socket TCP che non riescono a stabilire una connessione.  Ciò potrebbe essere causato da un firewall, da un errore di configurazione del client o server oppure da un servizio remoto non disponibile.

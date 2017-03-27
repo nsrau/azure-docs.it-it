@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
+ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
-ms.openlocfilehash: e85094fbb63b5cf0c5f3b080e047dbc3b8561a26
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: e1fa4ab140c553cab4dc535f750398d633bbb8d2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -35,7 +35,7 @@ Questo articolo descrive come creare una copia di una macchina virtuale (VM) di 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Accertarsi che prima di iniziare la procedura siano soddisfatti i prerequisiti seguenti:
 
-* Nel computer è stata scaricata e installata l' [interfaccia della riga di comando di Azure](../xplat-cli-install.md) . 
+* Nel computer è stata scaricata e installata l' [interfaccia della riga di comando di Azure](../cli-install-nodejs.md) . 
 * Sono anche necessarie alcune informazioni sulla VM Linux di Azure esistente:
 
 | Informazioni sulla VM di origine | Informazioni sulla collocazione |

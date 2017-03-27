@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: fe38c16f94faa3e7a5a2622ff4eb8a1ae93fba20
-ms.openlocfilehash: 1bf1e323798a702029663953d3a30de174aefc4c
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: a673044269016f5d216fa62a3bcc6f3b106838c0
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -65,6 +65,7 @@ Quando si usa un indirizzo IP pubblico come endpoint, queste informazioni sono r
 **D. L'IP o il DNS cambia durante il ciclo di vita del gateway applicazione?**
 
 L'indirizzo VIP può cambiare se il gateway viene arrestato e avviato dal cliente. Il DNS associato al gateway applicazione non cambia durante il ciclo di vita del gateway. Per questo motivo è consigliabile usare un alias CNAME che punti all'indirizzo DNS del gateway applicazione.
+
 
 **D. Il gateway applicazione supporta l'IP statico?**
 
@@ -123,6 +124,10 @@ I probe personalizzati non supportano caratteri jolly o regex nei dati di rispos
 **D. Cosa indica il campo Host per i probe personalizzati?**
 
 Il campo Host specifica il nome a cui inviare il probe. Applicabile solo quando vengono configurati più siti nel gateway applicazione. In caso contrario, usare "127.0.0.1". Questo valore è diverso dal nome host della VM ed è nel formato \<protocollo\>://\<host\>:\<porta\>\<percorso\>. 
+
+**D. Gateway applicazione supporta anche i back-end multi-tenant?**
+
+No, attualmente Gateway applicazione mantiene l'intestazione host in ingresso e la invia al back-end. Se il back-end richiede un'intestazione diversa, non funzionerà. Allo stesso modo se il back-end è multi-tenant e l'SSL end-to-end è abilitato, il back-end prevede che il nome del server si trovi nell'estensione SNI. Gateway applicazione attualmente non invia un'intestazione SNI nelle richieste di back-end in scenari SSL end-to-end che provocherebbero problemi di test e di percorso di dati. 
 
 ## <a name="performance"></a>Prestazioni
 
@@ -283,3 +288,4 @@ Nella maggior parte dei casi, l'accesso al back-end è bloccato da un gruppo di 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sul gateway applicazione, vedere la [panoramica del gateway applicazione](application-gateway-introduction.md).
+

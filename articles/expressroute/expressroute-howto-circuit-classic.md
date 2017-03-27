@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/08/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: fe0bff84a5316628d9e465da0d4e62162f1ea4f2
-ms.openlocfilehash: cb67631dbbfb53a0de9b07bc3918bd70751ec41b
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 62ecd4cc2eed8623cab75777605d621e16b99977
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -232,7 +232,7 @@ Collegare quindi una rete virtuale al circuito ExpressRoute. Per istruzioni dett
 È possibile eseguire le operazioni seguenti senza tempi di inattività:
 
 * Abilitare o disabilitare un componente aggiuntivo ExpressRoute Premium per il circuito ExpressRoute.
-* Aumentare la larghezza di banda del circuito ExpressRoute. Si noti che il downgrade della larghezza di banda di un circuito non è supportato.
+* Aumentare la larghezza di banda del circuito ExpressRoute, a condizione che sulla porta sia disponibile capacità. Si noti che il downgrade della larghezza di banda di un circuito non è supportato. 
 * Modificare il piano di misurazione da Dati a consumo a Dati senza limiti. Si noti che la modifica del piano di misurazione da Dati senza limiti a Dati a consumo non è supportata.
 * È possibile abilitare e disabilitare l'opzione *Allow Classic Operations*(Consenti operazioni classiche).
 
@@ -286,7 +286,9 @@ Il circuito avrà le funzionalità del componente aggiuntivo ExpressRoute Premiu
 Per le opzioni relative alla larghezza di banda supportate per il provider, vedere [Domande frequenti su ExpressRoute](expressroute-faqs.md) . È possibile scegliere qualsiasi dimensione maggiore della dimensione del circuito esistente, a condizione che sia consentita dalla porta fisica in cui viene creato il circuito.
 
 > [!IMPORTANT]
-> Non è possibile ridurre la larghezza di banda di un circuito ExpressRoute senza interruzioni. Il downgrade della larghezza di banda comporterà il deprovisioning del circuito ExpressRoute e quindi il provisioning di un nuovo circuito ExpressRoute.
+> Se la capacità sulla porta esistente non è sufficiente, potrebbe essere necessario ricreare il circuito ExpressRoute. Il circuito non può essere aggiornato se in tale posizione non è disponibile capacità aggiuntiva.
+>
+> Non è possibile ridurre la larghezza di banda di un circuito ExpressRoute senza interruzioni. Il downgrade della larghezza di banda richiede il deprovisioning del circuito ExpressRoute e quindi il provisioning di un nuovo circuito ExpressRoute.
 > 
 > 
 

@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 03/14/2017
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 456ff5cd0c91232ace87e02363f812a36cc38297
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 0c62fc01947e0f2e4b0e45d176d5af04c6250fa8
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -161,7 +161,7 @@ Un database di DocumentDB è un contenitore logico di uno o più utenti e raccol
 ![Modello gerarchico di account di database e raccolte][2]  
 **Un database è un contenitore logico di utenti e raccolte**
 
-Un database può includere una quantità praticamente illimitata di archiviazione documenti, partizionata in base a raccolte, che costituiscono i domini di transazione per i documenti inclusi nelle raccolte stesse. 
+Un database può contenere risorse di archiviazione di documenti praticamente illimitate partizionate all'interno delle raccolte.
 
 ### <a name="elastic-scale-of-a-documentdb-database"></a>Scalabilità elastica di un database di DocumentDB
 Un database di DocumentDB è flessibile per impostazione predefinita e può includere da pochi GB a petabyte di archiviazione documenti e velocità effettiva con provisioning basate su SSD. 
@@ -175,7 +175,7 @@ Un database di DocumentDB è anche un contenitore di utenti. Un utente, a sua vo
 Come per le altre risorse nel modello di risorse di DocumentDB, i database possono essere creati, sostituiti, eliminati, letti o enumerati facilmente mediante le [API REST di Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK dei client](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB assicura una coerenza assoluta per la lettura o l'esecuzione di query sui metadati di una risorsa del database. Se si elimina un database, non sarà automaticamente più possibile accedere alle raccolte o agli utenti inclusi nel database.   
 
 ## <a name="collections"></a>Raccolte
-Una raccolta di DocumentDB è un contenitore per i documenti JSON. Una raccolta è anche un'unità di scala per transazioni e query. 
+Una raccolta di DocumentDB è un contenitore per i documenti JSON. 
 
 ### <a name="elastic-ssd-backed-document-storage"></a>Archiviazione flessibile di documenti basata su unità SSD
 Una raccolta è intrinsecamente flessibile, poiché le dimensioni della raccolta aumentano o si riducono in seguito all'aggiunta o alla rimozione di documenti. Le raccolte sono risorse logiche e possono comprendere una o più partizioni fisiche o server. Il numero di partizioni in una raccolta è determinato da DocumentDB in base allo spazio di archiviazione e alla velocità effettiva con provisioning della raccolta. Ogni partizione in DocumentDB dispone di una quantità fissa di archiviazione supportata da unità SSD associata a essa e viene replicata per la disponibilità elevata. Le partizioni vengono completamente gestite da Azure DocumentDB e non è necessario scrivere script di codice complessi o gestire le partizioni. Le raccolte di DocumentDB sono **praticamente illimitate** in termini di spazio di archiviazione e velocità effettiva. 
@@ -206,7 +206,7 @@ Il modello di query di DocumentDB tenta di ottenere un equilibrio tra funzionali
 > 
 > 
 
-### <a name="multi-document-transactions"></a>Transazioni in più documenti
+## <a name="multi-document-transactions"></a>Transazioni in più documenti
 Le transazioni di database offrono un modello di programmazione sicuro e prevedibile per la gestione delle modifiche simultanee ai dati. In RDBMS la logica di business è tradizionalmente scritta tramite la scrittura di **stored procedure** e/o **trigger** ed è inviata al server database per l'esecuzione transazionale. In RDBMS il programmatore di applicazioni deve gestire due linguaggi di programmazione diversi: 
 
 * Linguaggio di programmazione delle applicazioni (non transazionale), ad esempio JavaScript, Python, C#, Java e così via.

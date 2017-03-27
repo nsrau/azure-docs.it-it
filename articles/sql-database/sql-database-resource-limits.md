@@ -1,5 +1,5 @@
 ---
-title: Limiti delle risorse di Database SQL Azure | Documentazione Microsoft
+title: Limiti delle risorse di Database SQL Azure | Microsoft Docs
 description: In questa pagina vengono descritti alcuni limiti di risorse comuni per il Database SQL Azure.
 services: sql-database
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 02/24/2017
+ms.date: 03/06/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 8441a5318bfee3fc45482a61db13adaa034b824a
-ms.openlocfilehash: 7d50a2861e4dae06d4de09417a2208b453fa499b
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 15692a155cdb55d8dc6eeeb68df264411e46b662
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -50,6 +50,10 @@ Sono disponibili livelli di servizio e livelli di prestazioni sia per i database
 Per un singolo database, i limiti di un database sono definiti dal livello del servizio del database e dal livello delle prestazioni.. La tabella seguente descrive le caratteristiche dei database Basic, Standard e Premium a diversi livelli di prestazioni.
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
+
+> [!IMPORTANT]
+> I clienti che scelgono livelli di prestazioni P11 e P15 possono usare fino a 4 TB di spazio di archiviazione incluso senza alcun costo aggiuntivo. L'opzione 4 TB è attualmente in anteprima pubblica nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti occidentali, Europa occidentale, Asia sud-orientale, Giappone orientale, Australia orientale, Canada centrale e Canada orientale. Per altre informazioni, vedere le [limitazioni correnti per l'opzione 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize).
+>
 
 ### <a name="elastic-pools"></a>Pool elastici
 [Pool elastici](sql-database-elastic-pool.md) condividono le risorse tra i database del pool. La tabella seguente descrive le caratteristiche dei pool elastici Basic, Standard e Premium.

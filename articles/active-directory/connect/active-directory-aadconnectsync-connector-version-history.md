@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 03/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 731dd999e053b98c93c374530599232d4dc5bb92
-ms.openlocfilehash: 9c7a8dc5204a799a8b79fa88b243d981bcd54c74
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 3051ed0385b81892b8495e83817ed8255dbce8cd
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -36,6 +37,61 @@ Collegamenti correlati:
 * [connettore per Servizi Web](http://go.microsoft.com/fwlink/?LinkID=226245) 
 * [connettore PowerShell](active-directory-aadconnectsync-connector-powershell.md) 
 * [connettore Lotus Domino](active-directory-aadconnectsync-connector-domino.md) 
+
+## <a name="114430"></a>1.1.443.0
+
+Data di rilascio: marzo 2017
+
+### <a name="enhancements"></a>Miglioramenti
+* Generic SQL:</br>
+  **Sintomi dello scenario:** è un limite noto del connettore SQL quando si consente il riferimento a un solo tipo di oggetto e si richiede un riferimento incrociato con i membri. </br>
+  **Descrizione della soluzione:** nella fase di elaborazione per i riferimenti in cui si sceglie l'opzione "*", TUTTI i tipi di oggetto saranno restituiti al motore di sincronizzazione.
+
+>[!Important]
+- In questo modo vengono creati molti segnaposti
+- È necessario assicurarsi che il nome sia univoco tra i tipi di oggetto.
+
+
+* Generic LDAP:</br>
+ **Scenario:** anche quando vengono selezionati solo alcuni contenitori nella partizione specifica, la ricerca viene comunque eseguita nell'intera partizione. La partizione specifica sarà filtrata dal servizio di sincronizzazione ma non dal MA, il che potrebbe causare un calo delle prestazioni. </br>
+
+ **Descrizione della soluzione:** il codice del connettore GLDAP modificato consente di esaminare tutti i contenitori e cercare oggetti in ciascuno di essi, anziché cercare nell'intera partizione.
+
+
+* Lotus Domino:
+
+  **Scenario:** supporto dell'eliminazione della posta di Domino per la rimozione di un utente durante un'esportazione. </br>
+  **Soluzione:** supporto dell'eliminazione della posta configurabile per la rimozione di un utente durante un'esportazione.
+
+### <a name="fixed-issues"></a>Problemi risolti:
+* Servizi Web generici:
+ * Quando si modifica l'URL del servizio nei progetti predefiniti SAP wsconfig tramite lo strumento di configurazione del servizio Web si verifica l'errore seguente: Impossibile trovare una parte del percorso
+
+      ``'C:\Users\cstpopovaz\AppData\Local\Temp\2\e2c9d9b0-0d8a-4409-b059-dceeb900a2b3\b9bedcc0-88ac-454c-8c69-7d6ea1c41d17\cfg.config\cloneconfig.xml'. ``
+
+* Generic LDAP:
+ * Correzione per il bug dell'attributo multivalore non importato per l'importazione differenziale watermark di Generic SQL
+ * Il connettore GLDAP non vede tutti gli attributi in AD LDS
+ * La procedura guidata si interrompe quando non viene rilevato alcun attributo UPN dallo schema di directory LDAP
+ * Le importazioni differenziali generano errori di individuazione non presenti durante l'importazione completa, quando l'attributo "objectclass" non è selezionato
+ * La pagina di configurazione "Configurare partizioni e gerarchie" non mostra gli oggetti il cui tipo è uguale alla partizione per i server Novel nel MA Generic  
+LDAP. Essi mostravano solo gli oggetti della partizione di RootDSE.
+
+
+* Generic SQL:
+ * Quando si esportano valori di attributi multivalore eliminati/aggiunti, non vengono eliminati/aggiunti nell'origine dati.  
+
+
+* Lotus Notes:
+ * Un campo specifico "Cognome" è visualizzato correttamente nel metaverse, tuttavia durante l'esportazione in Notes il valore dell'attributo è Null o Empty.
+ * Correzione per l'errore di file di certificazione duplicato
+ * Quando si seleziona l'oggetto senza dati nel connettore Lotus Domino con altri oggetti, viene visualizzato l'errore di individuazione durante un'importazione completa.
+ * Quando viene eseguita un'importazione differenziale nel connettore Lotus Domino, alla fine dell'esecuzione il servizio Microsoft.IdentityManagement.MA.LotusDomino.Service.exe talvolta restituisce un errore dell'applicazione.
+ * L'appartenenza ai gruppi nel complesso funziona bene e viene mantenuta, tranne quando l'esportazione per tentare di rimuovere un utente dall'appartenenza viene completata correttamente con un aggiornamento ma l'utente non viene effettivamente rimosso dall'appartenenza a Lotus Notes.
+ * La possibilità di scegliere la modalità di esportazione "Aggiungi elemento in fondo" è stato aggiunta nell'interfaccia utente grafica di Lotus MA per accodare i nuovi elementi in fondo durante l'esportazione per gli attributi multivalore.
+ * Il connettore aggiungerà la logica necessaria per eliminare il file dalla cartella di posta elettronica e l'insieme di credenziali degli ID.
+ * Eliminare l'appartenenza non funziona per un membro NAB trasversale.
+ * L'eliminazione dei valori da un attributo multivalore dovrebbe riuscire
 
 ## <a name="111170"></a>1.1.117.0
 Data di rilascio: marzo 2016
@@ -98,9 +154,4 @@ Prima di marzo 2016, i connettori venivano rilasciati come argomenti relativi al
 Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

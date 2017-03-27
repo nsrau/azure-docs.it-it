@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: c1357e93a1d02e40411696bb36e93fabd1a99400
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: a23ae729e20dcf79ada73f7545861356e31b957e
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -275,7 +275,7 @@ Il codice di esempio [MultiInstanceTasks][github_mpi] su GitHub illustra come us
 
 ### <a name="execution"></a>Esecuzione
 1. Scaricare [azure-batch-samples][github_samples_zip] da GitHub.
-2. Aprire la **soluzione** MultiInstanceTasks in Visual Studio 2015. Il `MultiInstanceTasks.sln` file della soluzione si trova:
+2. Aprire la **soluzione** MultiInstanceTasks in Visual Studio 2015 o versione più recente. Il `MultiInstanceTasks.sln` file della soluzione si trova:
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. Immettere le credenziali dell'account di archiviazione e Batch in `AccountSettings.settings` nel progetto **Microsoft.Azure.Batch.Samples.Common**.

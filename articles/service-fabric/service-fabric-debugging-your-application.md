@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 03/07/2017
 ms.author: vturecek;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 7a79b19bf51c89e19ad67421978dacccddeb5119
-ms.openlocfilehash: 95cb29e3a7fe59fb29189c7e62b5c6c8e77e6a20
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 6167f3edd3e99522a8997382d6569c82ea387d5c
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: 95cb29e3a7fe59fb29189c7e62b5c6c8e77e6a20
 
 
 ## <a name="debug-a-local-service-fabric-application"></a>Eseguire il debug di un'applicazione di Service Fabric
-Per risparmiare tempo e denaro, è possibile distribuire l'applicazione di Service Fabric ed eseguirne il debug in un cluster di sviluppo locale. Visual Studio può distribuire l'applicazione nel cluster locale e connettere automaticamente il debugger a tutte le istanze dell'applicazione.
+Per risparmiare tempo e denaro, è possibile distribuire l'applicazione di Service Fabric ed eseguirne il debug in un cluster di sviluppo locale. Visual Studio 2017 o Visual Studio 2015 può distribuire l'applicazione nel cluster locale e connettere automaticamente il debugger a tutte le istanze dell'applicazione.
 
 1. Avviare un cluster di sviluppo locale seguendo la procedura descritta nell'articolo [Configurazione dell'ambiente di sviluppo di Service Fabric](service-fabric-get-started.md).
 2. Premere **F5** oppure fare clic su **Debug** > **Avvia debug**.
@@ -159,9 +160,4 @@ Si può anche eseguire lo streaming delle tracce direttamente da un nodo del clu
 [viewingstreamingtraces]: ./media/service-fabric-debugging-your-application/viewingstreamingtraces.png
 [viewremotestreamingtraces]: ./media/service-fabric-debugging-your-application/viewremotestreamingtraces.png
 [disablestreamingtraces]: ./media/service-fabric-debugging-your-application/disablestreamingtraces.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

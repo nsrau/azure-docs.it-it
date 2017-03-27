@@ -1,5 +1,5 @@
 ---
-title: StorSimple 8000 Series Update 4 release notes | Microsoft Docs (Note sulla versione dell&quot;aggiornamento 4 di StorSimple serie 8000 | Microsoft Docs)
+title: Note sulla versione dell&quot;aggiornamento 4 di StorSimple serie 8000 | Microsoft Docs
 description: "Vengono descritte le nuove funzionalità, i problemi e le soluzioni alternative dell&quot;aggiornamento 4 per StorSimple serie 8000."
 services: storsimple
 documentationcenter: NA
@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/03/2017
+ms.date: 03/08/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: c682f9eac1a6ff5e3771aa9e4dfa5b5ffefc1223
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: ec49b8784eb9b18135c5f7ec7242a2468ac87e50
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -57,9 +57,9 @@ L'aggiornamento 4 include gli importanti aggiornamenti e correzioni di bug descr
 
 * **Modifiche correlate a FIPS**: da questa versione in poi, FIPS è abilitato per impostazione predefinita su tutti i dispositivi StorSimple serie 8000 per gli account Microsoft Azure per enti pubblici e del cloud Azure pubblico.
 
-* **Modifiche dell'aggiornamento**: da questa versione in poi, FIPS è abilitato per impostazione predefinita su tutti i dispositivi StorSimple serie 8000 per gli account Microsoft Azure per enti pubblici e del cloud Azure pubblico.
+* **Modifiche all'aggiornamento**: in questa versione sono stati corretti i bug relativi agli errori di aggiornamento.
 
-* **Avviso per gli errori del disco**: aggiunto un nuovo avviso che informa l'utente di errori imminenti legati al disco.
+* **Avviso per gli errori del disco**: aggiunto un nuovo avviso che informa l'utente di errori imminenti legati al disco. Se viene visualizzato questo avviso, contattare il supporto tecnico Microsoft per richiedere un disco sostitutivo.
 
 * **Modifiche alla sostituzione del controller**: aggiunto un cmdlet che consente all'utente di richiedere lo stato del processo di sostituzione del controller. Per altre informazioni, vedere il [cmdlet per richiedere lo stato di sostituzione del controller](https://technet.microsoft.com/library/dn688168.aspx).
 

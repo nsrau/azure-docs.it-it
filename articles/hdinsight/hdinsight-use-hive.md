@@ -10,6 +10,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 2c10f989-7636-41bf-b7f7-c4b67ec0814f
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,9 +18,9 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: 18131c083a0dc24eaa6f58445aa61d5872210417
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 2f37c2d635920dd286bf0cb5f9a74a01259a786a
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.lasthandoff: 02/17/2017
 
 Questa esercitazione fornisce informazioni su come usare Apache Hive di Hadoop su HDInsight e come scegliere la modalità di esecuzione del processo Hive. Descrive inoltre il linguaggio HiveQL e illustra come analizzare un file Apache log4j di esempio.
 
-## <a name="a-idwhyawhat-is-hive-and-why-use-it"></a><a id="why"></a>Che cos'è Hive e perché usarlo?
+## <a id="why"></a>Che cos'è Hive e perché usarlo?
 [Apache Hive](http://hive.apache.org/) è un sistema di data warehouse per Hadoop, che consente di eseguire attività di riepilogo, query e analisi di volumi di dati tramite HiveQL (un linguaggio di query simile a SQL). Può essere usato per esplorare i dati in modo interattivo o per creare processi di elaborazione di batch riusabili.
 
 Hive consente di proiettare la struttura su dati principalmente non strutturati. Dopo aver definito la struttura, Hive consente di eseguire una query sui dati anche senza alcuna conoscenza di Java o MapReduce. **HiveQL** , il linguaggio di query di Hive, consente di scrivere query con istruzioni simili a quelle di T-SQL.
@@ -55,7 +56,7 @@ Vi sono alcune informazioni che è necessario conoscere sulle tabelle Hive inter
 
 Per altre informazioni, vedere [HDInsight: Hive Internal and External Tables Intro][cindygross-hive-tables] (HDInsight: introduzione alle tabelle Hive interne ed esterne).
 
-## <a name="a-iddataaabout-the-sample-data-an-apache-log4j-file"></a><a id="data"></a>Informazioni sui dati di esempio: file log4j di Apache
+## <a id="data"></a>Informazioni sui dati di esempio: file log4j di Apache
 Questo esempio usa un file di esempio *log4j*, che viene archiviato in **/example/data/sample.log** nel contenitore dell'archivio BLOB. Ogni log all'interno del file è costituito da una riga di campi che contiene un campo `[LOG LEVEL]` per visualizzare il tipo e la gravità. Ad esempio:
 
     2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
@@ -78,7 +79,7 @@ Poiché l'archivio BLOB di Azure è la risorsa di archiviazione predefinita per 
 > 
 > 
 
-## <a name="a-idjobasample-job-project-columns-onto-delimited-data"></a><a id="job"></a>Processo di esempio: Proiettare colonne in dati delimitati
+## <a id="job"></a>Processo di esempio: Proiettare colonne in dati delimitati
 Le istruzioni HiveQL seguenti consentono di proiettare colonne in dati delimitati archiviati nella directory **wasbs:///example/data**:
 
     set hive.execution.engine=tez;
@@ -129,7 +130,7 @@ Di seguito sono elencate le istruzioni che eseguono queste azioni:
 > 
 > 
 
-## <a name="a-idusetezause-apache-tez-for-improved-performance"></a><a id="usetez"></a>Usare Apache Tez per ottenere prestazioni migliorate
+## <a id="usetez"></a>Usare Apache Tez per ottenere prestazioni migliorate
 [Apache Tez](http://tez.apache.org) è un framework che consente di eseguire applicazioni come Hive, che richiedono un uso elevato di dati, in modo molto più efficiente e scalabile. Nella versione più recente di HDInsight, Hive supporta l'esecuzione su Tez. Tez è abilitata come impostazione predefinita per i cluster HDInsight basati su Linux.
 
 > [!NOTE]
@@ -137,7 +138,7 @@ Di seguito sono elencate le istruzioni che eseguono queste azioni:
 > 
 > ```set hive.execution.engine=tez;```
 > 
-> È possibile inviarlo in ogni query inserendolo all'inizio della stessa. È anche possibile impostarlo come valore predefinito su un cluster scegliendo il valore di configurazione al momento della creazione del cluster. Per informazioni più dettagliate, vedere [Provisioning di cluster HDInsight](hdinsight-provision-clusters.md).
+> È possibile inviarlo in ogni query inserendolo all'inizio della stessa. È anche possibile impostarlo come valore predefinito su un cluster scegliendo il valore di configurazione al momento della creazione del cluster. Per informazioni più dettagliate, vedere [Provisioning di cluster HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 > 
 > 
 
@@ -148,7 +149,7 @@ Per facilitare il debug di processi eseguiti mediante Tez, HDInsight fornisce le
 * [Usare l'interfaccia utente di Tez in HDInsight basato su Windows](hdinsight-debug-tez-ui.md)
 * [Usare la vista Ambari Tez in HDInsight basato su Linux](hdinsight-debug-ambari-tez-view.md)
 
-## <a name="a-idrunachoose-how-to-run-the-hiveql-job"></a><a id="run"></a>Scegliere la modalità di esecuzione del processo HiveQL
+## <a id="run"></a>Scegliere la modalità di esecuzione del processo HiveQL
 HDInsight è in grado di eseguire processi HiveQL in vari modi. Usare la tabella seguente per decidere il metodo più adatto alle proprie esigenze, quindi fare clic sul collegamento per visualizzare una procedura dettagliata.
 
 | **Usare questo** se si desidera... | ...una shell **interattiva** | ...elaborazione**batch** | ...con questo **sistema operativo cluster** | ...da questo **sistema operativo client** |
@@ -173,13 +174,11 @@ HDInsight è in grado di eseguire processi HiveQL in vari modi. Usare la tabella
 
 Altre informazioni sul Feature Pack di Azure per SSIS sono disponibili [qui][ssispack].
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Passaggi successivi
+## <a id="nextsteps"></a>Passaggi successivi
 Dopo avere appreso che cos'è Hive e come si usa con Hadoop in HDInsight, vedere i collegamenti seguenti per scoprire altri modi di usare Azure HDInsight.
 
 * [Caricare dati in HDInsight][hdinsight-upload-data]
 * [Usare Pig con HDInsight][hdinsight-use-pig]
-* [Usare Sqoop con Hadoop in HDInsight](hdinsight-use-sqoop.md)
-* [Usare Oozie con HDInsight](hdinsight-use-oozie.md)
 * [Usare processi MapReduce con HDInsight][hdinsight-use-mapreduce]
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx

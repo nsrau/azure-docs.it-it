@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 03/10/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
-ms.openlocfilehash: 2d32e8bb650d682684be0e093a9f5dfd9d536a8f
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 2b278b5c512d3ea0ff045869487d4551118c0e5c
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -52,31 +53,19 @@ Per rendere operativo il server di Backup di Azure, è prima di tutto necessario
 >
 >
 
-Se si prevede di aggiungere il server a un dominio in futuro, è consigliabile eseguire l'attività di aggiunta al dominio prima dell'installazione del server di Backup di Azure. Lo spostamento di un server di Backup di Azure esistente in un nuovo dominio dopo la distribuzione *non è supportato*.
+Se si prevede di aggiungere il server di Backup di Azure a un dominio, è consigliabile aggiungere il server fisico o la macchina virtuale al dominio prima di installare il software del server di Backup di Azure. Lo spostamento di un server di Backup di Azure in un nuovo dominio dopo la distribuzione *non è supportato*.
 
 ## <a name="2-backup-vault"></a>2. Insieme di credenziali per il backup
 ![passaggio2](./media/backup-azure-microsoft-azure-backup/step2.png)
 
-Indipendentemente dal fatto che i dati di backup vengano inviati ad Azure o vengano archiviati in locale, il software deve essere connesso ad Azure. In particolare, il computer del server di Backup di Azure deve essere registrato in un insieme di credenziali di backup.
+Se si inviano dati di backup in Azure o se si desidera mantenerli in locale, è necessario registrare il server di Backup di Azure in un insieme di credenziali.
 
-Per creare un insieme di credenziali per il backup:
+> [!IMPORTANT]
+> A partire da marzo 2017, non è più possibile usare il portale classico per creare insiemi di credenziali di backup. Gli insiemi di credenziali di backup esistenti sono ancora supportati ed è possibile [usare Azure PowerShell per creare insiemi di credenziali di backup](./backup-client-automation-classic.md#create-a-backup-vault). È tuttavia consigliabile creare insiemi di credenziali dei servizi di ripristino per tutte le distribuzioni, perché i miglioramenti futuri si applicheranno solo a tali insiemi di credenziali.
+>
+>
 
-1. Accedere al [portale di gestione](http://manage.windowsazure.com/).
-2. Fare clic su **Nuovo** > **Servizi dati** > **Servizi di ripristino** > **Insieme di credenziali per il backup** > **Creazione rapida**. Se all'account aziendale sono associate più sottoscrizioni, scegliere quella corretta da associare all'insieme di credenziali per il backup.
-3. In **Nome**immettere un nome descrittivo per identificare l'insieme di credenziali. È necessario che il nome sia univoco per ogni sottoscrizione.
-4. In **Region**selezionare l'area geografica per l'insieme di credenziali. In genere, l'area dell'insieme di credenziali viene selezionata in base alla sovranità dei dati o ai vincoli relativi alla latenza di rete.
 
-    ![Creare un insieme di credenziali per il backup](./media/backup-azure-microsoft-azure-backup/backup_vaultcreate.png)
-5. Fare clic su **Crea insieme di credenziali**. La creazione dell'insieme di credenziali per il backup può richiedere alcuni minuti. Monitorare le notifiche di stato nella parte inferiore del portale.
-
-    ![Creare una notifica di tipo avviso popup dell'insieme di credenziali](./media/backup-azure-microsoft-azure-backup/creating-vault.png)
-6. Viene visualizzato un messaggio per confermare che l'insieme di credenziali è stato creato correttamente. L'insieme di credenziali verrà quindi elencato come attivo nella pagina Servizi di ripristino.
-    ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-microsoft-azure-backup/backup_vaultslist.png)
-
-   > [!IMPORTANT]
-   > Subito dopo la creazione dell'insieme di credenziali, assicurarsi di avere scelto l'opzione di ridondanza dell'archiviazione corretta. Per altre informazioni sulle opzioni [con ridondanza geografica](../storage/storage-redundancy.md#geo-redundant-storage) e [con ridondanza locale](../storage/storage-redundancy.md#locally-redundant-storage), vedere questa [panoramica](../storage/storage-redundancy.md).
-   >
-   >
 
 ## <a name="3-software-package"></a>3. Pacchetto software
 ![passaggio3](./media/backup-azure-microsoft-azure-backup/step3.png)
@@ -124,6 +113,7 @@ Al termine del processo di estrazione, selezionare la casella per avviare il fil
    > Il server di Backup di Azure non funzionerà con un'istanza remota di SQL Server. L'istanza usata dal server di Backup di Azure deve essere locale.
    >
    >
+
 4. Specificare un percorso di installazione dei file del server di Backup di Microsoft Azure e fare clic su **Avanti**.
 
     ![PreReq2 di Backup di Microsoft Azure](./media/backup-azure-microsoft-azure-backup/space-screen.png)
@@ -209,9 +199,4 @@ Per informazioni dettagliate sulla [preparazione dell'ambiente per DPM](https://
 * [Backup di SQL Server](backup-azure-backup-sql.md)
 * [Backup di SharePoint Server](backup-azure-backup-sharepoint.md)
 * [Backup del server alternativo](backup-azure-alternate-dpm-server.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

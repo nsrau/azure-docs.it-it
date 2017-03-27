@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: dimakwan
 translationtype: Human Translation
-ms.sourcegitcommit: 655f501f920e3169450831f501f7183ae46a4a60
-ms.openlocfilehash: 70614f7d97466fb7e8a2f325d744f5e1632640a6
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 19ba92fae63cadef20cd5414fa23bf4821ab6d56
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -30,7 +30,7 @@ Gli account del database DocumentDB sono attualmente l'unica risorsa DocumentDB 
 
 ## <a name="getting-ready"></a>Preparazione
 
-Prima di poter usare l'interfaccia della riga di comando di Azure 1.0 con i gruppi di risorse di Azure, è necessario disporre della versione corretta dell'interfaccia della riga di comando di Azure 1.0 e di un account Azure. Se non è disponibile l'interfaccia della riga di comando di Azure 1.0 è necessario [installarla](../xplat-cli-install.md).
+Prima di poter usare l'interfaccia della riga di comando di Azure 1.0 con i gruppi di risorse di Azure, è necessario disporre della versione corretta dell'interfaccia della riga di comando di Azure 1.0 e di un account Azure. Se non è disponibile l'interfaccia della riga di comando di Azure 1.0 è necessario [installarla](../cli-install-nodejs.md).
 
 ### <a name="update-your-azure-cli-10-version"></a>Aggiornamento della versione dell'interfaccia della riga di comando di Azure 1.0
 
@@ -39,7 +39,7 @@ Al prompt dei comandi digitare `azure --version` per verificare se è già insta
     azure --version
     0.10.4 (node: 4.2.4)
 
-Se la versione installata non è la 0.10.4 o una versione successiva, sarà necessario [installare l'interfaccia della riga di comando di Azure 1.0](../xplat-cli-install.md) o l'aggiornamento usando uno dei programmi di installazione nativi o con **npm** digitando `npm update -g azure-cli` per effettuare l'aggiornamento o `npm install -g azure-cli` per l'installazione.
+Se la versione installata non è la 0.10.4 o una versione successiva, sarà necessario [installare l'interfaccia della riga di comando di Azure 1.0](../cli-install-nodejs.md) o l'aggiornamento usando uno dei programmi di installazione nativi o con **npm** digitando `npm update -g azure-cli` per effettuare l'aggiornamento o `npm install -g azure-cli` per l'installazione.
 
 ### <a name="set-your-azure-account-and-subscription"></a>Impostare l'account e la sottoscrizione di Azure
 

@@ -15,24 +15,37 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
 translationtype: Human Translation
-ms.sourcegitcommit: 14df6b49d79aa1bf6f414070c60e7acac6578301
-ms.openlocfilehash: 7267b41d5d1a7903a084eea2c813bc40249fbf6a
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 1095267ce0c2a922d4bd9cb95a607ce8993df310
+ms.lasthandoff: 03/11/2017
 
 
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Soluzioni di monitoraggio di rete di Azure in Log Analytics
 
-È possibile usare la soluzione di analisi del gateway applicazione di Azure in Log Analytics per esaminare gli elementi seguenti:
+Log Analytics offre le seguenti soluzioni per il monitoraggio delle reti:
+* Monitoraggio delle prestazioni di rete
+ * Verificare l'integrità della rete
+* Azure Application Gateway Analytics per analizzare
+ * Log di gateway applicazione di Azure
+ * Metriche di gateway applicazione di Azure
+* Azure Network Security Group Analytics per analizzare
+ * Log dei gruppi di sicurezza di rete di Azure
 
-* Log di gateway applicazione di Azure
-* Metriche di gateway applicazione di Azure
+## <a name="network-performance-monitor-npm"></a>Monitoraggio delle prestazioni di rete
+La soluzione di gestione [Monitoraggio delle prestazioni di rete](log-analytics-network-performance-monitor.md) consente di monitorare l'integrità, la disponibilità e la raggiungibilità delle reti.  Viene usata per monitorare la connettività tra:
+* cloud pubblico e risorse locali 
+* data center e percorsi utente (filiali)
+* subnet che ospita i diversi livelli di un'applicazione a più livelli.
 
-È possibile usare la soluzione di analisi del gruppo di sicurezza di rete di Azure in Log Analytics per esaminare:
+ ![immagine di Monitoraggio delle prestazioni di rete](./media/log-analytics-network-performance-monitor/npm-topology.png)
 
-* Log dei gruppi di sicurezza di rete di Azure
+Per altre informazioni, vedere [Monitoraggio delle prestazioni di rete](log-analytics-network-performance-monitor.md).
 
-Per usare le soluzioni, abilitare la diagnostica per i log di gateway applicazione di Azure e dei gruppi di sicurezza di rete di Azure e indirizzare la diagnostica a un'area di lavoro di Log Analytics. Non è necessario inserire i log nell'Archiviazione BLOB di Azure.
+## <a name="azure-application-gateway-and-network-security-group-analytics"></a>Azure Application Gateway Analytics e Azure Network Security Group Analytics
+Per usare le soluzioni:
+1. Aggiungere la soluzione di gestione a Log Analytics e
+2. Abilitare la funzionalità diagnostica per indirizzare la diagnostica a un'area di lavoro di Log Analytics. Non è necessario inserire i log nell'Archiviazione BLOB di Azure.
 
 È possibile abilitare la diagnostica e la soluzione corrispondente per uno o per entrambe le soluzioni: gateway applicazione e gruppi di sicurezza di rete.
 
@@ -68,8 +81,8 @@ Le metriche seguenti sono supportate per i gateway applicazione:
 ### <a name="install-and-configure-the-solution"></a>Installare e configurare la soluzione
 Usare le istruzioni seguenti per installare e configurare la soluzione di analisi del gateway applicazione di Azure:
 
-1. Abilitare la registrazione diagnostica per i [gateway applicazione](../application-gateway/application-gateway-diagnostics.md) da monitorare.
-2. Abilitare la soluzione di analisi del gateway applicazione di Azure seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md). 
+1. Abilitare la soluzione Azure Application Gateway Analytics da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).
+2. Abilitare la registrazione diagnostica per i [gateway applicazione](../application-gateway/application-gateway-diagnostics.md) da monitorare. 
 
 #### <a name="enable-azure-application-gateway-diagnostics-in-the-portal"></a>Abilitare la diagnostica del gateway applicazione di Azure nel portale
 
@@ -131,8 +144,8 @@ I log seguenti sono supportati per i gruppi di sicurezza di rete:
 ### <a name="install-and-configure-the-solution"></a>Installare e configurare la soluzione
 Usare le istruzioni seguenti per installare e configurare la soluzione Azure Networking Analytics di Azure:
 
-1. Abilitare la registrazione diagnostica per le risorse [gruppo di sicurezza di rete](../virtual-network/virtual-network-nsg-manage-log.md) da monitorare.
-2. Abilitare la soluzione di analisi del gruppo di sicurezza di rete di Azure seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md). 
+1. Abilitare la soluzione Azure Network Security Group Analytics da [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureNSGAnalyticsOMS?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md). 
+2. Abilitare la registrazione diagnostica per le risorse [gruppo di sicurezza di rete](../virtual-network/virtual-network-nsg-manage-log.md) da monitorare.
 
 ### <a name="enable-azure-network-security-group-diagnostics-in-the-portal"></a>Abilitare la diagnostica del gruppo di sicurezza di rete di Azure nel portale
 

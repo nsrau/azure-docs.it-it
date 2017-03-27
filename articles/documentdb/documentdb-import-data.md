@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 3/14/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: f46965946905bc29a9058904ba62465aba1fa1bf
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 41e0b9a875b350f5b4a8ce63711ba45e2acb8cae
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/08/2017
 
 Questo articolo mostra come usare lo strumento di migrazione dati di DocumentDB open source ufficiale per importare dati in [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) da diverse origini, tra cui file JSON, file CSV, SQL, MongoDB, archiviazione tabelle di Azure e raccolte DocumentDB.
 
-Se si importano dati in un account DocumentDB con supporto per MongoDB, seguire le istruzioni disponibili in [Migrate data to DocumentDB with protocol support for MongoDB](documentdb-mongodb-migrate.md) (Eseguire la migrazione di dati in DocumentDB con supporto del protocollo per MongoDB).
+Se si importano dati in un database dell'API per MongoDB, seguire le istruzioni disponibili in [Eseguire la migrazione di dati DocumentDB con il supporto del protocollo per MongoDB](documentdb-mongodb-migrate.md).
 
 Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:  
 

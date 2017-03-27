@@ -17,9 +17,9 @@ ms.date: 09/30/2016
 ms.author: josephd
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 32e30b44c2f7cfa9c1069190fdc53dbe6e9f4cd5
-ms.openlocfilehash: b668e32bf00ec32c7ffa77594bd1fb07440cf1ac
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9e8eb54913b1e7e3f40ac2c9b80b0818eee3a35f
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -79,7 +79,7 @@ Vedere [questo articolo](https://technet.microsoft.com/library/mt723354.aspx) pe
 ![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/SP2016Farm.png)
 
 ## <a name="managing-the-sharepoint-farms"></a>Gestire le farm di SharePoint
-È possibile amministrare i server di queste farm tramite connessioni Desktop Remoto. Per altre informazioni, vedere [Accedere alla macchina virtuale](virtual-machines-windows-hero-tutorial.md#connect-to-the-virtual-machine-and-sign-on).
+È possibile amministrare i server di queste farm tramite connessioni Desktop Remoto. Per altre informazioni, vedere [Accedere alla macchina virtuale](virtual-machines-windows-quick-create-portal.md#connect-to-virtual-machine).
 
 Dal sito Amministrazione centrale di SharePoint è possibile configurare i siti personali, le applicazioni di SharePoint e altre funzionalità. Per altre informazioni, vedere [Configurare SharePoint](http://technet.microsoft.com/library/ee836142.aspx).
 

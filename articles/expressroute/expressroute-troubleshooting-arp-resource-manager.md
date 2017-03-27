@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/30/2017
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 1a4206c80bc3581034b140de0003c64556b90303
-ms.openlocfilehash: 2a5a12899ea3bcc89be0244e252c552515f57150
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: a65b1ba2998eae33b3e73bd2492fbbf025eb5946
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -49,8 +50,8 @@ Tabella ARP di esempio:
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           10.0.0.1 ffff.eeee.dddd
-          0 Microsoft         10.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           10.0.0.1   ffff.eeee.dddd
+          0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
 
 
 La sezione seguente fornisce informazioni su come visualizzare le tabelle ARP visualizzate tramite i router perimetrali di ExpressRoute. 
@@ -83,8 +84,8 @@ Di seguito è illustrato un esempio di output per uno dei percorsi
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           10.0.0.1 ffff.eeee.dddd
-          0 Microsoft         10.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           10.0.0.1   ffff.eeee.dddd
+          0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
 
 
 ### <a name="arp-tables-for-azure-public-peering"></a>Tabelle ARP per il peering pubblico di Azure
@@ -105,8 +106,8 @@ Di seguito è illustrato un esempio di output per uno dei percorsi
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           64.0.0.1 ffff.eeee.dddd
-          0 Microsoft         64.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           64.0.0.1   ffff.eeee.dddd
+          0 Microsoft         64.0.0.2   aaaa.bbbb.cccc
 
 
 ### <a name="arp-tables-for-microsoft-peering"></a>Tabelle ARP per il peering di Microsoft
@@ -127,8 +128,8 @@ Di seguito è illustrato un esempio di output per uno dei percorsi
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           65.0.0.1 ffff.eeee.dddd
-          0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           65.0.0.1   ffff.eeee.dddd
+          0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
 
 ## <a name="how-to-use-this-information"></a>Procedura: Come usare queste informazioni
@@ -142,19 +143,29 @@ La tabella ARP di un peer può essere usata per determinare la connettività e l
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
-         10 On-Prem           65.0.0.1 ffff.eeee.dddd
-          0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
+         10 On-Prem           65.0.0.1   ffff.eeee.dddd
+          0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
 ### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>Tabella ARP quando il lato locale/provider di connettività presenta problemi
-* Verrà visualizzata solo una voce nella tabella ARP. Viene mostrato il mapping tra gli indirizzi MAC e IP usati sul lato Microsoft. 
+In caso di problemi a livello di provider di connettività o locale, è possibile che nella tabella ARP risulti inclusa una sola voce o che l'indirizzo MAC locale venga visualizzato incompleto. Viene mostrato il mapping tra gli indirizzi MAC e IP usati sul lato Microsoft. 
   
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------    
-         0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
+         0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+
+oppure
+       
+       Age InterfaceProperty IpAddress  MacAddress    
+       --- ----------------- ---------  ----------   
+         0 On-Prem           65.0.0.1   Incomplete
+         0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+
 
 > [!NOTE]
-> Aprire una richiesta di supporto al provider di connettività per il debug di questi problemi. 
+> Aprire una richiesta di supporto al provider di connettività per il debug di questi problemi. Se la tabella ARP non dispone di indirizzi IP delle interfacce associate agli indirizzi MAC, esaminare le informazioni seguenti:
 > 
+> 1. Se il primo indirizzo IP delle /30 subnet assegnate per il collegamento tra il MSEE-PR e il MSEE viene usato nell'interfaccia di MSEE-PR. Azure usa sempre il secondo indirizzo IP per MSEE.
+> 2. Verificare se i tag VLAN del cliente (C-Tag) e del servizio (S-Tag) corrispondono nella coppia MSEE-PR e MSEE.
 > 
 
 ### <a name="arp-table-when-microsoft-side-has-problems"></a>Tabella ARP quando il lato Microsoft presenta problemi
@@ -167,10 +178,5 @@ La tabella ARP di un peer può essere usata per determinare la connettività e l
   * Ottenere la tabella del routing per stabilire i prefissi pubblicati in ExpressRoute
 * Convalidare il trasferimento dei dati controllando i byte in ingresso/uscita
 * Aprire un ticket di assistenza al [supporto tecnico Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) se continuano a verificarsi problemi.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

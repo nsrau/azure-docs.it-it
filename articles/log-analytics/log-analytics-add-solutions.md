@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: ecb848efd8516ae43d07f8c6ebbf3868b8e20757
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: dc4a28b64620ecc4829d614b9a3c9e1939fd0063
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -38,6 +38,12 @@ Le soluzioni di gestione consentono di ottenere informazioni più approfondite p
 Le informazioni contenute in questo articolo permettono di aggiungere soluzioni di gestione a un'area di lavoro tramite il Marketplace del portale di Azure. Dopo aver aggiunto una soluzione, i dati vengono raccolti dai server nell'infrastruttura e inviati al servizio OMS. L’elaborazione da parte del servizio OMS richiede in genere da alcuni minuti a un’ora. Dopo che il servizio ha elaborato i dati, è possibile visualizzarli in OMS.
 
 Le soluzioni di gestione non più necessarie possono essere rimosse facilmente. Quando si rimuove una soluzione di gestione, i dati non vengono inviati a OMS. Se è stato adottato il piano tariffario Gratuito, la rimozione di una soluzione può ridurre la quantità di dati usati, consentendo di rimanere al di sotto della quota giornaliera di dati.
+
+## <a name="view-available-management-solutions"></a>Visualizzare le soluzioni di gestione disponibili
+
+Azure Marketplace contiene l'elenco di [soluzioni di gestione per Log Analytics](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions).
+
+È possibile installare le soluzioni di gestione da Azure Marketplace facendo clic sul collegamento **Get it now** (Scarica adesso) nella parte inferiore di ogni soluzione.
 
 ## <a name="add-a-management-solution"></a>Aggiungere una soluzione di gestione
 1. Se questa operazione non è già stata eseguita, accedere al [portale di Azure](https://portal.azure.com), usando la sottoscrizione di Azure.
@@ -172,7 +178,7 @@ L'agente Windows per Log Analytics e l'agente System Center Operations Manager s
 | Antimalware Assessment |Windows |![Sì](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Sì](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Sì](./media/log-analytics-add-solutions/oms-bullet-green.png) |ogni ora |
 | Security and Audit<sup>1</sup> | Windows e Linux | ![Alcuni](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![Alcuni](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![Alcuni](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Alcuni](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | variabile |
 
-<sup>1</sup>La soluzione Security and Audit può raccogliere log da agenti Windows, Operations Manager e Linux. Vedere la tabella [Origini dati](#data-sources) per informazioni sulla raccolta dati relativa a:
+<sup>1</sup>La soluzione Sicurezza e controllo può raccogliere log da agenti Windows, Operations Manager e Linux. Vedere la tabella [Origini dati](#data-sources) per informazioni sulla raccolta dati relativa a:
 
 - syslog
 - Registri eventi della sicurezza di Windows

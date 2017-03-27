@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 03/09/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 45225c4250539dfeb9f3b4654615acbdd162191b
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: c433e8683755e454f9561f094269c3daccf78a62
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -54,7 +54,7 @@ Se si intende rimuovere il certificato contrassegnato come primario, è prima ne
 Questi passaggi presuppongono che si abbia familiarità con il funzionamento di Resource Manager, che sia stato distribuito almeno un cluster di Service Fabric usando un modello di Resource Manager e che il modello usato per configurare il cluster sia a portata di mano. Si presuppone anche che si abbia dimestichezza con l'uso di JSON.
 
 > [!NOTE]
-> In questo [repository Git](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample) è disponibile un modello di esempio e i parametri che è possibile usare per procedere o come punto di partenza. 
+> In questo [repository Git](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample) sono disponibili un modello di esempio e i parametri che è possibile usare per procedere o come punto di partenza. 
 > 
 > 
 
@@ -64,9 +64,9 @@ Il file 5-VM-1-NodeTypes-Secure_Step2.JSON contiene tutte le modifiche illustrat
 
 **Assicurarsi di seguire tutti i passaggi**
 
-**Passaggio 1:** aprire il modello di Resource Manager usato per la distribuzione del cluster.  Se è stato scaricato l'esempio dal repository indicato in precedenza, usare 5-VM-1-NodeTypes-Secure_Step1.JSON per distribuire un cluster protetto e quindi aprire il modello.
+**Passaggio 1:** aprire il modello di Resource Manager usato per la distribuzione del cluster. Se è stato scaricato l'esempio dal repository indicato in precedenza, usare 5-VM-1-NodeTypes-Secure_Step1.JSON per distribuire un cluster protetto e quindi aprire il modello.
 
-**Passaggio 2:** aggiungere **due nuovi parametri** "secCertificateThumbprint" e "secCertificateUrlValue" di tipo stringa alla sezione parameters del modello. È possibile copiare il frammento di codice seguente e aggiungere al modello. A seconda dell'origine del modello, potrebbero già essere definiti. In tal caso, andare al passaggio successivo. 
+**Passaggio 2:** aggiungere **due nuovi parametri** "secCertificateThumbprint" e "secCertificateUrlValue" di tipo stringa alla sezione parameters del modello. È possibile copiare il frammento di codice seguente e aggiungerlo al modello. A seconda dell'origine del modello, potrebbero già essere definiti. In tal caso, andare al passaggio successivo. 
  
 ```JSON
    "secCertificateThumbprint": {
@@ -84,7 +84,7 @@ Il file 5-VM-1-NodeTypes-Secure_Step2.JSON contiene tutte le modifiche illustrat
 
 ```
 
-**Passaggio 3:** apportare modifiche alla risorsa **Microsoft.ServiceFabric/clusters**. Trovare la definizione della risorsa Microsoft.ServiceFabric/clusters nel modello. Il tag JSON "Certificate" nelle proprietà della definizione dovrebbe avere un aspetto simile al frammento JSON seguente.
+**Passaggio 3:** apportare modifiche alla risorsa **Microsoft.ServiceFabric/clusters**. Trovare la definizione della risorsa Microsoft.ServiceFabric/clusters nel modello. Il tag JSON "Certificate" nelle proprietà della definizione dovrebbe sarà simile al frammento JSON seguente:
 
    
 ```JSON
@@ -108,7 +108,7 @@ A seconda dell'origine del modello, la definizione della risorsa dovrebbe avere 
      }
 ``` 
 
-Per eseguire il **rollover del certificato**, è possibile specificare il nuovo certificato come primario e spostare il certificato primario corrente come secondario.  Ciò determina il rollover del certificato primario corrente nel nuovo certificato in un solo passaggio di distribuzione.
+Per eseguire il **rollover del certificato**, è possibile specificare il nuovo certificato come primario e spostare il certificato primario corrente come secondario. Ciò determina il rollover del certificato primario corrente nel nuovo certificato in un solo passaggio di distribuzione.
 
 ```JSON
       "properties": {

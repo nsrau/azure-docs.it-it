@@ -1,5 +1,5 @@
 ---
-title: 'Portale di Azure: creare e gestire un pool elastico di database SQL | Documentazione Microsoft'
+title: 'Portale di Azure: creare e gestire un pool elastico di database SQL | Microsoft Docs'
 description: "Informazioni su come usare il portale di Azure e le funzionalità di intelligence predefinite del database SQL per gestire, monitorare e dimensionare in modo adeguato un pool elastico scalabile per ottimizzare le prestazioni del database e gestire i costi."
 keywords: 
 services: sql-database
@@ -17,14 +17,14 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: dbf337a27c43fc6c91f1b061a1938c5471dd36a4
-ms.openlocfilehash: 52cc3c74e05dc3934e0536dea02b4870f6ed86c2
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 878bb6e792cff555747912a57c1a15632f06b2f7
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="create-and-manage-an-elastic-pool-with-the-azure-portal"></a>Creare e gestire un pool elastico con il portale di Azure
-Questo argomento illustra come creare e gestire [pool elastici](sql-database-elastic-pool.md) scalabili con il portale di Azure. È anche possibile creare e gestire un pool elastico di Azure con [PowerShell](sql-database-elastic-pool-manage-powershell.md), l'API REST o [C#][Creare e gestire un pool elastico con C#](sql-database-elastic-pool-manage-csharp.md). È anche possibile creare e spostare database verso e dai pool elastici usando [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
+Questo argomento illustra come creare e gestire [pool elastici](sql-database-elastic-pool.md) scalabili con il portale di Azure. È anche possibile creare e gestire un pool elastico di Azure con [PowerShell](sql-database-elastic-pool-manage-powershell.md), l'API REST o [C#](sql-database-elastic-pool-manage-csharp.md). È anche possibile creare e spostare database verso e dai pool elastici usando [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
 
 ## <a name="create-an-elastic-pool"></a>Creare un pool elastico 
 

@@ -4,18 +4,19 @@ description: Monitorare le prestazioni e l&quot;utilizzo dell&quot;applicazione 
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 578e30f0-31ed-4f39-baa8-01b4c2f310c9
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 96614dd3c0bf9c55ffd81d0912ecb62b71c32b22
-ms.openlocfilehash: 2eeb22d310a3aa67bacf821d319fb2919d0b536f
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 43fb1e764c929be14d42c3d214b051aeb5367d77
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -24,7 +25,7 @@ I dati di telemetria provenienti da componenti diversi e le versioni dell'applic
 
 Prima di tutto è necessario comprendere bene la domanda. I dati ricevuti dall'applicazione vengono archiviati ed elaborati da Application Insights in una *risorsa*di Microsoft Azure. Ogni risorsa viene identificata da una *chiave di strumentazione* (iKey). Nell'app la chiave viene fornita ad Application Insights SDK, in modo che possa inviare i dati raccolti alla risorsa corretta. La chiave può essere fornita nel codice o nel file ApplicationInsights.config. La modifica della chiave nell'SDK permette di indirizzare i dati a risorse diverse. 
 
-In un caso semplice, quando si crea il codice per una nuova applicazione, si crea anche una nuova risorsa in Application Insights. In Visual Studio questa operazione viene eseguita automaticamente dalla finestra di dialogo *Nuovo progetto* .
+In un caso semplice, quando si registra un'applicazione con Application Insights, si crea anche una nuova risorsa in Application Insights. In Visual Studio, la finestra *Configura Application Insights* o *Aggiungi Application Insights* esegue questa operazione automaticamente.
 
 Se si tratta di un sito Web con volumi elevati, questa risorsa può essere distribuita in più istanze del server.
 
@@ -61,7 +62,7 @@ Per rendere più semplice modificare automaticamente la chiave al momento del ri
 
 Se il sistema è un servizio cloud di Azure, è disponibile [un altro metodo di impostazione di valori iKey separati](app-insights-cloudservices.md).)
 
-### <a name="a-namedynamic-ikeya-dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a> Chiave di strumentazione dinamica
+### <a name="dynamic-ikey"></a> Chiave di strumentazione dinamica
 Impostare la chiave in un metodo di inizializzazione, ad esempio global.aspx.cs in un servizio ASP.NET:
 
 *C#*
@@ -115,10 +116,5 @@ La chiave di strumentazione identifica la risorsa creata.
 ![Fare clic su Informazioni di base, quindi sulla chiave di strumentazione e infine premere CTRL+C.](./media/app-insights-separate-resources/02-props.png)
 
 Sono necessarie le chiavi di strumentazione di tutte le risorse a cui l'app invierà dati.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

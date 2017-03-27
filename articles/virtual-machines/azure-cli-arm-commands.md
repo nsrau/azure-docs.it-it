@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 01/03/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
-ms.openlocfilehash: 940c762a00dc0efcaedff266cce82e5353c227f6
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: cdf9d576b6a7d3afcfb0839ce8bab2103fba14ed
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -30,7 +30,7 @@ In questo articolo vengono fornite sintassi e opzioni per i comandi dell'interfa
 >Sono disponibili altre informazioni su entrambe le versioni delle [interfacce della riga di comando di Azure](/cli/azure/old-and-new-clis).
 >
 
-Per iniziare, [installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e [connettersi alla propria sottoscrizione di Azure](../xplat-cli-connect.md).
+Per iniziare, [installare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md) e [connettersi alla propria sottoscrizione di Azure](../xplat-cli-connect.md).
 
 Per la sintassi e le opzioni dei comandi correnti nella riga di comando in modalità Gestione risorse, digitare `azure help` o `azure help [command]` per visualizzare la Guida per un comando specifico. Sono inoltre disponibili esempi dell'interfaccia della riga di comando nella documentazione per la creazione e la gestione di servizi di Azure specifici.
 

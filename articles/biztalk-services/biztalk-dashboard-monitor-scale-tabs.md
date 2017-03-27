@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: 27fb77bb2a6aadc2ab65f3916eeb68f487ae5fad
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: ec1c54c8520170cd19095bf8d752c79c2fd812d8
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -27,19 +28,19 @@ Quando si apre il portale di Azure classico, viene visualizzata automaticamente 
 
 Verrà aperta una nuova finestra con le schede seguenti: In questo argomento vengono descritte queste schede.
 
-## <a name="quick-start-quick-startquickstart"></a>Avvio rapido (![Avvio rapido][QuickStart])
+## <a name="quickstart-quickstartquickstart"></a>Guida introduttiva (![Guida introduttiva][Quickstart])
 A seconda dell'edizione di Servizi BizTalk, non tutte le opzioni elencate potrebbero essere disponibili. 
 
 <table border="1">
     <tr>
-        <td><strong>Get the tools</strong></td>
+        <td><strong>Ottenere gli strumenti</strong></td>
         <td>Scaricare l'SDK di Servizi BizTalk per installare i modelli di progetto di Visual Studio sul computer di sviluppo locale. I modelli consentono di creare i progetti di Visual Studio <strong>BizTalk Services</strong> (bridge) e <strong>BizTalk Service Artifacts</strong> (Transform) distribuiti nel servizio BizTalk.
         <br/><br/>Gli articoli 
         <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335">Come iniziare a usare Azure BizTalk Services SDK</a> e <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installare Azure BizTalk Services SDK elencano tutte le procedure introduttive</a>.
         </td>
     </tr>
     <tr>
-        <td><strong>Create partner agreements</strong></td>
+        <td><strong>Creare contratti con il partner</strong></td>
         <td>Consente di aprire il portale Servizi BizTalk di Azure ospitato su Azure dove aggiungere partner e creare contratti EDI X12, AS2 ed EDIFACT.
         <br/><br/>L'articolo 
         <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configurazione di componenti per la messaggistica EDI nel portale dei servizi BizTalk</a> elenca le procedure introduttive.
@@ -47,7 +48,7 @@ A seconda dell'edizione di Servizi BizTalk, non tutte le opzioni elencate potreb
     </tr>
 
 <tr>
-        <td><strong>Ulteriori informazioni sui Servizi BizTalk</strong></td>
+        <td><strong>Altre informazioni sui Servizi BizTalk</strong></td>
         <td>Per altre informazioni sui Servizi BizTalk di Azure visitare l'<a HREF="http://azure.microsoft.com/documentation/services/biztalk-services/">area risorse</a>.</td>
 </tr>
 </table>
@@ -67,7 +68,7 @@ Questa opzione ha la stessa funzione dell'opzione <strong>Crea contratti partner
 </tr>
 
 <tr>
-<td><strong>Informazioni di connessione</strong> dello spazio dei nomi di Controllo di accesso</td>
+<td><strong>Informazioni di connessione</strong> dello spazio dei nomi di controllo di accesso</td>
 <td>Quando si seleziona Informazioni di connessione, vengono visualizzati i valori di Spazio dei nomi di Access Control, Autorità emittente predefinita e Chiave predefinita. È possibile copiare questi valori.
 <br/><br/>
 È anche possibile aprire il portale di Controllo di accesso. L'articolo <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Creare uno spazio dei nomi di Controllo di accesso</a> offre altre informazioni sul portale di Controllo di accesso.</td>
@@ -113,19 +114,19 @@ Per una descrizione delle metriche delle prestazioni, vedere la sezione [Metrich
 <table border="1">
 
 <tr>
-<td><strong>Update Tracking Database credentials</strong></td>
+<td><strong>Aggiornare le credenziali di Database di rilevamento</strong></td>
 <td>Consente di modificare il nome utente e la password usati per accedere al database di rilevamento.</td>
 </tr>
 <tr>
-<td><strong>Update SSL Certificate</strong></td>
+<td><strong>Aggiornare il certificato SSL</strong></td>
 <td>Consente di aggiornare il servizio BizTalk in modo da usare un certificato SSL diverso. Quando si <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">crea il servizio BizTalk</a>, viene creato automaticamente un certificato SSL autofirmato.</td>
 </tr>
 <tr>
-<td><strong>Download Certificate</strong></td>
+<td><strong>Scaricare il certificato</strong></td>
 <td>Consente di scaricare il certificato SSL usato dal servizio BizTalk su un computer locale.</td>
 </tr>
 <tr>
-<td><strong>Stato</strong></td>
+<td><strong>Status</strong></td>
 <td>Visualizza lo stato corrente del servizio BizTalk. Vedere <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=329870">Servizi BizTalk: Tabella degli stati del servizio</a>. </td>
 </tr>
 <tr>
@@ -137,7 +138,7 @@ Per una descrizione delle metriche delle prestazioni, vedere la sezione [Metrich
 <td>Questo indirizzo IP viene assegnato al servizio BizTalk, È usato per tutti gli endpoint di input ed è l'indirizzo di origine per il traffico in uscita. Questo indirizzo IP appartiene al proprio servizio BizTalk, se viene creato. Se si elimina il servizio BizTalk, l'indirizzo IP viene assegnato a un altro servizio BizTalk.</td>
 </tr>
 <tr>
-<td><strong>ACS Namespace</strong></td>
+<td><strong>Spazio dei nomi ACS</strong></td>
 <td>Consente di eseguire l'autenticazione con il servizio BizTalk.</td>
 </tr>
 <tr>
@@ -145,11 +146,11 @@ Per una descrizione delle metriche delle prestazioni, vedere la sezione [Metrich
 <td>Elenca l'edizione immessa al momento della creazione del servizio BizTalk.</td>
 </tr>
 <tr>
-<td><strong>Percorso</strong></td>
+<td><strong>Posizione</strong></td>
 <td>Visualizza l'area geografica in cui è ospitato il servizio BizTalk.</td>
 </tr>
 <tr>
-<td><strong>Data di creazione</strong></td>
+<td><strong>Creato</strong></td>
 <td>Visualizza la data e l'ora della creazione del servizio BizTalk.</td>
 </tr>
 <tr>
@@ -159,7 +160,7 @@ Per una descrizione delle metriche delle prestazioni, vedere la sezione [Metrich
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">Descrizione dei requisiti</a> sono disponibili informazioni dettagliate sul database di rilevamento.</td>
 </tr>
 <tr>
-<td><strong>Monitoring/Archiving Storage</strong></td>
+<td><strong>Memoria di monitoraggio/archiviazione</strong></td>
 <td>Nome dell'account di archiviazione di Azure in cui è archiviato l'output del monitoraggio del servizio BizTalk.
 <br/><br/>In 
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">Descrizione dei requisiti</a> sono disponibili informazioni dettagliate sull'account di archiviazione.</td>
@@ -188,7 +189,7 @@ Questa opzione ha la stessa funzione dell'opzione <strong>Crea contratti partner
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configurazione di componenti per la messaggistica EDI nel portale dei servizi BizTalk</a> contiene altre informazioni sul portale dei servizi BizTalk.</td>
 </tr>
 <tr>
-<td><strong>Informazioni di connessione</strong> dello spazio dei nomi di Controllo di accesso</td>
+<td><strong>Informazioni di connessione</strong> dello spazio dei nomi di controllo di accesso</td>
 <td>Visualizza i valori di Spazio dei nomi di Access Control, Autorità emittente predefinita e Chiave predefinita, che possono essere copiati.
 <br/><br/>
 È anche possibile aprire il portale di Controllo di accesso. Questo portale di Controllo di accesso è lo stesso di quando si usa l'opzione Active Directory nel pannello di navigazione a sinistra.
@@ -243,13 +244,13 @@ Include i valori in tempo reale riguardo l'integrità del servizio BizTalk. È l
    ![Metrica Utilizzo CPU abilitata][EnabledMetric]
 6. Per rimuovere una metrica dal grafico e dall'elenco, fare clic su **Elimina metrica** sulla barra delle applicazioni. Per aggiungere di nuovo la metrica all'elenco, fare clic su **Aggiungi metriche** sulla barra delle applicazioni, controllare la metrica e fare clic sul segno di spunta per tornare alla scheda **Monitoraggio**. Selezionare il cerchio in grigio per abilitare la metrica.
 
-## <a name="a-namemetricsaavailable-metrics"></a><a name="Metrics"></a>Metriche disponibili
+## <a name="Metrics"></a>Metriche disponibili
 Sono disponibili i contatori/le metriche seguenti:
 
 <table border="1">
 
 <tr>
-<td><strong>RountdTrip Latency</strong></td>
+<td><strong>Latenza RountdTrip</strong></td>
 <td>Visualizza il tempo medio, espresso in millisecondi (ms), impiegato per l'elaborazione completa di un messaggio da parte del servizio BizTalk dal momento della ricezione attraverso tutti i bridge. Vengono conteggiati solo i messaggi correttamente elaborati.<br/><br/>
 Quando si verificano gli eventi seguenti viene creato un timestamp:
 <ul>
@@ -268,7 +269,7 @@ Questa metrica indica il risultato del calcolo seguente:
 <td>Visualizza il numero totale di messaggi di cui il servizio BizTalk non eseguito correttamente il pull dagli endpoint di origine.</td>
 </tr>
 <tr>
-<td><strong>Utilizzo di CPU</strong></td>
+<td><strong>Uso di CPU</strong></td>
 <td>Consente di elencare il valore % tempo processore di tutte le istanze del ruolo.</td>
 </tr>
 <tr>
@@ -286,7 +287,7 @@ Quando si verifica uno degli eventi seguenti viene creato un timestamp:
 [La risposta di conferma della destinazione viene inviata al gateway] - [Il messaggio accede al gateway] - [Si riceve una risposta dalla destinazione] + [Il messaggio viene indirizzato alla destinazione]\</td>
 </tr>
 <tr>
-<td><strong>Failures In Process</strong></td>
+<td><strong>Errori nel processo</strong></td>
 <td>Visualizza il numero totale di messaggi che il servizio BizTalk non ha elaborato correttamente attraverso tutti i bridge entro un determinato intervallo di tempo.</td>
 </tr>
 <tr>
@@ -299,11 +300,11 @@ In uno scenario di tipo richiesta-risposta, la metrica viene incrementata quando
 <td>Visualizza il numero totale di messaggi ricevuti dal servizio BizTalk attraverso tutti i bridge entro un determinato intervallo di tempo. Questa metrica viene incrementata quando si riceve un nuovo messaggio inviato dalla pipeline.</td>
 </tr>
 <tr>
-<td><strong>Messages In Process</strong></td>
+<td><strong>Messaggi in elaborazione</strong></td>
 <td>Visualizza il numero totale di messaggi attualmente in corso di elaborazione da parte del servizio BizTalk entro un determinato intervallo di tempo.</td>
 </tr>
 <tr>
-<td><strong>Messages Processed</strong></td>
+<td><strong>Messaggi elaborati</strong></td>
 <td>Visualizza il numero totale di messaggi correttamente elaborati dal servizio BizTalk attraverso tutti i bridge entro un determinato intervallo di tempo. Questa metrica viene incrementata quando si riceve correttamente un messaggio inviato dalla pipeline, che viene quindi correttamente indirizzato alla destinazione.</td>
 </tr>
 </table>
@@ -325,7 +326,7 @@ Imposta Stato backup su Nessuno o Automatico. Se è impostato su Nessuno, non ve
 
 [Servizi BizTalk: backup e ripristino](biztalk-backup-restore.md) sono disponibili informazioni dettagliate. 
 
-## <a name="a-namehybridconnectionsahybrid-connections"></a><a name="HybridConnections"></a>Connessioni ibride
+## <a name="HybridConnections"></a>Connessioni ibride
 Le connessioni ibride consentono la connessione di un'applicazione Azure, come App Web o App per dispositivi mobili nel servizio app di Azure, a una risorsa locale che usa una porta TCP statica, ad esempio SQL Server, MySQL, API Web HTTP e la maggior parte dei servizi Web personalizzati. Le connessioni ibride vengono gestite in Servizi BizTalk nel portale di Azure classico.
 
 Per creare connessioni ibride nel servizio app di Azure, vedere [Accedere alle risorse locali usando connessioni ibride nel servizio app di Azure](../app-service-web/web-sites-hybrid-connection-get-started.md).
@@ -346,14 +347,9 @@ Ora che è stata acquisita familiarità con le diverse schede è possibile otten
 * [Servizi BizTalk: Tabella degli stati del servizio](biztalk-service-state-chart.md)  
 * [Come iniziare a usare l'SDK di Servizi BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
-[QuickStart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
+[Quickstart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
 [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png
 [GrayedMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

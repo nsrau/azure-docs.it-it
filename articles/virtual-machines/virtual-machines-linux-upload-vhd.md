@@ -95,7 +95,7 @@ Ora, creare la VM con [az vm create](/cli/azure/vm#create) e specificare l'URI d
 az vm create --resource-group myResourceGroup --location westus \
     --name myVM --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --attach-os-disk https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
+    --attach-os-disk myUMDiskFromVHD
 ```
 
 ### <a name="unmanaged-disks"></a>Dischi non gestiti

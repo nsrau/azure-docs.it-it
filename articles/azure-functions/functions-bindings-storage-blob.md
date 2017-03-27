@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 03/06/2017
 ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 1c071390fd6cd9bb5889cb225696b7782fe2bd6b
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 590cb831ad265d9b83713f573c92d8675e64db3d
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -100,7 +100,7 @@ Le parentesi graffe sono caratteri speciali nei modelli di nome. Per specificare
 
 Questo percorso troverà un BLOB denominato *{20140101}-soundfile.mp3* nel contenitore *images* e il valore della variabile `name` nel codice della funzione sarà *soundfile.mp3*. 
 
-<a name"receipts"></a>
+<a name="receipts"></a>
 
 ### <a name="blob-receipts"></a>Conferme di BLOB
 Il runtime di Funzioni di Azure verifica che nessuna funzione trigger di BLOB venga chiamata più volte per lo stesso BLOB nuovo o aggiornato. A questo scopo, gestisce *conferme di BLOB* per determinare se una versione di BLOB specifica è stata elaborata.

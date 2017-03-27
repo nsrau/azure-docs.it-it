@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 0240ecede4afc937972f81ca8536b3b05e905deb
-ms.openlocfilehash: 8389b743dec50e3de0e13e023ef43e4f706eb477
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: ad6401c1d18d44f56e0db9e7277f7ded995386bc
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -65,7 +65,7 @@ az vm show --resource-group myResourceGroup --name myDockerVM \
 Quando questo comando restituisce `Succeeded`, la distribuzione è stata completata ed è possibile configurare SSH sulla macchina virtuale nel passaggio seguente.
 
 ### <a name="azure-cli-10"></a>Interfaccia della riga di comando di Azure 1.0
-Installare la versione più recente, [Interfaccia della riga di comando di Azure 1.0](../xplat-cli-install.md), e accedere a un account Azure. Verificare di usare la modalità di Resource Manager per creare la macchina virtuale (`azure config mode arm`).
+Installare la versione più recente, [Interfaccia della riga di comando di Azure 1.0](../cli-install-nodejs.md), e accedere a un account Azure. Verificare di usare la modalità di Resource Manager per creare la macchina virtuale (`azure config mode arm`).
 
 L'esempio seguente consente di creare un gruppo di risorse denominato `myResourceGroup` nel percorso `West US`, distribuendo una VM con l'estensione di VM Docker di Azure. Per distribuire l'ambiente, viene usato un [modello di Azure Resource Manager da Github](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu):
 

@@ -14,13 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 03/14/2017
 ms.author: dariagrigoriu, glenga
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1c740ac1f98a07b08bdf922dde99ce54bac23ee5
-ms.openlocfilehash: e41e246b081efbdf5edf70ee5de86cd2a68043b2
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 9b5dabe5e27e68a4a9f140d4f07131caf7306e32
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -50,9 +50,15 @@ Il piano a consumo ridimensiona automaticamente le risorse di CPU e memoria aggi
 
 Quando si esegue un piano a consumo, se un'app per le funzioni è inattiva possono essere necessari fino a 10 minuti al giorno per l'elaborazione di nuovi BLOB. Se l'app per le funzioni è in esecuzione, i BLOB vengono elaborati più rapidamente. Per evitare questo ritardo iniziale, usare un normale piano di servizio app con l'opzione Always On abilitata o usare un altro meccanismo per attivare l'elaborazione dei BLOB, ad esempio un messaggio in coda che contiene il nome del BLOB. 
 
+Quando si crea un'app per le funzioni, è necessario creare o collegare un account di archiviazione di Azure di uso generico che supporti l'archiviazione BLOB, code e tabelle. Funzioni di Azure usa internamente Archiviazione di Azure per operazioni come la gestione dei trigger e la registrazione dell'esecuzione delle funzioni. Alcuni account di archiviazione, come gli account di archiviazione solo BLOB (tra cui Archiviazione Premium) e gli account di archiviazione di uso generico con replica ZRS, non supportano code e tabelle. Questi account vengono filtrati dal pannello Account di archiviazione quando si crea una nuova app per le funzioni.
+
+Quando si usa il piano di hosting a consumo, il contenuto delle app per le funzioni (ad esempio i file del codice di funzione e la configurazione di binding) viene archiviato nelle condivisioni di File di Azure nell'account di archiviazione principale. Se si elimina l'account di archiviazione principale, il contenuto verrà eliminato e non potrà essere ripristinato.
+
+Per altre informazioni sui tipi di account di archiviazione, vedere [Introduzione ai servizi di archiviazione di Azure] (../storage/storage-introduction.md#introducing-the-azure-storage-services).
+
 ### <a name="runtime-scaling"></a>Ridimensionamento in fase di runtime
 
-Funzioni di Azure usa un listener centrale per valutare le esigenze di calcolo in base ai trigger configurati e per decidere quando aumentare o ridurre il numero di istanze. Il listener centrale elabora continuamente i suggerimenti per i requisiti di memoria e punti dati specifici per i trigger. Ad esempio, nel caso di un trigger dell'archiviazione code di Azure, i punti dati includono la lunghezza della coda e tempo di attesa della voce meno recente.
+Funzioni usa un controller di scalabilità per valutare le esigenze di calcolo in base ai trigger configurati e per decidere quando aumentare o ridurre il numero di istanze. Il controller di scalabilità elabora continuamente i suggerimenti per i requisiti di memoria e i punti dati specifici per i trigger. Ad esempio, nel caso di un trigger dell'archiviazione code di Azure, i punti dati includono la lunghezza della coda e tempo di attesa della voce meno recente.
 
 ![](./media/functions-scale/central-listener.png)
 

@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 01/25/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: a4121f8857fa9eaeb1cf1bca70e29666f6a04f63
-ms.openlocfilehash: 2714bfbf2bf35b11ca1ba6ab8b7e4e6bf5431f45
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 36c245b98868682c24a87bba6628de492e620012
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -51,10 +52,11 @@ L'attività Pig di HDInsight in una pipeline di Data factory esegue query Pig su
 ## <a name="hdinsight-mapreduce-activity"></a>Attività MapReduce di HDInsight
 L'attività HDInsight MapReduce in una pipeline di Data Factory esegue i programmi di MapReduce nei cluster HDInsight personalizzati o su richiesta basati su Windows/Linux. Vedere l'articolo [Attività MapReduce](data-factory-map-reduce.md) per i dettagli.
 
-È possibile usare l'attività MapReduce per eseguire i programmi Spark nel cluster HDInsight Spark. Per i dettagli, vedere [Chiamare i programmi Spark da Azure Data Factory](data-factory-spark.md) .
-
 ## <a name="hdinsight-streaming-activity"></a>Attività di streaming di HDInsight
 L'attività HDInsight Streaming Activity in una pipeline di Data Factory esegue i programmi di Hadoop Streaming nei cluster HDInsight personalizzati o su richiesta basati su Windows/Linux. Vedere l' [attività di streaming di HDInsight](data-factory-hadoop-streaming-activity.md) per i dettagli.
+
+## <a name="hdinsight-spark-activity"></a>Attività Spark di HDInsight
+L'attività Spark di HDInsight in una pipeline di Data Factory esegue programmi Spark nel cluster HDInsight personale. Per conoscere i dettagli, vedere [Richiamare i programmi Spark da Azure Data Factory](data-factory-spark.md). 
 
 ## <a name="machine-learning-activities"></a>Attività di Machine Learning
 Azure Data Factory consente di creare facilmente pipeline che usano un servizio Web pubblicato di Azure Machine Learning per l'analisi predittiva. Con [Attività di esecuzione Batch](data-factory-azure-ml-batch-execution-activity.md#invoking-a-web-service-using-batch-execution-activity) in una pipeline di Azure Data Factory è possibile richiamare un servizio Web di Machine Learning per eseguire stime dei dati in batch.
@@ -95,10 +97,5 @@ Azure Data Factory supporta le seguenti attività di trasformazione di dati e i 
 | [Stored procedure](data-factory-stored-proc-activity.md) |Azure SQL, Azure SQL Data Warehouse o SQL Server |
 | [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md) |Azure Data Lake Analytics. |
 | [DotNet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] o Batch di Azure |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

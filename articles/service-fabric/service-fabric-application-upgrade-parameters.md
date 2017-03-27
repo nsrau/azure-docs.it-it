@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 5a0362caf0082112b7d9c648c9ecfb893d8ac954
-ms.openlocfilehash: 3f8fb1da14a65454d3c7997de80f399110b3b441
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: aa26d72524f035cca92cd39062873ceb15bffac1
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -64,6 +64,10 @@ I criteri MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerService e
 [Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio](service-fabric-application-upgrade-tutorial.md) descrive la procedura di aggiornamento di un'applicazione con Visual Studio.
 
 [Aggiornamento di un'applicazione di Service Fabric mediante PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) descrive la procedura di aggiornamento di un'applicazione tramite PowerShell.
+
+[Aggiornamento dell'applicazione con l'interfaccia della riga di comando di Azure in Linux](service-fabric-azure-cli.md#upgrading-your-application) descrive la procedura di aggiornamento di un'applicazione con l'interfaccia della riga di comando di Azure.
+
+[Aggiornamento dell'applicazione con il plug-in Eclipse per Service Fabric](service-fabric-get-started-eclipse.md#upgrade-your-service-fabric-java-application)
 
 Rendere compatibili gli aggiornamenti dell'applicazione imparando a usare [Serializzazione dei dati](service-fabric-application-upgrade-data-serialization.md).
 

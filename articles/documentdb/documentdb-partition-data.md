@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/14/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 1f5f0b1aca581900b94f0f87563c5c7e720f46c8
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 67d817c04672979ec8af8a540c5a63eb4df9bf6a
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -52,6 +52,10 @@ DocumentDB creare un numero ridotto di partizioni fisiche dietro a ogni raccolta
 
 Si supponga, ad esempio, di creare una raccolta con 25.000 richieste per secondo di velocità effettiva e che DocumentDB supporta 10.000 richieste al secondo per ogni singola partizione fisica. Per la raccolta, DocumentDB crea le 3 partizioni fisiche P1, P2 e P3. Durante l'inserimento o la lettura di un documento, il servizio DocumentDB genera il valore hash corrispondente `Department` per il mapping dei dati delle tre partizioni P1, P2 e P3. Pertanto, se l'hash di "Marketing" e "Sales" corrisponde a 1, entrambi vengono memorizzati in P1. Quando la partizione P1 è piena, DocumentDB la suddivide nelle due nuove partizioni P4 e P5. Dopo la divisione, il servizio potrebbe quindi spostare "Marketing" in P4 e "Sales" in P5, quindi eliminare P1. Questi spostamenti delle chiavi di partizione tra partizioni sono trasparenti all'applicazione e non hanno alcun impatto sulla disponibilità della raccolta.
 
+## <a name="sharding-in-api-for-mongodb"></a>Partizionamento orizzontale nell'API per MongoDB
+Le raccolte con partizionamento orizzontale nell'API per MongoDB usano la stessa infrastruttura delle raccolte partizionate di DocumentDB. Analogamente alle raccolte partizionate, le raccolte con partizionamento orizzontale possono includere un numero qualsiasi di partizioni e a ogni partizione è associata una quantità fissa di risorse di archiviazione basate su SSD. Le raccolte con partizionamento orizzontale sono praticamente illimitate in termini di risorse di archiviazione e di velocità effettiva. La chiave di partizione dell'API per MongoDB equivale alla chiave di partizione di DocumentDB. Quando si definisce una chiave di partizione, assicurarsi di leggere le sezioni [Chiavi di partizione](#partition-keys) e [Progettazione per il partizionamento](#designing-for-partitioning).
+
+<a name="partition-keys"></a>
 ## <a name="partition-keys"></a>Chiavi di partizione
 La scelta della chiave di partizione è una decisione importante da prendere in fase di progettazione. È necessario scegliere un nome della proprietà JSON che contiene un'ampia gamma di valori e probabilmente modelli di accesso distribuiti in modo uniforme. 
 
@@ -160,7 +164,7 @@ La tabella seguente elenca le differenze nell'uso di raccolte a partizione singo
     </tbody>
 </table>
 
-## <a name="working-with-the-sdks"></a>Uso degli SDK
+## <a name="working-with-the-documentdb-sdks"></a>Uso di DocumentDB SDK
 Azure DocumentDB ha aggiunto il supporto per il partizionamento automatico con la [versione 2015-12-16 dell'API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx). Per creare raccolte partizionate, è necessario scaricare la versione 1.6.0 dell'SDK o la versione successiva da una delle piattaforme SDK supportate (.NET, Node.js, Java, Python). 
 
 ### <a name="creating-partitioned-collections"></a>Creazione di raccolte partizionate
@@ -276,7 +280,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 ```
 
-DocumentDB supporta le [funzioni di aggregazione] ([funzioni di aggregazione](documentdb-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`, `SUM` e `AVG` su raccolte partizionate usando SQL a partire da SDK 1.12.0 e versioni successive. Le query devono includere un unico operatore di aggregazione e un singolo valore nella proiezione.
+DocumentDB supporta le [funzioni di aggregazione](documentdb-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`, `SUM` e `AVG` su raccolte partizionate usando SQL a partire da SDK 1.12.0 e versioni successive. Le query devono includere un unico operatore di aggregazione e un singolo valore nella proiezione.
 
 ### <a name="parallel-query-execution"></a>Esecuzione di query in parallelo
 Gli SDK di DocumentDB 1.9.0 e versioni successive supportano le opzioni di esecuzione di query in parallelo, che consentono di eseguire query a bassa latenza sulle raccolte partizionate, anche quando è necessario toccare un numero elevato di partizioni. Ad esempio, la query seguente è configurata in modo da essere eseguita in parallelo tra le partizioni.
@@ -309,9 +313,34 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
     
 Nella sezione successiva verrà illustrato come passare alle raccolte partizionate da raccolte a partizione singola.
 
+## <a name="creating-an-api-for-mongodb-sharded-collection"></a>Creazione di una raccolta con partizionamento orizzontale per l'API per MongoDB
+Il modo più semplice per creare una raccolta con partizionamento orizzontale per l'API per MongoDB consiste nell'usare il proprio strumento, driver o SDK preferito. In questo esempio verrà usato Mongo Shell per la creazione della raccolta.
+
+In Mongo Shell:
+
+```
+db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
+```
+    
+Risultati:
+
+```JSON
+{
+    "_t" : "ShardCollectionResponse",
+    "ok" : 1,
+    "collectionsharded" : "admin.people"
+}
+```
+
 <a name="migrating-from-single-partition"></a>
 
-## <a name="migrating-from-single-partition-to-partitioned-collections"></a>Migrazione da raccolte a partizione singola a raccolte partizionate
+## <a name="migrating-from-single-partition-to-partitioned-collections-in-documentdb"></a>Migrazione da raccolte a partizione singola a raccolte partizionate in DocumentDB
+
+> [!IMPORTANT]
+> Se si importano dati nell'API per MongoDB, seguire queste [istruzioni](documentdb-mongodb-migrate.md).
+> 
+> 
+
 Quando un'applicazione che usa una raccolta a partizione singola necessita di una velocità effettiva più alta (>&10;.000 UR/secondo) o di uno spazio di archiviazione dati maggiore (>&10; GB), è possibile usare lo [strumento di migrazione dati di DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) per eseguire la migrazione dei dati dalla raccolta a partizione singola a una raccolta partizionata. 
 
 Per eseguire la migrazione da una raccolta a partizione singola a una raccolta partizionata
@@ -328,6 +357,7 @@ Per eseguire la migrazione da una raccolta a partizione singola a una raccolta p
 
 Dopo aver acquisito le nozioni di base, si esamineranno alcune importanti considerazioni di progettazione relative all'uso delle chiavi di partizione in DocumentDB.
 
+<a name="designing-for-partitioning"></a>
 ## <a name="designing-for-partitioning"></a>Progettazione per il partizionamento
 La scelta della chiave di partizione è una decisione importante da prendere in fase di progettazione. Questa sezione descrive alcuni dei compromessi da applicare quando si seleziona una chiave di partizione per la raccolta.
 

@@ -1,5 +1,5 @@
 ---
-title: Archiviazione di backup del database SQL di Azure per un massimo di 10 anni | Documentazione Microsoft
+title: Archiviazione di backup del database SQL di Azure per un massimo di 10 anni | Microsoft Docs
 description: Informazioni sul supporto del database SQL di Azure dell&quot;archiviazione dei backup per un massimo di 10 anni.
 keywords: 
 services: sql-database
@@ -17,22 +17,23 @@ ms.workload: NA
 ms.date: 12/22/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
-ms.openlocfilehash: 6abc5c10f6116886ac5d6cbc11f251f083ee2b29
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 0cb96f97358378a723d7528e53f5c5a771e2000b
+ms.lasthandoff: 03/14/2017
 
 
 ---
 # <a name="storing-azure-sql-database-backups-for-up-to-10-years"></a>Archiviazione di backup del database SQL di Azure per un massimo di 10 anni
-Molte applicazioni sono vincolate da ragioni normative, di conformità o altri scopi aziendali che richiedono di conservare i backup automatici del database completo oltre i 7-35 giorni offerti dai [backup automatici](sql-database-automated-backups.md) del database SQL.
+Molte applicazioni sono vincolate da ragioni normative, di conformità o altri scopi aziendali che richiedono di conservare i backup automatici del database completo oltre i 7-35 giorni offerti dai [backup automatici](sql-database-automated-backups.md) del database SQL. La funzionalità di **conservazione dei backup a lungo termine** consente di archiviare i backup del database SQL di Azure in un insieme di credenziali dei servizi di ripristino di Azure fino a 10 anni. È possibile archiviare fino a 1000 database per ogni insieme di credenziali. È possibile selezionare qualsiasi backup nell'insieme di credenziali per ripristinarlo come nuovo database.
 
-La funzionalità di **conservazione dei backup a lungo termine** consente di archiviare i backup del database SQL di Azure in un insieme di credenziali dei servizi di ripristino di Azure fino a 10 anni. È possibile archiviare fino a 1000 database per ogni insieme di credenziali. È possibile selezionare qualsiasi backup nell'insieme di credenziali per ripristinarlo come nuovo database.
+> [!IMPORTANT]
+> La conservazione dei backup a lungo termine è attualmente in anteprima ed è disponibile nelle aree seguenti: Australia orientale, Australia sud-orientale, Brasile meridionale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Stati Uniti orientali 2, India centrale, India meridionale, Giappone orientale, Giappone occidentale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sud-orientale, Europa occidentale e Stati Uniti occidentali.
+>
 
 > [!NOTE]
 > È possibile abilitare fino a 200 database per ogni insieme di credenziali in un periodo di 24 ore. È pertanto consigliabile usare insiemi di credenziali separati per ogni server al fine di ridurre al minimo l'impatto di questo limite. 
 > 
 > 
-
 ## <a name="how-does-sql-database-long-term-backup-retention-work"></a>Funzionamento della conservazione a lungo termine dei backup del database SQL
 
 La conservazione a lungo termine dei backup consente di associare un server del database SQL di Azure a un insieme di credenziali di Servizi di ripristino di Azure. 
@@ -40,7 +41,6 @@ La conservazione a lungo termine dei backup consente di associare un server del 
 * L'insieme di credenziali deve essere creato nella stessa sottoscrizione di Azure in cui è stato creato il server SQL, nonché nella stessa area geografica e gruppo di risorse. 
 * È quindi possibile configurare un criterio di conservazione per qualsiasi database. Il criterio consente di copiare i backup settimanali del database completo nell'insieme di credenziali dei servizi di ripristino e di conservare i backup per il periodo di memorizzazione specificato (fino a 10 anni). 
 * Sarà quindi possibile ripristinare una copia di questi backup in un nuovo database in qualsiasi server nella sottoscrizione. La copia viene eseguita dal servizio di archiviazione di Azure partendo da backup esistenti e non ha alcun impatto sulle prestazioni del database esistente.
-
 
 > [!TIP]
 > Per un'esercitazione, vedere [Introduzione a Backup e ripristino per la protezione dei dati e il ripristino tramite il portale di Azure](sql-database-get-started-backup-recovery-portal.md) o [Introduzione a Backup e ripristino per la protezione dei dati e il ripristino con PowerShell](sql-database-get-started-backup-recovery-powershell.md)

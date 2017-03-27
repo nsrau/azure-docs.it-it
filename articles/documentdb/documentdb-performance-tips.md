@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: d1ff26fd2d93881d028728bf86197c2dc9835ad7
-ms.openlocfilehash: 01f250b218e348a8bad046ac1ddb8c532aa8267f
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 3124185a486335d978634281b63d2475981e57f8
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -97,7 +97,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
     Quando si usa la modalità Gateway, le richieste di DocumentDB vengono eseguite su HTTPS/REST per impostazione predefinita e sono soggette ai limiti di connessione predefiniti per ogni nome host o indirizzo IP. Può essere necessario impostare MaxConnections su un valore più alto (100-1000) in modo che la libreria client possa usare più connessioni DocumentDB contemporaneamente. In .NET SDK 1.8.0 e versioni successive il valore predefinito per [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) è 50 e per modificare il valore è possibile impostare [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) su un valore più elevato.   
 4. **Ottimizzazione delle query parallele per le raccolte partizionate**
 
-     DocumentDB .NET SDK 1.9.0 e versioni successive supportano le query parallele, che consentono di eseguire query in una raccolta partizionata in parallelo. Vedere [Uso degli SDK](documentdb-partition-data.md#working-with-the-sdks) e i relativi [esempi di codice](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) per maggiori dettagli. Le query parallele sono state concepite per migliorare la velocità e la latenza delle query sulle loro controparti seriali. Mettono a disposizione due parametri che gli utenti possono ottimizzare in funzione dei requisiti, ovvero (a) MaxDegreeOfParallelism per definire il numero massimo di partizioni sulle quali è possibile eseguire query in parallelo e (b) MaxBufferedItemCount per definire il numero di risultati di prelettura.
+     DocumentDB .NET SDK 1.9.0 e versioni successive supportano le query parallele, che consentono di eseguire query in una raccolta partizionata in parallelo. Vedere [Uso degli SDK](documentdb-partition-data.md#working-with-the-documentdb-sdks) e i relativi [esempi di codice](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) per maggiori dettagli. Le query parallele sono state concepite per migliorare la velocità e la latenza delle query sulle loro controparti seriali. Mettono a disposizione due parametri che gli utenti possono ottimizzare in funzione dei requisiti, ovvero (a) MaxDegreeOfParallelism per definire il numero massimo di partizioni sulle quali è possibile eseguire query in parallelo e (b) MaxBufferedItemCount per definire il numero di risultati di prelettura.
 
     (a) ***Ottimizzazione di MaxDegreeOfParallelism:\:***
     la query parallela funziona eseguendo query su più partizioni in parallelo. I dati di una singola raccolta partizionata vengono recuperati in modo seriale per quanto riguarda la query. L'impostazione di MaxDegreeOfParallelism sul numero di partizioni offre quindi la massima probabilità di ottenere la query più efficiente, se tutte le altre condizioni del sistema rimangono invariate. Se non si conosce il numero di partizioni, è possibile impostare il valore di MaxDegreeOfParallelism su un numero elevato; il sistema sceglie il numero minimo (numero di partizioni, input specificato dall'utente) come valore di MaxDegreeOfParallelism.
@@ -133,17 +133,17 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 10. **Aumentare il numero di thread/attività**
 
     Vedere [Aumentare il numero di thread/attività](#increase-threads) nella sezione Rete.
-    
+
 11. **Usare processi host a 64 bit**
 
     L'SDK di DocumentDB funziona in un processo host a 32 bit quando si usa DocumentDB .NET SDK versione 1.11.4 e versioni successive. Tuttavia, se si usano query tra partizioni, è consigliabile usare l'elaborazione dell'host a 64 bit per migliorare le prestazioni. I tipi seguenti di applicazioni dispongono di un processo host a 32 bit per impostazione predefinita; per passare a un processo a 64 bit, seguire questi passaggi in base al tipo di applicazione:
-    
-    - Per le applicazioni eseguibili è possibile, a tale scopo, deselezionare l'opzione **Preferisci 32 bit** nella scheda **Compila** della finestra **Proprietà progetto**. 
-    
+
+    - Per le applicazioni eseguibili è possibile, a tale scopo, deselezionare l'opzione **Preferisci 32 bit** nella scheda **Compila** della finestra **Proprietà progetto**.
+
     - Per progetti di test basati su VSTest questa operazione può essere eseguita selezionando **Test**->**Impostazioni test**->**Default Processor Architecture as X64** (Imposta architettura processore X64 come predefinita) dall'opzione **Visual Studio Test**.
-    
+
     - Per le applicazioni Web ASP.NET distribuite in locale questa operazione può essere eseguita selezionando **Utilizzare la versione a 64 bit di IIS Express per progetti e siti Web** in **Strumenti**->**Opzioni**->**Progetti e soluzioni**->**Progetti Web**.
-    
+
     - Per le applicazioni Web ASP.NET distribuite in Azure questa operazione può essere eseguita selezionando **Platform as 64-bit** (Piattaforma 64 bit) in **Impostazioni applicazione** nel Portale di Azure.
 
 ## <a name="indexing-policy"></a>Criterio di indicizzazione
