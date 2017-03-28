@@ -1,6 +1,6 @@
 Per usare l'interfaccia della riga di comando di Azure con i comandi e i modelli di Resource Manager per distribuire risorse e carichi di lavoro di Azure tramite gruppi di risorse, è necessario un account Azure. Se non si dispone di un account, è possibile ottenere un [Azure qui versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-Se non è già stata installata l'interfaccia della riga di comando di Azure e non è stata stabilita la connessione alla sottoscrizione, vedere [Installare l'interfaccia della riga di comando di Azure](../articles/xplat-cli-install.md), impostare la modalità su `arm` con `azure config mode arm`, quindi connettersi ad Azure con il comando `azure login`.
+Se non è già stata installata l'interfaccia della riga di comando di Azure e non è stata stabilita la connessione alla sottoscrizione, vedere [Installare l'interfaccia della riga di comando di Azure](../articles/cli-install-nodejs.md), impostare la modalità su `arm` con `azure config mode arm`, quindi connettersi ad Azure con il comando `azure login`.
 
 ## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Comandi di base di Azure Resource Manager nell'interfaccia della riga di comando di Azure
 Questo articolo illustra i comandi di base da usare con l'interfaccia della riga di comando di Azure per gestire le risorse ARM, principalmente VM, e interagire con esse nella sottoscrizione di Azure.  Per una guida più dettagliata con parametri e opzioni della riga di comando specifici, è possibile usare la Guida in linea dei comandi e le relative opzioni digitando `azure <command> <subcommand> --help` o `azure help <command> <subcommand>`.
@@ -36,9 +36,4 @@ Questo articolo illustra i comandi di base da usare con l'interfaccia della riga
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altri esempi relativi a comandi dell'interfaccia della riga di comando corrispondenti a funzioni più avanzate di gestione delle macchine virtuali, vedere [Comandi dell'interfaccia della riga di comando di Azure in modalità Azure Resource Manager](../articles/virtual-machines/azure-cli-arm-commands.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

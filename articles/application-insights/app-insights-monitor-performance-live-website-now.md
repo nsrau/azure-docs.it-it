@@ -1,5 +1,5 @@
 ---
-title: Monitorare un&quot;app Web ASP.NET live con Azure Application Insights | Documentazione Microsoft
+title: Monitorare un&quot;app Web ASP.NET live con Azure Application Insights | Microsoft Docs
 description: "Monitorare le prestazioni di un sito Web senza ripetere la distribuzione. Questa funzionalità può essere usata con app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure."
 services: application-insights
 documentationcenter: .net
@@ -14,15 +14,16 @@ ms.topic: get-started-article
 ms.date: 02/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 917f54248f4c9277caa3cf09d92f78593a901e89
-ms.openlocfilehash: fd76f40f5a34b6adf9c6ec3bded604d59b6baa72
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: a0340359dff470551a08a8213f3a704f15f78794
+ms.lasthandoff: 03/16/2017
 
 
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentare app Web in fase di esecuzione con Application Insights
 
 
-È possibile instrumentare un'app Web attiva con Azure Application Insights senza dover modificare o ridistribuire il codice. In caso di app ospitate da un server IIS locale, si installa Status Monitor. In caso di app Web di Azure o in esecuzione in una VM di Azure, invece, è possibile installare l'estensione Application Insights. Sono disponibili anche articoli separati sulla strumentazione di [app Web J2EE live](app-insights-java-live.md) e [Servizi cloud di Azure](app-insights-cloudservices.md). È necessaria una sottoscrizione di [Microsoft Azure](http://azure.com) .
+È possibile instrumentare un'app Web attiva con Azure Application Insights senza dover modificare o ridistribuire il codice. Se le applicazioni sono ospitate da un server IIS locale, installare Status Monitor. Se si tratta di app Web di Azure o vengono eseguite in una macchina virtuale di Azure, è possibile attivare il monitoraggio di Application Insights dal pannello di controllo di Azure. Sono disponibili anche articoli separati sulla strumentazione di [app Web J2EE live](app-insights-java-live.md) e [Servizi cloud di Azure](app-insights-cloudservices.md). È necessaria una sottoscrizione di [Microsoft Azure](http://azure.com) .
 
 ![grafici di esempio](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
@@ -38,7 +39,7 @@ Ecco un riepilogo di ciò che offrono i singoli modi:
 | --- | --- | --- |
 | Richieste ed eccezioni |Sì |Sì |
 | [Eccezioni più dettagliate](app-insights-asp-net-exceptions.md) | |Sì |
-| [Diagnostica delle dipendenze](app-insights-asp-net-dependencies.md) |In .NET 4.6 e versioni successive, ma meno dettagli |Sì, dettagli completi: codici di risultato, testo del comando SQL, verbo HTTP|
+| [Diagnostica delle dipendenze](app-insights-asp-net-dependencies.md) |In .NET 4.6 e versioni successive, ma meno dettagli |Sì, dettagli completi: codici risultato, testo del comando SQL, verbo HTTP|
 | [Contatori delle prestazioni di sistema](app-insights-performance-counters.md) |Sì |Sì |
 | [API per telemetria personalizzata][api] |Sì | |
 | [Integrazione log di traccia](app-insights-asp-net-trace-logs.md) |Sì | |
@@ -64,7 +65,7 @@ Se l'applicazione è in esecuzione come servizio Web di Azure, ecco come attivar
 Se l'app è ospitata in un server IIS, abilitare Application Insights usando Status Monitor.
 
 1. Nel server Web IIS accedere con le credenziali di amministratore.
-2. Se Application Insights Status Monitor non è già installato, scaricare ed eseguire il [programma di installazione di Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
+2. Se Application Insights Status Monitor non è già installato, scaricare ed eseguire il [programma di installazione di Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648) oppure eseguire l'[Installazione guidata piattaforma Web](https://www.microsoft.com/web/downloads/platform.aspx) e cercarvi Application Insights Status Monitor.
 3. In Status Monitor selezionare l'applicazione Web installata o il sito Web da monitorare. Accedere con le credenziali di Azure.
 
     Configurare la risorsa in cui si vogliono visualizzare i risultati nel portale di Application Insights. È in genere consigliabile creare una nuova risorsa. Selezionare una risorsa esistente se sono già disponibili [test Web][availability] o il [monitoraggio del client][client] per questa app. 
@@ -75,7 +76,7 @@ Se l'app è ospitata in un server IIS, abilitare Application Insights usando Sta
 
     ![Scegliere Riavvia nella parte superiore della finestra di dialogo.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-restart.png)
 
-    Il servizio Web verrà interrotto per un breve periodo di tempo.
+    Il servizio Web viene interrotto per un breve periodo di tempo.
 
 ## <a name="customize-monitoring-options"></a>Personalizzare le opzioni di monitoraggio
 
@@ -97,7 +98,7 @@ Per ripetere la pubblicazione senza aggiungere Application Insights al codice, s
 
 ### <a name="cant-connect-no-telemetry"></a>Nessuna connessione? Nessun dato di telemetria?
 
-* Per consentire il funzionamento di Status Monitor è necessario aprire [alcune porte in uscita](app-insights-ip-addresses.md#outgoing-ports) nel firewall del server.
+* Per consentire il funzionamento di Status Monitor, aprire le [porte in uscita necessarie](app-insights-ip-addresses.md#outgoing-ports) nel firewall del server.
 
 * Aprire Status Monitor e selezionare la propria applicazione nel pannello a sinistra. Verificare se sono presenti messaggi di diagnostica per l'applicazione nella sezione "Configuration notifications":
 
@@ -105,7 +106,7 @@ Per ripetere la pubblicazione senza aggiungere Application Insights al codice, s
 * Se sul server viene visualizzato un messaggio relativo alle autorizzazioni insufficienti, provare a seguire questa procedura:
   * In Gestione IIS selezionare il pool di applicazioni, aprire **Impostazioni avanzate** e prendere nota dell'identità in **Modello di processo**.
   * Nel pannello di controllo Gestione computer, aggiungere questa identità al gruppo Utenti di Performance Monitor.
-* Se nel server è installato MMA/SCOM, è possibile che alcune versioni entrino in conflitto. Disinstallare SCOM e Status Monitor e reinstallare le versioni più recenti.
+* Se nel server è installato MMA/SCOM (System Center Operations Manager), alcune versioni potrebbero entrare in conflitto. Disinstallare SCOM e Status Monitor e reinstallare le versioni più recenti.
 * Vedere [Risoluzione dei problemi][qna].
 
 ## <a name="system-requirements"></a>Requisiti di sistema
@@ -119,7 +120,7 @@ Supporto del sistema operativo per Application Insights Status Monitor sul serve
 
 con SP più recente e .NET Framework 4.5
 
-Sul lato client Windows 7, 8, 8.1 e 10, con .NET Framework 4.5
+Sul lato client: Windows 7, 8, 8.1 e 10, con .NET Framework 4.5
 
 Il supporto IIS è: IIS 7, 7.5, 8, 8.5 (IIS è obbligatorio)
 
@@ -150,7 +151,7 @@ Individuare le applicazioni sottoposte a monitoraggio:
 * `-InstrumentationKey` : valore ikey della risorsa di Application Insights in cui visualizzare i risultati.
 * Questo cmdlet influisce solo sulle app che non sono già instrumentate, ovvero SdkState==NotInstrumented.
 
-    Il cmdlet non influisce sulle app già instrumentate, in fase di compilazione aggiungendo l'SDK al codice o in fase di esecuzione da un uso precedente di questo cmdlet.
+    Il cmdlet non influisce sulle app già instrumentate, sia che siano state instrumentate in fase di compilazione, aggiungendo l'SDK al codice, o in fase di esecuzione da un uso precedente di questo cmdlet.
 
     La versione SDK usata per instrumentare l'app è la versione scaricata più di recente nel server.
 
@@ -183,7 +184,11 @@ Individuare le applicazioni sottoposte a monitoraggio:
 
 * Scarica l'ultima versione di Application Insights SDK nel server.
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Passaggi successivi
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
+## <a name="next"></a>Passaggi successivi
 
 Visualizzare i dati di telemetria:
 
@@ -208,9 +213,4 @@ Aggiungere altri dati di telemetria:
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

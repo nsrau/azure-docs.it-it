@@ -13,13 +13,14 @@ ms.workload: infrastructure
 ms.date: 04/13/2015
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: e664ce9426a2852a35dfdade5d41a9ce8b37a3b7
-ms.openlocfilehash: f18a4705c9fd57790bff9cfdd23c19fd30fe0d32
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 737e4be21eefcbd6fbd31d15a6f77770cd59ca67
+ms.lasthandoff: 03/21/2017
 
 
 ---
 ## <a name="using-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
-I passaggi seguenti consentono di utilizzare l'interfaccia della riga di comando di Azure facilmente con la versione più recente e la sottoscrizione appropriata. Se è necessario installare l'interfaccia della riga di comando di Azure e connetterla al proprio account, vedere [Interfaccia della riga di comando di Azure](../articles/xplat-cli-install.md).
+I passaggi seguenti consentono di utilizzare l'interfaccia della riga di comando di Azure facilmente con la versione più recente e la sottoscrizione appropriata. Se è necessario installare l'interfaccia della riga di comando di Azure e connetterla al proprio account, vedere [Interfaccia della riga di comando di Azure](../articles/cli-install-nodejs.md).
 
 ### <a name="step-1-update-azure-cli-version"></a>Passaggio 1: aggiornare la versione dell'interfaccia della riga di comando di Azure
 Al fine di utilizzare l'interfaccia della riga di comando di Azure per i comandi imperativi con modalità di gestione del servizio, sarebbe opportuno disporre di una versione recente. Per verificare la versione, digitare `azure --version`. Dovrebbe essere visualizzata una schermata analoga alla seguente:
@@ -42,10 +43,5 @@ Una volta connessa l'interfaccia della riga di comando di Azure all'account che 
 > Se non è già un account Azure, ma è una sottoscrizione di abbonamento MSDN, è possibile ottenere i crediti di Azure attivando il [abbonati MSDN dei vantaggi qui](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure è possibile utilizzare l'account gratuito. Uno funzionerà per l'accesso ad Azure.
 > 
 > 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

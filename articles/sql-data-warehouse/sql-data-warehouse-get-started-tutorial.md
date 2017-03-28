@@ -15,9 +15,9 @@ ms.workload: data-services
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: f5f21fa9a0265258b065a844ffd002749c4dee03
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 9d3029817cae6570ff8871fbcb068250544595d7
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -127,7 +127,7 @@ In questo passaggio viene creato un account utente per accedere al data warehous
 
 - SQL Data Warehouse usa ruoli di database predefiniti, definiti classi di risorse, per allocare quantità diverse di memoria, risorse della CPU e slot di concorrenza agli utenti. Ogni utente può appartenere a classi di risorse piccole, medie, grandi o molto grandi. La classe di risorse dell'utente determina le risorse a disposizione dell'utente per eseguire query e operazioni di carico.
 
-- Per ottimizzare la compressione dei dati, l'utente deve in genere caricare i dati con allocazioni di risorse grandi o molto grandi. Per altre informazioni sulle classi di risorse, vedere [qui](./sql-data-warehouse-develop-concurrency.md#resource-classes):
+- Per ottimizzare la compressione dei dati, potrebbe essere necessario che l'utente carichi i dati con allocazioni di risorse grandi o molto grandi. Per altre informazioni sulle classi di risorse, vedere [qui](./sql-data-warehouse-develop-concurrency.md#resource-classes):
 
 ### <a name="create-an-account-that-can-control-a-database"></a>Creare un account che possa controllare un database
 
@@ -137,7 +137,7 @@ Poiché l'accesso è stato eseguito come amministratore del server, si è autori
 
     ![Nuova query nel master](./media/sql-data-warehouse-get-started-tutorial/query-on-server.png)
 
-    ![Nuova query nel master&1;](./media/sql-data-warehouse-get-started-tutorial/query-on-master.png)
+    ![Nuova query nel master 1](./media/sql-data-warehouse-get-started-tutorial/query-on-master.png)
 
 2. Eseguire questo comando T-SQL nella finestra di query per creare un account di accesso denominato MedRCLogin e un utente denominato LoadingUser. Questo account di accesso può connettersi al server logico di SQL Server.
 

@@ -10,21 +10,21 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/14/2017
+ms.date: 03/20/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 3064da2a6afee007418ef6ba5ec4247e3e045c38
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 0f9ff487e289eadb857508134b7e08b00360fdd3
+ms.lasthandoff: 03/22/2017
 
 ---
 
-# <a name="create-a-windows-virtual-machine-with-the-azure-cli-20"></a>Creare una macchina virtuale Windows con l'interfaccia della riga di comando di Azure 2.0
+# <a name="create-a-windows-virtual-machine-with-the-azure-cli"></a>Creare una macchina virtuale Windows con l'interfaccia della riga di comando di Azure
 
-L'interfaccia della riga di comando di Azure 2.0 viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida descrive dettagliatamente come usare l'interfaccia della riga di comando di Azure per distribuire una macchina virtuale che esegue Windows Server 2016.
+L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida descrive dettagliatamente come usare l'interfaccia della riga di comando di Azure per distribuire una macchina virtuale che esegue Windows Server 2016.
 
 Prima di iniziare, verificare che l'interfaccia della riga di comando di Azure sia stata installata. Per altre informazioni, vedere [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli) (Guida all'installazione dell'interfaccia della riga di comando di Azure). 
 

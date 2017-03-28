@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 44b393a2316825fd335bca2a1a7bb7033c10a565
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 3be72ac862650d2381a56c4ab682e41a8aaa8a27
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -41,8 +41,6 @@ Le impostazioni scelte per ogni risorsa sono fondamentali per creare una conness
 ###<a name="deployment-model"></a>Modello di distribuzione
 Quando si configura un gateway VPN, i passaggi da eseguire dipendono dal modello di distribuzione usato per creare la rete virtuale. Ad esempio, se la rete virtuale è stata creata usando il modello di distribuzione classica, per creare e configurare le impostazioni del gateway VPN si usano le linee guida e le istruzioni per il modello di distribuzione classica. Per altre informazioni sui modelli di distribuzione, vedere [Confronto tra distribuzione di Azure Resource Manager e classica: comprensione dei modelli di implementazione e dello stato delle risorse](../azure-resource-manager/resource-manager-deployment-model.md).
 
-
-
 ## <a name="diagrams"></a>Diagrammi delle topologie di connessione
 È importante tenere presente che sono disponibili configurazioni diverse per le connessioni del gateway VPN. È necessario determinare la configurazione più adatta alle proprie esigenze. Nelle sezioni seguenti è possibile trovare informazioni e diagrammi delle topologie sulle connessioni gateway VPN seguenti. Le sezioni seguenti contengono tabelle che elencano:
 
@@ -51,7 +49,6 @@ Quando si configura un gateway VPN, i passaggi da eseguire dipendono dal modello
 * Collegamenti che visualizzano direttamente un articolo, se disponibile
 
 Usare i diagrammi e le descrizioni per selezionare la topologia di connessione più adatta alle esigenze. I diagrammi illustrano le principali topologie di base, ma è possibile creare configurazioni più complesse usando i diagrammi come riferimento.
-
 
 ## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Da sito a sito e multisito (tunnel VPN IPsec/IKE)
 ### <a name="S2S"></a>Da sito a sito
@@ -96,7 +93,9 @@ Azure offre attualmente di due modelli di distribuzione: classica e Resource Man
 [!INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
 ## <a name="ExpressRoute"></a>ExpressRoute (connessione privata dedicata)
-[!INCLUDE [expressroute-intro](../../includes/expressroute-intro-include.md)]
+Microsoft Azure ExpressRoute consente di estendere le reti locali nel cloud Microsoft tramite una connessione privata dedicata fornita da un provider di connettività. Con ExpressRoute è possibile stabilire connessioni ai servizi cloud Microsoft, come Microsoft Azure, Office 365 e CRM Online. La connettività può essere stabilita da una rete (IP VPN) any-to-any, da una rete Ethernet punto a punto o da una Cross Connection virtuale tramite un provider di connettività presso una struttura di condivisione del percorso.
+
+Le connessioni ExpressRoute non sfruttano la rete Internet pubblica. In questo modo possono offrire un livello di sicurezza superiore, maggiore affidabilità, velocità più elevate e minori latenze rispetto alle connessioni Internet tradizionali.
 
 Una connessione ExpressRoute non usa un gateway VPN, anche se usa un gateway di rete virtuale come parte della configurazione obbligatoria. In una connessione ExpressRoute il gateway di rete virtuale viene configurato con il tipo di gateway "ExpressRoute" invece che "Vpn". Per altre informazioni su ExpressRoute, vedere [Panoramica tecnica relativa a ExpressRoute](../expressroute/expressroute-introduction.md).
 

@@ -3,7 +3,7 @@ title: Supporto di CORS nel servizio app | Microsoft Docs
 description: Informazioni su come usare il supporto di CORS nel servizio app di Azure.
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
+author: alexkarcher-msft
 manager: erikre
 editor: 
 ms.assetid: 4f980a97-b9f5-4d1d-87ab-82b60bb96e1c
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/27/2016
-ms.author: rachelap
+ms.author: alkarche
 translationtype: Human Translation
-ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
-ms.openlocfilehash: b0b701b7ea7a608f114d3a82f0403c2ae506854f
-ms.lasthandoff: 12/21/2016
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 79fe018bb6721c431a935dda14b36968688d34e3
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -29,7 +29,7 @@ Questo articolo contiene due sezioni:
 * La sezione [Come configurare CORS nel servizio app di Azure](#corsconfig) illustra in linea generale come configurare CORS per qualsiasi app per le API, app Web o app per dispositivi mobili. La sezione si applica allo stesso modo a tutti i framework supportati dal servizio app, inclusi .NET, Node.js e Java. 
 * A partire dalla sezione [Proseguimento delle esercitazioni introduttive su .NET](#tutorialstart) l'articolo è un'esercitazione che illustra il supporto di CORS basandosi su quanto è stato fatto nella [prima esercitazione introduttiva sulle app per le API](app-service-api-dotnet-get-started.md). 
 
-## <a name="a-idcorsconfiga-how-to-configure-cors-in-azure-app-service"></a><a id="corsconfig"></a> Come configurare CORS nel servizio app di Azure
+## <a id="corsconfig"></a> Come configurare CORS nel servizio app di Azure
 È possibile configurare CORS nel portale di Azure o usando gli strumenti di [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 #### <a name="configure-cors-in-the-azure-portal"></a>Configurare CORS nel portale di Azure
@@ -52,7 +52,7 @@ Questo articolo contiene due sezioni:
    Dopo aver fatto clic su **Salva**, l'app per le API accetterà le chiamate JavaScript dagli URL specificati.
 
 #### <a name="configure-cors-by-using-azure-resource-manager-tools"></a>Configurare CORS con gli strumenti di Gestione risorse di Azure
-È anche possibile configurare CORS per un'app per le API usando [modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) in strumenti da riga di comando come [Azure PowerShell](/powershell/azureps-cmdlets-docs) e l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md). 
+È anche possibile configurare CORS per un'app per le API usando [modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) in strumenti da riga di comando come [Azure PowerShell](/powershell/azureps-cmdlets-docs) e l'[interfaccia della riga di comando di Azure](../cli-install-nodejs.md). 
 
 Per un esempio di un modello di Azure Resource Manager che imposta la proprietà CORS, aprire il [file azuredeploy.json nel repository dell'applicazione di esempio di questa esercitazione](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Trovare la sezione del modello simile all'esempio seguente:
 
@@ -62,7 +62,7 @@ Per un esempio di un modello di Azure Resource Manager che imposta la proprietà
             ]
         }
 
-## <a name="a-idtutorialstarta-continuing-the-net-getting-started-tutorial"></a><a id="tutorialstart"></a> Proseguimento dell'esercitazione introduttiva su .NET
+## <a id="tutorialstart"></a> Proseguimento dell'esercitazione introduttiva su .NET
 Se si sta seguendo la serie introduttiva su Node.js o Java per le app per le API, è stata completata la serie. Per indicazioni su altre informazioni relative alle app per le API, vedere la sezione [Passaggi successivi](#next-steps) .
 
 Il resto di questo articolo è una continuazione della serie introduttiva su .NET e si presuppone che sia stata completata correttamente [la prima esercitazione](app-service-api-dotnet-get-started.md).
