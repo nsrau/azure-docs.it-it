@@ -1,5 +1,5 @@
 ---
-title: Configurare un Account RunAs di Azure | Documentazione Microsoft
+title: Configurare un Account RunAs di Azure | Microsoft Docs
 description: "Esercitazione che illustra come creare, testare e usare l&quot;autenticazione dell&quot;entità di sicurezza in Automazione di Azure."
 services: automation
 documentationcenter: 
@@ -13,22 +13,22 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/10/2017
+ms.date: 03/27/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 15cbf897f3f67b9d1bee0845b4d287fdabe63ba8
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 6f2a3880c6cd307282020a689ddd4e22a95c17b0
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="authenticate-runbooks-with-azure-run-as-account"></a>Autenticare runbook con account RunAs di Azure
 Questo argomento illustra come configurare un account di Automazione dal portale di Azure usando la funzionalità dell'account RunAs per autenticare i runbook che gestiscono risorse in Azure Resource Manager o Azure Service Management.
 
-Quando si crea un account di Automazione nel portale di Azure, viene creato automaticamente quanto segue:
+Quando si crea un nuovo account di Automazione nel portale di Azure, viene creato automaticamente quanto segue:
 
-* Account RunAs che crea un'entità servizio in Azure Active Directory e un certificato e assegna il controllo degli accessi in base al ruolo Collaboratore. Questi elementi verranno usati per gestire le risorse di Resource Manager con i runbook.   
-* Account RunAs classico, caricando un certificato di gestione che verrà usato per gestire le risorse classiche o di Azure Service Management con i runbook.  
+* Account RunAs che crea una nuova entità servizio in Azure Active Directory e un certificato e assegna il ruolo Collaboratore per il controllo degli accessi in base al ruolo, che verrà usato per gestire le risorse di Resource Manager con i runbook.   
+* Account RunAs classico caricando un certificato di gestione che verrà usato per gestire le risorse classiche o di Azure Service Management con i runbook.  
 
 Questo semplifica il processo e consente di iniziare rapidamente la compilazione e distribuzione di runbook per supportare le esigenze di automazione.      
 
@@ -41,17 +41,14 @@ Con un account RunAs e un account RunAs classico, è possibile:
 > La [funzionalità di integrazione degli avvisi](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) di Azure con i runbook globali di automazione richiede un account di Automazione configurato con un account RunAs e un account RunAs classico. È possibile selezionare un account di Automazione per cui sono già definiti un account RunAs e un account RunAs classico o scegliere di crearne uno nuovo.
 >  
 
-L'articolo illustra come creare l'account di Automazione dal portale di Azure, come aggiornare un account di Automazione con PowerShell, come gestire la configurazione dell'account e come eseguire l'autenticazione nei runbook.
+L'articolo illustra come creare l'account di Automazione dal Portale di Azure, come aggiornare un account di Automazione con PowerShell, come gestire la configurazione dell'account e come eseguire l'autenticazione nei runbook.
 
 Prima di procedere, è consigliabile comprendere e considerare alcuni aspetti.
 
 1. Quanto descritto in questo articolo non influisce sugli account di Automazione esistenti già creati nel modello di distribuzione classica o Resource Manager.  
 2. Quanto descritto in questo articolo si applica solo agli account di Automazione creati tramite il portale di Azure.  Provando a creare un account dal portale classico, non verrà replicata la configurazione dell'account RunAs.
-3. Se sono presenti runbook e asset (ossia pianificazioni, variabili e così via) creati in precedenza per gestire risorse classiche e si vuole che tali runbook eseguano l'autenticazione con il nuovo account RunAs classico, è necessario creare un account RunAs classico usando le funzionalità di gestione di account RunAs oppure aggiornare l'account esistente con lo script di PowerShell riportato più avanti.  
-4. Per eseguire l'autenticazione con il nuovo account RunAs e il nuovo account RunAs classico di Automazione, è necessario modificare i runbook esistenti con il codice di esempio riportato nella sezione [Esempi di codice di autenticazione](#authentication-code-examples).  
-   
-    >[!NOTE] 
-    >L'account RunAs verrà usato per l'autenticazione per le risorse di Resource Manager con l'entità servizio basata su certificato, mentre l'account RunAs classico verrà usato per l'autenticazione per le risorse di Service Management con un certificato di gestione.     
+3. Se sono presenti runbook e asset (pianificazioni, variabili e così via) creati in precedenza per gestire risorse classiche e si vuole che tali runbook eseguano l'autenticazione con il nuovo account RunAs classico, è necessario creare un account RunAs classico con Managing an Run As Account (Gestione dell'account RunAs) oppure aggiornare l'account esistente usando lo script di PowerShell riportato più avanti.  
+4. Per eseguire l'autenticazione con il nuovo account RunAs e il nuovo account RunAs classico di Automazione, è necessario modificare i runbook esistenti con il codice di esempio riportato più avanti.  **Si noti** che l'account RunAs verrà usato per l'autenticazione per le risorse di Resource Manager con l'entità servizio basata su certificato, mentre l'account RunAs classico verrà usato per l'autenticazione per le risorse di Service Management con il certificato di gestione.     
 
 ## <a name="create-a-new-automation-account-from-the-azure-portal"></a>Creare un account di Automazione dal Portale di Azure
 La procedura descritta in questa sezione consente di creare un nuovo account di Automazione di Azure dal portale di Azure.  Vengono così creati l'account RunAs e l'account RunAs classico.  
@@ -148,10 +145,10 @@ I passaggi seguenti descrivono come eliminare e ricreare l'account RunAs di Azur
 1. Nel Portale di Azure aprire l'account di Automazione.  
 2. Nel pannello Account di automazione, nel riquadro delle proprietà dell'account, selezionare **Account RunAs** nella sezione **Impostazioni account**.
 3. Nel riquadro delle proprietà dell'**account RunAs**, selezionare l'Account RunAs o l'Account RunAs classico che si desidera eliminare e nel pannello delle proprietà dell'account selezionato, quindi fare clic su **Elimina**.<br><br> ![Eliminare un account RunAs](media/automation-sec-configure-azure-runas-account/automation-account-delete-runas.png)<br><br>  Verrà richiesto di confermare l'operazione.
-4. Durante l'eliminazione dell'account, è possibile tenere traccia dello stato di avanzamento in **Notifiche** dal menu.  Al termine dell'eliminazione, è possibile ricreare l'account nel pannello delle proprietà degli **account RunAs**, selezionando l'opzione di creazione **Account RunAs di Azure**.<br><br> ![Ricreare l'account RunAs di automazione](media/automation-sec-configure-azure-runas-account/automation-account-create-runas.png)<br> 
+4. Durante l'eliminazione dell'account, è possibile tenere traccia dello stato di avanzamento in **Notifiche** dal menu.  Al termine dell'eliminazione, è possibile ricreare l'account dal pannello delle proprietà dell'**account RunAs**, selezionando l'opzione di creazione **Account RunAs di Azure**.<br><br> ![Ricreare l'account RunAs di automazione](media/automation-sec-configure-azure-runas-account/automation-account-create-runas.png)<br> 
 
 ### <a name="misconfiguration"></a>Errore di configurazione
-Se uno degli elementi di configurazione necessari per il corretto funzionamento dell'account RunAs o dell'account RunAs classico viene eliminato o non è stato creato correttamente durante la configurazione iniziale, ad esempio:
+Se uno degli elementi di configurazione necessari per il corretto funzionamento dell'account RunAs o dell'account Run As classico viene eliminato o non è stato creato correttamente durante l'installazione iniziale, ad esempio:
 
 * Asset del certificato 
 * Asset di connessione 
@@ -335,9 +332,9 @@ Se si seleziona l'opzione per creare l'account RunAs classico, dopo l'esecuzione
         $ConnectionFieldValues = @{"ApplicationId" = $ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Thumbprint; "SubscriptionId" = $SubscriptionId} 
 
         # Create a Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
-        CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues
+        CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues  
 
-        if ($CreateClassicRunAsAccount) {
+        if ($CreateClassicRunAsAccount) {  
             # Create Run As Account using Service Principal
             $ClassicRunAsAccountCertifcateAssetName = "AzureClassicRunAsCertificate"
             $ClassicRunAsAccountConnectionAssetName = "AzureClassicRunAsConnection"
@@ -392,15 +389,9 @@ Se si seleziona l'opzione per creare l'account RunAs classico, dopo l'esecuzione
     > 
     > 
 
-Al termine dell'esecuzione dello script, se si è creato un account RunAs classico seguire la procedura per [caricare un certificato dell'API di gestione di Azure](../azure-api-management-certs.md) nel portale di Azure classico.  Se si è creato un account RunAs classico con un certificato pubblico autofirmato (nel formato con estensione cer), è possibile trovare una copia del certificato creato nel computer, nella cartella dei file temporanei del profilo utente usato per eseguire la sessione di PowerShell (*%USERPROFILE%\AppData\Local\Temp*).  In caso contrario, se l'account RunAs classico è stato configurato per l'uso di un certificato generato dalla CA globale (enterprise), nel formato con estensione cer, sarà necessario usare questo certificato.  Dopo il caricamento del certificato, vedere il [codice di esempio](#sample-code-to-authenticate-with-service-management-resources) per convalidare la configurazione delle credenziali con le risorse di Service Management.  
+Al termine dell'esecuzione dello script, se è stato creato un account RunAs classico con un certificato pubblico autofirmato in formato CER, viene creato e salvato nella cartella dei file temporanei del computer nel profilo utente usato per eseguire la sessione di PowerShell, *%USERPROFILE%\AppData\Local\Temp*. Se invece è stato creato un account RunAs classico con un certificato pubblico aziendale in formato CER, è necessario usare questo certificato.  Seguire la procedura per [caricare un certificato dell'API di gestione](../azure-api-management-certs.md) nel portale di Azure classico e quindi vedere il [codice di esempio](#sample-code-to-authenticate-with-service-management-resources) per convalidare la configurazione delle credenziali con le risorse di Service Management.  Se non è stato creato un account RunAs classico, per eseguire l'autenticazione con le risorse di Resource Manager e convalidare la configurazione delle credenziali vedere il [codice di esempio](#sample-code-to-authenticate-with-resource-manager-resources) riportato di seguito.
 
-Se non è stato creato un account RunAs classico, per eseguire l'autenticazione con le risorse di Resource Manager e convalidare la configurazione delle credenziali vedere il [codice di esempio](#sample-code-to-authenticate-with-resource-manager-resources) riportato di seguito.   
-
-##  <a name="authentication-code-examples"></a>Esempi di codice di autenticazione
-
-Gli esempi seguenti illustrano come autenticare i runbook per le risorse classiche o di Resource Manager con un account RunAs.
-
-### <a name="authenticate-with-resource-manager-resources"></a>Eseguire l'autenticazione con le risorse di Resource Manager
+## <a name="sample-code-to-authenticate-with-resource-manager-resources"></a>Codice di esempio per l'autenticazione con le risorse di Resource Manager
 È possibile usare il codice di esempio aggiornato seguente, tratto dal runbook di esempio **AzureAutomationTutorialScript** , per eseguire l'autenticazione usando l'account RunAs per gestire le risorse di Resource Manager con i runbook.   
 
     $connectionName = "AzureRunAsConnection"
@@ -435,7 +426,7 @@ Lo script include due righe di codice aggiuntive per supportare il riferimento a
 
 Si noti che il cmdlet usato per l'autenticazione nel runbook (**Add-AzureRmAccount**) usa il set di parametri *ServicePrincipalCertificate*  ed esegue l'autenticazione usando il certificato dell'entità servizio, non le credenziali.  
 
-### <a name="authenticate-with-service-management-resources"></a>Eseguire l'autenticazione con le risorse di Service Management
+## <a name="sample-code-to-authenticate-with-service-management-resources"></a>Codice di esempio per l'autenticazione con le risorse di Service Management
 È possibile usare il codice di esempio aggiornato seguente, tratto dal runbook di esempio **AzureClassicAutomationTutorialScript** , per eseguire l'autenticazione usando l'account RunAs classico per gestire le risorse classiche con i runbook.
 
     $ConnectionAssetName = "AzureClassicRunAsConnection"

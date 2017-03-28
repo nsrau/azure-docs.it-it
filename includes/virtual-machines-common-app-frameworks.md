@@ -53,7 +53,7 @@ Eseguire questi comandi per creare il gruppo di risorse e la distribuzione dopo 
 Quando si esegue il comando **New-AzureRmResourceGroupDeployment** , viene richiesto di immettere i valori per i parametri nel modello. A seconda del modello, la distribuzione delle risorse richiede tempi diversi.
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-[Installare l'interfaccia della riga di comando di Azure](../articles/xplat-cli-install.md), accedere e verificare che i comandi di Azure Resource Manager siano abilitati. Per informazioni su come eseguire questa operazione, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md).
+[Installare l'interfaccia della riga di comando di Azure](../articles/cli-install-nodejs.md), accedere e verificare che i comandi di Azure Resource Manager siano abilitati. Per informazioni su come eseguire questa operazione, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md).
 
 Eseguire questi comandi per creare il gruppo di risorse e la distribuzione dopo aver sostituito il testo tra parentesi con il nome del gruppo di risorse, la località, il nome della distribuzione e il nome del modello:
 
@@ -66,9 +66,4 @@ Quando si esegue il comando **azure group deployment create** , viene richiesto 
 Individuare tutti i modelli a disposizione in [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
 Per altre informazioni, vedere [Gestione risorse di Azure](../articles/resource-group-template-deploy.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

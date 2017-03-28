@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2017
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 05b642949205d7698fbcf791a5d2f06528ff239e
-ms.openlocfilehash: e827bddfa0bcc1c1e46d06c6856033e77859c7fb
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: ae869be6ed9f304629498f416ffdda96252bdf9c
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -34,7 +34,7 @@ Se si è interessati, vedere gli argomenti alternativi seguenti:
 * [Strumentazione di un'app Web in fase di esecuzione](app-insights-monitor-performance-live-website-now.md)
 * [Servizi cloud di Azure](app-insights-cloudservices.md)
 
-## <a name="a-nameidea-step-1-add-the-application-insights-sdk"></a><a name="ide"></a>Passaggio 1: Aggiungere Application Insights SDK
+## <a name="ide"></a>Passaggio 1: Aggiungere Application Insights SDK
 
 Fare clic con il pulsante destro del mouse sul progetto dell'app Web in Esplora soluzioni e scegliere **Aggiungi** e quindi **Application Insights Telemetry** oppure **Configura Application Insights**.
 
@@ -53,7 +53,7 @@ Passare alla pagina di configurazione di Application Insights:
 5. In alternativa, è possibile aggiungere semplicemente Application Insights SDK all'app. In questo caso, si potranno visualizzare i dati di telemetria in Visual Studio durante il debug. Successivamente, è possibile tornare a questa pagina di configurazione oppure attendere di aver distribuito l'app e quindi [attivare la telemetria in fase di esecuzione](app-insights-monitor-performance-live-website-now.md).
 
 
-## <a name="a-nameruna-step-2-run-your-app"></a><a name="run"></a>Passaggio 2: Eseguire l'app
+## <a name="run"></a>Passaggio 2: Eseguire l'app
 Eseguire l'app con F5. Aprire pagine diverse per generare alcuni dati di telemetria.
 
 In Visual Studio verrà visualizzato il conteggio degli eventi che sono stati registrati.
@@ -124,7 +124,7 @@ La telemetria viene creata nel portale di Application Insights, in cui è possib
 >
 >
 
-## <a name="a-namelanda-what-does-the-add-application-insights-command-do"></a><a name="land"></a>Funzione del comando Aggiungi Application Insights
+## <a name="land"></a>Funzione del comando Aggiungi Application Insights
 Application Insights invia i dati di telemetria dell'app al portale di Application Insights, ospitato in Azure.
 
 ![Diagramma dello spostamento dei dati di telemetria](./media/app-insights-asp-net/01-scheme.png)
@@ -197,6 +197,10 @@ Si noti tuttavia che il numero di versione della build viene generato solo da Mi
 Se si usa Visual Studio Team Services, è possibile [aggiungere un marcatore di annotazione](app-insights-annotations.md) ai grafici quando si rilascia una nuova versione. L'immagine seguente illustra come viene visualizzato il marcatore.
 
 ![Screenshot di annotazione sulla versione di esempio in un grafico](./media/app-insights-asp-net/release-annotation.png)
+
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Passaggi successivi
 **[Uso di Application Insights in Visual Studio](app-insights-visual-studio.md)**<br/>Include informazioni su debug con telemetria, ricerca diagnostica e drill-through nel codice.

@@ -1,6 +1,6 @@
 ## <a name="prerequisites"></a>Prerequisiti
 
-Se non è già stato fatto, è possibile ottenere [una versione di valutazione gratuita di una sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/) e l'[interfaccia della riga di comando di Azure 1.0](../articles/xplat-cli-install.md) [connessa all'account di Azure](../articles/xplat-cli-connect.md). Verificare che l'interfaccia della riga di comando di Azure sia in modalità Resource Manager come indicato di seguito:
+Se non è già stato fatto, è possibile ottenere una [versione di valutazione gratuita di una sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/) e l'[interfaccia della riga di comando di Azure 1.0](../articles/cli-install-nodejs.md) [connessa all'account di Azure](../articles/xplat-cli-connect.md). Verificare che l'interfaccia della riga di comando di Azure sia in modalità Resource Manager come indicato di seguito:
 
 ```azurecli
 azure config mode arm
@@ -8,7 +8,7 @@ azure config mode arm
 
 ## <a name="create-the-scale-set"></a>Creare il set di scalabilità
 
-A questo punto creare i set di scalabilità usando il comando `azure vmss quick-create`. Nell'esempio seguente viene creato un set di scalabilità di Linux denominato `myVMSS` con&5; istanze di macchine virtuali nel gruppo di risorse denominato `myResourceGroup`:
+A questo punto creare i set di scalabilità usando il comando `azure vmss quick-create`. L'esempio seguente crea un set di scalabilità Linux denominato `myVMSS` con cinque istanze di VM nel gruppo di risorse denominato `myResourceGroup`:
 
 ```azurecli
 azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
@@ -24,9 +24,9 @@ azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
     -C 5 -Q MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest
 ```
 
-Se si vuole personalizzare la posizione o l'URN dell'immagine, esaminare i comandi `azure location list` e `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
+Se si vuole personalizzare la località o l'URN dell'immagine, esaminare i comandi `azure location list` e `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
 
-Questo comando restituisce al termine della distribuzione del set di scalabilità. A questo punto, il set di scalabilità avrà un servizio di bilanciamento del carico con regole NAT che eseguono il mapping della porta 50000+i sul servizio di bilanciamento del carico della porta 22 della VM i. Dopo aver determinato l'FQDN del servizio di bilanciamento del carico, sarà possibile usare SSH per la connessione alle macchine virtuali:
+Questo comando viene completato al termine della distribuzione del set di scalabilità. A questo punto, il set di scalabilità avrà un servizio di bilanciamento del carico con regole NAT che eseguono il mapping della porta 50000+i del servizio di bilanciamento del carico alla porta 22 della VM i. Dopo aver determinato il nome di dominio completo del servizio di bilanciamento del carico, è quindi possibile connettersi tramite SSH alle VM:
 
 ```bash
 # (if you decide to run this as a script, please invoke using bash)

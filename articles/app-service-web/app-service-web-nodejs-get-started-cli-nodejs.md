@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: 9482315aba089f3f00e114b835963c247a4f5007
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 9be7aec6d66c625be83b93bb840ad137d3c786d2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -35,7 +35,7 @@ Questa esercitazione illustra come creare una semplice applicazione [Node.js] e 
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - [Interfaccia della riga di comando di Azure 1.0](app-service-web-nodejs-get-started-cli-nodejs.md): l'interfaccia della riga di comando per i modelli di distribuzione classici e di gestione delle risorse
-- [Interfaccia della riga di comando di Azure 2.0](app-service-web-nodejs-get-started.md): l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse
+- [Interfaccia della riga di comando di Azure 2.0](app-service-web-nodejs-get-started.md): interfaccia della riga di comando di prossima generazione per il modello di distribuzione di Gestione risorsa
 
 ## <a name="prerequisites"></a>Prerequisiti
 * [Node.js]
@@ -247,7 +247,7 @@ Per abilitare Node-Inspector, seguire questa procedura:
 
 <!-- URL List -->
 
-[Interfaccia della riga di comando di Azure]: ../xplat-cli-install.md
+[Interfaccia della riga di comando di Azure]:../cli-install-nodejs.md
 [servizio app di Azure]: ../app-service/app-service-value-prop-what-is.md
 [attivare i vantaggi per i sottoscrittori di Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [Bower]: http://bower.io/

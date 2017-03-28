@@ -10,21 +10,23 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/14/2017
+ms.date: 03/21/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 56e9deea4e070a99e47b7de7c5686526a4528fb6
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: a13ac5ab425ccbbe53d77cb9f5a8ebf02d009370
+ms.lasthandoff: 03/22/2017
 
 ---
 
 # <a name="create-a-windows-virtual-machine-with-the-azure-portal"></a>Creare una macchina virtuale Windows con il portale di Azure
 
-È possibile creare macchine virtuali di Azure tramite il portale di Azure. Questo metodo fornisce un'interfaccia utente basata sul browser per la creazione e la configurazione delle VM e di tutte le risorse di Azure correlate.
+È possibile creare macchine virtuali di Azure tramite il portale di Azure. Questo metodo fornisce un'interfaccia utente basata sul browser per la creazione e la configurazione delle macchine virtuali e di tutte le risorse correlate. Questa guida introduttiva illustra la creazione di una macchina virtuale con il portale di Azure. 
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure 
 
@@ -36,7 +38,7 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
 
 3. Selezionare **Calcolo** nel pannello **Nuovo**, selezionare **Windows Server 2016 Datacenter** nel pannello **Calcolo** e poi fare clic sul pulsante **Crea**.
 
-4. Compilare il modulo **Generale** della macchina virtuale. Per **Gruppo di risorse** creare un nuovo gruppo. Un gruppo di risorse è un contenitore logico in cui vengono create e gestite collettivamente le risorse di Azure. Al termine fare clic su **OK**.
+4. Compilare il modulo **Generale** della macchina virtuale. Il nome utente e la password immessi in questo modulo verranno usati per accedere alla macchina virtuale. Per **Gruppo di risorse** creare un nuovo gruppo. Un gruppo di risorse è un contenitore logico in cui vengono create e gestite collettivamente le risorse di Azure. Al termine fare clic su **OK**.
 
     ![Immettere le informazioni di base sulla VM nel pannello del portale](./media/virtual-machine-quick-start/create-windows-vm-portal-basic-blade.png)  
 
@@ -50,19 +52,17 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
 
 ## <a name="connect-to-virtual-machine"></a>Connettersi alla macchina virtuale
 
-Dopo aver completato la distribuzione, creare una connessione desktop remoto con la macchina virtuale.
+Al termine della distribuzione, creare una connessione Desktop remoto alla macchina virtuale.
 
-1. Fare clic sul pulsante **Connetti** nel pannello della macchina virtuale. Verrà creato e scaricato un file Remote Desktop Protocol (file con estensione rdp), che è analogo a un collegamento per la connessione alla macchina virtuale. Aprire questo file per connettersi alla VM.
+1. Fare clic sul pulsante **Connetti** nel pannello della macchina virtuale. Verrà creato e scaricato un file Remote Desktop Protocol, con estensione rdp.
 
     ![Portale 9](./media/virtual-machine-quick-start/portal-quick-start-9.png) 
 
-3. Fare clic su **Connetti** nella finestra della connessione desktop remoto.
+2. Per connettersi alla VM, aprire il file RDP scaricato. Se richiesto, fare clic su **Connetti**. In Mac, è necessario un client RDP come questo [client Desktop remoto](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) disponibile nel Mac App Store.
 
-    ![Portale 10](./media/virtual-machine-quick-start/portal-quick-start-10.png) 
+3. Immettere il nome utente e la password specificati al momento della creazione della macchina virtuale e quindi fare clic su **OK**.
 
-4. Digitare il nome utente e la password specificati al momento della creazione della macchina virtuale e quindi fare clic su **OK**.
-
-5. Potrebbe essere visualizzato un avviso di certificato, fare clic su **Sì** per procedere con la connessione.
+4. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Fare clic su **Sì** o **Continua** per procedere con la connessione.
 
 ## <a name="delete-virtual-machine"></a>Eliminare una macchina virtuale
 

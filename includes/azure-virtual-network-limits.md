@@ -17,7 +17,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite il mo
 | VIP privato (ILB) per ogni distribuzione |1 |1 |
 | Elenchi di controllo di accesso (ACL) per endpoint |50 |50 |
 
-#### <a name="a-nameazure-resource-manager-virtual-networking-limitsanetworking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limiti relativi alle reti - Azure Resource Manager
+#### <a name="azure-resource-manager-virtual-networking-limits"></a>Limiti relativi alle reti - Azure Resource Manager
 I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure Resource Manager per area per sottoscrizione.
 
 | Risorsa | Limite predefinito | Limite massimo |
@@ -26,6 +26,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Subnet per rete virtuale |1.000 |contattare il supporto tecnico |
 | Server DNS per rete virtuale |9 |25 |
 | Indirizzi IP privati per rete virtuale |4096 |4096 |
+| Indirizzi IP privati per interfaccia di rete |50 |contattare il supporto tecnico |
 | Connessioni TCP simultanee per un'istanza del ruolo o della macchina virtuale |500K |500K |
 | Interfacce di rete (NIC) |300 |10000 |
 | Gruppi di sicurezza di rete (NGS) |100 |400 |
@@ -40,11 +41,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | IP front-end privato per ogni di bilanciamento del carico |10 |Contattare il supporto tecnico |
 | Peering di reti virtuali per rete virtuale |10 |50 |
 | Certificati radice Point-to-Site per ogni gateway VPN |20 |20 |
+| Configurazioni IP secondarie per rete virtuale |1000 |contattare il supporto tecnico |
 
 Nel caso in cui sia necessario aumentare questi limiti rispetto all'impostazione predefinita, contattare il supporto tecnico.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
