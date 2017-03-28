@@ -1,5 +1,5 @@
 ---
-title: Informazioni su Backup di Azure | Documentazione Microsoft
+title: Informazioni su Backup di Azure | Microsoft Docs
 description: Usare Backup di Azure per eseguire il backup e il ripristino di dati e carichi di lavoro da server e workstation Windows, server System Center DPM e macchine virtuali di Azure.
 services: backup
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/27/2017
-ms.author: markgal;trinadhk
+ms.date: 3/13/2017
+ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bafcd7f23a2a90a1cfdcd9286c20a09bd7a316b7
-ms.openlocfilehash: c9fd621ca2d4440b4a8c90e2fd8ab7924f4dbce8
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 0be8f1f9fb96bce445c4a91520b9a847b205a519
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -92,7 +92,7 @@ La tabella seguente illustra i componenti di Backup di Azure che hanno il suppor
 | Agente di Backup di Azure (MARS) |No (solo agente basato su Windows) |
 | System Center DPM |Backup coerente a livello di file solo in Hyper-V<br/> (non disponibile per le VM di Azure) |
 | Server di backup di Azure |Backup coerente a livello di file solo in Hyper-V<br/> (non disponibile per le VM di Azure) |
-| Backup di VM IaaS di Azure |Sì |
+| Backup di VM IaaS di Azure |Sì (backup coerente con le applicazioni tramite il [framework dello script di pre-backup e post-backup](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Uso di macchine virtuali di Archiviazione Premium con Backup di Azure
 Backup di Azure protegge le macchine virtuali di Archiviazione Premium. Archiviazione Premium di Azure è una soluzione di archiviazione basata su unità SSD progettata per supportare carichi di lavoro con attività di I/O intensive. Archiviazione Premium è una soluzione interessante per i carichi di lavoro delle macchine virtuali. Per altre informazioni su Archiviazione Premium, vedere l'articolo [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage/storage-premium-storage.md).

@@ -17,9 +17,9 @@ ms.date: 10/24/2016
 ms.author: v-livech
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
-ms.openlocfilehash: bd0c9fd0044ce8a5de9004c68b1267b8b66df80a
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: e692e87899e49f6ad681de8e682492ec69e47eac
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/01/2017
 Questo articolo illustra come distribuire rapidamente una macchina virtuale Linux in Azure usando un modello di Azure.  L'articolo richiede:
 
 * Un account Azure. È possibile [ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Accesso tramite `azure login` per l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+* Accesso tramite `azure login` per l'[interfaccia della riga di comando di Azure](../cli-install-nodejs.md).
 * L'interfaccia della riga di comando di Azure *deve essere impostata obbligatoriamente* sulla modalità Azure Resource Manager `azure config mode arm`.
 
 È anche possibile distribuire rapidamente un modello di VM Linux usando il [portale di Azure](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

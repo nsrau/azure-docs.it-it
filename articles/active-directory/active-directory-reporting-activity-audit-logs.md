@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 02/21/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 74460492c5eb6edfcc67015f8f6894267cb9edc8
-ms.openlocfilehash: 5a219219cd5e34713cd6a1c54a98d6bd15310e05
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9f1fd20c77b085a66487c83d8dcd902e8cc83e6d
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -154,7 +154,7 @@ Ad esempio, se si seleziona **Utente** come **Tipo di attività**, l'elenco **At
 
 ![Controllo](./media/active-directory-reporting-activity-audit-logs/628.png "Controllo")
 
-Se si seleziona **Gruppo** come **Tipo di attività**, si ottiene un'ulteriore opzione di filtro che consente anche di filtrare in base alle seguenti **origini attività**:
+Se si seleziona **Gruppo** in **Tipo di risorsa attività**, si ottiene un'opzione di filtro aggiuntiva che consente anche di filtrare in base alle **origini attività** seguenti:
 
 - Azure AD
 
