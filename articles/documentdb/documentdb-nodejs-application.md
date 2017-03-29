@@ -560,6 +560,6 @@ Una volta completate le operazioni iniziali di installazione e configurazione, s
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
-[Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
+[GitHub]: https://github.com/Azure-Samples/documentdb-node-todo-app
 
 

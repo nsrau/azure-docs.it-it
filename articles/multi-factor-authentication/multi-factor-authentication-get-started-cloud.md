@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/04/2017
+ms.date: 03/14/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 79c6ef627d20be52b6067d1f6dfea2a53505c590
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -28,14 +29,16 @@ Questo articolo illustra come iniziare a usare Azure Multi-Factor Authentication
 
 ![MFA nel cloud](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
-## <a name="prerequisites"></a>Prerequisiti
-Per abilitare Azure multi-Factor Authentication per gli utenti, è necessario soddisfare i prerequisiti seguenti.
+## <a name="prerequisite"></a>Prerequisito
+[Iscriversi per ottenere una sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/) : se non si ha già una sottoscrizione ad Azure, è necessario iscriversi. Se si è appena iniziato a usare il servizio Azure MFA, è possibile usare una sottoscrizione di valutazione
 
-1. [Iscriversi per ottenere una sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/) : se non si ha già una sottoscrizione ad Azure, è necessario iscriversi. Se si è appena iniziato a usare il servizio Azure MFA, è possibile usare una sottoscrizione di valutazione
-2. [Creare un provider di Multi-Factor Authentication](multi-factor-authentication-get-started-auth-provider.md) e assegnarlo alla directory o [assegnare licenze agli utenti](multi-factor-authentication-get-started-assign-licenses.md)
+## <a name="enable-azure-multi-factor-authentication"></a>Abilitare Azure Multi-Factor Authentication
+Se gli utenti hanno licenze che comprendono Azure Multi-Factor Authentication, non è necessario eseguire operazioni per attivare Azure MFA. È possibile iniziare a richiedere la verifica in due passaggi per i singoli utenti. Le licenze che abilitano Azure MFA sono le seguenti:
+- Azure Multi-Factor Authentication
+- Azure Active Directory Premium
+- Enterprise Mobility + Security
 
-> [!NOTE]
-> Le licenze sono disponibili per gli utenti che hanno Azure MFA, Azure AD Premium o Enterprise Mobility Suite (EMS).  MFA è incluso in Azure AD Premium e in EMS. Se è disponibile un numero di licenze sufficiente, non è necessario creare un provider di autenticazione.
+Se nessuna di queste tre licenze è disponibile oppure se le licenze disponibili non bastano per tutti gli utenti, è sufficiente eseguire un passaggio aggiuntivo e [creare un provider di Multi-Factor Authentication](multi-factor-authentication-get-started-auth-provider.md) nella directory.
 
 ## <a name="turn-on-two-step-verification-for-users"></a>Attivare la verifica in due passaggi per gli utenti
 Per iniziare a richiedere la verifica in due passaggi per un utente, cambiare lo stato dell'utente da disabilitato ad abilitato.  Per altre informazioni sugli stati utente, vedere [Stati utente in Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
@@ -97,10 +100,5 @@ Per altre informazioni, vedere [Stati utente in Azure Multi-Factor Authenticatio
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo avere configurato Azure Multi-Factor Authentication nel cloud, è possibile configurare e impostare la distribuzione. Per altri dettagli, vedere [Configurazione di Azure Multi-Factor Authentication](multi-factor-authentication-whats-next.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -59,7 +59,7 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
     ![key][key]
 2. La password è quella specificata al momento della configurazione. È possibile selezionare **Cambia password** o **Reimposta password** per apportare modifiche.
 
-Per gestire le impostazioni di recapito della posta, fare clic sul **pulsante Gestisci**. Si verrà reindirizzati al [dashboard di SendGrid][SendGrid dashboard]
+Per gestire le impostazioni di recapito della posta, fare clic sul **pulsante Gestisci**. Si verrà reindirizzati al dashboard di SendGrid.
 
     ![manage][manage]
 
@@ -78,7 +78,6 @@ Per gestire le impostazioni di recapito della posta, fare clic sul **pulsante Ge
 [general-api-key]: ./media/sendgrid-sign-up/general-api-key.png
 [access]: ./media/sendgrid-sign-up/access.png
 [key]: ./media/sendgrid-sign-up/key.png
-[SendGrid dashboard]: ./media/sendgrid-sign-up/dashboard.png
 
 <!--Links-->
 
@@ -88,4 +87,3 @@ Per gestire le impostazioni di recapito della posta, fare clic sul **pulsante Ge
 [SendGrid Provisioning Process]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [all APIs]: https://sendgrid.com/docs/API_Reference/index.html
 [Email API Overview]: https://sendgrid.com/docs/API_Reference/Web_API_v3/Mail/index.html
-
