@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 12/12/2016
+ms.date: 03/14/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 265bb284d23e42c16c84a718c402b1bc6f6a30f9
-ms.openlocfilehash: c5521c3a02e36fa388e4da90faf4d8b9fa219356
-ms.lasthandoff: 12/19/2016
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 720822c4a6a2b236ca772016c647827050e27d44
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -52,9 +52,9 @@ Ecco un esempio tratto da [Cortana Intelligence Gallery](http://gallery.cortanai
 
 ## <a name="flavors-of-machine-learning"></a>Varianti di Machine Learning
 ### <a name="supervised"></a>Supervisionato
-Gli algoritmi di apprendimento supervisionato fanno previsioni in base a un set di esempi. Ad esempio, l’andamento storico dei titoli può essere utilizzato per azzardare ipotesi sui prezzi futuri. Ogni esempio utilizzato per l’addestramento viene etichettato con il valore di interesse: in questo caso, il prezzo dei titoli. Un algoritmo di apprendimento supervisionato cerca modelli ripetitivi nelle etichette dei valori. Può utilizzare tutte le informazioni che potrebbero essere rilevanti, ovvero il giorno della settimana, la stagione, i dati finanziari dell'azienda, il tipo di settore, la presenza di eventi geopolitici di disturbo, e ogni algoritmo cerca tipi diversi di modelli ripetitivi. Dopo che l'algoritmo ha trovato il modello ripetitivo migliore possibile, lo utilizza per eseguire stime per i dati di prova senza etichetta: i prezzi di domani.
+Gli algoritmi di apprendimento supervisionato fanno previsioni in base a un set di esempi. Ad esempio, l’andamento storico dei titoli può essere utilizzato per azzardare ipotesi sui prezzi futuri. Ogni esempio utilizzato per l’addestramento viene etichettato con il valore di interesse: in questo caso, il prezzo dei titoli. Un algoritmo di apprendimento supervisionato cerca modelli ripetitivi nelle etichette dei valori. Può usare tutte le informazioni che potrebbero essere rilevanti, ovvero il giorno della settimana, la stagione, i dati finanziari dell'azienda, il tipo di settore, la presenza di eventi geopolitici di disturbo, e ogni algoritmo cerca tipi diversi di modelli ripetitivi. Dopo che l'algoritmo ha trovato il modello ripetitivo migliore possibile, lo utilizza per eseguire stime per i dati di prova senza etichetta: i prezzi di domani.
 
-Questo tipo di Machine Learning è utile e diffuso. Con una eccezione, tutti i moduli di Azure Machine Learning sono algoritmi di apprendimento supervisionato. Sono presenti diversi tipi specifici di apprendimento supervisionato rappresentati all'interno di Azure Machine Learning: classificazione, regressione e rilevamento di anomalie.
+L'apprendimento supervisionato è un tipo di Machine Learning è utile e diffuso. Con una eccezione, tutti i moduli di Azure Machine Learning sono algoritmi di apprendimento supervisionato. Sono presenti diversi tipi specifici di apprendimento supervisionato rappresentati all'interno di Azure Machine Learning: classificazione, regressione e rilevamento di anomalie.
 
 * **Classificazione**. Quando i dati vengono utilizzati per prevedere una categoria, l’apprendimento supervisionato è chiamato anche classificazione. Ciò avviene quando si assegna un'immagine, come un’immagine di "gatto" o "cane". Quando sono disponibili solo due opzioni, è chiamato **a due classi** o **classificazione binomiale**. Quando sono presenti più categorie, come quando si prevede il vincitore di un torneo, questo problema è noto come **classificazione multiclasse**.
 * **Regressione**. Quando un valore viene previsto, come con i prezzi dei titoli, l’apprendimento supervisionato viene chiamato regressione.
@@ -122,17 +122,17 @@ Alcuni algoritmi di apprendimento fanno ipotesi particolari sulla struttura dei 
 | [rete neurale](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[È possibile un’ulteriore personalizzazione](http://go.microsoft.com/fwlink/?LinkId=402867) |
 | [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Visualizzare le proprietà del metodo a due classi selezionato |
 | **Regressionee** | | | | | |
-| [Lineare](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
+| [lineare](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
 | [Regressione lineare Bayesiana](https://msdn.microsoft.com/library/azure/dn906022.aspx) | |○ |● |2 | |
 | [foresta delle decisioni](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |
 | [albero delle decisioni con boosting scalabile](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5 |Footprint della memoria di grandi dimensioni |
 | [Quantile della foresta rapida](https://msdn.microsoft.com/library/azure/dn913093.aspx) |● |○ | |9 |Distribuzioni invece di previsioni punti |
 | [rete neurale](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[È possibile un’ulteriore personalizzazione](http://go.microsoft.com/fwlink/?LinkId=402867) |
-| [Poisson ](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Tecnicamente logaritmica-lineare. Per la previsione di conteggi. |
+| [Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Tecnicamente logaritmica-lineare. Per la previsione di conteggi. |
 | [Ordinale](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |Per la previsione dell'ordinamento delle classificazioni |
 | **Rilevamento anomalie** | | | | | |
 | [macchina a vettori di supporto](https://msdn.microsoft.com/library/azure/dn913103.aspx) |○ |○ | |2 |Particolarmente valido per set di funzioni di grandi dimensioni |
-| [Rilevamento delle anomalie basato su PCA ](https://msdn.microsoft.com/library/azure/dn913102.aspx) | |○ |● |3 | |
+| [Rilevamento delle anomalie basato su PCA](https://msdn.microsoft.com/library/azure/dn913102.aspx) | |○ |● |3 | |
 | [K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/) | |○ |● |4 |Algoritmo di clustering |
 
 **Proprietà algoritmo:**
@@ -199,8 +199,12 @@ Si noti che questi ipotizzano che i dati possano essere suddivisi o adattati con
 Dal punto di vista storico, le Bayes Point Machine sono state sviluppate presso Microsoft Research. Si basano su un lavoro teorico estremamente interessante. Lo studente interessato viene indirizzato all'[articolo originale in JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) e a un [blog dettagliato di Chris Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
 
 ### <a name="specialized-algorithms"></a>Algoritmi specializzati
-Se si dispone di un obiettivo molto specifico si potrebbe essere fortunati. All'interno della raccolta di Azure Machine Learning sono disponibili algoritmi specializzati nella previsione delle classifiche ([regressione ordinale](https://msdn.microsoft.com/library/azure/dn906029.aspx)), nella previsione dei conteggi ([regressione di Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx)) e nel rilevamento delle anomalie (uno basato sull'[analisi dei componenti principali](https://msdn.microsoft.com/library/azure/dn913102.aspx) e uno basato sulle [macchine a vettori di supporto](https://msdn.microsoft.com/library/azure/dn913103.aspx)s).
-Esiste anche un algoritmo di clustering unico ([K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)).
+Se si dispone di un obiettivo molto specifico si potrebbe essere fortunati. All'interno della raccolta di Azure Machine Learning, sono disponibili algoritmi specifici per:
+
+- stima di classificazione ([regressione ordinale](https://msdn.microsoft.com/library/azure/dn906029.aspx)),
+- stima di conteggio ([regressione Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx)),
+- rilevamento di anomalie (uno basato sull'[analisi dei componenti principali](https://msdn.microsoft.com/library/azure/dn913102.aspx) e l'altro basato sulle [macchine a vettori di supporto](https://msdn.microsoft.com/library/azure/dn913103.aspx))
+- Clustering ([K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/))
 
 ![Rilevamento delle anomalie basato su PCA][8]
 

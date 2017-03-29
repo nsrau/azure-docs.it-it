@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: ee0cee5e653cb8900936e12e87c56cfee5639bc5
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 582cb9dee06c6ec4b030ded866a0f92a575b93ed
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -417,18 +417,17 @@ La tabella seguente fornisce una descrizione degli elementi JSON specifici per i
 | Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **AzureDataLakeStore** | Sì |
-| dataLakeStoreUri | Specificare le informazioni sull'account Archivio Azure Data Lake. È nel formato seguente: **https://[accountname].azuredatalakestore.net/webhdfs/v1** o **adl://[accountname].azuredatalakestore.net/**. | Sì |
+| dataLakeStoreUri | Specificare le informazioni sull'account Archivio Azure Data Lake. Ha il formato seguente: `https://[accountname].azuredatalakestore.net/webhdfs/v1` o `adl://[accountname].azuredatalakestore.net/`. | Sì |
 | subscriptionId | ID sottoscrizione di Azure a cui il Data Lake Store appartiene. | Richiesto per il sink |
 | resourceGroupName | Nome del gruppo di risorse di Azure a cui il Data Lake Store appartiene. | Richiesto per il sink |
 
 ### <a name="using-service-principal-authentication-recommended"></a>Uso dell'autenticazione basata su entità servizio (opzione consigliata)
-Per usare l'autenticazione basata su entità servizio, è prima di tutto necessario registrare un'entità applicazione in Azure Active Directory (AAD) e concedere a tale entità l'accesso a Data Lake Store. È quindi possibile specificare le proprietà seguenti in Azure Data Factory con le informazioni corrispondenti per ID applicazione, chiave applicazione e tenant per la copia di dati da/verso Data Lake Store. Per informazioni su come configurare l'autenticazione e recuperare le informazioni necessarie, vedere [Autenticazione da servizio a servizio](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
+Per usare l'autenticazione basata su entità servizio, registrare un'entità applicazione in Azure Active Directory (AAD) e concedere a tale entità l'accesso a Data Lake Store. Vedere [Autenticazione da servizio a servizio](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) per la procedura dettagliata. Annotare i valori seguenti: **ID applicazione**, **chiave applicazione**, e **ID tenant**. Usare queste informazioni nella definizione di servizio collegato. 
 
 > [!IMPORTANT]
-> Quando si usa la copia guidata per creare, per passare da una cartella a un'altra assicurarsi di concedere all'entità servizio almeno il ruolo Lettore per il controllo di accesso (IAM) per l'account ADLS E almeno l'autorizzazione di Lettura+Esecuzione per la radice ADLS ("/") e i suoi figli. In caso contrario, potrebbe essere visualizzato l'errore "Le credenziali fornite non sono valide".
+> Se si usa la copia guidata per creare pipeline di dati, assicurarsi di concedere all'entità servizio almeno il ruolo Lettore per il controllo di accesso (IAM) per l'account di Data Lake Store e almeno l'autorizzazione di Lettura+Esecuzione per la radice di Data Lake Store ("/") e i suoi figli. In caso contrario, potrebbe essere visualizzato l'errore "Le credenziali fornite non sono valide".
 >
-> Se si crea un'entità servizio completamente nuova, o se ne aggiorna una, da AAD, potrebbero essere necessari alcuni minuti prima che l'entità sia operativa. Controllare innanzitutto l'entità servizio e la configurazione ACL ADLS. Se viene ancora visualizzato l'errore "Le credenziali fornite non sono valide", attendere qualche minuto e riprovare.
->
+> Dopo aver creato/aggiornato un'entità servizio in AAD, potrebbero essere necessari alcuni minuti affinché le modifiche siano attive. Innanzitutto, controllare l'entità servizio e la configurazione ACL di Data Lake Store. Se viene ancora visualizzato l'errore: "Fornite credenziali non valide.", attendere qualche istante e riprovare.
 
 | Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
@@ -455,7 +454,7 @@ Per usare l'autenticazione basata su entità servizio, è prima di tutto necessa
 ```
 
 ### <a name="using-user-credential-authentication"></a>Uso dell'autenticazione basata su credenziali utente
-In alternativa, è possibile usare l'autenticazione basata su credenziali utente per copiare dati da/verso Data Lake Store specificando le proprietà seguenti.
+In alternativa, è possibile usare l'autenticazione delle credenziali dell'utente per copiare dati da/verso Data Lake Store specificando le proprietà seguenti.
 
 | Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
@@ -480,7 +479,11 @@ In alternativa, è possibile usare l'autenticazione basata su credenziali utente
 ```
 
 #### <a name="token-expiration"></a>Scadenza del token
-Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scadenza. Per le scadenze dei diversi tipi di account utente, vedere la tabella seguente. Alla **scadenza del token** di autenticazione potrebbe essere visualizzato il messaggio di errore seguente: Errore dell'operazione relativa alle credenziali: invalid_grant - AADSTS70002: Errore di convalida delle credenziali. AADSTS70008: La concessione dell'accesso specificata è scaduta o è stata revocata. ID traccia: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID correlazione: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z".
+Il codice di autorizzazione generato con il pulsante **Autorizza** ha una scadenza. Per le scadenze dei diversi tipi di account utente, vedere la tabella seguente. È possibile che venga visualizzato il seguente messaggio di errore alla **scadenza del token** di autenticazione:
+ 
+```
+"Credential operation error: invalid_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z".
+```
 
 | Tipo di utente | Scade dopo |
 |:--- |:--- |
@@ -530,7 +533,7 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene
 | fileName |Il nome del file in fileName nell'archivio di Azure Data Lake è facoltativo e distingue tra maiuscole e minuscole. fileName è facoltativo e non applica la distinzione tra maiuscole e minuscole. <br/><br/>Se si specifica un filename, l'attività, inclusa la copia, funziona sul file specifico.<br/><br/>Quando fileName non è specificato, la copia include tutti i file in folderPath per il set di dati di input.<br/><br/>Quando fileName non viene specificato per un set di dati di output, il nome del file generato avrà il formato seguente: Data<Guid>.txt, ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
 | partitionedBy |partitionedBy è una proprietà facoltativa. Può essere utilizzata per specificare una proprietà folderPath dinamica e un nome file per i dati della serie temporale. Ad esempio, è possibile includere parametri per ogni ora di dati in folderPath. Per informazioni dettagliate ed esempi, vedere la sezione [Uso della proprietà partitionedBy](#using-partitionedby-property) . |No |
 | format | Sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](#specifying-textformat), [JsonFormat](#specifying-jsonformat), [AvroFormat](#specifying-avroformat), [OrcFormat](#specifying-orcformat) e [ParquetFormat](#specifying-parquetformat). <br><br> Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No |
-| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**, mentre i livelli supportati sono **Optimal** (Ottimale) **Fastest** (Più veloce). Per altre informazioni, vedere la sezione [Specificare la compressione](#specifying-compression). |No |
+| compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. I livelli supportati sono **Ottimale** e **Più veloce**. Per altre informazioni, vedere la sezione [Specificare la compressione](#specifying-compression). |No |
 
 ### <a name="using-partitionedby-property"></a>Uso della proprietà partitionedBy
 È possibile specificare una proprietà folderPath dinamica e il nome file per i dati di una serie temporale con la sezione **partitionedBy** , macro Data Factory e le variabili di sistema SliceStart e SliceEnd, che indicano l'ora di inizio e fine per una sezione di dati specificata.
@@ -581,7 +584,7 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano in
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| copyBehavior |Specifica il comportamento di copia. |**PreserveHierarchy:** mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><br/>**FlattenHierarchy**: tutti i file della cartella di origine vengono creati nel primo livello della cartella di destinazione. Il nome dei file di destinazione viene generato automaticamente.<br/><br/>**MergeFiles**: unisce tutti i file della cartella di origine in un solo file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente. |No |
+| copyBehavior |Specifica il comportamento di copia. |<b>PreserveHierarchy:</b> mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><br/><b>FlattenHierarchy</b>: tutti i file della cartella di origine vengono creati nel primo livello della cartella di destinazione. Il nome dei file di destinazione viene generato automaticamente.<br/><br/><b>MergeFiles</b>: unisce tutti i file della cartella di origine in un solo file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente. |No |
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -590,8 +593,5 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano in
 [!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## <a name="performance-and-tuning"></a>Ottimizzazione delle prestazioni
-
-A seconda del fatto che lo spostamento dei dati iniziale sia pianificato con un volume elevato di dati cronologici o con un carico di dati di produzione incrementale, Azure Data Factory include opzioni per migliorare le prestazioni di tali attività. Il parametro concurrency fa parte dell'**attività di copia** e definisce il numero di finestre attività diverse che verranno elaborate in parallelo. Il parametro **parallelCopies** definisce il parallelismo per l'esecuzione di una singola attività. È importante considerare la possibilità di usare questi parametri quando si progettano pipeline per lo spostamento dei dati con Azure Data Factory per raggiungere la massima velocità effettiva.
-
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 

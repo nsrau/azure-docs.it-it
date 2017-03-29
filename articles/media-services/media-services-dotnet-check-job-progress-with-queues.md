@@ -15,49 +15,49 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 876b6a81c5fba7cd9567f913860dd5bdc2391c15
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 0ddac6ef30439e6bea04d63c41662bc49309de2c
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Usare l'archiviazione code di Azure per monitorare le notifiche dei processi di Servizi multimediali con .NET
-Quando si esegue un processo, spesso è necessario monitorarne l'avanzamento. È possibile controllare l'avanzamento usando l'archiviazione code di Azure per monitorare le notifiche dei processi di Servizi multimediali (come descritto in questo argomento) o definendo un gestore eventi StateChanged (come descritto in [questo](media-services-check-job-progress.md) argomento).  
+Quando si esegue un processo, spesso è necessario monitorarne l'avanzamento. È possibile controllare l'avanzamento usando l'archiviazione code di Azure per monitorare le notifiche dei processi di Servizi multimediali di Azure, come descritto in questo articolo. È inoltre possibile definire un gestore eventi **StateChanged**, come descritto in [Monitorare lo stato dei processi mediante .NET](media-services-check-job-progress.md).  
 
-## <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications"></a>Usare il servizio di archiviazione di accodamento di Azure per monitorare le notifiche dei processi di Servizi multimediali
-Servizi multimediali di Microsoft Azure può inviare messaggi di notifica all'[archiviazione code di Azure](../storage/storage-dotnet-how-to-use-queues.md) durante l'elaborazione di processi multimediali. Questo argomento illustra come ricevere questi messaggi di notifica dal servizio di archiviazione code.
+## <a name="use-queue-storage-to-monitor-media-services-job-notifications"></a>Usare il servizio archiviazione code per monitorare le notifiche dei processi di Servizi multimediali
+Durante l'elaborazione dei processi multimediali, Servizi multimediali può recapitare notifiche ad [archiviazione code](../storage/storage-dotnet-how-to-use-queues.md). Questo argomento illustra come ricevere questi messaggi di notifica dal servizio di archiviazione code.
 
-È possibile accedere ai messaggi distribuiti al servizio di archiviazione di accodamento da ogni parte del mondo. L'architettura di messaggistica del servizio di accodamento di Azure, infatti, è affidabile e altamente scalabile. Tra i vari metodi disponibili, quindi, è preferibile usare il polling dell'archiviazione di accodamento.
+È possibile accedere ai messaggi distribuiti al servizio di archiviazione di accodamento da ogni parte del mondo. L'architettura di messaggistica di archiviazione code è affidabile e altamente scalabile. Tra i vari metodi disponibili è preferibile usare il polling dell'archiviazione code per i messaggi.
 
 Può essere necessario ascoltare le notifiche di Servizi multimediali quando, ad esempio, si sta sviluppando un sistema di gestione dei contenuti ed è necessario che il sistema effettui alcune attività aggiuntive dopo il completamento di un processo di codifica (ad esempio, deve attivare il passaggio successivo di un flusso di lavoro o pubblicare contenuti).
 
 ### <a name="considerations"></a>Considerazioni
-Quando si sviluppano applicazioni di Servizi multimediali che usano l'archiviazione di accodamento di Azure, tenere presente quanto segue.
+Quando si sviluppano applicazioni di Servizi multimediali che usano l'archiviazione code, tenere presente quanto segue:
 
-* Il servizio di accodamento non garantisce un recapito ordinato dei messaggi di tipo FIFO (First-In-First-Out). Per altre informazioni, vedere [Analogie e differenze tra le code di Azure e le code del bus di servizio](https://msdn.microsoft.com/library/azure/hh767287.aspx).
-* Le code di archiviazione di Azure non costituiscono un servizio di pushing ed è quindi necessario eseguire il polling della coda.
+* Il servizio di archiviazione code non garantisce un recapito ordinato dei messaggi di tipo FIFO (First-In-First-Out). Per altre informazioni, vedere [Analogie e differenze tra le code di Azure e le code del bus di servizio](https://msdn.microsoft.com/library/azure/hh767287.aspx).
+* Archiviazione code non è un servizio di push. È necessario eseguire il polling della coda.
 * È possibile disporre di un qualsiasi numero di code. Per altre informazioni, vedere [API REST del servizio di accodamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/Queue-Service-REST-API).
-* Le code di archiviazione di Azure hanno delle limitazioni e le informazioni dettagliate sono descritte nel seguente articolo: [Analogie e differenze tra le code di Azure e le code del bus di servizio](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
+* Archiviazione code presenta alcune limitazioni e specifiche da tenere presenti. Queste sono descritte in [Analogie e differenze tra le code di Azure e le code del bus di servizio di Azure](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
 
 ### <a name="code-example"></a>Esempio di codice
 L'esempio di codice contenuto in questa sezione effettua quanto segue:
 
 1. Definisce la classe **EncodingJobMessage** che esegue il mapping al formato del messaggio di notifica. Il codice deserializza i messaggi ricevuti dalla coda in oggetti del tipo **EncodingJobMessage** .
-2. Carica informazioni sugli account di Servizi multimediali e di archiviazione dal file app.config Usa queste informazioni per creare gli oggetti **CloudMediaContext** e **CloudQueue**.
+2. Carica informazioni sugli account di Servizi multimediali e di archiviazione dal file app.config La coda di esempio usa queste informazioni per creare gli oggetti **CloudMediaContext** e **CloudQueue**.
 3. Crea la coda che riceve i messaggi di notifica relativi al processo di codifica.
 4. Crea l'endpoint di notifica di cui viene eseguito il mapping alla coda.
 5. Collega l'endpoint di notifica al processo e invia il processo di codifica. A un processo possono essere collegati anche più endpoint di notifica.
-6. Di questo esempio interessano solo gli stati finali dell'elaborazione dei processi, quindi **NotificationJobState.FinalStatesOnly** verrà passato al metodo **AddNew**.
+6. Passa **NotificationJobState.FinalStatesOnly** al metodo **AddNew**. (In questo esempio vanno notati solo gli stati finali dell'elaborazione dei processi.)
 
         job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
-7. Se si passa NotificationJobState.All, si ricevono tutte le notifiche di modifica dello stato: In coda -> Pianificato -> Elaborazione in corso -> Completato. Tuttavia, come indicato in precedenza, il servizio delle code di archiviazione di Azure non garantisce un recapito ordinato dei messaggi. Per ordinare i messaggi, è possibile usare la proprietà Timestamp (definita nel tipo EncodingJobMessage dell'esempio seguente). È possibile ottenere messaggi di notifica duplicati. è possibile invece usare la proprietà ETag (definita nel tipo EncodingJobMessage). È possibile inoltre che alcune notifiche di cambio di stato vengano ignorate.
+7. Se si passa **NotificationJobState.All**, si ricevono tutte le notifiche di modifica dello stato: in coda, pianificate, in elaborazione e completate. Tuttavia, come indicato in precedenza, il servizio di archiviazione code non garantisce un recapito ordinato. Per ordinare i messaggi, usare la proprietà **Timestamp** (definita nel tipo **EncodingJobMessage** nell'esempio seguente). Sono possibili i messaggi duplicati. Per verificare la presenza di duplicati, usare la **proprietà ETag** (definita nel tipo **EncodingJobMessage**). È possibile inoltre che alcune notifiche di modifica dello stato vengano ignorate.
 8. Attende che il processo abbia raggiunto lo stato Completato controllando la coda ogni 10 secondi. Elimina i messaggi man mano che vengono elaborati.
 9. Elimina la coda e l'endpoint di notifica.
 
 > [!NOTE]
 > Il modo migliore per monitorare lo stato di un processo è quello di ascoltare i messaggi di notifica, come illustrato nel seguente esempio.
 >
-> In alternativa, è possibile controllare lo stato di un processo usando la proprietà **IJob.State** .  Un messaggio di notifica relativo al completamento di un processo potrebbe essere ricevuto prima che lo stato in **IJob** sia impostato su **Operazione completata**. La proprietà **IJob.State** riflette lo stato esatto con un leggero ritardo.
+> In alternativa, è possibile controllare lo stato di un processo usando la proprietà **IJob.State** .  Un messaggio di notifica relativo al completamento del processo potrebbe essere ricevuto prima che lo stato in **IJob** sia impostato su **Operazione completata**. La proprietà **IJob.State** riflette lo stato esatto con un leggero ritardo.
 >
 >
 
@@ -317,7 +317,7 @@ L'esempio di codice contenuto in questa sezione effettua quanto segue:
         }
     }
 
-Il precedente esempio ha prodotto il seguente output. I valori possono variare.
+Il precedente esempio ha prodotto l'output seguente. I valori possono variare.
 
     Created assetFile BigBuckBunny.mp4
     Upload BigBuckBunny.mp4
@@ -346,7 +346,7 @@ Il precedente esempio ha prodotto il seguente output. I valori possono variare.
 
 
 ## <a name="next-step"></a>Passaggio successivo
-Analizzare i percorsi di apprendimento dei Servizi multimediali
+Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

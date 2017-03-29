@@ -17,9 +17,9 @@ ms.date: 11/21/2016
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: 495ee4a14e779099f828db0c08068bc3772cd7d4
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 2d60af167b8d7805e6f01264de84fb1351d85f98
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -120,6 +120,46 @@ Nel codice JSON seguente è possibile notare che lo script è archiviato in GitH
   }
 }
 ```
+
+Come indicato in precedenza, è anche possibile archiviare gli script personalizzati nell'archivio BLOB di Azure. Esistono due possibilità di archiviazione per le risorse di script nell'archivio BLOB: rendere pubblico il contenitore o lo script e seguire l'approccio descritto in precedenza, oppure mantenere l'archivio BLOB privato il che implica indicare storageAccountName e storageAccountKey nella definizione della risorsa CustomScriptExtension.
+
+Nell'esempio seguente è stato effettuato un passaggio in più. Sebbene sia possibile indicare il nome e la chiave dell'account di archiviazione come parametro o variabile durante la distribuzione, i modelli di Resource Manager implementano la funzione `listKeys` che può recuperare la chiave dell'account di archiviazione a livello di programmazione e inserirla nel modello in fase di distribuzione.
+
+Nell'esempio di definizione di risorsa CustomScriptExtension riportato di seguito, lo script personalizzato è già stato caricato in un account di archiviazione di Azure denominato `mystorageaccount9999` che esiste in un altro gruppo di risorse denominato `mysa999rgname`. Quando si distribuisce un modello contenente questa risorsa, la funzione `listKeys` recupera a livello di programmazione la chiave dell'account di archiviazione per l'account di archiviazione `mystorageaccount9999` nel gruppo di risorse `mysa999rgname` e la inserisce nel modello.
+
+```json
+{
+  "apiVersion": "2015-06-15",
+  "type": "extensions",
+  "name": "config-app",
+  "location": "[resourceGroup().location]",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
+    "[variables('musicstoresqlName')]"
+  ],
+  "tags": {
+    "displayName": "config-app"
+  },
+  "properties": {
+    "publisher": "Microsoft.Compute",
+    "type": "CustomScriptExtension",
+    "typeHandlerVersion": "1.7",
+    "autoUpgradeMinorVersion": true,
+    "settings": {
+      "fileUris": [
+        "https://mystorageaccount9999.blob.core.windows.net/container/configure-music-app.ps1"
+      ]
+    },
+    "protectedSettings": {
+      "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 -user ',parameters('adminUsername'),' -password ',parameters('adminPassword'),' -sqlserver ',variables('musicstoresqlName'),'.database.windows.net')]",
+      "storageAccountName": "mystorageaccount9999",
+      "storageAccountKey": "[listKeys(resourceId('mysa999rgname','Microsoft.Storage/storageAccounts', mystorageaccount9999), '2015-06-15').key1]"
+    }
+  }
+}
+```
+
+Il principale vantaggio di questo approccio è che non è necessario modificare i parametri del modello o della distribuzione nel caso in cui la chiave dell'account di archiviazione venga modificata.
 
 Per altre informazioni sull'estensione script personalizzata, vedere [Custom script extensions with Resource Manager templates](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Estensioni script personalizzate con i modelli di Resource Manager).
 
