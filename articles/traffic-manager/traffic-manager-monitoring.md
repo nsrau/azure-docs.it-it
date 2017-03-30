@@ -1,5 +1,5 @@
 ---
-title: Monitoraggio e failover degli endpoint di Gestione traffico | Documentazione Microsoft
+title: Monitoraggio degli endpoint di Gestione traffico di Azure | Microsoft Docs
 description: "Questo articolo illustra in che modo Gestione traffico usa il monitoraggio e il failover automatico degli endpoint per consentire ai clienti di Azure di distribuire applicazioni a disponibilità elevata"
 services: traffic-manager
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 69b94c93ad3e9c9745af8485766b4237cac0062c
-ms.openlocfilehash: 4df9f744c7dde9224157eca1f869c0c420036d76
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: cec4f541ebac6202a3880ec7338a9f0a0ac645b5
+ms.lasthandoff: 03/18/2017
 
 ---
 
-# <a name="traffic-manager-endpoint-monitoring-and-failover"></a>Monitoraggio e failover degli endpoint di Gestione traffico
+# <a name="traffic-manager-endpoint-monitoring"></a>Monitoraggio degli endpoint di Gestione traffico
 
 Gestione traffico di Azure include il monitoraggio degli endpoint e il failover automatico degli endpoint. Questa funzionalità consente di distribuire applicazioni a disponibilità elevata resilienti agli errori di endpoint, inclusi gli errori di area di Azure.
 
@@ -131,71 +132,7 @@ Per altre informazioni, vedere [Metodi di routing del traffico di Gestione traff
 
 Per altre informazioni su come risolvere i problemi relativi ai controlli di integrità non riusciti, vedere [Risoluzione dei problemi relativi allo stato danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md).
 
-## <a name="faq"></a>Domande frequenti
 
-### <a name="is-traffic-manager-resilient-to-azure-region-failures"></a>Gestione traffico è resiliente rispetto agli errori di area di Azure?
-
-Gestione traffico è un componente fondamentale del recapito di applicazioni a disponibilità elevata in Azure.
-Per assicurare una disponibilità elevata, Gestione traffico deve garantire un livello estremamente elevato di disponibilità, nonché la resilienza rispetto agli errori di area.
-
-Per impostazione predefinita, i componenti di Gestione traffico resistono sono resilienti agli errori di qualsiasi area di Azure a livello globale. Questa resilienza si applica a tutti i componenti di Gestione traffico: server dei nomi DNS, API, livello di archiviazione e servizio di monitoraggio degli endpoint.
-
-Nel caso improbabile in cui si verifichi l'interruzione di un'intera area di Azure, Gestione traffico deve continuare a funzionare normalmente. Per le applicazioni distribuite in più aree di Azure Gestione traffico consente di indirizzare il traffico alle istanze disponibili delle applicazioni.
-
-### <a name="how-does-the-choice-of-resource-group-location-affect-traffic-manager"></a>In che modo la scelta della posizione del gruppo di risorse si ripercuote su Gestione traffico?
-
-Gestione traffico è un singolo servizio globale. Non è a livello di area. La scelta della posizione del gruppo di risorse non è rilevante per i profili di Gestione traffico distribuiti in quel gruppo di risorse.
-
-Azure Resource Manager richiede che tutti i gruppi di risorse specifichino una posizione che determina il percorso predefinito delle risorse distribuite nel gruppo di risorse in questione. Quando si crea un profilo di Gestione traffico, viene creato in un gruppo di risorse. Tutti i profili di Gestione traffico usano **globale** come posizione, ignorando l'impostazione predefinita del gruppo di risorse.
-
-### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>Come si determina lo stato di integrità corrente di ogni endpoint?
-
-Lo stato di monitoraggio corrente di ogni endpoint viene visualizzato nel portale di Azure, insieme al profilo complessivo. Queste informazioni sono anche disponibili con l'[API REST](https://msdn.microsoft.com/library/azure/mt163667.aspx) di Gestione traffico, i [cmdlet PowerShell](https://msdn.microsoft.com/library/mt125941.aspx) e l'[interfaccia della riga di comando multipiattaforma di Azure](../xplat-cli-install.md).
-
-In Azure non vengono visualizzate informazioni cronologiche sull'integrità precedente degli endpoint e non è possibile generare avvisi sulle modifiche dell'integrità degli endpoint.
-
-### <a name="can-i-monitor-https-endpoints"></a>È possibile monitorare gli endpoint HTTPS?
-
-Sì. Gestione traffico supporta il probing su HTTPS. Definire **HTTPS** come protocollo nella configurazione del monitoraggio.
-
-Gestione traffico non prevede alcuna convalida di certificati, tra cui:
-
-* I certificati sul lato server non vengono convalidati
-* I certificati SNI sul lato server non sono supportati
-* I certificati client non sono supportati
-
-### <a name="what-host-header-do-endpoint-health-checks-use"></a>Quali intestazione host viene usata per i controlli di integrità degli endpoint?
-
-Gestione traffico usa le intestazioni host nei controlli di integrità HTTP e HTTPS. L'intestazione host usata da Gestione traffico è il nome dell'endpoint di destinazione configurato nel profilo. Il valore usato nell'intestazione host non può essere specificato separatamente dalla proprietà target.
-
-### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>Quali sono gli indirizzi IP da cui si originano i controlli di integrità?
-
-L'elenco seguente contiene gli indirizzi IP da cui possono provenire i controlli di integrità di Gestione traffico. È possibile usare questo elenco per assicurarsi che le connessioni in ingresso da questi indirizzi IP siano consentite agli endpoint per controllarne lo stato di integrità.
-
-* 40.68.30.66
-* 40.68.31.178
-* 137.135.80.149
-* 137.135.82.249
-* 23.96.236.252
-* 65.52.217.19
-* 40.87.147.10
-* 40.87.151.34
-* 13.75.124.254
-* 13.75.127.63
-* 52.172.155.168
-* 52.172.158.37
-* 104.215.91.84
-* 13.75.153.124
-* 13.84.222.37
-* 23.101.191.199
-* 23.96.213.12
-* 137.135.46.163
-* 137.135.47.215
-* 191.232.208.52
-* 191.232.214.62
-* 13.75.152.253
-* 104.41.187.209
-* 104.41.190.203
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -206,9 +143,4 @@ Ulteriori informazioni sui [metodi di routing del traffico](traffic-manager-rout
 Informazioni su come [creare un profilo di Gestione traffico](traffic-manager-manage-profiles.md)
 
 [Risoluzione dei problemi relativi allo stato Degraded](traffic-manager-troubleshooting-degraded.md) di un endpoint di Gestione traffico
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

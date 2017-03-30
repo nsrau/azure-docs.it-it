@@ -1,5 +1,5 @@
 ---
-title: Esempio di script di Azure PowerShell - Creare una VM Linux | Documentazione Microsoft
+title: Esempio di script di Azure PowerShell - Creare una VM Linux | Microsoft Docs
 description: Esempio di script di Azure PowerShell - Creare una VM Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,17 +16,17 @@ ms.workload: infrastructure
 ms.date: 03/02/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: a73e26d50fc314fcfff31cef591abcdd62ca5f44
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: ef84d2893bc58b919d7724ce261bc90b44129ed4
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="create-a-fully-configured-virtual-machine-with-powershell"></a>Creare una macchina virtuale completamente configurata con PowerShell
 
-Questo script crea una macchina virtuale di Azure con sistema operativo Ubuntu e le relative risorse di rete. Dopo aver eseguito correttamente lo script, è possibile accedere alla macchina virtuale tramite SSH. 
+Questo script crea una macchina virtuale di Azure con un sistema operativo Ubuntu. Dopo aver eseguito lo script, è possibile accedere alla macchina virtuale tramite SSH.
 
-Prima di eseguire questo script, verificare che sia stata creata una connessione con Azure tramite il comando `Login-AzureRmAccount`. Inoltre, una chiave pubblica SSH con il nome `id_rsa.pub` deve essere archiviata nella directory ~/.ssh del profilo utente.
+Se necessario, installare Azure PowerShell usando l'istruzione presente nella [Guida di Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) e quindi eseguire `Login-AzureRmAccount` per creare una connessione con Azure. Sarà inoltre necessario disporre di una chiave pubblica SSH denominata `id_rsa.pub` nella directory .ssh del profilo utente.
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -34,7 +34,7 @@ Prima di eseguire questo script, verificare che sia stata creata una connessione
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
 
-Dopo l'esecuzione dello script di esempio, eseguire il comando seguente per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
+Eseguire questo comando per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup

@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti su Cache Redis di Azure | Documentazione Microsoft
+title: Domande frequenti su Cache Redis di Azure | Microsoft Docs
 description: "Risposte alle domande più comuni, modelli e procedure consigliate per la Cache Redis di Azure."
 services: redis-cache
 documentationcenter: 
@@ -12,12 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/21/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 705e64d52d796ae861465f71de397d11bf14086e
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: afdbd737be96acbcf2883c644bfbbb741fe94179
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -134,7 +134,7 @@ Da questa tabella è possibile trarre le seguenti conclusioni:
 * Con il clustering di Redis, la velocità effettiva aumenta in modo lineare man mano che aumenta il numero di partizioni (nodi) nel cluster. Ad esempio, se si crea un cluster P4 di 10 partizioni, la velocità effettiva disponibile sarà 250 KB * 10 = 2,5 milioni di RPS.
 * La velocità effettiva per dimensioni maggiori di chiave è superiore nel Premium rispetto al livello Standard.
 
-| Piano tariffario | Dimensione | Core CPU | Larghezza di banda disponibile | Dimensioni della chiave&1; KB |
+| Piano tariffario | Dimensione | Core CPU | Larghezza di banda disponibile | Dimensioni del valore di 1 KB |
 | --- | --- | --- | --- | --- |
 | **Dimensioni della cache livello Standard** | | |**Megabit al secondo (Mb/s) / Megabyte al secondo (MB/s)** |**Richieste al secondo (RPS)** |
 | C0 |250 MB |Condiviso |5 / 0,625 |600 |

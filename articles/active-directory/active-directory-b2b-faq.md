@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti su Collaborazione B2B di Azure Active Directory | Documentazione Microsoft
+title: Domande frequenti su Collaborazione B2B di Azure Active Directory | Microsoft Docs
 description: Domande frequenti su Collaborazione B2B di Azure Active Directory
 services: active-directory
 documentationcenter: 
@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/14/2017
+ms.date: 03/18/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 4b7ed095729e810f7f1112d3b6becfaf186bf508
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 995f185f99c80809a5c4c2925b8d594b1d5568ff
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -97,6 +97,13 @@ Azure AD ha requisiti fissi per il set di caratteri, la complessità della passw
 ### <a name="applications-want-to-differentiate-their-experience-between-a-tenant-user-and-a-guest-user-is-there-standard-guidance-for-this-is-the-presence-of-the-identity-provider-claim-the-right-model-for-this"></a>Le applicazioni vogliono differenziare l'esperienza tra un utente di tenant e un utente guest. Ci sono linee guida standard per questo? La presenza dell'attestazione del provider di identità è il modello appropriato per questo?
  
 Un utente guest può usare qualsiasi provider di identità per autenticarsi, come spiegato in [Proprietà di un utente di Collaborazione B2B di Azure Active Directory](active-directory-b2b-user-properties.md). Di conseguenza, UserType è la proprietà giusta per determinare questo. L'attestazione UserType non è attualmente inclusa nel token. Le applicazioni devono usare l'API Graph per eseguire una query nella directory per l'utente e ottenere il suo UserType.
+
+### <a name="where-can-find-a-b2b-collaboration-community-to-share-solutions-and-submit-ideas"></a>Dove è possibile trovare una community di collaborazione B2B per condividere soluzioni e inviare idee?
+
+Ascoltiamo costantemente commenti e suggerimenti su come migliorare la collaborazione B2B. Partecipa alla discussione, condividi gli scenari di utente e le procedure consigliate che conosci e comunicaci cosa apprezzi di Collaborazione B2B di Azure AD su [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b)
+ 
+Invia le tue idee e vota le funzionalità future sul sito [B2B Collaboration Ideas](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas).
+
 
 ### <a name="next-steps"></a>Passaggi successivi
 

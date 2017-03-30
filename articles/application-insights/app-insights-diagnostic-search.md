@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
-ms.openlocfilehash: 1ef09170f9d5dd28005f70913df2c945f8e4ac12
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 5e3cf1407079a166fbe5e24abae2248ef467ebbb
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -167,15 +167,19 @@ Oltre la telemetria predefinita inviata da Application Insights SDK, è possibil
 
 [Informazioni su come inviare log e telemetria personalizzata ad Application Insights](app-insights-search-diagnostic-logs.md).
 
-## <a name="a-namequestionsaq--a"></a><a name="questions"></a>Domande e risposte
-### <a name="a-namelimitsahow-much-data-is-retained"></a><a name="limits"></a>Quanti dati vengono conservati?
+## <a name="questions"></a>Domande e risposte
+### <a name="limits"></a>Quanti dati vengono conservati?
 
 Vedere il [Riepilogo dei limiti](app-insights-pricing.md#limits-summary).
 
 ### <a name="how-can-i-see-post-data-in-my-server-requests"></a>Come è possibile visualizzare dati POST nelle richieste server?
 I dati POST non vengono registrati automaticamente, ma è possibile usare [TrackTrace o chiamate di log](app-insights-search-diagnostic-logs.md). Inserire i dati POST nel parametro del messaggio. Non è possibile filtrare in base al messaggio nello stesso modo delle proprietà, ma il limite delle dimensioni è maggiore.
 
-## <a name="a-nameaddanext-steps"></a><a name="add"></a>Passaggi successivi
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
+## <a name="add"></a>Passaggi successivi
 * [Scrivere query complesse in Analytics](app-insights-analytics-tour.md)
 * [Inviare log e dati di telemetria personalizzati ad Application Insights](app-insights-search-diagnostic-logs.md)
 * [Configurare i test di disponibilità e velocità di risposta](app-insights-monitor-web-app-availability.md)

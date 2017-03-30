@@ -1,5 +1,5 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare un&quot;App Web e distribuire il codice nell&quot;ambiente di gestione temporanea | Documentazione Microsoft
+title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare un&quot;App Web e distribuire il codice nell&quot;ambiente di gestione temporanea | Microsoft Docs
 description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare un&quot;App Web e distribuire il codice nell&quot;ambiente di gestione temporanea
 services: app-service\web
 documentationcenter: 
@@ -12,12 +12,12 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 03/20/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: a985f7999affa1af8fdc1263d3cf674d6888158f
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 24ba1e8c862f1f451653cd0b1c283cae7bf910ba
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/11/2017
 
 Questo script di esempio crea un'App Web nel servizio app con uno slot di distribuzione aggiuntivo denominato "staging" e quindi distribuisce un'app di esempio allo slot "staging".
 
-Prima di eseguire questo script, verificare che sia stata creata una connessione con Azure tramite il comando `az login`. 
+Se necessario, installare l'interfaccia della riga di comando di Azure usando l'istruzione presente nella [Guida all'installazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e quindi eseguire `az login` per creare una connessione con Azure.
 
 Questo esempio funziona in una shell Bash. Per le opzioni sull'esecuzione di script dell'interfaccia della riga di comando di Azure nel client Windows, vedere [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md) (Esecuzione dell'interfaccia della riga di comando di Azure in Windows).
 

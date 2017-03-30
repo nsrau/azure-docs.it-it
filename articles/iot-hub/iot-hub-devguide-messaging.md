@@ -1,5 +1,5 @@
 ---
-title: Informazioni sulla messaggistica hub IoT di Azure | Documentazione Microsoft
+title: Informazioni sulla messaggistica hub IoT di Azure | Microsoft Docs
 description: Guida per gli sviluppatori - Messaggistica da dispositivo a cloud e da cloud a dispositivo con l&quot;hub IoT. Include informazioni sui formati dei messaggi e sui protocolli di comunicazione supportati.
 services: iot-hub
 documentationcenter: .net
@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2fb6f4d8330eb62e01af318277bc0e90aee039e0
-ms.openlocfilehash: d3c4d1a91615957764552a985e0dfeba7c10a927
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: e9e1649e4329d10ca8b87c730ad8c6beb3be818f
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -191,7 +191,7 @@ Il corpo è una matrice serializzata con JSON dei record, ognuno con le propriet
 | --- | --- |
 | EnqueuedTimeUtc |Timestamp che indica quando è stato creato il risultato del messaggio. Ad esempio, il dispositivo ha completato l'operazione o il messaggio è scaduto. |
 | OriginalMessageId |**MessageId** del messaggio da cloud a dispositivo correlato a queste informazioni sui commenti. |
-| StatusCode |Numero intero obbligatorio. Usato nei messaggi con commenti generati dall'hub IoT. <br/> 0 = esito positivo <br/> 1 = il messaggio è scaduto <br/> 2 = il numero massimo di recapiti è stato superato <br/> &3; = messaggio rifiutato |
+| StatusCode |Numero intero obbligatorio. Usato nei messaggi con commenti generati dall'hub IoT. <br/> 0 = esito positivo <br/> 1 = il messaggio è scaduto <br/> 2 = il numero massimo di recapiti è stato superato <br/> 3 = messaggio rifiutato |
 | Descrizione |Valori stringa per **StatusCode**. |
 | deviceId |**DeviceId** del messaggio da cloud a dispositivo correlato a queste informazioni sui commenti. |
 | DeviceGenerationId |**DeviceGenerationId** del dispositivo di destinazione del messaggio da cloud a dispositivo correlato a queste informazioni sui commenti. |
@@ -292,7 +292,7 @@ La tabella seguente riporta il set delle proprietà di sistema nei messaggi dell
 | Numero di sequenza |Numero, univoco per ogni dispositivo-coda, assegnato dall'hub IoT a ogni messaggio da cloud a dispositivo. |
 | To |Destinazione specificata nei messaggi [da cloud a dispositivo][lnk-c2d]. |
 | ExpiryTimeUtc |Data e ora della scadenza del messaggio. |
-| EnqueuedTime |Data e ora di ricezione del messaggio da parte dell'hub IoT. |
+| EnqueuedTime |Date e ora del messaggio [da cloud a dispositivo][lnk-c2d] ricevute dall'hub IoT. |
 | CorrelationId |Proprietà stringa in un messaggio di risposta che contiene in genere il valore MessageId della richiesta nei modelli richiesta-risposta. |
 | UserId |ID usato per specificare l'origine dei messaggi. Quando i messaggi vengono generati dall'hub IoT, viene impostata su `{iot hub name}`. |
 | Ack |Generatore di messaggi con commenti. Questa proprietà viene usata nei messaggi da cloud a dispositivo per richiedere all'hub IoT di generare messaggi con commenti come risultato dell'utilizzo del messaggio da parte del dispositivo. I valori possibili sono i seguenti: **none** (predefinito): non viene generato alcun messaggio con commenti, **positive**: si riceve un messaggio con commenti se il messaggio è stato completato, **negative**: si riceve un messaggio con commenti se il messaggio è scaduto o se è stato raggiunto il numero massimo di recapiti senza il completamento da parte del dispositivo, **full**: sia per esito positivo che negativo. Per altre informazioni, vedere [Commenti sui messaggi][lnk-feedback]. |
@@ -436,3 +436,4 @@ Per provare alcuni dei concetti descritti in questo articolo, possono essere uti
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-event-hub-partitions]: ../event-hubs/event-hubs-what-is-event-hubs.md#partitions
+

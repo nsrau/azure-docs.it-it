@@ -1,5 +1,5 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare un&quot;App Web e distribuire il codice da un archivio Git locale | Documentazione Microsoft
+title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare un&quot;App Web e distribuire il codice da un archivio Git locale | Microsoft Docs
 description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare un&quot;App Web e distribuire il codice da un archivio Git locale
 services: app-service\web
 documentationcenter: 
@@ -12,12 +12,12 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 03/20/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 20ea69ea285fc97bbcf755ea1c40447745ff4be0
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 10404f2814b167dfd54869f4b6e58f911adbdc8d
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/11/2017
 
 Questo script di esempio crea un'App Web nel servizio app con le relative risorse correlate e quindi distribuisce il codice dell'App Web in un archivio Git locale.
 
-Prima di eseguire questo script, verificare che sia stata creata una connessione con Azure tramite il comando `az login` e che sia stato eseguito il commit del codice dell'applicazione in un archivio Git locale.
+Se necessario, installare l'interfaccia della riga di comando di Azure usando l'istruzione presente nella [Guida all'installazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e quindi eseguire `az login` per creare una connessione con Azure. È inoltre necessario eseguire il commit del codice dell'applicazione in un repository Git locale.
 
 Questo esempio funziona in una shell Bash. Per le opzioni sull'esecuzione di script dell'interfaccia della riga di comando di Azure nel client Windows, vedere [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md) (Esecuzione dell'interfaccia della riga di comando di Azure in Windows).
 

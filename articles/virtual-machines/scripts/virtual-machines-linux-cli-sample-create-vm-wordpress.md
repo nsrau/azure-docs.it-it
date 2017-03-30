@@ -1,5 +1,5 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una VM Linux con WordPress | Documentazione Microsoft
+title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una VM Linux con WordPress | Microsoft Docs
 description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una VM Linux con WordPress
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,19 +16,19 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: e5362b32a0f93433c77c27a6fc116960c45404f9
-ms.openlocfilehash: 8e4068428b814265140b76905bc7f90d9e88f94b
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: eb8b5b66b1cdb7bc7e588292ec714c30e3607bf6
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="create-a-vm-with-wordpress"></a>Creare una VM con WordPress
 
-Questo script crea una macchina virtuale e quindi usa l'estensione di script personalizzata della macchina virtuale di Azure per installare WordPress. Dopo l'esecuzione dello script è possibile accedere al sito di configurazione di WordPress all'indirizzo `http://<public IP of VM>/wordpress`. 
+Questo script crea una macchina virtuale e quindi usa l'estensione di script personalizzata della macchina virtuale di Azure per installare WordPress. Dopo aver eseguito lo script, è possibile accedere al sito di configurazione di WordPress in `http://<public IP of VM>/wordpress`. 
+
+Se necessario, installare l'interfaccia della riga di comando di Azure usando l'istruzione presente nella [Guida all'installazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e quindi eseguire `az login` per creare una connessione con Azure.
 
 Questo esempio funziona in una shell Bash. Per le opzioni sull'esecuzione di script dell'interfaccia della riga di comando di Azure nel client Windows, vedere [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md) (Esecuzione dell'interfaccia della riga di comando di Azure in Windows).
-
-Prima di eseguire questo script, verificare che sia stata creata una connessione con Azure tramite il comando `az login`.
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -36,7 +36,7 @@ Prima di eseguire questo script, verificare che sia stata creata una connessione
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
 
-Dopo l'esecuzione dello script di esempio, eseguire il comando seguente per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
+Eseguire questo comando per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
 
 ```azurecli
 az group delete --name myResourceGroup

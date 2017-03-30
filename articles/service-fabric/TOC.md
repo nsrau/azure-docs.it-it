@@ -1,3 +1,4 @@
+
 # Panoramica
 ## [Che cos'è Service Fabric?](service-fabric-overview.md)
 ## [Informazioni sui microservizi](service-fabric-overview-microservices.md)
@@ -22,11 +23,13 @@
 ### [Modelli e scenari](service-fabric-patterns-and-scenarios.md)
 ### Nozioni di base
 #### [Modello di applicazione](service-fabric-application-model.md)
+#### [Inserire un'applicazione in un pacchetto](service-fabric-package-apps.md)
 #### [Modelli di programmazione supportati](service-fabric-choose-framework.md)
 #### [Stato del servizio](service-fabric-concepts-state.md)
 #### [Modello di comunicazione con i servizi](service-fabric-connect-and-communicate-with-services.md)
 #### [Aggiungere un front-end Web](service-fabric-add-a-web-frontend.md)
 #### [Risorse del manifesto del servizio](service-fabric-service-manifest-resources.md)
+#### [Introduzione al plug-in Eclipse per lo sviluppo Java](service-fabric-get-started-eclipse.md)
 #### [Gestire app in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 #### [Configurare connessioni sicure in Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
 #### Debug
@@ -62,7 +65,7 @@
 #### [Backup e ripristino](service-fabric-reliable-services-backup-restore.md)
 #### [Comunicare con Reliable Services](service-fabric-reliable-services-communication.md)
 #### [Proteggere le comunicazioni con Reliable Services](service-fabric-reliable-services-secure-communication.md)
-##### [ASP.NET](service-fabric-reliable-services-communication-webapi.md)
+##### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 ##### [Servizio remoto](service-fabric-reliable-services-communication-remoting.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
 ##### [Proxy inverso](service-fabric-reverseproxy.md)
@@ -88,6 +91,7 @@
 ## Eseguire la migrazione da Servizi cloud
 ### [Confrontare Servizi cloud e Service Fabric](service-fabric-cloud-services-migration-differences.md)
 ### [Eseguire la migrazione a Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
+### [Procedure consigliate](/azure/architecture/service-fabric/migrate-from-cloud-services)
 
 ## Creare e gestire i cluster
 

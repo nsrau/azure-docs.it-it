@@ -18,9 +18,9 @@ ms.date: 02/28/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9c181935e7ba897087d286bea22ebf500ef36e52
-ms.openlocfilehash: 307bfae0e7161782a9ddb97f4ca0d510fc772ab7
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: c920627e11e801bde88b47fc7c7e128e06f59ea8
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -62,7 +62,7 @@ Se non si riceve un'email dopo aver eseguito i passaggi seguenti, assicurarsi ch
 
 5. È possibile visualizzare l'utilizzo giornaliero facendo clic sul periodo di fatturazione. 
 
-Per altre informazioni sulla fattura, vedere [Comprendere la fattura per Microsoft Azure](billing-understand-your-bill.md).
+Per altre informazioni sulla fattura, vedere [Comprendere la fattura per Microsoft Azure](billing-understand-your-bill.md). Per informazioni sulla gestione dei costi, vedere [Evitare costi aggiuntivi con la gestione dei costi e la fatturazione di Azure](billing-getting-started.md).
 
 ## <a name="download-usage-from-the-account-center-csv"></a>Scaricare i dati di utilizzo dal Centro account (CSV)
 1. Accedere al [Centro account di Azure](https://account.windowsazure.com/subscriptions) come amministratore account.
@@ -85,7 +85,7 @@ Per altre informazioni sulla fattura, vedere [Comprendere la fattura per Microso
 
     ![Schermata che mostra l'opzione Scarica utilizzo](./media/billing-download-azure-invoice-daily-usage-date/DLusage.png)
 
-Per altre informazioni sui dati di utilizzo giornalieri, vedere [Comprendere la fattura per Microsoft Azure](billing-understand-your-bill.md).
+Per altre informazioni sui dati di utilizzo giornalieri, vedere [Comprendere la fattura per Microsoft Azure](billing-understand-your-bill.md). Per informazioni sulla gestione dei costi, vedere [Evitare costi aggiuntivi con la gestione dei costi e la fatturazione di Azure](billing-getting-started.md).
 
 ## <a name="noinvoice"></a> Perché non viene visualizzata una fattura per l'ultimo periodo di fatturazione?
 Potrebbero esserci diversi motivi per cui non è visualizzata alcuna fattura:

@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: dfb33a30cac74875281645e74339be152d8ef476
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 7cac733717b4af048e58cf3d574c5743889100c1
+ms.lasthandoff: 03/22/2017
 
 ---
 
@@ -70,7 +70,7 @@ Prima di iniziare, è necessario abilitare la registrazione dei flussi dei grupp
 
 ## <a name="understanding-the-visuals"></a>Informazioni sugli oggetti visivi
 
-Il modello include set di oggetti visivi che permettono di comprendere i dati dei registri dei flussi dei gruppi di sicurezza di rete. Le immagini seguenti mostrano un esempio dell'aspetto del dashboard popolato con i dati. Di seguito vengono esaminati in dettaglio i singoli oggetti visivi 
+Il modello include un set di oggetti visivi che aiutano a comprendere i dati dei registri dei flussi dei gruppi di sicurezza di rete. Le immagini seguenti mostrano un esempio dell'aspetto del dashboard popolato con i dati. Di seguito vengono esaminati in dettaglio i singoli oggetti visivi 
 
 ![Power BI][5]
  
@@ -96,9 +96,9 @@ Il grafico a barre riportato di seguito mostra i flussi in base ai gruppi di sic
  
 I grafici informativi riportati di seguito mostrano i gruppi di sicurezza di rete presenti nei log, il numero di flussi acquisiti nel periodo specificato e la data del log acquisito più di recente. Queste informazioni permettono di capire quali gruppi di sicurezza di rete vengono registrati e l'intervallo di date dei flussi.
 
-![grafico informativo&1;][11]
+![grafico informativo 1][11]
 
-![grafico informativo&2;][12]
+![grafico informativo 2][12]
 
 Questo modello include i filtri dei dati indicati di seguito, che permettono di visualizzare solo i dati rilevanti. È possibile applicare filtri ai gruppi di risorse, ai gruppi di sicurezza di rete e alle regole. È anche possibile applicare filtri alle informazioni a 5 tuple, alle decisioni e all'orario di scrittura del log.
 

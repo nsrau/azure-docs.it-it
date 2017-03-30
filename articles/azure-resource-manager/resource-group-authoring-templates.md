@@ -1,5 +1,5 @@
 ---
-title: Creare modelli per le distribuzioni di Azure | Documentazione Microsoft
+title: Creare modelli per le distribuzioni di Azure | Microsoft Docs
 description: "Descrive la struttura e le proprietà dei modelli di Azure Resource Manager con la sintassi dichiarativa JSON."
 services: azure-resource-manager
 documentationcenter: na
@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/03/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: 52fe8e3ce0c9c94c918818784fd735b5a6486ed8
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: a75863878a97c1202e9b9946b0bff19261952c21
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -55,7 +56,7 @@ La struttura più semplice di un modello è costituita dagli elementi seguenti:
 Le sezioni del modello verranno esaminate in modo dettagliato più avanti in questo argomento.
 
 ## <a name="expressions-and-functions"></a>Espressioni e funzioni
-La sintassi di base del modello è JSON. Espressioni e funzioni estendono tuttavia il codice JSON disponibile nel modello. Con le espressioni è possibile creare valori diversi da quelli strettamente letterali. Le espressioni sono racchiuse tra parentesi quadre, `[` e `]`, e vengono valutate al momento della distribuzione del modello. Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e restituiscono sempre un altro valore JSON. Se è necessario usare una stringa letterale che inizia con una parentesi quadra `[`, usare due parentesi quadre ovvero `[[`.
+La sintassi di base del modello è JSON. Le espressioni e le funzioni estendono ad ogni modo i valori JSON disponibili all'interno del modello.  Le espressioni vengono scritte all'interno di valori letterali stringa JSON il cui primo e ultimo carattere sono le parentesi quadre: rispettivamente`[` e `]`. Il valore dell'espressione viene valutato quando viene distribuito il modello.   Sebbene sia scritto come valore letterale stringa, il risultato della valutazione dell'espressione può essere di un tipo JSON diverso, ad esempio una matrice o un numero intero, a seconda dell'espressione effettiva.  Si noti che per avere una stringa letterale che inizi con una parentesi quadra `[` ma che non venga interpretata come espressione, è necessario aggiungere un'altra parentesi in modo che la stringa inizi con `[[`.
 
 Solitamente, si usano espressioni con funzioni per eseguire operazioni per la configurazione della distribuzione. Proprio come in JavaScript, le chiamate di funzione sono formattate come **functionName(arg1,arg2,arg3)**. Per i riferimenti alle proprietà si usano il punto e gli operatori [index].
 
@@ -431,9 +432,4 @@ Per altre informazioni sull'utilizzo dell'output, vedere [Condivisione dello sta
 * Potrebbe essere necessario usare le risorse esistenti all'interno di un gruppo di risorse diverso. Questo scenario è comune quando si usano account di archiviazione o reti virtuali condivisi tra più gruppi di risorse. Per altre informazioni, vedere la [funzione resourceId](resource-group-template-functions.md#resourceid).
 
 [deployment2cmdlet]: https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/new-azurermresourcegroupdeployment
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

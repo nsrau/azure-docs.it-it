@@ -1,5 +1,5 @@
 ---
-title: Introduzione alle app Web Java per Azure AD | Documentazione Microsoft
+title: Introduzione alle app Web Java per Azure AD | Microsoft Docs
 description: Compilare un&quot;app Web Java che gestisce l&quot;accesso degli utenti con un account aziendale o dell&quot;istituto di istruzione.
 services: active-directory
 documentationcenter: java
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: ade6b7d9fa195ebea8f8587b01e4cc0ba71a0a83
-ms.openlocfilehash: fa5c367d7b8f46349b4bdc1de2af35050329a650
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: a20017a63ebed745e2d101d556e93594325533dc
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -49,8 +49,8 @@ Per configurare l'app per l'autenticazione degli utenti, registrarla innanzitutt
 5. Seguire le istruzioni per creare una nuova **applicazione Web e/o API Web**.
   * Il **nome** descrive l'app agli utenti.
   * L'**URL accesso** è l'URL di base dell'app. L'URL predefinito della struttura è http://localhost:8080/adal4jsample/.
-  * L'**URI ID app** è l'identificatore univoco dell'app. La convenzione di denominazione è `https://<tenant-domain>/<app-name>`, ad esempio `http://localhost:8080/adal4jsample/`.
 6. Dopo aver completato la registrazione, Azure AD assegna automaticamente all'app un ID applicazione univoco. Copiare il valore dalla pagina dell'app per usarlo nelle sezioni successive.
+7. Dalla pagina **Impostazioni** -> **Proprietà** dell'applicazione aggiornare l'URI dell'ID app. L'**URI ID app** è un identificatore univoco dell'app. La convenzione di denominazione è `https://<tenant-domain>/<app-name>`, ad esempio `http://localhost:8080/adal4jsample/`.
 
 Nel portale per l'app creare e copiare una chiave per l'app nella pagina **Impostazioni**. Tale chiave sarà necessaria a breve.
 

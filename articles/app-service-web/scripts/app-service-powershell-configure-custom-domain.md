@@ -1,5 +1,5 @@
 ---
-title: Esempio di script di Azure PowerShell - Assegnare un dominio personalizzato a un&quot;App Web | Documentazione Microsoft
+title: Esempio di script di Azure PowerShell - Assegnare un dominio personalizzato a un&quot;App Web | Microsoft Docs
 description: Esempio di script di Azure PowerShell - Assegnare un dominio personalizzato a un&quot;App Web
 services: app-service\web
 documentationcenter: 
@@ -12,12 +12,12 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/20/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 4453a11a30914fa45c13e8b7e62950dad95757e3
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 2b402bc08b1e682e1c8380ef92fff65414138cad
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/10/2017
 
 Questo script di esempio crea un'App Web nel servizio App con le relative risorse correlate e quindi esegue il mapping di `www.<yourdomain>` a essa. 
 
-Prima di eseguire questo script, verificare che sia stata creata una connessione con Azure tramite il cmdlet `Login-AzureRmAccount` e di avere accesso alla pagina di configurazione DNS del registrar di dominio.
+Se necessario, installare Azure PowerShell usando l'istruzione presente nella [Guida di Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) e quindi eseguire `Login-AzureRmAccount` per creare una connessione con Azure. Occorre inoltre disporre dell'accesso alla pagina di configurazione DNS del registrar di dominio.
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -33,7 +33,7 @@ Prima di eseguire questo script, verificare che sia stata creata una connessione
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
 
-Dopo l'esecuzione dello script di esempio, eseguire il comando seguente per rimuovere il gruppo di risorse, l'App Web e tutte le risorse correlate.
+Dopo aver eseguito lo script di esempio, usare il comando seguente per rimuovere il gruppo di risorse, l'App Web e tutte le risorse correlate.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
@@ -49,11 +49,11 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 | [New-AzureRmAppServicePlan](https://docs.microsoft.com/powershell/resourcemanager/azurerm.websites/v2.5.0/new-azurermappserviceplan) | Consente di creare un piano di servizio app. |
 | [New-AzureRmWebApp](https://docs.microsoft.com/powershell/resourcemanager/azurerm.websites/v2.5.0/new-azurermwebapp) | Crea un'App Web. |
 | [Set-AzureRmAppServicePlan](https://docs.microsoft.com/powershell/resourcemanager/azurerm.websites/v2.5.0/set-azurermappserviceplan) | Modifica un piano di servizio app per cambiarne il piano tariffario. |
-| [Set-AzureRmWebApp](https://docs.microsoft.com/powershell/resourcemanager/azurerm.websites/v2.5.0/set-azurermwebapp) | Modifica la configurazione di un'App Web. |
+| [Set-AzureRmWebApp](https://docs.microsoft.com/powershell/resourcemanager/azurerm.websites/v2.5.0/set-azurermwebapp) | Modifica la configurazione di un'app Web. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 
-Altri esempi di script di Azure PowerShell per app Web del servizio app di Azure sono disponibili in [Esempi di Azure PowerShell](../app-service-powershell-samples.md).
+Altri esempi di Azure PowerShell per app Web del servizio app di Azure sono disponibili in [Azure PowerShell samples](../app-service-powershell-samples.md) (Esempi di Azure PowerShell).
 

@@ -1,26 +1,27 @@
 ---
-title: Proteggere distribuzioni PaaS | Microsoft Docs
+title: Protezione delle distribuzioni PaaS | Microsoft Docs
 description: " Comprendere i vantaggi di sicurezza del modello PaaS rispetto ad altri modelli di servizio cloud e conoscere le procedure consigliate per proteggere una distribuzione PaaS di Azure. "
 services: security
 documentationcenter: na
-author: TerryLanfear
+author: techlake
 manager: MBaldwin
-editor: 
+editor: techlake
 ms.assetid: 
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 03/21/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: b3db1281bbd37fcfbec54bdeb998e6338bb08369
-ms.openlocfilehash: c20e0187f7bf6247e4a685c642edfc62303d4ef5
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: f218fe7e59e46683b544fd83bfea505b7cbe2d59
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="securing-paas-deployments"></a>Proteggere distribuzioni PaaS
+# <a name="securing-paas-deployments"></a>Protezione delle distribuzioni PaaS
 
 In questo articolo vengono fornite informazioni che consentono di:
 
@@ -90,13 +91,13 @@ Di seguito vengono riepilogate le procedure consigliate generali per la gestione
 - **Proteggere le interfacce di gestione delle macchine virtuali nei servizi PaaS e IaaS ibridi** I servizi IaaS e PaaS vengono eseguiti in macchine virtuali. A seconda del tipo di servizio, sono disponibili diverse interfacce di gestione che consentono di gestire direttamente da remoto tali macchine virtuali. È possibile usare protocolli di gestione remota, ad esempio [Secure Shell Protocol (SSH)](https://en.wikipedia.org/wiki/Secure_Shell), [Remote Desktop Protocol (RDP)](https://support.microsoft.com/kb/186607) e [Remote PowerShell](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting). In generale, è consigliabile non abilitare l'accesso remoto diretto alle macchine virtuali da Internet. Se disponibile, è consigliabile usare approcci alternativi, ad esempio tramite una rete virtuale privata di Azure. Se non sono disponibili soluzioni alternative, assicurarsi di usare passphrase complesse e, se disponibile, l'autenticazione a due fattori (ad esempio [Multi-Factor Authentication di Azure](../multi-factor-authentication/multi-factor-authentication.md)).
 - **Usare piattaforme di autenticazione e autorizzazione robuste**
 
-  - Usare le identità federate in Azure AD invece degli archivi utente personalizzati. Quando si usano identità federate, è possibile sfruttare un approccio basato sulla piattaforma e delegare ai partner la gestione delle identità autorizzate. Un approccio con identità federate è particolarmente importante negli scenari in cui i dipendenti vengono rimossi, con tali modifiche che devono essere applicate in più sistemi di identità e autorizzazioni.
-  - Usare i meccanismi di autenticazione e autorizzazione forniti dalla piattaforma invece di un codice personalizzato. Questo perché sviluppare un codice di autenticazione personalizzato può dare luogo a errori. La maggior parte degli sviluppatori non sarà esperta in sicurezza e probabilmente non conoscerà tutte le sfaccettature e gli ultimi sviluppi legati ad autenticazione e autorizzazione. Il codice commerciale, ad esempio quello di Microsoft, è spesso soggetto a rigorose analisi di sicurezza.
-  - Usare l'autenticazione a più fattori. L'autenticazione a più fattori è al momento uno standard per autenticazione e autorizzazione, in quanto permette di evitare le debolezze di sicurezza intrinseche nei tipi di autenticazione basati su nome utente e password. L'accesso a entrambe le interfacce di gestione di Azure, ovvero il portale e PowerShell da remoto, e ai servizi per i clienti deve essere progettato e configurato per l'uso di [Azure Multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md).
+  - Usare le identità federate in Azure AD invece degli archivi utente personalizzati. Quando si usano identità federate, è possibile sfruttare un approccio basato sulla piattaforma e delegare ai partner la gestione delle identità autorizzate. Un approccio con identità federate è particolarmente importante negli scenari in cui i dipendenti vengono rimossi e le modifiche devono essere applicate in più sistemi di identità e autorizzazioni.
+  - Usare i meccanismi di autenticazione e autorizzazione forniti dalla piattaforma invece di un codice personalizzato poiché sviluppare un codice di autenticazione personalizzato può dare luogo a errori. La maggior parte degli sviluppatori non sarà esperta in sicurezza e probabilmente non conoscerà tutte le sfaccettature e gli ultimi sviluppi legati ad autenticazione e autorizzazione. Il codice commerciale, ad esempio quello di Microsoft, è spesso soggetto a rigorose analisi di sicurezza.
+  - Usare l'autenticazione a più fattori. L'autenticazione a più fattori è è lo standard attuale per l'autenticazione e l'autorizzazione, in quanto permette di evitare le lacune di sicurezza intrinseche nei tipi di autenticazione basati su nome utente e password. L'accesso a entrambe le interfacce di gestione di Azure, ovvero il portale e PowerShell da remoto, e ai servizi per i clienti deve essere progettato e configurato per l'uso di [Azure Multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md).
   - Usare protocolli di autenticazione standard come OAuth2 e Kerberos. Questi protocolli sono stati ampiamente analizzati e sono probabilmente implementati come parte delle librerie della piattaforma per autenticazione e autorizzazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo sono stati illustrati i vantaggi di sicurezza di una distribuzione PaaS di Azure. Per ulteriori informazioni si consiglia di apprendere le procedure consigliate per proteggere le soluzioni PaaS Web e mobili. È consigliabile iniziare dal Servizio app di Azure, dal database SQL di Azure e SQL Data Warehouse di Azure. Nell'elenco seguente verranno inseriti articoli sulle procedure consigliate per altri servizi Azure, non appena disponibili:
+In questo articolo sono stati illustrati i vantaggi di sicurezza di una distribuzione PaaS di Azure. Il passaggio successivo è costituito dall'approfondimento delle procedure consigliate per proteggere le soluzioni PaaS Web e mobili. Si inizierà dai servizi app di Azure, dal database SQL di Azure e da SQL Data Warehouse di Azure. Non appena saranno disponibili le procedure consigliate per altri servizi Azure, nell'elenco seguente verranno inseriti i relativi collegamenti:
 
 - [servizio app di Azure](security-paas-applications-using-app-services.md)
 - [Database SQL di Azure e SQL Data Warehouse di Azure](security-paas-applications-using-sql.md)
@@ -110,9 +111,4 @@ In questo articolo sono stati illustrati i vantaggi di sicurezza di una distribu
 [2]: ./media/security-paas-deployments/responsibility-zones.png
 [3]: ./media/security-paas-deployments/advantages-of-paas.png
 [4]: ./media/security-paas-deployments/identity-perimeter.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

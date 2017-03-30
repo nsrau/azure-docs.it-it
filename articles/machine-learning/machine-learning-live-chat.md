@@ -1,5 +1,5 @@
 ---
-title: Ricevere assistenza tramite live chat in Machine Learning | Documentazione Microsoft
+title: Ricevere assistenza tramite live chat in Machine Learning | Microsoft Docs
 description: "Ricevere supporto in tempo reale per Machine Learning nel cloud con la funzionalità di supporto tramite live chat."
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/20/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 0a711ee4118973b21d47f1c3e63301f0dfac879d
-ms.openlocfilehash: b746462e382cb5c065417940a80b00c31f440e9b
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 1dd817c9b3160c47463a3a88380d550d127d898e
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -34,11 +35,8 @@ Digitare la domanda e attendere la risposta.
 ## <a name="dont-see-the-live-chat-icon"></a>L'icona della live chat non è visualizzata?
 La live chat è gestita da membri del team di Machine Learning. Se la relativa icona non viene visualizzata, significa che il team non è al momento disponibile. Ciò avviene, ad esempio, al di fuori delle normali ore lavorative. 
 
+È sempre possibile pubblicare domande nel [Forum di Machine Learning](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning). Le domande saranno viste dai membri del team di Machine Learning, da altri ricercatori esperti di dati e dagli sviluppatori.
+
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

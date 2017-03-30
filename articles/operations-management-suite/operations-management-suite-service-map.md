@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: d616a8574d2087be66bc10dfdf3bf6f5a14c11fd
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: aca6cd69647406d0140d8b0d0cba8e4690b04ae1
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -199,7 +199,7 @@ I record che contengono il tipo **ServiceMapComputer_CL** includono dati di inve
 | DnsNames_s | matrice di nomi DNS |
 | OperatingSystemFamily_s | Windows o Linux |
 | OperatingSystemFullName_s | nome completo del sistema operativo  |
-| Bitness_s | numero di bit del computer (32 bit o&64; bit) |
+| Bitness_s | numero di bit del computer (32 bit o 64 bit) |
 | PhysicalMemory_d | memoria fisica in MB |
 | Cpus_d | numero di CPU |
 | CPUSpeed_d | velocità della CPU in MHz|
@@ -271,7 +271,7 @@ Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct Com
 
 
 ## <a name="rest-api"></a>API REST
-Tutti i dati relativi a server, processi e dipendenze in Elenco dei servizi sono disponibili tramite l'[API REST di Elenco dei servizi](https://docs.microsoft.com/en-us/rest/api/servicemap/).
+Tutti i dati relativi a server, processi e dipendenze in Elenco dei servizi sono disponibili tramite l'[API REST di Elenco dei servizi](https://docs.microsoft.com/rest/api/servicemap/).
 
 
 ## <a name="diagnostic-and-usage-data"></a>Dati di diagnostica e di utilizzo
@@ -282,6 +282,10 @@ Per altre informazioni sulla raccolta dei dati e sull'utilizzo, vedere l'[Inform
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sulle [ricerche nei log](../log-analytics/log-analytics-log-searches.md) in Log Analytics per recuperare i dati raccolti dall'elenco dei servizi.
+
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+- Vedere la [sezione Risoluzione dei problemi del documento relativo alla configurazione dell'elenco dei servizi](operations-management-suite-service-map-configure.md#troubleshooting).
 
 
 ## <a name="feedback"></a>Commenti e suggerimenti

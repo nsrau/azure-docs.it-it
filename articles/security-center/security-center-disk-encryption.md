@@ -1,7 +1,24 @@
-le--- titolo: Crittografare una macchina virtuale di Azure | Documentazione Microsoft descrizione: Questo documento illustra come crittografare una macchina virtuale di Azure dopo la ricezione di un avviso dal Centro sicurezza di Azure.
-services: security, security-center documentationcenter: na author: TomShinder manager: swadhwa editor: ''
+---
+title: Crittografare una macchina virtuale di Azure | Documentazione Microsoft
+description: Questo documento illustra come crittografare una macchina virtuale di Azure dopo la ricezione di un avviso dal Centro sicurezza di Azure.
+services: security, security-center
+documentationcenter: na
+author: TomShinder
+manager: swadhwa
+editor: 
+ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5
+ms.service: security
+ms.devlang: na
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 03/15/2017
+ms.author: tomsh
+translationtype: Human Translation
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 5054ea1d5bd17712a4b343319d583e62a256752d
+ms.lasthandoff: 03/15/2017
 
-ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5 ms.service: security ms.devlang: na ms.topic: hero-article ms.tgt_pltfrm: na ms.workload: na ms.date: 05/27/2016 ms.author: tomsh
 
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Crittografare una macchina virtuale di Azure
@@ -162,3 +179,4 @@ In questo documento si è appreso come crittografare una macchina virtuale di Az
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'utilizzo del servizio
 * [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/) : post di blog sulla sicurezza e sulla conformità di Azure
+

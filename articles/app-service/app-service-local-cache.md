@@ -1,5 +1,5 @@
 ---
-title: Panoramica della cache locale del servizio app di Azure | Documentazione Microsoft
+title: Panoramica della cache locale del servizio app di Azure | Microsoft Docs
 description: "Questo articolo descrive come abilitare, ridimensionare ed eseguire query sullo stato della funzionalità relativa alla cache locale del servizio app di Azure"
 services: app-service
 documentationcenter: app-service
@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 03/04/2016
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 385eb87ec32f5f605b28cc8c76b1c89c7e90bfec
-ms.openlocfilehash: 09ec6d1aae5dc893e92b7c4ca1c30a251d02443d
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: e00d453e9ae34cafb5ce753f63c253e954d6b09a
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -64,6 +65,7 @@ La cache locale viene abilitata per ogni app Web con questa impostazione dell'ap
 <a name="Configure-Local-Cache-ARM"></a>
 
 ```
+
 ...
 
 {
@@ -73,7 +75,8 @@ La cache locale viene abilitata per ogni app Web con questa impostazione dell'ap
     "dependsOn": [
         "[resourceId('Microsoft.Web/sites/', variables('siteName'))]"
     ],
-    "properties": {
+
+"properties": {
         "WEBSITE_LOCAL_CACHE_OPTION": "Always",
         "WEBSITE_LOCAL_CACHE_SIZEINMB": "300"
     }
@@ -110,8 +113,6 @@ Se si usa la cache locale, i log e le cartelle di dati hanno un aspetto leggerme
 ### <a name="i-have-local-cache-enabled-but-my-web-app-still-gets-restarted-why-is-that-i-thought-local-cache-helped-with-frequent-app-restarts"></a>È stata abilitata la cache locale ma l'app Web viene ancora riavviata. Perché? Pensavo che la cache locale fosse utile in caso di riavvii frequenti dell'app.
 La cache locale consente di evitare i riavvii dell'app Web correlati all'archiviazione. L'app Web può comunque essere ancora soggetta a riavvii durante gli aggiornamenti pianificati dell'infrastruttura della VM. In generale, il numero di riavvii dell'app che si verificano con la cache locale abilitata dovrebbe essere inferiore.
 
-
-
-<!--HONumber=Dec16_HO3-->
-
+### <a name="does-local-cache-exclude-any-directories-from-being-copied-to-the-faster-local-drive"></a>La cache locale impedisce la copia delle directory in un'unità locale più veloce?
+Nell'ambito del passaggio che copia il contenuto di archiviazione, qualsiasi cartella denominata repository verrà esclusa. Questa soluzione è utile negli scenari in cui il contenuto del sito può contenere un repository di controllo di origine che potrebbe non essere necessario nel funzionamento quotidiano dell'App Web. 
 

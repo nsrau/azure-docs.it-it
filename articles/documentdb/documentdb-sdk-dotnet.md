@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 03/20/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 2de833df26de9a9e160dd0cfcc1589eb0ebb7d34
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 5bded9c15ef6ec5464952d533c6681801f137749
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -51,6 +51,10 @@ ms.lasthandoff: 03/15/2017
 </table></br>
 
 ## <a name="release-notes"></a>Note sulla versione
+
+### <a name="a-name11221122httpswwwnugetorgpackagesmicrosoftazuredocumentdb1122"></a><a name="1.12.2"/>[1.12.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.2)
+* Correzione di un problema che occasionalmente causa un'eccezione WebException, ovvero l'impossibilità di risolvere il nome remoto.
+* Aggiunta del supporto per la lettura diretta di un documento con tipo includendo nuovi overload all'API ReadDocumentAsync.
 
 ### <a name="a-name11211121httpswwwnugetorgpackagesmicrosoftazuredocumentdb1121"></a><a name="1.12.1"/>[1.12.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.1)
 * Aggiunta del supporto LINQ per le query di aggregazione (COUNT, MIN, MAX, SUM e AVG).
@@ -144,7 +148,7 @@ ms.lasthandoff: 03/15/2017
   * Operatore Take per abilitare il comportamento SELECT TOP in LINQ
   * Operatore CompareTo per abilitare i confronti di intervallo di stringa
   * Operatori Conditional (?) e Coalesce (??)
-* **[Correzione]** ArgumentOutOfRangeException durante l'unione della proiezione del modello con Where-In nella query linq.  [N.&81;](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
+* **[Correzione]** ArgumentOutOfRangeException durante l'unione della proiezione del modello con Where-In nella query linq.  [N. 81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
 
 ### <a name="a-name151151httpswwwnugetorgpackagesmicrosoftazuredocumentdb151"></a><a name="1.5.1"/>[1.5.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.1)
 * **[Corretto]** Se Select non è l'ultima espressione il provider LINQ presuppone che non ci sia alcuna proiezione e produce SELECT * in modo non corretto.  [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
@@ -182,7 +186,7 @@ ms.lasthandoff: 03/15/2017
 * **[Corretto]** Query SQL non corretta generata dall'espressione linq [#38](https://github.com/Azure/azure-documentdb-net/issues/38)
 
 ### <a name="a-name120120httpswwwnugetorgpackagesmicrosoftazuredocumentdb120"></a><a name="1.2.0"/>[1.2.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.2.0)
-* Dipendenza su Newtonsoft.Json&5;.0.7 
+* Dipendenza su Newtonsoft.Json 5.0.7 
 * Modifiche per il supporto di Order By
   
   * Supporto del provider LINQ per OrderBy() o OrderByDescending()
@@ -212,6 +216,7 @@ Qualsiasi richiesta inviata a DocumentDB con un SDK ritirato verrà rifiutata da
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [1.12.2](#1.12.2) |20 marzo 2017 |--- |
 | [1.12.1](#1.12.1) |14 marzo 2017 |--- |
 | [1.12.0](#1.12.0) |15 febbraio 2017 |--- |
 | [1.11.4](#1.11.4) |06 febbraio 2017 |--- |

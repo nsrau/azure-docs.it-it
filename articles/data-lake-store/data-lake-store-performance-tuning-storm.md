@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
 translationtype: Human Translation
-ms.sourcegitcommit: 787ef52580f5f8bfc51229787c5594883cef3a77
-ms.openlocfilehash: a41548557a91ff91f2496e371dd285977861ab69
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 1dfa93643f45a96ded3fd022aa8b1c71d487acb4
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -125,7 +125,7 @@ Quando la topologia è in esecuzione, è possibile monitorarla nell'interfaccia 
 Ecco alcuni scenari comuni per la risoluzione dei problemi.
 * **È in corso il timeout di diverse tuple.** Esaminare ogni nodo della topologia per trovare il collo di bottiglia. La causa più comune è che i bolt non riescono a rimanere aggiornati con gli spout, di conseguenza le tuple bloccano i buffer interni mentre sono in attesa di essere elaborate. Considerare l'aumento del valore di timeout o la riduzione dello spout massimo in sospeso.
 
-* **La latenza di esecuzione dei processi totale è elevata, ma la latenza dei processi bolt è bassa.** In questo caso, è possibile che le tuple non vengano elaborate abbastanza velocemente. Verificare che esista un numero sufficiente di acker. Un'altra possibilità è che rimangano in attesa nella coda per troppo tempo prima che i bolt inizino la loro elaborazione. Ridurre lo spout massimo in sospeso.
+* **La latenza di esecuzione dei processi totale è elevata, ma la latenza dei processi bolt è bassa.** In questo caso è possibile che le tuple non siano riconosciute in modo sufficientemente veloce. Verificare che sia presente un numero sufficiente di elementi di acknowledgment. Un'altra possibilità è che rimangano in attesa nella coda per troppo tempo prima che i bolt inizino la loro elaborazione. Ridurre lo spout massimo in sospeso.
 
 * **La latenza di esecuzione dei bolt è elevata.** Indica che il metodo execute() del bolt impiega troppo tempo. Ottimizzare il codice o esaminare le dimensioni della scrittura e il comportamento di scaricamento.
 

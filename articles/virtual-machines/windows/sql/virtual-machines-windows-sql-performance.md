@@ -1,5 +1,5 @@
 ---
-title: Esaminare le procedure consigliate relative alle prestazioni per SQL Server | Documentazione Microsoft
+title: Esaminare le procedure consigliate relative alle prestazioni per SQL Server | Microsoft Docs
 description: In questo argomento vengono fornite le procedure consigliate per ottimizzare le prestazioni di SQL Server in Macchine virtuali di Microsoft Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/09/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 407b189af12116d633ed505facf4bcfde9be5822
-ms.openlocfilehash: 609f2a06b1091a61cd95c54ea9f62888e11f16c1
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 7cf81f2081e7927e4d68b7d0c8ca185f891fdc8d
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -82,8 +83,8 @@ Per le VM serie D, Dv2 e G, l'unità temporanea è basata su SSD. Se il carico d
 Per le macchine virtuali che supportano Archiviazione Premium (serie DS, DSv2 e GS), si consiglia di archiviare TempDB su un disco che supporta Archiviazione Premium con il caching di lettura attivato. Esiste un'eccezione a questo consiglio: se TempDB è soggetto a uso intenso in scrittura, è possibile migliorare le prestazioni archiviando TempDB nell'unità locale **D** , che in macchine di queste dimensioni è anche basata su SSD.
 
 ### <a name="data-disks"></a>Dischi dati
-* **Usare i dischi dati per i file di dati e di log**: come minimo, usare 2 [dischi P30](../../../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets) con Archiviazione Premium di cui uno contenente i file di log e l'altro contenente i file di dati e TempDB.
-* **Striping del disco**: per una maggiore velocità effettiva, è possibile aggiungere ulteriori dischi dati e usare lo striping del disco. Per determinare il numero di dischi dati, è necessario analizzare il numero di operazioni di input/output al secondo disponibili per i dischi dati e di log. Per altre informazioni, vedere le tabelle di operazioni di input/output al secondo per tutte le [dimensioni di VM](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e dimensioni di disco nell'articolo seguente: [Uso di Archiviazione Premium per dischi](../../../storage/storage-premium-storage.md). Tenere in considerazione le linee guida seguenti:
+* **Usare i dischi dati per i file di dati e di log**: come minimo, usare 2 [dischi P30](../../../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets) con Archiviazione Premium di cui uno contenente i file di log e l'altro contenente i file di dati e TempDB. Ogni disco di Archiviazione Premium dispone di un numero di IOPs e larghezza di banda (MB/s) a seconda delle dimensioni, come descritto nell'articolo seguente: [Uso di Archiviazione Premium per dischi](../../../storage/storage-premium-storage.md). 
+* **Striping del disco**: per una maggiore velocità effettiva, è possibile aggiungere ulteriori dischi dati e usare lo striping del disco. Per determinare il numero di dischi dati, è necessario analizzare il numero di IOPS e larghezza di banda necessari per i file di log e i file di dati e TempDB. Si noti che a seconda delle dimensioni delle VM i limiti nel numero di IOPs e larghezza di banda supportati cambiano. Vedere le tabelle relative agli IOPS per [dimensione di VM](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Usare le linee guida seguenti:
 
   * Per Windows 8 e Windows Server 2012 o versioni successive, usare gli [spazi di archiviazione](https://technet.microsoft.com/library/hh831739.aspx). Impostare la dimensione di striping su 64 KB per carichi di lavoro OLTP e su 256 KB per carichi di lavoro di data warehouse per evitare effetti sulle prestazioni causati dal disallineamento delle partizioni. Impostare il numero di colonne sul numero di dischi fisici. Per configurare uno spazio di archiviazione con più di 8 dischi è necessario usare PowerShell (non l'interfaccia utente di Gestione server) per impostare in modo esplicito il numero di colonne in modo che corrisponda al numero di dischi. Per altre informazioni su come configurare gli [spazi di archiviazione](https://technet.microsoft.com/library/hh831739.aspx), vedere [Cmdlet per spazi di archiviazione in Windows PowerShell](https://technet.microsoft.com/library/jj851254.aspx).
   * Per Windows 2008 R2 o versioni precedenti, è possibile usare i dischi dinamici (volumi con striping del sistema operativo) e la dimensione di striping è sempre di 64 KB. Si noti che questa opzione è deprecata a partire da Windows 8 e Windows Server 2012. Per informazioni, vedere l'informativa di supporto relativa al [passaggio dal servizio dischi virtuali all'API di gestione archiviazione di Windows](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx).
@@ -134,9 +135,4 @@ Per esplorare l'archiviazione Premium e SQL Server in modo più approfondito, ve
 Per le procedure consigliate relative alla sicurezza, vedere [Considerazioni relative alla sicurezza per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-security.md).
 
 Esaminare altri argomenti relativi alle macchine virtuali di SQL Server in [Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

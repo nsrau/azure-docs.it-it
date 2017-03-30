@@ -1,6 +1,6 @@
 ---
-title: Test delle impostazioni di Gestione traffico | Documentazione Microsoft
-description: In questo articolo vengono fornite le informazioni per verificare le impostazioni di Gestione traffico
+title: Verificare le impostazioni di Gestione traffico di Azure | Microsoft Docs
+description: Questo articolo contiene le informazioni necessarie per verificare le impostazioni di Gestione traffico.
 services: traffic-manager
 documentationcenter: 
 author: kumudd
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 69b94c93ad3e9c9745af8485766b4237cac0062c
-ms.openlocfilehash: 713c01f1a15791ad19792bc58a2c32f8ce787720
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: aadff1806a7cb22347283143563467366e857569
+ms.lasthandoff: 03/18/2017
 
 ---
 
-# <a name="test-your-traffic-manager-settings"></a>Verificare le impostazioni di Gestione traffico
+# <a name="verify-traffic-manager-settings"></a>Verificare le impostazioni di Gestione traffico
 
 Per verificare le impostazioni di Gestione traffico, è necessario disporre di più client, ubicati in diverse posizioni, da cui eseguire i test. Arrestare quindi uno alla volta gli endpoint del profilo di Gestione traffico.
 
@@ -74,9 +75,4 @@ In alternativa, sono disponibili servizi gratuiti di analisi approfondita e DNS 
 * [Informazioni sui metodi di routing di Gestione traffico](traffic-manager-routing-methods.md)
 * [Considerazioni sulle prestazioni di gestione traffico](traffic-manager-performance-considerations.md)
 * [Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 03/20/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 492444304c42a270e638050506e04297c8b17e51
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 43a09fc208bee29c41776df402c5be664bb38e18
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -57,6 +57,11 @@ DocumentDB .NET Core SDK ha le stesse funzionalità delle versione più recente 
 > [!NOTE] 
 > DocumentDB .NET Core SDK non è ancora compatibile con le app della piattaforma UWP (Universal Windows Platform). In caso di interesse a .NET Core SDK che supporta le app della piattaforma UWP, inviare un messaggio di posta elettronica a [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
+### <a name="a-name112112httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore112"></a><a name="1.1.2"/>[1.1.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.1.2)
+
+* Correzione di un problema che occasionalmente causa un'eccezione WebException, ovvero l'impossibilità di risolvere il nome remoto.
+* Aggiunta del supporto per la lettura diretta di un documento con tipo includendo nuovi overload all'API ReadDocumentAsync.
+
 ### <a name="a-name111111httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore111"></a><a name="1.1.1"/>[1.1.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.1.1)
 
 * Aggiunta del supporto LINQ per le query di aggregazione (COUNT, MIN, MAX, SUM e AVG).
@@ -89,6 +94,7 @@ Per domande su questo SDK, pubblicare un post su [StackOverflow](http://stackove
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [1.1.2](#1.1.2) |20 marzo 2017 |--- |
 | [1.1.1](#1.1.1) |14 marzo 2017 |--- |
 | [1.1.0](#1.1.0) |16 febbraio 2017 |--- |
 | [1.0.0](#1.0.0) |21 dicembre 2016 |--- |

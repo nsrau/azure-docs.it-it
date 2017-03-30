@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 5842188b5d0a66436db7ab0f6b85bf14b4759c50
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 657554ee3929572632dc007d1a6500e59e2a6b97
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -37,7 +37,7 @@ Per completare questa esercitazione, sono necessari:
 > 
 > 
 
-## <a name="a-namestep1astep-1-create-a-local-repository"></a><a name="Step1"></a>Passaggio 1: Creare un repository locale
+## <a name="Step1"></a>Passaggio 1: Creare un repository locale
 Per creare un nuovo repository Git, eseguire le operazioni seguenti.
 
 1. Avviare uno strumento da riga di comando, ad esempio **GitBash** (Windows) o **Bash** (shell Unix). Nei sistemi OS X è possibile accedere alla riga di comando tramite l'applicazione **Terminale** .
@@ -46,7 +46,7 @@ Per creare un nuovo repository Git, eseguire le operazioni seguenti.
    
         git init
 
-## <a name="a-namestep2astep-2-commit-your-content"></a><a name="Step2"></a>Passaggio 2: Eseguire il commit del contenuto
+## <a name="Step2"></a>Passaggio 2: Eseguire il commit del contenuto
 Il servizio app supporta applicazioni create in diversi linguaggi di programmazione. 
 
 1. Se il repository include già il contenuto ignorare questo passaggio e passare al passaggio 2. Se non include ancora il contenuto, popolare il repository con un file HTML statico come indicato di seguito: 
@@ -60,7 +60,7 @@ Il servizio app supporta applicazioni create in diversi linguaggi di programmazi
    
         git commit -m "Hello Azure App Service"
 
-## <a name="a-namestep3astep-3-enable-the-app-service-app-repository"></a><a name="Step3"></a>Passaggio 3: Abilitare il repository dell'app del servizio app
+## <a name="Step3"></a>Passaggio 3: Abilitare il repository dell'app del servizio app
 Eseguire la procedura seguente per abilitare un repository Git per l'app del servizio app.
 
 1. Accedere al [portale di Azure].
@@ -71,7 +71,7 @@ Eseguire la procedura seguente per abilitare un repository Git per l'app del ser
    
     ![](./media/app-service-deploy-local-git/deployment_credentials.png)
 
-## <a name="a-namestep4astep-4-deploy-your-project"></a><a name="Step4"></a>Passaggio 4: Distribuire il progetto
+## <a name="Step4"></a>Passaggio 4: Distribuire il progetto
 Eseguire la procedura seguente per pubblicare l'app nel servizio app usando l'archivio Git locale.
 
 1. Nel pannello dell'app nel portale di Azure fare clic su **Impostazioni > Proprietà** per l'**URL GIT**.
@@ -97,7 +97,7 @@ Eseguire la procedura seguente per pubblicare l'app nel servizio app usando l'ar
     ![](./media/app-service-deploy-local-git/deployment_history.png)
 6. Fare clic sul pulsante **Sfoglia** nella parte superiore del pannello dell'app per verificare che il contenuto sia stato distribuito. 
 
-## <a name="a-namestep5atroubleshooting"></a><a name="Step5"></a>Risoluzione dei problemi
+## <a name="Step5"></a>Risoluzione dei problemi
 Di seguito sono riportati gli errori o i problemi che si verificano comunemente durante l'uso di Git per la pubblicazione in un'app del servizio app di Azure:
 
 - - -
@@ -128,9 +128,18 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 
 **Causa**: questo errore può verificarsi se si tenta di effettuare il push in un ramo diverso dal master nel repository remoto 'azure'.
 
-**Soluzione**: ripetere l'operazione push, specificando il ramo master. ad esempio:
+**Soluzione**: ripetere l'operazione push, specificando il ramo master. Ad esempio:
 
     git push azure master
+
+- - -
+**Sintomo**: RPC non riuscita; risultato = 22, codice HTTP = 502.
+
+**Causa**: questo errore può verificarsi se si tenta di effettuare il push di un repository Git di grandi dimensioni tramite HTTPS.
+
+**Soluzione**: modificare la configurazione Git nel computer locale per ingrandire il postBuffer
+
+    git config --global http.postBuffer 524288000
 
 - - -
 **Sintomo**: errore. Le modifiche vengono sottoposte a commit nel repository remoto ma l'app Web non viene aggiornata.
@@ -152,7 +161,7 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 * [Documentazione del progetto Kudu](https://github.com/projectkudu/kudu/wiki)
 * [Distribuzione continua nel servizio app di Azure](app-service-continuous-deployment.md)
 * [Come usare PowerShell per Azure](/powershell/azureps-cmdlets-docs)
-* [Come usare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md)
+* [Come usare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md)
 
 [servizio app di Azure]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
 [Azure Developer Center]: http://www.windowsazure.com/en-us/develop/overview/

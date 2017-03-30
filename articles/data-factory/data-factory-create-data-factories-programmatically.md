@@ -69,16 +69,18 @@ ms.lasthandoff: 03/09/2017
 5. Aggiungere le istruzioni **using** seguenti al file di origine (Program.cs) nel progetto.
 
     ```csharp
-    using System.Threading;
     using System.Configuration;
     using System.Collections.ObjectModel;
+    using System.Threading;
+    using System.Threading.Tasks;
 
+    using Microsoft.Azure;
     using Microsoft.Azure.Management.DataFactories;
     using Microsoft.Azure.Management.DataFactories.Models;
     using Microsoft.Azure.Management.DataFactories.Common.Models;
 
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using Microsoft.Azure;
+
     ```
 6. Aggiungere al metodo **Main** il codice seguente che crea un'istanza della classe **DataPipelineManagementClient**. Si userà questo oggetto per creare una data factory, un servizio collegato, i set di dati di input e output e una pipeline. Questo oggetto viene usato anche per monitorare le sezioni di un set di dati in fase di esecuzione.
 
@@ -87,10 +89,9 @@ ms.lasthandoff: 03/09/2017
     string resourceGroupName = "resourcegroupname";
     string dataFactoryName = "APITutorialFactorySP";
     
-    TokenCloudCredentials aadTokenCredentials =
-        new TokenCloudCredentials(
+    TokenCloudCredentials aadTokenCredentials = new TokenCloudCredentials(
             ConfigurationManager.AppSettings["SubscriptionId"],
-            GetAuthorizationHeader());
+        GetAuthorizationHeader().Result);
     
     Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
     
@@ -111,7 +112,7 @@ ms.lasthandoff: 03/09/2017
             {
                 Name = dataFactoryName,
                 Location = "westus",
-                Properties = new DataFactoryProperties() { }
+                Properties = new DataFactoryProperties()
             }
         }
     );
@@ -250,7 +251,8 @@ ms.lasthandoff: 03/09/2017
                         Name = "BlobToBlob",
                         Inputs = new List<ActivityInput>()
                         {
-                            new ActivityInput() {
+                            new ActivityInput()
+                {
                                 Name = Dataset_Source
                             }
                         },
@@ -280,36 +282,17 @@ ms.lasthandoff: 03/09/2017
 11. Aggiungere alla classe **Program** il metodo helper seguente usato per il metodo **Main**. Questo metodo visualizza una finestra di dialogo che consente di specificare il **nome utente** e la **password** usati per accedere al portale di Azure.
 
     ```csharp
-    public static string GetAuthorizationHeader()
+    public static async Task<string> GetAuthorizationHeader()
     {
-        AuthenticationResult result = null;
-        var thread = new Thread(() =>
-        {
-            try
-            {
-                var context = new AuthenticationContext(ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] + ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
-
-                result = context.AcquireToken(
-                    resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
-                    clientId: ConfigurationManager.AppSettings["AdfClientId"],
-                    redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
-                    promptBehavior: PromptBehavior.Always);
-            }
-            catch (Exception threadEx)
-            {
-                Console.WriteLine(threadEx.Message);
-            }
-        });
-
-        thread.SetApartmentState(ApartmentState.STA);
-        thread.Name = "AcquireTokenThread";
-        thread.Start();
-        thread.Join();
+        var context = new AuthenticationContext(ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] + ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+        AuthenticationResult result = await context.AcquireTokenAsync(
+            resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
+            clientId: ConfigurationManager.AppSettings["AdfClientId"],
+            redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
+            promptBehavior: PromptBehavior.Always);
 
         if (result != null)
-        {
             return result.AccessToken;
-        }
 
         throw new InvalidOperationException("Failed to acquire token");
     }
@@ -359,14 +342,13 @@ ms.lasthandoff: 03/09/2017
     Console.ReadKey();
     
     var datasliceRunListResponse = client.DataSliceRuns.List(
-            resourceGroupName,
-            dataFactoryName,
-            Dataset_Destination,
-            new DataSliceRunListParameters()
-            {
-                DataSliceStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString()
-            }
-        );
+        resourceGroupName,
+        dataFactoryName,
+        Dataset_Destination,
+        new DataSliceRunListParameters()
+        {
+            DataSliceStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString()
+        });
     
     foreach (DataSliceRun run in datasliceRunListResponse.DataSliceRuns)
     {
@@ -409,12 +391,18 @@ Nel codice di esempio della procedura dettagliata viene avviata una finestra di 
 Creare il metodo GetAuthorizationHeaderNoPopup.
 
 ```csharp
-public static string GetAuthorizationHeaderNoPopup()
+public static async Task<string> GetAuthorizationHeaderNoPopup()
 {
     var authority = new Uri(new Uri("https://login.windows.net"), ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
     var context = new AuthenticationContext(authority.AbsoluteUri);
-    var credential = new ClientCredential(ConfigurationManager.AppSettings["AdfClientId"], ConfigurationManager.AppSettings["AdfClientSecret"]);
-    AuthenticationResult result = context.AcquireTokenAsync(ConfigurationManager.AppSettings["WindowsManagementUri"], credential).Result;
+    var credential = new ClientCredential(
+        ConfigurationManager.AppSettings["AdfClientId"],
+    ConfigurationManager.AppSettings["AdfClientSecret"]);
+    
+    AuthenticationResult result = await context.AcquireTokenAsync(
+        ConfigurationManager.AppSettings["WindowsManagementUri"],
+    credential);
+
     if (result != null)
         return result.AccessToken;
 
@@ -428,7 +416,7 @@ Sostituire la chiamata **GetAuthorizationHeader** con una chiamata a **GetAuthor
 TokenCloudCredentials aadTokenCredentials =
     new TokenCloudCredentials(
     ConfigurationManager.AppSettings["SubscriptionId"],
-    GetAuthorizationHeaderNoPopup());
+    GetAuthorizationHeaderNoPopup().Result);
 ```
 
 Ecco come è possibile creare l'applicazione Active Directory, l'entità servizio, e quindi assegnarla al ruolo Collaboratore di Data Factory:

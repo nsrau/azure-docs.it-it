@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: bd1f5e497bcf39a0d8848cc63c718e693f775d63
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 128b91c685b5f7e494a69ca5b04165a0ee7cbb78
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -51,7 +52,7 @@ Per altre informazioni, vedere [Supporto di Azure Resource Manager per Load Bala
 
 ## <a name="set-up-cli-to-use-resource-manager"></a>Configurare l'interfaccia della riga di comando per l'uso di Resource Manager
 
-1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md). Seguire le istruzioni fino al punto in cui si seleziona l'account Azure e la sottoscrizione.
+1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md). Seguire le istruzioni fino al punto in cui si seleziona l'account Azure e la sottoscrizione.
 2. Eseguire il comando **azure config mode** per passare alla modalità Resource Manager, come illustrato di seguito:
 
     ```azurecli
@@ -214,10 +215,5 @@ azure network lb delete --resource-group nrprg --name ilbset
 [Configurare una modalità di distribuzione del servizio di bilanciamento del carico usando l'affinità dell'IP di origine](load-balancer-distribution-mode.md)
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti sull&quot;integrazione dei log di Azure | Documentazione Microsoft
+title: Domande frequenti sull&quot;integrazione dei log di Azure | Microsoft Docs
 description: Queste domande frequenti riguardano l&quot;integrazione dei log di Azure.
 services: security
 documentationcenter: na
@@ -15,14 +15,17 @@ ms.workload: na
 ms.date: 01/07/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: d31d4c390d5e03c8b206284c3ae75defed2a38af
-ms.openlocfilehash: 83bedb42e8e685f5ea65e160ab7bfe128236ef82
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 2d5201a335e96cc8595de834858750f6aac884a3
+ms.lasthandoff: 03/17/2017
 
 
 ---
 # <a name="azure-log-integration-frequently-asked-questions-faq"></a>Domande frequenti sull'integrazione dei log di Azure
 Queste domande frequenti riguardano l'integrazione dei log di Azure, un servizio che consente di integrare log non elaborati delle risorse di Azure nei sistemi di gestione di informazioni ed eventi di sicurezza locali. Questa integrazione fornisce un dashboard unificato per tutti gli asset, locali o su cloud, consentendo di aggregare, correlare, analizzare e inviare avvisi per gli eventi di sicurezza associati alle applicazioni.
+
+## <a name="is-the-azure-log-integration-software-free"></a>Il software di integrazione dei log di Azure è gratuito?
+Sì. Non è previsto alcun addebito per il software di integrazione dei log di Azure. 
 
 ## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs-from"></a>Come è possibile vedere gli account di archiviazione da cui l'integrazione dei log di Azure estrae i log delle VM di Azure?
 Eseguire il comando **azlog source list**.

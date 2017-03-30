@@ -1,5 +1,5 @@
 ---
-title: Ricerche salvate e avvisi nelle soluzioni OMS | Documentazione Microsoft
+title: Ricerche salvate e avvisi nelle soluzioni OMS | Microsoft Docs
 description: Le soluzioni in OMS includeranno in genere ricerche salvate di Log Analytics per l&quot;analisi dei dati raccolti dalla soluzione.  Potranno anche definire avvisi per la notifica all&quot;utente o per eseguire automaticamente un&quot;azione in risposta a un problema critico.  Questo articolo descrive come definire le ricerche salvate e gli avvisi di Log Analytics in un modello di Azure Resource Manager in modo da consentirne l&quot;inclusione nelle soluzioni di gestione.
 services: operations-management-suite
 documentationcenter: 
@@ -11,15 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/24/2017
+ms.date: 03/20/2017
 ms.author: bwren
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: aaf5c442ef85edbc498aa2fd7815171f4701f960
-ms.openlocfilehash: 262beba30c760335aafdf903d9f5cac6b0dd9669
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: e47aacd1a188649a3b424981c20a6c2b736b2d89
+ms.lasthandoff: 03/22/2017
+
 
 ---
 
-# <a name="log-analytics-saved-searches-and-alerts-in-oms-solutions-preview"></a>Ricerche salvate e avvisi di Log Analytics nelle soluzioni OMS (anteprima)
+# <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Aggiunta di avvisi e di ricerche salvate di Log Analytics alla soluzione di gestione in OMS (anteprima)
 
 > [!NOTE]
 > Questa è una documentazione preliminare per la creazione di soluzioni di gestione in OMS attualmente disponibili in versione di anteprima. Qualsiasi schema descritto di seguito è soggetto a modifiche.   
@@ -35,7 +38,7 @@ Questo articolo presuppone che si abbia già familiarità con la [creazione di u
 
 
 ## <a name="log-analytics-workspace"></a>Area di lavoro di Log Analytics
-Tutte le risorse in Log Analytics sono contenute in un'[area di lavoro](../log-analytics/log-analytics-manage-access.md).  Come descritto in [Area di lavoro OMS e account di Automazione](operations-management-suite-solutions-creating.md#oms-workspace-and-automation-account), l'area di lavoro non è inclusa nella soluzione di gestione, ma deve essere presente prima che la soluzione venga installata.  Se non è disponibile, l'installazione della soluzione non riuscirà.
+Tutte le risorse in Log Analytics sono contenute in un'[area di lavoro](../log-analytics/log-analytics-manage-access.md).  Come descritto in [Area di lavoro OMS e account di Automazione](operations-management-suite-solutions.md#oms-workspace-and-automation-account), l'area di lavoro non è inclusa nella soluzione di gestione, ma deve essere presente prima che la soluzione venga installata.  Se non è disponibile, l'installazione della soluzione non riuscirà.
 
 Il nome dell'area di lavoro è il nome di ogni risorsa di Log Analytics.  A questo scopo, nella soluzione viene usato il parametro **workspace** come nell'esempio seguente di una risorsa savedsearch.
 
@@ -90,7 +93,7 @@ Le risorse ricerca salvata sono illustrate sopra.  Di seguito sono descritte le 
 Una ricerca salvata può avere una o più pianificazioni, ognuna delle quali rappresenta una regola di avviso separata. La pianificazione definisce la frequenza con cui viene eseguita la ricerca e l'intervallo di tempo per cui vengono recuperati i dati.  Le risorse pianificazione sono di tipo `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/` e hanno la struttura seguente. 
 
     {
-      "name": "<name-of-schedule>",
+      "name": "<name-of-schedule-resource>",
       "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/",
       "apiVersion": "<api-version-of-resource>",
       "dependsOn": [
@@ -100,7 +103,7 @@ Una ricerca salvata può avere una o più pianificazioni, ognuna delle quali rap
         "etag": "*",               
         "interval": <schedule-interval-in-minutes>,
         "queryTimeSpan": <query-timespan-in-minutes>,
-        "enabled": <schedule-interval-in-minutes>       
+        "enabled": <schedule-enabled>       
       }
     }
 
@@ -209,7 +212,7 @@ Questa sezione è facoltativa.  Includere la sezione se si vogliono eliminare gl
 | Nome dell'elemento | Obbligatorio | Descrizione |
 |:--|:--|:--|
 | Destinatari | Sì | Elenco delimitato da virgole di indirizzi di posta elettronica a cui inviare una notifica quando viene creato un avviso, come nell'esempio seguente.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| Subject | Sì | Riga dell'oggetto del messaggio di posta elettronica. |
+| Oggetto | Sì | Riga dell'oggetto del messaggio di posta elettronica. |
 | Attachment | No | Gli allegati non sono attualmente supportati.  Se questo elemento è incluso, il valore dovrà essere **None**. |
 
 
@@ -257,7 +260,7 @@ Le proprietà delle risorse azione di avviso sono descritte nella tabella seguen
 
 
 
-### <a name="sample"></a>Esempio
+## <a name="sample"></a>Esempio
 
 Di seguito è riportato un esempio di soluzione che include le risorse seguenti:
 
@@ -266,7 +269,7 @@ Di seguito è riportato un esempio di soluzione che include le risorse seguenti:
 - Azione di avviso
 - Azione webhook
 
-L'esempio usa variabili dei [parametri di soluzione standard](operations-management-suite-solutions-creating.md#parameters) comunemente usate in una soluzione, anziché impostare i valori come hardcoded nelle definizioni delle risorse.
+L'esempio usa variabili dei [parametri di soluzione standard](operations-management-suite-solutions-solution-file.md#parameters) comunemente usate in una soluzione, anziché impostare i valori come hardcoded nelle definizioni delle risorse.
 
     {
         "$schema": "http://schemas.microsoft.org/azure/deploymentTemplate?api-version=2015-01-01#",
@@ -504,10 +507,5 @@ Il file di parametri seguente offre valori di esempio per la soluzione.
 ## <a name="next-steps"></a>Passaggi successivi
 * [Aggiungere viste](operations-management-suite-solutions-resources-views.md) alla soluzione di gestione.
 * [Aggiungere runbook di automazione e altre risorse](operations-management-suite-solutions-resources-automation.md) alla soluzione di gestione.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

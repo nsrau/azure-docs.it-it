@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: cf5ecd7652bf1b10d24731a5b6829995fea81e41
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: da3a908f17ff5c6d3923549a884ecc0a13cb8e9e
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -39,7 +40,7 @@ ms.openlocfilehash: cf5ecd7652bf1b10d24731a5b6829995fea81e41
 
 In questa guida viene illustrato come creare un servizio di bilanciamento del carico Internet in base allo scenario precedente.
 
-1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
+1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
 2. Eseguire il comando **azure config mode** per passare alla modalità classica, come illustrato di seguito.
 
     ```azurecli
@@ -151,9 +152,4 @@ azure vm endpoint delete web1 tcp-80-80
 [Configurare una modalità di distribuzione del servizio di bilanciamento del carico](load-balancer-distribution-mode.md)
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

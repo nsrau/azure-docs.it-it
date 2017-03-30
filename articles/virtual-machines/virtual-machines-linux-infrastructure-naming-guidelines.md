@@ -1,5 +1,5 @@
 ---
-title: Linee guida sulle convenzioni di denominazione dell&quot;infrastruttura di Azure - Linux | Documentazione Microsoft
+title: Linee guida sulle convenzioni di denominazione dell&quot;infrastruttura di Azure - Linux | Microsoft Docs
 description: Informazioni sulle principali linee guida di progettazione e implementazione per la denominazione nei servizi di infrastruttura di Azure.
 documentationcenter: 
 services: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 03/17/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: b86bfcbd8b49dfcf383c48d57f237f2433bf20d6
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 997a5e5db9abdd92c3717d9eb10ff01b2bb40a9f
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -98,7 +98,7 @@ Se si crea una VM da un file immagine con estensione .vhd che contiene già un s
 È consigliabile che il nome della VM di Azure e del computer del sistema operativo sottostante coincidano.
 
 ## <a name="storage-account-names"></a>Nomi account di archiviazione
-Gli account di archiviazione hanno regole speciali che ne controllano i nomi. È possibile usare solo lettere minuscole e numeri. Per altre informazioni, vedere [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account). Inoltre, il nome dell'account di archiviazione, con core.windows.net, deve essere un nome DNS a livello globale valido e univoco. Ad esempio, se il nome dell'account di archiviazione è mystorageaccount, i seguenti nomi DNS risultanti devono essere univoci:
+Questa sezione non si applica a [Managed Disks di Azure](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), in quanto non si crea un account di archiviazione separato. Per i dischi non gestiti, gli account di archiviazione hanno regole speciali che ne controllano i nomi. È possibile usare solo lettere minuscole e numeri. Per altre informazioni, vedere [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account). Inoltre, il nome dell'account di archiviazione, con core.windows.net, deve essere un nome DNS a livello globale valido e univoco. Ad esempio, se il nome dell'account di archiviazione è mystorageaccount, i seguenti nomi DNS risultanti devono essere univoci:
 
 * mystorageaccount.blob.core.windows.net
 * mystorageaccount.table.core.windows.net

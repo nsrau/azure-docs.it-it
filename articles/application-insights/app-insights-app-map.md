@@ -1,5 +1,5 @@
 ---
-title: Mappa delle applicazioni in Azure Application Insights | Documentazione Microsoft
+title: Mappa delle applicazioni in Azure Application Insights | Microsoft Docs
 description: Una rappresentazione visiva delle dipendenze tra i componenti di app, contrassegnati con avvisi e indicatori KPI.
 services: application-insights
 documentationcenter: 
@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 1330d8be444f596b0d1ed2038eaeb1200e8b9285
-ms.openlocfilehash: 04a34eb24df356018590b1791ecc7719a550ab51
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 9fc7a41dcca3d9e51b8c67b86ef61443945b6bad
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -100,11 +100,15 @@ La mappa delle app consente di trovare i nodi del server mediante la ricerca di 
 > [!NOTE] 
 > La mappa delle app del sistema end-to-end è in versione di anteprima. È necessario instrumentare i componenti con una versione speciale dell'SDK, inoltre è necessario usare un URL speciale per visualizzare la mappa delle app. [Informazioni su come configurare le mappe delle app del sistema end-to-end](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-app-map-preview.md).
 
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
 
 ## <a name="feedback"></a>Commenti e suggerimenti
 [Fornire un feedback tramite l'opzione di feedback del portale](app-insights-get-dev-support.md).
 
 ![Immagine MapLink-1](./media/app-insights-app-map/13.png)
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,5 +1,5 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una macchina virtuale Windows Server | Documentazione Microsoft
+title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una macchina virtuale Windows Server | Microsoft Docs
 description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una macchina virtuale Windows Server
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
@@ -16,17 +16,17 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 82d40c30c92f5da090e7ec4e2f25ead3908cc603
-ms.openlocfilehash: b1af197b425b0f8951e011f24609b9bf4769f931
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 1d84fa975d29386bc021d7446ecea1553ca6418d
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="create-a-virtual-machine-with-the-azure-cli"></a>Creare una macchina virtuale con l'interfaccia della riga di comando di Azure
 
-Questo script crea una macchina virtuale di Azure con sistema operativo Windows Server 2016 e le relative risorse di rete. Dopo aver eseguito correttamente lo script, è possibile accedere alla macchina virtuale tramite RDP.
+Questo script crea una macchina virtuale di Azure che esegue Windows Server 2016. Dopo aver eseguito lo script, è possibile accedere alla macchina virtuale tramite una connessione Desktop remoto.
 
-Prima di eseguire questo script, verificare che sia stata creata una connessione con Azure tramite il comando `az login`. È anche necessario modificare la variabile $AdminPassword all'inizio dello script secondo i requisiti di complessità delle password univoci.
+Se necessario, installare l'interfaccia della riga di comando di Azure usando l'istruzione presente nella [Guida all'installazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e quindi eseguire `az login` per creare una connessione con Azure.
 
 Questo esempio funziona in una shell Bash. Per le opzioni sull'esecuzione di script dell'interfaccia della riga di comando di Azure in Windows, vedere [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md) (Esecuzione dell'interfaccia della riga di comando di Azure in Windows).
 
@@ -36,7 +36,7 @@ Questo esempio funziona in una shell Bash. Per le opzioni sull'esecuzione di scr
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
 
-Dopo l'esecuzione dello script di esempio, eseguire il comando seguente per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
+Eseguire questo comando per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
 
 ```azurecli
 az group delete --name myResourceGroup --yes

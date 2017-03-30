@@ -1,5 +1,5 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Installare IIS | Documentazione Microsoft
+title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Installare IIS | Microsoft Docs
 description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Installare IIS
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
@@ -16,17 +16,17 @@ ms.workload: infrastructure
 ms.date: 02/28/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 82d40c30c92f5da090e7ec4e2f25ead3908cc603
-ms.openlocfilehash: ecf51ea9bf7e74c7847b4394803c2b95a3774446
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 7ba43d1ab626331b9663bb7fef9af986810533c2
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="quick-create-a-virtual-machine-with-the-azure-cli"></a>Creare rapidamente una macchina virtuale con l'interfaccia della riga di comando di Azure
 
-Questo script crea una macchina virtuale di Azure con Windows Server 2016 e quindi usa l'estensione dello script personalizzato della macchina virtuale di Azure per installare IIS. Dopo l'esecuzione dello script, il sito Web IIS predefinito può essere raggiunto sull'indirizzo IP pubblico della macchina virtuale.
+Questo script crea una macchina virtuale di Azure con Windows Server 2016 e usa l'estensione dello script personalizzato di Macchina virtuale di Azure per installare IIS. Dopo l'esecuzione dello script, è possibile accedere al sito Web IIS predefinito tramite l'indirizzo IP pubblico della macchina virtuale.
 
-Prima di eseguire questo script, verificare che sia stata creata una connessione con Azure tramite il comando `az login`. È anche necessario modificare la variabile $AdminPassword all'inizio dello script secondo i requisiti di complessità delle password univoci.
+Se necessario, installare l'interfaccia della riga di comando di Azure usando l'istruzione presente nella [Guida all'installazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e quindi eseguire `az login` per creare una connessione con Azure.
 
 Questo esempio funziona in una shell Bash. Per le opzioni sull'esecuzione di script dell'interfaccia della riga di comando di Azure in Windows, vedere [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md) (Esecuzione dell'interfaccia della riga di comando di Azure in Windows).
 
@@ -36,7 +36,7 @@ Questo esempio funziona in una shell Bash. Per le opzioni sull'esecuzione di scr
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
 
-Dopo l'esecuzione dello script di esempio, eseguire il comando seguente per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
+Eseguire questo comando per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
 
 ```azurecli
 az group delete --name myResourceGroup --yes

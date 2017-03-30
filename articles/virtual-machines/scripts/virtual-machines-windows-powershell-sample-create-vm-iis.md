@@ -1,5 +1,5 @@
 ---
-title: Esempio di script di Azure PowerShell - IIS | Documentazione Microsoft
+title: Esempio di script di Azure PowerShell - IIS | Microsoft Docs
 description: Esempio di script di Azure PowerShell - IIS
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,17 +16,17 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 68b3d858bc268eb8b93e4968d9fb1e587ebaa1e6
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 5269bd54e2dc9604c855cc9ff061cca26db1bf44
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="create-an-iis-vm-with-powershell"></a>Creare una VM IIS con PowerShell
 
-Questo script crea una macchina virtuale e quindi usa l'estensione dello script personalizzato della macchina virtuale di Azure per installare IIS. Dopo l'esecuzione dello script, un sito Web dimostrativo può essere raggiunto sull'indirizzo IP pubblico della macchina virtuale.
+Questo script crea una macchina virtuale di Azure con Windows Server 2016 e usa l'estensione dello script personalizzato di Macchina virtuale di Azure per installare IIS. Dopo l'esecuzione dello script, è possibile accedere al sito Web IIS predefinito tramite l'indirizzo IP pubblico della macchina virtuale.
 
-Prima di eseguire questo script, verificare che sia stata creata una connessione con Azure tramite il comando `Login-AzureRmAccount`.
+Se necessario, installare Azure PowerShell usando l'istruzione presente nella [Guida di Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) e quindi eseguire `Login-AzureRmAccount` per creare una connessione con Azure.
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -34,7 +34,7 @@ Prima di eseguire questo script, verificare che sia stata creata una connessione
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
 
-Dopo l'esecuzione dello script di esempio, eseguire il comando seguente per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
+Eseguire questo comando per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup

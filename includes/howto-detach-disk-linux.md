@@ -29,7 +29,7 @@ Prima di poter scollegare un disco da una macchina virtuale, è necessario conos
 3. Si noti il LUN o il **numero di unità logica** per il disco che si desidera scollegare.
 
 ## <a name="remove-operating-system-references-to-the-disk"></a>Rimuovere i riferimenti del sistema operativo al disco
-Prima di scollegare il disco dal guest Linux, è necessario assicurarsi che tutte le partizioni del disco non siano in uso. Assicurarsi che il sistema operativo non tenti di rimontarle dopo un riavvio. Questi passaggi annullano la configurazione che è stata probabilmente creata durante il [collegamento](../articles/virtual-machines/virtual-machines-linux-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) del disco.
+Prima di scollegare il disco dal guest Linux, è necessario assicurarsi che tutte le partizioni del disco non siano in uso. Assicurarsi che il sistema operativo non tenti di rimontarle dopo un riavvio. Questi passaggi annullano la configurazione che è stata probabilmente creata durante il [collegamento](../articles/virtual-machines/linux/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) del disco.
 
 1. Usare il comando `lsscsi` per trovare l'identificatore disco. `lsscsi` può essere installato tramite `yum install lsscsi` (su distribuzioni basate su Red Hat) o `apt-get install lsscsi` (su distribuzioni basate su Debian). È possibile trovare l'identificatore disco che si sta cercando grazie al numero LUN. L'ultimo numero della tupla in ogni riga è il LUN. Nell'esempio seguente di `lsscsi`, LUN 0 esegue il mapping a *dev/sdc*.
 

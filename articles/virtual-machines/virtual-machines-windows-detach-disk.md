@@ -1,5 +1,5 @@
 ---
-title: Scollegare un disco dati da una VM di Windows | Microsoft Docs
+title: Scollegare un disco dati da una VM Windows - Azure | Microsoft Docs
 description: Informazioni su come scollegare un disco dati da una macchina virtuale in Azure usando il modello di distribuzione Resource Manager.
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 03/21/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 730672a8b52ef37c759b5c92bc1e36d8477da3f3
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 7274a86ada8115e86156592cf034d0350f59ebab
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -33,12 +34,14 @@ Se si vogliono riusare i dati presenti nel disco, è possibile ricollegarlo alla
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Scollegare un disco dati tramite il portale
 1. Nell'hub del portale selezionare **Macchine virtuali**.
-2. Selezionare la macchina virtuale con il disco dati da scollegare e fare clic su **Tutte le impostazioni**.
-3. Nel pannello **Impostazioni** selezionare **Dischi**.
-4. Nel pannello **Dischi** selezionare un disco dati che si desidera scollegare.
-5. Nel pannello per il disco dati fare clic su **Scollega**.
+2. Selezionare la macchina virtuale con il disco dati che si vuole scollegare e fare clic su **Arresta** per deallocare la macchina virtuale.
+3. Nel pannello delle macchine virtuali selezionare **Dischi**.
+4. Nella parte superiore del pannello **Dischi** selezionare **Modifica**.
+5. Nel pannello **Dischi**, fare clic sul pulsante per scollegare il disco ![Immagine del pulsante per scollegare il disco](./media/virtual-machines-common-detach-disk/detach.png) nella parte più a destra del disc dati.
+5. Dopo aver rimosso il disco, fare clic su Salva nella parte superiore del pannello.
+6. Nel pannello delle macchine virtuali fare clic su **Panoramica** e quindi fare clic su **Avvia** nella parte superiore del pannello per riavviare la macchina virtuale.
 
-    ![Schermata che illustra il pulsante Scollega.](./media/virtual-machines-windows-detach-disk/detach-disk.png)
+
 
 Il disco rimane nello spazio di archiviazione ma non è più collegato a una macchina virtuale.
 
@@ -55,15 +58,9 @@ Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
 Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
 ```
 
-
-Per altre informazioni, vedere [Remove-AzureRmVMDataDisk](https://msdn.microsoft.com/library/mt603614.aspx)
+Per altre informazioni, vedere [Remove-AzureRmVMDataDisk](/powershell/remove-azurermvmdatadisk).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se si desidera riutilizzare il disco dati, è sufficiente [collegarlo a un'altra VM](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

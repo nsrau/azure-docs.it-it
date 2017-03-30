@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: cc25d521b4de64643c8920d45ec9aa6c07b94302
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 977fcf74c86e2ab312d99b3f1821cfb7efbe9745
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -313,7 +314,7 @@ Creare un file JSON denominato **ADFCopyTutorialARM-Parameters.json** contenente
 1. Avviare **Azure PowerShell** ed eseguire questo comando:
    * Eseguire il comando seguente e immettere il nome utente e la password usati per accedere al portale di Azure.
     ```PowerShell
-    Login-AzureRmAccount    
+    Login-AzureRmAccount       
     ```  
    * Eseguire il comando seguente per visualizzare tutte le sottoscrizioni per l'account.
     ```PowerShell
@@ -408,7 +409,7 @@ In questa sezione si specificano il nome e la chiave dell'account di archiviazio
 connectionString usa i parametri storageAccountName e storageAccountKey. I valori per questi parametri sono stati passati usando un file di configurazione. La definizione usa anche le variabili azureStroageLinkedService e dataFactoryName definite nel modello. 
 
 #### <a name="azure-sql-database-linked-service"></a>Servizio collegato per il database SQL Azure
-In questa sezione si specificano il nome del server di Azure SQL, il nome del database, il nome utente e la password utente. Per informazioni dettagliate sulle proprietà JSON usate per definire un servizio collegato di Azure SQL, vedere [Servizio collegato Azure SQL](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).  
+In questa sezione si specificano il nome del server di Azure SQL, il nome del database, il nome utente e la password utente. Per informazioni dettagliate sulle proprietà JSON usate per definire un servizio collegato di Azure SQL, vedere [Servizio collegato Azure SQL](data-factory-azure-sql-connector.md#linked-service-properties).  
 
 ```json
 {
@@ -431,7 +432,7 @@ In questa sezione si specificano il nome del server di Azure SQL, il nome del da
 connectionString usa i parametri sqlServerName, databaseName, sqlServerUserName e sqlServerPassword i cui valori vengono passati usando un file di configurazione. La definizione usa anche le variabili seguenti del modello: azureSqlLinkedServiceName, dataFactoryName.
 
 #### <a name="azure-blob-dataset"></a>Set di dati del BLOB di Azure
-Vengono specificati i nomi del contenitore BLOB, della cartella e del file contenente i dati di input. Per informazioni dettagliate sulle proprietà JSON usate per definire un set di dati del BLOB di Azure, vedere [Proprietà del set di dati del BLOB di Azure](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties). 
+Vengono specificati i nomi del contenitore BLOB, della cartella e del file contenente i dati di input. Per informazioni dettagliate sulle proprietà JSON usate per definire un set di dati del BLOB di Azure, vedere [Proprietà del set di dati del BLOB di Azure](data-factory-azure-blob-connector.md#dataset-properties). 
 
 ```json
 {
@@ -473,7 +474,7 @@ Vengono specificati i nomi del contenitore BLOB, della cartella e del file conte
 ```
 
 #### <a name="azure-sql-dataset"></a>Set di dati di Azure SQL
-Viene specificato il nome della tabella nel database SQL di Azure che contiene i dati copiati dall'archivio BLOB di Azure. Per informazioni dettagliate sulle proprietà JSON usate per definire un set di dati di Azure SQL, vedere [Proprietà del set di dati di Azure SQL](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties). 
+Viene specificato il nome della tabella nel database SQL di Azure che contiene i dati copiati dall'archivio BLOB di Azure. Per informazioni dettagliate sulle proprietà JSON usate per definire un set di dati di Azure SQL, vedere [Proprietà del set di dati di Azure SQL](data-factory-azure-sql-connector.md#dataset-properties). 
 
 ```json
 {
@@ -591,8 +592,3 @@ Si noti che il primo comando usa il file dei parametri per l'ambiente di svilupp
 | [Pipeline](data-factory-create-pipelines.md) |Questo articolo fornisce informazioni sulle pipeline e le attività in Azure Data Factory. |
 | [Set di dati](data-factory-create-datasets.md) |Questo articolo fornisce informazioni sui set di dati in Azure Data Factory. |
 | [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) |Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello applicativo di Data factory di Azure. |
-
-
-<!--HONumber=Feb17_HO1-->
-
-

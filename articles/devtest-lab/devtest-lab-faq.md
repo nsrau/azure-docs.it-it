@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 03/22/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: fee6c375f93e1e669c031d8ca63470f7f48fadf2
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 4fc454a8c7974b8f53cd6621639dd5b575cc66f7
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -65,6 +65,7 @@ Questo articolo risponde ad alcune delle domande più frequenti relative ad Azur
 * [Si è verificato un errore per l'elemento durante la creazione della VM. Come si risolve il problema?](#my-artifact-failed-during-vm-creation-how-do-i-troubleshoot-it)
 * [Perché la rete virtuale esistente non viene salvata correttamente?](#why-isnt-my-existing-virtual-network-saving-properly)
 * [Perché quando si esegue il provisioning da PowerShell viene visualizzato un errore del tipo "Risorsa padre non trovata"?](#why-do-i-get-a-parent-resource-not-found-error-when-provisioning-a-vm-from-powershell)  
+* [Se la distribuzione di una macchina virtuale ha esito negativo, dove è possibile trovare maggiori informazioni sul tipo di errore?](#where-can-i-find-more-error-information-when-vm-deployment-is-failed)  
 
 ### <a name="what-if-my-question-isnt-answered-here"></a>Cosa fare se non è disponibile una risposta alla domanda?
 Se la domanda non è elencata qui, invitiamo gli utenti a comunicarcela per consentirci di fornire il nostro aiuto.
@@ -157,7 +158,12 @@ Un'immagine personalizzata è un disco rigido virtuale, mentre una formula è un
 Il collegamento di più dischi alle VM è supportato.  
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Per usare un'immagine del sistema operativo per le operazioni di test è necessario acquistare un abbonamento a MSDN?
-Sì, per usare immagini del sistema operativo client (Windows 7 e versioni successive) per le operazioni di test è necessario [acquistare un abbonamento a MSDN](https://www.visualstudio.com/products/how-to-buy-vs). Nella pagina [Credito Azure mensile per sottoscrittori di Visual Studio](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/) sono indicati i crediti Azure per ciascuna offerta MSDN e vengono riportate informazioni dettagliate.
+Sì, se si vuole usare immagini del sistema operativo client (Windows 7 o versioni successive) per operazioni di sviluppo o test in Azure. In questo caso, è necessario:
+
+- [Acquistare un abbonamento a MSDN](https://www.visualstudio.com/products/how-to-buy-vs). 
+- Creare una sottoscrizione di Azure con l'[offerta Sviluppo/test Enterprise](https://azure.microsoft.com/en-us/offers/ms-azr-0148p) (se si possiede un contratto Enterprise).
+
+Per altre informazioni sui crediti Azure per ogni offerta MSDN, vedere [Credito Azure mensile per sottoscrittori di Visual Studio](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
 
 ### <a name="how-do-i-automate-the-process-of-uploading-vhd-files-to-create-custom-images"></a>Come si automatizza il processo di caricamento dei file VHD per creare immagini personalizzate?
 Sono disponibili due opzioni:
@@ -176,7 +182,7 @@ Per trovare l'account di archiviazione di destinazione associato al lab, seguire
 7. Usare l' **URL** come destinazione nel comando AzCopy.
 
 ### <a name="how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab"></a>Come è possibile automatizzare il processo di eliminazione di tutte le macchine virtuali nel lab?
-Oltre a eliminare le macchine virtuali dall'ambiente nel portale di Azure, è possibile eliminare tutte le macchine virtuali nell'ambiente lab tramite uno script di PowerShell. Nell'esempio seguente, è sufficiente modificare i valori dei parametri nel commento **Values to change** (Valori da modificare). È possibile recuperare i valori `subscriptionId`, `labResourceGroup` e `labName` dal pannello Lab nel portale di Azure.
+Per eliminare le macchine virtuali presenti nel lab, è possibile usare sia il portale di Azure sia uno script di PowerShell. Nell'esempio seguente, modificare i valori dei parametri nel commento **Values to change** (Valori da modificare). È possibile recuperare i valori `subscriptionId`, `labResourceGroup` e `labName` dal pannello Lab nel portale di Azure.
 
     # Delete all the VMs in a lab
 
@@ -225,18 +231,18 @@ Non esiste un limite specifico al numero di lab che possono essere creati per og
 Non esiste un limite specifico al numero di VM che possono essere create per ogni lab. Tuttavia, attualmente il lab supporta solo circa 40 VM in esecuzione contemporaneamente nell'archiviazione Standard e 25 VM in esecuzione simultaneamente nell'archiviazione Premium. Microsoft sta lavorando all'aumento di questi limiti.
 
 ### <a name="how-do-i-share-a-direct-link-to-my-lab"></a>Come è possibile condividere un collegamento diretto al mio lab?
-Per condividere un collegamento diretto con gli utenti del lab, è possibile implementare la procedura seguente.
+Per condividere un collegamento diretto con gli utenti del lab, è possibile seguire questa procedura:
 
 1. Cercare il lab nel portale di Azure.
 2. Copiare l'URL del lab dal browser e condividerlo con gli utenti del lab.
 
 > [!NOTE]
-> Se gli utenti del lab sono esterni e dispongono di un [account MSA](#what-is-a-microsoft-account) , ma non appartengono ad Active Directory aziendale, potrebbero ricevere un errore durante la navigazione verso il collegamento specificato. In questo caso, indicare loro di fare clic sul proprio nome nell'angolo in alto a destra del portale di Azure e selezionare la directory in cui è presente il lab dalla sezione **Directory** del menu.
+> Se gli utenti del lab sono esterni e dispongono di un [account Microsoft](#what-is-a-microsoft-account), ma non appartengono ad Active Directory aziendale, è possibile che ricevano un errore durante la navigazione verso il collegamento specificato. In questo caso, indicare loro di fare clic sul proprio nome nell'angolo in alto a destra del portale di Azure e selezionare la directory in cui è presente il lab dalla sezione **Directory** del menu.
 >
 >
 
 ### <a name="what-is-a-microsoft-account"></a>Che cos'è un account Microsoft?
-Un account Microsoft è ciò che si usa per quasi tutte le operazioni eseguite con servizi e dispositivi di Microsoft. È un indirizzo di posta elettronica e una password usati per accedere a Skype, Outlook.com, OneDrive, Windows Phone e Xbox LIVE: in questo modo file, foto, contatti e impostazioni possono seguire l'utente su qualsiasi dispositivo.
+Un account Microsoft è ciò che si usa per quasi tutte le operazioni eseguite con servizi e dispositivi di Microsoft. È composto da un indirizzo di posta elettronica e una password usati per accedere a Skype, Outlook.com, OneDrive, Windows Phone e Xbox LIVE. Grazie a questo account, file, foto, contatti e impostazioni possono seguire l'utente su qualsiasi dispositivo.
 
 > [!NOTE]
 > In precedenza, l'account Microsoft veniva denominato "Windows Live ID".
@@ -244,7 +250,7 @@ Un account Microsoft è ciò che si usa per quasi tutte le operazioni eseguite c
 >
 
 ### <a name="my-artifact-failed-during-vm-creation-how-do-i-troubleshoot-it"></a>Si è verificato un errore per l'elemento durante la creazione della VM. Come si risolve il problema?
-Vedere il post di blog [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs) (Come risolvere gli errori degli elementi in Azure DevTest Labs), scritto da un MVP, per informazioni su come ottenere i log relativi all'elemento che ha generato l'errore.
+Fare riferimento al post di blog [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs) (Come risolvere gli errori degli elementi in Azure DevTest Labs), scritto da un MVP, per informazioni su come ottenere i log relativi all'elemento che ha generato l'errore.
 
 ### <a name="why-isnt-my-existing-virtual-network-saving-properly"></a>Perché la rete virtuale esistente non viene salvata correttamente?
 È possibile che il nome della rete virtuale contenga dei punti. In questo caso, provare a rimuovere i punti o a sostituirli con trattini e quindi provare a salvare di nuovo la rete virtuale.
@@ -252,5 +258,10 @@ Vedere il post di blog [How to troubleshoot failing Artifacts in AzureDevTestLab
 ### <a name="why-do-i-get-a-parent-resource-not-found-error-when-provisioning-a-vm-from-powershell"></a>Perché quando si esegue il provisioning di una macchina virtuale da PowerShell viene visualizzato un errore del tipo "Risorsa padre non trovata"?
 Quando una risorsa è l'elemento padre di un'altra risorsa, deve già esistere prima di creare la risorsa figlio. Se non esiste ancora, viene visualizzato l'errore **ParentResourceNotFound**. Se non si specifica una dipendenza dalla risorsa padre, la risorsa figlio può essere distribuita prima dell'elemento padre.
 
-Le macchine virtuali sono risorse figlio di un lab in un gruppo di risorse. Quando si usano modelli di Azure Resource Manager per eseguire una distribuzione tramite PowerShell, il nome del gruppo di risorse specificato nello script di PowerShell deve coincidere con quello del gruppo di risorse del lab. Per altre informazioni, vedere [Risolvere errori comuni durante la distribuzione in Azure ](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+Le macchine virtuali sono risorse figlio di un lab in un gruppo di risorse. Quando si usano modelli di risorse di Azure per eseguire una distribuzione tramite PowerShell, il nome del gruppo di risorse specificato nello script di PowerShell deve coincidere con quello del gruppo di risorse del lab. Per altre informazioni, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+
+### <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Se la distribuzione di una macchina virtuale ha esito negativo, dove è possibile trovare maggiori informazioni sul tipo di errore?
+Gli errori che si verificano durante la distribuzione di una macchina virtuale vengono acquisiti nei log attività. È possibile trovare i log attività delle macchine virtuali del lab tramite la voce **Log di controllo** o **Diagnostica macchina virtuale** del menu di risorse presente nel pannello della macchina virtuale del lab (il pannello viene visualizzato dopo aver selezionato la macchina virtuale dall'elenco **Macchine virtuali**). 
+
+In alcuni casi, l'errore di distribuzione si verifica prima dell'avvio della distribuzione della macchina virtuale, ad esempio se viene superato il limite di sottoscrizioni per una risorsa creata con la macchina virtuale. In questo caso, i dettagli dell'errore vengono acquisiti nei **Log attività** a livello di lab, disponibili nella parte inferiore delle impostazioni **Configuration and policies** (Configurazione e criteri). Per altre informazioni sull'utilizzo dei log attività in Azure, vedere [Visualizzare i log attività per controllare le azioni sulle risorse](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
 

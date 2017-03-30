@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/21/2016
+ms.date: 03/14/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 17de66693661e56e9b456581c97a47cfb91cd886
-ms.openlocfilehash: bf08cc7ebb56aaf77c1718545ed4374f47933975
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 2dc56240894666b2fa24baf4902c3097e97d656e
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -30,7 +31,7 @@ Informazioni su come configurare un cluster Linux RDMA in Azure con [macchine vi
 ## <a name="cluster-deployment-options"></a>Opzioni di distribuzione del cluster
 Di seguito vengono riportati i metodi utilizzabili per creare un cluster Linux RDMA con o senza un'utilità di pianificazione del processo.
 
-* **Script dell'interfaccia della riga di comando di Azure**: come illustrato più avanti in questo articolo, usare l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) per eseguire lo script della distribuzione di un cluster di macchine virtuali con supporto per RDMA. L'interfaccia della riga di comando in modalità Service Management crea i nodi del cluster in modo seriale nel modello di distribuzione classica, quindi la distribuzione di molti nodi di calcolo potrebbe richiedere alcuni minuti. Per abilitare la connessione di rete RDMA quando si usa il modello di distribuzione classico, distribuire le macchine virtuali nello stesso servizio cloud.
+* **Script dell'interfaccia della riga di comando di Azure**: come illustrato più avanti in questo articolo, usare l'[interfaccia della riga di comando di Azure](../cli-install-nodejs.md) per eseguire lo script della distribuzione di un cluster di macchine virtuali con supporto per RDMA. L'interfaccia della riga di comando in modalità Service Management crea i nodi del cluster in modo seriale nel modello di distribuzione classica, quindi la distribuzione di molti nodi di calcolo potrebbe richiedere alcuni minuti. Per abilitare la connessione di rete RDMA quando si usa il modello di distribuzione classico, distribuire le macchine virtuali nello stesso servizio cloud.
 * **Modelli di Azure Resource Manager**: è possibile anche usare il modello di distribuzione di Resource Manager per distribuire un cluster di macchine virtuali con supporto per RDMA che si connette alla rete RDMA. Per distribuire la soluzione desiderata, è possibile [creare un modello personalizzato](../resource-group-authoring-templates.md) o vedere la [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/) per accedere ai modelli forniti da Microsoft o dalla community. I modelli di Gestione risorse riescono a fornire un modo veloce e affidabile per distribuire un cluster Linux. Per abilitare la connessione di rete RDMA quando si usa il modello di distribuzione di Resource Manager, distribuire le macchine virtuali nello stesso set di disponibilità.
 * **HPC Pack**: creare un cluster Microsoft HPC Pack in Azure e aggiungere nodi di calcolo con supporto per RDMA che eseguono una distribuzione Linux supportata per accedere alla rete RDMA. Per ulteriori informazioni, vedere [Introduzione all’uso di nodi di calcolo Linux in un cluster HPC Pack in Azure](virtual-machines-linux-classic-hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
@@ -38,7 +39,7 @@ Di seguito vengono riportati i metodi utilizzabili per creare un cluster Linux R
 I passaggi seguenti mostrano come usare l'interfaccia della riga di comando di Azure per distribuire una macchina virtuale HPC SUSE Linux Enterprise Server (SLES) 12 SP1 da Azure Marketplace, personalizzarla e creare un'immagine di macchina virtuale personalizzata. È quindi possibile usare l'immagine per lo script della distribuzione di un cluster di macchine virtuali con supporto per RDMA.
 
 > [!TIP]
-> Usare una procedura simile per distribuire un cluster di macchine virtuali con supporto per RDMA basate su altre immagini HPC supportate in Azure Marketplace. Alcuni passaggi possono essere leggermente diversi. Intel MPI, ad esempio, è incluso e configurato solo in alcune di queste immagini. Inoltre, se si distribuisce una macchina virtuale HPC SLES 12 anziché una macchina virtuale HPC SLES 12 SP1, è necessario aggiornare i driver RDMA. Per altre informazioni, vedere [Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](virtual-machines-linux-a8-a9-a10-a11-specs.md#rdma-driver-updates-for-sles-12).
+> Usare una procedura simile per distribuire un cluster di macchine virtuali con supporto per RDMA basate su immagini HPC basate su CentOS in Azure Marketplace. Come indicato, alcuni passaggi variano leggermente. 
 >
 >
 
@@ -47,7 +48,7 @@ I passaggi seguenti mostrano come usare l'interfaccia della riga di comando di A
 * **Sottoscrizione di Azure**: se non è disponibile una sottoscrizione, è possibile creare un [account gratuito](https://azure.microsoft.com/free/) in pochi minuti. Per cluster di maggiori dimensioni, prendere in considerazione una sottoscrizione con pagamento in base al consumo o altre opzioni di acquisto.
 * **Disponibilità delle dimensioni di macchina virtuale**: offrono supporto per RDMA le dimensioni di istanza seguenti: H16r, H16mr, A8 e A9. Per informazioni sulla disponibilità nelle aree di Azure, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/) .
 * **Quota di core**: può essere necessario aumentare la quota di core per distribuire un cluster di macchine virtuali a elevato uso di calcolo. Ad esempio, se si desidera distribuire 8 VM A9 come illustrato in questo articolo, è necessario disporre di almeno 128 core. La sottoscrizione può anche limitare il numero di core che è possibile distribuire in alcune famiglie di dimensioni di macchina virtuale, inclusa la serie H. Per richiedere un aumento della quota, è possibile [aprire una richiesta di assistenza clienti online](../azure-supportability/how-to-create-azure-support-request.md) senza alcun addebito.
-* **Interfaccia della riga di comando di Azure**: [installare](../xplat-cli-install.md) l'interfaccia della riga di comando di Azure e [connetterla alla sottoscrizione di Azure](../xplat-cli-connect.md) dal computer client.
+* **Interfaccia della riga di comando di Azure**: [installare](../cli-install-nodejs.md) l'interfaccia della riga di comando di Azure e [connetterla alla sottoscrizione di Azure](../xplat-cli-connect.md) dal computer client.
 
 ### <a name="provision-an-sles-12-sp1-hpc-vm"></a>Provisioning di una macchina virtuale HPC SLES 12 SP1
 Dopo l'accesso ad Azure con l'interfaccia della riga di comando di Azure, eseguire `azure config list` per verificare che l'output indichi la modalità Azure Service Management. In caso contrario, impostare la modalità eseguendo questo comando:
@@ -379,9 +380,4 @@ In un cluster funzionante con due nodi dovrebbe essere visualizzato un output si
 * Distribuire ed eseguire le applicazioni MPI Linux nel cluster Linux.
 * Per istruzioni su Intel MPI, vedere la [documentazione relativa a Intel MPI Library](https://software.intel.com/en-us/articles/intel-mpi-library-documentation/).
 * Provare un [modello di avvio rapido](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) per creare un cluster Intel Lustre usando un'immagine basata HPC su CentOS. Per informazioni dettagliate, vedere [Distribuzione di Intel Cloud Edition per Lustre in Microsoft Azure](https://blogs.msdn.microsoft.com/arsen/2015/10/29/deploying-intel-cloud-edition-for-lustre-on-microsoft-azure/).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

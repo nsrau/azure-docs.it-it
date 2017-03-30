@@ -1,5 +1,5 @@
 ---
-title: Configurare indirizzi IP privati per le VM - Portale di Azure | Documentazione Microsoft
+title: Configurare indirizzi IP privati per le VM - Portale di Azure | Microsoft Docs
 description: Informazioni su come configurare indirizzi IP privati per le VM mediante il portale di Azure.
 services: virtual-network
 documentationcenter: na
@@ -17,21 +17,21 @@ ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: 251a2977d821b710807e00b2aae71992630feb77
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 672462fad715758e50680fa5bade4b1f9d50e6e5
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Configurare indirizzi IP privati per una VM mediante il portale di Azure
 
 > [!div class="op_single_selector"]
-- [Portale di Azure](virtual-networks-static-private-ip-arm-pportal.md)
-- [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
-- [Interfaccia della riga di comando di Azure](virtual-networks-static-private-ip-arm-cli.md)
-- [Portale di Azure (classico)](virtual-networks-static-private-ip-classic-pportal.md)
-- [PowerShell (Classic)](virtual-networks-static-private-ip-classic-ps.md) (PowerShell (classico))
-- [Interfaccia della riga di comando di Azure (versione classica)](virtual-networks-static-private-ip-classic-cli.md)
+> * [Portale di Azure](virtual-networks-static-private-ip-arm-pportal.md)
+> * [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
+> * [Interfaccia della riga di comando di Azure](virtual-networks-static-private-ip-arm-cli.md)
+> * [Portale di Azure (classico)](virtual-networks-static-private-ip-classic-pportal.md)
+> * [PowerShell (Classic)](virtual-networks-static-private-ip-classic-ps.md) (PowerShell (classico))
+> * [Interfaccia della riga di comando di Azure (versione classica)](virtual-networks-static-private-ip-classic-cli.md)
 
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
@@ -97,10 +97,10 @@ Per aggiungere un indirizzo IP statico privato per la macchina virtuale creata i
 > 
 > 
 
-## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Come rimuovere un indirizzo IP statico privato da una VM
-Per rimuovere l'indirizzo IP statico privato dalla VM creata in precedenza, attenersi alla procedura seguente.
+## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Come rimuovere un indirizzo IP statico privato da una macchina virtuale
+Per rimuovere l'indirizzo IP privato statico dalla VM creata in precedenza, attenersi alla procedura seguente:
 
-1. Dal pannello **Indirizzi IP** mostrato in precedenza, fare clic su **Dinamico** in **Assegnazione** e quindi fare clic su **Salva**.
+Dal pannello **Indirizzi IP** mostrato in precedenza, fare clic su **Dinamico** in **Assegnazione** e quindi fare clic su **Salva**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su [indirizzi IP pubblici riservati](virtual-networks-reserved-public-ip.md) .

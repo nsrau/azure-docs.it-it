@@ -1,5 +1,5 @@
 ---
-title: Limitazioni e problemi noti dell&quot;importazione dell&quot;API di Gestione API di Azure | Documentazione Microsoft
+title: Limitazioni e problemi noti dell&quot;importazione dell&quot;API di Gestione API di Azure | Microsoft Docs
 description: Dettagli di problemi noti e limitazioni relative all&quot;importazione in Gestione API di Azure con i formati Open API, WSDL o WADL.
 services: api-management
 documentationcenter: 
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: f941f87019a667deba5ec3e5cd054d04318689db
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: ac799d66b5038c207413086b0fa71239ff2a332f
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -37,7 +37,7 @@ I file WSDL vengono usati per generare le API SOAP pass-through o come back-end 
 
 * **WSDL:Import**: le API che usano questo attributo non sono attualmente supportate. I clienti devono unire gli elementi importati in un solo documento.
 * **Messaggi con più parti**: non sono attualmente supportati.
-* **WCF wsHttpBinding**: i servizi SOAP creati con Windows Communication Foundation devono usare basicHttpBinding - wsHttpBinding.
+* I servizi SOAP **wsHttpBinding di WCF** creati con Windows Communication Foundation devono usare basicHttpBinding in quanto wsHttpBinding non è supportato.
 * **MTOM**: i servizi che usano MTOM <em>potrebbero</em> funzionare. Al momento il supporto ufficiale non è previsto.
 * Non sono supportati i tipi **ricorsivi** che sono definiti in modo ricorsivo, ad esempio che fanno riferimento a una matrice di se stessi.
 

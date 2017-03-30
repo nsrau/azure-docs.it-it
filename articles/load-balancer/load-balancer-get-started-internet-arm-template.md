@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 29d0fb3160b43d1733d843b4cf103ad821b46018
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 3539d6f6d3741387174e80ecc132db782d7df9f0
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -57,7 +58,7 @@ Per distribuire il modello scaricato tramite PowerShell, seguire questa procedur
 
 Per distribuire il modello tramite l'interfaccia della riga di comando di Azure, seguire questa procedura.
 
-1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
+1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
 2. Eseguire il comando **azure config mode** per passare alla modalità Gestione risorse, come illustrato di seguito.
 
     ```azurecli
@@ -82,9 +83,4 @@ Per distribuire il modello tramite l'interfaccia della riga di comando di Azure,
 [Configurare una modalità di distribuzione del servizio di bilanciamento del carico](load-balancer-distribution-mode.md)
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

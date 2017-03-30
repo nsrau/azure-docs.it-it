@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/08/2017
+ms.date: 03/21/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: ec49b8784eb9b18135c5f7ec7242a2468ac87e50
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: a545925bdade693f4db7db45228188dae7e5ff38
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -32,7 +32,7 @@ L'aggiornamento 4 può essere applicato a qualsiasi dispositivo StorSimple che e
 Esaminare le informazioni contenute nelle note sulla versione prima di distribuire l'aggiornamento della soluzione StorSimple.
 
 > [!IMPORTANT]
-> * L'aggiornamento 4 include software per dispositivi, firmware USM, firmware e driver LSI, firmware del disco, Storport e Spaceport, aggiornamenti di sicurezza e una serie di altri aggiornamenti del sistema operativo. L'installazione dell'aggiornamento richiede circa 4 ore. È consigliabile applicare questo aggiornamento per mantenere aggiornato il dispositivo. 
+> * L'aggiornamento 4 include software per dispositivi, firmware USM, firmware e driver LSI, firmware del disco, Storport e Spaceport, aggiornamenti di sicurezza e una serie di altri aggiornamenti del sistema operativo. L'installazione dell'aggiornamento richiede circa 4 ore. L'aggiornamento firmware del disco è problematico e comporta un tempo di inattività per il dispositivo. È consigliabile applicare l'aggiornamento 4 per mantenere aggiornato il dispositivo. 
 > * Per le nuove versioni è possibile che gli aggiornamenti non siano immediatamente visibili perché viene effettuata un'implementazione graduale degli aggiornamenti. Attendere alcuni giorni e quindi provare a cercare nuovamente gli aggiornamenti, perché verranno presto resi disponibili.
 
 ## <a name="whats-new-in-update-4"></a>Novità dell'aggiornamento 4
@@ -49,7 +49,7 @@ L'aggiornamento 4 include gli importanti aggiornamenti e correzioni di bug descr
 
     Tutti i ripristini sono basati su mappa termica. Per ulteriori informazioni su come eseguire una query e annullare i processi di ripristino e riattivazione basati su mappa termica, vedere [Informazioni di riferimento sui cmdlet di Windows PowerShell per StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 
-* **Strumento di diagnostica StorSimple**: nell'aggiornamento 4 è incluso un nuovo strumento di diagnostica StorSimple per facilitare le operazioni di diagnostica e risoluzione dei problemi legati a sistema, rete, prestazioni e integrità dei componenti hardware. Questo strumento viene eseguito tramite Windows PowerShell per StorSimple. 
+* **Strumento di diagnostica StorSimple**: nell'aggiornamento 4 è incluso un nuovo strumento di diagnostica StorSimple per facilitare le operazioni di diagnostica e risoluzione dei problemi legati a sistema, rete, prestazioni e integrità dei componenti hardware. Questo strumento viene eseguito tramite Windows PowerShell per StorSimple. Per altre informazioni, vedere la [risoluzione dei problemi con lo strumento di diagnostica StorSimple](storsimple-8000-diagnostics.md).
 
 * **Strumento di migrazione StorSimple basato su interfaccia utente**: prima di questa versione, la migrazione dei dati dalle serie 5000-7000 richiedeva l'esecuzione di parte del flusso di lavoro della migrazione tramite l'interfaccia Azure PowerShell. In questa versione è invece disponibile uno strumento di migrazione StorSimple basato su un'interfaccia utente facile da usare, per facilitare lo stesso flusso di lavoro di migrazione. Questo strumento permette inoltre il consolidamento dei bucket di ripristino. 
 
@@ -59,7 +59,7 @@ L'aggiornamento 4 include gli importanti aggiornamenti e correzioni di bug descr
 
 * **Modifiche all'aggiornamento**: in questa versione sono stati corretti i bug relativi agli errori di aggiornamento.
 
-* **Avviso per gli errori del disco**: aggiunto un nuovo avviso che informa l'utente di errori imminenti legati al disco. Se viene visualizzato questo avviso, contattare il supporto tecnico Microsoft per richiedere un disco sostitutivo.
+* **Avviso per gli errori del disco**: aggiunto un nuovo avviso che informa l'utente di errori imminenti legati al disco. Se viene visualizzato questo avviso, contattare il supporto tecnico Microsoft per richiedere un disco sostitutivo. Per altre informazioni, vedere gli [avvisi hardware sul dispositivo StorSimple](storsimple-manage-alerts.md#hardware-alerts).
 
 * **Modifiche alla sostituzione del controller**: aggiunto un cmdlet che consente all'utente di richiedere lo stato del processo di sostituzione del controller. Per altre informazioni, vedere il [cmdlet per richiedere lo stato di sostituzione del controller](https://technet.microsoft.com/library/dn688168.aspx).
 
