@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 02/20/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ab3a9b28e5bcf5e1a481cc204b46617c20287a8
-ms.openlocfilehash: 2f75c492313b1ab7f4abe82a98640d535c3d7909
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 751e1eaf65da889ab5c7dc26145c017682a12a4d
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -55,7 +55,7 @@ Il tempo di ripristino di un database tramite i backup automatici del database d
 
 ## <a name="point-in-time-restore"></a>Ripristino temporizzato
 
-È possibile ripristinare un database esistente a un punto specifico nel tempo come un nuovo database nello stesso server logico tramite il [portale di Azure](sql-database-point-in-time-restore-portal.md), [PowerShell](sql-database-point-in-time-restore-powershell.md) o l'[API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+È possibile ripristinare un database esistente a un punto specifico nel tempo come un nuovo database nello stesso server logico tramite il [portale di Azure](sql-database-point-in-time-restore-portal.md), [PowerShell](scripts/sql-database-restore-database-powershell.md) o l'[API REST](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 
 > [!IMPORTANT]
 > Non è possibile sovrascrivere il database esistente durante il ripristino.
@@ -69,7 +69,7 @@ In genere si ripristina un database a un punto precedente per scopi di ripristin
 * ***Ripristino dei dati***: se si prevede di recuperare dati dal database ripristinato in caso di errore dell'applicazione o dell'utente, è necessario scrivere ed eseguire gli script di ripristino per estrarre i dati dal database ripristinato e inserirli nel database originale. Anche se il completamento dell'operazione di ripristino può richiedere molto tempo, il database in fase di ripristino è visibile nell'elenco dei database per tutto il processo. Se si elimina il database durante il ripristino, l'operazione verrà annullata e non verrà addebitata per il database il cui ripristino non è stato completato. 
 
 ## <a name="deleted-database-restore"></a>Ripristino di un database eliminato
-Il ripristino di un database eliminato consente di ripristinare un database all'ora di eliminazione per un database eliminato sullo stesso server logico, usando il [portale di Azure](sql-database-restore-deleted-database-portal.md), [PowerShell](sql-database-restore-deleted-database-powershell.md) o [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+Il ripristino di un database eliminato consente di ripristinare un database all'ora di eliminazione per un database eliminato sullo stesso server logico, usando il [portale di Azure](sql-database-restore-deleted-database-portal.md), [PowerShell](scripts/sql-database-restore-database-powershell.md) o [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 
 > [!IMPORTANT]
 > Se si elimina un'istanza del server di database SQL di Azure, anche tutti i database relativi vengono eliminati e non possono essere recuperati. Non è attualmente disponibile alcun supporto per il ripristino di un server eliminato.
@@ -94,8 +94,8 @@ Come indicato in precedenza, oltre al portale di Azure, il ripristino di databas
 ### <a name="powershell"></a>PowerShell
 | Cmdlet | Descrizione |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/en-us/library/azure/mt603648.aspx) |Ottiene uno o più database. |
-| [Get-AzureRMSqlDeletedDatabaseBackup](https://msdn.microsoft.com/en-us/library/azure/mt693387.aspx) |Ottiene un database eliminato che è possibile ripristinare. |
+| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt603648.aspx) |Ottiene uno o più database. |
+| [Get-AzureRMSqlDeletedDatabaseBackup](https://msdn.microsoft.com/library/azure/mt693387.aspx) |Ottiene un database eliminato che è possibile ripristinare. |
 | [Get-AzureRmSqlDatabaseGeoBackup](https://msdn.microsoft.com/library/azure/mt693388.aspx) |Ottiene una copia di backup con ridondanza geografica di un database. |
 | [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390.aspx) |Ripristina un database SQL. |
 |  | |

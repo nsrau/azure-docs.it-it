@@ -17,15 +17,15 @@ ms.date: 01/18/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: ca346405590d7caa63a888aa139ab1a6f21e365b
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 4082fe7baad4f9d40746410024e071f34f458a40
+ms.lasthandoff: 03/25/2017
 
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatizzare le attività di gestione in macchine virtuali SQL con l'estensione SQL Server Agent (distribuzione classica)
 > [!div class="op_single_selector"]
 > * [Gestione risorse](../sql/virtual-machines-windows-sql-server-agent-extension.md)
-> * [Classico](virtual-machines-windows-classic-sql-server-agent-extension.md)
+> * [Classico](../classic/sql-server-agent-extension.md)
 > 
 >
  
@@ -39,9 +39,9 @@ L'Estensione Agente IaaS di SQL Server supporta le attività di amministrazione 
 
 | Funzionalità di amministrazione | Descrizione |
 | --- | --- |
-| **Backup automatico di SQL** |Consente di automatizzare la pianificazione delle operazioni di backup per tutti i database correlati all'istanza predefinita di SQL Server nella VM. Per altre informazioni, vedere [Backup automatico per SQL Server in macchine virtuali di Azure (distribuzione classica)](virtual-machines-windows-classic-sql-automated-backup.md). |
-| **Applicazione automatica delle patch di SQL** |Consente di configurare una finestra di manutenzione durante la quale eseguire gli aggiornamenti della VM, evitandone l'esecuzione durante i periodi di picco del carico di lavoro. Per altre informazioni, vedere [Applicazione automatica delle patch per SQL Server in macchine virtuali di Azure (distribuzione classica)](virtual-machines-windows-classic-sql-automated-patching.md). |
-| **Integrazione di Azure Key Vault** |Consente di installare e configurare automaticamente Azure Key Vault nella VM di SQL Server. Per altre informazioni, vedere [Configurare l'integrazione di Azure Key Vault per SQL Server in macchine virtuali di Azure (distribuzione classica)](virtual-machines-windows-classic-ps-sql-keyvault.md). |
+| **Backup automatico di SQL** |Consente di automatizzare la pianificazione delle operazioni di backup per tutti i database correlati all'istanza predefinita di SQL Server nella VM. Per altre informazioni, vedere [Backup automatico per SQL Server in macchine virtuali di Azure (distribuzione classica)](../classic/sql-automated-backup.md). |
+| **Applicazione automatica delle patch di SQL** |Consente di configurare una finestra di manutenzione durante la quale eseguire gli aggiornamenti della VM, evitandone l'esecuzione durante i periodi di picco del carico di lavoro. Per altre informazioni, vedere [Applicazione automatica delle patch per SQL Server in macchine virtuali di Azure (distribuzione classica)](../classic/sql-automated-patching.md). |
+| **Integrazione di Azure Key Vault** |Consente di installare e configurare automaticamente Azure Key Vault nella VM di SQL Server. Per altre informazioni, vedere [Configurare l'integrazione di Azure Key Vault per SQL Server in macchine virtuali di Azure (distribuzione classica)](../classic/ps-sql-keyvault.md). |
 
 ## <a name="prerequisites"></a>Prerequisiti
 Requisiti per l'uso dell'Estensione Agente IaaS di SQL Server nella VM:

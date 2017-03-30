@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 6f5a94588e20e62775ffddea0d711bb01e3db4ef
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 032beeb624fb86450e051a9486baf4d04c632da1
+ms.lasthandoff: 03/28/2017
 
 ---
 
@@ -83,7 +83,7 @@ L'endpoint più vicino non è necessariamente il più vicino in termini di dista
 
 Gestione traffico individua nella tabella la riga relativa all'indirizzo IP di origine della richiesta DNS in ingresso e sceglie quindi nel data center di Azure l'endpoint disponibile con la latenza più bassa per l'intervallo di indirizzi IP specifico, e restituisce quindi l'endpoint nella risposta DNS.
 
-Come spiegato in [Modalità di funzionamento di Gestione traffico](traffic-manager-how-traffic-manager-works.md), le query DNS non vengono ricevute direttamente dai client, ma dal servizio DNS ricorsivo per il quale sono configurati. Pertanto, l'indirizzo IP usato per determinare l'endpoint più vicino non è l'indirizzo IP del client, ma l'indirizzo IP del servizio DNS ricorsivo. In pratica, questo indirizzo IP è un proxy valido a questo scopo per il client.
+Come spiegato in [Modalità di funzionamento di Gestione traffico](traffic-manager-overview.md#how-traffic-manager-works), le query DNS non vengono ricevute direttamente dai client, ma dal servizio DNS ricorsivo per il quale sono configurati. Pertanto, l'indirizzo IP usato per determinare l'endpoint più vicino non è l'indirizzo IP del client, ma l'indirizzo IP del servizio DNS ricorsivo. In pratica, questo indirizzo IP è un proxy valido a questo scopo per il client.
 
 
 Per adeguarsi alle modifiche nella rete Internet globale e all'aggiunta di nuove aree di Azure, Gestione traffico aggiorna regolarmente la tabella della latenza di Internet usata. Tuttavia, le prestazioni dell'applicazione variano in base alle variazioni del carico in tempo reale registrate in Internet. Il routing del traffico "Prestazioni" non prende in considerazione il monitoraggio del carico su un determinato endpoint di servizio. Se un endpoint non è più disponibile, non viene incluso nelle risposte alle query DNS.

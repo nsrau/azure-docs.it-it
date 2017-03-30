@@ -16,14 +16,15 @@ ms.tgt_pltfrm: NA
 ms.date: 02/06/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 38c53d6f1a2635afbba199e6f0a2adb23abb6a3a
-ms.openlocfilehash: fcf8326edc2ff84d274f7c4dadeae1fbe2595349
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 951c88124219a6962f655b91275aec64c716b1cd
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="create-and-manage-single-azure-sql-databases-with-transact-sql"></a>Creare e gestire database SQL singoli di Azure con Transact-SQL
 
-È possibile creare e gestire database SQL singoli di Azure usando il [portale di Azure](https://portal.azure.com/), PowerShell, Transact-SQL, l'API REST o C#. Questo argomento illustra l'uso del portale di Azure. Per PowerShell, vedere [Creare e gestire database singoli con PowerShell](sql-database-manage-single-databases-powershell.md). Per Transact-SQL, vedere [Creare e gestire database singoli con Transact-SQL](sql-database-manage-single-databases-tsql.md). 
+È possibile creare e gestire database SQL singoli di Azure usando il [portale di Azure](https://portal.azure.com/), PowerShell, Transact-SQL, l'API REST o C#. Questo argomento illustra l'uso del portale di Azure. Per PowerShell, vedere [Creare e gestire database singoli con PowerShell](scripts/sql-database-create-and-configure-database-powershell.md). Per Transact-SQL, vedere [Creare e gestire database singoli con Transact-SQL](sql-database-manage-single-databases-tsql.md). 
 
 ## <a name="create-an-azure-sql-database-using-transact-sql-in-sql-server-management-studio"></a>Creare un database SQL di Azure usando Transact-SQL in SQL Server Management Studio
 
@@ -53,9 +54,4 @@ Modificare le dimensioni massime del database tramite [Transact-SQL (T-SQL)](htt
 * Per informazioni su come eseguire le attività di gestione usando SQL Server Management Studio, vedere [SQL Server Management Studio](sql-database-manage-azure-ssms.md).
 * Per informazioni sul servizio di database SQL, vedere [Informazioni sul database SQL](sql-database-technical-overview.md). 
 * Per informazioni sui server di database di Azure e sulle funzionalità di database, vedere [Funzionalità](sql-database-features.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: e34a2bfbf5f1ae544a729c994d91c485d48bb440
-ms.openlocfilehash: 1027f9c73a45b7d148643f5ec217683f71c4e899
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: fced31b28b4b8e5835033243719e6eb87aa3f0d4
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -36,9 +36,9 @@ Esaminiamo come i dischi vengono usati dalle VM.
 Tutte le macchine virtuali dispongono di un disco del sistema operativo collegato. Per impostazione predefinita, è registrato come unità SATA ed etichettato come unità C:. Questo disco ha una capacità massima di 1023 GB. 
 
 ### <a name="temporary-disk"></a>Disco temporaneo
-Ogni macchina virtuale contiene un disco temporaneo, che offre l'archiviazione a breve termine per applicazioni e processi e consente di archiviare solo dati come file di paging o di scambio. I dati presenti nel disco temporaneo potrebbero andare persi durante un [evento di manutenzione](../virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-planned-vs-unplanned-maintenance) o quando si [ridistribuisce una macchina virtuale](../virtual-machines/virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Durante un riavvio standard della macchina virtuale, i dati nell'unità temporanea vengono mantenuti.
+Ogni VM contiene un disco temporaneo. Il disco temporaneo offre archiviazione a breve termine per applicazioni e processi ed è destinato solo all'archiviazione di dati come file di paging o di scambio. I dati presenti nel disco temporaneo potrebbero andare persi durante un [evento di manutenzione](../virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-planned-vs-unplanned-maintenance) o la [ridistribuzione di una VM](../virtual-machines/virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Durante un riavvio standard della macchina virtuale, i dati nell'unità temporanea vengono mantenuti.
 
-Per impostazione predefinita il disco temporaneo viene etichettato come unità D: e usato per l'archiviazione di pagefile.sys. Per eseguire un nuovo mapping di questo disco su un'altra lettera di unità, vedere [Modifica della lettera di unità del disco temporaneo di Windows](../virtual-machines/virtual-machines-windows-classic-change-drive-letter.md). Le dimensioni del disco temporaneo variano in base alle dimensioni della macchina virtuale. Per maggiori informazioni, vedere [Dimensioni delle macchine virtuali di Windows](../virtual-machines/virtual-machines-windows-sizes.md).
+Per impostazione predefinita il disco temporaneo viene etichettato come unità D: e usato per l'archiviazione di pagefile.sys. Per eseguire un nuovo mapping di questo disco su un'altra lettera di unità, vedere [Modifica della lettera di unità del disco temporaneo di Windows](../virtual-machines/virtual-machines-windows-change-drive-letter.md). Le dimensioni del disco temporaneo variano in base alle dimensioni della macchina virtuale. Per maggiori informazioni, vedere [Dimensioni delle macchine virtuali di Windows](../virtual-machines/virtual-machines-windows-sizes.md).
 
 Per altre informazioni sull'uso del disco temporaneo in Azure, vedere l'articolo relativo alle [unità temporanee nelle macchine virtuali di Microsoft Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
@@ -77,6 +77,6 @@ fsutil behavior set DisableDeleteNotify 0
 ## <a name="next-steps"></a>Passaggi successivi
 * [Collegare un disco](../virtual-machines/virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per aggiungere altro spazio di archiviazione per la VM.
 * [Caricare un'immagine di VM Windows in Azure](../virtual-machines/virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) da usare durante la creazione di una nuova VM.
-* [Modificare la lettera di unità del disco temporaneo di Windows](../virtual-machines/virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) in modo che l'applicazione possa usare l'unità D: per i dati.
+* [Modificare la lettera di unità del disco temporaneo di Windows](../virtual-machines/virtual-machines-windows-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) in modo che l'applicazione possa usare l'unità D: per i dati.
 
 

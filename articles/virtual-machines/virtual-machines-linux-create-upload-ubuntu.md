@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: 7e77858b36d07049333422d4454c29a9e1acb748
-ms.openlocfilehash: bdec7eb0b32cd8853dc01791466abf48c61a5fe8
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 465c24cf16f52ee068c875ac7d8ce8b4ebec4a1a
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -131,17 +132,12 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 9. Fare clic su **Azione -> Arresta** nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
-È ora possibile usare il disco rigido virtuale Ubuntu Linux per creare nuove macchine virtuali in Azure. Se è la prima volta che si carica il file VHD in Azure, vedere i passaggi 2 e 3 nell'articolo [Creazione e caricamento di un disco rigido virtuale che contiene il sistema operativo Linux](virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+È ora possibile usare il disco rigido virtuale Ubuntu Linux per creare nuove macchine virtuali in Azure. Se è la prima volta che si carica il file VHD in Azure, vedere i passaggi 2 e 3 nell'articolo [Creazione e caricamento di un disco rigido virtuale che contiene il sistema operativo Linux](linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## <a name="references"></a>Riferimenti
 Kernel HWE di Ubuntu
 
 * [http://blog.utlemming.org/2015/01/Ubuntu-1404-Azure-Images-Now-Tracking.HTML](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
 * [http://blog.utlemming.org/2015/02/1204-Azure-cloud-Images-Now-using-Hwe.HTML](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

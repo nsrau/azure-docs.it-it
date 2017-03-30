@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 50fbd0d214c825137c3ac6873be27b9d2d53cee1
-ms.openlocfilehash: 5bbe99110b86cb15d23eadc48c1ea45bbab13daf
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 1977bfc0e516088310f45ecdd960287eeed2c2d8
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -31,6 +31,7 @@ Per enumerare tutti i processi in una sottoscrizione, chiamare l'operazione [Lis
 
 -   Account di archiviazione associato al processo
 
-## <a name="see-also"></a>Vedere anche
- [Uso dell'API REST del servizio Importazione/Esportazione](storage-import-export-using-the-rest-api.md)
+## <a name="next-steps"></a>Passaggi successivi
+
+* [Uso dell'API REST del servizio Importazione/Esportazione](storage-import-export-using-the-rest-api.md)
 
