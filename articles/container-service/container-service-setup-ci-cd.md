@@ -1,5 +1,5 @@
 ---
-title: CI/CD con il servizio contenitore di Azure e DC/OS | Documentazione Microsoft
+title: CI/CD con il servizio contenitore di Azure e DC/OS | Microsoft Docs
 description: Informazioni su come automatizzare completamente lo sviluppo e la distribuzione di un&quot;applicazione Docker multi-contenitore in un cluster del servizio contenitore di Azure che esegue DC/OS.
 services: container-service
 documentationcenter: 
@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: johnsta
 translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: c226d1eecbda09f4538f37d830ce68064e8ce77b
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 65fc37a1fd1d1d0149b98767117f8faafb5dcd2b
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -288,6 +288,7 @@ Se si apre la definizione di compilazione in VSTS, si otterrà un risultato simi
     ```
 
     * Come valore dell'etichetta è possibile specificare l'URL del nome di dominio completo (FQDN) dell'agente del servizio contenitore di Azure oppure un dominio personalizzato, ad esempio app.contoso.com. Per trovare il nome di dominio completo dell'agente del servizio contenitore di Azure, eseguire il comando `az acs list`, quindi controllare la proprietà per `agentPoolProfiles.fqdn`. Ad esempio: `myacsagents.westus.cloudapp.azure.com`.
+    * Per impostazione predefinita, l'applicazione di esempio è in ascolto sulla porta 80. Per coloro che hanno le proprie applicazioni docker in ascolto su altre porte, ad esempio `port 8080` o `443`, collegare il numero di porta al nome di dominio completo. Ad esempio: `myacsagents.westus.cloudapp.azure.com:8080`. Quando si tenta di accedere all'applicazione dall'esterno, è necessario tuttavia eseguire una query sulla porta 80.
     * Seguendo la convenzione relativa al nome file docker-compose.env.*nome-ambiente*.yml, queste impostazioni influiscono solo sull'ambiente indicato, in questo caso l'ambiente denominato *Produzione*. Esaminare la definizione di versione in VSTS. L'attività di distribuzione di ogni ambiente è configurata per la lettura da un file docker-compose il cui nome è basato su questa convenzione.
 
 1. Eseguire il commit e il push del file nel repository di origine master per avviare un'altra compilazione.

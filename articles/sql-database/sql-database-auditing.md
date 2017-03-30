@@ -1,5 +1,5 @@
 ---
-title: Introduzione al controllo del database SQL di Azure | Documentazione Microsoft
+title: Introduzione al controllo del database SQL di Azure | Microsoft Docs
 description: Introduzione al controllo del database SQL
 services: sql-database
 documentationcenter: 
@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 7/3/2017
 ms.author: giladm
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 6b5b357c996f5c4642e61b09c5a7e5e0ec6a93c7
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: fdb80e3379adfa9d65d6e5891cb701cee86eb1b9
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -42,8 +42,8 @@ Il controllo del database SQL consente di:
 
 Esistono due **metodi di controllo**:
 
-* **Controllo BLOB**: i log vengono scritti in Archiviazione BLOB di Azure. Questo è un metodo di controllo più recente che fornisce **prestazioni più elevate**, supporta **una maggiore granularità del controllo a livello di oggetto** ed è **più conveniente**.
-* **Controllo tabelle**: i log vengono scritti in Archiviazione tabelle di Azure.
+* **Controllo BLOB**: i log vengono scritti in Archiviazione BLOB di Azure. Questo è un metodo di controllo più recente che fornisce **prestazioni più elevate**, supporta **una maggiore granularità del controllo a livello di oggetto** ed è **più conveniente**. Il controllo BLOB sostituirà il controllo tabelle.
+* **Controllo tabelle (obsoleto)**: i log vengono scritti in Archiviazione tabelle di Azure.
 
 > [!IMPORTANT]
 > L'introduzione del nuovo controllo BLOB offre un cambiamento radicale nel modo in cui i criteri di controllo del server vengono ereditati dal database. Vedere la sezione [Differenze tra BLOB e tabelle nell'ereditarietà dei criteri di controllo del server](#subheading-8) per altri dettagli.
@@ -77,9 +77,9 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
     ![Riquadro di spostamento][4]
 6. Se si vuole personalizzare gli eventi controllati, è possibile farlo tramite l'API di PowerShell o REST: per altre informazioni, vedere la sezione [Automazione (API di PowerShell/REST)](#subheading-7).
 7. Dopo aver configurato le impostazioni di controllo, è possibile attivare la nuova funzionalità **Rilevamento delle minacce** (anteprima) e configurare gli indirizzi di posta elettronica per ricevere gli avvisi di sicurezza. La funzione di Rilevamento delle minacce consente di ricevere avvisi proattivi sulle attività del database anomale che possono indicare potenziali minacce alla protezione. Vedere l' [introduzione a Threat Detection](sql-database-threat-detection-get-started.md) per altri dettagli.
-8. Fare clic su **Save**.
+8. Fare clic su **Salva**.
 
-### <a id="subheading-2-2">Controllo tabelle</a>
+### <a id="subheading-2-2">Controllo tabelle</a> (obsoleto)
 
 > Prima di impostare il **controllo tabelle**, verificare se è in uso un ["client di livello inferiore"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). Inoltre, se le impostazioni del firewall sono restrittive, tenere presente che l'[endpoint IP del database verrà modificato](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) quando si abilita il controllo tabelle.
 
@@ -119,7 +119,7 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
     > <br><br>
     > In caso contrario è **consigliabile abilitare solo il controllo BLOB a livello di server** e lasciare il controllo a livello di database disabilitato per tutti i database.
 
-###<a name="atable-auditinga"></a><a>Controllo tabelle</a>
+###<a name="atable-auditinga-deprecated"></a><a>Controllo tabelle</a> (obsoleto)
 
 Se abilitato, il **controllo tabelle a livello di server** si applica al database solo se è selezionata la casella di controllo "Eredita le impostazioni dal server" nel pannello del database. La casella di controllo è selezionata per impostazione predefinita per i database nuovi ed esistenti.
 
@@ -169,12 +169,12 @@ Esistono diversi metodi per visualizzare i log di controllo BLOB:
 
 3. È stata creata un'**applicazione di esempio** che viene eseguita in Azure e usa le API OMS pubbliche per inviare i log di controllo SQL in OMS per l'uso tramite il dashboard OMS ([altre informazioni qui](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration)).
 
-### <a id="subheading-3-2">Controllo tabelle</a>
+### <a id="subheading-3-2">Controllo tabelle</a> (obsoleto)
 I log di controllo tabelle vengono salvati come una raccolta di tabelle di Azure con prefisso **SQLDBAuditLogs**.
 
 Per altre informazioni sui log di controllo in formato Tabella, vedere le [informazioni di riferimento sul formato Tabella dei log di controllo (download del file doc)](http://go.microsoft.com/fwlink/?LinkId=506733).
 
-Esistono diversi metodi per visualizzare i log di controllo tabelle:
+Esistono diversi metodi per visualizzare i log di controllo Tabella:
 
 1. Tramite il [portale di Azure](https://portal.azure.com): aprire il database corrispondente. Nella parte superiore del pannello **Controllo e rilevamento minacce** fare clic su **Visualizza log di controllo**.
 
@@ -245,7 +245,7 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
    * [Ottenere i criteri controllo BLOB del database](https://msdn.microsoft.com/library/azure/mt695938.aspx)
    * [Ottenere i criteri controllo BLOB del server](https://msdn.microsoft.com/library/azure/mt771860.aspx)
    * [Ottenere il risultato dell'operazione di controllo BLOB del server](https://msdn.microsoft.com/library/azure/mt771862.aspx)
-3. **API REST: controllo tabelle**
+3. **API REST API - Controllo tabelle (obsoleto)**
 
    * [Creare o aggiornare i criteri controllo del database](https://msdn.microsoft.com/library/azure/mt604471.aspx)
    * [Creare o aggiornare i criteri controllo del server](https://msdn.microsoft.com/library/azure/mt604383.aspx)

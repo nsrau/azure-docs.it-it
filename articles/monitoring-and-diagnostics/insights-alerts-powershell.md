@@ -1,6 +1,6 @@
 ---
 title: Creare avvisi per i servizi di Azure - PowerShell | Microsoft Docs
-description: Attivare email, notifiche, chiamare gli URL di siti Web (webhook) o eseguire le azioni autoticamente quando vengono soddisfatte le condizioni specificate.
+description: Attivare messaggi di posta elettronica o notifiche, chiamare URL di siti Web (webhook) o usare l&quot;automazione quando vengono soddisfatte le condizioni specificate.
 author: rboucher
 manager: carmonm
 editor: 
@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/20/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
-ms.openlocfilehash: 0a6a6e5b76e03eba113600b5be558daa8c924f0f
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 62faba3827e9fc33e9788cd2d487adf04d760791
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="create-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Creare avvisi in Monitoraggio di Azure per i servizi di Azure - Interfaccia della riga di comando multipiattaforma 
+# <a name="create-alerts-in-azure-monitor-for-azure-services---powershell"></a>Creare avvisi in Monitoraggio di Azure per servizi di Azure - PowerShell 
 > [!div class="op_single_selector"]
 > * [Portale](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
@@ -146,9 +147,4 @@ Per altre informazioni è sempre possibile digitare ```Get-Help``` e quindi il c
 * Altre informazioni sui [runbook di automazione di Azure](../automation/automation-starting-a-runbook.md).
 * Leggere una [panoramica della raccolta dei log di diagnostica](monitoring-overview-of-diagnostic-logs.md) per raccogliere metriche dettagliate e ad alta frequenza sul servizio.
 * Leggere una [panoramica della raccolta di metriche](insights-how-to-customize-monitoring.md) per verificare che il servizio sia disponibile e reattivo.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

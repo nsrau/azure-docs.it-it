@@ -1,5 +1,5 @@
 ---
-title: Informazioni sui gateway di rete virtuale per ExpressRoute | Documentazione Microsoft
+title: Informazioni sui gateway di rete virtuale per ExpressRoute | Microsoft Docs
 description: Informazioni sui gateway di rete virtuale per ExpressRoute.
 services: expressroute
 documentationcenter: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/01/2016
+ms.date: 03/20/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a575929f2c42a00b6e6cacd86318253d20b6b51e
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: b58a8f7f87a231bd44c9224e3c889c31336ee0b1
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -30,17 +31,22 @@ Quando il traffico di rete viene inviato con una connessione privata dedicata, s
 
 Ogni rete virtuale può avere un solo gateway di rete virtuale per tipo di gateway. Ad esempio, è possibile configurare un gateway di rete virtuale che usa -GatewayType Vpn e una che usa -GatewayType ExpressRoute. L'articolo è incentrato sul gateway di rete virtuale per ExpressRoute.
 
-## <a name="a-namegwskuagateway-skus"></a><a name="gwsku"></a>SKU del gateway
+## <a name="gwsku"></a>SKU del gateway
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
 Se si vuole aggiornare il gateway a uno SKU più potente, nella maggior parte dei casi è possibile usare il cmdlet PowerShell 'Resize-AzureRmVirtualNetworkGateway'. Questa tecnica funziona per gli aggiornamenti agli SKU Standard e HighPerformance. Tuttavia, per eseguire l'aggiornamento per allo SKU UltraPerformance sarà necessario ricreare il gateway.
 
-### <a name="a-nameaggthroughputaestimated-aggregate-throughput-by-gateway-sku"></a><a name="aggthroughput"></a>Velocità effettiva aggregata stimata per SKU del gateway
+### <a name="aggthroughput"></a>Velocità effettiva aggregata stimata per SKU del gateway
 La tabella seguente illustra i tipi di gateway e la velocità effettiva aggregata stimata. La tabella è valida per entrambi i modelli di distribuzione classica e di Gestione risorse.
 
 [!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
 
-## <a name="a-nameresourcesarest-apis-and-powershell-cmdlets"></a><a name="resources"></a>API REST e cmdlet PowerShell
+> [!IMPORTANT]
+> Le velocità effettiva dell'applicazione dipende da vari fattori, ad esempio la latenza end-to-end e il numero di flussi di traffico avviati dall'applicazione. I numeri nella tabella rappresentano il limite massimo che l'applicazione può ottenere in teoria in un ambiente ideale. 
+> 
+>
+
+## <a name="resources"></a>API REST e cmdlet PowerShell
 Per altre risorse tecniche e requisiti di sintassi specifici quando si usano le API REST e i cmdlet PowerShell per le configurazioni di gateway di rete virtuale, vedere le pagine seguenti:
 
 | **Classico** | **Gestione risorse** |
@@ -50,10 +56,5 @@ Per altre risorse tecniche e requisiti di sintassi specifici quando si usano le 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle configurazioni delle connessioni disponibili, vedere [Panoramica tecnica relativa a ExpressRoute](expressroute-introduction.md) . 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

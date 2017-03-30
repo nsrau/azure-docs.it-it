@@ -13,29 +13,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 03/20/2017
 ms.author: jlian
 translationtype: Human Translation
-ms.sourcegitcommit: 1b738d952685fe71e5a1eecd809afae1c9904267
-ms.openlocfilehash: 8f32c2c85d2f6c2265048e58d5c2b0256fa020bd
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: af53cea83d2e348b2c73e56cf4b6ce5a875bce18
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="getting-started-with-azure-billing-and-cost-management"></a>Introduzione alla gestione dei costi e alla fatturazione di Azure
+# <a name="prevent-unexpected-costs-with-azure-billing-and-cost-management"></a>Evitare costi imprevisti con la gestione dei costi e alla fatturazione di Azure
 
-Quando si effettua l'iscrizione ad Azure, è consigliabile eseguire alcune operazioni per conoscere meglio la spesa sostenuta. Nel portale di Azure è possibile visualizzare la scomposizione dei costi e la velocità attuali, nonché scaricare le fatture precedenti e i file dei dati dettagliati di utilizzo. Se si vogliono raggruppare i costi per le risorse usate per diversi progetti o team, esaminare i tag delle risorse. Se l'organizzazione preferisce usare un proprio sistema di creazione report, vedere le API per la fatturazione. 
+Quando si effettua l'iscrizione ad Azure, è consigliabile eseguire alcune operazioni per conoscere meglio la spesa sostenuta. Nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), quando si seleziona la sottoscrizione, è possibile visualizzare la scomposizione dei costi e la velocità attuali, nonché [scaricare le fatture precedenti e i file dei dati dettagliati di uso](billing-download-azure-invoice-daily-usage-date.md). Se si desidera raggruppare i costi per le risorse usate per diversi progetti o team, esaminare i [tag delle risorse](../azure-resource-manager/resource-group-using-tags.md). Se l'organizzazione dispone di un sistema di creazione report, vedere le [API per la fatturazione](billing-usage-rate-card-overview.md). 
 
-Molte funzionalità descritte in questo articolo non si applicano ai clienti Cloud Solution Provider (CSP), Azure Sponsorship o con contratto Enterprise Agreement (EA), che possono invece usare un diverso set di strumenti per la gestione dei costi (vedere [Risorse aggiuntive per EA, CSP e Sponsorship](#other-offers)).
+Per altre informazioni sui dati di utilizzo giornalieri, vedere [Comprendere la fattura per Microsoft Azure](billing-understand-your-bill.md).
 
-I clienti della versione di valutazione gratuita o di [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure in Open (AIO) o BizSpark dovranno informarsi sul [limite di spesa](#spending-limit) per evitare di essere disabilitati. 
+Molte funzionalità descritte in questo articolo non si applicano ai clienti che hanno una sottoscrizione con Cloud Solution Provider (CSP), Azure Sponsorship o con contratto Enterprise Agreement (EA). Al contrario, l'utente può usare diversi set di strumenti per la gestione dei costi. Vedere [Risorse aggiuntive per EA, CSP e Sponsorship](#other-offers).
 
-## <a name="before-you-add-azure-services"></a>Prima di aggiungere servizi di Azure
+Se la sottoscrizione è una versione di valutazione gratuita, di [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure in Open (AIO) o BizSpark, consultare la sezione sui [limiti di spesa](#spending-limit) per evitare che la sottoscrizione venga disabilitata all'improvviso. 
+
+## <a name="day-0-before-you-add-azure-services"></a>Giorno 0: prima di aggiungere servizi di Azure
 
 ### <a name="estimate-cost-online-using-the-pricing-calculator"></a>Stimare i costi online con il calcolatore dei prezzi
 
 Usare il [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/) e il [calcolatore del costo totale di proprietà](https://aka.ms/azure-tco-calculator) per ottenere una stima del costo mensile del servizio a cui si è interessati. Per una macchina virtuale (VM) Windows A1 mantenuta costantemente in esecuzione, ad esempio, il costo stimato in ore di calcolo è $66,96 USD/mese:
 
-![Screenshot del calcolatore dei prezzi che mostra che il costo stimato di una VM Windows A1 è&66;,96 USD al mese](./media/billing-getting-started/pricing-calc.PNG)
+![Screenshot del calcolatore dei prezzi che mostra che il costo stimato di una VM Windows A1 è 66,96 USD al mese](./media/billing-getting-started/pricing-calc.PNG)
 
 Per altre informazioni, vedere le [domande frequenti sui prezzi](https://azure.microsoft.com/pricing/faq/). Per parlare con un operatore, chiamare il numero 1-800-867-1389.
 
@@ -51,7 +54,7 @@ Se non si è l'amministratore dell'account, è probabile che qualcuno abbia conc
 
 Se l'amministratore dell'account non fa più parte dell'organizzazione ed è necessario gestire la fatturazione, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
 
-### <a name="a-namespending-limita-check-if-you-have-a-spending-limit-on"></a><a name="spending-limit"></a> Controllare se è attivo un limite di spesa
+### <a name="spending-limit"></a> Controllare se è attivo un limite di spesa
 
 Se si ha una sottoscrizione che usa crediti, il limite di spesa è attivato per impostazione predefinita. In questo modo, quando si esauriscono tutti i crediti non verrà effettuato alcun addebito sulla carta di credito. Vedere l'[elenco completo delle offerte di Azure e la disponibilità del limite di spesa](https://azure.microsoft.com/support/legal/offer-details/).
 
@@ -76,17 +79,17 @@ Può essere opportuno usare la stima dei costi del calcolatore dei prezzi come i
 
 ### <a name="understand-limits-and-quotas-for-your-subscription"></a>Conoscere i limiti e le quote della sottoscrizione
 
-Per ogni sottoscrizione esistono limiti predefiniti relativi ad aspetti come numero di core CPU, indirizzo IP e così via. Tenere presenti tali limiti. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md). Per richiedere un aumento del limite o della quota, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Per ogni sottoscrizione esistono limiti predefiniti relativi ad aspetti come numero di core CPU e indirizzo IP. Tenere presenti tali limiti. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md). Per richiedere un aumento del limite o della quota, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## <a name="as-you-add-services"></a>Al momento dell'aggiunta di servizi
+## <a name="day-1-as-you-add-services"></a>Giorno 1: al momento dell'aggiunta di servizi
 
 ### <a name="review-the-estimated-cost-in-the-portal"></a>Esaminare il costo stimato nel portale
 
 Quando si aggiunge un servizio nel portale di Azure, in genere una visualizzazione mostra un costo mensile stimato simile. Quando si scelgono le dimensioni di una VM Windows, ad esempio, viene visualizzato il costo mensile stimato per le ore di calcolo:
 
-![Esempio: il costo stimato di una VM Windows A1 è&66;,96 USD al mese](./media/billing-getting-started/vm-size-cost.PNG)
+![Esempio: il costo stimato di una VM Windows A1 è 66,96 USD al mese](./media/billing-getting-started/vm-size-cost.PNG)
 
-### <a name="a-nametagsa-add-tags-to-your-resources-to-group-your-billing-data"></a><a name="tags"></a>Aggiungere tag alle risorse per raggruppare i dati di fatturazione
+### <a name="tags"></a>Aggiungere tag alle risorse per raggruppare i dati di fatturazione
 
 È possibile usare tag per raggruppare i dati di fatturazione per i servizi supportati. Se si eseguono più VM per diversi team, ad esempio, è possibile usare i tag per classificare i costi per centro di costo (risorse umane, marketing, finanza) o ambiente (produzione, pre-produzione, testing). 
 
@@ -104,11 +107,11 @@ A seconda dello scenario specifico, è possibile configurare l'arresto automatic
 
 L'arresto automatico è diverso dall'arresto nella VM con le opzioni di risparmio energia. L'arresto automatico arresta e dealloca le VM per interrompere gli addebiti aggiuntivi per l'utilizzo. Per altre informazioni, vedere le domande frequenti sui prezzi per le [VM Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e le [VM Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) in relazione agli stati delle VM.
 
-Per informazioni su altre funzionalità per la riduzione dei costi per gli ambienti di sviluppo/test, vedere [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/).
+Per informazioni su altre funzionalità per la riduzione dei costi per gli ambienti di sviluppo e test, vedere [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/).
 
-## <a name="a-namecost-reportinga-after-using-services-view-usage"></a><a name="cost-reporting"></a> Dopo l'uso dei servizi: visualizzare i dati di utilizzo
+## <a name="cost-reporting"></a> Giorno 2 e oltre: dopo l'uso dei servizi, visualizzare i dati di uso
 
-### <a name="a-namecostsa-regularly-check-the-portal-for-cost-breakdown-and-burn-rate"></a><a name="costs"></a> Controllare regolarmente velocità e scomposizione dei costi nel portale
+### <a name="costs"></a> Controllare regolarmente velocità e scomposizione dei costi nel portale
 
 Quando i servizi sono in esecuzione, controllare regolarmente a quanto ammonta il relativo costo. È possibile visualizzare la spesa corrente e la velocità nel portale di Azure. 
 
@@ -138,7 +141,7 @@ Quando i servizi sono in esecuzione, controllare regolarmente a quanto ammonta i
 
 #### <a name="view-costs-for-all-your-subscriptions-in-the-billing-blade"></a>Visualizzare i costi per tutte le sottoscrizioni nel pannello Fatturazione
 
-Se si gestiscono più sottoscrizioni come amministratore dell'account, è possibile visualizzare un'aggregazione della scomposizione e dell'importo delle fatture per tutte le sottoscrizioni nel [pannello Fatturazione](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade). 
+Se si gestiscono più sottoscrizioni come amministratore dell'account, è possibile visualizzare l'importo delle fatture e la scomposizione dell'aggregazione per tutte le sottoscrizioni nel [pannello Fatturazione](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade). 
 
 <!-- Add screenshots of multiple subs each with billed usage -->
 
@@ -154,7 +157,7 @@ Se si gestiscono più sottoscrizioni come amministratore dell'account, è possib
 
 Per altre informazioni, vedere [Advisor Cost recommendations](../advisor/advisor-cost-recommendations.md) (Consigli di Azure sui costi).
 
-### <a name="a-nameinvoice-and-usagea-get-your-invoice-and-detail-usage-after-your-first-billing-period"></a><a name="invoice-and-usage"></a> Ottenere la fattura e i dati dettagliati di utilizzo dopo il primo periodo di fatturazione
+### <a name="invoice-and-usage"></a> Ottenere la fattura e i dati dettagliati di utilizzo dopo il primo periodo di fatturazione
 
 Dopo il primo periodo di fatturazione, è possibile scaricare la fattura in formato PDF (Portable Document Format) e i dettagli di utilizzo in formato CSV (Comma-Separated Values). È anche possibile fornire il consenso esplicito all'invio della fattura tramite posta elettronica. Questi file consentono di comprendere quanto viene effettivamente addebitato al netto di imposte, sconti e crediti. Se alla sottoscrizione non è collegato un metodo di pagamento, questi file potrebbero non essere disponibili. Per altre informazioni, vedere [Come ottenere la fattura e i dati di utilizzo giornalieri di Azure](billing-download-azure-invoice-daily-usage-date.md) e [Comprendere la fattura per Microsoft Azure](billing-understand-your-bill.md).
 
@@ -168,7 +171,7 @@ I tag impostati in precedenza vengono visualizzati nei file CSV dei dati dettagl
 
 Usare l'API per la fatturazione per ottenere i dati di utilizzo a livello di codice. Usare insieme l'API RateCard e l'API Usage per ottenere l'utilizzo addebitato. Per altre informazioni, vedere [Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure](billing-usage-rate-card-overview.md).
 
-## <a name="a-nameother-offersa-additional-resources-for-ea-csp-and-sponsorship"></a><a name="other-offers"></a> Risorse aggiuntive per EA, CSP e Sponsorship
+## <a name="other-offers"></a> Risorse aggiuntive per EA, CSP e Sponsorship
 
 Per iniziare, rivolgersi all'account manager o al partner di Azure.
 
@@ -180,8 +183,6 @@ Per iniziare, rivolgersi all'account manager o al partner di Azure.
 
 Se si è responsabili della gestione IT per un'organizzazione di grandi dimensioni, è consigliabile leggere l'articolo relativo allo [scaffolding aziendale Azure](../azure-resource-manager/resource-manager-subscription-governance.md) e il [white paper per l'IT aziendale](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (download file PDF, solo in lingua inglese).
 
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 
-
-<!--HONumber=Feb17_HO2-->
-
-
+Se si necessita assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.

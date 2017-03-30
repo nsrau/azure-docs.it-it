@@ -1,5 +1,5 @@
 ---
-title: Spostare una macchina virtuale di Linux in Azure | Documentazione Microsoft
+title: Spostare una macchina virtuale di Linux in Azure | Microsoft Docs
 description: Spostare una VM di Linux in un&quot;altra sottoscrizione o in un altro gruppo di risorse di Azure nel modello di distribuzione di Resource Manager.
 services: virtual-machines-linux
 documentationcenter: 
@@ -13,19 +13,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: 0a4ac164a3896d47613e4491a5e4c81c1b660dea
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 86ae353e3bad83ec25060bab8b3df25d3a0ad881
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Spostare una VM di Linux in un'altra sottoscrizione o in un altro gruppo di risorse
 Questo articolo illustra come spostare una VM di Linux tra gruppi di risorse o sottoscrizioni. Lo spostamento di una VM tra sottoscrizioni può essere comodo se è stata creata una VM in una sottoscrizione personale e ora si desidera spostarla alla sottoscrizione dell'azienda.
 
-> [!NOTE]
-> Nell'ambito dello spostamento vengono creati nuovi ID risorsa. Una volta spostata la VM, è necessario aggiornare strumenti e script in modo che usino i nuovi ID risorsa. 
+> [!IMPORTANT]
+>Non è possibile spostare Managed Disks in questa fase. 
+>
+>Nell'ambito dello spostamento vengono creati nuovi ID risorsa. Una volta spostata la VM, è necessario aggiornare strumenti e script in modo che usino i nuovi ID risorsa. 
 > 
 > 
 
@@ -56,10 +59,5 @@ Viene richiesto di confermare che si vuole spostare la risorsa specificata. Digi
 
 ## <a name="next-steps"></a>Passaggi successivi
 È possibile spostare molti tipi diversi di risorse tra gruppi di risorse e sottoscrizioni. Per altre informazioni, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../azure-resource-manager/resource-group-move-resources.md).    
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

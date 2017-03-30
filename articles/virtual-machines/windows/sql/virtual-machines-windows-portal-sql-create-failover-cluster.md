@@ -14,11 +14,12 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/11/2017
+ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
-ms.openlocfilehash: 4d078c3307c5f1a567f580ae5baaa21fa915e90a
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 6f0fe474787efc15db5c75266cde369725832aab
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -33,10 +34,10 @@ Il diagramma seguente illustra la soluzione completa nelle macchine virtuali di 
 
 Il diagramma precedente mostra quanto segue:
 
-- Due macchine virtuali di Azure in un cluster WSFC (Windows Server Failover Cluster). Una macchina virtuale in un cluster WSFC è detta anche *nodo del cluster* o *nodo*.
+- Due macchine virtuali di Azure in un cluster di failover di Windows. Una macchina virtuale in un cluster di failover è detta anche *nodo del cluster* o *nodo*.
 - Ogni macchina virtuale ha due o più dischi dati.
 - S2D sincronizza i dati nel disco dati e presenta le risorse di archiviazione sincronizzate sotto forma di pool di archiviazione. 
-- Il pool di archiviazione presenta un volume condiviso cluster al cluster WSFC.
+- Il pool di archiviazione presenta un volume condiviso cluster (CSV) per il cluster di failover.
 - Il ruolo del cluster dell'istanza del cluster di failover di SQL Server usa il volume condiviso cluster per le unità dati. 
 - Un servizio di bilanciamento del carico di Azure contiene l'indirizzo IP per l'istanza del cluster di failover di SQL Server.
 - Un set di disponibilità di Azure contiene tutte le risorse.
@@ -76,11 +77,11 @@ Prima di seguire le istruzioni di questo articolo, è necessario avere gli eleme
 - Un account con l'autorizzazione necessaria per creare oggetti nella macchina virtuale di Azure.
 - Una rete virtuale di Azure e una subnet con uno spazio indirizzi IP sufficiente per i componenti seguenti:
    - Entrambe le macchine virtuali.
-   - Indirizzo IP del cluster WSFC.
+   - Indirizzo IP del cluster di failover.
    - Indirizzo IP per ogni istanza del cluster di failover.
 - DNS configurato nella rete di Azure, che punta ai controller di dominio. 
 
-Dopo aver soddisfatto questi prerequisiti, è possibile procedere con la creazione del cluster WSFC. Il primo passaggio consiste nel creare le macchine virtuali. 
+Dopo aver soddisfatto questi prerequisiti, è possibile procedere con la creazione del cluster di failover. Il primo passaggio consiste nel creare le macchine virtuali. 
 
 ## <a name="step-1-create-virtual-machines"></a>Passaggio 1: Creare le macchine virtuali
 
@@ -135,9 +136,9 @@ Dopo aver soddisfatto questi prerequisiti, è possibile procedere con la creazio
       - **{BYOL} SQL Server 2016 Standard in Windows Server Datacenter 2016** 
    
    >[!IMPORTANT]
-   >Dopo aver creato la macchina virtuale, rimuovere l'istanza autonoma preinstallata di SQL Server. I supporti dell'istanza preinstallata di SQL Server verranno usati per creare l'istanza del cluster di failover di SQL Server dopo la configurazione di WSFC e S2D. 
+   >Dopo aver creato la macchina virtuale, rimuovere l'istanza autonoma preinstallata di SQL Server. I supporti dell'istanza preinstallata di SQL Server verranno usati per creare SQL Server FCI dopo la configurazione del cluster di failover e S2D. 
 
-   In alternativa, è possibile usare immagini di Azure Marketplace con il solo sistema operativo. Scegliere un'immagine di **Windows Server 2016 Datacenter** e installare l'istanza del cluster di failover di SQL Server dopo la configurazione di WSFC e S2D. Un'immagine di questo tipo non contiene i supporti di installazione di SQL Server. Posizionare i supporti di installazione in un percorso in cui è possibile eseguire l'installazione di SQL Server per ogni server.
+   In alternativa, è possibile usare immagini di Azure Marketplace con il solo sistema operativo. Scegliere un'immagine di **Windows Server 2016 Datacenter** e installare l'istanza di SQL Server FCI dopo la configurazione del cluster di failover e S2D. Un'immagine di questo tipo non contiene i supporti di installazione di SQL Server. Posizionare i supporti di installazione in un percorso in cui è possibile eseguire l'installazione di SQL Server per ogni server.
 
 1. Dopo aver creato le macchine virtuali di Azure, connettersi a ognuna con RDP. 
 
@@ -171,7 +172,7 @@ Dopo aver soddisfatto questi prerequisiti, è possibile procedere con la creazio
       >[!NOTE]
       >Se si collegano dischi con formattazione NTFS, è possibile abilitare S2D solo senza controllo dell'idoneità del disco.  
    
-   Collegare almeno due dischi SSD Archiviazione Premium a ogni VM. È consigliabile usare almeno dischi P30 (da&1; TB).
+   Collegare almeno due dischi SSD Archiviazione Premium a ogni VM. È consigliabile usare almeno dischi P30 (da 1 TB).
 
    Impostare la memorizzazione nella cache dell'host su **Sola lettura**.
 
@@ -179,15 +180,15 @@ Dopo aver soddisfatto questi prerequisiti, è possibile procedere con la creazio
 
 1. [Aggiungere le macchine virtuali al dominio preesistente](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
 
-Dopo aver creato e configurato le macchine virtuali, è possibile configurare il cluster WSFC.
+Dopo aver creato e configurato le macchine virtuali, è possibile configurare il cluster di failover.
 
-## <a name="step-2-configure-the-windows-server-failover-cluster-wsfc-with-s2d"></a>Passaggio 2: Configurare il cluster WSFC (Windows Server Failover Cluster) con S2D
+## <a name="step-2-configure-the-windows-failover-cluster-with-s2d"></a>Passaggio 2: Configurare il cluster di failover di Windows con S2D
 
-Il passaggio successivo consiste nel configurare il cluster WSFC con S2D. Questo passaggio include i passaggi secondari seguenti:
+Il passaggio successivo consiste nel configurare il cluster di failover con S2D. Questo passaggio include i passaggi secondari seguenti:
 
 1. Aggiungere la funzionalità Clustering di failover di Windows
 1. Convalidare il cluster
-1. Creare il cluster WSFC
+1. Creare il cluster di failover
 1. Creare il cloud di controllo
 1. Aggiungere le risorse di archiviazione
 
@@ -240,34 +241,34 @@ Per convalidare il cluster con PowerShell, eseguire lo script seguente da una se
    Test-Cluster –Node ("<node1>","<node2>") –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
    ```
 
-Dopo aver convalidato il cluster, creare il cluster WSFC.
+Dopo aver convalidato il cluster, creare il cluster di failover.
 
-### <a name="create-the-wsfc"></a>Creare il cluster WSFC
+### <a name="create-the-failover-cluster"></a>Creare il cluster di failover
 
-Questa guida fa riferimento alle istruzioni riportate nella sezione relativa alla [creazione del cluster WSFC](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
+Questa guida fa riferimento alle istruzioni riportate in [Creare il cluster di failover](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
 
-Per creare il cluster WSFC, sono necessari gli elementi seguenti: 
+Per creare il cluster di failover è necessario: 
 - I nomi delle macchine virtuali che diventeranno i nodi del cluster. 
-- Un nome per il cluster WSFC. Usarne uno valido. 
-- Un indirizzo IP per il cluster WSFC. È possibile usare un indirizzo IP non usato nella stessa rete virtuale di Azure e nella stessa subnet dei nodi del cluster. 
+- un nome per il cluster di failover
+- un indirizzo IP per il cluster di failover. È possibile usare un indirizzo IP non usato nella stessa rete virtuale di Azure e nella stessa subnet dei nodi del cluster. 
 
-Lo script di PowerShell seguente crea un cluster WSFC. Aggiornare lo script con i nomi dei nodi (ossia i nomi delle macchine virtuali) e un indirizzo IP disponibile della rete virtuale di Azure: 
+Lo script di PowerShell seguente crea un cluster di failover. Aggiornare lo script con i nomi dei nodi (ossia i nomi delle macchine virtuali) e un indirizzo IP disponibile della rete virtuale di Azure: 
 
 ```PowerShell
-New-Cluster -Name <WSFC-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
+New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
 ```   
 
 ### <a name="create-a-cloud-witness"></a>Creare un cloud di controllo
 
 Il cloud di controllo è un nuovo tipo di quorum di controllo del cluster archiviato in un BLOB del servizio di archiviazione di Azure. Viene così eliminata l'esigenza di una VM separata che ospiti una condivisione di controllo.
 
-1. [Creare un cloud di controllo per il cluster WSFC](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). 
+1. [Creare un cloud di controllo per il cluster di failover](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). 
 
 1. Creare un contenitore BLOB. 
 
 1. Salvare le chiavi di accesso e l'URL del contenitore.
 
-1. Configurare il quorum di controllo del cluster WSFC. Vedere la sezione relativa alla [configurazione del quorum di controllo nell'interfaccia utente](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness).
+1. Configurare il quorum di controllo del cluster di failover. Vedere la sezione relativa alla [configurazione del quorum di controllo nell'interfaccia utente](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness).
 
 ### <a name="add-storage"></a>Aggiungere le risorse di archiviazione
 
@@ -297,13 +298,13 @@ I dischi per S2D devono essere vuoti e senza partizioni o altri dati. Per pulire
 
    ![Volume condiviso cluster](./media/virtual-machines-windows-portal-sql-create-failover-cluster/15-cluster-shared-volume.png)
 
-## <a name="step-3-test-wsfc-failover"></a>Passaggio 3: Testare il failover WSFC
+## <a name="step-3-test-failover-cluster-failover"></a>Passaggio 3: Testare il failover del cluster di failover
 
-In Gestione cluster di failover verificare che sia possibile spostare la risorsa di archiviazione nell'altro nodo del cluster. Se è possibile connettersi al cluster WSFC con **Gestione cluster di failover** e spostare la risorsa di archiviazione da un nodo all'altro, si può configurare l'istanza del cluster di failover. 
+In Gestione cluster di failover verificare che sia possibile spostare la risorsa di archiviazione nell'altro nodo del cluster. Se è possibile connettersi al cluster di failover con **Gestione cluster di failover** e spostare la risorsa di archiviazione da un nodo all'altro, si può configurare l'istanza FCI. 
 
 ## <a name="step-4-create-sql-server-fci"></a>Passaggio 4: Creare l'istanza del cluster di failover di SQL Server
 
-Dopo aver configurato il cluster WSFC e tutti i componenti del cluster inclusa l'archiviazione, è possibile creare l'istanza del cluster di failover di SQL Server. 
+Dopo aver configurato il cluster di failover e tutti i componenti del cluster inclusa l'archiviazione, è possibile SQL Server FCI. 
 
 1. Connettersi alla prima macchina virtuale con RDP. 
 
@@ -473,10 +474,5 @@ Nelle macchine virtuali di Azure, Microsoft Distributed Transaction Coordinator 
 [Panoramica di Spazi di archiviazione diretta](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
 
 [Supporto di SQL Server per S2D](https://blogs.technet.microsoft.com/dataplatforminsider/2016/09/27/sql-server-2016-now-supports-windows-server-2016-storage-spaces-direct/)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

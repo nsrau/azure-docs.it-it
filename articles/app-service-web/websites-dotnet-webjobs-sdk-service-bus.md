@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 06/01/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4d5205b1c693b8c1f199235784263f3f7b6189ff
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: e44199dec6de1e89545f3d122481aa81e97d75ac
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -155,7 +155,7 @@ Nella versione 1.1 sono state aggiunte le funzionalità seguenti:
 * Un modello di strategia `MessageProcessor` consente di specificare un processore per ogni coda o argomento.
 * La concorrenza dell'elaborazione dei messaggi è supportata per impostazione predefinita. 
 * Semplicità di personalizzazione di `OnMessageOptions` tramite `ServiceBusConfiguration.MessageOptions`.
-* Possibilità di specificare [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71) per `ServiceBusTriggerAttribute`/`ServiceBusAttribute` (per gli scenari in cui non si dispone di diritti di gestione). 
+* Possibilità di specificare [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71) per `ServiceBusTriggerAttribute`/`ServiceBusAttribute` (per gli scenari in cui non si dispone di diritti di gestione). Si noti che Processi Web di Azure non è in grado di eseguire automaticamente il provisioning di code e argomenti inesistenti senza gestire AccessRights.
 
 ## <a id="queues"></a>Argomenti correlati trattati nell'articolo delle procedure per le code di archiviazione
 Per informazioni sugli scenari di WebJobs SDK non specifici del bus di servizio, vedere la pagina relativa a [come usare l'archiviazione code di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 

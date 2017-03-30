@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: ramankum
 translationtype: Human Translation
-ms.sourcegitcommit: 3a353bc874c1827f8a0fc85352894ad96cff16b5
-ms.openlocfilehash: c9e43df37784999036c6cf250f27a808f79ebe2f
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 26e78f559fa9a82183a26034580148e39331a214
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -59,7 +59,7 @@ Qualsiasi oggetto inserito in un account di archiviazione Premium sarà un BLOB 
 
 **Account di archiviazione Premium**: per iniziare a usare Archiviazione Premium, creare un account di archiviazione Premium per dischi non gestiti. Se si preferisce usare il [portale di Azure](https://portal.azure.com), è possibile creare un account di archiviazione Premium specificando il livello di prestazioni "Premium" e "Archiviazione con ridondanza locale" come opzione di replica. È anche possibile creare un account di archiviazione Premium specificando il tipo "Premium_LRS" tramite l'[API REST di archiviazione](/rest/api/storageservices/fileservices/Azure-Storage-Services-REST-API-Reference) 2014-02-14 o versione successiva, l'[API REST di Gestione dei servizi](http://msdn.microsoft.com/library/azure/ee460799.aspx) 2014-10-01 o versione successiva (distribuzioni classiche), il [Riferimento all'API REST del provider di risorse di Archiviazione di Azure](/rest/api/storagerp) (distribuzioni Azure Resource Manager) e [Azure PowerShell](../powershell-install-configure.md) 0.8.10 o versione successiva. Nella sezione [Obiettivi di scalabilità e prestazioni di Archiviazione Premium](#premium-storage-scalability-and-performance-targets.md)sono presenti informazioni sui limiti dell'account di archiviazione Premium.
 
-**Archiviazione con ridondanza locale Premium**: un account di archiviazione Premium supporta solo l'opzione di replica di archiviazione con ridondanza locale, ciò significa che mantiene tre copie dei dati in una sola area. Per considerazioni sulla replica geografica durante l'uso di Archiviazione Premium, vedere la sezione [Snapshot e Copia BLOB](#snapshots-and-copy-blob) di questo articolo.
+**Archiviazione con ridondanza locale Premium**: un account di archiviazione Premium supporta solo l'opzione di replica di archiviazione con ridondanza locale, ciò significa che mantiene tre copie dei dati in una sola area. Per eseguire il ripristino di emergenza dell'area, è necessario eseguire il backup dei dischi delle macchine virtuali in un'altra area usando il [servizio Backup di Azure](../backup/backup-introduction-to-azure-backup.md) e un account di archiviazione con ridondanza geografica come insieme di credenziali di backup. 
 
 Azure usa l'account di archiviazione come contenitore per i dischi non gestiti. Quando si crea una macchina virtuale di Azure serie DS, DSv2, GS o Fs con dischi non gestiti e si seleziona un account di archiviazione Premium, il sistema operativo e i dischi dati vengono archiviati in tale account.
 
@@ -186,7 +186,7 @@ I limiti seguenti si applicano agli snapshot di BLOB di Archiviazione Premium:
 | Capacità dell'account di archiviazione per gli snapshot (include solo i dati negli snapshot e non i dati nel BLOB di base) | 10 TB |
 | Min tempo tra snapshot consecutivi | 10 minuti |
 
-Per conservare copie con ridondanza geografica degli snapshot, è possibile copiare gli snapshot da un account di archiviazione Premium a un account di archiviazione Standard con ridondanza geografica mediante AzCopy o Copy Blob.. Per altre informazioni, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md) e [Copy Blob](/rest/api/storageservices/fileservices/Copy-Blob).
+Per conservare copie con ridondanza geografica degli snapshot, è possibile copiare gli snapshot da un account di archiviazione Premium a un account di archiviazione Standard con ridondanza geografica mediante AzCopy o Copy Blob. Per altre informazioni, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md) e [Copy Blob](/rest/api/storageservices/fileservices/Copy-Blob).
 
 Per informazioni dettagliate sull'esecuzione di operazioni REST sui BLOB di pagine negli account di archiviazione Premium, vedere [Using Blob Service Operations with Azure Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969) (Uso delle operazioni del servizio BLOB con Archiviazione Premium di Azure).
 
@@ -208,7 +208,7 @@ Per configurare macchine virtuali Linux in Archiviazione Premium, vedere le istr
 * Per i dischi di archiviazione Premium con cache impostata su ReadWrite, è necessario abilitare le barriere per garantire la durabilità delle scritture.
 * Per far sì che le etichette di volume restino dopo il riavvio della macchina virtuale, è necessario aggiornare /etc/fstab con i riferimenti UUID ai dischi. Vedere anche [Aggiungere un disco a una VM Linux](../virtual-machines/virtual-machines-linux-add-disk.md).
 
-Di seguito sono riportate le distribuzioni di Linux convalidate con Archiviazione Premium. Si consiglia di aggiornare le macchine virtuali ad almeno una di queste versioni (o successive) per prestazioni e stabilità migliori con Archiviazione Premium. Per alcune versioni è necessaria la versione più recente di Linux Integration Services (LIS)&4;.0 per Microsoft Azure. Usare il collegamento indicato di seguito per il download e l'installazione. Continueremo ad aggiungere altre immagini all'elenco non appena effettueremo ulteriori convalide. Si noti che le nostre convalide hanno mostrato che le prestazioni variano per queste immagini e che ciò dipende, inoltre, dalle impostazioni e dalle caratteristiche dei carichi di lavoro sulle immagini. Immagini diverse sono ottimizzate per tipi di carico di lavoro diversi.
+Di seguito sono riportate le distribuzioni di Linux convalidate con Archiviazione Premium. Si consiglia di aggiornare le macchine virtuali ad almeno una di queste versioni (o successive) per prestazioni e stabilità migliori con Archiviazione Premium. Per alcune versioni è necessaria la versione più recente di Linux Integration Services (LIS) 4.0 per Microsoft Azure. Usare il collegamento indicato di seguito per il download e l'installazione. Continueremo ad aggiungere altre immagini all'elenco non appena effettueremo ulteriori convalide. Si noti che le nostre convalide hanno mostrato che le prestazioni variano per queste immagini e che ciò dipende, inoltre, dalle impostazioni e dalle caratteristiche dei carichi di lavoro sulle immagini. Immagini diverse sono ottimizzate per tipi di carico di lavoro diversi.
 
 | Distribuzione | Versione | Kernel supportato | Dettagli |
 | --- | --- | --- | --- |
@@ -261,9 +261,9 @@ Per informazioni dettagliate sui prezzi di Archiviazione Premium, sulle macchine
 
 ## <a name="azure-backup-service-support"></a>Supporto del servizio Backup di Azure 
 
-È possibile eseguire il backup delle macchine virtuali con dischi non gestiti con Backup di Azure. [Altre informazioni](../backup/backup-azure-vms-first-look-arm.md).
+Per eseguire il ripristino di emergenza dell'area, è necessario eseguire il backup dei dischi delle macchine virtuali in un'altra area usando il [servizio Backup di Azure](../backup/backup-introduction-to-azure-backup.md) e un account di archiviazione con ridondanza geografica come insieme di credenziali di backup.
 
-È anche possibile usare il servizio Backup di Azure con Managed Disks per creare un processo di backup con backup pianificati, facile ripristino delle macchine virtuali e criteri di conservazione dei backup. Per altre informazioni in merito, vedere la sezione relativa all'[uso del servizio Backup di Azure per macchine virtuali con dischi gestiti](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
+Usare il servizio Backup di Azure sia con Managed Disks che con dischi non gestiti per creare un processo di backup con backup pianificati, facile ripristino delle macchine virtuali e criteri di conservazione dei backup. Per altre informazioni, vedere [Using Azure Backup service for VMs with Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) (Uso del servizio Backup di Azure per macchine virtuali con Managed Disks) e [Using Azure Backup service for VMs with unmanaged Disks](../backup/backup-azure-vms-first-look-arm.md) (Uso del servizio backup di Azure con dischi non gestiti) 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su Archiviazione Premium di Azure, vedere gli articoli seguenti.
@@ -278,3 +278,4 @@ Per altre informazioni su Archiviazione Premium di Azure, vedere gli articoli se
 ### <a name="blog-posts"></a>Post di blog
 * [Archiviazione Premium di Azure disponibile a livello generale](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
 * [Annuncio della serie GS: aggiunta del supporto di archiviazione Premium per le macchine virtuali di grandi dimensioni nel cloud pubblico](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
+

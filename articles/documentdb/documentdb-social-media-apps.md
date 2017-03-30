@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/17/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
-ms.openlocfilehash: 238c74c020625006384a1b31aef320e1346d9ac4
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: a49021d7887ee91da902e5c3dea8cbc6cb3de29d
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -220,7 +220,28 @@ Per ottenere uno di questi scenari di Machine Learning, è possibile usare [Azur
 
 Un'altra opzione disponibile consiste nell'usare i [servizi cognitivi Microsoft](https://www.microsoft.com/cognitive-services) per analizzare i contenuti per gli utenti; non solo è possibile comprenderli meglio (tramite l'analisi di ciò che gli utenti scrivono con l'[API di analisi del testo](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)), ma è anche possibile rilevare i contenuto indesiderati o per soli adulti e agire di conseguenza per mezzo dell'[API Visione artificiale](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). I servizi cognitivi includono molte delle soluzioni pronte all'uso che non richiedono alcuna conoscenza pregressa di Machine Learning.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="a-planet-scale-social-experience"></a>Un'esperienza social su scala globale
+C'è un ultimo, ma non meno importante, argomento da affrontare: la **scalabilità**. Quando si progetta un'architettura è essenziale che ogni componente possa essere individualmente scalabile, perché è necessario elaborare più dati o perché si desidera disporre di una copertura geografica più ampia (o per entrambi i motivi). Per fortuna, il raggiungimento di questo obiettivo così complesso si rivela un'**esperienza innovativa** con DocumentDB.
+
+DocumentDB supporta [il partizionamento dinamico](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) predefinito mediante la creazione automatica delle partizioni basate su una determinata **chiave di partizione** (definita come uno degli attributi nei documenti). La definizione della chiave di partizione corretta è un'operazione che deve essere eseguita in fase di progettazione e tenendo presente le [procedure consigliate](documentdb-partition-data.md#designing-for-partitioning) disponibili. Nel caso dell'esperienza social, la strategia di partizionamento deve essere allineata con la modalità in cui si esegue una query (è consigliabile eseguire letture all'interno della stessa partizione) e si scrive (evitare "hot spot" distribuendo le scritture in più partizioni). Alcune opzioni sono: partizioni basate su una chiave temporale (giorno/mese/settimana), basate sulla categoria del contenuto, sull'area geografica, sull'utente. Tutto dipende in realtà da come si esegue una query sui dati e come la si visualizza nell'esperienza social. 
+
+Un aspetto interessante da citare è che DocumentDB eseguirà le query (incluse le [aggregazioni](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) in tutte le partizioni in modo trasparente, senza dover aggiungere una logica con l'aumento dei dati.
+
+Con il tempo, infine aumenterà il traffico e il consumo di risorse (misurato in [RU](documentdb-request-units.md) o unità di richiesta). Le operazioni di lettura e scrittura verranno eseguite con una frequenza maggiore man mano che cresce la base di utenti e le operazioni di creazione e lettura del contenuto aumenteranno: la capacità di **ridimensionare la velocità effettiva** è fondamentale. Aumentare le RU è molto semplice: è possibile farlo con pochi clic nel portale di Azure o [inviando i comandi tramite l'API](https://docs.microsoft.com/rest/api/documentdb/replace-an-offer).
+
+![Scalabilità verticale e definizione di una chiave di partizione](./media/documentdb-social-media-apps/social-media-apps-scaling.png)
+
+Cosa accade se le cose migliorano e gli utenti di un'altra area, paese o continente, notano la piattaforma e iniziano a usarla. Una magnifica sorpresa!
+
+Ma subito dopo ci si accorge che l'esperienza degli utenti con la piattaforma non è ottimale. Sono così lontani dall'area operativa che la latenza è molto elevata. Bisogna evitare che gli utenti abbandonino la piattaforma. Ci vorrebbe un modo semplice per **estendere la portata globale**... e questo modo esiste.
+
+DocumentDB consente di [replicare i dati a livello globale](documentdb-portal-global-replication.md) e in modo trasparente con un paio di clic e di scegliere automaticamente tra le aree disponibili del [codice client](documentdb-developing-with-multiple-regions.md). Questo significa anche che è possibile avere [più aree di failover](documentdb-regional-failovers.md). 
+
+Quando si replicano i dati a livello globale, è necessario assicurarsi che i client possano sfruttarli. Se si usa un front-end Web o si accede all'API da client mobili, è possibile distribuire [Gestione traffico di Azure](https://azure.microsoft.com/services/traffic-manager/) e clonare il Servizio app di Azure in tutte le aree desiderate, usando una [configurazione di prestazioni](../app-service-web/web-sites-traffic-manager.md) per supportare la copertura globale estesa. Quando i client accedono al front-end o alle API, verranno indirizzati al servizio app più vicino, che a sua volta, si connetterà alla replica di DocumentDB locale.
+
+![Aggiunta della copertura globale alla piattaforma social](./media/documentdb-social-media-apps/social-media-apps-global-replicate.png)
+
+## <a name="conclusion"></a>Conclusione
 Questo articolo illustra come creare social network interamente in Azure, con servizi a costo contenuto e ottimi risultati, promuovendo l'uso di una distribuzione dei dati e di una soluzione di archiviazione a più livelli detta "a gradini".
 
 ![Diagramma di interazione tra servizi di Azure per il social networking](./media/documentdb-social-media-apps/social-media-apps-azure-solution.png)

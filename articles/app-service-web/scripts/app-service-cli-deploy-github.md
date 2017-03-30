@@ -1,5 +1,5 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare un&quot;App Web con distribuzione da GitHub | Documentazione Microsoft
+title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare un&quot;App Web con distribuzione da GitHub | Microsoft Docs
 description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare un&quot;App Web con distribuzione da GitHub
 services: app-service\web
 documentationcenter: 
@@ -12,33 +12,23 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 03/20/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: ab4be9d9a03001789bed90e58d62fe1891608823
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 8d9e90cc43df74968c7b9dc30d268f3e6228adcc
+ms.lasthandoff: 03/21/2017
 
 ---
 
 
 # <a name="create-a-web-app-with-deployment-from-github"></a>Creare un'App Web con la distribuzione da GitHub
 
-Questo script di esempio esegue le operazioni seguenti usando l'interfaccia della riga di comando di Azure 2.0:
+Questo script di esempio crea un'App Web nel servizio app con le relative risorse correlate e quindi distribuisce il codice dell'App Web da un archivio GitHub (senza la distribuzione continua). Per la distribuzione di GitHub con distribuzione continua, vedere [Creare un'App Web con distribuzione continua da GitHub](app-service-cli-continuous-deployment-github.md).
 
-* Creare un'App Web nel Servizio app di Azure nell'area di Azure Europa occidentale.
-* Distribuire il codice dell'App Web da GitHub.
-* Visualizzare l'App Web di Azure distribuita nel browser.
+Se necessario, installare l'interfaccia della riga di comando di Azure usando l'istruzione presente nella [Guida all'installazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e quindi eseguire `az login` per creare una connessione con Azure. È inoltre necessario un collegamento al repository GitHub che contiene il codice dell'App Web.
 
-## <a name="prerequisites"></a>Prerequisiti
-
-* Eseguire `az login` per accedere ad Azure.
-* Inserire il codice dell'App Web in un repository GitHub.
-
-> [!NOTE]
-> Se si usa un archivio GitHub pubblico di cui non si è proprietari, il servizio app distribuirà codice da quell'archivio GitHub ma non potrà impostare la chiave SSH e i webhook necessari per la distribuzione continua.
->
->
+Questo esempio funziona in una shell Bash. Per le opzioni sull'esecuzione di script dell'interfaccia della riga di comando di Azure nel client Windows, vedere [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md) (Esecuzione dell'interfaccia della riga di comando di Azure in Windows).
 
 ## <a name="create-app-sample"></a>Esempio di creazione di app
 

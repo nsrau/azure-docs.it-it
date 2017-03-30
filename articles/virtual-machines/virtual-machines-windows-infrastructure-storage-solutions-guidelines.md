@@ -1,5 +1,5 @@
 ---
-title: Soluzioni di archiviazione per macchine virtuali Windows in Azure | Documentazione Microsoft
+title: Soluzioni di archiviazione per macchine virtuali Windows in Azure | Microsoft Docs
 description: Informazioni sulle principali linee guida di progettazione e implementazione per la distribuzione di soluzioni di archiviazione nei servizi di infrastruttura di Azure.
 documentationcenter: 
 services: virtual-machines-windows
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/17/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: 5c1e2a2170e5373b856caf6da4b9abaea00dc09a
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f692f98beaee16bef24bb7fbf716a9b4b8edeb6c
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -32,6 +32,7 @@ Questo articolo è incentrato sulla comprensione delle esigenze di archiviazione
 ## <a name="implementation-guidelines-for-storage"></a>Linee guida di implementazione per l'archiviazione
 Decisioni:
 
+* Si intende usare Managed Disks di Azure o i dischi non gestiti?
 * È necessario usare l'archiviazione standard o Premium per il carico di lavoro?
 * È necessario lo striping del disco per creare dischi più grandi di 1023 TB?
 * È necessario lo striping del disco per ottenere prestazioni di I/O ottimali per il carico di lavoro?
@@ -44,6 +45,8 @@ Attività:
 
 ## <a name="storage"></a>Archiviazione
 Archiviazione di Azure è una parte fondamentale della distribuzione e della gestione di applicazioni e macchine virtuali. Archiviazione di Azure fornisce servizi per l'archiviazione di dati dei file, dati non strutturati e messaggi ed è anche parte dell'infrastruttura di supporto delle macchine virtuali.
+
+[Managed Disks di Azure](../storage/storage-managed-disks-overview.md) gestisce automaticamente le risorse di archiviazione. Con i dischi non gestiti è necessario creare account di archiviazione per contenere i dischi (file VHD) delle macchine virtuali di Azure. Per aumentare le prestazioni è necessario creare account di archiviazione aggiuntivi per non superare il limite di IOPS per l'archiviazione con uno dei dischi. Affidando a Managed Disks la gestione delle risorse di archiviazione, non è più necessario preoccuparsi dei limiti degli account di archiviazione, ad esempio di 20.000 IOPS per account. E non è più necessario copiare le immagini personalizzate, ovvero i file VHD, in più account di archiviazione. È possibile gestire tali immagini in una posizione centralizzata, un unico account di archiviazione per ogni area di Azure, e usarle per creare centinaia di macchine virtuali in una sottoscrizione. È consigliabile usare Managed Disks per le nuove distribuzioni.
 
 Per il supporto delle macchine virtuali sono disponibili due tipi di archiviazione:
 
@@ -81,7 +84,9 @@ Se si usa lo striping del disco per i dischi dati di Azure, considerare le linee
 Per altre informazioni, vedere l’articolo sugli [spazi di archiviazione - progettazione della prestazione](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
 
 ## <a name="multiple-storage-accounts"></a>Account di archiviazione multipli
-Quando si progetta l'ambiente di Archiviazione di Azure, è possibile usare più account di archiviazione in base al maggior numero di macchine virtuali distribuite. Questo approccio consente di distribuire i carichi di lavoro I/O attraverso l'infrastruttura di Archiviazione di Azure sottostante al fine di garantire un livello di prestazioni ottimale per le macchine virtuali e le applicazioni. Durante la progettazione delle applicazioni da distribuire, considerare i requisiti di I/O di ogni VM e bilanciare queste ultime fra gli account di Archiviazione di Azure. Cercare di evitare di raggruppare tutte le VM con valori di I/O elevati in uno o due account di archiviazione soltanto.
+Questa sezione non si applica a [Managed Disks di Azure](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), in quanto non si creano account di archiviazione separati. 
+
+Quando si progetta l'ambiente di Archiviazione di Azure per i dischi non gestiti, è possibile usare più account di archiviazione in base al maggior numero di macchine virtuali distribuite. Questo approccio consente di distribuire i carichi di lavoro I/O attraverso l'infrastruttura di Archiviazione di Azure sottostante al fine di garantire un livello di prestazioni ottimale per le macchine virtuali e le applicazioni. Durante la progettazione delle applicazioni da distribuire, considerare i requisiti di I/O di ogni VM e bilanciare queste ultime fra gli account di Archiviazione di Azure. Cercare di evitare di raggruppare tutte le VM con valori di I/O elevati in uno o due account di archiviazione soltanto.
 
 Per altre informazioni sulle funzionalità di I/O delle diverse opzioni di Archiviazione di Azure e sui valori massimi consigliati, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../storage/storage-scalability-targets.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Aggiungere notifiche push all&quot;app Xamarin.Forms | Documentazione Microsoft
+title: Aggiungere notifiche push all&quot;app Xamarin.Forms | Microsoft Docs
 description: Informazioni su come usare i servizi di Azure per inviare notifiche push multipiattaforma alle app Xamarin.Forms.
 services: app-service\mobile
 documentationcenter: xamarin
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: f6989f65f80027be7803a889c0a87f6afbae150d
-ms.openlocfilehash: 703ab64e96894df6c974fd441b737568fb905004
-ms.lasthandoff: 12/13/2016
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f1fe97c6b3e2d28b7e17d035bc7e3ecced8a0d0f
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -185,7 +185,7 @@ Dopo aver configurato il back-end con FCM, è possibile aggiungere componenti e 
             }
         }
 
-        Note that this code uses the `messageParam` parameter in the template registration.
+    Si noti che questo codice usa il parametro `messageParam` nella registrazione del modello.
 12. Aggiungere il codice seguente che implementa **OnMessage**:
 
         protected override void OnMessage(Context context, Intent intent)

@@ -41,4 +41,4 @@ L'agente VM è abilitato nelle seguenti situazioni:
 >
 
 ## <a name="find-add-update-and-remove-vm-extensions"></a>Trovare, aggiungere, aggiornare e rimuovere estensioni VM
-Per informazioni dettagliate sulle attività, vedere come [aggiungere, trovare, aggiornare e rimuovere estensioni di VM di Azure](../articles/virtual-machines/virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Per informazioni dettagliate sulle attività, vedere come [aggiungere, trovare, aggiornare e rimuovere estensioni di VM di Azure](../articles/virtual-machines/windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

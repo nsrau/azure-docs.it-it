@@ -1,10 +1,10 @@
 ---
-title: "Bilanciamento del carico in più configurazioni IP | Documentazione Microsoft"
+title: "Bilanciamento del carico in più configurazioni IP in Azure | Documentazione Microsoft"
 description: Bilanciamento del carico tra configurazioni IP primarie e secondarie.
 services: load-balancer
 documentationcenter: na
-author: anavinahar
-manager: narayan
+author: kumudd
+manager: timlt
 editor: na
 ms.assetid: 244907cd-b275-4494-aaf7-dcfc4d93edfe
 ms.service: load-balancer
@@ -12,160 +12,120 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/10/2017
-ms.author: annahar
+ms.date: 03/22/2017
+ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 555f43d6fca2ac6ba53eae94bff22426d667c444
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: cf1e68c7b37b2506de007bdf24eea63a27187a33
+ms.lasthandoff: 03/22/2017
 
 ---
 
-# <a name="load-balancing-on-multiple-ip-configurations"></a>Bilanciamento del carico in più configurazioni IP
+# <a name="load-balancing-on-multiple-ip-configurations-using-the-azure-portal"></a>Bilanciamento del carico in più configurazioni IP usando il portale di Azure
 
 > [!div class="op_single_selector"]
-> * [PowerShell](load-balancer-multiple-ip.md)
+> * [Portale](load-balancer-multiple-ip.md)
+> * [PowerShell](load-balancer-multiple-ip-powershell.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
->
 
-Questo articolo descrive come usare Azure Load Balancer con più indirizzi IP per ogni scheda di interfaccia di rete virtuale. Attualmente, il supporto per più indirizzi IP in una scheda di interfaccia di rete è una funzionalità in anteprima. Per altre informazioni, vedere la sezione [Limitazioni](#limitations) di questo articolo. Lo scenario seguente illustra il funzionamento di questa funzionalità con Azure Load Balancer.
-
-Per questo scenario sono disponibili due macchine virtuali Windows, ognuna con una scheda di interfaccia di rete singola. Ogni scheda di interfaccia di rete ha più configurazioni IP. Ogni macchina virtuale ospita i siti Web per contoso.com e fabrikam.com. Ogni sito Web è associato a una delle configurazioni IP sulla scheda di interfaccia di rete. Azure Load Balancer viene usato per esporre due indirizzi IP front-end, uno per ogni sito Web, per distribuire il traffico alla rispettiva configurazione IP per il sito Web. Questo scenario usa lo stesso numero di porta per entrambi i front-end, nonché per entrambi gli indirizzi IP del pool back-end.
+Questo articolo illustra l'uso di Azure Load Balancer con più indirizzi IP su un'interfaccia di interfaccia di rete secondaria (NIC). Per questo scenario sono disponibili due macchine virtuali che eseguono Windows, ognuna con una scheda di interfaccia di rete primaria e secondaria. Ogni scheda di interfaccia di rete secondaria dispone di due configurazioni di IP. Ogni macchina virtuale ospita entrambi i siti Web: contoso.com e fabrikam.com. Ogni sito Web è associato a una delle configurazioni IP della scheda di interfaccia di rete secondaria. Azure Load Balancer viene usato per esporre due indirizzi IP front-end, uno per ogni sito Web, per distribuire il traffico alla rispettiva configurazione IP per il sito Web. Questo scenario usa lo stesso numero di porta per entrambi i front-end, nonché per entrambi gli indirizzi IP del pool back-end.
 
 ![Immagine dello scenario LB](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
-## <a name="limitations"></a>Limitazioni
-
-Attualmente, per configurare il bilanciamento del carico in configurazioni IP secondarie è possibile usare solo Azure PowerShell e l'interfaccia della riga di comando di Azure. Questa limitazione è temporanea e può cambiare in qualsiasi momento. Tornare a visitare questa pagina per verificare la presenza di aggiornamenti.
-
-[!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
-
-Eseguire la registrazione per l'anteprima eseguendo i comandi seguenti in PowerShell dopo aver effettuato l'accesso, quindi selezionare la sottoscrizione appropriata:
-
-```
-Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
-
-Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
-
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-Non tentare di completare i passaggi rimanenti fino a quando non viene visualizzato il seguente output all'esecuzione del comando ```Get-AzureRmProviderFeature```:
-        
-```powershell
-FeatureName                            ProviderName      RegistrationState
------------                            ------------      -----------------      
-AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
-AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
-```
-        
->[!NOTE] 
->L'operazione potrebbe richiedere alcuni minuti.
+##<a name="prerequisites"></a>Prerequisiti
+Questo esempio presuppone che sia disponibile un gruppo di risorse, denominato *contosofabrikam*, con la seguente configurazione:
+ -  include una rete virtuale denominata *myVNet*, due macchine virtuali denominate rispettivamente *VM1* e *VM2* all'interno dello stesso set di disponibilità, denominato *myAvailset*. 
+ - ogni macchina virtuale dispone di una scheda di interfaccia di rete primaria e una scheda di interfaccia di rete secondaria. Le schede di interfaccia di rete primarie sono denominate *VM1NIC1* e *VM2NIC1* e quelle secondarie sono denominate *VM1NIC2* e *VM2NIC2*. Per altre informazioni sulla creazione di macchine virtuali con più schede di interfacce di rete, vedere [Creare una macchina virtuale con più schede di interfaccia di rete usando PowerShell](../virtual-network/virtual-network-deploy-multinic-arm-ps.md).
 
 ## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>Procedura per il bilanciamento del carico in più configurazioni IP
 
 Per ottenere lo scenario descritto in questo articolo, seguire questa procedura:
 
-1. Installare Azure PowerShell. Per informazioni su come installare la versione più recente di Azure PowerShell, selezionare la sottoscrizione e accedere all'account, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
-2. Creare un gruppo di risorse usando le impostazioni seguenti:
+### <a name="step-1-configure-the-secondary-nics-for-each-vm"></a>PASSAGGIO 1: Configurare le schede di interfaccia di rete secondarie per ogni macchina virtuale
 
-    ```powershell
-    $location = "westcentralus".
-    $myResourceGroup = "contosofabrikam"
-    ```
+Per ogni macchina virtuale nella rete virtuale aggiungere la configurazione IP impostata per la scheda di interfaccia di rete secondaria nel modo seguente:  
 
-    Per altre informazioni, vedere il passaggio 2 dell'articolo relativo alla [creazione di un gruppo di risorse](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+1. Usare un browser per accedere al portale di Azure (http://portal.azure.com) con il proprio account di Azure.
+2. Sul lato superiore sinistro della schermata fare clic sull'icona del gruppo di risorse e quindi sul gruppo di risorse in cui si trovano le macchine virtuali, ad esempio *contosofabrikam*. Verrà ora visualizzato il pannello **Gruppi di risorse** che elenca tutte le risorse, insieme alle interfacce di rete per le macchine virtuali.
+3. Per la scheda di interfaccia di rete secondaria di ogni macchina virtuale, aggiungere una configurazione IP come segue:
+    1. Selezionare l'interfaccia di rete a cui si desidera aggiungere la configurazione IP.
+    2. Nel pannello visualizzato per la scheda di interfaccia di rete selezionata fare clic su **Configurazioni IP**. Successivamente fare clic su **Aggiungi** nella parte superiore del pannello visualizzato.
+    3. Nel pannello **Aggiungi configurazioni IP** aggiungere una seconda configurazione IP per la scheda di interfaccia di rete nel modo seguente: 
+        1. Digitare un nome per la configurazione IP secondaria, ad esempio per VM1 e VM2 denominare le configurazioni IP rispettivamente come *VM1NIC2-ipconfig2* e *VM2NIC2-ipconfig2*.
+        2. Per **Indirizzo IP privato** in **Allocazione**selezionare **Statico**.
+        3. Fare clic su **OK**.
+        4. Al completamento della seconda configurazione IP della scheda di interfaccia di rete secondaria, questa viene visualizzata nel pannello delle impostazioni **Configurazioni IP** per la scheda di interfaccia di rete specificata.
 
-3. [Creare un set di disponibilità](../virtual-machines/virtual-machines-windows-create-availability-set.md?toc=%2fazure%2fload-balancer%2ftoc.json) che dovrà contenere le macchine virtuali. Per questo scenario, usare il comando seguente:
+### <a name="step-2-create-a-load-balancer"></a>PASSAGGIO 2: Creare un servizio di bilanciamento del carico
 
-    ```powershell
-    New-AzureRmAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset" -Location "West Central US"
-    ```
+Creare un servizio di bilanciamento del carico nel modo seguente:
 
-4. Seguire le istruzioni contenute nei passaggi da 3 a 5 dell'articolo [Creare una VM Windows](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json) per preparare la creazione di una macchina virtuale con una scheda di interfaccia di rete singola. Eseguire il passaggio 6.1 e sostituire il comando del passaggio 6.2 con quanto segue:
+1. Usare un browser per accedere al portale di Azure (http://portal.azure.com) con il proprio account di Azure.
+2. Sul lato superiore sinistro della schermata fare clic su **Nuovo** > **Rete** > **Servizio di bilanciamento del carico**. Quindi fare clic su **Crea**.
+3. Nel pannello **Crea bilanciamento del carico** digitare un nome per il servizio di bilanciamento del carico. Qui viene chiamato *mylb*.
+4. In Indirizzo IP pubblico creare un nuovo indirizzo IP pubblico denominato **PublicIP1**.
+5. Nel gruppo di risorse selezionare il gruppo di risorse esistente delle proprie macchine virtuali, ad esempio, *contosofabrikam*. Selezionare quindi un percorso appropriato e fare clic su **OK**. Il bilanciamento del carico verrà avviato per la distribuzione e richiederà alcuni minuti per completare correttamente la distribuzione.
+6. Una volta distribuito, il bilanciamento del carico viene visualizzato come risorsa nel gruppo di risorse.
 
-    ```powershell
-    $availset = Get-AzureRmAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset"
-    New-AzureRmVMConfig -VMName "VM1" -VMSize "Standard_DS1_v2" -AvailabilitySetId $availset.Id
-    ```
+### <a name="step-3-configure-the-frontend-ip-pool"></a>PASSAGGIO 3: Configurare il pool di indirizzi IP front-end
 
-    Completare quindi i passaggi da 6.3 a 6.8 dell'articolo [Creare una VM Windows](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+Configurare il pool di indirizzi IP front-end per ogni sito Web (Contoso e Fabrikam) nel modo seguente:
 
-5. Aggiungere una seconda configurazione IP a ognuna delle macchine virtuali. Seguire le istruzioni contenute nell'articolo [Assegnare più indirizzi IP alle macchine virtuali](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md#add). Usare le impostazioni di configurazione seguenti:
-
-    ```powershell
-    $NicName = "VM1-NIC2"
-    $RgName = "contosofabrikam"
-    $NicLocation = "West Central US"
-    $IPConfigName4 = "VM1-ipconfig2"
-    $Subnet1 = Get-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet" -VirtualNetwork $myVnet
-    ```
-
-    Ai fini di questa esercitazione, non è necessario associare le configurazioni IP secondarie agli indirizzi IP pubblici. Modificare il comando per rimuovere la parte relativa all'associazione dell'indirizzo IP pubblico.
-
-6. Completare nuovamente i passaggi da 4 a 6 di questo articolo per VM2. In questo caso assicurarsi di sostituire il nome della macchina virtuale con VM2. Si noti che non è necessario creare una rete virtuale per la seconda macchina virtuale. È possibile scegliere se creare o meno una nuova subnet in base al caso d'uso.
-
-7. Creare due indirizzi IP pubblici e archiviarli in variabili appropriate, come illustrato di seguito:
-
-    ```powershell
-    $publicIP1 = New-AzureRmPublicIpAddress -Name PublicIp1 -ResourceGroupName contosofabrikam -Location 'West Central US' -AllocationMethod Dynamic -DomainNameLabel contoso
-    $publicIP2 = New-AzureRmPublicIpAddress -Name PublicIp2 -ResourceGroupName contosofabrikam -Location 'West Central US' -AllocationMethod Dynamic -DomainNameLabel fabrikam
-
-    $publicIP1 = Get-AzureRmPublicIpAddress -Name PublicIp1 -ResourceGroupName contosofabrikam
-    $publicIP2 = Get-AzureRmPublicIpAddress -Name PublicIp2 -ResourceGroupName contosofabrikam
-    ```
-
-8. Creare due configurazioni IP front-end:
-
-    ```powershell
-    $frontendIP1 = New-AzureRmLoadBalancerFrontendIpConfig -Name contosofe -PublicIpAddress $publicIP1
-    $frontendIP2 = New-AzureRmLoadBalancerFrontendIpConfig -Name fabrikamfe -PublicIpAddress $publicIP2
-    ```
-
-9. Creare i pool di indirizzi back-end, un probe e regole di bilanciamento del carico:
-
-    ```powershell
-    $beaddresspool1 = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name contosopool
-    $beaddresspool2 = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name fabrikampool
-
-    $healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HTTP -RequestPath 'index.html' -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
-
-    $lbrule1 = New-AzureRmLoadBalancerRuleConfig -Name HTTPc -FrontendIpConfiguration $frontendIP1 -BackendAddressPool $beaddresspool1 -Probe $healthprobe -Protocol Tcp -FrontendPort 80 -BackendPort 80
-    $lbrule2 = New-AzureRmLoadBalancerRuleConfig -Name HTTPf -FrontendIpConfiguration $frontendIP2 -BackendAddressPool $beaddresspool2 -Probe $healthprobe -Protocol Tcp -FrontendPort 80 -BackendPort 80
-    ```
-
-10. Dopo aver creato queste risorse, creare il servizio di bilanciamento del carico:
-
-    ```powershell
-    $mylb = New-AzureRmLoadBalancer -ResourceGroupName contosofabrikam -Name mylb -Location 'West Central US' -FrontendIpConfiguration $frontendIP1 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
-    ```
-
-11. Aggiungere il secondo pool di indirizzi back-end e la configurazione IP front-end per il servizio di bilanciamento del carico appena creato:
-
-    ```powershell
-    $mylb = Get-AzureRmLoadBalancer -Name "mylb" -ResourceGroupName $myResourceGroup | Add-AzureRmLoadBalancerBackendAddressPoolConfig -Name fabrikampool | Set-AzureRmLoadBalancer
-
-    $mylb | Add-AzureRmLoadBalancerFrontendIpConfig -Name fabrikamfe -PublicIpAddress $publicIP2 | Set-AzureRmLoadBalancer
+1. Nel portale fare clic su **Altri servizi** > digitare **Indirizzo IP pubblico** nella casella del filtro e quindi fare clic su **Indirizzi IP pubblici**. Fare clic su **Aggiungi** nella parte superiore del pannello visualizzato.
+2. Configurare due indirizzi IP pubblici (*PublicIP1* e *PublicIP2*) per entrambi i siti Web (contoso e fabrikam) nel modo seguente:
+    1. Digitare un nome per l'indirizzo IP front-end.
+    2. Per **Gruppo di risorse** selezionare il gruppo di risorse esistente delle macchine virtuali, ad esempio, *contosofabrikam*.
+    3. Per **Percorso** selezionare lo stesso percorso delle macchine virtuali.
+    4. Fare clic su **OK**.
+    5. Una volta creati, i due indirizzi IP pubblici vengono visualizzati nel pannello relativo agli indirizzi **IP pubblici**.
+3. Nel portale fare clic su **Altri servizi** > digitare **bilanciamento del carico** nella casella del filtro e quindi fare clic su **Servizio di bilanciamento del carico**.  
+4. Selezionare il bilanciamento del carico (*mylb*) in cui si vuole aggiungere il pool di indirizzi IP front-end.
+5. In **Impostazioni** selezionare **Pool front-end**. Successivamente fare clic su **Aggiungi** nella parte superiore del pannello visualizzato.
+6. Digitare un nome per l'indirizzo IP front-end (*farbikamfe* o **contosofe*).
+7. Fare clic su **Indirizzo IP** e nel pannello **Scegli indirizzo IP pubblico** selezionare gli indirizzi IP per il front-end (*PublicIP1* o *PublicIP2*).
+8. Ripetere i passaggi da 3 a 7 all'interno di questa sezione per creare il secondo indirizzo IP front-end.
+9. Una volta completata la configurazione del pool di indirizzi IP front-end, entrambi gli indirizzi IP front-end vengono visualizzati nel pannello **Pool di indirizzi IP front-end** del bilanciamento del carico. 
     
-    Add-AzureRmLoadBalancerRuleConfig -Name HTTP -LoadBalancer $mylb -FrontendIpConfiguration $frontendIP2 -BackendAddressPool $beaddresspool2 -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80 | Set-AzureRmLoadBalancer
-    ```
+### <a name="step-4-configure-the-backend-pool"></a>PASSAGGIO 4: Configurare il pool back-end   
+Configurare i pool di indirizzi back-end per il bilanciamento del carico per ogni sito Web (Contoso e Fabrikam) nel modo seguente:
+        
+1. Nel portale fare clic su **Altri servizi** > digitare bilanciamento del carico nella casella del filtro e quindi fare clic su **Servizio di bilanciamento del carico**.  
+2. Selezionare il bilanciamento del carico (*mylb*) a cui si vuole aggiungere i pool di back-end.
+3. In **Impostazioni** selezionare **Pool di back-end**. Digitare un nome per il pool di back-end, ad esempio *contosopool* o *fabrikampool*. Successivamente fare clic sul pulsante **Aggiungi** nella parte superiore del pannello visualizzato. 
+4. Per **Associate a** selezionare **Set di disponibilità**.
+5. Nella casella **Set di disponibilità** selezionare **myAvailset**.
+6. Aggiungere le configurazioni IP della rete di destinazione per entrambe le macchine virtuali nel modo seguente (vedere la figura 2):  
+    1. Per **Macchina virtuale di destinazione** selezionare la macchina virtuale che si vuole aggiungere al pool back-end, ad esempio VM1 o VM2.
+    2. Per **Configurazione IP di rete** selezionare la configurazione IP delle schede di interfaccia di rete secondarie per questa VM, ad esempio VM1NIC2-ipconfig2 o VM2NIC2-ipconfig2.
+    ![Immagine dello scenario di bilanciamento del carico](./media/load-balancer-multiple-ip/lb-backendpool.PNG)
+            
+        **Figura 2**: configurazione del bilanciamento del carico con pool back-end  
+7. Fare clic su **OK**.
+8. Una volta completata la configurazione del pool di indirizzi IP back-end, entrambi gli indirizzi IP back-end vengono visualizzati nel pannello **Pool di indirizzi IP back-end** del servizio di bilanciamento del carico.
 
-12. I comandi seguenti permettono di ottenere le schede di interfaccia di rete e aggiungono entrambe le configurazioni IP di ogni scheda di interfaccia di rete secondaria al pool di indirizzi back-end del servizio di bilanciamento del carico:
+### <a name="step-5-configure-a-health-probe-for-your-load-balancer"></a>PASSAGGIO 5: Configurare un probe di integrità per il bilanciamento del carico
+Configurare un probe di integrità per il bilanciamento del carico nel modo seguente:
+    1. Nel portale fare clic su Altri servizi > digitare bilanciamento del carico nella casella del filtro e quindi fare clic su **Servizio di bilanciamento del carico**.  
+    2. Selezionare il bilanciamento del carico a cui si vuole aggiungere i pool di back-end.
+    3. In **Impostazioni** selezionare **Probe di integrità**. Successivamente fare clic su **Aggiungi** nella parte superiore del pannello visualizzato.
+    4. Digitare un nome per il probe di integrità, ad esempio HTTP, e fare clic su **OK**.
 
-    ```powershell
-    $nic1 = Get-AzureRmNetworkInterface -Name "VM1-NIC2" -ResourceGroupName "MyResourcegroup";
-    $nic2 = Get-AzureRmNetworkInterface -Name "VM2-NIC2" -ResourceGroupName "MyResourcegroup";
+### <a name="step-6-configure-load-balancing-rules"></a>PASSAGGIO 6: Configurare le regole del servizio di bilanciamento del carico
+Configurare le regole di bilanciamento del carico (*HTTPc* e *HTTPf*) per ogni sito Web nel modo seguente:
+    
+1. In **Impostazioni** selezionare **Probe di integrità**. Successivamente fare clic su **Aggiungi** nella parte superiore del pannello visualizzato.
+2. Per il **nome** digitare un nome per la regola di bilanciamento del carico, ad esempio, *HTTPc* per Contoso o *HTTPf* per Fabrikam
+3. Per l'indirizzo IP front-end selezionare l'indirizzo IP front-end, ad esempio *Contosofe* o *Fabrikamfe*
+4. Per la **porta** e la **porta back-end** mantenere il valore predefinito **80**.
+5. Per **IP mobile (Direct Server Return)** fare clic su **Abilitato**.
+6. Fare clic su **OK**.
+7. Ripetere i passaggi da 1 a 6 all'interno di questa sezione per creare la seconda regola di bilanciamento del carico.
+8. Quando la configurazione delle regole di bilanciamento del carico è stata completata, entrambe le regole (*HTTPc* e *HTTPf*) vengono visualizzate nel pannello **Regole di bilanciamento del carico** del servizio di bilanciamento del carico.
 
-    $nic1.IpConfigurations[0].LoadBalancerBackendAddressPools.Add($mylb.BackendAddressPools[0]);
-    $nic1.IpConfigurations[1].LoadBalancerBackendAddressPools.Add($mylb.BackendAddressPools[1]);
-    $nic2.IpConfigurations[0].LoadBalancerBackendAddressPools.Add($mylb.BackendAddressPools[0]);
-    $nic2.IpConfigurations[1].LoadBalancerBackendAddressPools.Add($mylb.BackendAddressPools[1]);
+### <a name="step-7-configure-dns-records"></a>PASSAGGIO 7: Configurare i record DNS
+Infine è necessario configurare i record risorsa DNS in modo che puntino all'indirizzo IP front-end corrispondente del bilanciamento del carico. È possibile ospitare i domini nel servizio DNS di Azure. Per altre informazioni sull'uso del servizio DNS di Azure con Azure Load Balancer, vedere [Uso del servizio DNS di Azure con altri servizi di Azure](../dns/dns-for-azure-services.md).
 
-    $mylb = $mylb | Set-AzureRmLoadBalancer
-
-    $nic1 | Set-AzureRmNetworkInterface
-    $nic2 | Set-AzureRmNetworkInterface
-    ```
-
-13. Infine, è necessario configurare i record risorsa DNS in modo che puntino all'indirizzo IP front-end corrispondente di Azure Load Balancer. È possibile ospitare i domini nel servizio DNS di Azure. Per altre informazioni sull'uso del servizio DNS di Azure con Azure Load Balancer, vedere [Uso del servizio DNS di Azure con altri servizi di Azure](../dns/dns-for-azure-services.md).
+## <a name="next-steps"></a>Passaggi successivi
+- Altre informazioni su come combinare i servizi di bilanciamento del carico di Azure sono disponibili in [Uso dei servizi di bilanciamento del carico in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
+- Informazioni su come è possibile usare diversi tipi di log in Azure per gestire e risolvere i problemi di bilanciamento del carico in [Analisi dei log per Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
 

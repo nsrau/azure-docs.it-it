@@ -1,22 +1,22 @@
 ---
-title: Diagnosticare errori ed eccezioni nelle app Web con Azure Application Insights | Documentazione Microsoft
+title: Errori ed eccezioni di diagnosi nelle app Web con Azure Application Insights | Microsoft Docs
 description: Acquisire le eccezioni da app ASP.NET insieme ai dati di telemetria della richiesta.
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: d1e98390-3ce4-4d04-9351-144314a42aa2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: c4a20fe310d9a70bb3a954bd936daf6f3d432db9
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 2f046ff687985a5c4f83ca7236ce832b4c81ea6e
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -50,31 +50,25 @@ Si noti che è possibile filtrare il report per visualizzare solo le eccezioni.
 *Se non vengono visualizzate eccezioni, vedere la sezione [Acquisizione delle eccezioni](#exceptions).*
 
 Fare clic su un report di eccezione per visualizzarne l'analisi dello stack.
-
-![Fare clic per visualizzare un'eccezione.](./media/app-insights-asp-net-exceptions/35.png)
-
 Fare clic su un riferimento di riga nell'analisi dello stack per aprire il relativo file.  
+
+Nel codice, si noti che CodeLens mostra i dati relativi alle eccezioni:
+
+![Notifica CodeLens di eccezioni.](./media/app-insights-asp-net-exceptions/35.png)
 
 ## <a name="diagnosing-failures-using-the-azure-portal"></a>Diagnosi degli errori con il portale di Azure
 Il riquadro Errori nel pannello di panoramica dell'app in Application Insights mostra i grafici delle eccezioni e delle richieste HTTP non riuscite, insieme a un elenco di URL delle richieste che causano gli errori più frequenti.
 
 ![Selezionare Impostazioni, Errori.](./media/app-insights-asp-net-exceptions/012-start.png)
 
-Fare clic su uno dei tipi di richieste non riuscite nell'elenco per visualizzare le singole occorrenze dell'errore. Fare quindi clic sulle eccezioni o sui dati di traccia associati alle eccezioni:
+Fare clic su uno dei tipi di eccezione con errori nell'elenco per visualizzare le singole occorrenze dell'eccezione, in cui è possibile visualizzare i dettagli e l'analisi dello stack:
 
 ![Selezionare un'istanza di una richiesta non riuscita e nei dettagli dell'eccezione visualizzare le istanze dell'eccezione.](./media/app-insights-asp-net-exceptions/030-req-drill.png)
 
-**In alternativa** , è possibile iniziare dall'elenco di eccezioni visualizzato più in basso nel pannello Errori. Continuare a fare clic finché non verranno visualizzate le singole eccezioni.
-
-![Eseguire il drill-through](./media/app-insights-asp-net-exceptions/040-exception-drill.png)
+**In alternativa,** è possibile iniziare dall'elenco di richieste e individuare le eccezioni correlate.
 
 *Se non vengono visualizzate eccezioni, vedere la sezione [Acquisizione delle eccezioni](#exceptions).*
 
-Sarà quindi possibile esaminare l'analisi dello stack e le proprietà dettagliate di ogni eccezione e trovare la traccia del log correlata o altri eventi.
-
-![Eseguire il drill-through](./media/app-insights-asp-net-exceptions/050-exception-properties.png)
-
-[Altre informazioni sulla ricerca diagnostica](app-insights-diagnostic-search.md).
 
 ## <a name="custom-tracing-and-log-data"></a>Dati di traccia e di log personalizzati
 Per ottenere dati di diagnostica specifici per l'app, è possibile inserire codice per l'invio di dati di telemetria personalizzati. Questi dati vengono visualizzati nella ricerca diagnostica insieme alla richiesta, alla visualizzazione di pagina e ad altri dati raccolti automaticamente.
@@ -104,7 +98,7 @@ I dettagli della richiesta non includono i dati inviati all'app in una chiamata 
 
 ![Eseguire il drill-through](./media/app-insights-asp-net-exceptions/060-req-related.png)
 
-## <a name="a-nameexceptionsa-capturing-exceptions-and-related-diagnostic-data"></a><a name="exceptions"></a> Acquisizione delle eccezioni e dei relativi dati di diagnostica
+## <a name="exceptions"></a> Acquisizione delle eccezioni e dei relativi dati di diagnostica
 Inizialmente, nel portale non verranno visualizzate tutte le eccezioni che causano errori nell'app. Verranno visualizzate tutte le eccezioni del browser (se si usa [JavaScript SDK](app-insights-javascript.md) nelle pagine Web). La maggior parte delle eccezioni del server viene rilevata da IIS, ma è necessario scrivere qualche riga di codice per visualizzarle.
 
 È possibile:
@@ -437,6 +431,10 @@ Aprire un pannello Esplora metrica, aggiungere un nuovo grafico e selezionare **
 .NET framework calcola la frequenza contando il numero delle eccezioni in un intervallo e dividendolo per la lunghezza dell'intervallo.
 
 Si noti che questo conteggio è diverso dal conteggio delle "Eccezioni" calcolato dal portale di Application Insights che conteggia i report TrackException. Gli intervalli di campionamento sono diversi e il SDK non invia report di TrackException per tutte le eccezioni gestite e non gestite.
+
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Monitorare REST, SQL e altre chiamate alle dipendenze](app-insights-asp-net-dependencies.md)

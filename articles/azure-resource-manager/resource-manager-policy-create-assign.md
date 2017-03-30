@@ -1,5 +1,5 @@
 ---
-title: Assegnare e gestire i criteri delle risorse di Azure | Documentazione Microsoft
+title: Assegnare e gestire i criteri delle risorse di Azure | Microsoft Docs
 description: Descrive come applicare i criteri delle risorse di Azure alle sottoscrizioni e ai gruppi di risorse e come visualizzare i criteri delle risorse.
 services: azure-resource-manager
 documentationcenter: na
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 03/15/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 0e1ee94504ebff235c1da9128e0ac68c2b28bc59
-ms.openlocfilehash: 944eafeb67df4baefa99172c1082259a95e84afe
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 5560b22f3f92a8e0a7cb8b973ef2e4c66bc32c06
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -97,7 +97,7 @@ Includere un corpo della richiesta in modo simile all'esempio seguente:
     "displayName":"West US only policy assignment on the subscription ",
     "description":"Resources can only be provisioned in West US regions",
     "parameters": {
-      "listOfAllowedLocations": { "value": ["West US", "West US 2"] }
+      "allowedLocations": { "value": ["northeurope", "westus"] }
      },
     "policyDefinitionId":"/subscriptions/{subscription-id}/providers/Microsoft.Authorization/policyDefinitions/{definition-name}",
       "scope":"/subscriptions/{subscription-id}"
@@ -146,17 +146,26 @@ L'esempio seguente illustra la definizione di un alias. È possibile notare che 
 È possibile creare una definizione di criterio usando il cmdlet `New-AzureRmPolicyDefinition`. L'esempio seguente crea una definizione di criterio per consentire solo le risorse in Europa settentrionale ed Europa occidentale.
 
 ```powershell
-$policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy '{    
-  "if" : {
-    "not" : {
-      "field" : "location",
-      "in" : ["northeurope" , "westeurope"]
-    }
-  },
-  "then" : {
-    "effect" : "deny"
-  }
-}'
+$policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy '{
+   "if": {
+     "not": {
+       "field": "location",
+       "in": "[parameters(''allowedLocations'')]"
+     }
+   },
+   "then": {
+     "effect": "deny"
+   }
+ }' -Parameter '{
+     "allowedLocations": {
+       "type": "array",
+       "metadata": {
+         "description": "An array of permitted locations for resources.",
+         "strongType": "location",
+         "displayName": "List of locations"
+       }
+     }
+ }'
 ```            
 
 L'output viene archiviato in un oggetto `$policy` che viene usato durante l'assegnazione del criterio. 
@@ -172,18 +181,32 @@ $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description 
 Si applica il criterio nell'ambito desiderato mediante il cmdlet `New-AzureRmPolicyAssignment`:
 
 ```powershell
-New-AzureRmPolicyAssignment -Name regionPolicyAssignment -PolicyDefinition $policy -Scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
+$rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
+$array = @("West US", "West US 2")
+$param = @{"allowedLocations"=$array}
+New-AzureRMPolicyAssignment -Name regionPolicyAssignment -Scope $rg.ResourceId -PolicyDefinition $policy -PolicyParameterObject $param
 ```
 
-### <a name="view-policy-assignment"></a>Visualizzare l'assegnazione di un criterio
+### <a name="view-policies"></a>Visualizzare i criteri
 
-Per ottenere un criterio, usare il cmdlet seguente:
+Per ottenere tutte le assegnazioni dei criteri, usare:
 
 ```powershell
-(Get-AzureRmPolicyAssignment -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/{definition-name}").Properties.policyRule | ConvertTo-Json
+Get-AzureRmPolicyAssignment
 ```
 
-Questo cmdlet restituisce il JSON relativo alla definizione del criterio.
+Per ottenere un criterio specifico, usare:
+
+```powershell
+$rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
+(Get-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope $rg.ResourceId
+```
+
+Per visualizzare la regola dei criteri per una definizione di criteri, usare:
+
+```powershell
+(Get-AzureRmPolicyDefinition -Name regionPolicyDefinition).Properties.policyRule | ConvertTo-Json
+```
 
 ### <a name="remove-policy-assignment"></a>Rimuovere l'assegnazione di un criterio 
 

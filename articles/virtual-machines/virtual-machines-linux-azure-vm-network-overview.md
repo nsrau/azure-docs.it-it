@@ -15,8 +15,9 @@ ms.workload: infrastructure
 ms.date: 10/25/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 9cc4fcb68148ef64829fff6135449a3c0efb75d0
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: f5f611ce6944d37e0afcc9a14fa79d0356d55347
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -47,10 +48,10 @@ Quando si crea una macchina virtuale nel portale di Azure usando il modello di d
 
 * [Creare un nome di dominio completo nel portale di Azure](virtual-machines-linux-portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="virtual-nics"></a>NIC virtuali
+## <a name="network-interfaces"></a>Interfacce di rete
 Un'interfaccia di rete è l'interconnessione tra una macchina virtuale (VM) e la rete software sottostante. Questo articolo spiega cos'è un'interfaccia di rete e come viene usata nel modello di distribuzione Azure Resource Manager.
 
-* [Panoramica sulle interfacce di rete virtuali](../virtual-network/virtual-network-network-interface-overview.md)
+* [Interfacce di rete virtuale](../virtual-network/virtual-network-network-interface.md)
 
 ## <a name="virtual-nics-and-dns-labeling"></a>Etichettatura DNS e NIC virtuali
 Se si dispone di un server che deve essere permanente, ma tale server viene gestito in maniera grossolana con frequenti eliminazioni e distribuzioni, può essere utile usare l'etichettatura DNS sulla propria scheda di interfaccia di rete per mantenere il nome nella VNET.  La procedura dettagliata descritta di seguito consente di configurare una NIC denominata in modo permanente con un indirizzo IP statico.
@@ -66,10 +67,5 @@ Un gateway di rete virtuale viene usato per inviare traffico di rete tra reti vi
 Azure Load Balancer è un servizio di bilanciamento del carico di livello 4 (TCP, UDP). Il servizio di bilanciamento del carico offre disponibilità elevata distribuendo il traffico in ingresso tra istanze del servizio integre in servizi cloud o macchine virtuali in un set di bilanciamento del carico . Azure Load Balancer può anche presentare tali servizi su più porte, più indirizzi IP o entrambi.
 
 * [Creazione di un servizio di bilanciamento del carico interno tramite l'interfaccia della riga di comando di Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

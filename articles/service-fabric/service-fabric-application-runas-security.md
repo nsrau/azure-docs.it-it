@@ -17,6 +17,7 @@ ms.author: mfussell
 translationtype: Human Translation
 ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
 ms.openlocfilehash: 469f37362fa0ebe39367a66df8a27e71e762a9d5
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -172,7 +173,7 @@ Nel file di PowerShell aggiungere quanto segue per impostare una variabile di am
 ## <a name="use-console-redirection-for-local-debugging"></a>Uso del reindirizzamento della console per il debug locale
 A volte può essere utile visualizzare l'output della console dall'esecuzione di uno script a scopo di debug. A questo scopo, è possibile impostare criteri di reindirizzamento della console che scrivono l'output in un file. L'output del file viene scritto nella cartella dell'applicazione denominata **log** nel nodo in cui l'applicazione viene distribuita ed eseguita. Vedere la posizione in cui si trova nell'esempio precedente.
 
-> [!NOTE]
+> [!WARNING]
 > Non usare mai i criteri di reindirizzamento della console in un'applicazione distribuita nell'ambiente di produzione, perché ciò può incidere sul failover dell'applicazione. Usare questa opzione *solo* a scopo di sviluppo e debug locale.  
 > 
 > 
@@ -379,9 +380,4 @@ Il manifesto dell'applicazione seguente illustra molte delle impostazioni:
 * [Distribuire un'applicazione](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

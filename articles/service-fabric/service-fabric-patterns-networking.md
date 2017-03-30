@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 3021ebbe88705b0c5a1691a45ed0ba400af6dd34
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 0753fb3a4b08b3bda9da1f5a31c577b354197588
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -33,7 +33,7 @@ Service Fabric viene eseguito in un set di scalabilità di macchine virtuali sta
 
 Service Fabric si distingue dalle altre funzionalità di rete per un solo aspetto. Il [portale di Azure](https://portal.azure.com) usa internamente il provider di risorse di Service Fabric per chiamare un cluster e ottenere informazioni sui nodi e le applicazioni. Il provider di risorse di Service Fabric richiede l'accesso in ingresso accessibile pubblicamente alla porta del gateway HTTP nell'endpoint di gestione. Per impostazione predefinita si tratta della porta 19080. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) usa l'endpoint di gestione per gestire il cluster. Anche il provider di risorse di Service Fabric usa questa porta per richiedere informazioni sul cluster, che vengono visualizzate nel portale di Azure. 
 
-Se la porta 190980 non è accessibile dal provider di risorse di Service Fabric, nel portale viene visualizzato un messaggio che indica che *non sono stati trovati nodi* e l'elenco dei nodi e delle applicazioni risulta vuoto. Per visualizzare il cluster nel portale di Azure, il servizio di bilanciamento del carico deve esporre un indirizzo IP pubblico e il gruppo di sicurezza di rete deve consentire il traffico in ingresso dalla porta 19080. Se la configurazione non soddisfa questi requisiti, lo stato del cluster non viene visualizzato nel portale di Azure.
+Se la porta 19080 non è accessibile dal provider di risorse di Service Fabric, nel portale viene visualizzato un messaggio che indica che *non sono stati trovati nodi* e l'elenco dei nodi e delle applicazioni risulta vuoto. Per visualizzare il cluster nel portale di Azure, il servizio di bilanciamento del carico deve esporre un indirizzo IP pubblico e il gruppo di sicurezza di rete deve consentire il traffico in ingresso dalla porta 19080. Se la configurazione non soddisfa questi requisiti, lo stato del cluster non viene visualizzato nel portale di Azure.
 
 ## <a name="templates"></a>Modelli
 

@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti sulle macchine virtuali Linux in Azure | Documentazione Microsoft
+title: Domande frequenti sulle macchine virtuali Linux in Azure | Microsoft Docs
 description: Fornisce le risposte ad alcune delle domande comuni sulle macchine virtuali Linux create con un modello di Resource Manager.
 services: virtual-machines-linux
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2016
+ms.date: 03/14/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: 78b476b31f030fba4034dc1f499b020d244e8288
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: bfbd08b40e7d16efd5784497512f9063eb17d808
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -47,7 +48,7 @@ Sì. Per le istruzioni, vedere [Creare una copia di una macchina virtuale Linux 
 Le due nuove aree del Canada centrale e del Canada orientale non vengono registrate automaticamente per la creazione della macchina virtuale per le sottoscrizioni di Azure esistenti. La registrazione viene eseguita automaticamente quando si distribuisce una macchina virtuale tramite il portale di Azure in qualsiasi altra area di Azure Resource Manager. Dopo aver distribuito una macchina virtuale in qualsiasi altra area di Azure le nuove aree dovrebbero essere disponibili per le macchine virtuali successive.
 
 ## <a name="can-i-add-a-nic-to-my-vm-after-its-created"></a>È possibile aggiungere un NIC alla VM dopo la sua creazione?
-No. L'aggiunta di una scheda di rete può essere effettuata solo al momento della creazione.
+Sì, ora è possibile. La macchina virtuale deve prima essere arrestata e deallocata. È possibile a questo punto aggiungere o rimuovere una scheda di interfaccia di rete (a meno che non sia l'ultima nella macchina virtuale). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>Esistono requisiti relativi al nome del computer?
 Sì. Il nome del computer non può contenere più di 64 caratteri. Vedere [Linee guida sulle convenzioni di denominazione dell'infrastruttura](virtual-machines-linux-infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per ulteriori informazioni sulla denominazione delle risorse.
@@ -111,9 +112,4 @@ Le password seguenti non sono consentite:
         <td style="text-align:center">iloveyou!</td>
     </tr>
 </table>
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

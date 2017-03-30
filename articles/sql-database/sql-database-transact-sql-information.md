@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 03/03/2017
+ms.date: 03/17/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 78ed4e170c4c296ae78b79c553228d8ea11c0f49
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9716975994d1ab3b7cf63efc6480efcd48eb67bb
+ms.lasthandoff: 03/18/2017
 
 
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Risoluzione delle differenze di Transact-SQL durante la migrazione al database SQL   
-Durante la [migrazione del database](sql-database-cloud-migrate.md) da SQL Server ad Azure SQL Server, si potrebbe scoprire che il database richiede alcune operazioni di riprogettazione prima di poter eseguire la migrazione di SQL Server. In questo argomento vengono fornite istruzioni utili per eseguire la riprogettazione e capire i motivi che la rendono necessaria. 
+Durante la [migrazione del database](sql-database-cloud-migrate.md) da SQL Server ad Azure SQL Server, si potrebbe scoprire che il database richiede alcune operazioni di riprogettazione prima di poter eseguire la migrazione di SQL Server. In questo argomento vengono fornite istruzioni utili per eseguire la riprogettazione e capire i motivi che la rendono necessaria. Per rilevare le incompatibilità, usare [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 
 ## <a name="overview"></a>Panoramica
 La maggior parte delle funzionalità Transact-SQL usate dalle applicazioni è supportata in Microsoft SQL Server e nel database SQL di Azure. Ad esempio, i componenti SQL principali, come tipi di dati, operatori, funzioni di stringa, funzioni aritmetiche, logiche e del cursore funzionano allo stesso modo in SQL Server e nel database SQL. T-SQL presenta, tuttavia, alcune differenze negli elementi DDL (data definition language) e DML (data manipulation language), di conseguenza alcune istruzioni e query T-SQL sono supportate solo in parte (questo verrà descritto più avanti in questo argomento).

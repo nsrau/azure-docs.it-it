@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: f9809095128d0069d076d18486cae05b65498fa8
-ms.openlocfilehash: bde8ef9c4f51c38f8e5b41857be02ade43260824
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9ae8852c02361ff11c302f86cb5c53e01a48068a
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -62,8 +63,9 @@ Si presuppone che venga eseguita la registrazione dell'API REST TODO indicata in
 4. Fare clic su **Registrazioni per l'app**, quindi selezionare **Aggiungi**.
 5. Immettere un nome descrittivo per l'applicazione, ad esempio **TodoListService**, selezionare **Applicazione Web e/o API Web**, quindi fare clic su **Avanti**.
 6. Per l'URL di accesso immettere l'URL di base per l'esempio. Per impostazione predefinita, tale valore è `https://localhost:8080`.
-7. Per l'URI ID app immettere `https://<your_tenant_name>/TodoListService`. Sostituire `<your_tenant_name>` con il nome del tenant di Azure AD. Fare clic su **OK** per completare la registrazione.
+7. Fare clic su **OK** per completare la registrazione.
 8. Nel portale di Azure passare alla pagina dell'applicazione, individuare il valore dell'ID applicazione e copiarlo. Servirà in un secondo momento durante la configurazione dell'applicazione.
+9. Dalla pagina **Impostazioni** -> **Proprietà** aggiornare l'URI dell'ID app. Immettere `https://<your_tenant_name>/TodoListService`. Sostituire `<your_tenant_name>` con il nome del tenant di Azure AD.
 
 ## <a name="step-3-register-the-sample-android-native-client-application"></a>Passaggio 3: Registrare l'applicazione client nativa Android di esempio
 È necessario registrare l'applicazione Web in questo esempio. In questo modo l'applicazione può comunicare con l'API Web appena registrata. Se l'applicazione non è registrata, Azure AD non le consentirà nemmeno di chiedere di effettuare l'accesso. Questo fa parte della sicurezza del modello.
@@ -384,9 +386,4 @@ ADAL versione 1.1.0 supporta la finestra di dialogo NTLM che viene elaborata tra
 Informazioni su [Come abilitare l'accesso Single Sign-On tra app su Android usando ADAL](active-directory-sso-android.md).  
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

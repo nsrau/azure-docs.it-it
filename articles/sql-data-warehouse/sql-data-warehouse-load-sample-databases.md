@@ -1,5 +1,5 @@
 ---
-title: Caricare i dati di esempio in SQL Data Warehouse | Documentazione Microsoft
+title: Caricare i dati di esempio in SQL Data Warehouse | Microsoft Docs
 description: Caricare i dati di esempio in SQL Data Warehouse
 services: sql-data-warehouse
 documentationcenter: NA
@@ -14,17 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
+ms.custom: loading
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9edad2037787a7a2da4e2a6fcce15ace51d41032
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: cc5ec6022cede019541d697905aa068b88d25ee4
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="load-sample-data-into-sql-data-warehouse"></a>Caricare i dati di esempio in SQL Data Warehouse
-Seguire questi semplici passaggi per caricare ed eseguire query nel database di esempio Adventure Works. Per iniziare, questi script usano sqlcmd per eseguire SQL e creare tabelle e viste. Dopo aver creato le tabelle, gli script usano bcp per caricare i dati.  Se questi strumenti non sono già installati, usare i collegamenti seguenti per [installare bcp][installare bcp] e [installare sqlcmd][installare sqlcmd].
+Seguire questi semplici passaggi per caricare ed eseguire query nel database di esempio Adventure Works. Per iniziare, questi script usano sqlcmd per eseguire SQL e creare tabelle e viste. Dopo aver creato le tabelle, gli script usano bcp per caricare i dati.  Se sqlcmd e bcp non sono già installati, seguire questi collegamenti per [installare bcp][install bcp] e per [installare sqlcmd][install sqlcmd].
 
 ## <a name="load-sample-data"></a>Caricare dati di esempio
-1. Scaricare il file zip contenente gli [script di esempio Adventure Works per SQL Data Warehouse][script di esempio Adventure Works per SQL Data Warehouse].
+1. Scaricare il file zip contenente gli [script di esempio Adventure Works per SQL Data Warehouse][Adventure Works Sample Scripts for SQL Data Warehouse].
 2. Estrarre i file dallo zip scaricato in una directory nel computer locale.
 3. Modificare il file estratto aw_create.bat e impostare le variabili seguenti nella parte superiore del file.  Assicurarsi di non lasciare alcun spazio vuoto tra "=" e il parametro.  Di seguito sono riportati alcuni esempi dell'aspetto che le modifiche potrebbero assumere.
    
@@ -44,7 +46,7 @@ Seguire questi semplici passaggi per caricare ed eseguire query nel database di 
    * Raccogliere le statistiche per ogni colonna di ogni tabella Adventure Works
 
 ## <a name="query-sample-data"></a>Eseguire query sui dati di esempio
-Dopo aver caricato alcuni dati di esempio in SQL Data Warehouse, è possibile eseguire rapidamente alcune query.  Per eseguire una query, connettersi al database Adventure Works appena creato in Azure SQL Data Warehouse mediante Visual Studio e SSDT, come descritto nel documento relativo alle [query con Visual Studio][query con Visual Studio].
+Dopo aver caricato alcuni dati di esempio in SQL Data Warehouse, è possibile eseguire rapidamente alcune query.  Per eseguire una query, connettersi al database Adventure Works appena creato in SQL Data Warehouse di Azure tramite Visual Studio e SSDT, come descritto nel documento relativo all'[esecuzione di query con Visual Studio][query with Visual Studio].
 
 Esempio di un'istruzione select semplice per ottenere tutte le informazioni sui dipendenti:
 
@@ -71,27 +73,22 @@ GROUP BY OrderDateKey
 ORDER BY OrderDateKey;
 ```
 
-SQL Data Warehouse supporta quasi tutti i costrutti T-SQL supportati da SQL Server.  Eventuali differenze sono illustrate nella documentazione relativa alla [migrazione del codice][migrazione del codice].
+SQL Data Warehouse supporta quasi tutti i costrutti T-SQL supportati da SQL Server.  Eventuali differenze sono illustrate nella documentazione relativa alla [migrazione del codice][migrate code].
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ora che sono state sperimentate alcune query con dati di esempio, è possibile scoprire come [svilupparli][sviluppo], [caricarli][caricamento] o [eseguirne la migrazione][migrazione] in SQL Data Warehouse.
+Ora che sono state sperimentate alcune query con i dati di esempio, è possibile scoprire come [svilupparli][develop], [caricarli][load] o [eseguirne la migrazione][migrate] in SQL Data Warehouse.
 
 <!--Image references-->
 
 <!--Article references-->
-[migrazione]: sql-data-warehouse-overview-migrate.md
-[sviluppo]: sql-data-warehouse-overview-develop.md
-[caricamento]: sql-data-warehouse-overview-load.md
-[query con Visual Studio]: sql-data-warehouse-query-visual-studio.md
-[migrazione del codice]: sql-data-warehouse-migrate-code.md
-[installare bcp]: sql-data-warehouse-load-with-bcp.md
-[installare sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
+[migrate]: sql-data-warehouse-overview-migrate.md
+[develop]: sql-data-warehouse-overview-develop.md
+[load]: sql-data-warehouse-overview-load.md
+[query with Visual Studio]: sql-data-warehouse-query-visual-studio.md
+[migrate code]: sql-data-warehouse-migrate-code.md
+[install bcp]: sql-data-warehouse-load-with-bcp.md
+[install sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other Web references-->
-[script di esempio Adventure Works per SQL Data Warehouse]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Adventure Works Sample Scripts for SQL Data Warehouse]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 

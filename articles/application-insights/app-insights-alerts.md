@@ -1,32 +1,33 @@
 ---
-title: Impostare gli avvisi in Application Insights | Microsoft Docs
+title: Impostare gli avvisi in Application Insights di Azure | Microsoft Docs
 description: "Ricevere notifiche su tempi di risposta più lenti, eccezioni e altre prestazioni o modifiche nell&quot;uso delle app Web."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: f8ebde72-f819-4ba5-afa2-31dbd49509a5
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: 2146030449c691af166d6a9b134d22d4504d7641
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 04965375fc94fc1aa8b1c48deb743bb1d0cf1c26
+ms.lasthandoff: 03/21/2017
 
 
 ---
 # <a name="set-alerts-in-application-insights"></a>Impostare gli avvisi in Application Insights
-[Application Insights di Azure][start] consente di ricevere gli avvisi sulle variazioni nelle metriche di utilizzo o delle prestazioni nell'app Web. 
+[Application Insights di Azure][start] può informare di eventuali cambiamenti nelle prestazioni e nelle metriche di utilizzo dell'app Web in uso. 
 
 Application Insights esegue il monitoraggio dell'app attiva in un'[ampia varietà di piattaforme][platforms] per consentire di diagnosticare i problemi di prestazioni e acquisire informazioni sui modelli di utilizzo.
 
 Esistono tre tipologie di avvisi:
 
-* Gli **avvisi delle metriche** indicano quando una qualsiasi metrica supera un valore di soglia per un determinato periodo, come ad esempio i tempi di risposta, il numero di eccezioni, l'uso della CPU o il numero di visualizzazioni della pagina. 
+* Gli **avvisi delle metriche** indicano quando una qualsiasi metrica supera un valore di soglia per un determinato periodo, ad esempio i tempi di risposta, il numero di eccezioni, l'uso della CPU o il numero di visualizzazioni della pagina. 
 * I [**test Web**][availability] indicano quando il sito non è disponibile in Internet o risponde lentamente. [Altre informazioni][availability].
 * Gli avvisi della [**diagnostica proattiva**](app-insights-proactive-diagnostics.md) vengono configurati automaticamente per informare su schemi di prestazioni insoliti.
 
@@ -94,6 +95,10 @@ Non dimenticare che la [diagnostica proattiva sulla frequenza errori](app-insigh
 * [Usare PowerShell per automatizzare la configurazione degli avvisi](app-insights-powershell-alerts.md)
 * [Usare webhook per automatizzare la risposta agli avvisi](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
 ## <a name="see-also"></a>Vedere anche
 * [Test Web di disponibilità](app-insights-monitor-web-app-availability.md)
 * [Automatizzare la configurazione degli avvisi](app-insights-powershell-alerts.md)
@@ -106,10 +111,5 @@ Non dimenticare che la [diagnostica proattiva sulla frequenza errori](app-insigh
 [platforms]: app-insights-platforms.md
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-overview.md
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

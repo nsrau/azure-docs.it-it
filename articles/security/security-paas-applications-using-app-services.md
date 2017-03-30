@@ -1,9 +1,9 @@
 ---
-title: Protezione delle applicazioni Web PaaS e delle applicazioni per dispositivi mobili mediante i Servizi app di Azure | Documentazione Microsoft
-description: " Informazioni sulle procedure consigliate per la protezione delle applicazioni Web PaaS e delle applicazioni per dispositivi mobili mediante Servizi app di Azure. "
+title: Protezione delle applicazioni Web PaaS e delle applicazioni per dispositivi mobili mediante i Servizi app di Azure | Microsoft Docs
+description: " Informazioni sulle procedure consigliate della sicurezza di Servizi app di Azure per la protezione delle applicazioni Web PaaS e delle applicazioni per dispositivi mobili. "
 services: security
 documentationcenter: na
-author: TerryLanfear
+author: techlake
 manager: MBaldwin
 editor: 
 ms.assetid: 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 03/21/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: b3db1281bbd37fcfbec54bdeb998e6338bb08369
-ms.openlocfilehash: 50421a70ede62250a0ab17a38200995c90fdcd55
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 41528ad70598907759cdf149777195007296fe98
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -43,9 +44,4 @@ Questo articolo descrive una serie di procedure consigliate per la protezione de
 
 - [Securing PaaS deployments (Proteggere le distribuzioni PaaS)](security-paas-deployments.md)
 - [Protezione di applicazioni Web PaaS Eeb e di applicazioni per dispositivi mobili utilizzando il database SQL Azure e SQL Data Warehouse](security-paas-applications-using-sql.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

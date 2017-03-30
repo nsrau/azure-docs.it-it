@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/08/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: f75386f970aeb5694d226cfcd569b8c04a253191
-ms.openlocfilehash: 0f418af5728b6a156ebc72fb99a3d16d559654ed
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 634b4c99b746ad0b8b3238e11b3c305d2cf7082f
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/10/2017
 Questo articolo è un'introduzione di Log Analytics e include una breve esercitazione che illustra una distribuzione minima in Azure, che consente di iniziare a usare il servizio. Il contenitore logico in cui vengono archiviati i dati di gestione in Azure viene definito area di lavoro. Dopo avere esaminato le informazioni e completato la valutazione, è possibile rimuovere l'area di lavoro di valutazione. Questo articolo è un'esercitazione, quindi non fornisce indicazioni sui requisiti aziendali, sulla pianificazione o sull'architettura.
 
 >[!NOTE]
->Se si usa il cloud di Microsoft Azure per enti pubblici, vedere la [documentazione sul monitoraggio e sulla gestione di Azure per enti pubblici](https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics).
+>Se si usa il cloud di Microsoft Azure per enti pubblici, vedere la [documentazione sul monitoraggio e sulla gestione di Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics).
 
 Ecco una breve analisi del processo usato per iniziare:
 

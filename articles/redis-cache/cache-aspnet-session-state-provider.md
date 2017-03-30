@@ -1,5 +1,5 @@
 ---
-title: Provider di stato della sessione ASP.NET per la cache | Documentazione Microsoft
+title: Provider di stato della sessione ASP.NET per la cache | Microsoft Docs
 description: Informazioni su come archiviare lo stato della sessione ASP.NET con Cache Redis di Azure
 services: redis-cache
 documentationcenter: na
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 02/14/2017
+ms.date: 03/22/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 70341f4a14ee807a085931c3480a19727683e958
-ms.openlocfilehash: 34e54378a8626e36fd56ef3fe52f0748a3fec2a2
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 56a55bc10c9cf16751c713da302dcd59362ab80f
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -27,18 +27,18 @@ Cache Redis di Azure include un provider di stato della sessione che consente di
 In un'app reale per il cloud spesso non è facile evitare di archiviare qualche forma di stato per una sessione utente, ma alcuni approcci hanno più effetto di altri sulle prestazioni e sulla scalabilità. Se è necessario archiviare lo stato, la soluzione migliore è mantenere piccola la quantità di stato e archiviarla nei cookie. Se non è fattibile, la seconda miglior soluzione è usare lo stato della sessione ASP.NET con un provider per la cache distribuita in memoria. La soluzione peggiore dal punto di vista delle prestazioni e della scalabilità è usare un provider di stato della sessione supportato da un database. Questo argomento fornisce indicazioni sull'uso del provider di stato della sessione ASP.NET per Cache Redis di Azure. Per informazioni sulle altre opzioni dello stato sessione, vedere [Opzioni dello stato della sessione ASP.NET](#aspnet-session-state-options).
 
 ## <a name="store-aspnet-session-state-in-the-cache"></a>Archiviare lo stato della sessione ASP.NET nella cache
-Per configurare un'applicazione client in Visual Studio con il pacchetto NuGet dello stato della sessione per Cache Redis, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**.
+Per configurare un'applicazione client in Visual Studio con il pacchetto NuGet Redis Cache Session State, fare clic su **Gestione pacchetti NuGet** e quindi su **Console di Gestione pacchetti** dal menu **Strumenti**.
 
-![Gestione di pacchetti NuGet con la Cache Redis di Azure](./media/cache-aspnet-session-state-provider/redis-cache-manage-nuget-menu.png)
-
-Digitare **RedisSessionStateProvider** nella casella di testo di ricerca, selezionarlo nei risultati e fare clic su **Installa**.
+Eseguire questo comando nella finestra `Package Manager Console`.
+    
+```
+Install-Package Microsoft.Web.RedisSessionStateProvider
+```
 
 > [!IMPORTANT]
-> Se si sta usando la funzionalità di clustering del livello Premium, è necessario usare [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 o versione successiva. In caso contrario, verrà generata un'eccezione. Il passaggio alla versione 2.0.1 o successiva è una modifica significativa. Per altre informazioni, vedere la pagina relativa ai [dettagli delle modifiche significative della versione 2.2.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
+> Se si sta usando la funzionalità di clustering del livello Premium, è necessario usare [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 o versione successiva. In caso contrario, verrà generata un'eccezione. Il passaggio alla versione 2.0.1 o successiva è una modifica significativa. Per altre informazioni, vedere la pagina relativa ai [dettagli delle modifiche significative della versione 2.2.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details). Al momento dell'aggiornamento di questo articolo, la versione corrente del pacchetto è 2.2.3.
 > 
 > 
-
-![Provider di stato della sessione Cache Redis di Azure](./media/cache-aspnet-session-state-provider/redis-cache-session-state-provider.png)
 
 Il pacchetto NuGet del provider di stato della sessione Redis ha una dipendenza dal pacchetto StackExchange.Redis.StrongName. Se il pacchetto StackExchange.Redis.StrongName non è presente nel progetto, viene installato.
 

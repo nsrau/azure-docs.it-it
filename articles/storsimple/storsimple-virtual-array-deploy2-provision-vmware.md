@@ -1,5 +1,5 @@
 ---
-title: Eseguire il provisioning di un array virtuale StorSimple in VMware | Documentazione Microsoft
+title: Eseguire il provisioning di un array virtuale StorSimple in VMware | Microsoft Docs
 description: Questa seconda esercitazione sulla serie di distribuzione di StorSimple Virtual Array implica il provisioning di un dispositivo virtuale in VMware.
 services: storsimple
 documentationcenter: NA
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f0ccf2706b5ce514613712fb866dc2d0120b0ad3
-ms.openlocfilehash: fe420fc0d4e5e2b7c625bf3a3d87005fdbcff200
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 118521a127b2e4b765efabdbdde71605440d81c7
+ms.lasthandoff: 03/16/2017
 
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Distribuire StorSimple Virtual Array: eseguire il provisioning in VMware
@@ -166,7 +166,7 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 30. Nella pagina **Select a Disk** (Selezionare un disco) scegliere **Create a new virtual disk** (Crea un nuovo disco virtuale). Fare clic su **Avanti**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image31.png)
-31. Nella pagina **Create a Disk** (Creare un disco) impostare **Disk Size** (Dimensione disco) su almeno 500 GB. In **Disk Provisioning** (Provisioning disco) selezionare **Thin Provision** (Provisioning leggero). Fare clic su **Avanti**.
+31. Nella pagina **Create a Disk** (Creare un disco) impostare **Disk Size** (Dimensione disco) su almeno 500 GB. 500 GB è il requisito minimo, ma è sempre possibile eseguire il provisioning di un disco più grande. Si noti che, una volta eseguito il provisioning del disco, non è possibile espanderlo o ridurlo. Per altre informazioni sulle dimensioni del disco di cui eseguire il provisioning, vedere la sezione sul ridimensionamento nel documento sulle [procedure consigliate](storsimple-ova-best-practices.md). In **Disk Provisioning** (Provisioning disco) selezionare **Thin Provision** (Provisioning leggero). Fare clic su **Avanti**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image32.png)
 32. Nella pagina **Advanced Options** , accettare il valore predefinito.

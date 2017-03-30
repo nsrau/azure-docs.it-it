@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: ca96cd4ddf1be5ab70475d40fa65e73d248fd67b
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 132576ca394fe475000449ea58871726c36d078f
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -52,7 +52,7 @@ Scegliere le colonne, trascinarle, creare gruppi in base alle colonne e applicar
 
 Espandere un elemento per visualizzare i dettagli:
 
-![Scegliere Tabella e utsare Configura colonne](./media/app-insights-analytics-tour/040.png)
+![Scegliere Tabella e usare Configura colonne](./media/app-insights-analytics-tour/040.png)
 
 > [!NOTE]
 > Fare clic sull'intestazione di una colonna per riordinare i risultati disponibili nel Web browser. Tuttavia, tenere presente che per un set di risultati di grandi dimensioni, il numero di righe scaricate nel browser è limitato. Questa modalità di ordinamento non sempre illustra gli elementi effettivi massimi o minimi. Per ordinarli in modo affidabile, usare l'operatore `top` o `sort`.
@@ -308,7 +308,7 @@ La presenza di più espressioni nella clausola `by` determina la creazione di pi
 ![Tabella delle richieste in base a ora e località](./media/app-insights-analytics-tour/090.png)
 
 ### <a name="segment-a-chart-by-dimensions"></a>Segmentare un grafico in base alle dimensioni
-Se si crea un grafico per una tabella contenente una colonna di stringhe e una colonna numerica, la stringa può essere usata per suddividere i dati numerici in serie separate di punti. Se è presente più di una colonna di stinghe, è possibile scegliere la colonna da usare come discriminatore.
+Se si crea un grafico per una tabella contenente una colonna di stringhe e una colonna numerica, la stringa può essere usata per suddividere i dati numerici in serie separate di punti. Se è presente più di una colonna di stringhe, è possibile scegliere la colonna da usare come discriminatore.
 
 ![Segmentare un grafico di analisi](./media/app-insights-analytics-tour/100.png)
 
@@ -558,7 +558,7 @@ Per verificare se una dimensione personalizzata è di tipo specifico:
 ## <a name="dashboards"></a>Dashboard
 È possibile aggiungere i risultati a un dashboard in modo da riunire tutti i grafici e le tabelle più importanti.
 
-* [Dashoboard condiviso di Azure](app-insights-dashboards.md#share-dashboards): fare clic sull'icona di aggiunta. Per poterlo fare, è necessario disporre di un dashboard condiviso. Nel portale di Azure, aprire o creare un dashboard e fare clic su Condividi.
+* [Dashboard condiviso di Azure](app-insights-dashboards.md#share-dashboards): fare clic sull'icona di aggiunta. Per poterlo fare, è necessario disporre di un dashboard condiviso. Nel portale di Azure, aprire o creare un dashboard e fare clic su Condividi.
 * [Dashboard di Power BI](app-insights-export-power-bi.md): fare clic su Esporta, Power BI Query (Query Power BI). Un vantaggio di questa alternativa consiste nel fatto che è possibile visualizzare la query insieme ad altri risultati da un'ampia gamma di origini.
 
 ## <a name="combine-with-imported-data"></a>Combinare con dati importati
@@ -689,7 +689,9 @@ I risultati della dipendenza lato server mostrano sempre `success==False` se l'a
 ### <a name="traces-table"></a>Tabella delle tracce
 Contiene i dati di telemetria inviati dall'app tramite TrackTrace() o [altri framework di registrazione](app-insights-asp-net-trace-logs.md).
 
-
+## <a name="video"></a>Video 
+ 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Informazioni di riferimento sul linguaggio di Analisi](app-insights-analytics-reference.md)

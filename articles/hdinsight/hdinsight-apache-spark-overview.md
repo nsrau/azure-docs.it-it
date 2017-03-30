@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 82334b9e-4629-4005-8147-19f875c8774e
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,9 +17,9 @@ ms.topic: get-started-article
 ms.date: 01/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 858d6115ed3a96e3b6a3362ff8f5c1fc4c279bd2
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: edfdba3105aba1079d3c707e7320770c4a999a32
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -33,7 +34,7 @@ Quando si crea un cluster di Spark in HDInsight, si creano risorse di calcolo di
 **Si vuole iniziare a usare Apache Spark in Azure HDInsight?** Vedere la [guida introduttiva per la creazione di un cluster Spark in HDInsight e l'esecuzione di applicazioni di esempio con Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 > [!NOTE]
-> Per un elenco di problemi noti e limitazioni della versione corrente, vedere l'articolo relativo ai [problemi noti di Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+> Per un elenco di problemi noti e limitazioni della versione corrente, vedere l'articolo relativo ai [problemi noti di Apache Spark in Azure HDInsight](hdinsight-apache-spark-known-issues.md).
 > 
 > 
 
@@ -54,7 +55,7 @@ Azure HDInsight offre un servizio Spark completamente gestito. I vantaggi dell'u
 | Integrazione con strumenti di Business Intelligence |Spark per HDInsight offre connettori per strumenti di Business Intelligence, come [Power BI](http://www.powerbi.com/) e [Tableau](http://www.tableau.com/products/desktop), per l'analisi dei dati. |
 | Librerie Anaconda precaricate |I cluster Spark in HDInsight sono dotati di librerie Anaconda preinstallate [Anaconda](http://docs.continuum.io/anaconda/) offre quasi 200 librerie per Machine Learning, l'analisi dei dati, la visualizzazione e così via. |
 | Scalabilità |Anche se è possibile specificare il numero di nodi del cluster durante la fase di creazione, in seguito può essere necessario aumentare o ridurre il cluster sulla base del carico di lavoro. Tutti i cluster HDInsight consentono di modificare il numero di nodi del cluster. È anche possibile eliminare i cluster Spark senza alcuna perdita di dati perché tutti i dati sono archiviati in Archiviazione di Azure. |
-| Supporto&24;/7 |Spark in HDInsight include il supporto continuo a livello aziendale e un Contratto di servizio che garantisce tempi di attività pari al 99,9%. |
+| Supporto 24/7 |Spark in HDInsight include il supporto continuo a livello aziendale e un Contratto di servizio che garantisce tempi di attività pari al 99,9%. |
 
 ## <a name="what-are-the-use-cases-for-spark-on-hdinsight"></a>Quali sono i casi d'uso per Spark in HDInsight?
 Apache Spark in HDInsight consente gli scenari principali seguenti.

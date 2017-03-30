@@ -1,5 +1,5 @@
 ---
-title: Proteggere un cluster in Windows con certificati | Documentazione Microsoft
+title: Proteggere un cluster di Azure Service Fabric in Windows usando i certificati | Microsoft Docs
 description: "Questo articolo descrive come proteggere le comunicazioni all&quot;interno del cluster autonomo o privato, nonché tra i client e il cluster."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 03/15/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 4fb6ef56d694aff967840ab26b75b66a2e799cc1
-ms.openlocfilehash: 48fd90c7ffb6748642ed02804117ff92cb060016
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 2bca90f45e994752ddc3569635ea053f9ef1adaf
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -28,45 +29,47 @@ Per altre informazioni sulla sicurezza del cluster da nodo a nodo e da client a 
 ## <a name="which-certificates-will-you-need"></a>Certificati necessari
 Per iniziare, [scaricare il pacchetto del cluster autonomo](service-fabric-cluster-creation-for-windows-server.md#downloadpackage) in uno dei nodi del cluster. Nel pacchetto scaricato è incluso il file **ClusterConfig.X509.MultiMachine.json** . Aprire il file ed esaminare la sezione **security** nella sezione **properties**:
 
-    "security": {
-        "metadata": "The Credential type X509 indicates this is cluster is secured using X509 Certificates. The thumbprint format is - d5 ec 42 3b 79 cb e5 07 fd 83 59 3c 56 b9 d5 31 24 25 42 64.",
-        "ClusterCredentialType": "X509",
-        "ServerCredentialType": "X509",
-        "CertificateInformation": {
-            "ClusterCertificate": {
-                "Thumbprint": "[Thumbprint]",
-                "ThumbprintSecondary": "[Thumbprint]",
-                "X509StoreName": "My"
-            },
-            "ServerCertificate": {
-                "Thumbprint": "[Thumbprint]",
-                "ThumbprintSecondary": "[Thumbprint]",
-                "X509StoreName": "My"
-            },
-            "ClientCertificateThumbprints": [
-                {
-                    "CertificateThumbprint": "[Thumbprint]",
-                    "IsAdmin": false
-                }, 
-                {
-                    "CertificateThumbprint": "[Thumbprint]",
-                    "IsAdmin": true
-                }
-            ],
-            "ClientCertificateCommonNames": [
-                {
-                    "CertificateCommonName": "[CertificateCommonName]",
-                    "CertificateIssuerThumbprint" : "[Thumbprint]",
-                    "IsAdmin": true
-                }
-            ]
-            "ReverseProxyCertificate":{
-                "Thumbprint": "[Thumbprint]",
-                "ThumbprintSecondary": "[Thumbprint]",
-                "X509StoreName": "My"
+```JSON
+"security": {
+    "metadata": "The Credential type X509 indicates this is cluster is secured using X509 Certificates. The thumbprint format is - d5 ec 42 3b 79 cb e5 07 fd 83 59 3c 56 b9 d5 31 24 25 42 64.",
+    "ClusterCredentialType": "X509",
+    "ServerCredentialType": "X509",
+    "CertificateInformation": {
+        "ClusterCertificate": {
+            "Thumbprint": "[Thumbprint]",
+            "ThumbprintSecondary": "[Thumbprint]",
+            "X509StoreName": "My"
+        },
+        "ServerCertificate": {
+            "Thumbprint": "[Thumbprint]",
+            "ThumbprintSecondary": "[Thumbprint]",
+            "X509StoreName": "My"
+        },
+        "ClientCertificateThumbprints": [
+            {
+                "CertificateThumbprint": "[Thumbprint]",
+                "IsAdmin": false
+            }, 
+            {
+                "CertificateThumbprint": "[Thumbprint]",
+                "IsAdmin": true
             }
+        ],
+        "ClientCertificateCommonNames": [
+            {
+                "CertificateCommonName": "[CertificateCommonName]",
+                "CertificateIssuerThumbprint" : "[Thumbprint]",
+                "IsAdmin": true
+            }
+        ]
+        "ReverseProxyCertificate":{
+            "Thumbprint": "[Thumbprint]",
+            "ThumbprintSecondary": "[Thumbprint]",
+            "X509StoreName": "My"
         }
     }
+}
+```
 
 Questa sezione descrive i certificati necessari per proteggere il cluster Windows autonomo. Se si specifica un certificato del cluster, impostare il valore di **ClusterCredentialType** su _**X509**_. Se si specifica un certificato del server per le connessioni esterne, impostare il valore di **ServerCredentialType** su _**X509**_. Benché non sia obbligatorio, è consigliabile disporre di entrambi questi certificati per un cluster adeguatamente protetto. Se si impostano questi valori su *X509*, sarà inoltre necessario specificare i certificati corrispondenti o Service Fabric genererà un'eccezione. In alcuni scenari può essere preferibile specificare solo _ClientCertificateThumbprints_ o _ReverseProxyCertificate_. In questi scenari non è necessario impostare _ClusterCredentialType_ o _ServerCredentialType_ su _X509_.
 
@@ -88,7 +91,7 @@ La tabella seguente include un elenco dei certificati necessari per la configura
 
 Ecco un esempio di una configurazione cluster in cui sono stati specificati certificati cluster, server e client.
 
- ```
+ ```JSON
  {
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
@@ -190,14 +193,14 @@ Un modo per creare un certificato autofirmato che possa essere protetto corretta
 
 Esportare ora il certificato in un file PFX con una password protetta. Ottenere per prima cosa l'identificazione personale del certificato. Dal menu *Start* eseguire *Gestisci i certificati computer*. Passare alla cartella **Computer locale\Personale** e cercare il certificato appena creato. Fare doppio clic sul certificato per aprirlo, selezionare la scheda *Dettagli* e quindi scorrere verso il basso fino al campo *Identificazione personale*. Copiare il valore dell'identificazione personale nel comando PowerShell di seguito, dopo aver rimosso gli spazi.  Modificare il valore `String` in una password sicura idonea di protezione ed eseguire quanto segue in PowerShell:
 
-```   
+```powershell   
 $pswd = ConvertTo-SecureString -String "1234" -Force –AsPlainText
 Get-ChildItem -Path cert:\localMachine\my\<Thumbprint> | Export-PfxCertificate -FilePath C:\mypfx.pfx -Password $pswd
 ```
 
 Per visualizzare i dettagli di un certificato installato nel computer, è possibile eseguire il comando di PowerShell seguente:
 
-```
+```powershell
 $cert = Get-Item Cert:\LocalMachine\My\<Thumbprint>
 Write-Host $cert.ToString($true)
 ```
@@ -210,14 +213,14 @@ Dopo aver ottenuto i certificati, è possibile installarli nei nodi del cluster.
 1. Copiare i file PFX nel nodo.
 2. Aprire una finestra di PowerShell come amministratore e immettere i comandi seguenti. Sostituire *$pswd* con la password usata per creare il certificato. Sostituire *$PfxFilePath* con il percorso completo del file PFX copiato nel nodo.
    
-    ```
+    ```powershell
     $pswd = "1234"
     $PfxFilePath ="C:\mypfx.pfx"
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My -FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $pswd -AsPlainText -Force)
     ```
 3. Impostare ora il controllo di accesso per questo certificato in modo che possa essere usato dal processo di Service Fabric, eseguito con l'account Servizio di rete, con lo script seguente. Specificare l'identificazione personale del certificato e "NETWORK SERVICE" come account del servizio. È possibile controllare che gli ACL per il certificato siano corretti aprendo il certificato in *Start* > *Gestisci i certificati computer* ed esaminando *Tutte le attività* > *Gestisci chiavi private*.
    
-    ```
+    ```powershell
     param
     (
     [Parameter(Position=1, Mandatory=$true)]
@@ -257,23 +260,23 @@ Dopo aver ottenuto i certificati, è possibile installarli nei nodi del cluster.
 ## <a name="create-the-secure-cluster"></a>Creare il cluster sicuro
 Dopo aver configurato la sezione **sicurezza** del file **ClusterConfig.X509.MultiMachine.json**, passare alla sezione [Create your cluster](service-fabric-cluster-creation-for-windows-server.md#createcluster) (Crea il cluster) per configurare i nodi e creare il cluster autonomo. Ricordarsi di usare il file **ClusterConfig.X509.MultiMachine.json** mentre si crea il cluster. Ad esempio, il comando può essere simile al seguente:
 
-```
+```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
 Quando il cluster Windows autonomo sicuro è in esecuzione e sono stati configurati i client autenticati per la connessione al cluster, vedere la sezione [Connect to a secure cluster using PowerShell (Connettersi a un cluster sicuro mediante PowerShell)](service-fabric-connect-to-secure-cluster.md#connectsecurecluster) per stabilire la connessione. Ad esempio:
 
-```
+```powershell
 $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $True;  StoreLocation = 'LocalMachine';  StoreName = "MY";  ServerCertThumbprint = "057b9544a6f2733e0c8d3a60013a58948213f551";  FindType = 'FindByThumbprint';  FindValue = "057b9544a6f2733e0c8d3a60013a58948213f551"   }
 Connect-ServiceFabricCluster $ConnectArgs
 ```
 
-È quindi possibile eseguire altri comandi di PowerShell per usare questo cluster. Ad esempio, `Get-ServiceFabricNode` per visualizzare un elenco di nodi nel cluster protetto.
+È quindi possibile eseguire altri comandi di PowerShell per usare questo cluster. È possibile, ad esempio, usare il comando [Get-ServiceFabricNode](/powershell/servicefabric/vlatest/get-servicefabricnode.md) per visualizzare un elenco di nodi nel cluster protetto.
 
 
 Per rimuovere il cluster, connettersi al nodo del cluster in cui è stato scaricato il pacchetto di Service Fabric, aprire una riga di comando e passare alla cartella del pacchetto. Eseguire ora il comando seguente:
 
-```
+```powershell
 .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
@@ -281,10 +284,5 @@ Per rimuovere il cluster, connettersi al nodo del cluster in cui è stato scaric
 > La configurazione non corretta del certificato può impedire la visualizzazione del cluster durante la distribuzione. Per diagnosticare automaticamente problemi di sicurezza, consultare il gruppo di Visualizzatore eventi *Registri applicazioni e servizi* > *Microsoft Service Fabric*.
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

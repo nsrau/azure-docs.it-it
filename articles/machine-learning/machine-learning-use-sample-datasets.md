@@ -1,5 +1,5 @@
 ---
-title: Usare i set di dati di esempio in Azure Machine Learning Studio | Documentazione Microsoft
+title: Usare i set di dati di esempio in Azure Machine Learning Studio | Microsoft Docs
 description: "Descrizione dei set di dati usati nei modelli di esempio inclusi in Machine Learning Studio. È possibile usare questi set di dati di esempio per gli esperimenti."
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 03/20/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 4ebd5dc2da50db93061e92660c97dcca3866c713
-ms.openlocfilehash: c4adae8125a6780ddb4c7c64baf4df6aae139104
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: dd4a672d419a0f5140ffc006bcf58a9bf1e752f4
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -43,7 +44,7 @@ Per usare uno qualsiasi di questi set di dati in un esperimento personalizzato, 
 <tr>
   <td valign=top>Adult Census Income Binary Classification dataset</td>
   <td valign=top>
-Subset del database relativo al censimento del 1994, che usa adulti lavoratori di età superiore ai 16 anni con un indice di reddito adeguato > 100.<p> </p><b>Uso:</b> classificare le persone usando dati demografici per prevedere se una persona guadagni più di 50.000 all'anno.<p> </p><b>Ricerca correlata:</b> Kohavi, R., Becker, B., (1996). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+Subset del database relativo al censimento del 1994, che usa adulti lavoratori di età superiore ai 16 anni con un indice di reddito adeguato > 100.<p> </p><b>Utilizzo:</b> classificare le persone usando i dati demografici per prevedere se una persona ha un guadagno superiore a 50.000 dollari all'anno.<p> </p><b>Ricerca correlata:</b> Kohavi, R., Becker, B., (1996). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
 </tr>
 
 <tr ID=airport-codes-dataset>
@@ -56,7 +57,7 @@ Codici degli aeroporti degli Stati Uniti.<p> </p>Questo set di dati contiene una
 <tr>
   <td valign=top>Automobile price data (Raw)</td>
   <td valign=top>
-Informazioni sulle automobili in base a marchio e modello, inclusi il prezzo, funzionalità quali il numero di cilindri e il consumo di carburante, oltre a un punteggio relativo al rischio assicurativo.<p> </p>Il punteggio di rischio viene inizialmente associato al prezzo dell'automobile e quindi viene adeguato in base al rischio effettivo in un processo noto agli attuari come simbolizzazione. Un valore pari a +3 indica che l'automobile è rischiosa e un valore pari a -3 indica che è probabilmente sicura.<p> </p><b>Uso:</b> prevedere il punteggio di rischio in base alle funzionalità, usando la regressione o la classificazione multivariata. <p> </p><b>Ricerca correlata:</b> Schlimmer, J.C. (1987). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+Informazioni sulle automobili in base a marchio e modello, inclusi il prezzo, funzionalità quali il numero di cilindri e il consumo di carburante, oltre a un punteggio relativo al rischio assicurativo.<p> </p>Il punteggio di rischio viene inizialmente associato al prezzo dell'automobile e quindi viene adeguato in base al rischio effettivo in un processo noto agli attuari come simbolizzazione. Un valore pari a +3 indica che l'automobile è rischiosa e un valore pari a -3 indica che è probabilmente sicura.<p> </p><b>Utilizzo:</b> prevedere il punteggio di rischio in base alle funzionalità, usando la regressione o la classificazione multivariata. <p> </p><b>Ricerca correlata:</b> Schlimmer, J.C. (1987). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
 </tr>
 
 <tr ID=bike-rental-uci-dataset>
@@ -77,7 +78,7 @@ File di immagine pubblicamente disponibile convertito in dati in formato CSV.<p>
 <tr>
   <td valign=top>Blood donation data</td>
   <td valign=top>
-Sottoinsieme di dati dal database di donatori di sangue del Blood Transfusion Service Center di Hsin-Chu City, Taiwan.<p> </p>I dati relativi al donatore includono i mesi trascorsi dopo l'ultima donazione, la frequenza o il numero totale di donazioni, il tempo trascorso dopo l'ultima donazione e la quantità di sangue donata.<p> </p><b>Uso:</b> l'obiettivo consiste nel prevedere tramite classificazione se il donatore abbia donato sangue nel mese di marzo 2007; 1 indica un donatore nel periodo in esame e 0 un non donatore. <p> </p><b>Ricerca correlata:</b> Yeh, I.C., (2008). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  <p> </p>Yeh, I-Cheng, Yang, King-Jang, and Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence", Expert Systems with Applications, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
+Sottoinsieme di dati dal database di donatori di sangue del Blood Transfusion Service Center di Hsin-Chu City, Taiwan.<p> </p>I dati relativi al donatore includono i mesi trascorsi dopo l'ultima donazione, la frequenza o il numero totale di donazioni, il tempo trascorso dopo l'ultima donazione e la quantità di sangue donata.<p> </p><b>Utilizzo:</b> l'obiettivo consiste nel prevedere tramite classificazione se il donatore abbia donato sangue nel mese di marzo 2007; 1 indica un donatore nel periodo in esame e 0 un non donatore. <p> </p><b>Ricerca correlata:</b> Yeh, I.C., (2008). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  <p> </p>Yeh, I-Cheng, Yang, King-Jang, and Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence", Expert Systems with Applications, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
 </tr>
 
@@ -91,7 +92,7 @@ Revisioni di libri in Amazon, estratte dal sito Amazon dai ricercatori della Uni
 <tr>
   <td valign=top>Breast cancer data</td>
   <td valign=top>
-Uno dei tre set di dati relativi al tumore fornito dall'istituto oncologico e usato spesso nella letteratura di Machine Learning. Combina informazioni diagnostiche con funzionalità relative ad analisi di laboratorio effettuate su circa 300 campioni di tessuto.<p> </p><b>Uso:</b> classificare il tipo di tumore, in base a 9 attributi, alcuni dei quali lineari e altri categorici. <p> </p><b>Ricerca correlata:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+Uno dei tre set di dati relativi al tumore fornito dall'istituto oncologico e usato spesso nella letteratura di Machine Learning. Combina informazioni diagnostiche con funzionalità relative ad analisi di laboratorio effettuate su circa 300 campioni di tessuto.<p> </p><b>Utilizzo:</b> classificare il tipo di tumore, in base a 9 attributi, alcuni dei quali lineari e altri categorici. <p> </p><b>Ricerca correlata:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
 </tr>
 
 <tr ID=breast-cancer-features>
@@ -151,14 +152,14 @@ Dati relativi alle prestazioni nel tempo dei voli passeggeri ottenuti dalla racc
 <tr>
   <td valign=top>Flight on-time performance (Raw)</td>
   <td valign=top>
-Record degli arrivi e delle partenze dei voli all'interno degli Stati Uniti da ottobre 2011.<p> </p><b>Uso:</b> prevedere i ritardi dei voli. <p> </p><b>Ricerca correlata:</b> dai dati del Dipartimento dei trasporti degli Stati Uniti <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
+Record degli arrivi e delle partenze dei voli all'interno degli Stati Uniti da ottobre 2011.<p> </p><b>Utilizzo:</b> prevedere i ritardi dei voli. <p> </p><b>Ricerca correlata:</b> dal Ministero dei Trasporti statunitense <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Forest fires data</td>
   <td valign=top>
-Contiene dati climatici, ad esempio temperatura, indici di umidità e velocità del vento, relativi a un'area nella parte nordorientale del Portogallo, combinati con record relativi agli incendi nei boschi.<p> </p><b>Uso:</b> si tratta di un'attività di regressione complessa, il cui scopo consiste nel prevedere l'area bruciata degli incendi boschivi. <p> </p><b>Ricerca correlata:</b> Cortez, P., & Morais, A. (2008). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  <p> </p>[Cortez e Morais, 2007] P. Cortez e A. Morais. Approccio di data mining per la previsione degli incendi nei boschi usando i dati meteorologici. In J. Neves, M. F. Santos e J. Machado Eds., New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, dicembre, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Disponibile all'indirizzo: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
+Contiene dati climatici, ad esempio temperatura, indici di umidità e velocità del vento, relativi a un'area nella parte nordorientale del Portogallo, combinati con record relativi agli incendi nei boschi.<p> </p><b>Utilizzo:</b> si tratta di un'attività di regressione complessa, il cui scopo consiste nel prevedere l'area bruciata degli incendi boschivi. <p> </p><b>Ricerca correlata:</b> Cortez, P., & Morais, A. (2008). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  <p> </p>[Cortez e Morais, 2007] P. Cortez e A. Morais. Approccio di data mining per la previsione degli incendi nei boschi usando i dati meteorologici. In J. Neves, M. F. Santos e J. Machado Eds., New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, dicembre, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Disponibile all'indirizzo: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
   </td>
 </tr>
 
@@ -179,7 +180,7 @@ Il set di dati contiene informazioni sui film che sono stati valutati nei tweet 
 <tr>
   <td valign=top>Iris two class data</td>
   <td valign=top>
-Si tratta probabilmente del database più conosciuto disponibile nella letteratura relativa al riconoscimento di schemi. Il set di dati è relativamente piccolo, perché contiene 50 esempi di misurazione di ogni petalo di tre varietà di iris.<p> </p><b>Uso:</b> prevedere il tipo di iris in base alle misurazioni.  <p> </p><b>Ricerca correlata:</b> Fisher, R.A. (1988). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+Si tratta probabilmente del database più conosciuto disponibile nella letteratura relativa al riconoscimento di schemi. Il set di dati è relativamente piccolo, perché contiene 50 esempi di misurazione di ogni petalo di tre varietà di iris.<p> </p><b>Utilizzo:</b> prevedere il tipo di iris in base alle misurazioni.  <p> </p><b>Ricerca correlata:</b> Fisher, R.A. (1988). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
 </tr>
 
 <tr ID=movie-tweets>
@@ -192,13 +193,13 @@ Il set di dati è una versione estesa di quello relativo ai tweet sui film. Il s
 <tr>
   <td valign=top>MPG data for various automobiles</td>
   <td valign=top>
-Questo set di dati è una versione leggermente modificata del set di dati disponibile nella raccolta StatLib della Carnegie Mellon University. Il set di dati è stato usato presso la American Statistical Association Exposition del 1983.<p> </p>I dati elencano il consumo di carburante per diverse automobili, in miglia per gallone, oltre a informazioni quali numero di cilindri, cilindrata, potenza, peso totale e accelerazione.<p> </p><b>Uso:</b> prevedere il risparmio di carburante in base a 3 attributi discreti multivalore e 5 attributi continui. <p> </p><b>Ricerca correlata:</b> StatLib, Carnegie Mellon University, (1993). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+Questo set di dati è una versione leggermente modificata del set di dati disponibile nella raccolta StatLib della Carnegie Mellon University. Il set di dati è stato usato presso la American Statistical Association Exposition del 1983.<p> </p>I dati elencano il consumo di carburante per diverse automobili, in miglia per gallone, oltre a informazioni quali numero di cilindri, cilindrata, potenza, peso totale e accelerazione.<p> </p><b>Utilizzo:</b> prevedere il risparmio di carburante in base a 3 attributi discreti multivalore e 5 attributi continui. <p> </p><b>Ricerca correlata:</b> StatLib, Carnegie Mellon University, (1993). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
 </tr>
 
 <tr>
   <td valign=top>Pima Indians Diabetes Binary Classification dataset</td>
   <td valign=top>
-Sottoinsieme di dati del database del National Institute of Diabetes and Digestive and Kidney Diseases. Il set di dati è stato filtrato in modo da evidenziare solo i pazienti di genere femminile di etnia Pima. I dati includono dati medici quali i livelli di glucosio e di insulina, oltre a fattori relativi allo stile di vita.<p> </p><b>Uso:</b> prevedere se il soggetto è diabetico (classificazione binaria). <p> </p><b>Ricerca correlata:</b> Sigillito, V. (1990). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml"</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+Sottoinsieme di dati del database del National Institute of Diabetes and Digestive and Kidney Diseases. Il set di dati è stato filtrato in modo da evidenziare solo i pazienti di genere femminile di etnia Pima. I dati includono dati medici quali i livelli di glucosio e di insulina, oltre a fattori relativi allo stile di vita.<p> </p><b>Utilizzo:</b> prevedere se il soggetto è diabetico (classificazione binaria). <p> </p><b>Ricerca correlata:</b> Sigillito, V. (1990). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml"</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
 </tr>
 
 <tr>
@@ -225,14 +226,14 @@ Include le valutazioni assegnate dagli utenti ai ristoranti in una scala da 0 a 
 <tr>
   <td valign=top>Steel Annealing multi-class dataset</td>
   <td valign=top>
-Questo set di dati include una serie di record relativi a tentativi di ricottura di acciaio, con gli attributi fisici (larghezza, spessore e tipo, ad esempio spirale, lamina e così via) dei tipi di acciaio risultanti.<p> </p><b>Uso:</b> prevedere uno dei due attributi numerici della classe, ovvero durezza o forza. È anche possibile analizzare le correlazioni tra gli attributi.<p> </p>Le designazioni dell'acciaio sono basate su uno standard definito da SAE e da altre organizzazioni. Si cerca una 'designazione' specifica (variabile della classe) e si vogliono comprendere i valori necessari. <p> </p><b>Ricerca correlata:</b> Sterling, D. & Buntine, W. (NA). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  <p> </p>Una guida utile alle designazioni dell'acciaio è disponibile qui: <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
+Questo set di dati include una serie di record relativi a tentativi di ricottura di acciaio, con gli attributi fisici (larghezza, spessore e tipo, ad esempio spirale, lamina e così via) dei tipi di acciaio risultanti.<p> </p><b>Utilizzo:</b> prevedere uno dei due attributi numerici della classe, ovvero durezza o forza. È anche possibile analizzare le correlazioni tra gli attributi.<p> </p>Le designazioni dell'acciaio sono basate su uno standard definito da SAE e da altre organizzazioni. Si cerca una 'designazione' specifica (variabile della classe) e si vogliono comprendere i valori necessari. <p> </p><b>Ricerca correlata:</b> Sterling, D. & Buntine, W. (NA). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  <p> </p>Una guida utile alle designazioni dell'acciaio è disponibile qui: <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
 </tr>
 
 <tr>
   <td valign=top>Telescope data</td>
   <td valign=top>
-Record di esplosioni di particelle gamma a energia elevata insieme alla radiazione di fondo, simulate entrambe tramite un processo Monte Carlo.<p> </p>Lo scopo della simulazione consiste nel migliorare la precisione dei telescopi gamma Cherenkov posizionati a terra, usando metodi statistici per rilevare la differenza tra il segnale desiderato (pioggia di radiazioni Cherenkov) e la radiazione di fondo (piogge adroniche generate da raggi cosmici nella parte superiore dell'atmosfera).<p> </p>I dati sono stati pre-elaborati in modo da creare un cluster allungato il cui asse longitudinale è orientato verso il centro della fotocamera. Le caratteristiche di questa ellissi, spesso definite parametri Hillas, si trovano tra i parametri dell'immagine che possono essere usati per la discriminazione.<p> </p><b>Uso:</b> prevedere se l'immagine di una pioggia rappresenta un segnale o radiazioni di fondo.<p> </p><b>Note:</b> la semplice precisione della classificazione non è significativa per questi dati, poiché la classificazione di un evento di fondo come segnale è ritenuta peggiore della classificazione di un evento di segnale come evento di fondo. Per un confronto dei diversi classificatori, è consigliabile usare il grafico ROC. La probabilità di accettazione di un evento di fondo come un segnale deve essere inferiore a una delle soglie seguenti: 0,01 , 0,02 , 0,05 , 0,1 oppure 0,2.<p> </p>Si noti anche che il numero di eventi di fondo (h per piogge adroniche) è sottostimato, mentre nelle misurazioni reali la classe h o noise rappresenta la maggior parte degli eventi. <p> </p><b>Ricerca correlata:</b> Bock, R.K. (1995). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information </td>
+Record di esplosioni di particelle gamma a energia elevata insieme alla radiazione di fondo, simulate entrambe tramite un processo Monte Carlo.<p> </p>Lo scopo della simulazione consiste nel migliorare la precisione dei telescopi gamma Cherenkov posizionati a terra, usando metodi statistici per rilevare la differenza tra il segnale desiderato (pioggia di radiazioni Cherenkov) e la radiazione di fondo (piogge adroniche generate da raggi cosmici nella parte superiore dell'atmosfera).<p> </p>I dati sono stati pre-elaborati in modo da creare un cluster allungato il cui asse longitudinale è orientato verso il centro della fotocamera. Le caratteristiche di questa ellissi, spesso definite parametri Hillas, si trovano tra i parametri dell'immagine che possono essere usati per la discriminazione.<p> </p><b>Utilizzo:</b> prevedere se l'immagine di una pioggia rappresenta un segnale o radiazioni di fondo.<p> </p><b>Note:</b> la semplice precisione della classificazione non è significativa per questi dati, poiché la classificazione di un evento di fondo come segnale è ritenuta peggiore della classificazione di un evento di segnale come evento di fondo. Per un confronto dei diversi classificatori, è consigliabile usare il grafico ROC. La probabilità di accettazione di un evento di fondo come un segnale deve essere inferiore a una delle soglie seguenti: 0,01 , 0,02 , 0,05 , 0,1 oppure 0,2.<p> </p>Si noti anche che il numero di eventi di fondo (h per piogge adroniche) è sottostimato, mentre nelle misurazioni reali la classe h o noise rappresenta la maggior parte degli eventi. <p> </p><b>Ricerca correlata:</b> Bock, R.K. (1995). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information </td>
 </tr>
 
 <tr ID=weather-dataset>
@@ -305,9 +306,4 @@ Questi dati provengono dalla competizione KDD Cup 2010 Student performance evalu
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

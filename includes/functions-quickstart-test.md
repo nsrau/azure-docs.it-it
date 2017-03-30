@@ -1,7 +1,7 @@
 
 Grazie al codice funzionale contenuto negli avvii rapidi di Funzioni di Azure, è possibile testare immediatamente la nuova funzione.
 
-1. Nella scheda **Sviluppo** esaminare la finestra **Codice** e osservare che questo codice Node.js prevede una richiesta HTTP con un valore *name* passato nel corpo del messaggio o in una stringa di query. Durante l'esecuzione della funzione, questo valore viene restituito nel messaggio di risposta.
+1. Nella scheda **Sviluppo** esaminare la finestra **Codice** e notare che il codice fornito prevede una richiesta HTTP con un valore *name* passato nel corpo del messaggio o in una stringa di query. Durante l'esecuzione della funzione, questo valore viene restituito nel messaggio di risposta. L'esempio riportato di seguito è una funzione JavaScript.
    
 2. Fare clic su **Test** per visualizzare il pannello di richiesta di test HTTP predefinito per la funzione.
  
@@ -12,8 +12,3 @@ Grazie al codice funzionale contenuto negli avvii rapidi di Funzioni di Azure, �
 4. Per attivare l'esecuzione della stessa funzione da uno strumento di test HTTP o da un'altra finestra del browser, copiare il valore di **URL funzione** dalla scheda **Sviluppo** e incollarlo nella barra degli indirizzi del browser o dello strumento. Aggiungere quindi il valore della stringa di query `&name=yourname` all'URL ed eseguire la richiesta. Si noti che le stesse informazioni vengono scritte nei log e che la stessa stringa è contenuta nel corpo del messaggio di risposta.
 
     ![](./media/functions-quickstart-test/function-app-browser-testing.png)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

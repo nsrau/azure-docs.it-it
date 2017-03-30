@@ -1,5 +1,5 @@
 ---
-title: 'Connettere Raspberry Pi (C) ad Azure IoT: introduzione | Documentazione Microsoft'
+title: 'Connettere Raspberry Pi (C) ad Azure IoT: introduzione | Microsoft Docs'
 description: Introduzione a Raspberry Pi 3 e informazioni su come creare l&quot;hub IoT di Azure e connettervi il dispositivo Pi.
 services: iot-hub
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
-ms.openlocfilehash: c74e8c40ba259df8d22c11f930073ab83e900c62
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 1d78a77ab28989bbac031e7dd967c050b1322ad7
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -29,6 +29,9 @@ ms.lasthandoff: 03/02/2017
 > * [C](iot-hub-raspberry-pi-kit-c-get-started.md)
 
 Questa esercitazione illustra le nozioni di base sull'uso di Raspberry Pi 3 con il sistema operativo Raspbian. Viene poi illustrato come connettere i dispositivi al cloud usando l'[hub IoT di Azure](iot-hub-what-is-iot-hub.md). Per esempi di Windows 10 IoT Core, vedere [Windows Dev Center](http://www.windowsondevices.com/).
+
+> [!NOTE]
+> Apprezzi Docker o preferisci compilare il codice sorgente nel computer host? In caso affermativo, è possibile provare la soluzione basata su Docker in [GitHub](https://github.com/Azure-Samples/iot-hub-c-raspberrypi-docker).
 
 ## <a name="lesson-1-configure-your-device"></a>Lezione 1: Configurare il dispositivo
 ![Diagramma di flusso della lezione 1](media/iot-hub-raspberry-pi-lessons/e2e-lesson1.png)

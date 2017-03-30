@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
-ms.openlocfilehash: 937b22dd9ad26211b006326b39cafe9c5da4e8bd
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 53f5eefd9223fecefa184c612633d7a455fe15bf
+ms.lasthandoff: 03/18/2017
 
 ---
 
@@ -26,17 +26,17 @@ ms.lasthandoff: 02/27/2017
 
 Se le macchine virtuali Linux di Azure esistenti di cui si dispone usano i dischi non gestiti negli account di archiviazione e si desidera sfruttare i vantaggi dei dischi gestiti, è possibile convertire le macchine virtuali. Questo processo consente di convertire sia il disco del sistema operativo che eventuali dischi dati collegati. Il processo di conversione richiede un riavvio della macchina virtuale, pertanto pianificare la migrazione delle macchine virtuali in una finestra di manutenzione preesistente. Il processo di migrazione non è reversibile. Assicurarsi di testare il processo di migrazione eseguendo la migrazione di una macchina virtuale di test prima di eseguire la migrazione nell'ambiente di produzione.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Durante la conversione la macchina virtuale verrà deallocata. La macchina virtuale riceve un nuovo indirizzo IP quando viene avviata dopo la conversione. Se si dispone di una dipendenza su un indirizzo IP fisso, usare un indirizzo IP riservato.
 
 Non è possibile convertire un disco non gestito in un disco gestito se il disco non gestito si trova in un account di archiviazione che è stato, anche in passato, crittografato con la [Crittografia del servizio di archiviazione di Azure (SSE)](../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). La procedura seguente illustra come convertire dischi non gestiti che sono, o sono stati, in un account di archiviazione crittografato:
 
-- [Copiare il disco rigido virtuale ](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#unmanaged-disks) con [az storage blob copy start](/cli/azure/storage/blob/copy#start) in un account di archiviazione che non è mai stato crittografato con la Crittografia del servizio di archiviazione di Azure.
+- Copiare il disco rigido virtuale con [az storage blob copy start](/cli/azure/storage/blob/copy#start) in un account di archiviazione che non è mai stato abilitato per la crittografia del servizio di archiviazione di Azure.
 - Creare una macchina virtuale che usi dischi gestiti e specificare il file del disco rigido virtuale durante la creazione con [az vm create](/cli/azure/vm#create) o
 - Collegare il disco rigido virtuale copiato con [az vm disk attach](/cli/azure/vm/disk#attach) a una macchina virtuale in esecuzione con dischi gestiti.
 
 ## <a name="convert-vm-to-azure-managed-disks"></a>Convertire una macchina virtuale ad Azure Managed Disks
-In questa sezione viene descritto come convertire le macchine virtuali di Azure esistenti da dischi non gestiti a dischi gestiti. È possibile usare questo processo per passare dai dischi non gestiti Premium (SDD) ai dischi gestiti o dai dischi non gestiti standard (HDD) ai dischi gestiti standard. 
+In questa sezione viene descritto come convertire le macchine virtuali di Azure esistenti da dischi non gestiti a dischi gestiti. È possibile usare questo processo per passare dai dischi non gestiti Premium (SDD) ai dischi gestiti o dai dischi non gestiti standard (HDD) ai dischi gestiti standard.
 
 > [!IMPORTANT]
 > Dopo aver eseguito la procedura seguente, un solo BLOB in blocchi rimane nel contenitore predefinito/VHDS. Il nome del file è "VMName.xxxxxxx.status". Non eliminare questo oggetto di stato rimanente. Le prossime procedure mirano a risolvere questo problema.

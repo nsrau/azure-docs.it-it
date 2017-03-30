@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 03/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: c7ef2a9535362a3dc352b92732abcdf6cd4836c2
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 9da7a59ca5d544121dc9c540a25a3b975988e9a1
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/06/2017
 >
 >
 
-Questo articolo illustra come eseguire la replica di macchine virtuali Hyper-V locali in Azure usando [Azure Site Recovery[](site-recovery-overview.md) nel portale di Azure.
+Questo articolo illustra come eseguire la replica di macchine virtuali Hyper-V locali in Azure usando [Azure Site Recovery](site-recovery-overview.md) nel portale di Azure.
 
 La replica e il failover delle macchine virtuali Hyper-V vengono eseguiti nell'archiviazione di Azure se il sito primario diventa non disponibile. È possibile accedere ai carichi di lavoro in Azure ed eseguire il failback in locale quando il funzionamento torna normale. Le istruzioni contenute in questo articolo sono utili anche per migrare le macchine virtuali in Azure. In una migrazione la replica e il failover vengono eseguiti nelle macchine virtuali, senza poi eseguire il failback.
 
@@ -228,7 +228,7 @@ Per creare una rete con il modello di distribuzione classica è necessario usare
 2. In **Creare e associare i criteri** specificare il nome dei criteri.
 3. In **Frequenza di copia** specificare la frequenza con cui replicare i dati differenziali dopo la replica iniziale, ogni 30 secondi oppure ogni 5 o 15 minuti.
 4. In **Conservazione del punto di ripristino**specificare la durata in ore dell'intervallo di conservazione per ogni punto di ripristino. I computer protetti possono essere ripristinati in qualsiasi punto all'interno di un intervallo.
-5. In **Frequenza snapshot coerenti con l'app** specificare la frequenza, da&1; a&12; ore, per la creazione di punti di ripristino contenenti snapshot coerenti con l'applicazione. Hyper-V utilizza due tipi di snapshot, uno snapshot standard che fornisce uno snapshot incrementale dell'intera macchina virtuale e uno snapshot coerente con l'applicazione che accetta uno snapshot temporizzato dei dati dell'applicazione all'interno della macchina virtuale. Negli snapshot coerenti dell'applicazione viene usato il servizio Copia Shadow del volume (VSS) per garantire che le applicazioni siano coerenti durante la creazione dello snapshot. Si noti che un'eventuale abilitazione di snapshot coerenti dell'applicazione influirà sulle prestazioni delle applicazioni in esecuzione nelle macchine virtuali di origine. Assicurarsi che il valore impostato sia inferiore al numero di punti di ripristino aggiuntivi configurati.
+5. In **Frequenza snapshot coerenti con l'app** specificare la frequenza, da 1 a 12 ore, per la creazione di punti di ripristino contenenti snapshot coerenti con l'applicazione. Hyper-V utilizza due tipi di snapshot, uno snapshot standard che fornisce uno snapshot incrementale dell'intera macchina virtuale e uno snapshot coerente con l'applicazione che accetta uno snapshot temporizzato dei dati dell'applicazione all'interno della macchina virtuale. Negli snapshot coerenti dell'applicazione viene usato il servizio Copia Shadow del volume (VSS) per garantire che le applicazioni siano coerenti durante la creazione dello snapshot. Si noti che un'eventuale abilitazione di snapshot coerenti dell'applicazione influirà sulle prestazioni delle applicazioni in esecuzione nelle macchine virtuali di origine. Assicurarsi che il valore impostato sia inferiore al numero di punti di ripristino aggiuntivi configurati.
 6. In **Ora di inizio della replica iniziale** specificare quando deve essere avviata la replica iniziale. La replica avviene sulla larghezza di banda Internet. È quindi consigliabile pianificarla al di fuori dell'orario di lavoro. Fare quindi clic su **OK**.
 
     ![Criteri di replica](./media/site-recovery-hyper-v-site-to-azure/gs-replication2.png)
@@ -405,7 +405,7 @@ Si dovrebbe ricorrere a tale operazione quando un sito primario diventa inaccess
 1. Selezionare **Piani di ripristino > nome_pianodiripristino**.
 2. Nel pannello relativo al piano di ripristino, fare clic su **Failover non pianificato**.
 3. Nella pagina **Failover non pianificato** selezionare il percorso di origine e destinazione.
-4. Selezionare **Arresta le macchine virtuali e sincronizza i dati più recenti** per specificare che Site Recovery deve tentare di arrestare le macchine virtuali protette e sincronizzare i dati in modo che venga eseguito il faiolver dei dati più recenti.
+4. Selezionare **Arresta le macchine virtuali e sincronizza i dati più recenti** per specificare che Site Recovery deve tentare di arrestare le macchine virtuali protette e sincronizzare i dati in modo che venga eseguito il failover dei dati più recenti.
 5. Dopo il failover le macchine virtuali sono uno stato di attesa di commit.  Fare clic su **Commit** per eseguire il commit del failover.
 
 [Altre informazioni](site-recovery-failover.md)

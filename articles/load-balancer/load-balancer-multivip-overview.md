@@ -1,5 +1,5 @@
 ---
-title: "Più indirizzi VIP per Azure Load Balancer | Documentazione Microsoft"
+title: "Più indirizzi VIP per Azure Load Balancer | Microsoft Docs"
 description: "Panoramica di più indirizzi VIP in Azure Load Balancer"
 services: load-balancer
 documentationcenter: na
@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 08/11/2016
 ms.author: chkuhtz
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: e9ffa674363b250a5e286c6e34200fa2b3323173
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: d9e88b859020be2a96a57a01e5624052ed134b64
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -95,7 +96,7 @@ Il diagramma seguente illustra questa configurazione:
 
 Per questo scenario, ogni macchina virtuale nel pool back-end ha tre interfacce di rete:
 
-* DIP: una scheda di interfaccia di rete virtuale associata alla macchina virtuale (risorsa NIC di Azure)
+* DIP: scheda di interfaccia di rete virtuale associata alla macchina virtuale (configurazione IP della risorsa interfaccia di rete di Azure)
 * VIP1: un'interfaccia di loopback all'interno del sistema operativo guest configurato con l'indirizzo IP di VIP1
 * VIP2: un'interfaccia di loopback all'interno del sistema operativo guest configurato con l'indirizzo IP di VIP2
 
@@ -135,9 +136,4 @@ Il tipo di regola con indirizzo IP mobile è alla base di diversi modelli di con
 * Con la regola dell'indirizzo IP mobile, l'applicazione deve usare il DIP per i flussi in uscita. Se l'applicazione si associa all'indirizzo VIP configurato nell'interfaccia di loopback del sistema operativo guest, SNAT non potrà riscrivere il flusso in uscita e il flusso avrà esito negativo.
 * Gli indirizzi IP pubblici hanno un effetto sulla fatturazione. Per altre informazioni, vedere [Prezzi per gli indirizzi IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Si applicano i limiti delle sottoscrizioni. Per altre informazioni, vedere i [limiti del servizio](../azure-subscription-service-limits.md#networking-limits) .
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

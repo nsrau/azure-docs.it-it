@@ -1,5 +1,5 @@
 ---
-title: Aggiungere soluzioni di gestione di Log Analytics di Azure| Documentazione Microsoft
+title: Aggiungere soluzioni di gestione di Log Analytics di Azure| Microsoft Docs
 description: Le soluzioni di gestione di Operations Management Suite (OMS)/Log Analytics sono una raccolta di regole per la logica, la visualizzazione e l&quot;acquisizione dei dati che forniscono le metriche specifiche per una particolare area problematica.
 services: log-analytics
 documentationcenter: 
@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: dc4a28b64620ecc4829d614b9a3c9e1939fd0063
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: c187467e8af7503ea22c5953417d8282be97856c
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -75,7 +75,7 @@ Tutte le soluzioni della tabella seguente sono disponibili nel portale di Azure 
 
 | Soluzione di gestione                                                                        | Offerta                                                                     | Piani tariffari<sup>1</sup>                                                    | Note |
 | ---                                                                                        | ---                                                                       | ---                                                                                                       | ---   |
-| Activity Log Analytics                                                                     | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(autonomo)<br> Per&nbsp;nodo&nbsp;(OMS)     | Sono disponibili&90; giorni gratuiti di traffico dati |
+| Activity Log Analytics                                                                     | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(autonomo)<br> Per&nbsp;nodo&nbsp;(OMS)     | Sono disponibili 90 giorni gratuiti di traffico dati |
 | [Valutazione di AD](log-analytics-ad-assessment.md)                                              | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(autonomo)<br> Per&nbsp;nodo&nbsp;(OMS)     | |
 | [Stato della replica di AD](log-analytics-ad-replication-status.md)                              | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(autonomo)<br> Per&nbsp;nodo&nbsp;(OMS)     | |
 | Integrità agente                                                                                  | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(autonomo)<br> Per&nbsp;nodo&nbsp;(OMS)     | |
@@ -91,6 +91,7 @@ Tutte le soluzioni della tabella seguente sono disponibili nel portale di Azure 
 | [Contenitori](log-analytics-containers.md)                                                  | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(autonomo)<br> Per&nbsp;nodo&nbsp;(OMS)     | |
 | Monitoraggio per HDInsight HBase <br>(Anteprima)                                                     | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(autonomo)<br> Per&nbsp;nodo&nbsp;(OMS)     | |
 | [Analisi dell'insieme di credenziali delle chiavi](log-analytics-azure-key-vault.md)                      | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(autonomo)<br> Per&nbsp;nodo&nbsp;(OMS)     | |
+| App per la logica B2B                      | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(autonomo)<br> Per&nbsp;nodo&nbsp;(OMS)     | |
 | [Valutazione di malware](log-analytics-malware.md)                                             | <ul><li>Sicurezza e conformità</li></ul>                                    | Gratuito<br> Per&nbsp;nodo&nbsp;(OMS)                                                                               | |
 | [Monitoraggio delle prestazioni di rete](log-analytics-network-performance-monitor.md) <br>(Anteprima)    | <ul><li>Insight & Analytics</li></ul>                                     | Gratuito<br> Per&nbsp;nodo&nbsp;(OMS)                                                                         | |
 | Office 365 Analytics <br>(Anteprima)                                                        | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(autonomo)<br> Per&nbsp;nodo&nbsp;(OMS)     | |
@@ -103,7 +104,8 @@ Tutte le soluzioni della tabella seguente sono disponibili nel portale di Azure 
 | [SurfaceHub](log-analytics-surface-hubs.md)                                                    | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(autonomo)<br> Per&nbsp;nodo&nbsp;(OMS)     | |
 | [System Center Operations Manager Assessment](log-analytics-scom-assessment.md) <br>(Anteprima) | <ul><li>Insight & Analytics</li><li>Log Analytics</li></ul>         | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(autonomo)<br> Per&nbsp;nodo&nbsp;(OMS)     | |
 | Gestione degli aggiornamenti                                                                               | <ul><li>Automation & Control</li></ul>                                    | Gratuito<br> Per&nbsp;nodo&nbsp;(OMS)                                                                            | È necessario che l'area di lavoro di Log Analytics sia collegata a un account di Automazione |
-| [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics) <br>(Anteprima)                                                             | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(autonomo)<br> Per&nbsp;nodo&nbsp;(OMS)     | Non sono previsti addebiti per i dati o i nodi |
+| [Conformità dell'aggiornamento](https://technet.microsoft.com/en-us/itpro/windows/manage/update-compliance-get-started) <br>(Anteprima)                                                             | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(autonomo)<br> Per&nbsp;nodo&nbsp;(OMS)     | Non sono previsti addebiti per i dati o i nodi |
+| [Preparazione dell'aggiornamento](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-readiness)                                                             | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(autonomo)<br> Per&nbsp;nodo&nbsp;(OMS)     | Non sono previsti addebiti per i dati o i nodi |
 | [VMware Monitoring](log-analytics-vmware.md) <br>(Anteprima)                                 | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>     | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(autonomo)<br> Per&nbsp;nodo&nbsp;(OMS)     | |
 | Wire Data 2.0<br>(Anteprima)                                                                   | <ul><li>Insight & Analytics</li></ul>                                      | Gratuito<br> Per&nbsp;nodo&nbsp;(OMS)                                                                         | Disponibile negli Stati Uniti orientali e nell'Europa occidentale |
 

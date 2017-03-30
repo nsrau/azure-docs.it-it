@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
-ms.openlocfilehash: d315c5ed186c24236c860df1ad1b79d55c9a4d57
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: e2e09cdabd323575c0da6797c9eb2564572629f1
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -84,7 +84,7 @@ Preparare le reti in VMM:
 
 ## <a name="step-1-create-a-site-recovery-vault"></a>Passaggio 1: creare un insieme di credenziali di Ripristino sito
 1. Accedere al [portale di gestione](https://portal.azure.com) dal server VMM che si vuole registrare.
-2. Espandere **Servizi dati ** > **Servizi di ripristino ** > **Insieme di credenziali di Site Recovery**.
+2. Espandere **Servizi dati** > **Servizi di ripristino ** > **Insieme di credenziali di Site Recovery**.
 3. Fare clic su **Creare nuovo** > **Creazione rapida**.
 4. In **Nome**immettere un nome descrittivo per identificare l'insieme di credenziali.
 5. In **Region**selezionare l'area geografica per l'insieme di credenziali. Per verificare le aree geografiche supportate, vedere la sezione Disponibilità a livello geografico in [Prezzi di Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
@@ -274,7 +274,7 @@ Dopo la configurazione corretta di server, cloud e reti, sarà possibile abilita
     ![Verifica macchine virtuali](./media/site-recovery-vmm-to-azure-classic/vm-properties.png)
 2. Nella scheda **Configura** delle proprietà della macchina virtuale è possibile modificare le proprietà di rete seguenti.
 
-* **Numero di schede di rete nella macchina virtuale di destinazione** : il numero di schede di rete dipende dalle dimensioni specificate per la macchina virtuale di destinazione. Per il numero di schede supportate dalle dimensioni della macchina virtuale, vedere le [specifiche sulle dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) . Quando si modificano le dimensioni di una macchina virtuale e si salvano le impostazioni, il numero di schede di rete cambia alla successiva apertura della pagina **Configura**. Il numero di schede di rete delle macchine virtuali di destinazione corrisponde al numero minimo di schede di rete nella macchina virtuale di origine e al numero massimo di schede di rete supportate dalla dimensione della macchina virtuale selezionata, come segue:
+* **Numero di schede di rete nella macchina virtuale di destinazione** : il numero di schede di rete dipende dalle dimensioni specificate per la macchina virtuale di destinazione. Per il numero di schede supportate dalle dimensioni della macchina virtuale, vedere le [specifiche sulle dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-linux-sizes.md) . Quando si modificano le dimensioni di una macchina virtuale e si salvano le impostazioni, il numero di schede di rete cambia alla successiva apertura della pagina **Configura**. Il numero di schede di rete delle macchine virtuali di destinazione corrisponde al numero minimo di schede di rete nella macchina virtuale di origine e al numero massimo di schede di rete supportate dalla dimensione della macchina virtuale selezionata, come segue:
 
   * Se il numero di schede di rete nella macchina di origine è minore o uguale al numero di schede consentite per la macchina di destinazione, la destinazione avrà lo stesso numero di schede dell’origine.
   * Se il numero di schede per la macchina virtuale di origine supera il numero consentito per le dimensioni di destinazione, verrà utilizzata la dimensione di destinazione massima.

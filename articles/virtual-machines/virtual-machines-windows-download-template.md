@@ -1,6 +1,6 @@
 ---
-title: Creare un&quot;immagine di VM da una VM di Azure | Microsoft Docs
-description: Informazioni su come creare un&quot;immagine di VM generalizzata da una VM di Azure esistente creata nel modello di distribuzione di Resource Manager
+title: Scaricare il modello per una macchina virtuale di Azure | Microsoft Docs
+description: Scaricare il modello per una macchina virtuale per facilitare l&quot;automazione delle distribuzioni nel modello di distribuzione di Resource Manager
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 349b8dc78ace79efca771efb78e453a47e51023e
-ms.openlocfilehash: 6e80064adadcc542523acb1d2478e6b8f0163acb
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 63d9d9ea257ece3af710e25dcf7cfa3c6e2fb8d5
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -50,10 +51,5 @@ Il file template.json è il modello.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla distribuzione di risorse usando i modelli, vedere [Procedura dettagliata del modello di Resource Manager](../resource-manager-template-walkthrough.md).
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

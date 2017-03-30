@@ -11,8 +11,8 @@ La tabella seguente riepiloga le funzionalità offerte da ogni servizio:
 | Service | Azure Load Balancer | gateway applicazione | servizio Gestione traffico |
 | --- | --- | --- | --- |
 | Tecnologia |Livello trasporto (livello 4) |Livello applicazione (livello 7) |Livello DNS |
-| Protocolli di applicazioni supportati |Qualsiasi |HTTP e HTTPS |Qualsiasi (è richiesto un endpoint HTTP per il monitoraggio degli endpoint) |
-| Endpoint |Istanze del ruolo VM e Servizi cloud di Azure |Qualsiasi indirizzo IP interno di Azure o indirizzo IP Internet pubblico |VM di Azure, Servizi Cloud, App Web di Azure ed endpoint esterni |
+| Protocolli di applicazioni supportati |Qualsiasi |HTTP, HTTPS e WebSocket |Qualsiasi (è richiesto un endpoint HTTP per il monitoraggio degli endpoint) |
+| Endpoint |Istanze del ruolo VM e Servizi cloud di Azure |Un indirizzo IP interno di Azure, un indirizzo IP Internet pubblico, una VM di Azure o un servizio cloud di Azure |VM di Azure, Servizi Cloud, App Web di Azure ed endpoint esterni |
 | Supporto della rete virtuale |Può essere utilizzato sia per applicazioni con connessione Internet sia per applicazioni interne (rete virtuale) |Può essere utilizzato sia per applicazioni con connessione Internet sia per applicazioni interne (rete virtuale) |Supporta solo applicazioni con connessione Internet |
 | Monitoraggio degli endpoint |supportato tramite probe |supportato tramite probe |supportato tramite HTTP/HTTPS GET |
 
@@ -20,14 +20,11 @@ Azure Load Balancer e il gateway applicazione di Azure indirizzano il traffico d
 
 | Tipo | Azure Load Balancer | gateway applicazione |
 | --- | --- | --- |
-| Protocolli |UDP/TCP |HTTP/HTTPS |
+| Protocolli |UDP/TCP |HTTP, HTTPS e WebSocket |
 | Prenotazione IP |Supportato |Non supportate |
 | Modalità di bilanciamento del carico |5 tuple (IP di origine, porta di origine, IP di destinazione, porta di destinazione, tipo di protocollo) |Round robin<br>Routing basato su URL |
 | Modalità di bilanciamento del carico (IP di origine / sessioni permanenti) |2 tuple (IP di origine e IP di destinazione), 3 tuple (IP di origine, IP di destinazione e porta). Possono aumentare o diminuire in base al numero di macchine virtuali |Affinità basata sui cookie<br>Routing basato su URL |
 | Probe di integrità |Predefinito: intervallo di probe - 15 secondi. Esclusione dalla rotazione: 2 errori ripetuti. Supporta le probe definite dall'utente |Inattivo: intervallo di probe - 30 secondi. Esclusione dopo 5 errori consecutivi di traffico live o un errore di probe singolo in modalità di inattività. Supporta le probe definite dall'utente |
 | Offload SSL |Non supportate |Supportato |
-
-
-<!--HONumber=Nov16_HO2-->
-
-
+| Routing basato su URL | Non supportate | Supportato|
+| Criteri SSL | Non supportate | Supportato|

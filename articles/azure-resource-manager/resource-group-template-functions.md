@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/22/2016
+ms.date: 03/14/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 33e6b9ba880f56d967b49d0b89e61d1b531e8376
-ms.openlocfilehash: 1d8cb6894399a7863392a7f11bde69d75d4685c3
-ms.lasthandoff: 11/23/2016
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 1ed23fc5a69cea70636de8b18911c1b11119d3a3
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -51,27 +51,29 @@ Restituisce la somma dei due numeri interi forniti.
 
 L'esempio seguente aggiunge due parametri.
 
-    "parameters": {
-      "first": {
-        "type": "int",
-        "metadata": {
-          "description": "First integer to add"
-        }
-      },
-      "second": {
-        "type": "int",
-        "metadata": {
-          "description": "Second integer to add"
-        }
-      }
-    },
-    ...
-    "outputs": {
-      "addResult": {
-        "type": "int",
-        "value": "[add(parameters('first'), parameters('second'))]"
-      }
+```json
+"parameters": {
+  "first": {
+    "type": "int",
+    "metadata": {
+      "description": "First integer to add"
     }
+  },
+  "second": {
+    "type": "int",
+    "metadata": {
+      "description": "Second integer to add"
+    }
+  }
+},
+...
+"outputs": {
+  "addResult": {
+    "type": "int",
+    "value": "[add(parameters('first'), parameters('second'))]"
+  }
+}
+```
 
 <a id="copyindex" />
 
@@ -88,18 +90,19 @@ Questa funzione viene sempre usata con un oggetto **copy** . Se non viene specif
 
 L'esempio seguente illustra un ciclo di copy e il valore di indice incluso nel nome. 
 
-    "resources": [ 
-      { 
-        "name": "[concat('examplecopy-', copyIndex())]", 
-        "type": "Microsoft.Web/sites", 
-        "copy": { 
-          "name": "websitescopy", 
-          "count": "[parameters('count')]" 
-        }, 
-        ...
-      }
-    ]
-
+```json
+"resources": [ 
+  { 
+    "name": "[concat('examplecopy-', copyIndex())]", 
+    "type": "Microsoft.Web/sites", 
+    "copy": { 
+      "name": "websitescopy", 
+      "count": "[parameters('count')]" 
+    }, 
+    ...
+  }
+]
+```
 
 <a id="div" />
 
@@ -115,27 +118,29 @@ Restituisce la divisione Integer dei due numeri interi forniti.
 
 L'esempio seguente mostra come dividere un parametro per un altro parametro.
 
-    "parameters": {
-      "first": {
-        "type": "int",
-        "metadata": {
-          "description": "Integer being divided"
-        }
-      },
-      "second": {
-        "type": "int",
-        "metadata": {
-          "description": "Integer used to divide"
-        }
-      }
-    },
-    ...
-    "outputs": {
-      "divResult": {
-        "type": "int",
-        "value": "[div(parameters('first'), parameters('second'))]"
-      }
+```json
+"parameters": {
+  "first": {
+    "type": "int",
+    "metadata": {
+      "description": "Integer being divided"
     }
+  },
+  "second": {
+    "type": "int",
+    "metadata": {
+      "description": "Integer used to divide"
+    }
+  }
+},
+...
+"outputs": {
+  "divResult": {
+    "type": "int",
+    "value": "[div(parameters('first'), parameters('second'))]"
+  }
+}
+```
 
 <a id="int" />
 
@@ -150,13 +155,14 @@ Converte il valore specificato in un numero intero.
 
 Nell'esempio seguente il valore del parametro fornito dall'utente viene convertito in numero intero.
 
-    "parameters": {
-        "appId": { "type": "string" }
-    },
-    "variables": { 
-        "intValue": "[int(parameters('appId'))]"
-    }
-
+```json
+"parameters": {
+    "appId": { "type": "string" }
+},
+"variables": { 
+    "intValue": "[int(parameters('appId'))]"
+}
+```
 
 <a id="mod" />
 
@@ -172,27 +178,29 @@ Restituisce la parte rimanente della divisione Integer usando i due numeri inter
 
 L'esempio seguente restituisce il resto della divisione di un parametro per un altro parametro.
 
-    "parameters": {
-      "first": {
-        "type": "int",
-        "metadata": {
-          "description": "Integer being divided"
-        }
-      },
-      "second": {
-        "type": "int",
-        "metadata": {
-          "description": "Integer used to divide"
-        }
-      }
-    },
-    ...
-    "outputs": {
-      "modResult": {
-        "type": "int",
-        "value": "[mod(parameters('first'), parameters('second'))]"
-      }
+```json
+"parameters": {
+  "first": {
+    "type": "int",
+    "metadata": {
+      "description": "Integer being divided"
     }
+  },
+  "second": {
+    "type": "int",
+    "metadata": {
+      "description": "Integer used to divide"
+    }
+  }
+},
+...
+"outputs": {
+  "modResult": {
+    "type": "int",
+    "value": "[mod(parameters('first'), parameters('second'))]"
+  }
+}
+```
 
 <a id="mul" />
 
@@ -208,27 +216,29 @@ Restituisce la moltiplicazione dei due numeri interi forniti.
 
 L'esempio seguente mostra come moltiplicare un parametro per un altro parametro.
 
-    "parameters": {
-      "first": {
-        "type": "int",
-        "metadata": {
-          "description": "First integer to multiply"
-        }
-      },
-      "second": {
-        "type": "int",
-        "metadata": {
-          "description": "Second integer to multiply"
-        }
-      }
-    },
-    ...
-    "outputs": {
-      "mulResult": {
-        "type": "int",
-        "value": "[mul(parameters('first'), parameters('second'))]"
-      }
+```json
+"parameters": {
+  "first": {
+    "type": "int",
+    "metadata": {
+      "description": "First integer to multiply"
     }
+  },
+  "second": {
+    "type": "int",
+    "metadata": {
+      "description": "Second integer to multiply"
+    }
+  }
+},
+...
+"outputs": {
+  "mulResult": {
+    "type": "int",
+    "value": "[mul(parameters('first'), parameters('second'))]"
+  }
+}
+```
 
 <a id="sub" />
 
@@ -244,27 +254,29 @@ Restituisce la sottrazione dei due numeri interi forniti.
 
 L'esempio seguente mostra come sottrarre un parametro da un altro parametro.
 
-    "parameters": {
-      "first": {
-        "type": "int",
-        "metadata": {
-          "description": "Integer subtracted from"
-        }
-      },
-      "second": {
-        "type": "int",
-        "metadata": {
-          "description": "Integer to subtract"
-        }
-      }
-    },
-    ...
-    "outputs": {
-      "subResult": {
-        "type": "int",
-        "value": "[sub(parameters('first'), parameters('second'))]"
-      }
+```json
+"parameters": {
+  "first": {
+    "type": "int",
+    "metadata": {
+      "description": "Integer subtracted from"
     }
+  },
+  "second": {
+    "type": "int",
+    "metadata": {
+      "description": "Integer to subtract"
+    }
+  }
+},
+...
+"outputs": {
+  "subResult": {
+    "type": "int",
+    "value": "[sub(parameters('first'), parameters('second'))]"
+  }
+}
+```
 
 ## <a name="string-functions"></a>Funzioni stringa
 Gestione risorse fornisce le funzioni seguenti per usare le stringhe:
@@ -298,10 +310,12 @@ Restituisce la rappresentazione base64 della stringa di input.
 
 L'esempio seguente mostra come usare la funzione base64.
 
-    "variables": {
-      "usernameAndPassword": "[concat(parameters('username'), ':', parameters('password'))]",
-      "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
-    }
+```json
+"variables": {
+  "usernameAndPassword": "[concat(parameters('username'), ':', parameters('password'))]",
+  "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
+}
+```
 
 <a id="concat" />
 
@@ -319,13 +333,14 @@ Questa funzione può accettare qualsiasi numero di argomenti e può accettare st
 
 L'esempio seguente illustra come combinare più valori di stringa per restituire una stringa concatenata.
 
-    "outputs": {
-        "siteUri": {
-          "type": "string",
-          "value": "[concat('http://', reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
-        }
+```json
+"outputs": {
+    "siteUri": {
+      "type": "string",
+      "value": "[concat('http://', reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
     }
-
+}
+```
 
 <a id="lengthstring" />
 
@@ -342,13 +357,14 @@ Per un esempio relativo all'uso di length con una matrice, vedere [Funzione di m
 
 L'esempio seguente restituisce il numero di caratteri in una stringa. 
 
-    "parameters": {
-        "appName": { "type": "string" }
-    },
-    "variables": { 
-        "nameLength": "[length(parameters('appName'))]"
-    }
-
+```json
+"parameters": {
+    "appName": { "type": "string" }
+},
+"variables": { 
+    "nameLength": "[length(parameters('appName'))]"
+}
+```
 
 <a id="padleft" />
 
@@ -365,12 +381,14 @@ Restituisce una stringa allineata a destra mediante l'aggiunta di caratteri a si
 
 Nell'esempio seguente viene illustrato come il valore del parametro fornito dall'utente viene completato aggiungendo il carattere zero finché la stringa non raggiunge i 10 caratteri. Se il valore del parametro originale è più lungo di 10 caratteri, non vengono aggiunti caratteri.
 
-    "parameters": {
-        "appName": { "type": "string" }
-    },
-    "variables": { 
-        "paddedAppName": "[padLeft(parameters('appName'),10,'0')]"
-    }
+```json
+"parameters": {
+    "appName": { "type": "string" }
+},
+"variables": { 
+    "paddedAppName": "[padLeft(parameters('appName'),10,'0')]"
+}
+```
 
 <a id="replace" />
 
@@ -387,12 +405,14 @@ Restituisce una nuova stringa con tutte le istanze di un carattere della stringa
 
 Nell'esempio seguente viene illustrato come rimuovere tutti i trattini dalla stringa fornita dall'utente.
 
-    "parameters": {
-        "identifier": { "type": "string" }
-    },
-    "variables": { 
-        "newidentifier": "[replace(parameters('identifier'),'-','')]"
-    }
+```json
+"parameters": {
+    "identifier": { "type": "string" }
+},
+"variables": { 
+    "newidentifier": "[replace(parameters('identifier'),'-','')]"
+}
+```
 
 <a id="skipstring" />
 
@@ -410,29 +430,30 @@ Per un esempio relativo all'uso di skip con una matrice, vedere [Funzione di mat
 
 L'esempio seguente ignora il numero specificato di caratteri nella stringa.
 
-    "parameters": {
-      "first": {
-        "type": "string",
-        "metadata": {
-          "description": "Value to use for skipping"
-        }
-      },
-      "second": {
-        "type": "int",
-        "metadata": {
-          "description": "Number of characters to skip"
-        }
-      }
-    },
-    "resources": [
-    ],
-    "outputs": {
-      "return": {
-        "type": "string",
-        "value": "[skip(parameters('first'),parameters('second'))]"
-      }
+```json
+"parameters": {
+  "first": {
+    "type": "string",
+    "metadata": {
+      "description": "Value to use for skipping"
     }
-
+  },
+  "second": {
+    "type": "int",
+    "metadata": {
+      "description": "Number of characters to skip"
+    }
+  }
+},
+"resources": [
+],
+"outputs": {
+  "return": {
+    "type": "string",
+    "value": "[skip(parameters('first'),parameters('second'))]"
+  }
+}
+```
 
 <a id="split" />
 
@@ -450,26 +471,30 @@ Restituisce una matrice di stringhe che contiene le sottostringhe della stringa 
 
 Nell'esempio seguente la stringa di input viene divisa con una virgola.
 
-    "parameters": {
-        "inputString": { "type": "string" }
-    },
-    "variables": { 
-        "stringPieces": "[split(parameters('inputString'), ',')]"
-    }
+```json
+"parameters": {
+    "inputString": { "type": "string" }
+},
+"variables": { 
+    "stringPieces": "[split(parameters('inputString'), ',')]"
+}
+```
 
 L'esempio seguente mostra come suddividere la stringa di input usando una virgola o un punto e virgola.
 
-    "variables": {
-      "stringToSplit": "test1,test2;test3",
-      "delimiters": [ ",", ";" ]
-    },
-    "resources": [ ],
-    "outputs": {
-      "exampleOutput": {
-        "value": "[split(variables('stringToSplit'), variables('delimiters'))]",
-        "type": "array"
-      }
-    }
+```json
+"variables": {
+  "stringToSplit": "test1,test2;test3",
+  "delimiters": [ ",", ";" ]
+},
+"resources": [ ],
+"outputs": {
+  "exampleOutput": {
+    "value": "[split(variables('stringToSplit'), variables('delimiters'))]",
+    "type": "array"
+  }
+}
+```
 
 <a id="string" />
 
@@ -484,28 +509,30 @@ Converte il valore specificato in una stringa.
 
 Nell'esempio seguente il valore del parametro fornito dall'utente viene convertito in stringhe.
 
-    "parameters": {
-      "jsonObject": {
-        "type": "object",
-        "defaultValue": {
-          "valueA": 10,
-          "valueB": "Example Text"
-        }
-      },
-      "jsonArray": {
-        "type": "array",
-        "defaultValue": [ "a", "b", "c" ]
-      },
-      "jsonInt": {
-        "type": "int",
-        "defaultValue": 5
-      }
-    },
-    "variables": { 
-      "objectString": "[string(parameters('jsonObject'))]",
-      "arrayString": "[string(parameters('jsonArray'))]",
-      "intString": "[string(parameters('jsonInt'))]"
+```json
+"parameters": {
+  "jsonObject": {
+    "type": "object",
+    "defaultValue": {
+      "valueA": 10,
+      "valueB": "Example Text"
     }
+  },
+  "jsonArray": {
+    "type": "array",
+    "defaultValue": [ "a", "b", "c" ]
+  },
+  "jsonInt": {
+    "type": "int",
+    "defaultValue": 5
+  }
+},
+"variables": { 
+  "objectString": "[string(parameters('jsonObject'))]",
+  "arrayString": "[string(parameters('jsonArray'))]",
+  "intString": "[string(parameters('jsonInt'))]"
+}
+```
 
 <a id="substring" />
 
@@ -518,16 +545,29 @@ Restituisce una sottostringa che inizia nella posizione del carattere specificat
 |:--- |:--- |:--- |:--- |
 | stringToParse |Sì |string |La stringa originale da cui estrarre la sottostringa. |
 | startIndex |No |Integer |La posizione del carattere iniziale in base zero della sottostringa. |
-| length |No |Integer |Il numero di caratteri della sottostringa. |
+| length |No |Integer |Il numero di caratteri della sottostringa. Deve fare riferimento a una posizione nella stringa. |
 
 Nell'esempio seguente si estraggono i primi tre caratteri da un parametro.
 
-    "parameters": {
-        "inputString": { "type": "string" }
-    },
-    "variables": { 
-        "prefix": "[substring(parameters('inputString'), 0, 3)]"
-    }
+```json
+"parameters": {
+    "inputString": { "type": "string" }
+},
+"variables": { 
+    "prefix": "[substring(parameters('inputString'), 0, 3)]"
+}
+```
+
+L'esempio seguente ha esito negativo e visualizza l'errore "I parametri index e length devono fare riferimento a una posizione all'interno della stringa. Parametro index: '0', parametro length: '11', lunghezza del parametro string: '10'.".
+
+```json
+"parameters": {
+    "inputString": { "type": "string", "value": "1234567890" }
+},
+"variables": { 
+    "prefix": "[substring(parameters('inputString'), 0, 11)]"
+}
+```
 
 <a id="takestring" />
 
@@ -545,28 +585,30 @@ Per un esempio relativo all'uso di take con una matrice, vedere [Funzione di mat
 
 L'esempio seguente prende il numero specificato di caratteri dalla stringa.
 
-    "parameters": {
-      "first": {
-        "type": "string",
-        "metadata": {
-          "description": "Value to use for taking"
-        }
-      },
-      "second": {
-        "type": "int",
-        "metadata": {
-          "description": "Number of characters to take"
-        }
-      }
-    },
-    "resources": [
-    ],
-    "outputs": {
-      "return": {
-        "type": "string",
-        "value": "[take(parameters('first'), parameters('second'))]"
-      }
+```json
+"parameters": {
+  "first": {
+    "type": "string",
+    "metadata": {
+      "description": "Value to use for taking"
     }
+  },
+  "second": {
+    "type": "int",
+    "metadata": {
+      "description": "Number of characters to take"
+    }
+  }
+},
+"resources": [
+],
+"outputs": {
+  "return": {
+    "type": "string",
+    "value": "[take(parameters('first'), parameters('second'))]"
+  }
+}
+```
 
 <a id="tolower" />
 
@@ -581,12 +623,14 @@ Converte la stringa specificata in caratteri minuscoli.
 
 Nell'esempio seguente il valore del parametro fornito dall'utente viene convertito in lettere minuscole.
 
-    "parameters": {
-        "appName": { "type": "string" }
-    },
-    "variables": { 
-        "lowerCaseAppName": "[toLower(parameters('appName'))]"
-    }
+```json
+"parameters": {
+    "appName": { "type": "string" }
+},
+"variables": { 
+    "lowerCaseAppName": "[toLower(parameters('appName'))]"
+}
+```
 
 <a id="toupper" />
 
@@ -601,12 +645,14 @@ Converte la stringa specificata in lettere maiuscole.
 
 Nell'esempio seguente il valore del parametro fornito dall'utente viene convertito in lettere maiuscole.
 
-    "parameters": {
-        "appName": { "type": "string" }
-    },
-    "variables": { 
-        "upperCaseAppName": "[toUpper(parameters('appName'))]"
-    }
+```json
+"parameters": {
+    "appName": { "type": "string" }
+},
+"variables": { 
+    "upperCaseAppName": "[toUpper(parameters('appName'))]"
+}
+```
 
 <a id="trim" />
 
@@ -621,12 +667,14 @@ Rimuove tutti i caratteri di spazi vuoti iniziali e finali dalla stringa specifi
 
 Nell'esempio seguente vengono eliminati i caratteri spazi vuoti dal valore del parametro fornito dall'utente.
 
-    "parameters": {
-        "appName": { "type": "string" }
-    },
-    "variables": { 
-        "trimAppName": "[trim(parameters('appName'))]"
-    }
+```json
+"parameters": {
+    "appName": { "type": "string" }
+},
+"variables": { 
+    "trimAppName": "[trim(parameters('appName'))]"
+}
+```
 
 <a id="uniquestring" />
 
@@ -650,23 +698,30 @@ Gli esempi seguenti mostrano come usare uniqueString per creare un valore univoc
 
 Con ambito univoco nella sottoscrizione
 
-    "[uniqueString(subscription().subscriptionId)]"
+```json
+"[uniqueString(subscription().subscriptionId)]"
+```
 
 Con ambito univoco nel gruppo di risorse
 
-    "[uniqueString(resourceGroup().id)]"
+```json
+"[uniqueString(resourceGroup().id)]"
+```
 
 Con ambito univoco nella distribuzione per un gruppo di risorse
 
-    "[uniqueString(resourceGroup().id, deployment().name)]"
+```json
+"[uniqueString(resourceGroup().id, deployment().name)]"
+```
 
 Nell'esempio seguente viene illustrato come creare un nome univoco per un account di archiviazione in base al gruppo di risorse. All'interno del gruppo di risorse, il nome non è univoco se costruito allo stesso modo.
 
-    "resources": [{ 
-        "name": "[concat('storage', uniqueString(resourceGroup().id))]", 
-        "type": "Microsoft.Storage/storageAccounts", 
-        ...
-
+```json
+"resources": [{ 
+    "name": "[concat('storage', uniqueString(resourceGroup().id))]", 
+    "type": "Microsoft.Storage/storageAccounts", 
+    ...
+```
 
 
 <a id="uri" />
@@ -685,7 +740,9 @@ Il valore per il parametro **baseUri** può includere un file specifico, ma solo
 
 Nell'esempio seguente viene illustrato come costruire un collegamento a un modello annidato in base al valore del modello padre.
 
-    "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
+```json
+"templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
+```
 
 ## <a name="array-functions"></a>Funzioni di matrice
 Gestione risorse fornisce diverse funzioni per usare i valori di matrice:
@@ -713,18 +770,19 @@ Questa funzione può accettare qualsiasi numero di argomenti e può accettare st
 
 L'esempio seguente illustra come combinare due matrici.
 
-    "parameters": {
-        "firstarray": {
-            type: "array"
-        }
-        "secondarray": {
-            type: "array"
-        }
-     },
-     "variables": {
-         "combinedarray": "[concat(parameters('firstarray'), parameters('secondarray'))]"
-     }
-
+```json
+"parameters": {
+    "firstarray": {
+      "type": "array"
+    }
+    "secondarray": {
+      "type": "array"
+    }
+},
+"variables": {
+    "combinedarray": "[concat(parameters('firstarray'), parameters('secondarray'))]"
+}
+```
 
 <a id="length" />
 
@@ -739,10 +797,12 @@ Restituisce il numero di elementi in una matrice.
 
 È possibile usare questa funzione con una matrice per specificare il numero di iterazioni durante la creazione di risorse. Nell'esempio seguente, il parametro **siteNames** fa riferimento a una matrice di nomi da usare durante la creazione di siti Web.
 
-    "copy": {
-        "name": "websitescopy",
-        "count": "[length(parameters('siteNames'))]"
-    }
+```json
+"copy": {
+    "name": "websitescopy",
+    "count": "[length(parameters('siteNames'))]"
+}
+```
 
 Per altre informazioni sull'uso di questa funzione con una matrice, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md). 
 
@@ -764,29 +824,31 @@ Per un esempio relativo all'uso di skip con una stringa, vedere la sezione [Funz
 
 L'esempio seguente ignora il numero specificato di elementi nella matrice.
 
-    "parameters": {
-      "first": {
-        "type": "array",
-        "metadata": {
-          "description": "Values to use for skipping"
-        },
-        "defaultValue": [ "one", "two", "three" ]
-      },
-      "second": {
-        "type": "int",
-        "metadata": {
-          "description": "Number of elements to skip"
-        }
-      }
+```json
+"parameters": {
+  "first": {
+    "type": "array",
+    "metadata": {
+      "description": "Values to use for skipping"
     },
-    "resources": [
-    ],
-    "outputs": {
-      "return": {
-        "type": "array",
-        "value": "[skip(parameters('first'), parameters('second'))]"
-      }
+    "defaultValue": [ "one", "two", "three" ]
+  },
+  "second": {
+    "type": "int",
+    "metadata": {
+      "description": "Number of elements to skip"
     }
+  }
+},
+"resources": [
+],
+"outputs": {
+  "return": {
+    "type": "array",
+    "value": "[skip(parameters('first'), parameters('second'))]"
+  }
+}
+```
 
 <a id="take" />
 
@@ -804,29 +866,31 @@ Per un esempio relativo all'uso di take con una stringa, vedere la sezione [Funz
 
 L'esempio seguente accetta il numero specificato di elementi dalla matrice.
 
-    "parameters": {
-      "first": {
-        "type": "array",
-        "metadata": {
-          "description": "Values to use for taking"
-        },
-        "defaultValue": [ "one", "two", "three" ]
-      },
-      "second": {
-        "type": "int",
-        "metadata": {
-          "description": "Number of elements to take"
-        }
-      }
+```json
+"parameters": {
+  "first": {
+    "type": "array",
+    "metadata": {
+      "description": "Values to use for taking"
     },
-    "resources": [
-    ],
-    "outputs": {
-      "return": {
-        "type": "array",
-        "value": "[take(parameters('first'),parameters('second'))]"
-      }
+    "defaultValue": [ "one", "two", "three" ]
+  },
+  "second": {
+    "type": "int",
+    "metadata": {
+      "description": "Number of elements to take"
     }
+  }
+},
+"resources": [
+],
+"outputs": {
+  "return": {
+    "type": "array",
+    "value": "[take(parameters('first'),parameters('second'))]"
+  }
+}
+```
 
 ## <a name="deployment-value-functions"></a>Funzioni dei valori della distribuzione
 Gestione risorse fornisce le funzioni seguenti per ottenere i valori dalle sezioni del modello e i valori relativi alla distribuzione:
@@ -848,51 +912,57 @@ Questa funzione restituisce l'oggetto che viene passato durante la distribuzione
 
 Quando l'oggetto di distribuzione viene passato inline, ad esempio quando si usa il parametro **-TemplateFile** in Azure PowerShell per puntare a un file locale, l'oggetto restituito è nel formato seguente:
 
-    {
-        "name": "",
-        "properties": {
-            "template": {
-                "$schema": "",
-                "contentVersion": "",
-                "parameters": {},
-                "variables": {},
-                "resources": [
-                ],
-                "outputs": {}
-            },
+```json
+{
+    "name": "",
+    "properties": {
+        "template": {
+            "$schema": "",
+            "contentVersion": "",
             "parameters": {},
-            "mode": "",
-            "provisioningState": ""
-        }
+            "variables": {},
+            "resources": [
+            ],
+            "outputs": {}
+        },
+        "parameters": {},
+        "mode": "",
+        "provisioningState": ""
     }
+}
+```
 
 Quando l'oggetto viene passato come collegamento, come quando si usa il parametro **-TemplateUri** per puntare a un oggetto remoto, l'oggetto viene restituito nel formato seguente: 
 
-    {
-        "name": "",
-        "properties": {
-            "templateLink": {
-                "uri": ""
-            },
-            "template": {
-                "$schema": "",
-                "contentVersion": "",
-                "parameters": {},
-                "variables": {},
-                "resources": [],
-                "outputs": {}
-            },
+```json
+{
+    "name": "",
+    "properties": {
+        "templateLink": {
+            "uri": ""
+        },
+        "template": {
+            "$schema": "",
+            "contentVersion": "",
             "parameters": {},
-            "mode": "",
-            "provisioningState": ""
-        }
+            "variables": {},
+            "resources": [],
+            "outputs": {}
+        },
+        "parameters": {},
+        "mode": "",
+        "provisioningState": ""
     }
+}
+```
 
 Nell'esempio seguente viene illustrato come utilizzare la distribuzione () per collegarsi a un altro modello in base all'URI del modello padre.
 
-    "variables": {  
-        "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
-    }  
+```json
+"variables": {  
+    "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
+}
+```  
 
 <a id="parameters" />
 
@@ -907,19 +977,21 @@ Restituisce un valore di parametro. Il nome del parametro specificato deve esser
 
 L'esempio seguente mostra un uso semplificato della funzione parameters.
 
-    "parameters": { 
-      "siteName": {
-          "type": "string"
-      }
-    },
-    "resources": [
-       {
-          "apiVersion": "2014-06-01",
-          "name": "[parameters('siteName')]",
-          "type": "Microsoft.Web/Sites",
-          ...
-       }
-    ]
+```json
+"parameters": { 
+  "siteName": {
+      "type": "string"
+  }
+},
+"resources": [
+   {
+      "apiVersion": "2014-06-01",
+      "name": "[parameters('siteName')]",
+      "type": "Microsoft.Web/Sites",
+      ...
+   }
+]
+```
 
 <a id="variables" />
 
@@ -934,16 +1006,18 @@ Restituisce il valore della variabile. Il nome della variabile specificato deve 
 
 L'esempio seguente usa un valore della variabile.
 
-    "variables": {
-      "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
-    },
-    "resources": [
-      {
-        "type": "Microsoft.Storage/storageAccounts",
-        "name": "[variables('storageName')]",
-        ...
-      }
-    ],
+```json
+"variables": {
+  "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
+},
+"resources": [
+  {
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageName')]",
+    ...
+  }
+],
+```
 
 ## <a name="resource-functions"></a>Funzioni delle risorse
 Gestione risorse fornisce le funzioni seguenti per ottenere i valori delle risorse:
@@ -972,41 +1046,51 @@ Restituisce i valori per qualsiasi tipo di risorsa che supporta l'operazione di 
 | resourceName o resourceIdentifier |Sì |string |Identificatore univoco della risorsa. |
 | apiVersion |Sì |String |Versione dell'API dello stato di runtime della risorsa. In genere il formato è **aaaa-mm-gg**. |
 
-Qualsiasi operazione che inizia con **list** può essere usata come funzione nel modello. Le operazioni disponibili non includono solo **listKeys**, ma anche operazioni come **list**, **listAdminKeys** e **listStatus**. Per determinare quali tipi di risorse dispongono di un'operazione list, usare il comando PowerShell seguente:
+Qualsiasi operazione che inizia con **list** può essere usata come funzione nel modello. Le operazioni disponibili non includono solo **listKeys**, ma anche operazioni come **list**, **listAdminKeys** e **listStatus**. Per determinare quali tipi di risorsa dispongono di un'operazione di elenco, vedere le [operazioni API REST](/rest/api/) per il provider di risorse.
 
-    Get-AzureRmProviderOperation -OperationSearchString *  | where {$_.Operation -like "*list*"} | FT Operation
+Per trovare le operazioni di elenco per un provider di risorse, usare il cmdlet di PowerShell seguente:
 
-In alternativa, è possibile recuperare l'elenco con l'interfaccia della riga di comando di Azure. L'esempio seguente mostra come recuperare tutte le operazioni per **apiapps**e usa l'utilità JSON [jq](http://stedolan.github.io/jq/download/) per filtrare solo le operazioni list.
+```powershell
+Get-AzureRmProviderOperation -OperationSearchString "Microsoft.Storage/*" | where {$_.Operation -like "*list*"} | FT Operation
+```
 
-    azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains(\"list\"))"
+Per trovare le operazioni di elenco per un provider di risorse, usare il comando seguente dell'interfaccia della riga di comando di Azure e l'utilità JSON [jq](http://stedolan.github.io/jq/download/) per filtrare solo le operazioni di elenco:
+
+```azurecli
+azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains(\"list\"))"
+```
 
 È possibile specificare resourceId usando la [funzione resourceId](#resourceid) o il formato **{providerNamespace}/{resourceType}/{resourceName}**.
 
 L'esempio seguente mostra come restituire le chiavi primaria e secondaria da un account di archiviazione nella sezione outputs.
 
-    "outputs": { 
-      "listKeysOutput": { 
-        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2016-01-01')]", 
-        "type" : "object" 
-      } 
-    } 
+```json
+"outputs": { 
+  "listKeysOutput": { 
+    "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2016-01-01')]", 
+    "type" : "object" 
+  } 
+}
+``` 
 
 L'oggetto restituito da listKeys è nel formato seguente:
 
+```json
+{
+  "keys": [
     {
-      "keys": [
-        {
-          "keyName": "key1",
-          "permissions": "Full",
-          "value": "{value}"
-        },
-        {
-          "keyName": "key2",
-          "permissions": "Full",
-          "value": "{value}"
-        }
-      ]
+      "keyName": "key1",
+      "permissions": "Full",
+      "value": "{value}"
+    },
+    {
+      "keyName": "key2",
+      "permissions": "Full",
+      "value": "{value}"
     }
+  ]
+}
+```
 
 <a id="providers" />
 
@@ -1022,20 +1106,24 @@ Restituisce informazioni su un provider di risorse e i relativi tipi di risorse 
 
 Ogni tipo supportato viene restituito nel formato seguente: L'ordinamento della matrice non è garantito.
 
-    {
-        "resourceType": "",
-        "locations": [ ],
-        "apiVersions": [ ]
-    }
+```json
+{
+    "resourceType": "",
+    "locations": [ ],
+    "apiVersions": [ ]
+}
+```
 
 L'esempio seguente mostra come usare la funzione provider:
 
-    "outputs": {
-        "exampleOutput": {
-            "value": "[providers('Microsoft.Storage', 'storageAccounts')]",
-            "type" : "object"
-        }
+```json
+"outputs": {
+    "exampleOutput": {
+        "value": "[providers('Microsoft.Storage', 'storageAccounts')]",
+        "type" : "object"
     }
+}
+```
 
 <a id="reference" />
 
@@ -1055,39 +1143,47 @@ Usando la funzione di riferimento, si dichiara implicitamente che una risorsa di
 
 L'esempio seguente fa riferimento a un account di archiviazione distribuito nello stesso modello.
 
-    "outputs": {
-        "NewStorage": {
-            "value": "[reference(parameters('storageAccountName'))]",
-            "type" : "object"
-        }
+```json
+"outputs": {
+    "NewStorage": {
+        "value": "[reference(parameters('storageAccountName'))]",
+        "type" : "object"
     }
+}
+```
 
 L'esempio seguente fa riferimento a un account di archiviazione non distribuito nello stesso modello, ma esistente nello stesso gruppo di risorse delle risorse da distribuire.
 
-    "outputs": {
-        "ExistingStorage": {
-            "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01')]",
-            "type" : "object"
-        }
+```json
+"outputs": {
+    "ExistingStorage": {
+        "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01')]",
+        "type" : "object"
     }
+}
+```
 
 È possibile recuperare un valore specifico dall'oggetto restituito, ad esempio l'URI dell'endpoint BLOB, come illustrato nell'esempio seguente:
 
-    "outputs": {
-        "BlobUri": {
-            "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
-            "type" : "string"
-        }
+```json
+"outputs": {
+    "BlobUri": {
+        "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
+        "type" : "string"
     }
+}
+```
 
 L'esempio seguente fa riferimento a un account di archiviazione in un gruppo di risorse diverso.
 
-    "outputs": {
-        "BlobUri": {
-            "value": "[reference(resourceId(parameters('relatedGroup'), 'Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
-            "type" : "string"
-        }
+```json
+"outputs": {
+    "BlobUri": {
+        "value": "[reference(resourceId(parameters('relatedGroup'), 'Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
+        "type" : "string"
     }
+}
+```
 
 Le proprietà sull'oggetto restituito dalla funzione di **riferimento** variano in base al tipo di risorsa. Per visualizzare i nomi e i valori delle proprietà per un tipo di risorsa, creare un modello semplice che restituisca l'oggetto nella sezione degli **output** . Se si dispone di una risorsa esistente di quel tipo, il modello restituisce solo l'oggetto senza distribuirsi su nuove risorse. Se non si dispone di una risorsa esistente di quel tipo, il modello viene distribuito solo a quel tipo e restituisce l'oggetto. Aggiungere quindi le proprietà ai modelli che necessitano del recupero dinamico dei valori durante la distribuzione. 
 
@@ -1100,28 +1196,32 @@ Restituisce un oggetto che rappresenta il gruppo di risorse corrente.
 
 L'oggetto restituito è nel formato seguente:
 
-    {
-      "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
-      "name": "{resourceGroupName}",
-      "location": "{resourceGroupLocation}",
-      "tags": {
-      },
-      "properties": {
-        "provisioningState": "{status}"
-      }
-    }
+```json
+{
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
+  "name": "{resourceGroupName}",
+  "location": "{resourceGroupLocation}",
+  "tags": {
+  },
+  "properties": {
+    "provisioningState": "{status}"
+  }
+}
+```
 
 L'esempio seguente usa il percorso del gruppo di risorse per assegnare il percorso per un sito Web.
 
-    "resources": [
-       {
-          "apiVersion": "2014-06-01",
-          "type": "Microsoft.Web/sites",
-          "name": "[parameters('siteName')]",
-          "location": "[resourceGroup().location]",
-          ...
-       }
-    ]
+```json
+"resources": [
+   {
+      "apiVersion": "2014-06-01",
+      "type": "Microsoft.Web/sites",
+      "name": "[parameters('siteName')]",
+      "location": "[resourceGroup().location]",
+      ...
+   }
+]
+```
 
 <a id="resourceid" />
 
@@ -1144,51 +1244,55 @@ Questa funzione viene usata quando il nome della risorsa è ambiguo o non è sta
 
 L'esempio seguente mostra come recuperare gli ID risorsa per un sito Web e un database. Il sito Web si trova in un gruppo di risorse denominato **myWebsitesGroup** , mentre il database si trova nel gruppo di risorse corrente per questo modello.
 
-    [resourceId('myWebsitesGroup', 'Microsoft.Web/sites', parameters('siteName'))]
-    [resourceId('Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]
+```json
+[resourceId('myWebsitesGroup', 'Microsoft.Web/sites', parameters('siteName'))]
+[resourceId('Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]
+```
 
 Spesso è necessario usare questa funzione quando si usa un account di archiviazione o una rete virtuale in un gruppo di risorse alternative. L'account di archiviazione o la rete virtuale possono essere usati in più gruppi di risorse, quindi non devono essere eliminati quando si elimina un singolo gruppo di risorse. L'esempio seguente mostra come usare facilmente una risorsa di un gruppo di risorse esterno:
 
-    {
-      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-          "virtualNetworkName": {
-              "type": "string"
-          },
-          "virtualNetworkResourceGroup": {
-              "type": "string"
-          },
-          "subnet1Name": {
-              "type": "string"
-          },
-          "nicName": {
-              "type": "string"
-          }
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "virtualNetworkName": {
+          "type": "string"
       },
-      "variables": {
-          "vnetID": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-          "subnet1Ref": "[concat(variables('vnetID'),'/subnets/', parameters('subnet1Name'))]"
+      "virtualNetworkResourceGroup": {
+          "type": "string"
       },
-      "resources": [
-      {
-          "apiVersion": "2015-05-01-preview",
-          "type": "Microsoft.Network/networkInterfaces",
-          "name": "[parameters('nicName')]",
-          "location": "[parameters('location')]",
-          "properties": {
-              "ipConfigurations": [{
-                  "name": "ipconfig1",
-                  "properties": {
-                      "privateIPAllocationMethod": "Dynamic",
-                      "subnet": {
-                          "id": "[variables('subnet1Ref')]"
-                      }
+      "subnet1Name": {
+          "type": "string"
+      },
+      "nicName": {
+          "type": "string"
+      }
+  },
+  "variables": {
+      "vnetID": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
+      "subnet1Ref": "[concat(variables('vnetID'),'/subnets/', parameters('subnet1Name'))]"
+  },
+  "resources": [
+  {
+      "apiVersion": "2015-05-01-preview",
+      "type": "Microsoft.Network/networkInterfaces",
+      "name": "[parameters('nicName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+          "ipConfigurations": [{
+              "name": "ipconfig1",
+              "properties": {
+                  "privateIPAllocationMethod": "Dynamic",
+                  "subnet": {
+                      "id": "[variables('subnet1Ref')]"
                   }
-              }]
-           }
-      }]
-    }
+              }
+          }]
+       }
+  }]
+}
+```
 
 <a id="subscription" />
 
@@ -1197,21 +1301,24 @@ Spesso è necessario usare questa funzione quando si usa un account di archiviaz
 
 Restituisce informazioni dettagliate sulla sottoscrizione nel formato seguente:
 
-    {
-        "id": "/subscriptions/#####",
-        "subscriptionId": "#####",
-        "tenantId": "#####"
-    }
+```json
+{
+    "id": "/subscriptions/#####",
+    "subscriptionId": "#####",
+    "tenantId": "#####"
+}
+```
 
 L'esempio seguente mostra la funzione subscription chiamata nella sezione outputs. 
 
-    "outputs": { 
-      "exampleOutput": { 
-          "value": "[subscription()]", 
-          "type" : "object" 
-      } 
-    } 
-
+```json
+"outputs": { 
+  "exampleOutput": { 
+      "value": "[subscription()]", 
+      "type" : "object" 
+  } 
+} 
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per una descrizione delle sezioni in un modello di Gestione risorse di Azure, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md)

@@ -1,5 +1,5 @@
 ---
-title: Prezzi e fatturazione - App per la logica di Azure | Documentazione Microsoft
+title: Prezzi e fatturazione - App per la logica di Azure | Microsoft Docs
 description: Informazioni sul funzionamento dei prezzi e della fatturazione per App per la logica di Azure.
 author: kevinlam1
 manager: anneta
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: klam
 translationtype: Human Translation
-ms.sourcegitcommit: 5b1b65e3d1066bea6958fa6461a157ee39fbe7dc
-ms.openlocfilehash: e14d55ad96187dc8ec6e6aac04463b58280783aa
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 10a2c7771d9d2ec57f3e57e1d6bb4f82c55aa7f1
+ms.lasthandoff: 03/17/2017
 
 ---
 # <a name="logic-apps-pricing-model"></a>Modello di determinazione prezzi delle app per la logica
@@ -57,7 +57,11 @@ Per modificare un'app per la logica a cui è associato un piano di servizio in u
 Per informazioni sui prezzi, vedere [Prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Informazioni sulle app per la logica][whatis]
-* [Creare la prima app per la logica][creare] [prezzi]: https://azure.microsoft.com/pricing/details/logic-apps/ [informazioni]: logic-apps-what-are-logic-apps.md [creare]: logic-apps-create-a-logic-app.md
+* [Informazioni su App per la logica][whatis]
+* [Creare la prima app per la logica][create]
+
+[pricing]: https://azure.microsoft.com/pricing/details/logic-apps/
+[whatis]: logic-apps-what-are-logic-apps.md
+[create]: logic-apps-create-a-logic-app.md
 
 
