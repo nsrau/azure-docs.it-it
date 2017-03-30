@@ -1,5 +1,5 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - montaggio del disco del sistema operativo | Documentazione Microsoft
+title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - montaggio del disco del sistema operativo | Microsoft Docs
 description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - montaggio del disco del sistema operativo
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: e5362b32a0f93433c77c27a6fc116960c45404f9
-ms.openlocfilehash: 73bd1f9b018e49ad8a536b80275cbf0faa030b74
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: cdd0a11e872d81dfbb35c7a0cbfa2e1f7234dc08
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/01/2017
 
 Questo script consente di montare il disco del sistema operativo di una macchina virtuale in cui si è verificato un errore o un problema come disco dati in una seconda macchina virtuale. Può essere utile quando si esegue la risoluzione dei problemi del disco o il ripristino di dati. 
 
-Prima di eseguire questo script, verificare che sia stata creata una connessione con Azure tramite il comando `az login`. Inoltre, è necessaria una macchina virtuale esistente. Aggiornare il nome e il gruppo di risorse della VM esistente nell'esempio di script.
+Se necessario, installare l'interfaccia della riga di comando di Azure usando l'istruzione presente nella [Guida all'installazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e quindi eseguire `az login` per creare una connessione con Azure. È necessario anche disporre di una macchina virtuale esistente. Aggiornare il nome e gruppo di risorse della macchina virtuale esistente nello script di esempio.
 
 Questo esempio funziona in una shell Bash. Per le opzioni sull'esecuzione di script dell'interfaccia della riga di comando di Azure nel client Windows, vedere [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md) (Esecuzione dell'interfaccia della riga di comando di Azure in Windows).
 

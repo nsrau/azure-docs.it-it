@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: xiaoyzhu
 translationtype: Human Translation
-ms.sourcegitcommit: 4860c818c5eba800ea9eaedc4c109ebd459a8c16
-ms.openlocfilehash: 2fa745672fe1b6aec9a2144774eb32fa029073e1
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: d3ac737604e9483c313b4c1fcb522cb449dd84d8
+ms.lasthandoff: 03/21/2017
 
 
 ---

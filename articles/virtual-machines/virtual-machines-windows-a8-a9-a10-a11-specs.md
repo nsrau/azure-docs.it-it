@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/21/2016
+ms.date: 03/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 58e8474a9cafdad06c2968a7317e0c30474b5069
-ms.openlocfilehash: 5021a0aa554978fbb5543024400986715227de0b
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 32045a9b6be130dca4680b1990808d2b22be4432
+ms.lasthandoff: 03/16/2017
 
 
 ---
 # <a name="about-h-series-and-compute-intensive-a-series-vms-for-windows"></a>Informazioni sulle macchine virtuali serie H e serie A a elevato utilizzo di calcolo per Windows
-Informazioni generali e considerazioni sull'uso delle nuove istanze di Azure serie H e delle precedenti istanze A8, A9, A10 e A11, note anche come istanze *a elevato utilizzo di calcolo* . Questo articolo illustrato l'uso di queste istanze per le VM Windows. Questo articolo è disponibile anche per le [VM Linux](virtual-machines-linux-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Informazioni generali e considerazioni sull'uso delle nuove istanze di Azure serie H e delle precedenti istanze A8, A9, A10 e A11, note anche come istanze *a elevato utilizzo di calcolo* . Questo articolo illustrato l'uso di queste istanze per le VM Windows. È possibile usarle anche per [le macchine virtuali Linux](virtual-machines-linux-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Per conoscere le specifiche di base, le capacità di archiviazione e i dettagli relativi ai dischi, vedere [Dimensioni delle macchine virtuali](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -37,22 +37,23 @@ Per accedere alla rete RDMA per il traffico MPI di Windows MPI, le istanze con s
   
   * **Macchine virtuali** : Windows Server 2012 R2, Windows Server 2012
   * **Servizi cloud** : famiglia di sistemi operativi guest Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+
+    > [!NOTE]
+    > Windows Server 2016 non supporta attualmente la connettività RDMA in Azure.
+    >
+    
 * **MPI** : Microsoft MPI (MS-MPI) 2012 R2 o versione successiva, Intel MPI Library 5.x
 
   Le implementazioni MPI supportate usano l'interfaccia Microsoft Network Direct per la comunicazione tra le istanze. 
-* **Estensione di VM HpcVmDrivers**: nelle VM con supporto per RDMA, è necessario aggiungere l'estensione HpcVmDrivers per installare i driver dei dispositivi di rete Windows che consentono la connettività RDMA. In alcune distribuzioni di istanze A8 e A9 l'estensione HpcVmDrivers viene aggiunta automaticamente. Se occorre aggiungere un'estensione di VM a una VM, è possibile usare i cmdlet di [Azure PowerShell](/powershell/azureps-cmdlets-docs) per Azure Resource Manager.
+* **Estensione di VM HpcVmDrivers**: nelle VM con supporto per RDMA, è necessario aggiungere l'estensione HpcVmDrivers per installare i driver dei dispositivi di rete Windows che consentono la connettività RDMA. In alcune distribuzioni di istanze A8 e A9 l'estensione HpcVmDrivers viene aggiunta automaticamente. Se è necessario aggiungere l'estensione della macchina virtuale a una macchina virtuale, è possibile usare i cmdlet di [Azure PowerShell](/powershell/azureps-cmdlets-docs). 
 
-  Per ottenere informazioni sull'estensione HpcVmDrivers più recente:
+  
+  Per installare l'ultima versione 1.1 dell'estensione HpcVMDrivers in una macchina virtuale con supporto per RDMA esistente e denominata myVM distribuita nel modello di distribuzione di Resource Manager:
 
-  ```PowerShell
-  Get-AzureVMAvailableExtension -ExtensionName  "HpcVmDrivers"
-  ```
-
-  Per installare l'ultima versione 1.1 dell'estensione HpcVMDrivers in VM esistente con supporto per RDMA denominata myVM:
   ```PowerShell
   Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
-  Per altre informazioni, vedere [Gestire le estensioni delle macchine virtuali](virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). È inoltre possibile utilizzare estensioni delle macchine virtuali nel [modello di distribuzione classico](virtual-machines-windows-classic-manage-extensions.md).
+  Per altre informazioni, vedere [Estensioni e funzionalità della macchina virtuale](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). È anche possibile usare estensioni delle macchine virtuali nel [modello di distribuzione classico](virtual-machines-windows-classic-manage-extensions.md).
 
 
 ## <a name="considerations-for-hpc-pack-and-windows"></a>Considerazioni per HPC Pack e Windows

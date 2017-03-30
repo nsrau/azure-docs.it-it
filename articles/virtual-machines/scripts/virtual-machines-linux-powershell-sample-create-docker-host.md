@@ -1,5 +1,5 @@
 ---
-title: Esempio di script di Azure PowerShell - Docker | Documentazione Microsoft
+title: Esempio di script di Azure PowerShell - Docker | Microsoft Docs
 description: Esempio di script di Azure PowerShell - Docker
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,17 +16,17 @@ ms.workload: infrastructure
 ms.date: 03/02/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: b3979468d7fdb04a7efd33f35dcea173afe85b3a
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 23dd4df078da0b93d1924442cf2e6b7542b12f9a
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="create-a-docker-host-with-powershell"></a>Creare un host Docker con PowerShell
 
-Questo script di esempio crea una macchina virtuale e quindi usa l'estensione di VM Docker di Azure per configurare un host Docker. L'estensione di VM Docker crea quindi un contenitore che esegue NGINX. Infine, lo script consente di configurare un gruppo di sicurezza di rete di Azure per tutto il traffico in ingresso sulla porta 80. Una volta che lo script è stato eseguito correttamente, il server web NGINX può accedere tramite il nome di dominio completo della macchina virtuale di Azure. 
+Questo script crea una macchina virtuale con Docker abilitato e avvia un contenitore che esegue NGINX. Dopo aver eseguito lo script, è possibile accedere al server Web NGINX tramite il nome di dominio completo della macchina virtuale di Azure. 
 
-Prima di eseguire questo script, verificare che sia stata creata una connessione con Azure tramite il comando `Login-AzureRmAccount`. Inoltre, una chiave pubblica SSH con il nome `id_rsa.pub` deve essere archiviata nella directory ~/.ssh del profilo utente.
+Se necessario, installare Azure PowerShell usando l'istruzione presente nella [Guida di Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) e quindi eseguire `Login-AzureRmAccount` per creare una connessione con Azure. Sarà inoltre necessario disporre di una chiave pubblica SSH denominata `id_rsa.pub` nella directory .ssh del profilo utente.
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -34,7 +34,7 @@ Prima di eseguire questo script, verificare che sia stata creata una connessione
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
 
-Dopo l'esecuzione dello script di esempio, eseguire il comando seguente per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
+Eseguire questo comando per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup

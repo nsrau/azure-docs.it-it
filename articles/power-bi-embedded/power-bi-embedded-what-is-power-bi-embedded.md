@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 03/11/2017
+ms.date: 03/20/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 1fb7b268e83da66a4bb9fe6d3e053b7a673d3555
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 0b5f7a2c3fd16ac32b0bc382616ca6600d378bb8
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/14/2017
 Power BI Embedded è un **servizio di Azure** che consente ai fornitori di software indipendente e agli sviluppatori di app di sfruttare i vantaggi dell'esperienza dati di Power BI nelle proprie applicazioni. Gli sviluppatori creano applicazioni, ognuna delle quali ha utenti e set di funzionalità specifici. Queste app possono inoltre contenere alcuni elementi dati predefiniti, ad esempio grafici e report che ora possono essere supportati da Microsoft Power BI Embedded. Per usare l'app non è necessario avere un account Power BI. È possibile continuare ad accedere all'applicazione come in precedenza, nonché visualizzare i report di Power BI e interagire con questi senza dover richiedere licenze aggiuntive.
 
 ## <a name="licensing-for-microsoft-power-bi-embedded"></a>Licenza di Microsoft Power BI Embedded
-Nel modello di utilizzo di **Microsoft Power BI Embedded** l'utente finale non è il responsabile della gestione delle licenze di Power BI.  Le **sessioni** sono in realtà acquistate dallo sviluppatore dell'app che impiega gli oggetti visivi e sono addebitate alla sottoscrizione che comprende tali risorse. Altre informazioni sono disponibili nella pagina relativa ai prezzi (https://azure.microsoft.com/en-us/pricing/details/power-bi-embedded/).
+Nel modello di utilizzo di **Microsoft Power BI Embedded** l'utente finale non è il responsabile della gestione delle licenze di Power BI.  Le **sessioni** sono in realtà acquistate dallo sviluppatore dell'app che impiega gli oggetti visivi e sono addebitate alla sottoscrizione che comprende tali risorse. Altre informazioni sono disponibili nella [pagine dei prezzi](https://azure.microsoft.com/en-us/pricing/details/power-bi-embedded/).
 
 ## <a name="microsoft-power-bi-embedded-conceptual-model"></a>Modello concettuale di Microsoft Power BI Embedded
 

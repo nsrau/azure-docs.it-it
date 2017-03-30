@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory B2C: acquisire un token mediante un&quot;applicazione iOS | Documentazione Microsoft'
+title: 'Azure Active Directory B2C: acquisire un token mediante un&quot;applicazione iOS | Microsoft Docs'
 description: "Questo articolo spiega come creare un&quot;app per iOS che usa AppAuth con Azure Active Directory B2C per gestire le identità utente e l&quot;autenticazione degli utenti."
 services: active-directory-b2c
 documentationcenter: ios
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: saeeda
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 84f5ba5b3836f8524aafd9ca5e30978cc2702c1f
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 992bbf513ac87b0d955f9dc4b27984ef03050b83
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -40,18 +40,18 @@ Prima di poter usare Azure AD B2C, è necessario creare una directory, o tenant.
 ## <a name="create-an-application"></a>Creare un'applicazione
 Successivamente, è necessario creare un'app nella directory B2C. La registrazione dell'app fornisce ad Azure AD le informazioni necessarie per comunicare in modo sicuro con l'app. Per creare un'app per dispositivi mobili, [seguire questa procedura](active-directory-b2c-app-registration.md). Assicurarsi di:
 
-* Includere un **dispositivo mobile** nell'applicazione.
+* Includere un **client nativo** nell'applicazione.
 * Copiare l' **ID applicazione** assegnato all'app. Questo GUID sarà necessario in seguito.
 * Configurare un **URI di reindirizzamento** con schema personalizzato (ad esempio com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). Questo URI sarà necessario in seguito.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Creare i criteri
-In Azure AD B2C ogni esperienza utente è definita da [criteri](active-directory-b2c-reference-policies.md)specifici. Questa app contiene un'esperienza di identità che combina accesso e iscrizione. È necessario creare i criteri, come descritto nell'[articolo di riferimento per i criteri](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Durante la creazione dei criteri, assicurarsi di:
+In Azure AD B2C ogni esperienza utente è definita da [criteri](active-directory-b2c-reference-policies.md)specifici. Questa app contiene un'esperienza di identità che combina accesso e iscrizione. Creare i criteri come descritto nell'[articolo relativo ai criteri](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Durante la creazione dei criteri, assicurarsi di:
 
-* Scegliere **Nome visualizzato** e gli attributi di iscrizione nei criteri.
-* Scegliere le attestazioni dell'applicazione **Nome visualizzato** e **ID oggetto** in tutti i criteri. È consentito scegliere anche altre attestazioni.
-* Copiare il **Nome** di ogni criterio dopo averlo creato. Dovrebbero mostrare il prefisso `b2c_1_`.  Il nome dei criteri sarà necessario in seguito.
+* In **Attributi iscrizione** selezionare l'attributo **Nome visualizzato**.  È possibile selezionare anche altri attributi.
+* In **Attestazioni applicazione** selezionare **Nome visualizzato** e **ID oggetto dell'utente**. Sono disponibili anche altre attestazioni.
+* Copiare il **Nome** di ogni criterio dopo averlo creato. Quando si salva il criterio, al relativo nome viene aggiunto un prefisso `b2c_1_`.  Il nome dei criteri sarà necessario in seguito.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -130,10 +130,11 @@ Per configurare l'applicazione per la gestione del reindirizzamento all'URI con 
 * Aprire Info.pList.
 * Passare il mouse su una riga come "Codice del tipo di sistema operativo del creatore del bundle" e fare clic sul simbolo \+.
 * Rinominare la nuova riga come "Tipi di URL".
-* Fare clic sulla freccia a sinistra di "Tipi di URL".
-* Rinominare il valore nell'elemento 0 in "Schemi URL".
-* Modificare il valore di "Elemento 0" sotto "Schemi URL" e impostare il valore sullo schema univoco dell'applicazione.  Deve corrispondere allo schema in redirectURL quando si crea l'oggetto OIDAuthorizationRequest.
-* Nel nostro esempio abbiamo usato lo schema "com.onmicrosoft.fabrikamb2c.exampleapp".
+* Fare clic sulla freccia a sinistra di "Tipi di URL" per aprire l'albero.
+* Fare clic sulla freccia a sinistra di "Elemento 0" per aprire l'albero.
+* Rinominare il primo elemento sotto l'elemento 0 in "Schemi URL".
+* Fare clic sulla freccia a sinistra di "Schemi URL" per aprire l'albero.
+* Nella colonna "Valore" è presente un campo vuoto a sinistra di "Elemento 0" sotto "Schemi URL".  Impostare il valore sullo schema univoco dell'applicazione.  Il valore deve corrispondere allo schema usato in redirectURL quando si crea l'oggetto OIDAuthorizationRequest.  Nel nostro esempio abbiamo usato lo schema "com.onmicrosoft.fabrikamb2c.exampleapp".
 
 Per informazioni su come completare il resto della procedura, consultare la [guida di AppAuth](https://openid.github.io/AppAuth-iOS/). Se è necessario iniziare subito con un'app funzionante, vedere [il nostro esempio](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Seguire i passaggi indicati in [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) per immettere la configurazione di Azure AD B2C.
 

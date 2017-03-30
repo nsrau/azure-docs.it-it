@@ -1,5 +1,5 @@
 ---
-title: "Considerazioni di progettazione per la soluzione ibrida di gestione delle identità di Azure Active Directory: determinare i requisiti di identità | Documentazione Microsoft"
+title: "Considerazioni di progettazione per la soluzione ibrida di gestione delle identità di Azure Active Directory: determinare i requisiti di identità | Microsoft Docs"
 description: "Identificare le esigenze aziendali che consentiranno di definire i requisiti per la progettazione della soluzione ibrida di gestione delle identità."
 documentationcenter: 
 services: active-directory
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 03/21/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 73b5a52b143d17283f677ce3181d8381db41d3c4
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 60f1ec092635910ae8c98cc0197fdfbf358f01be
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -55,7 +56,7 @@ Ora che ci si è fatti un'idea sui requisiti aziendali, è necessario valutare l
 * Questa integrazione è già presente nell'ambiente di produzione o si tratta di un progetto pilota?
 
 > [!NOTE]
-> Se non si dispone di una mappatura accurata di tutte le app e i servizi cloud nell'ambiente, è possibile usare lo strumento Cloud App Discovery. Questo strumento fornisce al reparto IT la visibilità necessaria su tutte le app cloud, aziendali e non, usate nell'organizzazione. In questo modo si semplifica l'individuazione di sistemi e soluzioni IT non autorizzati e l'acquisizione di schemi di utilizzo e di informazioni sugli utenti che accedono alle applicazioni cloud. Per accedere a questo strumento, passare a [https://appdiscovery.azure.com](https://appdiscovery.azure.com/)
+> Se non si dispone di una mappatura accurata di tutte le app e i servizi cloud nell'ambiente, è possibile usare lo strumento Cloud App Discovery. Questo strumento fornisce al reparto IT la visibilità necessaria su tutte le app cloud, aziendali e non, usate nell'organizzazione. In questo modo si semplifica l'individuazione di sistemi e soluzioni IT non autorizzati e l'acquisizione di schemi di utilizzo e di informazioni sugli utenti che accedono alle applicazioni cloud. Per un'introduzione, vedere [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
 > 
 > 
 
@@ -108,10 +109,5 @@ A questo punto, è necessario valutare i requisiti degli utenti. Questa valutazi
 
 ## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

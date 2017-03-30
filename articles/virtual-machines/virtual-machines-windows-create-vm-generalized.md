@@ -1,6 +1,6 @@
 ---
 title: Creare una VM da un disco rigido virtuale generalizzato | Microsoft Docs
-description: Informazioni su come creare una macchina virtuale Windows da un&quot;immagine di disco rigido virtuale generalizzato usando Azure PowerShell nel modello di distribuzione Resource Manager.
+description: Informazioni su come creare una macchina virtuale Windows da un&quot;immagine di disco rigido virtuale generalizzato in un account di archiviazione usando Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -13,20 +13,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 03/21/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: cb7f3a1bf44a18141294ab03677f7e733177c1b8
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 12832620d94226b6cfe391471c22fad2d1e3cf7e
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="create-a-vm-from-a-generalized-vhd-image"></a>Creare una VM da un'immagine di disco rigido virtuale generalizzato
-Tutte le informazioni sull'account personale sono state rimosse da un'immagine di disco rigido virtuale generalizzato mediante [Sysprep](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). È possibile creare un disco rigido virtuale generalizzato eseguendo Sysprep in una VM locale e quindi [caricando il disco rigido virtuale in Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). In alternativa, è possibile eseguire Sysprep in una VM Azure esistente e quindi [copiare il disco rigido virtuale](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+# <a name="create-a-vm-from-a-generalized-vhd-image-in-a-storage-account"></a>Creare una VM da un'immagine di disco rigido virtuale generalizzato in un account di archiviazione 
 
-Se si vuole creare una VM da un disco rigido virtuale specializzato, vedere [Create a VM from a specialized VHD](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Creare una VM da un disco rigido virtuale specializzato).
+L'argomento descrive la creazione di una macchina virtuale da un disco non gestito generalizzato che si trova in un account di archiviazione. Tutte le informazioni sull'account personale sono state rimosse da un'immagine di disco rigido virtuale generalizzato mediante [Sysprep](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). È possibile creare un disco rigido virtuale generalizzato eseguendo Sysprep in una VM locale e quindi [caricando il disco rigido virtuale in Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). In alternativa, è possibile eseguire Sysprep in una VM Azure esistente e quindi [copiare il disco rigido virtuale](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Il modo più rapido per creare una macchina virtuale da un disco rigido virtuale generalizzato consiste nell'usare un [modello di avvio rapido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image). 
+Se si vuole creare una VM da un disco rigido virtuale specializzato in un account di archiviazione, vedere [Creare una macchina virtuale da un disco specializzato](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
+Per informazioni sull'uso di Managed Disks anziché di dischi in un account di archiviazione, vedere [Create a managed VM image](virtual-machines-windows-capture-image-resource.md) (Creare un'immagine gestita di una macchina virtuale) e [Create a VM from a managed image](virtual-machines-windows-create-vm-generalized-managed.md) (Creare una VM da un'immagine gestita).
 
 ## <a name="prerequisites"></a>Prerequisiti
 Se si intende usare un disco rigido virtuale caricato da una VM locale, ad esempio una creata mediante Hyper-V, verificare di seguire le istruzioni riportate in [Preparare un disco rigido virtuale (VHD) di Windows per il caricamento in Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -34,6 +36,7 @@ Se si intende usare un disco rigido virtuale caricato da una VM locale, ad esemp
 Prima di creare una VM usando questo metodo, è necessario generalizzare sia i dischi rigidi virtuali caricati che i dischi rigidi virtuali della VM di Azure esistenti. Per altre informazioni, vedere [Generalize a Windows virtual machine using Sysprep](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Generalizzare una macchina virtuale Windows usando Sysprep). 
 
 ## <a name="set-the-uri-of-the-vhd"></a>Impostare l'URI del disco rigido virtuale
+
 L'URI del disco rigido virtuale da usare è nel formato seguente: https://**mystorageaccount**.blob.core.windows.net/**mycontainer**/**MyVhdName**.vhd. In questo esempio il disco rigido virtuale denominato **myVHD** si trova nell'account di archiviazione **mystorageaccount** del contenitore **mycontainer**.
 
 ```powershell
@@ -171,10 +174,5 @@ Al termine, la VM appena creata dovrebbe essere visualizzata nel [portale di Azu
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per gestire la nuova macchina virtuale con Azure PowerShell, vedere [Gestire macchine virtuali di Azure con Azure Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

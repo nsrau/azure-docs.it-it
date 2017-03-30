@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: c18b0eefb2d8bb43416e15c5b91cf10827f90089
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 4f9f86c2cc106aa96f27293a43cd784e2fb6fe76
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -68,7 +68,7 @@ Nella procedura seguente sono descritti i passaggi per creare una formula da un'
     * **Impostazioni avanzate** - Selezionare questa opzione per aprire il pannello **Avanzate** in cui è possibile configurare le impostazioni seguenti:
         * **Rete virtuale** : specificare la rete virtuale desiderata.
         * **Subnet** : specificare la subnet desiderata.    
-        * **Configurazione indirizzi IP** - Specificare se si desidera l'indirizzo IP pubblico, privato o condiviso. Per informazioni sugli indirizzi IP condivisi, vedere Understand shared IP addresses in Azure DevTest Labs (Informazioni sugli indirizzi IP condivisi in Azure DevTest Labs).
+        * **Configurazione indirizzi IP** - Specificare se si desidera l'indirizzo IP pubblico, privato o condiviso. Per altre informazioni sugli indirizzi IP condivisi, vedere [Understand shared IP addresses in Azure DevTest Labs](./devtest-lab-shared-ip.md) (Informazioni sugli indirizzi IP condivisi in Azure Devtest Labs).
         * **Make this machine claimable** (Rendi attestabile questa macchina) - Rendere "attestabile" una macchina significa che non le sarà assegnata la proprietà al momento della creazione. Gli utenti del lab saranno invece in grado di assumere la proprietà ("attestazione") della macchina nel pannello del lab.     
     * **Immagine** : questo campo visualizza il nome dell'immagine di base selezionata nel pannello precedente. 
      

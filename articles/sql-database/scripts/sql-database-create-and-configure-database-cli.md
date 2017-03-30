@@ -1,5 +1,5 @@
 ---
-title: Script dell&quot;interfaccia della riga di comando di Azure -Creare un database SQL | Documentazione Microsoft
+title: Script dell&quot;interfaccia della riga di comando di Azure -Creare un database SQL | Microsoft Docs
 description: 'Esempio di script dell&quot;interfaccia della riga di comando di Azure: creare un database SQL usando l&quot;interfaccia della riga di comando di Azure'
 services: sql-database
 documentationcenter: sql-database
@@ -14,12 +14,12 @@ ms.devlang: CLI
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/14/2017
+ms.date: 03/16/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 4a7343ebc5090dc82f6c7b470c697167536315ca
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: a9ee545280d21744a2e91399c80ad1945bac5995
+ms.lasthandoff: 03/17/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/10/2017
 
 Questo script dell'interfaccia della riga di comando di esempio crea un database SQL di Azure e configura una regola del firewall a livello di server. Dopo aver eseguito correttamente lo script, è possibile accedere al database SQL da tutti i servizi di Azure e dall'indirizzo IP configurato. 
 
-Prima di eseguire questo script, verificare che sia stata creata una connessione con Azure tramite il comando `az login`. 
+Se necessario, installare l'interfaccia della riga di comando di Azure usando le istruzioni presenti nella [Guida all'installazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e quindi eseguire `az login` per creare una connessione con Azure.
 
 Questo esempio funziona in una shell Bash. Per le opzioni sull'esecuzione di script dell'interfaccia della riga di comando di Azure in Windows, vedere [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md) (Esecuzione dell'interfaccia della riga di comando di Azure in Windows).
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: 682f6d0919df20cd3643abf04e1d5192be116399
-ms.openlocfilehash: f20c2c2c37692d439ca8e023cf9d5a48cd42c973
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 707bb2b7cd9796e0e05234aa08002bbc1820f871
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -62,7 +62,7 @@ Per creare un'applicazione:
 
 3. Nel menu a sinistra selezionare **Altri servizi** e quindi scegliere **Azure Active Directory**.
 
-4. Selezionare **Registrazioni per l'app **, quindi scegliere **Aggiungi**.
+4. Selezionare **Registrazioni per l'app**, quindi scegliere **Aggiungi**.
 
 5. Seguire le istruzioni per creare una nuova **applicazione Web e/o API Web**.
 
@@ -70,11 +70,11 @@ Per creare un'applicazione:
 
       * L' **URL accesso** è l'URL di base dell'app.  L'URL predefinito del codice di esempio è `https://localhost:8080`.
 
-      * L' **URI ID app** è un identificatore univoco dell'applicazione. Per convenzione si usa `https://<tenant-domain>/<app-name>`, ad esempio: `https://contoso.onmicrosoft.com/my-first-aad-app`.
-
 6. Dopo la registrazione, Azure AD assegna all'app un ID applicazione univoco. Poiché questo valore sarà necessario nelle sezioni successive, copiarlo dalla pagina dell'applicazione.
 
-7. Creare una **chiave** per l'applicazione dalla pagina **Impostazioni** e copiarla, perché verrà richiesta a breve.
+7. Dalla pagina **Impostazioni** -> **Proprietà** dell'applicazione aggiornare l'URI dell'ID app. L' **URI ID app** è un identificatore univoco dell'applicazione. Per convenzione si usa `https://<tenant-domain>/<app-name>`, ad esempio: `https://contoso.onmicrosoft.com/my-first-aad-app`.
+
+8. Creare una **chiave** per l'applicazione dalla pagina **Impostazioni** e copiarla, perché verrà richiesta a breve.
 
 ## <a name="step-3-download-nodejs-for-your-platform"></a>Passaggio 3: Scaricare Node.js per la piattaforma corrente
 Per usare correttamente questo esempio, è necessario disporre di un'installazione funzionante di Node.js.

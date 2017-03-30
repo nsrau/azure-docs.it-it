@@ -1,5 +1,5 @@
 ---
-title: Codici ed esempi di PowerShell per Collaborazione B2B in Azure Active Directory | Documentazione Microsoft
+title: Codici ed esempi di PowerShell per Collaborazione B2B in Azure Active Directory | Microsoft Docs
 description: Codici ed esempi di PowerShell per Collaborazione B2B in Azure Active Directory
 services: active-directory
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 03/15/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c05cd490ee9125f7e5182cb502db6f4e9390094
-ms.openlocfilehash: 1287a44fcf450023d4544202bd5db51dc99768ab
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 51c0f98e3d3ad09e3e6675b2692bc2a8888db9a7
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: 1287a44fcf450023d4544202bd5db51dc99768ab
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Codici ed esempi di PowerShell per Collaborazione B2B in Azure Active Directory
 
 ## <a name="code-sample"></a>Esempio di codice
-Questo esempio illustra come chiamare l'API di invito, in modalità "solo app", per ottenere l'URL di riscatto per la risorsa a cui si vuole invitare l'utente B2B. L'obiettivo consiste nell'inviare un messaggio di posta elettronica di invito personalizzato. Si osserverà come sia possibile comporre il messaggio di posta con un client HTTP, per poter personalizzarne l'aspetto e inviarlo tramite l'API Graph.
+Questo esempio illustra come chiamare l'API di invito, in modalità "solo app", per ottenere l'URL di riscatto per la risorsa a cui si vuole invitare l'utente B2B. L'obiettivo consiste nell'inviare un messaggio di posta elettronica di invito personalizzato. Il messaggio di posta può essere composto con un client HTTP ed è quindi possibile personalizzarne l'aspetto e inviarlo tramite l'API Graph.
 
 ```
 namespace SampleInviteApp
@@ -162,9 +163,9 @@ namespace SampleInviteApp
 ```
 
 ## <a name="powershell-example"></a>Esempio di PowerShell
-L'esempio seguente illustra come sia possibile invitare in blocco utenti esterni a un'organizzazione dall'indirizzo di posta elettronica archiviato, ad esempio, in un file CSV.
+È possibile invitare in blocco utenti esterni a un'organizzazione da indirizzi di posta elettronica archiviati un file CSV.
 
-1. Preparare il file CSV. Creare un nuovo file CSV e denominarlo invitations.csv. In questo esempio il file viene salvato in C:\data. Il file CSV avrà un aspetto simile al seguente:
+1. Preparare il file CSV. Creare un nuovo file CSV e denominarlo invitations.csv. In questo esempio il file viene salvato in C:\data. Il file CSV può essere analogo al seguente:
 
   ```
     InvitedUserEmailAddress
@@ -182,14 +183,17 @@ L'esempio seguente illustra come sia possibile invitare in blocco utenti esterni
     Connect-AzureAd and login
     ```
 
-4. Eseguire il cmdlet di PowerShell
+4. Eseguire il cmdlet PowerShell
 
     ```
     $Invitations = import-csv C:\data\invitations.csv
     foreach ($email in $invitations) {New-AzureADMSInvitation -InvitedUserEmailAddress $email.InvitedUserEmailAddress -InviteRedirectUrl http://microsoft.com -SendInvitationMessage $true}
   ```
 
-Verrà inviato un invito all'indirizzo di posta elettronica in invitations.csv. Le funzionalità aggiuntive di questo cmdlet includono il testo personalizzato nel messaggio di posta elettronica, l'inserimento di un nome visualizzato per l'utente invitato, l'invio di messaggi agli utenti in Cc o l'eliminazione di tutti i messaggi di posta elettronica.
+Tale cmdlet invia un invito a indirizzi di posta elettronica presenti nel file in invitations.csv. Funzionalità aggiuntive di questo cmdlet includono:
+- Testo personalizzato nel messaggio di posta elettronica
+- Inclusione di un nome visualizzato per l'utente invitato
+- Invio di messaggi ai destinatari di copia per conoscenza o eliminazione completa dei messaggi di posta elettronica
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -201,13 +205,8 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 * [Delegare gli inviti a Collaborazione B2B](active-directory-b2b-delegate-invitations.md)
 * [Gruppi dinamici e Collaborazione B2B](active-directory-b2b-dynamic-groups.md)
 * [Configurare app SaaS per Collaborazione B2B](active-directory-b2b-configure-saas-apps.md)
-* [Token utente per Collaborazione B2B](active-directory-b2b-user-token.md)
+* [Token utente in Collaborazione B2B](active-directory-b2b-user-token.md)
 * [Mapping delle attestazioni utente per Collaborazione B2B](active-directory-b2b-claims-mapping.md)
 * [Condivisione esterna di Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitazioni correnti di Collaborazione B2B](active-directory-b2b-current-limitations.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2017
+ms.date: 03/17/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 0df7bba472daf2c499f3ccff1296b8a9ee8ab89d
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 31a267963199518ed6db4610830062099ed0dde4
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -52,27 +52,25 @@ Per altre informazioni, vedere la [pagina relativa al contratto di servizio per 
 ## <a name="supported-services"></a>Servizi supportati
 ExpressRoute supporta [tre domini di routing](expressroute-circuit-peerings.md) per diversi tipi di servizi.
 
-Peering privato
+### <a name="private-peering"></a>Peering privato
 * Reti virtuali, inclusi tutti i servizi cloud e tutte le macchine virtuali
 
-Peering pubblico
-* La maggior parte dei servizi di Azure con alcune eccezioni indicate sotto
+### <a name="public-peering"></a>Peering pubblico
 * Power BI
 * Dynamics 365 for Operations (noto in precedenza come Dynamics AX Online)
+* La maggior parte dei servizi di Azure con alcune eccezioni indicate sotto
+  * RETE CDN
+  * Test del carico di Visual Studio Team Services
+  * Multi-Factor Authentication
+  * Gestione traffico
 
-Peering Microsoft
+### <a name="microsoft-peering"></a>Peering Microsoft
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
 * La maggior parte dei servizi di Dynamics 365 (noti in precedenza come CRM Online)
   * Dynamics 365 for Sales
   * Dynamics 365 for Customer Service
   * Dynamics 365 for Field Service
   * Dynamics 365 for Project Service
-
-I servizi di Azure seguenti non sono supportati in ExpressRoute
-* RETE CDN
-* Test del carico di Visual Studio Team Services
-* Multi-Factor Authentication
-* Gestione traffico
 
 ## <a name="data-and-connections"></a>Dati e connessioni
 ### <a name="are-there-limits-on-the-amount-of-data-that-i-can-transfer-using-expressroute"></a>Esistono limiti alla quantità di dati trasferibili usando ExpressRoute?
@@ -177,9 +175,10 @@ I passaggi seguenti permettono ad Azure di riconoscere la richiesta di attivazio
 
 1. Stabilire il peering pubblico per il circuito ExpressRoute.
 2. Eseguire una ricerca DNS e trovare l'indirizzo IP di **kms.core.windows.net**
-3. Eseguire una delle operazioni seguenti in modo che il Servizio di gestione delle chiavi riconosca che la richiesta di attivazione proviene da Azure e soddisfi la richiesta.
+3. Eseguire una di queste operazioni in modo che il Servizio di gestione delle chiavi riconosca che la richiesta di attivazione proviene da Azure e che la soddisfi.
    * Nella rete locale reindirizzare il traffico destinato all'indirizzo IP (ottenuto nel passaggio 2) ad Azure tramite il peering pubblico.
    * Richiedere al provider di servizi di rete di reindirizzare il traffico ad Azure tramite il peering pubblico.
+   * Creare una route definita dall'utente che faccia riferimento a tale indirizzo IP con Internet come hop successivo e applicarla alle subnet in cui si trovano le macchine virtuali.
 
 ### <a name="can-i-change-the-bandwidth-of-an-expressroute-circuit"></a>È possibile modificare la larghezza di banda di un circuito ExpressRoute?
 Sì, è possibile provare ad aumentare la larghezza di banda del circuito ExpressRoute nel portale di Azure o con PowerShell. Se è disponibile capacità sulla porta fisica in cui è stato creato il circuito, la modifica avrà esito positivo. Se la modifica ha esito negativo, significa che la capacità residua sulla porta corrente non è sufficiente e che è necessario creare un nuovo circuito ExpressRoute con maggiore larghezza di banda OPPURE che il percorso non ha altra capacità. In quest'ultimo caso non sarà possibile aumentare la larghezza di banda. Sarà anche necessario contattare il provider di connettività per assicurare che aggiorni le limitazioni della propria rete per supportare l'incremento della larghezza di banda. Non è tuttavia possibile ridurre la larghezza di banda del circuito ExpressRoute. Sarà necessario creare un nuovo circuito ExpressRoute con larghezza di banda inferiore ed eliminare il circuito precedente.

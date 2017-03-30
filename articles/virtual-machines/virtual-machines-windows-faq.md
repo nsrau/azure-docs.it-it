@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti sulle macchine virtuali Windows in Azure | Documentazione Microsoft
+title: Domande frequenti sulle macchine virtuali Windows in Azure | Microsoft Docs
 description: Offre le risposte ad alcune delle domande comuni sulle macchine virtuali Windows create con un modello di Gestione risorse.
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 5f6d8a5bb0209f1dbc0de682b185089e87a1574b
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 6e84a567e8875a8db3f66bc19340557cff75cf1d
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -29,7 +29,7 @@ Questo articolo analizza alcune delle domande più comuni sulle macchine virtual
 ## <a name="what-can-i-run-on-an-azure-vm"></a>Cosa è possibile eseguire in una VM di Azure?
 Tutti i sottoscrittori possono eseguire software del server in una macchina virtuale Azure. Per informazioni sui criteri di supporto per l'esecuzione del software server Microsoft in Azure, vedere [Supporto di software server Microsoft per le macchine virtuali Microsoft Azure](https://support.microsoft.com/kb/2721672)
 
-Alcune versioni di Windows 7 e Windows 8.1 sono disponibili agli abbonati MSDN Azure con benefici e agli abbonati MSDN sviluppo e test con pagamento in base al consumo, per attività di sviluppo e test. Per ulteriori informazioni, incluse le istruzioni e limitazioni, vedere [Immagini Client Windows per gli abbonati MSDN](http://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/). 
+Alcune versioni di Windows 7, Windows 8.1 e Windows 10 sono disponibili agli abbonati MSDN Azure con benefici e agli abbonati MSDN sviluppo e test con pagamento in base al consumo, per attività di sviluppo e test. Per ulteriori informazioni, incluse le istruzioni e limitazioni, vedere [Immagini Client Windows per gli abbonati MSDN](http://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/). 
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Quanta memoria è possibile utilizzare con una macchina virtuale?
 Ogni disco dati può essere fino a 1 TB. Il numero di dischi dati che è possibile utilizzare dipende dalla dimensione della macchina virtuale. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -69,8 +69,9 @@ Le due nuove aree del Canada centrale e del Canada orientale non vengono registr
 
 ## <a name="does-azure-support-linux-vms"></a>Le VM di Linux sono supportate da Azure?
 Sì. Per creare rapidamente una VM Linux di prova, vedere [Creare una VM Linux in Azure usando il portale](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
 ## <a name="can-i-add-a-nic-to-my-vm-after-its-created"></a>È possibile aggiungere un NIC alla VM dopo la sua creazione?
-No. L'aggiunta di una scheda di rete può essere effettuata solo al momento della creazione.
+Sì, ora è possibile. La macchina virtuale deve prima essere arrestata e deallocata. È possibile a questo punto aggiungere o rimuovere una scheda di interfaccia di rete (a meno che non sia l'ultima nella macchina virtuale). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>Esistono requisiti relativi al nome del computer?
 Sì. Il nome del computer non può contenere più di 15 caratteri. Vedere [Linee guida sulle convenzioni di denominazione dell'infrastruttura](virtual-machines-windows-infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per ulteriori informazioni sulla denominazione delle risorse.

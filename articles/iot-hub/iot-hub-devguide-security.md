@@ -1,5 +1,5 @@
 ---
-title: Informazioni sulla sicurezza dell&quot;hub IoT di Azure | Documentazione Microsoft
+title: Informazioni sulla sicurezza dell&quot;hub IoT di Azure | Microsoft Docs
 description: Guida per sviluppatori - Come controllare l&quot;accesso all&quot;hub IoT per app back-end e per dispositivi. Include informazioni sui token di sicurezza e sul supporto per i certificati x.509.
 services: iot-hub
 documentationcenter: .net
@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: efd7aab21a9899ed0f56ffeeda362a61d69ffdc9
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 1345af54729f278229c98e596d0d213331c2faaf
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -293,7 +293,7 @@ Il risultato, che concede l'accesso in lettura a tutte le identità dispositivo,
 
 * **Un certificato X.509 esistente**. Un dispositivo potrebbe già avere un certificato X.509 associato. Il dispositivo può usare questo certificato per autenticarsi con hub IoT.
 * **Un certificato X-509 auto-generato e auto-firmato**. Un produttore di dispositivi o un distributore interno può generare questi certificati e archiviare la chiave privata corrispondente (e il certificato) nel dispositivo. È possibile usare strumenti come [OpenSSL][lnk-openssl] e l'utilità [Windows SelfSignedCertificate][lnk-selfsigned] per questo scopo.
-* **Certificato X.509 firmato da un'autorità di certificazione**. È possibile usare un certificato X.509 generato e firmato da un'autorità di certificazione (CA) anche per identificare un dispositivo e autenticare un dispositivo con hub IoT.
+* **Certificato X.509 firmato da un'autorità di certificazione**. È possibile usare un certificato X.509 generato e firmato da un'autorità di certificazione (CA) anche per identificare un dispositivo e autenticare un dispositivo con hub IoT. IoTHub verifica solo che l'identificazione personale presentata corrisponda all'identificazione personale configurata. IoTHub non convalida la catena di certificati.
 
 Un dispositivo può usare un certificato X.509 o un token di sicurezza per l'autenticazione, ma non per entrambi.
 

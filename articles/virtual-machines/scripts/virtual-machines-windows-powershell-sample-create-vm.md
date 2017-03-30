@@ -1,5 +1,5 @@
 ---
-title: Esempio di script di Azure PowerShell - Creare una VM Windows | Documentazione Microsoft
+title: Esempio di script di Azure PowerShell - Creare una VM Windows | Microsoft Docs
 description: Esempio di script di Azure PowerShell - Creare una VM Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,17 +16,17 @@ ms.workload: infrastructure
 ms.date: 03/02/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: fc02a169bf38de911401a390c3157e400ec74578
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: b62637150773bdfb48ff654675af5c4ffdd67919
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="create-a-fully-configured-virtual-machine-with-powershell"></a>Creare una macchina virtuale completamente configurata con PowerShell
 
-Questo script crea una macchina virtuale di Azure con sistema operativo Windows e le relative risorse di rete. Dopo aver eseguito correttamente lo script, è possibile accedere alla macchina virtuale tramite SSH. 
+Questo script crea una macchina virtuale di Azure che esegue Windows Server 2016. Dopo aver eseguito lo script, è possibile accedere alla macchina virtuale tramite SSH.
 
-Prima di eseguire questo script, verificare che sia stata creata una connessione con Azure tramite il comando `Login-AzureRmAccount`.
+Se necessario, installare Azure PowerShell usando l'istruzione presente nella [Guida di Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) e quindi eseguire `Login-AzureRmAccount` per creare una connessione con Azure.
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -34,7 +34,7 @@ Prima di eseguire questo script, verificare che sia stata creata una connessione
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
 
-Dopo l'esecuzione dello script di esempio, eseguire il comando seguente per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
+Eseguire questo comando per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup

@@ -1,5 +1,5 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Monitorare un&quot;App Web con i log del server Web | Documentazione Microsoft
+title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Monitorare un&quot;App Web con i log del server Web | Microsoft Docs
 description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Monitorare un&quot;App Web con i log del server Web
 services: appservice
 documentationcenter: appservice
@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 02/21/2017
+ms.date: 03/20/2017
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 762fb06cad3a03aa6b0c19bd277e13ffd4c03a3b
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: dfaa9e49d5c58b701cb62b0ebb06699368db0982
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/11/2017
 
 In questo scenario verrà creato un gruppo di risorse, un piano di servizio app e un'App Web e verrà configurata l'App Web per abilitare i log del server Web. Quindi si scaricheranno i file di log per visionarli.
 
-Prima di eseguire questo script, verificare che sia stata creata una connessione con Azure tramite il comando `az login`.
+Se necessario, installare l'interfaccia della riga di comando di Azure usando l'istruzione presente nella [Guida all'installazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e quindi eseguire `az login` per creare una connessione con Azure.
 
 Questo esempio funziona in una shell Bash. Per le opzioni sull'esecuzione di script dell'interfaccia della riga di comando di Azure nel client Windows, vedere [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md) (Esecuzione dell'interfaccia della riga di comando di Azure in Windows).
 

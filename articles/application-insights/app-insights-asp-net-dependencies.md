@@ -1,21 +1,22 @@
 ---
-title: Rilevamento della dipendenza in Application Insights
+title: Monitoraggio delle dipendenze in Azure Application Insights | Microsoft Docs
 description: "Analizzare l&quot;uso, la disponibilità e le prestazioni dell&quot;applicazione locale o Web di Microsoft Azure con Application Insights."
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: d15c4ca8-4c1a-47ab-a03d-c322b4bb2a9e
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: f0cbb7f78d73c6f39dc4e8a2227b144e8a49c83a
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 35817adde713995ec82eead033f058ee109bf900
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -33,6 +34,8 @@ Il monitoraggio predefinito delle dipendenze attualmente segnala chiamate ai seg
   * Azure DocumentDB, tabelle, archivio BLOB e coda
 * Pagina Web
   * Chiamate AJAX
+
+Il monitoraggio funziona tramite l'uso di [strumentazione con codice byte](https://msdn.microsoft.com/library/z9z62c29.aspx) basata su determinati metodo. L'overhead delle prestazioni è minimo.
 
 È anche possibile scrivere chiamate SDK per monitorare altre dipendenze, sia nel codice client che nel codice server, usando l'[API TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency).
 
@@ -81,7 +84,7 @@ I **numeri di errori** sono visualizzati nel pannello **Errori**. Un errore è u
 ## <a name="ajax-calls"></a>Chiamate AJAX
 Il pannello Browser visualizza la durata e la frequenza di errori delle chiamate AJAX da [JavaScript nelle pagine Web](app-insights-javascript.md). Sono visualizzate come dipendenze.
 
-## <a name="a-namediagnosisa-diagnose-slow-requests"></a><a name="diagnosis"></a> Diagnosticare le richieste lente
+## <a name="diagnosis"></a> Diagnosticare le richieste lente
 Ogni evento di richiesta è associato alle chiamate alle dipendenze, alle eccezioni e ad altri eventi registrati mentre l'app elabora la richiesta. Se quindi alcune richieste non vengono eseguite correttamente, è possibile capire se il problema è causato dalle risposte lente da una dipendenza.
 
 Di seguito è illustrato un esempio.
@@ -202,13 +205,12 @@ Per disattivare il modulo standard per il rilevamento delle dipendenze, rimuover
   * Host IIS: installare l'[agente di Application Insights](app-insights-monitor-performance-live-website-now.md) nei server host.
   * App Web di Azure: aprire la scheda Application Insights nel pannello di controllo dell'app Web e installare Application Insights.
 
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
 ## <a name="next-steps"></a>Passaggi successivi
 * [Eccezioni](app-insights-asp-net-exceptions.md)
 * [Dati utente e di pagina](app-insights-javascript.md)
 * [Disponibilità](app-insights-monitor-web-app-availability.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

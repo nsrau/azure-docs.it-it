@@ -1,5 +1,5 @@
 ---
-title: Panoramica dei log di diagnostica di Azure | Documentazione Microsoft
+title: Panoramica dei log di diagnostica di Azure | Microsoft Docs
 description: Informazioni sui log di diagnostica di Azure e su come usarli per comprendere gli eventi che si verificano all&quot;interno di una risorsa di Azure.
 author: johnkemnetz
 manager: rboucher
@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2017
+ms.date: 03/17/2017
 ms.author: johnkem; magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 5675a65e3b48e39f44dc320b7b87910ab759b764
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: be27a3541caa1620af432dcff438f70cb9b1074b
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -199,8 +199,10 @@ Lo schema per i log di diagnostica varia a seconda della risorsa e della categor
 ## <a name="supported-log-categories-per-resource-type"></a>Categorie di log supportate per tipo di risorsa
 |Tipo di risorsa|Categoria|Nome visualizzato della categoria|
 |---|---|---|
+|Microsoft.ApiManagement/service|GatewayLogs|Log correlati ad ApiManagement Gateway|
 |Microsoft.Automation/automationAccounts|JobLogs|Log del processo|
 |Microsoft.Automation/automationAccounts|JobStreams|Flussi del processo|
+|Microsoft.Automation/automationAccounts|DscNodeStatus|Stato del nodo Dsc|
 |Microsoft.Batch/batchAccounts|ServiceLog|Log del servizio|
 |Microsoft.DataLakeAnalytics/accounts|Audit|Log di controllo|
 |Microsoft.DataLakeAnalytics/accounts|Requests|Log delle richieste|
@@ -208,16 +210,19 @@ Lo schema per i log di diagnostica varia a seconda della risorsa e della categor
 |Microsoft.DataLakeStore/accounts|Requests|Log delle richieste|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Log di archiviazione|
 |Microsoft.EventHub/namespaces|OperationalLogs|Log operativi|
+|Microsoft.EventHub/namespaces|AutoScaleLogs|Log di scalabilità automatica|
 |Microsoft.KeyVault/vaults|AuditEvent|Log di controllo|
 |Microsoft.Logic/workflows|WorkflowRuntime|Eventi di diagnostica del runtime del flusso di lavoro|
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Eventi di rilevamento degli account di integrazione|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Event del gruppo di sicurezza di rete|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Contatore di regole del gruppo di sicurezza di rete|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Evento del flusso di regole del gruppo di sicurezza di rete|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Eventi di avviso del servizio di bilanciamento del carico|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Stato di integrità dei probe del servizio di bilanciamento del carico|
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Log di accesso del gateway applicazione|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Log delle prestazioni del gateway applicazione|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Log del firewall del gateway applicazione|
+|Microsoft.Network/expressRouteCircuits|GWMCountersTable|Tabella di contatori GWM|
 |Microsoft.Search/searchServices|OperationLogs|Log delle operazioni|
 |Microsoft.ServerManagement/nodes|RequestLogs|Log delle richieste|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Log operativi|

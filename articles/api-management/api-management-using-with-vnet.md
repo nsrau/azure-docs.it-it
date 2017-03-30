@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: a74872f308624028016ffb30ead3c056b1fa69ce
-ms.openlocfilehash: fbab411a22d3d1e140bc3ea8f56b113de79f204c
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 43618268aa0b234d271dcee7f95dfad2f2a1bb2b
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -28,8 +28,8 @@ Gestione API di Azure può essere distribuito all'interno della rete virtuale (V
 
 > [!NOTE]
 > Gestione API di Azure supporta le reti virtuali classiche e Azure Resource Manager.
-> 
-> 
+>
+>
 
 ## <a name="enable-vpn"> </a>Attivare la connessione VNET
 > [!NOTE]
@@ -55,24 +55,24 @@ Verrà ora visualizzato un elenco di tutte le aree in cui viene eseguito il prov
 > [!NOTE]
 > **Endpoint di servizio** nel diagramma precedente include Gateway/Proxy, Portale di pubblicazione, Portale per sviluppatori, GIT e l'endpoint di gestione diretta.
 > **Endpoint di gestione** nel diagramma precedente è l'endpoint ospitato nel servizio per la gestione della configurazione tramite il portale di Azure e Powershell.
-> Inoltre si noti che, anche se il diagramma mostra gli indirizzi IP per i vari endpoint, il servizio Gestione API risponde **solo** ai relativi nomi host configurati.
+> Inoltre si noti che, sebbene il diagramma mostra gli indirizzi IP per i vari endpoint, il servizio Gestione API risponde **solo** ai relativi nomi host configurati.
 
 > [!IMPORTANT]
 > Quando si distribuisce un'istanza di gestione API di Azure a una rete virtuale Resource Manager, il servizio deve essere in una subnet dedicata che non contiene altre risorse, a eccezione di istanze di gestione API di Azure. Se si tenta di distribuire un'istanza di gestione API di Azure a una subnet della rete virtuale Resource Manager contenente altre risorse, la distribuzione avrà esito negativo.
-> 
-> 
+>
+>
 
 ![Selezionare una VPN][api-management-setup-vpn-select]
 
-Fare clic su **Salva** nella parte superiore della schermata. 
+Fare clic su **Salva** nella parte superiore della schermata.
 
 > [!NOTE]
 > L'indirizzo VIP dell'istanza di Gestione API può cambiare ogni volta che la rete virtuale viene abilitata o disabilitata.  
 > L'indirizzo VIP viene modificato quando Gestione API passa da **Esterna** a **Interna** o viceversa
-> 
+>
 
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Se si rimuove Gestione API da una rete virtuale o si modifica quella in cui è distribuito, la rete virtuale utilizzata in precedenza può rimanere bloccata fino a 4 ore. Durante questo periodo non sarà possibile eliminare la rete virtuale o distribuirvi una nuova risorsa.
 
 ## <a name="enable-vnet-powershell"> </a>Abilitare la connessione della rete virtuale usando i cmdlet di PowerShell
@@ -94,7 +94,7 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
 
 > [!IMPORTANT]
 > Se si utilizza un Server DNS personalizzato per la rete virtuale, è consigliabile impostarlo **prima** di distribuirvi un servizio Gestione API. In caso contrario, è necessario riavviare il servizio cloud che ospita il servizio in modo che rilevi le nuove impostazioni del server DNS.
-> 
+>
 
 * **Porte necessarie per il servizio Gestione API**: il traffico in ingresso e in uscita nella subnet in cui viene distribuita la gestione delle API può essere controllato usando il [gruppo di sicurezza di rete][Network Security Group]. Se una qualsiasi di queste porte non è disponibile, Gestione API potrebbe non funzionare correttamente e potrebbe diventare inaccessibile. Il blocco di una o più di tali porte è un problema di configurazione comune nell'uso di Gestione API in una rete virtuale.
 
@@ -134,7 +134,7 @@ Quando un'istanza del servizio Gestione API è ospitata in una rete virtuale, ve
 
 
 ## <a name="related-content"> </a>Contenuti correlati
-* [Connessione di una rete virtuale back-end tramite Gateway VPN][Different topologies to connect to Vpn Gateway]
+* [Connessione di una rete virtuale al back-end tramite Gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel)
 * [Connessione di una rete virtuale da modelli di distribuzione differenti](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure](api-management-howto-api-inspector.md)
 
@@ -149,7 +149,6 @@ Quando un'istanza del servizio Gestione API è ospitata in una rete virtuale, ve
 [Connect to a web service behind VPN]: #connect-vpn
 [Related content]: #related-content
 
-[Different topologies to connect to Vpn Gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
 [Network Security Group]: ../virtual-network/virtual-networks-nsg.md
 

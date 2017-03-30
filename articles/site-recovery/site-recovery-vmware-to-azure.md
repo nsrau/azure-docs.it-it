@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 03/12/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: d811cdabe35f28ab8f2496b08c959107c10ef1be
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: c2e21eefff3ce501ee5fc4003f60df25c4d7665d
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="replicate-vmware-virtual-machines-to-azure-with--site-recovery"></a>Replicare macchine virtuali VMware in Azure con Site Recovery
+# <a name="replicate-vmware-virtual-machines-to-azure-with-site-recovery"></a>Replicare macchine virtuali VMware in Azure con Site Recovery
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](site-recovery-vmware-to-azure.md)

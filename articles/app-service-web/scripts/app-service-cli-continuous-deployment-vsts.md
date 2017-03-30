@@ -1,5 +1,5 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare un&quot;App Web con distribuzione continua da Visual Studio Team Services | Documentazione Microsoft
+title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare un&quot;App Web con distribuzione continua da Visual Studio Team Services | Microsoft Docs
 description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare un&quot;App Web con distribuzione continua da Visual Studio Team Services
 services: app-service\web
 documentationcenter: 
@@ -12,28 +12,26 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 03/20/2017
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 5fce9171dc249445d78cee248fb2a7ec62a3dabb
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a2009cb07ae2ae7cf716d77a7d9eac7482138ab1
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="create-a-web-app-with-continuous-deployment-from-visual-studio-team-services"></a>Creare un'App Web con distribuzione continua da Visual Studio Team Services
 
-Questo script di esempio esegue le operazioni seguenti usando l'interfaccia della riga di comando di Azure 2.0: 
+Questo script di esempio crea un'App Web nel servizio app con le relative risorse correlate e quindi configura la distribuzione continua da un repository di Visual Studio Team Services (VSTS). 
 
-* Creare un'App Web nel Servizio app di Azure nell'area di Azure Europa occidentale. 
-* Distribuire il codice dell'App Web da Visual Studio Team Services.
-* Visualizzare l'App Web di Azure distribuita nel browser.
+Se necessario, installare l'interfaccia della riga di comando di Azure usando l'istruzione presente nella [Guida all'installazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Verificare inoltre se:
 
-## <a name="prerequisites"></a>Prerequisiti
+- È stata creata una connessione con Azure usando il comando `az login`.
+- Il codice dell'applicazione è in un repository di Visual Studio Team Services di cui si è proprietari.
+- È stato [creato un token di accesso nell'account di Visual Studio Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate).
 
-* Eseguire `az login` per accedere ad Azure.
-* Inserire il codice dell'App Web in un repository di Visual Studio Team Services.
-* Per un repository di Visual Studio Team Services di cui si è proprietari, [creare un token di accesso](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate).
+Questo esempio funziona in una shell Bash. Per le opzioni sull'esecuzione di script dell'interfaccia della riga di comando di Azure nel client Windows, vedere [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md) (Esecuzione dell'interfaccia della riga di comando di Azure in Windows).
 
 ## <a name="create-app-sample"></a>Esempio di creazione di app
 

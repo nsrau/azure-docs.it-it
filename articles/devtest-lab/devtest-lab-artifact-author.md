@@ -1,5 +1,5 @@
 ---
-title: Creare elementi personalizzati per le macchine virtuali di lab di sviluppo/test | Documentazione Microsoft
+title: Creare elementi personalizzati per le macchine virtuali di lab di sviluppo/test | Microsoft Docs
 description: Informazioni su come creare i propri elementi per l&quot;uso nei Lab di sviluppo/test
 services: devtest-lab,virtual-machines
 documentationcenter: na
@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/25/2016
+ms.date: 03/16/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 51901a28878f25292ba3d09848bc45a04f867345
-ms.openlocfilehash: 75fb695ea2ce9d859119445ae42eb170a9493876
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: e86af029422340bdfa38ba233f0ed61f6f1d8ca2
+ms.lasthandoff: 03/17/2017
 
 
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-vm"></a>Creare elementi personalizzati per le macchine virtuali di lab di sviluppo e test
-> [AZURE.VIDEO how-to-author-custom-artifacts] 
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/how-to-author-custom-artifacts/player]
 > 
 > 
 

@@ -1,5 +1,5 @@
 ---
-title: Estendere HDInsight con Rete virtuale | Documentazione Microsoft
+title: Estendere HDInsight con Rete virtuale | Microsoft Docs
 description: Informazioni su come usare Rete virtuale di Azure per la connessione di HDInsight ad altre risorse cloud o risorse nel proprio data center
 services: hdinsight
 documentationcenter: 
@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 37b9b600-d7f8-4cb1-a04a-0b3a827c6dcc
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,9 +16,9 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: a4d30ffc0a5c5ef9fe7bb892d17f0859ff27f569
-ms.openlocfilehash: 85fd87c1523eb2beb59e2ef36e604063a3f373aa
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: afd43fb536278d6aa76acaf7c9d18714bc5acd2b
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -154,6 +155,12 @@ Questa procedura presuppone la creazione di una rete virtuale e della subnet in 
 > Se sono presenti regole personalizzate che determinano un blocco esteso del traffico in ingresso, ad esempio una regola di tipo **deny all** (nega tutto), può essere necessario modificare i valori di priorità degli esempi. Le regole degli esempi devono precedere quelle che bloccano l'accesso. In caso contrario verranno verificate per prime le regole di tipo **deny all** e quelle dell'esempio non verranno mai applicate. Evitare di bloccare le regole predefinite per una rete virtuale di Azure. È ad esempio consigliabile non creare una regola di tipo **nega tutto** che venga applicata prima della regola predefinita **ALLOW VNET INBOUND** (con priorità 65000).
 > 
 > Per altre informazioni sulle regole dei gruppi di sicurezza di rete, vedere [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md).
+
+**Uso del modello di gestione risorse di Azure**
+
+Usare il modello di gestione risorse seguente disponibile nei [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/) per creare un cluster HDInsight in una rete virtuale con le configurazioni di rete protetta:
+
+[Deploy a secured Azure VNet and an HDInsight Hadoop cluster within the VNet](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/) (Distribuire una rete virtuale protetta di Azure e un cluster HDInsight Hadoop nella rete virtuale)
 
 **Uso di Azure PowerShell**
 

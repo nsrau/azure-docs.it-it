@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 3d78af41bbe13bcec9336452110a857d114ad006
-ms.lasthandoff: 12/20/2016
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 7c1f235343074ec11c635097f2b094a10f3fe781
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -33,7 +33,7 @@ Le espressioni di criteri possono essere usate come valori di attributo o valori
 ## <a name="scopes"> </a>Come configurare criteri
 I criteri possono essere configurati a livello globale o nell'ambito di un [Prodotto][Product], [API][API] o [Operazione][Operation]. Per configurare i criteri, passare all'editor dei criteri nel portale di pubblicazione.
 
-![Manu Criteri][policies-menu]
+![Menu Criteri][policies-menu]
 
 L'editor dei criteri comprende tre sezioni principali: l'ambito criteri (in alto), la definizione criteri in cui i criteri vengono modificati (a sinistra) e l'elenco di istruzioni (a destra).
 
@@ -119,7 +119,7 @@ Gli ambiti dei criteri vengono valutati nell'ordine seguente.
 3. Ambito dell’API
 4. Ambito dell'operazione
 
-Le istruzioni all'interno di essi vengono valutate in base alla posizione dell’elemento `base` , se presente.
+Le istruzioni all'interno di essi vengono valutate in base alla posizione dell’elemento `base` , se presente. Con i criteri globali non sono disponibili criteri padre e l'uso dell'elemento `<base>` in tali criteri non produce alcun effetto.
 
 Ad esempio, se ci sono un criterio a livello globale e un criterio configurato per un'API, quando questa particolare API viene usata, vengono applicati entrambi i criteri. Gestione API consente l'ordinamento deterministico delle istruzioni combinate per i criteri attraverso l'elemento di base. 
 
@@ -133,11 +133,9 @@ Ad esempio, se ci sono un criterio a livello globale e un criterio configurato p
 </policies>
 ```
 
-Nella definizione del criterio dell'esempio precedente, l'istruzione `cross-domain` verrà eseguita prima di un criterio di livello superiore che verrà a sua volta seguito dal criterio `find-and-replace`.
+Nella definizione del criterio dell'esempio precedente, l'istruzione `cross-domain` verrà eseguita prima di un criterio di livello superiore che verrà a sua volta seguito dal criterio `find-and-replace`. 
 
-Se lo stesso criterio viene visualizzato due volte nell'istruzione del criterio, viene applicato il criterio che è stato valutato più di recente. È possibile utilizzare questo per sostituire i criteri definiti a un ambito più elevato. Per visualizzare i criteri nell'ambito corrente nell'editor dei criteri, fare clic su **Ricalcolare il criterio effettivo per l'ambito selezionato**.
-
-Notare che i criteri globali non hanno criteri padre e che usando in essi l'elemento `<base>` esso non produce alcun effetto. 
+Per visualizzare i criteri nell'ambito corrente nell'editor dei criteri, fare clic su **Ricalcolare il criterio effettivo per l'ambito selezionato**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere il video seguente sulle espressioni di criteri.

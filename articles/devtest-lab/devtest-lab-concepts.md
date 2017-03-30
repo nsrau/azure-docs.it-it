@@ -1,5 +1,5 @@
 ---
-title: Concetti relativi a DevTest Labs | Documentazione Microsoft
+title: Concetti relativi a DevTest Labs | Microsoft Docs
 description: Informazioni sui concetti di base di DevTest Labs e su come possa semplificare la creazione, la gestione e il monitoraggio delle macchine virtuali di Azure
 services: devtest-lab,virtual-machines
 documentationcenter: na
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: c81b83143afaab3acf625dc98269b35973185d77
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 236d38fcda90643992f66c9b2f4d92180e4463f5
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -38,9 +38,14 @@ L'elenco seguente contiene le definizioni e i concetti chiave di Lab di sviluppo
 Un lab è l'infrastruttura che comprende un gruppo di risorse, ad esempio macchine virtuali, e ne consente una migliore gestione mediante la specifica di limiti e quote.
 
 ## <a name="virtual-machine"></a>Macchina virtuale
-Una macchina virtuale di Azure è uno dei vari tipi di [risorse di calcolo scalabili e su richiesta](https://docs.microsoft.com/en-us/azure/app-service-web/choose-web-site-cloud-service-vm) offerte da Azure. Le macchine virtuali di Azure offrono la flessibilità della virtualizzazione, consentendo di evitare l'acquisto e la gestione di hardware fisico. Per la gestione delle macchine virtuali è comunque necessario eseguire determinate attività, ad esempio la configurazione, l'applicazione di patch e l'installazione del software in cui le macchine virtuali stesse vengono eseguite.
+Una macchina virtuale di Azure è uno dei vari tipi di [risorse di calcolo scalabili e su richiesta](https://docs.microsoft.com/azure/app-service-web/choose-web-site-cloud-service-vm) offerte da Azure. Le macchine virtuali di Azure offrono la flessibilità della virtualizzazione, consentendo di evitare l'acquisto e la gestione di hardware fisico. Per la gestione delle macchine virtuali è comunque necessario eseguire determinate attività, ad esempio la configurazione, l'applicazione di patch e l'installazione del software in cui le macchine virtuali stesse vengono eseguite.
 
-L'articolo [Panoramica delle macchine virtuali Windows in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-overview) offre informazioni sugli aspetti da tenere in considerazione prima di creare una macchina virtuale, oltre a indicazioni su come creare e gestire la macchina virtuale stessa.
+L'articolo [Panoramica delle macchine virtuali Windows in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview) offre informazioni sugli aspetti da tenere in considerazione prima di creare una macchina virtuale, oltre a indicazioni su come creare e gestire la macchina virtuale stessa.
+
+## <a name="claimable-vm"></a>Macchina virtuale a disposizione degli utenti
+Una macchina virtuale di Azure a disposizione degli utenti è una macchina virtuale che può essere usata da qualsiasi utente di laboratorio che dispone delle autorizzazioni appropriate. Un amministratore di laboratorio può preparare le macchine virtuali con le immagini e gli elementi di base specifici e salvarle in un pool condiviso. Un utente di laboratorio può quindi richiedere una macchina virtuale nel pool quando ha l'esigenza di usarne una con la configurazione specifica.
+
+Una macchina virtuale a disposizione degli utenti non viene inizialmente assegnata ad alcun utente specifico, ma viene visualizzata nell'elenco di ogni utente in "Claimable virtual machines" (Macchine virtuali a disposizione degli utenti). Se una macchina virtuale viene richiesta da un utente, viene spostata nell'area "My virtual machines" (Le mie macchine virtuali) e non è più disponibile per altri utenti.
 
 ## <a name="environment"></a>Environment
 In DevTest Labs il termine ambiente indica una raccolta di risorse di Azure in un lab. In [questo post di blog](https://blogs.msdn.microsoft.com/devtestlab/2016/11/16/connect-2016-news-for-azure-devtest-labs-azure-resource-manager-template-based-environments-vm-auto-shutdown-and-more/) viene discussa la creazione di ambienti con più macchine virtuali a partire da modelli di Azure Resource Manager.
@@ -89,7 +94,7 @@ Poiché gli ambiti sono gerarchici, quando un utente ha le autorizzazioni per un
 ## <a name="arm-templates"></a>Modelli di Gestione risorse di Azure
 Tutti i concetti discussi in questo articolo possono essere configurati usando modelli di Azure Resource Manager. I modelli di Azure Resource Manager consentono di definire l'infrastruttura e la configurazione della soluzione di Azure e di ripetere la distribuzione in modo coerente.
 
-L'articolo [Modelli di Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates#template-format) descrive la struttura di un modello di Azure Resource Manager e le proprietà disponibili nelle diverse sezioni di un modello.
+L'articolo [Modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) descrive la struttura di un modello di Azure Resource Manager e le proprietà disponibili nelle diverse sezioni di un modello.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

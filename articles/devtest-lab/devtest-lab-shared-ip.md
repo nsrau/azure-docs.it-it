@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/16/2017
 ms.author: casoper
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: b4ae6b16880e4a5e53c8f94dc814e25254c20d73
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 905357b9e2262b86cde31874287cc0b89eef4815
+ms.lasthandoff: 03/17/2017
 
 ---
 
@@ -27,7 +27,7 @@ Azure DevTest Labs usa gli indirizzi IP condivisi per ridurre al minimo il numer
 
 ## <a name="shared-ip-setting"></a>Impostazione di un indirizzo IP condiviso
 
-Quando viene creato, un lab si trova nella subnet di una rete virtuale.  Per impostazione predefinita, questa subnet viene creata con **Enable shared public IP** (Abilita indirizzo IP pubblico condiviso) impostato su *Sì*.  Questa configurazione crea un indirizzo IP pubblico per l'intera subnet.  È possibile disabilitare questa funzionalità al termine della creazione un lab [seguendo i passaggi descritti in questo articolo](devtest-lab-configure-vnet.md).
+Quando viene creato, un lab si trova nella subnet di una rete virtuale.  Per impostazione predefinita, questa subnet viene creata con **Enable shared public IP** (Abilita indirizzo IP pubblico condiviso) impostato su *Sì*.  Questa configurazione crea un indirizzo IP pubblico per l'intera subnet.  Per altre informazioni sulla configurazione di reti e subnet virtuali, vedere [Configurare una rete virtuale per Azure DevTest Labs](devtest-lab-configure-vnet.md).
 
 ![Nuova subnet del lab](media/devtest-lab-shared-ip/lab-subnet.png)
 

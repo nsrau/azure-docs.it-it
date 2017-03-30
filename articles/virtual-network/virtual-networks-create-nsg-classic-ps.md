@@ -1,5 +1,5 @@
 ---
-title: "Come creare gruppi di sicurezza di rete in modalità classica mediante PowerShell | Documentazione Microsoft"
+title: Creare gruppi di sicurezza di rete (versione classica) - Azure PowerShell | Microsoft Docs
 description: "Informazioni su come creare e distribuire gruppi di sicurezza di rete in modalità classica mediante PowerShell"
 services: virtual-network
 documentationcenter: na
@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 460d989a75edab35950089ccc2aac5347c5c1a48
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: cf202a605e5141e7d1fd54790bf6597617c9b97c
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -44,10 +45,11 @@ Per creare un gruppo di sicurezza di rete denominato **NSG-FrontEnd** in base al
             -Label "Front end subnet NSG"
    
     Output previsto:
-   
+
         Name         Location   Label               
-        ----         --------   -----               
+        
         NSG-FrontEnd West US     Front end subnet NSG
+
 3. Creare una regola di sicurezza che consente l'accesso alla porta 3389 da Internet.
    
         Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `
@@ -67,7 +69,7 @@ Per creare un gruppo di sicurezza di rete denominato **NSG-FrontEnd** in base al
    
                    Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
                                                            Prefix          Range         Address Prefix   Port Range             
-                   ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
+                   
                    rdp-rule             100       Allow    INTERNET        *             *                3389           TCP     
                    ALLOW VNET INBOUND   65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
                    ALLOW AZURE LOAD     65001     Allow    AZURE_LOADBALAN *             *                *              *       
@@ -78,7 +80,7 @@ Per creare un gruppo di sicurezza di rete denominato **NSG-FrontEnd** in base al
 
                    Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
                                                            Prefix          Range         Address Prefix   Port Range             
-                   ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
+                   
                    ALLOW VNET OUTBOUND  65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
                    ALLOW INTERNET       65001     Allow    *               *             INTERNET         *              *       
                    OUTBOUND                                                                                                      
@@ -103,7 +105,7 @@ Per creare un gruppo di sicurezza di rete denominato **NSG-FrontEnd** in base al
 
                    Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
                                                            Prefix          Range         Address Prefix   Port Range             
-                   ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
+                   
                    rdp-rule             100       Allow    INTERNET        *             *                3389           TCP     
                    web-rule             200       Allow    INTERNET        *             *                80             TCP     
                    ALLOW VNET INBOUND   65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
@@ -116,7 +118,7 @@ Per creare un gruppo di sicurezza di rete denominato **NSG-FrontEnd** in base al
 
                    Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
                                                            Prefix          Range         Address Prefix   Port Range             
-                   ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
+                   
                    ALLOW VNET OUTBOUND  65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
                    ALLOW INTERNET       65001     Allow    *               *             INTERNET         *              *       
                    OUTBOUND                                                                                                      
@@ -131,7 +133,7 @@ Per creare un gruppo di sicurezza di rete denominato **NSG-FrontEnd** in base al
     Output previsto:
    
         Name        Location   Label              
-        ----        --------   -----              
+        
         NSG-BackEnd West US    Back end subnet NSG
 2. Creare una regola di sicurezza che consente l'accesso dalla subnet front-end per la porta 1433 (porta predefinita utilizzata da SQL Server).
    
@@ -152,7 +154,7 @@ Per creare un gruppo di sicurezza di rete denominato **NSG-FrontEnd** in base al
    
                    Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
                                                            Prefix          Range         Address Prefix   Port Range             
-                   ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
+                   
                    fe-rule              100       Allow    192.168.1.0/24  *             *                1433           TCP     
                    ALLOW VNET INBOUND   65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
                    ALLOW AZURE LOAD     65001     Allow    AZURE_LOADBALAN *             *                *              *       
@@ -163,7 +165,7 @@ Per creare un gruppo di sicurezza di rete denominato **NSG-FrontEnd** in base al
 
                    Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
                                                            Prefix          Range         Address Prefix   Port Range             
-                   ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
+                   
                    ALLOW VNET OUTBOUND  65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
                    ALLOW INTERNET       65001     Allow    *               *             INTERNET         *              *       
                    OUTBOUND                                                                                                      
@@ -188,7 +190,7 @@ Per creare un gruppo di sicurezza di rete denominato **NSG-FrontEnd** in base al
    
                    Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
                                                            Prefix          Range         Address Prefix   Port Range             
-                   ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
+                   
                    fe-rule              100       Allow    192.168.1.0/24  *             *                1433           TCP     
                    ALLOW VNET INBOUND   65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
                    ALLOW AZURE LOAD     65001     Allow    AZURE_LOADBALAN *             *                *              *       
@@ -199,15 +201,10 @@ Per creare un gruppo di sicurezza di rete denominato **NSG-FrontEnd** in base al
 
                    Name                 Priority  Action   Source Address  Source Port   Destination      Destination    Protocol
                                                            Prefix          Range         Address Prefix   Port Range             
-                   ----                 --------  ------   --------------- ------------- ---------------- -------------- --------
+                   
                    block-internet       200       Deny     *               *             INTERNET         *              *       
                    ALLOW VNET OUTBOUND  65000     Allow    VIRTUAL_NETWORK *             VIRTUAL_NETWORK  *              *       
                    ALLOW INTERNET       65001     Allow    *               *             INTERNET         *              *       
                    OUTBOUND                                                                                                      
                    DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *   
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

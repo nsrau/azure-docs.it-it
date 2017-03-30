@@ -1,5 +1,5 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una VM Linux con NGINX | Documentazione Microsoft
+title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una VM Linux con NGINX | Microsoft Docs
 description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una VM Linux con NGINX
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,23 +16,21 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 07d91dfa905d22334bd051f9d5f3d936d38efc88
-ms.openlocfilehash: 94e2593271bd7828aab4dcefc0d0df47086e47ad
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f460662b17e421c0bb07c70f466a7425e5480bf9
+ms.lasthandoff: 03/21/2017
 
 ---
 
 # <a name="create-a-vm-with-nginx"></a>Creare una VM con NGINX
 
-Questo script crea una macchina virtuale e quindi usa l'estensione dello script personalizzato della macchina virtuale di Azure per installare NGINX. Dopo l'esecuzione dello script, un sito Web dimostrativo può essere raggiunto sull'indirizzo IP pubblico della macchina virtuale.
+Questo script crea una macchina virtuale di Azure e quindi usa l'estensione dello script personalizzato della macchina virtuale di Azure per installare NGINX. Dopo aver eseguito lo script, è possibile accedere a un sito Web demo sull'indirizzo IP pubblico della macchina virtuale.
 
-Prima di eseguire questo script, verificare che sia stata creata una connessione con Azure tramite il comando `az login`.
+Se necessario, installare l'interfaccia della riga di comando di Azure usando l'istruzione presente nella [Guida all'installazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e quindi eseguire `az login` per creare una connessione con Azure.
 
 Questo esempio funziona in una shell Bash. Per le opzioni sull'esecuzione di script dell'interfaccia della riga di comando di Azure nel client Windows, vedere [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md) (Esecuzione dell'interfaccia della riga di comando di Azure in Windows).
 
 ## <a name="sample-script"></a>Script di esempio
-
-Lo script seguente crea la macchina virtuale e richiama l'estensione di script personalizzati.
 
 [!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-nginx/create-vm-nginx.sh "Creazione rapida della macchina virtuale")]
 
@@ -42,6 +40,8 @@ Questa estensione di script personalizzata copia questo script nella macchina vi
 
 ```bash
 #!/bin/bash
+
+# update package source
 apt-get -y update
 
 # install NGINX
@@ -50,7 +50,7 @@ apt-get -y install nginx
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
 
-Dopo l'esecuzione dello script di esempio, eseguire il comando seguente per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
+Eseguire questo comando per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
 
 ```azurecli
 az group delete --name myResourceGroup

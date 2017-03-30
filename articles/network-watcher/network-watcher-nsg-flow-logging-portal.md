@@ -1,5 +1,5 @@
 ---
-title: Gestire i log di flusso del gruppo di sicurezza di rete con Network Watcher di Azure | Documentazione Microsoft
+title: Gestire i log di flusso del gruppo di sicurezza di rete con Network Watcher di Azure | Microsoft Docs
 description: Questa pagina illustra come gestire i log di flusso del gruppo di sicurezza di rete in Network Watcher di Azure
 services: network-watcher
 documentationcenter: na
@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: d2a65104743d9497debdc85c134fd1a06114c514
-ms.openlocfilehash: 18227576b14fdf4bb8aa11a673f33075c3a380a8
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: d716f11818bc0ad6dd9e5f93951b011dd6774c7b
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -95,3 +95,4 @@ Informazioni su come [visualizzare i log di flusso con Power BI](network-watcher
 [4]: ./media/network-watcher-nsg-flow-logging-portal/figure4.png
 [5]: ./media/network-watcher-nsg-flow-logging-portal/figure5.png
 [6]: ./media/network-watcher-nsg-flow-logging-portal/figure6.png
+

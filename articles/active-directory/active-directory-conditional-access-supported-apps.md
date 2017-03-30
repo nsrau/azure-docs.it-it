@@ -1,5 +1,5 @@
 ---
-title: Applicazioni che usano regole di accesso condizionale in Azure Active Directory | Documentazione Microsoft
+title: Applicazioni che usano regole di accesso condizionale in Azure Active Directory | Microsoft Docs
 description: Grazie al controllo di accesso condizionale, Azure Active Directory verifica condizioni specifiche quando esegue l&quot;autenticazione di un utente e consente l&quot;accesso all&quot;applicazione.
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2017
+ms.date: 03/22/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: b9605eb10f87f107dffd9f631d043bf550cf030b
-ms.openlocfilehash: 5e293d7d3fa6b0a763663a5428878944660fc03e
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 6dea1af021599eb530a4feb3257238e088191d5f
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -45,9 +46,9 @@ Le applicazioni seguenti supportano l'accesso condizionale per Office 365 e altr
 | Office 365 SharePoint Online |Windows 8.1, Windows 7 |App di Office 2016, Office 2013 (con autenticazione moderna), client sincronizzazione OneDrive (vedere le [note](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) |
 | Office 365 SharePoint Online |iOS, Android |App Office per dispositivi mobili |
 | Office 365 SharePoint Online |Mac OS X |App Office 2016 solo per l'autenticazione a più fattori e la posizione; il supporto dei criteri basati su dispositivo è pianificato per il futuro |
-| Office 365 Yammer |Windows 10, iOS e Android |App Office Yammer |
+| Office 365 Yammer |Windows 10, iOS; supporto di Android previsto per il futuro |App Office Yammer |
 | Dynamics CRM |Windows 10, Windows 8.1, Windows 7, iOS e Android |Dynamics CRM |
-| Servizio PowerBI |Windows 10, Windows 8.1, Windows 7, iOS e Android |App PowerBI |
+| Servizio PowerBI |Windows 10, Windows 8.1, Windows 7 e iOS|App Power BI (app Android non supportata) |
 | Servizio app Azure Remote |Windows 10, Windows 8.1, Windows 7, iOS, Android e Mac OS X |App Azure Remote |
 | Qualsiasi servizio app Mie app |Android e iOS |Qualsiasi servizio app Mie app |
 
@@ -63,7 +64,8 @@ Attualmente è necessario usare altri metodi per bloccare l'accesso ad app che n
 Exchange offre due categorie principali di protocolli. Esaminare le opzioni seguenti e quindi selezionare il criterio più adatto alle esigenze dell'organizzazione.
 
 * **Exchange ActiveSync**. Per impostazione predefinita, i criteri di accesso condizionale per l'autenticazione a più fattori e i criteri di posizione non vengono applicati per Exchange ActiveSync. È necessario proteggere l'accesso a questi servizi configurando i criteri di Exchange ActiveSync in modo diretto oppure bloccando Exchange ActiveSync con le regole di AD FS (Active Directory Federation Services).
-* **Protocolli legacy.**. È possibile bloccare protocolli legacy con AD FS. In questo modo viene bloccato l'accesso ai client di Office meno recenti, ad esempio Office 2013 senza l'autenticazione moderna abilitata e le versioni precedenti di Office.
+* <seg>
+  **Protocolli legacy**.</seg> È possibile bloccare protocolli legacy con AD FS. In questo modo viene bloccato l'accesso ai client di Office meno recenti, ad esempio Office 2013 senza l'autenticazione moderna abilitata e le versioni precedenti di Office.
 
 ### <a name="use-ad-fs-to-block-legacy-protocol"></a>Usare AD FS per bloccare protocolli legacy
 È possibile usare le regole di esempio seguenti per bloccare l'accesso da parte di protocolli legacy a livello di AD FS. Scegliere una delle due configurazioni più comuni.
@@ -108,9 +110,4 @@ Applicando le tre regole seguenti al trust della relying party di AD FS per la p
     c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] &&
     c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

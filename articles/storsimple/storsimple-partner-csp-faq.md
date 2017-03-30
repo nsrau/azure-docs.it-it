@@ -15,8 +15,9 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 30f56224a00957127497b6a05a809453294ea94e
-ms.openlocfilehash: ef477af0cfc24233ae9460d6bf020d81d68c87e5
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4dc5ae7d3feae769a8366f68f412f3b79fa8eb00
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -79,7 +80,7 @@ No. Gli utenti potranno amministrare l'array virtuale StorSimple in CSP tramite 
 ### <a name="i-have-provisioned-a-standalone-storsimple-subscription-for-my-customer-do-i-have-to-use-the-azure-portal-to-administer-my-device"></a>È stato eseguito il provisioning di una sottoscrizione StorSimple autonoma per il cliente. È necessario usare il portale di Azure per amministrare il dispositivo? 
 Sì. 
 
-### <a name="is-the-microsoft-field-compensated-as-a-result-of-sales-of-storsimple-through-csp"></a>Microsoft riceve una commissione per le vendite di StorSimple tramite CSP?
+### <a name="is-the-microsoft-account-team-compensated-as-a-result-of-sales-of-storsimple-through-csp"></a>Il team degli account Microsoft riceve una commissione per le vendite di StorSimple tramite CSP?
 Sì. Il responsabile vendite partner e il team dell'account cliente per il cliente finale riceveranno una commissione per le vendite di CSP. I partner devono promuovere la vendita delle proprie offerte, puntando sul loro valore specifico.
 
 ## <a name="support-for-storsimple-and-csp"></a>Supporto per StorSimple e CSP
@@ -98,9 +99,4 @@ Per altre informazioni su StorSimple per CSP, visitare:
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se si è pronti a distribuire StorSimple, andare a [Distribuire StorSimple per CSP](storsimple-partner-csp-deploy.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

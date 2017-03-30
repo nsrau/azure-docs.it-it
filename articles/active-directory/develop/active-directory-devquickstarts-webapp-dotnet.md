@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 4094759caba015b9d609b616d5099a6e109bf1d4
-ms.openlocfilehash: 6ac0c3b2893b96f93bf2aeadd61b263654957477
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 43ba592b6294a9a75a20dacd81953a77c241b89f
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -37,7 +37,7 @@ Con poche righe di codice uniche sia per l'accesso che per la disconnessione, Az
 Quando si è pronti, attenersi alle procedure descritte nelle quattro sezioni seguenti.
 
 ## <a name="step-1-register-the-new-app-with-azure-ad"></a>Passaggio 1: registrare la nuova app con Azure AD
-Per configurare l'app per l'autenticazione degli utenti, registrarla innanzitutto nel tenant effettuando le operazioni seguenti:
+Per configurare l'app per l'autenticazione degli utenti, registrarla innanzitutto nel tenant eseguendo queste operazioni:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nella barra superiore fare clic sul nome dell'account. Nell'elenco **Directory** selezionare il tenant di Active Directory in cui si vuole registrare l'app.
@@ -46,8 +46,8 @@ Per configurare l'app per l'autenticazione degli utenti, registrarla innanzitutt
 5. Seguire le istruzioni e creare un'**applicazione Web e/o API Web**.
   * Il **nome** descrive l'app agli utenti.
   * L'**URL accesso** è l'URL di base dell'app. Il valore predefinito della struttura è https://localhost:44320/.
-  * L'**URI ID app** è l'identificatore univoco dell'app. La convenzione di denominazione è `https://<tenant-domain>/<app-name>`, ad esempio `https://contoso.onmicrosoft.com/my-first-aad-app`.
-6. Dopo aver completato la registrazione, Azure AD assegna automaticamente all'app un ID app univoco. Copiare il valore dalla pagina dell'app per usarlo nelle sezioni successive.
+6. Dopo aver completato la registrazione, Azure AD assegna automaticamente all'app un ID applicazione univoco. Copiare il valore dalla pagina dell'app per usarlo nelle sezioni successive.
+7. Dalla pagina **Impostazioni** -> **Proprietà** dell'applicazione aggiornare l'URI dell'ID app. L'**URI ID app** è un identificatore univoco dell'app. La convenzione di denominazione è `https://<tenant-domain>/<app-name>`, ad esempio `https://contoso.onmicrosoft.com/my-first-aad-app`.
 
 ## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>Passaggio 2: configurare l'app per l'uso della pipeline di autenticazione OWIN
 In questo passaggio, verrà configurato il middleware OWIN per l'uso del protocollo di autenticazione OpenID Connect. OWIN verrà usato, tra le altre cose, per inviare le richieste di accesso e disconnessione, gestire la sessione dell'utente e ottenere informazioni sull'utente.

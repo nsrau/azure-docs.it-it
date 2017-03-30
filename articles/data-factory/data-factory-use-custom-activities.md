@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 3893c98ed72ee7b4ed5aa879047293285e9af071
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: b4b0a8139b69a31e4af40e1f8231d4d7772fee0b
+ms.lasthandoff: 03/18/2017
 
 
 ---

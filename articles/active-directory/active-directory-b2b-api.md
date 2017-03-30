@@ -1,5 +1,5 @@
 ---
-title: API e personalizzazione per Collaborazione B2B di Azure Active Directory | Documentazione Microsoft
+title: API e personalizzazione per Collaborazione B2B di Azure Active Directory | Microsoft Docs
 description: "La collaborazione B2B di Azure Active Directory supporta le relazioni tra società abilitando i partner commerciali ad accedere in modo selettivo alle applicazioni aziendali"
 services: active-directory
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 03/15/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 235b551a716b68c40cc4fe346cc5903d47e6ea74
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 6f487e2e8f368240339ef5e0015c85591522e49a
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -62,7 +63,7 @@ L'API offre le funzionalità seguenti:
     "sendInvitationMessage": false
     ```
 
-  In questo caso, si otterrà un URL di riscatto dall'API, che è possibile incorporare in un modello di messaggio di posta elettronica, in un messaggio istantaneo o in un altro metodo di distribuzione.
+  In questo caso, si ottiene un URL di riscatto dall'API, che è possibile incorporare in un modello di messaggio di posta elettronica, in un messaggio istantaneo o in un altro metodo di distribuzione.
 
 6. Gli amministratori infine possono scegliere di invitare l'utente come membro.
 
@@ -75,28 +76,29 @@ L'API offre le funzionalità seguenti:
 L'API può essere eseguita nelle modalità di autorizzazione seguenti:
 
 ### <a name="app--user-mode"></a>Modalità app + utente
-In questa modalità l'utente che usa l'API deve avere le autorizzazioni per creare gli inviti B2B.
+In questa modalità, chiunque usi l'API deve disporre delle autorizzazioni per creare gli inviti B2B.
 
 ### <a name="app-only-mode"></a>Modalità solo app
-Nel contesto solo app, perché l'invitato abbia esito positivo, l'app necessita dell'ambito User.ReadWrite.All o Directory.ReadWrite.All.
-Per altri dettagli, vedere: https://graph.microsoft.io/it-it/docs/authorization/permission_scopes
+In un contesto solo app, per garantire l'esito positivo dell'invio è necessario che l'app disponga dell'ambito User.ReadWrite.All o Directory.ReadWrite.All.
+
+Per altre informazioni, vedere https://graph.microsoft.io/docs/authorization/permission_scopes
 
 
 ## <a name="powershell"></a>PowerShell
-Ora è possibile usare PowerShell per aggiungere e invitare facilmente utenti esterni a un'organizzazione. È sufficiente creare un nuovo invito usando il cmdlet
+Ora è possibile usare PowerShell per aggiungere e invitare facilmente utenti esterni a un'organizzazione. Creare un invito tramite il cmdlet:
 
 ```
 New-AzureADMSInvitation
 ```
 
-con le opzioni seguenti:
+È possibile usare le opzioni seguenti:
 
 * -InvitedUserDisplayName
 * -InvitedUserEmailAddress
 * -SendInvitationMessage
 * -InvitedUserMessageInfo
 
-le cui descrizioni seguono le informazioni di riferimento all'API di invito in [https://graph.microsoft.io/it-it/docs/api-reference/beta/resources/invitation](https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/invitation)
+È anche possibile controllare il riferimento all'API di invito in [https://graph.microsoft.io/it-it/docs/api-reference/beta/resources/invitation](https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/invitation)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -113,9 +115,4 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 * [Autenticazione a più fattori per utenti di Collaborazione B2B](active-directory-b2b-mfa-instructions.md)
 * [Aggiungere gli utenti per la Collaborazione B2B senza un invito](active-directory-b2b-add-user-without-invite.md)
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

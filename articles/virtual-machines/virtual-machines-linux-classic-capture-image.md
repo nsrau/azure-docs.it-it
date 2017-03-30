@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 03/14/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
-ms.openlocfilehash: c81c2f86802c1b1d672105962c196b36fbb2c081
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 59a88a9f2db745db22007f6b528f8d41016bde16
+ms.lasthandoff: 03/21/2017
 
 
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Come acquisire una macchina virtuale Linux classica come immagine
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Informazioni su come [eseguire questa procedura con il modello di Resource Manager](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Questo articolo illustra come acquisire una macchina virtuale di Azure classica che esegue Linux come un'immagine per creare altre macchine virtuali. Tale immagine include il disco del sistema operativo e i dischi dati collegati alla macchina virtuale. Poiché la configurazione di rete non è inclusa, è necessario definirla quando si crea l'altra macchina virtuale dall'immagine.
@@ -36,65 +36,65 @@ Questa procedura presuppone che sia stata creata una macchina virtuale di Azure 
 ## <a name="capture-the-virtual-machine"></a>Acquisizione della macchina virtuale
 1. [Connettersi alla macchina virtuale](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) usando un client SSH di propria scelta.
 2. Nella finestra di SSH digitare il comando seguente. L'output di `waagent` può variare leggermente, in base alla versione dell'utilità:
-   
+
     ```bash
     sudo waagent -deprovision+user
     ```
-   
+
     Il comando precedente prova a pulire il sistema per renderlo idoneo per un nuovo provisioning. Questa operazione esegue le attività seguenti:
-   
+
    * Rimuove le chiavi host SSH (se Provisioning.RegenerateSshHostKeyPair è 'y' nel file di configurazione)
    * Cancella la configurazione NameServer in /etc/resolv.conf
    * Rimuove la password `root` dell'utente da /etc/shadow (se Provisioning.DeleteRootPassword è 'y' nel file di configurazione)
    * Rimuove i lease client DHCP memorizzati nella cache
    * Ripristina il nome host su localhost.localdomain
    * Elimina anche l'ultimo account utente (ottenuto da /var/lib/waagent) di cui è stato effettuato il provisioning **e i dati associati**.
-     
+
      > [!NOTE]
      > Il deprovisioning elimina file e dati per "generalizzare" l'immagine. Eseguire questo comando solo su una macchina virtuale da acquisire come nuovo modello di immagine. Ciò non garantisce che dall'immagine vengano cancellate tutte le informazioni sensibili o che l'immagine sia adatta per la ridistribuzione a terze parti.
 
 3. Digitare **y** per continuare. È possibile aggiungere il parametro `-force` per evitare questo passaggio di conferma.
 4. Digitare **Exit** per chiudere il client SSH.
-   
+
    > [!NOTE]
-   > I restanti passaggi presuppongono che l' [interfaccia della riga di comando di Azure](../xplat-cli-install.md) sia stata già installata sul computer client. Tutti i passaggi seguenti possono essere effettuati anche nel [portale di Azure classico][Azure classic portal].
+   > I restanti passaggi presuppongono che l' [interfaccia della riga di comando di Azure](../cli-install-nodejs.md) sia stata già installata sul computer client. Tutti i passaggi seguenti possono essere effettuati anche nel [portale di Azure classico][Azure classic portal].
 
 5. Dal computer client, aprire l'interfaccia della riga di comando di Azure ed eseguire l'accesso alla sottoscrizione di Azure. Per informazioni dettagliate, leggere [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md).
 6. Assicurarsi che sia attiva la modalità Gestione dei servizi:
-   
+
     ```azurecli
     azure config mode asm
     ```
 
 7. Arrestare la macchina virtuale già sottoposta a deprovisioning. Nell'esempio seguente viene arrestata la macchina virtuale denominata `myVM`:
-   
+
     ```azurecli
     azure vm shutdown myVM
     ```
-   
+
    > [!NOTE]
    > È possibile visualizzare un elenco di tutte le macchine virtuali create nella propria sottoscrizione usando il comando `azure vm list`
 
 8. Quando la macchina virtuale viene arrestata, acquisire l'immagine. Nell'esempio seguente viene acquisita la macchina virtuale denominata `myVM` e viene creata un'immagine generalizzata denominata `myNewVM`:
-   
+
     ```azurecli
     azure vm capture -t myVM myNewVM
     ```
-   
+
     Il sottocomando `-t` consente di eliminare la macchina virtuale originale.
 
 9. La nuova immagine è ora disponibile nell'elenco di immagini che possono essere usate per configurare nuove macchine virtuali. È possibile visualizzarla con il comando:
-   
+
    ```azurecli
    azure vm image list
    ```
-   
-   Nel [portale di Azure classico][Azure classic portal] viene visualizzata nell'elenco **IMMAGINI**.
-   
+
+   Nel [portale di Azure](http://portal.azure.com) la nuova immagine viene visualizzata in **Immagini VM (classico)** che appartiene a **Servizi di calcolo**. Per accedere a **Immagini VM (classico)**, fare clic su _Altri servizi_ nella parte inferiore dell'elenco di servizi di Azure e quindi eseguire una ricerca in **Servizi di calcolo**.   
+
    ![Acquisizione dell'immagine eseguita correttamente](./media/virtual-machines-linux-classic-capture-image/VMCapturedImageAvailable.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-L'immagine può ora essere usata per creare macchine virtuali. È possibile usare il comando `azure vm create` dell'interfaccia della riga di comando di Azure e indicare il nome dell'immagine creata. Per altre informazioni, vedere [Uso dell'interfaccia della riga di comando di Azure con il modello di distribuzione classica](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2). 
+L'immagine può ora essere usata per creare macchine virtuali. È possibile usare il comando `azure vm create` dell'interfaccia della riga di comando di Azure e indicare il nome dell'immagine creata. Per altre informazioni, vedere [Uso dell'interfaccia della riga di comando di Azure con il modello di distribuzione classica](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 
 In alternativa, usare il [portale di Azure classico][Azure classic portal] per creare una macchina virtuale personalizzata tramite il metodo **Da raccolta** e selezionando l'immagine creata. Per altre informazioni, vedere [Come creare una macchina virtuale personalizzata][How to Create a Custom Virtual Machine].
 
@@ -103,6 +103,6 @@ In alternativa, usare il [portale di Azure classico][Azure classic portal] per c
 [Azure classic portal]: http://manage.windowsazure.com
 [About Virtual Machine Images in Azure]: virtual-machines-linux-classic-about-images.md
 [How to Create a Custom Virtual Machine]: virtual-machines-linux-classic-create-custom.md
-[How to Attach a Data Disk to a Virtual Machine]: virtual-machines-windows-classic-attach-disk.md
+[How to Attach a Data Disk to a Virtual Machine]:windows/classic/attach-disk.md
 [How to Create a Linux Virtual Machine]: virtual-machines-linux-classic-create-custom.md
 

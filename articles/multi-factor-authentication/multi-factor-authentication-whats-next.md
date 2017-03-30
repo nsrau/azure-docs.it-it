@@ -15,16 +15,25 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 042b99a77fae0de2fe65113d9d909a443f5487d4
-ms.openlocfilehash: 3a6020b2c189b4ce9a930a18d78140b7bd8ff8ff
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: df4340ce5185405334f08f6098590f84b067dafd
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurare le impostazioni di Azure Multi-Factor Authentication
 Le informazioni in questo articolo sono utili per gestire Azure Multi-Factor Authentication ora che si è operativi.  L'articolo illustra diversi argomenti che permettono di ottenere il massimo da Azure Multi-Factor Authentication.  Non tutte queste funzionalità sono disponibili in ogni versione di Azure Multi-Factor Authentication.
 
-| Funzionalità | Descrizione | |:--- |:--- || | [Avviso di illecito](#fraud-alert) |È possibile configurare e impostare un avviso di illecito in modo che gli utenti possano segnalare i tentativi illeciti di accesso alle risorse. | | [Bypass monouso](#one-time-bypass) |Un bypass monouso consente a un utente di eseguire l'autenticazione una sola volta "ignorando" l'autenticazione a più fattori. | | [Messaggi vocali personalizzati](#custom-voice-messages) |I messaggi vocali personalizzati permettono di usare registrazioni o messaggi introduttivi personalizzati con l'autenticazione a più fattori. | | [Memorizzazione nella cache](#caching-in-azure-multi-factor-authentication) |La memorizzazione nella cache consente di impostare un periodo di tempo specifico in modo che i tentativi di autenticazione successivi abbiano automaticamente esito positivo. | | [Indirizzi IP attendibili](#trusted-ips) |Gli indirizzi IP attendibili consentono agli amministratori di un tenant gestito o federato di ignorare la verifica in due passaggi per gli utenti che accedono dalla rete Intranet locale dell'azienda. | | [Password dell'app](#app-passwords) |Una password dell'app consente a un'applicazione che non riconosce MFA di ignorare l'autenticazione a più fattori e continuare a funzionare. | |  [Memorizza Multi-Factor Authentication per i dispositivi e browser memorizzati](#remember-multi-factor-authentication-for-devices-that-users-trust) | Consente di memorizzare dispositivi per un determinato numero di giorni dopo che un utente ha eseguito l'accesso tramite MFA. | | [Metodi di verifica selezionabili](#selectable-verification-methods) |Consente di scegliere i metodi di autenticazione disponibili per gli utenti. |
+| Funzionalità | Descrizione | 
+|:--- |:--- |
+| [Avviso di illecito](#fraud-alert) |È possibile configurare e impostare un avviso di illecito in modo che gli utenti possano segnalare i tentativi illeciti di accedere alle loro risorse. |
+| [Bypass monouso](#one-time-bypass) |Un bypass monouso consente a un utente di eseguire l'autenticazione una sola volta "ignorando" Multi-Factor Authentication. |
+| [Messaggi vocali personalizzati](#custom-voice-messages) |I messaggi vocali personalizzati consentono di usare registrazioni o messaggi introduttivi personalizzati con Multi-Factor Authentication. |
+| [Memorizzazione nella cache](#caching-in-azure-multi-factor-authentication) |La memorizzazione nella cache consente di impostare uno specifico periodo di tempo in modo che i tentativi di autenticazione successivi abbiano automaticamente esito positivo. |
+| [Indirizzi IP attendibili](#trusted-ips) |Gli amministratori di un tenant federato o gestito possono usare gli IP attendibili per ignorare la verifica in due passaggi per gli utenti che accedono dalla rete Intranet locale dell'azienda. |
+| [Password dell'app](#app-passwords) |Una password dell'app consente a un'applicazione che non è in grado di riconoscere MFA di ignorare questa funzionalità e continuare a funzionare. |
+| [Memorizzare Multi-Factor Authentication per dispositivi e browser memorizzati](#remember-multi-factor-authentication-for-devices-that-users-trust) |Consente di memorizzare dispositivi per un determinato numero di giorni dopo che un utente ha effettuato correttamente l'accesso tramite MFA. |
+| [Metodi di verifica selezionabili](#selectable-verification-methods) |Consente di scegliere i metodi di autenticazione disponibili per gli utenti. |
 
 ## <a name="access-the-azure-mfa-management-portal"></a>Accedere al portale di gestione di Azure MFA
 
@@ -224,7 +233,7 @@ Per le password dell'app è consigliabile usare nomi che riflettano il dispositi
 Azure AD supporta la federazione (Single Sign-On) con Active Directory Domain Services (AD DS) di Windows Server in locale. Se l'organizzazione è federata con Azure AD e si intende usare Azure Multi-Factor Authentication, tenere presente le informazioni importanti sulle password dell'app riportate di seguito. Questa sezione si applica solo agli utenti federati (SSO).
 
 * Le password dell'app vengono verificate da Azure AD e di conseguenza ignorano la federazione. La federazione viene usata attivamente solo durante l'impostazione delle password dell'app.
-* Per gli utenti federati (SSO) non viene mai usato il provider di identità (IdP), a differenza del flusso passivo. Le password vengono archiviate nell'ID organizzazione. Se l'utente lascia l'azienda, tali informazioni devono essere trasmesse nell'ID organizzazione tramite DirSync in tempo reale. La disabilitazione o l'eliminazione dell'account può richiedere fino a&3; ore per la sincronizzazione, ritardando la disabilitazione o l'eliminazione della password dell'app in Azure AD.
+* Per gli utenti federati (SSO) non viene mai usato il provider di identità (IdP), a differenza del flusso passivo. Le password vengono archiviate nell'ID organizzazione. Se l'utente lascia l'azienda, tali informazioni devono essere trasmesse nell'ID organizzazione tramite DirSync in tempo reale. La disabilitazione o l'eliminazione dell'account può richiedere fino a 3 ore per la sincronizzazione, ritardando la disabilitazione o l'eliminazione della password dell'app in Azure AD.
 * Le impostazioni locali di Controllo dell'accesso Client non vengono rispettate dalla password dell'app.
 * Per la password dell'app non è disponibile alcuna funzionalità di registrazione o controllo dell'autenticazione in locale.
 * Alcune architetture avanzate possono richiedere una combinazione di nome utente e password dell'organizzazione e password dell'app quando si usa la verifica in due passaggi con i client, a seconda della posizione in cui viene eseguita l'autenticazione. Per i client che eseguono l'autenticazione con un'infrastruttura locale, verranno usati un nome utente e una password dell'organizzazione. Per i client che eseguono l'autenticazione con AD Azure, verrà usata la password dell'app.
@@ -298,7 +307,7 @@ Quando gli utenti registrano i propri account per l'autenticazione MFA, scelgono
 | Chiamata al telefono |Invia una chiamata vocale automatizzata. Per l’autenticazione, l'utente risponde alla chiamata e preme # sul tastierino telefonico. Il numero di telefono non viene sincronizzato con Active Directory locale. |
 | SMS al telefono |Invia un messaggio di testo contenente un codice di verifica. L'utente deve rispondere al messaggio con il codice di verifica o immettere il codice di verifica nell'interfaccia di accesso. |
 | Notifica tramite app per dispositivi mobili |Invia una notifica push al telefono o al dispositivo registrato. L'utente visualizza la notifica e seleziona **Verifica** per completare la verifica. <br>L'app Microsoft Authenticator è disponibile per [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
-| Codice di verifica dall'app per dispositivi mobili |L'app Microsoft Authenticator genera un nuovo codice di verifica OATH ogni&30; secondi. L'utente immette il codice di verifica nell'interfaccia di accesso.<br>L'app Microsoft Authenticator è disponibile per [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| Codice di verifica dall'app per dispositivi mobili |L'app Microsoft Authenticator genera un nuovo codice di verifica OATH ogni 30 secondi. L'utente immette il codice di verifica nell'interfaccia di accesso.<br>L'app Microsoft Authenticator è disponibile per [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="how-to-enabledisable-authentication-methods"></a>Come abilitare o disabilitare i metodi di autenticazione
 1. Accedere al [portale di Azure classico](https://portal.azure.com/).

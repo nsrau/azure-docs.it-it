@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 03/15/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 72e7e57185d882a5f3243e2705aed54ee8347798
-ms.openlocfilehash: 5d157a936317bbf66cfc3634d4d08ea3483d137b
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 44cbbc149787a2d6cf2e0e8750b98d33b52f6136
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -30,10 +31,10 @@ Sia Collaborazione B2B che B2C di Azure Active Directory consentono di lavorare 
 
 Funzionalità di Collaborazione B2B |     Offerta autonoma di B2C di Azure AD
 -------- | --------
-Pensate per organizzazioni che desiderano offrire accesso a dati aziendali, risorse e applicazioni per gli utenti di altre organizzazioni, che possono usare qualsiasi identità di loro scelta. | Pensata per app per dispositivi mobili e Web destinate ai clienti (singoli utenti, cittadini e clienti aziendali o istituzionali, ma non dipendenti o collaboratori esterni), che possono usare qualsiasi identità di loro scelta.
+Destinatari: organizzazioni che desiderano essere in grado di autenticare gli utenti di un'organizzazione partner, indipendentemente dal provider di identità. | Scopo: invitare i clienti di app Web e per dispositivi mobili, sia individui, clienti istituzionali oppure organizzazioni, in Azure AD.
 Identità supportate: dipendenti con account aziendale o dell'istituto di istruzione, partner con account aziendale o dell'istituto di istruzione oppure qualsiasi indirizzo email. A breve sarà disponibile il supporto per la federazione diretta.  | Identità supportate: utenti consumer con account di applicazioni locali (qualsiasi indirizzo email o nome utente) o qualsiasi identità social supportata con federazione diretta.
-Directory degli utenti partner: gli utenti partner dell'organizzazione esterna sono gestiti nella stessa directory dei dipendenti ma annotati in modo speciale. Questi utenti esterni possono essere gestiti allo stesso modo dei dipendenti, possono essere aggiunti agli stessi gruppi e così via  | Directory delle entità degli utenti clienti: directory dell'applicazione. Le entità sono gestite separatamente dalla directory dei dipendenti e dall'eventuale directory dei partner dell'organizzazione.
-È supportato il Single Sign-On (SSO) a tutte le app connesse di Azure AD, (incluse le app locali), ad esempio Office 365, e ad altre app SaaS Microsoft e non Microsoft (ad esempio Salesforce, Box, Workday e così via).  |  È supportato il SSO ad app di proprietà del cliente all'interno di tenant B2C di Azure AD. Non è supportato il SSO a Office 365 o ad altre app SaaS Microsoft e non Microsoft.
+Directory degli utenti partner: gli utenti partner dell'organizzazione esterna sono gestiti nella stessa directory dei dipendenti ma annotati in modo speciale. Tali utenti possono essere gestiti in modo analogo ai dipendenti, possono essere aggiunti agli stessi gruppi e così via  | Directory delle entità degli utenti clienti: directory dell'applicazione. Le entità sono gestite separatamente dalla directory dei dipendenti e dall'eventuale directory dei partner dell'organizzazione.
+La funzione Single Sign-On (SSO) per tutte le app connesse ad Azure AD è supportata. È possibile ad esempio concedere l'accesso a Office 365 oppure ad app locali e ad altre app SaaS, ad esempio Salesforce o Workday.  |  È supportato il SSO ad app di proprietà del cliente all'interno di tenant B2C di Azure AD. Non è supportato il SSO a Office 365 o ad altre app SaaS Microsoft e non Microsoft.
 Ciclo di vita per i partner: gestito dall'organizzazione host (o che manda l'invito).  | Ciclo di vita per i clienti: in modalità self-service o gestito dall'applicazione.
 Criteri di sicurezza e conformità: gestiti dall'organizzazione host (o che manda l'invito).  | Criteri di sicurezza e conformità: gestiti dall'applicazione.
 Personalizzazione: viene usato il marchio dell'organizzazione host (o che manda l'invito).  |    Personalizzazione: gestita dall'applicazione. In genere viene eseguita una personalizzazione in base al prodotto, con l'organizzazione sullo sfondo.
@@ -55,9 +56,4 @@ Vedere gli altri articoli su Azure AD B2B Collaboration.
 * [Condivisione esterna di Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitazioni correnti di Collaborazione B2B](active-directory-b2b-current-limitations.md)
 * [Getting support for B2B collaboration](active-directory-b2b-support.md) (Ricevere supporto per Collaborazione B2B)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: Creare cluster Azure HDInsight (Hadoop) usando Data Factory | Documentazione Microsoft
+title: Creare cluster Azure HDInsight (Hadoop) usando Data Factory | Microsoft Docs
 description: Informazioni su come creare cluster Hadoop on demand in HDInsight con Azure Data Factory.
 services: hdinsight
 documentationcenter: 
@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/23/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 2289c99ddd08c1e7ba356e233180cf59d99de182
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 121be952ea49a8ff47f7e2528adbc87e05359a15
+ms.lasthandoff: 03/18/2017
 
 
 ---

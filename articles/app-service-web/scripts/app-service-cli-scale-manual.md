@@ -1,5 +1,5 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Ridimensionare un&quot;App Web manualmente usando l&quot;interfaccia della riga di comando di Azure 2.0 | Documentazione Microsoft
+title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Ridimensionare un&quot;App Web manualmente usando l&quot;interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
 description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Ridimensionare un&quot;App Web manualmente usando l&quot;interfaccia della riga di comando di Azure 2.0
 services: appservice
 documentationcenter: appservice
@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 02/21/2017
+ms.date: 03/20/2017
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 16e10ce51758f8d0d62457cac311b0449721ec34
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 5f7eb21b48e36fa0087b354f8661f941e9780d94
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/11/2017
 
 In questo scenario si apprenderà come creare un gruppo di risorse, un piano di servizio app e un'App Web. Quindi si dimensionerà il piano di servizio app da una singola istanza a più istanze.
 
-Prima di eseguire questo script, verificare che sia stata creata una connessione con Azure tramite il comando `az login`.
+Se necessario, installare l'interfaccia della riga di comando di Azure usando l'istruzione presente nella [Guida all'installazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e quindi eseguire `az login` per creare una connessione con Azure.
 
 Questo esempio funziona in una shell Bash. Per le opzioni sull'esecuzione di script dell'interfaccia della riga di comando di Azure nel client Windows, vedere [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md) (Esecuzione dell'interfaccia della riga di comando di Azure in Windows).
 

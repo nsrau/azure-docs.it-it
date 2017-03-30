@@ -1,5 +1,5 @@
 ---
-title: "Gruppi di disponibilità di SQL Server - Macchine virtuali di Azure - Prerequisiti | Documentazione Microsoft"
+title: "Gruppi di disponibilità di SQL Server - Macchine virtuali di Azure - Prerequisiti | Microsoft Docs"
 description: "Questa esercitazione illustra come configurare i prerequisiti per la creazione di un gruppo di disponibilità AlwaysOn di SQL Server nelle VM di Azure."
 services: virtual-machines
 documentationCenter: na
@@ -14,12 +14,12 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/10/2017
+ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 4326cc342088ff16a72b8c460245bda1f2cd17c9
-ms.openlocfilehash: 3e0c58af3566ea443efaa012495e5b736fafb46d
-ms.lasthandoff: 01/14/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 96f42929c3f4d0ccf4f2f1fbc206dddd90d6d3d1
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -338,7 +338,7 @@ Dopo aver completato la configurazione di Active Directory e degli oggetti utent
 
 ## <a name="create-sql-servers"></a>Creare VM di SQL Server
 ### <a name="create-and-configure-the-sql-server-vms"></a>Creare e configurare le VM di SQL Server
-Successivamente, creare tre VM, tra cui due VM di SQL Server e un nodo del cluster WSFC. Per creare ogni VM, tornare al gruppo di risorse **SQL-HA-RG**, fare clic su **Aggiungi**, cercare l'elemento della raccolta appropriato, **Macchina virtuale**, quindi **Da raccolta**. Usare le informazioni nella tabella seguente per facilitare la creazione di VM:
+Creare successivamente tre VM, tra cui due VM di SQL Server e una VM per un nodo del cluster aggiuntivo. Per creare ogni VM, tornare al gruppo di risorse **SQL-HA-RG**, fare clic su **Aggiungi**, cercare l'elemento della raccolta appropriato, **Macchina virtuale**, quindi **Da raccolta**. Usare le informazioni nella tabella seguente per facilitare la creazione di VM:
 
 | Page | VM1 | VM2 | VM3 |
 | --- | --- | --- | --- |

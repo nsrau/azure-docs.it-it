@@ -1,5 +1,5 @@
 ---
-title: Esaminare le metriche in Application Insights | Documentazione Microsoft
+title: Esaminare le metriche in Azure Application Insights | Microsoft Docs
 description: Come interpretare i grafici in Esplora metriche e come personalizzare i pannelli di Esplora metriche.
 services: application-insights
 documentationcenter: 
@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: ee759149df038ac08f0d5987c3577454a81999db
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 8005e1c485b9ce2e19e134a12206058ef54a5a8b
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -195,6 +195,10 @@ Da un grafico di metriche è possibile fare clic sull'icona di Analytics per pas
     Se si desidera impostare filtri diversi nei vari grafici, creare grafici in diversi pannelli e salvarli come Preferiti separati. Se si desidera, è possibile impostarli sul dashboard in modo da visualizzarli uno accanto all'altro.
 * Se si raggruppa un grafico per una proprietà non definita sulla metrica, il grafico sarà vuoto. Provare a lasciare il campo "Raggruppa in base a" vuoto o scegliere una proprietà di raggruppamento diversa.
 * I dati sulle prestazioni (CPU, velocità di IO e così via) sono disponibili per servizi Web Java, app desktop di Windows, [app Web IIS se si installa Status Monitor](app-insights-monitor-performance-live-website-now.md) e [servizi cloud di Azure](app-insights-azure.md). I dati non sono disponibili per i siti Web di Azure.
+
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Monitoraggio dell'utilizzo con Application Insights](app-insights-overview-usage.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con OfficeSpace Software | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con OfficeSpace Software | Microsoft Docs'
 description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e OfficeSpace Software.
 services: active-directory
 documentationCenter: na
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 03/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: b8f354b34e1a3a581dd2e41df4b80cbdbcd9a705
-ms.openlocfilehash: 3033df7c69a1c4211c906c6f3bdcd7868dedde13
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: fb61a2d622b0d829a134b6ce5dfef6e9fb44fa1e
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -148,43 +148,31 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     d. Fare clic su **Ok**
 
-6. Nella sezione **Certificato di firma SAML** fare clic su **Crea nuovo certificato**.
-
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_06.png)     
-
-7. Nella finestra di dialogo **Crea nuovo certificato** fare clic sull'icona del calendario e selezionare una **data di scadenza**. Fare quindi clic sul pulsante **Salva**.
-
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_general_300.png)
-
-8. Nella sezione **Certificato di firma SAML** selezionare **Rendi attivo il certificato nuovo** e fare clic sul pulsante **Salva**.
-
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_07.png)
-
-9. Nella finestra popup **Certificato di rollover** fare clic su **OK**.
-
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_general_400.png)
-
-10. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
+6. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_08.png) 
 
-11. Nella sezione **Configurazione di OfficeSpace Software** fare clic su **Configura OfficeSpace Software** per aprire la finestra **Configura accesso**.
+7. Fare clic su **Salva**.
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_general_400.png)
+
+8. Nella sezione **Configurazione di OfficeSpace Software** fare clic su **Configura OfficeSpace Software** per aprire la finestra **Configura accesso**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_09.png) 
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_10.png)
 
-12. In un'altra finestra del browser Web accedere al tenant di OfficeSpace Software come amministratore.
+9. In un'altra finestra del browser Web accedere al tenant di OfficeSpace Software come amministratore.
 
-13. Passare a **Impostazioni** e fare clic su **Connettori**.
+10. Passare a **Impostazioni** e fare clic su **Connettori**.
 
     ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_002.png)
 
-14. Fare clic su **Autorizzazione SAML**.
+11. Fare clic su **Autenticazione SAML**.
 
     ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_003.png)
 
-15. Nella sezione **Autorizzazione SAML** eseguire la procedura seguente:
+12. Nella sezione **SAML Authentication** seguire questa procedura:
 
     ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_004.png)
 
@@ -219,7 +207,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
  
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-officespace-tutorial/create_aaduser_03.png) 
 
-4. Nella pagina della finestra di dialogo **Utente** eseguire la procedura seguente:
+4. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
  
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-officespace-tutorial/create_aaduser_04.png) 
 

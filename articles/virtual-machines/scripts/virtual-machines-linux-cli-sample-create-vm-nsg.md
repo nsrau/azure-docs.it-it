@@ -1,5 +1,5 @@
 ---
-title: Script dell&quot;interfaccia della riga di comando Azure di esempio - Creare due macchine virtuali con NSG interno ed esterno | Documentazione Microsoft
+title: Script dell&quot;interfaccia della riga di comando Azure di esempio - Creare due macchine virtuali con NSG interno ed esterno | Microsoft Docs
 description: Script dell&quot;interfaccia della riga di comando Azure di esempio - Creare due macchine virtuali con NSG interno ed esterno
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: a172d73732354d31d717d8e2f3a5c5c43cbbd6dc
-ms.openlocfilehash: 864c59488ef68a2da04bb9bedacf24dff4f59a25
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 8584bdfc8171eaf4bd95c62166938e8086996721
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/01/2017
 
 Questo script crea due macchine virtuali e protegge il traffico in ingresso su entrambe le macchine. Una macchina virtuale è accessibile su Internet e dispone di un gruppo di sicurezza di rete (NSG) configurato per consentire il traffico sulle porte 22 e 80. La seconda macchina virtuale non è accessibile su Internet e dispone di un NSG configurato per consentire solo il traffico proveniente dalla prima macchina virtuale. 
 
-Prima di eseguire questo script, verificare che sia stata creata una connessione con Azure tramite il comando `az login`.
+Se necessario, installare l'interfaccia della riga di comando di Azure usando l'istruzione presente nella [Guida all'installazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e quindi eseguire `az login` per creare una connessione con Azure.
 
 Questo esempio funziona in una shell Bash. Per le opzioni sull'esecuzione di script dell'interfaccia della riga di comando di Azure nel client Windows, vedere [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md) (Esecuzione dell'interfaccia della riga di comando di Azure in Windows).
 
@@ -36,7 +36,7 @@ Questo esempio funziona in una shell Bash. Per le opzioni sull'esecuzione di scr
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
 
-Dopo l'esecuzione dello script di esempio, eseguire il comando seguente per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
+Eseguire questo comando per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
 
 ```azurecli
 az group delete --name myResourceGroup
@@ -53,7 +53,7 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, la macchin
 | [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#create) | Consente di creare una subnet. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | Consente di creare la macchina virtuale e la connette alla scheda di rete, alla rete virtuale, alla subnet e al gruppo di sicurezza di rete. Questo comando specifica anche l'immagine della macchina virtuale da usare e le credenziali di amministrazione.  |
 | [az network nsg rule list](https://docs.microsoft.com/cli/azure/network/nsg/rule#list) | Restituisce informazioni sulla regola del gruppo di sicurezza di rete. In questo esempio, il nome della regola è archiviato in una variabile da usare successivamente nello script. |
-| [az network nsg rule update](https://docs.microsoft.com/cli/azure/network/nsg/rule#update) | Consente di aggiornare una regola NSG. In questo esempio, la regola di back-end viene aggiornata perché il traffico attraversi solo la subnet front-end. |
+| [az network nsg rule update](https://docs.microsoft.com/cli/azure/network/nsg/rule#update) | Consente di aggiornare una regola NSG. In questo esempio la regola di back-end viene aggiornata affinché il traffico passi solo attraverso la subnet front-end. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi

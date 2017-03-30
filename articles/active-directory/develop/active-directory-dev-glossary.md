@@ -1,5 +1,5 @@
 ---
-title: Glossario per gli sviluppatori di Azure Active Directory | Documentazione Microsoft
+title: Glossario per gli sviluppatori di Azure Active Directory | Microsoft Docs
 description: "Elenco di termini relativi ai concetti e alle funzionalità per sviluppatori di uso comune di Azure Active Directory."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2016
+ms.date: 03/20/2017
 ms.author: bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 186541bee40ada7fc9e6be31d6b989e9bd34e0d1
-ms.openlocfilehash: acc585d139e91b4954658fb061587a69e701bbe2
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 1d65d5292d51c58b92f68dd469bf1eb0ccdc47ca
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -86,7 +87,7 @@ In base alla definizione del [framework di autorizzazione di OAuth2][OAuth2-Role
 Un'applicazione client richiede l'[autorizzazione](#authorization) da un proprietario delle risorse a partecipare a un flusso di [concessione di autorizzazione OAuth2](#authorization-grant) e può accedere alle API e ai dati per conto del proprietario delle risorse. Il framework di autorizzazione di OAuth2 [definisce due tipi di client][OAuth2-Client-Types], "riservato" e "pubblico", in base alla possibilità di mantenere riservate le proprie credenziali. Le applicazioni possono implementare un [client Web (riservato)](#web-client) eseguito in un server Web, un [client nativo (pubblico)](#native-client) installato in un dispositivo o un [client basato su agente utente (pubblico)](#user-agent-based-client) eseguito nel browser di un dispositivo.
 
 ## <a name="consent"></a>consenso
-Processo con cui un [proprietario delle risorse](#resource-owner) concede l'autorizzazione a un'[applicazione client](#client-application), con specifiche [autorizzazioni](#permissions) ad accedere alle risorse protette per conto del proprietario delle risorse. A seconda delle autorizzazioni richieste dal client, verrà chiesto a un amministratore o a un utente di dare il consenso per permettere l'accesso, rispettivamente, ai dati dell'organizzazione o individuali. Si noti che in uno scenario [multi-tenant](#multi-tenant-application), l'[entità servizio](#service-principal-object) dell'applicazione viene registrata anche nel tenant dell'utente che dà il consenso.
+Processo secondo cui un [proprietario di risorse](#resource-owner) concede l'autorizzazione a un'[applicazione client](#client-application) per accedere a risorse protette con specifiche [autorizzazioni](#permissions) per conto del proprietario delle risorse. A seconda delle autorizzazioni richieste dal client, verrà chiesto a un amministratore o a un utente di dare il consenso per permettere l'accesso, rispettivamente, ai dati dell'organizzazione o individuali. Si noti che in uno scenario [multi-tenant](#multi-tenant-application), l'[entità servizio](#service-principal-object) dell'applicazione viene registrata anche nel tenant dell'utente che dà il consenso.
 
 ## <a name="id-token"></a>token ID
 [Token di sicurezza] [OpenID ConnectOpenIDConnect-ID-Token][](#security-token) fornito dall'[endpoint di autorizzazione](#authorization-server) di un [server di autorizzazione](#authorization-endpoint) che contiene [attestazioni](#claim) relative all'autenticazione di un [proprietario delle risorse](#resource-owner) utente finale. Così come i token di accesso, i token ID sono rappresentati anche come [token JSON Web (token JWT)][JWT] con firma digitale. A differenza di un token di accesso, tuttavia, le attestazioni di un token ID non vengono usate per scopi correlati all'accesso alle risorse e specificamente al controllo di accesso.
@@ -94,7 +95,7 @@ Processo con cui un [proprietario delle risorse](#resource-owner) concede l'auto
 Per altri dettagli, vedere [Informazioni di riferimento sui token in Azure AD][AAD-Tokens-Claims].
 
 ## <a name="multi-tenant-application"></a>applicazione multi-tenant
-Classe di [applicazione client](#client-application) che consente l'accesso e il [consenso](#consent) da utenti di cui è stato effettuato il provisioning in qualsiasi [tenant](#tenant) di Azure AD, anche se diverso da quello in cui il client è stato registrato. Un'applicazione registrata come a tenant singolo, invece, consentirà accessi solo da account utente con provisioning nello stesso tenant in cui l'applicazione è stata registrata. Le applicazioni [client native](#native-client) sono multi-tenant per impostazione predefinita, mentre le applicazioni [client Web](#web-client) possono scegliere tra tenant singolo e multi-tenant.
+Classe di applicazione che consente l'accesso e il [consenso](#consent) da utenti di cui è stato eseguito il provisioning in un qualsiasi [tenant](#tenant) di Azure AD, anche se diverso da quello in cui il client è registrato. Le applicazioni [cliente native](#native-client) sono multi-tenant per impostazione predefinita, mentre le applicazioni [client Web](#web-client) e [API/risorse Web](#resource-server) possono essere a tenant singolo o multi-tenant. Un'applicazione Web registrata come a tenant singolo, invece, consentirà accessi solo da account utente con provisioning nello stesso tenant in cui l'applicazione è stata registrata.
 
 Per altri dettagli, vedere [Come consentire l'accesso a qualsiasi utente di Azure Active Directory (AD) usando il modello di applicazione multi-tenant][AAD-Multi-Tenant-Overview].
 
@@ -104,12 +105,12 @@ Tipo di [applicazione client](#client-application) che è installato in modo nat
 ## <a name="permissions"></a>autorizzazioni
 Un'[applicazione client](#client-application) ottiene l'accesso a un [server di risorse](#resource-server) dichiarando richieste di autorizzazione. Sono disponibili due tipi:
 
-* Autorizzazioni "delegate", che richiedono l'accesso [in base all'ambito](#scopes) con autorizzazione delegata dal [proprietario delle risorse](#resource-owner) connesso e vengono presentate alla risorsa in fase di esecuzione sotto forma di [attestazioni "scp"](#claim) nel [token di accesso](#access-token) del client.
-* Autorizzazioni "applicazione", che richiedono l'accesso [in base al ruolo](#roles) con credenziali/identità dell'applicazione client e vengono presentate alla risorsa in fase di esecuzione sotto forma di [attestazioni "roles"](#claim) nel token di accesso del client.
+* Le autorizzazioni "delegate", che richiedono l'accesso [in base all'ambito](#scopes) con autorizzazione delegata dal [proprietario delle risorse](#resource-owner) connesso, vengono presentate alla risorsa in fase di esecuzione sotto forma di [attestazioni "scp"](#claim) nel [token di accesso](#access-token) del client.
+* Le autorizzazioni "applicazione", che richiedono l'accesso [in base al ruolo](#roles) con credenziali/identità dell'applicazione client, vengono presentate alla risorsa in fase di esecuzione sotto forma di [attestazioni "roles"](#claim) nel token di accesso del client.
 
 Vengono presentate anche durante il processo di [consenso](#consent) per offrire all'amministratore o al proprietario delle risorse l'opportunità di concedere/negare l'accesso client alle risorse nel tenant.
 
-Le richieste di autorizzazione vengono configurate nella scheda "Applicazioni"/"Impostazioni" del [portale di Azure][AZURE-portal] in "Autorizzazioni richieste", selezionando le "Autorizzazioni delegate" e le "Autorizzazioni applicazione" desiderate (per il secondo tipo è necessario essere membri del ruolo Global Admin). Un [client pubblico](#client-application) non può gestire le credenziali e può quindi solo richiedere autorizzazioni delegate, mentre un [client riservato](#client-application) può richiedere autorizzazioni sia delegate che applicazione. Le autorizzazioni dichiarate vengono archiviate dall'[oggetto applicazione](#application-object) del client nella proprietà [requiredResourceAccess][AAD-Graph-App-Entity].
+Le richieste di autorizzazione vengono configurate nella scheda "Applicazioni"/"Impostazioni" del [portale di Azure][AZURE-portal] in "Autorizzazioni richieste", selezionando le "Autorizzazioni delegate" e le "Autorizzazioni applicazione" desiderate (per il secondo tipo è necessario essere membri del ruolo Global Admin). Dal momento che un [client pubblico](#client-application) non può gestire le credenziali in modo sicuro, può solo richiedere autorizzazioni delegate, mentre un [client riservato](#client-application) può richiedere autorizzazioni sia delegate che applicazione. Le autorizzazioni dichiarate vengono archiviate dall'[oggetto applicazione](#application-object) del client nella proprietà [requiredResourceAccess][AAD-Graph-App-Entity].
 
 ## <a name="resource-owner"></a>proprietario delle risorse
 In base alla definizione del [framework di autorizzazione di OAuth2][OAuth2-Role-Def], entità che può concedere l'accesso a una risorsa protetta. Quando il proprietario delle risorse è una persona, è definito utente finale. Quando un'[applicazione client](#client-application) vuole accedere alla cassetta postale di un utente tramite l'[API Microsoft Graph][Microsoft-Graph], ad esempio, richiede l'autorizzazione dal proprietario della risorsa della cassetta postale.
@@ -175,7 +176,7 @@ Tipo di [applicazione client](#client-application) che esegue tutto il codice su
 ## <a name="next-steps"></a>Passaggi successivi
 La [Guida per gli sviluppatori di Azure Active Directory][AAD-Dev-Guide] offre un portale da usare per tutti gli argomenti relativi allo sviluppo per Azure AD, ad esempio per una panoramica dell'[integrazione di applicazioni][AAD-How-To-Integrate] e le nozioni di base sull'[autenticazione in Azure AD e gli scenari di autenticazione supportati][AAD-Auth-Scenarios].
 
-La sezione dei commenti Disqus di seguito consente di fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.
+Usare la seguente sezione commenti per fornire commenti e suggerimenti per aiutarci a perfezionare e a definire il contenuto del glossario, incluse le richieste di nuove definizioni o l'aggiornamento di quelle esistenti.
 
 <!--Image references-->
 
@@ -208,9 +209,4 @@ La sezione dei commenti Disqus di seguito consente di fornire commenti e suggeri
 [OpenIDConnect]: http://openid.net/specs/openid-connect-core-1_0.html
 [OpenIDConnect-AuthZ-Endpoint]: http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
 [OpenIDConnect-ID-Token]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

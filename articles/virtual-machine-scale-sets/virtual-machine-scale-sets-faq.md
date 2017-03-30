@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/08/2017
+ms.date: 3/17/2017
 ms.author: negat
 ms.custom: na
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 8d0adfb995ecfb56ff33814e462a88f3d1102d58
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 850459a79c723de0eb3249cfe9ea19bc988ca318
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -467,7 +467,7 @@ Per questo scenario è necessario configurare impostazioni protette con la chiav
 Vedere: https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/ 
  
   
-### <a name="what-is-the-resourceguid-property-on-a-nic-for-its-not-documented-here"></a>A cosa serve la proprietà resourceGuid in una scheda di interfaccia di rete? Non è illustrato qui.
+### <a name="what-is-the-resourceguid-property-on-a-nic-for"></a>A cosa serve la proprietà resourceGuid in una scheda di interfaccia di rete?
 
 Si tratta di un ID univoco. I livelli inferiori registreranno questo ID in futuro. 
  
@@ -481,6 +481,9 @@ Il metodo di allocazione degli indirizzi IP del set di scalabilità è sempre "D
 
 Vedere https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-existing-vnet 
 
+### <a name="how-do-i-add-a-scale-sets-first-vms-ip-address-to-the-output-of-a-template"></a>Come aggiungere un indirizzo IP della prima macchina virtuale del set di scalabilità all'output di un modello?
+
+Vedere: http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips
 
 
 

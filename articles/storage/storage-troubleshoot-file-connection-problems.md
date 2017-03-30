@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 62d2cd990bff4ffc982eef507ad69c68c00a65ab
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 7f719fb38709f4bb7083b7f21a5979f7e0588d0f
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -47,7 +47,7 @@ Questo articolo elenca i problemi comuni correlati all'archiviazione file di Mic
 * [Errore di I/O intermittente: "Host is down (Error 112)" (Host inattivo - Errore 112) su condivisioni file esistenti o blocco della shell quando si eseguono comandi list sul punto di montaggio](#errorhold)
 * [Errore di montaggio 115 quando si tenta di montare File di Azure sulla macchina virtuale Linux](#error15)
 * [Nella condivisione file di Azure montata nella macchina virtuale Linux viene riscontrato un rallentamento delle prestazioni](#delayproblem)
-
+* [Errore di montaggio (11): risorsa temporaneamente non disponibile quando si esegue il montaggio sul kernel di Ubuntu 4.8 o versione successiva](#ubuntumounterror)
 
 <a id="quotaerror"></a>
 
@@ -235,7 +235,7 @@ Questo problema di riconnessione nel kernel Linux è stato corretto come parte d
 
 * [CIFS: Fix a possible memory corruption during reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b) (CIFS: correggere un possibile danneggiamento della memoria dopo la riconnessione)
 
-* [CIFS: Fix a possible double locking of mutex during reconnect - for kernels v4.9 and higher](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183) (CIFS: Correggere un possibile doppio blocco del mutex durante la riconnessione, per i kernel&4;.9 e versioni successive) 
+* [CIFS: Fix a possible double locking of mutex during reconnect - for kernels v4.9 and higher](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183) (CIFS: Correggere un possibile doppio blocco del mutex durante la riconnessione, per i kernel 4.9 e versioni successive) 
 
 È tuttavia possibile che queste modifiche non siano state ancora applicate a tutte le distribuzioni di Linux. Questo è l'elenco dei kernel Linux più diffusi a cui sono state applicate queste e altre correzioni di riconnessione: 4.4.40+ 4.8.16+ 4.9.1+.
 È possibile passare alle versioni del kernel consigliate sopra per usare le correzioni più recenti.
@@ -271,6 +271,14 @@ dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=10
 
 Se le opzioni cache=strict o serverino non sono presenti, smontare e montare nuovamente i file di Azure eseguendo il comando mount, come indicato nella [documentazione](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share), e verificare nuovamente la presenza di opzioni corrette nella voce "/etc/fstab".
 
+<a id="ubuntumounterror"></a>
+## <a name="mount-error11-resource-temporarily-unavailable-when-mounting-to-ubuntu-48-kernel"></a>Errore di montaggio (11): risorsa temporaneamente non disponibile quando si esegue il montaggio sul kernel di Ubuntu 4.8 o versione successiva
+
+### <a name="cause"></a>Causa
+Problema noto nel kernel di Ubuntu 16.10 (v. 4.8) in cui il client dichiara di supportare la crittografia, ma in realtà non è così. 
+
+### <a name="solution"></a>Soluzione
+Fino a quando il problema non verrà risolto in Ubuntu 16.10, specificare l'opzione di montaggio "vers=2.1" oppure usare Ubuntu 16.04.
 ## <a name="learn-more"></a>Altre informazioni
 * [Introduzione ad Archiviazione file di Azure in Windows](storage-dotnet-how-to-use-files.md)
 * [Introduzione all'archiviazione file di Azure in Linux](storage-how-to-use-files-linux.md)
