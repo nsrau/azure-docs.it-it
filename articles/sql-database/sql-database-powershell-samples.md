@@ -17,9 +17,9 @@ ms.workload: database
 ms.date: 03/07/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: abcccabbfc56102c97ef2408fb812755e21b467c
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 8057747aea2725abf3b37481858c7902ff8fe4da
+ms.lasthandoff: 03/30/2017
 
 ---
 
@@ -30,19 +30,19 @@ La tabella seguente include collegamenti a esempi di script di Azure PowerShell 
 | |  |
 |---|---|
 |**Creare un database singolo e un pool elastico**||
-| [Creare un database singolo e configurare una regola del firewall](scripts/sql-database-create-and-configure-database-powershell.md) | Crea un database SQL di Azure singolo e configura una regola del firewall a livello di server. |
-| [Creare pool elastici e spostare i database in pool](scripts/sql-database-move-database-between-pools-powershell.md) | Crea pool elastici, sposta i database in pool e modifica i livelli di prestazioni.|
+| [Creare un database singolo e configurare una regola del firewall](scripts/sql-database-create-and-configure-database-powershell.md?toc=%2fpowershell%2ftoc.json) | Crea un database SQL di Azure singolo e configura una regola del firewall a livello di server. |
+| [Creare pool elastici e spostare i database in pool](scripts/sql-database-move-database-between-pools-powershell.md?toc=%2fpowershell%2ftoc.json) | Crea pool elastici, sposta i database in pool e modifica i livelli di prestazioni.|
 |**Configurare la replica geografica ed eseguire il failover**||
-| [Configurare un database singolo ed eseguirne il failover usando la replica geografica attiva](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)| Configura la replica geografica attiva per un database SQL di Azure singolo e ne esegue il failover nella replica secondaria. |
-| [Configurare un database in pool ed eseguirne il failover usando la replica geografica attiva](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)| Configura la replica geografica attiva per un database SQL di Azure in un pool elastico e ne esegue il failover nella replica secondaria. |
+| [Configurare un database singolo ed eseguirne il failover usando la replica geografica attiva](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2ftoc.json)| Configura la replica geografica attiva per un database SQL di Azure singolo e ne esegue il failover nella replica secondaria. |
+| [Configurare un database in pool ed eseguirne il failover usando la replica geografica attiva](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2ftoc.json)| Configura la replica geografica attiva per un database SQL di Azure in un pool elastico e ne esegue il failover nella replica secondaria. |
 |**Ridimensionare un database singolo e un pool elastico**||
-| [Ridimensionare un database singolo](scripts/sql-database-monitor-and-scale-database-powershell.md) | Consente di monitorare le metriche delle prestazioni di un database SQL di Azure, ne aumenta le prestazioni a un livello superiore e crea una regola di avviso per una delle metriche delle prestazioni. |
-| [Ridimensionare un pool elastico](scripts/sql-database-monitor-and-scale-pool-powershell.md) | Consente di monitorare le metriche delle prestazioni di un pool elastico, ne aumenta le prestazioni a un livello superiore e crea una regola di avviso per una delle metriche delle prestazioni.  |
+| [Ridimensionare un database singolo](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2ftoc.json) | Consente di monitorare le metriche delle prestazioni di un database SQL di Azure, ne aumenta le prestazioni a un livello superiore e crea una regola di avviso per una delle metriche delle prestazioni. |
+| [Ridimensionare un pool elastico](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2ftoc.json) | Consente di monitorare le metriche delle prestazioni di un pool elastico, ne aumenta le prestazioni a un livello superiore e crea una regola di avviso per una delle metriche delle prestazioni.  |
 | **Controllo e rilevamento delle minacce** |
-| [Configurare il controllo e il rilevamento delle minacce](scripts/sql-database-auditing-and-threat-detection-powershell.md)| Configura i criteri di controllo e rilevamento delle minacce per un database SQL di Azure. |
+| [Configurare il controllo e il rilevamento delle minacce](scripts/sql-database-auditing-and-threat-detection-powershell.md?toc=%2fpowershell%2ftoc.json)| Configura i criteri di controllo e rilevamento delle minacce per un database SQL di Azure. |
 | **Ripristinare, copiare e importare un database**||
-| [Ripristinare un database](scripts/sql-database-restore-database-powershell.md)| Ripristina un database SQL di Azure da un backup con ridondanza geografica e ripristina un database SQL di Azure eliminato in base al backup più recente. |
-| [Copiare un database in un nuovo server](scripts/sql-database-copy-database-to-new-server-powershell.md)| Crea una copia di un database SQL di Azure esistente in un nuovo server SQL di Azure. |
-| [Importare un database da un file BACPAC](scripts/sql-database-import-from-bacpac-powershell.md)| Importa un database in un server SQL di Azure da un file BACPAC. |
+| [Ripristinare un database](scripts/sql-database-restore-database-powershell.md?toc=%2fpowershell%2ftoc.json)| Ripristina un database SQL di Azure da un backup con ridondanza geografica e ripristina un database SQL di Azure eliminato in base al backup più recente. |
+| [Copiare un database in un nuovo server](scripts/sql-database-copy-database-to-new-server-powershell.md?toc=%2fpowershell%2ftoc.json)| Crea una copia di un database SQL di Azure esistente in un nuovo server SQL di Azure. |
+| [Importare un database da un file BACPAC](scripts/sql-database-import-from-bacpac-powershell.md?toc=%2fpowershell%2ftoc.json)| Importa un database in un server SQL di Azure da un file BACPAC. |
 |||
 

@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 26eac30a08db2e224f9e9018817a18c3a4405b7f
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: bd3aea04266baebbba1b953d5a2b7c4b2fb41a87
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -33,7 +33,7 @@ La replica geografica attiva consente di configurare fino a quattro database sec
 
 Se per qualsiasi motivo il database primario restituisce un errore o deve essere portato offline, è possibile *eseguire il failover* in uno dei database secondari. Una volta attivato il failover su uno dei database secondari, tutti gli altri database secondari vengono automaticamente collegati al nuovo database primario.
 
-È possibile eseguire il failover su un database secondario tramite il [portale di Azure](sql-database-geo-replication-failover-portal.md), [PowerShell](sql-database-geo-replication-failover-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), [API REST, Failover pianificato](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx) o [API REST, Failover non pianificato](https://msdn.microsoft.com/library/azure/mt582027.aspx).
+È possibile eseguire il failover su un database secondario tramite il [portale di Azure](sql-database-geo-replication-failover-portal.md), [PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), [API REST, Failover pianificato](https://msdn.microsoft.com/library/mt575007.aspx) o [API REST, Failover non pianificato](https://msdn.microsoft.com/library/mt582027.aspx).
 
 Dopo il failover, verificare che nel nuovo database primario siano configurati i requisiti di autenticazione relativi al server e al database. Per tutti i dettagli, vedere l'articolo sulla [sicurezza del database SQL di Azure dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md).
 
@@ -107,10 +107,10 @@ Come indicato in precedenza, la replica geografica attiva può essere gestita a 
 ### <a name="powershell"></a>PowerShell
 | Cmdlet | Descrizione |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/en-us/library/azure/mt603648.aspx) |Ottiene uno o più database. |
+| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt603648.aspx) |Ottiene uno o più database. |
 | [New-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) |Crea un database secondario per un database esistente e avvia la replica dei dati. |
-| [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/en-us/library/mt619393.aspx) |Consente di passare un database secondario al ruolo di database primario per avviare il failover. |
-| [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/en-us/library/mt603457.aspx) |Termina la replica dei dati tra un database SQL e il database secondario specificato. |
+| [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx) |Consente di passare un database secondario al ruolo di database primario per avviare il failover. |
+| [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) |Termina la replica dei dati tra un database SQL e il database secondario specificato. |
 | [Get-AzureRmSqlDatabaseReplicationLink](https://msdn.microsoft.com/library/mt619330.aspx) |Ottiene i collegamenti di replica geografica tra un database di SQL Azure e un gruppo di risorse o SQL Server. |
 |  | |
 
@@ -119,7 +119,7 @@ Come indicato in precedenza, la replica geografica attiva può essere gestita a 
 | --- | --- |
 | [Creare o aggiornare database (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx) |Crea, aggiorna o ripristina un database primario o secondario. |
 | [Get Create or Update Database Status](https://msdn.microsoft.com/library/azure/mt643934.aspx) |Restituisce lo stato durante un'operazione di creazione. |
-| [Impostazione del database secondario come primario (failover pianificato)](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx) |Innalza di livello un database secondario in una relazione di replica geografica in modo che diventi il nuovo database primario. |
+| [Impostazione del database secondario come primario (failover pianificato)](https://msdn.microsoft.com/library/azure/mt575007.aspx) |Innalza di livello un database secondario in una relazione di replica geografica in modo che diventi il nuovo database primario. |
 | [Set Secondary Database as Primary (Unplanned Failover)](https://msdn.microsoft.com/library/azure/mt582027.aspx) |Per forzare un failover nel database secondario e impostare il database secondario come database primario. |
 | [Get Replication Links](https://msdn.microsoft.com/library/azure/mt600929.aspx) |Ottiene tutti i collegamenti di replica per un database SQL specificato in una relazione di replica geografica. Recupera le informazioni visibili nella vista del catalogo sys.geo_replication_links. |
 | [Get Replication Link](https://msdn.microsoft.com/library/azure/mt600778.aspx) |Ottiene tutti i collegamenti di replica specifici per un database SQL specificato in una relazione di replica geografica. Recupera le informazioni visibili nella vista del catalogo sys.geo_replication_links. |

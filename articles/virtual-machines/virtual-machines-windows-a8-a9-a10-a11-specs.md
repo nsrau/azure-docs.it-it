@@ -17,9 +17,9 @@ ms.date: 03/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 32045a9b6be130dca4680b1990808d2b22be4432
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 1ab628ff6e7e8ed23c2c3b733907500dc6d4dde7
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -53,18 +53,18 @@ Per accedere alla rete RDMA per il traffico MPI di Windows MPI, le istanze con s
   ```PowerShell
   Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
-  Per altre informazioni, vedere [Estensioni e funzionalità della macchina virtuale](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). È anche possibile usare estensioni delle macchine virtuali nel [modello di distribuzione classico](virtual-machines-windows-classic-manage-extensions.md).
+  Per altre informazioni, vedere [Estensioni e funzionalità della macchina virtuale](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). È anche possibile usare estensioni delle macchine virtuali nel [modello di distribuzione classico](windows/classic/manage-extensions.md).
 
 
 ## <a name="considerations-for-hpc-pack-and-windows"></a>Considerazioni per HPC Pack e Windows
 [Microsoft HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), la soluzione Microsoft gratuita per la gestione di cluster e processi, non è necessaria per l'uso di istanze a elevato utilizzo di calcolo con Windows Server. Rappresenta tuttavia un'opzione per creare un cluster di elaborazione in Azure per l'esecuzione di applicazioni MPI basate su Windows e altri carichi di lavoro HPC. HPC Pack 2012 R2 e versioni successive include un ambiente di runtime per MS-MPI che può usare la rete RDMA di Azure quando viene distribuito in macchine virtuali con supporto per RDMA.
 
-Per altre informazioni ed elenchi di controllo per usare le istanze a elevato utilizzo di calcolo con HPC Pack in Windows Server, vedere [Configurare un cluster di Windows RDMA con HPC Pack per eseguire applicazioni MPI](virtual-machines-windows-classic-hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Per altre informazioni ed elenchi di controllo per usare le istanze a elevato utilizzo di calcolo con HPC Pack in Windows Server, vedere [Configurare un cluster di Windows RDMA con HPC Pack per eseguire applicazioni MPI](windows/classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per informazioni dettagliate sulla disponibilità e i prezzi delle dimensioni a elevato uso di calcolo, vedere [Prezzi di macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows) e [Prezzi di servizi cloud](https://azure.microsoft.com/pricing/details/cloud-services/).
 * Per informazioni sulle funzionalità di archiviazione e dettagli relativi ai dischi, vedere [Dimensioni delle macchine virtuali in Azure](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Per iniziare a distribuire e usare istanze a elevato utilizzo di calcolo con HPC Pack in Windows, vedere [Configurare un cluster RDMA di Windows con HPC Pack per eseguire applicazioni MPI](virtual-machines-windows-classic-hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* Per iniziare a distribuire e usare istanze a elevato utilizzo di calcolo con HPC Pack in Windows, vedere [Configurare un cluster RDMA di Windows con HPC Pack per eseguire applicazioni MPI](windows/classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Per informazioni sull'utilizzo di istanze a elevato uso di calcolo per eseguire applicazioni MPI con Azure Batch, vedere [Usare le attività a istanze multiple per eseguire applicazioni MPI (Message Passing Interface) in Azure Batch](../batch/batch-mpi.md).
 
 

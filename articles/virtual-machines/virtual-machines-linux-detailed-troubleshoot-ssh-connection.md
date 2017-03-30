@@ -17,9 +17,9 @@ ms.topic: support-article
 ms.date: 03/07/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2df9b83132711e199b58fa92841a3dca74c7282a
-ms.openlocfilehash: 0164ad801b11a6c6124df8106bd7b71b737f81f1
-ms.lasthandoff: 11/30/2016
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 81f73e6c1c4fa48c0235cb497fa9e15b0c92a668
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -120,7 +120,7 @@ Se è possibile creare una connessione SSH con una macchina virtuale presente ne
 * **La configurazione dell'endpoint per il traffico SSH sulla macchina virtuale di destinazione.** La porta TCP privata dell'endpoint dovrebbe corrispondere alla porta TCP su cui è in ascolto il servizio SSH nella macchina virtuale (per impostazione predefinita è la porta 22). Per le macchine virtuali create con il modello di distribuzione Resource Manager, verificare il numero di porta TCP SSH nel portale di Azure selezionando **Macchine virtuali** > *Nome macchina virtuale* > **Impostazioni** > **Endpoint**.
 * **L'ACL relativa all'endpoint per il traffico SSH sulla macchina virtuale di destinazione.** Gli ACL consentono di specificare il traffico in ingresso da Internet consentito o negato in base al relativo indirizzo IP di origine. ACL configurati in modo errato possono impedire il traffico SSH in ingresso nell'endpoint. Verificare gli ACL per assicurarsi che il traffico in ingresso dagli indirizzi IP pubblici del proxy o da altri server periferici sia consentito. Per altre informazioni, vedere [Informazioni sugli elenchi di controllo di accesso (ACL) di rete](../virtual-network/virtual-networks-acl.md).
 
-Per escludere l'endpoint come origine del problema, rimuovere l'endpoint corrente, creare un nuovo endpoint e specificare il nome SSH (porta TCP 22 per il numero di porta pubblica e privata). Per altre informazioni, vedere [Configurare endpoint in una macchina virtuale in Azure](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Per escludere l'endpoint come origine del problema, rimuovere l'endpoint corrente, creare un nuovo endpoint e specificare il nome SSH (porta TCP 22 per il numero di porta pubblica e privata). Per altre informazioni, vedere [Configurare endpoint in una macchina virtuale in Azure](windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 <a id="nsg"></a>
 
@@ -133,7 +133,7 @@ L'ultima origine di possibili problemi corrisponde alla stessa macchina virtuale
 
 ![Diagramma che evidenzia la macchina virtuale di Azure basata su Linux](./media/virtual-machines-linux-detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)
 
-Se ancora non è stato fatto, seguire le istruzioni [per reimpostare la password o l'SSH per le macchine virtuali basate su Linux](virtual-machines-linux-classic-reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Se ancora non è stato fatto, seguire le istruzioni [per reimpostare la password o l'SSH per le macchine virtuali basate su Linux](linux/classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 Provare nuovamente la connessione dal computer. Se ancora non riesce, alcuni dei problemi possibili sono:
 

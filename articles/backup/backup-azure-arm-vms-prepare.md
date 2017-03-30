@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 2/7/2017
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 27d8da9df87dc5e93272be0bb6584e90971fb461
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: c059d39840ae268da647cffd2bfcb937f006356a
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -175,7 +175,7 @@ Dopo avere abilitato correttamente il backup, il criterio di backup verrà esegu
 In caso di problemi con la registrazione della macchina virtuale, vedere le informazioni seguenti sull'installazione dell'agente di macchine virtuali e sulla connettività di rete. Probabilmente le informazioni seguenti non sono necessarie se si stanno proteggendo macchine virtuali create in Azure. Tuttavia, se è stata eseguita la migrazione delle macchine virtuali in Azure, assicurarsi di avere installato correttamente l'agente di macchine virtuali e che la macchina virtuale sia in grado di comunicare con la rete virtuale.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Installare l'agente di macchine virtuali nella macchina virtuale
-Per il funzionamento dell'estensione di backup, l'agente di macchine virtuali deve essere installato nella macchina virtuale di Azure. Se la macchina virtuale è stata creata dalla raccolta di Azure, l'agente di macchine virtuali è già installato. Queste informazioni riguardano le situazioni in cui *non* si usa una macchina virtuale creata dalla raccolta di Azure, ad esempio una macchina virtuale di cui è stata eseguita la migrazione da un data center locale. In tal caso, è necessario installare l'agente di macchine virtuali per proteggerla. Informazioni sull'[agente di macchine virtuali](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md#azure-vm-agents-for-windows-and-linux).
+Per il funzionamento dell'estensione di backup, l'agente di macchine virtuali deve essere installato nella macchina virtuale di Azure. Se la macchina virtuale è stata creata dalla raccolta di Azure, l'agente di macchine virtuali è già installato. Queste informazioni riguardano le situazioni in cui *non* si usa una macchina virtuale creata dalla raccolta di Azure, ad esempio una macchina virtuale di cui è stata eseguita la migrazione da un data center locale. In tal caso, è necessario installare l'agente di macchine virtuali per proteggerla. Informazioni sull'[agente di macchine virtuali](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux).
 
 In caso di problemi con il backup della macchina virtuale di Azure, assicurarsi che l'agente di macchine virtuali di Azure sia installato correttamente nella macchina virtuale. Vedere in proposito la tabella seguente. La tabella seguente fornisce informazioni aggiuntive sull'agente di macchine virtuali per macchine virtuali Windows e Linux.
 

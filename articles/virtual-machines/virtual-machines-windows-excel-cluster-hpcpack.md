@@ -16,8 +16,9 @@ ms.workload: big-compute
 ms.date: 08/25/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 21ec1f15dc7055cdd3b281216abfbac8554abad0
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: c8b8b6af19a347804563b091760b18dfc47aa503
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -91,7 +92,7 @@ Lo script di distribuzione di HPC Pack IaaS offre un altro modo versatile per di
 
 **Creazione del file di configurazione**
 
- Lo script di distribuzione di HPC Pack IaaS usa come input un file di configurazione XML che descrive l'infrastruttura del cluster HPC. Per distribuire un cluster costituito da un nodo head e 18 nodi di calcolo creati dall'immagine del nodo di calcolo che include Microsoft Excel, sostituire i valori per il proprio ambiente nel file di configurazione di esempio riportato di seguito. Per altre informazioni sul file di configurazione, vedere il file Manual.rtf nella cartella dello script e l'articolo relativo alla [creazione di un cluster HPC con lo script di distribuzione IaaS di HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+ Lo script di distribuzione di HPC Pack IaaS usa come input un file di configurazione XML che descrive l'infrastruttura del cluster HPC. Per distribuire un cluster costituito da un nodo head e 18 nodi di calcolo creati dall'immagine del nodo di calcolo che include Microsoft Excel, sostituire i valori per il proprio ambiente nel file di configurazione di esempio riportato di seguito. Per altre informazioni sul file di configurazione, vedere il file Manual.rtf nella cartella dello script e l'articolo relativo alla [creazione di un cluster HPC con lo script di distribuzione IaaS di HPC Pack](windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -355,9 +356,4 @@ L'applicazione client SOA non richiede alcuna modifica, ad eccezione della modif
 [run]: ./media/virtual-machines-windows-excel-cluster-hpcpack/run.png
 [endpoint]: ./media/virtual-machines-windows-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-windows-excel-cluster-hpcpack/udf.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

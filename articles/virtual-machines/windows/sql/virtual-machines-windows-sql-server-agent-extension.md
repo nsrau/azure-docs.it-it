@@ -17,15 +17,15 @@ ms.date: 01/09/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 00832fcabfb3d1f6d9b7b9745335d4154a2caae3
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 56e3b3cd94a1fb7b4d05c06bc652b37d8a57c9e2
+ms.lasthandoff: 03/25/2017
 
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatizzare le attività di gestione in macchine virtuali SQL con l'estensione SQL Server Agent (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Gestione risorse](virtual-machines-windows-sql-server-agent-extension.md)
-> * [Classico](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)
+> * [Classico](../classic/sql-server-agent-extension.md)
 > 
 > 
 
@@ -33,7 +33,7 @@ L'Estensione Agente IaaS di SQL Server (SQLIaaSExtension) viene eseguita su macc
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Per visualizzare la versione classica di questo articolo, vedere [Estensione Agente IaaS di SQL Server (distribuzione classica)](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md).
+Per visualizzare la versione classica di questo articolo, vedere [Estensione Agente IaaS di SQL Server (distribuzione classica)](../classic/sql-server-agent-extension.md).
 
 ## <a name="supported-services"></a>Servizi supportati
 L'Estensione Agente IaaS di SQL Server supporta le attività di amministrazione seguenti:

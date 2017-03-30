@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: carlasab
 translationtype: Human Translation
-ms.sourcegitcommit: b828859cb059e626878b5cb2a2839a76f10de9c9
-ms.openlocfilehash: c40b9cbccba1789e5ee9045d83c39169bb5d2663
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 789e1eabcd284c17c5728156cf185d2ca168f0eb
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -36,7 +36,7 @@ I metodi di migrazione principali sono:
 * Scollegamento e successiva copia dei dati e dei file di log sull’archivio BLOB di Azure, quindi collegamento a SQL Server nella macchina virtuale di Azure dall'URL
 * Conversione della macchina fisica locale a disco rigido virtuale Hyper-V, caricamento sull'archivio BLOB di Azure e successiva distribuzione come nuova macchina virtuale tramite il disco rigido virtuale caricato
 * Spedizione del disco rigido tramite il servizio di Importazione/Esportazione di Windows
-* Se si ha una distribuzione locale di AlwaysOn, uso dell' [aggiunta guidata di una replica di Azure](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) per creare una replica in Azure e quindi eseguire il failover, indirizzando gli utenti all'istanza del database di Azure
+* Se si ha una distribuzione locale di AlwaysOn, uso dell' [aggiunta guidata di una replica di Azure](../classic/sql-onprem-availability.md) per creare una replica in Azure e quindi eseguire il failover, indirizzando gli utenti all'istanza del database di Azure
 * Uso della [replica transazionale](https://msdn.microsoft.com/library/ms151176.aspx) di SQL Server per configurare l'istanza del server SQL di Azure come server di sottoscrizione e quindi disabilitare la replica, indirizzando gli utenti all'istanza del database di Azure
 
 > [!TIP]
@@ -61,7 +61,7 @@ Nella tabella seguente sono elencati tutti i principali metodi di migrazione e v
 | [Scollegamento e successiva copia dei dati e dei file di log sull’archivio BLOB di Azure, quindi collegamento a SQL Server nella macchina virtuale di Azure dall'URL](#detach-and-copy-to-url-and-attach-from-url) |SQL Server 2005 o versione successiva |SQL Server 2014 o versione successiva |[Limite di archiviazione della macchina virtuale di Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Usare questo metodo quando si prevede di [archiviare i file tramite il servizio di archiviazione BLOB di Azure](https://msdn.microsoft.com/library/dn385720.aspx) e di collegarli a SQL Server in esecuzione su una macchina virtuale di Azure, in particolare con database di grandi dimensioni. |
 | [Conversione della macchina locale a dischi rigidi virtuali Hyper-V, caricamento sull'archivio BLOB di Azure e successiva distribuzione di una nuova macchina virtuale tramite il disco rigido virtuale caricato](#convert-to-vm-and-upload-to-url-and-deploy-as-new-vm) |SQL Server 2005 o versione successiva |SQL Server 2005 o versione successiva |[Limite di archiviazione della macchina virtuale di Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Usare per la [propria licenza di SQL Server](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md), per la migrazione di un database che verrà eseguito su una versione precedente di SQL Server o per la migrazione combinata dei database di sistema e utente nell'ambito della migrazione di database dipendenti da altri database utente e/o di sistema. |
 | [Spedizione del disco rigido tramite il servizio di Importazione/Esportazione di Windows](#ship-hard-drive) |SQL Server 2005 o versione successiva |SQL Server 2005 o versione successiva |[Limite di archiviazione della macchina virtuale di Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Usare il [servizio di importazione/esportazione di Windows](../../../storage/storage-import-export-service.md) quando il metodo della copia manuale è troppo lento, ad esempio con database di grandi dimensioni |
-| [Uso della procedura guidata per l'aggiunta della replica di Azure](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) |SQL Server 2012 o versione successiva |SQL Server 2012 o versione successiva |[Limite di archiviazione della macchina virtuale di Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Riduce al minimo il tempo di inattività; da usare quando si ha una distribuzione locale di AlwaysOn |
+| [Uso della procedura guidata per l'aggiunta della replica di Azure](../classic/sql-onprem-availability.md) |SQL Server 2012 o versione successiva |SQL Server 2012 o versione successiva |[Limite di archiviazione della macchina virtuale di Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Riduce al minimo il tempo di inattività; da usare quando si ha una distribuzione locale di AlwaysOn |
 | [Uso della replica transazionale di SQL Server](https://msdn.microsoft.com/library/ms151176.aspx) |SQL Server 2005 o versione successiva |SQL Server 2005 o versione successiva |[Limite di archiviazione della macchina virtuale di Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Da usare quando è necessario ridurre al minimo il tempo di inattività e si ha una distribuzione locale di AlwaysOn |
 
 ## <a name="backup-and-restore"></a>Backup e ripristino

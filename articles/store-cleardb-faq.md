@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: 44bb69c53eb5fea6d3e27f17eb6c690df7684bda
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 5bff7fa34fd8ce14a35018dfd3c13b9ca2019f2e
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -30,7 +31,7 @@ Sono disponibili diverse opzioni:
 * [Database MySQL condiviso ClearDB](/marketplace/partners/cleardb/databases/)
 * [Cluster Premium MySQL ClearDB](/marketplace/partners/cleardb-clusters/cluster/)
 * [Cluster MySQL in esecuzione su una VM di Azure](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
-* [Istanza singola di MySQL in esecuzione su una VM di Azure](virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Istanza singola di MySQL in esecuzione su una VM di Azure](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ClearDB è un servizio di hosting MySQL e gestisce l'infrastruttura di MySQL per l'utente. Quando si esegue il database o il cluster MySQL in una macchina virtuale di Azure, è necessario configurare il server MySQL e mantenerlo aggiornato con le patch.
 
@@ -47,7 +48,7 @@ Questo dipende dal tipo di sottoscrizione in uso. Di seguito sono riportati alcu
 L'opzione predefinita del database è Titan, che ha un costo di $ 3,50. Durante la creazione del database non viene visualizzato il costo e si potrebbe acquistare erroneamente un database che non si voleva acquistare. L'esperienza è in corso di miglioramento, ma finché non è disponibile una soluzione è necessario controllare tutti i piani tariffari selezionati per app Web e database prima di scegliere **Crea** e avviare la distribuzione delle risorse.
 
 ## <a name="i-am-running-mysql-on-my-own-azure-virtual-machine-can-i-connect-my-azure-web-app-to-my-database"></a>Si esegue MySQL sulla propria macchina virtuale di Azure. È possibile connettere la propria app Web di Azure al database?
-Sì. È possibile connettere la propria app Web al database, purché la VM di Azure abbia accesso remoto all'app Web. Per altre informazioni, vedere l'articolo relativo all' [installazione di MySQL in una macchina virtuale](virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Sì. È possibile connettere la propria app Web al database, purché la VM di Azure abbia accesso remoto all'app Web. Per altre informazioni, vedere l'articolo relativo all' [installazione di MySQL in una macchina virtuale](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="in-which-countries-are-cleardb-premium-mysql-clusters-supported"></a>In quali paesi sono supportati i cluster MySQL Premium ClearDB?
 [cluster MySQL Premium ClearDB](/marketplace/partners/cleardb-clusters/cluster/) sono disponibili in tutte le aree di Azure in tutto il mondo a eccezione dell'India, dell'Australia, del Brasile meridionale e della Cina.
@@ -104,10 +105,5 @@ Contattare il [supporto per contratti Enterprise](http://aka.ms/AzureEntSupport)
 
 ## <a name="more-information"></a>Altre informazioni
 [Domande frequenti su Azure Marketplace](/marketplace/faq/)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 
