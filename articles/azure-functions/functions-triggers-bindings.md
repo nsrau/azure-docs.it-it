@@ -1,5 +1,5 @@
 ---
-title: Usare trigger e associazioni in Funzioni di Azure | Documentazione Microsoft
+title: Usare trigger e associazioni in Funzioni di Azure | Microsoft Docs
 description: Informazioni su come usare trigger e associazioni in Funzioni di Azure per connettere l&quot;esecuzione del codice a eventi online e servizi basati su cloud.
 services: functions
 documentationcenter: na
@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: b7ea1e3a72a9dc6f4f9ca9d2d9d6f8c9b1564972
-ms.openlocfilehash: 947f1f5e6d9bebe6708e6d29d3b71efc09573537
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: a56d71d437814ed08b2e0a05d9acc8448f6b9ae5
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -32,7 +33,7 @@ Per informazioni dettagliate sull'uso di un tipo specifico di trigger o di assoc
 | --- | --- | --- | --- |  
 | [HTTP/webhook](functions-bindings-http-webhook.md) | [Timer](functions-bindings-timer.md) | [App per dispositivi mobili](functions-bindings-mobile-apps.md) | [Bus di servizio](functions-bindings-service-bus.md)  |  
 | [DocumentDB](functions-bindings-documentdb.md) |  [Archiviazione BLOB](functions-bindings-storage-blob.md) | [Archiviazione - Coda](functions-bindings-storage-queue.md) |  [Archiviazione - Tabelle](functions-bindings-storage-table.md) |  
-| [Hub eventi](functions-bindings-event-hubs.md) | [Hub di notifica](functions-bindings-notification-hubs.md) | [Twilio](functions-bindings-twilio.md) |   
+| [Hub eventi](functions-bindings-event-hubs.md) | [Hub di notifica](functions-bindings-notification-hubs.md) | [SendGrid](functions-bindings-sendgrid.md) | [Twilio](functions-bindings-twilio.md) |   
 | | | | |  
 
 In questi articoli si presuppone che siano stati letti la [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md) e gli articoli di riferimento per gli sviluppatori di [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md) o [Node.js](functions-reference-node.md).
@@ -385,10 +386,5 @@ Per altre informazioni, vedere le seguenti risorse:
 
 * [Test di Funzioni di Azure](functions-test-a-function.md)
 * [Scalabilità di Funzioni di Azure](functions-scale.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

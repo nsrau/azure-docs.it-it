@@ -1,6 +1,6 @@
 ---
-title: Procedure consigliate per la sicurezza delle macchine virtuali di Azure | Microsoft Docs
-description: Questo articolo offre una raccolta di procedure consigliate per la sicurezza da usare per le macchine virtuali presenti in Azure.
+title: Procedure consigliate per la sicurezza delle macchine virtuali di Azure | Documentazione Microsoft
+description: Questo articolo riporta varie procedure consigliate per la sicurezza da usare per le macchine virtuali di Azure.
 services: security
 documentationcenter: na
 author: YuriDio
@@ -15,111 +15,117 @@ ms.workload: na
 ms.date: 03/02/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: d6c5ea3e44b6121377d7d51f2bb9c878f9f933c5
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 1d010dd85ccf2dd708a7740eb8399fc06a603574
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="azure-virtual-machine-security-best-practices"></a>Procedure consigliate per la sicurezza delle macchine virtuali di Azure
+# <a name="best-practices-for-azure-vm-security"></a>Procedure consigliate per la sicurezza delle VM di Azure
 
-Nella maggior parte degli scenari IaaS (Infrastructure as a Service) le [macchine virtuali](https://docs.microsoft.com/en-us/azure/virtual-machines/) sono il carico di lavoro principale per le organizzazioni che usano il cloud computing. Questo avviene prevalentemente negli [scenari ibridi](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) in cui le organizzazioni desiderano eseguire lentamente la migrazione dei carichi di lavoro nel cloud. È necessario seguire lo scenario relativo alle [considerazioni generali sulla sicurezza per IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx) e assicurarsi che le pratiche di sicurezza consigliate siano applicate a tutte le VM in Azure.
+Nella maggior parte degli scenari Infrastructure as a Service (IaaS) le [macchine virtuali (VM) di Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/) rappresentano il carico di lavoro principale per le organizzazioni che usano il cloud computing. Questo è particolarmente evidente negli [scenari ibridi](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) in cui le organizzazioni vogliono eseguire lentamente la migrazione dei carichi di lavoro nel cloud. In questi scenari seguire la [considerazioni generali sulla sicurezza per IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx) e applicare le procedure consigliate di sicurezza a tutte le VM.
 
-In questo articolo verrà illustrato un insieme di procedure consigliate per la sicurezza delle VM di Azure. Le procedure consigliate si basano sull'esperienza di tecnici e clienti con le VM di Azure. 
+Questo articolo tratta varie procedure consigliate di sicurezza per le VM derivate da esperienze dei nostri clienti e nostre esperienze dirette con le VM stesse.
 
-Per ogni procedura consigliata verrà illustrato:
+Le procedure consigliate si basano su opinioni concordanti e funzionino con le caratteristiche e le capacità correnti della piattaforma Azure. Poiché le opinioni e le tecnologie possono cambiare nel tempo, questo articolo verrà aggiornato regolarmente per riflettere tali variazioni.
 
-- Qual è la procedura consigliata
-- Il motivo per cui si vuole abilitare tale procedura consigliata
-- Quale potrebbe essere il risultato se non fosse possibile abilitare la procedura consigliata
-- Alternative possibili alla procedura consigliata
-- Come imparare ad abilitare la procedura consigliata
+Per ciascuna procedura consigliata l'articolo spiega:
 
-Il presente articolo sulle procedure consigliate per la sicurezza della macchine virtuali di Azure si basa su un parere condiviso, nonché sulle capacità e sui set di funzionalità della piattaforma di Azure esistenti al momento della redazione di questo articolo. Le opinioni e le tecnologie cambiano nel tempo e questo articolo verrà aggiornato regolarmente per riflettere tali modifiche.
+* In cosa consiste la procedura consigliata.
+* Perché è preferibile abilitarla.
+* Come imparare ad abilitarla.
+* Cosa potrebbe succedere se non la si abilita.
+* Possibili alternative alla procedura consigliata.
 
-Le procedure consigliate per la sicurezza della VM di Azure discusse in questo articolo includono:
+L'articolo esamina le seguenti procedure consigliate di sicurezza per le VM:
 
-- l'autenticazione della macchina virtuale e il controllo di accesso
-- la disponibilità della macchina virtuale e l'accesso alla rete
-- la protezione dei dati inattivi nelle macchine virtuali di Azure tramite l'applicazione della crittografia
-- la gestione degli aggiornamenti sulla macchina virtuale
-- la gestione del comportamento sicuro della macchina virtuale
-- il monitoraggio delle prestazioni della macchina virtuale
+* Autenticazione e controllo di accesso della VM
+* Disponibilità e accesso alla rete della VM
+* Protezione dei dati inattivi nelle VM tramite l'applicazione della crittografia
+* Gestire gli aggiornamenti della VM
+* Gestire le condizioni di sicurezza della VM
+* Monitorare le prestazioni della VM
 
-## <a name="virtual-machine-authentication-and-access-control"></a>Autenticazione della macchina virtuale e controllo di accesso
+## <a name="vm-authentication-and-access-control"></a>Autenticazione e controllo di accesso della VM
 
-Il primo passo per proteggere la macchina virtuale è garantire che solo gli utenti autorizzati possano eseguire il provisioning delle nuove macchine virtuali. È possibile usare [i criteri di Resource Manager](../azure-resource-manager/resource-manager-policy.md) per definire le convenzioni per le risorse nell'organizzazione, creare criteri personalizzati e applicare questi criteri alle risorse, ad esempio a un [gruppo di risorse](../azure-resource-manager/resource-group-overview.md). Le macchine virtuali che appartengono al gruppo di risorse ereditano tali criteri. Sebbene questo sia l'approccio consigliato per la gestione delle risorse (incluse le macchine virtuali) che hanno esigenze diverse e si trovano in diversi gruppi di risorse, è inoltre possibile controllare il singolo accesso alle macchine virtuali utilizzando [il controllo degli accessi in base al ruolo (RBAC)](../active-directory/role-based-access-control-configure.md).
+Il primo passo per proteggere la VM è garantire che solo gli utenti autorizzati possano configurare la VM. È possibile usare [i criteri di Azure Resource Manager](../azure-resource-manager/resource-manager-policy.md) per definire le convenzioni per le risorse nell'organizzazione, creare criteri personalizzati e applicare questi criteri alle risorse, ad esempio [gruppi di risorse](../azure-resource-manager/resource-group-overview.md).
 
-Con l'abilitazione dei criteri di Azure Resource Manager e del controllo degli accessi in base al ruolo per controllare l'accesso alle macchine virtuali, si intende potenziare la sicurezza complessiva della macchina virtuale. Si consiglia di posizionare in uno stesso gruppo di risorse le macchine virtuali strettamente associate che condividono lo stesso ciclo di vita. I gruppi di risorse consentono di distribuire e monitorare le risorse in gruppo, distribuendo i costi per ogni gruppo di risorse. Usare l'approccio [privilegio minimo](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) per abilitare l'accesso agli utenti al fine di eseguire il provisioning delle macchine virtuali e programmare di usare i ruoli predefiniti seguenti in Azure durante l'assegnazione dei privilegi per gli utenti:
+Le VM che appartengono a un gruppo di risorse ereditano naturalmente i suoi criteri. Sebbene questo approccio alla gestione delle VM sia consigliabile, è possibile controllare l'accesso ai singoli criteri della MV usando il [controllo degli accessi in base al ruolo (RBAC)](../active-directory/role-based-access-control-configure.md).
 
-- [Collaboratore Macchina virtuale](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor): può gestire le macchine virtuali, ma non la rete virtuale o l'account di archiviazione a cui sono connesse.
-- [Collaboratore Macchina virtuale classica](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor): può gestire le macchine virtuali classiche, ma non la rete virtuale o l'account di archiviazione a cui sono connesse.
-- [Gestore sicurezza](../active-directory/role-based-access-built-in-roles.md#security-manager): può gestire i componenti di sicurezza, i criteri di sicurezza e le macchine virtuali.
-- [Utente DevTest Labs](../active-directory/role-based-access-built-in-roles.md#devtest-labs-user): può visualizzare tutti gli elementi e connettere, avviare, riavviare e arrestare le macchine virtuali
+Quando si abilitano i criteri di Resource Manager e controllo degli accessi in base al ruolo per controllare l'accesso alla VM, si migliora la sicurezza complessiva della VM. Si consiglia di consolidare le VM con lo stesso ciclo di vita nello stesso gruppo di risorse. Usando i gruppi di risorse è possibile distribuire, monitorare ed eseguire il rollup dei costi di fatturazione per le risorse. Per consentire agli utenti di accedere e configurare le VM, usare un [approccio con privilegi minimi](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). E quando si assegnano privilegi agli utenti prevedere di usare i seguenti ruoli predefiniti di Azure:
 
-Non condividere account e password tra gli amministratori o riusare le password per più account utente o servizi, in particolare quelli destinati a social media o ad altre attività non amministrative. Si consiglia di usare i modelli di [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) per proteggere il provisioning delle macchine virtuali. Usando questo approccio è possibile stabilire in modo definitivo le opzioni di distribuzione e applicare le impostazioni di sicurezza per la distribuzione.
+- [Collaboratore Macchina virtuale](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor): può gestire le VM, ma non la rete virtuale o l'account di archiviazione a cui sono connesse.
+- [Collaboratore Macchina virtuale classica](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor): può gestire le VM create usando il modello di distribuzione classico ma non la rete virtuale o l'account di archiviazione a cui le VM sono connesse.
+- [Gestore sicurezza](../active-directory/role-based-access-built-in-roles.md#security-manager): può gestire i componenti di sicurezza, i criteri di sicurezza e le VM.
+- [Utente DevTest Labs](../active-directory/role-based-access-built-in-roles.md#devtest-labs-user): può visualizzare tutti gli elementi e connettere, avviare, riavviare e arrestare le VM.
 
-Le organizzazioni che non applicano il controllo dell'accesso ai dati con funzionalità come Controllo degli accessi in base al ruolo potrebbero concedere più privilegi del necessario ai propri utenti. Questo può comportare la compromissione dei dati perché l'utente potrebbe avere accesso a determinati livelli di dati a cui non dovrebbe accedere.
- 
+Non condividere account e password tra gli amministratori e non riutilizzare le password per più account utente o servizi, in particolare quelle dei social media o di altre attività non amministrative. Si consiglia di usare i modelli di [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) per configurare in sicurezza le VM. Usando questo approccio è possibile rafforzare le opzioni di distribuzione e applicare le impostazioni di sicurezza per la distribuzione.
 
-## <a name="virtual-machine-availability-and-network-access"></a>Disponibilità della macchina virtuale e accesso alla rete
+Le organizzazioni che non applicano il controllo di accesso ai dati sfruttando funzionalità come il controllo degli accessi in base al ruolo potrebbero concedere più privilegi del necessario agli utenti. L'accesso utente inappropriato ad alcuni dati può compromettere direttamente i dati.
 
-Se la macchina virtuale esegue applicazioni critiche che richiedono un'elevata disponibilità, è consigliabile usare più macchine virtuali.  Per una maggiore disponibilità, creare almeno due macchine virtuali nel [set di disponibilità](../virtual-machines/virtual-machines-windows-infrastructure-availability-sets-guidelines.md). Il [bilanciamento del carico](../load-balancer/load-balancer-overview.md) di Azure richiede inoltre che le macchine virtuali con carico bilanciato appartengano allo stesso set di disponibilità. Se per queste macchine virtuali è necessario eseguire l'accesso da Internet, sarà necessario configurare un [Servizio di bilanciamento del carico con connessione Internet](../load-balancer/load-balancer-internet-overview.md).
+## <a name="vm-availability-and-network-access"></a>Disponibilità e accesso alla rete della VM
 
-Quando le macchine virtuali sono esposte in Internet, è importante assicurarsi di [controllare il flusso del traffico di rete con gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md).  Poiché i gruppi di sicurezza di rete possono essere applicati alle subnet, è possibile ridurre al minimo il numero di gruppi di sicurezza di rete raggruppando le risorse per subnet e applicando i gruppi di sicurezza di rete alle subnet. Lo scopo è quello di creare un livello di isolamento della rete, che si può ottenere mediante la configurazione corretta delle funzionalità della [sicurezza di rete](../best-practices-network-security.md) in Azure.  
+Se la VM esegue applicazioni critiche che richiedono un'elevata disponibilità, è consigliabile usare più VM. Per una maggiore disponibilità, creare almeno due macchine virtuali nel [set di disponibilità](../virtual-machines/virtual-machines-windows-infrastructure-availability-sets-guidelines.md).
 
-È inoltre possibile usare la funzionalità di accesso alle macchine virtuali just in time dal Centro sicurezza di Azure per controllare chi e per quanto tempo è possibile accedere da remoto a una macchina virtuale specifica. Guardare il video di seguito per altre informazioni su come usare questa funzionalità:
+[Azure Load Balancer](../load-balancer/load-balancer-overview.md) richiede inoltre che le VM con carico bilanciato appartengano allo stesso set di disponibilità. Se per queste VM è necessario eseguire l'accesso da Internet, si dovrà configurare un [servizio di bilanciamento del carico con connessione Internet](../load-balancer/load-balancer-internet-overview.md).
+
+Quando le VM sono esposte a Internet, è importante [controllare il flusso del traffico di rete con gruppi di sicurezza di rete (NSG)](../virtual-network/virtual-networks-nsg.md). Poiché i gruppi di sicurezza di rete possono essere applicati alle subnet, è possibile ridurre al minimo il numero di gruppi di sicurezza di rete raggruppando le risorse per subnet e poi applicando i gruppi di sicurezza di rete alle subnet. Lo scopo è quello di creare un livello di isolamento della rete, che si può ottenere configurando correttamente le capacità di [sicurezza di rete](../best-practices-network-security.md) in Azure.
+
+È inoltre possibile usare la funzionalità di accesso alle VM just in time dal Centro sicurezza di Azure per controllare chi può accedere da remoto a una VM specifica e per quanto tempo.
+
+Le organizzazioni che non applicano restrizioni di accesso alle VM connesse a Internet sono esposte a rischi di sicurezza, ad esempio attacco di forza bruta Remote Desktop Protocol (RDP).
+
+## <a name="protect-data-at-rest-in-your-vms-by-enforcing-encryption"></a>Protezione dei dati inattivi nelle VM di Azure tramite l'applicazione della crittografia
+
+[La crittografia dei dati inattivi](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) è un passaggio obbligatorio per assicurare la privacy, la conformità e la sovranità dei dati. [Azure Disk Encryption](../security/azure-security-disk-encryption.md) consente agli amministratori IT di crittografare i dischi delle VM IaaS Windows e Linux. Crittografia dischi combina la funzionalità standard di settore BitLocker di Windows e la funzionalità dm-crypt di Linux per fornire la crittografia del volume per i dischi del sistema operativo e dei dati.
+
+È possibile applicare Crittografia dischi per contribuire alla protezione dei dati in modo da rispettare i requisiti dell'organizzazione in merito a sicurezza e conformità. La crittografia permette anche all'organizzazione di ridurre i rischi correlati all'accesso non autorizzato ai dati. È consigliabile anche crittografare le unità prima di scrivere dati sensibili.
+
+Assicurarsi di crittografare i volumi di dati della VM per proteggerli nello stato inattivo nell'account di archiviazione di Azure. Proteggere le chiavi di crittografia e la chiave privata con [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/key-vault-whatis/).
+
+Le organizzazioni che non applicano la crittografia dei dati sono più esposte a problemi di integrità dei dati. Gli utenti non autorizzati, ad esempio, potrebbero rubare dati negli account compromessi o ottenere l'accesso non autorizzato ai dati codificati in ClearFormat. Oltre a correre questi rischi, per la conformità alle normative di settore, le aziende devono dimostrare di operare con diligenza e di usare controlli di sicurezza appropriati per migliorare la sicurezza dei dati.
+
+Per altre informazioni su Crittografia dischi, vedere [Azure Disk Encryption per le macchine virtuali IaaS Windows e Linux](azure-security-disk-encryption.md).
 
 
-<iframe src="https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-Just-in-Time-VM-Access/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+## <a name="manage-your-vm-updates"></a>Gestire gli aggiornamenti della VM
 
-Le organizzazioni che non applicano restrizioni di accesso alla rete per le macchine virtuali connesse a Internet sono esposte a rischi di sicurezza, ad esempio un attacco a forza bruta RDP. 
+Poiché le VM di Azure, come tutte le VM locali, dovranno essere gestite dall'utente, Azure non applica gli aggiornamenti di Windows a queste. Tuttavia si consiglia di lasciare abilitata l'impostazione automatica di Windows Update. Un'altra opzione consiste nel distribuire [Windows Server Update Services (WSUS)](https://technet.microsoft.com/windowsserver/bb332157.aspx) o un altro prodotto appropriato di gestione degli aggiornamenti in un'altra VM o in locale. Sia WSUS che Windows Update mantengono aggiornate le VM. Si consiglia anche di usare un prodotto di analisi per verificare che tutte le VM IaaS siano aggiornate.
 
-## <a name="protect-data-at-rest-in-azure-vms-by-enforcing-encryption"></a>Protezione dei dati inattivi nelle macchine virtuali di Azure tramite l'applicazione della crittografia
+Le immagini di archivio fornite da Azure vengono regolarmente aggiornate per includere i più recenti aggiornamenti di Windows. Tuttavia non vi è alcuna garanzia che le immagini saranno aggiornate in fase di distribuzione. Sono possibili leggeri ritardi (di non più di alcune settimane) dopo i rilasci. Controllare e installare tutti gli aggiornamenti di Windows deve essere il primo passo di ogni distribuzione. Questa misura è particolarmente importante da applicare quando si distribuiscono immagini proprie o provenienti dalla propria libreria. Le immagini che vengono fornite come parte di Azure Marketplace vengono aggiornate automaticamente per impostazione predefinita.
 
-Oggi [la crittografia dei dati inattivi](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) è un passaggio obbligatorio per assicurare la privacy, la conformità e la sovranità dei dati. La [Crittografia dischi di Azure](../security/azure-security-disk-encryption.md) consente agli amministratori IT di crittografare i dischi delle macchine virtuali IaaS Windows e Linux. Crittografia dischi di Azure si basa sulla funzionalità BitLocker standard di settore disponibile in Windows e sulla funzionalità DM-Crypt di Linux per offrire la crittografia del volume per i dischi dei dati e del sistema operativo.
+Le organizzazioni che non applicano criteri di aggiornamento del software sono più esposte a minacce che sfruttano vulnerabilità note e corrette in precedenza. Oltre al rischio rappresentato da queste minacce, per la conformità con le normative di settore le aziende devono dimostrare di operare con diligenza e di usare controlli di sicurezza appropriati per garantire la sicurezza dei carichi di lavoro che si trovano nel cloud.
 
-Crittografia dischi di Azure contribuisce alla protezione dei dati e al rispetto degli impegni dell'organizzazione a livello di sicurezza e conformità. La crittografia permette anche alle organizzazioni di ridurre i rischi correlati all'accesso non autorizzato ai dati. È anche consigliabile crittografare le unità prima di scrivervi dati sensibili. 
+È importante sottolineare che le procedure consigliate di aggiornamento del software per i data center tradizionali e IaaS di Azure presentano molte analogie. Si consiglia perciò di valutare i criteri di aggiornamento del software correnti per includere le VM.
 
-Assicurarsi di crittografare i volumi dei dati della macchina virtuale per proteggere i volumi dei dati inattivi nell'account di archiviazione di Azure. Proteggere le chiavi di crittografia e i segreti grazie a [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/key-vault-whatis/). 
+## <a name="manage-your-vm-security-posture"></a>Gestire le condizioni di sicurezza della VM
 
-Le organizzazioni che non applicano la crittografia dei dati hanno maggiori probabilità di esposizione a problemi di integrità dei dati, ad esempio il furto di dati da parte di utenti non autorizzati o malintenzionati e l'accesso non autorizzato a dati non crittografati con account compromessi. Oltre a questi rischi, le aziende che sono tenute a rispettare normative di settore devono dimostrare di operare in modo conforme e di implementare i controlli di sicurezza appropriati per aumentare la sicurezza dei dati.
+Le minacce informatiche si evolvono e per proteggere le VM è necessaria una capacità di monitoraggio completa che possa rilevare rapidamente le minacce, impedire l'accesso non autorizzato alle risorse, attivare gli avvisi e ridurre i falsi positivi. Le condizioni di sicurezza per un carico di lavoro di questo tipo includono tutti gli aspetti della sicurezza della VM, dalla gestione degli aggiornamenti all'accesso sicuro alla rete.
 
-Per altre informazioni su Crittografia dischi di Azure, leggere l'articolo [Crittografia dischi di Azure per le macchine virtuali IaaS Windows e Linux](azure-security-disk-encryption.md).
+Per monitorare le condizioni di sicurezza delle [VM Windows](../security-center/security-center-virtual-machine.md) e [Linux](../security-center/security-center-linux-virtual-machine.md), usare [Centro sicurezza di Azure](../security-center/security-center-intro.md). In Centro sicurezza di Azure proteggere le VM sfruttando le seguenti capacità:
 
+* Applicare le impostazioni di sicurezza del sistema operativo con le regole di configurazione consigliate
+* Identificare e scaricare gli aggiornamenti critici e di sicurezza del sistema che potrebbero mancare
+* Consigli per la protezione antimalware degli endpoint di distribuzione
+* Convalidare la crittografia del disco
+* Valutare e correggere le vulnerabilità
+* Rilevare le minacce
 
-## <a name="manage-virtual-machine-updates"></a>Gestione degli aggiornamenti sulle macchine virtuali
+Il Centro sicurezza può monitorare attivamente le minacce e le minacce potenziali sono esposte in **Avvisi sicurezza**. Le minacce correlate sono aggregate in un'unica visualizzazione denominata **Evento imprevisto della sicurezza**.
 
-Azure non effettua il push degli aggiornamenti di Windows sulle macchine virtuali di Windows Azure poiché queste macchine sono pensate per essere gestite dall'utente, proprio come accade per qualsiasi computer locale. Tuttavia i clienti sono invitati a lasciare abilitata l'impostazione automatica di Windows Update. Un'altra opzione consiste nel distribuire un server [Windows Server Update Services (WSUS)](https://technet.microsoft.com/windowsserver/bb332157.aspx) o un altro prodotto appropriato alla gestione degli aggiornamenti in un'altra macchina virtuale o locale di Azure. Sia WSUS che Windows Update consento gli aggiornamenti delle macchine virtuali. È inoltre opportuno usare un prodotto per verificare che tutte le macchine virtuali IaaS siano aggiornate.
-
-Le immagini fornite da Azure sono regolarmente aggiornate per includere il round più recente degli aggiornamenti di Windows. Tuttavia, non vi è alcuna garanzia che le immagini saranno aggiornate in fase di distribuzione. È possibile che ci sia un lieve ritardo (non più di qualche settimana) rispetto alle versioni pubbliche. Controllare e installare tutti gli aggiornamenti di Windows deve essere il primo passaggio di ogni distribuzione. È particolarmente importante eseguire questa operazione quando si vuole eseguire la distribuzione delle immagini o da una libreria personalizzata. Per le immagini fornite come parte della raccolta di Windows Azure gli aggiornamenti automatici di Windows sono sempre abilitati per impostazione predefinita.
-
-Le organizzazioni che non applicano criteri di aggiornamento del software sono più esposti ai rischi che sfruttano le vulnerabilità note che sono già state corrette. Oltre a questi rischi, le aziende che sono tenute a rispettare normative di settore devono dimostrare di operare in modo conforme e di implementare i controlli di sicurezza appropriati per aumentare la sicurezza dei carichi di lavoro che si trovano nel cloud.
-È importante evidenziare che esistono molte analogie tra le procedure consigliate per gli aggiornamenti software in un data center tradizionale e un ambiente IaaS di Azure, quindi è consigliabile valutare i criteri di aggiornamento software attuali e includere le macchine virtuali di Azure.
-
-## <a name="manage-virtual-machine-secure-posture"></a>Gestione del comportamento sicuro della macchina virtuale
-
-Le minacce informatiche si evolvono e per proteggere le macchine virtuali è necessaria una migliore capacità di monitoraggio che sia in grado di rilevare in modo rapido le minacce, attivare gli avvisi e ridurre i falsi positivi. Il comportamento sicuro per questo tipo di carico di lavoro comprende tutti gli aspetti di protezione della macchina virtuale, dalla gestione degli aggiornamenti, all'accesso alla rete protetta, durante il monitoraggio attivo delle minacce che tentano di ottenere accesso non autorizzato alle risorse.
-
-È possibile usare il [Centro sicurezza di Azure](../security-center/security-center-intro.md) per monitorare il comportamento sicuro delle [macchine virtuali di Windows](../security-center/security-center-virtual-machine.md) e [Linux](../security-center/security-center-linux-virtual-machine.md). È possibile sfruttare le funzionalità seguenti nel Centro sicurezza di Azure per monitorare le macchine virtuali:
-
-- Impostazioni di sicurezza del sistema operativo con le regole di configurazione consigliate
-- Aggiornamenti della sicurezza del sistema e altri aggiornamenti di importanza critica eventualmente mancanti
-- Consigli per la protezione degli endpoint (antimalware)
-- Convalida della crittografia del disco
-- Valutazione della vulnerabilità e correzioni
-- Introduzione al rilevamento delle minacce
-
-Il Centro sicurezza è in grado di monitorare attivamente le minacce e queste minacce verranno esposte in Avvisi sicurezza. Le minacce correlate verranno aggregate in un'unica visualizzazione denominata *Evento imprevisto per la sicurezza*. È possibile guardare il video seguente per comprendere come il Centro sicurezza consenta di identificare le potenziali minacce nelle macchine virtuali all'interno di Azure.
+Per comprendere come il Centro sicurezza consenta di identificare le potenziali minacce nelle VM all'interno di Azure, guardare il video seguente:
 
 <iframe src="https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
-Le organizzazioni che non applicano un comportamento sicuro per le proprie macchine virtuali non sono consapevoli dei potenziali tentativi di aggirare i controlli di sicurezza attivi.
+Le organizzazioni che non applicano condizioni di sicurezza avanzate per le proprie VM rimangono all'oscuro della presenza di potenziali tentativi da parte di utenti non autorizzati di aggirare i controlli di sicurezza stabiliti.
 
-## <a name="monitoring-virtual-machine-performance"></a>Monitoraggio delle prestazioni della macchina virtuale
+## <a name="monitor-vm-performance"></a>Monitorare le prestazioni della VM
 
-L'uso improprio delle risorse, inoltre, può essere un problema quando una macchina virtuale dispone di processi che usano più risorse rispetto a quanto previsto. Una macchina virtuale con un problema di prestazioni può causare un'interruzione del servizio, che supera una delle entità di sicurezza: la disponibilità. Per questo motivo è fondamentale monitorare l'accesso alle macchine virtuali non solo in modo reattivo (quando si verifica un problema) ma anche con una linea di base durante il periodo di normale funzionamento.
+L'uso improprio delle risorse può essere un problema quando i processi della VM utilizzano più risorse di quanto dovrebbero. I problemi di prestazioni di una VM possono causare interruzioni del servizio, il che viola il principio di disponibilità della sicurezza. Per questo motivo è fondamentale monitorare l'accesso alla VM non solo in modo reattivo (mentre un problema si sta verificando) ma anche in modo proattivo, rispetto alle prestazioni misurate durante il periodo di normale funzionamento.
 
-[I log di diagnostica di Azure](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) consentono di monitorare le risorse della macchina virtuale e di identificare i potenziali problemi che ne compromettono le prestazioni e la disponibilità. L'estensione di Diagnostica di Azure offre le funzionalità di monitoraggio e diagnostica in una macchina virtuale di Azure basata su Windows. È possibile abilitare queste funzionalità nella macchina virtuale includendo l'estensione come parte del [modello](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md) di Azure Resource Manager. È inoltre possibile usare il [Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) per ottenere visibilità nell'integrità della risorsa.
+Analizzando [i file di log di diagnostica di Azure](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), è possibile monitorare le risorse della VM e identificare i potenziali problemi che potrebbero compromettere le prestazioni e la disponibilità. L'estensione Diagnostica di Azure offre funzionalità di monitoraggio e diagnostica nelle VM Windows. È possibile abilitare queste funzionalità includendo l'estensione come parte del [modello di Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md).
 
-Le organizzazioni che non eseguono il monitoraggio delle prestazioni della macchina virtuale non saranno in grado di determinare se determinate modifiche nei modelli di prestazioni fanno parte dell'uso normale o se si verifica un'operazione anomala che usa più risorse rispetto al normale. L'anomalia potrebbe indicare un potenziale attacco proveniente da una risorsa esterna o un processo compromesso in esecuzione nella macchina virtuale. 
+È possibile usare [Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) per ottenere visibilità sull'integrità della risorsa.
+
+Le organizzazioni che non monitorano le prestazioni della VM non sono in grado di capire se determinate modifiche nei modelli di prestazioni sono normali o anomale. Se la VM consuma più risorse del normale, una tale anomalia potrebbe indicare un potenziale attacco proveniente da una risorsa esterna o un processo compromesso in esecuzione nella VM.
+

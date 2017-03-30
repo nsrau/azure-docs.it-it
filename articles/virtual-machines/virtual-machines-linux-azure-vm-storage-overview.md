@@ -1,5 +1,5 @@
 ---
-title: VM Linux di Azure e Archiviazione di Azure | Documentazione Microsoft
+title: VM Linux di Azure e Archiviazione di Azure | Microsoft Docs
 description: Descrive l&quot;archiviazione Standard e Premium di Azure, Managed Disks e i dischi non gestiti con le macchine virtuali Linux.
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 710307b01fe64852771c071c070f5fcee59c9579
-ms.openlocfilehash: 494dbaf23de22efa79cfe65aa22bb7c948b3da80
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 1ada403a502972ee0d8cd96af2d62d923d43f6cf
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -30,13 +30,13 @@ Sono ora disponibili macchine virtuali di Azure con [Azure Managed Disks](../sto
 
 - Supporto per la scalabilità automatica. Azure crea i dischi e gestisce l'archiviazione sottostante per supportare fino a 10.000 dischi per sottoscrizione.
 - Maggiore affidabilità con i set di disponibilità. Azure assicura che i dischi di macchine virtuali siano isolati automaticamente tra loro all'interno dei set di disponibilità.
-- Maggiore controllo degli accessi. Managed Disks espone varie operazioni controllate dal [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-what-is.md). 
+- Maggiore controllo degli accessi. Managed Disks espone varie operazioni controllate dal [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-what-is.md).
 
-Il prezzo di Managed Disks è diverso da quello dei dischi non gestiti. Per le relative informazioni, vedere [Prezzi e fatturazione di Managed Disks](../storage/storage-managed-disks-overview.md#pricing-and-billing). 
+Il prezzo di Managed Disks è diverso da quello dei dischi non gestiti. Per le relative informazioni, vedere [Prezzi e fatturazione di Managed Disks](../storage/storage-managed-disks-overview.md#pricing-and-billing).
 
 È possibile convertire le macchine virtuali esistenti che usano i dischi non gestiti per usare quelli gestiti tramite [az vm convert](/cli/azure/vm#convert). Per altre informazioni, vedere [come convertire una macchina virtuale Linux da dischi non gestiti ad Azure Managed Disks](virtual-machines-linux-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Non è possibile convertire un disco non gestito in un disco gestito se il disco non gestito si trova in un account di archiviazione che è stato, anche in passato, crittografato con la [Crittografia del servizio di archiviazione di Azure (SSE)](../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). La procedura seguente illustra come convertire dischi non gestiti che sono, o sono stati, in un account di archiviazione crittografato:
 
-- [Copiare il disco rigido virtuale ](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#unmanaged-disks) con [az storage blob copy start](/cli/azure/storage/blob/copy#start) in un account di archiviazione che non è mai stato crittografato con la Crittografia del servizio di archiviazione di Azure.
+- Copiare il disco rigido virtuale con [az storage blob copy start](/cli/azure/storage/blob/copy#start) in un account di archiviazione che non è mai stato abilitato per la crittografia del servizio di archiviazione di Azure.
 - Creare una macchina virtuale che usi dischi gestiti e specificare il file del disco rigido virtuale durante la creazione con [az vm create](/cli/azure/vm#create) o
 - Collegare il disco rigido virtuale copiato con [az vm disk attach](/cli/azure/vm/disk#attach) a una macchina virtuale in esecuzione con dischi gestiti.
 
@@ -62,7 +62,7 @@ Quindi creare la macchina virtuale con il comando `az vm create`, come nell'esem
 az vm create \
 --image credativ:Debian:8:latest \
 --admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub 
+--ssh-key-value ~/.ssh/id_rsa.pub
 --public-ip-address-dns-name manageddisks \
 --resource-group myResourceGroup \
 --location westus \
@@ -76,7 +76,7 @@ az vm create \
 --storage-sku Premium_LRS
 --image credativ:Debian:8:latest \
 --admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub 
+--ssh-key-value ~/.ssh/id_rsa.pub
 --public-ip-address-dns-name manageddisks \
 --resource-group myResourceGroup \
 --location westus \
@@ -246,5 +246,4 @@ Per altre informazioni sull'uso del disco temporaneo in Azure, vedere l'articolo
 
 ## <a name="storage-limits"></a>Limiti relativi ad Archiviazione
 * [Limiti del servizio di archiviazione](../azure-subscription-service-limits.md#storage-limits)
-
 

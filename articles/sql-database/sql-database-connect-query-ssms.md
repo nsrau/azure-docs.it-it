@@ -1,6 +1,6 @@
 ---
-title: Connettersi a un database SQL - SQL Server Management Studio | Documentazione Microsoft
-description: Informazioni su come connettersi a un database SQL in Azure tramite SQL Server Management Studio (SSMS). Eseguire quindi una query di esempio usando Transact-SQL (T-SQL).
+title: 'SSMS: Connettersi ed eseguire query sui dati nel database SQL di Azure | Microsoft Docs'
+description: Informazioni su come connettersi a un database SQL in Azure tramite SQL Server Management Studio (SSMS). Eseguire quindi istruzioni Transact-SQL (T-SQL) per eseguire query e modificare i dati.
 metacanonical: 
 keywords: connettersi al database sql,sql server management studio
 services: sql-database
@@ -14,57 +14,142 @@ ms.custom: development
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/01/2017
-ms.author: sstein;carlrab
+ms.topic: hero-article
+ms.date: 03/15/2017
+ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: a5eaf43aa01e5d30171ea038db7ba985c9684fb7
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: ba56eaa154116edbe1dd8962049535cfa57551ac
+ms.lasthandoff: 03/25/2017
 
 
 ---
-# <a name="connect-to-sql-database-with-sql-server-management-studio-and-execute-a-sample-t-sql-query"></a>Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio
+# <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Database SQL di Azure: usare SQL Server Management Studio per connettersi ed eseguire query sui dati
 
-Questo articolo illustra come connettersi a un database SQL di Azure usando SQL Server Management Studio (SSMS). Dopo aver stabilito la connessione verrà eseguita una semplice query Transact-SQL (T-SQL) per verificare la comunicazione con il database.
+Usare [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) per creare e gestire risorse di SQL Server dall'interfaccia utente o negli script. Questa guida fornisce informazioni dettagliate sull'uso di SSMS per connettersi a un database SQL di Azure e quindi eseguire query e istruzioni di inserimento, aggiornamento ed eliminazione.
 
-[!INCLUDE [SSMS Install](../../includes/sql-server-management-studio-install.md)]
+Questa guida introduttiva usa come punto di partenza le risorse create in una delle guide introduttive seguenti:
 
-1. Scaricare e installare la versione più recente di SSMS se non è già stato fatto, vedere [Scaricare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Per mantenersi aggiornata, la versione più recente di SSMS chiede di scaricare la nuova versione quando è disponibile.
+- [Creare un database: portale](sql-database-get-started-portal.md)
+- [Creare un database: interfaccia della riga di comando](sql-database-get-started-cli.md)
 
-2. Dopo l'installazione, digitare **Microsoft SQL Server Management Studio** nella casella di ricerca di Windows e fare clic su **INVIO** per aprire SSMS:
+Prima di iniziare, assicurarsi di avere installato la versione più recente di [SSMS](https://msdn.microsoft.com/library/mt238290.aspx). 
 
-    ![SQL Server Management Studio](./media/sql-database-get-started/ssms.png)
-3. Nella casella di dialogo Connetti al server immettere le informazioni necessarie per connettersi al server SQL usando Autenticazione di SQL Server.
+## <a name="get-connection-information"></a>Ottenere informazioni di connessione
 
-    ![connetti al server](./media/sql-database-get-started/connect-to-server.png)
-4. Fare clic su **Connect**.
+Ottenere il nome completo del server per il server del database SQL di Azure nel portale di Azure. Usare il nome completo del server per connettersi al server tramite SQL Server Management Studio.
 
-    ![connesso al server](./media/sql-database-get-started/connected-to-server.png)
-5. In Esplora oggetti espandere **Database** e quindi qualsiasi database per visualizzarne gli oggetti.
+1. Accedere al [Portale di Azure](https://portal.azure.com/).
+2. Scegliere **Database SQL** dal menu a sinistra, quindi fare clic sul database nella pagina **Database SQL**. 
+3. Nel riquadro **Informazioni di base** della pagina del portale di Azure per il database individuare e quindi copiare il **Nome server**.
 
-    ![nuovi oggetti del database di esempio con ssms](./media/sql-database-get-started/new-sample-db-objects-ssms.png)
-6. Fare clic con il pulsante destro del mouse sul database e quindi scegliere **Nuova query**.
+    <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 780px;" />
 
-    ![nuova query del database di esempio con ssms](./media/sql-database-get-started/new-sample-db-query-ssms.png)
-7. Nella finestra della query digitare la query seguente:
+## <a name="connect-to-the-server"></a>Connettersi al server
 
-   ```select * from sys.objects```
-   
-8.  Sulla barra degli strumenti fare clic su **Execute** (Esegui) per restituire un elenco degli oggetti di sistema nel database di esempio.
+Usare SQL Server Management Studio per stabilire una connessione al server del database SQL di Azure.
 
-    ![nuovi oggetti del sistema per l'esecuzione di query sul database di esempio con ssms](./media/sql-database-get-started/new-sample-db-query-objects-ssms.png)
+1. Digitare **SSMS** nella casella di ricerca di Windows e quindi premere **INVIO** per aprire SSMS.
 
-> [!Tip]
-> Per un'esercitazione vedere[Esercitazione: Effettuare il provisioning e accedere a un database SQL di Azure usando il portale di Azure e SQL Server Management Studio](sql-database-get-started.md).    
->
+2. Nella finestra di dialogo **Connetti al server** immettere le informazioni seguenti:
+   - **Tipo di server**: specificare il motore del database
+   - **Nome server**: immettere il nome completo del server, ad esempio **mynewserver20170313.database.windows.net**
+   - **Autenticazione**: specificare l'Autenticazione di SQL Server
+   - **Accesso**: immettere l'account dell'amministratore del server
+   - **Password**: immettere la password per l'account dell'amministratore del server
+ 
+    <img src="./media/sql-database-connect-query-ssms/connect.png" alt="connect to server" style="width: 780px;" />
+
+3. Fare clic su **Connect**. La finestra Esplora oggetti viene visualizzata in SSMS. 
+
+    <img src="./media/sql-database-connect-query-ssms/connected.png" alt="connected to server" style="width: 780px;" />
+
+4. In Esplora oggetti espandere **Database** e quindi espandere **mySampleDatabase** per visualizzare gli oggetti disponibili nel database di esempio.
+
+## <a name="query-data"></a>Eseguire query sui dati
+
+Usare l'istruzione [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) di Transact-SQL per eseguire query sui dati nel database SQL di Azure.
+
+1. In Esplora oggetti fare clic con il pulsante destro del mouse su **mySampleDatabase** e scegliere **Nuova query**. Viene visualizzata una finestra di query vuota, connessa al database.
+2. Nella finestra di query immettere la query seguente:
+
+   ```sql
+   SELECT pc.Name as CategoryName, p.name as ProductName
+   FROM [SalesLT].[ProductCategory] pc
+   JOIN [SalesLT].[Product] p
+   ON pc.productcategoryid = p.productcategoryid;
+   ```
+
+3. Sulla barra degli strumenti fare clic su **Esegui** per recuperare dati dalle tabelle Product e ProductCategory.
+
+    <img src="./media/sql-database-connect-query-ssms/query.png" alt="query" style="width: 780px;" />
+
+## <a name="insert-data"></a>Inserire dati
+
+Usare l'istruzione [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) di Transact-SQL per inserire dati nel database SQL di Azure.
+
+1. Sulla barra degli strumenti fare clic su **Nuova query**. Viene visualizzata una finestra di query vuota, connessa al database.
+2. Nella finestra di query immettere la query seguente:
+
+   ```sql
+   INSERT INTO [SalesLT].[Product]
+           ( [Name]
+           , [ProductNumber]
+           , [Color]
+           , [ProductCategoryID]
+           , [StandardCost]
+           , [ListPrice]
+           , [SellStartDate]
+           )
+     VALUES
+           ('myNewProduct'
+           ,123456789
+           ,'NewColor'
+           ,1
+           ,100
+           ,100
+           ,GETDATE() );
+   ```
+
+3. Sulla barra degli strumenti fare clic su **Esegui** per inserire una nuova riga nella tabella Product.
+
+    <img src="./media/sql-database-connect-query-ssms/insert.png" alt="insert" style="width: 780px;" />
+
+## <a name="update-data"></a>Aggiornare i dati
+
+Usare l'istruzione [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) di Transact-SQL per aggiornare i dati nel database SQL di Azure.
+
+1. Sulla barra degli strumenti fare clic su **Nuova query**. Viene visualizzata una finestra di query vuota, connessa al database.
+2. Nella finestra di query immettere la query seguente:
+
+   ```sql
+   UPDATE [SalesLT].[Product]
+   SET [ListPrice] = 125
+   WHERE Name = 'myNewProduct';
+   ```
+
+3. Sulla barra degli strumenti fare clic su **Esegui** per aggiornare la riga specificata nella tabella Product.
+
+    <img src="./media/sql-database-connect-query-ssms/update.png" alt="update" style="width: 780px;" />
+
+## <a name="delete-data"></a>Eliminare i dati
+
+Usare l'istruzione [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) di Transact-SQL per eliminare i dati nel database SQL di Azure.
+
+1. Sulla barra degli strumenti fare clic su **Nuova query**. Viene visualizzata una finestra di query vuota, connessa al database.
+2. Nella finestra di query immettere la query seguente:
+
+   ```sql
+   DELETE FROM [SalesLT].[Product]
+   WHERE Name = 'myNewProduct';
+   ```
+
+3. Sulla barra degli strumenti fare clic su **Esegui** per eliminare la riga specificata nella tabella Product.
+
+    <img src="./media/sql-database-connect-query-ssms/delete.png" alt="delete" style="width: 780px;" />
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- È possibile usare istruzioni T-SQL per creare e gestire i database in Azure in modo analogo a SQL Server. Se si ha familiarità con l'uso di T-SQL con SQL Server, vedere [Informazioni su Transact-SQL del Database SQL di Azure](sql-database-transact-sql-information.md) per un riepilogo delle differenze.
-- Se non si ha familiarità con T-SQL, vedere [Esercitazione: Scrittura di istruzioni Transact-SQL](https://msdn.microsoft.com/library/ms365303.aspx) e [Guida di riferimento a Transact-SQL (Motore di database)](https://msdn.microsoft.com/library/bb510741.aspx).
-- Per un'introduzione all'esercitazione sull'autenticazione di SQL Server, vedere [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md) (Autenticazione e autorizzazione di SQL)
-- Per un'introduzione all'esercitazione sull'autenticazione di Azure Active Directory, vedere [Azure AD authentication and authorization](sql-database-control-access-aad-authentication-get-started.md) (Autenticazione e autorizzazione di Azure AD)
-- Per altre informazioni su SSMS, vedere [Usare SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
-
+- Per informazioni su SSMS, vedere [Usare SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
+- Per informazioni sulle query e sulla modifica dei dati tramite Visual Studio Code, vedere [Visual Studio Code](https://code.visualstudio.com/docs)
 

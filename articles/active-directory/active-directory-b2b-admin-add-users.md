@@ -1,7 +1,7 @@
 ---
 
 title: Procedura di aggiunta di utenti di Collaborazione B2B ad Azure Active Directory da parte degli amministratori | Microsoft Docs
-description: Collaborazione B2B di Azure Active Directory consente agli amministratori di aggiungere utenti da organizzazioni partner ad Azure AD per l&quot;accesso alle applicazioni aziendali.
+description: "Un amministratore può aggiungere utenti guest ad Azure AD da un&quot;organizzazione partner usando la Collaborazione B2B di Azure Active Directory."
 services: active-directory
 documentationcenter: 
 author: sasubram
@@ -14,12 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/18/2017
+ms.date: 03/15/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e25c0dab34f0977b4511046ad53f4c0b409990
-ms.openlocfilehash: 830cc28cdd5ca523c43cf1fa9cdff5131727d71f
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 7f33165141f31c1b495313f2da0d6e4681bdf8f2
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -48,11 +48,11 @@ Aggiungere utenti di Collaborazione B2B a un'applicazione come amministratore di
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-assign-b2b-to-apps/Player]
 
 ## <a name="admins-resending-invitations-to-guest-users"></a>Amministratori che inviano un nuovo invito agli utenti guest
-È possibile passare alla pagina del profilo di un utente di Collaborazione B2B e inviare di nuovo gli inviti a utenti guest non ancora riscattati:
+È possibile passare alla pagina del profilo di un utente di Collaborazione B2B e inviare nuovamente gli inviti a utenti guest non ancora riscattati:
 
 ![nuovo invio dell'invito](./media/active-directory-b2b-admin-add-users/resend-invitation.png)
 
-> ![NOTE] L'invito verrà inviato di nuovo dall'utente connesso e l'utente verrà invitato alla directory, anche se l'invito originale è destinato a un'app o a un gruppo specifico.
+> ![NOTA] In caso di nuovo invio, l'invito viene inviato all'utente connesso a singoli utenti anche se l'invito originale è stato inviato a un'app o a un gruppo specifico.
 
 
 ## <a name="related-articles"></a>Articoli correlati

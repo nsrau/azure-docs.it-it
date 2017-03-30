@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: guida alla risoluzione dei problemi | Documentazione Microsoft'
+title: 'Azure Active Directory Domain Services: guida alla risoluzione dei problemi | Microsoft Docs'
 description: Guida alla risoluzione dei problemi di Servizi di dominio di Azure AD
 services: active-directory-ds
 documentationcenter: 
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: a7cf17e7c84ca6ec69b8a88b78bb0bbc91db0b5b
-ms.openlocfilehash: 30248b5f00aaf2d81db79b5a690760f816384723
-ms.lasthandoff: 12/28/2016
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: d6695b0c40f56093e8701dfe6394143268114453
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -129,7 +129,7 @@ Per risolvere questo errore, abilitare l'applicazione e quindi tentare di abilit
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Impossibile accedere al dominio gestito di Servizi di dominio di Azure AD
 Se uno o più utenti nel tenant di Azure AD non sono in grado di accedere al dominio gestito appena creato, seguire questa procedura di risoluzione dei problemi:
 
-* **Accedere usando il formato UPN:** provare a effettuare l'accesso usando il formato UPN (ad esempio 'joeuser@contoso.com')) anziché il formato SAMAccountName ("CONTOSO\joeuser"). L'attributo SAMAccountName può essere generato automaticamente per gli utenti il cui prefisso UPN è troppo lungo o è identico a un altro utente nel dominio gestito. Il formato UPN è garantito come univoco all'interno di un tenant di Azure AD.
+* **Accedere usando il formato UPN:** provare ad accedere usando il formato UPN (ad esempio "joeuser@contoso.com") anziché il formato SAMAccountName ("CONTOSO\joeuser"). L'attributo SAMAccountName può essere generato automaticamente per gli utenti il cui prefisso UPN è troppo lungo o è identico a un altro utente nel dominio gestito. Il formato UPN è garantito come univoco all'interno di un tenant di Azure AD.
 
 > [!NOTE]
 > Si consiglia di usare il formato UPN per accedere al dominio gestito di Servizi di dominio Azure AD.
@@ -137,7 +137,7 @@ Se uno o più utenti nel tenant di Azure AD non sono in grado di accedere al dom
 >
 
 * Assicurarsi di avere [abilitato la sincronizzazione delle password](active-directory-ds-getting-started-password-sync.md) secondo i passaggi descritti nella Guida introduttiva.
-* **Account esterni** : assicurarsi che l'account utente interessato non sia un account esterno nel tenant di Azure AD. Esempi di account esterni sono gli account Microsoft (ad esempio 'joe@live.com')) o gli account utente di una directory esterna di Azure AD. Servizi di dominio di Azure AD non dispone di credenziali per questo tipo di account utente, pertanto questi utenti non sono in grado di accedere al dominio gestito.
+* **Account esterni** : assicurarsi che l'account utente interessato non sia un account esterno nel tenant di Azure AD. Esempi di account esterni sono gli account Microsoft (ad esempio "joe@live.com") o gli account utente di una directory esterna di Azure AD. Servizi di dominio di Azure AD non dispone di credenziali per questo tipo di account utente, pertanto questi utenti non sono in grado di accedere al dominio gestito.
 * **Account sincronizzati:** : se gli account utente interessati sono sincronizzati da una directory locale, verificare quanto segue:
 
   * È stata eseguita la distribuzione o l'aggiornamento all' [ultima versione consigliata di Azure AD Connect](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
@@ -151,6 +151,8 @@ Se uno o più utenti nel tenant di Azure AD non sono in grado di accedere al dom
 
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Gli utenti rimossi dal tenant di Azure AD non vengono rimossi dal dominio gestito
 Azure AD impedisce l'eliminazione accidentale di oggetti utente. Quando si elimina un account utente dal tenant di Azure AD, il corrispondente oggetto utente viene spostato nel Cestino. Quando questa operazione di eliminazione viene sincronizzata con il dominio gestito, il corrispondente account utente viene contrassegnato come disabilitato. Questa funzionalità consente di ripristinare o annullare l'eliminazione dell'account utente in un secondo tempo.
+
+L'account utente rimane nello stato disabilitato nel dominio gestito, anche se si crea nuovamente un account utente con lo stesso UPN nella directory di Azure AD. Per rimuovere l'account utente dal dominio gestito, occorre eliminarlo dal tenant di Azure AD.
 
 Per rimuovere completamente l'account utente dal dominio gestito, eliminare in modo permanente l'utente dal tenant di Azure AD. Usare il cmdlet Remove-MsolUser PowerShell con l'opzione "-RemoveFromRecycleBin", come descritto in questo [articolo di MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 

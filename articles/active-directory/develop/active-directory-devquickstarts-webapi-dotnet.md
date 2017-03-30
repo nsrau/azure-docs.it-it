@@ -1,5 +1,5 @@
 ---
-title: Introduzione alle API Web .NET per Azure AD | Documentazione Microsoft
+title: Introduzione alle API Web .NET per Azure AD | Microsoft Docs
 description: Come compilare un&quot;API Web MVC per Node.js che si integra con Azure AD per l&quot;autenticazione e l&quot;autorizzazione.
 services: active-directory
 documentationcenter: .net
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: e2e1c68b83e9b9ec5a3865e89a98b80cf59cdfad
-ms.openlocfilehash: 038b862a355310d264dacb4c619fb6558a0edffc
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: b028a75836f7c762431bfb9e3fc30822b7dee885
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -54,9 +54,10 @@ Per proteggere l'applicazione, si dovrà per prima cosa creare un'applicazione n
 5. Seguire le istruzioni e creare una nuova **applicazione Web e/o API Web**.
   * **Nome** descrive l'applicazione agli utenti. Immettere **To Do List Service**.
   * **URI di reindirizzamento** è una combinazione dello schema e della stringa che Azure AD userà per restituire i token richiesti dall'app. Immettere `https://localhost:44321/` per questo valore.
-  * In **URI ID app** immettere un identificatore specifico del tenant. Ad esempio, immettere `https://contoso.onmicrosoft.com/TodoListService`.
-  
-6. Salvare la configurazione. Lasciare aperto il portale, poiché tra poco si dovrà registrare anche l'applicazione client.
+
+6. Dalla pagina **Impostazioni** -> **Proprietà** dell'applicazione aggiornare l'URI dell'ID app. Immettere un identificatore specifico del tenant. Ad esempio, immettere `https://contoso.onmicrosoft.com/TodoListService`.
+
+7. Salvare la configurazione. Lasciare aperto il portale, poiché tra poco si dovrà registrare anche l'applicazione client.
 
 ## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>Passaggio 2: Configurare l'app per l'uso della pipeline di autenticazione OWIN
 Per convalidare le richieste in ingresso e i token, è necessario configurare l'applicazione per la comunicazione con Azure AD.

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 339df6e5ff05c66e898254f2cd4bb5b596d0c537
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 6ec77968a0f264b8bf1fa56a23e4cc7faef614da
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -48,6 +48,9 @@ Managed Disks offre una maggiore affidabilità per i set di disponibilità, perc
 ### <a name="granular-access-control"></a>Controllo di accesso granulare
 
 Per assegnare autorizzazioni specifiche per un disco gestito a uno o più utenti, è possibile usare il [controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-what-is.md). Managed Disks espone una serie di operazioni, inclusa la lettura, la scrittura (creazione/aggiornamento), l'eliminazione e il recupero di un [URI di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md) per il disco. È possibile consentire l'accesso solo alle operazioni che servono agli utenti per svolgere il proprio lavoro. Ad esempio, per fare in modo che un utente non possa copiare un disco gestito in un account di archiviazione, è possibile scegliere di non consentire l'accesso all'operazione di esportazione di tale disco gestito. Analogamente, per fare in modo che un utente non possa usare un URI di firma di accesso condiviso per copiare un disco gestito, è possibile scegliere di non concedere l'autorizzazione per il disco gestito.
+
+### <a name="azure-backup-service-support"></a>Supporto del servizio Backup di Azure 
+Usare il servizio Backup di Azure con Managed Disks per creare un processo di backup con backup basati sul tempo, criteri semplici per il ripristino delle VM e la conservazione dei backup. Managed Disks supporta solo l'archiviazione con ridondanza locale come opzione di replica. Questo significa che mantiene tre copie dei dati all'interno della stessa area. Per eseguire il ripristino di emergenza dell'area, è necessario eseguire il backup dei dischi delle macchine virtuali in un'altra area usando il [servizio Backup di Azure](../backup/backup-introduction-to-azure-backup.md) e un account di archiviazione con ridondanza geografica come insieme di credenziali di backup. Per altre informazioni in merito, vedere la sezione relativa all'[uso del servizio Backup di Azure per macchine virtuali con dischi gestiti](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
 
 ## <a name="pricing-and-billing"></a>Prezzi e fatturazione 
 
@@ -114,19 +117,21 @@ Uno snapshot è la copia di un disco nel momento in cui viene creato e si applic
 
 La situazione cambia se la macchina virtuale include cinque dischi con striping. Si potrebbe scegliere di creare uno snapshot di ogni disco, ma la macchina virtuale non include alcuna informazione sullo stato dei dischi, perché gli snapshot riguardano un solo disco. In tal caso sarebbe necessario coordinare gli snapshot, ma questa funzionalità non è attualmente supportata.
 
-## <a name="azure-backup-service-support"></a>Supporto del servizio Backup di Azure 
+## <a name="managed-disks-and-encryption"></a>Managed Disks e crittografia
 
-È possibile eseguire il backup delle macchine virtuali con dischi non gestiti con Backup di Azure. [Altre informazioni](../backup/backup-azure-vms-first-look-arm.md).
+Esistono due tipi di crittografia in riferimento ai dischi gestiti. Il primo si chiama Crittografia del servizio di archiviazione (SSE) e viene eseguito dal servizio di archiviazione. Il secondo è Crittografia dischi di Azure e può essere attivato nei dischi del sistema operativo e nei dischi dati per le macchine virtuali. 
 
-È anche possibile usare il servizio Backup di Azure con Managed Disks per creare un processo di backup con backup pianificati, facile ripristino delle macchine virtuali e criteri di conservazione dei backup. Per altre informazioni in merito, vedere la sezione relativa all'[uso del servizio Backup di Azure per macchine virtuali con dischi gestiti](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
+### <a name="storage-service-encryption-sse"></a>Crittografia del servizio di archiviazione di Azure (SSE)
 
-## <a name="managed-disks-and-storage-service-encryption-sse"></a>Managed Disks e crittografia del servizio di archiviazione (SSE)
-
-Archiviazione di Azure supporta la crittografia automatica dei dati scritti in un account di archiviazione. Per altre informazioni, vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md). Per quanto riguarda i dati nei dischi gestiti, attualmente non è possibile abilitare la crittografia del servizio di archiviazione per Managed Disks, ma questa funzionalità sarà presto disponibile. Nel frattempo è necessario sapere come usare un file VHD crittografato che risiede in un account di archiviazione crittografato. 
+Archiviazione di Azure supporta la crittografia automatica dei dati scritti in un account di archiviazione. Per altre informazioni, vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md). Per quanto riguarda i dati nei dischi gestiti, attualmente non è possibile abilitare Crittografia del servizio di archiviazione per Managed Disks. Questa funzionalità sarà tuttavia presto disponibile. Nel frattempo è necessario sapere come usare un file VHD crittografato che risiede in un account di archiviazione crittografato. 
 
 La crittografia del servizio di archiviazione crittografa i dati man mano che vengono scritti nell'account di archiviazione. Non è possibile usare un file VHD crittografato in precedenza con la crittografia del servizio di archiviazione per creare una macchina virtuale che usa Managed Disks. Non è possibile neppure convertire un disco non gestito crittografato in un disco gestito. Infine, se si disabilita la crittografia nell'account di archiviazione, il file VHD non viene più decrittografato. 
 
 Per usare un disco crittografato, è prima necessario copiare il file VHD in un account di archiviazione che non è mai stato crittografato. È quindi possibile creare una macchina virtuale con Managed Disks e specificare tale file VHD durante la creazione. In alternativa, è possibile collegare il file VHD copiato a una macchina virtuale in esecuzione con Managed Disks. 
+
+### <a name="azure-disk-encryption-ade"></a>Crittografia dischi di Azure (ADE)
+
+Crittografia dischi di Azure consente di crittografare i dischi del sistema operativo e i dischi dati usati da una macchina virtuale IaaS. Sono inclusi i dischi gestiti. Per Windows, le unità vengono crittografate mediante la tecnologia di crittografia BitLocker standard del settore. Per Linux, i dischi vengono crittografati mediante la tecnologia DM-Crypt, integrata nell'insieme di credenziali delle chiavi per consentire il controllo e la gestione delle chiavi di crittografia del disco. Per altre informazioni, vedere [Crittografia dischi di Azure per macchine virtuali IaaS Windows e Linux](../security/azure-security-disk-encryption.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

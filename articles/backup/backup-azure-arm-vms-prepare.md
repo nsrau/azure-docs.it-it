@@ -1,5 +1,5 @@
 ---
-title: 'Backup di Azure: preparare il backup di macchine virtuali | Documentazione Microsoft'
+title: 'Backup di Azure: preparare il backup di macchine virtuali | Microsoft Docs'
 description: Assicurarsi che l&quot;ambiente sia pronto per il backup di macchine virtuali in Azure.
 services: backup
 documentationcenter: 
@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 2/7/2017
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: d7a2b9c13b2c3372ba2e83f726c7bf5cc7e98c02
-ms.openlocfilehash: 5d68b7f1f57da07685c27d592620c1785269f9d8
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 27d8da9df87dc5e93272be0bb6584e90971fb461
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -44,6 +44,7 @@ Prima di proteggere o eseguire il backup di una macchina virtuale (VM) di Resour
 * Selezionare uno scenario, definire i criteri di backup e specificare gli elementi da proteggere.
 * Verificare l'installazione dell'agente di macchine virtuali nella macchina virtuale.
 * Verificare la connettività della rete
+* Per le macchine virtuali Linux, se si vuole personalizzare l'ambiente di backup per backup coerenti con l'applicazione, seguire la [procedura per configurare gli script pre-snapshot e post-snapshot](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
 
 Se nell'ambiente esistono già queste condizioni, passare all'articolo [Eseguire il backup di macchine virtuali di Azure](backup-azure-vms.md). Se si vuole impostare o verificare qualsiasi prerequisito, questo articolo spiega la procedura di preparazione dei prerequisiti.
 

@@ -1,6 +1,6 @@
 ---
-title: Vantaggio Azure Hybrid Use per Windows Server | Microsoft Docs
-description: Informazioni su come ottimizzare i vantaggi di Software Assurance per Windows Server per trasferire le licenze locali in Azure
+title: Azure Hybrid Use Benefit per Windows Server e Client Windows| Microsoft Docs
+description: Informazioni su come ottimizzare i vantaggi di Software Assurance per Windows per trasferire le licenze locali in Azure
 services: virtual-machines-windows
 documentationcenter: 
 author: george-moore
@@ -12,24 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/17/2016
+ms.date: 3/10/2017
 ms.author: georgem
 translationtype: Human Translation
-ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
-ms.openlocfilehash: df86e73814ceb0c5137c654bce84c8d42ae41820
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: dfa3cf27eebd04507c101fc9421f13dfef39c39f
+ms.lasthandoff: 03/21/2017
 
 
 ---
-# <a name="azure-hybrid-use-benefit-for-windows-server"></a>Vantaggio Azure Hybrid Use per Windows Server
-Per i clienti che usano Windows Server con Software Assurance è possibile trasferire le licenze locali di Windows Server in Azure ed eseguire macchine virtuali Windows Server in Azure a costi ridotti. Il vantaggio Azure Hybrid Use consente di eseguire macchine virtuali (VM) Windows Server in Azure alla sola tariffa di calcolo di base. Per altre informazioni, vedere la [pagina del vantaggio Azure Hybrid Use per la licenza](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Questo articolo spiega come distribuire VM Windows Server in Azure per usare questo vantaggio di gestione delle licenze.
+# <a name="azure-hybrid-use-benefit-for-windows-server-and-windows-client"></a>Azure Hybrid Use Benefit per Windows Server e Client Windows
+Per i clienti con Software Assurance, Azure Hybrid Use Benefit consente di usare le licenze di Windows Server e Client di Windows locali e di eseguire le macchine virtuali di Windows in Azure a costi ridotti. Azure Hybrid Use Benefit per Windows Server include Windows Server 2008R2, Windows Server 2012, Windows Server 2012R2 e Windows Server 2016. Azure Hybrid Use Benefit per Client Windows include Windows 10. Per altre informazioni, vedere la [pagina del vantaggio Azure Hybrid Use per la licenza](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
+>[!IMPORTANT]
+>Azure Hybrid Use Benefit per Client Windows è attualmente in anteprima. Solo i clienti Enterprise con Windows 10 Enterprise E3/E5 per utente o Windows VDA per utente (licenze di sottoscrizione utente o le licenze di sottoscrizione utente per i componenti aggiuntivi) idonei ("Licenze di qualificazione") sono idonei.
+>
+>
 
 ## <a name="ways-to-use-azure-hybrid-use-benefit"></a>Modalità di utilizzo del vantaggio Azure Hybrid Use
 Esistono due modi per distribuire le macchine virtuali Windows con il vantaggio Azure Hybrid Use:
 
 1. Se si dispone di una sottoscrizione Enterprise Agreement, è possibile [distribuire le VM da immagini del Marketplace specifiche](#deploy-a-vm-using-the-azure-marketplace) che sono preconfigurate con il vantaggio Azure Hybrid Use.
-2. Se non si dispone della sottoscrizione Enterprise Agreement, è possibile [caricare una VM personalizzata](#upload-a-windows-server-vhd) e [distribuirla usando un modello di Resource Manager](#deploy-a-vm-via-resource-manager) o [Azure PowerShell](#detailed-powershell-deployment-walkthrough).
+2. Se non si dispone della sottoscrizione Enterprise Agreement, è possibile [caricare una macchina virtuale personalizzata](#upload-a-windows-vhd) e [distribuirla usando un modello di Resource Manager](#deploy-a-vm-via-resource-manager) o [Azure PowerShell](#detailed-powershell-deployment-walkthrough).
 
 ## <a name="deploy-a-vm-using-the-azure-marketplace"></a>Distribuire una VM usando Azure Marketplace
 Per i clienti che dispongono di [sottoscrizioni Enterprise Agreement](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx), le immagini sono disponibili nel Marketplace preconfigurate con il vantaggio Azure Hybrid Use. Queste immagini possono essere distribuite direttamente, ad esempio dal portale di Azure, da modelli di Resource Manager o da Azure PowerShell. Le immagini nel Marketplace sono indicate con il nome `[HUB]` come segue:
@@ -38,16 +42,23 @@ Per i clienti che dispongono di [sottoscrizioni Enterprise Agreement](https://ww
 
 È possibile distribuire queste immagini direttamente dal portale di Azure. Per l'utilizzo in modelli di Resource Manager e con Azure PowerShell, visualizzare l'elenco delle immagini come segue:
 
+Per Windows Server:
 ```powershell
 Get-AzureRMVMImageSku -Location "West US" -Publisher "MicrosoftWindowsServer" `
     -Offer "WindowsServer-HUB"
 ```
 
+Per Client Windows:
+```powershell
+Get-AzureRMVMImageSku -Location "West US" -Publisher "MicrosoftWindowsServer" `
+    -Offer "Windows-HUB"
+```
+
 Se non si dispone di una sottoscrizione Enterprise Agreement, continuare a leggere per istruzioni su come caricare una VM personalizzata e distribuirla con il vantaggio Azure Hybrid Use.
 
 
-## <a name="upload-a-windows-server-vhd"></a>Caricare un disco rigido virtuale di Windows Server
-Per distribuire una VM Windows Server in Azure è prima necessario creare un disco rigido virtuale contenente la build di base di Windows Server. Questo disco rigido virtuale deve essere correttamente preparato con Sysprep prima di caricarlo in Azure. Sono disponibili [altre informazioni sui requisiti dei dischi rigidi virtuali e sul processo Sysprep](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Supporto Sysprep per i ruoli server](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Eseguire il backup della VM prima di eseguire Sysprep. 
+## <a name="upload-a-windows-vhd"></a>Caricare un disco rigido virtuale Windows
+Per distribuire una macchina virtuale Windows in Azure è prima necessario creare un disco rigido virtuale contenente la build di base di Windows. Questo disco rigido virtuale deve essere correttamente preparato con Sysprep prima di caricarlo in Azure. Sono disponibili [altre informazioni sui requisiti dei dischi rigidi virtuali e sul processo Sysprep](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Supporto Sysprep per i ruoli server](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Eseguire il backup della VM prima di eseguire Sysprep. 
 
 Verificare di aver prima [installato e configurato l'ultima versione di Azure PowerShell](/powershell/azureps-cmdlets-docs). Dopo aver preparato il disco rigido virtuale, caricarlo nell'account di archiviazione di Azure usando il cmdlet `Add-AzureRmVhd` come segue:
 
@@ -67,20 +78,35 @@ Altre informazioni sul [caricamento del disco rigido virtuale in Azure](virtual-
 ## <a name="deploy-an-uploaded-vm-via-resource-manager"></a>Distribuire una VM caricata tramite Resource Manager
 Nei modelli di Resource Manager è possibile specificare un parametro aggiuntivo per `licenseType`. Altre informazioni sulla [creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Dopo aver caricato il disco rigido virtuale in Azure, modificare il modello di Resource Manager per includere il tipo di licenza come parte del provider di calcolo e distribuire il modello come di consueto:
 
+Per Windows Server:
 ```json
 "properties": {  
    "licenseType": "Windows_Server",
    "hardwareProfile": {
         "vmSize": "[variables('vmSize')]"
-   },
+   }
 ```
 
+Per Client Windows:
+```json
+"properties": {  
+   "licenseType": "Windows_Client",
+   "hardwareProfile": {
+        "vmSize": "[variables('vmSize')]"
+   }
+```
 
 ## <a name="deploy-an-uploaded-vm-via-powershell-quickstart"></a>Distribuire una VM caricata tramite l'avvio rapido di PowerShell
 Quando si distribuisce la macchina virtuale Windows Server con PowerShell è presente un parametro aggiuntivo per `-LicenseType`. Dopo aver caricato il disco rigido virtuale in Azure, creare una nuova VM usando `New-AzureRmVM` e specificare il tipo di licenza come segue:
 
+Per Windows Server:
 ```powershell
 New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Server"
+```
+
+Per Client Windows:
+```powershell
+New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Client"
 ```
 
 È possibile [leggere una procedura più dettagliata sulla distribuzione di una VM in Azure con PowerShell](virtual-machines-windows-hybrid-use-benefit-licensing.md#detailed-powershell-deployment-walkthrough) più avanti nel documento oppure vedere una guida più descrittiva con i diversi passaggi per [creare una VM Windows usando Resource Manager e PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -93,7 +119,7 @@ Dopo avere distribuito la VM con il metodo di distribuzione tramite PowerShell o
 Get-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
 ```
 
-L'output è simile all'esempio seguente:
+L'output è simile all'esempio seguente per Windows Server:
 
 ```powershell
 Type                     : Microsoft.Compute/virtualMachines
@@ -180,8 +206,14 @@ $vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOp
 
 Creare infine la macchina virtuale e definire il tipo di licenza per l'uso del vantaggio Azure Hybrid Use:
 
+Per Windows Server:
 ```powershell
 New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm -LicenseType "Windows_Server"
+```
+
+Per Client Windows:
+```powershell
+New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm -LicenseType "Windows_Client"
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

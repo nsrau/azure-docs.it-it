@@ -1,5 +1,5 @@
 ---
-title: Eseguire test e debug di processi U-SQL tramite l&quot;esecuzione locale e l&quot;SDK U-SQL di Azure Data Lake | Documentazione Microsoft
+title: Eseguire test e debug di processi U-SQL tramite l&quot;esecuzione locale e l&quot;SDK U-SQL di Azure Data Lake | Microsoft Docs
 description: Informazioni su come usare gli strumenti di Azure Data Lake per Visual Studio e l&quot;SDK U-SQL di Azure Data Lake per eseguire test e debug dei processi di U-SQL nella workstation locale.
 services: data-lake-analytics
 documentationcenter: 
@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 11/15/2016
 ms.author: yanacai
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: ffa31e7eee7642c29a846658b999828434347316
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 7e8aed4f56471bb2946c610ca63b0ec50ee1b57e
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -81,13 +81,35 @@ Per poter eseguire la funzionalità di esecuzione locale è richiesto un progett
 
     ![Processi di invio dell'esecuzione locale degli strumenti di Data Lake per Visual Studio](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-submit-job.png)
 
+### <a name="debug-scripts-and-c-assemblies-locally"></a>Eseguire il debug degli script e delle assembly C# in locale
+
+È possibile eseguire il debug degli assembly C# senza inviarli e registrarli al servizio Azure Data Lake Analytics. È possibile impostare dei punti di interruzione sia nei file dietro il codice, sia nel progetto C# a cui si fa riferimento.
+
+#### <a name="to-debug-local-code-in-code-behind-file"></a>Per eseguire il debug del codice locale nel file code-behind
+
+1. Impostare dei punti di interruzione nel file dietro il codice.
+2. Premere F5 per eseguire il debug dello script in locale.
+
+> [!NOTE]
+   > La procedura seguente funziona solo in Visual Studio 2015. Nella versione precedente di Visual Studio potrebbe essere necessario aggiungere manualmente i file .pdb.  
+   >
+   >
+
+#### <a name="to-debug-local-code-in-a-referenced-c-project"></a>Per eseguire il debug del codice locale in un progetto C# a cui si fa riferimento
+
+1. Creare un progetto Assembly C# e compilarlo per generare l’output dll.
+2. Registrare la dll utilizzando un'istruzione U-SQL:
+
+        CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
+        
+3. Impostare i punti di interruzione nel codice C#.
+4. Premere F5 per eseguire il debug dello script con riferimento alla DLL C# in locale.
+
 ## <a name="use-local-run-from-the-data-lake-u-sql-sdk"></a>Usare l'esecuzione locale dall'SDK U-SQL di Data Lake
 
 Oltre a eseguire gli script U-SQL localmente con Visual Studio, è possibile usare anche l'SDK U-SQL di Azure Data Lake per eseguire gli script U-SQL localmente con le interfacce della riga di comando e di programmazione. In questo modo è possibile scalare il test locale di U-SQL.
 
 Sono disponibili altre informazioni sull'[SDK U-SQL di Azure Data Lake](data-lake-analytics-u-sql-sdk.md).
-
-
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,5 +1,5 @@
 ---
-title: 'Monitoraggio delle prestazioni delle applicazioni Web: Azure Application Insights | Documentazione Microsoft'
+title: 'Monitoraggio delle prestazioni delle applicazioni Web: Azure Application Insights | Microsoft Docs'
 description: Funzione di Application Insights nel ciclo devOps
 services: application-insights
 documentationcenter: 
@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 9f837ea815fdd3ea47608dc36029c35e92eda0ae
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: f6c8c895f406187f2bc525a60ca7e53f12e99d77
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -164,6 +164,10 @@ Quando viene generato un avviso, Application Insights può creare automaticament
 * Prestazioni. L'impatto è molto basso. I dati di telemetria sono organizzati in batch.
 * [Supporto](app-insights-get-dev-support.md): è possibile sfruttare il programma di supporto tecnico di Azure. Sono disponibili forum dinamici in cui è possibile ottenere risposte dagli sviluppatori. Laddove necessario è anche possibile ottenere supporto individuale.
 * [Prezzi](app-insights-pricing.md): il servizio è gratuito finché i volumi sono ridotti.
+
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Passaggi successivi
 Iniziare a usare Application Insights è semplice. Le opzioni principali sono le seguenti:

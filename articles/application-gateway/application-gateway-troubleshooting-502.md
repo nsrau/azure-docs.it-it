@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: ce40a93372205a4b7c6b0c753ebf30c2b3d51d7a
-ms.openlocfilehash: 86cd149d351cc957577d213d77db732bd5e16658
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: cacc20da7945421f31ce69a9c0b34056c009d9e7
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -33,6 +34,9 @@ Dopo aver configurato un gateway applicazione di Azure, uno degli errori che gli
 * Le macchine virtuali o le istanze back-end del set di scalabilità di macchine virtuali non rispondono al probe di integrità predefinito.
 * Configurazione non valida o inappropriata dei probe di integrità personalizzati.
 * Problemi di timeout della richiesta o di connettività con le richieste degli utenti.
+
+> [!note]
+> Gateway applicazione mantiene l'intestazione host in ingresso e la invia al back-end. Se il back-end richiede un'intestazione diversa, non funzionerà. Allo stesso modo se il back-end è multi-tenant e l'SSL end-to-end è abilitato, il back-end prevede che il nome del server si trovi nell'estensione SNI. Gateway applicazione attualmente non invia un'intestazione SNI nelle richieste di back-end in scenari SSL end-to-end che provocherebbero problemi di test e di percorso di dati.
 
 ## <a name="empty-backendaddresspool"></a>BackendAddressPool vuoto
 
@@ -150,10 +154,5 @@ Il gateway applicazione consente agli utenti di configurare questa impostazione 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Se i passaggi precedenti non risolvono il problema, aprire un [ticket di supporto](https://azure.microsoft.com/support/options/).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

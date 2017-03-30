@@ -1,5 +1,5 @@
 ---
-title: Usare Apache Spark per analizzare i dati in Azure Data Lake Store | Documentazione Microsoft
+title: Usare Apache Spark per analizzare i dati in Azure Data Lake Store | Microsoft Docs
 description: Eseguire processi Spark per analizzare i dati archiviati in Azure Data Lake Store
 services: hdinsight
 documentationcenter: 
@@ -8,16 +8,17 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 1f174323-c17b-428c-903d-04f0e272784c
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/23/2017
+ms.date: 03/21/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: d9efecfaf0b9e461182328b052252b114d78ce39
-ms.openlocfilehash: 840db75456e8383cf4343e2170a55dc50cbb68dd
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: c801dc221d4aaa2c3ed0a7d10c5d58065b26e427
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -34,14 +35,13 @@ In questa esercitazione si usa un notebook Jupyter disponibile con i cluster HDI
 
 * Cluster Azure HDInsight Spark con Data Lake Store come risorsa di archiviazione. Seguire le istruzioni disponibili in [Creare un cluster HDInsight con Data Lake Store tramite il portale di Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
-    > [!IMPORTANT]
-       > Se si usa un Data Lake Store come archiviazione primaria per il cluster, assicurarsi di creare un cluster Spark 1.6.
-      >
-       >
-
+    
 ## <a name="prepare-the-data"></a>Preparare i dati
 
-Se è stato creato un cluster HDInsight con Data Lake Store come risorsa di archiviazione predefinita, non è necessario eseguire questo passaggio, perché il processo di creazione del cluster aggiunge alcuni dati di esempio nell'account Data Lake Store specificato durante la creazione del cluster.
+> [!NOTE]
+> Non è necessario eseguire questo passaggio se è stato creato il cluster HDInsight con Data Lake Store come spazio di archiviazione predefinito. I processi di creazione del cluster aggiunge alcuni dati di esempio nell'account di Data Lake Store specificato durante la creazione del cluster. Passare alla sezione [Usare il cluster e HDInsight Spark con Data Lake Store](#use-an-hdinsight-spark-cluster-with-data-lake-store).
+>
+>
 
 Se è stato creato un cluster HDInsight con Data Lake Store come risorsa di archiviazione aggiuntiva e un BLOB di Archiviazione di Azure come risorsa di archiviazione predefinita, è necessario copiare prima di tutto alcuni dati di esempio nell'account Data Lake Store. È possibile usare i dati di esempio dal BLOB di Archiviazione di Azure associati al cluster HDInsight. Per farlo, è possibile usare lo [strumento ADLCopy](http://aka.ms/downloadadlcopy) . Scaricare e installare lo strumento dal collegamento.
 
@@ -98,7 +98,7 @@ Se è stato creato un cluster HDInsight con Data Lake Store come risorsa di arch
     * Se è presente un Data Lake Store come risorsa di archiviazione predefinita, il file HVAC.csv sarà disponibile in un percorso analogo all'URL seguente:
 
             adl://<data_lake_store_name>.azuredatalakestore.net/<cluster_root>/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
-    
+
         In alternativa, è possibile anche usare un formato abbreviato, ad esempio il seguente:
 
             adl:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
@@ -111,20 +111,20 @@ Se è stato creato un cluster HDInsight con Data Lake Store come risorsa di arch
 
             # Load the data. The path below assumes Data Lake Store is default storage for the Spark cluster
             hvacText = sc.textFile("adl://MYDATALAKESTORE.azuredatalakestore.net/cluster/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-            
+
             # Create the schema
             hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
-            
+
             # Parse the data in hvacText
             hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
-            
+
             # Create a data frame
             hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
-            
+
             # Register the data fram as a table to run queries against
             hvacdf.registerTempTable("hvac")
 
-6. Dato che si usa un kernel PySpark, è ora possibile eseguire direttamente una query SQL sulla tabella temporanea **hvac** appena creata usando il comando Magic `%%sql`. Per altre informazioni sul magic `%%sql` e sugli altri magic disponibili con il kernel PySpark, vedere [Kernel disponibili per i notebook di Jupyter con cluster Spark in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
+6. Dato che si usa un kernel PySpark, è ora possibile eseguire direttamente una query SQL sulla tabella temporanea **hvac** appena creata usando il comando Magic `%%sql`. Per altre informazioni sul magic `%%sql` e sugli altri magic disponibili con il kernel PySpark, vedere [Kernel disponibili per i notebook di Jupyter con cluster Spark in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
         %%sql
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"

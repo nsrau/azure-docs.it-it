@@ -1,5 +1,5 @@
 ---
-title: Compilare un&quot;applicazione Java HBase per Azure HDInsight basato su Windows | Documentazione Microsoft
+title: Compilare un&quot;applicazione Java HBase per Azure HDInsight basato su Windows | Microsoft Docs
 description: Informazioni su come usare Apache Maven per compilare un&quot;applicazione Apache HBase basata su Java e poi distribuirla in un cluster Azure HDInsight basato su Windows.
 services: hdinsight
 documentationcenter: 
@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: b829f21dbc212cd951f5e417ad56f7eb724a9d56
-ms.openlocfilehash: 51a9ebdee38c14eb3dc1148070004e6792369b39
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: e7a2fef8860984c2e4e3749202868940b836ca9f
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -32,7 +34,7 @@ In questo articolo si apprenderà come creare e compilare un'applicazione [Apach
 ## <a name="requirements"></a>Requisiti
 * [Piattaforma Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 o versioni successive
 * [Maven](http://maven.apache.org/)
-* [Un cluster HDInsight basato su Windows con HBase](hdinsight-hbase-tutorial-get-started.md#create-hbase-cluster)
+* Un cluster HDInsight basato su Windows con HBase
 
     > [!NOTE] 
     > Le procedure descritte in questo documento sono state testate con le versioni del cluster HDInsight 3.2 e 3.3. I valori predefiniti specificati negli esempi sono per un cluster HDInsight 3.3.
@@ -616,10 +618,5 @@ Sostituire **hdinsightclustername** con il nome del cluster HDInsight.
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 ### <a name="no-results-or-unexpected-results-when-using-start-hbaseexample"></a>Nessun risultato o risultati imprevisti quando si usa Start-HBaseExample
 Usare il parametro `-showErr` per visualizzare l'errore standard (STDERR) prodotto durante l'esecuzione del processo.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

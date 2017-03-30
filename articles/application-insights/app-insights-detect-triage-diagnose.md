@@ -4,19 +4,19 @@ description: Analizzare gli arresti anomali per rilevare e diagnosticare problem
 author: alancameronwills
 services: application-insights
 documentationcenter: 
-manager: douge
+manager: carmonm
 ms.assetid: 6ccab5d4-34c4-4303-9d3b-a0f1b11e6651
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: 1af63c31a8cb7995f64813c12d32b283745c04ed
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 05fe4996a8a9c886f2f1b61471dc80550633ecf6
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -61,7 +61,7 @@ Gli errori vengono visualizzati come punti rossi nel grafico del test Web:
 
 ![Visualizzazione dei test Web eseguiti nel periodo precedente](./media/app-insights-detect-triage-diagnose/04-webtests.png)
 
-Ma soprattutto viene inviato al team di sviluppo un avviso su eventuali errori mediante posta elettronica. In questo modo ne verranno a conoscenza prima di quasi tutti i clienti.
+Ma soprattutto viene inviato al team di sviluppo un avviso su eventuali errori mediante posta elettronica. In questo modo ne verranno a conoscenza prima quasi tutti i clienti.
 
 ## <a name="monitor-performance-metrics"></a>Monitorare le metriche delle prestazioni
 Nella pagina Panoramica in Application Insights è presente un grafico che mostra una serie di [metriche chiave](app-insights-web-monitor-performance.md).
@@ -90,7 +90,7 @@ Quindi imposta un [avviso](app-insights-metrics-explorer.md) se i tempi di rispo
 ## <a name="smart-detection-alerts"></a>Avvisi del rilevamento intelligente
 Il giorno successivo arriva un avviso in posta elettronica da Application Insights. Quando lo apre, si accorge però che non è l'avviso sui tempi di risposta che aveva impostato. Al contrario, indica che c'è stato un aumento improvviso delle richieste non riuscite, ovvero, delle richieste che hanno restituito 500 o più codici di errore.
 
-Le richieste non riuscite sono quelle richieste in cui gli utenti hanno individuato un errore, in genere dopo un'eccezione generata nel codice. Forse viene visualizzato un messaggio che indica che non è possibile aggiornare i dettagli al momento o, addirittura peggio, un dump dello stack sullo schermo dell'utente dovuto al server Web.
+Le richieste non riuscite sono quelle richieste in cui gli utenti hanno individuato un errore, in genere dopo un'eccezione generata nel codice. Forse viene visualizzato il messaggio "Sorry we couldn't update your details right now" (Non è possibile aggiornare i dettagli adesso). Oppure, nella peggiore delle ipotesi, viene visualizzato un dump dello stack sullo schermo dell'utente concesso dal server web.
 
 L'avviso la lascia stupita perché l'ultima volta il numero delle richieste non riuscite era particolarmente basso. In un server occupato, un numero esiguo di errori è un evento prevedibile.
 
@@ -153,9 +153,9 @@ Eccezioni ed eventi vengono visualizzati nel pannello [Ricerca diagnostica](app-
 ![In Ricerca diagnostica usare i filtri per visualizzare determinati tipi di dati](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
 ## <a name="monitoring-user-activity"></a>Monitoraggio dell'attività dell'utente
-Quando il tempo di risposta è coerentemente buono e sono presenti poche eccezioni, il team di sviluppo può pensare a migliorare l'esperienza degli utenti e a incoraggiare più utenti perché raggiungano gli obiettivi previsti.
+Quando il tempo di risposta è coerentemente adeguato e sono presenti poche eccezioni, il team di sviluppo può passare all'usabilità. Si può pensare a come migliorare l'esperienza degli utenti e a incoraggiare più utenti affinché raggiungano gli obiettivi desiderati.
 
-Ad esempio, per un tipico percorso utente nel sito Web è disponibile un grafico chiaro. Molti clienti esaminano diversi tipi di prestito; alcuni compilano il modulo di offerta e, tra quelli che ricevono un'offerta, alcuni procedono con il prestito.
+Ad esempio, un tipico percorso utente nel sito Web presenta chiaramente un "imbuto." Molti clienti esaminano le frequenze dei diversi tipi di prestito. Un numero inferiore compila il modulo delle offerte. Tra quelli che ricevono un'offerta, alcuni proseguono per avere il prestito.
 
 ![Numero di visualizzazioni della pagina](./media/app-insights-detect-triage-diagnose/12-funnel.png)
 
@@ -219,6 +219,10 @@ Application Insights consente anche di essere usato per informazioni sulle opera
 
 ## <a name="your-applications"></a>Applicazioni
 Ecco come un solo team usa Application Insights non solo per risolvere singoli problemi, ma per migliorare il ciclo di vita dello sviluppo. Si tratta di suggerimenti e idee su come Application Insights può aiutare a gestire le prestazioni delle proprie applicazioni.
+
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Passaggi successivi
 È possibile iniziare in diversi modi, a seconda delle caratteristiche dell'applicazione. Scegliere l'opzione più adatta:

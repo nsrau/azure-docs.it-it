@@ -1,5 +1,5 @@
 ---
-title: Guida di riferimento per gli sviluppatori di Funzioni di Azure | Documentazione Microsoft
+title: Guida di riferimento per gli sviluppatori di Funzioni di Azure | Microsoft Docs
 description: Informazioni su come sviluppare Funzioni di Azure in C#.
 services: functions
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/13/2016
+ms.date: 03/20/2017
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: d405c58bf658222ceb72cc2b73e71f2ae1e1ed8d
-ms.openlocfilehash: 6b2473ef6336aea5c9a79aad78e02bcfc38b9018
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 38546a1cc3ae1696dbb37d4dd47d2d540ecd08fa
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -172,6 +172,8 @@ Per usare i pacchetti NuGet in una funzione C#, caricare un file *project.json* 
 Poiché è supportato solo .NET Framework 4.6, verificare che nel file *project.json* sia specificato `net46` come illustrato qui.
 
 Quando si carica un file *project.json* , il runtime ottiene i pacchetti e aggiunge automaticamente riferimenti agli assembly dei pacchetti. Non è necessario aggiungere direttive `#r "AssemblyName"` . Per usare i tipi definiti nei pacchetti NuGet è sufficiente aggiungere le istruzioni `using` necessarie al file *run.csx* .
+
+Nel runtime di Funzioni NuGet ripristina le operazioni confrontando `project.json` e `project.lock.json`. Se gli indicatori di data e ora dei file non corrispondono, NuGet esegue un ripristino e aggiorna i pacchetti. In caso contrario, NuGet non esegue alcun ripristino. Di conseguenza, `project.lock.json` non deve essere distribuito perché in tal caso NuGet ignorerebbe il ripristino e la funzione non includerà i pacchetti necessari. Per evitare la distribuzione del file di blocco, aggiungere `project.lock.json` al `.gitignore` file.
 
 ### <a name="how-to-upload-a-projectjson-file"></a>Come caricare un file project.json
 1. Assicurarsi prima di tutto che l'app di funzione sia in esecuzione aprendo la funzione nel portale di Azure. 

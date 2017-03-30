@@ -1,3 +1,8 @@
+## <a name="microsoft-open-source-code-of-conduct"></a>Codice di comportamento Open Source di Microsoft
+
+Questo progetto ha adottato il [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Codice di comportamento Open Source di Microsoft).
+Per altre informazioni, vedere [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) (Domande frequenti sul Codice di comportamento Open Source di Microsoft) oppure contattare [opencode@microsoft.com](mailto:opencode@microsoft.com) per eventuali altre domande o commenti.
+
 # <a name="azure-technical-documentation-contributor-guide"></a>Guida per i collaboratori alla documentazione tecnica di Azure
 Questo è il repository GitHub in cui è disponibile l'origine della documentazione tecnica di Azure pubblicata in [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure).
 
@@ -20,9 +25,6 @@ Grazie per l'interesse dimostrato nei confronti della documentazione di Azure.
 
 * È possibile contribuire facilmente agli articoli tecnici nell'interfaccia utente di GitHub. Trovare l'articolo in questo repository oppure all'indirizzo [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure) e fare clic sul collegamento presente nell'articolo che rimanda all'origine GitHub dell'articolo desiderato.
 * Se si apportano modifiche sostanziali a un articolo esistente, aggiungendo o modificando immagini oppure fornendo il proprio contributo con un nuovo articolo, è necessario creare una copia tramite fork di questo repository, installare Git Bash, Markdown Pad e apprendere alcuni comandi git.
-
-## <a name="code-of-conduct"></a>Codice di comportamento
-Questo progetto ha adottato il [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Codice di comportamento Open Source di Microsoft). Per altre informazioni, vedere [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) (Domande frequenti sul Codice di comportamento Open Source di Microsoft) oppure contattare [opencode@microsoft.com](mailto:opencode@microsoft.com) per eventuali altre domande o commenti.
 
 ## <a name="about-your-contributions-to-azure-content"></a>Informazioni sui contributi al contenuto di Azure
 ### <a name="minor-corrections"></a>Correzioni secondarie

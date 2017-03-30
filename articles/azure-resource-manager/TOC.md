@@ -14,11 +14,11 @@
 ## Creare modelli
 ### [Procedure consigliate per i modelli](resource-manager-template-best-practices.md)
 ### [Sezioni di modelli](resource-group-authoring-templates.md)
-### [Funzioni di modello](resource-group-template-functions.md)
 ### [Definire la dipendenza tra risorse](resource-group-define-dependencies.md)
+### [Impostare la posizione](resource-manager-template-location.md)
+### [Assegnare i tag](resource-manager-template-tags.md)
 ### [Impostare il nome e il tipo della risorsa figlio](resource-manager-template-child-resource.md)
 ### [Creare più istanze di un tipo di risorsa](resource-group-create-multiple.md)
-### [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md)
 ### [Eseguire il collegamento ad altri modelli](resource-group-linked-templates.md)
 ### [Condividere lo stato tra modelli collegati](best-practices-resource-manager-state.md)
 ### [Schemi per la progettazione di modelli](best-practices-resource-manager-design-templates.md)
@@ -28,6 +28,7 @@
 ### [Portale](resource-group-template-deploy-portal.md)
 ### [API REST](resource-group-template-deploy-rest.md)
 ### [Integrazione continua con Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md)
 ## Gestire
 ### [PowerShell](powershell-azure-resource-manager.md)
 ### [Interfaccia della riga di comando di Azure](xplat-cli-azure-resource-manager.md)
@@ -56,6 +57,7 @@
 ### [Visualizzare le operazioni di distribuzione](resource-manager-deployment-operations.md)
 
 # Riferimento
+## [Funzioni di modello](resource-group-template-functions.md)
 ## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
 ## [Interfaccia della riga di comando Azure 2.0](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)

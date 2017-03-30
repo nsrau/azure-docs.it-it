@@ -1,5 +1,5 @@
 ---
-title: Uso di dispositivi Windows 10 in azienda | Documentazione Microsoft
+title: Uso di dispositivi Windows 10 in azienda | Microsoft Docs
 description: "Offre una panoramica delle funzionalità a disposizione degli utenti e degli amministratori IT, mettendo a confronto i diversi modi in cui è possibile effettuare il provisioning di un dispositivo e usarlo in una organizzazione con Windows 10."
 services: active-directory
 documentationcenter: 
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 053c04ed222eb9c9203a25153e45e31ba842b223
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 71e8944fc56420ddd7fd42bbfbfdf6d145a1cf3b
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -94,7 +95,7 @@ Sono molte le organizzazioni che negli ultimi 15 anni hanno usato l'aggiunta a u
 Per altre informazioni su Aggiunta ad Azure AD, vedere [Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite Aggiunta ad Azure Active Directory](active-directory-azureadjoin-overview.md).
 
 ## <a name="enable-joining-of-personally-owned-devices-for-work-or-school"></a>Abilitare l'aggiunta di dispositivi personali per il lavoro o lo studio
-Per supportare l'uso di BYOD nell'organizzazione, Windows 10 offre all'utente la possibilità di aggiungere un account aziendale o dell'istituto di istruzione al proprio computer, al tablet o al telefono. Dopo l'aggiunta dell'account aziendale o dell'istituto di istruzione il dispositivo viene registrato in Azure AD e, facoltativamente, anche nel sistema di gestione di dispositivi mobili configurato dall'organizzazione. Nella directory questi dispositivi verranno visualizzati come registrati invece che come aggiunti ad Azure AD. Gli amministratori IT possono applicare criteri diversi in base a queste informazioni, offrendo un approccio più semplice per un dispositivo personale che per un dispositivo aziendale, se necessario.
+Per supportare l'uso di BYOD nell'organizzazione, Windows 10 offre all'utente la possibilità di aggiungere un account aziendale o dell'istituto di istruzione al proprio computer, al tablet o al telefono. Dopo l'aggiunta dell'account aziendale o dell'istituto di istruzione il dispositivo viene registrato in Azure AD e, facoltativamente, anche nel sistema di gestione di dispositivi mobili configurato dall'organizzazione. Nella directory questi dispositivi verranno visualizzati come registrati invece che come aggiunti ad Azure AD. Gli amministratori IT possono applicare criteri diversi in base a queste informazioni, offrendo un approccio più semplice per un dispositivo personale rispetto a un dispositivo aziendale, se necessario.
 
 Gli utenti possono aggiungere un account aziendale o dell'istituto di istruzione al dispositivo personale in modo molto pratico, quando accedono a un'applicazione di lavoro per la prima volta o, manualmente, usando il menu Impostazioni. L'account fornirà l'accesso SSO alle risorse dell'organizzazione.
 
@@ -168,10 +169,5 @@ L'account Microsoft connesso degli utenti che eseguono l'aggiornamento da dispos
 * [Scenari di utilizzo per Aggiunta ad Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

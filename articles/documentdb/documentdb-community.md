@@ -1,5 +1,5 @@
 ---
-title: "Community, novità ed eventi di Azure DocumentDB | Documentazione Microsoft"
+title: "Community, novità ed eventi di Azure DocumentDB | Microsoft Docs"
 description: "È possibile partecipare alla community di Azure DocumentDB per creare relazioni, presentare il proprio lavoro e approfondire le proprie competenze."
 services: documentdb
 documentationcenter: 
@@ -15,9 +15,9 @@ ms.workload: data-services
 ms.date: 03/07/2017
 ms.author: andrl
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 4e5d915d474d7ea161f467def931e3013255f843
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 202684a1ae1106d79b9cee4e4ebf20ffa283f41b
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -45,6 +45,13 @@ Informazioni su [Github](https://github.com/mingaliu/DocumentDBStudio).
 DoQmentDB è un client Node.js basato su promise che fornisce un livello di tipo MongoDB in DocumentDB.
 
 Informazioni su [GitHub](https://github.com/a8m/doqmentdb) e [npm](https://www.npmjs.com/package/doqmentdb).
+
+### <a name="typescript-api"></a>API TypeScript
+*di Jelmer Cormont*
+
+Wrapper per il client Node.js scritto in TypeScript (funziona anche in uno strumento JavaScript normale). Supporta `async/await` e un'API semplificata.
+
+Informazioni su [GitHub](https://github.com/jcormont/documentdb-typescript) e [npm](https://www.npmjs.com/package/documentdb-typescript).
 
 ### <a name="swagger-rest-api-for-documentdb"></a>API REST di Swagger per DocumentDB
 *di Howard Edidin*
@@ -211,7 +218,7 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 È necessaria l'assistenza tecnica? Altre domande? NoSQL è una buona scelta per le proprie esigenze? È possibile pianificare una chat personale direttamente con il team di progettazione di DocumentDB inviando un [messaggio di posta elettronica](mailto:askdocdb@microsoft.com) o un tweet all'indirizzo [@DocumentDB](https://twitter.com/DocumentDB).
 
 ## <a name="open-source-projects"></a>Progetti open source
-Questi progetti sono attivamente sviluppati dal team di Azure DocumentDB in collaborazione con la community open source..
+Questi progetti sono attivamente sviluppati dal team di Azure DocumentDB in collaborazione con la community open source.
 
 ### <a name="sdks"></a>SDK
 | Piattaforma | Github | Pacchetto |

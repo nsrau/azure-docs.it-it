@@ -3,22 +3,21 @@
 
 # Attività iniziali
 ## [Distribuire un set di scalabilità nel portale](virtual-machine-scale-sets-portal-create.md)
-## [Distribuire un set di scalabilità con l'interfaccia della riga di comando di Azure](virtual-machine-scale-sets-linux-create-cli.md)
-## [Distribuire un set di scalabilità semplice con un modello di Resource Manager](virtual-machine-scale-sets-mvss-start.md)
+## [Distribuire un set di scalabilità con PowerShell o l'interfaccia della riga di comando di Azure](virtual-machine-scale-sets-create.md)
 
 # Procedure
 ## Pianificare e progettare
 ### [Considerazioni sulla progettazione](virtual-machine-scale-sets-design-overview.md)
-## Scrivere modelli di set di scalabilità per
-### [Distribuire un set di scalabilità semplice](virtual-machine-scale-sets-mvss-start.md)
-### [Distribuire un set di scalabilità in una rete virtuale esistente](virtual-machine-scale-sets-mvss-existing-vnet.md)
 
-## Distribuisci
-### [Set di scalabilità tramite il portale](virtual-machine-scale-sets-portal-create.md)
+## Creare un modello
+### [Informazioni sui modelli dei set di scalabilità](virtual-machine-scale-sets-mvss-start.md)
+### [Aggiungere una rete virtuale](virtual-machine-scale-sets-mvss-existing-vnet.md)
+
+## Distribuire
+### [Creare con il portale](virtual-machine-scale-sets-portal-create.md)
+### [Creare con Visual Studio](virtual-machine-scale-sets-vs-create.md)
+### [Creare con PowerShell o l'interfaccia della riga di comando di Azure](virtual-machine-scale-sets-create.md)
 ### [Set di scalabilità con Managed Disks](virtual-machine-scale-sets-managed-disks.md)
-### [Set di scalabilità con Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Set di scalabilità con PowerShell](virtual-machine-scale-sets-windows-create.md)
-### [Set di scalabilità con l'interfaccia della riga di comando di Azure](virtual-machine-scale-sets-linux-create-cli.md)
 ### [Set di scalabilità Linux con scalabilità automatica](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Set di scalabilità Windows con scalabilità automatica](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Applicazioni nei set di scalabilità](virtual-machine-scale-sets-deploy-app.md)

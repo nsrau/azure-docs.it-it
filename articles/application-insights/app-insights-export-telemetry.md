@@ -1,5 +1,5 @@
 ---
-title: Esportazione continua dei dati di telemetria da Application Insights | Documentazione Microsoft
+title: Esportazione continua dei dati di telemetria da Application Insights | Microsoft Docs
 description: "Esportare i dati di diagnostica e di uso nella risorsa di archiviazione in Microsoft Azure e scaricarli da lì."
 services: application-insights
 documentationcenter: 
@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 14627391a5df562a70737a71f41fe7cb934c9062
-ms.openlocfilehash: 54f579e5806a2fa5bd4ceace8a8ab46509b4be1e
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: a06d97216373ddc6a35160e6226b8eee8df52d27
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -27,22 +27,22 @@ L'uso dell'esportazione continua può comportare un costo aggiuntivo. Controllar
 
 Prima di configurare l'esportazione continua, è necessario prendere in considerazione alcune alternative:
 
-* [Il pulsante Esporta](app-insights-metrics-explorer.md#export-to-excel) nella parte superiore del pannello delle metriche o di ricerca consente di trasferire tabelle e grafici in un foglio di calcolo di Excel. 
+* Il pulsante Esporta nella parte superiore del pannello delle metriche o di ricerca consente di esportare tabelle e grafici in un foglio di calcolo di Excel.
 
 * [Dati di analisi](app-insights-analytics.md) offre un linguaggio avanzato di query per la telemetria che consente anche di esportare i risultati.
 * Se si vogliono [esplorare i dati in Power BI](app-insights-export-power-bi.md), non è necessario usare l'esportazione continua.
-* L'[API REST di accesso ai dati](https://dev.applicationinsights.io/) consente di accedere ai dati di telemetria a livello di codice. 
+* L'[API REST di accesso ai dati](https://dev.applicationinsights.io/) consente di accedere ai dati di telemetria a livello di codice.
 
-Con l'esportazione continua i dati vengono copiati nella risorsa di archiviazione, in cui possono rimanere fino a quando si desidera, ma sono ancora disponibili in Application Insights per il [periodo di conservazione](app-insights-data-retention-privacy.md) usuale. 
+Con l'esportazione continua i dati vengono copiati nella risorsa di archiviazione, in cui possono rimanere fino a quando si desidera, ma sono ancora disponibili in Application Insights per il [periodo di conservazione](app-insights-data-retention-privacy.md) usuale.
 
 ## <a name="setup"></a> Creare un'esportazione continua
-1. Nella risorsa di Application Insights per l'app aprire Esportazione continua e scegliere **Aggiungi**: 
+1. Nella risorsa di Application Insights per l'app aprire Esportazione continua e scegliere **Aggiungi**:
 
     ![Scorrere verso il basso e fare clic su Esportazione continua](./media/app-insights-export-telemetry/01-export.png)
 
 2. Scegliere i tipi di dati di telemetria da esportare.
 
-3. Creare o selezionare un [account di archiviazione di Azure](../storage/storage-introduction.md) in cui memorizzare i dati. 
+3. Creare o selezionare un [account di archiviazione di Azure](../storage/storage-introduction.md) in cui memorizzare i dati.
 
     > [!Warning]
     > Per impostazione predefinita, il percorso di archiviazione verrà impostato sulla stessa area geografica della risorsa di Application Insights. Se si esegue l'archiviazione in un'area differente, è possibile che vengano applicati addebiti per il trasferimento.
@@ -53,7 +53,7 @@ Con l'esportazione continua i dati vengono copiati nella risorsa di archiviazion
 
     ![Fare clic su Scegli tipi di eventi](./media/app-insights-export-telemetry/create-container.png)
 
-Dopo averla creata, l'esportazione viene avviata. Si ottengono solo i dati ricevuti dopo avere creato l'esportazione. 
+Dopo averla creata, l'esportazione viene avviata. Si ottengono solo i dati ricevuti dopo avere creato l'esportazione.
 
 Può verificarsi un ritardo di circa un'ora prima che i dati vengano visualizzati nella risorsa di archiviazione.
 
@@ -73,18 +73,18 @@ Per interrompere l'esportazione in modo permanente, eliminare l'esportazione. Qu
 * Per aggiungere o modificare le esportazioni, è necessario avere i diritti di accesso proprietario, collaboratore o collaboratore di Application Insights. [Informazioni sui ruoli][roles].
 
 ## <a name="analyze"></a> Quali eventi si ottengono?
-I dati esportati sono dati di telemetria non elaborati ricevuti dall'applicazione, tranne che per l'aggiunta di dati del percorso calcolati dall'indirizzo IP del client. 
+I dati esportati sono dati di telemetria non elaborati ricevuti dall'applicazione, tranne che per l'aggiunta di dati del percorso calcolati dall'indirizzo IP del client.
 
 I dati che il [campionamento](app-insights-sampling.md) ha rimosso non sono inclusi nei dati esportati.
 
 Le altre metriche calcolate non sono incluse. Ad esempio, non si procederà all'esportazione dell'uso medio della CPU, ma si procederà all'esportazione dei dati di telemetria non elaborati a partire dai quali viene calcolata la media.
 
-I dati includono anche i risultati di ogni [test Web di disponibilità](app-insights-monitor-web-app-availability.md) impostato. 
+I dati includono anche i risultati di ogni [test Web di disponibilità](app-insights-monitor-web-app-availability.md) impostato.
 
 > [!NOTE]
 > **Campionamento.** Se l'applicazione invia una grande quantità di dati, la funzionalità di campionamento può intervenire e inviare solo una percentuale della telemetria generata. [Altre informazioni sul campionamento.](app-insights-sampling.md)
-> 
-> 
+>
+>
 
 ## <a name="get"></a> Esaminare i dati
 È possibile esaminare lo spazio di archiviazione direttamente nel portale. Fare clic su **Sfoglia**, selezionare l'account di archiviazione e quindi aprire i **Contenitori**.
@@ -101,7 +101,7 @@ Di seguito è riportato il formato del percorso:
 
     $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
 
-Where 
+Where
 
 * `blobCreationTimeUtc` è l'ora di creazione del BLOB nell'archivio di gestione temporanea interno
 * `blobDeliveryTimeUtc` è l'ora in cui il BLOB viene copiato nell'archivio di destinazione dell'esportazione
@@ -144,10 +144,10 @@ Su scala ridotta è possibile scrivere codice per separare i dati, leggerli in u
 Per un esempio di codice più esaustivo, vedere l'articolo relativo all'[uso di un ruolo di lavoro][exportasa].
 
 ## <a name="delete"></a>Eliminare i vecchi dati
-Si noti che si è responsabili della gestione della capacità di archiviazione ed eliminazione di vecchi dati, se necessario. 
+Si noti che si è responsabili della gestione della capacità di archiviazione ed eliminazione di vecchi dati, se necessario.
 
 ## <a name="if-you-regenerate-your-storage-key"></a>Se si rigenera la chiave di archiviazione...
-Se si modifica la chiave per l'archiviazione, l'esportazione continua non funzionerà più. Verrà visualizzata una notifica nell'account Azure. 
+Se si modifica la chiave per l'archiviazione, l'esportazione continua non funzionerà più. Verrà visualizzata una notifica nell'account Azure.
 
 Aprire il pannello Esportazione continua e modificare l'esportazione. Modificare la destinazione di esportazione, ma lasciare selezionata la stessa risorsa di archiviazione. Fare clic su OK per confermare.
 
@@ -164,29 +164,29 @@ Su scala più estesa considerare la possibilità di usare cluster [HDInsight](ht
 
 ## <a name="q--a"></a>Domande e risposte
 * *Si intende scaricare semplicemente un grafico.*  
-  
-    Questa operazione è consentita. Nella parte superiore del pannello fare clic sul [pulsante di esportazione dati](app-insights-metrics-explorer.md#export-to-excel).
+
+    Questa operazione è consentita. Nella parte superiore del pannello fare clic sul **pulsante di esportazione dati**.
 * *È stata impostata un'esportazione, ma non sono presenti dati nell'archivio personale.*
-  
+
     Application Insights ha ricevuto eventuali dati di telemetria dall'app dal momento in cui si è impostata l'esportazione? Si riceveranno solo nuovi dati.
 * *Si è tentato di impostare un'esportazione, ma è stato negato l'accesso*
-  
+
     Se l'account è di proprietà dell'organizzazione, è necessario essere un membro del gruppo di proprietari o di collaboratori.
-* *È possibile eseguire un'esportazione direttamente al negozio locale?* 
-  
+* *È possibile eseguire un'esportazione direttamente al negozio locale?*
+
     No. Il motore di esportazione attualmente funziona solo con Archiviazione di Azure.  
-* *Esiste un limite alla quantità di dati da inserire nell'archivio personale?* 
-  
+* *Esiste un limite alla quantità di dati da inserire nell'archivio personale?*
+
     No. L'inserimento dei dati continuerà fino a quando non si elimina l'esportazione. Occorrerà fermarsi se i limiti esterni per l'archiviazione BLOB sono stati raggiunti, ma ciò è abbastanza difficile. Spetta all'utente controllare quante risorse di archiviazione usare.  
 * *Quanti BLOB dovrebbero essere visualizzati nella risorsa di archiviazione?*
-  
-  * Per ogni tipi di dati selezionato per l'esportazione, viene creato un nuovo BLOB ogni minuto, se sono disponibili dati. 
+
+  * Per ogni tipi di dati selezionato per l'esportazione, viene creato un nuovo BLOB ogni minuto, se sono disponibili dati.
   * Per le applicazioni con traffico elevato, inoltre, vengono allocate unità di partizione aggiuntive. In questo caso ogni unità crea un BLOB ogni minuto.
 * *La chiave per la risorsa di archiviazione è stata rigenerata o il nome del contenitore è stato modificato, ma l'esportazione non funziona.*
-  
+
     Modificare l'esportazione e aprire il pannello di destinazione dell'esportazione. Lasciare la stessa risorsa di archiviazione selezionata come in precedenza e fare clic su OK per confermare. L'esportazione verrà riavviata. Se la modifica è stata eseguita negli ultimi giorni, non si perderanno i dati.
 * *È possibile sospendere l'esportazione?*
-  
+
     Sì. Fare clic su Disabilita.
 
 ## <a name="code-samples"></a>Esempi di codice
@@ -200,6 +200,4 @@ Su scala più estesa considerare la possibilità di usare cluster [HDInsight](ht
 [exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
 [exportasa]: app-insights-code-sample-export-sql-stream-analytics.md
 [roles]: app-insights-resources-roles-access-control.md
-
-
 

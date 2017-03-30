@@ -21,6 +21,7 @@
 ## Creare un'app Web
 ### [App Web .NET](documentdb-dotnet-application.md)
 ### [App Web .NET per API MongoDB](documentdb-mongodb-application.md)
+### [App Xamarin](documentdb-mobile-apps-with-xamarin.md)
 ### [App Web Node.js](documentdb-nodejs-application.md)
 ### [App Web Java](documentdb-java-application.md)
 ### [App Web Python Flask](documentdb-python-application.md)

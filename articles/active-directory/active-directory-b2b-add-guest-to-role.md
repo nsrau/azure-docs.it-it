@@ -1,6 +1,6 @@
 ---
 
-title: Aggiungere un utente di Collaborazione B2B di Azure Active Directory a un ruolo | Documentazione Microsoft
+title: Aggiungere un utente di Collaborazione B2B di Azure Active Directory a un ruolo | Microsoft Docs
 description: Aggiungere un utente guest a un ruolo in Azure Active Directory
 services: active-directory
 documentationcenter: 
@@ -14,20 +14,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 03/15/2017
 ms.author: sasubram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
-ms.openlocfilehash: f0d8eaef0933a43d5eefb06b1444e74fa5f5b3eb
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: e816349ea971c997f655b4d51672dba666bc3e89
+ms.lasthandoff: 03/17/2017
 
 
 ---
 
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Concedere autorizzazioni agli utenti di organizzazioni partner nel tenant di Azure Active Directory
 
-Benché gli utenti di Collaborazione B2B di Azure Active Directory (Azure AD) vengano aggiunti come utenti guest alla directory e le autorizzazioni nella directory siano limitate per impostazione predefinita, potrebbe essere necessario aggiungere alcuni utenti guest da associare ad altri ruoli con privilegi dell'organizzazione. Per supportare questo scenario, gli utenti guest possono essere aggiunti a qualsiasi ruolo, in base alle esigenze dell'organizzazione.
+Gli utenti di Collaborazione B2B di Azure Active Directory (Azure AD) vengono aggiunti come utenti guest alla directory e le autorizzazioni guest nella directory sono limitate per impostazione predefinita. Può essere necessario definire alcuni utenti guest per assegnare ruoli con privilegi elevati nell'organizzazione. Per supportare la definizione di ruoli con privilegi più elevati, gli utenti guest possono essere aggiunti a qualsiasi ruolo, in base alle esigenze dell'organizzazione.
 
 ## <a name="default-role"></a>Ruolo predefinito
 

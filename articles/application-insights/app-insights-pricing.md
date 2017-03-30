@@ -1,22 +1,22 @@
 ---
-title: Gestire volumi di dati e prezzi per Application Insights | Microsoft Docs
+title: Gestire i prezzi e il volume di dati per Azure Application Insights | Microsoft Docs
 description: Gestire volumi di dati di telemetria e monitorare i costi in Application Insights.
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 03/17/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 4ccd8cbfd0f3742c14a7effd7484d65be21abb63
-ms.openlocfilehash: d4db3d7a0c860c23a3a3ddecab6f79cb6b297a02
-ms.lasthandoff: 02/18/2017
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 3f0c890056c2ee00151ebc4cc74106368a56ba2f
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -31,7 +31,7 @@ Esistono due piani tariffari. Il piano predefinito è denominato Basic. È possi
 
 Per domande sulla determinazione dei prezzi per Application Insights, puoi pubblicare una domanda nel nostro [forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ApplicationInsights). 
 
-## <a name="the-pricing-plans"></a>Piani tariffari
+## <a name="the-price-plans"></a>Piani tariffari
 
 Vedere la [pagina sui prezzi di Application Insights][pricing] per i prezzi correnti nella valuta locale.
 
@@ -157,10 +157,9 @@ Per individuare la frequenza di campionamento effettiva indipendentemente dal pu
 In ogni record conservato, `itemCount` indica il numero di record originali che rappresenta, uguale a 1 + il numero di record precedenti scartati. 
 
 
-## <a name="transition-from-the-old-pricing-tiers"></a>Transizione dai piani tariffari precedenti
+## <a name="automation"></a>Automazione
 
-Le applicazioni esistenti possono continuare a usare i piani tariffari precedenti fino a febbraio 2017. In tale data, la maggior parte delle applicazioni verrà spostata automaticamente al piano Basic. Le applicazioni che usano l'esportazione continua o il connettore per OMS Log Analytics verranno spostate al piano Enterprise.
-
+È possibile scrivere uno script per impostare il piano tariffario tramite Azure Resource Manager. [Informazioni](app-insights-powershell.md#price).
 
 ## <a name="limits-summary"></a>Riepilogo dei limiti
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]

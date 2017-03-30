@@ -1,6 +1,7 @@
 # Panoramica
 ## [Che cos'è la messaggistica del bus di servizio?](service-bus-messaging-overview.md)
 ## [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
+## [Architettura del bus di servizio](service-bus-architecture.md)
 ## [Domande frequenti](service-bus-faq.md)
 
 # Attività iniziali

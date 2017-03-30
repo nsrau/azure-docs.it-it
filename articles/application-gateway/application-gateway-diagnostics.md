@@ -1,5 +1,5 @@
 ---
-title: "Monitorare i log di accesso e delle prestazioni, l&quot;integrità back-end e le metriche per il gateway applicazione | Documentazione Microsoft"
+title: "Monitorare i log di accesso e delle prestazioni, l&quot;integrità back-end e le metriche per il gateway applicazione | Microsoft Docs"
 description: Informazioni su come abilitare e gestire i log di accesso e delle prestazioni per il gateway applicazione
 services: application-gateway
 documentationcenter: na
@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: amitsriva
 translationtype: Human Translation
-ms.sourcegitcommit: d65b354bc972c8268f1b4f072843b5bf4977a7c4
-ms.openlocfilehash: 2b37bf92ce8945996eb64477c28bea845b7df516
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 2c4b3e23c478a006b081929269ae066d00af20cd
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -37,7 +37,7 @@ Azure consente di monitorare le risorse tramite la registrazione e le metriche. 
 Il gateway applicazione consente di monitorare l'integrità dei singoli membri dei pool back-end tramite il portale, PowerShell e l'interfaccia della riga di comando. Le informazioni di riepilogo dell'integrità dei pool back-end sono disponibili anche tramite i log di diagnostica delle prestazioni. Il report sull'integrità back-end riflette l'output del probe di integrità del gateway applicazione per le istanze di back-end. Se il probing ha esito positivo ed è possibile inviare traffico al back-end, questo verrà considerato integro, altrimenti verrà considerato danneggiato.
 
 > [!important]
-> Se è presente un gruppo di sicurezza di rete nella subnet del gateway applicazione, è necessario aprire gli intervalli di porte 65503-65534 sulle istanze del gateway applicazione.
+> Se nella subnet di Gateway applicazione è presente un gruppo di sicurezza di rete, gli intervalli di porte 65503-65534 devono essere aperti nella subnet di Gateway applicazioni per i membri del pool di back-end. Tali porte sono necessarie per il corretto funzionamento dell'integrità back-end.
 
 ### <a name="view-backend-health-through-the-portal"></a>Visualizzare l'integrità back-end tramite il portale
 
@@ -316,3 +316,4 @@ Per maggiori informazioni sui webhook e su come usarli con gli avvisi, visitare 
 [8]: ./media/application-gateway-diagnostics/figure8.png
 [9]: ./media/application-gateway-diagnostics/figure9.png
 [10]: ./media/application-gateway-diagnostics/figure10.png
+

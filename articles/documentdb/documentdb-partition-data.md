@@ -1,5 +1,5 @@
 ---
-title: "Partizionamento e scalabilità in Azure DocumentDB | Documentazione Microsoft"
+title: "Partizionamento e scalabilità in Azure DocumentDB | Microsoft Docs"
 description: Informazioni su come funziona il partizionamento in Azure DocumentDB, su come configurare il partizionamento e le chiavi di partizione e su come scegliere la chiave di partizione corretta per l&quot;applicazione.
 services: documentdb
 author: arramac
@@ -16,9 +16,9 @@ ms.date: 03/14/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 67d817c04672979ec8af8a540c5a63eb4df9bf6a
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: ed0910e4843ab8ab80dae1c16b15487d92017e24
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -60,7 +60,7 @@ Le raccolte con partizionamento orizzontale nell'API per MongoDB usano la stessa
 La scelta della chiave di partizione è una decisione importante da prendere in fase di progettazione. È necessario scegliere un nome della proprietà JSON che contiene un'ampia gamma di valori e probabilmente modelli di accesso distribuiti in modo uniforme. 
 
 > [!NOTE]
-> È bene disporre di una chiave di partizione con un numero elevato di valori distinti (100-1000 come minimo). Molti clienti usano DocumentDB come archivio di valori di chiavi, dove l'"id" univoco è la chiave di partizione per un numero elevato di chiavi di partizioni, da milioni sino a miliardi.
+> È bene disporre di una chiave di partizione con un numero elevato di valori distinti (100-1000 come minimo). Molti clienti usano DocumentDB come archivio di valori di chiavi, dove l'"id" univoco è la chiave di partizione di un numero elevato di chiavi di partizioni, da milioni sino a miliardi.
 >
 
 La tabella seguente mostra esempi di definizioni della chiave di partizione e i valori JSON corrispondenti a ciascuna definizione. La chiave di partizione viene specificata come percorso JSON, ad esempio `/department` rappresenta la proprietà reparto. 
@@ -341,7 +341,7 @@ Risultati:
 > 
 > 
 
-Quando un'applicazione che usa una raccolta a partizione singola necessita di una velocità effettiva più alta (>&10;.000 UR/secondo) o di uno spazio di archiviazione dati maggiore (>&10; GB), è possibile usare lo [strumento di migrazione dati di DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) per eseguire la migrazione dei dati dalla raccolta a partizione singola a una raccolta partizionata. 
+Quando un'applicazione che usa una raccolta a partizione singola necessita di una velocità effettiva più alta (> 10.000 UR/secondo) o di uno spazio di archiviazione dati maggiore (> 10 GB), è possibile usare lo [strumento di migrazione dati di DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) per eseguire la migrazione dei dati dalla raccolta a partizione singola a una raccolta partizionata. 
 
 Per eseguire la migrazione da una raccolta a partizione singola a una raccolta partizionata
 
