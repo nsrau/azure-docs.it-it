@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: dc22bfee0471da2d61d1d3d720e26d5fc785f832
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: e4f38a061129b2bb8a840d4eec8d224bcbc22e83
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -107,11 +107,7 @@ Usare i passaggi seguenti per creare uno script HiveQL che definisce la query us
     ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-    Per altre informazioni sull'uso di SSH con HDInsight, vedere i documenti seguenti:
-
-    * [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, OS X, Unix o Windows](hdinsight-hadoop-linux-use-ssh-unix.md). Il documento presuppone che l'utente possa accedere al comando `ssh`.
-
-    * [Usare SSH con Hadoop basato su Linux in HDInsight da Windows con PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md). Il documento presuppone l'uso del client SSH PuTTY.
+    Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Dalla connessione SSH, usare il comando seguente per creare un nuovo file:
 

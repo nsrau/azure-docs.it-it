@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 31821203c18f1310c6a781bd28022efd3da7f03d
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: bc047ba2aacbbea6d47d3870ee70d9d9a068f83a
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -149,7 +149,7 @@ Ogni cluster HDInsight è associato a una sottoscrizione di Azure.
 Con i cluster HDInsight è possibile configurare due account utente durante la creazione del cluster:
 
 * Utente HTTP. Il nome utente predefinito è *admin* e usa la configurazione di base nel portale di Azure. In alcuni casi, viene chiamato "utente cluster".
-* Utente SSH (cluster Linux). Usato per la connessione ai cluster tramite SSH. È possibile creare altri account utente SSH dopo la creazione del cluster seguendo la procedura descritta in [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md) o [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-unix.md).
+* Utente SSH (cluster Linux). Usato per la connessione ai cluster tramite SSH. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
   > [!NOTE]
   > Per i cluster basati su Windows, è possibile creare un utente RDP per connettersi al cluster tramite RDP.
@@ -222,20 +222,20 @@ Nel modello di distribuzione classica, alcune dimensioni delle macchine virtuali
 #### <a name="standard-tier-d-series"></a>Livello Standard: serie D
 | Dimensione | Core CPU | Memoria | NIC (Max) | Max. Dimensioni disco | Max. (1023 GB ciascuno) | Dischi di dati max. IOPS (500 per disco) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D3 |4 |14 GB |4 |Temporaneo (SSD) =&200; GB |8 |8x500 |
-| Standard_D4 |8 |28 GB |8 |Temporaneo (SSD) =&400; GB |16 |16x500 |
-| Standard_D12 |4 |28 GB |4 |Temporaneo (SSD) =&200; GB |8 |8x500 |
-| Standard_D13 |8 |56 GB |8 |Temporaneo (SSD) =&400; GB |16 |16x500 |
-| Standard_D14 |16 |112 GB |8 |Temporaneo (SSD) =&800; GB |32 |32x500 |
+| Standard_D3 |4 |14 GB |4 |Temporaneo (SSD) = 200 GB |8 |8x500 |
+| Standard_D4 |8 |28 GB |8 |Temporaneo (SSD) = 400 GB |16 |16x500 |
+| Standard_D12 |4 |28 GB |4 |Temporaneo (SSD) = 200 GB |8 |8x500 |
+| Standard_D13 |8 |56 GB |8 |Temporaneo (SSD) = 400 GB |16 |16x500 |
+| Standard_D14 |16 |112 GB |8 |Temporaneo (SSD) = 800 GB |32 |32x500 |
 
 #### <a name="standard-tier-dv2-series"></a>Livello standard: serie Dv2
 | Dimensione | Core CPU | Memoria | NIC (Max) | Max. Dimensioni disco | Max. (1023 GB ciascuno) | Dischi di dati max. IOPS (500 per disco) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D3_v2 |4 |14 GB |4 |Temporaneo (SSD) =&200; GB |8 |8x500 |
-| Standard_D4_v2 |8 |28 GB |8 |Temporaneo (SSD) =&400; GB |16 |16x500 |
-| Standard_D12_v2 |4 |28 GB |4 |Temporaneo (SSD) =&200; GB |8 |8x500 |
-| Standard_D13_v2 |8 |56 GB |8 |Temporaneo (SSD) =&400; GB |16 |16x500 |
-| Standard_D14_v2 |16 |112 GB |8 |Temporaneo (SSD) =&800; GB |32 |32x500 |
+| Standard_D3_v2 |4 |14 GB |4 |Temporaneo (SSD) = 200 GB |8 |8x500 |
+| Standard_D4_v2 |8 |28 GB |8 |Temporaneo (SSD) = 400 GB |16 |16x500 |
+| Standard_D12_v2 |4 |28 GB |4 |Temporaneo (SSD) = 200 GB |8 |8x500 |
+| Standard_D13_v2 |8 |56 GB |8 |Temporaneo (SSD) = 400 GB |16 |16x500 |
+| Standard_D14_v2 |16 |112 GB |8 |Temporaneo (SSD) = 800 GB |32 |32x500 |
 
 Per considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse, vedere [Dimensioni delle macchine virtuali in Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Per informazioni sui prezzi delle varie dimensioni, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).   
 

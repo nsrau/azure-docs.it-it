@@ -17,6 +17,7 @@ ms.author: milanga;juliako;johndeu
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: fb8ec19434d4e8cc54b831bb4abf049c057da8df
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -30,7 +31,7 @@ Analisi Servizi multimediali consente agli sviluppatori di introdurre rapidament
 
 Il diagramma seguente mostra **Analisi Servizi multimediali** e altre parti importanti della piattaforma di Analisi Servizi multimediali. 
 
-![Flusso di lavoro VoD](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
+![Flusso di lavoro VoD](./media/media-services-analytics-overview/media-services-analytics-overview01.png)
 
 I processori di contenuti multimediali di Analisi Servizi multimediali producono file MP4 o JSON. Se un processore di contenuti multimediali produce un file MP4, è possibile scaricare progressivamente il file. Se un processore di contenuti multimediali produce un file JSON, è possibile scaricare il file dall'archiviazione BLOB di Azure. 
 
@@ -129,9 +130,4 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 <!-- Images -->
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

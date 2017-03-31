@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 2/24/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: abc3fa751b3926dbbb9dc040abc40632e316e2a0
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: a03f097d0106ac153ef45e0c10b677597c76207a
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -31,7 +32,7 @@ L'obiettivo di Contoso consiste nell'identificare opportunità di up-selling o c
 In questa soluzione Contoso desidera valutare l'efficacia di una campagna di marketing lanciata di recente. I registri di gioco, inizialmente non elaborati, vengono successivamente elaborati con dati di georilevazione e di riferimento pubblicitario e infine vengono copiati in un database SQL di Azure per analizzare l'impatto della campagna.
 
 ## <a name="deploy-solution"></a>Distribuire la soluzione
-Per accedere a questo semplice caso d'uso e per provarlo, è sufficiente disporre di una [sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/), di un [account di archiviazione BLOB di Azure](https://docs.microsoft.com/en-us/azure/storage/storage-create-storage-account#create-a-storage-account) e di una [database SQL di Azure](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started). Distribuire la pipeline di profilatura dei clienti dal riquadro **Pipeline di esempio** nella home page della data factory.
+Per accedere a questo semplice caso d'uso e per provarlo, è sufficiente disporre di una [sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/), di un [account di archiviazione BLOB di Azure](../storage/storage-create-storage-account.md#create-a-storage-account) e di una [database SQL di Azure](../sql-database/sql-database-get-started.md). Distribuire la pipeline di profilatura dei clienti dal riquadro **Pipeline di esempio** nella home page della data factory.
 
 1. Creare una data factory o aprire una data factory esistente. Per la procedura di creazione di una data factory, vedere [Copiare dati da un archivio BLOB al database SQL usando Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 2. Nel pannello **DATA FACTORY** per la data factory, fare clic sul riquadro **Pipeline di esempio**.
@@ -67,10 +68,5 @@ In questo esempio Data Factory viene usato per gestire le attività che copiano 
 
 ## <a name="benefits"></a>Vantaggi
 Per ottimizzare l'analisi del profilo dell'utente e allinearla agli obiettivi aziendali, le società di giochi online sono in grado di raccogliere rapidamente modelli di uso e analizzare l'efficacia delle campagne pubblicitarie.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

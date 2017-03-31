@@ -17,9 +17,9 @@ ms.date: 11/16/2016
 ms.author: syamk
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 839f8c8669c06e22635b68018d816a669aec895b
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: af8e53d7cc074bf669b967014223ee88476d1686
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -77,7 +77,7 @@ La tabella seguente descrive varie garanzie di coerenza che corrispondono ai qua
 | **Garanzia di coerenza prefisso** |Sì |Sì |Sì |Sì |
 | **Letture monotone** |Sì |Sì, tra aree all'esterno della finestra di obsolescenza e all'interno di un'area per tutto il tempo. |Sì, per la sessione data |No |
 | **Scritture monotone** |Sì |Sì |Sì |Sì |
-| **Lettura delle proprie scritture** |Sì |Sì |Sì (nell'area della scrittura) |No |
+| **Lettura delle proprie scritture** |Sì |Sì (nell'area della scrittura) | Sì |No |
 
 ## <a name="configuring-the-default-consistency-level"></a>Configurazione del livello di coerenza predefinito
 1. Nell'indice del [portale di Azure](https://portal.azure.com/)fare clic su **DocumentDB (NoSQL)**.

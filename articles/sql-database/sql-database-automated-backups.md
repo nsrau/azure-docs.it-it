@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 11/02/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: f234e50d194c1b8b8deed8282a6ab1250b53d075
-ms.openlocfilehash: 3fd8bda40daa09d1b5d4294382b523d41173b8cb
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 8323aa27c93c1c460b31f7f7c822644f5eee929a
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -89,7 +89,7 @@ Dopo aver aggiunto il criterio LTR a un database tramite il portale di Azure o l
 
 - I backup dei database sono una parte essenziale di qualsiasi strategia di continuità aziendale e ripristino di emergenza, perché proteggono i dati dal danneggiamento o dall'eliminazione accidentale. Per informazioni sulle altre soluzioni di continuità aziendale del database SQL Azure, vedere [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).
 - Per eseguire il ripristino temporizzato nel portale di Azure, vedere l'articolo sul [ripristino temporizzato nel portale di Azure](sql-database-point-in-time-restore-portal.md).
-- Per eseguire il ripristino temporizzato usando PowerShell, vedere l'articolo sul [ripristino temporizzato con PowerShell](sql-database-point-in-time-restore-powershell.md).
+- Per eseguire il ripristino temporizzato usando PowerShell, vedere l'articolo sul [ripristino temporizzato con PowerShell](scripts/sql-database-restore-database-powershell.md).
 - Per configurare, gestire e ripristinare dalla conservazione a lungo termine di backup automatizzati in un insieme di credenziali di Servizi di ripristino di Azure tramite il portale di Azure, vedere [Gestire la conservazione a lungo termine dei backup tramite il portale di Azure](sql-database-manage-long-term-backup-retention-portal.md).
 - Per configurare, gestire e ripristinare dalla conservazione a lungo termine di backup automatizzati in un insieme di credenziali di Servizi di ripristino di Azure tramite PowerShell, vedere [Gestire la conservazione a lungo termine dei backup tramite PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
 

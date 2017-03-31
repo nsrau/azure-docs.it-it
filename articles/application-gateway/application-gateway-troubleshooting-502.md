@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: cacc20da7945421f31ce69a9c0b34056c009d9e7
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: d61e50b7440dcd107df3e5dd085a36b149779553
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -34,9 +34,6 @@ Dopo aver configurato un gateway applicazione di Azure, uno degli errori che gli
 * Le macchine virtuali o le istanze back-end del set di scalabilità di macchine virtuali non rispondono al probe di integrità predefinito.
 * Configurazione non valida o inappropriata dei probe di integrità personalizzati.
 * Problemi di timeout della richiesta o di connettività con le richieste degli utenti.
-
-> [!note]
-> Gateway applicazione mantiene l'intestazione host in ingresso e la invia al back-end. Se il back-end richiede un'intestazione diversa, non funzionerà. Allo stesso modo se il back-end è multi-tenant e l'SSL end-to-end è abilitato, il back-end prevede che il nome del server si trovi nell'estensione SNI. Gateway applicazione attualmente non invia un'intestazione SNI nelle richieste di back-end in scenari SSL end-to-end che provocherebbero problemi di test e di percorso di dati.
 
 ## <a name="empty-backendaddresspool"></a>BackendAddressPool vuoto
 
@@ -109,7 +106,7 @@ Gli errori 502 possono anche indicare frequentemente che il probe di integrità 
 * Se BackendHttpSetting specifica una porta diversa da 80, il sito predefinito deve essere configurato per ascoltare tale porta.
 * La chiamata a http://127.0.0.1:port deve restituire un codice risultato HTTP di 200. Questo valore deve essere restituito entro il periodo di timeout di 30 secondi.
 * Verificare che la porta configurata sia aperta e che non esistano regole del firewall o gruppi di sicurezza di rete di Azure che bloccano il traffico in ingresso o in uscita sulla porta configurata.
-* Se le macchine virtuali classiche di Azure o il servizio cloud vengono usati con indirizzi FQDN o IP pubblici, verificare che l' [endpoint](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) corrispondente sia aperto.
+* Se le macchine virtuali classiche di Azure o il servizio cloud vengono usati con indirizzi FQDN o IP pubblici, verificare che l' [endpoint](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) corrispondente sia aperto.
 * Se la macchina virtuale è stata configurata tramite Azure Resource Manager e si trova all'esterno della rete virtuale in cui è distribuito il gateway applicazione, è necessario configurare un [Gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) per consentire l'accesso alla porta desiderata.
 
 ## <a name="problems-with-custom-health-probe"></a>Problemi con il probe di integrità personalizzato
