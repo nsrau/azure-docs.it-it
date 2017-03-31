@@ -68,7 +68,7 @@ Continuare seguendo le istruzioni per il collegamento di un [nuovo disco](#optio
 1. Connettersi alla macchina virtuale. Per istruzioni, vedere [Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows Server](../../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 2. Dopo aver eseguito l'accesso alla macchina virtuale, aprire **Server Manager**. Nel riquadro sinistro fare clic su **Servizi file e archiviazione**.
 
-    ![Avviare Server Manager](./media/attach-disk/fileandstorageservices.png)
+    ![Avviare Server Manager](../media/attach-disk-portal/fileandstorageservices.png)
 
 3. Selezionare **Dischi**.
 4. La sezione **dischi** contiene un elenco dei dischi. Nella maggior parte dei casi, avrà disco 0, disco 1 e disco 2. Il disco 0 è il disco del sistema operativo, il disco 1 è il disco temporaneo e il disco 2 è il disco dati appena connesso alla macchina virtuale. Il disco dati visualizza la partizione come **Unknown** (Sconosciuta).
