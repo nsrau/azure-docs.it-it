@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: dc61f74a10fed1ba9e3959326e0020cf2b4440ea
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 554d1d504205767a287c690d82f03808047b1961
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -42,7 +43,7 @@ Facoltativamente, è possibile ottenere una shell di root usando **sudo -s**.
 ## <a name="firewall-configuration"></a>Configurazione del firewall
 In Azure è disponibile un filtro dei pacchetti in ingresso che limita la connettività alle porte specificate nel portale di Azure classico. Per impostazione predefinita, l'unica porta consentita è SSH. È possibile aprire l'accesso a porte aggiuntive nella macchina virtuale Linux mediante la configurazione di endpoint nel portale di Azure classico:
 
-* Vedere [Come configurare gli endpoint in una macchina virtuale](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* Vedere [Come configurare gli endpoint in una macchina virtuale](windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 Le immagini Linux disponibili nella Raccolta di Azure non abilitano il firewall *iptables* per impostazione predefinita. Se necessario, è possibile configurare il firewall per implementare funzionalità di filtro.
 
@@ -60,7 +61,7 @@ L'agente Linux di Azure include funzionalità per il rilevamento automatico dell
 ### <a name="cloud-init"></a>cloud-init
 Le immagini **Ubuntu** e **CoreOS** usano cloud-init in Azure, che offre capacità aggiuntive per il bootstrap di una macchina virtuale.
 
-* [Come inserire dati personalizzati](virtual-machines-windows-classic-inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Come inserire dati personalizzati](windows/classic/inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [Dati personalizzati e cloud-init in Microsoft Azure](https://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
 * [Creare partizioni di scambio di Azure con cloud-init](https://wiki.ubuntu.com/AzureSwapPartitions)
 * [Come usare CoreOS in Azure](https://coreos.com/os/docs/latest/booting-on-azure.html)
@@ -72,7 +73,7 @@ Azure offre la possibilità di acquisire lo stato di una macchina virtuale esist
 2. Arrestare/Spegnere la macchina virtuale.
 3. Fare clic su *Acquisisci* nel portale di Azure classico oppure usare Powershell o gli strumenti dell’interfaccia della riga di comando per acquisire la macchina virtuale come immagine.
    
-   * Vedere: [Come acquisire una macchina virtuale Linux da usare come modello](virtual-machines-linux-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+   * Vedere: [Come acquisire una macchina virtuale Linux da usare come modello](linux/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ## <a name="attaching-disks"></a>Collegamento di dischi
 Ogni macchina virtuale ha un *disco risorse* temporaneo locale collegato. Poiché è possibile che i dati su un disco risorse non vengano mantenuti tra un riavvio e l'altro, questo tipo di disco viene spesso usato da applicazioni e processi in esecuzione nella macchina virtuale per l'archiviazione **temporanea** di dati. È anche usato per archiviare file di paging o di scambio per il sistema operativo.
@@ -84,13 +85,8 @@ In Linux il disco risorse è in genere gestito dall'agente Linux di Azure e vien
 > 
 > 
 
-In Linux il kernel potrebbe assegnare al disco dati il nome `/dev/sdc`. In questo caso gli utenti dovranno suddividere in partizioni, formattare e montare tale risorsa. Questa procedura è illustrata in dettaglio nell'esercitazione [Come collegare un disco dati a una macchina virtuale](virtual-machines-linux-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+In Linux il kernel potrebbe assegnare al disco dati il nome `/dev/sdc`. In questo caso gli utenti dovranno suddividere in partizioni, formattare e montare tale risorsa. Questa procedura è illustrata in dettaglio nell'esercitazione [Come collegare un disco dati a una macchina virtuale](linux/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 * **Vedere anche:** [Configurare RAID software in Linux](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) & [Configurare LVM su una macchina virtuale Linux in Azure](virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

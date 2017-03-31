@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/28/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: b4de2d04c331ac608c77057613276ac8f85ec600
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 510a96051d3f650f5451eb46bbc8263a3393432e
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -195,10 +195,7 @@ Per verificare che l'accesso sia effettivamente limitato, usare i metodi seguent
 * Per i cluster HDInsight **basati su Windows** , usare Desktop remoto per connettersi al cluster. Per altre informazioni, vedere [Connettersi a HDInsight con RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
   
     Dopo aver stabilito la connessione, usare l'icona della **riga di comando di Hadoop** sul desktop per aprire il prompt dei comandi.
-* Per i cluster HDInsight **basati su Linux** , usare SSH per connettersi al cluster. Per informazioni sull'uso di SSH con i cluster basati su Linux, vedere uno degli argomenti seguenti:
-  
-  * [Usare SSH con HDInsight (Hadoop) da Bash in Windows 10, Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-  * [Usare SSH con Hadoop basato su Linux in HDInsight da Windows con PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md)
+* Per i cluster HDInsight **basati su Linux** , usare SSH per connettersi al cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Dopo aver stabilito la connessione al cluster, usare la procedura seguente per verificare che nell'account di archiviazione della firma di accesso condiviso sia solo possibile leggere ed elencare gli elementi:
 

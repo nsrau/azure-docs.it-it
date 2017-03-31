@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 55fb454f-c7dc-46de-a978-e242e9a94f4c
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,8 +17,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 2d50c432f335d362068e55899f350cdf1c4c09ec
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 9b822da3d8fd2706bc65ab842d063be66904649f
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -37,7 +39,7 @@ Questo articolo offre indicazioni dettagliate su come usare gli strumenti HDInsi
 * IntelliJ IDEA. In questo articolo viene usata la versione 15.0.1. Per installarlo, fare clic [qui](https://www.jetbrains.com/idea/download/).
 * Strumenti HDInsight nel Toolkit di Azure per IntelliJ. Gli strumenti HDInsight per IntelliJ sono disponibili come parte di Azure Toolkit per IntelliJ. Per istruzioni su come installare Azure Toolkit, vedere [Installazione di Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij-installation.md).
 * Accedere alla propria sottoscrizione di Azure da IntelliJ IDEA. Seguire le istruzioni riportate [qui](hdinsight-apache-spark-intellij-tool-plugin.md#log-into-your-azure-subscription).
-* Quando si esegue l'applicazione Spark in Scala per il debug remoto in un computer Windows, potrebbe essere restituita un'eccezione, come illustrato in [SPARK&2356;](https://issues.apache.org/jira/browse/SPARK-2356) , causata da un file WinUtils.exe mancante in Windows. Per risolvere questo errore, è necessario [scaricare il file eseguibile da qui](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) in un percorso come **C:\WinUtils\bin**. È quindi necessario aggiungere una variabile di ambiente **HADOOP_HOME** e impostare il valore della variabile su **C\WinUtils**.
+* Quando si esegue l'applicazione Spark in Scala per il debug remoto in un computer Windows, potrebbe essere restituita un'eccezione, come illustrato in [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356) , causata da un file WinUtils.exe mancante in Windows. Per risolvere questo errore, è necessario [scaricare il file eseguibile da qui](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) in un percorso come **C:\WinUtils\bin**. È quindi necessario aggiungere una variabile di ambiente **HADOOP_HOME** e impostare il valore della variabile su **C\WinUtils**.
 
 ## <a name="step-1-create-an-azure-virtual-network"></a>Passaggio 1: Creare una rete virtuale di Azure
 Seguire le istruzioni riportate nei collegamenti seguenti per creare una rete virtuale di Azure e quindi verificare la connettività tra il PC desktop e la rete virtuale di Azure.
@@ -75,7 +77,7 @@ Seguire le istruzioni riportate nei collegamenti seguenti per creare una rete vi
            192.xxx.xx.xx hn1-nitinp
            192.xxx.xx.xx hn1-nitinp.lhwwghjkpqejawpqbwcdyp3.gx.internal.cloudapp.net
 6. Nel computer che è stato connesso alla rete virtuale di Azure usata dal cluster HDInsight verificare che sia possibile effettuare il ping di entrambi i nodi head usando sia l'indirizzo IP che il nome host.
-7. Connettersi con SSH al nodo head del cluster seguendo le istruzioni riportate in [Connettersi a un cluster HDInsight basato su Linux](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster). Dal nodo head del cluster effettuare il ping dell'indirizzo IP del computer desktop. È consigliabile testare la connettività per entrambi gli indirizzi IP assegnati al computer, uno per la connessione di rete e l'altro per la rete virtuale di Azure a cui il computer è connesso.
+7. Connettersi con SSH al nodo head del cluster seguendo le istruzioni riportate in [Connettersi a un cluster HDInsight basato su Linux](hdinsight-hadoop-linux-use-ssh-unix.md). Dal nodo head del cluster effettuare il ping dell'indirizzo IP del computer desktop. È consigliabile testare la connettività per entrambi gli indirizzi IP assegnati al computer, uno per la connessione di rete e l'altro per la rete virtuale di Azure a cui il computer è connesso.
 8. Ripetere questi passaggi anche per l'altro nodo head. 
 
 ## <a name="step-4-create-a-spark-scala-application-using-the-hdinsight-tools-in-azure-toolkit-for-intellij-and-configure-it-for-remote-debugging"></a>Passaggio 4: Creare un'applicazione Spark in Scala usando gli strumenti HDInsight nel Toolkit di Azure per IntelliJ e configurarla per il debug remoto
@@ -254,7 +256,7 @@ Seguire le istruzioni riportate nei collegamenti seguenti per creare una rete vi
    
     ![Esecuzione del programma in modalità di debug](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-complete.png)
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Vedere anche
+## <a name="seealso"></a>Vedere anche
 * [Panoramica: Apache Spark su Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenari
@@ -279,10 +281,5 @@ Seguire le istruzioni riportate nei collegamenti seguenti per creare una rete vi
 ### <a name="manage-resources"></a>Gestire risorse
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-job-debugging.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

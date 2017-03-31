@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/08/2017
+ms.date: 03/28/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 3051ed0385b81892b8495e83817ed8255dbce8cd
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 244ca634cfd47ee37e3845380ac05dc68d406621
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -70,7 +70,6 @@ Data di rilascio: marzo 2017
       ``'C:\Users\cstpopovaz\AppData\Local\Temp\2\e2c9d9b0-0d8a-4409-b059-dceeb900a2b3\b9bedcc0-88ac-454c-8c69-7d6ea1c41d17\cfg.config\cloneconfig.xml'. ``
 
 * Generic LDAP:
- * Correzione per il bug dell'attributo multivalore non importato per l'importazione differenziale watermark di Generic SQL
  * Il connettore GLDAP non vede tutti gli attributi in AD LDS
  * La procedura guidata si interrompe quando non viene rilevato alcun attributo UPN dallo schema di directory LDAP
  * Le importazioni differenziali generano errori di individuazione non presenti durante l'importazione completa, quando l'attributo "objectclass" non è selezionato
@@ -79,6 +78,7 @@ LDAP. Essi mostravano solo gli oggetti della partizione di RootDSE.
 
 
 * Generic SQL:
+ * Correzione per il bug dell'attributo multivalore non importato per l'importazione differenziale watermark di Generic SQL
  * Quando si esportano valori di attributi multivalore eliminati/aggiunti, non vengono eliminati/aggiunti nell'origine dati.  
 
 

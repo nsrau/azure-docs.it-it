@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: c41c611c-5798-4c14-81cc-bed1e26b5609
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/02/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 207eb60a359be1d9d9b68a92ac0c8255e7217a97
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 792907646a602004904eef5c4000f464881c6c4b
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -212,10 +213,7 @@ L'operazione di ridimensionamento può influire sui tipi di cluster come indicat
 * **Hadoop**: durante la riduzione del numero di nodi in un cluster, alcuni servizi nel cluster vengono riavviati. È quindi possibile che al termine dell'operazione di ridimensionamento, i processi in esecuzione o in sospeso abbiano esito negativo. In questo caso, inviare nuovamente i processi una volta completata l'operazione.
 * **HBase**: i server a livello di area vengono bilanciati automaticamente entro pochi minuti dal completamento dell'operazione di ridimensionamento. Per bilanciare manualmente i server a livello di area, seguire questa procedura:
 
-    1. Connettersi al cluster HDInsight tramite SSH. Per altre informazioni sull'uso di SSH con HDInsight, vedere i documenti seguenti:
-
-        * [Uso di SSH con HDInsight da Linux, Unix e Mac OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-        * [Usare SSH (PuTTY) con HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    1. Connettersi al cluster HDInsight tramite SSH. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
     2. Usare il codice seguente per avviare la shell HBase:
 

@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,8 +16,9 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: ec7e5d3229d623ce08a72439317a6a515ee3e373
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: c593bca61f8f1cc7c81e4744409f8b4a2c23df64
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -168,10 +170,8 @@ Hive è la soluzione ideale per usare i dati in HDInsight, ma in alcuni casi è 
    
         ssh myuser@mycluster-ssh.azurehdinsight.net
    
-    Per altre informazioni sull'uso di SSH con HDInsight, vedere i documenti seguenti.
-   
-   * [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+
 4. Dalla sessione SSH, copiare il file jar nell’archiviazione HDInsight.
    
         hdfs dfs -put ExampleUDF-1.0-SNAPSHOT.jar /example/jars
@@ -211,10 +211,5 @@ Hive è la soluzione ideale per usare i dati in HDInsight, ma in alcuni casi è 
 Per apprendere altri modi di utilizzare Hive, vedere [Utilizzare Hive con HDInsight](hdinsight-use-hive.md).
 
 Per ulteriori informazioni sulle UDF di Hive, vedere la sezione [Operatori e funzioni definite dall’utente di Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) del wiki di Hive all’indirizzo apache.org.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 334819e0819206d1bd928c0861b25cc59dd29fa7
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: e4e9e16c62ab1262021d1a719f5aa15d936f4843
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="how-to-get-operational-insights-with-password-management-reports"></a>Come ottenere informazioni dettagliate con i report di gestione delle password
 > [!IMPORTANT]
-> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -94,10 +94,10 @@ Vengono visualizzati i seguenti tipi di attività nella categoria degli eventi d
 * [**Reimpostare la password (self-service)**](#activity-type-reset-password-self-service): indica che un utente ha reimpostato correttamente la propria password nel [portale di reimpostazione delle password di Azure AD](https://passwordreset.microsoftonline.com).
 * [**Stato di avanzamento dell'attività di reimpostazione della password self-service**](#activity-type-self-serve-password-reset-flow-activity-progress): indica ogni passaggio specifico seguito da un utente (come il passaggio dell'attività di controllo dell'autenticazione per la reimpostazione della password) come parte del processo di reimpostazione della password.
 * [**Sbloccare l'account utente (self-service)**](#activity-type-unlock-user-account-self-service): indica che un utente ha sbloccato il proprio account Active Directory senza reimpostare la password dal [portale di reimpostazione delle password di Azure AD](https://passwordreset.microsoftonline.com) usando la funzionalità [AD account unlock without reset](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-customize#allow-users-to-unlock-accounts-without-resetting-their-password) (Sblocco dell'account AD senza reimpostazione).
-* [**Utente registrato per la reimpostazione della password self-service**](#activity-type-user-registered-for-self-service-password-reset): indica che un utente ha registrato tutte le informazioni necessarie per essere in grado di reimpostare la password in conformità con i criteri di reimpostazione della password del tenant attualmente specificati. 
+* [**Utente registrato per la reimpostazione della password self-service**](#activity-type-user-registered-for-self-service-password-reset): indica che un utente ha registrato tutte le informazioni necessarie per essere in grado di reimpostare la password in conformità con i criteri di reimpostazione della password del tenant attualmente specificati.
 
 ### <a name="activity-type-blocked-from-self-service-password-reset"></a>Tipo di attività: Bloccato dalla reimpostazione self-service delle password
-Nell'elenco seguente viene illustrata in dettaglio questa attività: 
+Nell'elenco seguente viene illustrata in dettaglio questa attività:
 
 * **Activity Description** (Descrizione attività): indica che un utente ha tentato di reimpostare una password, usato un'attività di controllo specifica o convalidato un numero di telefono più di 5 volte in 24 ore.
 * **Activity Actor** (Attore attività): l'utente su cui è stata imposta una limitazione per ulteriori operazioni di reimpostazione. Può essere un utente finale o un amministratore.
@@ -107,7 +107,7 @@ Nell'elenco seguente viene illustrata in dettaglio questa attività:
 * **Activity Status Failure Reason** (Motivo dell'errore sullo stato dell'attività): non applicabile
 
 ### <a name="activity-type-change-password-self-service"></a>Tipo di attività: Modificare la password (self-service)
-Nell'elenco seguente viene illustrata in dettaglio questa attività: 
+Nell'elenco seguente viene illustrata in dettaglio questa attività:
 
 * **Activity Description** (Descrizione attività): indica che un utente ha eseguito una modifica della password volontaria o obbligata (a causa della scadenza).
 * **Activity Actor** (Attore attività): l'utente che ha modificato la propria password. Può essere un utente finale o un amministratore.
@@ -115,11 +115,11 @@ Nell'elenco seguente viene illustrata in dettaglio questa attività:
 * **Allowed Activity Statuses** (Stati attività consentite)
  * _Success_ (Operazione riuscita): indica che un utente ha modificato correttamente la propria password.
  * _Failure_ (Operazione non riuscita): indica che un utente non è riuscito a modificare correttamente la propria password. Facendo clic sulla riga è possibile visualizzare la categoria **Activity Status Reason** (Motivo dello stato dell'attività) per altre informazioni sulla causa dell'errore.
-* **Activity Status Failure Reason** - (Motivo dell'errore sullo stato dell'attività) 
+* **Activity Status Failure Reason** - (Motivo dell'errore sullo stato dell'attività)
  * _FuzzyPolicyViolationInvalidPassword_: l'utente ha selezionato una password automaticamente esclusa dalle funzionalità di rilevamento delle password da escludere di Microsoft, che hanno riscontrato una password troppo comune o particolarmente debole.
 
 ### <a name="activity-type-reset-password-by-admin"></a>Tipo di attività: Reimpostare la password (amministratore)
-Nell'elenco seguente viene illustrata in dettaglio questa attività: 
+Nell'elenco seguente viene illustrata in dettaglio questa attività:
 
 * **Activity Description** (Descrizione attività): indica che un amministratore ha eseguito una reimpostazione della password per conto di un utente dal portale di Azure.
 * **Activity Actor** (Attore attività): l'amministratore che ha eseguito la reimpostazione della password per conto di un altro utente finale o amministratore. Deve essere un amministratore globale, un amministratore di password, un amministratore utenti o un amministratore supporto tecnico.
@@ -129,7 +129,7 @@ Nell'elenco seguente viene illustrata in dettaglio questa attività:
  * _Failure_ (Operazione non riuscita): indica che un amministratore non è riuscito a modificare correttamente la password di un utente. Facendo clic sulla riga è possibile visualizzare la categoria **Activity Status Reason** (Motivo dello stato dell'attività) per altre informazioni sulla causa dell'errore.
 
 ### <a name="activity-type-reset-password-self-service"></a>Tipo di attività: Reimpostare la password (self-service)
-Nell'elenco seguente viene illustrata in dettaglio questa attività: 
+Nell'elenco seguente viene illustrata in dettaglio questa attività:
 
 * **Activity Description** (Descrizione attività): indica che un utente ha reimpostato correttamente la propria password nel [portale di reimpostazione delle password di Azure AD](https://passwordreset.microsoftonline.com).
 * **Activity Actor** (Attore attività): l'utente che ha reimpostato la propria password. Può essere un utente finale o un amministratore.
@@ -137,11 +137,11 @@ Nell'elenco seguente viene illustrata in dettaglio questa attività:
 * **Allowed Activity Statuses** (Stati attività consentite)
  * _Success_ (Operazione riuscita): indica che un utente ha reimpostato correttamente la propria password.
  * _Failure_ (Operazione non riuscita): indica che un utente non è riuscito a reimpostare correttamente la propria password. Facendo clic sulla riga è possibile visualizzare la categoria **Activity Status Reason** (Motivo dello stato dell'attività) per altre informazioni sulla causa dell'errore.
-* **Activity Status Failure Reason** - (Motivo dell'errore sullo stato dell'attività) 
+* **Activity Status Failure Reason** - (Motivo dell'errore sullo stato dell'attività)
  * _FuzzyPolicyViolationInvalidPassword_: l'amministratore ha selezionato una password automaticamente esclusa dalle funzionalità di rilevamento delle password da escludere di Microsoft, che hanno riscontrato una password troppo comune o particolarmente debole.
 
 ### <a name="activity-type-self-serve-password-reset-flow-activity-progress"></a>Tipo di attività: Stato di avanzamento dell'attività di reimpostazione della password self-service
-Nell'elenco seguente viene illustrata in dettaglio questa attività: 
+Nell'elenco seguente viene illustrata in dettaglio questa attività:
 
 * **Activity Description** (Descrizione attività): indica ogni passaggio specifico seguito da un utente (come il passaggio dell'attività di controllo dell'autenticazione per la reimpostazione della password) come parte del processo di reimpostazione della password.
 * **Activity Actor** (Attore attività): l'utente che ha eseguito parte della password del flusso di reimpostazione della password. Può essere un utente finale o un amministratore.
@@ -153,7 +153,7 @@ Nell'elenco seguente viene illustrata in dettaglio questa attività:
  * Vedere la tabella seguente per [tutti i motivi degli stati relativi alle attività di reimpostazione consentite](#allowed-values-for-details-column).
 
 ### <a name="activity-type-unlock-user-account-self-service"></a>Tipo di attività: Sbloccare l'account utente (self-service)
-Nell'elenco seguente viene illustrata in dettaglio questa attività: 
+Nell'elenco seguente viene illustrata in dettaglio questa attività:
 
 * **Activity Description** (Descrizione attività): indica che un utente ha sbloccato il proprio account Active Directory senza reimpostare la password dal [portale di reimpostazione delle password di Azure AD](https://passwordreset.microsoftonline.com) usando la funzionalità [AD account unlock without reset](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-customize#allow-users-to-unlock-accounts-without-resetting-their-password) (Sblocco dell'account AD senza reimpostazione).
 * **Activity Actor** (Attore attività): l'utente che ha sbloccato il proprio account senza reimpostare la password. Può essere un utente finale o un amministratore.
@@ -163,13 +163,13 @@ Nell'elenco seguente viene illustrata in dettaglio questa attività:
  * _Failure_ (Operazione non riuscita): indica che un utente non è riuscito a sbloccare correttamente il proprio account. Facendo clic sulla riga è possibile visualizzare la categoria **Activity Status Reason** (Motivo dello stato dell'attività) per altre informazioni sulla causa dell'errore.
 
 ### <a name="activity-type-user-registered-for-self-service-password-reset"></a>Tipo di attività: Utente registrato per la reimpostazione della password self-service
-Nell'elenco seguente viene illustrata in dettaglio questa attività: 
+Nell'elenco seguente viene illustrata in dettaglio questa attività:
 
-* **Activity Description** (Descrizione attività): indica che un utente ha registrato tutte le informazioni necessarie per essere in grado di reimpostare la password in conformità con i criteri di reimpostazione della password del tenant attualmente specificati. 
+* **Activity Description** (Descrizione attività): indica che un utente ha registrato tutte le informazioni necessarie per essere in grado di reimpostare la password in conformità con i criteri di reimpostazione della password del tenant attualmente specificati.
 * **Activity Actor** (Attore attività): l'utente che ha eseguito la registrazione per la reimpostazione della password. Può essere un utente finale o un amministratore.
 * **Activity Target** (Destinatario attività): l'utente che ha eseguito la registrazione per la reimpostazione della password. Può essere un utente finale o un amministratore.
 * **Allowed Activity Statuses** (Stati attività consentite)
- * _Success_ (Operazione riuscita): indica che un utente è riuscito a eseguire la registrazione per la reimpostazione della password in base ai criteri correnti. 
+ * _Success_ (Operazione riuscita): indica che un utente è riuscito a eseguire la registrazione per la reimpostazione della password in base ai criteri correnti.
  * _Failure_ (Operazione non riuscita): indica che un utente non è riuscito a eseguire la registrazione per la reimpostazione della password. Facendo clic sulla riga è possibile visualizzare la categoria **Activity Status Reason** (Motivo dello stato dell'attività) per altre informazioni sulla causa dell'errore. Nota: questo non significa che l'utente non sia in grado di reimpostare la propria password, ma solo che non ha completato il processo di registrazione. Se sull'account dell'utente sono presenti dati non verificati e corretti, ad esempio un numero di telefono non convalidato, anche se non si verifica questo numero di telefono, l'utente può comunque usarlo per reimpostare la password. Per altre informazioni, vedere [Cosa accade quando un utente si registra?](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-happens-when-a-user-registers)
 
 ## <a name="how-to-retrieve-password-management-events-from-the-azure-ad-reports-and-events-api"></a>Come recuperare eventi di gestione delle password dall'API relativa a report ed eventi di Azure AD
@@ -184,7 +184,7 @@ Dopo aver creato uno script di lavoro, è opportuno esaminare gli eventi di regi
 * [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): elenca le colonne disponibili per gli eventi di registrazione per la reimpostazione della password
 
 ### <a name="reporting-api-data-retrieval-limitations"></a>Segnalazione dei limiti di recupero dati API
-Attualmente, l'API di creazione di report ed eventi di Azure AD recupera fino a **75.000 eventi singoli** del tipo [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) e [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent), coprendo gli **ultimi 30 giorni**. 
+Attualmente, l'API di creazione di report ed eventi di Azure AD recupera fino a **75.000 eventi singoli** del tipo [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) e [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent), coprendo gli **ultimi 30 giorni**.
 
 Se è necessario recuperare o archiviare dati oltre questo intervallo, è consigliabile salvarli in modo permanente in un database esterno e usare l'API per eseguire una query sui delta risultanti. Una procedura consigliata consiste nell'avviare il recupero dei dati contemporaneamente al processo di registrazione per la reimpostazione della password all'interno dell'organizzazione, archiviare i dati esternamente e quindi continuare a monitorare i delta da questo punto in poi.
 
@@ -300,7 +300,7 @@ Di seguito è riportato l'elenco dei tipi di risultati previsti quando si usa il
 ## <a name="next-steps"></a>Passaggi successivi
 Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
 * [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
 * [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione

@@ -16,15 +16,16 @@ ms.workload: iaas-sql-server
 ms.date: 11/28/2016
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 64d3f55445c82bf2be3ca8e64d7ea5d19e70310b
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: d9138b17e54aa1c4bf1982b09d3d0ad10e936d4c
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Configurare un listener esterno per i gruppi di disponibilità AlwaysOn in Azure
 > [!div class="op_single_selector"]
-> * [Listener interno](virtual-machines-windows-classic-ps-sql-int-listener.md)
-> * [Listener esterno](virtual-machines-windows-classic-ps-sql-ext-listener.md)
+> * [Listener interno](../classic/ps-sql-int-listener.md)
+> * [Listener esterno](../classic/ps-sql-ext-listener.md)
 > 
 > 
 
@@ -33,7 +34,7 @@ Questo argomento illustra come configurare un listener per un gruppo di disponib
 > [!IMPORTANT] 
 > Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
 
-Il gruppo di disponibilità può contenere repliche solo locali, solo di Azure oppure sia locali che di Azure per le configurazioni ibride. Le repliche di Azure possono trovarsi nella stessa area o in più aree grazie a più reti virtuali (VNet). I passaggi seguenti presuppongono che sia già stato [configurato un gruppo di disponibilità](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md) ma che non sia stato configurato un listener.
+Il gruppo di disponibilità può contenere repliche solo locali, solo di Azure oppure sia locali che di Azure per le configurazioni ibride. Le repliche di Azure possono trovarsi nella stessa area o in più aree grazie a più reti virtuali (VNet). I passaggi seguenti presuppongono che sia già stato [configurato un gruppo di disponibilità](../classic/portal-sql-alwayson-availability-groups.md) ma che non sia stato configurato un listener.
 
 ## <a name="guidelines-and-limitations-for-external-listeners"></a>Linee guida e limitazioni per listener esterni
 Occorre notare le linee guida seguenti relative al listener del gruppo di disponibilità in Azure quando si esegue la distribuzione usando l'indirizzo IP virtuale pubblico del servizio cloud:
@@ -47,7 +48,7 @@ Occorre notare le linee guida seguenti relative al listener del gruppo di dispon
 ## <a name="determine-the-accessibility-of-the-listener"></a>Determinare l'accessibilità del listener
 [!INCLUDE [ag-listener-accessibility](../../../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-Questo articolo illustra la creazione di un listener che usa il **bilanciamento del carico esterno**. Se si vuole un listener privato per la rete virtuale, vedere la versione di questo articolo che illustra la procedura per la configurazione di un [listener con ILB](virtual-machines-windows-classic-ps-sql-int-listener.md)
+Questo articolo illustra la creazione di un listener che usa il **bilanciamento del carico esterno**. Se si vuole un listener privato per la rete virtuale, vedere la versione di questo articolo che illustra la procedura per la configurazione di un [listener con ILB](../classic/ps-sql-int-listener.md)
 
 ## <a name="create-load-balanced-vm-endpoints-with-direct-server-return"></a>Creare endpoint VM con bilanciamento del carico con Direct Server Return
 Il servizio di bilanciamento del carico esterno usa l'indirizzo IP virtuale pubblico del servizio cloud che ospita le VM. Non è quindi necessario creare o configurare il servizio di bilanciamento del carico in questo caso.
@@ -132,10 +133,5 @@ Se le repliche AlwaysOn si trovano in subnet diverse, i client devono specificar
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

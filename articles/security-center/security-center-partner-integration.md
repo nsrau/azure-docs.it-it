@@ -12,11 +12,12 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
 ms.openlocfilehash: 095b5c9d1a888a4061450234f80c52c5834fbf53
+ms.lasthandoff: 12/02/2016
 
 
 ---
@@ -56,7 +57,7 @@ In base alla configurazione dell'ambiente Azure e ai criteri di sicurezza defini
 
 Dopo la distribuzione di una soluzione partner, è possibile visualizzare le informazioni sullo stato della soluzione ed eseguire attività di gestione di base dal riquadro Soluzione partner nel dashboard principale del Centro sicurezza. Per altre informazioni sulla gestione delle soluzioni partner nel Centro sicurezza, leggere [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) (Monitoraggio delle soluzioni partner con il Centro sicurezza di Azure).
 
-![Integrazione dei partner](./media/security-center-partner-integration/security-center-partner-integration-fig1.png)
+![Integrazione dei partner](./media/security-center-partner-integration/security-center-partner-integration-fig1-new.png)
 
 
 ## <a name="see-also"></a>Vedere anche
@@ -69,9 +70,4 @@ In questo documento è stato illustrato come integrare soluzioni partner nel Cen
 * [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md) : informazioni su come monitorare l'integrità delle soluzioni dei partner.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/) : post di blog sulla sicurezza e sulla conformità di Azure.
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

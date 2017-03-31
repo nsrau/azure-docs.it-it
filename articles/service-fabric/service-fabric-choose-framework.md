@@ -12,11 +12,12 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/05/2016
+ms.date: 03/28/2017
 ms.author: seanmck
 translationtype: Human Translation
 ms.sourcegitcommit: d7aa8568dd6fdd806d8ad70e408f108c722ec1ce
 ms.openlocfilehash: b56d75d49e0b95025dd1a0bae532f677958eac8d
+ms.lasthandoff: 01/10/2017
 
 
 ---
@@ -45,10 +46,5 @@ Dal momento che Reliable Actors è anch'esso un framework di applicazioni basato
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere anche [altre informazioni su Reliable Actors](service-fabric-reliable-actors-introduction.md) oppure a iniziare a [scrivere un servizio di tipo Reliable Actor](service-fabric-reliable-actors-get-started.md)
 [Altre informazioni sull'inserimento in contenitori dei servizi in Windows o Linux](service-fabric-deploy-container.md)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

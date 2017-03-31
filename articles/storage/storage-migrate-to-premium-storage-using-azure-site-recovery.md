@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 3/1/2016
 ms.author: luywang
 translationtype: Human Translation
-ms.sourcegitcommit: 106e03a5a99134eb6e5744cbf29ba32efc31f0ba
-ms.openlocfilehash: d76aa3e62c691c4537684bc70d3a91a3dbb8b446
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 41e3db2762998bd042c0a23fccd03e599bd237a5
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -140,7 +140,7 @@ Per i componenti aggiuntivi di altri scenari, vedere [Architettura dello scenari
 ## <a name="post-migration-steps"></a>Passaggi post-migrazione
 
 1. **Configurare le VM replicate per il set di disponibilità, se applicabile**. Site Recovery non supporta la migrazione di VM con il set di disponibilità. A seconda della distribuzione della VM replicata, eseguire una di queste operazioni:
-  * Per una VM creata usando il modello di distribuzione classica: aggiungere la VM al set di disponibilità nel portale di Azure. Per i passaggi dettagliati, vedere [Aggiungere una macchina virtuale esistente a un set di disponibilità](../virtual-machines/virtual-machines-windows-classic-configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
+  * Per una VM creata usando il modello di distribuzione classica: aggiungere la VM al set di disponibilità nel portale di Azure. Per i passaggi dettagliati, vedere [Aggiungere una macchina virtuale esistente a un set di disponibilità](../virtual-machines/windows/classic/configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
   * Per il modello di distribuzione Resource Manager: salvare la configurazione della VM e quindi eliminare e ricreare le VM nel set di disponibilità. A questo scopo, usare lo script in [Set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4) (Impostare il set di disponibilità di VM di Azure Resource Manager). Controllare la limitazione di questo script e pianificare il tempo di inattività prima di eseguire lo script.
 
 2. **Eliminare le VM e i dischi precedenti**. Prima di eliminarli, verificare che i dischi Premium siano coerenti con i dischi di origine e che le nuove VM eseguano la stessa funzione delle VM di origine. Nel modello di distribuzione Resource Manager (RM) eliminare la VM ed eliminare i dischi dagli account di archiviazione di origine nel portale di Azure. Nel modello di distribuzione classica è possibile eliminare la VM e i dischi nel portale classico nel portale di Azure. Se si verifica un problema per cui il disco non viene eliminato anche se è stata eliminata la VM, vedere [Risolvere gli errori quando si eliminano dischi rigidi virtuali di Azure in una distribuzione Resource Manager](storage-resource-manager-cannot-delete-storage-account-container-vhd.md) o [Risolvere i problemi di eliminazione dei dischi rigidi virtuali in una distribuzione classica](storage-cannot-delete-storage-account-container-vhd.md).
@@ -157,8 +157,8 @@ Per i componenti aggiuntivi di altri scenari, vedere [Architettura dello scenari
 Controllare le risorse seguenti per scenari specifici per la migrazione di macchine virtuali:
 
 * [Eseguire la migrazione di macchine virtuali di Azure tra account di archiviazione](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-* [Creare e caricare un disco rigido virtuale Windows Server in Azure.](../virtual-machines/virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* [Creazione e caricamento di un disco rigido virtuale contenente il sistema operativo Linux](../virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Creare e caricare un disco rigido virtuale Windows Server in Azure.](../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Creazione e caricamento di un disco rigido virtuale contenente il sistema operativo Linux](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Migrazione di macchine virtuali da Amazon AWS a Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Inoltre, controllare le seguenti risorse per altre informazioni su Archiviazione di Azure e sulle macchine virtuali di Azure:

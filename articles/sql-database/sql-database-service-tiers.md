@@ -17,9 +17,9 @@ ms.workload: data-management
 wms.date: 03/06/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 4307797b3961d8efef4045590e340268f0ad226d
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: ab637f9910523cc8d8967dd1507dbcfad9f7ae88
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -61,7 +61,7 @@ Prima di tutto è necessario decidere se eseguire un database singolo con una qu
 Dopo aver determinato il livello di servizio minimo, è possibile determinare il livello di prestazioni del database, ovvero il numero di DTU. I livelli di prestazioni Standard S2 e S3 sono in molti casi un valido punto di inizio. Per i database con requisiti elevati di CPU o I/O, i livelli di prestazioni Premium sono il punto di partenza ottimale. Premium offre più CPU e inizia a 10 volte più I/O rispetto al livello di prestazioni Standard massimo.
 
 ## <a name="single-database-service-tiers-and-performance-levels"></a>Livelli di servizio e di prestazioni per database singoli
-Per i database singoli sono disponibili più livelli di prestazioni all'interno di ogni livello di servizio. È possibile scegliere il livello che soddisfa meglio le esigenze del carico di lavoro usando il [portale Azure](sql-database-manage-single-databases-portal.md), [PowerShell](sql-database-manage-single-databases-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C# e l'API REST. 
+Per i database singoli sono disponibili più livelli di prestazioni all'interno di ogni livello di servizio. È possibile scegliere il livello che soddisfa meglio le esigenze del carico di lavoro usando il [portale Azure](sql-database-manage-single-databases-portal.md), [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C# e l'API REST. 
 
 Indipendentemente dal numero di database ospitati, il database in uso ottiene un set garantito di risorse e le caratteristiche delle prestazioni previste per il database non saranno interessate.
 
@@ -73,7 +73,7 @@ Indipendentemente dal numero di database ospitati, il database in uso ottiene un
 
 ## <a name="scaling-up-or-scaling-down-a-single-database"></a>Ridimensionamento di un singolo database
 
-Dopo aver selezionato inizialmente un livello di servizio e di prestazioni, è possibile ridimensionare un singolo database in modo dinamico in base all'esperienza effettiva. Se è necessario applicare la scalabilità verso l'alto o verso il basso, è possibile modificare facilmente i livelli del database mediante il [portale di Azure](sql-database-manage-single-databases-portal.md), [PowerShell](sql-database-manage-single-databases-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C# e l'API REST. 
+Dopo aver selezionato inizialmente un livello di servizio e di prestazioni, è possibile ridimensionare un singolo database in modo dinamico in base all'esperienza effettiva. Se è necessario applicare la scalabilità verso l'alto o verso il basso, è possibile modificare facilmente i livelli del database mediante il [portale di Azure](sql-database-manage-single-databases-portal.md), [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C# e l'API REST. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
@@ -89,7 +89,7 @@ La durata dell'intero processo di scalabilità verticale dipende dalla dimension
 * Le nuove proprietà del database non vengono applicate finché non sono state completate le modifiche.
 
 > [!IMPORTANT]
-> Per informazioni dettagliate, vedere gli articoli relativi alla gestione di un database singolo [nel portale di Azure](sql-database-manage-single-databases-portal.md), [con PowerShell](sql-database-manage-single-databases-powershell.md) oppure [con Transact-SQL](sql-database-manage-single-databases-tsql.md).
+> Per informazioni dettagliate, vedere gli articoli relativi alla gestione di un database singolo [nel portale di Azure](sql-database-manage-single-databases-portal.md), [con PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md) oppure [con Transact-SQL](sql-database-manage-single-databases-tsql.md).
 >
 
 ## <a name="elastic-pool-service-tiers-and-performance-in-edtus"></a>Livelli di servizio e di prestazioni per pool elastici in eDTU
@@ -109,7 +109,7 @@ Dopo aver selezionato inizialmente un livello di servizio e di prestazioni, è p
 * La modifica del numero minimo di eDTU per database o del numero massimo di eDTU per database in genere viene completata entro cinque minuti.
 * Il tempo richiesto per modificare le dimensioni del pool (eDTU) dipende dalla dimensione combinata di tutti i database nel pool. Le modifiche richiedono una media di 90 minuti o meno per 100 GB. Ad esempio, se lo spazio totale di tutti i database nel pool è pari a 200 GB, la latenza prevista per la modifica del numero di eDTU del pool per ogni pool è di 3 ore o meno.
 
-Per informazioni dettagliate, vedere gli articoli relativi alla gestione di un pool elastico [nel portale di Azure](sql-database-elastic-pool-manage-portal.md), [con PowerShell](sql-database-elastic-pool-manage-powershell.md), [con Transact-SQL](sql-database-elastic-pool-manage-tsql.md) oppure [con C#](sql-database-elastic-pool-manage-csharp.md).
+Per informazioni dettagliate, vedere gli articoli relativi alla gestione di un pool elastico [nel portale di Azure](sql-database-elastic-pool-manage-portal.md), [con PowerShell](scripts/sql-database-monitor-and-scale-pool-powershell.md), [con Transact-SQL](sql-database-elastic-pool-manage-tsql.md) oppure [con C#](sql-database-elastic-pool-manage-csharp.md).
 
 ## <a name="creating-or-upgrading-to-4tb"></a>Creazione o aggiornamento a 4 TB
 
