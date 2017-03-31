@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 59798ae9412a7550c94f8fa67c39f504aad8d00c
-ms.openlocfilehash: 3867c57d40a218c80403578d30cb999bf9f6cd38
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 96137d49d3caa0444400edcfcfaa097dc71ba8e3
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -76,7 +76,7 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 ## <a name="convert-existing-azure-vms-to-managed-disks-of-the-same-storage-type"></a>Convertire le macchine virtuali di Azure esistenti in dischi gestiti dello stesso tipo di archiviazione
 
 > [!IMPORTANT]
-> Dopo aver eseguito la procedura seguente, un solo BLOB in blocchi rimane nel contenitore predefinito/VHDS. Il nome del file è "VMName.xxxxxxx.status". Questo file viene creato da Azure solo dopo aver installato le [estensioni di macchina virtuale](virtual-machines-windows-classic-agents-and-extensions.md) nella macchina virtuale. Non eliminare questo oggetto di stato rimanente. Le prossime procedure mirano a risolvere questo problema.
+> Dopo aver eseguito la procedura seguente, un solo BLOB in blocchi rimane nel contenitore predefinito/VHDS. Il nome del file è "VMName.xxxxxxx.status". Questo file viene creato da Azure solo dopo aver installato le [estensioni di macchina virtuale](windows/classic/agents-and-extensions.md) nella macchina virtuale. Non eliminare questo oggetto di stato rimanente. Le prossime procedure mirano a risolvere questo problema.
 
 Questa sezione descrive come convertire le macchine virtuali di Azure esistenti da dischi non gestiti negli account di archiviazione a dischi gestiti quando si userà lo stesso tipo di archiviazione. È possibile usare questo processo per passare dai dischi non gestiti Premium (SSD) ai dischi gestiti o dai dischi non gestiti standard (HDD) ai dischi gestiti standard. 
 

@@ -17,8 +17,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: acomet
 translationtype: Human Translation
-ms.sourcegitcommit: faf363eb5848752b27faacd971867391b6393337
-ms.openlocfilehash: 1a693477a51a05fb28e7c4772aeee77fd0c4e1dd
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 4d6ea897ec24ab9cbf5c131cd4629f45447f1460
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -30,7 +31,7 @@ L'articolo descrive il costo di DocumentDB per semplici operazioni di lettura e 
 
 ## <a name="why-we-use-request-units-rus"></a>Perché usare le unità richiesta (UR)
 
-Le prestazioni di DocumentDB si basano sulla quantità di [unità richiesta](documentdb-programming.md) (UR) con provisioning per la partizione. Il provisioning è a una granularità in secondi e viene acquistato in UR/sec ([da non confondere con la fatturazione oraria](https://azure.microsoft.com/pricing/details/documentdb/)). Le UR devono essere considerate come una valuta che semplifica il provisioning della velocità effettiva necessaria per l'applicazione. I clienti non devono pensare a differenziare le unità di capacità tra lettura e scrittura. Il modello singolo di valuta delle UR crea efficienza per condividere la capacità di provisioning tra le letture e le scritture. Questo modello di capacità con provisioning consente al servizio fornire una velocità effettiva prevedibile e coerente, con bassa latenza e disponibilità elevata garantite. Infine, si usano le UR per generare un modello di velocità effettiva, ma ogni UR con provisioning presenta inoltre una quantità di risorse definita (memoria, memoria centrale). UR/sec non si riferisce solo alle operazioni di I/O al secondo (IOPS).
+Le prestazioni di DocumentDB si basano sulla quantità di [unità richiesta](documentdb-request-units.md) (UR) con provisioning per la partizione. Il provisioning è a una granularità in secondi e viene acquistato in UR/sec ([da non confondere con la fatturazione oraria](https://azure.microsoft.com/pricing/details/documentdb/)). Le UR devono essere considerate come una valuta che semplifica il provisioning della velocità effettiva necessaria per l'applicazione. I clienti non devono pensare a differenziare le unità di capacità tra lettura e scrittura. Il modello singolo di valuta delle UR crea efficienza per condividere la capacità di provisioning tra le letture e le scritture. Questo modello di capacità con provisioning consente al servizio fornire una velocità effettiva prevedibile e coerente, con bassa latenza e disponibilità elevata garantite. Infine, si usano le UR per generare un modello di velocità effettiva, ma ogni UR con provisioning presenta inoltre una quantità di risorse definita (memoria, memoria centrale). UR/sec non si riferisce solo alle operazioni di I/O al secondo (IOPS).
 
 Come un sistema di database distribuito a livello globale, DocumentDB è il solo servizio di Azure che fornisce un contratto di servizio basato su latenza, velocità effettiva e coerenza oltre che sulla disponibilità elevata. La velocità effettiva con cui viene effettuato il provisioning viene applicata a ognuna delle aree associate all'account di database DocumentDB. Per le letture, DocumentDB offre più [livelli di coerenza](documentdb-consistency-levels.md) ben definiti tra cui scegliere. 
 
@@ -50,14 +51,9 @@ Se si esegue il provisioning di 1.000 UR al secondo, si avrà un totale di 3,6 m
 |1 KB|$0.022|$0.111|
 |100 KB|$0.222|$1.111|
 
-La maggior parte dei servizi di archivi di oggetti o BLOB di base addebita&0;,40 dollari per milione di transazioni di lettura e&5; dollari per milione transazioni di scrittura. Se utilizzato in modo ottimale, DocumentDB è fino al 98% più conveniente di queste altre soluzioni (per le transazioni di 1KB).
+La maggior parte dei servizi di archivi di oggetti o BLOB di base addebita 0,40 dollari per milione di transazioni di lettura e 5 dollari per milione transazioni di scrittura. Se utilizzato in modo ottimale, DocumentDB è fino al 98% più conveniente di queste altre soluzioni (per le transazioni di 1KB).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Saranno presto disponibili nuovi articoli sull'ottimizzazione del provisioning delle risorse di DocumentDB. Nel frattempo, è possibile usare il nostro [calcolatore UR](https://www.documentdb.com/capacityplanner).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

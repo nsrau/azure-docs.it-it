@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/06/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: c6c92f0d357909921a9f3ee2f484ff355ddde0be
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: ef28ca0a43d7e07fa87d5afdd3f0428f28a310f0
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -49,7 +49,7 @@ Ogni estensione macchina virtuale può avere un insieme specifico di prerequisit
 
 L'agente VM di Azure gestisce le interazioni tra una macchina virtuale di Azure e il controller di infrastruttura di Azure. L'agente VM è responsabile di molti aspetti funzionali della distribuzione e della gestione delle macchine virtuali di Azure, tra cui l'esecuzione delle estensioni della macchina virtuale. L'agente VM di Azure è preinstallato nelle immagini di Azure Marketplace e può essere installato manualmente nei sistemi operativi supportati.
 
-Per informazioni sui sistemi operativi supportati e per le istruzioni di installazione, vedere l'[agente VM di Azure](virtual-machines-linux-classic-agents-and-extensions.md).
+Per informazioni sui sistemi operativi supportati e per le istruzioni di installazione, vedere l'[agente VM di Azure](linux/classic/agents-and-extensions.md).
 
 ## <a name="discover-vm-extensions"></a>Individuare le estensioni della macchina virtuale
 

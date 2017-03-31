@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 0de0590c1cf5c71a7174fdcca84847b378aa40f8
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: dca6f5189693fc98cec4f92eac81b6985e691889
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="learn-more-about-password-management"></a>Altre informazioni sulla gestione delle password
 > [!IMPORTANT]
-> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -120,7 +120,7 @@ La sezione seguente descrive gli scenari supportati per le diverse versioni dell
 ### <a name="supported-clients"></a>Client supportati
 È sempre consigliabile usare la funzionalità di aggiornamento automatico di Azure AD Connect oppure installare la versione più recente di [Azure AD Connect](connect/active-directory-aadconnect.md#install-azure-ad-connect) se si vuole usare il writeback delle password.
 
-* **DirSync (qualsiasi versione > 1.0.6862)** - _NON SUPPORTATO_: supporta solo funzionalità di writeback di base e non è più supportato dal gruppo di prodotti 
+* **DirSync (qualsiasi versione > 1.0.6862)** - _NON SUPPORTATO_: supporta solo funzionalità di writeback di base e non è più supportato dal gruppo di prodotti
 * **Azure AD Sync** - _DEPRECATO_: supporta solo funzionalità di writeback di base e non offre le funzionalità di sblocco degli account, la registrazione avanzata e i miglioramenti dell'affidabilità apportati in Azure AD Connect È quindi **fortemente** consigliabile eseguire l'aggiornamento.
 * **Azure AD Connect** - _COMPLETAMENTE SUPPORTATO_: supporta tutte le funzionalità di writeback. Eseguire l'aggiornamento alla versione più recente per ottenere le migliori nuove funzionalità e il massimo livello possibile di stabilità e affidabilità
 
@@ -132,7 +132,7 @@ Per usare il writeback delle password, è necessario avere una delle licenze seg
 * **Enterprise Moblity Suite**: nessuna limitazione per l'utilizzo del writeback delle password
 * **Enterprise Cloud Suite**: nessuna limitazione per l'utilizzo del writeback delle password
 
-Non è consentito usare il writeback delle password con qualsiasi piano di licenza di Office 365, versione di valutazione o a pagamento. Per usare questa funzionalità, è necessario eseguire l'aggiornamento a uno dei piani indicati in precedenza. 
+Non è consentito usare il writeback delle password con qualsiasi piano di licenza di Office 365, versione di valutazione o a pagamento. Per usare questa funzionalità, è necessario eseguire l'aggiornamento a uno dei piani indicati in precedenza.
 
 Non è prevista l'abilitazione del writeback delle password per qualsiasi SKU di Office 365.
 
@@ -166,7 +166,7 @@ Il writeback delle password non viene eseguito nelle situazioni seguenti:
 * **Operazioni degli amministratori non supportate**
  * Qualsiasi reimpostazione della password dell'utente finale avviata dall'amministratore dal [portale di gestione di Office](https://portal.office.com)
  * Qualsiasi reimpostazione della password dell'utente finale avviata dall'amministratore da PowerShell v1, v2 o dall'API Graph di Azure AD
- 
+
 Microsoft sta lavorando per rimuovere queste limitazioni, ma non è ancora disponibile una sequenza temporale specifica.
 
 ## <a name="password-writeback-security-model"></a>Modello di sicurezza del writeback delle password
@@ -180,9 +180,9 @@ Il writeback delle password è un servizio altamente sicuro e affidabile.  Per g
 ### <a name="password-writeback-encryption-details"></a>Informazioni dettagliate sulla crittografia del writeback delle password
 Di seguito vengono descritti i passaggi di crittografia applicati a una richiesta di reimpostazione della password dopo l'invio da parte dell'utente, ma prima di raggiungere l'ambiente locale, per garantire massimi livelli di sicurezza e affidabilità del servizio.
 
-* **Passaggio 1 - Crittografia della password con una chiave RSA a 2048 bit**: quando un utente invia una password per il writeback in locale, prima di tutto la password inviata viene crittografata con una chiave RSA a 2048 bit. 
+* **Passaggio 1 - Crittografia della password con una chiave RSA a 2048 bit**: quando un utente invia una password per il writeback in locale, prima di tutto la password inviata viene crittografata con una chiave RSA a 2048 bit.
 
-* **Passaggio 2 - Crittografia a livello di pacchetto con AES-GCM**: l'intero pacchetto (password + metadati necessari) viene quindi crittografato con AES-GCM. Ciò impedisce a chiunque abbia accesso diretto al canale del bus di servizio sottostante di visualizzare o manomettere il contenuto. 
+* **Passaggio 2 - Crittografia a livello di pacchetto con AES-GCM**: l'intero pacchetto (password + metadati necessari) viene quindi crittografato con AES-GCM. Ciò impedisce a chiunque abbia accesso diretto al canale del bus di servizio sottostante di visualizzare o manomettere il contenuto.
 
 * **Passaggio 3 - Tutte le comunicazioni avvengono su TLS/SSL**: tutte le comunicazioni con il bus di servizio avvengono inoltre in un canale SSL/TLS. Ciò consente di proteggere i contenuti da terze parti non autorizzate.
 
@@ -623,13 +623,13 @@ La modifica e la reimpostazione della password sono completamente supportate con
 1. **Utenti di un'organizzazione partner con un tenant di Azure AD esistente**: se l'organizzazione partner ha un tenant di Azure AD esistente, verranno **rispettati i criteri di reimpostazione della password abilitati in tale tenant**. Affinché la reimpostazione della password funzioni, l'organizzazione partner deve semplicemente assicurarsi che sia abilitata la reimpostazione della password in modalità self-service di AD Azure, senza alcun costo aggiuntivo per i clienti di Office 365. Per l'abilitazione, seguire i passaggi nella guida [Introduzione alla gestione delle password](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
 2. **Utenti che hanno usato l'[iscrizione self-service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)**: se l'organizzazione partner ha usato la funzionalità di [iscrizione self-service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup) per accedere a un tenant, gli utenti avranno a disposizione la reimpostazione con l'indirizzo di posta elettronica registrato.
 3. **Utenti B2B**: tutti i nuovi utenti B2B creati usando le nuove [funzionalità B2B di Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) potranno anche reimpostare le password con l'indirizzo di posta elettronica registrato durante il processo di invito.
- 
+
 Per testare queste opzioni, passare a http://passwordreset.microsoftonline.com con uno di questi utenti partner.  Se l'utente ha un indirizzo di posta elettronica alternativo o un indirizzo di posta elettronica per l'autenticazione, la reimpostazione della password funzionerà come previsto.  Altre informazioni sui dati usati per la reimpostazione della password in modalità self-service sono disponibili nella panoramica in [Dati usati per la reimpostazione della password](https://azure.microsoft.com/en-us/documentation/articles/active-directory-passwords-learn-more/#what-data-is-used-by-password-reset).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
 * [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
 * [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione

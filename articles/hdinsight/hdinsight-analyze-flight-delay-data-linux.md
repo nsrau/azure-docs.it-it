@@ -17,9 +17,9 @@ ms.date: 02/07/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 5f0fc28d034306476c5504a65ddb81193e3e589c
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: bd3032b3df92c43b6cc6431eff19bd7cc0cc47bd
+ms.lasthandoff: 03/25/2017
 
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Analizzare i dati sui ritardi dei voli con Hive in HDInsight basato su Linux
@@ -68,10 +68,7 @@ Informazioni su come analizzare i dati sui ritardi dei voli usando Hive in HDIns
    
     ```ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net```
    
-    Per altre informazioni sull'uso di SSH con HDInsight basato su Linux, vedere gli articoli seguenti:
-   
-   * [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 3. Dopo la connessione, usare il comando seguente per decomprimere il file con estensione zip:
    

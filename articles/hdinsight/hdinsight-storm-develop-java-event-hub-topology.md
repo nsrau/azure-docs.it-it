@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 110f3aa9ce4848c9350ea2e560205aa762decf7a
-ms.openlocfilehash: 85f56e223210f14615f7e4e1c87e35111b238aac
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: fcca957dc365d8c38b5a08991939860c5af96813
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -46,11 +46,7 @@ L'hub eventi di Azure consente di elaborare grandi quantità di dati da siti Web
   > [!NOTE]
   > È possibile che l'editor di testo o l'ambiente IDE offra funzionalità specifiche per l'uso di Maven non descritte in questo documento. Per informazioni sulle funzionalità dell'ambiente di modifica, vedere la documentazione del prodotto usato.
   
-  * Un client SSH. Per altre informazioni, vedere uno dei documenti seguenti:
-    
-    * [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix, OS X e Bash in Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-    * [Usare SSH con Hadoop basato su Linux in HDInsight da Windows con PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md).
+  * Un client SSH. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * Client SCP. Il comando `scp` viene fornito con tutti i sistemi Linux, Unix e OS X (con Bash su Windows 10). Per le versioni di Windows che non includono il comando `scp`, è consigliabile PSCP. Questa utilità è disponibile nella [pagina di download PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 

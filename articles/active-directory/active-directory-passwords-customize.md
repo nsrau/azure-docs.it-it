@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: b6794425e233508ae72cb3b541738e56044453c1
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 06d94b4f0f2c5cc979fe7ecb061fee7d8dde8972
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="customizing-password-management-to-fit-your-organizations-needs"></a>Personalizzazione di Gestione delle password in base alle esigenze dell'organizzazione
 > [!IMPORTANT]
-> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -34,21 +34,21 @@ La tabella seguente descrive tutte le opzioni di personalizzazione disponibili c
 
 | Argomento | Impostazione | Licenze necessarie |
 | --- | --- | --- |
-| Come è possibile abilitare o disabilitare la reimpostazione della password? |[Impostazione: Utenti abilitati per la reimpostazione della password](#users-enabled-for-password-reset) | <ul><li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li><li>Azure AD Basic [solo per utenti cloud]</li><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
-| Come è possibile limitare la reimpostazione della password a un gruppo specifico di utenti? |[Limitare la reimpostazione della password a utenti specifici](#restrict-access-to-password-reset) | <ul><li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li><li>Azure AD Basic [solo per utenti cloud]</li><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
-| Come è possibile modificare i metodi di autenticazione supportati? |[Impostazione: Metodi di autenticazione disponibili per gli utenti](#authentication-methods-available-to-users) | <ul><li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li><li>Azure AD Basic [solo per utenti cloud]</li><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
-| Come è possibile modificare il numero di metodi di autenticazione necessari? |[Impostazione: Numero di metodi di autenticazione necessari](#number-of-authentication-methods-required) | <ul><li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li><li>Azure AD Basic [solo per utenti cloud]</li><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
-| Come è possibile configurare domande di sicurezza personalizzate? |[Impostazione: Domande di sicurezza personalizzate](#custom-security-questions) | <ul><li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li><li>Azure AD Basic [solo per utenti cloud]</li><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
-| Come è possibile configurare domande di sicurezza localizzate predefinite? |[Impostazione: Domande di sicurezza basate su informazioni note](#knowledge-based-security-questions) | <ul><li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li><li>Azure AD Basic [solo per utenti cloud]</li><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
-| Come è possibile modificare il numero di domande di sicurezza necessarie? |[Impostazione: Numero di domande necessarie per la registrazione (o la reimpostazione)](#number-of-questions-required-to-register) | <ul><li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li><li>Azure AD Basic [solo per utenti cloud]</li><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
-| Come è possibile forzare gli utenti a registrarsi durante la procedura di accesso? |[Implementazione della funzione di reimpostazione della password basata sulla registrazione forzata](#require-users-to-register-when-signing-in) | <ul><li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li><li>Azure AD Basic [solo per utenti cloud]</li><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
-| Come è possibile forzare gli utenti a riconfermare periodicamente la propria registrazione? |[Impostazione: Numero di giorni prima che agli utenti venga chiesto di riconfermare le informazioni di autenticazione](#number-of-days-before-users-must-confirm-their-contact-data) | <ul><li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li><li>Azure AD Basic [solo per utenti cloud]</li><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
-| Come è possibile personalizzare le modalità con cui un utente può entrare in contatto con un amministratore? |[Impostazione: Personalizzare il collegamento "Contattare l'amministratore?"](#customize-the-contact-your-administrator-link) | <ul><li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li><li>Azure AD Basic [solo per utenti cloud]</li><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
+| Come è possibile abilitare o disabilitare la reimpostazione della password? |[Impostazione: Utenti abilitati per la reimpostazione della password](#users-enabled-for-password-reset) | <ul><li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li><li>Azure AD Basic [solo per utenti cloud]</li><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
+| Come è possibile limitare la reimpostazione della password a un gruppo specifico di utenti? |[Limitare la reimpostazione della password a utenti specifici](#restrict-access-to-password-reset) | <ul><li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li><li>Azure AD Basic [solo per utenti cloud]</li><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
+| Come è possibile modificare i metodi di autenticazione supportati? |[Impostazione: Metodi di autenticazione disponibili per gli utenti](#authentication-methods-available-to-users) | <ul><li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li><li>Azure AD Basic [solo per utenti cloud]</li><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
+| Come è possibile modificare il numero di metodi di autenticazione necessari? |[Impostazione: Numero di metodi di autenticazione necessari](#number-of-authentication-methods-required) | <ul><li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li><li>Azure AD Basic [solo per utenti cloud]</li><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
+| Come è possibile configurare domande di sicurezza personalizzate? |[Impostazione: Domande di sicurezza personalizzate](#custom-security-questions) | <ul><li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li><li>Azure AD Basic [solo per utenti cloud]</li><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
+| Come è possibile configurare domande di sicurezza localizzate predefinite? |[Impostazione: Domande di sicurezza basate su informazioni note](#knowledge-based-security-questions) | <ul><li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li><li>Azure AD Basic [solo per utenti cloud]</li><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
+| Come è possibile modificare il numero di domande di sicurezza necessarie? |[Impostazione: Numero di domande necessarie per la registrazione (o la reimpostazione)](#number-of-questions-required-to-register) | <ul><li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li><li>Azure AD Basic [solo per utenti cloud]</li><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
+| Come è possibile forzare gli utenti a registrarsi durante la procedura di accesso? |[Implementazione della funzione di reimpostazione della password basata sulla registrazione forzata](#require-users-to-register-when-signing-in) | <ul><li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li><li>Azure AD Basic [solo per utenti cloud]</li><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
+| Come è possibile forzare gli utenti a riconfermare periodicamente la propria registrazione? |[Impostazione: Numero di giorni prima che agli utenti venga chiesto di riconfermare le informazioni di autenticazione](#number-of-days-before-users-must-confirm-their-contact-data) | <ul><li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li><li>Azure AD Basic [solo per utenti cloud]</li><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
+| Come è possibile personalizzare le modalità con cui un utente può entrare in contatto con un amministratore? |[Impostazione: Personalizzare il collegamento "Contattare l'amministratore?"](#customize-the-contact-your-administrator-link) | <ul><li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li><li>Azure AD Basic [solo per utenti cloud]</li><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
 | Come è possibile abilitare o disabilitare il writeback delle password dall'interfaccia amministratore nel cloud? |[Impostazione: abilitare o disabilitare il writeback delle password](#write-back-passwords-to-on-premises-directory) | <ul><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
 | Come è possibile consentire agli utenti di sbloccare account di Active Directory locali senza reimpostare una password? |[Impostazione: Consenti agli utenti di sbloccare gli account senza reimpostare la password](#allow-users-to-unlock-accounts-without-resetting-their-password) | <ul><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
-| Come è possibile abilitare le notifiche di reimpostazione della password per gli utenti? |[Impostazione: Notifica a utenti e amministratori quando è stata reimpostata la propria password](#notify-users-and-admins-when-their-own-password-has-been-reset) |  <ul><li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li><li>Azure AD Basic [solo per utenti cloud]</li><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
-| Come è possibile abilitare le notifiche di reimpostazione della password per gli amministratori? |[Impostazione: Notifica agli amministratori quando altri amministratori reimpostano le proprie password](#notify-admins-when-other-admins-reset-their-own-passwords) | <ul><li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li><li>Azure AD Basic [solo per utenti cloud]</li><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
-| Come è possibile personalizzare la veste grafica della funzione di reimpostazione della password? |[Impostazione: Nome, marchio e logo dell'azienda ](#password-management-look-and-feel) |  <ul><li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li><li>Azure AD Basic [solo per utenti cloud]</li><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
+| Come è possibile abilitare le notifiche di reimpostazione della password per gli utenti? |[Impostazione: Notifica a utenti e amministratori quando è stata reimpostata la propria password](#notify-users-and-admins-when-their-own-password-has-been-reset) |  <ul><li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li><li>Azure AD Basic [solo per utenti cloud]</li><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
+| Come è possibile abilitare le notifiche di reimpostazione della password per gli amministratori? |[Impostazione: Notifica agli amministratori quando altri amministratori reimpostano le proprie password](#notify-admins-when-other-admins-reset-their-own-passwords) | <ul><li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li><li>Azure AD Basic [solo per utenti cloud]</li><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
+| Come è possibile personalizzare la veste grafica della funzione di reimpostazione della password? |[Impostazione: Nome, marchio e logo dell'azienda ](#password-management-look-and-feel) |  <ul><li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li><li>Azure AD Basic [solo per utenti cloud]</li><li>Azure AD Premium P1 o P2 [solo per utenti cloud o locali]</li><li>Enterprise Mobility Suite [solo per utenti cloud o locali]</li><li>Enterprise Cloud Suite [solo per utenti cloud o locali]</li></ul> |
 
 ## <a name="password-management-look-and-feel"></a>Aspetto di Gestione delle password
 Nella tabella seguente viene descritto come ciascun controllo influisce sull'esperienza degli utenti che effettuano la registrazione per la reimpostazione delle password e che reimpostano le proprie password.  È possibile configurare queste opzioni nella sezione **Proprietà della directory** della scheda **Configura** relativa alla directory all'interno del [portale di gestione di Azure](https://manage.windowsazure.com).
@@ -82,7 +82,7 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
                 <br>
                 <p><b><u>Richiede una delle licenze seguenti<a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">Altre informazioni</a></u></b></p>
                  <ul>
-                   <li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
+                   <li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
                    <li>Azure AD Basic [solo per utenti cloud]</li>
                    <li>Azure AD Premium P1 o P2 [solo per utenti cloud e locali]</li>
                    <li>Enterprise Mobility Suite [solo per utenti cloud e locali]</li>
@@ -120,7 +120,7 @@ Determina il nome descrittivo dell’indirizzo del mittente, ad esempio "Microso
                                 <br>
                 <p><b><u>Richiede una delle licenze seguenti<a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">Altre informazioni</a></u></b></p>
                  <ul>
-                   <li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
+                   <li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
                    <li>Azure AD Basic [solo per utenti cloud]</li>
                    <li>Azure AD Premium P1 o P2 [solo per utenti cloud e locali]</li>
                    <li>Enterprise Mobility Suite [solo per utenti cloud e locali]</li>
@@ -193,7 +193,7 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
                 <br>
                 <p><b><u>Richiede una delle licenze seguenti<a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">Altre informazioni</a></u></b></p>
                  <ul>
-                   <li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
+                   <li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
                    <li>Azure AD Basic [solo per utenti cloud]</li>
                    <li>Azure AD Premium P1 o P2 [solo per utenti cloud e locali]</li>
                    <li>Enterprise Mobility Suite [solo per utenti cloud e locali]</li>
@@ -236,7 +236,7 @@ Se impostato su Sì, gli utenti possono reimpostare automaticamente le password 
                 <br>
                 <p><b><u>Richiede una delle licenze seguenti<a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">Altre informazioni</a></u></b></p>
                  <ul>
-                   <li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
+                   <li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
                    <li>Azure AD Basic [solo per utenti cloud]</li>
                    <li>Azure AD Premium P1 o P2 [solo per utenti cloud e locali]</li>
                    <li>Enterprise Mobility Suite [solo per utenti cloud e locali]</li>
@@ -275,7 +275,7 @@ Se impostato su Sì, solo gli utenti finali specificati nel controllo <strong>Gr
                 <br>
                 <p><b><u>Richiede una delle licenze seguenti<a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">Altre informazioni</a></u></b></p>
                  <ul>
-                   <li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
+                   <li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
                    <li>Azure AD Basic [solo per utenti cloud]</li>
                    <li>Azure AD Premium P1 o P2 [solo per utenti cloud e locali]</li>
                    <li>Enterprise Mobility Suite [solo per utenti cloud e locali]</li>
@@ -321,7 +321,7 @@ Se <strong>Limitare l'accesso per la reimpostazione delle password</strong> è i
                 <br>
                 <p><b><u>Richiede una delle licenze seguenti<a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">Altre informazioni</a></u></b></p>
                  <ul>
-                   <li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
+                   <li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
                    <li>Azure AD Basic [solo per utenti cloud]</li>
                    <li>Azure AD Premium P1 o P2 [solo per utenti cloud e locali]</li>
                    <li>Enterprise Mobility Suite [solo per utenti cloud e locali]</li>
@@ -387,7 +387,7 @@ Determina i metodi di autenticazione che un utente può usare come richieste di 
                 <br>
                 <p><b><u>Richiede una delle licenze seguenti<a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">Altre informazioni</a></u></b></p>
                  <ul>
-                   <li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
+                   <li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
                    <li>Azure AD Basic [solo per utenti cloud]</li>
                    <li>Azure AD Premium P1 o P2 [solo per utenti cloud e locali]</li>
                    <li>Enterprise Mobility Suite [solo per utenti cloud e locali]</li>
@@ -432,7 +432,7 @@ Influisce sul numero di passaggi di verifica che un utente deve effettuare per p
                 <br>
                 <p><b><u>Richiede una delle licenze seguenti<a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">Altre informazioni</a></u></b></p>
                  <ul>
-                   <li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
+                   <li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
                    <li>Azure AD Basic [solo per utenti cloud]</li>
                    <li>Azure AD Premium P1 o P2 [solo per utenti cloud e locali]</li>
                    <li>Enterprise Mobility Suite [solo per utenti cloud e locali]</li>
@@ -472,7 +472,7 @@ Determina il numero minimo di domande a cui un utente deve rispondere per essere
                 <br>
                 <p><b><u>Richiede una delle licenze seguenti<a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">Altre informazioni</a></u></b></p>
                  <ul>
-                   <li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
+                   <li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
                    <li>Azure AD Basic [solo per utenti cloud]</li>
                    <li>Azure AD Premium P1 o P2 [solo per utenti cloud e locali]</li>
                    <li>Enterprise Mobility Suite [solo per utenti cloud e locali]</li>
@@ -512,7 +512,7 @@ Al momento della reimpostazione della password, questo numero di domande verrà 
                 <br>
                 <p><b><u>Richiede una delle licenze seguenti<a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">Altre informazioni</a></u></b></p>
                  <ul>
-                   <li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
+                   <li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
                    <li>Azure AD Basic [solo per utenti cloud]</li>
                    <li>Azure AD Premium P1 o P2 [solo per utenti cloud e locali]</li>
                    <li>Enterprise Mobility Suite [solo per utenti cloud e locali]</li>
@@ -569,7 +569,7 @@ Determina le domande che un utente è in grado di usare per reimpostare una pass
                 <br>
                 <p><b><u>Richiede una delle licenze seguenti<a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">Altre informazioni</a></u></b></p>
                  <ul>
-                   <li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
+                   <li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
                    <li>Azure AD Basic [solo per utenti cloud]</li>
                    <li>Azure AD Premium P1 o P2 [solo per utenti cloud e locali]</li>
                    <li>Enterprise Mobility Suite [solo per utenti cloud e locali]</li>
@@ -632,7 +632,7 @@ Determina le domande che un utente è in grado di usare per reimpostare una pass
                 <br>
                 <p><b><u>Richiede una delle licenze seguenti<a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">Altre informazioni</a></u></b></p>
                  <ul>
-                   <li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
+                   <li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
                    <li>Azure AD Basic [solo per utenti cloud]</li>
                    <li>Azure AD Premium P1 o P2 [solo per utenti cloud e locali]</li>
                    <li>Enterprise Mobility Suite [solo per utenti cloud e locali]</li>
@@ -672,7 +672,7 @@ Questa impostazione non influisce sul comportamento del portale di registrazione
                 <br>
                 <p><b><u>Richiede una delle licenze seguenti<a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">Altre informazioni</a></u></b></p>
                  <ul>
-                   <li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
+                   <li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
                    <li>Azure AD Basic [solo per utenti cloud]</li>
                    <li>Azure AD Premium P1 o P2 [solo per utenti cloud e locali]</li>
                    <li>Enterprise Mobility Suite [solo per utenti cloud e locali]</li>
@@ -708,7 +708,7 @@ Questa impostazione non influisce sul comportamento del portale di registrazione
                 <br>
                 <p><b><u>Richiede una delle licenze seguenti<a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">Altre informazioni</a></u></b></p>
                  <ul>
-                   <li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
+                   <li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
                    <li>Azure AD Basic [solo per utenti cloud]</li>
                    <li>Azure AD Premium P1 o P2 [solo per utenti cloud e locali]</li>
                    <li>Enterprise Mobility Suite [solo per utenti cloud e locali]</li>
@@ -760,7 +760,7 @@ Se si specifica un indirizzo di posta elettronica, viene creato un collegamento 
                 <br>
                 <p><b><u>Richiede una delle licenze seguenti<a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">Altre informazioni</a></u></b></p>
                  <ul>
-                   <li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
+                   <li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
                    <li>Azure AD Basic [solo per utenti cloud]</li>
                    <li>Azure AD Premium P1 o P2 [solo per utenti cloud e locali]</li>
                    <li>Enterprise Mobility Suite [solo per utenti cloud e locali]</li>
@@ -908,7 +908,7 @@ Nella tabella seguente viene descritto come ciascun controllo influisce sull'esp
                 <br>
                 <p><b><u>Richiede una delle licenze seguenti<a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">Altre informazioni</a></u></b></p>
                  <ul>
-                   <li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
+                   <li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
                    <li>Azure AD Basic [solo per utenti cloud]</li>
                    <li>Azure AD Premium P1 o P2 [solo per utenti cloud e locali]</li>
                    <li>Enterprise Mobility Suite [solo per utenti cloud e locali]</li>
@@ -947,7 +947,7 @@ Se questa opzione è stata abilitata, quando l’amministratore A reimposta la p
                 <br>
                 <p><b><u>Richiede una delle licenze seguenti<a href="https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability">Altre informazioni</a></u></b></p>
                  <ul>
-                   <li>Office&365; (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
+                   <li>Office 365 (tutti gli SKU a pagamento) [solo per utenti cloud]</li>
                    <li>Azure AD Basic [solo per utenti cloud]</li>
                    <li>Azure AD Premium P1 o P2 [solo per utenti cloud e locali]</li>
                    <li>Enterprise Mobility Suite [solo per utenti cloud e locali]</li>
@@ -978,7 +978,7 @@ Questa notifica viene inviata all'utente tramite un messaggio di posta elettroni
 ## <a name="next-steps"></a>Passaggi successivi
 Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
 * [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
 * [**Procedure consigliate**](active-directory-passwords-best-practices.md): informazioni su come distribuire rapidamente e gestire in modo efficace le password nell'organizzazione

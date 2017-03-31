@@ -16,9 +16,9 @@ ms.tgt_pltfrm: NA
 ms.date: 12/22/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: f234e50d194c1b8b8deed8282a6ab1250b53d075
-ms.openlocfilehash: d055e40305b277338ae85e8d6c53d3d76a78d235
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: fa4cf56c10f885a2fd4b62e08a369a51d1280ab3
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -91,10 +91,6 @@ Per altre informazioni, vedere l'articolo sulla [conservazione dei backup a lung
 14. Fare clic su **Salva** per abilitare la conservazione dei backup a lungo termine usando i nuovi criteri per l'insieme di credenziali di Servizi di ripristino di Azure appena configurato.
 
    ![definizione dei criteri di conservazione](./media/sql-database-get-started-backup-recovery/enable-long-term-retention.png)
-
-14. Dopo aver abilitato la conservazione dei backup a lungo termine, aprire il pannello **Insieme di credenziali dei servizi di ripristino** (andare a **Tutte le risorse** ed eseguire la selezione dall'elenco di risorse per la propria sottoscrizione).
-
-   ![visualizzazione dell'insieme di credenziali dei servizi di ripristino](./media/sql-database-get-started-backup-recovery/view-recovery-services-vault.png)
 
 
 ## <a name="restore-from-long-term-backup-retention-using-the-azure-portal"></a>Eseguire il ripristino dalla conservazione del backup a lungo termine usando il portale di Azure

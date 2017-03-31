@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 11/15/2016
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 12df603e22c8c735bf5c3f892575e79725f7313e
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 9fc96d70592bd55685ebbf1b80f6017b74f58925
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -45,7 +46,7 @@ Di seguito è riportato un elenco di consigli relativi alla sicurezza da conside
 ## <a name="considerations-for-securing-connections-to-azure-virtual-machine"></a>Considerazioni sulla protezione delle connessioni alla macchina virtuale di Azure:
 * Per amministrare le macchine virtuali, si consideri la possibilità di usare [Rete virtuale di Azure](../../../virtual-network/virtual-networks-overview.md) anziché le porte RDP pubbliche.
 * Usare un [Gruppo di sicurezza di rete](../../../virtual-network/virtual-networks-nsg.md) (NSG) per consentire o negare il traffico di rete verso la macchina virtuale. Se si vuole usare un gruppo di sicurezza di rete ed è già presente un elenco di controllo di accesso basato su endpoint, rimuovere prima l'elenco di controllo di accesso. Per informazioni su come procedere, vedere [Gestione degli elenchi di controllo di accesso (ACL) per gli endpoint tramite PowerShell](../../../virtual-network/virtual-networks-acl-powershell.md).
-* Se si usano gli endpoint, rimuovere quelli inutilizzati dalla macchina virtuale. Per istruzioni sull'uso di ACL con gli endpoint, vedere [Gestire l'elenco di controllo di accesso su un endpoint](../../virtual-machines-windows-classic-setup-endpoints.md#manage-the-acl-on-an-endpoint).
+* Se si usano gli endpoint, rimuovere quelli inutilizzati dalla macchina virtuale. Per istruzioni sull'uso di ACL con gli endpoint, vedere [Gestire l'elenco di controllo di accesso su un endpoint](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint).
 * Abilitare un'opzione di connessione crittografata per un'istanza del motore di database di SQL Server in Macchine virtuali di Azure. Configurare l'istanza di SQL server con un certificato firmato. Per altre informazioni, vedere [Abilitazione di connessioni crittografate al Motore di database](https://msdn.microsoft.com/library/ms191192.aspx) e [Sintassi della stringa di connessione](https://msdn.microsoft.com/library/ms254500.aspx).
 * Se l'accesso alle macchine virtuali verrà eseguito solo da una rete specifica, usare Windows Firewall per limitare l'accesso a determinati indirizzi IP o subnet di rete.
 
@@ -53,10 +54,5 @@ Di seguito è riportato un elenco di consigli relativi alla sicurezza da conside
 Se si è interessati anche alle procedure consigliate relative alle prestazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-performance.md).
 
 Per altri argomenti relativi all'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/09/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 651918ba5d1bad4fcec78123a0b09a48b1223906
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: b850264ef2b89ad1679ae1e956a58cc849e63c84
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -714,7 +714,12 @@ Le matrici di risultati vengono visualizzate in un grafico di analisi nello stes
 
 **Esempio**
 
-requests | make-series sum(itemCount) default=0, avg(duration) default=0 on timestamp in range (ago(7d), now(), 1d) by client_City
+```AIQL
+requests
+| make-series sum(itemCount) default=0, avg(duration) default=0
+  on timestamp in range (ago(7d), now(), 1d)
+  by client_City
+```
 
 ![Risultati di make-series](./media/app-insights-analytics-reference/make-series.png)
 

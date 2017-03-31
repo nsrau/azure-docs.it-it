@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 37291b16a966c17b684a4622f15d0393a5a5ce6d
-ms.openlocfilehash: 0984ccc8163c94f56517e65919f8ea089a3e8b5f
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 03178e1b933f5681caf6efbeb5a89d56727ae743
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -66,12 +66,12 @@ La distribuzione avanzata è un aggiornamento importante. Di seguito è riportat
 * È possibile configurare piani di ripristino che raggruppano i carichi di lavoro delle applicazioni a più livelli su più macchine. Se si esegue il failover di questi piani, Site Recovery assicura la coerenza di più macchine virtuali, in modo che le macchine virtuali che eseguono gli stessi carichi di lavoro possano essere ripristinate insieme in un punto dati coerente.
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
-### <a name="windows-64-bit-only"></a>Windows (solo&64; bit)
+### <a name="windows-64-bit-only"></a>Windows (solo 64 bit)
 * Windows Server 2008 R2 SP1+
 * Windows Server 2012
 * Windows Server 2012 R2
 
-### <a name="linux-64-bit-only"></a>Linux (solo versione a&64; bit)
+### <a name="linux-64-bit-only"></a>Linux (solo versione a 64 bit)
 * Red Hat Enterprise Linux 6.7, 7.1 e 7.2
 * CentOS 6.5, 6.6, 6.7, 7.0, 7.1 e 7.2
 * Oracle Enterprise Linux 6.4 e 6.5 che esegue il kernel compatibile Red Hat o Unbreakable Enterprise Kernel Release 3 (UEK3)
@@ -454,7 +454,7 @@ I programmi di installazione sono disponibili in C:\Programmi (x86)\Microsoft Az
 
 | Sistema operativo di origine | File di installazione del servizio Mobility |
 | --- | --- |
-| Windows Server (solo&64; bit) |Microsoft-ASR_UA_9.*.0.0_Windows_* release.exe |
+| Windows Server (solo 64 bit) |Microsoft-ASR_UA_9.*.0.0_Windows_* release.exe |
 | CentOS 6.4, 6.5, 6.6 (solo 64 bit) |Microsoft-ASR_UA_9.*.0.0_RHEL6-64_*release.tar.gz |
 | SUSE Linux Enterprise Server 11 SP3 (solo 64 bit) |Microsoft-ASR_UA_9.*.0.0_SLES11-SP3-64_*release.tar.gz |
 | Oracle Enterprise Linux 6.4, 6.5 (solo 64 bit) |Microsoft-ASR_UA_9.*.0.0_OL6-64_*release.tar.gz |
@@ -567,7 +567,7 @@ Lo stato può essere monitorato nella pagina **Processi** .
 
 ![Monitorare lo stato nella pagina Processi](./media/site-recovery-vmware-to-azure-classic/enable-protection5.png)
 
-È possibile monitorare lo stato di protezione anche in **Elementi protetti** > *nome gruppo di protezione* > **Macchine virtuali**. Al termine della replica iniziale, quando i dati sono sincronizzati, lo stato della macchina passa a ** Protetto**.
+È possibile monitorare lo stato di protezione anche in **Elementi protetti** > *nome gruppo di protezione* > **Macchine virtuali**. Al termine della replica iniziale, quando i dati sono sincronizzati, lo stato della macchina passa a **Protetto**.
 
 ![Monitorare lo stato in Elementi protetti](./media/site-recovery-vmware-to-azure-classic/enable-protection6.png)
 
@@ -579,7 +579,7 @@ Lo stato può essere monitorato nella pagina **Processi** .
 3. È possibile modificare queste impostazioni:
 
    * **Nome della VM di Azure**: il nome assegnato al computer in Azure dopo il failover. Il nome deve essere conforme ai requisiti di Azure.
-   * **Dimensioni della VM di Azure**: il numero di schede di rete dipende dalle dimensioni specificate per la macchina virtuale di destinazione. Per altre informazioni sulle dimensioni, vedere le [tabelle delle dimensioni](../virtual-machines/virtual-machines-linux-sizes.md#size-tables). Si noti che:
+   * **Dimensioni della VM di Azure**: il numero di schede di rete dipende dalle dimensioni specificate per la macchina virtuale di destinazione. Per altre informazioni sulle dimensioni, vedere le [tabelle delle dimensioni](../virtual-machines/virtual-machines-linux-sizes.md). Si noti che:
 
      * Quando si modificano le dimensioni di una macchina virtuale e si salvano le impostazioni, il numero di schede di rete cambia alla successiva apertura della scheda **Configura**. Il numero minimo di schede di rete nelle macchine virtuali di destinazione è uguale al numero minimo di schede di rete in una macchina virtuale di origine. Il numero massimo di schede di rete dipende dalle dimensioni della macchina virtuale.
        * Se il numero di schede di rete nella macchina di origine è minore o uguale al numero di schede consentite per le dimensioni della macchina di destinazione, la destinazione avrà lo stesso numero di schede dell'origine.

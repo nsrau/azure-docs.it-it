@@ -15,9 +15,9 @@ ms.date: 01/25/2017
 ms.author: jingwang
 published: true
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 4bc78bdf71c6de0c35197e84f4bb800d13bda6c0
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: d04bf7c5a457b90c5128050642bee6a2623787a0
+ms.lasthandoff: 03/29/2017
 
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Risolvere i problemi nell'uso del gateway di gestione dati
@@ -40,7 +40,7 @@ Il computer in cui si prova a installare il gateway non è riuscito a scaricare 
 #### <a name="resolution"></a>Risoluzione
 Verificare se nel firewall del server proxy sono presenti impostazioni che bloccano la connessione di rete dal computer all'[Area download](https://download.microsoft.com/) e aggiornare le impostazioni di conseguenza.
 
-In alternativa, è possibile scaricare il file di installazione del gateway più recente dall'[Area download](https://www.microsoft.com/en-US/download/details.aspx?id=39717) su altri computer che possono accedere all'area download. Dopo averlo scaricato, copiare il file di installazione nel computer host del gateway ed eseguirlo manualmente per installare e aggiornare il gateway.
+In alternativa, è possibile scaricare il file di installazione del gateway più recente dall'[Area download](https://www.microsoft.com/download/details.aspx?id=39717) su altri computer che possono accedere all'area download. Dopo averlo scaricato, copiare il file di installazione nel computer host del gateway ed eseguirlo manualmente per installare e aggiornare il gateway.
 
 ### <a name="2-problem"></a>2. Problema
 Questo errore viene visualizzato quando si prova a installare un gateway facendo clic su **Installa direttamente in questo computer** nel portale di Azure.

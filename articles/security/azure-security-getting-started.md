@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: a31a1b7909ea7440780c9a7af4cb908c9aa6a449
-ms.openlocfilehash: 3ad511b55e33653ea0cf7df2c885d27c1c07441d
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: eb53ed852b6175fbc7faea44a243e8c7d5ce1753
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -130,7 +131,7 @@ Per proteggere le comunicazioni sulla rete virtuale, è possibile usare le tecno
 * [**Routing definito dall'utente**](../virtual-network/virtual-networks-udr-overview.md). È possibile controllare il routing dei pacchetti attraverso un'appliance virtuale creando route definite dall'utente che specifichino l'hop successivo per i pacchetti che passano a una subnet specifica per accedere a un'appliance di sicurezza di rete virtuale.
 * [**Inoltro IP**](../virtual-network/virtual-networks-udr-overview.md). Un'appliance di sicurezza di rete virtuale deve poter ricevere traffico in ingresso non indirizzato a se stessa. Per consentire a una macchina virtuale di ricevere il traffico indirizzato ad altre destinazioni, abilitare l'inoltro IP per la macchina virtuale.
 * [**Tunneling forzato**](../vpn-gateway/vpn-gateway-about-forced-tunneling.md). Il tunneling forzato consente di reindirizzare o "forzare" tutto il traffico associato a Internet generato dalle macchine virtuali in una rete virtuale verso la posizione locale tramite un tunnel VPN da sito a sito per l'ispezione e il controllo.
-* [**ACL endpoint**](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). È possibile controllare a quali computer sono consentite le connessioni in ingresso da Internet a una macchina virtuale nella rete virtuale definendo gli ACL endpoint.
+* [**ACL endpoint**](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). È possibile controllare a quali computer sono consentite le connessioni in ingresso da Internet a una macchina virtuale nella rete virtuale definendo gli ACL endpoint.
 * [**Soluzioni di sicurezza di rete dei partner**](https://azure.microsoft.com/marketplace/). Sono disponibili numerose soluzioni di sicurezza di rete per i partner accessibili da Azure Marketplace.
 
 ### <a name="how-azure-implements-virtual-networks-and-firewalls"></a>Come Azure implementa le reti virtuali e i firewall
@@ -147,7 +148,7 @@ Se Azure sposta i dati di un cliente durante le normali operazioni o durante un'
 ## <a name="secure-remote-access"></a>Accesso remoto sicuro
 Per i dati archiviati nel cloud devono essere abilitate misure di sicurezza sufficienti per impedire gli exploit e garantire la riservatezza e l'integrità durante il transito. Queste misure includono controlli di rete associati ai meccanismi di gestione delle identità e dell'accesso controllabile e basata su criteri di un'organizzazione.
 
-La tecnologia di crittografia predefinita consente di crittografare le comunicazioni all'interno e tra distribuzioni, tra aree di Azure e da Azure ai data center locali. L'accesso di amministratore alle macchine virtuali con [sessioni Desktop remoto](../virtual-machines/virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json), [Windows PowerShell remoto](http://blogs.technet.com/b/heyscriptingguy/archive/2013/09/07/weekend-scripter-remoting-the-cloud-with-windows-azure-and-powershell.aspx) e il portale di Azure è sempre crittografato.
+La tecnologia di crittografia predefinita consente di crittografare le comunicazioni all'interno e tra distribuzioni, tra aree di Azure e da Azure ai data center locali. L'accesso di amministratore alle macchine virtuali con [sessioni Desktop remoto](../virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json), [Windows PowerShell remoto](http://blogs.technet.com/b/heyscriptingguy/archive/2013/09/07/weekend-scripter-remoting-the-cloud-with-windows-azure-and-powershell.aspx) e il portale di Azure è sempre crittografato.
 
 Per estendere in modo sicuro il data center locale al cloud, Azure fornisce sia [VPN da sito a sito](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) che [VPN da punto a sito](../vpn-gateway/vpn-gateway-point-to-site-create.md), oltre a collegamenti dedicati con [ExpressRoute](../expressroute/expressroute-introduction.md) (le connessioni alle reti virtuali di Azure su VPN vengono crittografate).
 
@@ -194,9 +195,4 @@ Azure usa controlli di sicurezza per implementare la prevenzione delle minacce e
 [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)
 
 [Blog di Active Directory](http://blogs.technet.com/b/ad/)
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

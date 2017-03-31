@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: trinadhk; jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: 7de8d98f24ea01012b8fa3a326e1d4ad3f04099a
-ms.openlocfilehash: 186929c1193f63ecda6fd4851bb66c8430ab99ab
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 64557a71f30762befe07616c3d274a621f22e235
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -92,10 +92,10 @@ Al termine dell'operazione di ripristino, l'operazione verrà contrassegnata com
 
 ![Processo di ripristino completato](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-Dopo aver ripristinato la macchina virtuale, può essere necessario reinstallare le estensioni esistenti nella macchina virtuale originale e [modificare gli endpoint](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) per la macchina virtuale nel portale di Azure.
+Dopo aver ripristinato la macchina virtuale, può essere necessario reinstallare le estensioni esistenti nella macchina virtuale originale e [modificare gli endpoint](../virtual-machines/windows/classic/setup-endpoints.md) per la macchina virtuale nel portale di Azure.
 
 ## <a name="post-restore-steps"></a>Operazioni successive al ripristino
-Se si usa una distribuzione Linux basata su cloud-init, ad esempio Ubuntu, per motivi di sicurezza, la password verrà bloccata dopo il ripristino. Per [reimpostare la password](../virtual-machines/virtual-machines-linux-classic-reset-access.md)nella macchina virtuale ripristinata usare l'estensione VMAccess. È consigliabile usare chiavi SSH in queste distribuzioni per evitare la reimpostazione della password dopo il ripristino. 
+Se si usa una distribuzione Linux basata su cloud-init, ad esempio Ubuntu, per motivi di sicurezza, la password verrà bloccata dopo il ripristino. Per [reimpostare la password](../virtual-machines/linux/classic/reset-access.md)nella macchina virtuale ripristinata usare l'estensione VMAccess. È consigliabile usare chiavi SSH in queste distribuzioni per evitare la reimpostazione della password dopo il ripristino. 
 
 ## <a name="backup-for-restored-vms"></a>Backup per le macchine virtuali ripristinate
 Se è stata ripristinata una macchina virtuale nello stesso servizio cloud con lo stesso nome usato originariamente per eseguire il backup della VM, il backup continuerà nel post-ripristino della VM. Se è stata ripristinata una macchina virtuale in un servizio cloud diverso o è stato specificato un nome diverso per la VM ripristinata, la VM verrà considerata come nuova ed è necessario configurare il backup per la VM ripristinata.

@@ -16,16 +16,16 @@ ms.workload: iaas-sql-server
 ms.date: 03/01/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 8e59988f24748a82d4e143295bab9bdaa65cf8e4
-ms.lasthandoff: 01/11/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: d09d2b869606995d227aa485a85acd67c18ee4e5
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Configurare un listener ILB per gruppi di disponibilità AlwaysOn in Azure
 > [!div class="op_single_selector"]
-> * [Listener interno](virtual-machines-windows-classic-ps-sql-int-listener.md)
-> * [Listener esterno](virtual-machines-windows-classic-ps-sql-ext-listener.md)
+> * [Listener interno](../classic/ps-sql-int-listener.md)
+> * [Listener esterno](../classic/ps-sql-ext-listener.md)
 > 
 > 
 
@@ -37,18 +37,18 @@ Questo argomento illustra come configurare un listener per un gruppo di disponib
 
 Per configurare un listener ILB per un gruppo di disponibilità AlwaysOn nel modello di Azure Resource Manager, vedere [Configurare un servizio di bilanciamento del carico interno per un gruppo di disponibilità AlwaysOn in Azure](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
-Il gruppo di disponibilità può contenere repliche solo locali, solo di Azure oppure sia locali che di Azure per le configurazioni ibride. Le repliche di Azure possono trovarsi nella stessa area o in più aree grazie a più reti virtuali (VNet). I passaggi seguenti presuppongono che sia già stato [configurato un gruppo di disponibilità](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md) ma che non sia stato configurato un listener.
+Il gruppo di disponibilità può contenere repliche solo locali, solo di Azure oppure sia locali che di Azure per le configurazioni ibride. Le repliche di Azure possono trovarsi nella stessa area o in più aree grazie a più reti virtuali (VNet). I passaggi seguenti presuppongono che sia già stato [configurato un gruppo di disponibilità](../classic/portal-sql-alwayson-availability-groups.md) ma che non sia stato configurato un listener.
 
 ## <a name="guidelines-and-limitations-for-internal-listeners"></a>Linee guida e limitazioni per listener interni
 Tenere presente le linee guida seguenti per il listener del gruppo di disponibilità in Azure con ILB:
 
 * Il listener del gruppo di disponibilità è supportato su Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2.
-* Per ogni servizio cloud è supportato un solo listener del gruppo di disponibilità interno, perché il listener è configurato solo per ILB, e c’è un solo ILB per ogni servizio cloud. Tuttavia, è possibile creare più listener esterni. Per altre informazioni, vedere [Configurare un listener esterno per i gruppi di disponibilità AlwaysOn in Azure](virtual-machines-windows-classic-ps-sql-ext-listener.md).
+* Per ogni servizio cloud è supportato un solo listener del gruppo di disponibilità interno, perché il listener è configurato solo per ILB, e c’è un solo ILB per ogni servizio cloud. Tuttavia, è possibile creare più listener esterni. Per altre informazioni, vedere [Configurare un listener esterno per i gruppi di disponibilità AlwaysOn in Azure](../classic/ps-sql-ext-listener.md).
 
 ## <a name="determine-the-accessibility-of-the-listener"></a>Determinare l'accessibilità del listener
 [!INCLUDE [ag-listener-accessibility](../../../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-Questo articolo illustra la creazione di un listener che usa il **servizio di bilanciamento del carico interno**. Se è necessario un listener pubblico/esterno, vedere la versione di questo articolo che illustra la procedura per la configurazione di un [listener esterno](virtual-machines-windows-classic-ps-sql-ext-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+Questo articolo illustra la creazione di un listener che usa il **servizio di bilanciamento del carico interno**. Se è necessario un listener pubblico/esterno, vedere la versione di questo articolo che illustra la procedura per la configurazione di un [listener esterno](../classic/ps-sql-ext-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="create-load-balanced-vm-endpoints-with-direct-server-return"></a>Creare endpoint VM con bilanciamento del carico con Direct Server Return
 Per ILB è necessario creare prima di tutto il servizio di bilanciamento del carico interno. Questa operazione viene eseguita nello script seguente.
