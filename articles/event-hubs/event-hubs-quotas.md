@@ -12,22 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/05/2016
+ms.date: 03/07/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cafcfa31c17b944ba79da6231941a8c6dd2f6a69
+ms.sourcegitcommit: fe331199333d492dbc42c9125c9da96a44066ee1
+ms.openlocfilehash: 91e611a0b3516bdb8f1ce6eba0210e2e610e5484
+ms.lasthandoff: 02/02/2017
 
 
 ---
 # <a name="event-hubs-quotas"></a>Quote di Hub eventi
 Questa sezione elenca le quote e i limiti di base di Hub eventi di Microsoft Azure.
 
-[!INCLUDE [service-bus-quotas-table](../../includes/event-hubs-limits.md)]
+[!INCLUDE [event-hubs-limits](../../includes/event-hubs-limits.md)]
 
+## <a name="next-steps"></a>Passaggi successivi
+Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
-
-
-<!--HONumber=Nov16_HO3-->
-
+* [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)
+* [Create an Event Hub](event-hubs-create.md) (Creare un Hub eventi)
+* [Domande frequenti su Hub eventi](event-hubs-faq.md)
 

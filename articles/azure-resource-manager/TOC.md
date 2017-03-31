@@ -7,18 +7,18 @@
 
 # Introduzione
 ## [Esportare il modello](resource-manager-export-template.md)
-## [Procedura dettagliata sui modelli](resource-manager-template-walkthrough.md)
+## [Creare il primo modello](resource-manager-create-first-template.md)
 ## [Visual Studio con Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-## [Codice di Visual Studio con Resource Manager](resource-manager-vs-code.md)
 
 # Procedure
 ## Creare modelli
 ### [Procedure consigliate per i modelli](resource-manager-template-best-practices.md)
-### [Creazione di modelli](resource-group-authoring-templates.md)
-### [Funzioni di modello](resource-group-template-functions.md)
+### [Sezioni di modelli](resource-group-authoring-templates.md)
 ### [Definire la dipendenza tra risorse](resource-group-define-dependencies.md)
+### [Impostare la posizione](resource-manager-template-location.md)
+### [Assegnare i tag](resource-manager-template-tags.md)
+### [Impostare il nome e il tipo della risorsa figlio](resource-manager-template-child-resource.md)
 ### [Creare più istanze di un tipo di risorsa](resource-group-create-multiple.md)
-### [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md)
 ### [Eseguire il collegamento ad altri modelli](resource-group-linked-templates.md)
 ### [Condividere lo stato tra modelli collegati](best-practices-resource-manager-state.md)
 ### [Schemi per la progettazione di modelli](best-practices-resource-manager-design-templates.md)
@@ -27,8 +27,8 @@
 ### [Interfaccia della riga di comando di Azure](resource-group-template-deploy-cli.md)
 ### [Portale](resource-group-template-deploy-portal.md)
 ### [API REST](resource-group-template-deploy-rest.md)
-### [Ambienti di sviluppo e test](solution-dev-test-environments.md)
 ### [Integrazione continua con Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md)
 ## Gestire
 ### [PowerShell](powershell-azure-resource-manager.md)
 ### [Interfaccia della riga di comando di Azure](xplat-cli-azure-resource-manager.md)
@@ -36,40 +36,39 @@
 ### [API REST](resource-manager-rest-api.md)
 ### [Usare tag per organizzare le risorse](resource-group-using-tags.md)
 ### [Spostare le risorse in un nuovo gruppo o sottoscrizione](resource-group-move-resources.md)
-### [Collegare risorse correlate](resource-group-link-resources.md)
-### [Esplora risorse di Azure](resource-manager-resource-explorer.md)
 ## Controllare l'accesso
 ### [Creare un'entità servizio con PowerShell](resource-group-authenticate-service-principal.md)
-### [Creare un'entità servizio con l'interfaccia della riga di comando di Azure](resource-group-authenticate-service-principal-cli.md)
+### [Creare un'entità servizio con l'interfaccia della riga di comando 2.0 di Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Creare un'entità servizio con l'interfaccia della riga di comando 1.0 di Azure](resource-group-authenticate-service-principal-cli.md)
 ### [Creare un'entità servizio con il portale](resource-group-create-service-principal-portal.md)
 ### [API di autenticazione per accedere alle sottoscrizioni](resource-manager-api-authentication.md)
-### [Impostare criteri di gestione](resource-manager-policy.md)
 ### [Bloccare le risorse](resource-group-lock-resources.md)
 ### [Considerazioni relative alla sicurezza](best-practices-resource-manager-security.md)
+## Impostare i criteri delle risorse
+### [Informazioni sui criteri delle risorse](resource-manager-policy.md)
+### [Assegnare e gestire i criteri](resource-manager-policy-create-assign.md)
+### [Criteri dei tag delle risorse](resource-manager-policy-tags.md)
+### [Criteri di archiviazione](resource-manager-policy-storage.md)
+### [Criteri delle VM Linux](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Criteri delle VM Windows](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Controllare e risolvere i problemi
 ### [Risolvere gli errori comuni relativi alla distribuzione](resource-manager-common-deployment-errors.md)
 ### [Visualizzare log di attività](resource-group-audit.md)
-### [Visualizzare le operazioni di distribuzione con il portale](resource-manager-troubleshoot-deployments-portal.md)
-### [Visualizzare le operazioni di distribuzione con PowerShell](resource-manager-troubleshoot-deployments-powershell.md)
-### [Visualizzare le operazioni di distribuzione con l'interfaccia della riga di comando di Azure](resource-manager-troubleshoot-deployments-cli.md)
-### [Visualizzare le operazioni di distribuzione con l'API REST](resource-manager-troubleshoot-deployments-rest.md)
+### [Visualizzare le operazioni di distribuzione](resource-manager-deployment-operations.md)
 
 # Riferimento
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
-## [Interfaccia della riga di comando di Azure 2.0 (anteprima)](/cli/azure/resource)
+## [Funzioni di modello](resource-group-template-functions.md)
+## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
+## [Interfaccia della riga di comando Azure 2.0](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
-## [Schemi del modello](https://github.com/Azure/azure-resource-manager-schemas)
+## [Formato del modello](/azure/templates/)
 ## [REST](/rest/api/resources/)
 
 # Risorse
 ## [Limitazione delle richieste](resource-manager-request-limits.md)
+## [Tenere traccia delle operazioni asincrone](resource-manager-async-operations.md)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=azure-resource-manager)
-
-
-<!--HONumber=Jan17_HO1-->
-
-

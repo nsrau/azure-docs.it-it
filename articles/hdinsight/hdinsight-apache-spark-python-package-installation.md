@@ -1,5 +1,5 @@
 ---
-title: Usare pacchetti Python con notebook di Jupyter in cluster Apache Spark in Azure HDInsight | Documentazione Microsoft
+title: 'Azione script: installare pacchetti Python con notebook di Jupyter in Azure HDInsight | Documentazione Microsoft'
 description: Istruzioni dettagliate su come configurare notebook di Jupyter disponibili con cluster HDInsight Spark per l&quot;uso di pacchetti Python esterni.
 services: hdinsight
 documentationcenter: 
@@ -9,21 +9,33 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 21978b71-eb53-480b-a3d1-c5d428a7eb5b
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 03/07/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: f782920ca8aeafa745e6588a71a3428a01676db3
-ms.openlocfilehash: 288474a8fbd4ca41adb8a2525f3c9ffe970580ea
+ms.sourcegitcommit: 9019a4115e81a7d8f1960098b1138cd437a0460b
+ms.openlocfilehash: b0d6e509c5bacd828e9a9938edb860bbf0c0a8f3
+ms.lasthandoff: 01/24/2017
 
 
 ---
-# <a name="use-external-python-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight-linux"></a>Usare pacchetti Python esterni con notebook di Jupyter in cluster Apache Spark in HDInsight Linux
+# <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Usare Azioni script per installare pacchetti Python esterni per notebook di Jupyter in cluster Apache Spark in HDInsight
+> [!div class="op_single_selector"]
+> * [Uso di comandi Magic nelle celle](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+> * [Uso di azioni script](hdinsight-apache-spark-python-package-installation.md)
+>
+>
 
 Vengono fornite informazioni su come usare le azioni script per configurare un cluster Apache Spark in HDInsight (Linux) per l'uso di pacchetti **python** esterni creati dalla community non inclusi e non immediatamente disponibili nel cluster.
+
+> [!NOTE]
+> È anche possibile configurare un notebook di Jupyter con il comando Magic `%%configure` per usare pacchetti esterni. Per istruzioni, vedere [Usare pacchetti esterni con notebook di Jupyter nei cluster Apache Spark in HDInsight](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md).
+> 
+> 
 
 Per un elenco completo dei pacchetti disponibili, è possibile eseguire una ricerca nell'[indice di pacchetto](https://pypi.python.org/pypi). È anche possibile ottenere un elenco dei pacchetti disponibili da altre origini. È possibile ad esempio installare pacchetti resi disponibili tramite [Anaconda](https://docs.continuum.io/anaconda/pkg-docs) o [conda-forge](https://conda-forge.github.io/feedstocks.html).
 
@@ -33,7 +45,7 @@ Questo articolo descrive come installare il pacchetto [TensorFlow](https://www.t
 È necessario disporre di quanto segue:
 
 * Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Un cluster Apache Spark in HDInsight Linux. Per istruzioni, vedere l'articolo relativo alla [creazione di cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo relativo alla [creazione di cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
    > [!NOTE]
    > Se non dispone di un cluster Spark in HDInsight Linux, è possibile eseguire le azioni script durante la creazione del cluster. Vedere la documentazione su [come usare azioni script personalizzate](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
@@ -53,11 +65,11 @@ Questo articolo descrive come installare il pacchetto [TensorFlow](https://www.t
 
 3. Aprire un notebook PySpark Jupyter
 
-    ![Creare un nuovo notebook Jupyter](./media/hdinsight-apache-spark-python-package-installation/hdispark.note.jupyter.createpysparknotebook.png "Create a new Jupyter notebook")
+    ![Creare un nuovo notebook Jupyter](./media/hdinsight-apache-spark-python-package-installation/hdispark.note.jupyter.createpysparknotebook.png "Creare un nuovo notebook Jupyter")
 
 4. Un nuovo notebook verrà creato e aperto con il nome Untitled.pynb. Fare clic sul nome del notebook nella parte superiore e immettere un nome descrittivo.
 
-    ![Specificare un nome per il notebook](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
+    ![Specificare un nome per il notebook](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.notebook.name.png "Specificare un nome per il notebook")
 
 5. A questo punto verranno eseguiti il codice relativo a `import tensorflow` e l'esempio di tipo hello world. 
 
@@ -70,11 +82,11 @@ Questo articolo descrive come installare il pacchetto [TensorFlow](https://www.t
 
     Il risultato avrà l'aspetto seguente:
     
-    ![Esecuzione del codice TensorFlow](./media/hdinsight-apache-spark-python-package-installation/execution.png "Execute TensorFlow code")
+    ![Esecuzione del codice TensorFlow](./media/hdinsight-apache-spark-python-package-installation/execution.png "Esecuzione del codice TensorFlow")
 
 
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Vedere anche
+## <a name="seealso"></a>Vedere anche
 * [Panoramica: Apache Spark su Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenari
@@ -99,9 +111,4 @@ Questo articolo descrive come installare il pacchetto [TensorFlow](https://www.t
 ### <a name="manage-resources"></a>Gestire risorse
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-job-debugging.md)
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

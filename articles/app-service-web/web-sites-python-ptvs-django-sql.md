@@ -5,7 +5,7 @@ services: app-service\web
 tags: python
 documentationcenter: python
 author: huguesv
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 3a677e64-b5a9-4d43-b9c0-66246368b483
 ms.service: app-service-web
@@ -18,6 +18,7 @@ ms.author: huvalo
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: c5e01ef322f72eb5a704fd2273194315bf1a9f6f
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -176,9 +177,4 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Progetti servizio cloud]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Documentazione di Django]: https://www.djangoproject.com/
 [Database SQL]: /documentation/services/sql-database/
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

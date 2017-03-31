@@ -1,5 +1,5 @@
 ---
-title: "Impostazione di proprietà e metadati durante il processo di importazione | Documentazione Microsoft"
+title: "Impostazione delle proprietà e dei metadati usando Importazione/Esportazione di Azure | Documentazione Microsoft"
 description: "Informazioni su come specificare le proprietà e i metadati da impostare nei BLOB di destinazione quando si esegue lo strumento Importazione/Esportazione per preparare le unità."
 author: muralikk
 manager: syadav
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 5d75bdb5ff39934e02d9af721b51e0aca24026bb
-ms.openlocfilehash: f49604cf6738da3576ed2a65ca96d083d5e8219b
+ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
+ms.openlocfilehash: 8e1152a03eee01244dd469586848c396a7f689cc
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -70,9 +71,4 @@ WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp
   
 ## <a name="see-also"></a>Vedere anche  
 [Import-Export Service Metadata and Properties File format](storage-import-export-file-format-metadata-and-properties.md) (Formato dei file di proprietà e metadati del servizio Importazione/Esportazione)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

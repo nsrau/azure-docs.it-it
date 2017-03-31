@@ -1,5 +1,5 @@
 ---
-title: Accesso e sicurezza nei modelli di Azure Resource Manager | Microsoft Docs
+title: Accesso e sicurezza nei modelli di Azure per le macchine virtuali di Windows | Documentazione Microsoft
 description: Macchine virtuali di Azure - Esercitazione DotNet Core
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,13 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: a55c37121f580977b840613d373cfb00eb4dc582
-
+ms.sourcegitcommit: 8eeeef0bb33b5b8ed265532d160829c076190fc4
+ms.openlocfilehash: 91c4550f9caadc790d1b6aea8f037e2089ebec3c
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="access-and-security-in-azure-resource-manager-templates"></a>Accesso e sicurezza nei modelli di Azure Resource Manager
+# <a name="access-and-security-in-azure-resource-manager-templates-for-windows-vms"></a>Accesso e sicurezza nei modelli di Azure Resource Manager per macchine virtuali Windows
+
 Le applicazioni ospitate in Azure devono in genere essere accessibili attraverso Internet o una connessione VPN/Express Route con Azure. Nel caso dell'applicazione Music Store di esempio, il sito Web è reso disponibile su Internet con un indirizzo IP pubblico. Una volta stabilito l'accesso, le connessioni all'applicazione e l'accesso alle risorse delle macchine virtuali deve essere protetto. La sicurezza dell'accesso è garantita da un gruppo di sicurezza di rete. 
 
 Questo documento descrive in che modo è protetta l'applicazione Music Store nel modello di esempio di Azure Resource Manager. Tutte le dipendenze e le configurazioni univoche sono evidenziate. Per ottenere risultati ottimali, pre-distribuire un'istanza della soluzione alla propria sottoscrizione di Azure ed esercitarsi con il modello di Azure Resource Manager. Il modello completo è disponibile in [Music Store Deployment on Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows) (Distribuzione di Music Store in Windows).
@@ -139,10 +141,5 @@ Per informazioni approfondite sui gruppi di sicurezza di rete, vedere [Che cos'�
 <hr>
 
 [Passaggio 3: Disponibilità e scalabilità nei modelli di Azure Resource Manager](virtual-machines-windows-dotnet-core-4-availability-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: " Usare il connettore Slack nelle app per la logica | Documentazione Microsoft"
-description: Introduzione all&quot;uso del connettore Slack (connettore) nelle app per la logica del Servizio app di Microsoft Azure
+title: " Usare il connettore Slack nelle app per la logica | Documentazione Microsofts"
+description: Introduzione all&quot;uso del connettore Slack nelle app per la logica
 services: 
 documentationcenter: 
 author: msftman
-manager: erikre
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 05/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cacaa4a4a0089e1c3df54ae466af251026e1a55b
+ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
+ms.openlocfilehash: 404776283ee10aa9410d002597e054757516bcab
 
 
 ---
@@ -33,7 +33,7 @@ Con il connettore Slack è possibile:
 
 * Compilare app per la logica
 
-Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per aggiungere un'operazione nelle app per la logica, vedere [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="lets-talk-about-triggers-and-actions"></a>Informazioni su trigger e azioni
 È possibile usare il connettore Slack come azione. Non sono disponibili trigger. Tutti i connettori supportano dati nei formati JSON e XML. 
@@ -109,7 +109,7 @@ Seguire questi passaggi per accedere a Slack e completare la configurazione dell
 
 - - -
 ## <a name="object-definitions"></a>Definizioni di oggetti:
- **Message**: messaggio di Yammer
+ **Message**: messaggio di Slack
 
 Proprietà obbligatorie per Message:
 
@@ -141,7 +141,7 @@ Nessuna delle proprietà è obbligatoria.
 | liked_by |non definito |
 | system_message |boolean |
 
- **PostOperationRequest**: indica una richiesta di pubblicazione per il connettore Yammer per la pubblicazione in Yammer
+ **PostOperationRequest**: indica una richiesta di pubblicazione per il connettore Slack per la pubblicazione in Slack
 
 Proprietà obbligatorie per PostOperationRequest:
 
@@ -231,7 +231,7 @@ Nessuna delle proprietà è obbligatoria.
 | full_name |string |
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md)
 
 ## <a name="object-definitions"></a>Definizioni di oggetti:
  **WebResultModel**: risultati della ricerca di siti Web di Bing
@@ -400,7 +400,7 @@ Nessuna delle proprietà è obbligatoria.
 | is_user-deleted |boolean |
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md)
 
 [1]: ./media/connectors-create-api-slack/connectionconfig1.png
 [2]: ./media/connectors-create-api-slack/connectionconfig2.png 
@@ -411,6 +411,6 @@ Nessuna delle proprietà è obbligatoria.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

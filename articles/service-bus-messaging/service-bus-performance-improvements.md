@@ -1,6 +1,6 @@
 ---
-title: Procedure consigliate per ottimizzare le prestazioni tramite il bus di servizio | Microsoft Docs
-description: Descrive come usare il bus di servizio di Azure per ottimizzare le prestazioni durante gli scambi di messaggi negoziati.
+title: Procedure consigliate per ottimizzare le prestazioni tramite il bus di servizio di Azure| Microsoft Docs
+description: Descrive come usare il bus di servizio per ottimizzare le prestazioni durante gli scambi di messaggi negoziati.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,29 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 02/02/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a696120a5891f53ee8ff7db80fb53acba213978f
+ms.sourcegitcommit: a9fd01e533f4ab76a68ec853a645941eff43dbfd
+ms.openlocfilehash: d077099a9fdc50cf78157bcb7f28d1d28583bea1
+ms.lasthandoff: 02/22/2017
 
 
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica del bus di servizio
-In questo argomento viene illustrato come usare la messaggistica del bus di servizio di Azure per ottimizzare le prestazioni durante lo scambio di messaggi negoziati. La prima parte di questo argomento descrive i vari meccanismi disponibili per aumentare le prestazioni. La seconda parte fornisce invece indicazioni su come usare il bus di servizio per garantire le prestazioni ottimali in uno scenario specifico.
+In questo articolo viene illustrato come usare la [messaggistica del bus di servizio di Azure](https://azure.microsoft.com/services/service-bus/) per ottimizzare le prestazioni durante lo scambio di messaggi negoziati. La prima parte di questo argomento descrive i vari meccanismi disponibili per aumentare le prestazioni. La seconda parte fornisce invece indicazioni su come usare il bus di servizio per garantire le prestazioni ottimali in uno scenario specifico.
 
 In questo argomento il termine "client" fa riferimento a qualsiasi entità che accede al bus di servizio. Un client può assumere il ruolo di mittente o di ricevitore. Il termine "mittente" viene usato per un client di coda o argomento del bus di servizio che invia messaggi a una coda o a un argomento del bus di servizio. Il termine "ricevitore" fa riferimento a un client di coda o sottoscrizione del bus di servizio che riceve messaggi da una coda o da una sottoscrizione del bus di servizio.
 
 Queste sezioni presentano numerosi concetti usati dal bus di servizio per migliorare le prestazioni.
 
 ## <a name="protocols"></a>Protocolli
-Il bus di servizio consente ai client di inviare e ricevere messaggi tramite tre protocolli
+Il bus di servizio consente ai client di inviare e ricevere messaggi tramite uno dei tre protocolli:
 
 1. Advanced Message Queuing Protocol (AMQP)
 2. Service Bus Messaging Protocol (SBMP)
-3. HTTP
+3. http
 
-AMQP e SBMP sono più efficienti, poiché mantengono la connessione al bus di servizio purché la factory di messaggistica esista. Implementa anche le operazioni di invio in batch e prelettura. Se non è indicato in modo esplicito, tutti i contenuti di questo argomento presuppongono l'uso di AMQP o SBMP.
+AMQP e SBMP sono più efficienti, poiché mantengono la connessione al bus di servizio finché la factory di messaggistica esista. Implementa anche le operazioni di invio in batch e prelettura. Se non è indicato in modo esplicito, tutti i contenuti di questo argomento presuppongono l'uso di AMQP o SBMP.
 
 ## <a name="reusing-factories-and-clients"></a>Riutilizzo di factory e client
 Gli oggetti client del bus di servizio, ad esempio [QueueClient][QueueClient] o [MessageSender][MessageSender], vengono creati tramite un oggetto [MessagingFactory][MessagingFactory] che offre anche la gestione interna delle connessioni. È consigliabile non chiudere le factory di messaggistica o i client di coda, argomento e sottoscrizione dopo aver inviato un messaggio e crearli di nuovo per l'invio del messaggio successivo. Quando si chiude una factory di messaggistica viene eliminata la connessione al servizio Bus di servizio e viene stabilita una nuova connessione quando si crea di nuovo la factory. Stabilire una nuova connessione è un'operazione costosa che si può evitare riutilizzando la stessa factory e gli stessi oggetti client per più operazioni. È possibile usare l'oggetto [QueueClient][QueueClient] per inviare messaggi da più thread e operazioni asincrone simultanee. 
@@ -44,7 +45,7 @@ L'esecuzione di un'operazione (invio, ricezione, eliminazione e così via) richi
 
 * **Operazioni asincrone**: il client pianifica le operazioni eseguendo operazioni asincrone. La richiesta successiva viene avviata prima del completamento della richiesta precedente. Ecco un esempio di operazione di invio in modalità asincrona:
   
-  ```
+ ```csharp
   BrokeredMessage m1 = new BrokeredMessage(body);
   BrokeredMessage m2 = new BrokeredMessage(body);
   
@@ -62,7 +63,7 @@ L'esecuzione di un'operazione (invio, ricezione, eliminazione e così via) richi
   
   Ecco un esempio di operazione di ricezione in modalità asincrona:
   
-  ```
+  ```csharp
   Task receive1 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
   Task receive2 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
   
@@ -87,13 +88,13 @@ Quando la modalità di ricezione è impostata su [ReceiveAndDelete][ReceiveAndDe
 Il bus di servizio non supporta le transazioni per le operazioni receive-and-delete. La semantica peek-lock (blocco di visualizzazione) è anche necessaria per qualsiasi scenario in cui il client vuole posticipare l'invio di un messaggio o inserirlo nella [coda dei messaggi non recapitabili](service-bus-dead-letter-queues.md).
 
 ## <a name="client-side-batching"></a>Invio in batch sul lato client
-L'invio in batch sul lato client consente a un client di coda o argomento di ritardare l'invio di un messaggio per un determinato periodo di tempo. Se il client invia messaggi aggiuntivi durante questo periodo di tempo, trasmette i messaggi in un singolo batch. L'invio in batch sul lato client prevede anche che il client di coda/sottoscrizione invii in batch più richieste di tipo **Complete** in una singola richiesta. L'invio in batch è disponibile solo per le operazioni asincrone **Send** e **Complete**. Le operazioni sincrone vengono immediatamente inviate al servizio Bus di servizio. L'invio in batch non si verifica per le operazioni di anteprima (peek) o ricezione né tra più client.
+L'invio in batch sul lato client consente a un client di coda o argomento di ritardare l'invio di un messaggio per un determinato periodo di tempo. Se il client invia messaggi aggiuntivi durante questo periodo di tempo, trasmette i messaggi in un singolo batch. L'invio in batch sul lato client prevede anche che il client di coda o la sottoscrizione invii in batch più richieste di tipo **Complete** in una singola richiesta. L'invio in batch è disponibile solo per le operazioni asincrone **Send** e **Complete**. Le operazioni sincrone vengono immediatamente inviate al servizio Bus di servizio. L'invio in batch non si verifica per le operazioni di anteprima (peek) o ricezione né tra più client.
 
 Per impostazione predefinita, i client usano un intervallo di invio in batch di 20 ms. È possibile modificare l'intervallo di invio in batch impostando la proprietà [BatchFlushInterval][BatchFlushInterval] prima di creare la factory di messaggistica. Questa impostazione interessa tutti i client creati da questa factory.
 
 Per disabilitare l'invio in batch, impostare la proprietà [BatchFlushInterval][BatchFlushInterval] su **TimeSpan.Zero**. Ad esempio:
 
-```
+```csharp
 MessagingFactorySettings mfs = new MessagingFactorySettings();
 mfs.TokenProvider = tokenProvider;
 mfs.NetMessagingTransportSettings.BatchFlushInterval = TimeSpan.FromSeconds(0.05);
@@ -107,7 +108,7 @@ Per aumentare la velocità effettiva di una coda, un argomento o una sottoscrizi
 
 Quando si crea una nuova coda, un nuovo argomento o una nuova sottoscrizione, l'accesso in batch all'archivio è abilitato per impostazione predefinita. Per disabilitare l'accesso in batch all'archivio, impostare la proprietà [EnableBatchedOperations][EnableBatchedOperations] su **false** prima di creare l'entità. Ad esempio:
 
-```
+```csharp
 QueueDescription qd = new QueueDescription();
 qd.EnableBatchedOperations = false;
 Queue q = namespaceManager.CreateQueue(qd);
@@ -120,7 +121,7 @@ La prelettura consente al client di coda o sottoscrizione di caricare messaggi a
 
 Quando un messaggio viene sottoposto a prelettura, il servizio lo blocca. In questo modo, il messaggio non potrà essere ricevuto da un ricevitore diverso. Se il ricevitore non può completare il messaggio prima della scadenza del blocco, il messaggio diventa disponibile per altri ricevitori. La copia del messaggio sottoposta a prelettura resta nella cache. Il ricevitore che usa la copia scaduta memorizzata nella cache riceve un'eccezione quando prova a completare il messaggio. Per impostazione predefinita, il blocco del messaggio scade dopo 60 secondi. Questo valore può essere esteso a 5 minuti. Per evitare che vengano usati messaggi scaduti, la dimensione della cache dovrebbe essere sempre inferiore al numero di messaggi che possono essere usati da un client nell'intervallo di timeout del blocco.
 
-Se si usa l'impostazione predefinita di 60 secondi per la scadenza del blocco, è consigliabile impostare [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] su un valore pari a 20 volte la velocità massima di elaborazione di tutti i ricevitori della factory. Ad esempio, una factory crea tre ricevitori e ogni ricevitore può elaborare al massimo 10 messaggi al secondo. Il conteggio prelettura non deve superare 20\*3\*10 = 600. Per impostazione predefinita, la proprietà [QueueClient.PrefetchCount][QueueClient.PrefetchCount] è impostata su 0, a indicare che non vengono recuperati altri messaggi dal servizio.
+Se si usa l'impostazione predefinita di 60 secondi per la scadenza del blocco, è consigliabile impostare [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] su un valore pari a 20 volte la velocità massima di elaborazione di tutti i ricevitori della factory. Ad esempio, una factory crea tre ricevitori e ogni ricevitore può elaborare al massimo 10 messaggi al secondo. Il conteggio prelettura non deve superare 20 X 3 X 10 = 600. Per impostazione predefinita, la proprietà [QueueClient.PrefetchCount][QueueClient.PrefetchCount] è impostata su 0, a indicare che non vengono recuperati altri messaggi dal servizio.
 
 La prelettura dei messaggi comporta un aumento della velocità effettiva globale per una coda o una sottoscrizione perché riduce il numero complessivo di operazioni sui messaggi, o round trip. Il recupero del primo messaggio tuttavia richiede più tempo (a causa della dimensione del messaggio aumentata). La ricezione di messaggi sottoposti a prelettura sarà più rapida perché questi messaggi sono stati già scaricati dal client.
 
@@ -131,7 +132,7 @@ La prelettura non influisce sul numero di operazioni di messaggistica fatturabil
 ## <a name="express-queues-and-topics"></a>Code e argomenti rapidi
 Le entità rapide consentono scenari che prevedono velocità effettiva elevata e latenza minima. Quando si usano le entità rapide, un messaggio inviato a una coda o a un argomento non viene archiviato immediatamente nell'archivio di messaggistica, ma viene memorizzato nella cache in memoria. Se un messaggio resta nella coda per più di alcuni secondi, viene automaticamente scritto in un'archiviazione stabile, proteggendolo così da eventuali perdite a causa di un'interruzione. La scrittura di un messaggio in una cache consente di incrementare la velocità effettiva e di ridurre la latenza, perché al momento dell'invio del messaggio non si verificano tentativi di accesso all'archiviazione stabile. I messaggi usati nell'arco di pochi secondi non vengono inseriti nell'archivio di messaggistica. L'esempio seguente illustra la creazione di un argomento rapido.
 
-```
+```csharp
 TopicDescription td = new TopicDescription(TopicName);
 td.EnableExpress = true;
 namespaceManager.CreateTopic(td);
@@ -139,10 +140,13 @@ namespaceManager.CreateTopic(td);
 
 Se un messaggio contenente informazioni critiche che non devono andare perdute viene inviato a un'entità espressa, il mittente può forzare il bus di servizio perché mantenga subito e in modo permanente il messaggio nell'archivio stabile impostando la proprietà [ForcePersistence][ForcePersistence] su **true**.
 
+> [!NOTE]
+> Si noti che le entità express non supportano le transazioni.
+
 ## <a name="use-of-partitioned-queues-or-topics"></a>Uso di code o argomenti partizionati
 Internamente, il bus di servizio usa lo stesso nodo e lo stesso archivio di messaggistica per elaborare e archiviare tutti i messaggi per un'entità di messaggistica (coda o argomento). Una coda o un argomento partizionato, al contrario, viene distribuito tra più nodi e archivi di messaggistica. Le code e gli argomenti partizionati non solo registrano una velocità effettiva superiore rispetto a quella delle code e degli argomenti normali, ma presentano anche una maggiore disponibilità. Per creare un'entità partizionata, impostare la proprietà [EnablePartitioning][EnablePartitioning] su **true**, come illustrato nell'esempio seguente. Per altre informazioni sulle entità partizionate, vedere le [entità di messaggistica partizionate][Partitioned messaging entities].
 
-```
+```csharp
 // Create partitioned queue.
 QueueDescription qd = new QueueDescription(QueueName);
 qd.EnablePartitioning = true;
@@ -150,14 +154,14 @@ namespaceManager.CreateQueue(qd);
 ```
 
 ## <a name="use-of-multiple-queues"></a>Uso di più code
+
 Se non è possibile usare una coda o un argomento partizionato o se il carico previsto non può essere gestito da una singola coda o argomento partizionato, è necessario usare più entità di messaggistica. Se si usano più entità, è consigliabile creare un client dedicato per ogni entità invece di usare lo stesso client per tutte.
 
-## <a name="development--testing-features"></a>Funzionalità di sviluppo e test
-Il bus di servizio è una funzionalità che viene usata in particolare per lo sviluppo e che **non deve mai essere usata nelle configurazioni di produzione**.
+## <a name="development-and-testing-features"></a>Funzionalità di sviluppo e test
 
-[TopicDescription.EnableFilteringMessagesBeforePublishing](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing.aspx)
+Il bus di servizio presenta una funzionalità che viene usata in particolare per lo sviluppo e che **non deve mai essere usata nelle configurazioni di produzione**: [TopicDescription.EnableFilteringMessagesBeforePublishing][].
 
-* Quando vengono aggiunti nuovi filtri o nuove regole all'argomento, è possibile usare EnableFilteringMessagesBeforePublishing per verificare che la nuova espressione di filtro funzioni come previsto.
+Quando vengono aggiunti nuovi filtri o nuove regole all'argomento, è possibile usare [TopicDescription.EnableFilteringMessagesBeforePublishing][] per verificare che la nuova espressione di filtro funzioni come previsto.
 
 ## <a name="scenarios"></a>Scenari
 Le sezioni seguenti descrivono scenari di messaggistica tipici e indicano le impostazioni preferibili del bus di servizio. La velocità effettiva è classificata come bassa (minore di 1 messaggio al secondo), moderata (maggiore o uguale a 1 messaggio al secondo ma minore di 100 messaggi al secondo) ed elevata (maggiore o uguale a 100 messaggi al secondo). Il numero di client è classificato come basso (minore o uguale a 5), moderato (maggiore di 5 ma minore o uguale a 20) ed elevato (maggiore di 20).
@@ -243,21 +247,17 @@ Per ottimizzare la velocità effettiva, eseguire le operazioni seguenti:
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sull'ottimizzazione delle prestazioni del bus di servizio, vedere le [entità di messaggistica partizionate][Partitioned messaging entities].
 
-[QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
-[MessageSender]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx
-[MessagingFactory]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx
-[PeekLock]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx
-[ReceiveAndDelete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx
-[BatchFlushInterval]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.netmessagingtransportsettings.batchflushinterval.aspx
-[EnableBatchedOperations]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations.aspx
-[QueueClient.PrefetchCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.prefetchcount.aspx
-[SubscriptionClient.PrefetchCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.prefetchcount.aspx
-[ForcePersistence]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.forcepersistence.aspx
-[EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
+[QueueClient]: /dotnet/api/microsoft.servicebus.messaging.queueclient
+[MessageSender]: /dotnet/api/microsoft.servicebus.messaging.messagesender
+[MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
+[PeekLock]: /dotnet/api/microsoft.servicebus.messaging.receivemode
+[ReceiveAndDelete]: /dotnet/api/microsoft.servicebus.messaging.receivemode
+[BatchFlushInterval]: /dotnet/api/microsoft.servicebus.messaging.netmessagingtransportsettings#Microsoft_ServiceBus_Messaging_NetMessagingTransportSettings_BatchFlushInterval
+[EnableBatchedOperations]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableBatchedOperations
+[QueueClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_PrefetchCount
+[SubscriptionClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_PrefetchCount
+[ForcePersistence]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ForcePersistence
+[EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning
 [Partitioned messaging entities]: service-bus-partitioning.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
+[TopicDescription.EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription#Microsoft_ServiceBus_Messaging_TopicDescription_EnableFilteringMessagesBeforePublishing
 

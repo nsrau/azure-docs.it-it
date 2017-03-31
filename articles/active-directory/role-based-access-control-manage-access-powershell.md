@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/22/2016
+ms.date: 03/02/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: d6dbbee1f977245cc16710ace3b25d6e167cbc7e
-ms.openlocfilehash: cdd7aab27943df568abfda27265ed970e6dd789c
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 32c6224b36c73394c6bbd2aa5f6439f54f39f306
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -25,12 +26,10 @@ ms.openlocfilehash: cdd7aab27943df568abfda27265ed970e6dd789c
 > * [PowerShell](role-based-access-control-manage-access-powershell.md)
 > * [Interfaccia della riga di comando di Azure](role-based-access-control-manage-access-azure-cli.md)
 > * [API REST](role-based-access-control-manage-access-rest.md)
-> 
-> 
 
 È possibile usare il controllo degli accessi in base al ruolo (RBAC) nel portale di Azure e nell'API di Azure Resource Manager per gestire con estrema precisione l'accesso alla propria sottoscrizione. Con questa funzionalità è possibile concedere l'accesso a utenti, gruppi o entità servizio di Active Directory assegnando loro dei ruoli in un determinato ambito.
 
-Per poter usare PowerShell per gestire il controllo degli accessi in base al ruolo, è necessario avere i programmi seguenti:
+Prima di usare PowerShell per gestire il controllo degli accessi in base al ruolo, è necessario avere i prerequisiti seguenti:
 
 * Azure PowerShell 0.8.8 o versione successiva. Per installare la versione più recente e associarla alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Cmdlet di Azure Resource Manager Installare i [cmdlet di Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx) in PowerShell.
@@ -127,10 +126,19 @@ Per rimuovere l'accesso per utenti, gruppi e applicazioni, usare:
 ![Controllo degli accessi in base al ruolo di PowerShell - Remove-AzureRmRoleAssignment - Schermata](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
 
 ## <a name="create-a-custom-role"></a>Creare un ruolo personalizzato
-Per creare un ruolo personalizzato, usare il comando `New-AzureRmRoleDefinition` . Esistono due metodi per strutturare il ruolo, usare PSRoleDefinitionObject o un modello JSON. 
+Per creare un ruolo personalizzato, usare il comando ```New-AzureRmRoleDefinition``` . Esistono due metodi per strutturare il ruolo, usare PSRoleDefinitionObject o un modello JSON. 
+
+## <a name="get-actions-from-particular-resource-provider"></a>Ottenere azioni da un determinato provider di risorse
+Quando si creano ruoli personalizzati da zero, è importante conoscere tutte le operazioni possibili dei provider di risorse.
+Utilizzare il comando ```Get-AzureRMProviderOperation``` per ottenere queste informazioni.
+Ad esempio, se si desidera controllare tutte le operazioni disponibili per la macchina virtuale usare questo comando:
+
+```
+Get-AzureRMProviderOperation "Microsoft.Compute/virtualMachines/*" | FT OperationName, Operation , Description -AutoSize
+```
 
 ### <a name="create-role-with-psroledefinitionobject"></a>Creare un ruolo con PSRoleDefinitionObject
-Quando si crea un ruolo personalizzato con PowerShell, è possibile iniziare da zero o utilizzare uno dei [ruoli predefiniti](role-based-access-built-in-roles.md) come punto di partenza, quest'ultimo viene usato in questo esempio. Modificare gli attributi e aggiungere gli attributi *Actions*, *notActions* o *scopes* desiderati e quindi salvare le modifiche come nuovo ruolo.
+Quando si crea un ruolo personalizzato con PowerShell, è possibile iniziare da zero o usare uno dei [ruoli predefiniti](role-based-access-built-in-roles.md) come punto di partenza. Nell'esempio riportato in questa sezione si inizia con un ruolo predefinito e quindi lo si personalizza con più privilegi. Modificare gli attributi e aggiungere gli attributi *Actions*, *notActions* o *scopes* desiderati e quindi salvare le modifiche come nuovo ruolo.
 
 L'esempio seguente inizia con il ruolo *Virtual Machine Contributor* e lo usa per creare un ruolo personalizzato denominato *Virtual Machine Operator*. Il nuovo ruolo concede l'accesso a tutte le operazioni di lettura dei provider di risorse *Microsoft.Compute*, *Microsoft.Storage* e *Microsoft.Network* e concede l'accesso per avviare, riavviare e monitorare le macchine virtuali. Il ruolo personalizzato può essere usato in due sottoscrizioni.
 
@@ -158,7 +166,7 @@ New-AzureRmRoleDefinition -Role $role
 ![Controllo degli accessi in base al ruolo di PowerShell - Get-AzureRmRoleDefinition - Schermata](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
 ### <a name="create-role-with-json-template"></a>Creare un ruolo con il modello JSON
-È possibile usare un modello JSON come definizione di origine per il ruolo personalizzato. Nell'esempio seguente viene creato un ruolo personalizzato che consente di accedere in lettura all'archiviazione e alle risorse di calcolo, di accedere come supporto e di aggiungere tale ruolo a due sottoscrizioni. Creare un nuovo file `C:\CustomRoles\customrole1.json` con il contenuto seguente. Si noti che l'ID deve essere impostato su `null` all'inizio della creazione del ruolo, quando viene generato un nuovo ID. 
+È possibile usare un modello JSON come definizione di origine per il ruolo personalizzato. Nell'esempio seguente viene creato un ruolo personalizzato che consente di accedere in lettura all'archiviazione e alle risorse di calcolo, di accedere come supporto e di aggiungere tale ruolo a due sottoscrizioni. Creare un nuovo file `C:\CustomRoles\customrole1.json` con il contenuto seguente. L'ID deve essere impostato su `null` all'inizio della creazione del ruolo quando viene generato in automatico un nuovo ID. 
 
 ```
 {
@@ -213,7 +221,7 @@ Set-AzureRmRoleDefinition -Role $role
 ![Controllo degli accessi in base al ruolo di PowerShell - Set-AzureRmRoleDefinition - Schermata](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-2.png)
 
 ### <a name="modify-role-with-json-template"></a>Modificare un ruolo con il modello JSON
-Usando il modello JSON precedente, è possibile modificare un ruolo personalizzato esistente per aggiungere o rimuovere le azioni. Aggiornare il modello JSON e aggiungere l'azione read per la rete, come illustrato di seguito. Si noti che le definizioni riportate nel modello non vengono applicate in modo cumulativo a una definizione esistente, vale a dire che il ruolo verrà visualizzato esattamente come specificato nel modello. Si noti inoltre che è anche necessario aggiornare l'ID con l'ID del ruolo. Se non si è certi di quale sia questo valore, è possibile utilizzare il cmdlet `Get-AzureRmRoleDefinition` per ottenere queste informazioni.
+Usando il modello JSON precedente, è possibile modificare un ruolo personalizzato esistente per aggiungere o rimuovere le azioni. Aggiornare il modello JSON e aggiungere l'azione di lettura per la rete, come illustrato nell'esempio seguente. Le definizioni riportate nel modello non vengono applicate in modo cumulativo a una definizione esistente, vale a dire che il ruolo verrà visualizzato esattamente come specificato nel modello. È anche necessario aggiornare il campo ID con l'ID del ruolo. Se non si è certi di quale sia questo valore, è possibile utilizzare il cmdlet `Get-AzureRmRoleDefinition` per ottenere queste informazioni.
 
 ```
 {
@@ -272,10 +280,5 @@ Nell'esempio seguente il ruolo personalizzato *Virtual Machine Operator* non è 
 ## <a name="see-also"></a>Vedere anche
 * [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)
   [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)] (Uso di Azure PowerShell con Azure Resource Manager)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

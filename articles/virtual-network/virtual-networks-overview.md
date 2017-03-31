@@ -15,13 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 6e96471c4f61e1ebe15c23f87ac646001d8e30ee
-ms.openlocfilehash: 47f149fe38dfd238dc2a38fd02ea50fc9c65e469
+ms.sourcegitcommit: 75c5b8d3d8c8f389b8cee7d5d304b6e9704252fc
+ms.openlocfilehash: a57805510d5e84fcdc6c4521ae9443ec72de59e1
+ms.lasthandoff: 02/22/2017
 
 
 ---
 # <a name="virtual-networks"></a>Reti virtuali
-Una rete virtuale di Azure (VNet) è una rappresentazione della propria rete personalizzata nel cloud.  È un isolamento logico del cloud di Azure dedicato alla sottoscrizione. È possibile controllare completamente i blocchi di indirizzi IP, le impostazioni DNS, i criteri di sicurezza e le tabelle di route in questa rete. È anche possibile segmentare ulteriormente la rete virtuale in subnet e avviare macchine virtuali (VM) IaaS di Azure e/o [servizi cloud (istanze del ruolo PaaS)](../cloud-services/cloud-services-choose-me.md). È anche possibile connettere la rete virtuale alla rete locale usando una delle [opzioni di connettività](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) disponibili in Azure. In pratica è possibile espandere la rete ad Azure, con il controllo completo sui blocchi di indirizzi IP con tutti i vantaggi di livello aziendale offerti da Azure.
+Una rete virtuale di Azure (VNet) è una rappresentazione della propria rete personalizzata nel cloud.  È un isolamento logico del cloud di Azure dedicato alla sottoscrizione. È possibile controllare completamente i blocchi di indirizzi IP, le impostazioni DNS, i criteri di sicurezza e le tabelle di route in questa rete. È anche possibile segmentare ulteriormente la rete virtuale in subnet e avviare macchine virtuali (VM) IaaS di Azure e/o [servizi cloud (istanze del ruolo PaaS)](../cloud-services/cloud-services-choose-me.md). È anche possibile connettere la rete virtuale alla rete locale usando una delle [opzioni di connettività](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections) disponibili in Azure. In pratica è possibile espandere la rete ad Azure, con il controllo completo sui blocchi di indirizzi IP con tutti i vantaggi di livello aziendale offerti da Azure.
 
 Per meglio comprendere le reti virtuali, vedere la figura seguente che mostra una rete locale semplificata.
 
@@ -37,16 +38,16 @@ Si noti come l'infrastruttura di Azure assume il ruolo di router, consentendo l'
 
 > [!NOTE]
 > Esistono due diverse modalità di distribuzione in Azure: classica (nota anche come Gestione dei servizi) e Gestione risorse di Azure. Le reti virtuali classiche possono essere aggiunte a un gruppo di affinità o create come reti virtuali regionali. Se si ha disposizione una rete virtuale in un gruppo di affinità, si consiglia di [eseguirne la migrazione a una rete virtuale regionale](virtual-networks-migrate-to-regional-vnet.md).
-> 
+>
 
 ## <a name="benefits"></a>Vantaggi
 * **Isolamento**. Le reti virtuali sono completamente isolate una dall'altra. In questo modo è possibile creare reti non contigue per la distribuzione, il test e la produzione che usano gli stessi blocchi di indirizzi CIDR.
 * **Accesso a Internet pubblico**. Tutte le istanze del ruolo PaaS e delle macchine virtuali IaaS in una rete virtuale possono accedere a Internet pubblico per impostazione predefinita. È possibile controllare l'accesso usando gruppi di sicurezza di rete (NSG).
 * **Accesso alle macchine virtuali all'interno della rete virtuale**. Le istanze del ruolo PaaS e le VM IaaS possono essere avviate nella stessa rete virtuale e possono connettersi tra loro usando indirizzi IP privati, anche se sono in subnet diverse, senza che sia necessario configurare un gateway o usare indirizzi IP pubblici.
-* **Risoluzione dei nomi**. Azure offre una risoluzione dei nomi interna per le istanze del ruolo PaaS e delle macchine virtuali IaaS distribuiti nella propria rete virtuale. È possibile anche distribuire i propri server DNS e configurare la rete virtuale per usarli.
+* **Risoluzione dei nomi**. Azure offre una [risoluzione dei nomi interna](virtual-networks-name-resolution-for-vms-and-role-instances.md) per le istanze del ruolo PaaS e delle macchine virtuali IaaS distribuite nella propria rete virtuale. È possibile anche distribuire i propri server DNS e configurare la rete virtuale per usarli.
 * **Sicurezza**. Il traffico in entrata e in uscita nelle macchine virtuali e nelle istanze del ruolo PaaS in una rete virtuale può essere controllato con i gruppi di sicurezza di rete.
-* **Connettività**. Le reti virtuali possono essere connesse tra loro tramite gateway di rete o peering reti virtuali. Le reti virtuali possono essere connesse ai data center locali tramite reti VPN da sito a sito o ExpressRoute di Azure. Per altre informazioni sulla connettività VPN da sito a sito, vedere [Informazioni sul gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site). Per altre informazioni su ExpressRoute, visitare [Panoramica tecnica relativa a ExpressRoute](../expressroute/expressroute-introduction.md). Per altre informazioni sul peering reti virtuali, vedere [Peering reti virtuali](virtual-network-peering-overview.md).
-  
+* **Connettività**. Le reti virtuali possono essere connesse tra loro tramite gateway di rete o peering reti virtuali. Le reti virtuali possono essere connesse ai data center locali tramite reti VPN da sito a sito o ExpressRoute di Azure. Per altre informazioni sulla connettività VPN da sito a sito, vedere [Informazioni sul gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections). Per altre informazioni su ExpressRoute, visitare [Panoramica tecnica relativa a ExpressRoute](../expressroute/expressroute-introduction.md). Per altre informazioni sul peering reti virtuali, vedere [Peering reti virtuali](virtual-network-peering-overview.md).
+
   > [!NOTE]
   > Verificare di aver creato una nuova rete virtuale prima di distribuire eventuali istanze del ruolo PaaS o delle macchine virtuali IaaS nell'ambiente Azure. Le macchine virtuali basate su ARM richiedono una rete virtuale e, se non si specifica una rete virtuale esistente, Azure crea una rete virtuale predefinita che potrebbe presentare un conflitto dei blocchi di indirizzi CIDR con la propria rete locale, rendendo impossibile la connessione tra la propria rete virtuale e la propria rete locale.
   >
@@ -88,10 +89,4 @@ L'uso di reti virtuali in Azure non comporta costi aggiuntivi. Le istanze di cal
 * [Creare una macchina virtuale in una rete virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 * Informazioni sui [gruppi di sicurezza di rete](virtual-networks-nsg.md).
 * Informazioni su [route definite dall'utente e inoltro IP](virtual-networks-udr-overview.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

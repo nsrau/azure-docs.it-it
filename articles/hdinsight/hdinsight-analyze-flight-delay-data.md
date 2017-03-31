@@ -12,19 +12,21 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
+ms.date: 02/06/2017
 ms.author: jgao
+ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: fc79b8017f2184091f2473a0ff9cdfbd0a4cbdf8
-ms.openlocfilehash: 8b5a608775582753b0bcc2fe0117edf51a37c238
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 05e8c264376b976bcdc8f3e1f03ed79cb712991e
+ms.lasthandoff: 03/17/2017
 
 
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Analizzare i dati sui ritardi dei voli con Hive in HDInsight
 Hive fornisce un metodo per l'esecuzione di processi MapReduce mediante un linguaggio di scripting simile a SQL, denominato *[HiveQL][hadoop-hiveql]*, che può essere applicato per attività di riepilogo, query e analisi di volumi di dati molto elevati.
 
-> [!NOTE]
-> I passaggi descritti in questo documento richiedono un cluster HDInsight basato su Windows. Per i passaggi relativi a un cluster basato su Linux, vedere [Analizzare i dati sui ritardi dei voli con Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
+> [!IMPORTANT]
+> I passaggi descritti in questo documento richiedono un cluster HDInsight basato su Windows. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Per i passaggi relativi a un cluster basato su Linux, vedere [Analizzare i dati sui ritardi dei voli con Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
 
 Uno dei principali vantaggi di Azure HDInsight è la separazione tra archiviazione e calcolo dei dati. HDInsight usa l'archiviazione BLOB di Azure per l'archiviazione dei dati. Un tipico processo è costituito da tre parti:
 
@@ -240,7 +242,7 @@ Per altre informazioni sulla creazione di un cluster HDInsight e sull'esecuzione
 
 - - -
 
-## <a name="a-idappendix-aaappendix-a---upload-flight-delay-data-to-azure-blob-storage"></a><a id="appendix-a"></a>Appendice A: caricare i dati relativi ai ritardi dei voli nell'archivio BLOB di Azure
+## <a id="appendix-a"></a>Appendice A: caricare i dati relativi ai ritardi dei voli nell'archivio BLOB di Azure
 Prima di caricare il file di dati e i file script HiveQL, vedere l' [Appendice B](#appendix-b), è richiesta un'attività di pianificazione. L'idea è quella di archiviare i file di dati e il file HiveQL prima di creare un cluster HDInsight e di eseguire il processo Hive. Sono disponibili due opzioni:
 
 * **Usare lo stesso account di archiviazione di Azure che sarà usato come file system predefinito per il cluster HDInsight:** poiché il cluster HDInsight avrà la chiave di accesso dell'account di archiviazione, non è necessario apportare altre modifiche.
@@ -360,7 +362,7 @@ Il percorso tutorials/flightdelay/data è la cartella virtuale creata durante il
 
 - - -
 
-## <a name="a-idappendix-baappendix-b---create-and-upload-a-hiveql-script"></a><a id="appendix-b"></a>Appendice B: creare e caricare uno script HiveQL
+## <a id="appendix-b"></a>Appendice B: creare e caricare uno script HiveQL
 Azure PowerShell consente di eseguire più istruzioni HiveQL contemporaneamente o di inserire l'istruzione HiveQL in un file di script. Questa sezione illustra come creare uno script HiveQL e caricarlo nell'archivio BLOB di Azure con PowerShell. Hive richiede che gli script HiveQL siano archiviati nell'archivio BLOB di Azure.
 
 Il file di script HiveQL eseguirà le operazioni seguenti:
@@ -559,7 +561,7 @@ Per un elenco completo di comandi di HiveQL, vedere [Hive Data Definition Langua
    * **$srcDataFolder** e **$dstDataFolder** - = "tutorials/flightdelay/data" = "tutorials/flightdelay/output"
 
 - - -
-## <a name="a-idappendix-caappendix-c---prepare-an-azure-sql-database-for-the-sqoop-job-output"></a><a id="appendix-c"></a>Appendice C: preparare il database SQL di Azure per l'output del processo Sqoop
+## <a id="appendix-c"></a>Appendice C: preparare il database SQL di Azure per l'output del processo Sqoop
 **Per preparare il database SQL (unirlo con lo script Sqoop)**
 
 1. Preparare i parametri:
@@ -709,7 +711,7 @@ Per un elenco completo di comandi di HiveQL, vedere [Hive Data Definition Langua
 4. Premere **F5** per eseguire lo script.
 5. Convalidare l'output dello script. Assicurarsi che lo script sia stato eseguito correttamente.
 
-## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Passaggi successivi
+## <a id="nextsteps"></a> Passaggi successivi
 È stato illustrato come caricare file nell'archivio BLOB di Azure, come popolare una tabella Hive con i dati disponibili nell'archivio BLOB di Azure, come eseguire query Hive e come usare Sqoop per esportare i dati da HDFS in un database SQL di Azure. Per altre informazioni, vedere gli articoli seguenti:
 
 * [Introduzione a HDInsight][hdinsight-get-started]
@@ -744,9 +746,4 @@ Per un elenco completo di comandi di HiveQL, vedere [Hive Data Definition Langua
 [image-hdi-flightdelays-avgdelays-dataset]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.AvgDelays.DataSet.png
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

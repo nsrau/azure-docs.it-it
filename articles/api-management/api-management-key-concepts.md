@@ -1,5 +1,5 @@
 ---
-title: Concetti chiave di Gestione API
+title: Panoramica e concetti chiave di Gestione API di Azure | Documentazione Microsoft
 description: Informazioni su API, prodotti, ruoli, gruppi e altri concetti chiave di Gestione API.
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/15/2016
-ms.author: sdanie
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: b0ead7ecbf9327e9df6846d6e046ed69f25832cf
-ms.openlocfilehash: 872fbd44a9bccf0d6e9f7f3f3bd839e384874ae5
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: 47358c6c209488d7a12e8afbf7a2d9b3f872f0de
 
 ---
 # <a name="what-is-api-management"></a>Informazioni su Gestione API
@@ -25,7 +24,7 @@ Gestione API consente alle organizzazioni di pubblicare API per consentire a svi
 
 Guardare il video seguente per ottenere una panoramica di Gestione API di Azure e informazioni su come usare Gestione API per aggiungere molte funzionalità all'API, incluso il controllo degli accessi, i limiti di frequenza, il monitoraggio, la registrazione di eventi e la memorizzazione di risposte nella cache, con un intervento minimo da parte dell'utente.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-API-Management-Overview/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-API-Management-Overview/player]
 > 
 > 
 
@@ -132,6 +131,6 @@ Per altre informazioni su Gestione API, guardare la presentazione seguente dalla
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

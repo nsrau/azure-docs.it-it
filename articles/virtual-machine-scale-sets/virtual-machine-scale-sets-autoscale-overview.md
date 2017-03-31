@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: adegeo
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 090374b057a62251e40ccc41f60f61e84e08a03f
-ms.openlocfilehash: ff137ead5e3490a129b36c959040d3571bff7669
+ms.sourcegitcommit: 3f1fdddcf382026e25ac6bca0b835e560152be9f
+ms.openlocfilehash: 98b302c26867d2fb2ade296e6983306266fa6f63
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="automatic-scaling-and-virtual-machine-scale-sets"></a>Ridimensionamento automatico e set di scalabilità di macchine virtuali
+# <a name="how-to-use-automatic-scaling-and-virtual-machine-scale-sets"></a>Come usare ridimensionamento automatico e set di scalabilità di macchine virtuali
 Il ridimensionamento automatico delle macchine virtuali in un set di scalabilità consiste nella creazione o nell'eliminazione di macchine nel set in base alle esigenze per soddisfare i requisiti a livello di prestazioni. Man mano che aumenta il volume di lavoro, è possibile che un'applicazione richieda risorse aggiuntive per poter eseguire le attività in modo efficace.
 
 Il ridimensionamento automatico è un processo automatico che semplifica il sovraccarico di gestione. Riducendo il sovraccarico, non è necessario monitorare le prestazioni del sistema continuamente o decidere come gestire le risorse. Il ridimensionamento è un processo elastico. È possibile aggiungere ulteriori risorse con l'aumento del carico, tuttavia man mano che la richiesta diminuisce le risorse possono essere rimosse per ridurre al minimo i costi e mantenere i livelli di prestazioni.
@@ -220,10 +222,5 @@ Per visualizzare un esempio d'uso del portale di Azure per impostare il ridimens
 * Per informazioni sulle funzionalità di notifica, vedere [Use autoscale actions to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) (Usare le azioni di ridimensionamento automatico per inviare notifiche di avviso di webhook ed e-mail in Monitoraggio di Azure).
 * Per informazioni, vedere [Use audit logs to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md) (Usare i log di controllo per inviare notifiche di avviso di webhook in Monitoraggio di Azure).
 * Informazioni sugli [scenari di scalabilità automatica avanzata](virtual-machine-scale-sets-advanced-autoscale.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

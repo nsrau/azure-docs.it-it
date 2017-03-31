@@ -1,5 +1,5 @@
 ---
-title: Livelli di coerenza in DocumentDB | Microsoft Docs
+title: Livelli di coerenza in Azure DocumentDB | Microsoft Docs
 description: "DocumentDB ha quattro livelli di coerenza per consentire agli sviluppatori di applicazioni di compensare in modo prevedibile coerenza, disponibilità e latenza."
 keywords: coerenza finale, documentdb, azure, Microsoft azure
 services: documentdb
@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: syamk
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: dc5ddeaaa865260c58422ed00c015689946b63f5
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: af8e53d7cc074bf669b967014223ee88476d1686
+ms.lasthandoff: 03/29/2017
 
 
 ---
-# <a name="consistency-levels-in-documentdb"></a>Livelli di coerenza in DocumentDB
+# <a name="tunable-data-consistency-levels-in-documentdb"></a>Livelli di coerenza dei dati ottimizzabili in DocumentDB
 Azure DocumentDB è stato progettato da zero pensando alla distribuzione globale. È pensato per offrire garanzie di bassa latenza stimabile, Contratto di servizio con disponibilità al 99,99% e più modelli di coerenza ben definiti meno severi. Attualmente DocumentDB offre quattro livelli di coerenza: assoluta, con obsolescenza associata, sessione e finale. Oltre ai modelli di **coerenza assoluta** e **finale** offerti dai database NoSQL, DocumentDB offre anche due modelli di coerenza attentamente codificati e operativi: **con obsolescenza associata** e **sessione** e ha convalidato la loro utilità in casi reali. Questi quattro livelli di coerenza, collettivamente, consentono di bilanciare in modo informato coerenza, disponibilità e latenza. 
 
 ## <a name="scope-of-consistency"></a>Ambito di coerenza
@@ -72,10 +74,10 @@ La tabella seguente descrive varie garanzie di coerenza che corrispondono ai qua
 | Garanzia | Assoluta | Obsolescenza associata | sessione | Finale |
 | --- | --- | --- | --- | --- |
 | **Ordine globale totale** |Sì |Sì, all'esterno della "finestra di obsolescenza" |No, ordine di “sessione” parziale |No |
-| **Garanzia di coerenza prefisso** |Sì |sì |sì |Sì |
+| **Garanzia di coerenza prefisso** |Sì |Sì |Sì |Sì |
 | **Letture monotone** |Sì |Sì, tra aree all'esterno della finestra di obsolescenza e all'interno di un'area per tutto il tempo. |Sì, per la sessione data |No |
-| **Scritture monotone** |Sì |sì |sì |Sì |
-| **Lettura delle proprie scritture** |Sì |Sì |Sì (nell'area della scrittura) |No |
+| **Scritture monotone** |Sì |Sì |Sì |Sì |
+| **Lettura delle proprie scritture** |Sì |Sì (nell'area della scrittura) | Sì |No |
 
 ## <a name="configuring-the-default-consistency-level"></a>Configurazione del livello di coerenza predefinito
 1. Nell'indice del [portale di Azure](https://portal.azure.com/)fare clic su **DocumentDB (NoSQL)**.
@@ -116,9 +118,4 @@ Se si desidera eseguire ulteriori informazioni sui livelli di coerenza e i compr
   [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 
 [1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

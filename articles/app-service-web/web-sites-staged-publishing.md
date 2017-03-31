@@ -5,7 +5,7 @@ services: app-service
 documentationcenter: 
 author: cephalin
 writer: cephalin
-manager: wpickett
+manager: erikre
 editor: mollybos
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.service: app-service
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 05b32525566b4e03ea3905668163e2d93f6a13a1
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 8ec4e8699eb2f2e060db264634b04abfacf40e34
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: 05b32525566b4e03ea3905668163e2d93f6a13a1
 Quando si distribuisce l'app Web, il back-end per dispositivi mobili e l'App per le API al [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714), è possibile eseguire la distribuzione in uno slot di distribuzione distinto, invece che in quello predefinito, se la modalità del piano di servizio app usata è **Standard** o **Premium**. Gli slot di distribuzione sono in realtà app dal vivo con nomi host specifici. È possibile scambiare il contenuto dell'app e gli elementi delle configurazioni tra i due slot di distribuzione, incluso lo slot di produzione. La distribuzione dell'applicazione in uno slot di distribuzione presenta i seguenti vantaggi:
 
 * È possibile convalidare le modifiche alle app in uno slot di distribuzione temporaneo prima di scambiarlo con quello di produzione.
-* La distribuzione preliminare di un'app in uno slot e la successiva implementazione in un ambiente di produzione garantiscono che tutte le istanze dello slot vengano effettivamente eseguite prima di passare alla fase di produzione. Ciò consente di evitare i tempi di inattività al momento della distribuzione dell'app. Il reindirizzamento del traffico è lineare e nessuna richiesta viene eliminata in seguito alle operazioni di scambio. L'intero flusso di lavoro può essere automatizzata tramite la configurazione di [scambio automatico](#configure-auto-swap-for-your-web-app) quando non è necessario spazio di pre-swapping convalida.
+* La distribuzione preliminare di un'app in uno slot e la successiva implementazione in un ambiente di produzione garantiscono che tutte le istanze dello slot vengano effettivamente eseguite prima di passare alla fase di produzione. Ciò consente di evitare i tempi di inattività al momento della distribuzione dell'app. Il reindirizzamento del traffico è lineare e nessuna richiesta viene eliminata in seguito alle operazioni di scambio. L'intero flusso di lavoro può essere automatizzata tramite la configurazione di [scambio automatico](#Auto-Swap) quando non è necessario spazio di pre-swapping convalida.
 * Dopo uno scambio, lo slot con l'app gestita temporaneamente include l'app di produzione precedente. Se le modifiche applicate nello slot di produzione non risultano corrette, è possibile ripetere immediatamente lo scambio dei due slot per recuperare l'ultimo sito con i dati corretti.
 
 Ciascuna modalità di piano App Service supporta un numero diverso di slot di distribuzione. Per conoscere il numero di slot supportati dalla modalità della propria app, vedere [Tariffe del servizio app](https://azure.microsoft.com/pricing/details/app-service/).
@@ -58,7 +59,7 @@ Per abilitare più slot di distribuzione, l'app deve essere in esecuzione in mod
     Dopo aver creato vari slot, sarà possibile clonare la configurazione da uno slot diverso da quello in produzione:
    
     ![Origini della configurazione][MultipleConfigurationSources]
-4. Nel pannello delle risorse dell'app fare clic su **Slot di distribuzione**, quindi su uno slot di distribuzione per aprire il pannello delle risorse dello slot, con un set di metriche e una configurazione come qualsiasi altra app. Il nome dello slot è indicato in alto nel pannello per ricordare all'utente che sta visualizzando lo slot di distribuzione.
+4. Nel pannello delle risorse dell'app fare clic su **Slot di distribuzione**, quindi fare clic su uno slot di distribuzione per aprire il pannello delle risorse dello slot, con un set di metriche e una configurazione come qualsiasi altra app. Il nome dello slot è indicato in alto nel pannello per ricordare all'utente che sta visualizzando lo slot di distribuzione.
    
     ![Titolo slot di distribuzione][StagingTitle]
 5. Fare clic sull'URL dell'app nel pannello dello slot. Tenere presente che lo slot di distribuzione dispone di un nome host specifico ed è inoltre un'app attiva. Per limitare l'accesso pubblico allo slot di distribuzione, vedere [Blocco dell'accesso Web agli slot di distribuzione non di produzione nell'app Web del servizio app](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
@@ -129,6 +130,8 @@ Quando si usa l'opzione **Scambio con anteprima** (vedere [Swap degli slot di di
 È possibile visualizzare in anteprima il funzionamento esatto dell'app con la configurazione dello slot di destinazione. Al termine della convalida completare lo scambio in un passaggio separato. Questo passaggio ha anche il vantaggio che lo slot di origine è già riscaldato con la configurazione desiderata e i client non subiranno tempi di inattività.  
 
 Degli esempi per i cmdlet PowerShell di Azure disponibili per lo swap multifase sono inclusi nei cmdlet PowerShell di Azure per la sezione relativa agli slot di distribuzione.
+
+<a name="Auto-Swap"></a>
 
 ## <a name="configure-auto-swap"></a>Configurare lo scambio automatico
 Lo scambio automatico semplifica gli scenari DevOps nei quali si vuole distribuire continuamente l'app senza avvio a freddo e senza tempi di inattività per i clienti finali dell'app. Quando uno slot di distribuzione viene configurato per lo scambio automatico in produzione, ogni volta che si esegue il push dell'aggiornamento del codice in tale slot, il servizio app eseguirà automaticamente lo scambio dell'app in produzione dopo che è stato eseguito il riscaldamento nello slot.
@@ -232,11 +235,11 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 ## <a name="azure-command-line-interface-azure-cli-commands-for-deployment-slots"></a>Comandi dell'interfaccia della riga di comando di Azure per gli slot di distribuzione
 L'interfaccia della riga di comando di Azure fornisce comandi multipiattaforma che è possibile usare con Azure, incluso il supporto per la gestione degli slot di distribuzione del servizio app.
 
-* Per istruzioni sull'installazione e la configurazione dell'interfaccia della riga di comando di Azure, incluse le informazioni su come collegarla alla sottoscrizione di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+* Per istruzioni sull'installazione e la configurazione dell'interfaccia della riga di comando di Azure, incluse le informazioni su come collegarla alla sottoscrizione di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md).
 * Per l'elenco dei comandi disponibili per il servizio app di Azure, chiamare `azure site -h`.
 
 > [!NOTE] 
-> Per i comandi dell'[interfaccia della riga di comando di Azure 2.0 (anteprima)](https://github.com/Azure/azure-cli) relativi agli slot di distribuzione, vedere [az appservice web deployment slot](/cli/azure/appservice/web/deployment/slot).
+> Per i comandi dell'[interfaccia della riga di comando di Azure 2.0](https://github.com/Azure/azure-cli) relativi agli slot di distribuzione, vedere [az appservice web deployment slot](/cli/azure/appservice/web/deployment/slot).
 
 - - -
 ### <a name="azure-site-list"></a>azure site list
@@ -291,10 +294,5 @@ Per eliminare uno slot di distribuzione non più necessario, usare il comando **
 [Autoswap1]: ./media/web-sites-staged-publishing/AutoSwap01.png
 [Autoswap2]: ./media/web-sites-staged-publishing/AutoSwap02.png
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Scaricare asset di file multimediali
+title: Scaricare asset di Servizi multimediali nel computer - Azure | Documentazione Microsoft
 description: Informazioni su come scaricare asset nel computer. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET.
 services: media-services
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 25b74bdcdbc5ec5a134bb2f800cd687de6ebc1e7
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 19f6ea37f892054ee5d7bf793a32364dff264058
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -24,6 +25,9 @@ ms.openlocfilehash: 25b74bdcdbc5ec5a134bb2f800cd687de6ebc1e7
 Questo argomento illustra le opzioni per la distribuzione di asset di file multimediali caricati in Servizi multimediali. È possibile distribuire contenuti di Servizi multimediali in numerosi scenari di applicazione. È possibile scaricare asset di file multimediali oppure accedervi mediante un localizzatore. I contenuti multimediali possono essere inviati a un'altra applicazione o un altro provider di contenuti. Per ottenere livelli più elevati di prestazioni e scalabilità, è anche possibile distribuire contenuti usando una rete per la distribuzione di contenuti (CDN).
 
 Questo esempio illustra come scaricare asset di file multimediali da Servizi multimediali nel computer locale. Il codice esegue query sui processi associati all'account di Servizi multimediali mediante l'ID processo e accede alla relativa raccolta **OutputMediaAssets** , ovvero il set con uno o più asset di file multimediali di output risultante dall'esecuzione di un processo. In questo esempio di codice viene illustrato come scaricare asset di file multimediali di output da un processo, ma lo stesso approccio può essere usato anche per scaricare altri asset.
+
+>[!NOTE]
+>È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Usare lo stesso ID criterio se si usano sempre gli stessi giorni/autorizzazioni di accesso, come nel cado di criteri per i localizzatori che devono rimanere attivi per molto tempo (criteri di non caricamento). Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) argomento.
 
     // Download the output asset of the specified job to a local folder.
     static IAsset DownloadAssetToLocal( string jobId, string outputFolder)
@@ -76,7 +80,7 @@ Questo esempio illustra come scaricare asset di file multimediali da Servizi mul
 
 
 
-## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
+## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
@@ -84,10 +88,5 @@ Questo esempio illustra come scaricare asset di file multimediali da Servizi mul
 
 ## <a name="see-also"></a>Vedere anche
 [Distribuire contenuti in streaming](media-services-deliver-streaming-content.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

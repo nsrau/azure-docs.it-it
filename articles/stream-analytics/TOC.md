@@ -1,6 +1,6 @@
 # Panoramica
 ## [Che cos'è Analisi di flusso?](stream-analytics-introduction.md)
-## [Confrontare Storm e l'analisi di flusso](stream-analytics-comparison-storm.md)
+## [Confrontare Storm e Analisi di flusso](stream-analytics-comparison-storm.md)
 
 # Introduzione
 ## [Elaborare dati di streaming IoT](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
@@ -17,19 +17,23 @@
 
 ## Sviluppare
 ### [Modelli di query comuni](stream-analytics-stream-analytics-query-patterns.md)
+### [Strumenti per Visual Studio](stream-analytics-tools-for-visual-studio.md)
 ### [Creare input](stream-analytics-define-inputs.md)
 ### [Creare output](stream-analytics-define-outputs.md)
 ### [Usare dati di riferimento](stream-analytics-use-reference-data.md)
-### [Output in Cache Redis di Azure](stream-analytics-functions-redis.md)
+### [Output in Funzioni di Azure](stream-analytics-functions-redis.md)
 ### [Output in Data Lake Store](stream-analytics-data-lake-output.md)
 ### [Output in DocumentDB](stream-analytics-documentdb-output.md)
 ### [Analizzare dati con Power BI](stream-analytics-power-bi-dashboard.md)
+### [Integrazione UDF JavaScript](stream-analytics-javascript-user-defined-functions.md)
 ### [Integrazione tra API REST e Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Usare .NET SDK per la gestione](stream-analytics-dotnet-management-sdk.md)
 ### [Funzioni finestra](stream-analytics-window-functions.md)
 
 ## Gestire
+### [Affidabilità dei processi](stream-analytics-job-reliability.md)
 ### [Monitorare i processi](stream-analytics-monitoring.md)
+### [Log di diagnostica](stream-analytics-job-diagnostic-logs.md)
 ### [Monitorare i processi a livello di codice](stream-analytics-monitor-jobs.md)
 ### [Monitorare i processi con PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
 ### [Ridimensionare la capacità per aumentare la velocità effettiva](stream-analytics-scale-jobs.md)
@@ -56,8 +60,3 @@
 ## [Forum di commenti e suggerimenti](http://feedback.azure.com/forums/270577-azure-stream-analytics)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=stream-analytics)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

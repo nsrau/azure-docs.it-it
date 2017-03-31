@@ -5,7 +5,7 @@ services: app-service
 documentationcenter: python
 tags: python
 author: huguesv
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: fd00dc91-9935-4331-b955-4bd71e66d518
 ms.service: app-service
@@ -18,6 +18,7 @@ ms.author: huvalo
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: c4fe19e608061c4b69f3856313ece87e9870bbf9
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -359,10 +360,5 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/devel
 
 ## <a name="whats-changed"></a>Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

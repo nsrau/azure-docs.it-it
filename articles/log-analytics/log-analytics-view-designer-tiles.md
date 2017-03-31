@@ -1,5 +1,5 @@
 ---
-title: Informazioni di riferimento sul riquadro Progettazione viste di Log Analytics | Microsoft Docs
+title: Informazioni di riferimento sui riquadri per Progettazione viste in Log Analytics di OMS | Documentazione Microsoft
 description: Progettazione viste di Log Analytics consente di creare viste personalizzate nella console di OMS contenenti visualizzazioni diverse dei dati nel repository di OMS. In questo articolo vengono fornite informazioni di riferimento sulle impostazioni relative a ciascun riquadro disponibile per l&quot;uso nelle viste personalizzate.
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/26/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: c00a472e2dda12874dd7bee4ccb6c4d53bf104a7
-ms.openlocfilehash: 1f4a42ea42000c3a8dd25baea610332ea6cd6a71
+ms.sourcegitcommit: 4d6ea516717077ffb4b832caa9e8a064905fce09
+ms.openlocfilehash: 07938808a6ce39be80f38d93831db40130bcd4b5
 
 
 ---
-# <a name="log-analytics-view-designer-tile-reference"></a>Informazioni di riferimento sul riquadro Progettazione viste di Log Analytics
+# <a name="log-analytics-view-designer-tile-reference"></a>Informazioni di riferimento sui riquadri per Progettazione viste di Log Analytics
 Progettazione viste di Log Analytics consente di creare viste personalizzate nella console di OMS contenenti visualizzazioni diverse dei dati nel repository di OMS. In questo articolo vengono fornite informazioni di riferimento sulle impostazioni relative a ciascun riquadro disponibile per l'uso nelle viste personalizzate.
 
 Altri articoli disponibili su Progettazione viste sono:
@@ -180,6 +180,6 @@ Il riquadro **Due sequenze temporali** visualizza come istogramma i risultati di
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

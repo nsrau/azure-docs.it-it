@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 02/04/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
-ms.openlocfilehash: 4a225332995bdf7ed03817faf5da89a98eaf1967
+ms.sourcegitcommit: fba5384acae53ac416d91ae30840c6cfa04e7c68
+ms.openlocfilehash: 0c479a58f4158bb1a72dc43432507160f65d2791
 
 
 ---
@@ -30,9 +30,9 @@ Per impostazione predefinita, gli endpoint di streaming applicano intestazioni d
 Servizi multimediali di Azure fornisce [la rete CDN integrata](https://azure.microsoft.com/updates/azure-media-services-now-fully-integrated-with-azure-cdn/) per gli endpoint di streaming. Le intestazioni cache-control si applicano nello stesso modo in cui gli endpoint di streaming si applicano agli endpoint di streaming abilitati dalla rete CDN. La rete CDN di Azure utilizza i valori di cache configurati degli endpoint di streaming per definire la durata degli oggetti memorizzati nella cache internamente e inoltre utilizza questo valore per impostare le intestazioni della cache per i recapiti. Quando si utilizzano gli endpoint di streaming abilitati alla rete CDN non è consigliabile impostare i valori della cache piccoli. In tal modo, infatti si verifica una riduzione delle prestazioni e del vantaggio della rete CDN. Non è consentito impostare intestazioni cache inferiori a 600 secondi per gli endpoint di streaming abilitati alla rete CDN.
 
 > [!IMPORTANT]
-> L'integrazione di Servizi multimediali di Azure con la rete CDN di Azure è implementata nella **rete CDN di Azure da Verizon**.  Se si vuole usare la **rete CDN di Azure fornita da Akamai** per Servizi multimediali di Azure, è necessario [configurare manualmente l'endpoint](cdn-create-new-endpoint.md).  Per altre informazioni sulle funzionalità della rete CDN di Azure, vedere la [Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure](cdn-overview.md).
+>Servizi multimediali di Azure assicura una perfetta integrazione con la rete CDN di Azure. Con un unico clic è possibile integrare tutti i provider di rete CDN di Azure disponibili, ossia Akamai e Verizon, all'endpoint di streaming che include i prodotti Standard e Premium per la rete CDN. Per altre informazioni, vedere questo [annuncio](https://azure.microsoft.com/blog/standardstreamingendpoint/).
 > 
-> 
+> Gli addebiti per i dati dall'endpoint di streaming alla rete CDN vengono disabilitati solo se la rete CDN è abilitata tramite le API dell'endpoint di streaming o usando la sezione relativa agli endpoint del portale di gestione di Azure. Gli addebiti per i dati non vengono disabilitati in caso di integrazione manuale o creazione diretta di un endpoint di rete CDN usando le API della rete CDN o la sezione del portale.
 
 ## <a name="configuring-cache-headers-with-azure-media-services"></a>Configurazione delle intestazioni della cache con Servizi multimediali di Azure
 È possibile utilizzare il portale di gestione di Azure o le API di Servizi multimediali di Azure per configurare i valori di intestazione della cache.
@@ -49,6 +49,6 @@ Servizi multimediali di Azure fornisce [la rete CDN integrata](https://azure.mic
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

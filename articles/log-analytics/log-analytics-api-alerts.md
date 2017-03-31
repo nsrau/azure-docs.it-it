@@ -1,6 +1,6 @@
 ---
-title: API REST degli avvisi di Log Analytics
-description: "L’API REST degli avvisi di Log Analytics consente di creare e gestire avvisi in OMS (Operations Management Suite)  In questo articolo vengono forniti i dettagli dell&quot;API e alcuni esempi per l&quot;esecuzione di diverse operazioni."
+title: Uso dell&quot;API REST degli avvisi di Log Analytics in OMS
+description: "L&quot;API REST degli avvisi di Log Analytics consente di creare e gestire avvisi in Log Analytics, che è parte di OMS (Operations Management Suite).  In questo articolo vengono forniti i dettagli dell&quot;API e alcuni esempi per l&quot;esecuzione di diverse operazioni."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/18/2016
+ms.date: 02/27/2017
 ms.author: bwren
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 53a7be4d213f3f4c6d01b95355543fc9cd55717f
+ms.sourcegitcommit: db3a68e532775728099854a46d1ad0841e38b4a8
+ms.openlocfilehash: 3161a05a051ba741cf76e149f7b5e5a4324be0a4
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="log-analytics-alert-rest-api"></a>API REST degli avvisi di Log Analytics
+# <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Creare e gestire regole di avviso in Log Analytics con l'API REST
 L’API REST degli avvisi di Log Analytics consente di creare e gestire avvisi in OMS (Operations Management Suite)  In questo articolo vengono forniti i dettagli dell'API e alcuni esempi per l'esecuzione di diverse operazioni.
 
 L'API REST di ricerca di Log Analytics è RESTful ed è accessibile tramite l'API REST Azure Resource Manager. In questo documento sono disponibili esempi in cui viene usata l'API di una riga di comando di PowerShell che a sua volta usa [ARMClient](https://github.com/projectkudu/ARMClient), uno strumento della riga di comando open source che semplifica la chiamata dell'API di Azure Resource Manager. L'uso di ARMClient e PowerShell è una delle numerose opzioni di accesso all'API di ricerca di Log Analytics. Con questi strumenti è possibile usare l'API RESTful Azure Resource Manager per effettuare chiamate alle aree di lavoro di OMS ed eseguire i comandi di ricerca al loro interno. L'API fornirà risultati della ricerca per l'utente in formato JSON, consentendo di usare i risultati della ricerca in molti modi diversi a livello di codice.
@@ -131,7 +133,7 @@ Le soglie includono le proprietà elencate nella tabella seguente.
 
 | Proprietà | Descrizione |
 |:--- |:--- |
-| Operator |Operatore di confronto soglie. <br> gt = Maggiore di <br>  lt = minore di |
+| Operator |Operatore di confronto soglie. <br> gt = Maggiore di <br> lt = minore di |
 | Value |Valore per la soglia. |
 
 Si consideri ad esempio una query eventi con Interval pari a 15 minuti, Timespan pari a 30 minuti e Threshold maggiore di 10. In questo caso, la query viene eseguita ogni 15 minuti e viene generato un avviso se restituisce 10 eventi creati in un intervallo di 30 minuti.
@@ -242,17 +244,18 @@ Usare il metodo Put con un ID azione esistente per modificare un'azione di corre
 Di seguito è riportato un esempio completo per creare un nuovo avviso di posta elettronica.  Verrà creata una nuova pianificazione con un'azione contenente una soglia e un messaggio di posta elettronica.
 
     $subscriptionId = "3d56705e-5b26-5bcc-9368-dbc8d2fafbfc"
-    $workspaceId    = "MyWorkspace"
-    $searchId       = "51cf0bd9-5c74-6bcb-927e-d1e9080b934e"
+    $resourceGroup  = "MyResourceGroup"    
+    $workspaceName    = "MyWorkspace"
+    $searchId       = "MySearch"
+    $scheduleId     = "MySchedule"
+    $thresholdId    = "MyThreshold"
+    $actionId       = "MyEmailAction"
 
     $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' }"
-    armclient put /subscriptions/$subscriptionId/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/$workspaceId/savedSearches/$searchId/schedules/myschedule?api-version=2015-03-20 $scheduleJson
+    armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/?api-version=2015-03-20 $scheduleJson
 
-    $thresholdJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
-    armclient put /subscriptions/$subscriptionId/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/$workspaceId/savedSearches/$searchId/schedules/myschedule/actions/mythreshold?api-version=2015-03-20 $thresholdJson
-
-    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
-    armclient put /subscriptions/$subscriptionId/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/$workspaceId/savedSearches/$searchId/schedules/myschedule/actions/myemailaction?api-version=2015-03-20 $emailJson
+    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Severity':'Warning', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
+    armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/actions/$actionId/?api-version=2015-03-20 $emailJson
 
 ### <a name="webhook-actions"></a>Azioni webhook
 Le azioni webhook avviano un processo chiamando un URL e, facoltativamente, fornendo un payload da inviare.  Simili alle azioni correttive, sono destinate a webhook che possono richiamare processi diversi dai runbook di Automazione di Azure.  Hanno inoltre l'opzione aggiuntiva di fornire un payload da recapitare al processo remoto.
@@ -314,10 +317,5 @@ Usare il metodo Put con un ID azione esistente per modificare un'azione di webho
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Utilizzare l’ [API REST per eseguire ricerche nei log](log-analytics-log-search-api.md) in Log Analytics.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

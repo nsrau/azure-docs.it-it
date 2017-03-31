@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2016
 ms.author: singhkay
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f2e2752a1bd7ee2f9c766d900f25adc8cdba6714
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 8f0bb8b221a36f081fd0db5a3de0cb698d6cfb95
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="vertically-scale-azure-virtual-machine-with-azure-automation"></a>Scalabilità verticale di macchine virtuali di Azure tramite Automazione di Azure
+# <a name="vertically-scale-azure-linux-virtual-machine-with-azure-automation"></a>Scalabilità verticale di macchine virtuali di Linux in Azure tramite Automazione di Azure
 La scalabilità verticale è il processo di aumento o riduzione delle risorse di una macchina in risposta al carico di lavoro. In Azure tale operazione può essere eseguita modificando le dimensioni della macchina virtuale. Può essere utile negli scenari seguenti:
 
 * Se la macchina virtuale non viene usata di frequente, è possibile diminuirne le dimensioni per ridurre i costi mensili
@@ -67,7 +69,7 @@ I runbook necessari per la scalabilità verticale della macchina virtuale sono g
 
 I runbook da importare sono visualizzati nell'immagine seguente:
 
-![Importazione runbook](./media/virtual-machines-vertical-scaling-automation/scale-runbooks.png)
+![Importazione runbook](./windows/media/vertical-scaling-automation/scale-runbooks.png)
 
 ## <a name="add-a-webhook-to-your-runbook"></a>Aggiungere un webhook al runbook
 Dopo aver importato i runbook, è necessario aggiungere un webhook al runbook in modo che possa essere attivato da un avviso da una macchina virtuale. Informazioni dettagliate sulla creazione di un webhook per il runbook sono disponibili nell'articolo seguente:
@@ -86,13 +88,8 @@ Assicurarsi di copiare il webhook prima di chiudere la finestra di dialogo del w
 7. Selezionare un periodo in cui il servizio di monitoraggio verificherà la condizione e la soglia dei passaggi 5 e 6
 8. Incollare il webhook copiato dalla sezione precedente
 
-![Aggiunta di un avviso alla macchina virtuale 1](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-1.png)
+![Aggiunta di un avviso alla macchina virtuale 1](./windows/media/vertical-scaling-automation/add-alert-webhook-1.png)
 
-![Aggiunta di un avviso alla macchina virtuale 2](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+![Aggiunta di un avviso alla macchina virtuale 2](./windows/media/vertical-scaling-automation/add-alert-webhook-2.png)
 
 

@@ -53,23 +53,25 @@
 ### [Opzioni di archiviazione](hdinsight-hadoop-r-server-storage.md)
 ### [Installare RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [Contesti di calcolo](hdinsight-hadoop-r-server-compute-contexts.md)
+### [ScaleR e SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Usare Spark per l'elaborazione in memoria
 ### [Con Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [Con gli strumenti di business intelligence](hdinsight-apache-spark-use-bi-tools.md)
-### [App autonoma](hdinsight-apache-spark-create-standalone-application.md)
+### [Creare un'app autonoma](hdinsight-apache-spark-create-standalone-application.md)
+### [Sviluppare app usando Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
+### [Sviluppare app usando IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
 ### [Elaborare eventi di flusso](hdinsight-apache-spark-eventhub-streaming.md)
 ### [Prevedere le prestazioni HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [Prevedere i risultati di un controllo alimentare](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 ### [Analizzare i log dei siti Web](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+### [Usare Caffe per l'apprendimento avanzato](hdinsight-deep-learning-caffe-spark.md)
 ### [Usare i notebook di Zeppelin](hdinsight-apache-spark-zeppelin-notebook.md)
 ### [Kernel di Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 ### [Usare pacchetti esterni con Jupyter usando Magic nella cella](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 ### [Usare pacchetti esterni con Jupyter usando l'azione script](hdinsight-apache-spark-python-package-installation.md)
 ### [Usare un Jupyter Notebook locale](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Processi remoti con Livy](hdinsight-apache-spark-livy-rest-interface.md)
-### [Sviluppare app usando Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
-### [Sviluppare app usando IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
-### [Eseguire il debug remoto con IntelliJ](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+### [Eseguire il debug remoto dei processi con IntelliJ](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [Gestire risorse](hdinsight-apache-spark-resource-manager.md)
 ### [Tenere traccia ed eseguire il debug dei processi](hdinsight-apache-spark-job-debugging.md)
 ### [Problemi noti](hdinsight-apache-spark-known-issues.md)
@@ -77,9 +79,7 @@
 ### [Usare Phoenix e SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [Analizzare i tweet in tempo reale](hdinsight-hbase-analyze-twitter-sentiment.md)
 ### [Creare cluster in una rete virtuale](hdinsight-hbase-provision-vnet.md)
-### [Configurare la connettività VPN](hdinsight-hbase-geo-replication-configure-vnets.md)
-### [Configurare server DNS](hdinsight-hbase-geo-replication-configure-dns.md)
-### [Configurare la replica geografica di HBase](hdinsight-hbase-geo-replication.md)
+### [Configurare la replica di HBase](hdinsight-hbase-replication.md)
 ### [Sviluppare un'app con Java](hdinsight-hbase-build-java-maven-linux.md)
 ## Usare Storm
 ### [Distribuire e gestire topologie](hdinsight-storm-deploy-monitor-topology-linux.md)
@@ -198,7 +198,6 @@
 ### [Iniziare a usare Hadoop](hdinsight-hadoop-tutorial-get-started-windows.md)
 ### [Iniziare a usare Storm](hdinsight-apache-storm-tutorial-get-started.md)
 ### [Iniziare a usare HBase](hdinsight-hbase-tutorial-get-started.md)
-### [Raccolta di esempi di HDInsight](hdinsight-learn-hadoop-use-sample-gallery.md)
 ### [Eseguire esempi di MapReduce in Hadoop](hdinsight-run-samples.md)
 ### [Creare cluster Hadoop](hdinsight-provision-clusters.md)
 #### [Usare il portale di Azure](hdinsight-hadoop-create-windows-clusters-portal.md)
@@ -226,8 +225,3 @@
 # Risorse
 ## [Ottenere informazioni sui forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

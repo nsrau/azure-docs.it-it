@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/05/2017
+ms.date: 03/16/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 3309db6a926c3c2a0ff6340f0ade3d73093f6d6b
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 8f11b9a6606e30e323295d4144497fae90040d2a
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -87,17 +88,17 @@ Con la crittografia dinamica, è necessario solamente creare un asset che conten
 
 Per istruzioni su come eseguire la codifica, vedere [Come codificare un asset mediante Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
 
-## <a name="a-idcreatecontentkeyacreate-a-content-key-and-associate-it-with-the-encoded-asset"></a><a id="create_contentkey"></a>Creare una chiave simmetrica e associarla all'asset codificato
+## <a id="create_contentkey"></a>Creare una chiave simmetrica e associarla all'asset codificato
 In Servizi multimediali, la chiave simmetrica contiene la chiave con cui si desidera crittografare un asset.
 
 Per informazioni dettagliate, vedere [Creare una chiave simmetrica](media-services-dotnet-create-contentkey.md).
 
-## <a name="a-idconfigurekeyauthpolicyaconfigure-the-content-keys-authorization-policy"></a><a id="configure_key_auth_policy"></a>Configurare i criteri di autorizzazione della chiave simmetrica.
+## <a id="configure_key_auth_policy"></a>Configurare i criteri di autorizzazione della chiave simmetrica.
 Servizi multimediali supporta più modalità di autenticazione degli utenti che eseguono richieste di chiavi. I criteri di autorizzazione della chiave simmetrica devono essere configurati dall'utente e soddisfatti dal client (lettore) affinché la chiave possa essere distribuita al client. I criteri di autorizzazione delle chiavi simmetriche possono avere una o più restrizioni di tipo Open o Token.
 
 Per informazioni dettagliate, vedere [Configurare i criteri di autorizzazione della chiave simmetrica](media-services-dotnet-configure-content-key-auth-policy.md#playready-dynamic-encryption).
 
-## <a name="a-idconfigureassetdeliverypolicyaconfigure-asset-delivery-policy"></a><a id="configure_asset_delivery_policy"></a>Configurare i criteri di distribuzione dell'asset
+## <a id="configure_asset_delivery_policy"></a>Configurare i criteri di distribuzione dell'asset
 Configurare i criteri di distribuzione dell'asset. Alcuni aspetti inclusi nella configurazione dei criteri di distribuzione dell’asset:
 
 * L'URL di acquisizione della licenza DRM.
@@ -106,7 +107,7 @@ Configurare i criteri di distribuzione dell'asset. Alcuni aspetti inclusi nella 
 
 Per informazioni dettagliate, vedere [Configurare i criteri di distribuzione degli asset ](media-services-rest-configure-asset-delivery-policy.md).
 
-## <a name="a-idcreatelocatoracreate-an-ondemand-streaming-locator-in-order-to-get-a-streaming-url"></a><a id="create_locator"></a>Creare un localizzatore di streaming on demand per ottenere un URL di streaming
+## <a id="create_locator"></a>Creare un localizzatore di streaming on demand per ottenere un URL di streaming
 È necessario fornire all'utente l'URL del flusso per Smooth, DASH o HLS.
 
 > [!NOTE]
@@ -133,7 +134,7 @@ Ottenere un token di test basato sulla restrizione Token usata per i criteri di 
 
 È possibile utilizzare il [lettore AMS](http://amsplayer.azurewebsites.net/azuremediaplayer.html) per testare il flusso.
 
-## <a name="a-idexampleaexample"></a><a id="example"></a>Esempio
+## <a id="example"></a>Esempio
 L'esempio seguente illustra la funzionalità introdotta in Azure Media Services SDK per .Net versione 3.5.2, in particolare la possibilità di definire un modello di licenza Widevine e richiedere una licenza Widevine da Servizi multimediali di Azure. Per installare il pacchetto NuGet, è stato usato il comando del pacchetto seguente:
 
     PM> Install-Package windowsazure.mediaservices -Version 3.5.2
@@ -159,6 +160,9 @@ L'esempio seguente illustra la funzionalità introdotta in Azure Media Services 
               </appSettings>
         </configuration>
 7. Sovrascrivere il codice nel file Program.cs con il codice riportato in questa sezione.
+
+    >[!NOTE]
+    >È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Usare lo stesso ID criterio se si usano sempre gli stessi giorni/autorizzazioni di accesso, come nel cado di criteri per i localizzatori che devono rimanere attivi per molto tempo (criteri di non caricamento). Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) argomento.
 
     Assicurarsi di aggiornare le variabili in modo da puntare alle cartelle in cui si trovano i file di input.
 
@@ -275,27 +279,17 @@ L'esempio seguente illustra la funzionalità introdotta in Azure Media Services 
 
                     Console.WriteLine("Created assetFile {0}", assetFile.Name);
 
-                    var policy = _context.AccessPolicies.Create(
-                                            assetName,
-                                            TimeSpan.FromDays(30),
-                                            AccessPermissions.Write | AccessPermissions.List);
-
-                    var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
-
                     Console.WriteLine("Upload {0}", assetFile.Name);
 
                     assetFile.Upload(singleFilePath);
                     Console.WriteLine("Done uploading {0}", assetFile.Name);
-
-                    locator.Delete();
-                    policy.Delete();
 
                     return inputAsset;
                 }
 
                 static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
                 {
-                    var encodingPreset = "H264 Multiple Bitrate 720p";
+                    var encodingPreset = "Adaptive Streaming";
 
                     IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
                                             inputAsset.Name,
@@ -484,7 +478,6 @@ L'esempio seguente illustra la funzionalità introdotta in Azure Media Services 
                     return MediaServicesLicenseTemplateSerializer.Serialize(responseTemplate);
                 }
 
-
                 private static string ConfigureWidevineLicenseTemplate()
                 {
                     var template = new WidevineMessage
@@ -617,9 +610,4 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 [Configurare i pacchetti Widevine con AMS](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
 
 [Annuncio dei servizi di distribuzione delle licenze Google Widevine in Servizi multimediali di Azure](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

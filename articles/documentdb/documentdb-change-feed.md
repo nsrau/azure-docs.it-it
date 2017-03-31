@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 12/13/2016
-ms.author: b-hoedid
+ms.date: 03/20/2017
+ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: b22e75264345bc9d155bd1abc1fdb6e978dfad04
-ms.openlocfilehash: bafc50750381616ecf30c4e41090f342d82007f9
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 5ad5c688bae7b20ce6e5830e8c7b8dfa9c6df701
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -47,7 +48,7 @@ Il feed delle modifiche consente di elaborare con efficienza set di dati di gran
 
 ![Pipeline lambda basate su Azure DocumentDB per l'inserimento e le query](./media/documentdb-change-feed/lambda.png)
 
-È possibile usare DocumentDB per ricevere e archiviare i dati di eventi da dispositivi, sensori, infrastrutture e applicazioni, per poi elaborarli in tempo reale con [analisi di flusso di Azure](documentdb-search-indexer.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md) o [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
+È possibile usare DocumentDB per ricevere e archiviare i dati di eventi da dispositivi, sensori, infrastrutture e applicazioni, per poi elaborarli in tempo reale con [analisi di flusso di Azure](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md) o [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
 
 Nelle app Web e per dispositivi mobili è possibile tenere traccia di modifiche come quelle apportate al profilo, alle preferenze o alle località dei clienti per attivare determinate azioni come l'invio di notifiche push ai loro dispositivi tramite [Funzioni di Azure](../azure-functions/functions-bindings-documentdb.md) o [Servizi app](https://azure.microsoft.com/services/app-service/). Se si usa DocumentDB per creare un gioco, è possibile ad esempio usare il feed delle modifiche per implementare classifiche in tempo reale in base ai punteggi delle partite completate.
 
@@ -66,15 +67,15 @@ Il feed delle modifiche di DocumentDB è abilitato su tutti gli account per impo
 
 ![Elaborazione distribuita del feed delle modifiche di DocumentDB](./media/documentdb-change-feed/changefeedvisual.png)
 
-Nella sezione seguente viene descritto come accedere al feed delle modifiche con l'API REST e gli SDK di DocumentDB.
+Nella sezione seguente viene descritto come accedere al feed delle modifiche con l'API REST e gli SDK di DocumentDB. Per le applicazioni .NET, è consigliabile usare la [libreria del processore del feed delle modifiche]() per elaborare gli eventi dal feed delle modifiche.
 
-## <a name="working-with-the-rest-api-and-sdk"></a>Uso dell'API REST e degli SDK
+## <a id="rest-apis"></a>Uso dell'API REST e degli SDK
 DocumentDB offre contenitori elastici di archiviazione e velocità effettiva chiamati **raccolte**. I dati nelle raccolte vengono raggruppati in modo logico tramite [chiavi di partizione](documentdb-partition-data.md), per motivi di scalabilità e prestazioni. DocumentDB offre varie API per l'accesso ai dati, tra cui la ricerca per ID (Read/Get), le query e i feed di lettura (analisi). È possibile ottenere il feed delle modifiche popolando due nuove intestazioni di richiesta nell'API `ReadDocumentFeed` di DocumentDB. Il feed può essere elaborato in parallelo su più intervalli di chiavi di partizioni.
 
 ### <a name="readdocumentfeed-api"></a>API ReadDocumentFeed
 Esaminiamo brevemente il funzionamento di ReadDocumentFeed. DocumentDB supporta la lettura di un feed di documenti all'interno di una raccolta tramite l'API `ReadDocumentFeed`. La richiesta seguente restituisce ad esempio una pagina di documenti all'interno della raccolta `serverlogs`. 
 
-    GET https://mydocumentdb.documents.azure.com/dbs/smalldb/colls/smallcoll HTTP/1.1
+    GET https://mydocumentdb.documents.azure.com/dbs/smalldb/colls/serverlogs HTTP/1.1
     x-ms-date: Tue, 22 Nov 2016 17:05:14 GMT
     authorization: type%3dmaster%26ver%3d1.0%26sig%3dgo7JEogZDn6ritWhwc5hX%2fNTV4wwM1u9V2Is1H4%2bDRg%3d
     Cache-Control: no-cache
@@ -88,8 +89,6 @@ Esaminiamo brevemente il funzionamento di ReadDocumentFeed. DocumentDB supporta 
 
 **ReadDocumentFeed seriale**
 
-![Esecuzione seriale di ReadDocumentFeed di DocumentDB](./media/documentdb-change-feed/readfeedserial.png)
-
 È inoltre possibile recuperare il feed di documenti usando uno degli [SDK di DocumentDB](documentdb-sdk-dotnet.md) supportati. Ad esempio, il frammento seguente illustra come eseguire ReadDocumentFeed in .NET.
 
     FeedResponse<dynamic> feedResponse = null;
@@ -99,15 +98,10 @@ Esaminiamo brevemente il funzionamento di ReadDocumentFeed. DocumentDB supporta 
     }
     while (feedResponse.ResponseContinuation != null);
 
-> [!NOTE]
-> Il feed delle modifiche richiede la versione 1.11.0 o successiva dell'SDK (attualmente disponibile in Private Preview)
-
 ### <a name="distributed-execution-of-readdocumentfeed"></a>Esecuzione distribuite di ReadDocumentFeed
 Per le raccolte che contengono terabyte di dati o più o che ricevono volumi di aggiornamenti di grandi dimensioni, l'esecuzione seriale di un feed di lettura da una singola macchina client potrebbe non essere una soluzione pratica. Per supportare questi scenari di Big Data, DocumentDB offre API per distribuire in modo trasparente le chiamate `ReadDocumentFeed` su più lettori/consumer client. 
 
 **ReadDocumentFeed distribuito**
-
-![Esecuzione distribuita di ReadDocumentFeed di DocumentDB](./media/documentdb-change-feed/readfeedparallel.png)
 
 Per offrire l'elaborazione scalabile delle modifiche incrementali, DocumentDB supporta un modello a scalabilità orizzontale per l'API del feed delle modifiche, basato sugli intervalli di chiavi di partizione.
 
@@ -172,20 +166,24 @@ Questa richiesta restituisce la risposta seguente che contiene i metadati sugli 
     <tr>
         <td>minInclusive</td>
         <td>Il valore hash di chiave di partizione minimo per l'intervallo di chiavi di partizione. Solo per uso interno.</td>
-    </tr>       
+    </tr>        
 </table>
 
 È possibile farlo usando uno degli [SDK di DocumentDB](documentdb-sdk-dotnet.md). Ad esempio, il frammento seguente illustra come recuperare intervalli di chiavi di partizione in .NET.
 
+    string pkRangesResponseContinuation = null;
     List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
-    FeedResponse<PartitionKeyRange> response;
 
     do
     {
-        response = await client.ReadPartitionKeyRangeFeedAsync(collection);
-        partitionKeyRanges.AddRange(response);
+        FeedResponse<PartitionKeyRange> pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
+            collectionUri, 
+            new FeedOptions { RequestContinuation = pkRangesResponseContinuation });
+
+        partitionKeyRanges.AddRange(pkRangesResponse);
+        pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
     }
-    while (response.ResponseContinuation != null);
+    while (pkRangesResponseContinuation != null);
 
 DocumentDB supporta il recupero di documenti per ogni intervallo di chiavi di partizione mediante l'impostazione dell'intestazione `x-ms-documentdb-partitionkeyrangeid` facoltativa. 
 
@@ -254,24 +252,31 @@ Ecco una richiesta di esempio per restituire tutte le modifiche incrementali nel
     Accept: application/json
     Host: mydocumentdb.documents.azure.com
 
-Le modifiche vengono ordinate in base all'ora in ciascun valore di chiave di partizione all'interno dell'intervallo. Non esiste alcun ordine garantito tra i valori partition-key. Se sono presenti più risultati di quanti sia possibile visualizzare in una singola pagina, è possibile leggere la pagina successiva inviando nuovamente la richiesta con l'intestazione `If-None-Match` avente un valore uguale a `etag` della risposta precedente. Se sono stati aggiornati più documenti in modo transazionale in una procedura o in un trigger archiviati, questi verranno restituiti in un'unica pagina di risposta.
+Le modifiche vengono ordinate in base all'ora in ciascun valore di chiave di partizione all'interno dell'intervallo. Non esiste alcun ordine garantito tra i valori partition-key. Se sono presenti più risultati di quanti sia possibile visualizzare in una singola pagina, è possibile leggere la pagina successiva inviando nuovamente la richiesta con l'intestazione `If-None-Match` avente un valore uguale a `etag` della risposta precedente. Se sono stati inseriti o aggiornati più documenti in modo transazionale in una procedura o in un trigger archiviati, questi verranno restituiti in un'unica pagina di risposta.
 
-L'SDK di .NET offre le classi helper `CreateDocumentChangeFeedQuery` e `ChangeFeedOptions` per accedere alle modifiche apportate a una raccolta. Il frammento seguente mostra come recuperare tutte le modifiche dall'inizio usando l'SDK di .NET da un singolo client.
+> [!NOTE]
+> Il feed delle modifiche può consentire di ottenere un numero maggiore di elementi in una pagina rispetto a quanto specificato in `x-ms-max-item-count` in caso di inserimento o aggiornamento di più documenti in stored procedure o trigger. 
+
+.NET SDK fornisce le classi helper [CreateDocumentChangeFeedQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) e [ChangeFeedOptions](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.changefeedoptions.aspx) per l'accesso alle modifiche apportate a una raccolta. Il frammento seguente mostra come recuperare tutte le modifiche dall'inizio usando l'SDK di .NET da un singolo client.
 
     private async Task<Dictionary<string, string>> GetChanges(
         DocumentClient client,
         string collection,
         Dictionary<string, string> checkpoints)
     {
+        string pkRangesResponseContinuation = null;
         List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
-        FeedResponse<PartitionKeyRange> pkRangesResponse;
 
         do
         {
-            pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(collection);
+            FeedResponse<PartitionKeyRange> pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
+                collectionUri, 
+                new FeedOptions { RequestContinuation = pkRangesResponseContinuation });
+
             partitionKeyRanges.AddRange(pkRangesResponse);
+            pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
         }
-        while (pkRangesResponse.ResponseContinuation != null);
+        while (pkRangesResponseContinuation != null);
 
         foreach (PartitionKeyRange pkRange in partitionKeyRanges)
         {
@@ -326,14 +331,27 @@ Il frammento seguente, invece, mostra come elaborare le modifiche in tempo reale
         // trigger an action, like call an API
     }
 
+## <a id="change-feed-processor"></a>Libreria del processore dei feed delle modifiche
+La [libreria del processore del feed delle modifiche DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/ChangeFeedProcessor) consente di distribuire l'elaborazione degli eventi dal feed delle modifiche in più utenti. È consigliabile usare questa implementazione durante la creazione di lettori del feed delle modifiche sulla piattaforma .NET. La classe `ChangeFeedProcessorHost` fornisce un ambiente di runtime thread-safe, multiprocesso e sicuro per le implementazioni del processore di eventi che consente inoltre di gestire lease di checkpoint e di partizione.
+
+Per usare la classe [`ChangeFeedProcessorHost`](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/ChangeFeedProcessor/DocumentDB.ChangeFeedProcessor/ChangeFeedEventHost.cs), è possibile implementare [`IChangeFeedObserver`](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/ChangeFeedProcessor/DocumentDB.ChangeFeedProcessor/IChangeFeedObserver.cs). Questa interfaccia contiene tre metodi:
+
+* OpenAsync
+* CloseAsync
+* ProcessEventsAsync
+
+Per avviare l'elaborazione di eventi, creare un'istanza di ChangeFeedProcessorHost, indicando i parametri appropriati per la raccolta DocumentDB. Chiamare quindi `RegisterObserverAsync` per registrare l'implementazione di `IChangeFeedObserver` con il runtime. A questo punto, l'host tenta di acquisire un lease per ogni intervallo di chiavi di partizione nella raccolta DocumentDB usando un algoritmo greedy. Tali lease dureranno per un determinato intervallo di tempo e quindi devono essere rinnovati. Appena nuovi nodi, in questo caso istanze di lavoro, passano online, inviano prenotazioni di lease e nel tempo il carico passa tra i nodi man mano che ognuno tenta di acquisire più lease.
+
+![Uso dell'host del processore del feed delle modifiche DocumentDB](./media/documentdb-change-feed/changefeedprocessor.png)
+
+Con il passare del tempo, viene stabilito un equilibrio. Questa funzionalità dinamica consente il ridimensionamento automatico basato su CPU da applicare ai consumer per la scalabilità verticale e orizzontale. Se le modifiche sono disponibili in DocumentDB con velocità maggiore rispetto ai tempi di elaborazione dei consumer, è possibile usare l'aumento di CPU per i consumer per realizzare una scalabilità automatica sul numero di istanze del ruolo di lavoro.
+
+La classe ChangeFeedProcessorHost implementa inoltre un meccanismo di checkpoint con una raccolta di lease DocumentDB separata. Questo meccanismo archivia l'offset per ogni partizione, in modo che ogni consumer possa determinare qual è stato l'ultimo checkpoint per il consumer precedente. Man mano che le partizioni passano tra i nodi tramite lease, questo è il meccanismo di sincronizzazione che semplifica lo spostamento del carico.
+
 In questo articolo viene illustrata una procedura dettagliata sul supporto al feed delle modifiche di DocumentDB e su come tenere traccia delle modifiche apportate ai dati di DocumentDB usando l'API REST e/o gli SDK di DocumentDB. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Provare gli [esempi di codice del feed delle modifiche di DocumentDB su Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed)
 * Ulteriori informazioni sui [modelli e la gerarchia di risorse di DocumentDB](documentdb-resources.md)
 * Introduzione alla programmazione con gli [SDK](documentdb-sdk-dotnet.md) o l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) di DocumentDB
-
-
-<!--HONumber=Dec16_HO2-->
-
 

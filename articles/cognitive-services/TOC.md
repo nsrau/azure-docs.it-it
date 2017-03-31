@@ -2,6 +2,7 @@
 # Panoramica
 ## [Che cosa sono i servizi cognitivi?](https://azure.microsoft.com/services/cognitive-services/)
 # Attività iniziali
+## [Creare un account](cognitive-services-apis-create-account.md)
 ## [Avvio rapido di Analisi del testo](cognitive-services-text-analytics-quick-start.md)
 ## [Avvio rapido di Consigli](cognitive-services-recommendations-quick-start.md)
 
@@ -52,8 +53,3 @@
 ## [Prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=cognitive-services)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=cognitive-services)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

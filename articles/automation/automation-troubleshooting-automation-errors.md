@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi di Automazione di Azure | Documentazione Microsoft
+title: Risoluzione dei problemi comuni di Automazione di Azure | Documentazione Microsoft
 description: Questo articolo fornisce informazioni utili per la risoluzione dei problemi e la correzione degli errori comuni di Automazione di Azure.
 services: automation
 documentationcenter: 
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 01/24/2017
 ms.author: sngun; v-reagie
 translationtype: Human Translation
-ms.sourcegitcommit: 15a8ff89ae7a7d335c9d8584aaef0b21f092566f
-ms.openlocfilehash: f86942e399385efbb8c9cb6f250a8668fe260602
+ms.sourcegitcommit: a8ecffbc5f9c7e2408708d59459a0d39e59d6e1e
+ms.openlocfilehash: 3e4a4b431e26e58a0af1eee182fded51b6618fac
 
 
 ---
-# <a name="troubleshoot-azure-automation"></a>Risolvere i problemi di Automazione di Azure 
+# <a name="troubleshooting-common-issues-in-azure-automation"></a>Risoluzione dei problemi comuni in Automazione di Azure 
 Questo articolo fornisce informazioni utili per la risoluzione degli errori comuni che si possono verificare in Automazione di Azure e suggerisce possibili soluzioni.
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Errori di autenticazione durante l'utilizzo di runbook di Automazione di Azure
@@ -61,7 +61,7 @@ Questo articolo fornisce informazioni utili per la risoluzione degli errori comu
 
 **Motivo dell'errore:** se nell'account Azure è abilitata l'autenticazione a più fattori, non è possibile usare un utente di Azure Active Directory per l'autenticazione in Azure.  È invece necessario usare un certificato o un'entità servizio per l'autenticazione in Azure.
 
-**Suggerimenti per la risoluzione dei problemi:** per usare un certificato con i cmdlet di gestione del servizio di Azure, vedere il blog relativo alla [creazione e all'aggiunta di un certificato per la gestione dei servizi Azure.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Per usare un'entità servizio con i cmdlet di Azure Resource Manager, vedere l'argomento relativo alla [creazione di un'entità servizio tramite il portale di Azure](../resource-group-create-service-principal-portal.md) e quello relativo all'[autenticazione di un'entità servizio con Azure Resource Manager.](../resource-group-authenticate-service-principal.md)
+**Suggerimenti per la risoluzione dei problemi:** per usare un certificato con i cmdlet di gestione del servizio di Azure, vedere il blog relativo alla [creazione e all'aggiunta di un certificato per la gestione dei servizi Azure.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Per usare un'entità servizio con i cmdlet di Azure Resource Manager, vedere l'argomento relativo alla [creazione di un'entità servizio tramite il portale di Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md) e quello relativo all'[autenticazione di un'entità servizio con Azure Resource Manager.](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Errori comuni durante l'utilizzo di runbook
 ### <a name="scenario-runbook-fails-because-of-deserialized-object"></a>Scenario: Runbook con esito negativo a causa di un oggetto deserializzato
@@ -175,6 +175,6 @@ Se è stata seguita la procedura precedente per la risoluzione dei problemi e no
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

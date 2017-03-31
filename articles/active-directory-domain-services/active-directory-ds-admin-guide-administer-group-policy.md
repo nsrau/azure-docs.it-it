@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 2f3ea8b6be032b732b5ab1c587843f10387a4efb
-ms.openlocfilehash: 56397e33fb86cd839899a4009f2be95402a09b14
+ms.sourcegitcommit: 76987a6e91ae688b3856567073a7d27472e5ba09
+ms.openlocfilehash: 9245eb870f592ee0a1f1d6956ce3d573f4902485
+ms.lasthandoff: 01/28/2017
 
 
 ---
@@ -83,15 +84,40 @@ Eseguire questa procedura per installare gli strumenti di amministrazione dei cr
 2. Fare clic su **Gestione Criteri di gruppo** per avviare la relativa console.
 
     ![Console Criteri di gruppo](./media/active-directory-domain-services-admin-guide/gp-management-console.png)
-3. Fare clic per espandere i nodi **Foresta: contoso100.com** e **Domini** per visualizzare i criteri di gruppo del dominio gestito. Sono presenti due oggetti Criteri di gruppo predefiniti nel dominio gestito, uno per il contenitore "AADDC Computers" e uno per il contenitore "AADDC Users".
+
+## <a name="task-4---customize-built-in-group-policy-objects"></a>Attività 4: personalizzare gli Oggetti Criteri di gruppo predefiniti
+Sono presenti due oggetti Criteri di gruppo predefiniti nel dominio gestito, uno per il contenitore "AADDC Computers" e uno per il contenitore "AADDC Users". È possibile personalizzare questi oggetti Criteri di gruppo per configurare i criteri di gruppo nel dominio gestito.
+
+1. Nella console **Gestione Criteri di gruppo** fare clic per espandere i nodi **Foresta: contoso100.com** e **Domini** per visualizzare i criteri di gruppo del dominio gestito.
 
     ![Oggetti Criteri di gruppo predefiniti](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
-4. È possibile personalizzare questi oggetti Criteri di gruppo predefiniti per configurare criteri di gruppo nel dominio gestito. Fare clic con il pulsante destro del mouse sull'oggetto Criteri di gruppo e quindi su **Modifica...** per personalizzare l'oggetto predefinito. L'Editor di configurazione degli oggetti Criteri di gruppo consente di personalizzare tali oggetti.
+2. È possibile personalizzare questi oggetti Criteri di gruppo predefiniti per configurare criteri di gruppo nel dominio gestito. Fare clic con il pulsante destro del mouse sull'oggetto Criteri di gruppo e quindi su **Modifica...** per personalizzare l'oggetto predefinito. L'Editor di configurazione degli oggetti Criteri di gruppo consente di personalizzare tali oggetti.
 
     ![Modificare gli oggetti Criteri di gruppo predefiniti](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
-5. È ora possibile utilizzare la console dell'**Editor di Gestione Criteri di gruppo** per modificare gli oggetti Criteri di gruppo predefiniti. Ad esempio, nella schermata seguente viene illustrato come personalizzare l'oggetto Criteri di gruppo predefinito "AADDC Computers".
+3. È ora possibile utilizzare la console dell'**Editor di Gestione Criteri di gruppo** per modificare gli oggetti Criteri di gruppo predefiniti. Ad esempio, nella schermata seguente viene illustrato come personalizzare l'oggetto Criteri di gruppo predefinito "AADDC Computers".
 
     ![Personalizzare un oggetto Criteri di gruppo predefinito](./media/active-directory-domain-services-admin-guide/gp-editor.png)
+
+## <a name="task-5---create-a-custom-group-policy-object-gpo"></a>Attività 5: creare un Oggetto Criteri di gruppo (GPO) personalizzato
+È possibile creare o importare i propri oggetti criteri di gruppo personalizzati. È anche possibile collegare gli Oggetto Criteri di gruppo personalizzati a un'unità organizzativa creata nel dominio gestito. Per ulteriori informazioni sulla creazione di unità organizzative personalizzate, consultare l'articolo su come [creare un'Unità organizzativa in un dominio gestito](active-directory-ds-admin-guide-create-ou.md).
+
+> [!NOTE]
+> È necessario essere un membro del gruppo "AAD DC Administrators" per poter amministrare Criteri di gruppo nel dominio gestito.
+>
+>
+
+1. Nella console **Gestione Criteri di gruppo** fare clic per selezionare l'unità organizzativa (OU) personalizzata. Fare clic con il tasto destro del mouse sull'unità organizzativa e quindi su **Crea un oggetto Criteri di gruppo in questo dominio e crea qui un collegamento...**.
+
+    ![Creare un Oggetto Criteri di gruppo personalizzato](./media/active-directory-domain-services-admin-guide/gp-create-gpo.png)
+2. Specificare il nome del nuovo Oggetto Criteri di gruppo e fare clic su **OK**.
+
+    ![Specificare il nome dell'Oggetto Criteri di gruppo](./media/active-directory-domain-services-admin-guide/gp-specify-gpo-name.png)
+3. Viene creato un nuovo Oggetto Criteri di gruppo e collegato all'Unità organizzativa personalizzata. Fare clic con il tasto destro del mouse sull'Oggetto Criteri di gruppo e quindi su **Modifica...** nel menu.
+
+    ![Oggetto Criteri di gruppo appena creato](./media/active-directory-domain-services-admin-guide/gp-gpo-created.png)
+4. È possibile personalizzare l'Oggetto Criteri di gruppo appena creato utilizzando l'**Editor Gestione Criteri di gruppo**.
+
+    ![Personalizzare il nuovo Oggetto Criteri di gruppo](./media/active-directory-domain-services-admin-guide/gp-customize-gpo.png)
 
 
 Ulteriori informazioni sull'uso della [console di Gestione Criteri di gruppo](https://technet.microsoft.com/library/cc753298.aspx) sono disponibili su TechNet.
@@ -101,9 +127,4 @@ Ulteriori informazioni sull'uso della [console di Gestione Criteri di gruppo](ht
 * [Aggiungere una macchina virtuale Windows Server a un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Amministrare un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-administer-domain.md)
 * [Console Gestione Criteri di gruppo](https://technet.microsoft.com/library/cc753298.aspx)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

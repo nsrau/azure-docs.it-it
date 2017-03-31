@@ -4,7 +4,7 @@ description: "Apprendere come distribuire nuove funzionalità nell&quot;app o es
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 17953c51-38f8-442d-bb0b-f69c1542f0e9
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 84b5f28fcd0640fd85b5f8c9d655105790c70d62
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -25,7 +26,7 @@ Questa esercitazione illustra come eseguire *distribuzioni di versioni di antepr
 
 *distribuzione di versioni di anteprima* è un processo che convalida una nuova funzionalità o una modifica con un numero limitato di clienti reali ed è un test importante in uno scenario di produzione. È simile al test di versioni beta e viene talvolta definita come "anteprima di test controllato". Molte aziende di grandi dimensioni con una presenza Web usano questo approccio per ottenere la convalida preventiva degli aggiornamenti di app nella proprià attività di [sviluppo Agile](https://en.wikipedia.org/wiki/Agile_software_development). Il servizio app di Azure consente di integrare il test nell'ambiente di produzione con la pubblicazione continua e Application Insights per implementare lo stesso scenario DevOps. I vantaggi di questo approccio includono:
 
-* **Ottenere commenti e suggerimenti reali *prima* del rilascio di aggiornamenti in produzione: ricevere commenti e suggerimenti prima del rilascio di un aggiornamento è un vantaggio unico rispetto a riceverli dopo. È possibile testare gli aggiornamenti con traffico utente e comportamenti reali con la tempestività desiderata nel ciclo di vita del prodotto.
+* **Ottenere commenti e suggerimenti reali *prima* del rilascio di aggiornamenti in produzione**: ricevere commenti e suggerimenti prima del rilascio di un aggiornamento è un vantaggio unico rispetto a riceverli dopo. È possibile testare gli aggiornamenti con traffico utente e comportamenti reali con la tempestività desiderata nel ciclo di vita del prodotto.
 * **Migliorare lo [sviluppo continuo basato su test (CTDD, Continuous test-driven development)](https://en.wikipedia.org/wiki/Continuous_test-driven_development)**: grazie all'integrazione di test nell'ambiente di produzione con l'integrazione continua e la strumentazione con Application Insights, la convalida dell'utente avviene tempestivamente e automaticamente nel ciclo di vita del prodotto. Questo approccio consente di ridurre gli investimenti in termini di tempo per l'esecuzione di test manuali.
 * **Ottimizzare il flusso di lavoro di test**: automatizzando i test nell'ambiente di produzione con la strumentazione di monitoraggio continuo, è potenzialmente possibile raggiungere gli obiettivi dei vari tipi di test in un singolo processo, ad esempio [integrazione](https://en.wikipedia.org/wiki/Integration_testing), [regressione](https://en.wikipedia.org/wiki/Regression_testing), [usabilità](https://en.wikipedia.org/wiki/Usability_testing), accessibilità, localizzazione, [prestazioni](https://en.wikipedia.org/wiki/Software_performance_testing), [sicurezza](https://en.wikipedia.org/wiki/Security_testing) e [accettazione](https://en.wikipedia.org/wiki/Acceptance_testing).
 
@@ -356,9 +357,4 @@ Il servizio app di Azure consente alle piccole e medie imprese di testare le pro
 * [Diramazione Git - Diramazione e unione di base](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 * [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Wiki del progetto Kudu](https://github.com/projectkudu/kudu/wiki)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

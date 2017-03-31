@@ -17,6 +17,7 @@ ms.author: jodehavi;stgriffi
 translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: cc872e8d9bc0662f46d5f394f9c98885e34fe67a
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -437,9 +438,4 @@ Creare ora un'azione in **Se no, non fare nulla** .
 Per l'azione, scegliere **Office 365 - send email**. Compilare i campi per creare un messaggio di posta elettronica da inviare quando la condizione specificata restituisce **false**. Se non si ha Office 365 è possibile valutare alternative per ottenere lo stesso risultato.
 
 A questo punto è disponibile una pipeline end-to-end che controlla se sono disponibili nuovi log di controllo dell'insieme di credenziali delle chiavi ogni minuto. La pipeline effettua il push dei nuovi log trovati in una coda del bus di servizio. L'app per la logica viene attivata quando arriva un nuovo messaggio nella coda. Se l'*appid* all'interno dell'evento non corrisponde all'ID app dell'applicazione chiamante, invia un messaggio di posta elettronica.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

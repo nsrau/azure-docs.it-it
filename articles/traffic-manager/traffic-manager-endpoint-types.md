@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/29/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 69b94c93ad3e9c9745af8485766b4237cac0062c
-ms.openlocfilehash: 2ced9e73a65160f4f3c8ba92affc143ca554d07c
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 6d048b73528d1812f1be9585d30812ca4aeaa397
+ms.lasthandoff: 03/30/2017
 
 ---
 
@@ -24,7 +25,6 @@ ms.openlocfilehash: 2ced9e73a65160f4f3c8ba92affc143ca554d07c
 Gestione traffico di Microsoft Azure consente di controllare la distribuzione del traffico di rete a distribuzioni di applicazioni in esecuzione in diversi data center. In Gestione traffico ogni distribuzione di applicazioni viene configurata come "endpoint". Quando Gestione traffico riceve una richiesta DNS, sceglie un endpoint disponibile da restituire nella risposta DNS. Gestione traffico basa la scelta sullo stato dell'endpoint corrente e sul metodo di routing del traffico. Per altre informazioni, vedere [Modalità di funzionamento di Gestione traffico](traffic-manager-how-traffic-manager-works.md).
 
 Gli endpoint supportati da Gestione traffico sono di tre tipi:
-
 * **Endpoint di Azure** , usati per i servizi ospitati in Azure.
 * **Endpoint esterni** , usati per i servizi ospitati all'esterno di Azure, in locale o da un provider di hosting diverso.
 * **Endpoint annidati** , usati per combinare i profili di Gestione traffico e creare schemi di routing del traffico più flessibili, per supportare le esigenze di distribuzioni più grandi e complesse.
@@ -53,7 +53,7 @@ Gli endpoint esterni vengono usati per i servizi esterni a Azure. Può trattarsi
 * Per ridurre la latenza dell'applicazione per utenti attivi in diversi paesi, possibilità di estendere un'applicazione locale esistente ad aree geografiche aggiuntive in Azure. Per altre informazioni, vedere [Metodo di routing del traffico Prestazioni](traffic-manager-routing-methods.md#performance-traffic-routing-method).
 * Uso di Azure per offrire capacità aggiuntiva a un'applicazione locale esistente, in modo continuo o come soluzione "burst nel cloud" per gestire un picco di domanda.
 
-In alcuni casi può essere utile usare endpoint esterni per fare riferimento a servizi di Azure. Per alcuni esempi, vedere la sezione [Domande frequenti](#faq). In questo caso, i controlli di integrità vengono fatturati in base alla tariffa degli endpoint di Azure anziché in base alla tariffa degli endpoint esterni. Tuttavia, a differenza di quanto si verifica per gli endpoint di Azure, se si arresta o si elimina il servizio sottostante, la fatturazione per i controlli di integrità prosegue fino a quando non si disabilita o elimina l'endpoint in Gestione traffico.
+In alcuni casi può essere utile usare endpoint esterni per fare riferimento a servizi di Azure. Per alcuni esempi, vedere la sezione [Domande frequenti](traffic-manager-faqs.md#traffic-manager-endpoints). In questo caso, i controlli di integrità vengono fatturati in base alla tariffa degli endpoint di Azure anziché in base alla tariffa degli endpoint esterni. Tuttavia, a differenza di quanto si verifica per gli endpoint di Azure, se si arresta o si elimina il servizio sottostante, la fatturazione per i controlli di integrità prosegue fino a quando non si disabilita o elimina l'endpoint in Gestione traffico.
 
 ## <a name="nested-endpoints"></a>Endpoint annidati
 
@@ -65,7 +65,7 @@ Per la configurazione di app Web come endpoint in Gestione traffico si rendono n
 
 1. Solo le app Web a partire dallo SKU "standard" sono idonee all'uso con Gestione traffico. I tentativi di aggiungere app Web dello SKU di una versione precedente hanno esito negativo. Se si esegue il downgrade dello SKU di un'app Web esistente, Gestione traffico smette di inviare traffico a tale app Web.
 2. Quando un endpoint riceve una richiesta HTTP, usa l'intestazione "host" della richiesta per determinare quale app Web usare per gestirla. L'intestazione host contiene il nome DNS usato per avviare la richiesta, ad esempio "contosoapp.azurewebsites.net". Per usare un nome DNS diverso con l'app Web, tale nome DNS deve essere registrato come nome di dominio personalizzato per l'app. Quando si aggiunge un endpoint di app Web come endpoint di Azure, il nome DNS del profilo di Gestione traffico viene registrato automaticamente per l'app. Questa registrazione viene rimossa automaticamente quando l'endpoint viene eliminato.
-3. Ogni profilo di Gestione traffico può avere al massimo un endpoint di app Web da ogni area di Azure. Per ovviare a questa limitazione, è possibile configurare un'app Web come endpoint esterno. Per altre informazioni, vedere la sezione [Domande frequenti](#faq).
+3. Ogni profilo di Gestione traffico può avere al massimo un endpoint di app Web da ogni area di Azure. Per ovviare a questa limitazione, è possibile configurare un'app Web come endpoint esterno. Per altre informazioni, vedere la sezione [Domande frequenti](traffic-manager-faqs.md#traffic-manager-endpoints).
 
 ## <a name="enabling-and-disabling-endpoints"></a>Abilitazione e disabilitazione di endpoint
 
@@ -89,49 +89,11 @@ Per altre informazioni, vedere [Informazioni sul monitoraggio di Gestione traffi
 
 Se tutti gli endpoint di un profilo sono disabilitati o se il profilo stesso è disabilitato, Gestione traffico invia una risposta "NXDOMAIN" a una nuova query DNS.
 
-## <a name="faq"></a>Domande frequenti
-
-### <a name="can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions"></a>È possibile usare Gestione traffico con endpoint di più sottoscrizioni?
-
-L'uso di endpoint di più sottoscrizioni non è possibile con app Web di Azure. Per le app Web di Azure è necessario che ogni nome di dominio personalizzato usato con app Web venga usato solo all'interno di una singola sottoscrizione. Non è possibile usare app Web da più sottoscrizioni con lo stesso nome di dominio.
-
-Per altri tipi di endpoint, è possibile utilizzare Gestione traffico con gli endpoint da più di una sottoscrizione. La configurazione di Gestione traffico varia a seconda che si usi il modello di distribuzione classica o l'esperienza Resource Manager.
-
-* In Resource Manager è possibile aggiungere endpoint di qualsiasi sottoscrizione a Gestione traffico, purché la persona che configura il profilo di Gestione traffico abbia accesso in lettura all'endpoint. Queste autorizzazioni possono essere concesse tramite il [controllo di accesso in base al ruolo di Azure Resource Manager](../active-directory/role-based-access-control-configure.md).
-* Nell'interfaccia del modello di distribuzione classica Gestione traffico richiede che tutti i servizi cloud e le app Web configurati come endpoint di Azure si trovino nella stessa sottoscrizione del profilo di Gestione traffico. È possibile aggiungere endpoint del servizio cloud di altre sottoscrizioni a Gestione traffico come endpoint esterni. Questi endpoint esterni vengono fatturati come endpoint di Azure e non in base alla tariffa degli endpoint esterni.
-
-### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>È possibile usare Gestione traffico con slot di "staging" del servizio cloud?
-
-Sì. Gli slot di "staging" del servizio cloud possono essere configurati come endpoint esterni in Gestione traffico. I controlli di integrità vengono fatturati in base alla tariffa degli endpoint di Azure. Dato che viene usato il tipo di endpoint esterno, le modifiche al servizio sottostante non vengono rilevate automaticamente. Se si usano endpoint esterni, Gestione traffico non è in grado di rilevare l'eventuale arresto o eliminazione del servizio cloud. Di conseguenza, Gestione traffico continua a fatturare i controlli di integrità fino a quando l'endpoint non viene disabilitato o eliminato.
-
-### <a name="does-traffic-manager-support-ipv6-endpoints"></a>Gestione traffico supporta endpoint IPv6?
-
-Attualmente Gestione traffico non fornisce server dei nomi indirizzabili tramite IPv6. Può comunque essere usato da client IPv6 che si connettono a endpoint IPv6. Un client non invia richieste DNS direttamente a Gestione traffico, ma usa un servizio DNS ricorsivo. Un client solo IPv6 invia richieste al servizio DNS ricorsivo tramite IPv6. Il servizio ricorsivo può quindi contattare i server dei nomi di Gestione traffico tramite IPv4.
-
-Gestione traffico risponde con il nome DNS dell'endpoint. Per supportare un endpoint IPv6, è necessaria la presenza di un record AAAA DNS che punti il nome DNS dell'endpoint all'indirizzo IPv6. I controlli di integrità di Gestione traffico supportano soltanto gli indirizzi IPv4. Il servizio deve esporre un endpoint IPv4 sullo stesso nome DNS.
-
-### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>È possibile usare Gestione traffico con più app Web nella stessa area?
-
-In genere, Gestione traffico viene usato per indirizzare il traffico ad applicazioni distribuite in aree diverse. Tuttavia, può anche essere usato in un'applicazione che abbia più distribuzioni nella stessa area. Gli endpoint di Azure di Gestione traffico non permettono l'aggiunta di più endpoint di app Web della stessa area di Azure allo stesso profilo di Gestione traffico.
-
-I passaggi seguenti offrono una soluzione alternativa a questo vincolo:
-
-1. Verificare che gli endpoint si trovino in unità di scala diverse dell'app Web. Un nome di dominio deve eseguire il mapping a un unico sito in un'unità di scala specificata. Di conseguenza, due app Web nella stessa unità di scala non possono condividere un profilo di Gestione traffico.
-2. Aggiungere il nome di dominio personale come nome host personalizzato a ogni app Web. Ogni App Web deve trovarsi in un'unità di scala diversa. Tutte le app Web devono appartenere alla stessa sottoscrizione.
-3. Aggiungere un unico endpoint di app Web al profilo di Gestione traffico, come endpoint di Azure.
-4. Aggiungere gli altri endpoint di app Web al profilo di Gestione traffico come endpoint esterni. È possibile aggiungere endpoint esterni solo usando il modello di distribuzione di Resource Manager.
-5. Nel proprio dominio personale creare un record CNAME DNS che punti al nome DNS del profilo di Gestione traffico (<...>.trafficmanager.net).
-6. Accedere al sito tramite il nome di dominio personalizzato anziché dal nome DNS del profilo di Gestione traffico.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni sul [funzionamento di Gestione traffico](traffic-manager-how-traffic-manager-works.md).
 * Informazioni sul [monitoraggio degli endpoint e sul failover automatico](traffic-manager-monitoring.md)di Gestione traffico.
 * Informazioni sui [metodi di routing del traffico](traffic-manager-routing-methods.md)di Gestione traffico.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

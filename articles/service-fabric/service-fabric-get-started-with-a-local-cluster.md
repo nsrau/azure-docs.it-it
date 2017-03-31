@@ -12,11 +12,12 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/14/2016
+ms.date: 03/15/2017
 ms.author: ryanwi;mikhegn
 translationtype: Human Translation
 ms.sourcegitcommit: eddca02c4fba88aee667216568beecc76ea65d7c
 ms.openlocfilehash: d1320daaf4b0bd8c1a7b7c8e37fa8b81c4a53e64
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -240,9 +241,4 @@ In alternativa, modificare la modalità di cluster usando PowerShell:
 [sfe-delete-application]: ./media/service-fabric-get-started-with-a-local-cluster/sfe-delete-application.png
 [cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
 [switch-cluster-mode]: ./media/service-fabric-get-started-with-a-local-cluster/switch-cluster-mode.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

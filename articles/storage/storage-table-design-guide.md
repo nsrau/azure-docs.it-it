@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 11/28/2016
+ms.date: 02/28/2017
 ms.author: jahogg
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: daff0744d20996014b065b9d4f5fd6b196af923c
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -165,19 +166,19 @@ Questi elenchi riepilogano alcune linee guida chiave che è necessario tenere pr
 
 Progettazione di una soluzione di servizio tabelle efficiente nelle operazioni di *lettura* :
 
-* ***Progettazione per le query nelle applicazioni con intensa attività di lettura.***  Quando si progettano le tabelle, considerare le query (soprattutto quelle sensibili alla latenza) che si eseguiranno prima di pensare a come si aggiorneranno le entità. Ciò comporta in genere una soluzione efficiente e ad alte prestazioni.  
+* ***Progettazione per le query nelle applicazioni con intensa attività di lettura.*** Quando si progettano le tabelle, considerare le query (soprattutto quelle sensibili alla latenza) che si eseguiranno prima di pensare a come si aggiorneranno le entità. Ciò comporta in genere una soluzione efficiente e ad alte prestazioni.  
 * ***Specificare PartitionKey e RowKey nelle query.*** *Scegliere query* come queste sono le query più efficienti del servizio tabella.  
-* ***Prendere in considerazione l'archiviazione di copie duplicate delle entità.***  Poiché l'archiviazione tabelle è economica, considerare la possibilità di archiviare la stessa entità più volte (con chiavi diverse) per consentire query più efficienti.  
-* ***Considerare la denormalizzazione dei dati.***  L’archiviazione delle tabelle è economica, dunque è opportuno considerare la denormalizzazione dei dati. Ad esempio, archiviare le entità di riepilogo in modo che le query per aggregare i dati debbano accedere a una singola entità.  
+* ***Prendere in considerazione l'archiviazione di copie duplicate delle entità.*** Poiché l'archiviazione tabelle è economica, considerare la possibilità di archiviare la stessa entità più volte (con chiavi diverse) per consentire query più efficienti.  
+* ***Considerare la denormalizzazione dei dati.*** L’archiviazione delle tabelle è economica, dunque è opportuno considerare la denormalizzazione dei dati. Ad esempio, archiviare le entità di riepilogo in modo che le query per aggregare i dati debbano accedere a una singola entità.  
 * ***Usare valori chiave composti.*** Le sole chiavi a disposizione sono **PartitionKey** e **RowKey**. Ad esempio, per abilitare percorsi alternativi per l'accesso con chiave alle entità, ad esempio, utilizzare valori chiave composti.  
-* ***Usare la proiezione di query.***  È possibile ridurre la quantità di dati trasferiti tramite la rete usando query che selezionano solo i campi necessari.  
+* ***Usare la proiezione di query.*** È possibile ridurre la quantità di dati trasferiti tramite la rete usando query che selezionano solo i campi necessari.  
 
 Progettazione di una soluzione di servizio tabelle efficiente nelle operazioni di *scrittura* :  
 
-* ***Non creare partizioni critiche.***  Scegliere chiavi che consentono di distribuire le richieste tra più partizioni in qualsiasi momento.  
-* ***Evitare picchi di traffico.***  Contenere il traffico in un intervallo di tempo ragionevole ed evitare i picchi di traffico.
-* ***Non creare necessariamente una tabella separata per ogni tipo di entità.***  Quando è necessario eseguire transazioni atomiche tra diversi tipi di entità, è possibile archiviare questi tipi di entità nella stessa partizione della stessa tabella.
-* ***Considerare la velocità effettiva massima che è necessario raggiungere.***  È necessario tenere presenti gli obiettivi di scalabilità per il servizio tabelle e assicurarsi di non superarli con la progettazione.  
+* ***Non creare partizioni critiche.*** Scegliere chiavi che consentono di distribuire le richieste tra più partizioni in qualsiasi momento.  
+* ***Evitare picchi di traffico.*** Contenere il traffico in un intervallo di tempo ragionevole ed evitare i picchi di traffico.
+* ***Non creare necessariamente una tabella separata per ogni tipo di entità.*** Quando è necessario eseguire transazioni atomiche tra diversi tipi di entità, è possibile archiviare questi tipi di entità nella stessa partizione della stessa tabella.
+* ***Considerare la velocità effettiva massima che è necessario raggiungere.*** È necessario tenere presenti gli obiettivi di scalabilità per il servizio tabelle e assicurarsi di non superarli con la progettazione.  
 
 Questa guida contiene esempi in cui vengono messi in pratica tutti questi principi.  
 
@@ -300,7 +301,7 @@ I seguenti modelli nella sezione [Modelli di progettazione tabelle](#table-desig
 ## <a name="encrypting-table-data"></a>Crittografia dei dati di tabella
 La libreria client di Archiviazione di Azure per .NET supporta la crittografia di proprietà di entità stringa per le operazioni di inserimento e sostituzione. Le stringhe crittografate vengono archiviate nel servizio come proprietà binarie e vengono convertite nuovamente in stringhe dopo la decrittografia.    
 
-Per le tabelle, oltre al criterio di crittografia, gli utenti devono specificare le proprietà da crittografare. Questa operazione può essere eseguita specificando un attributo [EncryptProperty] (per le entità POCO che derivano da TableEntity) o un resolver di crittografia nelle opzioni di richiesta. Un resolver di crittografia è un delegato che accetta una chiave di partizione, una chiave di riga e un nome di proprietà e restituisce un valore booleano che indica se tale proprietà deve essere crittografata. Durante la crittografia, la libreria client utilizzerà queste informazioni per decidere se una proprietà deve essere crittografata durante la scrittura in rete. Il delegato fornisce inoltre la possibilità di logica per la modalità di crittografia delle proprietà. (Ad esempio, se X, quindi crittografa la proprietà A; in caso contrario crittografa le proprietà A e B). Si noti che non è necessario fornire queste informazioni durante la lettura o la query su entità.
+Per le tabelle, oltre al criterio di crittografia, gli utenti devono specificare le proprietà da crittografare. Questa operazione può essere eseguita specificando un attributo [EncryptProperty] \(per le entità POCO che derivano da TableEntity) o un resolver di crittografia nelle opzioni di richiesta. Un resolver di crittografia è un delegato che accetta una chiave di partizione, una chiave di riga e un nome di proprietà e restituisce un valore booleano che indica se tale proprietà deve essere crittografata. Durante la crittografia, la libreria client utilizzerà queste informazioni per decidere se una proprietà deve essere crittografata durante la scrittura in rete. Il delegato fornisce inoltre la possibilità di logica per la modalità di crittografia delle proprietà. (Ad esempio, se X, quindi crittografa la proprietà A; in caso contrario crittografa le proprietà A e B). Si noti che non è necessario fornire queste informazioni durante la lettura o la query su entità.
 
 Si noti che l'unione non è attualmente supportata. Poiché un subset di proprietà potrebbe essere stato crittografato in precedenza utilizzando una chiave diversa, la semplice unione delle nuove proprietà e l’aggiornamento dei metadati comportano la perdita di dati. L'unione richiede chiamate a servizi aggiuntivi per la lettura dell’entità preesistente dal servizio o l’utilizzo di una nuova chiave per ogni proprietà, entrambe operazioni non idonee per motivi di prestazioni.     
 
@@ -1543,10 +1544,5 @@ I nostri ringraziamenti vanno inoltre ai Microsoft MVP seguenti per i preziosi c
 [27]: ./media/storage-table-design-guide/storage-table-design-IMAGE27.png
 [28]: ./media/storage-table-design-guide/storage-table-design-IMAGE28.png
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

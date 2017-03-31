@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2016
+ms.date: 03/06/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: cbc91181f2531ea5e60bb426d6b8b42e2c7684d3
-ms.openlocfilehash: 0bb6db67df25fb3c3484c819398890efef343943
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 40636aa9d847b97ea872bf4689a1da6e3eb23eb4
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -61,7 +62,7 @@ Nel portale seguire questa procedura per accedere al Centro sicurezza:
    ![Criteri di sicurezza][3]
 2. Selezionare una sottoscrizione nel pannello **Criteri di sicurezza - Definire il criterio per ogni sottoscrizione o gruppo di risorse**.
 3. Nel pannello **Criteri di sicurezza** **Raccolta dati** è abilitato per raccogliere automaticamente i log. Il provisioning dell'estensione di monitoraggio viene effettuato in tutte le VM correnti e nuove nella sottoscrizione. È possibile rifiutare esplicitamente la raccolta dati impostando **Raccolta dati** su **No**, ma in questo modo il Centro sicurezza non potrà fornire avvisi e raccomandazioni sulla sicurezza.
-4. Nel pannello **Criteri di sicurezza** selezionare **Scegliere un account di archiviazione per area**. Per ciascuna area in cui sono in esecuzione VM, è necessario selezionare l'account di archiviazione in cui vengono archiviati i dati raccolti dalle VM. Se non si sceglie un account di archiviazione per ogni area, verrà creato automaticamente. I dati raccolti vengono isolati in modo logico da quelli di altri clienti per motivi di sicurezza.
+4. Nel pannello **Criteri di sicurezza** selezionare **Scegliere un account di archiviazione per area**. Per ciascuna area in cui sono in esecuzione VM, è necessario selezionare l'account di archiviazione in cui vengono archiviati i dati raccolti dalle VM. Se non si sceglie un account di archiviazione per ogni area, viene creato un account di archiviazione per il gruppo di risorse securitydata e inserito in esso. I dati raccolti vengono isolati in modo logico da quelli di altri clienti per motivi di sicurezza.
 
    > [!NOTE]
    > È consigliabile abilitare la raccolta dati e scegliere prima un account di archiviazione a livello di sottoscrizione. I criteri di sicurezza possono essere impostati a livello di sottoscrizione di Azure e a livello di gruppo di risorse, ma la configurazione della raccolta dati e dell'account di archiviazione viene eseguita solo a livello di sottoscrizione.
@@ -91,7 +92,7 @@ Nel portale seguire questa procedura per accedere al Centro sicurezza:
    ![Avvisi di sicurezza nel Centro sicurezza di Azure][7]
 
    > [!NOTE]
-   > Gli avvisi di sicurezza sono disponibili solo se è abilitato il livello Standard del Centro sicurezza. Per il livello Standard è disponibile una versione di valutazione gratuita di 90 giorni. Vedere [Passaggi successivi](#next-steps) per informazioni su come ottenere il livello Standard.
+   > Gli avvisi di sicurezza sono disponibili solo se è abilitato il livello Standard del Centro sicurezza. Per il livello Standard è disponibile una versione di valutazione gratuita di 60 giorni. Vedere [Passaggi successivi](#next-steps) per informazioni su come ottenere il livello Standard.
    >
    >
 2. Selezionare un avviso per visualizzare informazioni aggiuntive. In questo esempio verrà selezionato **Modified system binary discovered** (Individuato file binario di sistema modificato). Si apriranno pannelli con altri dettagli dell'avviso.
@@ -109,7 +110,7 @@ In questo articolo sono stati presentati i componenti di monitoraggio della sicu
 * Configurare i criteri di sicurezza per la sottoscrizione di Azure. Per altre informazioni, vedere [Impostare i criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md).
 * Usare le raccomandazioni presenti nel Centro sicurezza per la protezione delle risorse di Azure. Per altre informazioni, vedere [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md).
 * Esaminare e gestire gli avvisi di sicurezza correnti. Per altre informazioni, vedere [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md).
-* Altre informazioni sulle [funzionalità avanzate di rilevamento delle minacce](security-center-detection-capabilities.md) incluse con il [livello Standard](security-center-pricing.md) del Centro sicurezza. Per il livello Standard è disponibile una versione di valutazione gratuita di 90 giorni.
+* Altre informazioni sulle [funzionalità avanzate di rilevamento delle minacce](security-center-detection-capabilities.md) incluse con il [livello Standard](security-center-pricing.md) del Centro sicurezza. Il livello Standard è gratuito per i primi 60 giorni.
 * In caso di domande sull'uso del Centro sicurezza, vedere [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md).
 
 <!--Image references-->
@@ -123,9 +124,4 @@ In questo articolo sono stati presentati i componenti di monitoraggio della sicu
 [8]: ./media/security-center-get-started/security-alert-detail.png
 [9]: ./media/security-center-get-started/partner-solutions.png
 [10]: ./media/security-center-get-started/welcome.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

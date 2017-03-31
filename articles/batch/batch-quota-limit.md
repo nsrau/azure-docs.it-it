@@ -1,5 +1,5 @@
 ---
-title: Quote e limiti del servizio Batch | Documentazione Microsoft
+title: Quote e limiti del servizio per Azure Batch | Documentazione Microsoft
 description: Informazioni sui vincoli, limiti e quote di Azure Batch predefiniti e su come richiedere incrementi di quota
 services: batch
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 1a530bf6e9afca9a7cdc1f68e8eefdbf077dc516
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: a0f47a19f7ef1832e64e9a0bdc4bda3434f77aa2
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="quotas-and-limits-for-the-azure-batch-service"></a>Quote e limiti per il servizio Azure Batch
+# <a name="batch-service-quotas-and-limits"></a>Quote e limiti del servizio Batch
+
 Come con altri servizi di Azure, sono previsti limiti per determinate risorse associate al servizio Batch. Molti di questi limiti sono quote predefinite applicate da Azure a livello di account o di sottoscrizione. Questo articolo illustra i valori predefiniti e come è possibile richiedere aumenti di quota.
 
 Se si prevede di eseguire carichi di lavoro di produzione in Batch, potrebbe essere necessario incrementare il valore predefinito di una o più quote. Per aumentare una quota, è possibile aprire una [richiesta di assistenza clienti](#increase-a-quota) online gratuitamente.
@@ -30,12 +33,7 @@ Se si prevede di eseguire carichi di lavoro di produzione in Batch, potrebbe ess
 > 
 > 
 
-## <a name="subscription-quotas"></a>Quote di sottoscrizione
-| **Risorsa** | **Limite predefinito** | **Limite massimo** |
-| --- | --- | --- |
-| Account Batch per area per sottoscrizione |1 |50 |
-
-## <a name="batch-account-quotas"></a>Quote di account Batch
+## <a name="resource-quotas"></a>Quote di risorse
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
 ## <a name="other-limits"></a>Altri limiti
@@ -100,9 +98,4 @@ Dopo aver inviato la richiesta di supporto, si verrà contattati dal supporto te
 [support_sev]: http://aka.ms/supportseverity
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

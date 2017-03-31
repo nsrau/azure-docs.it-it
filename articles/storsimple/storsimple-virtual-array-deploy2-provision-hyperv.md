@@ -1,10 +1,10 @@
 ---
-title: Eseguire il provisioning di un array virtuale StorSimple in Hyper-V | Documentazione Microsoft
+title: Eseguire il provisioning di un array virtuale StorSimple in Hyper-V | Microsoft Docs
 description: Questa seconda esercitazione sulla distribuzione di array virtuali StorSimple implica il provisioning di un array virtuale in Hyper-V.
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 4354963c-e09d-41ac-9c8b-f21abeae9913
 ms.service: storsimple
@@ -12,17 +12,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/12/2017
+ms.date: 03/15/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: eaeb7bf48239fea0c86d8234fe25e3f23cf76653
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: bad431c8958f7d381bb9c0410caa3a57c6e75c19
+ms.lasthandoff: 03/16/2017
 
 ---
-# <a name="deploy-storsimple-virtual-array---provision-a-virtual-array-in-hyper-v"></a>Distribuire StorSimple Virtual Array: eseguire il provisioning di un array virtuale in Hyper-V
+# <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Distribuire StorSimple Virtual Array: eseguire il provisioning in Hyper-V
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Questa esercitazione illustra come eseguire il provisioning di un array virtuale StorSimple in un sistema host che esegue Hyper-V in Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2. Le informazioni all'interno di questo articolo si applicano alla distribuzione di array virtuali StorSimple nel portale di Azure nonché nel cloud di Microsoft Azure per enti pubblici.
 
 È necessario disporre dei privilegi di amministratore per eseguire il provisioning e configurare un array virtuale. Il tempo previsto per il completamento di provisioning e installazione iniziale è di circa 10 minuti.
@@ -48,7 +50,7 @@ Prima di distribuire un array virtuale, è necessario:
 * Il sistema host è in grado di dedicare le risorse seguenti per eseguire il provisioning dell'array virtuale:
 
   * Un minimo di 4 memorie centrali.
-  * Almeno 8 GB di RAM.
+  * Almeno 8 GB di RAM. Se si prevede di configurare la matrice virtuale come file server, 8 GB supportano poco meno di 2 milioni di file. Sono necessari 16 GB di RAM per supportare 2-4 milioni di file.
   * Un'interfaccia di rete.
   * Un disco virtuale da 500 GB per i dati.
 
@@ -73,7 +75,7 @@ Per creare un array virtuale, è necessario:
 Verificare che l'hardware sottostante (sistema host) in cui si sta creando l'array virtuale sia in grado di dedicare le risorse seguenti all'array virtuale:
 
 * Un minimo di 4 memorie centrali.
-* Almeno 8 GB di RAM.
+* Almeno 8 GB di RAM. Se si prevede di configurare la matrice virtuale come file server, 8 GB supportano poco meno di 2 milioni di file. Sono necessari 16 GB di RAM per supportare 2-4 milioni di file.
 * Un'interfaccia di rete.
 * Un disco virtuale da 500 GB per i dati di sistema.
 
@@ -137,7 +139,7 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo in hypervisor
 18. Nella pagina **Impostazione nome e percorso** fornire un **nome** e un **percorso** (anche accedendovi) da assegnare al disco dati. Fare clic su **Avanti**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image17.png)
-19. Nella pagina **Configurazione disco** selezionare l'opzione **Crea un nuovo disco rigido virtuale vuoto** e specificare la dimensione di **500 GB** (o superiore). Fare clic su **Avanti**.
+19. Nella pagina **Configurazione disco** selezionare l'opzione **Crea un nuovo disco rigido virtuale vuoto** e specificare la dimensione di **500 GB** (o superiore). 500 GB è il requisito minimo, ma è sempre possibile eseguire il provisioning di un disco più grande. Si noti che, una volta eseguito il provisioning del disco, non è possibile espanderlo o ridurlo. Per altre informazioni sulle dimensioni del disco di cui eseguire il provisioning, vedere la sezione sul ridimensionamento nel documento sulle [procedure consigliate](storsimple-ova-best-practices.md). Fare clic su **Avanti**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image18.png)
 20. Nella pagina **Riepilogo** esaminare i dettagli del disco dati virtuale e, se conformi alle proprie esigenze, fare clic su **Fine** per creare il disco. La procedura guidata viene chiusa e un disco rigido virtuale viene aggiunto al computer.
@@ -214,9 +216,4 @@ In presenza di altri errori durante la configurazione iniziale con l'interfaccia
 ## <a name="next-steps"></a>Passaggi successivi
 * [Configurare StorSimple Virtual Array come file server](storsimple-virtual-array-deploy3-fs-setup.md)
 * [Configurare StorSimple Virtual Array come server iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -1,7 +1,6 @@
 # Panoramica
 ## [Informazioni su Operations Management Suite](operations-management-suite-overview.md)
 ## [Architettura di OMS](operations-management-suite-architecture.md)
-## [Soluzioni di gestione](operations-management-suite-solutions.md)
 
 # Introduzione
 ## Approfondimenti e analisi
@@ -15,19 +14,18 @@
 ### [Sicurezza dei dati](oms-security-data-security.md)
 
 # Procedure
+
 ## Analizzare
 ### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Confronto tra i prodotti per il monitoraggio](operations-management-suite-monitoring-product-comparison.md)
 ### [Gestire gli avvisi](operations-management-suite-monitoring-alerts.md)
-## Gestisci
-### [Pianificare e distribuire](operations-management-suite-solutions-creating.md)
-### [Risorse di Automazione](operations-management-suite-solutions-resources-automation.md)
-### [Visualizzazioni](operations-management-suite-solutions-resources-views.md)
-## Automatizzare
+## Automazione
 ### [Panoramica di Automazione di Azure](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+
 ## Backup
 ### [Panoramica del servizio Backup](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Panoramica di Site Recovery](../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+
 ## Proteggere
 ### [Monitorare le risorse](oms-security-monitoring-resources.md)
 ### [Rispondere agli avvisi di sicurezza](oms-security-responding-alerts.md)
@@ -35,12 +33,9 @@
 ### [Valutazione di malware](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Valutazione dell'aggiornamento del sistema](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Connettere i prodotti per la sicurezza](oms-security-connect-products.md)
-## [Eseguire l'integrazione con OMS](operations-management-suite-integration.md)
 
-
-# Riferimento
-## [SDK](operations-management-suite-sdk.md)
-## Soluzioni
+## Usare le soluzioni
+### [Soluzioni di gestione](operations-management-suite-solutions.md)
 ### Approfondimenti e analisi
 #### [Valutazione di AD](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Stato della replica di AD](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -63,8 +58,15 @@
 ### Sicurezza e conformità
 #### [Antimalware Assessment](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
+## Creare soluzioni
+### [Progettare e compilare](operations-management-suite-solutions-creating.md)
+### [File di soluzione](operations-management-suite-solutions-solution-file.md)
+### [Risorse di Automazione](operations-management-suite-solutions-resources-automation.md)
+### [Avvisi e ricerche nei log](operations-management-suite-solutions-resources-searches-alerts.md)
+### [Visualizzazioni](operations-management-suite-solutions-resources-views.md)
 
+## [Eseguire l'integrazione con OMS](operations-management-suite-integration.md)
 
-<!--HONumber=Jan17_HO3-->
-
+# Riferimento
+## [SDK](operations-management-suite-sdk.md)
 

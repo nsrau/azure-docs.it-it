@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: aungoo
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 3aa4f497a928fe4bb894f01202b116429e6f5649
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 69fbac5acdc812917d1e022d19768a8d72955783
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -36,7 +37,7 @@ Questo articolo è utile per rispondere alle domande comuni seguenti sull'ottimi
 
 Queste indicazioni sono specifiche per l'Archiviazione Premium, perché i carichi di lavoro in esecuzione nell'Archiviazione Premium sono influenzati in modo significativo dalle prestazioni. Sono disponibili esempi nei casi appropriati. È anche possibile applicare alcune indicazioni alle applicazioni in esecuzione su VM IaaS con dischi di archiviazione Standard.
 
-Prima di iniziare, se non si ha alcuna esperienza dell'Archiviazione Premium, leggere l'articolo [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage.md) e [Obiettivi di scalabilità e prestazioni per Archiviazione Premium di Azure](storage-scalability-targets.md#premium-storage-accounts).
+Prima di iniziare, se non si ha alcuna esperienza dell'Archiviazione Premium, leggere gli articoli [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](storage-premium-storage.md) e [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage-scalability-targets.md).
 
 ## <a name="application-performance-indicators"></a>Indicatori di prestazioni dell'applicazione
 È possibile valutare se le prestazioni di un'applicazione sono adeguate o meno usando indicatori di prestazioni, ad esempio la velocità di elaborazione di una richiesta utente da parte di un'applicazione, la quantità di dati elaborata da un'applicazione per ogni richiesta, il numero di richieste elaborate da un'applicazione in un periodo specifico, la durata dell'attesa da parte di un utente per ottenere una risposta dopo l'invio della richiesta. I termini tecnici per definire questi indicatori di prestazioni sono IOPS, velocità effettiva o larghezza di banda e latenza.
@@ -352,7 +353,7 @@ Il benchmarking è il processo di simulazione di diversi carichi di lavoro sull'
 
 Sono stati usati gli strumenti di benchmarking comuni Iometer e FIO, rispettivamente per Windows e Linux. Questi strumenti generano più thread che simulano un carico di lavoro analogo a quello di produzione e misurano le prestazioni del sistema. Questi strumenti consentono anche di configurare i parametri quali la dimensione dei blocchi e la profondità della coda, che in genere non possono essere modificati per un'applicazione. Ciò offre maggiore flessibilità per ottenere il livello massimo di prestazioni su una VM a scalabilità elevata con provisioning con dischi Premium per diversi tipi di carichi di lavoro dell'applicazione. Per altre informazioni su ogni strumento di benchmarking, vedere [Iometer](http://www.iometer.org/) e [FIO](http://freecode.com/projects/fio).
 
-Per eseguire gli esempi seguenti, creare una VM DS14 Standard e collegare 11 dischi di Archiviazione Premium alla VM. Degli 11 dischi, configurare 10 dischi con memorizzazione nella cache dell'host impostata su "None" ed effettuarne lo striping in un volume denominato NoCacheWrites. Configurare la memorizzazione nella cache dell'host come "ReadOnly" sul disco rimanente e creare un volume denominato CacheReads con questo disco. Usando questa configurazione, sarà possibile vedere le prestazioni massime di lettura e scrittura da una VM DS14 Standard. Per informazioni dettagliate sulla creazione di una VM DS14 con dischi Premium, vedere [Creare e usare un account di Archiviazione Premium per un disco dati della macchina virtuale](storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
+Per eseguire gli esempi seguenti, creare una VM DS14 Standard e collegare 11 dischi di Archiviazione Premium alla VM. Degli 11 dischi, configurare 10 dischi con memorizzazione nella cache dell'host impostata su "None" ed effettuarne lo striping in un volume denominato NoCacheWrites. Configurare la memorizzazione nella cache dell'host come "ReadOnly" sul disco rimanente e creare un volume denominato CacheReads con questo disco. Usando questa configurazione, sarà possibile vedere le prestazioni massime di lettura e scrittura da una VM DS14 Standard. Per informazioni dettagliate sulla creazione di una VM DS14 con dischi Premium, vedere [Creare e usare un account di Archiviazione Premium per un disco dati della macchina virtuale](storage-premium-storage.md).
 
 *Preparare la cache*  
 Il disco con memorizzazione nella cache dell'host di tipo ReadOnly sarà in grado di ottenere valori di IOPS più elevati rispetto al limite del disco. Per ottenere queste prestazioni di lettura massime dalla cache dell'host, è prima di tutto necessario preparare la cache del disco. Ciò assicura che le operazioni di I/O di lettura che lo strumento di benchmarking eseguirà sul volume CacheReads raggiungano effettivamente la cache e non direttamente il disco. I riscontri nella cache producono IOPS aggiuntivi da un singolo disco abilitato per la cache.
@@ -593,9 +594,4 @@ Per gli utenti di SQL Server sono disponibili articoli sulle procedure consiglia
 
 * [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
 * [L'Archiviazione Premium di Azure offre le prestazioni più elevate per SQL Server in VM di Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

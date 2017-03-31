@@ -1,6 +1,6 @@
 ---
 title: Ciclo di vita del processo di analisi scientifica dei dati per i team | Documentazione Microsoft
-description: Definizione dei componenti principali del ciclo di vita di analisi scientifica dei dati per i team.
+description: Passaggi e componenti del ciclo di vita per strutturare i progetti di analisi scientifica dei dati.
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/08/2017
 ms.author: bradsev;hangzh;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 725f6d4a209ada154eb9aa90a8226dcaa0859990
+ms.sourcegitcommit: 1796f7a7cd174d7ed6582878d72c59995aac41cb
+ms.openlocfilehash: 995ba0dc3ffd2bc78625db7d1176ca0d5e1611a0
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -196,10 +197,5 @@ Il [ciclo di vita di analisi scientifica dei dati per i team](http://aka.ms/data
 
 ## <a name="next-steps"></a>Passaggi successivi
 Sono anche disponibili esercitazioni dettagliate complete che illustrano tutti i passaggi del processo per **scenari specifici** . Sono elencate, con collegamenti e brevi descrizioni, nell'argomento [Procedure dettagliate del Processo di analisi scientifica dei dati per i team](data-science-process-walkthroughs.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

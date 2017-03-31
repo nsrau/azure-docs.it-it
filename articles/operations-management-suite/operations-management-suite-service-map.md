@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: cf3e083f17bf8b2245373bced5823afd21fe1af9
-ms.openlocfilehash: d2e55846667cccec824e31f648beac1c84fbcf50
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: aca6cd69647406d0140d8b0d0cba8e4690b04ae1
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -54,10 +55,26 @@ Gli agenti dell'elenco dei servizi raccolgono informazioni su tutti i processi c
 
 Per impostazione predefinita, le mappe dell'elenco dei servizi mostrano le informazioni sulle dipendenze degli ultimi 10 minuti.  Usando i controlli di tempo in alto a sinistra, è possibile cercare nelle mappe intervalli di tempo cronologici della durata massima di un'ora per visualizzare l'aspetto delle dipendenze nel passato, ad esempio durante un evento imprevisto o prima di una modifica.    I dati dell'elenco dei servizi vengono archiviati per 30 giorni nelle aree di lavoro a pagamento e per 7 giorni nelle aree di lavoro gratuite.
 
-## <a name="status-badges"></a>Notifiche di stato
+## <a name="status-badges-and-border-coloring"></a>Notifiche di stato e colorazione del bordo
 Nella parte inferiore di ogni server nella mappa potrebbe essere presente un elenco di notifiche di stato con informazioni relative allo stato del server.  Le notifiche indicano che sono presenti alcune informazioni rilevanti per il server da una delle integrazioni della soluzione OMS.  Facendo clic su una notifica, l’utente visualizzerà direttamente i dettagli dello stato nel pannello di destra.  Le notifiche di stato attualmente disponibili includono Avvisi, Modifiche, Sicurezza e Aggiornamenti.
 
-![Connessioni non riuscite](media/oms-service-map/status-badges.png)
+In base alla gravità della notifica di stato, i bordi del nodo del computer possono essere colorati di rosso (critico), giallo (avviso) o blu (informativi).  Il colore rappresenta lo stato di gravità di una notifica di stato.  Un bordo grigio indica un nodo senza alcun indicatore di stato corrente.
+
+![Notifiche di stato](media/oms-service-map/status-badges.png)
+
+## <a name="role-icons"></a>Icone di ruolo
+Alcuni processi svolgono ruoli particolari nei computer: server web, server applicazioni, database e così via.  Elenco dei servizi annoterà le caselle del processo e del computer con le icone di ruolo per consentire di identificare rapidamente il ruolo svolto dal processo o dal server.
+
+| Icona del ruolo | Descrizione |
+|:--|:--|
+| ![Server Web](media/oms-service-map/role-web-server.png) | Server web |
+| ![Server app](media/oms-service-map/role-application-server.png) | Server applicazioni |
+| ![Server di database](media/oms-service-map/role-database.png) | Server di database |
+| ![Server LDAP](media/oms-service-map/role-ldap.png) | Server LDAP |
+| ![Server SMB](media/oms-service-map/role-smb.png) | Server SMB |
+
+![Icone di ruolo](media/oms-service-map/role-icons.png)
+
 
 ## <a name="failed-connections"></a>Connessioni non riuscite
 Le connessioni a processi e computer non riuscite sono visualizzate nelle mappe dell'elenco dei servizi con una linea rossa tratteggiata, che indica se un sistema client non riesce a raggiungere un processo o una porta.  Vengono visualizzate le connessioni non riuscite di qualsiasi sistema con un agente dell'elenco dei servizi distribuito, a condizione che il sistema corrisponda a quello che esegue la connessione non riuscita.  L'elenco dei servizi esegue questo calcolo osservando i socket TCP che non riescono a stabilire una connessione.  Ciò potrebbe essere causato da un firewall, da un errore di configurazione del client o server oppure da un servizio remoto non disponibile.
@@ -91,7 +108,10 @@ Load Server Map (Carica mappa server) consentirà di passare a una nuova mappa c
 ### <a name="showhide-self-links"></a>Show/Hide Self Links (Mostra/Nascondi self link)
 Show Self Links (Mostra self link) consentirà di ridisegnare il nodo del server, inclusi i self link, ovvero le connessioni TCP che si avviano e terminano con i processi all’interno del server.  Se i self link sono visualizzati, il menu cambierà in Hide Self Links (Nascondi self link), consentendo agli utenti di attivare/disattivare il disegno dei self link.
 
+## <a name="computer-summary"></a>Riepilogo del computer
+Il riquadro con il riepilogo del computer include una panoramica del sistema operativo del server e il numero di dipendenza, insieme a una serie di dati provenienti da altre soluzioni OMS, tra cui metriche delle prestazioni, rilevamento delle modifiche, sicurezza, aggiornamenti e così via.
 
+![Riepilogo del computer](media/oms-service-map/machine-summary.png)
 
 ## <a name="computer-and-process-properties"></a>Proprietà dei computer e dei processi
 In una mappa dell'elenco dei servizi è possibile selezionare computer e processi per visualizzare ulteriori informazioni sulle loro proprietà.  I computer visualizzano informazioni sul nome DNS, gli indirizzi IPv4, la capacità di CPU e di memoria, il tipo di macchina virtuale, la versione del sistema operativo, l'ora dell'ultimo riavvio e gli ID degli agenti OMS e dell'elenco dei servizi.
@@ -106,10 +126,22 @@ Il pannello di riepilogo del processo visualizza informazioni aggiuntive sulla c
 
 ![Riepilogo del processo](media/oms-service-map/process-summary.png)
 
-## <a name="computer-summary"></a>Riepilogo del computer
-Il riquadro con il riepilogo del computer include una panoramica del sistema operativo del server e il numero di dipendenza, insieme a una serie di dati provenienti da altre soluzioni OMS, tra cui metriche delle prestazioni, rilevamento delle modifiche, sicurezza, aggiornamenti e così via.
+## <a name="oms-alerts-integration"></a>Integrazione degli avvisi OMS
+Gli avvisi OMS integrati nell'elenco dei servizi consentono di visualizzare gli avvisi attivati per un determinato server nell'intervallo di tempo selezionato.  Se sono presenti avvisi correnti, sul server verrà visualizzata un'icona e nel pannello degli avvisi del computer verranno elencati gli avvisi in questione.
 
-![Riepilogo del computer](media/oms-service-map/machine-summary.png)
+![Pannello degli avvisi del computer](media/oms-service-map/machine-alerts.png)
+
+Tenere presente che, per poter visualizzare gli avvisi rilevanti nell'elenco dei servizi, è necessario creare una regola specifica che si attiva per il computer interessato.  Per creare gli avvisi appropriati:
+- Includere una clausola che consenta di raggruppare i computer: "per intervallo computer 1 minuto"
+- Scegliere di impostare un avviso in base alle metriche misurate
+
+![Configurazione degli avvisi](media/oms-service-map/alert-configuration.png)
+
+
+## <a name="oms-log-events-integration"></a>Integrazione eventi log OMS
+Elenco dei servizi si integra con ricerca di log per visualizzare un conteggio di tutti gli eventi di log disponibili per il server selezionato durante l'intervallo di tempo selezionato.  È possibile fare clic su una riga nell'elenco di conteggi degli eventi per passare alla ricerca di log e visualizzare i singoli eventi.
+
+![Eventi log](media/oms-service-map/log-events.png)
 
 ## <a name="oms-change-tracking-integration"></a>Integrazione con Rilevamento modifiche di OMS
 L'integrazione del rilevamento delle modifiche nell'elenco dei servizi è automatica quando entrambe le soluzioni sono abilitate e configurate nell'area di lavoro OMS.
@@ -122,7 +154,7 @@ Di seguito è riportata una visualizzazione drill-down dell'evento di modifica c
 
 
 ## <a name="oms-performance-integration"></a>Integrazione delle prestazioni OMS
-Il pannello relativo alle prestazioni del computer mostra le metriche di prestazioni standard relative al server selezionato.  Le metriche includono l'uso della CPU, l'uso della memoria, i byte di rete inviati e ricevuti e un elenco dei processi principali per byte di rete inviati e ricevuti.
+Il pannello relativo alle prestazioni del computer mostra le metriche di prestazioni standard relative al server selezionato.  Le metriche includono l'uso della CPU, l'uso della memoria, i byte di rete inviati e ricevuti e un elenco dei processi principali per byte di rete inviati e ricevuti.  Si noti che per ottenere i dati sulle prestazioni di rete è necessario anche aver abilitato la soluzione Wire Data 2.0 in OMS.
 ![Pannello di rilevamento modifiche del computer](media/oms-service-map/machine-performance.png)
 
 
@@ -138,19 +170,6 @@ La gestione degli aggiornamenti dell'elenco dei servizi è automatica quando ent
 
 Il pannello relativo agli aggiornamenti del computer mostra i dati provenienti dalla soluzione di gestione degli aggiornamenti di OMS relativi al server selezionato.  Nel pannello sarà incluso un riepilogo degli aggiornamenti mancanti durante l'intervallo di tempo selezionato.
 ![Pannello di rilevamento modifiche del computer](media/oms-service-map/machine-updates.png)
-
-
-## <a name="oms-alerts-integration"></a>Integrazione degli avvisi OMS
-Gli avvisi OMS integrati nell'elenco dei servizi consentono di visualizzare gli avvisi attivati per un determinato server nell'intervallo di tempo selezionato.  Se sono presenti avvisi correnti, sul server verrà visualizzata un'icona e nel pannello degli avvisi del computer verranno elencati gli avvisi in questione.
-
-![Pannello degli avvisi del computer](media/oms-service-map/machine-alerts.png)
-
-Tenere presente che, per poter visualizzare gli avvisi rilevanti nell'elenco dei servizi, è necessario creare una regola specifica che si attiva per il computer interessato.  Per creare gli avvisi appropriati:
-- Includere una clausola che consenta di raggruppare i computer: "per intervallo computer 1 minuto"
-- Scegliere di impostare un avviso in base alle metriche misurate
-
-![Configurazione degli avvisi](media/oms-service-map/alert-configuration.png)
-
 
 ## <a name="log-analytics-records"></a>Record di Log Analytics
 I dati di inventario di computer e processi dell'elenco dei servizi sono disponibili per la [ricerca](../log-analytics/log-analytics-log-searches.md) in Log Analytics.  Ciò può essere applicato a scenari che includono la pianificazione della migrazione, l'analisi della capacità, l'individuazione e la risoluzione personalizzata dei problemi di prestazioni.
@@ -180,7 +199,7 @@ I record che contengono il tipo **ServiceMapComputer_CL** includono dati di inve
 | DnsNames_s | matrice di nomi DNS |
 | OperatingSystemFamily_s | Windows o Linux |
 | OperatingSystemFullName_s | nome completo del sistema operativo  |
-| Bitness_s | numero di bit del computer (32 bit o&64; bit) |
+| Bitness_s | numero di bit del computer (32 bit o 64 bit) |
 | PhysicalMemory_d | memoria fisica in MB |
 | Cpus_d | numero di CPU |
 | CPUSpeed_d | velocità della CPU in MHz|
@@ -251,21 +270,24 @@ Type=ServiceMapProcess_CL ExecutableName_s=curl | Distinct ProductVersion_s
 Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct ComputerName_s
 
 
+## <a name="rest-api"></a>API REST
+Tutti i dati relativi a server, processi e dipendenze in Elenco dei servizi sono disponibili tramite l'[API REST di Elenco dei servizi](https://docs.microsoft.com/rest/api/servicemap/).
+
+
 ## <a name="diagnostic-and-usage-data"></a>Dati di diagnostica e di utilizzo
 Microsoft raccoglie automaticamente i dati di utilizzo e prestazioni tramite l'uso del servizio relativo all'elenco dei servizi da parte dell'utente. Microsoft usa questi dati per fornire e migliorare la qualità, la sicurezza e l'integrità del servizio relativo all'elenco dei servizi. I dati includono informazioni sulla configurazione del software, come il sistema operativo e la versione, e comprendono anche l'indirizzo IP, il nome DNS e il nome della workstation, al fine di fornire capacità di risoluzione dei problemi accurate ed efficienti. Non vengono raccolti nomi, indirizzi o altre informazioni di contatto.
 
-Per altre informazioni sulla raccolta dei dati e sull'utilizzo, vedere l'[Informativa sulla privacy di Microsoft Online Services](hhttps://go.microsoft.com/fwlink/?LinkId=512132).
+Per altre informazioni sulla raccolta dei dati e sull'utilizzo, vedere l'[Informativa sulla privacy di Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sulle [ricerche nei log](../log-analytics/log-analytics-log-searches.md) in Log Analytics per recuperare i dati raccolti dall'elenco dei servizi.
 
 
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+- Vedere la [sezione Risoluzione dei problemi del documento relativo alla configurazione dell'elenco dei servizi](operations-management-suite-service-map-configure.md#troubleshooting).
+
+
 ## <a name="feedback"></a>Commenti e suggerimenti
 Per inviare commenti sull'elenco dei servizi e sulla relativa documentazione,  visitare la [pagina per i suggerimenti degli utenti](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), in cui è possibile suggerire funzionalità o votare i suggerimenti esistenti.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

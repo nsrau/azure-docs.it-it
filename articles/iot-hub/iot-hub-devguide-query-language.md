@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: e6d559a78fbd73be1dd5e745496515ce71404cad
-ms.openlocfilehash: ea7000d3e56c5132dba3f144c7bad671d0e3054a
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 44169ba74f6af2b1c27ea4c2a8fd0214892f90d5
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -246,15 +247,31 @@ Usando i [route da dispositivo a cloud][lnk-devguide-messaging-routes], è possi
 La [condizione][lnk-query-expressions] route usa lo stesso linguaggio di query dell'hub IoT come condizione nelle query gemelle e di processo. Le condizioni route vengono valutate in base alle proprietà dei messaggi, presupponendo la rappresentazione JSON seguente:
 
         {
+            "$messageId": "",
+            "$enqueuedTime": "",
+            "$to": "",
+            "$expiryTimeUtc": "",
+            "$correlationId": "",
+            "$userId": "",
+            "$ack": "",
+            "$connectionDeviceId": "",
+            "$connectionDeviceGenerationId": "",
+            "$connectionAuthMethod": "",
+            "$content-type": "",
+            "$content-encoding": ""
+
             "userProperty1": "",
             "userProperty2": ""
         }
+
+Le proprietà di sistema del messaggio hanno come prefisso il simbolo `'$'`.
+Alle proprietà utente si accede sempre con il relativo nome. Se un nome di proprietà utente coincide con una proprietà di sistema, ad esempio `$to`, la proprietà dell'utente verrà recuperata con l'espressione `$to`.
+È sempre possibile accedere alle proprietà di sistema con le parentesi `{}`: ad esempio, l'espressione `{$to}` consente di accedere alla proprietà di sistema `to`. I nomi di proprietà tra parentesi recuperano sempre le corrispondenti proprietà di sistema.
 
 Si ricordi che nei nomi delle proprietà viene fatta distinzione tra maiuscole e minuscole.
 
 > [!NOTE]
 > Tutte le proprietà dei messaggi sono stringhe. Le proprietà di sistema, come descritto nella [guida per gli sviluppatori][lnk-devguide-messaging-format], non sono attualmente disponibili per l'uso nelle query.
->
 >
 
 Ad esempio, se si utilizza una proprietà `messageType`, è possibile indirizzare tutti i dati di telemetria a un endpoint e tutti gli avvisi a un altro endpoint. È possibile scrivere l'espressione seguente per indirizzare i dati di telemetria:
@@ -404,7 +421,7 @@ Nelle condizioni di route, sono supportate le funzioni matematiche seguenti:
 | ABS(x) | Restituisce il valore assoluto (positivo) dell'espressione numerica specificata. |
 | EXP(x) | Restituisce il valore esponente dell'espressione numerica specificata (e^x). |
 | POWER(x,y) | Restituisce il valore dell'espressione specificata alla potenza specificata (x^y).|
-| SQUARE(x) | Restituisce il quadrato del valore numerico specificato. |
+| SQUARE(x)    | Restituisce il quadrato del valore numerico specificato. |
 | CEILING(x) | Restituisce il più piccolo valore integer maggiore di o uguale all'espressione numerica specificata. |
 | FLOOR(x) | Restituisce il valore integer più alto, minore di o uguale all'espressione numerica specificata. |
 | SIGN(x) | Restituisce il segno positivo (+1), zero (0) o negativo (-1) dell'espressione numerica specificata.|
@@ -455,9 +472,4 @@ Informazioni su come eseguire query nelle app usando gli [SDK dell'hub IoT][lnk-
 
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

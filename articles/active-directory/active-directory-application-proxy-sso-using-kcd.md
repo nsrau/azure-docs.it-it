@@ -12,19 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2016
+ms.date: 02/27/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1eada96773b1d9c6adb9326c9100da7cde8abf77
-ms.openlocfilehash: 8df936a03868412adf34672108f40829c41f33ab
+ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
+ms.openlocfilehash: aac56543b2b3b7fa8f8baf1cc719ead79b3c1b00
+ms.lasthandoff: 02/28/2017
 
 ---
 
-# <a name="single-sign-on-with-application-proxy"></a>Single Sign-On con il proxy di applicazione
+# <a name="provide-single-sign-on-to-your-apps-with-application-proxy"></a>Fornire l'accesso Single Sign-On alle app con il proxy di applicazione
 Single Sign-On è un elemento chiave del proxy di applicazione di Azure AD. Questo tipo di accesso offre la migliore esperienza utente con i passaggi seguenti:
 
-1. Un utente accede al cloud  
-2. Tutti i controlli di convalida della sicurezza avvengono nel cloud (autenticazione preliminare)  
+1. Un utente accede al cloud.  
+2. Tutti i controlli di convalida della sicurezza avvengono nel cloud (autenticazione preliminare).  
 3. Quando la richiesta viene inviata all'applicazione locale, il connettore Proxy applicazione rappresenta l'utente. L'applicazione back-end ritiene che questo sia un utente normale da un dispositivo aggiunto al dominio.
 
 ![Diagramma di accesso dall'utente finale alla rete aziendale mediante il proxy dell'applicazione](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_diagram.png)
@@ -62,7 +64,7 @@ La configurazione di Active Directory varia a seconda del fatto che il connettor
 #### <a name="connector-and-published-server-in-the-same-domain"></a>Connettore e server pubblicato nello stesso dominio
 1. In Active Directory passare a **Strumenti** > **Utenti e computer**.
 2. Selezionare il server che esegue il connettore.
-3. Fare clic con il pulsante destro del mouse su **Proprietà** > **Delega**.
+.3. Fare clic con il pulsante destro del mouse su **Proprietà** > **Delega**.
 4. Selezionare **Computer attendibile per la delega solo ai servizi specificati**. In **Servizi ai quali l'account può presentare credenziali delegate** aggiungere il valore per l'identità SPN del server applicazioni.
 5. In questo modo il connettore proxy di applicazione può rappresentare gli utenti in AD nei confronti delle applicazioni definite nell'elenco.
 
@@ -105,6 +107,8 @@ Il flusso di delega Kerberos nel proxy di applicazione di Azure AD inizia quando
 
 ![Diagramma SSO non Windows](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_nonwindows_diagram.png)
 
+Per altre informazioni su Kerberos, vedere [All you want to know about Kerberos Constrained Delegation (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd) (Tutto quello che si desidera sapere sulla delega vincolata Kerberos (KCD)).
+
 ### <a name="delegated-login-identity"></a>identità di accesso delegata
 L'identità di accesso delegata consente di gestire due scenari di accesso diversi:
 
@@ -123,14 +127,14 @@ Se non diversamente configurato, il proxy di applicazione presuppone che gli ute
 Questa funzionalità consente a molte organizzazioni con diverse identità locali e cloud di disporre dell'accesso Single Sign-On dal cloud ad applicazioni locali senza richiedere agli utenti di immettere nomi utente e password diversi. Sono incluse organizzazioni che:
 
 * Hanno più domini internamente (joe@us.contoso.com, joe@eu.contoso.com) e un singolo dominio nel cloud (joe@contoso.com).
-* Hanno un nome di dominio non instradabile internamente ((joe@contoso.usa)) e un dominio valido nel cloud.
+* Hanno un nome di dominio non instradabile internamente (joe@contoso.usa) e un dominio valido nel cloud.
 * Non usano nomi di dominio internamente (joe).
 * Usano diversi alias locali e nel cloud. Ad esempio, joe-johns@contoso.com e joej@contoso.com  
 
 Ciò risulta utile anche con le applicazioni che non accettano indirizzi nel formato di indirizzo di posta elettronica, ossia uno scenario molto comune per i server back-end non Windows.
 
 ### <a name="setting-sso-for-different-cloud-and-on-prem-identities"></a>Impostazione dell'accesso Single Sign-On per varie identità cloud e locali
-1. Configurare le impostazioni di Azure AD Connect in modo che l'identità principale sia l'indirizzo di posta elettronica (mail). Ciò avviene come parte del processo di personalizzazione, modificando il campo **Nome dell'entità utente** nelle impostazioni di sincronizzazione. Queste impostazioni determinano inoltre il modo in cui gli utenti accedono a Office 365, dispositivi Windows 10 e altre applicazioni che usano Azure AD come archivio di identità.  
+1. Configurare le impostazioni di Azure AD Connect in modo che l'identità principale sia l'indirizzo di posta elettronica (mail). Ciò avviene come parte del processo di personalizzazione, modificando il campo **Nome dell'entità utente** nelle impostazioni di sincronizzazione. Queste impostazioni determinano inoltre il modo in cui gli utenti accedono a Office&365;, dispositivi Windows&10; e altre applicazioni che usano Azure AD come archivio di identità.  
    ![Schermata di identificazione degli utenti - Elenco a discesa Nome dell'entità utente](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)  
 2. Nelle impostazioni di configurazione dell'applicazione che si desidera modificare, selezionare l' **Identità di accesso delegata** da usare:
 
@@ -157,9 +161,4 @@ Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog]
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

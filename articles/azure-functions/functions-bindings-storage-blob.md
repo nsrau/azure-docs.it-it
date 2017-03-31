@@ -14,11 +14,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/11/2017
-ms.author: chrande
+ms.date: 03/06/2017
+ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 7b691e92cfcc8c6c62f854b3f1b6cf13d317df7b
-ms.openlocfilehash: 961aa46e3f3654c250aa10e61149fac2fc251935
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 590cb831ad265d9b83713f573c92d8675e64db3d
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -55,6 +56,8 @@ Tenere presente quanto segue:
 
 * Per `path`, vedere [Modelli di nome](#pattern) per scoprire come formattare i modelli di nome dei BLOB.
 * `connection` deve contenere il nome di un'impostazione app che contiene una stringa di connessione di archiviazione. Nel portale di Azure l'editor standard disponibile nella scheda **Integra** configura automaticamente questa impostazione app quando si crea un account di archiviazione o si seleziona un account già esistente. Per creare manualmente questa impostazione app, vedere la sezione relativa alla [configurazione manuale dell'impostazione app](). 
+
+Quando si esegue un piano a consumo, se un'app per le funzioni è inattiva, possono essere necessari fino a 10 minuti al giorno per l'elaborazione di nuovi BLOB. Se l'app per le funzioni è in esecuzione, i BLOB vengono elaborati più rapidamente. Per evitare questo ritardo iniziale, usare un normale piano di servizio app con l'opzione Always On abilitata o usare un altro meccanismo per attivare l'elaborazione dei BLOB, ad esempio un messaggio in coda che contiene il nome del BLOB. 
 
 Per altre informazioni vedere anche una delle sezioni seguenti:
 
@@ -97,7 +100,7 @@ Le parentesi graffe sono caratteri speciali nei modelli di nome. Per specificare
 
 Questo percorso troverà un BLOB denominato *{20140101}-soundfile.mp3* nel contenitore *images* e il valore della variabile `name` nel codice della funzione sarà *soundfile.mp3*. 
 
-<a name"receipts"></a>
+<a name="receipts"></a>
 
 ### <a name="blob-receipts"></a>Conferme di BLOB
 Il runtime di Funzioni di Azure verifica che nessuna funzione trigger di BLOB venga chiamata più volte per lo stesso BLOB nuovo o aggiornato. A questo scopo, gestisce *conferme di BLOB* per determinare se una versione di BLOB specifica è stata elaborata.
@@ -235,7 +238,7 @@ Nelle funzioni C# l'associazione ai dati del BLOB di input viene eseguita usando
 Il BLOB può essere deserializzato in uno dei tipi seguenti:
 
 * Qualsiasi [oggetto](https://msdn.microsoft.com/library/system.object.aspx), utile per i dati del BLOB serializzati con JSON.
-  Se si dichiara un tipo di input personalizzato, ad esempio `FooType`, Funzioni di Azure tenta di deserializzare i dati JSON nel tipo specificato.
+  Se si dichiara un tipo di input personalizzato, ad esempio `InputType`, Funzioni di Azure tenta di deserializzare i dati JSON nel tipo specificato.
 * Stringa, utile per i dati di testo del BLOB.
 
 Nelle funzioni C# è anche possibile eseguire l'associazione a uno dei seguenti tipi e il runtime di Funzioni tenterà di deserializzare i dati del BLOB usando quel tipo:
@@ -347,7 +350,7 @@ Nelle funzioni C# è possibile eseguire l'associazione al BLOB di output usando 
 È possibile scrivere nel BLOB di output usando uno dei tipi seguenti:
 
 * Qualsiasi [oggetto](https://msdn.microsoft.com/library/system.object.aspx), utile per la serializzazione con JSON.
-  Se si dichiara un tipo di output personalizzato (ad esempio `out FooType paramName`), Funzioni di Azure tenta di serializzare l'oggetto in JSON. Se il parametro di output è null quando la funzione viene chiusa, il runtime di Funzioni crea un BLOB come un oggetto null.
+  Se si dichiara un tipo di output personalizzato (ad esempio `out OutputType paramName`), Funzioni di Azure tenta di serializzare l'oggetto in JSON. Se il parametro di output è null quando la funzione viene chiusa, il runtime di Funzioni crea un BLOB come un oggetto null.
 * Stringa, (`out string paramName`) utile per i dati di testo del BLOB. Il runtime di Funzioni crea un BLOB solo se il parametro di stringa è diverso da null quando la funzione viene chiusa.
 
 Nelle funzioni C# è anche possibile eseguire l'output in uno dei tipi seguenti:
@@ -358,8 +361,6 @@ Nelle funzioni C# è anche possibile eseguire l'output in uno dei tipi seguenti:
 * `ICloudBlob`
 * `CloudBlockBlob` 
 * `CloudPageBlob` 
-* `ICollector<T>` (per restituire più BLOB)
-* `IAsyncCollector<T>` (versione asincrona di `ICollector<T>`)
 
 <a name="outputsample"></a>
 
@@ -368,10 +369,5 @@ Vedere [esempio di input](#inputsample).
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

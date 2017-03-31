@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: nitinme
+ROBOTS: NOINDEX
 translationtype: Human Translation
 ms.sourcegitcommit: b5fafb9603957a93a0ca8fbc6dd53798070641a4
 ms.openlocfilehash: da013207a2c804898d1a93dfd7875ed2a2deed22
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -329,9 +331,4 @@ Vedere [Sviluppare script di Azione script per HDInsight][hdinsight-write-script
 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Fasi durante la creazione di un cluster"
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

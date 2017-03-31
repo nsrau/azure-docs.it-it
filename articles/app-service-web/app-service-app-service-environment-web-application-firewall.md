@@ -4,7 +4,7 @@ description: Informazioni su come configurare un Web application firewall davant
 services: app-service\web
 documentationcenter: 
 author: naziml
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: a2101291-83ba-4169-98a2-2c0ed9a65e8d
 ms.service: app-service
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d4378398e666fe5ae2c7c55b377ae74880b857de
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 36f38409366d2a0b52387091c5e93296756a0178
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: d4378398e666fe5ae2c7c55b377ae74880b857de
 ## <a name="overview"></a>Panoramica
 [Barracuda WAF per Azure](https://www.barracuda.com/programs/azure) è un web application firewall disponibile in [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/) che consente di proteggere le applicazioni Web esaminando il traffico Web in ingresso per bloccare SQL injection, attacchi tramite script da altri siti, caricamenti di malware, DDoS di applicazioni e altri attacchi. Esamina anche le risposte provenienti dai server Web back-end per la prevenzione della perdita dei dati. In associazione all'isolamento e alla scalabilità aggiuntiva fornita dagli ambienti del servizio app, costituisce un ambiente ideale per le applicazioni Web critiche per l'azienda, che devono sostenere richieste dannose e un volume elevato di traffico.
 
-+[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
+[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## <a name="setup"></a>Configurazione
 Per questo documento si configurerà l'ambiente del servizio app dietro più istanze con carico bilanciato di Barracuda WAF, in modo che solo il traffico proveniente dal firewall WAF possa raggiungere l'ambiente del servizio app che non sarà accessibile dalla rete perimetrale. Gestione traffico di Azure sarà invece davanti alle istanze di Barracuda WAF per bilanciare il carico tra i data center e le aree di Azure. Il diagramma generale della configurazione sarà simile al seguente.
@@ -109,9 +110,4 @@ Sostituire SourceAddressPrefix con l'indirizzo IP virtuale (VIP) del servizio cl
 [TrafficManagerEndpoint]: ./media/app-service-app-service-environment-web-application-firewall/TrafficManagerEndpoint.png
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

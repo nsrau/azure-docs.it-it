@@ -1,5 +1,5 @@
 ---
-title: Webhook di automazione di Azure | Documentazione Microsoft
+title: Avvio di un runbook di Automazione di Azure con un webhook | Documentazione Microsoft
 description: Un webhook che consente a un client di avviare un Runbook in Automazione di Azure da una chiamata HTTP.  Questo articolo descrive come creare un webhook e come chiamarne uno per avviare un Runbook.
 services: automation
 documentationcenter: 
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
+ms.date: 02/22/2017
 ms.author: magoedte;bwren;sngun
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 155d89ed6aed0afd2780a017c221bd807ca61ba2
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 6c65427fcd18e41a90dfb872aa9525f758b17b87
+ms.lasthandoff: 03/18/2017
 
 
 ---
-# <a name="azure-automation-webhooks"></a>Webhook di Automazione di Azure
-Un *webhook* consente di avviare un Runbook specifico in Automazione di Azure tramite una singola richiesta HTTP. In questo modo, i servizi esterni come Visual Studio Team Services, GitHub o le applicazioni personalizzate possono avviare i runbook senza implementare una soluzione completa usando l'API di Automazione di Azure.  
+# <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Avviare un runbook di Automazione di Azure con un webhook
+Un *webhook* consente di avviare un Runbook specifico in Automazione di Azure tramite una singola richiesta HTTP. In questo modo, i servizi esterni come Visual Studio Team Services, GitHub o Microsoft Operations Management Suite Log Analytics o le applicazioni personalizzate possono avviare i runbook senza implementare una soluzione completa usando l'API di Automazione di Azure.  
 ![Panoramica dei webhook](media/automation-webhooks/webhook-overview-image.png)
 
 È possibile confrontare i webhook con altre modalità di avvio di un Runbook nell'articolo relativo all' [avvio di un Runbook in Automazione di Azure](automation-starting-a-runbook.md)
@@ -31,9 +32,9 @@ La tabella seguente descrive le proprietà che devono essere configurate per un 
 
 | Proprietà | Descrizione |
 |:--- |:--- |
-| Nome |È possibile specificare un nome qualsiasi per un webhook dal momento che non viene esposto al client.  Viene usato solo per consentire all'utente di identificare il Runbook in Automazione di Azure. <br>   Come procedura consigliata, è opportuno assegnare al webhook un nome correlato al client in cui verrà usato. |
-| URL |L'URL del webhook è l'indirizzo univoco che viene chiamato da un client con HTTP POST per avviare il Runbook collegato al webhook.  Viene generato automaticamente al momento della creazione del webhook.  Non è possibile specificare un URL personalizzato. <br> <br>   L'URL contiene un token di sicurezza che consente al Runbook di essere richiamato da un sistema di terze parti senza un'autenticazione aggiuntiva. Per questo motivo, deve essere considerato come una password.  Per motivi di sicurezza, è possibile visualizzare l'URL solo nel portale di Azure al momento della creazione del webhook. È consigliabile prendere nota dell'URL e conservarlo in un luogo sicuro per usi futuri. |
-| Expiration date |Analogamente a un certificato, un webhook ha una data di scadenza oltre la quale non può più essere usato.  La data di scadenza non può essere modificata dopo la creazione del webhook e il webhook non può essere abilitato di nuovo dopo la data di scadenza.  In questo caso, è necessario creare un altro webhhok per sostituire quello corrente e aggiornare il client per l'uso del nuovo webhook. |
+| Nome |È possibile specificare un nome qualsiasi per un webhook dal momento che non viene esposto al client.  Viene usato solo per consentire all'utente di identificare il Runbook in Automazione di Azure. <br>  Come procedura consigliata, è opportuno assegnare al webhook un nome correlato al client in cui verrà usato. |
+| URL |L'URL del webhook è l'indirizzo univoco che viene chiamato da un client con HTTP POST per avviare il Runbook collegato al webhook.  Viene generato automaticamente al momento della creazione del webhook.  Non è possibile specificare un URL personalizzato. <br> <br>  L'URL contiene un token di sicurezza che consente al Runbook di essere richiamato da un sistema di terze parti senza un'autenticazione aggiuntiva. Per questo motivo, deve essere considerato come una password.  Per motivi di sicurezza, è possibile visualizzare l'URL solo nel portale di Azure al momento della creazione del webhook. È consigliabile prendere nota dell'URL e conservarlo in un luogo sicuro per usi futuri. |
+| Expiration date |Analogamente a un certificato, un webhook ha una data di scadenza oltre la quale non può più essere usato.  La data di scadenza può essere modificata dopo la creazione del webhook. |
 | Enabled |Un webhook viene abilitato per impostazione predefinita nel momento in cui viene creato.  Se viene impostato su Disabled, nessun client sarà in grado di usarlo.  È possibile impostare la proprietà **Enabled** quando si crea il webhook o in qualsiasi momento successivo. |
 
 ### <a name="parameters"></a>Parametri
@@ -73,8 +74,7 @@ Passare quindi il seguente valore JSON nell'interfaccia utente per il parametro 
 
 > [!NOTE]
 > I valori di tutti i parametri di input vengono registrati con il processo di Runbook.  Qualsiasi input fornito dal client nella richiesta del webhook verrà quindi registrato e sarà disponibile per chiunque abbia accesso al processo di automazione.  Per questo motivo è consigliabile procedere con cautela quando si includono dati sensibili nelle chiamate di webhook.
-> 
-> 
+>
 
 ## <a name="security"></a>Sicurezza
 La sicurezza di un webhook si basa sulla privacy dell'URL che contiene un token di sicurezza che consente di richiamarlo. Automazione di Azure non esegue alcuna autenticazione per la richiesta, purché venga inviata all'URL corretto. Per questo motivo, non è consigliabile usare i webhook per i Runbook che eseguono funzioni sensibili senza usare una modalità alternativa di convalida della richiesta.
@@ -264,13 +264,7 @@ Il seguente runbook di esempio viene attivato quando la regola dell'avviso diven
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per informazioni dettagliate sulle diverse modalità disponibili per l'avvio dei runbook, vedere [Avvio di un runbook](automation-starting-a-runbook.md)
-* Per informazioni sulla visualizzazione dello stato di un processo del runbook, vedere [Esecuzione di runbook in Automazione di Azure](automation-runbook-execution.md)
-* Per informazioni su come usare Automazione di Azure per agire sugli avvisi di Azure, vedere [Soluzione di Automazione di Azure: risolvere gli avvisi delle macchine virtuali di Azure](automation-azure-vm-alert-integration.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+* Per informazioni dettagliate sulle diverse modalità disponibili per l'avvio dei runbook, vedere [Avvio di un runbook](automation-starting-a-runbook.md).
+* Per informazioni sulla visualizzazione dello stato di un processo del runbook, vedere [Esecuzione di runbook in Automazione di Azure](automation-runbook-execution.md).
+* Per informazioni su come usare Automazione di Azure per agire sugli avvisi di Azure, vedere [Soluzione di Automazione di Azure: risolvere gli avvisi delle macchine virtuali di Azure](automation-azure-vm-alert-integration.md).
 

@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 883beae6-9839-45b5-94f7-7eb0f4534ad5
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,16 +16,17 @@ ms.workload: big-data
 ms.date: 02/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
-ms.openlocfilehash: b3ff0e93ee144e98dec69c0678c3b467db1e0bc0
+ms.sourcegitcommit: 110f3aa9ce4848c9350ea2e560205aa762decf7a
+ms.openlocfilehash: 6fed646d81bf583a0c3ecefcd2bc716fe65ecdc6
+ms.lasthandoff: 02/21/2017
 
 
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>Analizzare i log di Application Insights Telemetry con Spark in HDInsight
 
-[Visual Studio Application Insights](../application-insights/app-insights-overview.md) è un servizio di analisi dei dati che consente di monitorare le applicazioni Web. I dati di telemetria generati da Application Insights possono essere esportati in Archiviazione di Azure e da lì analizzati con HDInsight.
+Informazioni su come usare Spark in HDInsight per analizzare i dati di telemetria di Application Insights.
 
-Questo documento dimostra l'uso di HDInsight per l'analisi dei dati di Application Insights Telemetry tramite Apache Spark.
+[Visual Studio Application Insights](../application-insights/app-insights-overview.md) è un servizio di analisi dei dati che consente di monitorare le applicazioni Web. I dati di telemetria generati da Application Insights possono essere esportati in Archiviazione di Azure e da lì analizzati con HDInsight.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -32,29 +34,30 @@ Questo documento dimostra l'uso di HDInsight per l'analisi dei dati di Applicati
 
 * Un'applicazione configurata per l'uso di Application Insights. 
 
-* Familiarità con la creazione di un cluster HDInsight basato su Linux. Se non si ha familiarità con la creazione di un cluster, vedere [Creare Spark in HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) per maggiori informazioni.
+* Familiarità con la creazione di un cluster HDInsight basato su Linux. Per altre informazioni, vedere [Introduzione: Creare un cluster Apache Spark in Azure HDInsight ed eseguire query interattive usando Spark SQL](hdinsight-apache-spark-jupyter-spark-sql.md).
   
   > [!IMPORTANT]
   > I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
-* Un Web browser. Viene usato per eseguire in modo interattivo l'analisi tramite un notebook Jupyter.
+* Un Web browser.
 
-Per lo sviluppo e il test di questo documento, sono stati usati gli elementi seguenti:
+Per lo sviluppo e il test di questo documento, sono state usate le risorse seguenti:
 
 * I dati di Application Insights Telemetry sono stati generati tramite un' [app Web Node.js configurata per l'uso di Application Insights](../application-insights/app-insights-nodejs.md).
 
-* Per analizzare i dati, è stato usato uno Spark basato su Linux nel cluster HDInsight versione 3.4.
+* Per analizzare i dati, è stato usato uno Spark basato su Linux nel cluster HDInsight versione 3.5.
 
 ## <a name="architecture-and-planning"></a>Architettura e pianificazione
+
 Il diagramma seguente illustra l'architettura del servizio dell'esempio:
 
 ![diagramma che illustra un flusso di dati da Application Insights nell'archiviazione BLOB e la fase di elaborazione Spark in HDInsight](./media/hdinsight-spark-analyze-application-insight-logs/appinsightshdinsight.png)
 
 ### <a name="azure-storage"></a>Archiviazione di Azure
 
-Un cluster HDInsight può accedere direttamente ai BLOB in blocchi da un account di archiviazione di Azure e Application Insights può essere configurato per esportare continuamente dati di telemetria nei BLOB in archiviazione di Azure. Tuttavia, esistono alcuni requisiti da seguire:
+Application Insights può essere configurato per l'esportazione continua delle informazioni di telemetria nei BLOB. HDInsight sarà quindi in grado di leggere i dati archiviati nei BLOB. Tuttavia, esistono alcuni requisiti da seguire:
 
-* **Località**: l'account di archiviazione deve trovarsi nella stessa area di HDInsight. Questo riduce la latenza dell'accesso ai dati ed evita i costi di uscita legati allo spostamento dei dati tra le aree.
+* **Posizione**: se l'account di archiviazione e HDInsight si trovano in posizioni diverse, la latenza potrebbe aumentare. Ciò comporta anche un aumento dei costi dal momento che vengono applicati costi di uscita per lo spostamento di dati tra le aree.
 * **Tipo di BLOB**: in HDInsight sono supportati solo BLOB in blocchi. Application Insights usa per impostazione predefinita i BLOB in blocchi, quindi funzionerà con HDInsight.
 * **Autorizzazioni di accesso**: se si usa lo stesso account di archiviazione sia per l'esportazione continua di Application Insights che per lo spazio di archiviazione predefinito di HDInsight, HDInsight ha accesso completo ai dati di Application Insights Telemetry. Ciò significa che è possibile eliminare i dati di telemetria dal cluster HDInsight.
   
@@ -73,18 +76,20 @@ Usare le informazioni contenute in [Usare le firme di accesso condiviso di Archi
 Il documento di firma di accesso condiviso fornisce informazioni su come aggiungere l'archiviazione della firma di accesso condiviso a un cluster HDInsight basato su Linux esistente. Il documento fornisce anche informazioni su come aggiungere l'archiviazione durante la creazione di un nuovo cluster HDInsight.
 
 ## <a name="analyze-the-data-using-python-pyspark"></a>Analizzare i dati tramite Python (PySpark)
+
 1. Nel [Portale di Azure](https://portal.azure.com)selezionare il proprio Spark sul cluster HDInsight. Nella sezione **Collegamenti rapidi** selezionare **Dashboard cluster** e quindi selezionare **Notebook di Jupyter** nel pannello Dashboard cluster.
    
     ![Il dashboard del cluster](./media/hdinsight-spark-analyze-application-insight-logs/clusterdashboards.png)
+
 2. Nell'angolo superiore destro della pagina Jupyter selezionare **Nuovo** e quindi **PySpark**. Si apre una nuova scheda del browser contenente un notebook di Jupyter basato su Python.
-3. Nel primo campo della pagina (denominato **cella**) immettere quanto segue:
+
+3. Nel primo campo della pagina (denominato **cella**) immettere il testo seguente:
    
         sc._jsc.hadoopConfiguration().set('mapreduce.input.fileinputformat.input.dir.recursive', 'true')
    
-    In questo modo Spark ottiene accesso continuo alla struttura della directory per i dati di input. Application Insights Telemetry è connesso a una struttura di directory simile alla seguente:
-   
-        /{telemetry type}/YYYY-MM-DD/{##}/
-4. Premere **MAIUSC+INVIO** per eseguire il codice. Sul lato sinistro della cella viene visualizzato \* tra parentesi per indicare che il codice contenuto nella cella è in esecuzione. Al termine, \* verrà sostituito da un numero e sotto la cella verrà visualizzato un output simile al seguente:
+    Questo codice configura Spark per l'accesso continuo alla struttura della directory per i dati di input. Application Insights Telemetry è connesso a una struttura di directory simile alla seguente: `/{telemetry type}/YYYY-MM-DD/{##}/`.
+
+4. Premere **MAIUSC+INVIO** per eseguire il codice. Sul lato sinistro della cella viene visualizzato \* tra parentesi per indicare che il codice contenuto nella cella è in esecuzione. Al termine, \* viene sostituito da un numero e sotto la cella viene visualizzato un output simile al testo seguente:
    
         Creating SparkContext as 'sc'
    
@@ -93,12 +98,12 @@ Il documento di firma di accesso condiviso fornisce informazioni su come aggiung
    
         Creating HiveContext as 'sqlContext'
         SparkContext and HiveContext created. Executing user code ...
-5. Una nuova cella è stata creata sotto la prima. Immettere quanto segue nella nuova cella. Sostituire **CONTAINER** e **STORAGEACCOUNT** con il nome dell'account di archiviazione di Azure e con il nome del contenitore BLOB usati per la configurazione dell'esportazione continua di Application Insights.
+5. Una nuova cella viene creata sotto la prima. Immettere il testo seguente nella nuova cella. Sostituire **CONTAINER** e **STORAGEACCOUNT** con il nome dell'account di archiviazione di Azure e con il nome del contenitore BLOB usati per la configurazione dell'esportazione continua di Application Insights.
    
         %%bash
         hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
    
-    Premere **MAIUSC+INVIO** per eseguire la cella. Il risultato visualizzato sarà simile al seguente:
+    Premere **MAIUSC+INVIO** per eseguire la cella. Il risultato visualizzato è simile al testo seguente:
    
         Found 1 items
         drwxrwxrwx   -          0 1970-01-01 00:00 wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_2bededa61bc741fbdee6b556571a4831
@@ -106,20 +111,19 @@ Il documento di firma di accesso condiviso fornisce informazioni su come aggiung
     Il percorso wasb restituito è il percorso dei dati di Application Insights Telemetry. Modificare la riga `hdfs dfs -ls` nella cella per usare il percorso wasb restituito e quindi premere **MAIUSC+INVIO** per eseguire di nuovo la cella. Questa volta, il risultato dovrebbe visualizzare le directory che contengono i dati di telemetria.
    
    > [!NOTE]
-   > Per il resto dei passaggi in questa sezione è stata usata la directory `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests`. Questa directory potrebbe non esistere, a meno che i dati di telemetria non siano destinati a un'app Web. Se si usano dati di telemetria che non includono una directory di richieste, selezionare un'altra directory e modificare il resto dei passaggi per usare tale directory e lo schema per i dati in essa archiviati.
-   > 
-   > 
+   > Per il resto dei passaggi in questa sezione è stata usata la directory `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests`. La struttura della directory potrebbe essere diversa.
+
 6. Immettere quanto segue nella prossima cella. Sostituire **WASB\_PATH** con il percorso del passaggio precedente.
    
         jsonFiles = sc.textFile('WASB_PATH')
         jsonData = sqlContext.read.json(jsonFiles)
    
-    Verrà creato un nuovo frame di dati dai file JSON esportati dal processo di esportazione continua. Premere **MAIUSC+INVIO** per eseguire la cella.
+    Questo codice crea un frame di dati dai file JSON esportati dal processo di esportazione continua. Premere **MAIUSC+INVIO** per eseguire la cella.
 7. Nella prossima cella, immettere ed eseguire il comando seguente per visualizzare lo schema Spark creato per i file JSON:
    
         jsonData.printSchema()
    
-    Lo schema per ogni tipo di dati di telemetria sarà diverso. Di seguito è riportato lo schema generato per le richieste Web (dati archiviati nella sottodirectory `Requests` ):
+    Lo schema per ogni tipo di dati di telemetria è diverso. Di seguito è riportato lo schema di esempio generato per le richieste Web (dati archiviati nella sottodirectory `Requests`):
    
         root
         |-- context: struct (nullable = true)
@@ -186,14 +190,14 @@ Il documento di firma di accesso condiviso fornisce informazioni su come aggiung
         jsonData.registerTempTable("requests")
         sqlContext.sql("select context.location.city from requests where context.location.city is not null")
    
-    Questa query restituirà le informazioni sulla città per i primi 20 record in cui context.location.city non ha valore Null.
+    Questa query restituisce le informazioni sulla città per i primi 20 record in cui context.location.city non ha valore Null.
    
    > [!NOTE]
    > La struttura del contesto è presente in tutti i dati di telemetria registrati da Application Insights. Tuttavia, l'elemento città non può essere inserito nei log. Usare lo schema per identificare altri elementi su cui è possibile eseguire una query che potrebbe contenere i dati per i log.
    > 
    > 
    
-    La query restituirà informazioni simili alle seguenti:
+    La query restituisce informazioni simili al testo seguente:
    
         +---------+
         |     city|
@@ -210,14 +214,13 @@ Il documento di firma di accesso condiviso fornisce informazioni su come aggiung
    
     ![Il dashboard del cluster](./media/hdinsight-spark-analyze-application-insight-logs/clusterdashboards.png)
 2. Nell'angolo superiore destro della pagina Jupyter selezionare **Nuovo** e quindi **Scala**. Si apre una nuova scheda del browser contenente un notebook di Jupyter basato su Scala.
-3. Nel primo campo della pagina (denominato **cella**) immettere quanto segue:
+3. Nel primo campo della pagina (denominato **cella**) immettere il testo seguente:
    
         sc.hadoopConfiguration.set("mapreduce.input.fileinputformat.input.dir.recursive", "true")
    
-    In questo modo Spark ottiene accesso continuo alla struttura della directory per i dati di input. Application Insights Telemetry è connesso a una struttura di directory simile alla seguente:
-   
-        /{telemetry type}/YYYY-MM-DD/{##}/
-4. Premere **MAIUSC+INVIO** per eseguire il codice. Sul lato sinistro della cella viene visualizzato \* tra parentesi per indicare che il codice contenuto nella cella è in esecuzione. Al termine, \* verrà sostituito da un numero e sotto la cella verrà visualizzato un output simile al seguente:
+    Questo codice configura Spark per l'accesso continuo alla struttura della directory per i dati di input. Application Insights Telemetry è connesso a una struttura di directory simile alla seguente: `/{telemetry type}/YYYY-MM-DD/{##}/`.
+
+4. Premere **MAIUSC+INVIO** per eseguire il codice. Sul lato sinistro della cella viene visualizzato \* tra parentesi per indicare che il codice contenuto nella cella è in esecuzione. Al termine, \* viene sostituito da un numero e sotto la cella viene visualizzato un output simile al testo seguente:
    
         Creating SparkContext as 'sc'
    
@@ -226,12 +229,12 @@ Il documento di firma di accesso condiviso fornisce informazioni su come aggiung
    
         Creating HiveContext as 'sqlContext'
         SparkContext and HiveContext created. Executing user code ...
-5. Una nuova cella è stata creata sotto la prima. Immettere quanto segue nella nuova cella. Sostituire **CONTAINER** e **STORAGEACCOUNT** con il nome dell'account di archiviazione di Azure e con il nome del contenitore BLOB usati per la configurazione dell'esportazione continua di Application Insights.
+5. Una nuova cella viene creata sotto la prima. Immettere il testo seguente nella nuova cella. Sostituire **CONTAINER** e **STORAGEACCOUNT** con il nome dell'account di archiviazione di Azure e con il nome del contenitore BLOB usati per la configurazione dell'esportazione continua di Application Insights.
    
         %%bash
         hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
    
-    Premere **MAIUSC+INVIO** per eseguire la cella. Il risultato visualizzato sarà simile al seguente:
+    Premere **MAIUSC+INVIO** per eseguire la cella. Il risultato visualizzato è simile al testo seguente:
    
         Found 1 items
         drwxrwxrwx   -          0 1970-01-01 00:00 wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_2bededa61bc741fbdee6b556571a4831
@@ -247,12 +250,12 @@ Il documento di firma di accesso condiviso fornisce informazioni su come aggiung
         jsonFiles = sc.textFile('WASB_PATH')
         jsonData = sqlContext.read.json(jsonFiles)
    
-    Verrà creato un nuovo frame di dati dai file JSON esportati dal processo di esportazione continua. Premere **MAIUSC+INVIO** per eseguire la cella.
+    Questo codice crea un frame di dati dai file JSON esportati dal processo di esportazione continua. Premere **MAIUSC+INVIO** per eseguire la cella.
 7. Nella prossima cella, immettere ed eseguire il comando seguente per visualizzare lo schema Spark creato per i file JSON:
    
         jsonData.printSchema
    
-    Lo schema per ogni tipo di dati di telemetria sarà diverso. Di seguito è riportato lo schema generato per le richieste Web (dati archiviati nella sottodirectory `Requests` ):
+    Lo schema per ogni tipo di dati di telemetria è diverso. Di seguito è riportato lo schema di esempio generato per le richieste Web (dati archiviati nella sottodirectory `Requests`):
    
         root
         |-- context: struct (nullable = true)
@@ -319,14 +322,14 @@ Il documento di firma di accesso condiviso fornisce informazioni su come aggiung
         jsonData.registerTempTable("requests")
         var city = sqlContext.sql("select context.location.city from requests where context.location.city is not null limit 10").show()
    
-    Questa query restituirà le informazioni sulla città per i primi 20 record in cui context.location.city non ha valore Null.
+    Questa query restituisce le informazioni sulla città per i primi 20 record in cui context.location.city non ha valore Null.
    
    > [!NOTE]
    > La struttura del contesto è presente in tutti i dati di telemetria registrati da Application Insights. Tuttavia, l'elemento città non può essere inserito nei log. Usare lo schema per identificare altri elementi su cui è possibile eseguire una query che potrebbe contenere i dati per i log.
    > 
    > 
    
-    La query restituirà informazioni simili alle seguenti:
+    La query restituisce informazioni simili al testo seguente:
    
         +---------+
         |     city|
@@ -344,17 +347,12 @@ Per altri esempi sull'uso di Spark per lavorare con dati e servizi di Azure, ved
 * [Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark con Machine Learning: utilizzare Spark in HDInsight per l'analisi della temperatura di compilazione utilizzando dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Spark con Machine Learning: usare Spark in HDInsight per prevedere i risultati del controllo degli alimenti](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Streaming Spark: usare Spark in HDInsight per la creazione di applicazioni di streaming in tempo reale](hdinsight-apache-spark-eventhub-streaming.md)
+* [Streaming Spark: usare Spark in HDInsight per la compilazione di applicazioni di streaming](hdinsight-apache-spark-eventhub-streaming.md)
 * [Analisi dei log del sito Web mediante Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 Per informazioni sulla creazione e l'esecuzione delle applicazioni Spark, vedere i documenti seguenti:
 
 * [Creare un'applicazione autonoma con Scala](hdinsight-apache-spark-create-standalone-application.md)
 * [Eseguire processi in modalità remota in un cluster Spark usando Livy](hdinsight-apache-spark-livy-rest-interface.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

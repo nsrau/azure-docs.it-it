@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory Domain Services: sincronizzazione nei domini gestiti | Documentazione Microsoft'
-description: Informazioni sulla sincronizzazione in un dominio gestito di Servizi di dominio Azure Active Directory
+description: Informazioni sulla sincronizzazione in un dominio gestito di Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: f5143bc817215d075129170adcabf3dd53b5e15a
-ms.openlocfilehash: 1f6abf9bf123534f29b7976ecadbcf8cb49ce040
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 0c9a9a56e1489ee91fcc332beeef36cdc9c93dc1
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -67,7 +68,7 @@ La tabella seguente riporta alcuni attributi comuni e il modo in cui vengono sin
 | Cronologia SID per utenti e gruppi |SID utente/gruppo primario locale |L'attributo SidHistory per utenti e gruppi nel dominio gestito viene impostato in modo che corrisponda all'ID di sicurezza utente o gruppo primario nel dominio locale. Questa funzionalità consente di semplificare il potenziamento e lo spostamento delle applicazioni locali nel dominio gestito, perché elimina la necessità di creare un nuovo elenco di controllo di accesso delle risorse. |
 
 > [!NOTE]
-> **Accedere al dominio gestito usando il formato UPN:** per alcuni account utente nel dominio gestito l'attributo SAMAccountName può essere generato automaticamente. Se più utenti hanno lo stesso attributo mailNickname o sono presenti utenti con un prefisso UPN troppo lungo, l'attributo SAMAccountName per questi utenti potrebbe essere generato automaticamente. Il formato SAMAccountName, ad esempio "CONTOSO100\joeuser", non è quindi un modo sempre affidabile per accedere al dominio. L'attributo SAMAccountName autogenerato dell'utente potrebbe infatti essere diverso dal relativo prefisso UPN. Per accedere al dominio gestito in modo affidabile, usare il formato UPN (ad esempio, 'joeuser@contoso100.com').
+> **Accedere al dominio gestito usando il formato UPN:** per alcuni account utente nel dominio gestito l'attributo SAMAccountName può essere generato automaticamente. Se più utenti hanno lo stesso attributo mailNickname o sono presenti utenti con un prefisso UPN troppo lungo, l'attributo SAMAccountName per questi utenti potrebbe essere generato automaticamente. Il formato SAMAccountName, ad esempio "CONTOSO100\joeuser", non è quindi un modo sempre affidabile per accedere al dominio. L'attributo SAMAccountName autogenerato dell'utente potrebbe infatti essere diverso dal relativo prefisso UPN. Per accedere al dominio gestito in modo affidabile, usare il formato UPN, ad esempio 'joeuser@contoso100.com'.
 >
 >
 
@@ -121,9 +122,4 @@ Come descritto in una sezione precedente di questo articolo, non viene eseguita 
 * [Scenari di distribuzione - Servizi di dominio Azure AD](active-directory-ds-scenarios.md)
 * [Considerazioni sulla rete per Azure AD Domain Services](active-directory-ds-networking.md)
 * [Introduzione ad Azure AD Domain Services](active-directory-ds-getting-started.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

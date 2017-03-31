@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: cf1eafc7bca5bddeb32f1e1e05e660d6877ed805
-ms.openlocfilehash: f14a0473ebcf21e04759cb8eb77eb684c4d9a9cb
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 5c591e7f1838c86ca74caea9dd3a5e8f874fd8a7
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -44,7 +45,9 @@ Questo documento descrive come abilitare DHCPv6 in modo che la macchina virtuale
    * In **Ubuntu 12.04 e 14.04** modificare il file `/etc/network/interfaces.d/eth0.cfg`
    * In **Ubuntu 16.04**modificare il file `/etc/network/interfaces.d/50-cloud-init.cfg`
 
-        iface eth0 inet6 auto        up sleep 5        up dhclient -1 -6 -cf /etc/dhcp/dhclient6.conf -lf /var/lib/dhcp/dhclient6.eth0.leases -v eth0 || true
+         iface eth0 inet6 auto
+             up sleep 5
+             up dhclient -1 -6 -cf /etc/dhcp/dhclient6.conf -lf /var/lib/dhcp/dhclient6.eth0.leases -v eth0 || true
 
 3. Rinnovare l'indirizzo IPv6:
 
@@ -146,9 +149,4 @@ Le immagini recenti di CoreOS in Azure sono state preconfigurate con DHCPv6. Non
     ```bash
     sudo systemctl restart systemd-networkd
     ```
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

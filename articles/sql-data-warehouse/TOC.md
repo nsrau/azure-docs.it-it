@@ -3,20 +3,19 @@
 ## [Che cos'è SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md)
 ## [Carico di lavoro del data warehouse](sql-data-warehouse-overview-workload.md)
 ## [Dati distribuiti](sql-data-warehouse-distributed-data.md)
+## [Domande frequenti](sql-data-warehouse-overview-faq.md)
 
 # Attività iniziali
 
-## Creare un SQL Data Warehouse
-### [Portale di Azure](sql-data-warehouse-get-started-provision.md)
-### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
-## [Procedure consigliate](sql-data-warehouse-best-practices.md)
+## [Esercitazione per principianti](sql-data-warehouse-get-started-tutorial.md)
+## [procedure consigliate](sql-data-warehouse-best-practices.md)
 ## [Gestire](sql-data-warehouse-overview-manage.md)
 ## [Ottenere supporto](sql-data-warehouse-get-started-create-support-ticket.md)
+## [Risolvere i problemi](sql-data-warehouse-troubleshoot.md)
 
 # Procedure
 
-## Eseguire il backup e il ripristino
+## Backup e ripristino
 
 ### [Panoramica del servizio Backup](sql-data-warehouse-backups.md)
 ### [Panoramica del servizio di ripristino](sql-data-warehouse-restore-database-overview.md)
@@ -27,11 +26,16 @@
 ## Connettere
 
 ### [Panoramica](sql-data-warehouse-connect-overview.md)
-### [Stringhe di connessione](sql-data-warehouse-connection-strings.md)
-### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 ### [SSMS](sql-data-warehouse-query-ssms.md)
 ### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Installare Visual Studio](sql-data-warehouse-install-visual-studio.md)
+### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+### [Stringhe di connessione](sql-data-warehouse-connection-strings.md)
+
+## Create
+### [Portale di Azure](sql-data-warehouse-get-started-provision.md)
+### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## Sviluppare
 
@@ -78,9 +82,9 @@
 
 ### [Panoramica](sql-data-warehouse-overview-load.md)
 ### [Dati di esempio](sql-data-warehouse-load-sample-databases.md)
+### [Archivio Data Lake di Azure](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
-### [BCP da SQL Server](sql-data-warehouse-load-from-sql-server-with-bcp.md)
 ### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
 ### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 ### [Linee guida di PolyBase](sql-data-warehouse-load-polybase-guide.md)
@@ -98,7 +102,7 @@
 ### [Eseguire la migrazione dei dati](sql-data-warehouse-migrate-data.md)
 ### [Eseguire la migrazione ad Archiviazione Premium](sql-data-warehouse-migrate-to-premium-storage.md)
 
-## Sospendere e ridimensionare
+## Gestire il calcolo
 
 ### [Panoramica](sql-data-warehouse-manage-compute-overview.md)
 ### [Portale di Azure](sql-data-warehouse-manage-compute-portal.md)
@@ -112,7 +116,6 @@
 ### [Compressione columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Query](sql-data-warehouse-manage-monitor.md)
 ### [Carico di lavoro](sql-data-warehouse-develop-concurrency.md)
-### [Risolvere i problemi](sql-data-warehouse-troubleshoot.md)
 
 ## Sicurezza
 
@@ -143,8 +146,3 @@
 ### [Business intelligence](sql-data-warehouse-partner-business-intelligence.md)
 ### [Integrazione dei dati](sql-data-warehouse-partner-data-integration.md)
 ### [Gestione dei dati](sql-data-warehouse-partner-data-management.md)
-
-
-<!--HONumber=Nov16_HO4-->
-
-

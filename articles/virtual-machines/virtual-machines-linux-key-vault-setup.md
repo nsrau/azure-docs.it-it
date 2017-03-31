@@ -1,6 +1,6 @@
 ---
-title: Configurare l&quot;insieme di credenziali delle chiavi per le macchine virtuali in Azure Resource Manager | Microsoft Docs
-description: Come configurare un insieme di credenziali delle chiavi da usare con una macchina virtuale di Azure Resource Manager.
+title: Configurare Azure Key Vault per le macchine virtuali Linux | Microsoft Docs
+description: Come configurare Azure Key Vault da usare con una macchina virtuale di Azure Resource Manager con l&quot;interfaccia della riga di comando 2.0.
 services: virtual-machines-linux
 documentationcenter: 
 author: singhkays
@@ -13,49 +13,52 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2016
+ms.date: 02/24/2017
 ms.author: singhkay
 translationtype: Human Translation
-ms.sourcegitcommit: 0f8bc125855bc5a5b67fde5b0b742c73b5da7610
-ms.openlocfilehash: bc60d5659c80ad1245d7a34b4cd81c0ae73a5ba9
+ms.sourcegitcommit: 54c3bd47eaedee0d2269ee49143b18dc6b702e1b
+ms.openlocfilehash: 16994b3dfe4945b1b023fa23aafd8541c74ae2e1
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Configurare l'insieme di credenziali delle chiavi per le macchine virtuali in Azure Resource Manager
+# <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli-20"></a>Come configurare Key Vault per le macchine virtuali con l'interfaccia della riga di comando 2.0
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
+Nello stack di Azure Resource Manager i segreti e i certificati vengono modellati come risorse offerte tramite Key Vault. Per altre informazioni sugli insiemi di credenziali delle chiavi di Azure, vedere [Informazioni sull'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-whatis.md) Per consentire l'uso di Key Vault con le macchine virtuali di Azure Resource Manager è necessario impostare su true la proprietà *EnabledForDeployment* in Key Vault. In questo articolo viene illustrato come configurare Key Vault delle chiavi per l'uso con macchine virtuali di Azure tramite l'interfaccia della riga di comando di Azure 2.0. È possibile anche eseguire questi passaggi tramite l'[interfaccia della riga di comando di Azure 1.0](virtual-machines-linux-key-vault-setup-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-In Azure Resource Manager gli stack, i segreti e i certificati vengono modellati come risorse fornite dal provider di risorse dell'insieme di credenziali delle chiavi. Per altre informazioni sugli insiemi di credenziali delle chiavi di Azure, vedere [Informazioni sull'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-whatis.md)
+Per eseguire questi passaggi è necessario aver installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e aver effettuato l'accesso a un account Azure con il comando [az login](/cli/azure/#login).
 
-Per consentire l'uso dell'insieme di credenziali delle chiavi con le macchine virtuali di Azure Resource Manager, è necessario impostare su true la proprietà *EnabledForDeployment* nell'insieme di credenziali delle chiavi. È possibile farlo in vari tipi di client.
+## <a name="create-a-key-vault"></a>Creare un insieme di credenziali delle chiavi
+Creare un insieme di credenziali delle chiavi e assegnare i criteri di distribuzione con [az keyvault create](/cli/azure/keyvault#create). Nell'esempio seguente viene creato un insieme di credenziali delle chiavi denominato `myKeyVault` nel gruppo di risorse `myResourceGroup`:
 
-## <a name="use-cli-to-set-up-key-vault"></a>Usare l'interfaccia della riga di comando per impostare l'insieme di credenziali delle chiavi
-Per creare un insieme di credenziali delle chiavi usando l'interfaccia della riga di comando (CLI), vedere l'articolo su come [gestire l'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando](../key-vault/key-vault-manage-with-cli.md#create-a-key-vault).
+```azurecli
+az keyvault create -l westus -n myKeyVault -g myResourceGroup --enabled-for-deployment true
+```
 
-Per l'interfaccia della riga di comando, prima di assegnare i criteri di distribuzione è necessario creare l'insieme di credenziali delle chiavi. A questo scopo, è possibile eseguire questo comando:
+## <a name="update-a-key-vault-for-use-with-vms"></a>Aggiornare un insieme di credenziali delle chiavi per l'uso con le macchine virtuali
+Impostare i criteri di distribuzione per un insieme di credenziali delle chiavi esistente con [az keyvault update](/cli/azure/keyvault#update). Il comando seguente aggiorna l'insieme di credenziali delle chiavi denominato `myKeyVault` nel gruppo di risorse `myResourceGroup`:
 
-    azure keyvault set-policy ContosoKeyVault –enabled-for-deployment true
+```azurecli
+az keyvault update -n myKeyVault -g myResourceGroup --set properties.enabledForDeployment=true
+```
 
 ## <a name="use-templates-to-set-up-key-vault"></a>Utilizzare modelli per configurare l'insieme di credenziali delle chiavi
-Se si usa un modello, è necessario impostare la proprietà `enabledForDeployment` su `true` per la risorsa dell'insieme di credenziali delle chiavi.
+Se si usa un modello è necessario impostare come segue la proprietà `enabledForDeployment` su `true` per la risorsa Key Vault:
 
-    {
-      "type": "Microsoft.KeyVault/vaults",
-      "name": "ContosoKeyVault",
-      "apiVersion": "2015-06-01",
-      "location": "<location-of-key-vault>",
-      "properties": {
-        "enabledForDeployment": "true",
-        ....
-        ....
-      }
+```json
+{
+    "type": "Microsoft.KeyVault/vaults",
+    "name": "ContosoKeyVault",
+    "apiVersion": "2015-06-01",
+    "location": "<location-of-key-vault>",
+    "properties": {
+    "enabledForDeployment": "true",
+    ....
+    ....
     }
+}
+```
 
-Per altre opzioni che è possibile configurare quando si crea un insieme di credenziali delle chiavi utilizzando i modelli, vedere l'articolo su come [creare un insieme di credenziali delle chiavi](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+## <a name="next-steps"></a>Passaggi successivi
+Per altre opzioni che è possibile configurare quando si crea un insieme di credenziali delle chiavi usando i modelli vedere [Crea un insieme di credenziali delle chiavi](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
 

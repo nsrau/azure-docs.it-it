@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi | Documentazione Microsoft
+title: 'Connettere Raspberry Pi (C) ad Azure IoT: risolvere i problemi | Documentazione Microsoft'
 description: Pagina sulla risoluzione dei problemi relativi all&quot;esperienza Node.js del dispositivo Raspberry Pi
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: e3e4ad430d8941a09543ce2dc97f8e449a39bced
-ms.openlocfilehash: cd29c24c7c1a1bf3bc03543ffd7f0e9e33537edf
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 2c5e2955584b165ca0ca95ce424a2050fb3f6ccd
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -123,6 +124,7 @@ Se è stato effettuato il provisioning dell'hub IoT di Azure con l'interfaccia d
 ### <a name="device-explorer"></a>Esplora dispositivi
 Lo strumento [Esplora dispositivi](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) viene eseguito nel computer locale di Windows e si connette all'hub IoT in Azure. Comunica con i seguenti [endpoint dell'hub IoT](iot-hub-devguide.md):
 
+
 * *Gestione delle identità dispositivo* per il provisioning e la gestione dei dispositivi registrati con l'hub IoT.
 * *Ricezione da dispositivo a cloud* per il monitoraggio dei messaggi inviati dal dispositivo all'hub IoT.
 * *Invio da cloud a dispositivo* per l'invio dei messaggi dall'hub IoT ai dispositivi.
@@ -149,10 +151,5 @@ Un'interfaccia della riga di comando completa consente di creare e gestire tutte
 
 ## <a name="azure-storage-issues"></a>Problemi di Archiviazione di Azure
 [Microsoft Azure Storage Explorer (anteprima)](http://storageexplorer.com) è un'app autonoma di Microsoft che consente di utilizzare i dati di Archiviazione di Azure in Windows, macOS e Linux. Questo strumento permette di connettersi alla tabella e visualizzarne i dati. È possibile usare questo strumento per risolvere i problemi di Archiviazione di Azure.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

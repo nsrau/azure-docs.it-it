@@ -1,31 +1,32 @@
 ---
-title: Campionamento della telemetria in Application Insights | Microsoft Docs
+title: Campionamento della telemetria in Azure Application Insights | Documentazione Microsoft
 description: Come tenere sotto controllo il volume della telemetria.
 services: application-insights
 documentationcenter: windows
 author: vgorbenko
-manager: douge
+manager: carmonm
 ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 03/24/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd26ffdec185a1ebd71fb88383c2ae4cd6d504f
-ms.openlocfilehash: b04e8a33e5253a5fcda78ad3d2f0626d69c4d9b4
+ms.sourcegitcommit: 611f4222b5ab1530658f612de39dd2712f98c250
+ms.openlocfilehash: cbc622a959c402fe25ce9ab026c1ae05f194d884
+ms.lasthandoff: 02/03/2017
 
 
 ---
 # <a name="sampling-in-application-insights"></a>Campionamento in Application Insights
 
 
-La funzionalità di campionamento di [Application Insights di Azure](app-insights-overview.md) è l'approccio consigliato per ridurre il traffico e l'archiviazione di dati di telemetria mantenendo però un'analisi statisticamente corretta dei dati dell'applicazione. Il filtro seleziona gli elementi correlati per poter passare da uno all'altro nel corso delle indagini diagnostiche.
+Il campionamento è una funzionalità di [Azure Application Insights](app-insights-overview.md). È l'approccio consigliato per ridurre il traffico e l'archiviazione della telemetria mantenendo però un'analisi statisticamente corretta dei dati dell'applicazione. Il filtro seleziona gli elementi correlati per poter passare dall'uno all'altro nel corso delle indagini diagnostiche.
 Quando i conteggi delle metriche vengono presentati nel portale, vengono nuovamente normalizzati tenendo in considerazione il campionamento, per ridurre al minimo gli effetti sulle statistiche.
 
-Il campionamento riduce il traffico e consente di rispettare le quote dati mensili ed evitare la limitazione.
+Il campionamento riduce i costi del traffico e dei dati e consente di evitare la limitazione.
 
 ## <a name="in-brief"></a>In breve:
 * Il campionamento mantiene un record su *n* e rimuove il resto. Ad esempio, potrebbe mantenere 1 un evento su 5, corrispondente a una frequenza di campionamento del 20%. 
@@ -103,6 +104,17 @@ In [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 * `<InitialSamplingPercentage>100</InitialSamplingPercentage>`
   
     Valore assegnato quando l'app è appena stata avviata. Non ridurlo durante il debug. 
+
+* `<ExcludedTypes>Trace;Exception</ExcludedTypes>`
+  
+    Elenco dei tipi da non campionare delimitato dal punto e virgola. I tipi riconosciuti sono: dipendenza, evento, eccezione, pageview, richiesta, traccia. Tutte le istanze dei tipi specificati vengono trasmesse; i tipi non specificati vengono campionati.
+
+* `<IncludedTypes>Request;Dependency</IncludedTypes>`
+  
+    Elenco dei tipi da campionare delimitato dal punto e virgola. I tipi riconosciuti sono: dipendenza, evento, eccezione, pageview, richiesta, traccia. I tipi specificati vengono campionati; tutte le istanze degli altri tipi vengono sempre trasmesse.
+
+
+**Per disattivare** il campionamento adattivo, rimuovere il nodo AdaptiveSamplingTelemetryProcessor da applicationinsights-config.
 
 ### <a name="alternative-configure-adaptive-sampling-in-code"></a>Alternativa: configurare il campionamento adattivo nel codice
 Invece di regolare il campionamento nel file .config, è possibile utilizzare il codice. Ciò consente di specificare una funzione di callback che viene richiamata ogni volta che si valuta nuovamente la frequenza di campionamento. È possibile utilizzarlo, ad esempio, per scoprire quale frequenza di campionamento si sta utilizzando.
@@ -340,10 +352,5 @@ L'SDK lato client (JavaScript) partecipa al campionamento a frequenza fissa insi
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [applicazione di filtri](app-insights-api-filtering-sampling.md) può garantire un controllo più rigoroso sui dati inviati dall'SDK.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

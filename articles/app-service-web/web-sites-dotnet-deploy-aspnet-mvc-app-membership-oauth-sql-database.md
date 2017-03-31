@@ -5,7 +5,7 @@ services: app-service\web
 documentationcenter: .net
 author: Rick-Anderson
 writer: Rick-Anderson
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: c0de419d-db6f-4157-94ca-f75d0ba6c0e3
 ms.service: app-service-web
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 03/21/2016
 ms.author: riande
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: f0bffc2a77ef5f91c6c637e8ab247b559fb59d5c
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 11d9869e656014fe7106f9c66975792c5faa357d
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -41,7 +42,7 @@ Contenuto dell'esercitazione:
 > [!NOTE]
 > Si tratta di un'esercitazione lunga. Per una rapida introduzione ai progetti Web del Servizio app di Azure e di Visual Studio, vedere [Creare un'app Web ASP.NET nel Servizio app di Azure](web-sites-dotnet-get-started.md). Per informazioni su come risolvere i problemi, vedere la sezione [Risoluzione dei problemi](#troubleshooting) .
 > 
-> Oppure, per iniziare a usare il servizio app di Azure prima di iscriversi per ottenere un account Azure, passare al sito [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751)in cui è possibile creare immediatamente un'app Web temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Oppure, per iniziare a usare il servizio app di Azure prima di iscriversi per ottenere un account Azure, passare al sito [Prova il servizio app](https://azure.microsoft.com/try/app-service/)in cui è possibile creare immediatamente un'app Web temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 
@@ -104,10 +105,10 @@ Per configurare l'ambiente di sviluppo, è necessario installare [Visual Studio 
     ![File _Layout.cshtml in Esplora soluzioni][newapp004]
 2. Sostituire ActionLink nel file *Layout.cshtml* con il codice seguente.
 
-    @Html.ActionLink("CM Demo", "Index", "Contacts", new { area = "" }, new { @class = "navbar-brand" })
-
-
-    Assicurarsi di modificare il terzo parametro da "Home" in "Contatti". Il markup precedente creerà un collegamento "Contatti" in ogni pagina al metodo Index del controller Contacts. Modificare il nome dell'applicazione nell'intestazione e nel piè di pagina da "My ASP.NET Application" e "Application name" a "Contact Manager" e "CM Demo". 
+```
+   @Html.ActionLink("CM Demo", "Index", "Contacts", new { area = "" }, new { @class = "navbar-brand" })
+```
+   Assicurarsi di modificare il terzo parametro da "Home" in "Contatti". Il markup precedente creerà un collegamento "Contatti" in ogni pagina al metodo Index del controller Contacts. Modificare il nome dell'applicazione nell'intestazione e nel piè di pagina da "My ASP.NET Application" e "Application name" a "Contact Manager" e "CM Demo". 
 
 ### <a name="run-the-application-locally"></a>Eseguire l'applicazione in locale
 1. Premere CTRL+F5 per eseguire l'app.
@@ -443,7 +444,7 @@ In questa sezione verrà applicato l'attributo [Authorize](http://msdn.microsoft
           }
    
     Se si esegue una ricerca globale per *AllowAnonymous*, si noterà che viene usato nei metodi di accesso e registrazione del controller Account.
-3. In *CmController.cs* aggiungere `[Authorize(Roles = "canEdit")]` ai metodi HttpGet e HttpPost che consentono di modificare i dati (Create, Edit, Delete, qualsiasi metodo di azione ad eccezione di Index e Details) nel controller *Cm*. Di seguito è riportata una parte del codice completato: 
+3. In *ContactsController.cs* aggiungere `[Authorize(Roles = "canEdit")]` ai metodi HttpGet e HttpPost che consentono di modificare i dati (Create, Edit, Delete, qualsiasi metodo di azione ad eccezione di Index e Details) nel controller *Cm*. Di seguito è riportata una parte del codice completato: 
    
         // GET: Cm/Create
         [Authorize(Roles = "canEdit")]
@@ -659,10 +660,5 @@ Se lo si desidera, ***inviare commenti e suggerimenti*** sugli aspetti ritenuti 
 [Next steps]: #nextsteps
 
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

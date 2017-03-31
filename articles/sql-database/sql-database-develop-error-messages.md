@@ -17,8 +17,9 @@ ms.topic: article
 ms.date: 07/12/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 865ddf4e8849c8c94ac8e20a22874e2edaead646
+ms.sourcegitcommit: 407d8cef2508e4b2344953db86bc9829081cda7c
+ms.openlocfilehash: 72faf68d8a9779b612723f9ee6589cc332bf5ed5
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -137,9 +138,9 @@ Di seguito sono elencati gli errori riguardanti la creazione e l'utilizzo di poo
 
 Argomenti correlati:
 
-* [Creare un pool elastico (C#)](sql-database-elastic-pool-create-csharp.md) 
+* [Creare un pool elastico (C#)](sql-database-elastic-pool-manage-csharp.md) 
 * [Gestire un pool elastico (C#)](sql-database-elastic-pool-manage-csharp.md) 
-* [Creare un pool elastico (PowerShell)](sql-database-elastic-pool-create-powershell.md) 
+* [Creare un pool elastico (PowerShell)](sql-database-elastic-pool-manage-powershell.md) 
 * [Monitorare e gestire un pool elastico (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
 
 ## <a name="general-errors"></a>Errori generali
@@ -215,10 +216,5 @@ I seguenti errori non rientrano nelle categorie precedenti.
 ## <a name="related-links"></a>Collegamenti correlati
 * [Funzionalità di database SQL di Azure](sql-database-features.md)
 * [Limiti delle risorse del database SQL di Azure](sql-database-resource-limits.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

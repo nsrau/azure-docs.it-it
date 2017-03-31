@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/14/2016
+ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 52692a21671b48581bba348455f6902935a08fa8
+ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
+ms.openlocfilehash: 0cb9d65e33bf6f6b67e2a74b7e4634aba3f2359b
 
 ---
 # <a name="use-apache-spark-with-kafka-preview-on-hdinsight"></a>Usare Apache Spark con Kafka (anteprima) in HDInsight
@@ -130,7 +130,7 @@ Dall'ambiente di sviluppo usare i comandi seguenti per recuperare le informazion
         curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'
 
     > [!IMPORTANT]
-    > Quando si usa questo comando da Windows PowerShell, si potrebbe ricevere un messaggio di errore sulla shell racchiusa tra virgolette. In tal caso, usare il comando seguente: `curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["""\(.host_components[].HostRoles.host_name):9092"""] | join(""",""")'
+    > Quando si usa questo comando da Windows PowerShell, si potrebbe ricevere un messaggio di errore sulla shell racchiusa tra virgolette. In tal caso, usare il comando seguente: `curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["""\(.host_components[].HostRoles.host_name):9092"""] | join(""",""")'`
 
 * Per ottenere informazioni sull'__host Zookeeper__:
 
@@ -187,6 +187,6 @@ Questo documento ha illustrato l'uso di Spark per leggere e scrivere in Kafka. P
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

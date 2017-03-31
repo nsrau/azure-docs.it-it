@@ -1,6 +1,6 @@
 ---
 title: Introduzione a PowerShell per Azure Batch | Documentazione Microsoft
-description: "Breve introduzione ai cmdlet di Azure PowerShell che è possibile usare per gestire il servizio Azure Batch"
+description: Breve introduzione ai cmdlet di Azure PowerShell da usare per gestire le risorse Batch.
 services: batch
 documentationcenter: 
 author: tamram
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 9bd1c2a1f273d2487e4ce9063c286896cc414e42
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: cc8942dacee60d6243e91a3b4360c0c07956fa66
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="get-started-with-azure-batch-powershell-cmdlets"></a>Introduzione ai cmdlet di PowerShell per Azure Batch
+# <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gestire le risorse Batch con i cmdlet di PowerShell
+
 Con i cmdlet di PowerShell per Azure Batch è possibile eseguire molte delle attività eseguite con le API Batch, il portale di Azure e l'interfaccia della riga di comando di Azure e creare i relativi script. Questa è una rapida introduzione ai cmdlet con cui è possibile gestire gli account Batch e usare risorse di Batch come pool, processi e attività.
 
 Per un elenco completo di cmdlet Batch e per la sintassi dettagliata dei cmdlet, vedere [Informazioni di riferimento sui cmdlet di Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx).
@@ -236,10 +239,5 @@ Le proprietà del pool saranno ora aggiornate nel servizio Batch. Per distribuir
 ## <a name="next-steps"></a>Passaggi successivi
 * Per la sintassi dettagliata ed esempi dei cmdlet, vedere le [informazioni di riferimento sui cmdlet per Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx).
 * Per altre informazioni sulle applicazioni e sui pacchetti dell'applicazione in Batch, vedere [Distribuzione delle applicazioni con i pacchetti dell'applicazione di Azure Batch](batch-application-packages.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Prevedere una risposta con un modello semplice - modello di regressione | Documentazione Microsoft
+title: Prevedere una risposta con un modello basato sulla regressione semplice - Azure | Documentazione Microsoft
 description: "Per sapere come creare un modello di regressione semplice per prevedere un prezzo, è disponibile il quarto video di Analisi scientifica dei dati per principianti. Include una regressione lineare con i dati di destinazione."
 keywords: creare un modello, modello semplice, previsione prezzi, modello di regressione semplice
 services: machine-learning
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 27a9ee1b170f090e626ce332eb518028877fd0d4
+ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
+ms.openlocfilehash: b82c293065446f9f9016015d68db972d71cecd2f
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -27,9 +28,9 @@ ms.openlocfilehash: 27a9ee1b170f090e626ce332eb518028877fd0d4
 
 Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'elenco dei video è disponibile qui](#other-videos-in-this-series)
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
-> 
-> 
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
+>
+>
 
 ## <a name="other-videos-in-this-series"></a>Altri video della serie
 *Analisi scientifica dei dati per principianti* è una rapida introduzione all'analisi scientifica dei dati in cinque brevi video.
@@ -75,7 +76,7 @@ Adesso, per registrare il prezzo verrà tracciato un asse verticale che sarà co
 
 Questi dati verranno adesso convertiti in un *grafico di dispersione*, un'ottima soluzione per visualizzare i set di dati numerici.
 
-Per il primo punto di dati verrà tracciata una linea verticale fino a 1,01 carati. Poi, una linea orizzontale fino a $ 7.366. Laddove si intersecano, verrà disegnato un punto. Questo rappresenta il primo diamante.
+Per il primo punto di dati verrà tracciata una linea verticale fino a 1,01 carati. Poi, una linea orizzontale fino a $&7;.366. Laddove si intersecano, verrà disegnato un punto. Questo rappresenta il primo diamante.
 
 Adesso farò la stessa cosa per ogni diamante presente nell'elenco. Una volta terminato, questo è quello che si ottiene: un mucchio di punti, uno per ogni diamante.
 
@@ -132,10 +133,4 @@ Anche gli altri video della serie "Analisi scientifica dei dati per principianti
 ## <a name="next-steps"></a>Passaggi successivi
 * [Effettuare il primo esperimento di analisi scientifica dei dati con Machine Learning Studio](machine-learning-create-experiment.md)
 * [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](machine-learning-what-is-machine-learning.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

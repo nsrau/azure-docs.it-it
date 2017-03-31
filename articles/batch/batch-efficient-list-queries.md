@@ -1,5 +1,5 @@
 ---
-title: Query di tipo elenco efficienti in Azure Batch | Documentazione Microsoft
+title: 'Progettare query di tipo elenco efficienti: Azure Batch | Documentazione Microsoft'
 description: "Migliorare le prestazioni filtrando le query quando si chiedono informazioni su risorse di Batch, ad esempio pool, processi, attività e nodi di calcolo."
 services: batch
 documentationcenter: .net
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/20/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 62487d3d26ba66ce2ba88ae1a71858d68e68544c
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 791b7a22e5b7edd2e31f6ab01131530a8053ac2b
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="query-the-azure-batch-service-efficiently"></a>Eseguire query sul servizio Azure Batch in modo efficiente
+# <a name="create-queries-to-list-batch-resources-efficiently"></a>Creare query per elencare le risorse di Batch in modo efficiente
+
 Viene illustrato come migliorare le prestazioni dell'applicazione Azure Batch, riducendo la quantità di dati restituiti dal servizio quando si eseguono query su processi, attività e nodi di calcolo con la libreria [Batch .NET][api_net].
 
 Quasi tutte le applicazioni Batch devono eseguire un tipo di monitoraggio o un'altra operazione che esegue query sul servizio Batch, spesso a intervalli regolari. Per determinare ad esempio se sono ancora presenti attività in coda in un processo, è necessario ottenere dati per ogni attività nel processo. Per determinare lo stato dei nodi nel pool è necessario ottenere dati in ogni nodo nel pool. Questo articolo illustra come eseguire queste query nel modo più efficiente.
@@ -289,9 +292,4 @@ Il [forum di Azure Batch][forum] su MSDN consente di seguire discussioni su Batc
 [net_pool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_schedule]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjobschedule.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

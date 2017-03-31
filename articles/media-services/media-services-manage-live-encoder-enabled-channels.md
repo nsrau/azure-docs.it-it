@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2016
+ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: f6ce639dd0ee8386d3bd9ff48f5a05cb392d7979
-ms.openlocfilehash: 82662d0c52262ca2febc54e45a4fd497fe9cf264
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 138598ce20459b7d4975c6640b28e9a999de30cd
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: 82662d0c52262ca2febc54e45a4fd497fe9cf264
 In Servizi multimediali di Azure (AMS) un **canale** rappresenta una pipeline per l'elaborazione dei contenuti in streaming live. Un **canale** riceve i flussi di input live in uno dei due modi seguenti:
 
 * Un codificatore live locale invia un flusso a velocità in bit singola al canale abilitato per l'esecuzione della codifica live con Servizi multimediali in uno dei seguenti formati: RTP (MPEG-TS), RTMP o Smooth Streaming (MP4 frammentato). Il canale esegue quindi la codifica live del flusso in ingresso a velocità in bit singola in un flusso video a più velocità in bit (adattivo). Quando richiesto, Servizi multimediali invia il flusso ai clienti.
-* Un codificatore live locale invia un flusso **RTMP** o **Smooth Streaming** (MP4 frammentato) a bitrate multipli a un canale non abilitato per eseguire la codifica live con AMS. I flussi inseriti passano attraverso il **canale**senza altre elaborazioni. Questo metodo viene chiamato **pass-through**. È possibile usare i codificatori live seguenti che generano output in formato Smooth Streaming a più velocità in bit: Elemental, Envivio, Cisco.  I codificatori live seguenti generano output in formato RTMP: Adobe Flash Live, Telestream Wirecast e transcodificatori Tricaster.  Un codificatore live può anche inviare un flusso a singola velocità in bit a un canale non abilitato per la codifica live, ma questa operazione non è consigliata. Quando richiesto, Servizi multimediali invia il flusso ai clienti.
+* Un codificatore live locale invia un flusso **RTMP** o **Smooth Streaming** (MP4 frammentato) a bitrate multipli a un canale non abilitato per eseguire la codifica live con AMS. I flussi inseriti passano attraverso il **canale**senza altre elaborazioni. Questo metodo viene chiamato **pass-through**. È possibile usare i codificatori live seguenti che generano output in formato Smooth Streaming a bitrate multipli: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco ed Elemental. I codificatori live seguenti generano output in formato RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek e codificatori Tricaster.  Un codificatore live può anche inviare un flusso a bitrate singolo a un canale non abilitato per la codifica live, ma questa operazione non è consigliata. Quando richiesto, Servizi multimediali invia il flusso ai clienti.
   
   > [!NOTE]
   > L'uso del metodo pass-through è il modo più economico per eseguire uno streaming live.
@@ -80,11 +81,6 @@ Il diagramma seguente rappresenta un flusso di lavoro di streaming live in cui u
 
 ![Flusso di lavoro live][live-overview]
 
-## <a name="in-this-topic"></a>Contenuto dell'argomento
-* Panoramica di uno [scenario comune di streaming live](media-services-manage-live-encoder-enabled-channels.md#scenario)
-* [Descrizione di un canale e dei relativi componenti](media-services-manage-live-encoder-enabled-channels.md#channel)
-* [Considerazioni](media-services-manage-live-encoder-enabled-channels.md#Considerations)
-
 ## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>Scenario comune di streaming live
 Di seguito sono descritti i passaggi generali relativi alla creazione di applicazioni comuni di streaming live.
 
@@ -110,7 +106,9 @@ Di seguito sono descritti i passaggi generali relativi alla creazione di applica
     Se si usa .NET SDK o REST, è necessario creare un asset e specificarne l'uso quando si crea un programma. 
 6. Pubblicare l'asset associato al programma.   
    
-    Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
+    >[!NOTE]
+    >Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. L'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
+    
 7. Avviare il programma quando si è pronti a iniziare lo streaming e l'archiviazione.
 8. Facoltativamente, il codificatore live può ricevere il segnale per l'avvio di un annuncio. L'annuncio viene inserito nel flusso di output.
 9. Arrestare il programma ogni volta che si vuole interrompere lo streaming e l'archiviazione dell'evento.
@@ -164,19 +162,8 @@ Considerazioni:
     * Mono, Stereo
 * I codificatori di trasmissione consigliati includono:
   
-  * Ateme AM2102
-  * Ericsson AVP2000
-  * eVertz 3480
-  * Ericsson RX8200
   * Imagine Communications Selenio ENC 1
   * Imagine Communications Selenio ENC 2
-  * AdTec EN-30
-  * AdTec EN-91P
-  * AdTec EN-100
-  * Harmonic ProStream 1000
-  * Thor H-2 4HD-EM
-  * eVertz 7880 SLKE
-  * Cisco Spinnaker
   * Elemental Live
 
 #### <a name="a-idsinglebitratertmpasingle-bitrate-rtmp"></a><a id="single_bitrate_RTMP"></a>RTMP a velocità in bit singola
@@ -197,7 +184,6 @@ Considerazioni:
 * I codec consigliati includono:
 * Telestream Wirecast
 * Flash Media Live Encoder
-* Tricaster
 
 #### <a name="single-bitrate-fragmented-mp4-smooth-streaming"></a>MP4 frammentato (Smooth Streaming) a velocità in bit singola
 Caso di utilizzo tipico:
@@ -217,7 +203,7 @@ Un canale fornisce un endpoint di input (URL di inserimento) specificato dall'ut
 
 È possibile ottenere gli URL di inserimento dopo aver creato un canale. Per ottenere questi URL, non è necessario che il canale sia nello stato **In esecuzione** . Quando si è pronti per avviare l'esecuzione del push dei dati nel canale, questo dovrà essere nello stato **In esecuzione** . Una volta avviato l'inserimento di dati nel canale, è possibile visualizzare in anteprima il flusso tramite l'URL di anteprima.
 
-È possibile inserire un flusso live MP4 frammentato (Smooth Streaming) tramite una connessione SSL. Per l'inserimento tramite SSL, assicurarsi di aggiornare l'URL di inserimento a HTTPS.
+È possibile inserire un flusso live MP4 frammentato (Smooth Streaming) tramite una connessione SSL. Per l'inserimento tramite SSL, assicurarsi di aggiornare l'URL di inserimento a HTTPS. Si noti che attualmente AMS non supporta SSL con domini personalizzati.  
 
 ### <a name="allowed-ip-addresses"></a>Indirizzi IP consentiti
 È possibile definire gli indirizzi IP autorizzati a pubblicare video in questo canale. Gli indirizzi IP consentiti possono essere specificati come un singolo indirizzo IP, ad esempio '10.0.0.1', come un intervallo IP usando un indirizzo IP e una subnet mask CIDR, ad esempio '10.0.0.1/22' o come un intervallo di indirizzi IP usando un indirizzo IP e una subnet mask decimale puntata, ad esempio '10.0.0.1(255.255.252.0)'.
@@ -332,9 +318,10 @@ Quando è impostata su true, questa opzione configura il codificatore live in mo
 
 Facoltativo. Specifica l'ID asset di Servizi multimediali che contiene l'immagine dello slate. Il valore predefinito è Null. 
 
->
+
 >[!NOTE] 
->Prima di creare il canale, è necessario caricare l'immagine di slate con le limitazioni seguenti come asset dedicato, nel quale non dovranno essere presenti altri file. 
+>Prima di creare il canale, è necessario caricare l'immagine di slate con le limitazioni seguenti come asset dedicato, nel quale non dovranno essere presenti altri file. Questa immagine viene usata solo quando il codificatore live inserisce uno slate a causa di un'interruzione pubblicitaria o è stato segnalato in modo esplicito di inserire uno slate. Il codificatore live può passare in modalità slate anche in presenza di determinate condizioni di errore, ad esempio in caso di perdita del segnale di input. Non è attualmente possibile usare un'immagine personalizzata quando il codificatore live passa a uno stato di perdita del segnale di input. È possibile votare per l'aggiunta di questa funzionalità [qui](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
+
 
 * Risoluzione massima: 1920x1080.
 * Dimensione massima: 3 MB.
@@ -348,7 +335,7 @@ Un canale è associato a programmi che consentono di controllare la pubblicazion
 
 È possibile specificare il numero di ore per cui si vuole mantenere il contenuto registrato per il programma impostando il valore **Intervallo di archiviazione** . Il valore impostato può essere compreso tra 5 minuti e 25 ore. La lunghezza della finestra di archiviazione determina anche il limite di tempo per cui i client possono eseguire ricerche a ritroso nel tempo dalla posizione live corrente. I programmi possono essere eseguiti per la quantità di tempo specificata, ma il contenuto che va oltre la durata prevista viene scartato in modo continuo. Il valore della proprietà determina anche il tempo per cui i manifesti client possono crescere.
 
-Ogni programma è associato a un asset che archivia il contenuto trasmesso nel flusso. Un asset viene mappato a un contenitore BLOB nell'account di archiviazione di Azure e i file contenuti nell'asset vengono archiviati come BLOB in tale contenitore. Per pubblicare il programma in modo che possa essere visualizzato dai clienti, è necessario creare un localizzatore OnDemand per l'asset associato. Con questo localizzatore sarà possibile creare un URL di streaming da fornire ai client.
+Ogni programma è associato a un asset che archivia il contenuto trasmesso nel flusso. Un asset viene mappato a un contenitore BLOB in blocchi nell'account di archiviazione di Azure e i file nell'asset vengono archiviati come BLOB in tale contenitore. Per pubblicare il programma in modo che possa essere visualizzato dai clienti, è necessario creare un localizzatore OnDemand per l'asset associato. Con questo localizzatore sarà possibile creare un URL di streaming da fornire ai client.
 
 Un canale supporta fino a tre programmi in esecuzione simultanea, in modo da poter creare più archivi dello stesso flusso in ingresso. Questo consente di pubblicare e archiviare parti diverse di un evento a seconda delle necessità. Si consideri ad esempio uno scenario in cui un'azienda richiede l'archiviazione di 6 ore di un programma e la trasmissione solo degli ultimi 10 minuti. A tale scopo, è necessario creare due programmi in esecuzione contemporaneamente. Un programma è impostato per l'archiviazione di 6 ore dell'evento, ma non viene pubblicato. L'altro programma è impostato per l'archiviazione di 10 minuti e viene pubblicato.
 
@@ -397,7 +384,7 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 * Non è possibile modificare il protocollo di input durante l'esecuzione del canale o dei relativi programmi associati. Se sono necessari protocolli diversi, è consigliabile creare canali separati per ciascun protocollo di input.
 * Il costo viene addebitato solo quando il canale è nello stato **In esecuzione** . Per altre informazioni, vedere [questa](media-services-manage-live-encoder-enabled-channels.md#states) sezione.
 * Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per una durata superiore, contattare amslived in Microsoft.com.
-* Accertarsi che sia presente almeno un'unità riservata di streaming nell'endpoint di streaming da cui si desidera trasmettere i contenuti in streaming.
+* Verificare che lo stato dell'endpoint di streaming da cui si vuole trasmettere il contenuto sia **In esecuzione**.
 * Quando si immettono più tracce di lingua e si esegue la codifica live con Azure, per l'input multilingua è supportato solo RTP. È tuttavia possibile definire fino a otto flussi audio usando MPEG-2 TS su RTP. Non è invece supportato l'inserimento di più tracce audio con RTMP o Smooth Streaming. Quando si esegue la codifica live con [codifiche live locali](media-services-live-streaming-with-onprem-encoders.md), questa limitazione non esiste perché qualsiasi informazione inviata ad AMS passa attraverso un canale senza ulteriori elaborazioni.
 * Il set di impostazioni di codifica usa la nozione di "frequenza fotogrammi massima" di 30 fps. Pertanto, se l'input è 60 fps/59.97 i, i fotogrammi di input vengono eliminati/de-interlacciati a 30/29.97 fps. Se l'input è 50 fps/50 i, i fotogrammi di input vengono eliminati/de-interlacciati a 25 fps. Se l'input è 25 fps, l'output rimane di 25 fps.
 * Non dimenticare di INTERROMPERE I CANALI al termine dell'operazione per evitare il proseguimento della fatturazione.
@@ -406,17 +393,7 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 * I tempi di avvio del canale sono stati ridotti a una media di 2 minuti ma, in caso di aumento delle richieste, possono arrivare anche a oltre 20 minuti.
 * Alle emittenti professionali viene fornito il supporto RTP. Rivedere le note su RTP in [questo](https://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
 * Le immagini dello slate devono essere conformi alle limitazioni descritte [qui](media-services-manage-live-encoder-enabled-channels.md#default_slate). Se si tenta di creare un canale con uno slate predefinito con una risoluzione superiore a 1920x1080, la richiesta genererà un errore.
-* Ancora una volta... non dimenticare di INTERROMPERE I CANALI al termine dello streaming per evitare il proseguimento della fatturazione.
-
-### <a name="how-to-create-channels-that-perform-live-encoding-from-a-singe-bitrate-to-adaptive-bitrate-stream"></a>Come creare canali che eseguono la codifica live da una velocità in bit singola a un flusso a velocità in bit adattiva
-Scegliere **Portale**, **.NET**, **API REST** per vedere come creare e gestire canali e programmi.
-
-> [!div class="op_single_selector"]
-> * [Portale](media-services-portal-creating-live-encoder-enabled-channel.md)
-> * [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-> * [API REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
-> 
-> 
+* Ancora una volta... per evitare il proseguimento della fatturazione.
 
 ## <a name="next-step"></a>Passaggio successivo
 Analizzare i percorsi di apprendimento di Servizi multimediali.
@@ -429,15 +406,16 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 ## <a name="related-topics"></a>Argomenti correlati
 [Distribuzione di eventi Live Streaming con Servizi multimediali di Azure](media-services-overview.md)
 
+[Creare canali che eseguono la codifica live da flusso a bitrate singolo a flusso a bitrate adattivo con il portale](media-services-portal-creating-live-encoder-enabled-channel.md)
+
+[Creare canali che eseguono la codifica live da flusso a bitrate singolo a flusso a bitrate adattivo con .NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+
+[Gestire i canali con l'API REST](https://docs.microsoft.com/rest/api/media/operations/channel)
+ 
 [Concetti su Servizi multimediali di Azure](media-services-concepts.md)
 
 [Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure](media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: Limiti dei servizi in Ricerca di Azure | Microsoft Docs
-description: "Limiti del servizio usati per la pianificazione della capacità e limiti massimi per richieste e risposte in Ricerca di Azure."
+description: "Limiti del servizio utilizzati per la pianificazione della capacità e limiti massimi per richieste e risposte in Ricerca di Azure."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,24 +13,25 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/15/2016
+ms.date: 02/23/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: ffdd03fb1e9718b0f72f5a13bb80de4a4bfe2709
-ms.openlocfilehash: ed21cb2c0f1fce23ed00a50ad181edaacae95ce6
+ms.sourcegitcommit: 08682b7986cc2210ed21f254e2a9a63b5355e583
+ms.openlocfilehash: c7094a92355a199e9b94bc695c8499271b9adc39
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="service-limits-in-azure-search"></a>Limiti dei servizi in Ricerca di Azure
-I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, documenti e altri oggetti dipendono dal piano tariffario scelto per Ricerca di Azure: **Gratuito**, **Basic** o **Standard**.
+I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, documenti e altri oggetti dipendono dal [piano tariffario scelto per Ricerca di Azure](search-create-service-portal.md): **Gratuito**, **Basic** o **Standard**.
 
 * **gratuito** è un servizio condiviso multi-tenant fornito con la sottoscrizione di Azure. È un'opzione senza costi aggiuntivi per i sottoscrittori che consente di provare il servizio prima di iscriversi per usare risorse dedicate.
 * Il piano **Basic** fornisce risorse di elaborazione dedicate per carichi di lavoro di produzione di dimensioni ridotte.
 * Il piano **Standard** prevede computer dedicati con maggiore capacità di elaborazione e archiviazione a ogni livello. Il piano Standard è disponibile in quattro livelli: S1, S2, S3 e ad alta densità S3 (S3 HD).
 
-Tutti i livelli possono [essere forniti nel portale](search-create-service-portal.md). A un servizio vengono allocate inizialmente una partizione e una replica, ma è possibile aumentare il numero di risorse allocate dopo aver creato il servizio.
-
-Il provisioning di un servizio viene eseguito in base al piano tariffario specifico. Se è necessario passare a un nuovo piano tariffario per ottenere più capacità, bisogna eseguire il provisioning di un nuovo servizio (non esiste alcun aggiornamento sul posto). Per altre informazioni sui livelli, vedere [Scegliere uno SKU o un piano tariffario](search-sku-tier.md). Per altre informazioni sulla regolazione delle capacità all'interno di un servizio di cui è già stato effettuato il provisioning, vedere [Ridimensionare i livelli di risorse per le query e l'indicizzazione dei carichi di lavoro](search-capacity-planning.md).
+> [!NOTE]
+> Il provisioning di un servizio viene eseguito in base al piano tariffario specifico. Se è necessario passare a un nuovo piano tariffario per ottenere più capacità, bisogna eseguire il provisioning di un nuovo servizio (non esiste alcun aggiornamento sul posto). Per altre informazioni, vedere [Scegliere uno SKU o un piano tariffario](search-sku-tier.md). Per altre informazioni sulla regolazione delle capacità all'interno di un servizio di cui è già stato effettuato il provisioning, vedere [Ridimensionare i livelli di risorse per le query e l'indicizzazione dei carichi di lavoro](search-capacity-planning.md).
+>
 
 ## <a name="per-subscription-limits"></a>Limiti per sottoscrizione
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
@@ -93,9 +94,4 @@ Le chiavi API vengono utilizzate per l'autenticazione del servizio. Sono disponi
 
 * 2 chiavi di amministrazione al massimo per ogni servizio
 * 50 chiavi di query al massimo per ogni servizio
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

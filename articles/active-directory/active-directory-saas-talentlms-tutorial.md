@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/06/2016
+ms.date: 02/27/2017
 ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 49352a5e8255468bbc54c02e0cd9242d49002dbd
 ms.openlocfilehash: 7e1f1ccd109a2777f6d5df96b5f5d02eefc4b841
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -166,10 +167,5 @@ Per testare la configurazione, è necessario concedere l'accesso all'applicazion
     ![Sì](./media/active-directory-saas-talentlms-tutorial/IC767830.png "Sì")
 
 Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/15/2016
-ms.author: sdanie
+ms.author: apimpm
 translationtype: Human Translation
 ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
 ms.openlocfilehash: 6376faa50613288a797e2c0683a0890fa21879e1
@@ -257,6 +257,6 @@ La sezione **Analisi** include le quattro schede seguenti:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

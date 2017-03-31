@@ -1,5 +1,5 @@
 ---
-title: Inviare messaggi da dispositivo a cloud all&quot;hub IoT di Azure |Documentazione Microsoft
+title: 'Connettere Raspberry Pi (Node) ad Azure IoT: lezione 3: Eseguire l&quot;esempio | Documentazione Microsoft'
 description: Distribuire ed eseguire un&quot;applicazione di esempio nel dispositivo Raspberry Pi 3 che invia messaggi all&quot;hub IoT e fa lampeggiare il LED.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: c0ddd7e68accf28ee65ba70ea992acd413da6f5b
-ms.openlocfilehash: ac844b94151c4f9f5105ece63075529779f0efb6
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: d33229fea3ed8af636f744992cb8ed321418da85
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -101,10 +102,5 @@ Il LED connesso al dispositivo Pi dovrebbe lampeggiare ogni due secondi. Ogni vo
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Leggere i messaggi con salvataggio permanente in Archiviazione di Azure](iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/01/2016
 ms.author: adhurwit
 translationtype: Human Translation
-ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
-ms.openlocfilehash: d0edcf7f7e927f817caae1cb7f4519596a09f140
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 9916eb7deaae6acb784cac1b7b64d93a03f3c590
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -75,7 +76,7 @@ Per altre informazioni sulla creazione di un'immagine di Azure RemoteApp, vedere
 ### <a name="4-capture-image"></a>4. Acquisire l'immagine
 Una volta interrotta l'esecuzione della VM, trovarla nel portale corrente e acquisirla.
 
-Per altre informazioni sull'acquisizione di un'immagine, vedere [Acquisire un'immagine di una macchina virtuale Windows di Azure creata con il modello di distribuzione classica](../virtual-machines/virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+Per altre informazioni sull'acquisizione di un'immagine, vedere [Acquisire un'immagine di una macchina virtuale Windows di Azure creata con il modello di distribuzione classica](../virtual-machines/windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ### <a name="5-add-to-azure-remoteapp-template-images"></a>5. Aggiungere immagini modello di Azure RemoteApp
 Nella sezione Azure RemoteApp del portale corrente passare alla scheda Immagini modello e fare clic su Aggiungi. Nella finestra popup selezionare "Importare un'immagine dalla raccolta di macchine virtuali" e quindi scegliere l'immagine appena creata.
@@ -127,8 +128,3 @@ Per altre informazioni su come stabilire la connessione al database SQL, vedere 
 [4]: ./media/sql-database-ssms-remoteapp/allowazure.png
 [5]: ./media/sql-database-ssms-remoteapp/publish.png
 [6]: ./media/sql-database-ssms-remoteapp/user.png
-
-
-<!--HONumber=Dec16_HO1-->
-
-

@@ -1,6 +1,6 @@
 ---
 title: Limitare l&quot;accesso tramite endpoint con connessione Internet in Centro sicurezza di Azure | Documentazione Microsoft
-description: Questo documento illustra come implementare la raccomandazione **Restrict access through Internet facing endpoint** (Limita accesso tramite endpoint con connessione Internet) del Centro sicurezza di Azure.
+description: In questo documento viene illustrato come implementare l&quot;indicazione del Centro sicurezza di Azure **Limita l&quot;accesso tramite un endpoint con connessione Internet**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9316339551fdc6b8b266886b120fea5d7c1ef28f
+ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
+ms.openlocfilehash: f7309c617f1705205e2c9f1b1b48d141391d45da
+ms.lasthandoff: 02/06/2017
 
 
 ---
@@ -27,23 +28,28 @@ Questa raccomandazione viene generata per qualsiasi porta Web con "any" come ori
 
 > [!NOTE]
 > Il documento introduce il servizio usando una distribuzione di esempio. Questa non è una guida dettagliata.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implementare la raccomandazione
 1. Nel pannello **Indicazioni** selezionare **Limita l'accesso tramite un endpoint con connessione Internet**.
-   ![Limita l'accesso tramite un endpoint con connessione Internet][1]
+
+   ![Restrict access through Internet facing endpoint (Limita accesso tramite endpoint con connessione Internet)][1]
 2. Verrà visualizzato il pannello **Limita l'accesso tramite un endpoint con connessione Internet**. Questo pannello elenca le macchine virtuali (VM) con regole in ingresso che creano un potenziale problema di sicurezza. Selezionare una macchina virtuale.
+
    ![Selezionare una macchina virtuale][2]
 3. Il pannello **Gruppo di sicurezza di rete** visualizza le informazioni sul gruppo di sicurezza di rete, le regole in ingresso correlate e la VM associata. Selezionare **Modifica le regole in ingresso** per procedere con la modifica di una regola in ingresso.
+
    ![Pannello Gruppo di sicurezza di rete][3]
 4. Nel pannello **Regole di sicurezza in ingresso** selezionare la regola in ingresso da modificare. In questo esempio selezioniamo **Consenti Web**.
+
    ![Regole di sicurezza in ingresso][4]
-   
+
    Si noti che è possibile anche selezionare **Regole predefinite** per visualizzare il set di regole predefinite contenute in tutti i gruppi di sicurezza di rete. Le regole predefinite non possono essere eliminate, ma poiché hanno la priorità più bassa, è possibile eseguirne l'override con le regole create dall'utente. Altre informazioni sulle [regole predefinite](../virtual-network/virtual-networks-nsg.md#default-rules).
+
    ![Regole predefinite][5]
 5. Nel pannello **AllowWeb** (Consenti Web) modificare le proprietà della regola in ingresso in modo che **Origine** sia un indirizzo IP o un blocco di indirizzi IP. Per altre informazioni sulle proprietà della regola in ingresso, vedere [Regole NSG](../virtual-network/virtual-networks-nsg.md#nsg-rules).
-   
+
    ![Modificare la regola in ingresso][6]
 
 ## <a name="see-also"></a>Vedere anche
@@ -69,9 +75,4 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 [4]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/inbound-security-rules.png
 [5]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/default-rules.png
 [6]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/edit-inbound-rule.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

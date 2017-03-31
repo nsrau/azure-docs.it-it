@@ -1,6 +1,6 @@
 ---
-title: Estensione di SQL Server Agent per VM di SQL Server (distribuzione classica) | Microsoft Docs
-description: "Questo argomento descrive come gestire l&quot;estensione di SQL Server Agent, che consente di automatizzare attività di amministrazione di SQL Server specifiche. Queste includono il backup automatizzato, l&quot;applicazione automatica delle patch e l&quot;integrazione dell&quot;insieme di credenziali delle chiavi di Azure. In questo argomento viene usata la modalità di distribuzione classica."
+title: "Automatizzare le attività di gestione in macchine virtuali SQL (distribuzione classica) | Microsoft Docs"
+description: "Questo argomento descrive come gestire l&quot;estensione di SQL Server Agent, che consente di automatizzare attività di amministrazione di SQL Server specifiche. Queste includono il backup automatizzato, l&quot;applicazione automatica delle patch e l&quot;integrazione di Azure Key Vault. In questo argomento viene usata la modalità di distribuzione classica."
 services: virtual-machines-windows
 documentationcenter: 
 author: rothja
@@ -8,26 +8,27 @@ manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: a9bda2e7-cdba-427c-bc30-77cde4376f3a
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.workload: iaas-sql-server
+ms.date: 01/18/2017
 ms.author: jroth
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: c34684760f8de856c64565e8859b31dc73554e00
-
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 4082fe7baad4f9d40746410024e071f34f458a40
+ms.lasthandoff: 03/25/2017
 
 ---
-# <a name="sql-server-agent-extension-for-sql-server-vms-classic"></a>Estensione SQL Server Agent per VM di SQL Server (distribuzione classica)
+# <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatizzare le attività di gestione in macchine virtuali SQL con l'estensione SQL Server Agent (distribuzione classica)
 > [!div class="op_single_selector"]
 > * [Gestione risorse](../sql/virtual-machines-windows-sql-server-agent-extension.md)
-> * [Classico](virtual-machines-windows-classic-sql-server-agent-extension.md)
+> * [Classico](../classic/sql-server-agent-extension.md)
 > 
-> 
-
+>
+ 
 L'Estensione Agente IaaS di SQL Server (SQLIaaSAgent) viene eseguita sulle macchine virtuali di Azure per automatizzare le attività di amministrazione. Questo argomento fornisce una panoramica dei servizi supportati dall'estensione e delle istruzioni per l'installazione, lo stato e la rimozione.
 
 > [!IMPORTANT] 
@@ -38,9 +39,9 @@ L'Estensione Agente IaaS di SQL Server supporta le attività di amministrazione 
 
 | Funzionalità di amministrazione | Descrizione |
 | --- | --- |
-| **Backup automatico di SQL** |Consente di automatizzare la pianificazione delle operazioni di backup per tutti i database correlati all'istanza predefinita di SQL Server nella VM. Per altre informazioni, vedere [Backup automatico per SQL Server in macchine virtuali di Azure (distribuzione classica)](virtual-machines-windows-classic-sql-automated-backup.md). |
-| **Applicazione automatica delle patch di SQL** |Consente di configurare una finestra di manutenzione durante la quale eseguire gli aggiornamenti della VM, evitandone l'esecuzione durante i periodi di picco del carico di lavoro. Per altre informazioni, vedere [Applicazione automatica delle patch per SQL Server in macchine virtuali di Azure (distribuzione classica)](virtual-machines-windows-classic-sql-automated-patching.md). |
-| **Integrazione dell'insieme di credenziali delle chiavi di Azure** |Consente di installare e configurare automaticamente l'insieme di credenziali delle chiavi di Azure nella VM di SQL Server. Per altre informazioni, vedere [Configurare l'integrazione dell'insieme di credenziali delle chiavi di Azure per SQL Server in macchine virtuali di Azure (distribuzione classica)](virtual-machines-windows-classic-ps-sql-keyvault.md). |
+| **Backup automatico di SQL** |Consente di automatizzare la pianificazione delle operazioni di backup per tutti i database correlati all'istanza predefinita di SQL Server nella VM. Per altre informazioni, vedere [Backup automatico per SQL Server in macchine virtuali di Azure (distribuzione classica)](../classic/sql-automated-backup.md). |
+| **Applicazione automatica delle patch di SQL** |Consente di configurare una finestra di manutenzione durante la quale eseguire gli aggiornamenti della VM, evitandone l'esecuzione durante i periodi di picco del carico di lavoro. Per altre informazioni, vedere [Applicazione automatica delle patch per SQL Server in macchine virtuali di Azure (distribuzione classica)](../classic/sql-automated-patching.md). |
+| **Integrazione di Azure Key Vault** |Consente di installare e configurare automaticamente Azure Key Vault nella VM di SQL Server. Per altre informazioni, vedere [Configurare l'integrazione di Azure Key Vault per SQL Server in macchine virtuali di Azure (distribuzione classica)](../classic/ps-sql-keyvault.md). |
 
 ## <a name="prerequisites"></a>Prerequisiti
 Requisiti per l'uso dell'Estensione Agente IaaS di SQL Server nella VM:
@@ -82,7 +83,7 @@ Se si esegue l'aggiornamento alla versione più recente dell'estensione dell'age
 > 
 
 ## <a name="status"></a>Stato
-Un modo per verificare che l'estensione sia installata consiste nel visualizzare lo stato dell'agente nel portale di Azure. Selezionare **Tutte le impostazioni** nel pannello della macchina virtuale e quindi fare clic su **Estensioni**. Verrà elencata l'estensione **SQLIaaSAgent** .
+Un modo per verificare che l'estensione sia installata consiste nel visualizzare lo stato dell'agente nel portale di Azure. Selezionare una macchina virtuale elencata nel pannello della macchina virtuale e quindi fare clic su **Estensioni**. Verrà elencata l'estensione **SQLIaaSAgent** .
 
 ![Estensione Agente IaaS di SQL Server nel portale di Azure](./media/virtual-machines-windows-classic-sql-server-agent-extension/azure-sql-server-iaas-agent-portal.png)
 
@@ -91,7 +92,7 @@ Un modo per verificare che l'estensione sia installata consiste nel visualizzare
     Get-AzureVM –ServiceName "service" –Name "vmname" | Get-AzureVMSqlServerExtension
 
 ## <a name="removal"></a>Rimozione
-Nel portale di Azure è possibile disinstallare l'estensione facendo clic sui puntini di sospensione nel pannello **Estensioni** delle proprietà della macchina virtuale. Fare quindi clic su **Elimina**.
+Nel portale di Azure è possibile disinstallare l'estensione facendo clic sui puntini di sospensione nel pannello **Estensioni** delle proprietà della macchina virtuale. Fare clic su **Disinstalla**.
 
 ![Disinstallare l'Estensione Agente IaaS di SQL Server nel portale di Azure](./media/virtual-machines-windows-classic-sql-server-agent-extension/azure-sql-server-iaas-agent-uninstall.png)
 
@@ -103,10 +104,5 @@ Nel portale di Azure è possibile disinstallare l'estensione facendo clic sui pu
 Iniziare a usare uno dei servizi supportati dall'estensione. Per altre informazioni, vedere gli argomenti citati nella sezione [Servizi supportati](#supported-services) di questo articolo.
 
 Per altre informazioni sull'esecuzione di SQL Server in Macchine virtuali di Azure, vedere [Panoramica di SQL Server in Macchine virtuali di Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

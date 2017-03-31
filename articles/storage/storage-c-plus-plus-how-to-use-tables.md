@@ -3,7 +3,7 @@ title: Come usare l&quot;archiviazione tabelle (C++) | Microsoft Docs
 description: Archiviare dati non strutturati nel cloud con il servizio di archiviazione tabelle di Azure, ovvero un archivio dati NoSQL.
 services: storage
 documentationcenter: .net
-author: dineshmurthy
+author: seguler
 manager: jahogg
 editor: tysonn
 ms.assetid: f191f308-e4b2-4de9-85cb-551b82b1ea7c
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: dineshm
+ms.date: 02/28/2017
+ms.author: seguler
 translationtype: Human Translation
 ms.sourcegitcommit: 3047ba6bb363e087bfdf767a32c92a503000f11e
 ms.openlocfilehash: c97343008b5af378ed9d441e242018849e2ab69a
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -51,8 +52,8 @@ Per installare la libreria client di Archiviazione di Azure per C++, è possibil
 Aggiungere le istruzioni include seguenti all'inizio del file C++ in cui si desidera utilizzare le API di archiviazione di Azure per accedere alle tabelle:  
 
 ```cpp
-#include "was/storage_account.h"
-#include "was/table.h"
+#include <was/storage_account.h>
+#include <was/table.h>
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Impostare una stringa di connessione di archiviazione di Azure
@@ -456,10 +457,5 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle,
 * [Elenco delle risorse di archiviazione di Azure in C++](storage-c-plus-plus-enumeration.md)
 * [Informazioni di riferimento sulla libreria client di archiviazione per C++](http://azure.github.io/azure-storage-cpp)
 * [Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

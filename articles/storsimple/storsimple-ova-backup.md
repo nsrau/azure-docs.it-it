@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 06/07/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 61bc9e86cde18bf00291fa36c7ea12ca263db82f
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 9db591677fb529a72029114db8ad8a8b5d8ab260
 
 
 ---
@@ -86,7 +86,7 @@ Eseguire i passaggi seguenti nel portale di Azure classico per visualizzare i ba
 
 Guardare il video per scoprire come è possibile creare condivisioni, eseguire il backup di condivisioni e il ripristino dei dati in StorSimple Virtual Array.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Use-the-StorSimple-Virtual-Array/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Use-the-StorSimple-Virtual-Array/player]
 > 
 > 
 
@@ -96,6 +96,6 @@ Scoprire di più su come [amministrazione StorSimple Virtual Array](storsimple-o
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

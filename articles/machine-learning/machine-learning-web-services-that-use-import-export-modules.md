@@ -1,5 +1,5 @@
 ---
-title: Distribuzione di servizi di Web Azure ML che usano i moduli Import Data ed Export Data | Documentazione Microsoft
+title: Utilizzo di Import Data ed Export Data nei servizi Web Azure Machine Learning | Documentazione Microsoft
 description: Informazioni su come usare i moduli Import Data ed Export Data per inviare e ricevere dati da un servizio Web.
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 066ff1d2c8255c895fbfcb0ad8c0b1fef298f8c7
-ms.openlocfilehash: f122153a97c3bbdb4416b97146cf9611b850b51e
+ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
+ms.openlocfilehash: 30a3a6c438bae191605e35c352cf03fd8eaddf0f
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -107,7 +108,7 @@ Per eseguire la distribuzione come servizio Web classico e creare un'applicazion
 9. Individuare la dichiarazione di richiesta e aggiornare i valori del servizio Web passati ai moduli *Import Data* (Importa dati) e *Export Data* (Esporta dati). In questo caso, usare la query originale, ma definire un nome per la nuova tabella.
    
         var request = new BatchExecutionRequest() 
-        {           
+        {            
             GlobalParameters = new Dictionary<string, string>() {
                 { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
                 { "Table", "dbo.ScoredTable2" },
@@ -118,6 +119,10 @@ Per eseguire la distribuzione come servizio Web classico e creare un'applicazion
 Al termine dell'esecuzione verrà aggiunta una nuova tabella al database contenente i risultati di punteggio.
 
 ### <a name="deploy-a-new-web-service"></a>Distribuire un servizio Web nuovo
+
+> [!NOTE] 
+> Per distribuire un nuovo servizio Web è necessario disporre delle autorizzazioni sufficienti nella sottoscrizione a cui si sta distribuendo il servizio Web. Per altre informazioni, vedere [Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning](machine-learning-manage-new-webservice.md). 
+
 Per eseguire la distribuzione come servizio Web nuovo e creare un'applicazione per usare il servizio:
 
 1. Fare clic su **Run**(Esegui) nella parte inferiore dell'area di disegno dell'esperimento.
@@ -131,7 +136,7 @@ Per eseguire la distribuzione come servizio Web nuovo e creare un'applicazione p
 9. Individuare la dichiarazione *scoreRequest* e aggiornare i valori dei parametri del servizio Web passati ai moduli *Import Data* (Importa dati) e *Export Data* (Esporta dati). In questo caso, usare la query originale, ma definire un nome per la nuova tabella.
    
         var scoreRequest = new
-        {       
+        {        
             Inputs = new Dictionary<string, StringTable>()
             {
             },
@@ -141,10 +146,5 @@ Per eseguire la distribuzione come servizio Web nuovo e creare un'applicazione p
             }
         };
 10. Eseguire l'applicazione. 
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

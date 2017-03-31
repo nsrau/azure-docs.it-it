@@ -9,15 +9,17 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 00c3a395-d51a-44ff-af2d-1f116c4b1c83
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: fc79b8017f2184091f2473a0ff9cdfbd0a4cbdf8
 ms.openlocfilehash: ebab21a8289ae639efae8bd802d7c493fd843d05
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -761,9 +763,4 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 [img-runworkflow-output]: ./media/hdinsight-use-oozie-coordinator-time/HDI.UseOozie.RunCoord.Output.png
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

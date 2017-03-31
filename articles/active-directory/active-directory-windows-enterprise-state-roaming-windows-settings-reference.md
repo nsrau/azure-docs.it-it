@@ -4,8 +4,8 @@ description: "Elenco completo di tutte le impostazioni di cui verrà effettuato 
 services: active-directory
 keywords: enterprise state roaming, cloud windows
 documentationcenter: 
-author: femila
-manager: swadhwa
+author: tanning
+manager: femila
 editor: curtand
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
 ms.service: active-directory
@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: femila
+ms.date: 03/08/2017
+ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 9b88b18e32e6a5ef6c0a0195e649fe2862583a0b
 ms.openlocfilehash: c2c50ff6e92cf42a7d309afafb01210c4edabbe0
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -164,9 +165,4 @@ Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non
 * [Domande frequenti su impostazioni e dati in roaming](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Criteri di gruppo e impostazioni del software MDM per la sincronizzazione delle impostazioni](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Risoluzione dei problemi](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

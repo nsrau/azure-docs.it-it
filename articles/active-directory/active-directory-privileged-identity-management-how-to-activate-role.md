@@ -3,7 +3,7 @@ title: Come attivare o disattivare un ruolo | Microsoft Docs
 description: "Informazioni su come attivare i ruoli per le identità con privilegi con l&quot;applicazione Azure Privileged Identity Management."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: 1ce9e2e7-452b-4f66-9588-0d9cd2539e45
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2016
-ms.author: kgremban
+ms.date: 02/14/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 67695e5715e83e2214b27a2abd76a3f68fb4a75a
+ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
+ms.openlocfilehash: f70fec829b273de97fc49e61ba42d511b6b141b3
 
 
 ---
@@ -53,7 +53,6 @@ Un ruolo attivato si disattiva automaticamente quando viene raggiunto il limite 
 
 Prima del raggiungimento del limite di tempo, è possibile disattivare un ruolo manualmente nell'applicazione Azure AD Privileged Identity Management.  Selezionare **Attiva il mio ruolo**, scegliere il ruolo che non è più necessario usare e selezionare **Disattiva**.  
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su Azure AD Privileged Identity Management, vedere i collegamenti seguenti.
 
@@ -66,6 +65,6 @@ Per altre informazioni su Azure AD Privileged Identity Management, vedere i coll
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

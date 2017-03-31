@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 37c9d6808b3282d86583f6305672405775a7f306
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 851319639f1443c062b87305bbde351f41846433
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -54,8 +55,9 @@ Informazioni su come usare funzionalità specifiche di Azure Active Directory B2
 I collegamenti seguenti sono utili per un'esplorazione più approfondita del servizio:
 
 * Vedere [Prezzi di Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
-* Ottenere supporto in Stack Overflow usando i tag [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) o [adal](http://stackoverflow.com/questions/tagged/adal).
-* Inviare commenti e suggerimenti usando il [forum dedicato](https://feedback.azure.com/forums/169401-azure-active-directory/). Specificare "AzureADB2C:" nel titolo del post per permetterci di individuarlo.
+* Vedere i [codici di esempio](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory&term=b2c) per Azure Active Directory B2C. 
+* Ottenere supporto in Stack Overflow usando il tag [azure-ad-b2c](http://stackoverflow.com/questions/tagged/azure-ad-b2c).
+* Inviare commenti e suggerimenti usando il [forum dedicato](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
 * Vedere le [informazioni di riferimento sui protocolli di Azure AD B2C](active-directory-b2c-reference-protocols.md).
 * Vedere [Azure AD B2C: informazioni di riferimento sui token](active-directory-b2c-reference-tokens.md).
 * Vedere [Azure Active Directory B2C: domande frequenti](active-directory-b2c-faqs.md).
@@ -63,10 +65,5 @@ I collegamenti seguenti sono utili per un'esplorazione più approfondita del ser
 
 ## <a name="get-security-updates-for-our-products"></a>Ottenere aggiornamenti della sicurezza per i prodotti
 È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

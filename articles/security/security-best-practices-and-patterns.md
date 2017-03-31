@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2017
+ms.date: 03/06/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 0821ec479f21ddcc6dc370070d9a40221054877f
-ms.openlocfilehash: fe1f39df8cafeea4d518a5ee1400652bb499cde1
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 1cc0d2d1e9a62ff8531f963413ff573713d508ad
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -28,9 +29,9 @@ Attualmente sono disponibili gli articoli seguenti sulle procedure consigliate e
 * [Procedure consigliate per la sicurezza con il controllo di accesso e la gestione delle identità](azure-security-identity-management-best-practices.md)
 * [Procedure consigliate per la sicurezza di Internet of Things](azure-security-iot-best-practices.md)
 * [Procedure consigliate per la sicurezza di carichi di lavoro IaaS in Azure] (azure-security-iaas.md)
-* [Procedure consigliate per l'aggiornamento software nell'ambiente IaaS di Microsoft Azure](azure-security-best-practices-software-updates-iaas.md)
 * [Procedure consigliate per la sicurezza dei limiti di Azure](../best-practices-network-security.md)
 * [Implementing a secure hybrid network architecture in Azure (Implementazione di un'architettura di rete ibrida sicura in Azure)](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
+* [Azure PaaS Best Practices] (https://docs.microsoft.com/en-us/azure/security/security-paas-deployments)
 
 Azure fornisce una piattaforma sicura per creare le proprie soluzioni. Sono forniti anche servizi e tecnologie che rendono più sicure le soluzioni in Azure. Dato l'alto numero di opzioni disponibili, in molti hanno manifestato interesse per le procedure consigliate e i modelli suggeriti da Microsoft per aumentare la sicurezza.
 
@@ -47,9 +48,4 @@ Per ogni procedura consigliata verrà illustrato nel miglior modo possibile:
 * Come imparare ad abilitare la procedura consigliata
 
 È possibile offrire molti altri articoli sull'architettura e le procedure consigliate per la sicurezza di Azure. Richiedere eventuali argomenti specifici nell'area di discussione nella parte inferiore della pagina.
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

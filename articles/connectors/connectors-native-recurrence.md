@@ -18,6 +18,7 @@ ms.author: jehollan
 translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: fe558958c316c8dba42163e277ae01451f712e5a
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -60,10 +61,5 @@ Un asterisco (*) indica che è un campo obbligatorio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Provare ora a usare la piattaforma e [creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

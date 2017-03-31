@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: ab97962175f4498200db428736a1cbd124fac285
-ms.openlocfilehash: 6c07bae5b0e6d16925da661e423cb6d80d4f3f15
+ms.sourcegitcommit: bb66627b170c9010414b24266fdae608e67f5c61
+ms.openlocfilehash: a7e891d05ffe4cc2b4f68dce072a81499cc6de80
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: 6c07bae5b0e6d16925da661e423cb6d80d4f3f15
 > [!div class="op_single_selector"]
 > * [Portale di Azure](cloud-services-how-to-configure-portal.md)
 > * [Portale di Azure classico](cloud-services-how-to-configure.md)
-> 
-> 
+>
+>
 
 È possibile configurare le impostazioni più comuni di un servizio cloud nel portale di Azure. In alternativa, se si preferisce aggiornare direttamente i file di configurazione, scaricare un file di configurazione del servizio da aggiornare, quindi caricare il file aggiornato e aggiornare il servizio cloud con le modifiche apportate alla configurazione. In ogni caso, per gli aggiornamenti della configurazione viene effettuato il push in tutte le istanze del ruolo.
 
@@ -34,7 +34,7 @@ ms.openlocfilehash: 6c07bae5b0e6d16925da661e423cb6d80d4f3f15
 Azure può garantire il 99,95 di disponibilità del servizio durante gli aggiornamenti della configurazione solo se si dispone di almeno due istanze del ruolo per ogni ruolo. In questo modo, una macchina virtuale può elaborare le richieste dei client mentre l'altra viene aggiornata. Per altre informazioni, vedere [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/).
 
 ## <a name="change-a-cloud-service"></a>Modificare un servizio cloud
-Dopo aver aperto il [portale di Azure](https://portal.azure.com/), passare al servizio cloud. Da qui è possibile gestire molti aspetti. 
+Dopo aver aperto il [portale di Azure](https://portal.azure.com/), passare al servizio cloud. Da qui è possibile gestire molti aspetti.
 
 ![Pagina Impostazioni](./media/cloud-services-how-to-configure-portal/cloud-service.png)
 
@@ -42,13 +42,20 @@ I collegamenti **Impostazioni** o **Tutte le impostazioni** consentono di accede
 
 ![Pannello delle impostazioni del servizio cloud di Azure](./media/cloud-services-how-to-configure-portal/cs-settings-blade.png)
 
-> [!NOTE]
-> Il sistema operativo utilizzato per il servizio cloud non può essere modificato tramite il **portale di Azure**, ma è possibile modificare questa impostazione solo tramite il [portale di Azure classico](http://manage.windowsazure.com/). Questa operazione è illustrata in dettaglio [qui](cloud-services-how-to-configure.md#update-a-cloud-service-configuration-file).
-> 
-> 
+### <a name="manage-guest-os-version"></a>Gestire la versione del sistema operativo guest
+
+Per impostazione predefinita, Azure aggiorna periodicamente il sistema operativo guest all'immagine supportata più recente nella famiglia di sistemi operativi specificata nella configurazione del servizio (file con estensione cscfg), ad esempio Windows Server 2016.
+
+Se è necessario fare riferimento a una versione specifica del sistema operativo, è possibile configurarla nel pannello **Configurazione**.
+
+![Configurare la versione del sistema operativo](./media/cloud-services-how-to-configure-portal/cs-settings-config-guestosversion.png)
+
+
+>[!IMPORTANT]
+> La scelta di una versione specifica del sistema operativo comporta la disabilitazione degli aggiornamenti automatici del sistema operativo e rende l'applicazione di patch a carico dell'utente. È necessario assicurarsi che le istanze del ruolo ricevano gli aggiornamenti. In caso contrario, si rischia l'esposizione dell'applicazione a vulnerabilità della sicurezza.
 
 ## <a name="monitoring"></a>Monitoraggio
-È possibile aggiungere avvisi al servizio cloud. Fare clic su **Impostazioni** > **Regole di avviso** > **Aggiungi avviso**. 
+È possibile aggiungere avvisi al servizio cloud. Fare clic su **Impostazioni** > **Regole di avviso** > **Aggiungi avviso**.
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
@@ -58,7 +65,7 @@ Da qui è possibile configurare un avviso. La casella di riepilogo a discesa **M
 * Scrittura disco
 * Rete in ingresso
 * Rete in uscita
-* Percentuale CPU 
+* Percentuale CPU
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
@@ -70,7 +77,7 @@ Invece di usare **Impostazioni** > **Regole di avviso** è possibile fare clic s
 Da qui è possibile personalizzare il grafico usato con il riquadro oppure aggiungere una regola di avviso.
 
 ## <a name="reboot-reimage-or-remote-desktop"></a>Riavviare il computer, ricreare l'immagine o creare una connessione Desktop remoto
-In questo momento non è possibile configurare Desktop remoto con il **portale di Azure**. È tuttavia possibile configurarlo con il [portale di Azure classico](cloud-services-role-enable-remote-desktop.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md) o [Visual Studio](../vs-azure-tools-remote-desktop-roles.md). 
+In questo momento non è possibile configurare Desktop remoto con il **portale di Azure**. È tuttavia possibile configurarlo con il [portale di Azure classico](cloud-services-role-enable-remote-desktop.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md) o [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
 
 Per iniziare, fare clic sull'istanza del servizio cloud.
 
@@ -84,17 +91,17 @@ Dal pannello visualizzato è possibile avviare una connessione Desktop remoto, r
 Potrebbe essere necessario riconfigurare il servizio cloud con il file di [configurazione del servizio (CSCFG)](cloud-services-model-and-package.md#cscfg). È prima necessario scaricare il file con estensione cscfg, modificarlo, quindi caricarlo.
 
 1. Fare clic sull'icona **Impostazioni** o sul collegamento **Tutte le impostazioni** per aprire il pannello **Impostazioni**.
-   
+
     ![Pagina Impostazioni](./media/cloud-services-how-to-configure-portal/cloud-service.png)
 2. Fare clic sull’elemento **Configurazione** .
-   
+
     ![Blade Configurazione](./media/cloud-services-how-to-configure-portal/cs-settings-config.png)
 3. Fare clic sul pulsante **Download** .
-   
+
     ![Download](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
 4. Dopo aver aggiornato il file di configurazione del servizio, caricare e applicare gli aggiornamenti della configurazione:
-   
-    ![Caricamento](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png) 
+
+    ![Caricamento](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
 5. Selezionare il file con estensione cscfg e fare clic su **OK**.
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -105,7 +112,6 @@ Potrebbe essere necessario riconfigurare il servizio cloud con il file di [confi
 
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

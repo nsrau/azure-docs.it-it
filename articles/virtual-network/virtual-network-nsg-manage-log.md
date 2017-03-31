@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/03/2017
+ms.date: 01/31/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 87755571f560f0b41baabac0dc2c437b2738e75f
-ms.openlocfilehash: e5f0bdeaf1c29e9f8fc844d4c3d85b1f2595d03b
+ms.sourcegitcommit: f907f388ecb897c05e822f2abd5431b3976b7987
+ms.openlocfilehash: 10581234a4475d0d3b32c7891fcf97eed55f7a1d
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -31,7 +32,14 @@ ms.openlocfilehash: e5f0bdeaf1c29e9f8fc844d4c3d85b1f2595d03b
 > [!NOTE]
 > I log di diagnostica sono disponibili solo per i gruppi di sicurezza di rete distribuiti nel modello di distribuzione di Azure Resource Manager. Non è possibile abilitare la registrazione diagnostica per i gruppi di sicurezza di rete distribuiti tramite il modello di distribuzione classico. Per altre informazioni sui due modelli, vedere l'articolo [Comprendere i modelli di distribuzione di Azure](../resource-manager-deployment-model.md).
 
-La registrazione delle attività (precedentemente nota come controllo o registri operativi) è abilitata per impostazione predefinita per i gruppi di sicurezza di rete creati tramite qualsivoglia modello di distribuzione di Azure. Per determinare quali operazioni sono state completate nei gruppi di sicurezza di rete nel log attività, cercare le voci che contengono i seguenti tipi di risorsa: Microsoft.ClassicNetwork/networkSecurityGroups, Microsoft.ClassicNetwork/networkSecurityGroups/securityRules, Microsoft.Network/networkSecurityGroups, and Microsoft.Network/networkSecurityGroups/securityRules. Leggere l'articolo [Panoramica del log attività di Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) per ulteriori informazioni sui log attività. 
+La registrazione delle attività (precedentemente nota come controllo o registri operativi) è abilitata per impostazione predefinita per i gruppi di sicurezza di rete creati tramite qualsivoglia modello di distribuzione di Azure. Per determinare quali operazioni sono state completate nei NGS nel log attività, cercare le voci che contengono i tipi di risorsa seguenti: 
+
+- Microsoft.ClassicNetwork/networkSecurityGroups 
+- Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
+- Microsoft.Network/networkSecurityGroups
+- Microsoft.Network/networkSecurityGroups/securityRules 
+
+Leggere l'articolo [Panoramica del log attività di Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) per ulteriori informazioni sui log attività. 
 
 ## <a name="enable-diagnostic-logging"></a>Abilitare la registrazione diagnostica
 
@@ -115,10 +123,5 @@ Questo log contiene informazioni su ogni regola applicata alle risorse. I dati n
 
 ## <a name="view-and-analyze-logs"></a>Visualizzare e analizzare i log
 
-Leggere l'articolo [Panoramica del log attività di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) per ulteriori informazioni su come visualizzare i dati del log attività. Leggere l'articolo [Panoramica dei log di diagnostica di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) per ulteriori informazioni su come visualizzare i dati dei log di diagnostica. Se si inviano dati di diagnostica a Log Analytics, è possibile usare la soluzione [Azure Networking Analytics](../log-analytics/log-analytics-azure-networking-analytics.md#use-azure-networking-analytics) (anteprima) per approfondimenti avanzati. 
-
-
-
-<!--HONumber=Jan17_HO1-->
-
+Leggere l'articolo [Panoramica del log attività di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) per ulteriori informazioni su come visualizzare i dati del log attività. Leggere l'articolo [Panoramica dei log di diagnostica di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) per ulteriori informazioni su come visualizzare i dati dei log di diagnostica. Se si inviano dati di diagnostica a Log Analytics, è possibile usare la soluzione di gestione [Analisi di gruppo di sicurezza di rete di Azure](../log-analytics/log-analytics-azure-networking-analytics.md) (anteprima) per approfondimenti avanzati. 
 

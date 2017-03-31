@@ -1,27 +1,26 @@
 # Panoramica
 ## [Che cos'è ExpressRoute?](expressroute-introduction.md)
 ## [Domande frequenti su ExpressRoute](expressroute-faqs.md)
+## [Modelli di connettività](expressroute-connectivity-models.md)
+## [Circuiti e domini di routing](expressroute-circuit-peerings.md)
 ## [Località e partner](expressroute-locations.md)
 ### [Provider per località](expressroute-locations-providers.md)
 ### [Località per provider](expressroute-locations.md)
+## [Gateway di rete virtuale per ExpressRoute](expressroute-about-virtual-network-gateways.md)
 
 # Attività iniziali
-## [Circuiti e domini di routing](expressroute-circuit-peerings.md)
-## [Flussi di lavoro](expressroute-workflows.md)
 ## [Prerequisiti](expressroute-prerequisites.md)
+## [Flussi di lavoro](expressroute-workflows.md)
 ## [Requisiti di routing](expressroute-routing.md)
-## [Ottimizzare il routing](expressroute-optimize-routing.md)
 ## [Requisiti NAT](expressroute-nat.md)
 ## [Requisiti QoS](expressroute-qos.md)
 ## [Spostamento dei circuiti dal modello classico a Resource Manager](expressroute-move.md)
-## [Gateway di rete virtuale per ExpressRoute](expressroute-about-virtual-network-gateways.md)
 
 # Procedure
 ## Creare e modificare un circuito
 ### [portale di Azure](expressroute-howto-circuit-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-circuit-arm.md)
-### [PowerShell (classico)](expressroute-howto-circuit-classic.md)
-## Creare e modificare configurazioni di routing
+## Creare e modificare configurazioni di peering
 ### [Portale di Azure](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
 ### [PowerShell (classico)](expressroute-howto-routing-classic.md)
@@ -37,11 +36,12 @@
 ### [PowerShell (classico)](expressroute-howto-coexist-classic.md)
 ## [Eseguire la migrazione di un circuito dal modello classico a Resource Manager](expressroute-howto-move-arm.md)
 ## Configurare un router per ExpressRoute
-### [Esempi di configurazione di router](expressroute-config-samples-routing.md)
+### [Configurare un router](expressroute-config-samples-routing.md)
 ### [Esempi di configurazione di router per NAT](expressroute-config-samples-nat.md)
 
 ## Procedure consigliate
 ### [Procedure consigliate per la sicurezza di rete e i servizi cloud](../best-practices-network-security.md)
+## [Ottimizzare il routing](expressroute-optimize-routing.md)
 ### [Routing asimmetrico](expressroute-asymmetric-routing.md)
 
 ## Risoluzione dei problemi
@@ -50,7 +50,7 @@
 ### [Recupero di tabelle ARP (versione classica)](expressroute-troubleshooting-arp-classic.md)
 
 # riferimento
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (classico)](https://msdn.microsoft.com/library/azure/dn606310)
 
@@ -78,8 +78,3 @@
 ### [Sviluppare l'infrastruttura di rete per la connettività](https://go.microsoft.com/fwlink/p/?LinkId=615124)
 ### [Collaborazioni ibride: abilitazione di scenari locali](https://go.microsoft.com/fwlink/p/?LinkId=615125)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=expressroute)
-
-
-<!--HONumber=Jan17_HO1-->
-
-

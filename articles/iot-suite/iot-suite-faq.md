@@ -4,7 +4,7 @@ description: Domande frequenti su IoT Suite
 services: 
 suite: iot-suite
 documentationcenter: 
-author: aguilaaj
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
@@ -13,21 +13,41 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
-ms.author: araguila
+ms.date: 02/15/2017
+ms.author: corywink
 translationtype: Human Translation
-ms.sourcegitcommit: 69d4439a20fec8caaabdb43444cabd81f7d1b7c8
-ms.openlocfilehash: 6245c2a0f73ff63e3bfb5fe16112f89ed0efdf30
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: ce37bb41babb7bf894c23add994bf2c144ee6549
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Domande frequenti su IoT Suite
+
+### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>Dove è possibile visualizzare il codice sorgente per la soluzione preconfigurata?
+Il codice sorgente è memorizzato nei repository di GitHub seguenti:
+* [Soluzione preconfigurata per il monitoraggio remoto][lnk-remote-monitoring-github]
+* [Soluzione preconfigurata di manutenzione predittiva][lnk-predictive-maintenance-github]
+
+### <a name="how-do-i-update-to-the-latest-version-of-the-remote-monitoring-preconfigured-solution-that-uses-the-iot-hub-device-management-features"></a>Come eseguire l'aggiornamento alla versione più recente della soluzione preconfigurata per il monitoraggio remoto che usa le funzionalità di gestione del dispositivo hub IoT?
+* Se la soluzione preconfigurata viene distribuita dal sito https://www.azureiotsuite.com/, viene sempre distribuita una nuova istanza della versione più recente della soluzione.
+* Se la soluzione preconfigurata viene distribuita tramite la riga di comando, è possibile aggiornare una distribuzione esistente con il nuovo codice. Vedere [Distribuzione cloud][lnk-cloud-deployment] nel [repository][lnk-remote-monitoring-github] GitHub.
+
+### <a name="how-can-i-add-support-for-a-new-device-method-to-the-remote-monitoring-preconfigured-solution"></a>Come aggiungere il supporto per un nuovo metodo del dispositivo alla soluzione preconfigurata di monitoraggio remoto?
+Vedere la sezione [Aggiungere il supporto per un nuovo metodo al simulatore] [ lnk-add-method] nell'articolo [Personalizzare una soluzione preconfigurata][lnk-customize].
+
+### <a name="the-simulated-device-is-ignoring-my-desired-property-changes-why"></a>Perché il dispositivo simulato ignora le modifiche alle proprietà desiderate?
+Nella soluzione preconfigurata per il monitoraggio remoto, il codice del dispositivo simulato usa le proprietà desiderate **Desired.Config.TemperatureMeanValue** e **Desired.Config.TelemetryInterval** per aggiornare le proprietà segnalate. Tutte le altre richieste di modifica delle proprietà desiderate vengono ignorate.
+
+### <a name="my-device-does-not-appear-in-the-list-of-devices-in-the-solution-dashboard-why"></a>Perché il dispositivo non è visualizzato nell'elenco dei dispositivi nel dashboard della soluzione?
+L'elenco dei dispositivi nel dashboard della soluzione usa una query per restituire l'elenco dei dispositivi. Attualmente, una query non può restituire più di 10.000 dispositivi. Provare ad applicare alla query criteri di ricerca più restrittivi.
+
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-preconfigured-solution-in-azureiotsuitecom"></a>Che differenza c'è tra eliminare un gruppo di risorse nel portale di Azure e fare clic per eliminare una soluzione preconfigurata in azureiotsuite.com?
 * Se si elimina la soluzione preconfigurata in [azureiotsuite.com][lnk-azureiotsuite], si eliminano anche tutte le risorse di cui è stato eseguito il provisioning al momento della creazione della soluzione. Se sono state aggiunte altre risorse al gruppo, anche queste ultime vengono eliminate. 
 * Se si elimina il gruppo di risorse nel [portale di Azure][lnk-azure-portal], si eliminano solo le risorse presenti in tale gruppo. È anche necessario eliminare l'applicazione Azure Active Directory associata alla soluzione preconfigurata nel [portale di Azure classico][lnk-classic-portal].
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>Di quante istanze dell'hub IoT è possibile eseguire il provisioning in una sottoscrizione?
-Dieci. Anche se è possibile creare un [ticket di supporto di Azure][link-azuresupportticket] per aumentare questo limite, per impostazione predefinita è possibile effettuare il provisioning solo di 10 hub IoT per ogni sottoscrizione, come descritto in [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi][link-azuresublimits]. Di conseguenza, poiché ogni soluzione preconfigurata effettua il provisioning di un nuovo hub IoT, è possibile effettuare il provisioning solo di un massimo di 10 soluzioni preconfigurate in una determinata sottoscrizione. 
+È possibile eseguire il provisioning di 10 hub IoT per ogni sottoscrizione. Anche se è possibile creare un [ticket di supporto di Azure][link-azuresupportticket] per aumentare questo limite, per impostazione predefinita è possibile effettuare il provisioning solo di 10 hub IoT per ogni sottoscrizione, come descritto in [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi][link-azuresublimits]. Di conseguenza, poiché ogni soluzione preconfigurata effettua il provisioning di un nuovo hub IoT, è possibile effettuare il provisioning solo di un massimo di 10 soluzioni preconfigurate in una determinata sottoscrizione. 
 
 ### <a name="how-many-documentdb-instances-can-i-provision-in-a-subscription"></a>Di quante istanze di DocumentDB è possibile eseguire il provisioning in una sottoscrizione?
 Cinquanta. Anche se è possibile creare un [ticket di supporto di Azure][link-azuresupportticket] per aumentare questo limite, per impostazione predefinita è possibile effettuare il provisioning solo di 50 istanze di DocumentDB per ogni sottoscrizione. 
@@ -56,6 +76,9 @@ Due. È possibile creare solo due Transazioni sito Web interno - Livello 1 per B
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-microsoft-azure-for-dreamspark"></a>È possibile creare una soluzione preconfigurata se è disponibile Microsoft Azure per DreamSpark?
 Al momento non è possibile creare una soluzione preconfigurata con un account [Microsoft Azure for DreamSpark][lnk-dreamspark], ma è possibile creare facilmente un [account di valutazione gratuito per][lnk-30daytrial] che consente di creare una soluzione preconfigurata.
 
+### <a name="can-i-create-a-preconfigured-solution-if-i-have-cloud-solution-provider-csp-subscription"></a>È possibile creare una soluzione preconfigurata se si dispone di una sottoscrizione di Cloud Solution Provider?
+È possibile attualmente creare una soluzione preconfigurata con una sottoscrizione di Cloud Solution Provider, ma è possibile creare facilmente un [account di valutazione gratuito per][lnk-30daytrial] che consente di creare una soluzione preconfigurata.
+
 ### <a name="how-do-i-delete-an-aad-tenant"></a>Come si elimina un tenant AAD?
 Vedere il post del blog di Eric Golpe relativo alla [procedura dettagliata di eliminazione di un tenant di Azure AD][lnk-delete-aad-tennant].
 
@@ -77,9 +100,8 @@ Vedere il post del blog di Eric Golpe relativo alla [procedura dettagliata di el
 [lnk-dreamspark]: https://www.dreamspark.com/Product/Product.aspx?productid=99 
 [lnk-30daytrial]: https://azure.microsoft.com/free/
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-
+[lnk-cloud-deployment]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/cloud-deployment.md
+[lnk-add-method]: iot-suite-guidance-on-customizing-preconfigured-solutions.md#add-support-for-a-new-method-to-the-simulator
+[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
+[lnk-remote-monitoring-github]: https://github.com/Azure/azure-iot-remote-monitoring
+[lnk-predictive-maintenance-github]: https://github.com/Azure/azure-iot-predictive-maintenance

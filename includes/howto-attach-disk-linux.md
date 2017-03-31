@@ -1,10 +1,10 @@
 
-Per altre informazioni sui dischi, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Per altre informazioni sui dischi, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](../articles/storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 <a id="attachempty"></a>
 
 ## <a name="attach-an-empty-disk"></a>Collegare un disco vuoto
-1. Aprire l'interfaccia della riga di comando di Azure e [connettersi alla sottoscrizione di Azure](../articles/xplat-cli-connect.md). Assicurarsi che sia attiva la modalità Gestione servizi di Azure (`azure config mode asm`).
+1. Aprire l'interfaccia della riga di comando di Azure 1.0 e [connettersi alla sottoscrizione di Azure](../articles/xplat-cli-connect.md). Assicurarsi che sia attiva la modalità Azure Service Management (`azure config mode asm`).
 2. Immettere `azure vm disk attach-new` per creare e collegare un nuovo disco, come illustrato nell'esempio seguente. Sostituire *myVM* con il nome della macchina virtuale Linux e specificare le dimensioni in GB del disco, che in questo esempio è di *100 GB*:
 
     ```azurecli
@@ -37,7 +37,7 @@ Per altre informazioni sui dischi, vedere [Informazioni sui dischi e sui dischi 
 ## <a name="attach-an-existing-disk"></a>Collegare un disco esistente
 Per collegare un disco esistente, è necessario che in un account di archiviazione sia disponibile un file con estensione vhd.
 
-1. Aprire l'interfaccia della riga di comando di Azure e [connettersi alla sottoscrizione di Azure](../articles/xplat-cli-connect.md). Assicurarsi che sia attiva la modalità Azure Service Management (`azure config mode asm`).
+1. Aprire l'interfaccia della riga di comando di Azure 1.0 e [connettersi alla sottoscrizione di Azure](../articles/xplat-cli-connect.md). Assicurarsi che sia attiva la modalità Azure Service Management (`azure config mode asm`).
 2. Controllare se il disco rigido virtuale che si desidera collegare è già caricato nella sottoscrizione di Azure:
    
     ```azurecli
@@ -78,7 +78,7 @@ Per collegare un disco esistente, è necessario che in un account di archiviazio
     info:    vm disk create command OK
     ```
    
-   È inoltre possibile usare `azure vm disk upload` per caricare un disco rigido virtuale in un account di archiviazione specifico. Altre informazioni sui comandi per la gestione dei dischi dati delle macchine virtuali di Azure sono disponibili [qui](../articles/virtual-machines-command-line-tools.md#commands-to-manage-your-azure-virtual-machine-data-disks).
+   È inoltre possibile usare `azure vm disk upload` per caricare un disco rigido virtuale in un account di archiviazione specifico. Altre informazioni sui comandi per la gestione dei dischi dati delle macchine virtuali di Azure sono disponibili [qui](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 
 4. Collegare adesso il disco rigido virtuale alla macchina virtuale:
    
@@ -114,9 +114,4 @@ Per collegare un disco esistente, è necessario che in un account di archiviazio
 > Dopo l'aggiunta di un disco dati, sarà necessario accedere alla macchina virtuale e inizializzare il disco in modo che la macchina virtuale possa usarlo per l'archiviazione. Per altre informazioni sull'inizializzazione del disco, vedere i passaggi riportati di seguito.
 > 
 > 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 05/23/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e39f2bb273bee9719f8f87cd27a1e1c92b6c4b53
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 531fdbbeab09a67be9636b3a70eabbb4148f7400
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -37,7 +38,7 @@ Di seguito si creerà un gestore mappe partizione con diverse partizioni, seguit
 
     ![Aprire il prompt dei comandi.][1]
 2. Nella finestra di comando, digitare "1" e premere **Invio**. Viene creato il gestore delle mappe partizioni e aggiunge due partizioni al server. Digitare "3" e premere **Invio**; ripetere l'azione quattro volte. Consente di inserire righe di dati di esempio nelle partizioni.
-3. Nel [portale di Azure](https://portal.azure.com) dovrebbero essere visualizzati tre nuovi database nel server v12:
+3. Il [portale di Azure](https://portal.azure.com) dovrebbe mostrare tre nuovi database nel server v12:
 
    ![Conferma di Visual Studio][2]
 
@@ -46,12 +47,14 @@ Di seguito si creerà un gestore mappe partizione con diverse partizioni, seguit
    Nella sezione successiva, verrà creato un endpoint del database di esempio che supporta l'esecuzione più completa delle query dei dati tra partizioni.
 
 ## <a name="create-an-elastic-query-database"></a>Creare un database di query elastico
-1. Aprire il [portale di Azure](https://portal.azure.com) ed effettuare l’accesso.
+1. Aprire il [portale di Azure](https://portal.azure.com) ed eseguire l'accesso.
 2. Creare un nuovo database SQL Azure nello stesso server del programma di installazione del partizionamento. Denominare il database "ElasticDBQuery".
 
     ![Portale di Azure e il livello di prezzo][3]
 
-    Nota: è possibile usare un database esistente. Se è possibile farlo, non deve essere una delle partizioni su cui si desidera eseguire la query. Questo database verrà utilizzato per la creazione di oggetti di metadati per una query di database elastico.
+    > [!NOTE]
+    > È possibile usare un database esistente. Se è possibile farlo, non deve essere una delle partizioni su cui si desidera eseguire la query. Questo database verrà utilizzato per la creazione di oggetti di metadati per una query di database elastico.
+    >
 
 ## <a name="create-database-objects"></a>Creare oggetti di database
 ### <a name="database-scoped-master-key-and-credentials"></a>Chiave master con ambito database e credenziali
@@ -119,7 +122,6 @@ Si noterà che la query di aggregare i risultati di tutte le partizioni e produc
 
 Tutte le righe dalla tabella **Clienti** , archiviate in diverse partizioni sono riportate nel foglio Excel.
 
-## <a name="next-steps"></a>Passaggi successivi
 È ora possibile utilizzare funzioni di visualizzazione avanzata dei dati di Excel. È possibile utilizzare la stringa di connessione con il nome del server, nome del database e credenziali per gli strumenti di integrazione di Business Intelligence e i dati di connettersi al database query elastica. Assicurarsi che SQL Server sia supportato come origine dati per lo strumento. È possibile fare riferimento al database elastica query e tabelle esterne come qualsiasi altro database di SQL Server e tabelle di SQL Server è necessario connettersi allo strumento.
 
 ### <a name="cost"></a>Costi
@@ -127,7 +129,14 @@ Non esiste senza alcun costo aggiuntivo per utilizzare la funzione elastica Quer
 
 Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+## <a name="next-steps"></a>Passaggi successivi
+
+* Per un approfondimento, vedere [Panoramica delle query elastiche](sql-database-elastic-query-overview.md).
+* Per un'esercitazione sul partizionamento verticale, vedere [Introduzione alle query tra database (partizionamento verticale)](sql-database-elastic-query-getting-started-vertical.md).
+* Per le query di esempio e sintassi per i dati con partizionamento verticale, vedere [Eseguire query su dati con partizionamento verticale](sql-database-elastic-query-vertical-partitioning.md)
+* Per le query di esempio e sintassi per i dati con partizionamento orizzontale, vedere [Eseguire query su dati con partizionamento orizzontale](sql-database-elastic-query-horizontal-partitioning.md)
+* Vedere [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) per una stored procedure che esegue un'istruzione Transact-SQL su un singolo database SQL di Azure remoto o un set di database che fungono da partizioni in uno schema di partizionamento orizzontale.
+
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-getting-started/cmd-prompt.png
@@ -136,9 +145,4 @@ Per informazioni sui prezzi, vedere [Dettagli prezzi del database SQL](https://a
 [4]: ./media/sql-database-elastic-query-getting-started/details.png
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

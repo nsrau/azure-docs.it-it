@@ -3,8 +3,8 @@ title: Introduzione alle app per le API e ad ASP.NET in Servizio app | Microsoft
 description: Informazioni su come creare un&quot;app per le API ASP.NET nel servizio app di Azure con Visual Studio 2015.
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
-manager: wpickett
+author: alexkarcher-msft
+manager: erikre
 editor: 
 ms.assetid: ddc028b2-cde0-4567-a6ee-32cb264a830a
 ms.service: app-service-api
@@ -13,10 +13,11 @@ ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/20/2016
-ms.author: rachelap
+ms.author: alkarche
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: c7b4e39e01ae335c3e6a5cf9cb1efe8a64490e35
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -198,7 +199,7 @@ Swashbuckle funziona con qualsiasi progetto API Web ASP.NET. Se si vuole aggiung
 > 
 > 
 
-## <a name="a-idcreateapiappa-create-an-api-app-in-azure-and-deploy-code-to-it"></a><a id="createapiapp"></a> Creare un'app per le API in Azure e distribuirvi il codice
+## <a id="createapiapp"></a> Creare un'app per le API in Azure e distribuirvi il codice
 In questa sezione si usano gli strumenti di Azure integrati nella procedura guidata **Pubblica sito Web** di Visual Studio per creare una nuova app per le API in Azure. Si distribuisce quindi il progetto ToDoListDataAPI nella nuova app per le API e si chiama l'API eseguendo l'interfaccia utente di Swagger.
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto ToDoListDataAPI e quindi scegliere **Pubblica**.
@@ -302,7 +303,7 @@ In questa sezione si usano gli strumenti di Azure integrati nella procedura guid
     
     Quando si seleziona un'app per le API per generare il relativo codice client, Visual Studio recupera i metadati dall'URL.
 
-## <a name="a-idcodegena-generate-client-code-for-the-data-tier"></a><a id="codegen"></a> Generare il codice client per il livello dati
+## <a id="codegen"></a> Generare il codice client per il livello dati
 Uno dei vantaggi dell'integrazione di Swagger nelle app per le API di Azure è la generazione automatica del codice. Le classi client generate semplificano la scrittura del codice che chiama un'app per le API.
 
 Il progetto ToDoListAPI include già il codice client generato, ma nei passaggi seguenti è necessario eliminarlo e rigenerarlo per sapere come eseguire la generazione del codice.
@@ -438,10 +439,5 @@ Per creare nuovi progetti di app per le API da zero, usare il modello **App per 
 ![Modello di app per le API in Visual Studio](./media/app-service-api-dotnet-get-started/apiapptemplate.png)
 
 Scegliere il modello di progetto **App per le API di Azure** equivale a scegliere il modello di ASP.NET 4.5.2 **vuoto**, fare clic sulla casella di controllo per aggiungere il supporto per l'API Web e installare il pacchetto NuGet Swashbuckle. Il modello aggiunge anche un codice di configurazione di Swashbuckle progettato per evitare la creazione di ID operazione di Swagger duplicati. Una volta creato un progetto di app per le API, è possibile distribuirlo in un'app per le API nello stesso modo illustrato in questa esercitazione.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

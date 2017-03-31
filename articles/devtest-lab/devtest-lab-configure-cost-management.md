@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a95b496d16459e415e4ece50b230615bd1bd2169
+ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
+ms.openlocfilehash: b3ad1ead522908d4b41b7cca98d20ac91664998e
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -46,7 +47,7 @@ Gli importi vengono arrotondati al numero intero successivo. Ad esempio:
 Come indicato sopra il grafico, i costi visualizzati nel grafico sono costi *stimati* in base alle tariffe del piano di [pagamento a consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) .
 Il calcolo dei costi *non* include quanto segue:
 
-* Le sottoscrizioni CSP e Dreamspark non sono attualmente supportate in quanto, per calcolare il costo del lab, Azure DevTest Labs usa le [API di fatturazione di Azure](../billing-usage-rate-card-overview.md) , che non supportano le sottoscrizioni CSP o Dreamspark.
+* Le sottoscrizioni CSP e Dreamspark non sono attualmente supportate in quanto, per calcolare il costo del lab, Azure DevTest Labs usa le [API di fatturazione di Azure](../billing/billing-usage-rate-card-overview.md) , che non supportano le sottoscrizioni CSP o Dreamspark.
 * Le tariffe della propria offerta. Al momento non è possibile includere le tariffe, indicate nella sottoscrizione, negoziate con Microsoft o i partner Microsoft. Vengono usate tariffe a consumo.
 * Le imposte
 * Gli sconti
@@ -65,10 +66,5 @@ Altre operazioni da eseguire:
 * [Creare un'immagine personalizzata](devtest-lab-create-template.md): quando si crea una VM, si specifica una base, che può essere un'immagine personalizzata o un'immagine del Marketplace. Questo articolo illustra come creare un'immagine personalizzata da un file VHD.
 * [Configurare le immagini del Marketplace](devtest-lab-configure-marketplace-images.md): DevTest Labs supporta la creazione di VM basate su immagini di Azure Marketplace. Questo articolo illustra come specificare eventuali immagini di Azure Marketplace da usare durante la creazione di VM in un lab.
 * [Creare una VM in un lab](devtest-lab-add-vm-with-artifacts.md): questo articolo illustra come creare una VM da un'immagine di base, personalizzata o del Marketplace, e come usare gli elementi nella VM.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

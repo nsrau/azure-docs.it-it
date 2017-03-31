@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 01/03/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 9a2ab28a2dc456d5f21242ded1d348f411d3d994
-ms.openlocfilehash: ee42c2e4344fe712084208c25fb5c1a062dba1aa
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: cdf9d576b6a7d3afcfb0839ce8bab2103fba14ed
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -25,11 +26,11 @@ ms.openlocfilehash: ee42c2e4344fe712084208c25fb5c1a062dba1aa
 In questo articolo vengono fornite sintassi e opzioni per i comandi dell'interfaccia della riga di comando (CLI) di Azure usati comunemente per creare e gestire risorse di Azure nel modello di distribuzione Azure Resource Manager. Accedere ai comandi eseguendo l’interfaccia della riga di comando in modalità di gestione risorse (arm). Non si tratta di un riferimento completo e la versione dell'interfaccia della riga di comando in uso potrebbe mostrare comandi o parametri leggermente diversi. Per informazioni generali su risorse e gruppi di risorse di Azure, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
 
 > [!NOTE]
-> Questo articolo illustra i comandi in modalità Resource Manager disponibili nell'interfaccia della riga di comando 1.0 di Azure. Per usare il modello di Resource Manager, è inoltre possibile provare l'[interfaccia della riga di comando 2.0 di Azure (Anteprima)](/cli/azure/install-az-cli2), ovvero la nuovissima interfaccia della riga di comando multipiattaforma.
+> Questo articolo illustra i comandi in modalità Resource Manager disponibili nell'interfaccia della riga di comando 1.0 di Azure. Per usare il modello di Resource Manager, è possibile anche provare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2), ovvero la nuovissima interfaccia della riga di comando multipiattaforma.
 >Sono disponibili altre informazioni su entrambe le versioni delle [interfacce della riga di comando di Azure](/cli/azure/old-and-new-clis).
 >
 
-Per iniziare, [installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e [connettersi alla propria sottoscrizione di Azure](../xplat-cli-connect.md).
+Per iniziare, [installare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md) e [connettersi alla propria sottoscrizione di Azure](../xplat-cli-connect.md).
 
 Per la sintassi e le opzioni dei comandi correnti nella riga di comando in modalità Gestione risorse, digitare `azure help` o `azure help [command]` per visualizzare la Guida per un comando specifico. Sono inoltre disponibili esempi dell'interfaccia della riga di comando nella documentazione per la creazione e la gestione di servizi di Azure specifici.
 
@@ -1863,9 +1864,4 @@ Opzioni dei parametri:
     vm image list-offers [options] <location> <publisher>
     vm image list-skus [options] <location> <publisher> <offer>
     vm image list [options] <location> <publisher> [offer] [sku]
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: Applicare criteri a macchine virtuali di Azure Resource Manager | Microsoft Docs
+title: Applicare la sicurezza con criteri su VM Linux in Azure | Documentazione Microsoft
 description: Come applicare criteri a una macchina virtuale Linux di Azure Resource Manager
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,12 +16,13 @@ ms.topic: article
 ms.date: 04/13/2016
 ms.author: singhkay
 translationtype: Human Translation
-ms.sourcegitcommit: f06747c35f12802f54b44774dff7f92280ba0dc9
-ms.openlocfilehash: b1c66c14fbf5b0361831bb987df3dc01131abc88
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 1887b777fbe113d59cffb6ba5409e33ca1380880
+ms.lasthandoff: 02/22/2017
 
 
 ---
-# <a name="apply-policies-to-azure-resource-manager-virtual-machines"></a>Applicare criteri a macchine virtuali di Azure Resource Manager
+# <a name="apply-security-and-policies-to-linux-vms-with-azure-resource-manager"></a>Applicare sicurezza e criteri a VM Linux con Azure Resource Manager
 Tramite i criteri è possibile imporre diverse convenzioni e regole in tutta l'organizzazione. L'imposizione del comportamento desiderato consente di attenuare i rischi, contribuendo nello stesso tempo al successo dell'organizzazione. Questo articolo descrive come usare criteri di Azure Resource Manager per definire il comportamento desiderato per le macchine virtuali dell'organizzazione.
 
 Per eseguire questa operazione, seguire questa procedura:
@@ -82,7 +83,7 @@ Il criterio precedente può essere facilmente modificato per uno scenario in cui
 ```
 
 #### <a name="virtual-machine-property-fields"></a>Campi delle proprietà di una macchina virtuale
-La tabella seguente descrive le proprietà delle macchine virtuali che possono essere usate come campi all'interno di una definizione di criteri. Per altre informazioni sui campi del criterio, vedere [Usare il criterio per gestire le risorse e controllare l'accesso](../resource-manager-policy.md#fields).
+La tabella seguente descrive le proprietà delle macchine virtuali che possono essere usate come campi all'interno di una definizione di criteri. Per altre informazioni sui campi del criterio, vedere [Usare il criterio per gestire le risorse e controllare l'accesso](../azure-resource-manager/resource-manager-policy.md#conditions).
 
 | Nome campo | Descrizione |
 | --- | --- |
@@ -92,13 +93,8 @@ La tabella seguente descrive le proprietà delle macchine virtuali che possono e
 | imageVersion |Specifica la versione di immagine per lo SKU prescelto |
 
 ## <a name="create-the-policy"></a>Creare i criteri
-Un criterio può essere creato facilmente usando l'API REST direttamente o i cmdlet di PowerShell. Altre informazioni sulla [creazione e assegnazione di un criterio](../resource-manager-policy.md#create-and-assign-a-policy).
+Un criterio può essere creato facilmente usando l'API REST direttamente o i cmdlet di PowerShell. Altre informazioni sulla [creazione e assegnazione di un criterio](../azure-resource-manager/resource-manager-policy.md).
 
 ## <a name="apply-the-policy"></a>Applicare i criteri
-Dopo aver creato i criteri è necessario applicarli a un ambito definito. L'ambito può essere una sottoscrizione, un gruppo di risorse o persino una risorsa. Altre informazioni sulla [creazione e assegnazione di un criterio](../resource-manager-policy.md#create-and-assign-a-policy).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+Dopo aver creato i criteri è necessario applicarli a un ambito definito. L'ambito può essere una sottoscrizione, un gruppo di risorse o persino una risorsa. Altre informazioni sulla [creazione e assegnazione di un criterio](../azure-resource-manager/resource-manager-policy.md).
 

@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 02/02/2017
 ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: eaca6a05cdbc1dc5b9a62d8f60da689d06f315cc
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: cd6c3be6a2667807f29156900b0a5f1fc63704d3
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -27,11 +28,11 @@ ms.openlocfilehash: eaca6a05cdbc1dc5b9a62d8f60da689d06f315cc
 > 
 > 
 
-Le immagini Linux disponibili nella raccolta di Azure o in Marketplace sono fornite da diversi partner e Microsoft collabora con diverse community Linux per aggiungere altre versioni all'elenco delle distribuzioni supportate. Nel frattempo, per le distribuzioni non disponibili nella raccolta, è possibile usare la propria distribuzione di Linux, attenendosi alle indicazioni disponibili in [questa pagina](virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Le immagini Linux disponibili nella raccolta di Azure o in Marketplace sono fornite da diversi partner e Microsoft collabora con diverse community Linux per aggiungere altre versioni all'elenco delle distribuzioni supportate. Nel frattempo, per le distribuzioni non disponibili nella raccolta, è possibile usare la propria distribuzione di Linux, attenendosi alle indicazioni disponibili in [questa pagina](linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="supported-distributions-versions"></a>Versioni e distribuzioni supportate
+## <a name="supported-distributions--versions"></a>Versioni e distribuzioni supportate
 Nella tabella seguente sono elencate le distribuzioni e versioni di Linux supportate in Azure. Per informazioni più dettagliate, leggere anche l'articolo sul [supporto per immagini Linux in Microsoft Azure](https://support.microsoft.com/en-us/kb/2941892).
 
 I driver di Linux Integration Services (LIS) per Hyper-V e Azure sono moduli kernel forniti da Microsoft direttamente nel kernel Linux upstream.  I driver LIS sono compilati nel kernel della distribuzione per impostazione predefinita oppure, per le distribuzioni basate su RHEL/CentOS precedenti, sono disponibili come download separato [qui](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409).  Per ulteriori informazioni sui driver LIS, consultare [questo articolo](virtual-machines-linux-create-upload-generic.md#linux-kernel-requirements) .
@@ -45,8 +46,8 @@ L'agente Linux di Azure è già preinstallato nelle immagini della raccolta di A
 | Debian |Debian 7,9 +, 8.2 + |Nel kernel |Pacchetto: in repo sotto "waagent" <br/>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Oracle Linux |6.4+, 7.0+ |Nel kernel |Pacchetto: in repo sotto "WALinuxAgent" <br/>Codice sorgente: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | Red Hat Enterprise Linux. |RHEL 6.7+, 7.1+ |Nel kernel |Pacchetto: in repo sotto "WALinuxAgent" <br/>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| SUSE Linux Enterprise |SLES 11 SP4, SLES 12 SP1+ and <p> SLES for SAP 11 SP3+ |Nel kernel |Pacchetto: in repository [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) sotto "python-azure-agent" <br/>Codice sorgente: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| openSUSE |openSUSE 13.2+ |Nel kernel |Pacchetto: in repository [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) sotto "python-azure-agent" <br/>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| SUSE Linux Enterprise |SLES/SLES per SAP<br>11 SP4<br>12 SP1+|Nel kernel |Pacchetto:<p> per 11 in [Cloud: strumenti](https://build.opensuse.org/project/show/Cloud:Tools) archivio<br>per 12 inclusi nel modulo "Cloud pubblico" in "python-azure-agent"<br/>Codice sorgente: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
+| openSUSE |openSUSE Leap 42.1+ |Nel kernel |Pacchetto: in repository [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) sotto "python-azure-agent" <br/>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu |Ubuntu 12.04, 14.04, 16.04, 16.10 |Nel kernel |Pacchetto: in repo sotto "WALinuxAgent" <br/>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent) |
 
 ## <a name="partners"></a>Partner
@@ -88,10 +89,5 @@ SUSE Linux Enterprise Server su Azure è una piattaforma collaudata che offre un
 Le competenze di Canonical in ambito di engineering e le regole di governance della community aperta sono alla base del successo di Ubuntu nelle tecnologie per client, server e cloud computing, inclusi servizi cloud personali per i consumatori. La visione di Canonical per una piattaforma gratuita unificata in Ubuntu, dal telefono al cloud, con una serie di interfacce coerenti per telefono, tablet, TV e computer desktop, rende Ubuntu la scelta ottimale per enti di diverso tipo, dai provider di cloud pubblico ai produttori di dispositivi elettronici per consumatori, oltre ai singoli esperti di IT.
 
 Grazie a centri per lo sviluppo e l'engineering in tutto il mondo, Canonical si trova in una posizione privilegiata ed è pertanto in grado di collaborare con produttori di hardware e sviluppatori di software, in modo da portare le soluzioni Ubuntu sul mercato, da PC a server e dispositivi palmari.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

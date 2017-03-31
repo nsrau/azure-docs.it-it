@@ -13,15 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/11/2016
+ms.date: 02/13/2017
 ms.author: cgronlun;tedway;olgali
 translationtype: Human Translation
-ms.sourcegitcommit: ab8e5861dd7214dab41024e7048b739c072d3f64
-ms.openlocfilehash: 52a431c2af8b670fc4e4babb0a0d077051a46f54
+ms.sourcegitcommit: 25e1def880dbb8431e1a0cae9d8b84c6f5906315
+ms.openlocfilehash: 50963d47d030d43d1c98dfb9a5878af7b9e99d47
 
 
 ---
-# <a name="introduction-to-machine-learning-in-the-cloud"></a>Introduzione all'apprendimento automatico nel cloud
+# <a name="introduction-to-azure-machine-learning-in-the-cloud"></a>Introduzione ad Azure Machine Learning nel cloud
 ## <a name="what-is-machine-learning"></a>Che cos'è l'apprendimento automatico?
 L'apprendimento automatico è una tecnica di analisi scientifica dei dati che consente ai computer di apprendere dai dati esistenti per prevedere comportamenti, risultati e tendenze futuri.  
 
@@ -37,8 +37,6 @@ Azure Machine Learning è un servizio di analisi predittiva basato sul cloud che
 ![Che cos'è l'apprendimento automatico? Flusso di lavoro di base per rendere operativa l'analisi predittiva in Azure Machine Learning.](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
 Azure Machine Learning fornisce non solo gli strumenti per l'analisi predittiva dei modelli, ma anche un servizio completamente gestito che è possibile usare per distribuire i modelli predittivi come servizi Web pronti all'uso.
-
-[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## <a name="what-is-predictive-analytics"></a>Cos'è l'analisi predittiva?
 L'analisi predittiva usa formule matematiche chiamate algoritmi che analizzano i dati cronologici o correnti per identificare modelli o tendenze e quindi prevedere gli eventi futuri.
@@ -60,7 +58,7 @@ In [Machine Learning Studio](machine-learning-what-is-ml-studio.md)è possibile 
 Le esercitazioni seguenti illustrano come rendere operativi i modelli di analisi predittiva:
 
  * [Distribuire i servizi Web](machine-learning-publish-a-machine-learning-web-service.md)
- * [Eseguire e ripetere il training dei modelli tramite le API](machine-learning-retrain-models-programmatically.md)
+ * [Ripetere il training dei modelli tramite le API](machine-learning-retrain-models-programmatically.md)
  * [Gestire gli endpoint di servizio Web](machine-learning-create-endpoint.md)
  * [Ridimensionare un servizio Web](machine-learning-scaling-webservice.md)
  * [Utilizzare i servizi Web](machine-learning-consume-web-services.md)
@@ -69,7 +67,10 @@ Le esercitazioni seguenti illustrano come rendere operativi i modelli di analisi
 I termini relativi all'apprendimento automatico possono generare confusione. Ecco quindi le definizioni dei termini chiave. Usare i commenti che seguono per segnalare altri termini di cui si vuole conoscere la definizione.
 
 ### <a name="data-exploration-descriptive-analytics-and-predictive-analytics"></a>Esplorazione dei dati, analisi descrittiva e analisi predittiva
-**esplorazione dei dati** è il processo di raccolta di informazioni su un set di dati di grandi dimensioni e spesso non strutturato per trovare caratteristiche che consentano di eseguire un'analisi mirata. **data mining** è l'esplorazione dei dati automatizzata.
+
+**esplorazione dei dati** è il processo di raccolta di informazioni su un set di dati di grandi dimensioni e spesso non strutturato per trovare caratteristiche che consentano di eseguire un'analisi mirata.
+
+**data mining** è l'esplorazione dei dati automatizzata.
 
 **analisi descrittiva** è il processo di analisi di un set di dati per riepilogare cosa è accaduto. La maggior parte delle analisi business, ad esempio i report sulle vendite, le metriche Web e l'analisi dei social network, è descrittiva.
 
@@ -114,6 +115,6 @@ Dopo aver creato un modello con training, valutare il modello usando i rimanenti
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

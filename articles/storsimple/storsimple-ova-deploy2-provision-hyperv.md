@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/11/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4d8de51377c8aad73ebf71f83b44edb094635f32
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 2fddc72747ce97e8985e9f1c84ffdce52cd05e2e
 
 
 ---
@@ -216,7 +216,7 @@ In presenza di altri errori durante la configurazione iniziale con l'interfaccia
 
 Guardare il video per vedere come è possibile eseguire il provisioning di StorSimple Virtual Array in Hyper-V.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Create-a-StorSimple-Virtual-Array/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Create-a-StorSimple-Virtual-Array/player]
 > 
 > 
 
@@ -227,6 +227,6 @@ Guardare il video per vedere come è possibile eseguire il provisioning di StorS
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: sutalasi
 translationtype: Human Translation
-ms.sourcegitcommit: f6ab5e3807684abb64a18e0a4bfc732afa091143
-ms.openlocfilehash: e8c155a42b33aafeca0c641bc4f6162f3278a89f
+ms.sourcegitcommit: 0400369eb7ae3a2ebd506605b50afe08fe563d22
+ms.openlocfilehash: 33b3e7322afafd623a10661e33abe7b959eeb512
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -54,7 +55,7 @@ Elementi necessari nel sito locale primario e in quello secondario per distribui
 
 | **Prerequisiti** | **Dettagli** |
 | --- | --- |
-| **VMM** |È consigliabile eseguire la distribuzione di un server VMM nel sito primario e di un server VMM nel sito secondario.<br/><br/> È possibile anche [eseguire la replica tra cloud in un singolo server VMM](site-recovery-single-vmm.md). A tale scopo, sono necessari almeno due cloud configurati sul server VMM.<br/><br/> I server VMM devono eseguire almeno System Center 2012 SP1 con gli aggiornamenti più recenti.<br/><br/> In ogni server VMM devono essere configurati uno o più cloud e in tutti i cloud deve essere impostato il profilo di capacità Hyper-V. <br/><br/>I cloud devono contenere uno o più gruppi host VMM.<br/><br/>Per altre informazioni sulla configurazione di cloud VMM, vedere [Configurazione dell'infrastruttura cloud delle VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric) e [Procedura dettagliata: creazione di cloud privati con System Center 2012 SP1 VMM)](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx).<br/><br/> I server VMM devono disporre di accesso a Internet. |
+| **VMM** |È consigliabile eseguire la distribuzione di un server VMM nel sito primario e di un server VMM nel sito secondario.<br/><br/> È possibile anche [eseguire la replica tra cloud in un singolo server VMM](site-recovery-vmm-to-vmm.md#prepare-for-single-server-deployment). A tale scopo, sono necessari almeno due cloud configurati sul server VMM.<br/><br/> I server VMM devono eseguire almeno System Center 2012 SP1 con gli aggiornamenti più recenti.<br/><br/> In ogni server VMM devono essere configurati uno o più cloud e in tutti i cloud deve essere impostato il profilo di capacità Hyper-V. <br/><br/>I cloud devono contenere uno o più gruppi host VMM.<br/><br/>Per altre informazioni sulla configurazione di cloud VMM, vedere [Configurazione dell'infrastruttura cloud delle VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric) e [Procedura dettagliata: creazione di cloud privati con System Center 2012 SP1 VMM)](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx).<br/><br/> I server VMM devono disporre di accesso a Internet. |
 | **Hyper-V** |I server Hyper-V devono eseguire almeno Windows Server 2012 con ruolo Hyper-V e con gli ultimi aggiornamenti installati.<br/><br/> Il server Hyper-V deve contenere una o più macchine virtuali.<br/><br/>  I server host Hyper-V devono trovarsi nei gruppi host disponibili nei cloud VMM primario e secondario.<br/><br/> Se si esegue Hyper-V in un cluster su Windows Server 2012 R2 è necessario installare l'[aggiornamento 2961977](https://support.microsoft.com/kb/2961977)<br/><br/> Se si esegue Hyper-V in un cluster basato su indirizzi IP statici in Windows Server 2012, il gestore del cluster non viene creato automaticamente. Sarà necessario configurare manualmente il broker del cluster. [Altre informazioni](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx). |
 | **Provider** |Durante la distribuzione di Site Recovery, installare il provider di Azure Site Recovery in server VMM. Il provider comunica con Site Recovery su HTTPS 443 per coordinare la replica. La replica dei dati viene eseguita tra il server Hyper-V primario e quello secondario attraverso la rete LAN o una connessione VPN.<br/><br/> Il provider in esecuzione nel server VMM deve poter accedere a questi URL: *.hypervrecoverymanager.windowsazure.com; *.accesscontrol.windows.net; *.backup.windowsazure.com; *.blob.core.windows.net; *.store.core.windows.net.<br/><br/> Consentire anche la comunicazione del firewall dai server VMM agli [intervalli IP dei data center di Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e il protocollo HTTPS (443). |
 
@@ -74,7 +75,7 @@ Nei seguenti articoli vengono fornite altre informazioni sulla configurazione de
 * [Come configurare le reti logiche in VMM](http://go.microsoft.com/fwlink/p/?LinkId=386307)
 * [Come configurare reti VM e gateway in VMM](http://go.microsoft.com/fwlink/p/?LinkId=386308)
 
-[Altre informazioni](site-recovery-network-mapping.md) sul funzionamento del mapping di rete.
+[Altre informazioni](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping) sul funzionamento del mapping di rete.
 
 ### <a name="powershell-prerequisites"></a>Prerequisiti di PowerShell
 Assicurarsi che Azure PowerShell sia pronto all’uso. Se già si utilizza PowerShell, è necessario eseguire l'aggiornamento alla versione 0.8.10 o successiva. Per informazioni sulla configurazione di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs). Dopo avere impostato e configurato PowerShell, è possibile vedere tutti i cmdlet disponibili per il servizio [qui](https://msdn.microsoft.com/library/dn850420.aspx).
@@ -319,9 +320,4 @@ Utilizzare i comandi seguenti per monitorare l'attività. Si noti che è necessa
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Altre informazioni](https://msdn.microsoft.com/library/azure/mt637930.aspx) su Azure Site Recovery con i cmdlet PowerShell per Azure Resource Manager.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

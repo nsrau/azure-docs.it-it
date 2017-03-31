@@ -2,7 +2,7 @@
 
 
 
-Per informazioni dettagliate sugli agenti VM e sul relativo ruolo nel supporto delle estensioni delle macchine virtuali, vedere [Panoramica sull'agente VM e sulle estensioni VM](../articles/virtual-machines/virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Per informazioni dettagliate sugli agenti VM e sul relativo ruolo nel supporto delle estensioni delle macchine virtuali, vedere [Panoramica sull'agente VM e sulle estensioni VM](../articles/virtual-machines/windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="azure-vm-extensions"></a>Estensioni di macchina virtuale
 Le estensioni di VM implementano la maggior parte delle funzionalità critiche da usare con le macchine virtuali, incluse le funzionalità di base quali la reimpostazione delle password, la configurazione di RDP e molto altro ancora. Poiché vengono aggiunte in continuazione nuove estensioni, il numero di possibili funzionalità supportate dalle VM in Azure è in continua crescita. Per impostazione predefinita, vengono installate diverse estensioni di VM di base quando si crea una macchina virtuale dalla Raccolta immagini, incluse **IaaSDiagnostics** (attualmente solo per VM Windows), **VMAccess** e **BGInfo** (attualmente solo per VM Windows). Non tutte le estensioni, tuttavia, sono implementate in Windows e Linux in un momento specifico, a causa del flusso continuo di aggiornamenti delle funzionalità e di nuove estensioni.
@@ -12,7 +12,7 @@ Le estensioni seguenti sono essenziali per abilitare, riabilitare o disabilitare
 
 | Nome estensione VM | Descrizione della funzionalità | Altre informazioni |
 | --- | --- | --- |
-| VMAccessAgent (Windows) |Creare, aggiornare e reimpostare le informazioni utente e le configurazioni delle connessioni RDP. |[Windows](../articles/virtual-machines/virtual-machines-windows-classic-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) |
+| VMAccessAgent (Windows) |Creare, aggiornare e reimpostare le informazioni utente e le configurazioni delle connessioni RDP. |[Windows](../articles/virtual-machines/windows/classic/extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) |
 | VMAccessForLinux (Linux) |Creare, aggiornare e reimpostare le informazioni utente e le configurazioni delle connessioni SSH. |[Linux](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 
 ## <a name="deployment-and-configuration-management"></a>Gestione della distribuzione e della configurazione
@@ -29,7 +29,7 @@ Le estensioni seguenti supportano diversi scenari e funzionalità di gestione de
 | **DockerExtension** |Installa il daemon Docker per supportare i comandi Docker remoti. |[Come usare l'estensione della macchina virtuale Docker](../articles/virtual-machines/virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Per informazioni più dettagliate, vedere la [Docker VM Extension User Guide](https://github.com/Azure/azure-docker-extension/blob/master/README.md) (Guida dell'utente dell'estensione VM Docker) |
 | **DSC** |Estensione PowerShell DSC (Desired State Configuration). |[Estensione Azure PowerShell DSC (Desired State Configuration)](http://blogs.msdn.com/b/powershell/archive/2014/08/07/introducing-the-azure-powershell-dsc-desired-state-configuration-extension.aspx) |
 | **PuppetEnterpriseAgent** |Implementa le funzionalità di Puppet Enterprise. |[Puppet in Azure](http://puppetlabs.com/solutions/microsoft) |
-| **CustomScriptExtension** (Windows)**CustomScriptForLinux** (Linux) |Richiama script personalizzati sulla VM in qualsiasi momento, ovvero all'avvio o durante il ciclo di vita. |[Estensione di script personalizzati](../articles/virtual-machines/virtual-machines-windows-classic-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) |
+| **CustomScriptExtension** (Windows)**CustomScriptForLinux** (Linux) |Richiama script personalizzati sulla VM in qualsiasi momento, ovvero all'avvio o durante il ciclo di vita. |[Estensione di script personalizzati](../articles/virtual-machines/windows/classic/extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) |
 | **AzureCATExtensionHandler** |Utilizza i dati di diagnostica raccolti da **IaaSDiagnostics** e da poche altre origini dati quali le [Metriche di Analisi archiviazione di Azure](https://msdn.microsoft.com/library/azure/hh343270.aspx) e li trasforma in un set di dati aggregato, ideale per l'utilizzo da parte del processo del controllo host SAP. |[Monitoraggio avanzato di Azure per SAP](https://azure.microsoft.com/blog/2014/06/04/azure-enhanced-monitoring-for-sap/) |
 
 ## <a name="security-and-protection"></a>Sicurezza e protezione
@@ -39,10 +39,10 @@ Le estensioni in questa sezione forniscono funzionalità di sicurezza essenziali
 | --- | --- | --- |
 | **CloudLinkSecureVMWindowsAgent** |Offre ai clienti di Microsoft Azure la possibilità di crittografare i dati delle macchine virtuali in un'infrastruttura condivisa multi-tenant e di controllare completamente le chiavi di crittografia per i dati crittografati nell'infrastruttura di archiviazione di Azure. |[Protezione delle macchine virtuali di Microsoft Azure tramite la crittografia BitLocker e del sistema operativo nativo](http://www.cloudlinktech.com/azure) |
 | **McAfeeEndpointSecurity** |Protegge la VM da software dannoso. |[McAfee](https://www.mcafeeasap.com/MarketingContent/default.aspx) |
-| **TrendMicroDSA** |Abilita il supporto della piattaforma Trend Micro Deep Security per fornire soluzioni per rilevamento e prevenzione delle intrusioni, firewall, antimalware, reputazione Web, ispezione dei log e monitoraggio dell'integrità. |[Come installare e configurare Trend Micro Deep Security come servizio in una macchina virtuale di Azure](../articles/virtual-machines/virtual-machines-windows-classic-install-trend.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) |
+| **TrendMicroDSA** |Abilita il supporto della piattaforma Trend Micro Deep Security per fornire soluzioni per rilevamento e prevenzione delle intrusioni, firewall, antimalware, reputazione Web, ispezione dei log e monitoraggio dell'integrità. |[Come installare e configurare Trend Micro Deep Security come servizio in una macchina virtuale di Azure](../articles/virtual-machines/windows/classic/install-trend.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) |
 | **PortalProtectExtension** |Protegge da minacce all'ambiente Microsoft SharePoint. |[Protezione della distribuzione SharePoint in Azure](http://blog.trendmicro.com/securing-sharepoint-deployment-azure/) |
 | **IaaSAntimalware** |Microsoft Antimalware per Servizi cloud e Macchine virtuali di Azure è una funzionalità di protezione in tempo reale che consente di identificare e rimuovere virus, spyware e altro software dannoso e offre avvisi configurabili per i casi in cui software dannoso o indesiderato prova l'installazione o l'esecuzione nel sistema. |[Microsoft Antimalware per Servizi cloud e Macchine virtuali di Azure](../articles/security/azure-security-antimalware.md) |
-| **SymantecEndpointProtection** |Symantec Endpoint Protection 12.1.4 consente di ottenere sicurezza e prestazioni in sistemi fisici e virtuali. |[Come installare e configurare Symantec Endpoint Protection in una macchina virtuale di Azure](../articles/virtual-machines/virtual-machines-windows-classic-install-symantec.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) |
+| **SymantecEndpointProtection** |Symantec Endpoint Protection 12.1.4 consente di ottenere sicurezza e prestazioni in sistemi fisici e virtuali. |[Come installare e configurare Symantec Endpoint Protection in una macchina virtuale di Azure](../articles/virtual-machines/windows/classic/install-symantec.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) |
 
 ## <a name="vm-operations-and-management"></a>Operazioni e gestione delle macchine virtuali
 Supporta le funzionalità e il comportamento relativi alle operazioni e alla gestione. Vedere anche la sezione precedente Gestione della distribuzione e della configurazione.
@@ -73,9 +73,4 @@ Queste estensioni forniscono il supporto per altre funzionalità delle VM che po
 | --- | --- | --- |
 | **BGInfo** |Quando si usa RDP, presenta sul desktop un'immagine consolidata delle informazioni utili sul server. |[Estensione BGInfo](https://msdn.microsoft.com/library/mt589195.aspx) |
 | **HpcVmDrivers** |Installa, configura e mantiene i driver del dispositivo di rete (RDMA) d’accesso alla memoria diretto remoto in una macchina virtuale di dimensioni A8 o A9 che esegue il server di Windows 2012 R2 il server di Windows 2012. Abilita le macchine virtuali A8 o A9 con cluster ad utilizzare la rete RDMA durante l'esecuzione di applicazioni MPI parallele. |[Informazioni sulle istanze A8, A9, A10 e A11 a elevato utilizzo di calcolo](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: Creare un&quot;app per le funzioni di Azure e un account di archiviazione di Azure | Documentazione Microsoft
+title: 'Connettere Raspberry Pi (C) ad Azure IoT: lezione 3: Distribuzione del modello | Documentazione Microsoft'
 description: L&quot;app per le funzioni di Azure rimane in ascolto degli eventi dell&quot;hub IoT di Azure, elabora i messaggi in ingresso e li scrive nell&quot;archiviazione tabelle di Azure.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 155e5d6280d86b06b1718fc3032c2c224539183d
-ms.openlocfilehash: cd3ad8ed3134bfc8023155f08704b634f1f3a93c
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 402a5dac4e77f64576acb968b67df92167f54f27
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -73,10 +74,5 @@ Per creare queste risorse sono necessari circa cinque minuti. Mentre è in corso
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Eseguire un'applicazione di esempio per inviare messaggi da dispositivo a cloud](iot-hub-raspberry-pi-kit-c-lesson3-run-azure-blink.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

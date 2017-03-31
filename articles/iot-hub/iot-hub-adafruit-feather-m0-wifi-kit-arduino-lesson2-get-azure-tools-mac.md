@@ -1,5 +1,5 @@
 ---
-title: Ottenere gli strumenti di Azure per lo starter kit di Azure IoT per macOS 10.10 | Documentazione Microsoft
+title: 'Connettere Arduino ad Azure IoT: lezione 2: Strumenti di Azure (macOS) | Documentazione Microsoft'
 description: Installare Python e l&quot;interfaccia della riga di comando di Azure in macOS.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 9e8084fe26229ef9ed1676c0a3c34e0ee7be88b1
-ms.openlocfilehash: de7d031a05110ccbd2d5ab18a7735a91df2bd05e
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: ad8ee9d524dcb096ac7db4bb23ec16d56518742b
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -85,8 +86,3 @@ Se l'installazione ha esito positivo, verrà visualizzato l'output seguente.
 [macos]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac.md
 [output]: media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson2/az_iot_help_osx.png
 [create-your-iot-hub-and-register-your-arduino-board]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md
-
-
-<!--HONumber=Dec16_HO2-->
-
-

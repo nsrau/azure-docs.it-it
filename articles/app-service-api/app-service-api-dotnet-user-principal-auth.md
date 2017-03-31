@@ -3,8 +3,8 @@ title: Autenticazione utente per le app per le API nel servizio app di Azure | D
 description: Informazioni su come proteggere un&quot;app per le API del servizio app di Azure consentendo l&quot;accesso solo agli utenti autenticati.
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
-manager: wpickett
+author: alexkarcher-msft
+manager: erikre
 editor: 
 ms.assetid: 3896760d-46ff-4b67-b98a-edd233f24758
 ms.service: app-service-api
@@ -13,10 +13,11 @@ ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
-ms.author: rachelap
+ms.author: alkarche
 translationtype: Human Translation
 ms.sourcegitcommit: 16a2c6f8e704528c38054bba394e3d11098077e0
 ms.openlocfilehash: c39e7bca6f339a1797a9344778e6a01ffa8adecc
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -34,7 +35,7 @@ L'articolo contiene due sezioni:
 * La sezione [Come configurare l'autenticazione utente nel servizio app di Azure](#authconfig) spiega in generale come configurare l'autenticazione utente per qualsiasi app per le API. È applicabile anche a tutti i framework supportati dal servizio app, ad esempio .NET, Node.js e Java.
 * A partire dalla sezione [Proseguimento delle esercitazioni sulle app per le API .NET](#tutorialstart), l'articolo illustra in dettaglio la configurazione di un'applicazione di esempio con un back-end .NET e un front-end AngularJS. L'applicazione usa Azure Active Directory per l'autenticazione utente. 
 
-## <a name="a-idauthconfiga-how-to-configure-user-authentication-in-azure-app-service"></a><a id="authconfig"></a> Come configurare l'autenticazione utente nel servizio app di Azure
+## <a id="authconfig"></a> Come configurare l'autenticazione utente nel servizio app di Azure
 Questa sezione fornisce istruzioni generali applicabili a tutte le app per le API. Per i passaggi specifici dell'applicazione di esempio .NET To Do List, vedere [Proseguimento delle esercitazioni sulle app per le API .NET](#tutorialstart).
 
 1. Nel [portale di Azure](https://portal.azure.com/) passare al pannello **Impostazioni** dell'app per le API da proteggere, trovare la sezione **Funzionalità**, quindi fare clic su **Autenticazione/Autorizzazione**.
@@ -63,7 +64,7 @@ Fatto questo, il servizio app autenticherà tutte le chiamate API prima che ragg
 
 Per effettuare chiamate API autenticate, il chiamante include token di connessione OAuth 2.0 del provider di autenticazione nell'intestazione dell'autorizzazione delle richieste HTTP. Il token può essere acquisito con l'SDK del provider di autenticazione.
 
-## <a name="a-idtutorialstarta-continuing-the-net-api-apps-tutorials"></a><a id="tutorialstart"></a> Proseguimento delle esercitazioni sulle app per le API .NET
+## <a id="tutorialstart"></a> Proseguimento delle esercitazioni sulle app per le API .NET
 Se si stanno seguendo le esercitazioni su Node.js o Java per le app per le API, passare all'articolo successivo [Autenticazione dell'entità servizio per app per le API nel servizio app di Azure](app-service-api-dotnet-service-principal-auth.md). 
 
 Se si sta seguendo la serie di esercitazioni su .NET per le app per le API ed è già stata distribuita l'applicazione di esempio come indicato nella [prima](app-service-api-dotnet-get-started.md) e nella [seconda](app-service-api-cors-consume-javascript.md) esercitazione, passare alla sezione [Configurare l'autenticazione nel servizio app e in Azure AD](#azureauth).
@@ -79,7 +80,7 @@ Se si desidera seguire questa esercitazione senza passare per la prima e la seco
 2. Fare clic sul pulsante **Deploy to Azure** (Distribuisci in Azure) nel [file leggimi del repository di esempio di To Do List](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/readme.md) per distribuire le app per le API e l'app Web. Prendere nota del gruppo di risorse di Azure che viene creato, poiché questa informazione potrà essere usata in un secondo tempo per la ricerca dei nomi delle app Web e delle app per le API.
 3. Scaricare o clonare il [repository di esempio di To Do List](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list) per ottenere il codice da usare in locale in Visual Studio.
 
-## <a name="a-idazureautha-set-up-authentication-in-app-service-and-azure-ad"></a><a id="azureauth"></a> Configurare l'autenticazione nel servizio app e in Azure AD
+## <a id="azureauth"></a> Configurare l'autenticazione nel servizio app e in Azure AD
 A questo punto l'applicazione è in esecuzione nel servizio app di Azure senza richiedere l'autenticazione degli utenti. In questa sezione si aggiungerà l'autenticazione eseguendo queste attività:
 
 * Configurare il servizio app perché richieda l'autenticazione di Azure Active Directory (Azure AD) per chiamare l'app per le API di livello intermedio.
@@ -280,10 +281,5 @@ Per informazioni su come creare un'applicazione AngularJS a singola pagina con u
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione si è appreso come usare l'autenticazione del servizio app per un'app per le API e come chiamare l'app per le API con la libreria ADAL JS. Nell'esercitazione successiva si apprenderà come [proteggere l'accesso all'app per le API per gli scenari da servizio a servizio](app-service-api-dotnet-service-principal-auth.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

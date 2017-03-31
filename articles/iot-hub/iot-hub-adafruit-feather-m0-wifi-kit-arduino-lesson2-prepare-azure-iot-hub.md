@@ -1,5 +1,5 @@
 ---
-title: Creare l&quot;hub IoT di Azure e registrare Adafruit Feather M0 WiFi | Documentazione Microsoft
+title: 'Connettere Arduino ad Azure IoT: lezione 2: Registrare il dispositivo | Documentazione Microsoft'
 description: Creare un gruppo di risorse, creare un hub IoT di Azure e registrare Adafruit Feather M0 WiFi nell&quot;hub IoT di Azure tramite l&quot;interfaccia della riga di comando di Azure.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 9e8084fe26229ef9ed1676c0a3c34e0ee7be88b1
-ms.openlocfilehash: 232c391e61e7e7ec053d2e7170f9abe4c79d9528
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: ac9421be9211d53f8b5239c356201ee3efd27999
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -103,8 +104,3 @@ az iot device create --device-id mym0wifi --hub-name {my hub name}
 
 [troubleshoot]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md
 [process-and-store-iot-hub-messages]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md
-
-
-<!--HONumber=Dec16_HO2-->
-
-

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/19/2016
+ms.date: 03/27/2017
 ms.author: pratshar
 translationtype: Human Translation
-ms.sourcegitcommit: c5e80c3cd3caac07e250d296c61fb3813e0000dd
-ms.openlocfilehash: 2c19472c93d097f29692af18063404f3bf28b6bd
+ms.sourcegitcommit: 6e6d05d7a7595e17d026be6a448b2fa2cca9b816
+ms.openlocfilehash: a62fe406af18c9c7d9b58839bfa0d6e785b614ef
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -34,11 +35,11 @@ Nell'ambito di un piano di ripristino di emergenza è necessario definire l'obie
 
 Il failover è possibile grazie ad ASR che all'inizio copia le macchine virtuali designate dal data center primario al data center secondario o in Azure (a seconda dello scenario) e quindi aggiorna periodicamente le repliche. Durante la pianificazione dell'infrastruttura, la progettazione della rete deve essere considerata un potenziale collo di bottiglia che può impedire di raggiungere gli obiettivi RTO e RPO aziendali.  
 
-Quando gli amministratori pianificano di distribuire una soluzione di ripristino di emergenza, una delle prime cose a cui pensano è come poter raggiungere la macchina virtuale al termine del failover. Azure Site Recovery consente all'amministratore di scegliere la rete a cui una macchina virtuale può connettersi dopo il failover. Se il sito primario è gestito da un server VMM, questa operazione avviene tramite il mapping di rete. Per altre informazioni dettagliate, vedere l'articolo sulla [preparazione al mapping di rete](site-recovery-network-mapping.md) .
+Quando gli amministratori pianificano di distribuire una soluzione di ripristino di emergenza, una delle prime cose a cui pensano è come poter raggiungere la macchina virtuale al termine del failover. Azure Site Recovery consente all'amministratore di scegliere la rete a cui una macchina virtuale può connettersi dopo il failover. Se il sito primario è gestito da un server VMM, questa operazione avviene tramite il mapping di rete. Per altre informazioni dettagliate, vedere l'articolo sulla [preparazione al mapping di rete](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping) .
 
 Durante la progettazione della rete per il sito di ripristino, l'amministratore ha due scelte:
 
-* Usare un intervallo di indirizzi IP diverso per la rete nel sito di ripristino. In questo scenario la macchina virtuale dopo il failover otterrà un nuovo indirizzo IP e l'amministratore dovrà eseguire un aggiornamento DNS. Altre informazioni su come eseguire l'aggiornamento DNS sono disponibili [qui](site-recovery-vmm-to-vmm.md#step-7-test-your-deployment) 
+* Usare un intervallo di indirizzi IP diverso per la rete nel sito di ripristino. In questo scenario la macchina virtuale dopo il failover otterrà un nuovo indirizzo IP e l'amministratore dovrà eseguire un aggiornamento DNS. Per altre informazioni, leggere [qui](site-recovery-test-failover-vmm-to-vmm.md#preparing-infrastructure-for-test-failover).
 * Usare lo stesso intervallo di indirizzi IP per la rete nel sito di ripristino. In alcuni scenari gli amministratori preferiscono mantenere gli indirizzi IP che hanno nel sito primario dopo il failover. In un normale scenario un amministratore dovrà aggiornare le route per indicare la nuova posizione degli indirizzi IP, ma nello scenario in cui una VLAN estesa viene distribuita tra il sito primario e quello di ripristino mantenere gli indirizzi IP per le macchine virtuali diventa un'opzione interessante. Mantenere gli stessi indirizzi IP semplifica il processo di ripristino eliminando i passaggi post-failover correlati alla rete.
 
 Quando gli amministratori pianificano di distribuire una soluzione di ripristino di emergenza, una delle prime cose a cui pensano è come poter raggiungere le applicazioni al termine del failover. Le applicazioni moderne necessitano quasi sempre di un collegamento in rete, quindi lo spostamento fisico di un servizio da un sito a un altro è difficoltoso. Nelle soluzioni di ripristino di emergenza questo problema viene gestito principalmente in due modi. Il primo approccio consiste nel mantenere fissi gli indirizzi IP. Nonostante lo spostamento dei servizi e la presenza dei server di hosting in posizioni fisiche diverse, le applicazioni mantengono la configurazione degli indirizzi IP nella nuova posizione. Il secondo approccio richiede la modifica completa dell'indirizzo IP durante la transizione al sito ripristinato. Ogni approccio presenta diverse varianti di implementazione che vengono riepilogate sotto.
@@ -163,10 +164,5 @@ Al termine del failover, la macchina virtuale di replica potrebbe avere un indir
 Il post di blog dedicato alla [configurazione dell'infrastruttura di rete per Microsoft Azure come sito di ripristino di emergenza](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) spiega come configurare l'infrastruttura di rete di Azure necessaria quando non è obbligatorio mantenere gli indirizzi IP. All'inizio viene descritta l'applicazione, quindi viene illustrato come configurare la rete in locale e in Azure e infine viene illustrato come effettuare un failover di test e un failover pianificato.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Informazioni](site-recovery-network-mapping.md) sul mapping di reti di origine e destinazione da parte di Site Recovery quando viene usato un server VMM per gestire il sito primario.
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+[Informazioni](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping) sul mapping di reti di origine e destinazione da parte di Site Recovery quando viene usato un server VMM per gestire il sito primario.
 

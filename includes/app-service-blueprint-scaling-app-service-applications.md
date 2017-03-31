@@ -2,7 +2,7 @@
   
   * Informazioni su ridondanza e affidabilità
   * Applicazioni CON stato vs applicazioni SENZA stato
-    * [Configurazione dell'applicazione senza stato](/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
+    * [Configurazione dell'applicazione senza stato](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
 * Caricare app di test nel servizio app   
 * Procedure consigliate di scalabilità del servizio app
   
@@ -13,9 +13,4 @@
 * Distribuzione area geografica
   
   * [Uso di Gestione traffico per acquisire scalabilità globale](../articles/traffic-manager/traffic-manager-overview.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

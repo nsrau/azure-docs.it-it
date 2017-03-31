@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2017
+ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: d4eb942db51af9c8136e9e0f5f8683cc15679d08
-ms.openlocfilehash: 5a0cd9ac88f30bb5f1ccba43260b86392dba6d7b
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: d88c6e8d4c0c5aecbdbcf6262da8d919ad3b325d
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -98,29 +99,29 @@ Possono essere necessari alcuni minuti per la creazione dell'hub IoT, perché l'
 ## <a name="endpoints"></a>Endpoint
 Fare clic su **Endpoint** per visualizzare un elenco di endpoint per l'hub IoT che si sta modificando. Esistono due principali tipi di endpoint: endpoint predefinti nell'hub IoT ed endpoint aggiunti all'hub IoT in seguito alla sua creazione.
 
-### <a name="built-in-endpoints"></a>Endpoint predefiniti
-Esistono due principali tipi di endpoint predefiniti: **Cloud to device feedback** (Commenti da cloud a dispositivi) ed **Eventi**.
-
-* Impostazioni **Cloud to device feedback** (Commenti da cloud a dispositiv): questa impostazione include due impostazioni secondarie **Cloud to Device TTL** (Durata (TTL) da cloud a dispositivo) e **Tempo di conservazione** per i messaggi. Quando si crea l'hub IoT inizialmente, entrambe queste impostazioni vengono create con un valore predefinito di un'ora. Per modificare questi valori usare i dispositivi di scorrimento o digitare i valori.
-* **Eventi**: questa impostazione include diverse impostazioni secondarie, alcune delle quali sono denominate/assegnate quando si crea l'hub IoT e possono essere copiate solo in altre impostazioni secondarie personalizzabili. Queste impostazioni sono elencate nella sezione successiva.
-
-**Partizioni**: questo valore viene impostato quando si crea l'hub IoT e può essere modificato tramite questa impostazione.
-
-**Event Hub-compatible name and endpoint** (Nomi ed endpoint compatibili con Hub eventi): quando viene creato l'hub IoT, viene creato internamente un Hub eventi a cui potrebbe essere necessario accedere in determinate circostanze. Il nome e l'endpoint compatibili con Hub eventi non possono essere personalizzati, ma sono disponibili per l'uso tramite il pulsante **Copia**.
-
-**Tempo di conservazione**: per impostazione predefinita è impostato su un giorno, ma può essere personalizzato con altri valori tramite l'elenco a discesa. Questo valore è espresso in giorni per Device to Cloud (Da dispositivo a cloud) e non in ore, come lo è l'impostazione simile per Cloud to device (Da cloud a dispositivo).
-
-**Gruppi di consumer**: è un'impostazione simile ad altri sistemi di messaggistica che possono essere usati per eseguire il pull dei dati in modo specifico per connettere altre applicazioni o servizi all'hub IoT. Ogni hub IoT viene creato con un gruppo di consumer predefinito. Tuttavia, è possibile aggiungere o eliminare gruppi di consumer negli hub IoT.
-
-> [!NOTE]
-> Il gruppo di consumer predefinito non può essere modificato o eliminato.
-> 
-> 
-
 ![][11]
 
+### <a name="built-in-endpoints"></a>Endpoint predefiniti
+Esistono due tipi di endpoint predefiniti: **Cloud to device feedback** (Commenti da cloud a dispositivi) ed **Eventi**.
+
+* Impostazioni **Cloud to device feedback** (Commenti da cloud a dispositiv): questa impostazione include due impostazioni secondarie **Cloud to Device TTL** (Durata (TTL) da cloud a dispositivo) e **Tempo di conservazione** (in ore) per i messaggi. Quando si crea per la prima volta un hub IoT, entrambe queste impostazioni hanno il valore predefinito di un'ora. Per modificare queste impostazioni usare i dispositivi di scorrimento o digitare i valori.
+* Impostazioni **Eventi**: questa impostazione presenta diverse impostazioni secondarie, alcune delle quali sono di sola lettura. L'elenco seguente descrive le singole impostazioni:
+
+    * **Partizioni**: viene impostato un valore predefinito quando viene creato l'hub IoT. Grazie a questa impostazione è possibile modificare il numero di partizioni.
+
+    * **Event Hub-compatible name and endpoint** (Nomi ed endpoint compatibili con Hub eventi): quando viene creato l'hub IoT, viene creato internamente un Hub eventi a cui potrebbe essere necessario accedere in determinate circostanze. Non è possibile personalizzare i valori del nome e dell'endpoint compatibile con l'hub eventi, ma è possibile copiarli facendo clic su **Copia**.
+
+    * **Tempo di conservazione**: per impostazione predefinita è impostato su un giorno ma è possibile modificarlo tramite l'elenco a discesa. Questo valore è espresso in giorni per l'impostazione da dispositivo a cloud.
+
+    * **Gruppi di consumer**: è un'impostazione simile ad altri sistemi di messaggistica che possono essere usati per eseguire il pull dei dati in modo specifico per connettere altre applicazioni o servizi all'hub IoT. Ogni hub IoT viene creato con un gruppo di consumer predefinito. Tuttavia, con questa impostazione è possibile aggiungere o eliminare gruppi di consumer negli hub IoT.
+
+    > [!NOTE]
+    > Il gruppo di consumer predefinito non può essere modificato o eliminato.
+    > 
+    > 
+
 ### <a name="custom-endpoints"></a>Endpoint personalizzati
-È possibile aggiungere endpoint personalizzati all'hub IoT tramite il portale. Nel pannello degli endpoint, fare clic su **Aggiungi** nella parte superiore del pannello per aprire il pannello **Aggiungi endpoint**. Immettere le informazioni necessarie nel pannello, quindi fare clic su **OK**. L'endpoint personalizzato viene quindi visualizzato nel pannello principale degli endpoint.
+È possibile aggiungere endpoint personalizzati all'hub IoT tramite il portale. Nel pannello **Endpoint**, fare clic su **Aggiungi** nella parte superiore del pannello per aprire il pannello **Aggiungi endpoint**. Immettere le informazioni necessarie, quindi fare clic su **OK**. L'endpoint personalizzato viene ora elencato nel pannello principale **Endpoint**.
 
 ![][13]
 
@@ -131,7 +132,7 @@ Fare clic su **Route** per gestire la modalità di invio dei messaggi da disposi
 
 ![][14]
 
-È possibile aggiungere altri route all'hub IoT facendo clic su **Aggiungi** nella parte superiore del pannello, inserendo le informazioni necessarie nel pannello e facendo clic su **OK**. Il route viene quindi visualizzato nel pannello principale degli endpoint. È possibile modificare un route selezionandolo nell'elenco di route e quindi modificandolo. Per abilitare un route, selezionarlo nell'elenco di route e impostare l'interruttore abilita/disabilita su **Off**. Fare clic su **OK** nella parte inferiore del pannello per salvare le modifiche.
+È possibile aggiungere i route all'hub IoT facendo clic su **Aggiungi** nella parte superiore del pannello **Route***, inserendo le informazioni necessarie e facendo clic su **OK**. Il route viene quindi elencato nel pannello principale **Route**. È possibile modificare un route selezionandolo nell'elenco di route. Per abilitare un route, selezionarlo nell'elenco di route e impostare l'interruttore **Abilito** su **Off**. Fare clic su **OK** nella parte inferiore del pannello per salvare le modifiche.
 
 ![][15]
 
@@ -179,9 +180,4 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-securing]: iot-hub-security-ground-up.md
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

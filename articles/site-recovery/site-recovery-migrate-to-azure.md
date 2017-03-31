@@ -12,11 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/04/2017
+ms.date: 03/27/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: f82634af931a1e9a9646c5631ebd0e5923a0adcc
-ms.openlocfilehash: cbb6de4587871c40c9d4e97c9fb2a88eab4945a6
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 981155c38bdc8cb54639d2271be1f3bd3036125c
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -24,9 +25,10 @@ ms.openlocfilehash: cbb6de4587871c40c9d4e97c9fb2a88eab4945a6
 
 Leggere questo articolo per una panoramica dell'uso del servizio Azure Site Recovery per la migrazione di macchine virtuali e server fisici.
 
-Le organizzazioni necessitano di una strategia di continuità aziendale e ripristino di emergenza per determinare come app, carichi di lavoro e dati possano rimanere in esecuzione e disponibili durante i periodi di inattività, pianificati o meno, e come ripristinare le normali condizioni di lavoro il prima possibile. La strategia di continuità aziendale e ripristino di emergenza deve garantire la sicurezza dei dati aziendali e la possibilità di recuperarli, oltre alla disponibilità costante dei carichi di lavoro in caso di emergenza.
+Site Recovery è un servizio di Azure che contribuisce all'attuazione della strategia per la continuità aziendale e il ripristino di emergenza orchestrando la replica delle macchine virtuali e dei server fisici locali nel cloud di Azure o in un data center secondario. In caso di interruzioni nella località primaria, verrà eseguito il failover alla località secondaria per mantenere disponibili app e carichi di lavoro. Quando la località primaria sarà di nuovo operativa, si tornerà a tale località. Per altre informazioni, vedere [Che cos'è Site Recovery?](site-recovery-overview.md) È possibile inoltre usare Site Recovery per eseguire la migrazione di carichi di lavoro locali esistenti in Azure per accelerare il viaggio verso il cloud e accedere alla gamma di funzionalità offerte da Azure.
 
-Site Recovery è un servizio di Azure che contribuisce all'attuazione della strategia per la continuità aziendale e il ripristino di emergenza orchestrando la replica delle macchine virtuali e dei server fisici locali nel cloud di Azure o in un data center secondario. In caso di interruzioni nella località primaria, verrà eseguito il failover alla località secondaria per mantenere disponibili app e carichi di lavoro. Quando la località primaria sarà di nuovo operativa, si tornerà a tale località. Per altre informazioni, vedere [Che cos'è Site Recovery?](site-recovery-overview.md)
+Per una rapida panoramica di come eseguire la migrazione, guardare questo video.
+>[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/ASRHowTo-Video2-Migrate-Virtual-Machines-to-Azure/player]
 
 Questo articolo descrive la distribuzione nel [portale di Azure](https://portal.azure.com). Il [portale di Azure classico](https://manage.windowsazure.com/) può essere usato per gestire gli insiemi di credenziali di Site Recovery esistenti, ma non per crearne di nuovi.
 
@@ -35,7 +37,7 @@ Questo articolo descrive la distribuzione nel [portale di Azure](https://portal.
 
 ## <a name="what-do-we-mean-by-migration"></a>Informazioni sulla migrazione
 
-È possibile distribuire Site Recovery per la replica completa di server fisici e VM locali in Azure o in un sito secondario. Si esegue la replica dei computer, il relativo failover dal sito primario in caso di interruzioni e quindi il failback nel sito primario quando questo viene ripristinato. Oltre che per la replica completa, è possibile usare Site Recovery per eseguire la migrazione di VM e server fisici ad Azure e consentire così agli utenti di accedere al carico di lavoro del computer dalle VM di Azure. La migrazione comporta la replica e il failover dal sito primario ad Azure. A differenza della replica completa, tuttavia, non include un meccanismo di failback.
+È possibile distribuire Site Recovery per la replica di macchine virtuali e server fisici in locale, in Azure o in un sito secondario. L'utente esegue la replicare delle macchine, il failover dal sito primario quando si verificano interruzioni e il failback al sito primario quando si esegue il ripristino. Inoltre è possibile usare Site Recovery per eseguire la migrazione di VM e server fisici ad Azure e consentire così agli utenti di accedervi come VM di Azure. La migrazione comporta la replica, il failover dal sito primario ad Azure e il completamento della migrazione.
 
 ## <a name="what-can-site-recovery-migrate"></a>Elementi di cui è possibile eseguire la migrazione con Site Recovery
 
@@ -49,7 +51,9 @@ Questo articolo descrive la distribuzione nel [portale di Azure](https://portal.
 
 Per eseguire la migrazione di server fisici e VM VMware e Hyper-V locali, si segue approssimativamente la stessa procedura usata per la replica normale. Si configurano un insieme di credenziali di Servizi di ripristino e quindi i server di gestione necessari (in base agli elementi di cui si vuole eseguire la migrazione), si aggiungono tali server all'insieme di credenziali e si specificano le impostazioni di replica. Dopo aver abilitato la replica per i computer di cui si vuole eseguire la migrazione, si effettua un rapido failover di test per verificare che tutto funzioni come previsto.
 
-Dopo aver verificato il funzionamento dell'ambiente di replica, si usa un failover pianificato o non pianificato a seconda della [tipologia supportata](site-recovery-failover.md#failover-and-failback) per lo scenario. Per la migrazione, non è necessario eseguire il commit del failover o eliminare elementi. Si seleziona invece l'opzione **Completa la migrazione** per ogni computer di cui si vuole eseguire la migrazione. L'azione **Completa la migrazione** porta a termine il processo di migrazione, rimuove la replica per il computer e interrompe la relativa fatturazione di Site Recovery.
+Dopo aver verificato il funzionamento dell'ambiente di replica, si usa un failover pianificato o non pianificato a seconda della [tipologia supportata](site-recovery-failover.md) per lo scenario. Per la migrazione, non è necessario eseguire il commit di un failover. Si seleziona invece l'opzione **Completa la migrazione** per ogni computer di cui si vuole eseguire la migrazione. L'azione **Completa la migrazione** porta a termine il processo di migrazione, rimuove la replica per il computer e interrompe la relativa fatturazione di Site Recovery.
+
+![completemigration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 
 ## <a name="migrate-between-azure-regions"></a>Eseguire la migrazione tra aree di Azure
 
@@ -65,14 +69,8 @@ Dopo aver verificato il funzionamento dell'ambiente di replica, si usa un failov
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Eseguire la migrazione di VM VMware ad Azure](site-recovery-vmware-to-azure.md)
-- [Eseguire la migrazione di server fisici ad Azure](site-recovery-vmware-to-azure.md)
 - [Eseguire la migrazione di VM Hyper-V in cloud VMM ad Azure](site-recovery-vmm-to-azure.md)
 - [Eseguire la migrazione di VM Hyper-V senza VMM ad Azure](site-recovery-hyper-v-site-to-azure.md)
 - [Eseguire la migrazione di VM di Azure tra aree di Azure](site-recovery-migrate-azure-to-azure.md)
 - [Eseguire la migrazione di istanze AWS ad Azure](site-recovery-migrate-aws-to-azure.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

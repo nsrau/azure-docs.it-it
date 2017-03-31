@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
 translationtype: Human Translation
-ms.sourcegitcommit: 5d7eed340d2021c58f68c69100be5a9e13655146
-ms.openlocfilehash: 7d4b322cd6528fa4798362d2ee620dae4291b956
+ms.sourcegitcommit: ef066a50b71389cb1cdd3bb0f8d342a34a4cc722
+ms.openlocfilehash: 587412f02c6bb6bd2c5b1896a890607fa1c058f8
+ms.lasthandoff: 02/13/2017
 
 
 ---
@@ -29,7 +30,7 @@ L'articolo si conclude rivedendo alcuni argomenti trattati negli articoli preced
 
 Tutto ciò che viene descritto in questo articolo si basa sugli esempi dell'SDK per **serializer** . Se si vuole seguire la procedura, vedere le applicazioni **simplesample\_amqp** e **simplesample\_http** incluse in Azure IoT SDK per dispositivi per C.
 
-È possibile trovare il repository GitHub di [**Azure IoT SDK per dispositivi per C**](https://github.com/Azure/azure-iot-sdk-c) e visualizzare i dettagli dell'API nelle [informazioni di riferimento per l'API C](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
+È possibile trovare il repository GitHub di [**Azure IoT SDK per dispositivi per C**](https://github.com/Azure/azure-iot-sdk-c) e visualizzare i dettagli dell'API nelle [informazioni di riferimento per l'API C](https://azure.github.io/azure-iot-sdk-c/index.html).
 
 ## <a name="the-modeling-language"></a>Linguaggio di modellazione
 L'[articolo introduttivo](iot-hub-device-sdk-c-intro.md) di questa serie ha presentato il linguaggio di modellazione di **Azure IoT SDK per dispositivi per C** tramite l'esempio fornito nell'applicazione **simplesample\_amqp**:
@@ -526,6 +527,13 @@ Ad esempio, per richiamare **SetAirResistance** è possibile inviare questo mess
 
 Il nome dell'azione deve corrispondere esattamente a un'azione definita nel modello. Anche i nomi dei parametri devono corrispondere. Tenere presente anche la distinzione tra maiuscole e minuscole. **Name** e **Parameters** sono sempre in maiuscolo. Assicurarsi di rispettare la corrispondenza maiuscole/minuscole per i nomi di azioni e i parametri del modello. In questo esempio, il nome dell'azione è "SetAirResistance" e non "setairresistance".
 
+Le altre due azioni **TurnFanOn** e **TurnFanOff** possono essere richiamate inviando i messaggi seguenti a un dispositivo:
+
+```
+{"Name" : "TurnFanOn", "Parameters" : {}}
+{"Name" : "TurnFanOff", "Parameters" : {}}
+```
+
 Questo descrive tutto ciò che è necessario sapere quando si inviano eventi e si ricevono messaggi con la libreria **serializer** . Prima di proseguire, si esamineranno alcuni parametri che è possibile configurare per controllare le dimensioni del modello.
 
 ## <a name="macro-configuration"></a>Configurazione delle macro
@@ -669,9 +677,4 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

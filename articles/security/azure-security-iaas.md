@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 03/06/2017
 ms.author: barclayn
 translationtype: Human Translation
-ms.sourcegitcommit: 3451bdde3be60df0f1e1ed977f23db65d39f535f
-ms.openlocfilehash: 8416de09a4a3c2cdf9c73b9f79e8df9e292514ca
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 774feff39bee6f34b1fb292f130d8240ec070c81
+ms.lasthandoff: 03/07/2017
 
 
 
@@ -194,8 +195,6 @@ Per gli ambienti ospitati separatamente dall'ambiente di produzione, è disponib
 
 **Installare gli ultimi aggiornamenti per la sicurezza** Tra i primi carichi di lavoro che i clienti trasferiscono in Azure ci sono laboratori e sistemi rivolti all'esterno. Se le macchine virtuali di Azure eseguono l'hosting di applicazioni o servizi da rendere accessibili tramite Internet, è necessario tenere d'occhio l'applicazione delle patch, ricordando che non deve fermarsi al sistema operativo: anche le vulnerabilità senza patch delle applicazioni di terze parti possono causare problemi che con una buona gestione delle patch è facile evitare.
 
-Per altre informazioni sulla gestione delle patch in Azure IaaS, esaminare [Procedure consigliate per gli aggiornamenti software nell'ambiente IaaS di Microsoft Azure](azure-security-best-practices-software-updates-iaas.md).
-
 **Distribuire e testare una soluzione di backup**
 
 Esattamente come gli aggiornamenti della sicurezza, anche il backup deve essere gestito come qualsiasi altra operazione, anche per quanto riguarda i sistemi dell'ambiente di produzione che si estendono al cloud. I sistemi di sviluppo e test devono seguire strategie di backup con funzionalità di ripristino simili a quelle che gli utenti degli ambienti locali sono ormai abituati a usare.
@@ -243,9 +242,4 @@ La schermata seguente mostra un esempio del tipo di informazioni che possono ess
 * [Blog del team della sicurezza di Azure](https://blogs.msdn.microsoft.com/azuresecurity/)
 * [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)
 * [Procedure consigliate e modelli per la sicurezza di Azure](security-best-practices-and-patterns.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -3,7 +3,7 @@ title: Associazione di Hub di notifica in Funzioni di Azure | Documentazione Mic
 description: Informazioni su come usare l&quot;associazione di Hub di notifica di Azure in Funzioni di Azure.
 services: functions
 documentationcenter: na
-author: wesmc7777
+author: ggailey777
 manager: erikre
 editor: 
 tags: 
@@ -15,10 +15,10 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2016
-ms.author: wesmc
+ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 7e9534afa8ecd224b4e3c1df2f4465b70d961d2c
-ms.openlocfilehash: 1e03a54956a9fd035cf40aa953a2c368d91b766b
+ms.sourcegitcommit: a64af1a9f969c5ce5a7e2f18ca23451ac96f1a13
+ms.openlocfilehash: 7abd7b0921c029ff159935d89905d3c502aba643
 
 
 ---
@@ -76,8 +76,8 @@ Per usare un'associazione di output dell'hub di notifica, è necessario configur
 
 1. Nel pannello **App per le funzioni** del portale di Azure fare clic su **Impostazioni dell'app per le funzioni > Passa a Impostazioni del servizio app**.
 2. Nel pannello **Impostazioni** fare clic su **Impostazioni applicazione**.
-3. Scorrere verso il basso fino alla sezione **Stringhe di connessione** e aggiungere una voce chiamata per il valore *DefaultFullSharedAccessSignature* per l'hub di notifica. Impostare il tipo su **Personalizzato**.
-4. Fare riferimento al nome della stringa di connessione nelle associazioni di output. È simile a **MyHubConnectionString** usato nell'esempio precedente.
+3. Scorrere verso il basso fino alla sezione **Impostazioni app** e aggiungere una voce denominata per il valore *DefaultFullSharedAccessSignature* per l'hub di notifica.
+4. Fare riferimento al nome della stringa di impostazione app nelle associazioni di output. È simile a **MyHubConnectionString** usato nell'esempio precedente.
 
 ## <a name="apns-native-notifications-with-c-queue-triggers"></a>Notifiche native APNS con trigger in coda C#
 Questo esempio illustra come usare i tipi definiti nella [libreria di Hub di notifica di Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) per inviare una notifica APNS nativa. 
@@ -298,6 +298,6 @@ private static TemplateNotification GetTemplateNotification(string message)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: Proteggere il dominio personalizzato dell&quot;app tramite HTTPS | Documentazione Microsoft
+title: Proteggere il dominio personalizzato dell&quot;app tramite HTTPS | Microsoft Docs
 description: "Informazioni su come proteggere il nome di dominio personalizzato per l&quot;app nel servizio app di Azure tramite la configurazione di un&quot;associazione di certificato SSL. Verrà anche illustrato come ottenere un certificato SSL con diversi strumenti."
 services: app-service
 documentationcenter: .net
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 tags: top-support-issue
 ms.assetid: 613d7932-73aa-4318-867c-1ce1416224dc
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 46ffa25ff6f90c898b958ee6c5b2c47219c468ab
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: f7a2066f43219e8748b5c5356ff6c81535b7842a
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.openlocfilehash: 46ffa25ff6f90c898b958ee6c5b2c47219c468ab
 
 Questo articolo illustra come abilitare HTTP per un'app Web, un back-end dell'app per dispositivi mobili o un'app per le API che usa un nome di dominio personalizzato nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md) . Viene illustrata l'autenticazione solo server. Per l'autenticazione reciproca, inclusa l'autenticazione del client, vedere [Come configurare l'autenticazione reciproca TLS per il servizio app](app-service-web-configure-tls-mutual-auth.md).
 
-Per proteggere un'app con un nome di dominio personalizzato tramite HTTPS, è necessario aggiungere un certificato per tale nome di dominio specifico. Per impostazione predefinita, Azure protegge il dominio con carattere jolly **\*.azurewebsites.net** con un singolo certificato SSL, di conseguenza i client possono già accedere all'app all'indirizzo **https://*&lt;nomeapp>*.azurewebsites.net**. Se tuttavia si vuole usare un dominio personalizzato, ad esempio **contoso.com**, **www.contoso.com** e **\*.contoso.com**, questo dominio non può essere protetto tramite il certificato predefinito. Inoltre, come tutti i [certificati con caratteri jolly](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), il certificato predefinito non è sicuro quanto un dominio personalizzato e un certificato per tale dominio personalizzato.   
+Per proteggere un'app con un nome di dominio personalizzato tramite HTTPS, è necessario aggiungere un certificato per tale nome di dominio specifico. Per impostazione predefinita, Azure protegge il dominio con carattere jolly **\*.azurewebsites.net** con un singolo certificato SSL, di conseguenza i client possono già accedere all'app all'indirizzo **https://*&lt;nomeapp>*.azurewebsites.net**. Se tuttavia si vuole usare un dominio personalizzato, ad esempio**contoso.com**, **www.contoso.com**e**\*.contoso.com**, questo dominio non può essere protetto tramite il certificato predefinito. Inoltre, come tutti i [certificati con caratteri jolly](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), il certificato predefinito non è sicuro quanto un dominio personalizzato e un certificato per tale dominio personalizzato.   
 
 > [!NOTE]
 > È possibile ottenere assistenza dagli esperti di Azure in qualsiasi momento nei [forum di Azure](https://azure.microsoft.com/support/forums/). Per un supporto più personalizzato, passare a [Supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**.
@@ -438,8 +439,12 @@ Prima di procedere, esaminare la sezione [Elementi necessari](#bkmk_domainname) 
    
     ![inserimento immagine di associazioni SSL](./media/web-sites-configure-ssl-certificate/sslbindings.png)
    
-       •    IP based SSL associates a certificate with a domain name by mapping the dedicated public IP address of the server to the domain name. This requires each domain name (contoso.com, fabricam.com, etc.) associated with your service to have a dedicated IP address. This is the traditional          method of associating SSL certificates with a web server.
-       •    SNI based SSL is an extension to SSL and **[Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS) that allows multiple domains to share the same IP address, with separate security certificates for each domain. Most modern browsers (including Internet Explorer, Chrome, Firefox and Opera) support SNI, however older browsers may not support SNI. For more information on SNI, see the **[Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication)** article on Wikipedia.
+    > [!NOTE] 
+    > Il metodo **SSL basato su IP** associa un certificato a un nome di dominio tramite il mapping dell'indirizzo IP pubblico dedicato del server al nome di dominio. A tale scopo, è necessario che ogni nome di dominio (contoso.com, fabricam.com e così via) associato al servizio disponga di un indirizzo IP dedicato. Questo è il metodo tradizionale per l'associazione di certificati SSL a un server Web.  
+    >
+    > Il metodo**SSL basato su SNI** è un'estensione di SSL e **[Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS), che consente a più domini di condividere lo stesso indirizzo IP, con certificati di protezione distinti per ogni dominio. La maggior parte dei browser moderni, inclusi Internet Explorer, Chrome, Firefox e Opera, supporta SNI, ma è possibile che non sia supportato dai browser precedenti. Per altre informazioni su SNI, vedere l'articolo relativo all'**[Indicazione nome server](http://en.wikipedia.org/wiki/Server_Name_Indication)** su Wikipedia.
+    > 
+
 9. Fare clic su **Aggiungi l'associazione** per salvare le modifiche e abilitare SSL.
 
 ## <a name="step-3-change-your-domain-name-mapping-ip-based-ssl-only"></a>Passaggio 3. Modificare il mapping del nome di dominio (solo per il metodo SSL basato su IP)
@@ -464,7 +469,7 @@ Questo indirizzo IP dedicato richiede ulteriori configurazioni dell'app, nei cas
 A questo punto, non resta che assicurarsi che HTTPS funzioni correttamente per il dominio personalizzato. In diversi browser passare a `https://<your.custom.domain>` per verificare che l'app sia gestita.
 
 * Se l'app restituisce errori di convalida del certificato, è probabile che sia in uso un certificato autofirmato.
-* In caso contrario, è possibile che siano stati esclusi i certificati intermedi durante l'esportazione del certificato in formato PFX. Tornare a [Elementi necessari](#bkmk_domainname) per verificare che la richiesta di firma del certificato soddisfi tutti i requisiti del servizio app..
+* In caso contrario, è possibile che siano stati esclusi i certificati intermedi durante l'esportazione del certificato in formato PFX. Tornare a [Elementi necessari](#bkmk_domainname) per verificare che la richiesta di firma del certificato soddisfi tutti i requisiti del servizio app.
 
 <a name="bkmk_enforce"></a>
 
@@ -553,10 +558,5 @@ Per altre informazioni sul modulo IIS Riscrittura URL, vedere la documentazione 
 [certwiz3]: ./media/web-sites-configure-ssl-certificate/waws-certwiz3.png
 [certwiz4]: ./media/web-sites-configure-ssl-certificate/waws-certwiz4.png
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

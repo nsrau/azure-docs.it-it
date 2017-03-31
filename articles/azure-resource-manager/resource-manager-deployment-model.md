@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/17/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: d6ac6253caaf5af1f8a14a499653c8afcbb7a2d8
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: c56a1dc92c27d55b90554e23dd9763ff98ce6cc7
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -212,15 +213,10 @@ Tutta l'automazione e tutti gli script creati dall'utente continueranno a funzio
 
 **Dove è possibile trovare esempi di modelli di gestione risorse di Azure?**
 
-E’ possibile trovare un set completo di modelli iniziali in [modelli di Guida rapida di gestione risorse di Azure](https://azure.microsoft.com/documentation/templates/).
+È possibile trovare un set completo di modelli di base in [Modelli di avvio rapido di Azure Resource Manager](https://azure.microsoft.com/documentation/templates/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per la procedura dettagliata di creazione del modello che definisce una macchina virtuale, un account di archiviazione e una rete virtuale, vedere [Procedura dettagliata per un modello di Resource Manager](resource-manager-template-walkthrough.md).
 * Per vedere i comandi per la distribuzione di un modello, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](resource-group-template-deploy.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

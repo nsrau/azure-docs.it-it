@@ -4,7 +4,7 @@ description: "In questa esercitazione, si apprenderà come usare Hub di notifica
 services: notification-hubs
 documentationcenter: android
 author: ysxu
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 23bde1ea-f978-43b2-9eeb-bfd7b9edc4c1
 ms.service: notification-hubs
@@ -17,6 +17,7 @@ ms.author: yuaxu
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: ec2a69ff5a7f1f3a954eae70f1cd776242b0b7f4
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -142,7 +143,7 @@ Verrà visualizzato il messaggio **保存成功！** (**Salvataggio completato**
     ![][22]
 
 ## <a name="connect-your-app-to-the-notification-hub"></a>Connettere l'app all'hub di notifica
-1. Nel plug-in Eclipse ADT creare un nuovo progetto Android selezionando **File** > **New (Nuovo) ** > **Android Application Project (Progetto applicazione Android) **.
+1. Nel plug-in Eclipse ADT creare un nuovo progetto Android selezionando **File** > **New (Nuovo)** > **Android Application Project (Progetto applicazione Android)**.
    
     ![][23]
 2. Immettere un nome in **Application Name** (Nome applicazione) e verificare che la versione dell'**SDK richiesta minima** sia impostata su **API 16: Android 4.1**.
@@ -446,9 +447,4 @@ Per inviare una notifica di prova, è possibile usare la scheda Debug del portal
 [Baidu Push Android SDK]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
 [portale di Azure classico]: https://manage.windowsazure.com/
 [portale di Baidu]: http://www.baidu.com/
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva a Reliable Services | Documentazione Microsoft
+title: Creare la prima applicazione di Service Fabric in C# | Microsoft Docs
 description: "Introduzione alla creazione di un’applicazione dell’infrastruttura di servizi di Microsoft Azure con i servizi con e senza stato."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 03/06/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 4b12d221b057161013aa3401e343ec41e4637f7c
-ms.openlocfilehash: ae77871a30e0768f6848056223cacf55b064bf1a
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 813021d6239ae3cf79bb84b78f77e39c9e0783f6
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -35,14 +36,14 @@ Un'applicazione di Azure Service Fabric contiene uno o più servizi che consento
 Per iniziare a usare Reliable Services, è sufficiente comprendere solo alcuni concetti di base:
 
 * **Tipo di servizio**: si tratta dell'implementazione del servizio. Viene definito dalla classe scritta che estende `StatelessService` e qualsiasi altro codice o dipendenze usate, insieme al nome e al numero della versione.
-* **Istanza di servizio denominata**: per eseguire il servizio, si creano le istanze denominate del tipo di servizio, analogamente al modo in cui si creano le istanze di un oggetto di un tipo di classe. Le istanze del servizio sono, di fatto, istanze di oggetto della classe del servizio che si scrive. 
-* **Host del servizio**: le istanze del servizio denominate che si creano devono essere eseguite all'interno di un host. L'host del servizio è semplicemente un processo in cui eseguire le istanze del servizio.
+* **Istanza di servizio denominata**: per eseguire il servizio, si creano le istanze denominate del tipo di servizio, analogamente al modo in cui si creano le istanze di un oggetto di un tipo di classe. Il formato del nome di un'istanza del servizio è un URI che usa lo schema "fabric:/", ad esempio "fabric:/MyApp/MyService".
+* **Host del servizio**: le istanze del servizio denominate che si creano devono essere eseguite in un processo host. L'host del servizio è semplicemente un processo in cui eseguire le istanze del servizio.
 * **Registrazione del servizio**: la registrazione raccoglie tutti gli elementi. Il tipo di servizio deve essere registrato con il runtime di Service Fabric in un host del servizio per consentire a Service Fabric di creare istanze per l'esecuzione.  
 
 ## <a name="create-a-stateless-service"></a>Creare un servizio senza stato
 Il servizio senza stato è il tipo di servizio di norma presente nelle applicazioni cloud. Viene considerato senza stato perché il servizio stesso non contiene dati che devono essere archiviati in modo affidabile o resi a disponibilità elevata. Se un'istanza di un servizio senza stato si arresta, il relativo stato interno viene perso. In questi tipi di servizio lo stato deve essere reso persistente mediante un archivio esterno, ad esempio tabelle di Azure o un database SQL, in modo da assicurare elevata disponibilità e affidabilità.
 
-Avviare Visual Studio 2015 come amministratore e creare un nuovo progetto di applicazione di Service Fabric denominato *HelloWorld*:
+Avviare Visual Studio 2015 o Visual Studio 2017 come amministratore e creare un nuovo progetto di applicazione di Service Fabric denominato *HelloWorld*:
 
 ![Uso della finestra di dialogo New Project per creare una nuova applicazione di Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
@@ -67,7 +68,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 }
 ```
 
-* Un punto di ingresso di comunicazione a cui è possibile collegare lo stack di comunicazione desiderato, come l'API Web ASP.NET. In questo punto è possibile iniziare a ricevere richieste da utenti e da altri servizi.
+* Un punto di ingresso di comunicazione a cui è possibile collegare lo stack di comunicazione desiderato, come ASP.NET Core. In questo punto è possibile iniziare a ricevere richieste da utenti e da altri servizi.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -113,7 +114,7 @@ La piattaforma chiama questo metodo quando si inserisce un'istanza di un servizi
 
 Questa orchestrazione viene gestita dal sistema per assicurare l'elevata disponibilità e il corretto bilanciamento del servizio.
 
-`RunAsync()` non deve bloccarsi in modo sincrono. L'implementazione di RunAsync deve restituire una Task o restare in attesa in qualsiasi operazione a esecuzione prolungata oppure bloccare le operazioni per consentire al runtime di continuare; si noti come nel ciclo `while(true)` dell'esempio precedente viene usato un , un `await Task.Delay()` con restituzione di Task. Se il carico di lavoro si deve bloccare in modo sincrono, è opportuno pianificare una nuova Task con `Task.Run()` nell'implementazione `RunAsync`.
+`RunAsync()` non deve bloccarsi in modo sincrono. L'implementazione di RunAsync deve restituire un'attività o restare in attesa in caso di operazioni a esecuzione prolungata oppure bloccate, per consentire al runtime di continuare. Si noti che nel ciclo `while(true)` dell'esempio precedente viene usato `await Task.Delay()` per la restituzione di un'attività. Se il carico di lavoro si deve bloccare in modo sincrono, è opportuno pianificare una nuova Task con `Task.Run()` nell'implementazione `RunAsync`.
 
 L'annullamento del carico di lavoro è un'operazione cooperativa coordinata dal token di annullamento fornito. Il sistema attende la fine dell'attività (per esito positivo, annullamento o errore) prima di continuare. È importante rispettare il token di annullamento, completare le operazioni e chiudere `RunAsync()` il più rapidamente possibile quando viene richiesto l'annullamento dal sistema.
 
@@ -227,10 +228,5 @@ Dopo l'avvio dell'esecuzione dei servizi, è possibile visualizzare gli eventi g
 [Aggiornamento dell'applicazione](service-fabric-application-upgrade.md)
 
 [Guida di riferimento per gli sviluppatori per Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

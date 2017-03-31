@@ -1,5 +1,5 @@
 ---
-title: App Service on Azure Stack - Adding More Worker Roles | Microsoft Docs
+title: Scale out worker roles in App Services - Azure Stack  | Microsoft Docs
 description: Detailed guidance for scaling Azure Stack App Services
 services: azure-stack
 documentationcenter: 
@@ -12,15 +12,20 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 3/1/2017
 ms.author: kathm
 translationtype: Human Translation
-ms.sourcegitcommit: 15e4d8e8b92a1a1205eb705e7e392502aee417b4
-ms.openlocfilehash: f343e57fc0d94a7bfa26f0d6c6fc138e02e12589
+ms.sourcegitcommit: cf55a0b4f61c971cedee602575f73d39c70f9edb
+ms.openlocfilehash: 10e1c5b4c5b998572daeaf3bd1387817cc2fa716
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="app-service-on-azure-stack-adding-more-worker-roles"></a>App Service on Azure Stack: Adding more worker roles 
+
+> [!IMPORTANT] 
+> This topic applies only to Azure Stack Technical Preview 2.
+>
 
 This document provides instructions about how to scale App Service on Azure Stack worker roles. It contains steps for creating additional worker roles to support applications of any size.
 
@@ -129,9 +134,4 @@ The following shows an example of the multiple pricing tiers available by defaul
 [4]: ./media/azure-stack-app-service-add-worker-roles/app-service-resource-provider-roles.png
 [5]: ./media/azure-stack-app-service-add-worker-roles/app-service-resource-provider-role-ready.png
 [6]: ./media/azure-stack-app-service-add-worker-roles/app-service-resource-provider-pricing-tier.png
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

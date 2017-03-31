@@ -1,6 +1,6 @@
 ---
-title: Informazioni sul flusso di lavoro PowerShell
-description: "Questo articolo è concepito come una lezione rapida per autori che hanno familiarità con PowerShell per comprendere le differenze specifiche tra PowerShell e il flusso di lavoro PowerShell."
+title: Informazioni sul flusso di lavoro di PowerShell per Automazione di Azure | Documentazione Microsoft
+description: "Questo articolo è concepito come una lezione rapida per autori che hanno familiarità con PowerShell per comprendere le differenze specifiche tra PowerShell e il flusso di lavoro di PowerShell e i concetti applicabili ai runbook di Automazione."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -12,27 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
-ms.author: bwren
+ms.date: 01/23/2017
+ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 0ab72bd4ad531d1162726c6f5548fa253a4f5265
-ms.openlocfilehash: 3893d8508535ee605c3555d2ddf40d6f286d85fa
+ms.sourcegitcommit: 480a40bd5ecd58f11b10c27e7e0d2828bcae1f17
+ms.openlocfilehash: 50966ed518b79f2033680790432e29b0c9e7b289
 
 
 ---
-# <a name="learning-windows-powershell-workflow"></a>Informazioni sul flusso di lavoro di Windows PowerShell
-I Runbook in Automazione di Azure vengono implementati come flussi di lavoro di Windows PowerShell.  Un flusso di lavoro di Windows PowerShell è simile a uno script Windows PowerShell, ma presenta alcune differenze significative che possono generare confusione in un nuovo utente.  In questo articolo, destinato agli utenti che hanno già familiarità con PowerShell, vengono illustrati brevemente i concetti richiesti per convertire uno script di PowerShell nel relativo flusso di lavoro da poter utilizzare in un Runbook.  
+# <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Informazioni sui concetti chiave del flusso di lavoro di PowerShell per i runbook di Automazione 
+I Runbook in Automazione di Azure vengono implementati come flussi di lavoro di Windows PowerShell.  Un flusso di lavoro di Windows PowerShell è simile a uno script Windows PowerShell, ma presenta alcune differenze significative che possono generare confusione in un nuovo utente.  Anche se lo scopo di questo articolo è illustrare come scrivere runbook con il flusso di lavoro di PowerShell, è consigliabile scrivere runbook con PowerShell, a meno che non siano necessari checkpoint.  Esistono alcune differenze sintattiche nella creazione dei runbook del flusso di lavoro di PowerShell e queste differenze richiedono maggiore impegno nella scrittura di flussi di lavoro efficaci.  
 
 Un flusso di lavoro è una sequenza di passaggi programmati connessi che eseguono operazioni a esecuzione prolungata o richiedono il coordinamento di più passaggi tra più dispositivi o nodi gestiti. I vantaggi di un flusso di lavoro rispetto a un normale script includono la possibilità di eseguire simultaneamente un'azione su più dispositivi e di eseguire il ripristino automatico dagli errori. Un flusso di lavoro di Windows PowerShell è uno script di Windows PowerShell che si basa su Windows Workflow Foundation. Pur essendo scritto con la sintassi di Windows PowerShell e avviato da Windows PowerShell, un flusso di lavoro viene elaborato da Windows Workflow Foundation.
 
 Per informazioni dettagliate sugli argomenti inclusi in questo articolo, vedere [Informazioni sul flusso di lavoro di Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx).
-
-## <a name="types-of-runbook"></a>Tipi di Runbook
-Esistono tre tipi di runbook in Automazione di Azure: runbook del *flusso di lavoro PowerShell*, di *PowerShell* e *grafici*.  È possibile definire il tipo di Runbook durante la creazione e non è possibile convertirlo in altro tipo al termine della creazione.
-
-I Runbook del flusso di lavoro PowerShell e i Runbook di PowerShell sono destinati agli utenti che preferiscono utilizzare direttamente il codice di PowerShell mediante l'editor di testo in Automazione di Azure o un editor offline, ad esempio PowerShell ISE. Se si sta creando un Runbook del flusso di lavoro di PowerShell, è necessario comprendere le informazioni contenute in questo articolo.
-
-I Runbook grafici consentono di creare un Runbook mediante gli stessi cmdlet e attività, ma utilizzando un'interfaccia grafica che nasconde la complessità del flusso di lavoro PowerShell sottostante.  I concetti illustrati in questo articolo, ad esempio i checkpoint e l'esecuzione parallela vengono mantenuti per Runbook con interfaccia grafica, ma non sarà necessario preoccuparsi di una sintassi dettagliata.
 
 ## <a name="basic-structure-of-a-workflow"></a>Struttura di base di un flusso di lavoro
 Il primo passaggio per la conversione di uno script PowerShell in un flusso di lavoro consiste nell'includerlo con la parola chiave **Flusso di lavoro** .  Un flusso di lavoro di Windows PowerShell inizia con la parola chiave **Flusso di lavoro** seguita dal corpo dello script racchiuso tra parentesi graffe. Il nome del flusso di lavoro segue la parola chiave **Workflow** , come mostrato nella sintassi seguente.
@@ -204,7 +197,6 @@ L'esempio seguente è simile all'esempio precedente in cui vengono copiati i fil
 > [!NOTE]
 > Si sconsiglia l'esecuzione di Runbook figlio in parallelo poiché è stato dimostrato che potrebbe causare risultati inaffidabili.  L'output dal Runbook figlio talvolta non verrà visualizzato e le impostazioni di un Runbook figlio possono influire sugli altri Runbook figlio paralleli.
 >
->
 
 ## <a name="checkpoints"></a>Checkpoint
 Un *checkpoint* è uno snapshot dello stato corrente del flusso di lavoro che include il valore corrente per le variabili e gli output generati fino al punto corrispondente. Se un flusso di lavoro termina con errori o viene sospeso, alla successiva esecuzione verrà avviato dall'ultimo checkpoint anziché dall'inizio del flusso di lavoro.  È possibile impostare un checkpoint in un flusso di lavoro con l'attività **Checkpoint-Workflow** .
@@ -267,10 +259,10 @@ Ciò non è necessario se si esegue l'autenticazione usando un account RunAs con
 Per altre informazioni sui checkpoint, vedere l'articolo relativo all' [aggiunta di checkpoint a un flusso di lavoro di script](http://technet.microsoft.com/library/jj574114.aspx).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per iniziare a usare i runbook del flusso di lavoro di PowerShell, vedere [Il primo runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md)
+* Per iniziare a usare i runbook del flusso di lavoro PowerShell, vedere [Il primo runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

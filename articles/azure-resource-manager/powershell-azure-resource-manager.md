@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell con Resource Manager | Microsoft Docs
-description: "Introduzione all&quot;uso di Azure PowerShell per distribuire più risorse come gruppo di risorse in Azure."
+title: Gestire le soluzioni di Azure con PowerShell | Documentazione Microsoft
+description: Usare Azure PowerShell e Resource Manager per gestire le risorse.
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -12,360 +12,267 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2016
+ms.date: 12/05/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
-ms.openlocfilehash: 14419f36a9404202d6238d5825fb1ae77d46038a
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 407e9a1e4a50b875fa65e61d3e9aae245dd907e5
+ms.lasthandoff: 03/04/2017
 
 
 ---
-# <a name="using-azure-powershell-with-azure-resource-manager"></a>Uso di Azure PowerShell con Gestione risorse di Azure
+# <a name="manage-resources-with-azure-powershell-and-resource-manager"></a>Gestire le risorse con Azure PowerShell e Resource Manager
 > [!div class="op_single_selector"]
 > * [Portale](resource-group-portal.md)
 > * [Interfaccia della riga di comando di Azure](xplat-cli-azure-resource-manager.md)
 > * [Azure PowerShell](powershell-azure-resource-manager.md)
 > * [API REST](resource-manager-rest-api.md)
+>
+>
 
-Azure Resource Manager implementa un approccio moderno al controllo del ciclo di vita delle risorse di Azure. Invece di creare e gestire le singole risorse, si inizia immaginando un'intera soluzione, ad esempio un blog, una raccolta foto, un portale di SharePoint o un wiki. Si usa un modello, ovvero una rappresentazione dichiarativa della soluzione, per creare un gruppo di risorse contenente tutte le risorse necessarie per supportare la soluzione. A questo punto, si distribuisce e si gestisce il gruppo di risorse come unità logica.
+Questo argomento illustra come gestire le soluzioni con Azure PowerShell e Azure Resource Manager. Se non si ha familiarità con Resource Manager, vedere [Panoramica di Azure Resource Manager](resource-group-overview.md). Questo argomento è incentrato sulle attività di gestione. Si apprenderà come:
 
-In questa esercitazione viene descritto come usare Azure PowerShell con Gestione risorse di Azure. Illustra in modo dettagliato il processo di distribuzione di una soluzione e di utilizzo della soluzione. Per la distribuzione verranno usati Azure PowerShell e un modello di Azure Resource Manager:
+1. Creare un gruppo di risorse
+2. Aggiungere una risorsa al gruppo di risorse
+3. Aggiungere un tag alla risorsa
+4. Eseguire query sulle risorse in base ai nomi o ai valori dei tag
+5. Applicare e rimuovere un blocco sulla risorsa
+6. Creare un modello di Resource Manager dal gruppo di risorse
+7. Eliminare un gruppo di risorse
 
-* Server SQL: per ospitare il database
-* Database SQL: per archiviare i dati
-* Regole del firewall: per consentire all'app Web di connettersi al database
-* Piano di servizio app: per definire le funzionalità e il costo dell'app Web
-* Sito Web: per eseguire l'app Web
-* Configurazione Web: per archiviare la stringa di connessione al database
-* Regole di avviso: per il monitoraggio delle prestazioni e degli errori
-* App Insights: per le impostazioni del ridimensionamento automatico
+## <a name="get-started-with-azure-powershell"></a>guida introduttiva ad Azure PowerShell
 
-Per accedere ad Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Se Azure PowerShell non è installato, vedere l'articolo su [come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-## <a name="get-help-for-cmdlets"></a>Ottenere la guida per i cmdlet
-Per informazioni dettagliate sui cmdlet usati in questa esercitazione, eseguire il cmdlet Get-Help.
+Se Azure PowerShell è stato installato in passato ma non è stato aggiornato di recente, è consigliabile installare l'ultima versione. È possibile aggiornare la versione con lo stesso metodo usato per l'installazione. Se è stata usata l'Installazione guidata piattaforma Web, ad esempio, avviarla di nuovo e cercare un aggiornamento.
 
-    Get-Help <cmdlet-name> -Detailed
+Per controllare la versione del modulo Resources di Azure, usare il cmdlet seguente:
 
-Ad esempio, per informazioni sul cmdlet Get-AzureRmResource, digitare:
+```powershell
+Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
+```
 
-    Get-Help Get-AzureRmResource -Detailed
+Questo argomento è stato aggiornato per la versione 3.3.0. Se si ha una versione precedente, l'esperienza utente potrebbe non corrispondere ai passaggi illustrati in questo argomento. Per la documentazione sui cmdlet di questa versione, vedere [AzureRM.Resources Module](/en-us/powershell/resourcemanager/azurerm.resources/v3.3.0/azurerm.resources) (Modulo AzureRM.Resources).
 
-Per un elenco dei cmdlet del modulo Resources con un riepilogo di supporto, digitare:
-
-    Get-Command -Module AzureRM.Resources | Get-Help | Format-Table Name, Synopsis
-
-L'output sarà simile al seguente:
-
-    Name                                   Synopsis
-    ----                                   --------
-    Find-AzureRmResource                   Searches for resources using the specified parameters.
-    Find-AzureRmResourceGroup              Searches for resource group using the specified parameters.
-    Get-AzureRmADGroup                     Filters active directory groups.
-    Get-AzureRmADGroupMember               Get a group members.
-    ...
-
-Per informazioni complete per un cmdlet, digitare un comando con il formato seguente:
-
-    Get-Help <cmdlet-name> -Full
-
-## <a name="login-to-your-azure-account"></a>Accedere al proprio account Azure
+## <a name="log-in-to-your-azure-account"></a>Accedere all'account Azure
 Prima di usare la soluzione, è necessario accedere al proprio account.
 
-Per accedere al proprio account Azure, usare il cmdlet **Add-AzureRmAccount** .
+Per accedere al proprio account Azure, usare il cmdlet **Login-AzureRmAccount**.
 
-    Add-AzureRmAccount
+```powershell
+Login-AzureRmAccount
+```
 
 Il cmdlet richiede le credenziali di accesso per l'account di Azure. Dopo l'accesso, vengono scaricate le impostazioni dell'account in modo che siano disponibili per Azure PowerShell.
 
-Le impostazioni dell'account hanno una scadenza, quindi è necessario aggiornarle regolarmente. Per aggiornare le impostazioni dell'account, eseguire di nuovo il cmdlet **Add-AzureRmAccount** .
+Il cmdlet restituisce informazioni sull'account e la sottoscrizione da usare per le attività.
 
-> [!NOTE]
-> I moduli di Azure Resource Manager richiedono Add-AzureRmAccount. Non è sufficiente un file di impostazioni di pubblicazione.
->
->
+```powershell
+Environment           : AzureCloud
+Account               : example@contoso.com
+TenantId              : {guid}
+SubscriptionId        : {guid}
+SubscriptionName      : Example Subscription One
+CurrentStorageAccount :
 
-Se sono disponibili più sottoscrizioni, specificare l'ID sottoscrizione da usare per la distribuzione con il cmdlet **Set-AzureRmContext** .
+```
 
-    Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
+Se si hanno più sottoscrizioni, è possibile passare a un'altra sottoscrizione. Per prima cosa, visualizzare tutte le sottoscrizioni dell'account.
+
+```powershell
+Get-AzureRmSubscription
+```
+
+Vengono restituite le sottoscrizioni abilitate e disabilitate.
+
+```powershell
+SubscriptionName : Example Subscription One
+SubscriptionId   : {guid}
+TenantId         : {guid}
+State            : Enabled
+
+SubscriptionName : Example Subscription Two
+SubscriptionId   : {guid}
+TenantId         : {guid}
+State            : Enabled
+
+SubscriptionName : Example Subscription Three
+SubscriptionId   : {guid}
+TenantId         : {guid}
+State            : Disabled
+```
+
+Per passare a un'altra sottoscrizione, specificarne il nome con il cmdlet **Set-AzureRmContext**.
+
+```powershell
+Set-AzureRmContext -SubscriptionName "Example Subscription Two"
+```
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 Prima di distribuire risorse nella sottoscrizione, è necessario creare un gruppo di risorse che conterrà le risorse.
 
-Per creare un gruppo di risorse, usare il cmdlet **New-AzureRmResourceGroup** .
+Per creare un gruppo di risorse, usare il cmdlet **New-AzureRmResourceGroup** . Il comando usa il parametro **Name** per specificare un nome per il gruppo di risorse e il parametro **Location** per specificarne la posizione.
 
-Il comando usa il parametro **Name** per specificare un nome per il gruppo di risorse e il parametro **Location** per specificarne la posizione. In base a quanto stabilito nella sezione precedente, verrà usata la posizione "West US".
+```powershell
+New-AzureRmResourceGroup -Name TestRG1 -Location "South Central US"
+```
 
-    New-AzureRmResourceGroup -Name TestRG1 -Location "West US"
+L'output presenta il formato seguente:
 
-L'output sarà analogo al seguente:
+```powershell
+ResourceGroupName : TestRG1
+Location          : southcentralus
+ProvisioningState : Succeeded
+Tags              :
+ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1
+```
 
-    ResourceGroupName : TestRG1
-    Location          : westus
-    ProvisioningState : Succeeded
-    Tags              :
-    ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1
+Se è necessario recuperare il gruppo di risorse in un secondo momento, usare il cmdlet seguente:
 
-Il gruppo di risorse è stato creato.
+```powershell
+Get-AzureRmResourceGroup -ResourceGroupName TestRG1
+```
 
-## <a name="deploy-your-solution"></a>Distribuire la soluzione
-Questo argomento non spiega come creare il modello e non ne illustra la struttura. Per informazioni, vedere [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md) (Creazione di modelli di Azure Resource Manager) e [Procedura dettagliata per un modello di Resource Manager](resource-manager-template-walkthrough.md). Il modello predefinito per il [provisioning di un'app Web con un database SQL](https://azure.microsoft.com/documentation/templates/201-web-app-sql-database/) verrà distribuito da [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/).
+Per ottenere tutti i gruppi di risorse della sottoscrizione, non specificare un nome:
 
-Dopo avere creato il gruppo di risorse e il modello, si è pronti per distribuire nel gruppo di risorse l'infrastruttura definita nel modello. Le risorse vengono distribuite con il cmdlet **New-AzureRmResourceGroupDeployment** . Il modello specifica molti valori predefiniti, che verranno usati per evitare che sia necessario fornire valori per questi parametri. La sintassi di base è simile alla seguente:
+```powershell
+Get-AzureRmResourceGroup
+```
 
-    New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -administratorLogin exampleadmin -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
+## <a name="add-resources-to-a-resource-group"></a>Aggiungere risorse a un gruppo di risorse
+Per aggiungere una risorsa al gruppo di risorse, è possibile usare il cmdlet **New-AzureRmResource** oppure un cmdlet specifico del tipo di risorsa che viene creato (ad esempio, **New-AzureRmStorageAccount**). Usare un cmdlet specifico di un tipo di risorsa può risultare più semplice perché il cmdlet include i parametri per le proprietà necessarie per la nuova risorsa. Per usare **New-AzureRmResource**, è necessario conoscere tutte le proprietà da impostare senza che vengano richieste.
 
-Vengono specificati il gruppo di risorse e il percorso del modello. Se il modello è un file locale, usare il parametro **-TemplateFile** e specificare il percorso del modello. È possibile impostare il parametro **-Mode** su **Incremental** o **Complete**. Per impostazione predefinita, Resource Manager esegue un aggiornamento incrementale durante la distribuzione. Non è pertanto fondamentale impostare il parametro **-Mode** se si vuole la modalità **Incremental**.
-Per comprendere le differenze tra le modalità di distribuzione, vedere [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md) (Distribuire un'applicazione con un modello di Azure Resource Manager).
+Aggiungere una risorsa tramite i cmdlet, tuttavia, potrebbe causare confusione in futuro perché la nuova risorsa non è inclusa in un modello di Resource Manager. È consigliabile definire l'infrastruttura per la soluzione di Azure in un modello di Resource Manager. I modelli consentono di distribuire la soluzione in modo affidabile e ripetutamente. Questo argomento non illustra come distribuire un modello di Resource Manager nella sottoscrizione. Per informazioni in merito, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](resource-group-template-deploy.md). Per questo argomento viene creato un account di archiviazione con un cmdlet di PowerShell, ma successivamente viene generato un modello dal gruppo di risorse.
 
-### <a name="dynamic-template-parameters"></a>Parametri del modello dinamici
-Se si ha familiarità con PowerShell, è possibile cercare un cmdlet tra i parametri disponibili digitando un segno meno (-) e quindi premendo TAB. Questa stessa funzionalità può essere usata anche con i parametri definiti nel modello. Quando si digita il nome del modello, il cmdlet recupera il modello, lo analizza e aggiunge i relativi parametri al comando in modo dinamico. In questo modo è molto semplice specificare i valori dei parametri del modello.
+Il cmdlet seguente crea un account di archiviazione. Anziché usare il nome indicato nell'esempio, specificare un nome univoco per l'account di archiviazione. Il nome deve essere di lunghezza compresa tra 3 e 24 caratteri e contenere solo numeri e lettere minuscole. Se si usa il nome indicato nell'esempio, verrà visualizzato un errore perché tale nome è già in uso.
 
-Quando si inserisce il comando, viene richiesto il parametro obbligatorio mancante **administratorLoginPassword**. Inoltre, quando si digita la password, il valore della stringa sicura viene oscurato. Questa strategia elimina il rischio di fornire la password in testo normale.
+```powershell
+New-AzureRmStorageAccount -ResourceGroupName TestRG1 -AccountName mystoragename -Type "Standard_LRS" -Location "South Central US"
+```
 
-    cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
-    Supply values for the following parameters:
-    (Type !? for Help.)
-    administratorLoginPassword: ********
+Se è necessario recuperare la risorsa in un secondo momento, usare il cmdlet seguente:
 
-Se il modello include un parametro con un nome corrispondente a uno dei parametri nel comando per la distribuzione del modello, ad esempio un parametro denominato **ResourceGroupName** nel modello che corrisponde al parametro **ResourceGroupName** nel cmdlet [New-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/new-azurermresourcegroupdeployment), verrà richiesto di specificare un valore per un parametro con il suffisso **FromTemplate**, ad esempio **ResourceGroupNameFromTemplate**. In generale, è consigliabile evitare questa confusione non attribuendo ai parametri lo stesso nome dei parametri usati per operazioni di distribuzione.
+```powershell
+Get-AzureRmResource -ResourceName mystoragename -ResourceGroupName TestRG1
+```
 
-Il comando viene eseguito e restituisce dei messaggi quando le risorse vengono create. Infine viene visualizzato il risultato della distribuzione.
+## <a name="add-a-tag"></a>Aggiungere un tag
 
-    DeploymentName    : azuredeploy
-    ResourceGroupName : TestRG1
-    ProvisioningState : Succeeded
-    Timestamp         : 4/11/2016 7:26:11 PM
-    Mode              : Incremental
-    TemplateLink      :
-                Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
-                ContentVersion : 1.0.0.0
-    Parameters        :
-                Name             Type                       Value
-                ===============  =========================  ==========
-                skuName          String                     F1
-                skuCapacity      Int                        1
-                administratorLogin  String                  exampleadmin
-                administratorLoginPassword  SecureString
-                databaseName     String                     sampledb
-                collation        String                     SQL_Latin1_General_CP1_CI_AS
-                edition          String                     Basic
-                maxSizeBytes     String                     1073741824
-                requestedServiceObjectiveName  String       Basic
+I tag consentono di organizzare le risorse in base a diverse proprietà. È ad esempio possibile che diverse risorse in diversi gruppi di risorse appartengano allo stesso reparto. È possibile applicare un tag e un valore di reparto a tali risorse per contrassegnarle come appartenenti alla stessa categoria oppure indicare se una risorsa viene usata in un ambiente di produzione o di testing. In questo argomento si applicano tag a una sola risorsa, ma nell'ambiente in uso è probabilmente opportuno applicare tag a tutte le risorse.
 
-    Outputs           :
-                Name             Type                       Value
-                ===============  =========================  ==========
-                siteUri          String                     websites5wdai7p2k2g4.azurewebsites.net
-                sqlSvrFqdn       String                     sqlservers5wdai7p2k2g4.database.windows.net
+Il cmdlet seguente applica due tag all'account di archiviazione:
 
-    DeploymentDebugLogLevel :
+```powershell
+Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName mystoragename -ResourceGroupName TestRG1 -ResourceType Microsoft.Storage/storageAccounts
+ ```
 
-In pochi passaggi, sono state create e distribuite le risorse necessarie per un sito Web complesso.
+I tag vengono aggiornati come un singolo oggetto. Per aggiungere un tag a una risorsa che già include tag, per prima cosa recuperare i tag esistenti. Aggiungere il nuovo tag all'oggetto contenente i tag esistenti e riapplicare tutti i tag alla risorsa.
 
-### <a name="log-debug-information"></a>Registrare le informazioni di debug
-Quando si distribuisce un modello, è possibile registrare informazioni aggiuntive sulla richiesta e sulla risposta, specificando il parametro **-DeploymentDebugLogLevel** quando si esegue **New-AzureRmResourceGroupDeployment**. Queste informazioni possono essere utili per risolvere gli errori di distribuzione. Il valore predefinito è **None** , ovvero non vengono registrati contenuti relativi alla richiesta o alla risposta. È possibile specificare la registrazione del contenuto dalla richiesta, dalla risposta o da entrambi.  Per altre informazioni sulla risoluzione dei problemi relativi alle distribuzioni e sulla registrazione delle informazioni di debug, vedere [Visualizzare le operazioni di distribuzione con Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md). L'esempio seguente registra il contenuto di richieste e risposte per la distribuzione.
+```powershell
+$tags = (Get-AzureRmResource -ResourceName mystoragename -ResourceGroupName TestRG1).Tags
+$tags += @{Status="Approved"}
+Set-AzureRmResource -Tag $tags -ResourceName mystoragename -ResourceGroupName TestRG1 -ResourceType Microsoft.Storage/storageAccounts
+```
 
-    New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -DeploymentDebugLogLevel All -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
+## <a name="search-for-resources"></a>Cercare le risorse
 
-> [!NOTE]
-> Quando si imposta il parametro DeploymentDebugLogLevel, occorre valutare attentamente il tipo di informazioni passate durante la distribuzione. La registrazione di informazioni sulla richiesta o sulla risposta può esporre dati riservati, che vengono recuperati tramite le operazioni di distribuzione.
+Per recuperare le risorse in base a diverse condizioni di ricerca, usare il cmdlet **Find-AzureRmResource**.
 
-## <a name="get-information-about-your-resource-groups"></a>Ottenere informazioni sui gruppi di risorse
-Dopo avere creato un gruppo di risorse, è possibile usare i cmdlet del modulo di Gestione risorse per gestire i gruppi di risorse.
+* Per ottenere una risorsa in base al nome, specificare il parametro **ResourceNameContains**:
 
-* Per ottenere un gruppo di risorse nella sottoscrizione, usare il cmdlet **Get-AzureRmResourceGroup** :
+  ```powershell
+  Find-AzureRmResource -ResourceNameContains mystoragename
+  ```
 
-        Get-AzureRmResourceGroup -ResourceGroupName TestRG1
+* Per ottenere tutte le risorse in un gruppo di risorse, specificare il parametro **ResourceGroupNameContains**:
 
-    Che restituisce le informazioni seguenti:
+  ```powershell
+  Find-AzureRmResource -ResourceGroupNameContains TestRG1
+  ```
 
-        ResourceGroupName : TestRG1
-        Location          : westus
-        ProvisioningState : Succeeded
-        Tags              :
-        ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG
+* Per ottenere tutte le risorse con un nome e un valore di tag, specificare i parametri **TagName** e **TagValue**:
 
-        ...
+  ```powershell
+  Find-AzureRmResource -TagName Dept -TagValue IT
+  ```
 
-    Se non si specifica alcun nome di gruppo di risorse, il cmdlet restituisce tutti i gruppi di risorse della sottoscrizione.
-* Per ottenere le risorse nel gruppo di risorse, usare il cmdlet **Find-AzureRmResource** e il relativo parametro **ResourceGroupNameContains**. Senza parametri, Find-AzureRmResource recupera tutte le risorse nella sottoscrizione di Azure.
+* Per ottenere tutte le risorse con un determinato tipo di risorsa, specificare il parametro **ResourceType**:
 
-        Find-AzureRmResource -ResourceGroupNameContains TestRG1
+  ```powershell
+  Find-AzureRmResource -ResourceType Microsoft.Storage/storageAccounts
+  ```
 
-     Viene restituito un elenco di risorse con formato analogo al seguente:
+## <a name="lock-a-resource"></a>Bloccare una risorsa
 
-        Name              : sqlservers5wdai7p2k2g4
-        ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/sqlservers5wdai7p2k2g4
-        ResourceName      : sqlservers5wdai7p2k2g4
-        ResourceType      : Microsoft.Sql/servers
-        Kind              : v2.0
-        ResourceGroupName : TestRG1
-        Location          : westus
-        SubscriptionId    : {guid}
-        Tags              : {System.Collections.Hashtable}
-        ...
-* È possibile usare i tag per organizzare in modo logico le risorse della sottoscrizione e quindi recuperarle con i cmdlet **Find-AzureRmResource** e **Find-AzureRmResourceGroup**.
+Quando è necessario assicurarsi che una risorsa strategica non venga eliminata o modificata accidentalmente, applicare un blocco alla risorsa. È possibile specificare **CanNotDelete** o **ReadOnly**.
 
-        Find-AzureRmResource -TagName displayName -TagValue Website
+Per creare o eliminare i blocchi di gestione, è necessario avere accesso alle azioni `Microsoft.Authorization/*` o `Microsoft.Authorization/locks/*`. Fra i ruoli predefiniti, solo a Proprietario e Amministratore Accesso utenti sono concesse tali azioni.
 
-        Name              : webSites5wdai7p2k2g4
-        ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Web/sites/webSites5wdai7p2k2g4
-        ResourceName      : webSites5wdai7p2k2g4
-        ResourceType      : Microsoft.Web/sites
-        ResourceGroupName : TestRG1
-        Location          : westus
-        SubscriptionId    : {guid}
+Per applicare un blocco, usare il cmdlet seguente:
 
-      There is much more you can do with tags. For more information, see [Using tags to organize your Azure resources](resource-group-using-tags.md).
+```powershell
+New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockStorage -ResourceName mystoragename -ResourceType Microsoft.Storage/storageAccounts -ResourceGroupName TestRG1
+```
 
-## <a name="add-to-a-resource-group"></a>Aggiungere un gruppo di risorse
-Per aggiungere una risorsa al gruppo di risorse, è possibile usare il cmdlet **New-AzureRmResource** . Aggiungere una risorsa in questo modo, tuttavia, potrebbe creare confusione in futuro perché la nuova risorsa non esiste nel modello. Se si ridistribuisse il vecchio modello, si distribuirebbe una soluzione incompleta. Se si prevede di eseguire spesso la distribuzione, risulterà più semplice e affidabile aggiungere la nuova risorsa al modello e ridistribuirlo.
+La risorsa bloccata nell'esempio precedente non potrà essere eliminata finché non verrà rimosso il blocco. Per rimuovere un blocco, usare:
 
-## <a name="move-a-resource"></a>Spostare una risorsa
-È possibile spostare le risorse esistenti in un nuovo gruppo di risorse. Per esempi, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](resource-group-move-resources.md).
+```powershell
+Remove-AzureRmResourceLock -LockName LockStorage -ResourceName mystoragename -ResourceType Microsoft.Storage/storageAccounts -ResourceGroupName TestRG1
+```
 
-## <a name="export-template"></a>Esportare il modello
+Per altre informazioni sull'impostazione di blocchi, vedere l'articolo su come [bloccare le risorse con Azure Resource Manager](resource-group-lock-resources.md).
+
+## <a name="export-resource-manager-template"></a>Esportare un modello di Resource Manager
 Per un gruppo di risorse esistente, distribuito mediante PowerShell o uno degli altri metodi quali il portale, è possibile visualizzare il modello di Azure Resource Manager per il gruppo di risorse. L'esportazione del modello offre due vantaggi:
 
 1. È possibile automatizzare le distribuzioni future della soluzione, perché tutti gli elementi dell'infrastruttura sono definiti nel modello.
 2. È possibile acquisire familiarità con la sintassi del modello esaminando il codice JSON (JavaScript Object Notation) che rappresenta la soluzione.
 
-PowerShell consente di generare un modello che rappresenta lo stato corrente del gruppo di risorse oppure di recuperare il modello usato per una distribuzione specifica.
-
-L'esportazione del modello per un gruppo di risorse risulta utile quando si apportano modifiche a un gruppo di risorse ed è necessario recuperare la rappresentazione JSON del rispettivo stato corrente. Il modello generato, tuttavia, contiene solo un numero minimo di parametri e nessuna variabile. La maggior parte dei valori del modello è hardcoded. Prima di distribuire il modello generato, è possibile che si voglia convertire altri valori in parametri, per potere personalizzare la distribuzione per diversi ambienti.
-
-L'esportazione del modello per una distribuzione specifica è utile quando è necessario visualizzare il modello effettivo usato per distribuire le risorse. Il modello includerà tutte le variabili e tutti i parametri definiti per la distribuzione originale. Se, tuttavia, un utente dell'organizzazione ha modificato il gruppo di risorse in modo diverso da quanto definito nel modello, questo modello non rappresenterà lo stato corrente del gruppo di risorse.
-
 > [!NOTE]
 > La funzionalità di esportazione del modello è disponibile in anteprima e non tutti i tipi di risorse supportano attualmente l'esportazione di un modello. Quando si prova a esportare un modello, è possibile che venga visualizzato un errore che indica che alcune risorse non sono state esportate. Se necessario, è possibile definire manualmente queste risorse nel modello dopo averlo scaricato.
+>
+>
 
-
-### <a name="export-template-from-resource-group"></a>Esportare il modello da un gruppo di risorse
 Per visualizzare il modello per un gruppo di risorse, eseguire il cmdlet **Export-AzureRmResourceGroup** .
 
-    Export-AzureRmResourceGroup -ResourceGroupName TestRG1 -Path c:\Azure\Templates\Downloads\TestRG1.json
+```powershell
+Export-AzureRmResourceGroup -ResourceGroupName TestRG1 -Path c:\Azure\Templates\Downloads\TestRG1.json
+```
 
-### <a name="download-template-from-deployment"></a>Scaricare il modello dalla distribuzione
-Per scaricare il modello usato per una distribuzione specifica, eseguire il cmdlet **Save-AzureRmResourceGroupDeploymentTemplate** .
+Per esportare un modello di Resource Manager esistono numerosi scenari e opzioni. Per altre informazioni, vedere [Export an Azure Resource Manager template from existing resources](resource-manager-export-template.md) (Esportare un modello di Azure Resource Manager da risorse esistenti).
 
-    Save-AzureRmResourceGroupDeploymentTemplate -DeploymentName azuredeploy -ResourceGroupName TestRG1 -Path c:\Azure\Templates\Downloads\azuredeploy.json
+## <a name="remove-resources-or-resource-group"></a>Rimuovere risorse o un gruppo di risorse
+È possibile rimuovere una risorsa o un gruppo di risorse. Quando si rimuove un gruppo di risorse, si rimuovono anche tutte le risorse in esso contenute.
 
-## <a name="delete-resources-or-resource-group"></a>Eliminare le risorse o il gruppo di risorse
 * Per eliminare una risorsa dal gruppo di risorse, usare il cmdlet **Remove-AzureRmResource** . Questo cmdlet elimina la risorsa, ma non il gruppo di risorse.
 
-    Il comando rimuove il sito Web TestSite dal gruppo di risorse TestRG1.
+  ```powershell
+  Remove-AzureRmResource -ResourceName mystoragename -ResourceType Microsoft.Storage/storageAccounts -ResourceGroupName TestRG1
+  ```
 
-        Remove-AzureRmResource -Name TestSite -ResourceGroupName TestRG1 -ResourceType "Microsoft.Web/sites" -ApiVersion 2015-08-01
-* Per eliminare un gruppo di risorse, usare il cmdlet **Remove-AzureRmResourceGroup** . Questo cmdlet elimina il gruppo di risorse e le relative risorse.
+* Per eliminare un gruppo di risorse e tutte le relative risorse, usare il cmdlet **Remove-AzureRmResourceGroup**.
 
-        Remove-AzureRmResourceGroup -Name TestRG1
+  ```powershell
+  Remove-AzureRmResourceGroup -Name TestRG1
+  ```
 
-    È necessario confermare l'eliminazione.
+Per entrambi i cmdlet viene richiesto di confermare che si vuole rimuovere la risorsa o il gruppo di risorse. Se l'eliminazione della risorsa o del gruppo di risorse viene completata, l'operazione restituisce **True**.
 
-        Confirm
-        Are you sure you want to remove resource group 'TestRG1'
-        [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
+## <a name="run-resource-manager-scripts-with-azure-automation"></a>Eseguire script di Resource Manager con Automazione di Azure
 
-## <a name="deployment-script"></a>Script di distribuzione
-Gli esempi di distribuzione precedenti di questo argomento hanno illustrato solo i singoli cmdlet necessari per distribuire risorse in Azure. L'esempio seguente mostra uno script di distribuzione che crea il gruppo di risorse e quindi distribuisce le risorse.
+Questo argomento illustra come eseguire operazioni di base sulle risorse con Azure PowerShell. Per scenari di gestione più avanzati, è in genere opportuno creare uno script e riusare tale script in base alle esigenze o a una pianificazione. [Automazione di Azure](../automation/automation-intro.md) consente di automatizzare gli script di uso frequente che gestiscono le soluzioni di Azure.
 
-    <#
-      .SYNOPSIS
-      Deploys a template to Azure
+Gli argomenti seguenti illustrano come usare Automazione di Azure, Resource Manager e PowerShell per eseguire attività di gestione in modo efficace:
 
-      .DESCRIPTION
-      Deploys an Azure Resource Manager template
-
-      .PARAMETER subscriptionId
-      The subscription id where the template will be deployed.
-
-      .PARAMETER resourceGroupName
-      The resource group where the template will be deployed. Can be the name of an existing or a new resource group.
-
-      .PARAMETER resourceGroupLocation
-      Optional, a resource group location. If specified, will try to create a new resource group in this location. If not specified, assumes resource group is existing.
-
-      .PARAMETER deploymentName
-      The deployment name.
-
-      .PARAMETER templateFilePath
-      Optional, path to the template file. Defaults to template.json.
-
-      .PARAMETER parametersFilePath
-      Optional, path to the parameters file. Defaults to parameters.json. If file is not found, will prompt for parameter values based on template.
-    #>
-
-    param(
-      [Parameter(Mandatory=$True)]
-      [string]
-      $subscriptionId,
-
-      [Parameter(Mandatory=$True)]
-      [string]
-      $resourceGroupName,
-
-      [string]
-      $resourceGroupLocation,
-
-      [Parameter(Mandatory=$True)]
-      [string]
-      $deploymentName,
-
-      [string]
-      $templateFilePath = "template.json",
-
-      [string]
-      $parametersFilePath = "parameters.json"
-    )
-
-    #******************************************************************************
-    # Script body
-    # Execution begins here
-    #******************************************************************************
-    $ErrorActionPreference = "Stop"
-
-    # sign in
-    Write-Host "Logging in...";
-    Add-AzureRmAccount;
-
-    # select subscription
-    Write-Host "Selecting subscription '$subscriptionId'";
-    Set-AzureRmContext -SubscriptionID $subscriptionId;
-
-    #Create or check for existing resource group
-    $resourceGroup = Get-AzureRmResourceGroup -Name $resourceGroupName -ErrorAction SilentlyContinue
-    if(!$resourceGroup)
-    {
-      Write-Host "Resource group '$resourceGroupName' does not exist. To create a new resource group, please enter a location.";
-      if(!$resourceGroupLocation) {
-        $resourceGroupLocation = Read-Host "resourceGroupLocation";
-      }
-      Write-Host "Creating resource group '$resourceGroupName' in location '$resourceGroupLocation'";
-      New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
-    }
-    else{
-      Write-Host "Using existing resource group '$resourceGroupName'";
-    }
-
-    # Start the deployment
-    Write-Host "Starting deployment...";
-    if(Test-Path $parametersFilePath) {
-      New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath -TemplateParameterFile $parametersFilePath;
-    } else {
-      New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath;
-    }
+- Per informazioni sulla creazione di un runbook, vedere [Il primo runbook PowerShell](../automation/automation-first-runbook-textual-powershell.md).
+- Per informazioni sull'uso di raccolte di script, vedere [Raccolte di runbook e moduli per Automazione di Azure](../automation/automation-runbook-gallery.md).
+- Per informazioni sui runbook per l'avvio e l'arresto di macchine virtuali, vedere [Scenario di Automazione di Azure: uso di tag in formato JSON per creare una pianificazione per l'avvio e l'arresto di una macchina virtuale di Azure](../automation/automation-scenario-start-stop-vm-wjson-tags.md).
+- Per informazioni sui runbook per l'avvio e l'arresto di macchine virtuali durante gli orari di minore attività, vedere [Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività in Automazione di Azure](../automation/automation-solution-vm-management.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sulla creazione dei modelli, vedere [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md) (Creazione di modelli di Azure Resource Manager).
 * Per altre informazioni sulla distribuzione di modelli, vedere  [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md) (Distribuire un'applicazione con un modello di Azure Resource Manager).
-* Per un esempio dettagliato della distribuzione di un progetto, vedere [Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
-* Per informazioni sulla risoluzione dei problemi relativi a una distribuzione non riuscita, vedere [Troubleshooting resource group deployments in Azure](resource-manager-troubleshoot-deployments-powershell.md) (Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure).
+* È possibile spostare le risorse esistenti in un nuovo gruppo di risorse. Per esempi, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](resource-group-move-resources.md).
 * Per indicazioni su come le aziende possono usare Resource Manager per gestire efficacemente le sottoscrizioni, vedere [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Scaffolding aziendale Azure - Governance prescrittiva per le sottoscrizioni).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -4,7 +4,7 @@ description: Esercitazione su come associare App per la logica a Azure IoT Suite
 services: 
 suite: iot-suite
 documentationcenter: 
-author: aguilaaj
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: 4629a7af-56ca-4b21-a769-5fa18bc3ab07
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2016
-ms.author: araguila
+ms.date: 03/09/2017
+ms.author: corywink
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a010e0dff76390020b74ada6d6144e411e304268
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 5e3221395082513f842863615d40f7d3ebf2562e
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -30,6 +31,8 @@ Prima di iniziare questa esercitazione, è necessario:
 
 * Eseguire il provisioning della soluzione preconfigurata di monitoraggio remoto nella sottoscrizione di Azure.
 * Creare un account SendGrid che consenta di inviare un messaggio di posta elettronica che attivi il processo aziendale. È possibile richiedere un account di valutazione gratuito accedendo al sito Web [SendGrid](https://sendgrid.com/) e facendo clic su **Try for Free**(Prova gratuitamente). Dopo aver eseguito la registrazione per ottenere un account di valutazione gratuito, è necessario creare in SendGrid una [chiave API](https://sendgrid.com/docs/User_Guide/Settings/api_keys.html) che concede le autorizzazioni per l'invio di messaggi di posta elettronica. La chiave API sarà necessaria più avanti nell'esercitazione.
+
+Per completare questa esercitazione, è necessario Visual Studio 2015 o Visual Studio 2017 per modificare le azioni del back-end della soluzione preconfigurata.
 
 Supponendo di avere già eseguito il provisioning della soluzione preconfigurata per il monitoraggio remoto, passare al gruppo di risorse per la soluzione nel [portale di Azure][lnk-azureportal]. Il nome del gruppo di risorse coincide con quello assegnato alla soluzione per il monitoraggio remoto al momento del provisioning. Nel gruppo di risorse è possibile visualizzare tutte le risorse di Azure con provisioning per la soluzione, ad eccezione dell'applicazione Azure Active Directory disponibile nel portale di Azure classico. La schermata seguente mostra un pannello **Gruppo di risorse** di esempio per una soluzione preconfigurata per il monitoraggio remoto:
 
@@ -48,7 +51,7 @@ Per iniziare, impostare l'app per la logica da usare con la soluzione preconfigu
    
     ![](media/iot-suite-logic-apps-tutorial/logicappsdesigner.png)
 6. Selezionare **Richiesta**. Questa azione specifica che una richiesta HTTP in ingresso con uno specifico payload in formato JSON agisce come trigger.
-7. Incollare quanto segue nello schema JSON del corpo della richiesta:
+7. Incollare il codice seguente nello schema JSON del corpo della richiesta:
    
     ```
     {
@@ -116,8 +119,8 @@ In questa sezione si esegue la connessione della soluzione preconfigurata all'Ap
     ```
     private Dictionary<string,string> actionIds = new Dictionary<string, string>()
     {
-        { "Send Message", "<Http Post to this UR>" },
-        { "Raise Alarm", "<Http Post to this UR> }
+        { "Send Message", "<Http Post to this URL>" },
+        { "Raise Alarm", "<Http Post to this URL>" }
     };
     ```
 5. Salvare le modifiche nella soluzione e uscire da Visual Studio.
@@ -169,9 +172,4 @@ Dopo aver usato un'app per la logica per connettere la soluzione preconfigurata 
 [lnk-devsetup]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/dev-setup.md
 [lnk-localdeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/local-deployment.md
 [lnk-clouddeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/cloud-deployment.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

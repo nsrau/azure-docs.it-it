@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 39dcc11dfae33fe85cfbd11dec402e23289103fc
+ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
+ms.openlocfilehash: c9edc066ea2edc9cd4b8453047d5584a588174dc
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="azure-backup-for-sql-server-workloads-using-dpm"></a>Backup di Azure per carichi di lavoro di SQL server tramite DPM
+# <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Backup di SQL Server in Azure come carico di lavoro DPM
 In questo articolo viene avviata la procedura di configurazione per il backup dei database SQL Server mediante il Backup di Azure.
 
 Per eseguire il backup dei database di SQL server in Azure è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -158,9 +159,4 @@ I passaggi seguenti sono necessari per ripristinare un'entità protetta (databas
 
 ### <a name="next-steps"></a>Passaggi successivi:
 [Domande frequenti su Backup di Azure](backup-azure-backup-faq.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

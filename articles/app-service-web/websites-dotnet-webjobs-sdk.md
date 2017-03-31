@@ -4,7 +4,7 @@ description: "Introduzione ad Azure WebJobs SDK. Spiega che cos&quot;è l&quot;S
 services: app-service\web, storage
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: 8281267b-572b-4b14-a328-6704493ea682
 ms.service: app-service-web
@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2016
-ms.author: tdykstra
+ms.author: glenga
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 2d21cd34427921ad789b4c95212c07caddd5a966
+ms.lasthandoff: 11/17/2016
 
 
 ---
 # <a name="what-is-the-azure-webjobs-sdk"></a>Cos'è Azure WebJobs SDK
-## <a name="a-idoverviewaoverview"></a><a id="overview"></a>Panoramica
+## <a id="overview"></a>Panoramica
 Questo articolo spiega cos'è WebJobs SDK, analizza alcuni scenari comuni in cui si rivela utile e traccia una panoramica della modalità d'uso nel codice personalizzato.
 
 [WebJobs](websites-webjobs-resources.md) è una funzionalità di Servizio app di Azure che consente di eseguire un programma o uno script nello stesso contesto di un'app Web, un'app per le API o un'app per dispositivi mobili. Lo scopo di [WebJobs SDK](websites-webjobs-resources.md) è semplificare il codice scritto per le attività comuni che possono essere eseguite da un processo Web, ad esempio l'elaborazione di immagini, l'elaborazione della coda, l'aggregazione RSS, la manutenzione di file e l'invio di messaggi di posta elettronica. WebJobs SDK offre funzionalità incorporate per l'uso dell'Archiviazione di Azure e del bus di servizio, per la pianificazione di attività, per la gestione degli errori e per molti altri scenari comuni. Inoltre, è progettato per essere estendibile. [WebJobs SDK è open source](https://github.com/Azure/azure-webjobs-sdk/) ed è presente un [repository open source per le estensioni](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
@@ -31,7 +32,7 @@ In WebJobs SDK sono inclusi i componenti seguenti:
 * **Pacchetti NuGet**. I pacchetti NuGet aggiunti a un progetto di applicazione console di Visual Studio forniscono un framework usato dal codice associando al metodo attributi di WebJobs SDK.
 * **Dashboard**. Parte di WebJobs SDK, questo componente è incluso in Servizio app di Azure e fornisce monitoraggio e diagnostica avanzati per i programmi che usano i pacchetti NuGet. Non è necessario scrivere il codice per usare queste funzionalità di monitoraggio e diagnostica.
 
-## <a name="a-idscenariosascenarios"></a><a id="scenarios"></a>Scenari
+## <a id="scenarios"></a>Scenari
 Ecco alcuni scenario tipici che è possibile gestire più facilmente con Azure WebJobs SDK:
 
 * Elaborazione di immagini o altre operazioni con un uso intensivo della CPU. Una comune funzionalità dei siti Web è il caricamento di immagini o video. Spesso è necessario intervenire sul contenuto dopo averlo caricato, ma non si vuole far attendere l'utente nel frattempo.
@@ -46,7 +47,7 @@ In molti di questi scenari è possibile scalare un'applicazione Web per l’esec
 
 WebJobs SDK semplifica anche la gestione di scenari comuni di gestione degli errori. È possibile impostare gli avvisi per inviare notifiche quando una funzione ha esito negativo, ed è possibile impostare i timeout in modo che una funzione venga annullata automaticamente se non viene completata entro un limite di tempo specificato.
 
-## <a name="a-idcodea-code-samples"></a><a id="code"></a> Esempi di codice
+## <a id="code"></a> Esempi di codice
 Il codice per gestire le attività tipiche che usano l'archiviazione di Azure è semplice. Nel metodo `Main` dell'applicazione console si crea un oggetto `JobHost` che coordina le chiamate ai metodi scritti. Il framework WebJobs SDK sa quando chiamare i metodi e conosce i valori dei parametri da usare in base agli attributi di WebJobs SDK usati. L'SDK fornisce i *trigger* che specificano le condizioni che hanno causato la chiamata della funzione e i *binder* che specificano come ottenere informazioni nei e dai parametri del metodo.
 
 Ad esempio, l'attributo [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md) comporta la chiamata a una funzione quando viene ricevuto un messaggio in una coda e la deserializzazione automatica del messaggio, se il formato di quest'ultimo è JSON per una matrice di byte o un tipo personalizzato. L'attributo [BlobTrigger](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md) attiva un processo quando viene creato un nuovo BLOB in un account di Archiviazione di Azure.
@@ -129,7 +130,7 @@ L'esempio di codice seguente illustra una serie di trigger in un processo Web: `
     }
 ```
 
-## <a name="a-idschedulea-scheduling"></a><a id="schedule"></a> Pianificazione
+## <a id="schedule"></a> Pianificazione
 L'attributo `TimerTrigger` offre la possibilità di attivare funzioni da eseguire in base a una pianificazione. È possibile pianificare un processo Web nel suo complesso tramite Azure o pianificare singole funzioni di un processo Web mediante WebJobs SDK `TimerTrigger`. Ecco un esempio di codice.
 
 ```
@@ -148,12 +149,12 @@ Per altri esempi di codice, vedere [TimerSamples.cs](https://github.com/Azure/az
 ## <a name="extensibility"></a>Estensibilità
 Non è necessario limitarsi all'uso delle funzionalità integrate, WebJobs SDK consente di scrivere trigger e binder personalizzati.  Ad esempio, è possibile scrivere trigger per gli eventi della cache e le pianificazioni periodiche. Un [repository open source](https://github.com/Azure/azure-webjobs-sdk-extensions) contiene una [guida dettagliata sull'estensibilità di WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) e un codice di esempio per iniziare a scrivere i propri trigger e binder.
 
-## <a name="a-idworkerroleausing-the-webjobs-sdk-outside-of-webjobs"></a><a id="workerrole"></a>Uso di WebJobs SDK al di fuori dei processi Web
+## <a id="workerrole"></a>Uso di WebJobs SDK al di fuori dei processi Web
 Un programma che usa WebJobs SDK è un'applicazione console standard che può essere eseguita ovunque, non obbligatoriamente come processo Web. È possibile testare il programma a livello locale sul computer di sviluppo e, in fase di produzione, eseguirlo in un ruolo di lavoro del servizio cloud oppure un servizio Windows, se si preferisce uno di questi ambienti. 
 
 Tuttavia il dashboard è disponibile solo come estensione per un'app Web di Servizio app di Azure. Per l'esecuzione all'esterno di un processo Web usando comunque il dashboard, è possibile configurare un'app Web in modo da usare lo stesso account di archiviazione a cui fa riferimento la stringa di connessione del dashboard di WebJobs SDK, nel quale verranno quindi visualizzati i dati relativi all'esecuzione della funzione dal programma che viene eseguito altrove. Sarà possibile accedere al dashboard usando l'URL https://*{nomeappweb}*.scm.azurewebsites.net/azurejobs/#/functions. Per altre informazioni, vedere il post di blog riguardo l' [accesso a un dashboard per lo sviluppo locale con WebJobs SDK](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx), in cui tuttavia viene usato un vecchio nome per la stringa di connessione. 
 
-## <a name="a-idnostorageadashboard-features"></a><a id="nostorage"></a>Funzionalità del dashboard
+## <a id="nostorage"></a>Funzionalità del dashboard
 WebJobs SDK offre diversi vantaggi, anche se non si usano i trigger o i binder di WebJobs SDK:
 
 * È possibile richiamare le funzioni dal dashboard.
@@ -162,14 +163,9 @@ WebJobs SDK offre diversi vantaggi, anche se non si usano i trigger o i binder d
 
 Per altre informazioni, vedere le sezioni relative a [come chiamare manualmente una funzione](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual) e [come scrivere i log](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs) 
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Passaggi successivi
+## <a id="nextsteps"></a>Passaggi successivi
 Per altre informazioni su WebJobs SDK, vedere le [risorse consigliate per i Processi Web Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
 Per informazioni sui miglioramenti più recenti di WebJobs SDK, vedere le [note sulla versione](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

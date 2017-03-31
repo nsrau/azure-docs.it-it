@@ -3,8 +3,8 @@ title: Autenticazione e autorizzazione per app per le API nel servizio app di Az
 description: Informazioni sui servizi di autenticazione e autorizzazione forniti dal servizio app di Azure per app per le API.
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
-manager: wpickett
+author: alexkarcher-msft
+manager: erikre
 editor: 
 ms.assetid: d620b53a-5a6f-41c9-84c7-f7ef5ff02ae7
 ms.service: app-service-api
@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
-ms.author: rachelap
+ms.author: alkarche
 translationtype: Human Translation
 ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
 ms.openlocfilehash: cd66296718d8ae3cd2bcd69c66f54684f57d7ece
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -76,7 +77,7 @@ Per le opzioni 1 e 2, attivare l'**autenticazione del servizio app** e scegliere
 
 Per informazioni dettagliate sulla configurazione dell'autenticazione, vedere [Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). L'articolo si applica alle app per le API, nonché alle app per dispositivi mobili e vengono forniti collegamenti ad altri articoli relativi ad altri provider di autenticazione.
 
-## <a name="a-idinternala-service-account-authentication"></a><a id="internal"></a> Autenticazione dell'account del servizio
+## <a id="internal"></a> Autenticazione dell'account del servizio
 L'autenticazione del servizio app funziona per gli scenari interni, ad esempio per la chiamata da un'app per le API a un'altra. In questo scenario si ottiene un token usando le credenziali per un account del servizio invece delle credenziali dell'utente finale. Un account del servizio è noto anche come *entità servizio* in Azure Active Directory e l'autenticazione che usa un account di questo tipo è nota anche come scenario da servizio a servizio. 
 
 Per gli scenari da servizio a servizio, proteggere l'app per le API chiamata usando Azure Active Directory e fornire un token AAD di autorizzazione dell'entità servizio durante la chiamata all'app per le API. Per ottenere un token, è possibile fornire l'ID client e il segreto client dell'applicazione AAD. Non è necessario alcun codice speciale di Azure, come quello usato per la gestione del token zumo dei servizi mobili. Un esempio di questo scenario che usa le app per le API ASP.NET è illustrato nell'esercitazione [Autenticazione dell'entità servizio per app per le API](app-service-api-dotnet-service-principal-auth.md).
@@ -108,10 +109,5 @@ Per altre informazioni su Azure Active Directory, vedere le risorse seguenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questo articolo ha illustrato le funzionalità di autenticazione e autorizzazione del servizio app che è possibile usare per le app per le API. La prossima esercitazione della serie introduttiva illustra come implementare l’ [autenticazione utente per le app per le API nel servizio app di Azure](app-service-api-dotnet-user-principal-auth.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

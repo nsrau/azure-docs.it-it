@@ -182,6 +182,6 @@ Dopo avere creato un indice di Ricerca di Azure, sarà possibile [caricare il co
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,3 +1,7 @@
-Dopo aver creato il listener del gruppo di disponibilità, potrebbe essere necessario regolare i parametri cluster **RegisterAllProvidersIP**e**HostRecordTTL**per la risorsa listener. Questi parametri possono ridurre il tempo di riconnessione dopo un failover che può impedire i timeout di connessione. Per ulteriori informazioni su questi parametri e sull’esempio di codice, vedere[creare o configurare un Listener del gruppo di disponibilità](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover).
+Dopo aver creato il listener del gruppo di disponibilità, può essere necessario regolare i parametri cluster **RegisterAllProvidersIP** e **HostRecordTTL** per la risorsa listener.  Questi parametri possono ridurre il tempo di riconnessione dopo un failover che può impedire i timeout di connessione. Per ulteriori informazioni su questi parametri e sull’esempio di codice, vedere [creare o configurare un Listener del gruppo di disponibilità](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover).
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

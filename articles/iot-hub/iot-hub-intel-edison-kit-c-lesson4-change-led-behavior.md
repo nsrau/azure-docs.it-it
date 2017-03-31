@@ -1,5 +1,5 @@
 ---
-title: Modificare il comportamento di lampeggiamento del LED con messaggi dall&quot;hub IoT di Azure | Documentazione Microsoft
+title: 'Connettere Intel Edison (C) ad Azure IoT: lezione 4: Far lampeggiare il LED | Documentazione Microsoft'
 description: Personalizzare i messaggi per modificare il comportamento di accensione e spegnimento del LED.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 6d1c09c8007c373ab3c50a99efb1b3f27b46d90a
-ms.openlocfilehash: 858e68a3794470f51ee505710e16496109c1aa0b
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: 278bdf74e2fa8f7074bb8f5ed8eae2d47402b299
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -112,9 +113,4 @@ Questa sezione facoltativa illustra come personalizzare i messaggi per consentir
 [receive-cloud-to-device-messages]: iot-hub-intel-edison-kit-c-lesson4-send-cloud-to-device-messages.md
 [gulpfile]: media/iot-hub-intel-edison-lessons/lesson4/updated_gulpfile_c.png
 [on-and-off]: media/iot-hub-intel-edison-lessons/lesson4/gulp_on_and_off_c.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

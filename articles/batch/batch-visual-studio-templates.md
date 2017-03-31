@@ -1,6 +1,6 @@
 ---
-title: Modelli di Visual Studio per Azure Batch | Microsoft Docs
-description: Informazioni su come questi modelli di progetto di Visual Studio consentono di implementare ed eseguire i carichi di lavoro a elevato utilizzo di calcolo in Azure Batch.
+title: Avviare la creazione di soluzioni Batch con i modelli di progetto di Visual Studio - Azure | Documentazione Microsoft
+description: Informazioni su come questi modelli di progetto di Visual Studio consentono di implementare ed eseguire carichi di lavoro a elevato utilizzo di calcolo in Azure Batch.
 services: batch
 documentationcenter: .net
 author: fayora
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/05/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 84e7e6ddf03172e646c55e7e3bf45a32feb15b06
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 53c9b75599af48be82c63bc7a9df31d4c2de13a3
+ms.lasthandoff: 03/09/2017
 
 
 ---
-# <a name="visual-studio-project-templates-for-azure-batch"></a>Modelli di progetto di Visual Studio per Azure Batch
+# <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Usare i modelli di progetto di Visual Studio per avviare rapidamente le soluzioni Batch
+
 I modelli di Visual Studio **Gestore di processi** e **Task Processor** (Elaboratore di attività) per Batch forniscono il codice per implementare ed eseguire i carichi di lavoro a elevato utilizzo di calcolo in Batch con il minimo sforzo. Questo documento illustra tali modelli e fornisce le linee guida per usarli.
 
 > [!IMPORTANT]
@@ -52,7 +55,7 @@ Come illustrato nel diagramma seguente, un processo di calcolo che usa questi mo
 ## <a name="prerequisites"></a>Prerequisiti
 Per usare i modelli di Batch, sarà necessario quanto segue:
 
-* Un computer con Visual Studio 2015 o versione successiva già installato.
+* Un computer con Visual Studio 2015 o versione successiva installata.
 * I modelli di Batch, disponibili in [Visual Studio Gallery][vs_gallery] come estensioni di Visual Studio. È possibile ottenere i modelli in due modi:
   
   * Installare i modelli usando la finestra di dialogo **Estensioni e aggiornamenti** in Visual Studio. Per altre informazioni, vedere [Ricerca e uso delle estensioni di Visual Studio][vs_find_use_ext]. Nella finestra di dialogo **Estensioni e aggiornamenti** cercare e scaricare le due estensioni seguenti:
@@ -65,7 +68,7 @@ Per usare i modelli di Batch, sarà necessario quanto segue:
 ## <a name="preparation"></a>Operazioni preliminari
 Si consiglia di creare una soluzione che possa contenere il gestore di processi oltre all'elaboratore di attività, perché può semplificare la condivisione del codice tra i programmi del gestore di processi e dell'elaboratore di attività. Per creare la soluzione, seguire questi passaggi:
 
-1. Aprire Visual Studio 2015 e selezionare **File** > **Nuovo** > **Progetto**.
+1. Aprire Visual Studio e selezionare **File** > **Nuovo** > **Progetto**.
 2. In **Modelli** espandere **Altri tipi di progetti**, fare clic su **Soluzioni di Visual Studio** e selezionare **Soluzione vuota**.
 3. Digitare un nome che descriva l'applicazione e lo scopo di questa soluzione, ad esempio "ProgrammiAttivitàBatchLitware".
 4. Per creare la nuova soluzione, fare clic su **OK**.
@@ -84,7 +87,7 @@ Il modello Job Manager (Gestore di processi) consente di implementare un'attivit
 ### <a name="create-a-job-manager-using-the-template"></a>Creare un gestore di processi usando il modello
 Per aggiungere un gestore di processi alla soluzione creata prima, seguire questi passaggi:
 
-1. Aprire la soluzione esistente in Visual Studio 2015.
+1. Aprire la soluzione esistente in Visual Studio.
 2. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e selezionare **Aggiungi** > **Nuovo progetto**.
 3. In **Visual C#** fare clic su **Cloud** e su **Azure Batch Job Manager with Job Splitter** (Gestore di processi di Azure Batch con componente di suddivisione dei processi).
 4. Digitare un nome che descriva l'applicazione e identifichi questo progetto come gestore di processi, ad esempio "GestoreProcessiLitware".
@@ -253,7 +256,7 @@ Le azioni eseguite dall'elaboratore di attività possono essere semplici o compl
 ### <a name="create-a-task-processor-using-the-template"></a>Creare un elaboratore delle attività usando il modello
 Per aggiungere un elaboratore di attività alla soluzione creata prima, seguire questi passaggi:
 
-1. Aprire la soluzione esistente in Visual Studio 2015.
+1. Aprire la soluzione esistente in Visual Studio.
 2. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione scegliere **Aggiungi**, quindi fare clic su **Nuovo progetto**.
 3. In **Visual C#** fare clic su **Cloud** e su **Azure Batch Task Processor** (Elaboratore di attività di Azure Batch).
 4. Digitare un nome che descriva l'applicazione e identifichi questo progetto come elaboratore di attività, ad esempio "ElaboratoreAttivitàLitware".
@@ -437,7 +440,7 @@ parameters.json e, se lo trova, lo carica come dizionario di parametri. Per pass
 Un altro strumento utile nello sviluppo di soluzioni Batch è [Azure Batch File Conventions][nuget_package]. Usare questa libreria di classi .NET (attualmente in anteprima) nelle applicazioni Batch .NET per archiviare e recuperare facilmente gli output delle attività in e da Archiviazione di Azure. [Salvare in modo permanente l'output dei processi e delle attività di Azure Batch](batch-task-output.md) contiene una descrizione completa della libreria e di come utilizzarla.
 
 ### <a name="batch-forum"></a>Forum di Batch
-Il [forum di Azure Batch][forum] su MSDN consente di seguire discussioni su Batch e di inviare domande sul servizio. Leggere i post contrassegnati e inviare domande durante le procedure di sviluppo delle soluzioni Batch.
+Il [forum di Azure Batch][forum] su MSDN consente di seguire discussioni su Batch e inviare domande sul servizio. Leggere i post contrassegnati e inviare domande durante le procedure di sviluppo delle soluzioni Batch.
 
 [forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx
@@ -451,9 +454,4 @@ Il [forum di Azure Batch][forum] su MSDN consente di seguire discussioni su Batc
 [diagram01]: ./media/batch-visual-studio-templates/diagram01.png
 [solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png
 [solution_explorer02]: ./media/batch-visual-studio-templates/solution_explorer02.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

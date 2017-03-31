@@ -1,6 +1,6 @@
 ---
-title: Come pianificare i processi con l&quot;Hub IoT di Azure | Documentazione Microsoft
-description: In questa esercitazione viene illustrato come pianificare processi
+title: Pianificare processi con l&quot;hub IoT di Azure (.NET/Node) | Documentazione Microsoft
+description: "Come pianificare un processo dell&quot;hub IoT di Azure per richiamare un metodo diretto su più dispositivi. Usare Azure IoT SDK per dispositivi per Node.js per implementare app per dispositivo simulato e Azure IoT SDK per servizi per .NET per implementare un&quot;app di servizio che esegue il processo."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -12,15 +12,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/17/2016
+ms.date: 02/24/2017
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: ebda1823464d6148e5ab9f0276a72ed0f716f757
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: fd53e73d6a686581ea2b807ae66716fc36a99ad4
+ms.lasthandoff: 12/07/2016
 
 
 ---
-# <a name="tutorial-schedule-and-broadcast-jobs"></a>Esercitazione: Pianificare e trasmettere processi
+# <a name="schedule-and-broadcast-jobs"></a>Pianificare e trasmettere processi
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
 ## <a name="introduction"></a>Introduzione
@@ -35,12 +36,12 @@ Concettualmente, un processo esegue il wrapping di una di queste azioni e tiene 
 Altre informazioni su queste funzionalità sono disponibili in questi articoli:
 
 * Dispositivi gemelli e proprietà: [Introduzione ai dispositivi gemelli][lnk-get-started-twin] ed [Esercitazione: Come usare le proprietà dei dispositivi gemelli][lnk-twin-props]
-* Metodi diretti: [Guida per gli sviluppatori - Metodi diretti][lnk-dev-methods] ed [Esercitazione: Usare i metodi diretti][lnk-c2d-methods]
+* Metodi diretti: [Guida per sviluppatori dell'hub IoT - Metodi diretti][lnk-dev-methods] ed [Esercitazione: Usare metodi diretti][lnk-c2d-methods]
 
 Questa esercitazione illustra come:
 
 * Creare un'app per dispositivo simulato con un metodo diretto che abilita il metodo diretto **lockDoor** e può essere chiamato dall'app back-end.
-* Creare un'applicazione console che chiama il metodo diretto **lockDoor** nell'app per dispositivo simulato tramite processo e aggiorna le proprietà desiderate tramite un processo del dispositivo.
+* Creare un'app console .NET che chiama il metodo diretto **lockDoor** nell'app per dispositivo simulato tramite un processo e aggiorna le proprietà desiderate tramite un processo del dispositivo.
 
 Al termine dell'esercitazione saranno disponibili un'app per il dispositivo console Node.js e un'app back-end console .NET (C#):
 
@@ -66,14 +67,14 @@ In questa sezione si creerà un'app console .NET (usando C#) che avvia un **lock
     ![Nuovo progetto desktop di Windows classico in Visual C#][img-createapp]
 
 2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **ScheduleJob** e quindi scegliere **Gestisci pacchetti NuGet**.
-3. Nella finestra **Gestione pacchetti NuGet** selezionare **Esplora**, cercare **microsoft.azure.devices**, selezionare **Installa** per installare il pacchetto **Microsoft.Azure.Devices** e accettare le condizioni per l'uso. Questa procedura scarica, installa e aggiunge un riferimento al pacchetto NuGet [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] e alle relative dipendenze.
+3. Nella finestra **Gestione pacchetti NuGet** selezionare **Esplora**, cercare **microsoft.azure.devices**, selezionare **Installa** per installare il pacchetto **Microsoft.Azure.Devices** e accettare le condizioni per l'uso. Questa procedura scarica, installa e aggiunge un riferimento al [pacchetto NuGet Azure IoT - SDK per dispositivi][lnk-nuget-service-sdk] e alle relative dipendenze.
 
     ![Finestra Gestione pacchetti NuGet][img-servicenuget]
 4. Aggiungere le istruzione `using` seguenti all'inizio del file **Program.cs** :
    
         using Microsoft.Azure.Devices;
         
-5. Aggiungere i campi seguenti alla classe **Program** . Sostituire i segnaposti multipli con la stringa di connessione dell'hub IoT creato nella sezione precedente.
+5. Aggiungere i campi seguenti alla classe **Program** . Sostituire il segnaposto con la stringa di connessione dell'hub IoT creato nella sezione precedente.
    
         static string connString = "{iot hub connection string}";
         static ServiceClient client;
@@ -99,7 +100,7 @@ In questa sezione si creerà un'app console .NET (usando C#) che avvia un **lock
             CloudToDeviceMethod directMethod = new CloudToDeviceMethod("lockDoor", TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(5));
 
             JobResponse result = await jobClient.ScheduleDeviceMethodAsync(jobId,
-                "SELECT * from DEVICES",
+                "deviceId='myDeviceId'",
                 directMethod,
                 DateTime.Now,
                 10);
@@ -117,7 +118,7 @@ In questa sezione si creerà un'app console .NET (usando C#) che avvia un **lock
             twin.ETag = "*";
 
             JobResponse result = await jobClient.ScheduleTwinUpdateAsync(jobId,
-                "SELECT * from DEVICES", 
+                "deviceId='myDeviceId'",
                 twin,
                 DateTime.Now,
                 10);
@@ -168,7 +169,7 @@ In questa sezione si crea un'app console Node.js che risponde a un metodo dirett
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Aggiungere una variabile **connectionString** e usarla per creare un client dispositivo.  
+5. Aggiungere una variabile **connectionString** e usarla per creare un'istanza **Client**.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
@@ -198,7 +199,7 @@ In questa sezione si crea un'app console Node.js che risponde a un metodo dirett
         if (err) {
             console.error('Could not connect to IotHub client.');
         }  else {
-            console.log('Client connected to IoT Hub.  Waiting for reboot direct method.');
+            console.log('Client connected to IoT Hub.  Waiting for lockDoor direct method.');
             client.onDeviceMethod('lockDoor', onLockDoor);
         }
     });
@@ -241,12 +242,8 @@ Per altre informazioni sulle attività iniziali con l'hub IoT, vedere [Getting s
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-fwupdate]: iot-hub-node-node-firmware-update.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-
-
-<!--HONumber=Nov16_HO5-->
-
 

@@ -18,6 +18,7 @@ ms.author: yushwang
 translationtype: Human Translation
 ms.sourcegitcommit: b8b663d802fde83f3435f2d97ceb51d5b5c802bb
 ms.openlocfilehash: ef17c0226528fef35c0317cebbaa14b7bbe28b1d
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -378,10 +379,5 @@ Questo aggiornamento può richiedere fino a 30-45 minuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per i passaggi, vedere [Creare la prima macchina virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) .
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

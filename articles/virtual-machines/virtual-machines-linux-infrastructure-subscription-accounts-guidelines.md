@@ -1,5 +1,5 @@
 ---
-title: Linee guida per le sottoscrizioni e gli account Azure | Documentazione Microsoft
+title: Sottoscrizione e account per le macchine virtuali Linux in Azure | Documentazione Microsoft
 description: Informazioni sulle principali linee guida di progettazione e implementazione per le sottoscrizioni e gli account in Azure.
 documentationcenter: 
 services: virtual-machines-linux
@@ -13,15 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/17/2017
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a99ab839ec9ade0049e1cc59054e333048e0208c
-ms.openlocfilehash: df7291a93af5185d3bd18259a37233f7910fcabf
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 44a82f3eaafa231c22429968fcac63872b74c75b
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="azure-subscription-and-accounts-guidelines"></a>Linee guida per le sottoscrizioni e gli account Azure
+# <a name="azure-subscription-and-accounts-guidelines-for-linux-vms"></a>Linee guida per le sottoscrizioni e gli account Azure per macchine virtuali Linux
+
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Questo articolo è incentrato sulla comprensione delle modalità di gestione delle sottoscrizioni e degli account mano a mano che si amplia l'ambiente e la base utenti.
@@ -47,28 +50,23 @@ Per usare Azure sono necessarie una o più sottoscrizioni ad Azure. Nell'ambito 
 
 A causa del limite di due livelli gerarchici nella relazione di account/sottoscrizione è importante allineare la convenzione di denominazione degli account e delle sottoscrizioni alle esigenze di fatturazione. Se ad esempio un'azienda globale usa Azure, può scegliere di disporre di un account per ogni area e fare in modo che le sottoscrizioni vengano gestite a livello di area:
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/sub01.png)
+![](windows/media/virtual-machines-common-infrastructure-service-guidelines/sub01.png)
 
 È ad esempio possibile usare la struttura seguente:
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/sub02.png)
+![](windows/media/virtual-machines-common-infrastructure-service-guidelines/sub02.png)
 
 Se in un'area si decide di associare più sottoscrizioni a un determinato gruppo, la convenzione di denominazione deve incorporare un modo per codificare i dati aggiuntivi sia nel nome account che nel nome della sottoscrizione. Questa organizzazione consente di elaborare i dati di fatturazione per generare nuovi livelli di gerarchia durante la fatturazione dei report:
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/sub03.png)
+![](windows/media/virtual-machines-common-infrastructure-service-guidelines/sub03.png)
 
 L'organizzazione potrebbe essere simile all'esempio seguente:
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/sub04.png)
+![](windows/media/virtual-machines-common-infrastructure-service-guidelines/sub04.png)
 
 Viene fornita la fatturazione dettagliata tramite un file scaricabile, per un singolo account o per tutti gli account di un contratto Enterprise.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

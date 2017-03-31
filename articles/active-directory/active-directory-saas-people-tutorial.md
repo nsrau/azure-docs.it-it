@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 01/25/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c8ca9d1ac59b0470a87e22731494adbc359b3420
+ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
+ms.openlocfilehash: eb24c4fe5f382a30acc524065f2ee9e3a27ce94f
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -27,7 +28,7 @@ L'integrazione di People con Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD chi può accedere a People
 * È possibile abilitare gli utenti per l'accesso automatico a People (Single Sign-On) con i propri account Azure AD
-* È possibile gestire gli account da una posizione centrale: il portale di Azure classico
+* È possibile gestire gli account da una posizione centrale con il portale di Azure classico
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -35,7 +36,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 Per configurare l'integrazione di Azure AD con People, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure.
-* Sottoscrizione di People abilitata per l'accesso Single Sign-On
+* Sottoscrizione di People abilitata per l'accesso Single Sign-On (SSO)
 
 > [!NOTE]
 > Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
@@ -104,33 +105,24 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_04.png) 
    
-    a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione People usando il modello seguente: **"https://\<nome società\>.peoplehr.com/"**. 
-   
-    b. Se non si conosce l'URL del tenant, contattare il team di supporto di People all'indirizzo [customerservices@peoplehr.com](mailto:customerservices@peoplehr.com) per richiederlo.  
-   
-    c. Nella casella di testo **Identificatore** digitare l'URL del tenant. 
-   
-    d. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: "**https://itgs.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx**".
-   
-    e. Fare clic su **Avanti**
+   1. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione People usando il modello seguente: **"https://\<nome società\>.peoplehr.com/"**. 
+   2. Se non si conosce l'URL del tenant, contattare il team di supporto di People all'indirizzo [customerservices@peoplehr.com](mailto:customerservices@peoplehr.com) per richiederlo.    3. Nella casella di testo **Identificatore** digitare l'URL del tenant. 
+   4. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: "**https://itgs.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx**".
+   5. Fare clic su **Avanti**.
 4. Nella pagina **Configura accesso Single Sign-On in People** seguire questa procedura e quindi fare clic su **Avanti**:
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_05.png) 
    
-    a. Fare clic su **Scarica metadati**e quindi salvare il file nel computer.
-   
-    b. Fare clic su **Avanti**.
+   1. Fare clic su **Scarica metadati**e quindi salvare il file nel computer.
+   2. Fare clic su **Avanti**.
 5. Per configurare l'accesso SSO sull'applicazione, è necessario accedere al tenant di People come amministratore.
    
-    a. Nella barra di spostamento sul lato sinistro fare clic su **Settings (Impostazioni)**.
-   
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_001.png) 
-   
-    b. Fare clic su **"Company" (Azienda)**.
+   1. Nella barra di spostamento sul lato sinistro fare clic su **Settings (Impostazioni)**.
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_001.png)    
+   2. Fare clic su **"Company" (Azienda)**.
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_002.png) 
-   
-    c. In **"Upload 'Single Sign On' SAML meta-data file"** (Carica il file dei metadati SAML "Single Sign-On") fare clic su **Browse** (Sfoglia) per caricare il file di metadati scaricato.
+    3. In **"Upload 'Single Sign On' SAML meta-data file"** (Carica il file dei metadati SAML "Single Sign-On") fare clic su **Browse** (Sfoglia) per caricare il file di metadati scaricato.
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_003.png)
 6. Nel portale di Azure classico, selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
@@ -162,24 +154,18 @@ Nell'elenco di utenti selezionare **Britta Simon**.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-people-tutorial/create_aaduser_05.png) 
    
-    a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
-   
-    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
-   
-    c. Fare clic su **Avanti**.
+    1. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
+    2. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
+    3. Fare clic su **Avanti**.
 6. Nella pagina **Profilo utente** seguire questa procedura:
    
    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-people-tutorial/create_aaduser_06.png) 
    
-   a. Nella casella di testo **Nome** digitare **Britta**.  
-   
-   b. Nella casella di testo **Cognome** digitare **Simon**.
-   
-   c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
-   
-   d. Nell'elenco **Ruolo** selezionare **Utente**.
-   
-   e. Fare clic su **Avanti**.
+   1. Nella casella di testo **Nome** digitare **Britta**.  
+   2. Nella casella di testo **Cognome** digitare **Simon**.
+   3. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
+   4. Nell'elenco **Ruolo** selezionare **Utente**.
+   5. Fare clic su **Avanti**.
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-people-tutorial/create_aaduser_07.png) 
@@ -187,9 +173,8 @@ Nell'elenco di utenti selezionare **Britta Simon**.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-people-tutorial/create_aaduser_08.png) 
    
-    a. Prendere nota del valore visualizzato in **Nuova password**.
-   
-    b. Fare clic su **Complete**.   
+   1. Prendere nota del valore visualizzato in **Nuova password**.
+   2. Fare clic su **Completa**.   
 
 ### <a name="creating-a-people-test-user"></a>Creazione di un utente test di People
 Questa sezione descrive come creare un utente chiamato Britta Simon in People. People non supporta il provisioning just-in-time quindi è necessario contattare il team di supporto di People per creare manualmente un utente.
@@ -240,9 +225,4 @@ Quando si fa clic sul riquadro People nel pannello di accesso, si dovrebbe acced
 [203]: ./media/active-directory-saas-people-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-people-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-people-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

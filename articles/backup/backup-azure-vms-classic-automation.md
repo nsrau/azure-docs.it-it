@@ -1,10 +1,10 @@
 ---
 title: Distribuire e gestire il backup per le VM di Azure con PowerShell | Documentazione Microsoft
-description: Informazioni su come distribuire e gestire Backup di Azure mediante PowerShell
+description: Informazioni su come distribuire e gestire Backup di Azure mediante PowerShell.
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: 
 ms.assetid: 2e24b1d9-4375-4049-a28d-e3bc01152f32
 ms.service: backup
@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: markgal;trinadhk;jimpark
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: ad7fb6f05a40cced28555521049f85ad59fb9878
+ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
+ms.openlocfilehash: aa1934447b53b725a08cebb47da9171a136b76ff
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="deploy-and-manage-backup-for-azure-vms-using-powershell"></a>Distribuire e gestire il backup per le macchine virtuali di Azure tramite PowerShell
+# <a name="use-azurermbackup-cmdlets-to-back-up-virtual-machines"></a>Usare i cmdlet AzureRM.Backup per eseguire il backup di macchine virtuali
 > [!div class="op_single_selector"]
 > * [Gestione risorse](backup-azure-vms-automation.md)
 > * [Classico](backup-azure-vms-classic-automation.md)
@@ -350,9 +352,4 @@ Se si vogliono aggiungere funzionalità per la creazione di grafici all'output d
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se si preferisce usare PowerShell per interagire con le risorse di Azure, vedere l'articolo relativo a PowerShell per la protezione di Windows Server, [Distribuire e gestire il backup per Windows Server](backup-client-automation-classic.md). È disponibile anche un articolo relativo a PowerShell per la gestione dei backup di DPM, [Distribuire e gestire il backup per DPM](backup-dpm-automation-classic.md). Entrambi gli articoli prevedono due versioni: una per la distribuzione con Resource Manager, l’altra per la distribuzione classica.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

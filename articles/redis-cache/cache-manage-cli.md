@@ -1,5 +1,5 @@
 ---
-title: Come creare e gestire Cache Redis di Azure con l&quot;interfaccia della riga di comando di Azure | Documentazione Microsoft
+title: Gestire Cache Redis di Azure con l&quot;interfaccia della riga di comando di Azure | Documentazione Microsoft
 description: Come installare l&quot;interfaccia della riga di comando di Azure su qualsiasi piattaforma, come utilizzarla per connettersi all&quot;account Azure e come creare e gestire una Cache Redis dall&quot;interfaccia della riga di comando di Azure.
 services: redis-cache
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 01/23/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
-ms.openlocfilehash: db8095f225a6d5a954474f7014ce35800a363b55
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: ae8e531c32b49e121b1c43b15071c138aaacf498
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -33,7 +34,7 @@ L'interfaccia della riga di comando di Azure è un ottimo modo di gestire l'infr
 Per creare e gestire le istanze di Cache Redis di Azure utilizzando CLI di Azure, è necessario completare i passaggi seguenti.
 
 * È necessario disporre di un account Azure. Se non è disponibile, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi istanti.
-* [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md)
+* [Installare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md)
 * Connettere l'installazione dell’interfaccia della riga di comando di Azure con un account Azure personale o con un account di lavoro o scolastico di Azure, e accedere dall’interfaccia della riga di comando di Azure utilizzando il comando `azure login` . Per comprendere le differenze e scegliere, vedere [Connettersi a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure (Azure CLI)](../xplat-cli-connect.md).
 * Prima di eseguire uno dei seguenti comandi, passare l’interfaccia della riga di comando di Azure in modalità di Gestione delle risorse eseguendo il comando `azure config mode arm` . Per altre informazioni, vedere l'articolo su come [usare l'interfaccia della riga di comando di Azure per gestire risorse e gruppi di risorse di Azure](../xplat-cli-azure-resource-manager.md).
 
@@ -266,9 +267,4 @@ Per altre informazioni su questo comando, eseguire il comando `azure rediscache 
     help:      -s, --subscription <subscription>      the subscription identifier
     help:
     help:    Current Mode: arm (Azure Resource Management)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

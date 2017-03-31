@@ -4,7 +4,7 @@ description: Informazioni su come distribuire un&quot;applicazione Node.js nel s
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 8877ddc8-1476-45ae-9e7f-3c75917b4564
 ms.service: app-service-web
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 08b4cd3fe4a246bc62fb4a6cc596630968d7f9d7
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 1818f48b94754589a2dc5d89c2ba24d2ff2681bc
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -39,13 +40,13 @@ Avere una conoscenza pratica di Sails.js. Questa esercitazione non fornisce info
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - [Interfaccia della riga di comando di Azure 1.0](app-service-web-nodejs-sails-cli-nodejs.md): l'interfaccia della riga di comando per i modelli di distribuzione classici e di gestione delle risorse
-- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](app-service-web-nodejs-sails.md): l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse
+- [Interfaccia della riga di comando di Azure 2.0](app-service-web-nodejs-sails.md): interfaccia della riga di comando di prossima generazione per il modello di distribuzione di Gestione risorsa
 
 ## <a name="prerequisites"></a>Prerequisiti
 * [Node.JS](https://nodejs.org/)
 * [Sails.js](http://sailsjs.org/get-started)
 * [Git](http://www.git-scm.com/downloads)
-* [Interfaccia della riga di comando di Azure](../xplat-cli-install.md)
+* [Interfaccia della riga di comando di Azure](../cli-install-nodejs.md)
 * Un account Microsoft Azure. Se non si ha un account, è possibile [iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) oppure [attivare i vantaggi per i sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
@@ -258,9 +259,4 @@ Per connettersi a un database in Azure, creare il database desiderato in Azure, 
 ## <a name="more-resources"></a>Altre risorse
 * [Introduzione alle app Web Node.js nel servizio app di Azure](app-service-web-nodejs-get-started.md)
 * [Utilizzo di moduli Node.js con le applicazioni Azure](../nodejs-use-node-modules-azure-apps.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

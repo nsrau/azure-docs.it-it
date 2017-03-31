@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
 translationtype: Human Translation
-ms.sourcegitcommit: 36c9a33fc0fa1b71b3dde22a6dfd472eb569b650
-ms.openlocfilehash: 28a18ac0e33c0cccbb97d31dd34e8286ff566852
+ms.sourcegitcommit: ab688288c7ae0d6bebdff5156fad6f7f5e9b4224
+ms.openlocfilehash: e10bf8f7cbae2b81d22823ff74fe652c6bcb2da3
 
 
 ---
@@ -56,7 +56,7 @@ Di seguito vengono elencate le impostazioni più importanti da regolare per otte
 
 **Set hive.exec.reducer.bytes.per.reducer**: il valore predefinito funziona bene quando i dati non sono compressi.  In caso di dati compressi, è consigliabile ridurre la dimensione del riduttore.  
 
-**Set hive.tez.container.size**: in ciascun nodo, la memoria viene specificata da yarn.nodemanager.resource.memory-mb e dovrebbe essere impostata correttamente nel cluster HDI per impostazione predefinita.  Per ulteriori informazioni sull'impostazione della memoria appropriata in YARN, vedere questo post.
+**Set hive.tez.container.size**: in ciascun nodo, la memoria viene specificata da yarn.nodemanager.resource.memory-mb e dovrebbe essere impostata correttamente nel cluster HDI per impostazione predefinita.  Per altre informazioni sull'impostazione della memoria appropriata in YARN, vedere questo [post](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
 
 I carichi di lavoro con numerose operazioni di I/O possono trarre vantaggi da un maggiore parallelismo riducendo la dimensione del contenitore Tez. In questo modo l'utente dispone di più contenitori e, quindi, di più concorrenza.  Tuttavia, alcune query di Hive richiedono una notevole quantità di memoria (ad esempio MapJoin).  Se l'attività non dispone di sufficiente memoria, si otterrà un'eccezione di memoria insufficiente durante la fase di runtime.  Se si ricevono eccezioni di memoria insufficiente, è necessario aumentare la memoria.   
 
@@ -94,6 +94,6 @@ Ecco alcuni articoli di blog che consentiranno di ottimizzare le query di Hive:
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

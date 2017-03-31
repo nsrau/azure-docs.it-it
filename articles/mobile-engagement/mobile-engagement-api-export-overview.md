@@ -1,3 +1,4 @@
+
 ---
 title: Panoramica dell&quot;API di esportazione di Mobile Engagement
 description: Questo documento illustra le nozioni di base sull&quot;esportazione dei dati non elaborati generati da dispositivi dell&quot;utente per l&quot;uso in strumenti personalizzati.
@@ -15,8 +16,8 @@ ms.workload: mobile
 ms.date: 04/26/2016
 ms.author: kapiteir
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9c17a1cb33616ad297d0fad9b8ea674de75bd8fb
+ms.sourcegitcommit: b1e2ddb613e713972820621d0fa836c41eb61f91
+ms.openlocfilehash: 346e0e480ff84ee849f135a7605d27df9e32f966
 
 
 ---
@@ -63,6 +64,9 @@ Per esportare i dati da Mobile Engagement, è necessario creare un **processo di
 * Il tipo di esportazione (snapshot o cronologica),
 * Il tipo di dati,
 * Il **contenitore dell'Archiviazione di Azure** , con inclusa una firma di accesso condiviso valida con accesso in scrittura, dove verranno scritti i risultati dell'esportazione.
+* Il parametro dell'URL del contenitore sarà ad esempio https://[NomeAccountArchiviazione].blob.core.windows.net/[NomeContenitore]?[TokenAutorizzazioniScritturaFirmaAccessoCondiviso]  
+
+Ecco un esempio reale: https://testazmeexport.blob.core.windows.net/test1234azme?sv=2015-12-11&ss=b&srt=sco&sp=rwdlac&se=2016-12-17T04:59:26Z&st=2016-12-16T20:59:26Z&spr=https&sig=KRF3aVWjp2NEJDzjlmoplmu0M9HHlLdkBWRPAFmw90Q%3D
 
 Si noti che l'avvio del processo potrebbe richiedere alcuni minuti e che la sua esecuzione potrebbe richiedere da qualche secondo per le app molto piccole ad alcune ore per le app con diversi utenti e attività.
 
@@ -73,6 +77,6 @@ Una volta che il processo è stato completato correttamente, il file di dati ris
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

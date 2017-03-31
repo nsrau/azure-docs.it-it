@@ -1,7 +1,7 @@
 ---
-title: "Porre una domanda a cui è possibile rispondere con i dati - formulare domande| Documentazione Microsoft"
-description: Informazioni su come formulare una domanda sull&quot;analisi scientifica dei dati in Analisi scientifica dei dati per principianti, video 3. Include un confronto delle domande di classificazione e regressione.
-keywords: domande di analisi scientifica dei dati, formulare domande, domande di regressione, domande di classificazione, domanda ben strutturata
+title: Formulare una domanda a cui i dati possono rispondere - Problemi di analisi scientifica dei dati - Azure | Documentazione Microsoft
+description: Informazioni su come formulare una domanda mirata sull&quot;analisi scientifica dei dati in Analisi scientifica dei dati per principianti, video 3. Include un confronto delle domande di classificazione e regressione.
+keywords: problemi di analisi scientifica dei dati, domande di analisi scientifica dei dati, formulare domande, domande di regressione, domande di classificazione, domanda ben strutturata
 services: machine-learning
 documentationcenter: na
 author: cjgronlund
@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f6cb2a15ab8ef87672c0abbc93ee68478d0efb48
+ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
+ms.openlocfilehash: 3c476cf99ebfe78f5681019fc055d1a07b61ef02
 
 
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Porre una domanda a cui è possibile rispondere con i dati
 ## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Analisi scientifica dei dati per principianti
-Informazioni su come formulare una domanda sull'analisi scientifica dei dati in Analisi scientifica dei dati per principianti, video 3. Questo video include un confronto di domande per gli algoritmi di classificazione e regressione.
+Informazioni su come formulare un problema come domanda sull'analisi scientifica dei dati in Analisi scientifica dei dati per principianti, video 3. Questo video include un confronto di domande per gli algoritmi di classificazione e regressione.
 
 Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'elenco dei video è disponibile qui](#other-videos-in-this-series)
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player]
-> 
-> 
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player]
+>
+>
 
 ## <a name="other-videos-in-this-series"></a>Altri video della serie
 *Analisi scientifica dei dati per principianti* è una rapida introduzione all'analisi scientifica dei dati in cinque brevi video.
@@ -100,7 +100,6 @@ Anche gli altri video della serie "Analisi scientifica dei dati per principianti
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

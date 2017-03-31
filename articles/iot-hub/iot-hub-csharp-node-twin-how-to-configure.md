@@ -1,6 +1,6 @@
 ---
-title: "Usare le proprietà del dispositivo gemello | Documentazione Microsoft"
-description: "Questa esercitazione illustra come usare le proprietà del dispositivo gemello."
+title: "Usare le proprietà di un dispositivo gemello dell&quot;hub IoT di Azure (.NET/Node) | Documentazione Microsoft"
+description: "Come usare le proprietà di un dispositivo gemello dell&quot;hub IoT di Azure per configurare dispositivi. Usare Azure IoT SDK per dispositivi per Node.js per implementare un&quot;app per dispositivo simulato e Azure IoT SDK per servizi per .NET per implementare un&quot;app di servizio che modifica la configurazione di un dispositivo usando un dispositivo gemello."
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -15,21 +15,21 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: 34e59b5ef344b48b57418d5cdb6e84b06ee07c43
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 26a6cd170e47204e16bb5799af8dcece7f4bb844
 
 
 ---
-# <a name="tutorial-use-desired-properties-to-configure-devices"></a>Esercitazione: Usare le proprietà desiderate per configurare i dispositivi
+# <a name="use-desired-properties-to-configure-devices"></a>Usare le proprietà desiderate per configurare i dispositivi
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
-Al termine di questa esercitazione si avranno due applicazioni console Node.js:
+Al termine di questa esercitazione si avranno due app console Node.js:
 
 * **SimulateDeviceConfiguration.js**, un'app per dispositivo simulata che attende un aggiornamento della configurazione desiderata e segnala lo stato di un processo di aggiornamento della configurazione simulata.
-* **SetDesiredConfigurationAndQuery.js**, un'app console .NET che deve essere eseguita dal back-end, che imposta la configurazione desiderata in un dispositivo ed esegue una query del processo di aggiornamento della configurazione.
+* **SetDesiredConfigurationAndQuery.js**, un'app back-end di .NET, che imposta la configurazione desiderata in un dispositivo ed esegue query sul processo di aggiornamento della configurazione.
 
 > [!NOTE]
-> L'articolo [Azure IoT SDKs][lnk-hub-sdks] (SDK di IoT di Azure) fornisce informazioni sugli SDK di IoT di Azure che consentono di compilare le applicazioni per dispositivi e back-end.
+> L'articolo [Azure IoT SDK][lnk-hub-sdks] contiene informazioni sui componenti Azure IoT SDK che consentono di compilare le app back-end e per dispositivi.
 > 
 > 
 
@@ -142,7 +142,7 @@ In questa sezione si crea un'app console Node.js che si connette all'hub come **
             });
         };
    
-    Il metodo **initConfigChange** aggiorna le proprietà segnalate nell'oggetto dispositivo gemello locale con la richiesta di aggiornamento della configurazione e imposta lo stato su **Pending**, quindi aggiorna il dispositivo gemello nel servizio. Dopo l'aggiornamento del dispositivo gemello, simula un processo a esecuzione prolungata che termina con l'esecuzione di **completeConfigChange**. Questo metodo aggiorna le proprietà segnalate locali impostando lo stato su **Success** e rimuovendo l'oggetto **pendingConfig**, quindi aggiorna il dispositivo gemello nel servizio.
+    Il metodo **initConfigChange** aggiorna le proprietà segnalate nell'oggetto dispositivo gemello locale con la richiesta di aggiornamento della configurazione e imposta lo stato su **Pending** (Sospeso), quindi aggiorna il dispositivo gemello nel servizio. Dopo l'aggiornamento del dispositivo gemello, simula un processo a esecuzione prolungata che termina con l'esecuzione di **completeConfigChange**. Questo metodo aggiorna le proprietà segnalate locali impostando lo stato su **Success** e rimuovendo l'oggetto **pendingConfig**, quindi aggiorna il dispositivo gemello nel servizio.
    
     Si noti che, per risparmiare larghezza di banda, le proprietà segnalate vengono aggiornate specificando solo le proprietà da modificare (denominate **patch** nel codice precedente), invece di sostituire l'intero documento.
    
@@ -163,7 +163,7 @@ In questa sezione si creerà un'app console .NET che aggiorna le *proprietà des
    
     ![Nuovo progetto desktop di Windows classico in Visual C#][img-createapp]
 2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **SetDesiredConfigurationAndQuery** e quindi scegliere **Gestisci pacchetti NuGet**.
-3. Nella finestra **Gestione pacchetti NuGet** selezionare **Esplora**, cercare **microsoft.azure.devices**, selezionare **Installa** per installare il pacchetto **Microsoft.Azure.Devices** e accettare le condizioni per l'uso. Questa procedura scarica, installa e aggiunge un riferimento al pacchetto NuGet [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] e alle relative dipendenze.
+3. Nella finestra **Gestione pacchetti NuGet** selezionare **Esplora**, cercare **microsoft.azure.devices**, selezionare **Installa** per installare il pacchetto **Microsoft.Azure.Devices** e accettare le condizioni per l'uso. Questa procedura scarica, installa e aggiunge un riferimento al [pacchetto NuGet Azure IoT - SDK per dispositivi][lnk-nuget-service-sdk] e alle relative dipendenze.
    
     ![Finestra Gestione pacchetti NuGet][img-servicenuget]
 4. Aggiungere le istruzione `using` seguenti all'inizio del file **Program.cs** :
@@ -230,7 +230,7 @@ In questa sezione si creerà un'app console .NET che aggiorna le *proprietà des
    > 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa esercitazione è stata impostata una configurazione desiderata come *proprietà desiderate* da un back-end ed è stata scritta un'app per dispositivo per rilevare tale modifica e simulare un processo di aggiornamento in più fasi che segnala lo stato tramite le proprietà segnalate.
+In questa esercitazione è stata impostata una configurazione desiderata come *proprietà desiderate* da un back-end della soluzione ed è stata scritta un'app per dispositivo per rilevare tale modifica e simulare un processo di aggiornamento in più fasi che segnala lo stato tramite le proprietà segnalate.
 
 Per altre informazioni, vedere le risorse seguenti:
 
@@ -254,7 +254,7 @@ Per altre informazioni, vedere le risorse seguenti:
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
 [lnk-schedule-jobs]: iot-hub-node-node-schedule-jobs.md
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
@@ -267,6 +267,6 @@ Per altre informazioni, vedere le risorse seguenti:
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

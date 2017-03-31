@@ -4,7 +4,7 @@ description: "Aggiungere funzionalità accattivanti alla prima app Web in pochi 
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 542671c2-22f0-4f20-8b4b-fa477264c492
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: 9916000ddf38fdda1dcbdcf8818c5833a445efc8
 ms.openlocfilehash: 3f099db9f75466b5571aa732bb60343af7bd86da
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -153,10 +154,5 @@ Con l'app distribuita è possibile eseguire altre operazioni. Ecco un elenco par
    è possibile analizzare l'app Web per cercare minacce attuali mediante il servizio fornito da [Tinfoil Security](https://www.tinfoilsecurity.com/).
 * [Eseguire processi in background](../azure-functions/functions-overview.md) : è possibile eseguire processi per l'elaborazione di dati, la creazione di report e così via.
 * [Conoscere il funzionamento del servizio app](../app-service/app-service-how-works-readme.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

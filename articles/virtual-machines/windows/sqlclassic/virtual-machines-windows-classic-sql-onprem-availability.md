@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2016
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: d96140483edffb1f94add16598bf0dc0a85dd6da
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 38728a20527be060e63d2dbdea923263b3d6c7fa
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -84,16 +85,11 @@ Questa sezione mostra come usare la **procedura guidata per l'aggiunta della rep
 > 
 
 ## <a name="create-an-availability-group-listener"></a>Creare un listener del gruppo di disponibilità
-Dopo aver creato il gruppo di disponibilità, è necessario creare un listener che consenta ai client di connettersi alle repliche. I listener indirizzano le connessioni in ingresso alla replica primaria o a una replica secondaria di sola lettura. Per altre informazioni sui listener, vedere [Configurare un listener ILB per gruppi di disponibilità AlwaysOn in Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
+Dopo aver creato il gruppo di disponibilità, è necessario creare un listener che consenta ai client di connettersi alle repliche. I listener indirizzano le connessioni in ingresso alla replica primaria o a una replica secondaria di sola lettura. Per altre informazioni sui listener, vedere [Configurare un listener ILB per gruppi di disponibilità AlwaysOn in Azure](../classic/ps-sql-int-listener.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Oltre a usare la **procedura guidata per l'aggiunta della replica di Azure** per estendere ad Azure il gruppo di disponibilità AlwaysOn, è anche possibile spostare completamente in Azure alcuni carichi di lavoro di SQL Server. Per altre informazioni, vedere [Provisioning di una macchina virtuale di SQL Server in Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md).
 
 Per altri argomenti relativi all'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [SQL Server in Macchine virtuali di Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

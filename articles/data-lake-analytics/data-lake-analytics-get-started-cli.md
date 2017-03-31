@@ -1,6 +1,6 @@
 ---
 title: Introduzione ad Azure Data Lake Analytics con l&quot;interfaccia della riga di comando di Azure | Documentazione Microsoft
-description: "Informazioni su come usare l’interfaccia della riga di comando di Azure per creare un account di Archivio Data Lake, creare un processo di Data Lake Analytics mediante U-SQL e inviare il processo. "
+description: 'Informazioni su come usare l&quot;interfaccia della riga di comando di Azure per creare un account di Data Lake Analytics, definire un processo di Data Lake Analytics con U-SQL e inviare il processo. '
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8b38c62ae1a60728d08643990238e2cc69cb6447
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4db7d45678c592749831c6b12d38363134da9e93
+ms.lasthandoff: 03/21/2017
 
 
 ---
-# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-commandline-interface-cli"></a>Esercitazione: Introduzione ad Azure Data Lake Analytics con l’interfaccia della riga di comandi (CLI) di Azure
+# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Esercitazione: Introduzione ad Azure Data Lake Analytics con l’interfaccia della riga di comandi (CLI) di Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Informazioni su come usare l’interfaccia della riga di comando di Azure per creare account di Azure Data Lake Analytics, definire processi di Data Lake Analytics in [U-SQL](data-lake-analytics-u-sql-get-started.md)e inviare processi ad account di Data Lake Analytics. Per altre informazioni su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
@@ -31,7 +32,7 @@ In questa esercitazione si svilupperà un processo che legge un file di valori s
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Interfaccia della riga di comando di Azure**. Vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+* **Interfaccia della riga di comando di Azure**. Vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md).
   * Scaricare e installare gli **Strumenti di Azure CLI** [pre-release](https://github.com/MicrosoftBigData/AzureDataLake/releases) per completare questa demo.
 * **Autenticazione**, utilizzando il comando seguente:
   
@@ -161,10 +162,5 @@ Dopo il completamento del processo, è possibile usare i cmdlet seguenti per vis
 * Per informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL di Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
 * Per informazioni sulle attività di gestione, vedere [Gestire Azure Data Lake Analytics con il portale di Azure](data-lake-analytics-manage-use-portal.md).
 * Per una panoramica su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

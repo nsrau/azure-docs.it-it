@@ -1,6 +1,6 @@
 ---
 title: Usare il portale di Azure per configurare il caricamento dei file | Documentazione Microsoft
-description: Panoramica su come configurare il caricamento dei file tramite il portale di Azure
+description: Come usare il portale di Azure per configurare l&quot;hub IoT per abilitare i caricamenti di file da dispositivi connessi. Include informazioni sulla configurazione dell&quot;account di archiviazione di Azure di destinazione.
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -12,15 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/05/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e3ac3e8cee2724b76f51423d1a6757382cca04f0
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: aadbee1388e2c2aafaf0a5c50d2af195284d2bec
+ms.lasthandoff: 12/07/2016
 
 
 ---
-# <a name="configure-file-uploads-using-the-azure-portal"></a>Configurare i caricamenti dei file tramite il portale di Azure
+# <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Configurare i caricamenti dei file nell'hub IoT con il portale di Azure
+
+[!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
+
 ## <a name="file-upload"></a>Caricamento di file
 Per usare la [funzionalità di caricamento di file nell'hub IoT][lnk-upload], è prima di tutto necessario associare un account di archiviazione di Azure all'hub. Selezionare le impostazioni di **Caricamento del file** per visualizzare un elenco di proprietà di caricamento del file per l'hub IoT da modificare.
 
@@ -41,17 +45,17 @@ Per usare la [funzionalità di caricamento di file nell'hub IoT][lnk-upload], è
 ![][15]
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle funzionalità di caricamento dei file dell'hub IoT, vedere [Upload files from a device][lnk-upload] (Caricare i file da un dispositivo) nella Guida per gli sviluppatori.
+Per altre informazioni sulle funzionalità di caricamento dei file dell'hub IoT, vedere [Caricare file da un dispositivo][lnk-upload] nella Guida per gli sviluppatori dell'hub IoT.
 
 Per ulteriori informazioni sulla gestione dell'hub IoT di Azure, consultare questi collegamenti:
 
 * [Gestire in blocco i dispositivi IoT][lnk-bulk]
-* [Metriche di uso][lnk-metrics]
+* [Metriche di Hub IoT][lnk-metrics]
 * [Monitoraggio delle operazioni][lnk-monitor]
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
-* [Guida per gli sviluppatori][lnk-devguide]
+* [Guida per gli sviluppatori dell'hub IoT][lnk-devguide]
 * [Simulazione di un dispositivo con IoT Gateway SDK][lnk-gateway]
 * [Proteggere la soluzione IoT sin dall'inizio][lnk-securing]
 
@@ -68,9 +72,4 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-securing]: iot-hub-security-ground-up.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

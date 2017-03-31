@@ -16,9 +16,10 @@
 
 # Risorse
 ##[Connessioni alle origini dati](analysis-services-datasource.md)
-##[Provider di dati](analysis-services-data-providers.md) 
+##[Provider di dati](analysis-services-data-providers.md)
+##[Creare un file con estensione odc](analysis-services-odc.md)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

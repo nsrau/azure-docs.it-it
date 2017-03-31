@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/15/2016
+ms.date: 02/02/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 01a6f060e6ae800b0de930c7c46ed60f73b530ac
-ms.openlocfilehash: 58aae152e49a4e90822f98c9cf5ee7aad067ffa8
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 39824fa66dee9f1bd57687e59ece97f4f4636b7d
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -34,6 +35,11 @@ ms.openlocfilehash: 58aae152e49a4e90822f98c9cf5ee7aad067ffa8
 > 
 
 Questa esercitazione mostra come creare e monitorare un'istanza di Azure Data Factory con Visual Studio. La pipeline nella data factory usa un'attività di copia per copiare i dati dall'archivio BLOB di Azure al database SQL di Azure.
+
+> [!NOTE]
+> La pipeline di dati in questa esercitazione copia i dati da un archivio dati di origine a un archivio dati di destinazione. Non trasforma i dati di input per produrre dati di output. Per un'esercitazione su come trasformare i dati usando Azure Data Factory, vedere [Esercitazione: Creare la prima pipeline per elaborare i dati usando il cluster Hadoop](data-factory-build-your-first-pipeline.md).
+> 
+> È possibile concatenare due attività, ovvero eseguire un'attività dopo l'altra, impostando il set di dati di output di un'attività come set di dati di input di altre attività. Per informazioni dettagliate, vedere [Pianificazione ed esecuzione con Data Factory](data-factory-scheduling-and-execution.md).
 
 Di seguito sono elencati i passaggi da eseguire in questa esercitazione:
 
@@ -91,7 +97,7 @@ In questo passaggio vengono creati due servizi collegati: **AzureStorageLinkedSe
 4. Salvare il file **AzureSqlLinkedService1.json** . 
 
 > [!NOTE]
-> Per informazioni dettagliate sulle proprietà JSON, vedere la sezione relativa allo [spostamento di dati da o nel database SQL di Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) .
+> Per informazioni dettagliate sulle proprietà JSON, vedere la sezione relativa allo [spostamento di dati da o nel database SQL di Azure](data-factory-azure-sql-connector.md#linked-service-properties) .
 > 
 > 
 
@@ -147,7 +153,7 @@ In questo passaggio viene creato un set di dati denominato **InputDataset** che 
    
    Se non si specifica **fileName** per un set di dati di **input**, tutti i file e i BLOB della cartella di input **folderPath** vengono considerati input. Se si specifica un oggetto fileName nel JSON, solo il file/BLOB specificato viene considerato un input.
    
-   Se non è stato specificato **fileName** per una **tabella di output**, i file generati in **folderPath** vengono denominati con il seguente formato: Data.&lt;Guid\&.txt (ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+   Se non è stato specificato **fileName** per una **tabella di output**, i file generati in **folderPath** vengono denominati con il seguente formato: Data.&lt;Guid&gt;.txt (ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
    
    Per impostare **folderPath** e **fileName** dinamicamente in base all'ora **SliceStart**, usare la proprietà **partitionedBy**. Nell'esempio seguente folderPath usa Year, Month e Day dall'oggetto SliceStart (ora di inizio della sezione elaborata), mentre fileName usa Hour dall'oggetto SliceStart. Se viene generata una sezione per 2016-09-20T08:00:00, ad esempio, folderName è impostato su wikidatagateway/wikisampledataout/2016/09/20 e fileName è impostato su 08.csv. 
   
@@ -163,7 +169,7 @@ In questo passaggio viene creato un set di dati denominato **InputDataset** che 
     ```
             
 > [!NOTE]
-> Per informazioni dettagliate sulle proprietà JSON, vedere la sezione relativa allo [spostamento di dati da o in BLOB di Azure](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) .
+> Per informazioni dettagliate sulle proprietà JSON, vedere la sezione relativa allo [spostamento di dati da o in BLOB di Azure](data-factory-azure-blob-connector.md#dataset-properties) .
 > 
 > 
 
@@ -210,7 +216,7 @@ In questo passaggio si crea un set di dati di output denominato **OutputDataset*
    * L'oggetto **availability** è impostato su **hourly**. L'oggetto **frequency** è impostato su **hour** e l'oggetto **interval** è impostato su **1**.  Il servizio Data Factory genera una porzione di dati di output ogni ora nella tabella **emp** nel database SQL di Azure.
 
 > [!NOTE]
-> Per informazioni dettagliate sulle proprietà JSON, vedere la sezione relativa allo [spostamento di dati da o nel database SQL di Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) .
+> Per informazioni dettagliate sulle proprietà JSON, vedere la sezione relativa allo [spostamento di dati da o nel database SQL di Azure](data-factory-azure-sql-connector.md#linked-service-properties) .
 > 
 > 
 
@@ -370,15 +376,9 @@ Per istruzioni su come usare il portale di Azure per monitorare la pipeline e i 
 ## <a name="see-also"></a>Vedere anche
 | Argomento | Descrizione |
 |:--- |:--- |
-| [Attività di spostamento dei dati](data-factory-data-movement-activities.md) |Questo articolo fornisce informazioni dettagliate sull'attività di copia usata nell'esercitazione. |
-| [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) |Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello applicativo di Data factory di Azure. |
 | [Pipeline](data-factory-create-pipelines.md) |Questo articolo fornisce informazioni sulle pipeline e le attività in Azure Data Factory. |
 | [Set di dati](data-factory-create-datasets.md) |Questo articolo fornisce informazioni sui set di dati in Azure Data Factory. |
+| [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) |Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello applicativo di Data factory di Azure. |
 | [Monitorare e gestire le pipeline con l'app di monitoraggio](data-factory-monitor-manage-app.md) |Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline usando l'app di monitoraggio e gestione. |
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Registrazione diagnostica di Azure Batch | Documentazione Microsoft
+title: Abilitare la registrazione diagnostica per eventi di Batch - Azure | Documentazione Microsoft
 description: "Registrare e analizzare gli eventi di registrazione diagnostica per le risorse dell&quot;account Azure Batch, come pool e attività."
 services: batch
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 01/20/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: f1aa23d2865ec8401a59b2370c8157d2458c60f7
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 16a13909079306256ded06f2100815c46ff562a3
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="azure-batch-diagnostic-logging"></a>Registrazione diagnostica di Azure Batch
+# <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Registrare gli eventi per la diagnostica e il monitoraggio delle soluzioni Batch
+
 Come per molti servizi di Azure, il servizio Batch genera eventi di log per determinate risorse durante il ciclo di vita della risorsa. È possibile abilitare i log di diagnostica di Azure Batch per registrare gli eventi per le risorse, come attività e pool, e quindi usare i log per l'analisi e il monitoraggio diagnostici. Eventi come la creazione e l'eliminazione di pool, l'avvio e il completamento di attività e di altro tipo sono inclusi nei log di diagnostica di Batch.
 
 > [!NOTE]
@@ -93,7 +96,7 @@ Oltre ad archiviare gli eventi dei log di diagnostica in un account di archiviaz
 * [Trasmettere log di diagnostica di Azure a Hub eventi](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
   
   Trasmettere in streaming il flusso di eventi diagnostici di Batch al servizio dati in ingresso a scalabilità elevata, Hub eventi. Hub eventi è in grado di inserire milioni di eventi al secondo, che è quindi possibile trasformare e archiviare tramite un qualsiasi provider di analisi in tempo reale.
-* [Analizzare i log di diagnostica di Azure con Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
+* [Analizzare i log di diagnostica di Azure con Log Analytics](../log-analytics/log-analytics-azure-storage.md)
   
   Inviare i log diagnostici a Log Analytics, in cui è possibile analizzarli nel portale di Operations Management Suite (OMS) o esportarli per l'analisi in Excel o Power BI.
 
@@ -105,9 +108,4 @@ Oltre ad archiviare gli eventi dei log di diagnostica in un account di archiviaz
 [task_start]: https://msdn.microsoft.com/library/azure/mt743616.aspx
 [task_complete]: https://msdn.microsoft.com/library/azure/mt743612.aspx
 [task_fail]: https://msdn.microsoft.com/library/azure/mt743607.aspx
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

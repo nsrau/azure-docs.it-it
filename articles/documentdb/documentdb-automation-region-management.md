@@ -1,6 +1,6 @@
 ---
 title: 'Automazione di DocumentDB: gestione delle aree | Documentazione Microsoft'
-description: "Usare l&quot;interfaccia della riga di comando di Azure e Azure Resource Manager per gestire le aree in un account del database DocumentDB. DocumentDB è un database NoSQL basato su cloud per dati JSON."
+description: "Usare l&quot;interfaccia della riga di comando di Azure 1.0 e Azure Resource Manager per gestire le aree in un account del database DocumentDB. DocumentDB è un database NoSQL basato su cloud per dati JSON."
 services: documentdb
 author: dmakwana
 manager: jhubbard
@@ -13,32 +13,33 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 02/17/2017
 ms.author: dimakwan
 translationtype: Human Translation
-ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
-ms.openlocfilehash: cca2c112924c22846d5a00e0a94181669fb4cbc0
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 19ba92fae63cadef20cd5414fa23bf4821ab6d56
+ms.lasthandoff: 03/21/2017
 
 
 ---
-# <a name="automate-documentdb-account-region-management-using-azure-cli-and-azure-resource-manager-templates"></a>Automatizzare la gestione delle aree dell'account DocumentDB con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure
+# <a name="automate-documentdb-account-region-management-using-azure-cli-10-and-azure-resource-manager-templates"></a>Automatizzare la gestione delle aree dell'account DocumentDB con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure 1.0
 
-Questo articolo illustra come aggiungere/rimuovere un'area nell'account Azure DocumentDB usando i comandi dell'interfaccia della riga di comando di Azure e i modelli di Azure Resource Manager. La gestione delle aree può essere effettuata anche dal [portale di Azure](documentdb-portal-global-replication.md). Si noti che i comandi usati nell'esercitazione seguente non consentono di modificare le priorità di failover delle diverse aree. Solo le aree di lettura possono essere aggiunte o rimosse. Le aree di scrittura di un account database (priorità di failover pari a 0) non possono essere aggiunte/rimosse.
+Questo articolo illustra come aggiungere/rimuovere un'area nell'account Azure DocumentDB usando i comandi dell'interfaccia della riga di comando di Azure 1.0 e i modelli di Azure Resource Manager. La gestione delle aree può essere effettuata anche dal [portale di Azure](documentdb-portal-global-replication.md). Si noti che i comandi usati nell'esercitazione seguente non consentono di modificare le priorità di failover delle diverse aree. Solo le aree di lettura possono essere aggiunte o rimosse. Le aree di scrittura di un account database (priorità di failover pari a 0) non possono essere aggiunte/rimosse.
 
-Gli account del database DocumentDB sono attualmente l'unica risorsa DocumentDB che può essere creata/modificata usando i [modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](documentdb-automation-resource-manager-cli.md).
+Gli account del database DocumentDB sono attualmente l'unica risorsa DocumentDB che può essere creata/modificata usando i [modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure 1.0](documentdb-automation-resource-manager-cli.md).
 
 ## <a name="getting-ready"></a>Preparazione
 
-Prima di poter usare l'interfaccia della riga di comando di Azure con i gruppi di risorse di Azure, è necessario disporre della versione corretta dell'interfaccia della riga di comando di Azure e di un account Azure. Se non è disponibile l'interfaccia della riga di comando di Azure, è necessario [installarla](../xplat-cli-install.md).
+Prima di poter usare l'interfaccia della riga di comando di Azure 1.0 con i gruppi di risorse di Azure, è necessario disporre della versione corretta dell'interfaccia della riga di comando di Azure 1.0 e di un account Azure. Se non è disponibile l'interfaccia della riga di comando di Azure 1.0 è necessario [installarla](../cli-install-nodejs.md).
 
-### <a name="update-your-azure-cli-version"></a>Aggiornamento della versione dell'interfaccia della riga di comando di Azure
+### <a name="update-your-azure-cli-10-version"></a>Aggiornamento della versione dell'interfaccia della riga di comando di Azure 1.0
 
-Al prompt dei comandi digitare `azure --version` per verificare se è già installata la versione 0.10.4 o una versione successiva. In questa fase è possibile che venga richiesto di partecipare alla raccolta dei dati dell’interfaccia della riga di comando di Microsoft Azure ed è possibile accettare o rifiutare.
+Al prompt dei comandi digitare `azure --version` per verificare se è già installata la versione 0.10.4 o una versione successiva. In questa fase è possibile che venga richiesto di partecipare alla raccolta dei dati dell'interfaccia della riga di comando 1.0 di Microsoft Azure ed è possibile accettare o rifiutare.
 
     azure --version
     0.10.4 (node: 4.2.4)
 
-Se la versione installata non è la 0.10.4 o una versione successiva, sarà necessario [installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) o l'aggiornamento usando uno dei programmi di installazione nativi o con **npm** digitando `npm update -g azure-cli` per effettuare l'aggiornamento o `npm install -g azure-cli` per l'installazione.
+Se la versione installata non è la 0.10.4 o una versione successiva, sarà necessario [installare l'interfaccia della riga di comando di Azure 1.0](../cli-install-nodejs.md) o l'aggiornamento usando uno dei programmi di installazione nativi o con **npm** digitando `npm update -g azure-cli` per effettuare l'aggiornamento o `npm install -g azure-cli` per l'installazione.
 
 ### <a name="set-your-azure-account-and-subscription"></a>Impostare l'account e la sottoscrizione di Azure
 
@@ -59,7 +60,7 @@ L'output ottenuto sarà il seguente:
 
 Aprire [https://aka.ms/devicelogin](https://aka.ms/devicelogin) in un browser e immettere il codice indicato nell'output del comando.
 
-![Schermata che illustra la finestra di accesso del dispositivo per l'interfaccia della riga di comando di Microsoft Azure](media/documentdb-automation-resource-manager-cli/azure-cli-login-code.png)
+![Screenshot che illustra la finestra di accesso del dispositivo per l'interfaccia della riga di comando di Microsoft Azure 1.0](media/documentdb-automation-resource-manager-cli/azure-cli-login-code.png)
 
 Dopo aver immesso il codice, selezionare l'identità da utilizzare nel browser e, se necessario, fornire il nome utente e la password.
 
@@ -76,11 +77,11 @@ La shell dei comandi fornisce inoltre l'output seguente.
     +
     info:    login command OK
 
-Oltre al metodo di accesso interattivo descritto di seguito, sono disponibili altri metodi di accesso all'interfaccia della riga di comando di Azure. Per altre informazioni su altri metodi e per informazioni sulla gestione di più sottoscrizioni, vedere [Connettersi a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md).
+Oltre al metodo di accesso interattivo descritto di seguito, sono disponibili altri metodi di accesso all'interfaccia della riga di comando di Azure 1.0. Per altre informazioni su altri metodi e per informazioni sulla gestione di più sottoscrizioni, vedere [Connettersi a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure 1.0](../xplat-cli-connect.md).
 
-### <a name="switch-to-the-azure-cli-resource-group-mode"></a>Passare alla modalità gruppo di risorse dell'interfaccia della riga di comando di Azure
+### <a name="switch-to-azure-cli-10-resource-group-mode"></a>Passare alla modalità gruppo di risorse dell'interfaccia della riga di comando di Azure 1.0
 
-Per impostazione predefinita, l'interfaccia della riga di comando di Azure viene avviata nella modalità di gestione dei servizi (modalità**Gestione dei servizi di Azure** ). Digitare quanto segue per passare alla modalità gruppo di risorse.
+Per impostazione predefinita, l'interfaccia della riga di comando di Azure 1.0 viene avviata nella modalità di gestione dei servizi (modalità**Gestione dei servizi di Azure**). Digitare quanto segue per passare alla modalità gruppo di risorse.
 
     azure config mode arm
 
@@ -136,11 +137,11 @@ La maggior parte delle applicazioni è costituita da un insieme di diversi tipi 
 Per altre informazioni sui gruppi di risorse di Azure e su come usarli, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Se si è interessati alla creazione di modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md).
 
 
-## <a name="a-idadd-region-documentdb-accountatask-add-region-to-a-documentdb-account"></a><a id="add-region-documentdb-account"></a>Attività: Aggiungere un'area a un account DocumentDB
+## <a id="add-region-documentdb-account"></a>Attività: Aggiungere un'area a un account DocumentDB
 
-DocumentDB ha la funzionalità per [distribuire dati a livello globale][distribute-globally] in varie [aree di Azure](https://azure.microsoft.com/regions/#services). Le istruzioni di questa sezione illustrano come aggiungere un'area di lettura a un account DocumentDB esistente con l'interfaccia della riga di comando di Azure e i modelli di Resource Manager. A questo scopo, è necessario usare l'interfaccia della riga di comando di Azure con o senza modelli di Resource Manager.
+DocumentDB ha la funzionalità per [distribuire dati a livello globale][distribute-globally] in varie [aree di Azure](https://azure.microsoft.com/regions/#services). Le istruzioni di questa sezione illustrano come aggiungere un'area di lettura a un account DocumentDB esistente con l'interfaccia della riga di comando 1.0 di Azure e i modelli di Resource Manager. A questo scopo, è necessario usare l'interfaccia della riga di comando di Azure 1.0 con o senza modelli di Resource Manager.
 
-### <a name="a-idadd-region-documentdb-account-clia-add-region-to-a-documentdb-account-using-azure-cli-without-resource-manager-templates"></a><a id="add-region-documentdb-account-cli"></a> Aggiungere un'area a un account DocumentDB usando l'interfaccia della riga di comando di Azure senza modelli di Resource Manager
+### <a id="add-region-documentdb-account-cli"></a> Aggiungere un'area a un account DocumentDB usando l'interfaccia della riga di comando 1.0 di Azure senza modelli di Resource Manager
 
 Aggiungere un'area a un account DocumentDB esistente nel gruppo di risorse nuovo o esistente immettendo il comando seguente al prompt dei comandi. Si noti che la matrice "locations" deve rispecchiare la configurazione delle aree corrente nell'account DocumentDB, fatta eccezione per la nuova area da aggiungere. L'esempio seguente illustra un comando per aggiungere una seconda area all'account.
 
@@ -183,7 +184,7 @@ In caso di errori, vedere [Risoluzione dei problemi](#troubleshooting).
 
 Dopo il completamento del comando, lo stato dell'account sarà **Creazione in corso** per alcuni minuti, poi passerà a **Online** quando sarà pronto per l'uso. È possibile controllare lo stato dell'account nel [portale di Azure](https://portal.azure.com)nel pannello **Account DocumentDB** .
 
-### <a name="a-idadd-region-documentdb-account-cli-arma-add-region-to-a-documentdb-account-using-azure-cli-with-resource-manager-templates"></a><a id="add-region-documentdb-account-cli-arm"></a> Aggiungere un'area a un account DocumentDB usando l'interfaccia della riga di comando di Azure con i modelli di Resource Manager
+### <a id="add-region-documentdb-account-cli-arm"></a> Aggiungere un'area a un account DocumentDB usando l'interfaccia della riga di comando 1.0 di Azure con modelli di Resource Manager
 
 Le istruzioni di questa sezione descrivono come aggiungere un'area a un account DocumentDB esistente con un modello di Azure Resource Manager e un file dei parametri facoltativi, entrambi in formato JSON. Utilizzare un modello consente di descrivere esattamente cosa si desidera e ripeterlo senza errori.
 
@@ -321,13 +322,13 @@ In caso di errori, vedere [Risoluzione dei problemi](#troubleshooting).
 
 Dopo il completamento del comando, lo stato dell'account sarà **Creazione in corso** per alcuni minuti, poi passerà a **Online** quando sarà pronto per l'uso. È possibile controllare lo stato dell'account nel [portale di Azure](https://portal.azure.com)nel pannello **Account DocumentDB** .
 
-## <a name="a-idremove-region-documentdb-accountatask-remove-region-from-a-documentdb-account"></a><a id="remove-region-documentdb-account"></a>Attività: Rimuovere un'area da un account DocumentDB
+## <a id="remove-region-documentdb-account"></a>Attività: Rimuovere un'area da un account DocumentDB
 
-DocumentDB ha la funzionalità per [distribuire dati a livello globale][distribute-globally] in varie [aree di Azure](https://azure.microsoft.com/regions/#services). Le istruzioni di questa sezione illustrano come rimuovere un'area di lettura da un account DocumentDB esistente con l'interfaccia della riga di comando di Azure e i modelli di Resource Manager. A questo scopo, è necessario usare l'interfaccia della riga di comando di Azure con o senza modelli di Resource Manager.
+DocumentDB ha la funzionalità per [distribuire dati a livello globale][distribute-globally] in varie [aree di Azure](https://azure.microsoft.com/regions/#services). Le istruzioni di questa sezione illustrano come rimuovere un'area di lettura da un account DocumentDB esistente con l'interfaccia della riga di comando di Azure 1.0 e i modelli di Resource Manager. A questo scopo, è necessario usare l'interfaccia della riga di comando di Azure 1.0 con o senza modelli di Resource Manager.
 
-### <a name="a-idremove-region-documentdb-account-clia-remove-region-to-a-documentdb-account-using-azure-cli-without-resource-manager-templates"></a><a id="remove-region-documentdb-account-cli"></a> Rimuovere un'area da un account DocumentDB usando l'interfaccia della riga di comando di Azure senza modelli di Resource Manager
+### <a id="remove-region-documentdb-account-cli"></a> Rimuovere un'area a un account DocumentDB usando l'interfaccia della riga di comando di Azure 1.0 senza modelli di Resource Manager
 
-Per rimuovere un'area da un account DocumentDB esistente, si può eseguire il comando seguente con l'interfaccia della riga di comando di Azure. La matrice "locations" deve contenere solo le aree che devono rimanere dopo la rimozione dell'area. **La località omessa verrà rimossa dall'account DocumentDB**. Nel prompt dei comandi immettere il comando seguente.
+Per rimuovere un'area da un account DocumentDB esistente, si può eseguire il comando seguente con l'interfaccia della riga di comando di Azure 1.0. La matrice "locations" deve contenere solo le aree che devono rimanere dopo la rimozione dell'area. **La località omessa verrà rimossa dall'account DocumentDB**. Nel prompt dei comandi immettere il comando seguente.
 
 Una delle aree deve avere un valore failoverPriority pari a 0, per indicare che questa area deve essere l'[area di scrittura per l'account DocumentDB][scaling-globally]. I valori di priorità di failover devono essere univoci nelle località e il valore di priorità di failover più elevato deve essere inferiore al numero totale di aree. 
 
@@ -366,7 +367,7 @@ In caso di errori, vedere [Risoluzione dei problemi](#troubleshooting).
 
 Dopo il completamento del comando, lo stato dell'account sarà **Aggiornamento in corso** per alcuni minuti, poi passerà a **Online** quando sarà pronto per l'uso. È possibile controllare lo stato dell'account nel [portale di Azure](https://portal.azure.com)nel pannello **Account DocumentDB** .
 
-### <a name="a-idremove-region-documentdb-account-cli-arma-remove-region-from-a-documentdb-account-using-azure-cli-with-resource-manager-templates"></a><a id="remove-region-documentdb-account-cli-arm"></a> Rimuovere un'area da un account DocumentDB usando l'interfaccia della riga di comando di Azure con i modelli di Resource Manager
+### <a id="remove-region-documentdb-account-cli-arm"></a> Rimuovere un'area da un account DocumentDB usando l'interfaccia della riga di comando di Azure 1.0 con i modelli di Resource Manager
 
 Le istruzioni di questa sezione descrivono come rimuovere un'area da un account DocumentDB esistente con un modello di Azure Resource Manager e un file dei parametri facoltativi, entrambi in formato JSON. Utilizzare un modello consente di descrivere esattamente cosa si desidera e ripeterlo senza errori.
 
@@ -511,21 +512,16 @@ Ora che avete un account di DocumentDB, il passaggio successivo consiste nel cre
 
 Dopo aver creato il database, è necessario [aggiungere una o più raccolte](documentdb-create-collection.md) al database e quindi [aggiungere documenti](documentdb-view-json-document-explorer.md) alle raccolte. 
 
-Quando sono presenti documenti in una raccolta, è possibile usare [DocumentDB SQL](documentdb-sql-query.md) per [eseguire query](documentdb-sql-query.md#executing-sql-queries) nei documenti con [Esplora query](documentdb-query-collections-query-explorer.md) nel portale, l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+Quando sono presenti documenti in una raccolta, è possibile usare [DocumentDB SQL](documentdb-sql-query.md) per [eseguire query](documentdb-sql-query.md#ExecutingSqlQueries) nei documenti con [Esplora query](documentdb-query-collections-query-explorer.md) nel portale, l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 Per altre informazioni su DocumentDB, vedere le risorse seguenti:
 
--   [Percorso di apprendimento per DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
--   [Modello di risorse e concetti relativi a DocumentDB](documentdb-resources.md)
+-    [Percorso di apprendimento per DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
+-    [Modello di risorse e concetti relativi a DocumentDB](documentdb-resources.md)
 
 Per altri modelli da poter usare, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [distribute-globally]: https://azure.microsoft.com/en-us/documentation/articles/documentdb-distribute-data-globally
 [scaling-globally]: https://azure.microsoft.com/en-us/documentation/articles/documentdb-distribute-data-globally/#scaling-across-the-planet
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

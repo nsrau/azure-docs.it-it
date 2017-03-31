@@ -1,5 +1,5 @@
 ---
-title: Eseguire un&quot;applicazione di esempio per inviare messaggi da dispositivo a cloud all&quot;hub IoT di Azure | Documentazione Microsoft
+title: 'Connettere Intel Edison (Node) ad Azure IoT: lezione 3: Inviare i messaggi | Documentazione Microsoft'
 description: Distribuire ed eseguire un&quot;applicazione di esempio in Intel Edison che invia messaggi all&quot;hub IoT e fa lampeggiare il LED.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: cb18052f74528e245264bb2f400b625fe550ed85
-ms.openlocfilehash: b158dc91186496d9b8ebd0d4ce0478c7ae45935a
+ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
+ms.openlocfilehash: ddc40f2e3467cb406a7336924f9577d52061c42e
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -109,8 +110,3 @@ Il LED connesso a Edison dovrebbe lampeggiare ogni due secondi. Ogni volta che i
 [process-and-store-iot-hub-messages]: iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md
 [sample-application-with-sent-and-received-messages]: media/iot-hub-intel-edison-lessons/lesson3/gulp_run.png
 [read-messages-persisted-in-azure-storage]: iot-hub-intel-edison-kit-node-lesson3-read-table-storage.md
-
-
-<!--HONumber=Dec16_HO2-->
-
-

@@ -1,5 +1,5 @@
 ---
-title: Ottenere gli strumenti per lo starter kit di Azure IoT per Ubuntu 16.04 | Documentazione Microsoft
+title: 'Connettere Intel Edison (Node) ad Azure IoT: lezione 1: Ottenere gli strumenti (Ubuntu) | Documentazione Microsoft'
 description: Scaricare e installare il software e gli strumenti necessari per la prima applicazione di esempio per Edison in Ubuntu.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: d230a064c61623564e575d987cf957de0b81ad23
-ms.openlocfilehash: 3bdfced6709d1460ce42ec97203bf2ead9deb82c
+ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
+ms.openlocfilehash: c56699b81d83119ca1822c2efa6b2380b3619290
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -82,9 +83,4 @@ Sono stati installati gli strumenti di sviluppo e il software necessari per la p
 [windows]: iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32.md
 [ubuntu]: iot-hub-intel-edison-kit-node-lesson1-get-the-tools-ubuntu.md
 [macos]: iot-hub-intel-edison-kit-node-lesson1-get-the-tools-mac.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

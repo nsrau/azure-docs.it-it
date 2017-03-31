@@ -1,5 +1,5 @@
 ---
-title: Introduzione ad Azure AD in progetti MVC di Visual Studio | Documentazione Microsoft
+title: Introduzione ad Azure AD in progetti MVC di Visual Studio | Microsoft Docs
 description: Come iniziare a utilizzare Azure Active Directory nei progetti MVC dopo la connessione o la creazione ad Azure AD utilizzando Visual Studio
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 03/01/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: f3f8292eb505c73b5fda86499581fe85ad3f8e47
-ms.openlocfilehash: 4254e10e845d2f035a569cc7b8e5639ea4cd63d4
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a58f328795f85e5392d1bd4c305aabb48b65798c
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: 4254e10e845d2f035a569cc7b8e5639ea4cd63d4
 > 
 
 ## <a name="requiring-authentication-to-access-controllers"></a>Richiesta di autenticazione ai controller di accesso
-Tutti i controller del progetto sono dotati dell'attributo **Authorize** . Questo attributo richiede l'autenticazione dell'utente prima dell'accesso ai controller. Per permettere l'accesso anonimo al controller, rimuovere l'attributo dal controller. Per configurare le autorizzazioni con un livello di granularità superiore, applicare l'attributo a ogni metodo che necessita di autorizzazione invece di applicarlo alla classe controller.
+Tutti i controller del progetto sono dotati dell'attributo **Authorize** . Questo attributo richiede che l'utente venga autenticato prima di accedere ai controller. Per permettere l'accesso anonimo al controller, rimuovere l'attributo dal controller. Per configurare le autorizzazioni con un livello di granularità superiore, applicare l'attributo a ogni metodo che necessita di autorizzazione invece di applicarlo alla classe controller.
 
 ## <a name="adding-signin--signout-controls"></a>Aggiunta di controlli SignIn/SignOut
 Per aggiungere i controlli SignIn/SignOut alla visualizzazione, è possibile usare la visualizzazione parziale **_LoginPartial.cshtml** per aggiungere la funzionalità a una delle visualizzazioni. L'esempio seguente illustra l'aggiunta di funzionalità alla visualizzazione **_Layout.cshtml** standard. (Notare l'ultimo elemento nella sezione div con class navbar-collapse):
@@ -71,11 +72,7 @@ Per aggiungere i controlli SignIn/SignOut alla visualizzazione, è possibile usa
     &lt;/html&gt;
 </pre>
 
-[Altre informazioni su Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
+## <a name="next-steps"></a>Passaggi successivi
+- [Altre informazioni su Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 
 
 

@@ -4,7 +4,7 @@ description: Informazioni su come distribuire un&quot;applicazione Node.js in un
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: fb2b90c8-02b6-4700-929b-5de9a35d67cc
 ms.service: app-service-web
@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 55c349f19055e4e4d17f5c7290a2ee82d2d3d19d
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 9be7aec6d66c625be83b93bb840ad137d3c786d2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -34,7 +35,7 @@ Questa esercitazione illustra come creare una semplice applicazione [Node.js] e 
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - [Interfaccia della riga di comando di Azure 1.0](app-service-web-nodejs-get-started-cli-nodejs.md): l'interfaccia della riga di comando per i modelli di distribuzione classici e di gestione delle risorse
-- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](app-service-web-nodejs-get-started.md): l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse
+- [Interfaccia della riga di comando di Azure 2.0](app-service-web-nodejs-get-started.md): interfaccia della riga di comando di prossima generazione per il modello di distribuzione di Gestione risorsa
 
 ## <a name="prerequisites"></a>Prerequisiti
 * [Node.js]
@@ -246,7 +247,7 @@ Per abilitare Node-Inspector, seguire questa procedura:
 
 <!-- URL List -->
 
-[Interfaccia della riga di comando di Azure]: ../xplat-cli-install.md
+[Interfaccia della riga di comando di Azure]:../cli-install-nodejs.md
 [servizio app di Azure]: ../app-service/app-service-value-prop-what-is.md
 [attivare i vantaggi per i sottoscrittori di Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [Bower]: http://bower.io/
@@ -270,9 +271,4 @@ Per abilitare Node-Inspector, seguire questa procedura:
 [iislog-kudu-console-find]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-navigate.png
 [iislog-kudu-console-open]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
 [iislog-kudu-console-read]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

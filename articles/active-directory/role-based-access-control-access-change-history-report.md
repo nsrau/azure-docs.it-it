@@ -1,5 +1,5 @@
 ---
-title: Creare un report della cronologia delle modifiche relative all&quot;accesso | Documentazione Microsoft
+title: Creazione di report sull&quot;accesso - Controllo degli accessi in base al ruolo di Azure | Documentazione Microsoft
 description: Generare un report che elenca tutte le modifiche nell&quot;accesso alle sottoscrizioni di Azure con il controllo degli accessi in base al ruolo negli ultimi 90 giorni.
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/03/2016
+ms.date: 02/27/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 44295ff647cbfd2d63ffe08d101da66b83a924f6
-
+ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
+ms.openlocfilehash: 433dc731c342924d962e2f08e392556558a0168d
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="create-an-access-change-history-report"></a>Creare un report della cronologia delle modifiche relative all'accesso
+# <a name="create-an-access-report-for-role-based-access-control"></a>Creare un report degli accessi per il controllo degli accessi in base al ruolo
 Ogni volta che un utente concede o revoca l'accesso all'interno delle sottoscrizioni, le modifiche vengono registrate negli eventi di Azure. È possibile creare report della cronologia delle modifiche relative all'accesso per visualizzare tutte le modifiche degli ultimi 90 giorni.
 
 ## <a name="create-a-report-with-azure-powershell"></a>Creare un rapporto con Azure PowerShell
@@ -43,7 +44,7 @@ Quando si chiama questo comando, è possibile specificare la proprietà delle as
 | **SubscriptionId** |GUID della sottoscrizione di Azure. |
 | **SubscriptionName** |Nome della sottoscrizione di Azure. |
 
-Questo comando di esempio elenca tutte le modifiche relative all'accesso nella sottoscrizione per gli ultimi 7 giorni.
+Questo comando di esempio elenca tutte le modifiche relative all'accesso nella sottoscrizione per gli ultimi&7; giorni.
 
 ```
 Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::FromDays(7)) | FT Caller,Action,RoleName,PrincipalType,PrincipalName,ScopeType,ScopeName
@@ -59,13 +60,8 @@ Per salvare il report o modificare i dati, esportare le modifiche relative all'a
 
 ![Log delle modifiche visualizzato come foglio di calcolo - Schermata](./media/role-based-access-control-configure/change-history-spreadsheet.png)
 
-## <a name="see-also"></a>Vedere anche
-* Introduzione al [Controllo degli accessi in base al ruolo di Azure](role-based-access-control-configure.md)
+## <a name="next-steps"></a>Passaggi successivi
 * Utilizzare i [ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](role-based-access-control-custom-roles.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+* Informazioni sono disponibili in [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](role-based-access-control-manage-access-powershell.md)
 
 

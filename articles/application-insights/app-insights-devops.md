@@ -1,21 +1,22 @@
 ---
-title: 'Monitoraggio delle prestazioni delle applicazioni Web: Azure Application Insights | Documentazione Microsoft'
+title: 'Monitoraggio delle prestazioni delle applicazioni Web: Azure Application Insights | Microsoft Docs'
 description: Funzione di Application Insights nel ciclo devOps
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
-ms.openlocfilehash: e5652353d658a5de197d71231f649c75fe3b245b
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: f6c8c895f406187f2bc525a60ca7e53f12e99d77
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -156,7 +157,7 @@ Se si utilizza Visual Studio Team Services per compilare e distribuire l'app, ne
 ![Annotazioni sulla compilazione](./media/app-insights-devops/070.png)
 
 ### <a name="work-items"></a>Elementi di lavoro
-Quando viene generato un avviso, Application Insights può creare automaticamente un elemento di lavoro nel sistema di tracciamento delle attività (al momento solo Visual Studio Team Services).
+Quando viene generato un avviso, Application Insights può creare automaticamente un elemento di lavoro nel sistema di tracciamento delle attività.
 
 ## <a name="but-what-about"></a>Altri aspetti
 * [Privacy e archiviazione](app-insights-data-retention-privacy.md): i dati di telemetria vengono conservati nei server sicuri di Azure.
@@ -164,16 +165,15 @@ Quando viene generato un avviso, Application Insights può creare automaticament
 * [Supporto](app-insights-get-dev-support.md): è possibile sfruttare il programma di supporto tecnico di Azure. Sono disponibili forum dinamici in cui è possibile ottenere risposte dagli sviluppatori. Laddove necessario è anche possibile ottenere supporto individuale.
 * [Prezzi](app-insights-pricing.md): il servizio è gratuito finché i volumi sono ridotti.
 
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
 ## <a name="next-steps"></a>Passaggi successivi
 Iniziare a usare Application Insights è semplice. Le opzioni principali sono le seguenti:
 
 * Instrumentare un'app Web già in esecuzione, ottenendo tutti i dati di telemetria delle prestazioni predefiniti. Questa opzione è disponibile per [Java](app-insights-java-live.md) e [server IIS](app-insights-monitor-performance-live-website-now.md), nonché per le [App Web di Azure](app-insights-azure.md).
 * Instrumentare il progetto in fase di sviluppo, cosa possibile per le app [ASP.NET](app-insights-asp-net.md) o [Java](app-insights-java-get-started.md), nonché per [Node. js](app-insights-nodejs.md) e una serie di [altri tipi](app-insights-platforms.md). 
 * Instrumentare [qualsiasi pagina Web](app-insights-javascript.md) aggiungendo un breve frammento di codice.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

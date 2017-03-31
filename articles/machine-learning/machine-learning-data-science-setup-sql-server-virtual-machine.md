@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: xibingao;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
-ms.openlocfilehash: 777dc11be139b20363e2060776ac0227883591ff
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 497b683b1058e134c3c79dbc8c8a119ff20e330b
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -33,7 +34,7 @@ Nella raccolta di macchine virtuali di Azure sono disponibili numerose immagini 
   > 
   > 
 
-## <a name="a-nameprovisionaconnect-to-the-azure-classic-portal-and-provision-an-sql-server-virtual-machine"></a><a name="Provision"></a>Connettersi al portale di Azure classico ed effettuare il provisioning di una macchina virtuale di SQL Server
+## <a name="Provision"></a>Connettersi al portale di Azure classico ed effettuare il provisioning di una macchina virtuale di SQL Server
 1. Accedere al [portale di Azure classico](http://manage.windowsazure.com/) con il proprio account.
    Se non si dispone di un account Azure, provare la [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 2. Nel portale di Azure classico fare clic su **+Nuovo** nella parte inferiore sinistra della pagina Web e quindi su **Calcolo**, **Macchina virtuale** e infine **Da raccolta**.
@@ -83,7 +84,7 @@ Nella raccolta di macchine virtuali di Azure sono disponibili numerose immagini 
    * Running (Provisioning)
    * In esecuzione
 
-## <a name="a-nameremotedesktopaopen-the-virtual-machine-using-remote-desktop-and-complete-setup"></a><a name="RemoteDesktop"></a>Aprire la macchina virtuale tramite Desktop remoto e completare la configurazione
+## <a name="RemoteDesktop"></a>Aprire la macchina virtuale tramite Desktop remoto e completare la configurazione
 1. Al termine del provisioning, fare clic sul nome della macchina virtuale per passare alla pagina DASHBOARD. Nella parte inferiore della pagina fare clic su **Connect**.
 2. Scegliere di aprire il file rpd usando il programma Desktop remoto Windows (`%windir%\system32\mstsc.exe`).
 3. Nella finestra di dialogo **Protezione di Windows** immettere la password per l'account Administrator locale specificata in uno dei passaggi precedenti.
@@ -92,7 +93,7 @@ Nella raccolta di macchine virtuali di Azure sono disponibili numerose immagini 
 
 Dopo avere eseguito la connessione alla macchina virtuale con Desktop remoto Windows, la macchina virtuale funziona come qualsiasi altro computer. Eseguire normalmente la connessione all'istanza predefinita di SQL Server con SQL Server Management Studio (in esecuzione nella macchina virtuale).
 
-## <a name="a-nameinstallipythonainstall-ipython-notebook-and-other-supporting-tools"></a><a name="InstallIPython"></a>Installare IPython Notebook e altri strumenti di supporto
+## <a name="InstallIPython"></a>Installare IPython Notebook e altri strumenti di supporto
 Per configurare la nuova macchina virtuale di SQL Server in modo che funzioni da server di IPython Notebook e per installare ulteriori strumenti di supporto, come AzCopy, Esplora archivi Azure, i pacchetti Python per l'analisi scientifica dei dati e altro, all'utente viene fornita una personalizzazione particolare. Per effettuare l'installazione:
 
 * Fare clic con il pulsante destro del mouse sull'icona di **avvio di Windows** e scegliere **Prompt dei comandi (amministratore)**
@@ -113,7 +114,7 @@ Per configurare la nuova macchina virtuale di SQL Server in modo che funzioni da
 * È possibile accedere a IPython Notebook ed eseguirlo da un browser remoto o locale usando un URL nel formato `https://<virtual_machine_DNS_name>:<port>`, dove la porta indica la porta pubblica di IPython selezionata durante il provisioning della macchina virtuale.
 * Il server di IPython Notebook è in esecuzione come servizio in background e verrà riavviato automaticamente quando si riavvierà la macchina virtuale.
 
-## <a name="a-nameoptionalaattach-data-disk-as-needed"></a><a name="Optional"></a>Collegare un disco dati secondo necessità
+## <a name="Optional"></a>Collegare un disco dati secondo necessità
 Se l'immagine di macchina virtuale non contiene dischi dati, vale a dire dischi diversi dall'unità C (disco del SO) e dall'unità D (disco temporaneo), è necessario aggiungere uno o più dischi dati per archiviare i dati. L'immagine di macchina virtuale per SQL Server 2012 SP2 Enterprise ottimizzato per carichi di lavoro di data warehouse viene preconfigurata con dischi aggiuntivi per file di dati e log di SQL Server.
 
 > [!NOTE]
@@ -121,12 +122,12 @@ Se l'immagine di macchina virtuale non contiene dischi dati, vale a dire dischi 
 > 
 > 
 
-Per collegare altri dischi dati, seguire la procedura descritta in [Come collegare un disco dati a una macchina virtuale Windows](../virtual-machines/virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json), in cui sono disponibili informazioni dettagliate per eseguire queste operazioni:
+Per collegare altri dischi dati, seguire la procedura descritta in [Come collegare un disco dati a una macchina virtuale Windows](../virtual-machines/windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json), in cui sono disponibili informazioni dettagliate per eseguire queste operazioni:
 
 1. Collegamento di dischi vuoti alla macchina virtuale di cui è stato effettuato il provisioning nei passaggi precedenti
 2. Inizializzazione di nuovi dischi nella macchina virtuale
 
-## <a name="a-namessmsaconnect-to-sql-server-management-studio-and-enable-mixed-mode-authentication"></a><a name="SSMS"></a>Connessione a SQL Server Management Studio e attivazione dell'autenticazione in modalità mista
+## <a name="SSMS"></a>Connessione a SQL Server Management Studio e attivazione dell'autenticazione in modalità mista
 Il motore di database di SQL Server non può usare l'Autenticazione di Windows senza ambiente di dominio. Per connettersi al motore di database da un altro computer, configurare SQL Server per l'autenticazione in modalità mista. L'autenticazione in modalità mista consente sia l'autenticazione di SQL Server sia l'autenticazione di Windows. La modalità di autenticazione di SQL è necessaria per inserire dati direttamente dai database della macchina virtuale di SQL Server VM in [Azure Machine Learning Studio](https://studio.azureml.net) tramite il modulo Import Data.
 
 1. Durante la connessione alla macchina virtuale tramite Desktop remoto, usare il riquadro **Ricerca** di Windows e digitare **SQL Server Management Studio** (SMSS). Fare clic per avviare SQL Server Management Studio (SSMS). È possibile aggiungere un collegamento a SSMS sul desktop per utilizzi futuri.
@@ -166,7 +167,7 @@ Il motore di database di SQL Server non può usare l'Autenticazione di Windows s
    ![Riavvia][9]
 5. Nella finestra di dialogo di **SQL Server Management Studio** fare clic su **Sì** per accettare il riavvio di SQL Server.
 
-## <a name="a-nameloginsacreate-sql-server-authentication-logins"></a><a name="Logins"></a>Creare gli account di accesso di SQL Server
+## <a name="Logins"></a>Creare gli account di accesso di SQL Server
 Per connettersi al motore di database da un altro computer, configurare almeno un account di accesso con autenticazione di SQL Server.  
 
 È possibile creare nuovi account di accesso di SQL Server a livello di programmazione oppure tramite SQL Server Management Studio. Per creare un nuovo utente amministratore di sistema con l'autenticazione di SQL a livello di programmazione, avviare una **Nuova query** ed eseguire lo script seguente. Sostituire <new user name\> e <new password\> con il *nome utente* e la *password* da usare. 
@@ -209,7 +210,7 @@ Per creare nuovi account di accesso di SQL Server tramite SQL Server Management 
     ![sysadmin][12]
 12. Fare clic su OK.
 
-## <a name="a-namednsadetermine-the-dns-name-of-the-virtual-machine"></a><a name="DNS"></a>Determinare il nome DNS della macchina virtuale
+## <a name="DNS"></a>Determinare il nome DNS della macchina virtuale
 Per connettersi al motore di database di SQL Server da un altro computer, è necessario conoscere il nome DNS (Domain Name System) della macchina virtuale.
 
 (Si tratta del nome utilizzato da Internet per identificare la macchina virtuale. È possibile utilizzare l'indirizzo IP, ma questo indirizzo può cambiare se Azure sposta le risorse per la ridondanza o la manutenzione. Il nome DNS rimane stabile in quanto può essere reindirizzato a un nuovo indirizzo IP).
@@ -217,7 +218,7 @@ Per connettersi al motore di database di SQL Server da un altro computer, è nec
 1. Nel portale di Azure classico (o dal passaggio precedente) selezionare **MACCHINE VIRTUALI**.
 2. Nella pagina **ISTANZE MACCHINA VIRTUALE** nella colonna **NOME DNS** trovare e copiare il nome DNS per la macchina virtuale preceduto da **http://**. (Nell'interfaccia utente potrebbe non essere visualizzato l'intero nome, ma è possibile fare clic su di esso con il pulsante destro del mouse e scegliere Copia).
 
-## <a name="a-namecdeaconnect-to-the-database-engine-from-another-computer"></a><a name="cde"></a>Eseguire la connessione al motore di database da un altro computer
+## <a name="cde"></a>Eseguire la connessione al motore di database da un altro computer
 1. In un computer connesso a Internet aprire SQL Server Management Studio.
 2. Nella casella **Connetti al server** o nella finestra di dialogo **Connetti al motore di database** immettere nella casella **Nome server** il nome DNS della macchina virtuale (determinato nell'attività precedente) e un numero di porta di endpoint pubblica nel formato *NomeDNS,NumeroPorta*, ad esempio **tutorialtestVM.cloudapp.net,57500**.
 3. Nella casella **Autenticazione** selezionare **Autenticazione di SQL Server**.
@@ -225,7 +226,7 @@ Per connettersi al motore di database di SQL Server da un altro computer, è nec
 5. Nella casella **Password** digitare la password dell'account di accesso creato in una delle attività precedenti.
 6. Fare clic su **Connect**.
 
-## <a name="a-nameamlconnectaconnect-to-the-database-engine-from-azure-machine-learning"></a><a name="amlconnect"></a>Connettersi al motore di database da Azure Machine Learning
+## <a name="amlconnect"></a>Connettersi al motore di database da Azure Machine Learning
 Nelle fasi successive del Processo di analisi scientifica dei dati per i team verrà usato [Azure Machine Learning Studio](https://studio.azureml.net) per creare e distribuire modelli di Machine Learning. Per inserire dati dai database delle macchine virtuali di SQL Server direttamente in Azure Machine Learning per il training o l'assegnazione di punteggi, utilizzare il modulo **Import Data** in un nuovo esperimento di [Azure Machine Learning Studio](https://studio.azureml.net) . Questo argomento fornisce informazioni più dettagliate con collegamenti alle istruzioni del Processo di analisi scientifica dei dati per i team. Per un'introduzione, vedere [Informazioni su Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md).
 
 1. Nel riquadro **Proprietà** del [modulo Import Data](https://msdn.microsoft.com/library/azure/dn905997.aspx) selezionare **Database SQL di Azure** dall'elenco a discesa **Origine dati**.
@@ -235,7 +236,7 @@ Nelle fasi successive del Processo di analisi scientifica dei dati per i team ve
    
    ![Dati di importazione di Azure Machine Learning][13]
 
-## <a name="a-nameshutdownashutdown-and-deallocate-virtual-machine-when-not-in-use"></a><a name="shutdown"></a>Arresto e deallocazione della macchina virtuale quando non in uso
+## <a name="shutdown"></a>Arresto e deallocazione della macchina virtuale quando non in uso
 Macchine virtuali di Azure è disponibile con **pagamento a consumo**. Per assicurarsi di non subire addebiti quando non si utilizzano le macchine virtuali, lo stato deve essere impostato su **Arrestato (deallocato)** .
 
 > [!NOTE]
@@ -273,10 +274,5 @@ I passaggi successivi del processo di scienza dei dati sono illustrati in [Proce
 [12]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/25sysadmin.png
 [13]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/amlreader.png
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

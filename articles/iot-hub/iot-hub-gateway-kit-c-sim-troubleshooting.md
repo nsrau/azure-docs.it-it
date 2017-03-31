@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi del gateway IoT di Azure | Documentazione Microsoft
+title: 'Dispositivo simulato e gateway Azure IoT: risoluzione dei problemi | Documentazione Microsoft'
 description: Pagina sulla risoluzione dei problemi del gateway Intel NUC
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: e3e4ad430d8941a09543ce2dc97f8e449a39bced
-ms.openlocfilehash: 1c747085e47e997f549eff36a9f8d96cb243e228
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: a70de978d4636a31644702c6f3a8ca0d0b80f5c2
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -171,9 +172,4 @@ Un'interfaccia della riga di comando completa consente di creare e gestire tutte
 ## <a name="azure-storage-issues"></a>Problemi di Archiviazione di Azure
 
 [Microsoft Azure Storage Explorer (anteprima)](http://storageexplorer.com/) è un'app autonoma di Microsoft che consente di utilizzare i dati di Archiviazione di Azure in Windows, macOS e Linux. Questo strumento permette di connettersi alla tabella e visualizzarne i dati. È possibile usare questo strumento per risolvere i problemi di Archiviazione di Azure.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

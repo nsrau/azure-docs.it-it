@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: Documentazione di Azure StorSimple - Esercitazioni | Documentazione Microsoft
 description: "Informazioni su come usare Azure StorSimple, una soluzione di archiviazione integrata che gestisce le attività di archiviazione tra i dispositivi locali e l&quot;archiviazione cloud di Azure."
+services: storsimple
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: storsimple
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: c3523cfef54f6084326b913d548449f4a9b646a9
+ms.sourcegitcommit: 8236c1e4167e3b66edb1b410deb450d01c34d9f2
+ms.openlocfilehash: 9c083c08f73c5e2c8ed873f612c8695a9687a5a6
 
 ---
 #<a name="storsimple-documentation"></a>Documentazione di StorSimple
@@ -142,6 +153,6 @@ Informazioni su come usare Azure StorSimple, una soluzione di archiviazione inte
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

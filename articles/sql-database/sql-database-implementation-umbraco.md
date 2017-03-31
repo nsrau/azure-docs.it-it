@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 5243d31e-3241-4cb0-9470-ad488ff28572
 ms.service: sql-database
-ms.custom: app development case study
+ms.custom: customer implementations
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -16,8 +16,9 @@ ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 41334fb928b18c288f32efb0978150fa24ae14e3
+ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
+ms.openlocfilehash: 774d5ac6f3d5d9d97120ab895157677e4a92bb05
+ms.lasthandoff: 01/12/2017
 
 
 ---
@@ -30,7 +31,7 @@ Umbraco è un noto sistema di gestione di contenuti (CMS) open source che può e
 > 
 > - Morten Christensen, responsabile tecnico, Umbraco
 > 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-Case-Study-Umbraco/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-Case-Study-Umbraco/player]
 > 
 > 
 
@@ -129,10 +130,5 @@ Da quando ha scelto Azure come partner cloud, Umbraco è stato in grado di forni
 * Per altre informazioni su backup e ripristino, vedere [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).    
 * Per altre informazioni sul monitoraggio di pool, vedere [Monitorare e gestire un pool di database elastici con il portale di Azure](sql-database-elastic-pool-manage-portal.md).    
 * Per altre informazioni su Umbraco-as-a-Service, vedere [Umbraco](https://umbraco.com/cloud).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

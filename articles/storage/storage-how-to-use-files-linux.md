@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/18/2017
+ms.date: 3/8/2017
 ms.author: renash
 translationtype: Human Translation
 ms.sourcegitcommit: e296e468309b53338231e283ac62e4d917e0834b
 ms.openlocfilehash: 8cb98eb721d5769125926a6c75f776a9d510376e
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -63,7 +64,7 @@ sudo apt-get install cifs-utils
 Successivamente, è necessario creare un punto di montaggio (mkdir mymountpoint) e quindi inviare il comando di montaggio, che è simile al seguente:
 
 ```
-sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename ./mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename ./mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777,serverino
 ```
 
 È inoltre possibile aggiungere le impostazioni a /etc/fstab per montare la condivisione.
@@ -73,7 +74,7 @@ Si noti che qui 0777 rappresenta un codice di autorizzazione file/directory che 
 Inoltre, per mantenere una condivisione di file montata dopo il riavvio, è possibile aggiungere un'impostazione come indicato di seguito a /etc/fstab:
 
 ```
-//myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+//myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777,serverino
 ```
 
 Ad esempio, se è stata creata una VM di Azure usando l'immagine Linux di Ubuntu Server 15.04 (che è disponibile nella raccolta immagini di Azure), è possibile montare il file come indicato di seguito:
@@ -81,7 +82,7 @@ Ad esempio, se è stata creata una VM di Azure usando l'immagine Linux di Ubuntu
 ```
 azureuser@azureconubuntu:~$ sudo apt-get install cifs-utils
 azureuser@azureconubuntu:~$ sudo mkdir /mnt/mountpoint
-azureuser@azureconubuntu:~$ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+azureuser@azureconubuntu:~$ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777,serverino
 azureuser@azureconubuntu:~$ df -h /mnt/mountpoint
 Filesystem  Size  Used Avail Use% Mounted on
 //myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
@@ -91,7 +92,7 @@ Se si utilizza CentOS 7.1, è possibile montare il file come indicato di seguito
 
 ```
 [azureuser@AzureconCent ~]$ sudo yum install samba-client samba-common cifs-utils
-[azureuser@AzureconCent ~]$ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+[azureuser@AzureconCent ~]$ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777,serverino
 [azureuser@AzureconCent ~]$ df -h /mnt/mountpoint
 Filesystem  Size  Used Avail Use% Mounted on
 //myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
@@ -102,7 +103,7 @@ Se si utilizza Open SUSE 13.2, è possibile montare il file come indicato di seg
 ```
 azureuser@AzureconSuse:~> sudo zypper install samba*  
 azureuser@AzureconSuse:~> sudo mkdir /mnt/mountpoint
-azureuser@AzureconSuse:~> sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+azureuser@AzureconSuse:~> sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777,serverino
 azureuser@AzureconSuse:~> df -h /mnt/mountpoint
 Filesystem  Size  Used Avail Use% Mounted on
 //myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
@@ -113,7 +114,7 @@ Se si utilizza RHEL 7.3, è possibile montare il file come indicato di seguito:
 ```
 azureuser@AzureconRedhat:~> sudo yum install cifs-utils
 azureuser@AzureconRedhat:~> sudo mkdir /mnt/mountpoint
-azureuser@AzureconRedhat:~> sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+azureuser@AzureconRedhat:~> sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777,serverino
 azureuser@AzureconRedhat:~> df -h /mnt/mountpoint
 Filesystem  Size  Used Avail Use% Mounted on
 //myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
@@ -159,9 +160,4 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 * [Analisi di archiviazione file di Azure](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Introduzione al servizio File di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Mantenimento delle connessioni ai file di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

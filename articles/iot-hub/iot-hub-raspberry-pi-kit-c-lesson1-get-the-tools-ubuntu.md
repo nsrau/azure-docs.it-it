@@ -1,5 +1,5 @@
 ---
-title: Ottenere gli strumenti (Ubuntu 16.04) | Documentazione Microsoft
+title: 'Connettere Raspberry Pi (C) ad Azure IoT: lezione 1: Ottenere gli strumenti (Ubuntu) | Documentazione Microsoft'
 description: Scaricare e installare il software e gli strumenti necessari per la prima applicazione di esempio per Pi in Ubuntu.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 155e5d6280d86b06b1718fc3032c2c224539183d
-ms.openlocfilehash: 011f44585676684ca173a6f83b79f3973f877743
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: aadeff581e6134144ddc43416d4d5f9daea1b9f4
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -79,10 +80,5 @@ Sono stati installati gli strumenti di sviluppo e il software necessari per la p
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Creare e distribuire l'applicazione per il lampeggiamento](iot-hub-raspberry-pi-kit-c-lesson1-deploy-blink-app.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

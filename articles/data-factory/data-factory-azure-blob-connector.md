@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 02/23/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: d49d7e6b4a9485c2371eb02ac8068adfde9bad6b
-ms.openlocfilehash: aa2aabee72d1ca381502f9332df7fb88cf2384a2
+ms.sourcegitcommit: 3ec7a230a4051d23e741360f3f714cccadf85902
+ms.openlocfilehash: 511021e43e7d5b3247744592cbeab67769758375
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -27,7 +28,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 ## <a name="supported-sources-and-sinks"></a>Sink e origini supportate
 Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia, vedere la tabella [Archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats) . È possibile spostare i dati da qualsiasi archivio dati di origine supportato all'archivio BLOB di Azure o dall'archivio BLOB di Azure a qualsiasi archivio dati sink supportato.
 
-L'attività di copia supporta la copia dei dati da/in account di archiviazione di Azure per utilizzo generico e archivi BLOB ad accesso frequente o sporadico. L'attività supporta la lettura da BLOB in blocchi, di aggiunta o di pagine, ma supporta la scrittura solo in BLOB in blocchi.
+L'attività di copia supporta la copia dei dati da/in account di archiviazione di Azure per utilizzo generico e archivi BLOB ad accesso frequente o sporadico. L'attività supporta la lettura da BLOB in blocchi, di aggiunta o di pagine, ma supporta la scrittura solo in BLOB in blocchi. Si noti che Archiviazione Premium di Azure non è supportata come sink specificato sotto i relativi BLOB di pagine.
 
 ## <a name="create-pipeline"></a>Creare una pipeline
 È possibile creare una pipeline con l'attività di copia che sposta i dati da e verso un archivio BLOB di Azure usando diversi strumenti/API.  
@@ -521,9 +522,4 @@ In questa sezione viene descritto il comportamento derivante dell'operazione di 
 
 ## <a name="performance-and-tuning"></a>Ottimizzazione delle prestazioni
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

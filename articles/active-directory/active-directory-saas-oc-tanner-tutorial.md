@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: a2129813f7214b2b32b2d7d6c9d666e96b60a926
-ms.openlocfilehash: 10cf00155767b0cc8a318993e3ce95e55079312f
+ms.sourcegitcommit: 1b5527090a41c274b590ed9d1ac7b561b6f4ed14
+ms.openlocfilehash: 10faa27e0c82e59c35e00258a2d90bea977dc28f
 
 
 ---
@@ -254,6 +254,6 @@ Quando si fa clic sul riquadro O.C. Tanner - AppreciateHub nel pannello di acces
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

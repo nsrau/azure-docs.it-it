@@ -4,7 +4,7 @@ description: Come integrare Azure Mobile Engagement con le app universali di Win
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 71236b68-5ebd-44aa-8c82-c7ca8098ea05
 ms.service: mobile-engagement
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1d8fb2f2e0eaa4dc11844091e3b0b4b9e1831d99
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: bbd6ddeeeff949afe0cb66adc37982c036fc5c46
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -276,12 +277,7 @@ La modalità burst aumenta lievemente la durata della batteria ma ha un impatto 
 > 
 > 
 
-[in questo articolo]:http://www.nuget.org/packages/Capptain.WindowsCS
-[sito Web NuGet]:http://docs.nuget.org/docs/start-here/overview
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+[here]:http://www.nuget.org/packages/Capptain.WindowsCS
+[NuGet website]:http://docs.nuget.org/docs/start-here/overview
 
 

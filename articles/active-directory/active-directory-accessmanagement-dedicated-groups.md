@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3cacf9edde4ed2cabf996e390bb1e00113bc47cb
+ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
+ms.openlocfilehash: 92b9c88ec49424c96c3bd21bc5c4ce390352c17b
 
 
 ---
@@ -25,11 +25,11 @@ In Azure Active Directory (Azure AD), la funzionalità gruppi dedicati crea e po
 
 > [!NOTE]
 > I gruppi dedicati richiedono che venga assegnata una licenza Azure AD Premium a:
-> 
+>
 > * l'amministratore che gestisce la regola in un gruppo
 > * tutti gli utenti che vengono selezionati in base alla regola come membro del gruppo
-> 
-> 
+>
+>
 
 **Per abilitare i gruppi dedicati**
 
@@ -49,15 +49,15 @@ Per un gruppo che esclude tutti gli utenti guest, usare una regola come la segue
 
                 (user.userType -ne "Guest")
 
-Per informazioni su come creare regole *avanzate* (regole che possono contenere più confronti) per l'appartenenza dinamica a un gruppo, vedere [Uso di attributi per la creazione di regole avanzate](active-directory-accessmanagement-groups-with-advanced-rules.md).
+Per informazioni su come creare regole *avanzate* (ovvero regole che possono contenere più confronti) per l'appartenenza dinamica ai gruppi, vedere [Uso di attributi per la creazione di regole avanzate](active-directory-accessmanagement-groups-with-advanced-rules.md).
 
+### <a name="next-steps"></a>Passaggi successivi
 Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 * [Gestione dell'accesso alle risorse tramite i gruppi di Azure Active Directory](active-directory-manage-groups.md)
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 * [Informazioni su Azure Active Directory](active-directory-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
-
 
 
 

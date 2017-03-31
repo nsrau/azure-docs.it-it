@@ -7,13 +7,9 @@
 ## Indirizzamento IP
 ### [Gestione risorse](virtual-network-ip-addresses-overview-arm.md)
 ### [Classico](virtual-network-ip-addresses-overview-classic.md)
-## Macchine virtuali
-### [Interfacce di rete](virtual-network-network-interface-overview.md)
-### [Risoluzione dei nomi](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 # Attività iniziali
-## [Creare una rete virtuale](virtual-networks-create-vnet-arm-pportal.md)
-## [Distribuire una macchina virtuale in una rete virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+## [Creare la prima rete virtuale](virtual-network-get-started-vnet-subnet.md)
 
 # Procedure
 ## Pianificare e progettare
@@ -49,6 +45,10 @@
 #### [Portale](virtual-networks-create-vnetpeering-arm-portal.md)
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [Modello](virtual-networks-create-vnetpeering-arm-template-click.md)
+
+### [Interfacce di rete](virtual-network-network-interface.md)
+
+### [Indirizzi IP pubblici](virtual-network-public-ip-address.md)
 
 ### Macchine virtuali
 
@@ -97,14 +97,16 @@
 ##### [Applicazione di esempio](virtual-networks-sample-app.md)
 
 ## Configurare
-### Rete accelerata
+### Rete accelerata per macchine virtuali
 #### [Portale di Azure](virtual-network-accelerated-networking-portal.md)
 #### [PowerShell](virtual-network-accelerated-networking-powershell.md)
+### [Ottimizzare la velocità della rete VM](virtual-network-optimize-network-bandwidth.md)
 ### Elenchi di controllo di accesso
 #### [Portale classico](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
+### [Risoluzione dei nomi per macchine virtuali e servizi cloud](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
-## Gestisci
+## Gestire
 ### Gruppi di sicurezza di rete
 #### [Portale](virtual-network-manage-nsg-arm-portal.md)
 #### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
@@ -121,11 +123,12 @@
 ### Route
 #### [Portale](virtual-network-routes-troubleshoot-portal.md)
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
+### [Test della velocità effettiva](virtual-network-bandwidth-testing.md)
 
 # Riferimento
-## [PowerShell (Resource Manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
-## [PowerShell (Classic)](https://msdn.microsoft.com/library/mt270335(v=azure.300)) (PowerShell (classico))
-## [Interfaccia della riga di comando di Azure](/cli/azure/)
+## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
+## [PowerShell (Classic)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking) (PowerShell (classico))
+## [Interfaccia della riga di comando di Azure](/cli/azure/network)
 ## [Java](/java/api/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
 ## [REST (classico)](https://msdn.microsoft.com/library/jj157182.aspx)
@@ -145,8 +148,3 @@
 ## [Forum sulle reti](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/virtual-network)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

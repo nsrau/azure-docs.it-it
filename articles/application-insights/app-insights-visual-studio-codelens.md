@@ -4,18 +4,19 @@ description: Accesso rapido ai dati di telemetria per richieste ed eccezioni di 
 services: application-insights
 documentationcenter: .net
 author: numberbycolors
-manager: douge
+manager: carmonm
 ms.assetid: 93559e44-23cb-4b9d-8425-60f7f0d0a82c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/14/2016
+ms.date: 03/17/2017
 ms.author: daviste
 translationtype: Human Translation
 ms.sourcegitcommit: ebfed89674dc132bd5d93f34a8b5ed5ab12bd73e
 ms.openlocfilehash: 3e7cb9dfbc3a0985794294c94d331f12829c2bdc
+ms.lasthandoff: 11/16/2016
 
 
 ---
@@ -72,16 +73,11 @@ Per visualizzare altri dettagli, fare clic sull'indicatore delle richieste di Co
 * Scegliere **Tendenza** per visualizzare la tendenza per richieste, richieste non riuscite o tempi di risposta medi nelle ultime 24 ore.
 * Scegliere il nome della risorsa di Application Insights nell'angolo superiore sinistro della visualizzazione dei dettagli CodeLens per modificare la risorsa che rappresenta l'origine dei dati di CodeLens.
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Passaggi successivi
+## <a name="next"></a>Passaggi successivi
 |  |  |
 | --- | --- |
 | **[Uso di Application Insights in Visual Studio](app-insights-visual-studio.md)**<br/>Ricerca sui dati di telemetria, visualizzazione dei dati in CodeLens e configurazione di Application Insights. Tutto in Visual Studio. |![Fare clic con il pulsante destro del mouse sul progetto e scegliere Application Insights, Cerca.](./media/app-insights-visual-studio-codelens/34.png) |
 | **[Aggiungere altri dati](app-insights-asp-net-more.md)**<br/>Monitorare l'utilizzo, la disponibilità, le dipendenze e le eccezioni, integrare le tracce dei framework di registrazione e scrivere telemetria personalizzata. |![Visual Studio](./media/app-insights-visual-studio-codelens/64.png) |
 | **[Uso del portale Application Insights](app-insights-dashboards.md)**<br/>Dashboard, strumenti avanzati di diagnostica e di analisi, avvisi, mappa attiva delle dipendenze dell'applicazione ed esportazione dei dati di telemetria. |![Visual Studio](./media/app-insights-visual-studio-codelens/62.png) |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

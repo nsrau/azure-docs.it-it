@@ -11,11 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 03/09/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
-ms.openlocfilehash: 71cf6cd6e7a33b3aeb3e0e20b9b047377412786d
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: b850264ef2b89ad1679ae1e956a58cc849e63c84
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -27,13 +28,13 @@ Fonti di informazioni aggiuntive:
 * Diversi materiali di riferimento sono disponibili in Analytics non appena si digita il testo. Quando si inizia a digitare una query, vengono suggeriti i completamenti possibili.
 * [La pagina dell'esercitazione](app-insights-analytics-tour.md) offre un'introduzione dettagliata alle funzionalità del linguaggio.
 * Il [foglio informativo sugli utenti SQL](https://aka.ms/sql-analytics) traduce i linguaggi più comuni.
-* [Eseguire la versione di test di Analisi sui dati simulati](https://analytics.applicationinsights.io/demo) se l'app non invia ancora i dati ad Application Insights.
+* [Eseguire la versione di test di Analisi sui dati simulati](https://analytics.applicationinsights.io/demo) se l'app non invia i dati ad Application Insights.
  
 
 ## <a name="index"></a>Indice
-**Let** [let](#let-clause)
+**Let** [let](#let-clause) | [materialize](#materialize) 
 
-**Query e operatori** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
+**Query e operatori** [as](#as-operator) | [count](#count-operator) | [datatable](#datatable-operator) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
 
 **Aggregazioni** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -43,9 +44,9 @@ Fonti di informazioni aggiuntive:
 
 **Data e ora** [Espressioni di data e ora](#date-and-time-expressions) | [Valori letterali di data e ora](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
-**Stringa** [GUID](#guids) | [Valori letterali stringa offuscati](#obfuscated-string-literals) | [Valori letterali stringa](#string-literals) | [Confronto tra stringhe](#string-comparisons) | [countof](#countof) | [extract](#extract) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty)| [parseurl](#parseurl) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper)
+**Stringa** [GUID](#guids) | [Valori letterali stringa offuscati](#obfuscated-string-literals) | [Valori letterali stringa](#string-literals) | [Confronto tra stringhe](#string-comparisons) | [countof](#countof) | [extract](#extract) | [in, !in](#in) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty)| [parseurl](#parseurl) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper)
 
-**Array, oggetti e valori dinamici** [Valori letterali di matrice e oggetto](#array-and-object-literals) | [Funzioni di oggetti dinamici](#dynamic-object-functions) | [Oggetti dinamici nelle clausole let](#dynamic-objects-in-let-clauses) | [Espressioni di percorso JSON](#json-path-expressions) | [nomi](#names) | [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [todynamic](#todynamic) | [treepath](#treepath)
+**Array, oggetti e valori dinamici** [Valori letterali di matrice](#array-and-object-literals) | [Funzioni di oggetti dinamici](#dynamic-object-functions) | [Oggetti dinamici nelle clausole let](#dynamic-objects-in-let-clauses) | [Espressioni di percorso JSON](#json-path-expressions) | [Nomi](#names) | [arraylength](#arraylength) | [extractjson](#extractjson) | [in, !in](#in) | [parsejson](#parsejson) | [range](#range) | [todynamic](#todynamic) | [treepath](#treepath)
 
 ## <a name="let"></a>Let
 ### <a name="let-clause"></a>Clausola let
@@ -94,18 +95,87 @@ Una clausola let associa un [nome](#names) a un risultato tabulare, a un valore 
     let rows = (n:long) { range steps from 1 to n step 1 };
     rows(10) | ...
 
+Convertire un risultato di tabella in un valore scalare e usarlo in una query:
 
-Self-join:
+```
+let topCities =  toscalar ( // convert single column to value
+   requests
+   | summarize count() by client_City 
+   | top 4 by count_ 
+   | summarize makeset(client_City)) ;
+requests
+| where client_City in (topCities) 
+| summarize count() by client_City;
+```
 
-    let Recent = events | where timestamp > ago(7d);
-    Recent | where name contains "session_started" 
-    | project start = timestamp, session_id
-    | join (Recent 
-        | where name contains "session_ended" 
-        | project stop = timestamp, session_id)
-      on session_id
-    | extend duration = stop - start 
+### <a name="materialize"></a>materialize
 
+Usare materialize() per migliorare le prestazioni in cui il risultato di una clausola let viene usato più di una volta a valle. Materialize() valuta e memorizza nella cache il risultato di una clausola let tabulare al momento dell'esecuzione della query, verificando che la query non venga eseguita più volte.
+
+**Sintassi**
+
+    materialize(expression)
+
+**Argomenti**
+
+* `expresion`: espressione tabulare da valutare e memorizzare nella cache durante l'esecuzione della query.
+
+**Suggerimenti**
+
+* Usare Materialize quando si dispone di un join/union in cui i relativi operandi hanno sottoquery reciproche che possono essere eseguite una volta; vedere gli esempi seguenti.
+* È utile anche negli scenari quando occorre eseguire join/union di fork leg.
+* È possibile usare Materialize solo nelle istruzioni let, assegnando un nome al risultato memorizzato nella cache.
+* Materialize prevede un limite di 5 GB per la dimensione della cache. Questo limite vale per ogni nodo del cluster ed è reciproco per tutte le query.
+
+**Esempio: self-join**
+
+
+```AIQL
+let totalPagesPerDay = pageViews
+| summarize by name, Day = startofday(timestamp)
+| summarize count() by Day;
+let materializedScope = pageViews
+| summarize by name, Day = startofday(timestamp);
+let cachedResult = materialize(materializedScope);
+cachedResult
+| project name, Day1 = Day
+| join kind = inner
+(
+    cachedResult
+    | project name, Day2 = Day
+)
+on name
+| where Day2 > Day1
+| summarize count() by Day1, Day2
+| join kind = inner
+    totalPagesPerDay
+on $left.Day1 == $right.Day
+| project Day1, Day2, Percentage = count_*100.0/count_1
+```
+
+La versione non memorizzata nella cache usa il risultato `scope` due volte:
+
+```AIQL
+let totalPagesPerDay = pageViews
+| summarize by name, Day = startofday(timestamp)
+| summarize count() by Day;
+let scope = pageViews
+| summarize by name, Day = startofday(timestamp);
+scope      // First use of this table.
+| project name, Day1 = Day
+| join kind = inner
+(
+    scope  // Second use can cause evaluation twice.
+    | project name, Day2 = Day
+)
+on name
+| where Day2 > Day1
+| summarize count() by Day1, Day2
+| join kind = inner
+    totalPagesPerDay
+on $left.Day1 == $right.Day
+| project Day1, Day2, Percentage = count_*100.0/count_1
+```
 
 ## <a name="queries-and-operators"></a>Query e operatori
 Una query sulla telemetria è costituita da un riferimento a un flusso di origine, seguito da una pipeline di filtri. Ad esempio:
@@ -137,6 +207,30 @@ Una query può essere preceduta da una o più [clausole let](#let-clause), che d
 > 
 > 
 
+### <a name="as-operator"></a>operatore as
+
+Associa temporaneamente un nome all'espressione tabulare di input.
+
+**Sintassi**
+
+    T | as name
+
+**Argomenti**
+
+* *name:* un nome temporaneo per la tabella
+
+**Note**
+
+* Usare [let](#let-clause) anziché *as* se si vuole usare il nome in una sottoespressione successiva.
+* Usare *as* per specificare il nome della tabella così come appare nel risultato di un'operazione [union](#union-operator), [find](#find-operator), o [search](#search-operator).
+
+**Esempio**
+
+```AIQL
+range x from 1 to 10 step 1 | as T1
+| union withsource=TableName (requests | take 10 | as T2)
+```
+
 ### <a name="count-operator"></a>Operatore count
 L'operatore `count` restituisce il numero di record (righe) nel set di record di input.
 
@@ -157,6 +251,63 @@ Questa funzione restituisce una tabella con un solo record e una sola colonna di
 ```AIQL
 requests | count
 ```
+
+### <a name="datatable-operator"></a>Operatore datatable
+
+Specificare una tabella inline. Lo schema e i valori sono definiti nella query stessa.
+
+Si noti che questo operatore non ha una pipeline di input.
+
+**Sintassi**
+
+    datatable ( ColumnName1 : ColumnType1 , ...) [ScalarValue1, ...]
+
+* *ColumnName* Il nome per una colonna.
+* *ColumnType* Un [tipo di dati](#scalars). 
+* *ScalarValue* Un valore del tipo appropriato. Il numero di valori deve essere un multiplo del numero di colonne. 
+
+**Restituisce**
+
+Una tabella contenente i valori specificati.
+
+**Esempio**
+
+```AIQL
+datatable (Date:datetime, Event:string)
+    [datetime(1910-06-11), "Born",
+     datetime(1930-01-01), "Enters Ecole Navale",
+     datetime(1953-01-01), "Published first book",
+     datetime(1997-06-25), "Died"]
+| where strlen(Event) > 4
+```
+
+### <a name="distinct-operator"></a>Operatore distinct
+
+Restituisce una tabella contenente il set di righe che presentano combinazioni di valori distinte. Facoltativamente esegue una proiezione su un sottoinsieme di colonne prima dell'operazione.
+
+**Sintassi**
+
+    T | distinct *              // All columns
+    T | distinct Column1, ...   // Columns to project
+
+**Esempio**
+
+```AIQL
+datatable (Supplier: string, Fruit: string, Price:int) 
+["Contoso", "Grapes", 22,
+"Fabrikam", "Apples", 14,
+"Contoso", "Apples", 15,
+"Fabrikam", "Grapes", 22]
+| distinct Fruit, Price 
+```
+
+
+|Frutta|Prezzo|
+|---|---|
+|Uva|22|
+|Mele|14|
+|Mele|15|
+
 
 ### <a name="evaluate-operator"></a>Operatore evaluate
 `evaluate` è un meccanismo di estensione che consente di aggiungere algoritmi specializzati alla fine delle query.
@@ -370,7 +521,10 @@ traces
 
 ### <a name="find-operator"></a>Operatore find
 
-    find in (Table1, Table2, Table3) where id=='42'
+    find in (Table1, Table2, Table3) where id=="a string"
+    find in (Table1, Table2, Table3) where id=="a string" project column1, column2
+    find in (Table1, Table2, Table3) where * has "a string"
+    find in (Table1, Table2, Table3) where appName in ("string 1", "string 2", "string 3")
 
 Trova le righe corrispondenti a un predicato in un set di tabelle.
 
@@ -384,13 +538,14 @@ Trova le righe corrispondenti a un predicato in un set di tabelle.
 
 * *Table1* Nome di tabella o query. Può essere una tabella definita da let, ma non una funzione. Un nome di tabella offre prestazioni migliori di una query.
 * *Predicate* Espressione booleana valutata per ogni riga nelle tabelle specificate.
+ * È possibile usare "*" invece di un nome di colonna nei confronti tra stringhe
 * *Column1* L'opzione `project` consente di specificare le colonne che devono essere sempre visualizzate nell'output. 
 
 **Risultato**
 
 Per impostazione predefinita, la tabella di output contiene:
 
-* `source_`: indicatore della tabella di origine per ogni riga.
+* `source_`: indicatore della tabella di origine per ogni riga. Usare [as](#as-operator) alla fine di ogni espressione di tabella, se si vuole specificare il nome visualizzato in questa colonna.
 * Colonne menzionate in modo esplicito nel predicato.
 * Colonne non vuote comuni a tutte le tabelle di input.
 * `pack_`: contenitore delle proprietà che include i dati delle altre colonne.
@@ -431,7 +586,19 @@ Trovare i dati di telemetria più recenti in cui qualsiasi campo contiene il ter
 * Aggiungere termini con scadenza al predicato `where`.
 * Usare clausole `let` invece di scrivere query inline.
 
+### <a name="getschema-operator"></a>operatore getschema
 
+   T | getschema
+   
+Restituisce una tabella che mostra i nomi e i tipi di colonne della tabella di input.
+
+```AIQL
+requests
+| project appId, appName, customDimensions, duration, iKey, itemCount, success, timestamp 
+| getschema 
+```
+
+![Risultati di getschema](./media/app-insights-analytics-reference/getschema.png)
 
 ### <a name="join-operator"></a>Operatore join
     Table1 | join (Table2) on CommonColumn
@@ -520,6 +687,42 @@ Restituisce un numero massimo specificato di righe dalla tabella di input. Non c
 
 Esiste un limite implicito per il numero di righe restituite al client, anche se non si usa `take`. Per aumentare questo limite, usare l'opzione di richiesta client `notruncation` .
 
+### <a name="make-series-operator"></a>operatore make-series
+
+Esegue un'aggregazione. A differenza di [summarize](#summarize-operator), è disponibile una riga di output per ogni gruppo. Nelle colonne dei risultati i valori in ogni gruppo vengono compressi in matrici. 
+
+**Sintassi**
+
+    T | 
+    make-series [Column =] Aggregation default = DefaultValue [, ...] 
+    on AxisColumn in range(start, stop, step) 
+    by [Column =] GroupExpression [, ...]
+
+
+**Argomenti**
+
+* *Column:* nome facoltativo per una colonna di risultati. Il valore predefinito è un nome derivato dall'espressione.
+* *DefaultValue:* se non esiste un riga con valori specifici in AxisColumn e GroupExpression, nei risultati verrà assegnato l'elemento corrispondente della matrice con un DefaultValue. 
+* *Aggregation:* un'espressione numerica che usa una [funzione di aggregazione](#aggregations). 
+* *AxisColumn:* una colonna in base a cui viene ordinata la serie. Può essere considerata come una sequenza temporale, ma vengono accettati tutti i tipi numerici.
+*start, stop, step:* definisce l'elenco dei valori di AxisColumn per ogni riga. Tutte le altre colonne di aggregazione dei risultati hanno una matrice della stessa lunghezza. 
+* *GroupExpression:* espressione sulle colonne che fornisce un set di valori distinti. È disponibile una riga nell'output per ogni valore di GroupExpression. In genere è un nome di colonna che fornisce già un set limitato di valori. 
+
+**Suggerimento**
+
+Le matrici di risultati vengono visualizzate in un grafico di analisi nello stesso modo dell'operazione summarize corrispondente.
+
+**Esempio**
+
+```AIQL
+requests
+| make-series sum(itemCount) default=0, avg(duration) default=0
+  on timestamp in range (ago(7d), now(), 1d)
+  by client_City
+```
+
+![Risultati di make-series](./media/app-insights-analytics-reference/make-series.png)
+
 ### <a name="mvexpand-operator"></a>Operatore mvexpand
     T | mvexpand listColumn 
 
@@ -571,32 +774,32 @@ La colonna espansa ha sempre il tipo dinamico. Usare un cast come `todatetime()`
 Sono supportate due modalità di espansione dei contenitori delle proprietà:
 
 * `bagexpansion=bag`: i contenitori delle proprietà vengono espansi in contenitori delle proprietà a voce singola. Questa è l'espansione predefinita.
-* `bagexpansion=array`: i contenitori delle proprietà vengono espansi in strutture di matrici a due elementi `[`*key*`,`*value*`]`, che consentono l'accesso uniforme alle chiavi e ai valori oltre ad eseguire, ad esempio, un'aggregazione di conteggi di valori univoci sui nomi delle proprietà. 
+* `bagexpansion=array`: i contenitori delle proprietà vengono espansi in strutture di matrici a due elementi `[`*key*`,`*value*`]`, che consentono l'accesso uniforme alle chiavi e ai valori oltre ad eseguire, ad esempio, un'aggregazione di conteggi di valori univoci sui nomi delle proprietà.
 
 **esempi**
 
-    exceptions | take 1 
+    exceptions | take 1
     | mvexpand details[0]
 
 Divide il record di un'eccezione in righe per ogni elemento nel campo dei dettagli.
 
 ### <a name="parse-operator"></a>Operatore parse
-    T | parse "I got 2 socks for my birthday when I was 63 years old" 
+    T | parse "I got 2 socks for my birthday when I was 63 years old"
     with * "got" counter:long " " present "for" * "was" year:long *
 
 
     T | parse kind=relaxed
-          "I got no socks for my birthday when I was 63 years old" 
-    with * "got" counter:long " " present "for" * "was" year:long * 
+          "I got no socks for my birthday when I was 63 years old"
+    with * "got" counter:long " " present "for" * "was" year:long *
 
-    T |  parse kind=regex "I got socks for my 63rd birthday" 
-    with "(I|She) got " present " for .*?" year:long * 
+    T |  parse kind=regex "I got socks for my 63rd birthday"
+    with "(I|She) got " present " for .*?" year:long *
 
 Estrae i valori da una stringa. È possibile usare la corrispondenza con espressioni semplici o regolari.
 
 **Sintassi**
 
-    T | parse [kind=regex|relaxed] SourceText 
+    T | parse [kind=regex|relaxed] SourceText
         with [Match | Column [: Type [*]] ]  ...
 
 **Argomenti**
@@ -814,7 +1017,8 @@ Cerca di raggruppare record simili. Per ogni gruppo l'operatore restituisce l'og
 **Argomenti**
 
 * *ColumnName:* la colonna da esaminare. Deve essere di tipo stringa.
-* *Threshold:* un valore compreso nell'intervallo {0..1}. Il valore predefinito è 0.001. Per gli input di grandi dimensioni, la soglia deve essere bassa. 
+* <seg>
+  *Threshold:* un valore compreso nell'intervallo {0..1}.</seg> Il valore predefinito è 0.001. Per gli input di grandi dimensioni, la soglia deve essere bassa. 
 
 **Restituisce**
 
@@ -844,6 +1048,89 @@ Specifica il set di nomi di tabelle disponibili per gli operatori che seguono. A
     restrict access to (e1, e2);
     union * |  take 10 
 
+### <a name="sample-operator"></a>Operatore sample
+
+Restituisce righe casuali distribuite uniformemente dalla tabella di input.
+
+
+**Sintassi**
+
+    T | sample NumerOfRows
+
+* *NumberOfRows* Il numero di righe da restituire nel campione.
+
+**Suggerimento**
+
+Usare `Take` quando non è necessario un campione distribuito in modo uniforme.
+
+
+### <a name="sample-distinct-operator"></a>Operatore sample-distinct
+
+Restituisce una singola colonna che contiene fino al numero specificato di valori distinti della colonna richiesta. Non restituisce attualmente un campione equamente distribuito.
+
+**Sintassi**
+
+    T | sample-distinct NumberOfValues of ColumnName
+
+* *NumberOfValues* La lunghezza della tabella desiderata.
+* *ColumnName* La colonna desiderata.
+
+**Suggerimenti**
+
+Può essere utile campionare una popolazione inserendo sample-distinct in un'istruzione let e filtrando in un secondo momento tramite l'operatore in (vedere l'esempio).
+ 
+Se si vuole estrarre i primi valori anziché solo un campione, è possibile usare l'operatore top-hitters.
+
+Se si vuole campionare le righe di dati (anziché i valori di una specifica colonna), vedere l'[operatore sample](#sample-operator).
+
+**Esempio**
+
+Campionare una popolazione ed eseguire ulteriori calcoli sapendo che il riepilogo non supererà i limiti della query.
+
+```AIQL
+let sampleops = toscalar(requests | sample-distinct 10 of OperationName);
+requests | where OperationName in (sampleops) | summarize total=count() by OperationName
+```
+### <a name="search-operator"></a>operatore search
+
+Ricercare le stringhe in più tabelle e colonne.
+
+**Sintassi**
+
+    search [kind=case_sensitive] [in (TableName, ...)] SearchToken
+
+    T | search [kind=case_sensitive] SearchToken
+
+    search [kind=case_sensitive] [in (TableName, ...)] SearchPredicate
+
+    T | search [kind=case_sensitive] SearchPredicate
+
+Trova le occorrenze della stringa di token specificata in qualsiasi colonna di qualsiasi tabella.
+ 
+* *TableName* nome di una tabella definita a livello globale (richieste, eccezioni,...) o da un [clausola let](#let-clause). È possibile usare i caratteri jolly come r*.
+* *SearchToken:* una stringa token, che deve corrispondere a una parola intera. È possibile usare caratteri jolly finali. "Amster*" corrisponde ad "Amsterdam", ma non ad "Amster".
+* *SearchPredicate:* un'espressione booleana sulle colonne nelle tabelle. È possibile usare "*" come carattere jolly nei nomi di colonna.
+
+**esempi**
+
+```AIQL
+search "Amster*"  //All columns, all tables
+
+search name has "home"  // one column
+
+search * has "home"     // all columns
+
+search in (requests, exceptions) "Amster*"  // two tables
+
+requests | search "Amster*"
+
+requests | search name has "home"
+
+```
+
+
+
+
 ### <a name="sort-operator"></a>Operatore sort
     T | sort by country asc, price desc
 
@@ -853,7 +1140,7 @@ Ordina le righe della tabella input in base a una o più colonne.
 
 **Sintassi**
 
-    T  | sort by Column [ asc | desc ] [ `,` ... ]
+    T  | sort by Column [ asc | desc ] [ , ... ]
 
 **Argomenti**
 
@@ -886,9 +1173,9 @@ Tabella che indica quanti elementi presentano prezzi in ogni intervallo [0,10.0]
 **Sintassi**
 
     T | summarize
-         [  [ Column = ] Aggregation [ `,` ... ] ]
+         [  [ Column = ] Aggregation [ , ... ] ]
          [ by
-            [ Column = ] GroupExpression [ `,` ... ] ]
+            [ Column = ] GroupExpression [ , ... ] ]
 
 **Argomenti**
 
@@ -909,6 +1196,32 @@ Il risultato contiene una riga per ogni singola combinazione di valori `by` . Pe
 > [!NOTE]
 > Anche se è possibile specificare espressioni arbitrarie per le espressioni di aggregazione e raggruppamento, è preferibile usare nomi di colonna semplici o applicare `bin()` a una colonna numerica.
 
+### <a name="table-operator"></a>operatore table
+
+    table('pageViews')
+
+La tabella denominata nella stringa di argomento.
+
+**Sintassi**
+
+    table(tableName)
+
+**Argomenti**
+
+* *tableName:* una stringa. Il nome di una tabella che può essere statico o il risultato di una clausola let.
+
+**esempi**
+
+    table('requests');
+
+
+    let size = (tableName: string) {
+        table(tableName) | summarize sum(itemCount)
+    };
+    size('pageViews');
+
+
+
 ### <a name="take-operator"></a>Operatore take
 Alias di [limit](#limit-operator)
 
@@ -919,7 +1232,7 @@ Restituisce i primi *N* record ordinati in base alle colonne specificate.
 
 **Sintassi**
 
-    T | top NumberOfRows by Sort_expression [ `asc` | `desc` ] [`nulls first`|`nulls last`] [, ... ]
+    T | top NumberOfRows by Sort_expression [ asc | desc ] [nulls first|nulls last] [, ... ]
 
 **Argomenti**
 
@@ -933,11 +1246,11 @@ Restituisce i primi *N* record ordinati in base alle colonne specificate.
 `top 5 by name` apparentemente equivale a `sort by name | take 5`, ma viene eseguito più rapidamente e restituisce sempre risultati ordinati, mentre `take` non offre questo tipo di garanzia.
 
 ### <a name="top-nested-operator"></a>Operatore top-nested
-    requests 
-    | top-nested 5 of name by count()  
-    , top-nested 3 of performanceBucket by count() 
+    requests
+    | top-nested 5 of name by count()
+    , top-nested 3 of performanceBucket by count()
     , top-nested 3 of client_CountryOrRegion by count()
-    | render barchart 
+    | render barchart
 
 Restituisce i risultati in una gerarchia in cui ogni livello è un drill-down del livello precedente. È utile per rispondere a domande come: "Quali sono le prime 5 richieste e, per ognuna di esse, quali sono i 3 bucket di prestazione principali e, per ognuno di essi, quali sono i primi 3 paesi da cui provengono le richieste?"
 
@@ -971,7 +1284,7 @@ Considera due o più tabelle e restituisce le righe di tutte.
 * `kind`: 
   * `inner` : il risultato include il subset di colonne comuni a tutte le tabelle di input.
   * `outer` : il risultato include tutte le colonne presenti in tutti gli input. Le celle non definite da una riga di input vengono impostate su `null`.
-* `withsource=`*ColumnName:* se specificato, l'output includerà una colonna denominata *ColumnName* il cui valore indica quale tabella di origine ha contribuito per ogni riga.
+* `withsource=`*ColumnName:* se specificato, l'output includerà una colonna denominata *ColumnName* il cui valore indica quale tabella di origine ha contribuito per ogni riga. Usare [as](#as-operator) alla fine di ogni espressione di tabella, se si vuole specificare il nome visualizzato in questa colonna.
 
 **Restituisce**
 
@@ -979,38 +1292,28 @@ Una tabella con un numero di righe pari a quelle presenti in tutte le tabelle di
 
 Non è garantito l'ordinamento delle righe.
 
-**Esempio**
-
-Unione di tutte le tabelle i cui nomi iniziano con "tt":
-
-```AIQL
-
-    let ttrr = requests | where timestamp > ago(1h);
-    let ttee = exceptions | where timestamp > ago(1h);
-    union tt* | count
-```
 
 **Esempio**
 
-Numero di utenti distinti che hanno generato un evento `exceptions` o un evento `traces` nel giorno precedente. Nel risultato la colonna "SourceTable" indicherà "Query" o "Command":
+Numero di utenti distinti che hanno generato un evento `exceptions` o un evento `traces` nelle 12 ore precedenti. Nel risultato la colonna "SourceTable" indicherà "exceptions" o "traces":
 
 ```AIQL
-
-    union withsource=SourceTable kind=outer Query, Command
-    | where Timestamp > ago(1d)
-    | summarize dcount(UserId)
+    
+    union withsource=SourceTable kind=outer exceptions, traces
+    | where timestamp > ago(12h)
+    | summarize dcount(user_Id) by SourceTable
 ```
 
 Questa versione più efficiente genera lo stesso risultato. Filtra ogni tabella prima di creare l'unione:
 
 ```AIQL
-
     exceptions
-    | where Timestamp > ago(12h)
-    | union withsource=SourceTable kind=outer 
-       (Command | where Timestamp > ago(12h))
-    | summarize dcount(UserId)
+    | where timestamp > ago(24h) | as exceptions
+    | union withsource=SourceTable kind=outer (requests | where timestamp > ago(12h) | as traces)
+    | summarize dcount(user_Id) by SourceTable 
 ```
+
+Usare [as](#as-operator) per specificare il nome che verrà visualizzato nella colonna di origine.
 
 #### <a name="forcing-an-order-of-results"></a>Forzare l'ordine dei risultati
 
@@ -1027,7 +1330,7 @@ Per ottenere lo stesso ordine ogni volta che si esegue la query, aggiungere una 
 Considerare l'[operatore join](#join-operator) come alternativa.
 
 ### <a name="where-operator"></a>Operatore where
-     requests | where resultCode==200
+     requests | where resultCode=="200"
 
 Filtra una tabella per trovare il subset di righe che soddisfano un predicato.
 
@@ -1070,24 +1373,7 @@ Record risalenti a non più di 1 ora fa e provenienti dall'elemento Source denom
 
 Si noti che il confronto tra due colonne viene inserito per ultimo, perché non riesce a utilizzare l'indice e forza un'analisi.
 
-### <a name="where-in-operator"></a>Operatore where-in
-    requests | where resultCode !in (200, 201)
 
-    requests | where resultCode in (403, 404)
-
-**Sintassi**
-
-    T | where col in (expr1, expr2, ...)
-    T | where col !in (expr1, expr2, ...)
-
-**Argomenti**
-
-* `col`: una colonna della tabella.
-* `expr1`...: un elenco di espressioni scalari.
-
-Usare `in` per includere solo le righe in cui `col` è uguale a una delle espressioni `expr1...`.
-
-Usare `!in` per includere solo le righe in cui `col` non è uguale a nessuna delle espressioni `expr1...`.  
 
 ## <a name="aggregations"></a>Aggregazioni
 Le aggregazioni sono funzioni usate per combinare i valori in gruppi creati nell' [operazione di riepilogo](#summarize-operator). In questa query, ad esempio, dcount() è una funzione di aggregazione:
@@ -1160,10 +1446,10 @@ Il tipo di colonna dei parametri deve essere `dynamic` : un contenitore di matri
 
 Risultato:
 
-    { "`indexer`":
+    { "indexer":
      {"id":"string",
        "parsedStack":
-       { "`indexer`": 
+       { "indexer": 
          {  "level":"int",
             "assembly":"string",
             "fileName":"string",
@@ -1195,11 +1481,11 @@ Si supponga che la colonna di input abbia tre valori dinamici:
 
 Lo schema risultante sarà:
 
-    { 
-      "x":["int", "string"], 
-      "y":["double", {"w": "string"}], 
-      "z":{"`indexer`": ["int", "string"]}, 
-      "t":{"`indexer`": "string"} 
+    {
+      "x":["int", "string"],
+      "y":["double", {"w": "string"}],
+      "z":{"indexer": ["int", "string"]},
+      "t":{"indexer": "string"}
     }
 
 Lo schema indica che:
@@ -1216,19 +1502,19 @@ Lo schema indica che:
 La sintassi dello schema restituito è:
 
     Container ::= '{' Named-type* '}';
-    Named-type ::= (name | '"`indexer`"') ':' Type;
+    Named-type ::= (name | '"indexer"') ':' Type;
     Type ::= Primitive-type | Union-type | Container;
     Union-type ::= '[' Type* ']';
     Primitive-type ::= "int" | "string" | ...;
 
 Equivalgono a un subset di annotazioni di tipo TypeScript, codificato come valore dinamico. In Typescript, lo schema di esempio sarebbe:
 
-    var someobject: 
-    { 
-      x?: (number | string), 
-      y?: (number | { w?: string}), 
+    var someobject:
+    {
+      x?: (number | string),
+      y?: (number | { w?: string}),
       z?: { [n:number] : (int | string)},
-      t?: { [n:number]: string } 
+      t?: { [n:number]: string }
     }
 
 
@@ -1634,6 +1920,12 @@ L'argomento valutato. Se l'argomento è una tabella, restituisce la prima colonn
     and 
     or 
 
+### <a name="convert-to-boolean"></a>Conversione in valore booleano
+
+Se si ha una stringa `aStringBoolean` che contiene un valore "true" o "false", è possibile convertirla in un valore booleano come indicato di seguito:
+
+    booleanResult = aStringBoolean =~ "true"
+
 
 
 ## <a name="numbers"></a>Numeri
@@ -1785,13 +2077,6 @@ Funzione della radice quadrata.
     toint(a[0])       // cast from dynamic
     toint(b.c)        // cast from dynamic
 
-### <a name="tolong"></a>tolong
-    tolong(20.7) == 20 // conversion from double
-    tolong(20.4) == 20 // conversion from double
-    tolong("  123  ")  // parse string
-    tolong(a[0])       // cast from dynamic
-    tolong(b.c)        // cast from dynamic
-
 
 ### <a name="todouble"></a>todouble
     todouble(20) == 20.0 // conversion from long or int
@@ -1799,6 +2084,13 @@ Funzione della radice quadrata.
     todouble(a[0])       // cast from dynamic
     todouble(b.c)        // cast from dynamic
 
+
+### <a name="tolong"></a>tolong
+    tolong(20.7) == 20 // conversion from double
+    tolong(20.4) == 20 // conversion from double
+    tolong("  123  ")  // parse string
+    tolong(a[0])       // cast from dynamic
+    tolong(b.c)        // cast from dynamic
 
 
 ## <a name="date-and-time"></a>Data e ora
@@ -2066,7 +2358,7 @@ h"hello"
 | --- | --- | --- | --- |
 | `==` |Uguale a |Sì |`"aBc" == "aBc"` |
 | `<>` `!=` |Non uguale a |Sì |`"abc" <> "ABC"` |
-| `=~` |Uguale a |No |`"abc" =~ "ABC"` |
+| `=~` |Uguale a |No |`"abc" =~ "ABC"` <br/>`boolAsString =~ "true"` |
 | `!~` |Non uguale a |No |`"aBc" !~ "xyz"` |
 | `has` |RHS (Right-Hand-Side) è un termine intero in LHS (Left-Hand-Side) |No |`"North America" has "america"` |
 | `!has` |RHS non è un termine completo in LHS |No |`"North America" !has "amer"` |
@@ -2083,8 +2375,8 @@ h"hello"
 | `endswith` |RHS è una sottostringa terminale di LHS |No |`"Fabrikam" endswith "kam"` |
 | `!endswith` |RHS non è una sottostringa terminale di LHS |No |`"Fabrikam" !endswith "ka"` |
 | `matches regex` |LHS contiene una corrispondenza per RHS |Sì |`"Fabrikam" matches regex "b.*k"` |
-| `in` |Uguale a uno degli elementi |Sì |`"abc" in ("123", "345", "abc")` |
-| `!in` |Non uguale a uno degli elementi |Sì |`"bc" !in ("123", "345", "abc")` |
+| [`in`](#in) |Uguale a uno degli elementi |Sì |`"abc" in ("123", "345", "abc")` |
+| [`!in`](#in) |Non uguale a uno degli elementi |Sì |`"bc" !in ("123", "345", "abc")` |
 
 Usare `has` o `in` se si sta testando la presenza di un termine lessicale intero, ovvero un simbolo o una parola alfanumerica delimitata da caratteri non alfanumerici o da inizio o fine del campo. `has` è più rapido di `contains`, `startswith` o `endswith`. La prima delle query seguenti viene eseguita più rapidamente:
 
@@ -2167,6 +2459,8 @@ extract("^.{2,2}(.{4,4})", 1, Text)
 <a name="notempty"></a>
 <a name="isnotempty"></a>
 <a name="isempty"></a>
+
+
 
 ### <a name="isempty-isnotempty-notempty"></a>isempty, isnotempty, notempty
     isempty("") == true
@@ -2375,8 +2669,8 @@ Di seguito il risultato di una query su un'eccezione di Application Insights. Il
     | summarize count() 
       by toint(details[0].parsedStack[0].line)
 
-    exceptions 
-    | summarize count() 
+    exceptions
+    | summarize count()
       by tostring(details[0].parsedStack[0].assembly)
 
 **Valori letterali:** per creare una matrice esplicita o un oggetto contenitore delle proprietà, scrivere l'elemento come stringa JSON ed eseguire il cast.
@@ -2386,7 +2680,7 @@ Di seguito il risultato di una query su un'eccezione di Application Insights. Il
 
 **mvexpand:** per suddividere le proprietà di un oggetto in righe separate, usare mvexpand.
 
-    exceptions | take 1 
+    exceptions | take 1
     | mvexpand details[0].parsedStack[0]
 
 
@@ -2394,8 +2688,8 @@ Di seguito il risultato di una query su un'eccezione di Application Insights. Il
 
 **treepath:** per trovare tutti i percorsi in un oggetto complesso:
 
-    exceptions | take 1 | project timestamp, details 
-    | extend path = treepath(details) 
+    exceptions | take 1 | project timestamp, details
+    | extend path = treepath(details)
     | mvexpand path
 
 
@@ -2407,10 +2701,10 @@ Di seguito il risultato di una query su un'eccezione di Application Insights. Il
 
 Risultato:
 
-    { "`indexer`":
+    { "indexer":
      {"id":"string",
        "parsedStack":
-       { "`indexer`": 
+       { "indexer":
          {  "level":"int",
             "assembly":"string",
             "fileName":"string",
@@ -2436,7 +2730,7 @@ Si noti che `indexer` indica il punto in cui è necessario usare un indice numer
 Per creare un valore letterale dinamico, usare `parsejson` (alias `todynamic`) con un argomento di stringa JSON:
 
 * `parsejson('[43, 21, 65]')` : una matrice di numeri
-* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')` 
+* `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')`
 * `parsejson('21')` : un singolo valore di tipo dinamico che contiene un numero
 * `parsejson('"21"')` : un singolo valore di tipo dinamico che contiene una stringa
 
@@ -2455,8 +2749,8 @@ T
 ### <a name="dynamic-object-functions"></a>Funzioni di oggetti dinamici
 |  |  |
 | --- | --- |
-| *value* `in` *matrice* |True se è presente un elemento di *matrice* che è == *valore*<br/>`where City in ('London', 'Paris', 'Rome')` |
-| *value* `!in` *matrice* |True se non è presente un elemento di *matrice* che è == *valore* |
+| [*valore* `in` *matrice*](#in) |*matrice* contiene *valore* |
+| [*valore* `!in` *matrice*](#in) |*matrice* non contiene *valore* |
 | [`arraylength(`matrice`)`](#arraylength) |Null se non è una matrice |
 | [`extractjson(`path,object`)`](#extractjson) |Usa path per navigare nell'oggetto. |
 | [`parsejson(`source`)`](#parsejson) |Converte una stringa JSON in un oggetto dinamico. |
@@ -2475,7 +2769,57 @@ Poiché le [clausole let](#let-clause) archiviano i valori dinamici come stringh
     T | project parsejson(list1).a, parsejson(list2).a
 
 
+### <a name="in"></a>iniziare
+    value in (listExpression)
+    value !in (listExpression)
 
+Determina se è presente (non) un elemento nell'elenco uguale al valore. Distinzione maiuscole/minuscole nel caso in cui il valore è una stringa.
+
+**Argomenti**
+
+* `value`: espressione scalare.
+* `listExpression`...: Un elenco di espressioni scalari o un'espressione che restituisce un elenco. 
+
+Una matrice nidificata viene appiattita in un unico elenco, ad esempio `where x in (dynamic([1,[2,3]]))` diventa `where x in (1,2,3)`.  
+
+**esempi**
+
+```AIQL
+    requests | where client_City in ("London", "Paris", "Rome")
+```
+
+```AIQL
+let cities = dynamic(['Dublin','Redmond','Amsterdam']);
+requests | where client_City in (cities) 
+|  summarize count() by client_City
+```
+
+Elenco calcolato:
+
+```AIQL
+let topCities =  toscalar ( // convert single column to value
+   requests
+   | summarize count() by client_City 
+   | top 4 by count_ 
+   | summarize makeset(client_City)) ;
+requests
+| where client_City in (topCities) 
+| summarize count() by client_City;
+```
+
+Uso di una chiamata di funzione come espressione dell'elenco:
+
+```AIQL
+let topCities =  (n:int) {toscalar (
+   requests
+   | summarize count() by client_City 
+   | top n by count_ 
+   | summarize makeset(client_City)) };
+requests
+| where client_City in (topCities(3)) 
+| summarize count() by client_City;
+```
+ 
 
 ### <a name="arraylength"></a>arraylength
 Numero di elementi in una matrice dinamica.
@@ -2677,10 +3021,5 @@ Racchiudere tra virgolette un nome con [' ... '] o [" ... "] per includere altri
 | [where] |Parola chiave della lingua usata come nome |
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

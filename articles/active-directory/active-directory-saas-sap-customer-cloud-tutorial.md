@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/02/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: f454e7e218764e00cc19ca67b0edade213834b75
@@ -316,6 +316,6 @@ Quando si fa clic sul riquadro SAP Cloud for Customer nel pannello di accesso, s
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

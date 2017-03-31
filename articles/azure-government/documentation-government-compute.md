@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 11/18/2016
+ms.date: 3/13/2017
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: ca01baebd755e92aff1ef080af1fcd4606b9a2ec
-ms.openlocfilehash: 200caac4b480495b0bbb8f10cc89fdd73c42dbe2
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 146fcd9788bab55e4abd9e70dcfe25741f041d34
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -27,16 +28,18 @@ Per informazioni dettagliate su questo servizio e come usarlo, vedere [Dimension
 ### <a name="variations"></a>Varianti
 I prodotti (VM) sono disponibili in Azure per enti pubblici:
 
-| Prodotti (VM) | US Gov VA | US Gov IA |
-| --- | --- | --- |
-| A0-A7 |S |S |
-| Serie D |S |N |
-| Serie Dv2 |S |S |
-| Serie DS |S |N |
-| Serie F |S |S |
-| Serie FS |N |N |
-| Serie G |S |N |
-| Serie GS |S |N |
+| Prodotti (VM) | US Gov VA | US Gov IA | Dipartimento della difesa Stati Uniti orientali | Dipartimento della difesa Stati Uniti occidentali
+| --- | --- | --- |--- |--- |
+| A0-A7 |S |S |S |S |S |
+| Av2 |S |S |S |S |S |
+| Serie D |S |N |N |N |
+| Serie Dv2 |S |S |S |S |
+| Serie DS |S |N |N |N |
+| Serie DSv2 |S |N |S |S |
+| Serie F |S |S |S |S |
+| Serie FS |S |N |S |S |
+| Serie G |S |N |N |N |
+| Serie GS |S |N |N |N |
 
 ### <a name="data-considerations"></a>Considerazioni sui dati
 Le informazioni seguenti identificano il limite di Azure per enti pubblici per Macchine virtuali di Azure:
@@ -47,10 +50,5 @@ Le informazioni seguenti identificano il limite di Azure per enti pubblici per M
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni aggiuntive e aggiornamenti, sottoscrivere il <a href="https://blogs.msdn.microsoft.com/azuregov/">blog di Microsoft Azure per enti pubblici. </a>
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

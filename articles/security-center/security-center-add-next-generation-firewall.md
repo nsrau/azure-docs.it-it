@@ -1,6 +1,6 @@
 ---
 title: Aggiungere un firewall di nuova generazione nel Centro sicurezza di Azure | Microsoft Docs
-description: Questo argomento illustra come implementare le raccomandazioni **Aggiungi un firewall di nuova generazione** e **Route traffice through NGFW only** (Indirizza il traffico solo tramite il firewall di nuova generazione) del Centro sicurezza di Azure.
+description: Questo argomento illustra come implementare le raccomandazioni **Aggiungi un firewall di nuova generazione** e **Indirizza il traffico solo tramite il firewall di nuova generazione** del Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4cc9541251157a3c8c632a01fafb52ea87ba58dd
+ms.sourcegitcommit: 0046a088f908a8cfdcab2cf6baad62524def6468
+ms.openlocfilehash: 30589d0a943517c03394a3aae7c03c8094e78c1f
 
 
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Aggiungere un firewall di nuova generazione in Centro sicurezza di Azure
-È possibile che il Centro sicurezza di Azure consigli di aggiungere un firewall di nuova generazione di un partner Microsoft per aumentare la protezione delle applicazioni Web. In questo documento è riportato un esempio di come eseguire questa operazione.
+È possibile che il Centro sicurezza di Azure consigli di aggiungere un firewall di nuova generazione di un partner Microsoft per aumentare le impostazioni di sicurezza. In questo documento è riportato un esempio di come eseguire questa operazione.
 
 > [!NOTE]
 > Il documento introduce il servizio usando una distribuzione di esempio.  Questa non è una guida dettagliata.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implementare la raccomandazione
 1. Nel pannello **Raccomandazioni** selezionare **Aggiungi un firewall di nuova generazione**.
@@ -35,19 +35,19 @@ ms.openlocfilehash: 4cc9541251157a3c8c632a01fafb52ea87ba58dd
    ![Selezionare un endpoint][2]
 3. Viene visualizzato un secondo pannello **Aggiungi un firewall di nuova generazione**. È possibile scegliere di usare una soluzione esistente eventualmente disponibile o di crearne una nuova. In questo esempio non sono disponibili soluzioni esistenti ed è necessario creare un firewall di nuova generazione.
    ![Creare un firewall di nuova generazione][3]
-4. Per creare un nuovo firewall di nuova generazione, selezionare una soluzione dall'elenco di partner integrati. In questo esempio si selezionerà **Check Point**.
+4. Per creare un firewall di nuova generazione, selezionare una soluzione dall'elenco di partner integrati. In questo esempio si selezionerà **Check Point**.
    ![Selezionare un firewall di nuova generazione][4]
 5. Viene visualizzato il pannello **Check Point** , dove sono disponibili informazioni sulla soluzione del partner. Selezionare **Crea** nel pannello informativo.
    ![Pannello di informazioni sul firewall][5]
-6. Viene visualizzato il pannello **Crea macchina virtuale**. Qui è possibile immettere le informazioni necessarie per creare una macchina virtuale (VM) che eseguirà il firewall di nuova generazione. Seguire i passaggi e fornire le informazioni necessarie sul firewall di nuova generazione. Selezionare OK per applicare.
+6. Viene visualizzato il pannello **Crea macchina virtuale**. Qui è possibile immettere le informazioni necessarie per creare una macchina virtuale (VM) che esegua il firewall di nuova generazione. Seguire i passaggi e fornire le informazioni necessarie sul firewall di nuova generazione. Selezionare OK per applicare.
    ![Creare la macchina virtuale per eseguire il firewall di nuova generazione][6]
 
 ## <a name="route-traffic-through-ngfw-only"></a>Route traffic through NGFW only (Indirizza il traffico solo tramite il firewall di nuova generazione)
-Tornare al pannello **Raccomandazioni** . Dopo l'aggiunta di un firewall di nuova generazione tramite il Centro sicurezza PC, è stata generata la nuova voce **Route traffic through NGFW only**(Indirizza il traffico solo tramite il firewall di nuova generazione). Questa raccomandazione viene creata solo se il firewall di nuova generazione è installato tramite il Centro sicurezza PC. Se si dispone di endpoint con connessione Internet, il Centro sicurezza PC consiglierà di configurare le regole dei gruppi di sicurezza di rete che forzano il traffico in ingresso alla macchina virtuale tramite il firewall di nuova generazione.
+Tornare al pannello **Raccomandazioni** . Dopo l'aggiunta di un firewall di nuova generazione tramite il Centro sicurezza, è stata generata la nuova voce **Indirizza il traffico solo tramite il firewall di nuova generazione**. Questa raccomandazione viene creata solo se il firewall di nuova generazione è installato tramite il Centro sicurezza PC. Se si dispone di endpoint con connessione Internet, il Centro sicurezza consiglia di configurare le regole dei gruppi di sicurezza di rete che indirizzano il traffico in ingresso alla macchina virtuale tramite il firewall di nuova generazione.
 
 1. Nel pannello **Raccomandazioni** selezionare **Indirizza il traffico solo tramite il firewall di nuova generazione**.
-   ![Route traffic through NGFW only (Indirizza il traffico solo tramite il firewall di nuova generazione) (Indirizza il traffico solo tramite il firewall di nuova generazione)][7]
-2. Verrà visualizzato il pannello **Route traffic through NGFW only** (Indirizza il traffico solo tramite il firewall di nuova generazione) in cui sono elencate le macchine virtuali su cui è possibile instradare il traffico. Selezionare una VM dall'elenco.
+   ![Indirizza il traffico solo tramite il firewall di nuova generazione][7]
+2. Verrà visualizzato il pannello **Indirizza il traffico solo tramite il firewall di nuova generazione** in cui sono elencate le macchine virtuali su cui è possibile instradare il traffico. Selezionare una VM dall'elenco.
    ![Selezionare una macchina virtuale][8]
 3. Viene visualizzato un pannello per la VM selezionata con le regole in ingresso correlate. Una descrizione fornisce altre informazioni sui possibili passaggi successivi. Selezionare **Modifica le regole in ingresso** per procedere con la modifica di una regola in ingresso. È possibile che **Origine** non sia impostato su **Qualsiasi** per gli endpoint con connessione Internet collegati al firewall di nuova generazione. Per altre informazioni sulle proprietà della regola in ingresso, vedere [Regole NSG](../virtual-network/virtual-networks-nsg.md#nsg-rules).
    ![Configurare le regole per limitare l'accesso][9]
@@ -83,6 +83,6 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

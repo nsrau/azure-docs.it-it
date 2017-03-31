@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 1/10/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: da682645640d74485a1caaff82fd0483a0e3f149
-ms.openlocfilehash: 6f10ea05edd3cb5b472b1102946b8da2dd1862d2
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 310f2a2fe793601d22952bf516a812bf4867bbec
+ms.lasthandoff: 03/03/2017
 
 ---
 # <a name="automate-mobility-service-installation-using-software-deployment-tools"></a>Automatizzare l'installazione del servizio Mobility tramite strumenti di distribuzione software
@@ -58,7 +59,48 @@ In questo articolo viene fornito un esempio di come è possibile usare System Ce
 > [!NOTE]
 > Assicurarsi di sostituire i segnaposto [CSIP] nello script di seguito con i valori effettivi dell'indirizzo IP del server di configurazione.
 
-  [!INCLUDE [site-recovery-sccm-windows-script](../../includes/site-recovery-sccm-windows-script.md)]
+```
+Time /t >> C:\Temp\logfile.log
+REM ==================================================
+REM ==== Clean up the folders ========================
+RMDIR /S /q %temp%\MobSvc
+MKDIR %Temp%\MobSvc
+REM ==================================================
+REM ==== Copy new files ==============================
+COPY M*.* %Temp%\MobSvc
+CD %Temp%\MobSvc
+REN Micro*.exe MobSvcInstaller.exe
+REM ==================================================
+REM ==== Extract the installer =======================
+MobSvcInstaller.exe /q /x:%Temp%\MobSvc\Extracted
+REM ==== Wait 10s for extraction to complete =========
+TIMEOUT /t 10
+REM =================================================
+REM ==== Extract the installer ======================
+CD %Temp%\MobSvc\Extracted
+REM ==================================================
+REM ==== Check if Mob Svc is already installed =======
+REM ==== If not installed run install command ========
+REM ==== Else run upgrade command =====================
+REM ==== {275197FC-14FD-4560-A5EB-38217F80CBD1} is ====
+REM ==== guid for Mob Svc Installer ====================
+whoami >> C:\temp\logfile.log
+REM SET PRODKEY=HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
+REM REG QUERY %PRODKEY%\{275197FC-14FD-4560-A5EB-38217F80CBD1} >> C:\Temp\logfile.log 2>&1
+REM REG QUERY %PRODKEY%\{275197FC-14FD-4560-A5EB-38217F80CBD1}
+REM IF NOT %ERRORLEVEL% EQU 0 (GOTO :INSTALL) ELSE GOTO :UPDATE
+NET START | FIND "InMage Scout Application Service"
+IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UPDATE
+:INSTALL
+    echo "Install" >> c:\Temp\logfile.log
+     UnifiedAgent.exe /Role "Agent" /CSEndpoint "10.10.20.168" /PassphraseFilePath %Temp%\MobSvc\MobSvc.passphrase
+GOTO :ENDSCRIPT
+:UPDATE
+    echo "Update" >> C:\Temp\logfile.log
+    UnifiedAgent.exe /upgrade
+:ENDSCRIPT
+
+```
 
 ### <a name="step-2-create-a-package"></a>Passaggio 2: creare un pacchetto
 
@@ -74,7 +116,7 @@ In questo articolo viene fornito un esempio di come è possibile usare System Ce
 7. Nella pagina **Scegliere il tipo di programma da creare** selezionare **Programma standard** e fare clic su **Avanti**
 
   ![create-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
-8. Nella pagina **Specificare le informazioni sul programma standard	** indicare gli input seguenti e fare clic su **Avanti**. (gli altri input possono mantenere i valori predefiniti).
+8. Nella pagina **Specificare le informazioni sul programma standard** indicare gli input seguenti e fare clic su **Avanti**. (gli altri input possono mantenere i valori predefiniti).
 
   ![sccm-package-properties](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties.png)   
 | **Nome parametro** | **Valore** |
@@ -83,8 +125,10 @@ In questo articolo viene fornito un esempio di come è possibile usare System Ce
 | Riga di comando | install.bat |
 | Il programma può essere eseguito | anche se non ci sono utenti connessi |
 9. Nella pagina successiva, selezionare i sistemi operativi di destinazione. Il servizio Mobility può essere installato solo su Windows Server 2012 R2, Windows Server 2012 e Windows Server 2008 R2.
+
   ![sccm-package-properties-page2](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png)   
 10. Fare clic su Avanti due volte per completare la procedura guidata.
+
 > [!NOTE]
 > Lo script supporta sia le nuove installazione degli agenti del servizio Mobility che l'aggiornamento degli agenti già installati.
 
@@ -139,7 +183,76 @@ In questo articolo viene fornito un esempio di come è possibile usare System Ce
 > [!NOTE]
 > Assicurarsi di sostituire i segnaposto [CSIP] nello script di seguito con i valori effettivi dell'indirizzo IP del server di configurazione.
 
-  [!INCLUDE [site-recovery-sccm-linux-script](../../includes/site-recovery-sccm-linux-script.md)]
+```
+#!/bin/sh
+
+rm -rf /tmp/MobSvc
+
+mkdir -p /tmp/MobSvc
+
+if [ -f /etc/oracle-release ] && [ -f /etc/redhat-release ]; then
+    if grep -q 'Oracle Linux Server release 6.*' /etc/oracle-release; then
+        if uname -a | grep -q x86_64; then
+            OS="OL6-64"
+        cp *OL6*.tar.gz /tmp/MobSvc
+        fi
+    fi
+elif [ -f /etc/redhat-release ]; then
+    if grep -q 'Red Hat Enterprise Linux Server release 6.* (Santiago)' /etc/redhat-release || \
+        grep -q 'CentOS Linux release 6.* (Final)' /etc/redhat-release || \
+        grep -q 'CentOS release 6.* (Final)' /etc/redhat-release; then
+        if uname -a | grep -q x86_64; then
+            OS="RHEL6-64"
+            cp *RHEL6*.tar.gz /tmp/MobSvc
+        fi
+    elif grep -q 'Red Hat Enterprise Linux Server release 7.* (Maipo)' /etc/redhat-release || \
+        grep -q 'CentOS Linux release 7.* (Core)' /etc/redhat-release; then
+        if uname -a | grep -q x86_64; then
+            OS="RHEL7-64"
+            cp *RHEL7*.tar.gz /tmp/MobSvc
+    fi
+    fi
+elif [ -f /etc/SuSE-release ] && grep -q 'VERSION = 11' /etc/SuSE-release; then
+    if grep -q "SUSE Linux Enterprise Server 11" /etc/SuSE-release && grep -q 'PATCHLEVEL = 3' /etc/SuSE-release; then
+        if uname -a | grep -q x86_64; then
+            OS="SLES11-SP3-64"
+        echo $OS >> /tmp/MobSvc/sccm.log
+        cp *SLES11*.tar.gz /tmp/MobSvc
+        fi
+    fi
+elif [ -f /etc/lsb-release ] ; then
+    if grep -q 'DISTRIB_RELEASE=14.04' /etc/lsb-release ; then
+       if uname -a | grep -q x86_64; then
+           OS="UBUNTU-14.04-64"
+       cp *UBUNTU*.tar.gz /tmp/MobSvc
+       fi
+    fi
+else
+    exit 1
+fi
+if [ "${OS}" ==  "" ]; then
+    exit 1
+fi
+cp MobSvc.passphrase /tmp/MobSvc
+cd /tmp/MobSvc
+
+tar -zxvf *.tar.gz
+
+
+if [ -e /usr/local/.vx_version ];
+then
+    ./install -A u
+    echo "Errorcode:$?"
+    Error=$?
+
+else
+    ./install -t both -a host -R Agent -d /usr/local/ASR -i [CS IP] -p 443 -s y -c https -P MobSvc.passphrase >> /tmp/MobSvc/sccm.log 2>&1 && echo "Install Progress"
+    Error=$?
+fi
+cd /tmp
+rm -rf /tm/MobSvc
+exit ${Error}
+```
 
 ### <a name="step-2-create-a-package"></a>Passaggio 2: creare un pacchetto
 
@@ -155,7 +268,7 @@ In questo articolo viene fornito un esempio di come è possibile usare System Ce
 7. Nella pagina **Scegliere il tipo di programma da creare** selezionare **Programma standard** e fare clic su **Avanti**
 
   ![create-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
-8. Nella pagina **Specificare le informazioni sul programma standard	** indicare gli input seguenti e fare clic su **Avanti**. (gli altri input possono mantenere i valori predefiniti).
+8. Nella pagina **Specificare le informazioni sul programma standard** indicare gli input seguenti e fare clic su **Avanti**. (gli altri input possono mantenere i valori predefiniti).
 
   ![sccm-package-properties](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-linux.png)   
 | **Nome parametro** | **Valore** |
@@ -197,11 +310,30 @@ Ulteriori informazioni sugli altri modi per installare i servizi Mobility.
 * [Installazione push tramite il server di configurazione](http://aka.ms/pushinstall)
 * [Installazione automatica tramite Automazione di Azure e la configurazione dello stato desiderato](http://aka.ms/mobsvcdscinstall)
 
+## <a name="uninstall-mobility-service"></a>Disinstallare il servizio Mobility
+Proprio come per l'installazione è possibile creare pacchetti SCCM per disinstallare il servizio Mobility. Usare lo script seguente per disinstallare il servizio Mobility.
+
+```
+Time /t >> C:\logfile.log
+REM ==================================================
+REM ==== Check if Mob Svc is already installed =======
+REM ==== If not installed no operation required ========
+REM ==== Else run uninstall command =====================
+REM ==== {275197FC-14FD-4560-A5EB-38217F80CBD1} is ====
+REM ==== guid for Mob Svc Installer ====================
+whoami >> C:\logfile.log
+NET START | FIND "InMage Scout Application Service"
+IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UNINSTALL
+:NOOPERATION
+                echo "No Operation Required." >> c:\logfile.log
+                GOTO :ENDSCRIPT
+:UNINSTALL
+                echo "Uninstall" >> C:\logfile.log
+                MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
+:ENDSCRIPT
+
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
 È ora possibile [Abilitare la protezione](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-vmware-to-azure#step-6-replicate-applications) per le macchine virtuali.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

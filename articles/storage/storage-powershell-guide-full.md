@@ -11,11 +11,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 03/03/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: 70a03b39eb49ed96b649e63f6f2c728147ebddec
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 8b9e174523b3d08be20a4d30cc83c11f5bc93cd5
+ms.lasthandoff: 03/06/2017
 
 ---
 
@@ -38,7 +39,7 @@ Per altre informazioni sulle sottoscrizioni di Azure, vedere [Assegnazione dei r
 
 **Dopo aver creato una sottoscrizione e un account di Microsoft Azure:**
 
-1. Scaricare e installare [Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409).
+1. Scaricare e installare la versione più recente di [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/latest).
 2. Avviare Windows PowerShell Integrated Scripting Environment (ISE): Nel computer locale, passare al menù **Start** . Digitare **Strumenti di amministrazione** e fare clic per eseguirli. Nella finestra **Strumenti di amministrazione** fare clic con il pulsante destro del mouse su **Windows PowerShell ISE**, quindi scegliere **Esegui come amministratore**.
 3. Nella finestra **Windows PowerShell ISE** fare clic su **File** > **Nuovo** per creare un nuovo file di script.
 4. A questo punto viene fornito uno script semplice che mostra i comandi PowerShell di base per accedere ad Archiviazione di Azure. Lo script richiede innanzitutto le credenziali dell'account Azure per aggiungerlo all'ambiente PowerShell locale. Lo script quindi imposta la sottoscrizione predefinita di Azure e crea un nuovo account di archiviazione in Azure. Lo script crea un nuovo contenitore in questo nuovo account di archiviazione e carica un file di immagine esistente (BLOB) in tale contenitore. Dopo aver elencato tutti i BLOB nel contenitore, lo script crea una nuova directory di destinazione nel computer locale e scarica il file di immagine.
@@ -692,8 +693,7 @@ L'archiviazione file di Azure offre un'archiviazione condivisa per le applicazio
 Per informazioni dettagliate su Archiviazione file di Azure, vedere [Introduzione ad Archiviazione file di Azure in Windows](storage-dotnet-how-to-use-files.md) e [File Service REST API](http://msdn.microsoft.com/library/azure/dn167006.aspx) (API REST del servizio file).
 
 ## <a name="how-to-set-and-query-storage-analytics"></a>Come impostare ed eseguire query di Analisi archiviazione
-È possibile utilizzare [Analisi archiviazione di Azure](storage-analytics.md) per raccogliere le metriche per gli account di archiviazione di Azure e per registrare i dati sulle richieste inviate all'account di archiviazione. È possibile usare le metriche di archiviazione per monitorare l'integrità di un account di archiviazione e Registrazione archiviazione per diagnosticare e risolvere i problemi relativi al proprio account di archiviazione.
-Per impostazione predefinita, le metriche di archiviazione non sono abilitate per i servizi di archiviazione. È possibile abilitare il monitoraggio tramite il portale di Azure o Windows PowerShell o a livello di codice tramite la libreria del client di archiviazione. La Registrazione archiviazione viene eseguita sul lato server e consente all'utente di registrare i dettagli delle richieste, riuscite e non riuscite, nel proprio account di archiviazione. Questi log consentono di visualizzare i dettagli delle operazioni di lettura, scrittura ed eliminazione a fronte delle proprie tabelle, code e BLOB, nonché i motivi per cui le richieste non sono riuscite.
+È possibile utilizzare [Analisi archiviazione di Azure](storage-analytics.md) per raccogliere le metriche per gli account di archiviazione di Azure e per registrare i dati sulle richieste inviate all'account di archiviazione. È possibile usare le metriche di archiviazione per monitorare l'integrità di un account di archiviazione e Registrazione archiviazione per diagnosticare e risolvere i problemi relativi al proprio account di archiviazione. È possibile configurare il monitoraggio tramite il portale di Azure o Windows PowerShell oppure nel codice tramite la libreria del client di archiviazione. La Registrazione archiviazione viene eseguita sul lato server e consente all'utente di registrare i dettagli delle richieste, riuscite e non riuscite, nel proprio account di archiviazione. Questi log consentono di visualizzare i dettagli delle operazioni di lettura, scrittura ed eliminazione a fronte delle proprie tabelle, code e BLOB, nonché i motivi per cui le richieste non sono riuscite.
 
 Per informazioni su come abilitare e visualizzare i dati di Metriche di archiviazione con PowerShell, vedere [Come abilitare Metriche di archiviazione usando PowerShell](http://msdn.microsoft.com/library/azure/dn782843.aspx#HowtoenableStorageMetricsusingPowerShell).
 
@@ -847,9 +847,4 @@ In questa guida è stato appreso come gestire Archiviazione di Azure con Azure P
 [How to manage Shared Access Signature (SAS) and Stored Access Policy]: #sas
 [How to use Azure Storage for U.S. government and Azure China]: #gov
 [Next Steps]: #next
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

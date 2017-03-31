@@ -12,12 +12,13 @@ ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: iaas-sql-server
-ms.date: 09/21/2016
+ms.workload: infrastructure-services
+ms.date: 02/28/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 171566e8b1eccfafc78bd8b422189c977421592d
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: fa7c846cf5018b5f0d918e5dc9d9020313833d77
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -46,18 +47,20 @@ In questa esercitazione si apprenderà come:
    > Se non si dispone di un account Azure, provare la [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
    > 
    > 
-2. Nel portale di Azure fare clic su **Nuovo**. Nel portale verrà aperto il pannello **Nuovo** . Le risorse della VM di SQL Server sono disponibili nel gruppo **Macchine virtuali** del Marketplace.
-3. Nel pannello **Nuovo** fare clic su **Macchine virtuali**.
-4. Per visualizzare tutte le immagini disponibili, fare clic su **Visualizza tutto** nel pannello **Macchine virtuali**.
-   
-    ![Pannello Macchine virtuali di Azure](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade.png)
-5. In **Server database** fare clic su **SQL Server**. Potrebbe essere necessario scorrere verso il basso per trovare **Server database**. Esaminare i modelli di SQL Server disponibili.
-   
-    ![Immagini SQL della raccolta di macchine virtuali](./media/virtual-machines-windows-portal-sql-server-provision/virtual-machine-gallery-sql-server.png)
-6. Ogni modello identifica una versione di SQL Server e un sistema operativo. Selezionare una di queste immagini dall'elenco. Esaminare quindi la descrizione dell'immagine di macchina virtuale fornita dal pannello dei dettagli.
+2. Nel portale di Azure fare clic su **Nuovo**. Nel portale verrà aperto il pannello **Nuovo** . Le risorse di VM di SQL Server si trovano nel gruppo **Calcolo** del Marketplace.
+3. Nel pannello **Nuovo** fare clic su **Calcolo** e quindi su **Visualizza tutto**.
+4. Nella casella di testo **Filtro** digitare SQL Server, quindi premere il tasto INVIO.
+
+   ![Pannello Macchine virtuali di Azure](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
+
+5. Esaminare le immagini di SQL Server disponibili. Ogni immagine identifica una versione di SQL Server e un sistema operativo. 
+6. Selezionare l'immagine per sviluppatori di SQL Server 2016 SP1 su Windows Server 2016.
+
+   > [!TIP]
+   > L'edizione per sviluppatori viene usata in questa esercitazione perché è una versione completa di SQL Serve gratuita a scopo di test per lo sviluppo. Si paga solo il costo dell'esecuzione della macchina virtuale.
    
    > [!NOTE]
-   > Le immagini VM di SQL includono i costi di licenza per SQL Server nei prezzi al minuto della VM creata. Esiste un'altra opzione per Bring Your Own License (BYOL) e il pagamento della sola VM. Tali nomi di immagine hanno il prefisso {BYOL}. Per altre informazioni su questa opzione, vedere [Panoramica di SQL Server in macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
+   > Le immagini VM di SQL includono i costi di licenza per SQL Server nei prezzi al minuto della VM creata (ad eccezione delle versioni Developer ed Express). SQL Server per sviluppatori è gratuito per sviluppo/test (non per la produzione), mentre SQL Express è gratuito per carichi di lavoro leggeri (inferiori a 1 GB di memoria e a 10 GB di archiviazione). Esiste un'altra opzione per Bring Your Own License (BYOL) e il pagamento della sola VM. Tali nomi di immagine hanno il prefisso {BYOL}. Per altre informazioni su questa opzione, vedere [Panoramica di SQL Server in macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
    > 
    > 
 7. In **Selezionare un modello di distribuzione** assicurarsi che l'opzione **Resource Manager** sia selezionata. Resource Manager è il modello di distribuzione consigliato per le nuove macchine virtuali. Fare clic su **Crea**.
@@ -82,7 +85,7 @@ Nel pannello **Nozioni di base** specificare le informazioni seguenti:
 * Specificare un **Nome utente** per l'account amministratore locale nella VM. Questo account viene aggiunto anche al ruolo del server fisso **sysadmin** di SQL Server.
 * Specificare una **Password**complessa.
 * Se sono disponibili più sottoscrizioni, verificare che la sottoscrizione sia corretta per la nuova VM.
-* Nella casella **Gruppo di risorse** digitare un nome per il nuovo gruppo di risorse. In alternativa, fare clic su **Seleziona esistente**per usare un gruppo di risorse esistente. Un gruppo di risorse è una raccolta di risorse correlate in Azure, ovvero macchine virtuali, account di archiviazione, reti virtuali e così via.
+* Nella casella **Gruppo di risorse** digitare un nome per il nuovo gruppo di risorse. In alternativa fare clic su **Usa esistente** per usare un gruppo di risorse esistente. Un gruppo di risorse è una raccolta di risorse correlate in Azure, ovvero macchine virtuali, account di archiviazione, reti virtuali e così via.
   
   > [!NOTE]
   > L'uso di un nuovo gruppo di risorse risulta utile se si stanno solo eseguendo test o se si sta iniziando a usare le distribuzioni di SQL Server in Azure. Dopo aver completato il test, eliminare il gruppo di risorse per eliminare automaticamente la macchina virtuale e tutte le risorse associate a tale gruppo di risorse. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md).
@@ -94,7 +97,7 @@ Nel pannello **Nozioni di base** specificare le informazioni seguenti:
     ![Pannello Informazioni di base di SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
 ## <a name="2-choose-virtual-machine-size"></a>2. Scegliere le dimensioni della macchina virtuale
-Nel passaggio **Dimensioni** scegliere le dimensioni della macchina virtuale nel pannello **Scegli una dimensione**. Inizialmente il pannello visualizza le dimensioni della macchina virtuale consigliate in base al modello selezionato. Viene anche stimato il costo mensile per l'esecuzione della VM.
+Nel passaggio **Dimensioni** scegliere le dimensioni della macchina virtuale nel pannello **Scegli una dimensione**. Inizialmente il pannello visualizza le dimensioni della macchina virtuale consigliate in base all'immagine selezionata. Viene anche stimato il costo mensile per l'esecuzione della VM.
 
 ![Opzioni per le dimensioni di VM di SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
@@ -216,10 +219,12 @@ Quando si abilita il backup automatico di SQL è possibile configurare quanto se
 * Periodo di conservazione (giorni) per i backup
 * Account di archiviazione da usare per i backup
 * Opzione di crittografia e password per i backup
+* Backup dei database di sistema
+* Pianificazione dei backup
 
 Per crittografare il backup, fare clic su **Abilita**. Specificare quindi la **Password**. Azure crea un certificato per crittografare i backup e usa la password specificata per proteggere il certificato.
 
-![Backup automatico di SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png)
+![Backup automatico di SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup2.png)
 
  Per altre informazioni, vedere [Backup automatizzato per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-automated-backup.md).
 
@@ -242,14 +247,10 @@ Per altre informazioni, vedere [Configurare l'integrazione dell'insieme di crede
 Al termine della configurazione delle impostazioni di SQL Server, fare clic su **OK**.
 
 ### <a name="r-services"></a>Servizi R
-Per SQL Server 2016 Enterprise Edition, è possibile abilitare i [servizi R di SQL Server](https://msdn.microsoft.com/library/mt604845.aspx). Questo consente di usare l'analisi avanzata con SQL Server 2016. Fare clic su **Abilita** on the **SQL Server Settings** .
+È possibile abilitare i [servizi R di SQL Server](https://msdn.microsoft.com/library/mt604845.aspx). Questo consente di usare l'analisi avanzata con SQL Server 2016. Fare clic su **Abilita** on the **SQL Server Settings** .
 
 ![Abilitare i servizi R di SQL Server](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
 
-> [!NOTE]
-> Per le immagini di SQL Server diverse dalla versione 2016 Enterprise Edition, l'opzione per abilitare i servizi R è disabilitata.
-> 
-> 
 
 ## <a name="5-review-the-summary"></a>5. Esaminare il riepilogo
 Nel pannello **Riepilogo** esaminare i dati e fare clic su **OK** per creare SQL Server, il gruppo di risorse e le risorse, in base a quanto specificato per questa VM.
@@ -298,10 +299,5 @@ Per altre informazioni sull'uso di SQL Server in Azure, vedere [SQL Server in ma
 Per una panoramica su SQL Server in Macchine virtuali di Azure, guardare il video [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016)(VM di Azure come piattaforma ottimale per SQL Server 2016).
 
 [Esplorare il percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) per SQL Server in macchine virtuali di Azure.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

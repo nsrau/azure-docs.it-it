@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/12/2017
+ms.date: 03/06/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 1460a3e6b3d225a507e5da51dcc66810862ee2de
-ms.openlocfilehash: 4001c2d9bf2a635d7189ae46a855e347b93185c8
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: eed360b6c996d1901b40f3d1fcf4b8ff859da573
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -92,10 +93,10 @@ Prima di iniziare con la distribuzione delle risorse è necessario comprendere i
 Get-AzureRmResourceProvider -ListAvailable
 ```
 
-Con l'interfaccia della riga di comando di Azure è invece possibile recuperare tutti i provider di risorse con il comando seguente:
+Con la versione 2.0 dell'interfaccia della riga di comando di Azure è invece possibile recuperare tutti i provider di risorse con il comando seguente:
 
 ```azurecli
-azure provider list
+az provider list
 ```
 
 È possibile esaminare l'elenco restituito per trovare i provider di risorse da usare.
@@ -106,10 +107,10 @@ Per ottenere informazioni dettagliate su un provider di risorse, aggiungere lo s
 (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
 ```
 
-In alternativa, usare l'interfaccia della riga di comando di Azure per recuperare i tipi di risorse, le posizioni e le versioni API supportati per Microsoft.Compute con il comando seguente:
+In alternativa, usare la versione 2.0 dell'interfaccia della riga di comando di Azure per recuperare i tipi di risorse, le posizioni e le versioni API supportati per Microsoft.Compute con il comando seguente:
 
 ```azurecli
-azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+az provider show --namespace Microsoft.Compute
 ```
 
 Per altre informazioni, vedere [Provider, aree, versioni API e schemi di Resource Manager](resource-manager-supported-services.md).
@@ -214,10 +215,10 @@ Per recuperare tutte le risorse con un valore di tag, usare il cmdlet di PowerSh
 Find-AzureRmResource -TagName costCenter -TagValue Finance
 ```
 
-In alternativa, usare il comando dell'interfaccia della riga di comando di Azure seguente:
+In alternativa, usare il comando della versione 2.0 dell'interfaccia della riga di comando di Azure seguente:
 
 ```azurecli
-azure resource list -t costCenter=Finance --json
+az resource list --tag costCenter=Finance
 ```
 
 È anche possibile visualizzare le risorse con tag tramite il portale di Azure.
@@ -343,9 +344,4 @@ Ecco una dimostrazione video di questa panoramica:
 
 
 [powershellref]: https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

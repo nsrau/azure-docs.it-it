@@ -1,5 +1,5 @@
 ---
-title: Ottenere gli strumenti per lo starter kit di Azure IoT per Windows 7 o versioni successive | Documentazione Microsoft
+title: 'Connettere Intel Edison (C) ad Azure IoT: lezione 1: Ottenere gli strumenti (Windows) | Documentazione Microsoft'
 description: Scaricare e installare il software e gli strumenti necessari per la prima applicazione di esempio per Edison in Windows 7 e versioni successive.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: f45b3bf00d619376ac07418f0c02eca5f3241939
-ms.openlocfilehash: 111018da51823f928e7f2b815db8621ecda65025
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: 79dcbe8cbefe4f607991359fbfc6948b5e90ace9
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -88,9 +89,4 @@ Sono stati installati gli strumenti di sviluppo e il software necessari per la p
 [windows]: iot-hub-intel-edison-kit-c-lesson1-get-the-tools-win32.md
 [ubuntu]: iot-hub-intel-edison-kit-c-lesson1-get-the-tools-ubuntu.md
 [macos]: iot-hub-intel-edison-kit-c-lesson1-get-the-tools-mac.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

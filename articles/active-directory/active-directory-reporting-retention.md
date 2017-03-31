@@ -13,10 +13,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/30/2016
-ms.author: dhanyahk
+ms.author: dhanyahk;markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 8a7d1bd1db8abdac5b741d79b10c9b363afecd24
-ms.openlocfilehash: 9f8d9c845c391ec24aa3b265aa3078840fe3240a
+ms.sourcegitcommit: 47594d1d435ee92d57150a01a99765bab0e87846
+ms.openlocfilehash: 2ac62c2c04975167b243b49bf2c536900e77df73
 
 
 ---
@@ -30,8 +30,8 @@ Come è possibile avviare la raccolta dei dati dell'attività?
 
 | Edizione di Azure AD | Avvio della raccolta |
 | :--              | :--   |
-|Premium e Premium 2 | Quando ci si iscrive a una licenza |
-| Gratuito | La prima volta che si apre il [pannello Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) o si usano le [API di creazione report](https://aka.ms/aadreports)  |
+| Azure AD P1 Premium <br /> Azure AD P2 Premium | Quando ci si iscrive a una sottoscrizione |
+| Azure AD Free | La prima volta che si apre il [pannello Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) o si usano le [API di creazione report](https://aka.ms/aadreports)  |
 
 
 Quando i dati dell'attività sono disponibili nel portale di Azure?
@@ -46,14 +46,14 @@ Per quanto tempo rimangono archiviati i dati raccolti?
 
 **Report attività**    
 
-| Report | Azure AD Free | Azure AD Premium 1 | Azure AD Premium 2 |
+| Report | Azure AD Free | Azure AD P1 Premium | Azure AD P2 Premium |
 | :--    | :--           | :--                | :--                |
 | Directory Audit (Controllo directory) | 7 giorni | 30 giorni | 30 giorni |
 | Attività di accesso |    7 giorni | 30 giorni | 30 giorni |
 
 **Segnali di sicurezza**
 
-| Report | Azure AD Free | Azure AD Premium 1 | Azure AD Premium 2 |
+| Report | Azure AD Free | Azure AD P1 Premium | Azure AD P2 Premium |
 | :--    | :--           | :--                | :--                |
 | Accessi a rischio | 7 giorni | 30 giorni | 90 giorni |
 
@@ -61,6 +61,6 @@ Per quanto tempo rimangono archiviati i dati raccolti?
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

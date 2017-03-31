@@ -13,19 +13,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/19/2017
+ms.date: 02/09/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
-ms.openlocfilehash: a5b9d93ee6c358338dda3702453341591e54b707
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: bdc00541e55ea68f0b18456f8fa1a1ac51116d69
+ms.lasthandoff: 03/11/2017
 
 
 ---
 # <a name="hbase-tutorial-get-started-using-apache-hbase-in-hdinsight"></a>Esercitazione di HBase: Introduzione all'uso di Apache HBase in HDInsight
 
 Informazioni su come creare un cluster HBase in HDInsight, creare tabelle HBase ed eseguire query sulle tabelle con Hive. Per informazioni generali su HBase, vedere [Panoramica di HDInsight HBase][hdinsight-hbase-overview].
-
-Le informazioni contenute in questo documento sono specifiche per i cluster HDInsight basati su Linux. Per informazioni sui cluster basati su Windows, usare il selettore di schede in alto nella pagina per passare alla scheda specifica.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -56,7 +55,7 @@ La procedura seguente usa un modello di Azure Resource Manager per creare un clu
      
      Gli altri parametri sono facoltativi.  
      
-     Ogni cluster ha una dipendenza dall'account di archiviazione BLOB di Azure. Dopo aver eliminato un cluster, i dati vengono mantenuti nell'account di archiviazione. Il nome dell'account di archiviazione predefinito del cluster è il nome del cluster a cui viene aggiunto "store". È hardcoded nella sezione delle variabili del modello.
+     Ogni cluster ha una dipendenza dall'account di Archiviazione di Azure. Dopo aver eliminato un cluster, i dati vengono mantenuti nell'account di archiviazione. Il nome dell'account di archiviazione predefinito del cluster è il nome del cluster a cui viene aggiunto "store". È hardcoded nella sezione delle variabili del modello.
 3. Selezionare **Accetto le condizioni riportate sopra**, quindi fare clic su **Acquista**. La creazione di un cluster richiede circa 20 minuti.
 
 > [!NOTE]
@@ -282,9 +281,4 @@ Per altre informazioni, vedere:
 [img-hbase-shell]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

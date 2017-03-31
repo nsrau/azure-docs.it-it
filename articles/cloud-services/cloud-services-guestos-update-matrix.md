@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/14/2016
+ms.date: 3/8/2017
 ms.author: raiye
 translationtype: Human Translation
-ms.sourcegitcommit: 9652e8365642ec0d088f73ba2bb4eaa0def653a6
-ms.openlocfilehash: 0752130c0e9116efcd0da44e8c81de356cace7e4
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 182b03d7075c3161f09f27f265b624897cb7a9cc
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -38,8 +39,11 @@ Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure p
 Non si è certi di quale sia il sistema operativo guest o di come funzionano i rilasci del sistema operativo guest? Leggere [questa](#how-it-works) sezione.
 
 ## <a name="news-updates"></a>Novità e aggiornamenti
+###### <a name="january-10-2017"></a>**10 gennaio 2017**
+Il sistema operativo guest di gennaio contiene patch che influiscono solo sulla famiglia di sistemi operativi 2 (Windows 2008 R2 Server). Microsoft ha rilasciato pertanto solo l'immagine del sistema operativo della famiglia 2 (WA-GUEST-OS-2.59_201701-01) per questo mese. Per tutte le altre famiglie di sistemi operativi, il sistema operativo di dicembre (201612-01) rimane la versione più aggiornata.
+
 ###### <a name="december-14-2016"></a>**14 dicembre 2016**
-L'implementazione del sistema operativo guest di dicembre inizierà il 14 dicembre 2016 e il rilascio è previsto per il 13 gennaio 2016.
+L'implementazione del sistema operativo guest di dicembre è iniziata il 14 dicembre 2016 e il rilascio è avvenuto il 13 gennaio 2017.
 
 ###### <a name="november-20-2016"></a>**20 novembre 2016**
 L'implementazione del sistema operativo guest di novembre inizierà l'8 novembre 2016 e il rilascio è previsto per l'8 dicembre 2016.
@@ -47,41 +51,12 @@ L'implementazione del sistema operativo guest di novembre inizierà l'8 novembre
 ###### <a name="october-23-2016"></a>**23 ottobre 2016**
 Windows Server 2016 sarà rilasciato come OS Family 5 il 1 novembre 2016, con supporto per .NET 4.6.
 
-###### <a name="september-13-2016"></a>**13 settembre 2016**
-L'implementazione del sistema operativo guest di settembre è iniziata il 13 settembre 2016 e dovrebbe essere rilasciata il 13 ottobre 2016.
-
-###### <a name="august-9-2016"></a>**9 agosto 2016**
-L'implementazione del sistema operativo guest di agosto è iniziata il 9 agosto 2016 e dovrebbe essere rilasciata l'8 settembre 2016. 
-
-###### <a name="july-13-2016"></a>**13 luglio 2016**
-L’implementazione del sistema operativo guest di luglio è iniziata il 13 luglio 2016 e dovrebbe essere rilasciata il 12 agosto 2016. 
-
-###### <a name="june-15-2016"></a>**15 giugno 2016**
-L'implementazione del sistema operativo guest di giugno è iniziata il 15 giugno 2016 e dovrebbe essere rilasciata il 14 luglio 2016. 
-
-###### <a name="may-17-2016"></a>**17 maggio 2016**
-L’implementazione del sistema operativo guest di maggio inizierà il 17 maggio 2016 e dovrebbe essere rilasciata il 10 giugno 2016. 
-
-###### <a name="april-18-2016"></a>**18 aprile 2016**
-L'implementazione del sistema operativo guest di aprile inizierà il 18 aprile 2016 e dovrebbe essere rilasciata il 12 maggio 2016. 
-
-###### <a name="march-14-2016"></a>**14 marzo 2016**
-L’implementazione del sistema operativo guest di marzo è iniziata oggi 14 marzo 2016 e dovrebbe essere rilasciata l’8 aprile 2016. 
-
-###### <a name="february-22-2016"></a>**22 febbraio 2016**
-L'implementazione del sistema operativo guest di febbraio è iniziata il 22 febbraio 2016 e dovrebbe essere rilasciata il 9 marzo 2016.
-
-###### <a name="january-18-2016"></a>**18 gennaio 2016**
-L'implementazione del sistema operativo guest di gennaio è iniziata il 18 gennaio 2016 e dovrebbe essere rilasciata il 12 febbraio 2016.
-
-###### <a name="january-4-2016"></a>**4 gennaio 2016**
-Il sistema operativo guest del 2 novembre 2015 è stato rilasciato per la distribuzione il 4 gennaio 2016. Questa versione del sistema operativo non è impostata come sistema operativo predefinito per l'aggiornamento automatico, quindi i tempi di provisioning della distribuzione del sistema operativo guest alla versione del 2 novembre 2015 sono leggermente più lunghi. 
 
 ## <a name="releases"></a>Rilasci
 ## <a name="family-5-releases"></a>Versioni della famiglia 5
 **Windows Server 2016**
 
-Supporta .NET 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
+Versione .NET Framework installata: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 > [!NOTE]
 > La date contrassegnate da * sono soggette a modifiche. 
@@ -91,6 +66,7 @@ Supporta .NET 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.4_201612-01 |10 gennaio 2017 |Dopo la versione 5.6 |Da definire | 
 | WA-GUEST-OS-5.3_201611-01 |14 dicembre 2016 |Dopo la versione 5.5 |Da definire |
 | WA-GUEST-OS-5.2_201610-02 |1 novembre 2016 |Dopo la versione 5.4 |Da definire |
 
@@ -106,27 +82,19 @@ Supporta .NET 4.0, 4.5, 4.5.1 e 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-4.38_201611-01 |14 dicembre 2016 |Dopo la versione 4.4 |Da definire |
+| WA-GUEST-OS-4.39_201612-01 |10 gennaio 2017 |Dopo la versione 4.41 |Da definire |
+| WA-GUEST-OS-4.38_201611-01 |14 dicembre 2016 |Dopo la versione 4.40 |Da definire |
 | WA-GUEST-OS-4.37_201610-02 |16 novembre 2016 |Dopo la versione 4.39 |Da definire |
-| WA-GUEST-OS-4.36_201609-01 |13 ottobre 2016 |Dopo la versione 4.38 |Da definire |
-| WA-GUEST-OS-4.35_201608-01 |13 settembre 2016 |16 dicembre 2016 |Da definire |
-| WA-GUEST-OS-4.34_201607-01 |8 agosto 2016 |13 novembre 2016 |Da definire |
-| WA-GUEST-OS-4.33_201606-01 |13 luglio 2016 |13 ottobre 2016 |Da definire |
-| WA-GUEST-OS-4.32_201605-01 |10 giugno 2016 |8 settembre 2016 |Da definire |
-| WA-GUEST-OS-4.31_201604-01 |2 maggio 2016 |13 agosto 2016 |Da definire |
-| WA-GUEST-OS-4.30_201603-01 |7 aprile 2016 |10 luglio 2016 |Da definire |
-| WA-GUEST-OS-4.29_201602-02 |12 marzo 2016 |2 giugno 2016 |Da definire |
-| WA-GUEST-OS-4.28_201601-01 |12 febbraio 2016 |7 maggio 2016 |Da definire |
-| WA-GUEST-OS-4.27_201512-01 |12 gennaio 2016 |12 aprile 2016 |Da definire |
-| ~~WA-GUEST-OS-4.26_201511-02~~ |4 gennaio 2016 |12 marzo 2016 |Da definire |
-| ~~WA-GUEST-OS-4.26_201511-01~~ |10 dicembre 2015 |12 marzo 2016 |Da definire |
-| ~~WA-GUEST-OS-4.25_201510-01~~ |6 novembre 2015 |12 febbraio 2016 |Da definire |
-| ~~WA-GUEST-OS-4.24_201509-01~~ |1 ottobre 2015 |10 gennaio 2016 |Da definire |
-| ~~WA-GUEST-OS-4.23_201508-02~~ |9 settembre 2015 |6 dicembre 2015 |Da definire |
-| ~~WA-GUEST-OS-4.22_201507-02~~ |7 agosto 2015 |1 novembre 2015 |Da definire |
-| ~~WA-GUEST-OS-4.21_201506-01~~ |9 luglio 2015 |9 ottobre 2015 |Da definire |
-| ~~WA-GUEST-OS-4.20_201505-02~~ |12 giugno 2015 |7 settembre 2015 |Da definire |
-| ~~WA-GUEST-OS-4.19_201504-01~~ |17 aprile 2015 |9 agosto 2015 |Da definire |
+|~~WA-GUEST-OS-4.36_201609-01~~ |13 ottobre 2016 |14 gennaio 2017 |Da definire |
+|~~WA-GUEST-OS-4.35_201608-01~~ |13 settembre 2016 |16 dicembre 2016 |Da definire |
+|~~WA-GUEST-OS-4.34_201607-01~~ |8 agosto 2016 |13 novembre 2016 |Da definire |
+|~~WA-GUEST-OS-4.33_201606-01~~ |13 luglio 2016 |13 ottobre 2016 |Da definire |
+|~~WA-GUEST-OS-4.32_201605-01~~ |10 giugno 2016 |8 settembre 2016 |Da definire |
+|~~WA-GUEST-OS-4.31_201604-01~~ |2 maggio 2016 |13 agosto 2016 |Da definire |
+|~~WA-GUEST-OS-4.30_201603-01~~ |7 aprile 2016 |10 luglio 2016 |Da definire |
+|~~WA-GUEST-OS-4.29_201602-02~~ |12 marzo 2016 |2 giugno 2016 |Da definire |
+|~~WA-GUEST-OS-4.28_201601-01~~ |12 febbraio 2016 |7 maggio 2016 |Da definire |
+|~~WA-GUEST-OS-4.27_201512-01~~ |12 gennaio 2016 |12 aprile 2016 |Da definire |
 
 ## <a name="family-3-releases"></a>Versioni della famiglia 3
 **Windows Server 2012**
@@ -140,27 +108,19 @@ Supporta .NET 4.0, 4.5, 4.5.1 e 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.46_201612-01 |10 gennaio 2017 |Dopo la versione 3.48 |Da definire |
 | WA-GUEST-OS-3.45_201611-01 |14 dicembre 2016 |Dopo la versione 3.47 |Da definire |
 | WA-GUEST-OS-3.44_201610-01 |16 novembre 2016 |Dopo la versione 3.46 |Da definire |
-| WA-GUEST-OS-3.43_201609-01 |13 ottobre 2016 |Dopo la versione 3.45 |Da definire |
-| WA-GUEST-OS-3.42_201608-01 |13 settembre 2016 |16 dicembre 2016 |Da definire |
-| WA-GUEST-OS-3.41_201607-01 |8 agosto 2016 |13 novembre 2016 |Da definire |
-| WA-GUEST-OS-3.40_201606-01 |13 luglio 2016 |13 ottobre 2016 |Da definire |
-| WA-GUEST-OS-3.39_201605-01 |10 giugno 2016 |8 settembre 2016 |Da definire |
-| WA-GUEST-OS-3.38_201604-01 |2 maggio 2016 |13 agosto 2016 |Da definire |
-| WA-GUEST-OS-3.37_201603-01 |7 aprile 2016 |10 luglio 2016 |Da definire |
-| WA-GUEST-OS-3.36_201602-02 |12 marzo 2016 |2 giugno 2016 |Da definire |
-| WA-GUEST-OS-3.35_201601-01 |12 febbraio 2016 |7 maggio 2016 |Da definire |
-| WA-GUEST-OS-3.34_201512-01 |12 gennaio 2016 |12 aprile 2016 |Da definire |
-| ~~WA-GUEST-OS-3.33_201511-02~~ |4 gennaio 2016 |12 marzo 2016 |Da definire |
-| ~~WA-GUEST-OS-3.33_201511-01~~ |10 dicembre 2015 |12 marzo 2016 |Da definire |
-| ~~WA-GUEST-OS-3.32_201510-01~~ |6 novembre 2015 |12 febbraio 2016 |Da definire |
-| ~~WA-GUEST-OS-3.31_201509-01~~ |1 ottobre 2015 |10 gennaio 2016 |Da definire |
-| ~~WA-GUEST-OS-3.30_201508-02~~ |9 settembre 2015 |6 dicembre 2015 |Da definire |
-| ~~WA-GUEST-OS-3.29_201507-02~~ |7 agosto 2015 |1 novembre 2015 |Da definire |
-| ~~WA-GUEST-OS-3.28_201506-01~~ |9 luglio 2015 |9 ottobre 2015 |Da definire |
-| ~~WA-GUEST-OS-3.27_201505-02~~ |12 giugno 2015 |7 settembre 2015 |Da definire |
-| ~~WA-GUEST-OS-3.26_201504-01~~ |17 aprile 2015 |9 agosto 2015 |Da definire |
+| ~~WA-GUEST-OS-3.43_201609-01~~ |13 ottobre 2016 |14 gennaio 2017 |Da definire |
+| ~~WA-GUEST-OS-3.42_201608-01~~ |13 settembre 2016 |16 dicembre 2016 |Da definire |
+| ~~WA-GUEST-OS-3.41_201607-01~~ |8 agosto 2016 |13 novembre 2016 |Da definire |
+| ~~WA-GUEST-OS-3.40_201606-01~~ |13 luglio 2016 |13 ottobre 2016 |Da definire |
+| ~~WA-GUEST-OS-3.39_201605-01~~ |10 giugno 2016 |8 settembre 2016 |Da definire |
+| ~~WA-GUEST-OS-3.38_201604-01~~ |2 maggio 2016 |13 agosto 2016 |Da definire |
+| ~~WA-GUEST-OS-3.37_201603-01~~ |7 aprile 2016 |10 luglio 2016 |Da definire |
+| ~~WA-GUEST-OS-3.36_201602-02~~ |12 marzo 2016 |2 giugno 2016 |Da definire |
+| ~~WA-GUEST-OS-3.35_201601-01~~ |12 febbraio 2016 |7 maggio 2016 |Da definire |
+| ~~WA-GUEST-OS-3.34_201512-01~~ |12 gennaio 2016 |12 aprile 2016 |Da definire |
 
 ## <a name="family-2-releases"></a>Versioni della famiglia 2
 **Windows Server 2008 R2 SP1**
@@ -174,33 +134,26 @@ Supporta .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.59_201701-01 |10 gennaio 2017 |Dopo la versione 2.61 |Da definire |
+| WA-GUEST-OS-2.58_201612-01 |10 gennaio 2017 |Dopo la versione 2.60 |Da definire |
 | WA-GUEST-OS-2.57_201611-01 |14 dicembre 2016 |Dopo la versione 2.59 |Da definire |
-| WA-GUEST-OS-2.56_201610-01 |16 novembre 2016 |Dopo la versione 2.58 |Da definire |
-| WA-GUEST-OS-2.55_201609-01 |13 ottobre 2016 |Dopo la versione 2.57 |Da definire |
-| WA-GUEST-OS-2.54_201608-01 |13 settembre 2016 |16 dicembre 2016 |Da definire |
-| WA-GUEST-OS-2.53_201607-01 |8 agosto 2016 |13 novembre 2016 |Da definire |
-| WA-GUEST-OS-2.52_201606-01 |13 luglio 2016 |13 ottobre 2016 |Da definire |
-| WA-GUEST-OS-2.51_201605-01 |10 giugno 2016 |8 settembre 2016 |Da definire |
-| WA-GUEST-OS-2.50_201604-01 |2 maggio 2016 |13 agosto 2016 |Da definire |
-| WA-GUEST-OS-2.49_201603-01 |7 aprile 2016 |10 luglio 2016 |Da definire |
-| WA-GUEST-OS-2.48_201602-02 |12 marzo 2016 |2 giugno 2016 |Da definire |
-| WA-GUEST-OS-2.47_201601-01 |12 febbraio 2016 |7 maggio 2016 |Da definire |
-| WA-GUEST-OS-2.46_201512-01 |12 gennaio 2016 |12 aprile 2016 |Da definire |
-| ~~WA-GUEST-OS-2.45_201511-02~~ |4 gennaio 2016 |12 marzo 2016 |Da definire |
-| ~~WA-GUEST-OS-2.45_201511-01~~ |10 dicembre 2015 |12 marzo 2016 |Da definire |
-| ~~WA-GUEST-OS-2.44_201510-01~~ |6 novembre 2015 |12 febbraio 2016 |Da definire |
-| ~~WA-GUEST-OS-2.43_201509-01~~ |1 ottobre 2015 |10 gennaio 2016 |Da definire |
-| ~~WA-GUEST-OS-2.42_201508-02~~ |9 settembre 2015 |6 dicembre 2015 |Da definire |
-| ~~WA-GUEST-OS-2.41_201507-02~~ |7 agosto 2015 |1 novembre 2015 |Da definire |
-| ~~WA-GUEST-OS-2.40_201506-01~~ |9 luglio 2015 |9 ottobre 2015 |Da definire |
-| ~~WA-GUEST-OS-2.39_201505-02~~ |12 giugno 2015 |7 settembre 2015 |Da definire |
-| ~~WA-GUEST-OS-2.38_201504-01~~ |17 aprile 2015 |9 agosto 2015 |Da definire |
+| WA-GUEST-OS-2.56_201610-01 |16 novembre 2016 |10 febbraio 2017 |Da definire |
+|~~WA-GUEST-OS-2.55_201609-01~~ |13 ottobre 2016 |14 gennaio 2017 |Da definire |
+|~~WA-GUEST-OS-2.54_201608-01~~ |13 settembre 2016 |16 dicembre 2016 |Da definire |
+|~~WA-GUEST-OS-2.53_201607-01~~ |8 agosto 2016 |13 novembre 2016 |Da definire |
+|~~WA-GUEST-OS-2.52_201606-01~~ |13 luglio 2016 |13 ottobre 2016 |Da definire |
+|~~WA-GUEST-OS-2.51_201605-01~~ |10 giugno 2016 |8 settembre 2016 |Da definire |
+|~~WA-GUEST-OS-2.50_201604-01~~ |2 maggio 2016 |13 agosto 2016 |Da definire |
+|~~WA-GUEST-OS-2.49_201603-01~~ |7 aprile 2016 |10 luglio 2016 |Da definire |
+|~~WA-GUEST-OS-2.48_201602-02~~|12 marzo 2016 |2 giugno 2016 |Da definire |
+|~~WA-GUEST-OS-2.47_201601-01~~|12 febbraio 2016 |7 maggio 2016 |Da definire |
+|~~WA-GUEST-OS-2.46_201512-01~~|12 gennaio 2016 |12 aprile 2016 |Da definire |
 
 ## <a name="msrc-patch-updates"></a>Patch di aggiornamento MSRC
 L'elenco di patch incluse con il rilascio del sistema operativo guest di ogni mese è disponibile [qui][patches].
 
 ## <a name="sdk-support"></a>Supporto SDK
-Anche se le [informazioni sul ritiro di Azure SDK][retire policy sdk] indicano che solo le versioni successive alla 2.2 sono supportate, determinate famiglie di sistemi operativi guest consentono di usare versioni precedenti. È sempre necessario usare l’SDK più recente supportato. 
+Anche se le [informazioni sul ritiro di Azure SDK][retire policy sdk] indicano che solo le versioni successive alla 2.2 sono supportate, determinate famiglie di sistemi operativi guest consentono di usare versioni precedenti. È sempre necessario usare l'SDK più recente supportato. 
 
 | Famiglia del sistema operativo guest | Versioni dell’SDK compatibili |
 | --- | --- |
@@ -270,10 +223,5 @@ I criteri relativi al supporto e al ritiro del sistema operativo guest sono desc
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Creare un nome di dominio completo per una VM nel portale di Azure | Microsoft Docs
+title: Creare un nome di dominio completo (FQDN) per una macchina virtuale Linux nel portale di Azure | Documentazione Microsoft
 description: Informazioni su come creare un nome di dominio completo o FQDN per un Gestore risorse basato su macchina virtuale nel portale di Azure.
 services: virtual-machines-linux
 documentationcenter: 
@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/14/2016
+ms.date: 03/14/2017
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f556fd0318accc19f0fa56fa7f2a8716ee6f1c02
-ms.openlocfilehash: 9bd1032c8a831ab22bbebad8881a0f6ea434e360
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: b35d2886c1319623a2a56851e52fa25228bd0592
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="create-a-fully-qualified-domain-name-in-the-azure-portal"></a>Creare un nome di dominio completo nel portale di Azure.
+# <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Creare un nome di dominio completo nel portale di Azure per una macchina virtuale Linux
+
 Quando si crea una macchina virtuale nel [portale di Azure](https://portal.azure.com) usando il modello di distribuzione Azure Resource Manager, il portale crea automaticamente una risorsa IP pubblica per la macchina virtuale. Usare questo indirizzo IP per accedere in remoto alla VM. Anche se, per impostazione predefinita, il portale non crea un [nome di dominio completo](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), o FQDN (Fully Qualified Domain Name), è possibile aggiungerne uno dopo aver creato la VM. Questo articolo illustra i passaggi per creare un nome DNS o un FQDN.
 
 [!INCLUDE [virtual-machines-common-portal-create-fqdn](../../includes/virtual-machines-common-portal-create-fqdn.md)]
@@ -32,10 +35,5 @@ Quando si crea una macchina virtuale nel [portale di Azure](https://portal.azure
 Quando la macchina virtuale ha un indirizzo IP pubblico e un nome DNS, è possibile distribuire framework applicazioni o servizi comuni, ad esempio nginx, MongoDB, Docker e così via.
 
 Per suggerimenti sulla creazione di distribuzioni di Azure, vedere la pagina relativa all'[uso di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

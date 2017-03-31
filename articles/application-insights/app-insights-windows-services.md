@@ -1,5 +1,5 @@
 ---
-title: Application Insights per i servizi di Windows e i ruoli di lavoro | Microsoft Docs
+title: Azure Application Insights per i servizi di Windows e i ruoli di lavoro | Microsoft Docs
 description: "Aggiungere manualmente Application Insights SDK all&quot;applicazione ASP.NET per analizzare utilizzo, disponibilità e prestazioni."
 services: application-insights
 documentationcenter: .net
@@ -14,8 +14,9 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: 926f77b6674a0dba92e160435e4cce7bb0de160d
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: df23a55197d15946f16868d14c6db08dcba4df19
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.openlocfilehash: 926f77b6674a0dba92e160435e4cce7bb0de160d
 * Una sottoscrizione a [Microsoft Azure](http://azure.com). Se il team o l'organizzazione ha una sottoscrizione di Azure, il proprietario potrà aggiungere l'utente alla sottoscrizione usando il rispettivo [account Microsoft](http://live.com).
 * Visual Studio 2013 o versione successiva.
 
-## <a name="a-nameadda1-create-an-application-insights-resource"></a><a name="add"></a>1. Creare una risorsa Application Insights
+## <a name="add"></a>1. Creare una risorsa Application Insights
 Accedere al [portale di Azure](https://portal.azure.com/)e creare una nuova risorsa di Application Insights. Scegliere ASP.NET come tipo di applicazione.
 
 ![Fare clic su Nuovo, Application Insights](./media/app-insights-windows-services/01-new-asp.png)
@@ -46,7 +47,7 @@ La chiave identifica la risorsa e verrà installata subito nell'SDK per indirizz
 
 La procedura appena effettuata per creare una nuova risorsa è un buon modo di iniziare a monitorare qualsiasi applicazione. È ora possibile inviare dati a esso.
 
-## <a name="a-namesdka2-install-the-sdk-in-your-application"></a><a name="sdk"></a>2. Installare l'SDK nell'applicazione
+## <a name="sdk"></a>2. Installare l'SDK nell'applicazione
 L'installazione e la configurazione di Application Insights SDK varia a seconda della piattaforma in cui si sta lavorando. Per le applicazioni ASP.NET, è facile.
 
 1. In Visual Studio modificare i pacchetti NuGet del progetto dell'app Web.
@@ -84,14 +85,14 @@ Se sono state eseguite tutte le personalizzazioni apportate al file ApplicationI
 
 È utile impostare la chiave di strumentazione nel codice se si vuole [cambiare la chiave per configurazioni della build diverse](app-insights-separate-resources.md). Se si imposta la chiave nel codice, non è necessario impostarla nel file `.config`.
 
-## <a name="a-nameruna-run-your-project"></a><a name="run"></a> Eseguire il progetto
+## <a name="run"></a> Eseguire il progetto
 Eseguire l'applicazione premendo **F5** e provarla aprendo pagine diverse per generare alcuni dati di telemetria.
 
 In Visual Studio verrà visualizzato il conteggio degli eventi che sono stati inviati.
 
 ![Conteggio degli eventi in Visual Studio](./media/app-insights-windows-services/appinsights-09eventcount.png)
 
-## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> Visualizzare i dati di telemetria
+## <a name="monitor"></a> Visualizzare i dati di telemetria
 Tornare al [portale di Azure](https://portal.azure.com/) e passare alla risorsa Application Insights.
 
 Cercare i dati nei grafici Panoramica. All'inizio si vedranno solo uno o due punti. Ad esempio:
@@ -124,16 +125,15 @@ Vedere [questa sezione sulla risoluzione dei problemi](app-insights-asp-net-trou
 
 > [!NOTE]
 > Se l'app genera molti dati di telemetria (e si usa ASP.NET SDK versione 2.0.0-beta3 o successiva), il modulo di campionamento adattivo riduce automaticamente il volume che viene inviato al portale inviando solo una frazione rappresentativa di eventi. Tuttavia, gli eventi che fanno parte della stessa richiesta verranno selezionati o deselezionati come gruppo, per rendere possibile lo spostamento tra eventi correlati. 
-> [Informazioni sul campionamento.](app-insights-sampling.md)
+> [Informazioni sul campionamento](app-insights-sampling.md).
 > 
 > 
+
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Aggiungere altri dati di telemetria](app-insights-asp-net-more.md) per un quadro completo a 360 gradi dell'applicazione.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/28/2016
+ms.date: 03/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: bedd1c58e6493c8f0c6bb183ffc1bc296c56f46b
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 7f165111cd089d5f32f309235dcbc24d11fb5d64
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -32,7 +33,7 @@ Le applicazioni Big Data sono una scelta naturale per l'elaborazione di dati non
 Per eseguire le procedure descritte nell'articolo è necessario:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Data Lake Store. Vedere le [istruzioni](data-lake-store-get-started-portal.md). 
+* **Un account di Archivio Data Lake di Azure**. Per istruzioni su come crearne uno, vedere [Introduzione ad Archivio Data Lake di Azure](data-lake-store-get-started-portal.md)
 * **Cluster Azure HDInsight** con accesso a un account di Archivio Data Lake. Vedere [Creare un cluster HDInsight con Archivio Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md). Questo articolo presuppone che si abbia un cluster HDInsight Linux con accesso ad Archivio Data Lake.
 * **Database SQL di Azure**. Per istruzioni su come crearne uno, vedere [Creare un database SQL di Azure](../sql-database/sql-database-get-started.md)
 
@@ -75,7 +76,7 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 ## <a name="use-sqoop-from-an-hdinsight-cluster-with-access-to-data-lake-store"></a>Usare Sqoop da un cluster HDInsight con accesso ad Archivio Data Lake
 In un cluster HDInsight sono già disponibili i pacchetti di Sqoop. Se il cluster HDInsight è stato configurato per l'uso di Archivio Data Lake come archiviazione aggiuntiva, è possibile usare Sqoop (senza apportare modifiche alla configurazione) per importare o esportare dati tra un database relazionale (in questo esempio, un database SQL di Azure) e un account Archivio Data Lake.
 
-1. Per questa esercitazione si presuppone che sia stato creato un cluster Linux, quindi è consigliabile usare SSH per connettersi al cluster. Vedere [Connettersi a un cluster HDInsight basato su Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster).
+1. Per questa esercitazione si presuppone che sia stato creato un cluster Linux, quindi è consigliabile usare SSH per connettersi al cluster. Vedere [Connettersi a un cluster HDInsight basato su Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 2. Verificare se è possibile accedere all'account Archivio Data Lake dal cluster. Eseguire il comando seguente dal prompt SSH:
 
         hdfs dfs -ls adl://<data_lake_store_account>.azuredatalakestore.net/
@@ -108,7 +109,7 @@ In un cluster HDInsight sono già disponibili i pacchetti di Sqoop. Se il cluste
         -rwxrwxrwx   0 sshuser hdfs         13 2016-02-26 21:09 adl://hdiadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00002
         -rwxrwxrwx   0 sshuser hdfs         18 2016-02-26 21:09 adl://hdiadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00003
 
-    Ogni file **part-m-*** corrisponde a una riga nella tabella di origine, **Table1**. È possibile visualizzare i contenuti dei file part-m-* per la verifica.
+    Ogni file **part-m-***corrisponde a una riga nella tabella di origine,**Table1**. È possibile visualizzare i contenuti dei file part-m-* per la verifica.
 
 
 ### <a name="export-data-from-data-lake-store-into-azure-sql-database"></a>Esportare dati da Archivio Data Lake a un database SQL di Azure 
@@ -134,14 +135,13 @@ In un cluster HDInsight sono già disponibili i pacchetti di Sqoop. Se il cluste
         3    Erna    Myers
         4    Annette    Simpson
 
+## <a name="performance-considerations-while-using-sqoop"></a>Considerazioni sulle prestazioni per l'uso di Sqoop
+
+Per ottimizzare le prestazioni del processo di Sqoop per copiare i dati in Data Lake Store, vedere il [documento sulle prestazioni di Sqoop](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/).
+
 ## <a name="see-also"></a>Vedere anche
 * [Copiare i dati da BLOB di archiviazione di Azure ad Archivio Data Lake](data-lake-store-copy-data-azure-storage-blob.md)
 * [Proteggere i dati in Data Lake Store](data-lake-store-secure-data.md)
 * [Usare Azure Data Lake Analytics con Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

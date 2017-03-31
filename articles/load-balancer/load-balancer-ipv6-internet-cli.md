@@ -1,5 +1,5 @@
 ---
-title: Creare un servizio di bilanciamento del carico con connessione Internet con IPv6 in Azure Resource Manager usando l&quot;interfaccia della riga di comando di Azure | Documentazione Microsoft
+title: 'Creare un servizio di bilanciamento del carico con connessione Internet con IPv6: interfaccia della riga di comando di Azure | Documentazione Microsoft'
 description: Informazioni sulla creazione di un servizio di bilanciamento del carico con connessione Internet con IPv6 in Azure Resource Manager usando l&quot;interfaccia della riga di comando di Azure
 services: load-balancer
 documentationcenter: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
+ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 1a1c3c15c51b1e441f21158510e92cc8de057352
-ms.openlocfilehash: e516ebea287948c52afca6ab3d3e4e61b3c3c080
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: d009cf50be1f597c266fd565c9ff4799c9df6dbb
+ms.lasthandoff: 03/21/2017
 
 ---
 
@@ -28,7 +29,7 @@ ms.openlocfilehash: e516ebea287948c52afca6ab3d3e4e61b3c3c080
 > * [Interfaccia della riga di comando di Azure](load-balancer-ipv6-internet-cli.md)
 > * [Modello](load-balancer-ipv6-internet-template.md)
 
-Azure Load Balancer è un servizio di bilanciamento del carico di livello 4 (TCP, UDP). Il servizio di bilanciamento del carico offre disponibilità elevata distribuendo il traffico in ingresso tra istanze del servizio integre in servizi cloud o macchine virtuali in un set di bilanciamento del carico . Azure Load Balancer può anche presentare tali servizi su più porte, più indirizzi IP o entrambi.
+Azure Load Balancer è un servizio di bilanciamento del carico di livello&4; (TCP, UDP). Il servizio di bilanciamento del carico offre disponibilità elevata distribuendo il traffico in ingresso tra istanze del servizio integre in servizi cloud o macchine virtuali in un set di bilanciamento del carico . Azure Load Balancer può anche presentare tali servizi su più porte, più indirizzi IP o entrambi.
 
 ## <a name="example-deployment-scenario"></a>Scenario di distribuzione di esempio
 
@@ -62,7 +63,7 @@ Per altre informazioni, vedere [Supporto di Azure Resource Manager per Load Bala
 
 Per questo esempio verranno eseguiti gli strumenti dell'interfaccia della riga di comando in una finestra di comando di PowerShell. Non verranno usati i cmdlet di Azure PowerShell, ma le funzionalità di script di PowerShell per migliorare la leggibilità e il riutilizzo.
 
-1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
+1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
 2. Eseguire il comando **azure config mode** per passare alla modalità Resource Manager.
 
     ```azurecli
@@ -342,9 +343,4 @@ Per creare le macchine virtuali è necessario un account di archiviazione. Per i
 [Configurare una modalità di distribuzione del servizio di bilanciamento del carico](load-balancer-distribution-mode.md)
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

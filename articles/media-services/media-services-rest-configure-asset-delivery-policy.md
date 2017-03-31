@@ -4,7 +4,7 @@ description: Questo argomento illustra come configurare criteri di distribuzione
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 5cb9d32a-e68b-4585-aa82-58dded0691d0
 ms.service: media-services
@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: edb4ba7a855583cd00051cb4f4edae3a13cdd496
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 255cc9f08862ff7babf8d8847c88a72a4c88582c
+ms.lasthandoff: 01/11/2017
 
 
 ---
@@ -27,12 +28,10 @@ Se si prevede di distribuire asset crittografati in modo dinamico, uno dei passa
 
 Questo argomento illustra perché e come creare i criteri di distribuzione degli asset.
 
-> [!NOTE]
-> Per usare la funzionalità di creazione dinamica dei pacchetti e la crittografia dinamica, è necessario assicurarsi di avere almeno un'unità di scala, nota anche come unità di streaming. Per altre informazioni, vedere la sezione relativa al [ridimensionamento di un servizio multimediale](media-services-portal-manage-streaming-endpoints.md).
-> 
-> Inoltre, l'asset deve contenere un set di file MP4 o Smooth Streaming a velocità in bit adattiva.
-> 
-> 
+>[!NOTE]
+>Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
+>
+>Per usare la creazione dinamica dei pacchetti e la crittografia dinamica, l'asset deve contenere un set di file MP4 o Smooth Streaming a velocità in bit adattiva.
 
 È possibile applicare criteri differenti allo stesso asset. È ad esempio possibile applicare la crittografia PlayReady a Smooth Streaming e la crittografia envelope AES (Advanced Encryption Standard) a MPEG DASH e HLS. Gli eventuali protocolli non definiti nei criteri di distribuzione (ad esempio quando si aggiunge un singolo criterio che specifica soltanto HLS come protocollo) verranno esclusi dallo streaming. Questo comportamento non si verifica quando non è presente alcun criterio di distribuzione degli asset. In tal caso, sono consentiti tutti i protocolli in chiaro.
 
@@ -429,10 +428,5 @@ Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_d
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Collegamento di una rete virtuale a un circuito ExpressRoute usando PowerShell | Documentazione Microsoft
+title: 'Collegamento di una rete virtuale a un circuito ExpressRoute: PowerShell: Azure | Microsoft Docs'
 description: Questo documento offre una panoramica sulle procedure di collegamento delle reti virtuali ai circuiti ExpressRoute usando il modello di distribuzione di Resource Manager e PowerShell.
 services: expressroute
 documentationcenter: na
@@ -13,19 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 12/13/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
-ms.openlocfilehash: ba71cabd6b9ed88813c65c4ce82e5809606699b9
+ms.sourcegitcommit: 75b7cee2485d1d68fee8dcd65ade84995dcdb9be
+ms.openlocfilehash: fc5bc67fd38fe8a8c4499257a29bc0f0ec71468c
+ms.lasthandoff: 02/03/2017
 
 
 ---
-# <a name="link-a-virtual-network-to-an-expressroute-circuit"></a>Collegare una rete virtuale a un circuito ExpressRoute
+# <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Connettere una rete virtuale a un circuito ExpressRoute
 > [!div class="op_single_selector"]
-> * [Portale di Azure - Gestione risorse](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [PowerShell - Gestione risorse](expressroute-howto-linkvnet-arm.md)
-> * [PowerShell - Classico](expressroute-howto-linkvnet-classic.md)
+> * [Resource Manager - Portale di Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Classica: PowerShell](expressroute-howto-linkvnet-classic.md)
+> * [Video - Portale di Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > 
 > 
 
@@ -148,10 +150,5 @@ L'utente del circuito può eseguire il cmdlet seguente per riscattare un'autoriz
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

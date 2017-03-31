@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 34192ed0-b1d1-4cf7-a3d4-5466301cf307
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,6 +18,7 @@ ms.author: raviperi
 translationtype: Human Translation
 ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
 ms.openlocfilehash: 6410ea44861c59841d945390de326a805ee4b8e1
+ms.lasthandoff: 12/09/2016
 
 
 ---
@@ -655,10 +657,5 @@ Per esempi di topologie Storm create con SCP, vedere quanto segue:
 * [Elaborare i dati del sensore veicolo dall'hub di eventi usando Storm in HDInsight](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/IotExample)
 * [Estrarre, trasformare e caricare dagli hub eventi di Azure in HBase](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample)
 * [Correlare gli eventi  con Storm e HBase in HDInsight](hdinsight-storm-correlation-topology.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

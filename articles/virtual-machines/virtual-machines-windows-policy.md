@@ -1,5 +1,5 @@
 ---
-title: Applicare criteri a macchine virtuali di Azure Resource Manager | Microsoft Docs
+title: Applicare la sicurezza con criteri a macchine virtuali Windows in Azure | Documentazione Microsoft
 description: Come applicare criteri a una macchina virtuale Windows di Azure Resource Manager
 services: virtual-machines-windows
 documentationcenter: 
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2016
-ms.author: singhkay
+ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5ee1e47b940516ea872daba7d1dd7b23f404f326
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 54afb2f55ef9ff48448c63bc8ee8e745765f61e6
+ms.lasthandoff: 02/22/2017
 
 
 ---
-# <a name="apply-policies-to-azure-resource-manager-virtual-machines"></a>Applicare criteri a macchine virtuali di Azure Resource Manager
+# <a name="apply-security-and-policies-to-windows-vms-with-azure-resource-manager"></a>Applicare sicurezza e criteri a macchine virtuali Windows con Azure Resource Manager
 Tramite i criteri è possibile imporre diverse convenzioni e regole in tutta l'organizzazione. L'imposizione del comportamento desiderato consente di attenuare i rischi, contribuendo nello stesso tempo al successo dell'organizzazione. Questo articolo descrive come usare criteri di Azure Resource Manager per definire il comportamento desiderato per le macchine virtuali dell'organizzazione.
 
 Per eseguire questa operazione, seguire questa procedura:
@@ -96,15 +97,10 @@ La tabella seguente descrive le proprietà delle macchine virtuali che possono e
 ## <a name="create-the-policy"></a>Creare i criteri
 Un criterio può essere creato facilmente usando l'API REST direttamente o i cmdlet di PowerShell. Per creare i criteri, vedere l'articolo seguente:
 
-* [Creazione di criteri](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy)
+* [Creazione di criteri](../azure-resource-manager/resource-manager-policy.md)
 
 ## <a name="apply-the-policy"></a>Applicare i criteri
 Dopo aver creato i criteri è necessario applicarli a un ambito definito. L'ambito può essere una sottoscrizione, un gruppo di risorse o persino una risorsa. Per applicare i criteri, vedere l'articolo seguente:
 
-* [Creazione di criteri](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
+* [Creazione di criteri](../azure-resource-manager/resource-manager-policy.md)
 

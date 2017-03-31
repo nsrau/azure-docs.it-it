@@ -1,9 +1,21 @@
 ---
-layout: LandingPage
+title: Documentazione di Azure Log Analytics - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come usare Log Analytics per raccogliere e analizzare dati generati dalle risorse nel cloud e negli ambienti locali, a prescindere dalla posizione fisica.
+services: log-analytics
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: log-analytics
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: ffb5ebc79807a81e53c2bca3fa5672a11e777663
+ms.sourcegitcommit: b44e02d3e22722c05adce10c3b527adf9be20f00
+ms.openlocfilehash: 9d5d1ada86a2cb1b6f6f70d9c662708f81b5bcc6
+ms.lasthandoff: 02/23/2017
 
 ---
 
@@ -13,7 +25,7 @@ Informazioni su come usare Log Analytics, un servizio di Operations Management S
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/log-analytics/log-analytics-overview">
+      <a href="/azure/log-analytics/log-analytics-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -84,12 +96,19 @@ Informazioni su come usare Log Analytics, un servizio di Operations Management S
             </div>
         </div>
     </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/loganalytics">Informazioni di riferimento sulle API REST</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li> 
 </ul>
 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

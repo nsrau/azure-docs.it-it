@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5c66450fd735b3d9e4d0f7835c6d607368007388
+ms.sourcegitcommit: 325d92e493f6e011367d2c85b52c92838327101e
+ms.openlocfilehash: 30dfd46c8133a2a5bb0b32bd5c035260026eec42
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -26,7 +27,7 @@ L'obiettivo di questa esercitazione è descrivere l'integrazione di BetterWorks 
 L'integrazione di BetterWorks con Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD chi può accedere a BetterWorks
-* È possibile abilitare gli utenti per l'accesso automatico a BetterWorks (Single Sign-On) con i propri account Azure AD
+* È possibile abilitare gli utenti per l'accesso Single Sign-On automatico (SSO) a BetterWorks con i propri account Azure AD
 * È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -35,12 +36,11 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 Per configurare l'integrazione di Azure AD con BetterWorks, sono necessari gli elementi seguenti:
 
 * Sottoscrizione di Azure AD.
-* Sottoscrizione di BetterWorks abilitata per l'accesso Single Sign-On
+* Sottoscrizione di BetterWorks abilitata per l'accesso Single Sign-On (SSO)
 
-> [!NOTE]
-> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
-> 
-> 
+>[!NOTE]
+>Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
+>  
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
@@ -52,10 +52,10 @@ L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure
 
 Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
-1. Aggiunta di BetterWorks dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+* Aggiunta di BetterWorks dalla raccolta
+* Configurazione e test dell'accesso Single Sign-On (SSO) di Azure AD
 
-## <a name="adding-betterworks-from-the-gallery"></a>Aggiunta di BetterWorks dalla raccolta
+## <a name="add-betterworks-from-the-gallery"></a>Aggiungere BetterWorks dalla raccolta
 Per configurare l'integrazione di BetterWorks in Azure AD, è necessario aggiungere BetterWorks dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere BetterWorks dalla raccolta, seguire questa procedura:**
@@ -80,7 +80,7 @@ Per configurare l'integrazione di BetterWorks in Azure AD, è necessario aggiung
    
     ![Selezione dell'app nella raccolta](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_001.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con BetterWorks con un utente di test di nome "Britta Simon".
 
 Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di BetterWorks che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in BetterWorks.
@@ -89,13 +89,13 @@ La relazione di collegamento viene stabilita assegnando al valore di **nome uten
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con BetterWorks, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente di test per BetterWorks](#creating-a-betterworks-test-user)** : per avere una controparte di Britta Simon in BetterWorks collegata alla relativa rappresentazione in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione BetterWorks.
 
 L'applicazione BetterWorks si aspetta che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla scheda degli**attributi**dell'applicazione. La schermata seguente illustra un esempio relativo a questa operazione. 
@@ -113,15 +113,12 @@ L'applicazione BetterWorks si aspetta che le asserzioni SAML abbiano un formato 
     | --- | --- |    
     | saml_token | bd189cf6-1701-11e6-8f90-d26992eca2a5 |
 
-    a. Fare clic su **aggiungi attributo utente** per aprire la finestra di dialogo **Aggiungi attributo utente**.
+    1. Fare clic su **aggiungi attributo utente** per aprire la finestra di dialogo **Aggiungi attributo utente**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_12.png)
-
-    b. Nella casella di testo **Nome attributo** , digitare il nome dell'attributo indicato per quella riga.
-
-    c. Dall'elenco **Valore attributo** digitare l'ID del token SAML mostrato per quella riga.
-
-    d. Fare clic su **Completa**
+    2. Nella casella di testo **Nome attributo** , digitare il nome dell'attributo indicato per quella riga.
+    3. Dall'elenco **Valore attributo** digitare l'ID del token SAML mostrato per quella riga.
+    4. Fare clic su **Completa**
 
 1. Nel menu in alto fare clic su **Avvio rapido**.
    
@@ -132,32 +129,22 @@ L'applicazione BetterWorks si aspetta che le asserzioni SAML abbiano un formato 
 3. Nella pagina della finestra di dialogo **Configurare le impostazioni dell'app**, per configurare l'applicazione in **modalità avviata da IDP** seguire questa procedura:
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_04.png)
-
-    a. Nella casella di testo **Identificatore** digitare l'URL nel formato seguente: `https://app.betterworks.com/saml2/metadata/`
-
-
-    b. Nella casella di testo **URL di risposta** digitare l'URL nel formato seguente: `https://app.betterworks.com/saml2/acs/`
-
-
-    c. Fare clic su **Avanti**
+   1. Nella casella di testo **Identificatore** digitare l'URL nel formato seguente: `https://app.betterworks.com/saml2/metadata/`
+   2. Nella casella di testo **URL di risposta** digitare l'URL nel formato seguente: `https://app.betterworks.com/saml2/acs/`
+   3. Fare clic su **Avanti**
 
 1. Nella pagina della finestra di dialogo **Configurare le impostazioni dell'app**, per configurare l'applicazione in **modalità avviata da SP** seguire questa procedura:
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_10.png)
-   
-    a.    Selezionare **Mostra impostazioni avanzate (facoltativo)**.
-
-    b. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione BetterWorks nel formato seguente: `https://app.betterworks.com`
-
-    b. Fare clic su **Avanti**.
+    1. Selezionare **Mostra impostazioni avanzate (facoltativo)**.
+    2. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione BetterWorks nel formato seguente: `https://app.betterworks.com`
+    3. Fare clic su **Avanti**.
 
 1. Nella pagina **Configura accesso Single Sign-On in BetterWorks** seguire questa procedura e fare clic su **Avanti**:
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_05.png)
-   
-    a. Fare clic su **Scarica metadati**e quindi salvare il file nel computer.
-   
-    b. Fare clic su **Next**.
+    1. Fare clic su **Scarica metadati**e quindi salvare il file nel computer.
+    2. Fare clic su **Avanti**.
 2. Per ottenere la configurazione dell'accesso SSO per l'applicazione, contattare il team di supporto di BetterWorks all'indirizzo <mailto:support@betterworks.com>. Allegare il file dei metadati scaricato e condividerlo con il team BetterWorks per la configurazione di SSO sul relativo lato.
 3. Nel portale di Azure classico selezionare la conferma della configurazione e fare clic su **Avanti**.
    
@@ -166,7 +153,7 @@ L'applicazione BetterWorks si aspetta che le asserzioni SAML abbiano un formato 
    
    ![Single Sign-On di Microsoft Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 Questa sezione descrive come creare un utente di test chiamato Britta Simon nel portale classico.
 
 ![Creare un utente di Azure AD][20]
@@ -186,42 +173,32 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
 5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-betterworks-tutorial/create_aaduser_05.png)
-   
-    a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
-   
-    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
-   
-    c. Fare clic su **Avanti**.
+    1. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
+    2. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
+    3. Fare clic su **Avanti**.
 6. Nella pagina **Profilo utente** seguire questa procedura:
    
    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-betterworks-tutorial/create_aaduser_06.png)
-   
-   a. Nella casella di testo **Nome** digitare **Britta**.  
-   
-   b. Nella casella di testo **Cognome** digitare **Simon**.
-   
-   c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
-   
-   d. Nell'elenco **Ruolo** selezionare **Utente**.
-   
-   e. Fare clic su **Avanti**.
+   1. Nella casella di testo **Nome** digitare **Britta**.  
+   2. Nella casella di testo **Cognome** digitare **Simon**.
+   3. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
+   4. Nell'elenco **Ruolo** selezionare **Utente**.
+   5. Fare clic su **Avanti**.
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-betterworks-tutorial/create_aaduser_07.png)
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-betterworks-tutorial/create_aaduser_08.png)
-   
-    a. Prendere nota del valore visualizzato in **Nuova password**.
-   
-    b. Fare clic su **Complete**.   
+    1. Prendere nota del valore visualizzato in **Nuova password**.
+    2. Fare clic su **Completa**.   
 
-### <a name="creating-a-betterworks-test-user"></a>Creazione di un utente di test per BetterWorks
+### <a name="create-a-betterworks-test-user"></a>Creare un utente di test per BetterWorks
 In questa sezione viene creato un utente di nome Britta Simon in BetterWorks. 
 
 Per l'aggiunta di utenti alla piattaforma BetterWorks, rivolgersi al team di supporto di BetterWorks all'indirizzo <mailto:support@betterworks.com>.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a BetterWorks.
 
    ![Assegna utente][200]
@@ -242,7 +219,7 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
    
     ![Assegna utente][205]
 
-### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro BetterWorks nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione BetterWorks.
@@ -268,9 +245,4 @@ Quando si fa clic sul riquadro BetterWorks nel pannello di accesso, si dovrebbe 
 [203]: ./media/active-directory-saas-betterworks-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-betterworks-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-betterworks-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

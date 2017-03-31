@@ -1,6 +1,6 @@
 ---
-title: Gestione dello stato nei modelli di Resource Manager | Documentazione Microsoft
-description: Mostra gli approcci consigliati per usare oggetti complessi per condividere i dati sullo stato con i modelli di Gestione risorse di Azure e i modelli collegati
+title: Passare valori complessi tra modelli di Azure | Documentazione Microsoft
+description: Mostra gli approcci consigliati per usare oggetti complessi per condividere i dati sullo stato con modelli di Azure Resource Manager e modelli collegati.
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/26/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cf2f6a82df28047ba7b50dc2cfd6fc2f0dfad794
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 23cc4321159a87b61c177b11381646af8bd9eb35
 
 
 ---
-# <a name="sharing-state-in-azure-resource-manager-templates"></a>Condivisione dello stato in modelli di Gestione risorse di Azure
+# <a name="share-state-to-and-from-azure-resource-manager-templates"></a>Condividere lo stato tra modelli di Azure Resource Manager
 Questo argomento illustra le procedure consigliate per la gestione e la condivisione dello stato all'interno dei modelli. I parametri e le variabili illustrati in questo argomento sono esempi del tipo di oggetti che è possibile definire per organizzare facilmente i requisiti di distribuzione. Da questi esempi, è possibile implementare gli oggetti con valori di proprietà utili per l'ambiente.
 
 Questo argomento fa parte di un white paper di dimensioni maggiori. Per leggere il documento completo, scaricare [World Class Resource Manager Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf) (Considerazioni e procedure consigliate sui modelli di Resource Manager a livello internazionale).
@@ -415,6 +415,6 @@ Quando si definisce la macchina virtuale, si imposta **osProfile** sulla variabi
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

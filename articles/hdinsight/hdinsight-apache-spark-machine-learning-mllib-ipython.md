@@ -9,19 +9,21 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: c0fd4baa-946d-4e03-ad2c-a03491bd90c8
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/07/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 91897cb8ee5bc69bacc354a62bebafd8beb47c0c
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 2b9b635abac0d74a270933b8f39d13b1c8436dde
+ms.lasthandoff: 03/18/2017
 
 
 ---
-# <a name="machine-learning-predictive-analysis-on-food-inspection-data-using-mllib-with-apache-spark-cluster-on-hdinsight"></a>Machine Learning: analisi predittiva dei dati del controllo degli alimenti tramite MLlib con cluster Apache Spark in HDInsight 
+# <a name="machine-learning-predictive-analysis-on-food-inspection-data-using-mllib-with-apache-spark-cluster-on-hdinsight"></a>Machine Learning: analisi predittiva dei dati del controllo degli alimenti tramite MLlib con cluster Apache Spark in HDInsight
 
 > [!TIP]
 > Questa esercitazione è disponibile anche come notebook di Jupyter in un cluster Spark (Linux) creato in HDInsight. L'esperienza offerta dal notebook consente di eseguire i frammenti di codice Python dal notebook stesso. Per eseguire l'esercitazione da un notebook, creare un cluster Spark, avviare un notebook Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) e quindi eseguire il notebook **Spark Machine Learning - Predictive analysis on food inspection data using MLLib.ipynb** nella cartella **Python**.
@@ -181,7 +183,7 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
 
     ![Output della query SQL](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/query.output.png "Output della query SQL")
 
-    Per altre informazioni sul magic `%%sql` e sugli altri magic disponibili con il kernel PySpark, vedere [Kernel disponibili per i notebook di Jupyter con cluster Spark in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels).
+    Per altre informazioni sul magic `%%sql` e sugli altri magic disponibili con il kernel PySpark, vedere [Kernel disponibili per i notebook di Jupyter con cluster Spark in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 1. È anche possibile creare un tracciato tramite Matplotlib, una libreria che consente di creare visualizzazioni di dati. Poiché il tracciato deve essere creato dal frame di dati **countResultsdf** conservato in locale, il frammento di codice deve iniziare con `%%local`. Ciò garantisce che il codice venga eseguito localmente nel server di Jupyter.
 
         %%local
@@ -335,7 +337,7 @@ Per comprendere meglio i risultati di questo test, ora è possibile creare una v
 ## <a name="shut-down-the-notebook"></a>Arrestare il notebook
 Al termine dell'esecuzione dell'applicazione, è necessario arrestare il notebook per rilasciare le risorse. A tale scopo, dal menu **File** del notebook fare clic su **Close and Halt** (Chiudi e interrompi). Questa operazione consente di arrestare e chiudere il notebook.
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Vedere anche
+## <a name="seealso"></a>Vedere anche
 * [Panoramica: Apache Spark su Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenari
@@ -359,9 +361,4 @@ Al termine dell'esecuzione dell'applicazione, è necessario arrestare il noteboo
 ### <a name="manage-resources"></a>Gestire risorse
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-job-debugging.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

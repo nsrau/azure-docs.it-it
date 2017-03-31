@@ -16,8 +16,9 @@ ms.workload: na
 ms.date: 09/08/2016
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: a06126707ad9942ba3b269b0e2e2a52f9cf0c61e
-ms.openlocfilehash: 4d6735772ff36a730ccb369f7fce653a91bc9d4f
+ms.sourcegitcommit: ee94e074c574bc2e6e1a52dbfd6bd0ae102cb342
+ms.openlocfilehash: 0d007bf2a0f5a40fcb7ac6dfe5beff05a4310701
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -48,8 +49,8 @@ La tabella seguente consente di determinare se per una data integrazione è più
 | --- | --- | --- |
 | Destinatari |Impiegati, utenti aziendali |Professionisti IT, sviluppatori |
 | Scenari |Self-service |Cruciale |
-| Strumento di progettazione |Nel browser, solo interfaccia utente |Nel browser e in [Visual Studio](../app-service-logic/app-service-logic-deploy-from-vs.md) è disponibile la [visualizzazione Codice](../app-service-logic/app-service-logic-author-definitions.md) |
-| DevOps |Ad hoc, sviluppo nell'ambiente di produzione |Controllo del codice sorgente, test, supporto, oltre ad automazione e gestibilità in [Azure Resource Manager](../app-service-logic/app-service-logic-arm-provision.md) |
+| Strumento di progettazione |Nel browser, solo interfaccia utente |Nel browser e in [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md) è disponibile la [visualizzazione Codice](../logic-apps/logic-apps-author-definitions.md) |
+| DevOps |Ad hoc, sviluppo nell'ambiente di produzione |Controllo del codice sorgente, test, supporto, oltre ad automazione e gestibilità in [Azure Resource Manager](../logic-apps/logic-apps-arm-provision.md) |
 | Esperienza di amministrazione |[https://flow.microsoft.com](https://flow.microsoft.com) |[https://portal.azure.com](https://portal.azure.com) |
 | Sicurezza |Procedure standard: [sovranità dei dati](https://wikipedia.org/wiki/Technological_Sovereignty), [crittografia dati inattivi](https://wikipedia.org/wiki/Data_at_rest#Encryption) per i dati sensibili e così via. |Garanzie di sicurezza di Azure: [Sicurezza di Azure](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Centro sicurezza](https://azure.microsoft.com/services/security-center/), [log di controllo](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) e altro. |
 
@@ -107,7 +108,7 @@ Come accennato in precedenza, il servizio ottimale dipende dalla situazione spec
 Per un'introduzione a ognuno di questi servizi, creare il primo flusso, la prima app per la logica, la prima app per le funzioni o il primo processo Web. Fare clic su uno di questi collegamenti:
 
 * [Get started with Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/) (Introduzione a Microsoft Flow)
-* [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+* [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md)
 * [Creare la prima funzione di Azure](functions-create-first-azure-function.md)
 * [Distribuzione di processi Web usando Visual Studio](../app-service-web/websites-dotnet-deploy-webjobs.md)
 
@@ -118,10 +119,5 @@ In alternativa, è possibile ottenere altre informazioni su questi servizi di in
 * [Logic Apps Live Webcast](http://aka.ms/logicappslive)
 * [Microsoft Flow Frequently asked question](https://flow.microsoft.com/documentation/frequently-asked-questions/)
 * [Risorse di documentazione di Processi Web di Azure](../app-service-web/websites-webjobs-resources.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

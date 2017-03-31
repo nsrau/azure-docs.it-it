@@ -1,5 +1,5 @@
 ---
-title: Usare Apache Phoenix e SQuirrel in HDInsight | Documentazione Microsoft
+title: Usare Apache Phoenix e SQuirreL con Azure HDInsight basato su Windows | Documentazione Microsoft
 description: Informazioni su come usare Apache Phoenix in HDInsight e su come installare e configurare SQuirreL sulla workstation per la connessione a un cluster HBase in HDInsight.
 services: hdinsight
 documentationcenter: 
@@ -12,23 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 02/09/2017
 ms.author: jgao
+ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: 58212ae80ef2b930661e739aeb4779c6f9bd1bec
-ms.openlocfilehash: c1faf24f1f11eba9bfa3042f5d1cd279363e4eca
+ms.sourcegitcommit: cd7e8564d24e45bad291c3632021f96fb1584b6f
+ms.openlocfilehash: 730cf9be80be5c5381148f138c3a437beb95c340
+ms.lasthandoff: 02/09/2017
 
 
 ---
-# <a name="use-apache-phoenix-and-squirrel-with-windows-based-hbase-clusters-in-hdinsight"></a>Usare Apache Phoenix e SQuirreL con i cluster HBase basati su Windows in HDinsight
+# <a name="use-apache-phoenix-and-squirrel-with-windows-based-hbase-clusters-in-hdinsight"></a>Usare Apache Phoenix e SQuirreL con i cluster HBase basati su Windows in HDInsight
 Informazioni su come usare [Apache Phoenix](http://phoenix.apache.org/) in HDInsight e su come installare e configurare SQuirrel sulla workstation per la connessione a un cluster HBase in HDInsight. Per altre informazioni su Phoenix, vedere la [breve panoramica su Phoenix](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Per la grammatica Phoenix, vedere [Grammatica Phoenix](http://phoenix.apache.org/language/index.html).
 
 > [!NOTE]
 > Per informazioni sulla versione di Phoenix in HDInsight, vedere l'articolo relativo alle [novità delle versioni cluster di Hadoop incluse in HDInsight](hdinsight-component-versioning.md).
 >
-> Le informazioni contenute in questo documento sono specifiche per i cluster HDInsight basati su Windows. Per informazioni sull'uso di Phoenix su HDInsight basato su Linux, vedere [Usare Apache Phoenix con cluster HBase basati su Linux in HDinsight](hdinsight-hbase-phoenix-squirrel-linux.md).
+
+> [!IMPORTANT]
+> I passaggi descritti in questo documento funzionano solo con i cluster HDInsight basati su Windows. HDInsight è disponibile in Windows solo per le versioni precedenti a HDInsight 3.4. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Per informazioni sull'uso di Phoenix su HDInsight basato su Linux, vedere [Usare Apache Phoenix con cluster HBase basati su Linux in HDInsight](hdinsight-hbase-phoenix-squirrel-linux.md).
 >
->
+
+
 
 ## <a name="use-sqlline"></a>Usare SQLLine
 [SQLLine](http://sqlline.sourceforge.net/) è un'utilità della riga di comando per eseguire SQL.
@@ -56,7 +61,7 @@ Per usare SQLLine sono necessari:
         cd %phoenix_home%\bin
         sqlline.py [The FQDN of one of the Zookeepers]
 
-    ![hdinsight hbase phoenix sqlline][hdinsight-hbase-phoenix-sqlline]
+    ![HDInsight HBase phoenix sqlline][hdinsight-hbase-phoenix-sqlline]
 
     I comandi usati nell'esempio:
 
@@ -80,10 +85,6 @@ Prima di iniziare le procedure sono necessari:
 
 * Un cluster HBase distribuito in una rete virtuale di Azure con una macchina virtuale DNS.  Per istruzioni, vedere [Creare cluster HBase nella rete virtuale di Azure][hdinsight-hbase-provision-vnet].
 
-  > [!IMPORTANT]
-  > È necessario installare un server DNS nella rete virtuale. Per istruzioni, vedere [Configurare DNS tra due reti virtuali di Azure](hdinsight-hbase-geo-replication-configure-dns.md)
-  >
-  >
 * Ottenere il suffisso DNS specifico della connessione per il cluster HBase. Per ottenerlo, effettuare una connessione RDP al cluster e quindi eseguire IPConfig.  Il suffisso DNS è simile a:
 
         myhbase.b7.internal.cloudapp.net
@@ -155,7 +156,7 @@ Un modo per creare un certificato X.509 consiste nell'usare lo strumento di crea
 
     Il certificato radice e il certificato client vengono archiviati nell'archivio certificati personali del computer. Usare certmgr.msc per verificare.
 
-    ![Certificato vpn Point-to-Site della rete virtuale di Azure][img-certificate]
+    ![Certificato VPN Point-to-Site della rete virtuale di Azure][img-certificate]
 
     Un certificato client deve essere installato in ogni computer che si connette alla rete virtuale. Si consiglia di creare client univoci certificati per ogni computer che si desidera connettersi alla rete virtuale. Per esportare i certificati client, usare certmgr.msc.
 
@@ -203,7 +204,7 @@ Un modo per creare un certificato X.509 consiste nell'usare lo strumento di crea
   > [!NOTE]
   > La cartella di installazione predefinita è nella cartella c:\Programmi\Microsoft Files\squirrel-sql-3.6.  Per scrivere in questo percorso, al programma di installazione devono essere concessi i privilegi di amministratore. È possibile aprire un prompt dei comandi come amministratore, passare alla cartella bin di Java e quindi eseguire:
   >
-  >     java.exe -jar [the path of the SQuirreL jar file]
+  >     java.exe -jar [percorso del file JAR SQuirreL]
 5. Fare clic su **OK** per confermare la creazione della directory di destinazione.
 6. L'impostazione predefinita consiste nell'installare i pacchetti Base e Standard.  Fare clic su **Next**.
 7. Fare clic su **Next** (Avanti) due volte e quindi su **Done** (Fine).
@@ -289,9 +290,4 @@ In questo articolo si è appreso come usare Apache Phoenix in HDInsight.  Per al
 [img-squirrel-alias]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel-alias.png
 [img-squirrel]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel.png
 [img-squirrel-sql]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel-sql.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

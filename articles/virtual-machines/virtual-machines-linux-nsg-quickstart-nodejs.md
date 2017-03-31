@@ -1,5 +1,5 @@
 ---
-title: Aprire porte o endpoint per una VM Linux in Azure | Documentazione Microsoft
+title: Aprire le porte per una VM Linux con l&quot;interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
 description: Informazioni su come aprire una porta o creare un endpoint per la VM Linux tramite il modello di distribuzione Azure Resource Manager e l&quot;interfaccia della riga di comando di Azure versione 1.0
 services: virtual-machines-linux
 documentationcenter: 
@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2ca514ec1bbfb5404070de904effd1522fcac892
-ms.openlocfilehash: fd43b3a16607ccd383fbf185176d94af5aa97d89
-
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 96d34c176e028b89617c1f09d7baba7b31eb1601
+ms.lasthandoff: 03/21/2017
 
 ---
-# <a name="opening-ports-and-endpoints-to-a-linux-vm-in-azure"></a>Apertura di porte ed endpoint per una VM Linux in Azure
+
+# <a name="opening-ports-and-endpoints-to-a-linux-vm-in-azure-using-the-azure-cli-10"></a>Apertura di porte ed endpoint per una VM Linux in Azure con l'interfaccia della riga di comando di Azure 1.0
 Aprire una porta o creare un endpoint in una macchina virtuale (VM) di Azure tramite la creazione di un filtro di rete su una subnet o un'interfaccia di rete di VM. Questi filtri, che consentono di controllare il traffico in ingresso e in uscita, vengono inseriti in un gruppo di sicurezza di rete e collegati alla risorsa che riceve il traffico. Si userà un esempio comune di traffico Web sulla porta 80. Questo articolo illustra come aprire una porta in una VM usando l'interfaccia della riga di comando di Azure versione 1.0.
 
 
@@ -27,11 +28,11 @@ Aprire una porta o creare un endpoint in una macchina virtuale (VM) di Azure tra
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - [Interfaccia della riga di comando di Azure 1.0](#quick-commands): l'interfaccia della riga di comando per i modelli di distribuzione classica e di gestione delle risorse (questo articolo)
-- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse
+- [Interfaccia della riga di comando di Azure 2.0](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): interfaccia della riga di comando di prossima generazione per il modello di distribuzione di Gestione risorsa
 
 
 ## <a name="quick-commands"></a>Comandi rapidi
-Per creare un gruppo di sicurezza di rete e le regole, è necessario che sia installata e usata l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) versione 1.0 in modalità Resource Manager:
+Per creare un gruppo di sicurezza di rete e le regole, è necessario che sia installata e usata l'[interfaccia della riga di comando di Azure](../cli-install-nodejs.md) versione 1.0 in modalità Resource Manager:
 
 ```azurecli
 azure config mode arm
@@ -83,10 +84,5 @@ In questo esempio viene creata una regola semplice per consentire il traffico HT
 * [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 * [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md)
 * [Panoramica di Azure Resource Manager per i servizi di bilanciamento del carico](../load-balancer/load-balancer-arm.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

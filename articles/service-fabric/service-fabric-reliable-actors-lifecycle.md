@@ -1,5 +1,5 @@
 ---
-title: Ciclo di vita di Reliable Actors | Documentazione Microsoft
+title: Panoramica del ciclo di vita dei microservizi Azure basati su attori | Documentazione Microsoft
 description: Descrive il ciclo di vita di Service Fabric Reliable Actors, la Garbage Collection e l&quot;eliminazione manuale di attori e del relativo stato
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2016
+ms.date: 03/02/2017
 ms.author: amanbha
 translationtype: Human Translation
-ms.sourcegitcommit: e39c130b1abb0b2c31511abdd51f02446d3898f6
-ms.openlocfilehash: 681c9aa628ea9364f73e6a41f0f71139d3b983d7
+ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
+ms.openlocfilehash: 22f906de37ad7ae2a48acf26be26f2af1e3bde7a
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -134,9 +135,4 @@ Si noti che un attore non può chiamare un'operazione di eliminazione su se stes
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

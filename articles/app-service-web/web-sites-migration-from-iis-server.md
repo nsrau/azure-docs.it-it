@@ -5,7 +5,7 @@ services: app-service
 documentationcenter: 
 author: cephalin
 writer: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 2e846fc0-37cc-42e6-ac57-ff442ef16e85
 ms.service: app-service
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7f3cb7823eb7969faf76ca196a2ae95b214723f2
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 52e4ba9f1f623312780a9072719866932b1af502
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -131,16 +132,11 @@ Questa sezione prende in esame un esempio di migrazione di alcuni siti Web che u
     ![](./media/web-sites-migration-from-iis-server/TimeTrackerMigrated.png)
 
 > [!NOTE]
-> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 
 ## <a name="whats-changed"></a>Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

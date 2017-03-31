@@ -15,14 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2016
 ms.author: nitinme
+ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
-ms.openlocfilehash: c0fcfc1087e8635f6ec2a0cdc246f1155c90ea53
+ms.sourcegitcommit: c9e3c1d2a1f5b83c59fa2a22f3cb4d89df203384
+ms.openlocfilehash: 010a8a377150292fcb533a1af99adcc7c782bceb
+ms.lasthandoff: 01/19/2017
 
 
 ---
-# <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Installare e usare Solr nei cluster Hadoop di HDInsight
-Informazioni su come personalizzare i cluster HDInsight basati su Windows con Solr usando Script azione e su come utilizzare Solr per cercare i dati. Per informazioni sull'uso di Solr con un cluster basato su Linux, vedere [Installare e usare Solr nei cluster Hadoop HDInsight (Linux)](hdinsight-hadoop-solr-install-linux.md).
+# <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>Installare e usare Solr nei cluster HDInsight basati su Windows
+
+Informazioni su come personalizzare i cluster HDInsight basati su Windows con Solr usando Azioni script e usare Solr per cercare i dati. 
+
+> [!IMPORTANT]
+> I passaggi descritti in questo documento funzionano solo con i cluster HDInsight basati su Windows. HDInsight è disponibile in Windows solo per le versioni precedenti a HDInsight 3.4. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Per informazioni sull'uso di Solr con un cluster basato su Linux, vedere [Installare e usare Solr nei cluster Hadoop HDInsight (Linux)](hdinsight-hadoop-solr-install-linux.md).
+
 
 È possibile installare Solr in qualsiasi tipo di cluster (Hadoop, Storm, HBase, Spark) su Azure HDInsight usando *Script azione*. Uno script di esempio per l'installazione di Solr in un cluster HDInsight è disponibile in un BLOB di archiviazione di Azure di sola lettura all'indirizzo [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
@@ -180,9 +187,4 @@ Vedere [Personalizzare cluster HDInsight usando l'azione script](hdinsight-hadoo
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

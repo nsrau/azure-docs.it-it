@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 11/29/2016
 ms.author: bryanla;mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: 6d2b0d0c28963693f8fa5607200e73572ea748a0
+ms.sourcegitcommit: 8f70d9aeb0a407cdb76a5ce25eb620be58bb2659
+ms.openlocfilehash: f453dcafe629c871dc29742208e4864454f4c57e
 
 
 ---
@@ -27,7 +27,7 @@ In alcuni casi il significato del termine "applicazione"in Azure Active Director
 Un'applicazione di Azure AD non è semplicemente un componente software. È un termine concettuale che fa riferimento non solo al software dell'applicazione ma anche alla relativa registrazione (detta anche configurazione di identità) in Azure AD, che ne consente la partecipazione a "conversazioni" di autenticazione e autorizzazione in fase di esecuzione. Per definizione, un'applicazione può funzionare in un ruolo [client](active-directory-dev-glossary.md#client-application) (che utilizza una risorsa), in un ruolo [server di risorse](active-directory-dev-glossary.md#resource-server) (che espone le API ai client) o in entrambi i ruoli. Il protocollo di conversazione è definito da un [flusso di concessione di autorizzazione OAuth 2.0](active-directory-dev-glossary.md#authorization-grant), con l'obiettivo di consentire al client e alla risorsa di accedere e proteggere, rispettivamente, i dati di una risorsa. Verrà ora approfondito come il modello applicativo di Azure AD rappresenta internamente un'applicazione. 
 
 ## <a name="application-registration"></a>Registrazione dell'applicazione
-Quando si registra un'applicazione nel [Portale di Azure classico][AZURE-Classic-Portal], nel tenant di Azure AD vengono creati due oggetti: un oggetto applicazione e un oggetto entità servizio.
+Quando si registra un'applicazione nel [portale di Azure][AZURE-Portal], nel tenant di Azure AD vengono creati due oggetti: un oggetto applicazione e un oggetto entità servizio.
 
 #### <a name="application-object"></a>Oggetto applicazione
 Un'applicazione di Azure AD è *definita* da un solo oggetto applicazione che risiede nel tenant di Azure AD in cui l'applicazione è stata registrata, noto come tenant "home" dell'applicazione. L'oggetto applicazione fornisce le informazioni relative all'identità dell'applicazione ed è il modello da cui *derivano* gli oggetti entità servizio corrispondenti usati in fase di esecuzione. 
@@ -69,10 +69,10 @@ L'oggetto entità servizio di un'applicazione è accessibile tramite l'API Graph
 <!--Reference style links -->
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
-[AZURE-Classic-Portal]: https://manage.windowsazure.com
+[AZURE-Portal]: https://portal.azure.com
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

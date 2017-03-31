@@ -4,7 +4,7 @@ description: Esercitazione che descrive come distribuire nel servizio app di Azu
 services: app-service\web,cdn
 documentationcenter: .net
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: b81ee930-dd6d-4b65-971f-c4cb7902168c
 ms.service: app-service
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: e564a1a277e559c10b13932ed7e017a28780c334
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 0b1f13f816c7836557cd6f646f2d9b38f7bc5b14
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -47,7 +48,7 @@ Per completare questa esercitazione, è necessario disporre dei prerequisiti seg
 > * È possibile [creare un account Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/): si riceveranno crediti da usare per provare i servizi di Azure a pagamento e, anche dopo avere esaurito i crediti, è possibile mantenere l'account per usare i servizi di Azure gratuiti, ad esempio App Web.
 > * È possibile [attivare i benefici della sottoscrizione Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): con la sottoscrizione Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 > 
-> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 
@@ -544,10 +545,5 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 * [Uso della rete CDN di Azure](../cdn/cdn-create-new-endpoint.md)
 * [Integrare un servizio cloud con la rete CDN di Azure](../cdn/cdn-cloud-service-with-cdn.md)
 * [Creazione di aggregazioni e minimizzazione ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

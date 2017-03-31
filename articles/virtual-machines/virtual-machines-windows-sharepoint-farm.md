@@ -1,6 +1,6 @@
 ---
-title: Creare farm di SharePoint Server | Documentazione Microsoft
-description: Creare rapidamente una nuova farm di SharePoint 2013 o SharePoint 2016 in Azure.
+title: Creare farm di SharePoint Server in Azure | Documentazione Microsoft
+description: Creare rapidamente una nuova farm di SharePoint 2013 o SharePoint 2016 in Azure tramite il marketplace del portale di Azure.
 services: virtual-machines-windows
 documentationcenter: 
 author: JoeDavies-MSFT
@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2016
 ms.author: josephd
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0f8bc125855bc5a5b67fde5b0b742c73b5da7610
-ms.openlocfilehash: 7c0746840dd45229dac491b03925349e6d9a44de
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 9e8eb54913b1e7e3f40ac2c9b80b0818eee3a35f
+ms.lasthandoff: 03/18/2017
 
 
 ---
-# <a name="create-sharepoint-server-farms"></a>Creare farm di SharePoint Server
+# <a name="create-sharepoint-server-farms-using-the-azure-portal-marketplace"></a>Creare farm di SharePoint Server usando il marketplace del portale di Azure
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -77,15 +79,10 @@ Vedere [questo articolo](https://technet.microsoft.com/library/mt723354.aspx) pe
 ![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/SP2016Farm.png)
 
 ## <a name="managing-the-sharepoint-farms"></a>Gestire le farm di SharePoint
-È possibile amministrare i server di queste farm tramite connessioni Desktop Remoto. Per altre informazioni, vedere [Accedere alla macchina virtuale](virtual-machines-windows-hero-tutorial.md#connect-to-the-virtual-machine-and-sign-on).
+È possibile amministrare i server di queste farm tramite connessioni Desktop Remoto. Per altre informazioni, vedere [Accedere alla macchina virtuale](virtual-machines-windows-quick-create-portal.md#connect-to-virtual-machine).
 
 Dal sito Amministrazione centrale di SharePoint è possibile configurare i siti personali, le applicazioni di SharePoint e altre funzionalità. Per altre informazioni, vedere [Configurare SharePoint](http://technet.microsoft.com/library/ee836142.aspx).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre [configurazioni di SharePoint](https://technet.microsoft.com/library/dn635309.aspx) nei servizi dell'infrastruttura di Azure.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

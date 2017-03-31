@@ -62,7 +62,7 @@ Se non è possibile accedere all'applicazione, verificare le seguenti impostazio
 
 Nelle macchine virtuali basate su Windows o Linux, utilizzare il comando **netstat - a** per visualizzare le porte di ascolto attive. Esaminare l'output per le porte previste sulle quali l’applicazione dovrebbe essere in ascolto. Riavviare l'applicazione oppure configurarla per usare le porte previste in base alle esigenze e provare di nuovo ad accedere all'applicazione in locale.
 
-## <a name="a-idstep2astep-2-access-application-from-another-vm-in-the-same-virtual-network"></a><a id="step2"></a>Passaggio 2: accedere all'applicazione da un'altra VM della stessa rete virtuale
+## <a id="step2"></a>Passaggio 2: accedere all'applicazione da un'altra VM della stessa rete virtuale
 Provare ad accedere all'applicazione da una macchina virtuale diversa, ma nella stessa rete virtuale, usando il nome host della macchina virtuale o l'indirizzo IP pubblico, privato o del provider assegnato da Azure. Per le macchine virtuali create con il modello di distribuzione classica, non usare l'indirizzo IP pubblico del servizio cloud.
 
 ![applicazione avviata da una macchina virtuale diversa](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
@@ -82,7 +82,7 @@ Se non è possibile accedere all'applicazione, verificare le seguenti impostazio
 
 In una macchina virtuale basata su Windows, utilizzare Windows Firewall con sicurezza avanzata per determinare se le regole del firewall escludono il traffico in entrata e in uscita dell'applicazione.
 
-## <a name="a-idstep3astep-3-access-application-from-outside-the-virtual-network"></a><a id="step3"></a>Passaggio 3: accedere all'applicazione dall'esterno della rete virtuale
+## <a id="step3"></a>Passaggio 3: accedere all'applicazione dall'esterno della rete virtuale
 Provare ad accedere all'applicazione da un computer all'esterno della rete virtuale come VM in cui è in esecuzione l'applicazione. Usare una rete diversa come computer client originale.
 
 ![avviare l'applicazione da un computer all'esterno della rete virtuale](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
@@ -95,7 +95,7 @@ Se non è possibile accedere all'applicazione, verificare le seguenti impostazio
   
   * Verificare che la configurazione dell'endpoint per la VM consenta il traffico in ingresso, in particolare il protocollo (TCP o UDP) e i numeri di porta pubblica e privata.
   * Verificare che gli elenchi di controllo di accesso (ACL) nell'endpoint non impediscano il traffico in ingresso da Internet.
-  * Per altre informazioni, vedere [Come configurare gli endpoint in una macchina virtuale](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+  * Per altre informazioni, vedere [Come configurare gli endpoint in una macchina virtuale](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Per le VM create con il modello di distribuzione di Resource Manager:
   
   * Verificare che la configurazione della regola NAT in ingresso consenta il traffico in ingresso, in particolare il protocollo (TCP o UDP) e i numeri di porta pubblica e privata.
@@ -118,9 +118,4 @@ Se è possibile accedere all'applicazione, verificare che il dispositivo perifer
 [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure che esegue Windows](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

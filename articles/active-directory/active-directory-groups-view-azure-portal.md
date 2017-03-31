@@ -1,6 +1,6 @@
 ---
 title: Visualizzare tutti i gruppi esistenti in anteprima di Azure Active Directory | Documentazione Microsoft
-description: "Come visualizzare i gruppi già creati in anteprima di Azure Active Directory."
+description: 'Procedura: Visualizzare o cercare i gruppi in anteprima di Azure Active Directory'
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,28 +12,30 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8e1a35dfa6a571332c50e22f35ddcb2d6074ed6
+ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
+ms.openlocfilehash: 3546ae6951a514108e62f8840a601930aa1ac4c2
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="view-all-existing-groups-in-azure-active-directory-preview"></a>Visualizzare tutti i gruppi esistenti in anteprima di Azure Active Directory
-Questo articolo illustra come visualizzare tutti i gruppi in anteprima di Azure Active Directory (Azure AD). [Funzionalità disponibili nell'anteprima](active-directory-preview-explainer.md)  Una delle funzionalità di Gestione utenti di Azure Active Directory (Azure AD) è la possibilità di creare gruppi di utenti popolabili con gli utenti. I gruppi vengono usati per eseguire attività di gestione come l'assegnazione di licenze o autorizzazioni per diversi utenti contemporaneamente.
+# <a name="view-or-search-for-your-user-groups-in-azure-active-directory"></a>Visualizzare o cercare i gruppi di utenti in Azure Active Directory
+Questo articolo illustra come visualizzare tutti i gruppi in anteprima di Azure Active Directory (Azure AD). [Funzionalità disponibili nell'anteprima](active-directory-preview-explainer.md) Una delle funzionalità di Gestione utenti di Azure Active Directory (Azure AD) è la possibilità di creare gruppi di utenti popolabili con gli utenti. I gruppi vengono usati per eseguire attività di gestione come l'assegnazione di licenze o autorizzazioni per diversi utenti contemporaneamente.
 
 ## <a name="how-do-i-see-all-the-groups"></a>Come è possibile visualizzare tutti i gruppi?
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
 2. Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi premere **INVIO**.
-   
-   ![Apertura di Gestione utenti](./media/active-directory-groups-view-azure-portal/search-user-management.png)
+
+   ![Apertura del pannello Utenti e gruppi](./media/active-directory-groups-view-azure-portal/search-user-management.png)
 3. Nel pannello **Utenti e gruppi** selezionare **Tutti i gruppi**.
-   
+
    ![Apertura del pannello Gruppi](./media/active-directory-groups-view-azure-portal/view-groups-blade.png)
 4. Nel pannello **Utenti e gruppi - Tutti i gruppi** è possibile aggiungere o rimuovere colonne visualizzate, filtrare l'elenco per cercare un gruppo o apportare modifiche ai gruppi per cui si dispone di autorizzazioni sufficienti per la modifica.
 
-## <a name="additional-information"></a>Informazioni aggiuntive
+## <a name="next-steps"></a>Passaggi successivi
 Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 * [Vedere i gruppi esistenti](active-directory-groups-view-azure-portal.md)
@@ -42,10 +44,4 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 * [Gestire i membri di un gruppo](active-directory-groups-members-azure-portal.md)
 * [Gestire le appartenenze di un gruppo](active-directory-groups-membership-azure-portal.md)
 * [Gestire le regole dinamiche per gli utenti in un gruppo](active-directory-groups-dynamic-membership-azure-portal.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

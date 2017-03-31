@@ -1,5 +1,5 @@
 ---
-title: "Monitoraggio dell&quot;integrità della sicurezza nel Centro sicurezza di Azure | Documentazione di Microsoft"
+title: Monitoraggio della sicurezza nel Centro sicurezza di Azure | Documentazione di Microsoft
 description: "Questo articolo illustra come iniziare a usare le funzionalità di monitoraggio nel Centro sicurezza di Azure."
 services: security-center
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 01/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: b0694222548e39718f6626c1b1666584445f8398
-ms.openlocfilehash: 246b322378d581f6f263fd0adb96ef32f6962906
+ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
+ms.openlocfilehash: ae263615d5fa262eb8a8ed2e5461d92bec503f1d
 
 
 ---
@@ -60,8 +60,8 @@ Questa sezione include una serie di [raccomandazioni per ogni macchina virtuale]
 
 > [!NOTE]
 > Nell'elenco **Network topology** (Topologia di rete) del pannello **Networking Health** (Integrità rete) vengono visualizzate soltanto le macchine virtuali con almeno un endpoint pubblico.
-> 
-> 
+>
+>
 
 Ogni raccomandazione è inoltre associata a una serie di azioni che è possibile eseguire dopo aver fatto clic su di essa. Ad esempio, se si fa clic su **Aggiornamenti di sistema mancanti**, viene aperto il pannello **Aggiornamenti di sistema mancanti**. Elenca le macchine virtuali senza patch e il livello di gravità per l'aggiornamento mancante, come illustrato nello screenshot seguente.
 
@@ -87,8 +87,8 @@ Per visualizzare i dettagli delle raccomandazioni, fare clic sul nome della macc
 
 > [!NOTE]
 > Le raccomandazioni sulla sicurezza contenute qui sono identiche a quelle nel pannello **Raccomandazioni**. Per altre informazioni su come gestire correttamente le raccomandazioni, leggere l'articolo sull'[implementazione delle raccomandazioni sulla sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md). Questo vale non solo per le macchine virtuali, ma anche per tutte le risorse disponibili nel riquadro **Integrità delle risorse**.
-> 
-> 
+>
+>
 
 #### <a name="virtual-machines-section"></a>Sezione Macchine virtuali
 La sezione relativa alle macchine virtuali offre una panoramica di tutte le macchine virtuali con le relative raccomandazioni. Ogni colonna rappresenta un set di raccomandazioni, come illustrato nello screenshot seguente:
@@ -217,7 +217,6 @@ Questo articolo descrive come usare le funzionalità di monitoraggio nel Centro 
 
 
 
-
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

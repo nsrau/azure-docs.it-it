@@ -15,8 +15,9 @@ ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: c327fc0f8175f3fe62f9a0975b7fbad1437bbbe0
-ms.openlocfilehash: 4309d2dffacb9baf2563c8a4fcd1984beabdeef0
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a5b845a93f318b991e14705f0fadea3acd802ced
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -32,7 +33,7 @@ Questo argomento descrive come usare il comando [docker-machine](https://docs.do
 ## <a name="create-vms-with-docker-machine"></a>Creare VM con Docker Machine
 Creare macchine virtuali host di Docker in Azure con il comando `docker-machine create` usando il driver `azure`. 
 
-Il driver Azure necessita dell'ID sottoscrizione. È possibile usare l'[interfaccia della riga di comando di Azure](xplat-cli-install.md) o il [Portale di Azure](https://portal.azure.com) per recuperare la sottoscrizione di Azure. 
+Il driver Azure necessita dell'ID sottoscrizione. È possibile usare l'[interfaccia della riga di comando di Azure](cli-install-nodejs.md) o il [Portale di Azure](https://portal.azure.com) per recuperare la sottoscrizione di Azure. 
 
 **Uso del portale di Azure**
 
@@ -120,10 +121,5 @@ Docker Machine consente di eseguire facilmente il provisioning di host Docker in
 Per l'hosting di produzione di contenitori, vedere l'articolo sul [servizio contenitore di Azure](http://aka.ms/AzureContainerService)
 
 Per sviluppare applicazioni .NET Core con Visual Studio, vedere gli [Strumenti Docker per Visual Studio](http://aka.ms/DockerToolsForVS)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

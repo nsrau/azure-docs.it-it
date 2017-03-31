@@ -1,5 +1,5 @@
 ---
-title: Importare i dati in Analytics in Azure Application Insights | Documentazione Microsoft
+title: Importare i dati in Analytics in Azure Application Insights | Microsoft Docs
 description: Importare i dati statici per creare un join con la telemetria dell&quot;app o importare un flusso di dati separato per eseguire query con Analytics.
 services: application-insights
 documentationcenter: 
@@ -10,11 +10,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/20/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 47c3491b067d5e112db589672b68e7cfc7cbe921
-ms.openlocfilehash: eb89c6f485f2321f729dcfe650af4355de84a9ac
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4f10e5a8200af870e0adb8977b9c68b9998a6de7
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -24,7 +25,7 @@ Importare i dati tabulari in [Analytics](app-insights-analytics.md), ad esempio 
 
 È possibile importare dati in Analytics usando uno schema personalizzato. Non è necessario usare gli schemi di Application Insights standard, come la richiesta o la traccia.
 
-Attualmente, è possibile importare file CSV (valori separati da virgola) o formati simili con valori delimitati da tabulazione o punto e virgola.
+È possibile importare i file JSON o DSV (Delimiter-Separated Values: virgola, punto e virgola o tabulazione).
 
 L'importazione in Analytics è utile in tre situazioni:
 
@@ -67,24 +68,68 @@ Sono necessari:
 ## <a name="define-your-schema"></a>Definire lo schema
 
 Prima di poter importare dati, è necessario definire un'*origine dati* che specifica lo schema dei dati.
+È possibile avere fino a 50 origini dati in una singola risorsa di Application Insights
 
-1. Avviare la Creazione guidata origine dati
+1. Avviare la Creazione guidata origine dati.
 
     ![Aggiungere la nuova origine dati](./media/app-insights-analytics-import/add-new-data-source.png)
 
-2. Seguire le istruzioni per caricare un file di dati di esempio.
+    Immettere un nome per la nuova origine dati.
 
- * La prima riga dell'esempio può essere rappresentata dalle intestazioni di colonna. È possibile modificare i nomi dei campi nel passaggio successivo.
- * L'esempio deve includere almeno 10 righe di dati.
+2. Definire il formato dei file da caricare.
 
-3. Esaminare lo schema che la procedura guidata ha dedotto dall'esempio. È possibile modificare i tipi derivati delle colonne, se necessario.
+    È possibile definire il formato manualmente o caricare un file di esempio.
 
-4. Selezionare un timestamp. Tutti i dati in Analytics devono avere un campo di timestamp. Il tipo deve essere `datetime`, ma non deve essere denominato "timestamp". Se i dati includono una colonna contenente una data e ora in formato ISO, scegliere questa opzione come colonna di timestamp. In caso contrario, scegliere "as data arrived" e il processo di importazione aggiungerà un campo di timestamp.
+    Se i dati sono in formato CSV, la prima riga dell'esempio può essere costituita da intestazioni di colonna. Nel passaggio successivo è possibile modificare i nomi dei campi.
 
-    ![Esaminare le schema](./media/app-insights-analytics-import/data-source-review-schema.png)
+    L'esempio deve includere almeno 10 righe o record di dati.
+
+    I nomi di colonna o di campo devono essere alfanumerici (senza spazi o punteggiatura).
+
+    ![Caricare un file di esempio](./media/app-insights-analytics-import/sample-data-file.png)
+
+
+3. Esaminare lo schema della procedura guidata. Se i tipi sono stati dedotti da un campione, è possibile che si debbano modificare i tipi dedotti delle colonne.
+
+    ![Esaminare lo schema dedotto](./media/app-insights-analytics-import/data-source-review-schema.png)
+
+ * Facoltativo. Caricare una definizione dello schema. Vedere il formato riportato di seguito.
+
+ * Selezionare un timestamp. Tutti i dati in Analytics devono avere un campo di timestamp. Il tipo deve essere `datetime`, ma non deve essere denominato "timestamp". Se i dati includono una colonna contenente una data e ora in formato ISO, scegliere questa opzione come colonna di timestamp. In caso contrario, scegliere "as data arrived" e il processo di importazione aggiungerà un campo di timestamp.
 
 5. Creare l'origine dati.
 
+### <a name="schema-definition-file-format"></a>Formato del file di definizione dello schema
+
+Invece di modificare lo schema nell'interfaccia utente, è possibile caricare la definizione dello schema da un file. Il formato della definizione dello schema è il seguente: 
+
+Formato delimitato 
+```
+[ 
+    {"location": "0", "name": "RequestName", "type": "string"}, 
+    {"location": "1", "name": "timestamp", "type": "datetime"}, 
+    {"location": "2", "name": "IPAddress", "type": "string"} 
+] 
+```
+
+Formato JSON 
+```
+[ 
+    {"location": "$.name", "name": "name", "type": "string"}, 
+    {"location": "$.alias", "name": "alias", "type": "string"}, 
+    {"location": "$.room", "name": "room", "type": "long"} 
+]
+```
+ 
+Ogni colonna viene identificata da posizione, nome e tipo. 
+
+* Location: per un formato file delimitato, indica la posizione del valore di cui è stato eseguito il mapping. Per il formato JSON, è il jpath della chiave di cui è stato eseguito il mapping.
+* Name: nome visualizzato della colonna.
+* Type: tipo di dati della colonna.
+ 
+Se sono stati usati dati di esempio e se il formato file è delimitato, la definizione dello schema deve eseguire il mapping di tutte le colonne e aggiungere nuove colonne alla fine. 
+
+JSON consente il mapping parziale dei dati, pertanto la definizione dello schema del formato JSON non deve necessariamente eseguire il mapping di ogni chiave individuata nei dati di esempio. Può inoltre eseguire il mapping di colonne non appartenenti ai dati di esempio. 
 
 ## <a name="import-data"></a>Importa dati
 
@@ -98,6 +143,9 @@ Per importare i dati, caricarli in Archiviazione di Azure, creare una chiave di 
 
  * I BLOB possono essere di qualsiasi dimensione, fino a 1 GB non compressi. I BLOB di centinaia di MB sono ideali dal punto di vista delle prestazioni.
  * È possibile comprimerli con Gzip per migliorare i tempi di caricamento e la latenza per i dati che devono essere disponibili per la query. Usare l'estensione del nome file `.gz`.
+ * È consigliabile usare un account di archiviazione separato per questo scopo, per evitare che le chiamate da altri servizi riducano le prestazioni.
+ * Quando si inviano dati a frequenza elevata, a intervalli di pochi secondi, è consigliabile usare più account di archiviazione per non incidere sulle prestazioni.
+
  
 2. [Creare una chiave di firma di accesso condiviso per il BLOB](../storage/storage-dotnet-shared-access-signature-part-2.md). La chiave deve avere un periodo di scadenza di un giorno e fornire l'accesso in lettura.
 3. Eseguire una chiamata REST per notificare ad Application Insights che i dati sono in attesa.
@@ -146,6 +194,7 @@ I dati sono disponibili in Analytics dopo alcuni minuti.
  * Il nome dell'origine dati non è corretto.
 
 Informazioni più dettagliate sono disponibili nel messaggio di errore della risposta.
+
 
 ## <a name="sample-code"></a>Codice di esempio
 
@@ -271,7 +320,6 @@ namespace IngestionClient
             requestStream.Write(notificationBytes, 0, notificationBytes.Length); 
             requestStream.Close(); 
 
-            HttpWebResponse response; 
             try 
             { 
                 using (var response = (HttpWebResponse)await request.GetResponseAsync())
@@ -331,9 +379,4 @@ Usare questo codice per ogni BLOB.
 
 * [Presentazione del linguaggio di query di Analytics](app-insights-analytics-tour.md)
 * [Usare *Logstash* per inviare i dati ad Application Insights](https://github.com/Microsoft/logstash-output-application-insights)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

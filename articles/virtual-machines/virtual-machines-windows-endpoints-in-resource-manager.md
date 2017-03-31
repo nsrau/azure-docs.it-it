@@ -1,6 +1,6 @@
 ---
-title: Endpoint classici in Resource Manager | Microsoft Docs
-description: Informazioni sul modo in cui gli endpoint del modello di distribuzione classica vengono ora implementati in Azure Resource Manager usando i gruppi di sicurezza di rete e le regole dell&quot;elenco di controllo di accesso
+title: Informazioni sugli endpoint per macchine virtuali Windows in Azure | Documentazione Microsoft
+description: Informazioni sul modo in cui gli endpoint del modello di distribuzione classica vengono ora implementati in Azure Resource Manager usando i gruppi di sicurezza di rete e le regole dell&quot;elenco di controllo di accesso.
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 1b6342ef22a00a4d760d8b13d1a2945ab3754463
+ms.sourcegitcommit: ccdfd0c64b5a784664edaef9c19e272c8e8323e6
+ms.openlocfilehash: 21df6d8ff572295e27c9aaed83c3af189c700aee
+ms.lasthandoff: 02/10/2017
 
 
 ---
-# <a name="classic-endpoints-in-resource-manager"></a>Endpoint classici in Azure Resource Manager
+# <a name="classic-endpoints-for-windows-vms-with-azure-resource-manager"></a>Endpoint del modello di distribuzione classica per macchine virtuali Windows con Azure Resource Manager
 [!INCLUDE [virtual-machines-common-endpoints-in-resource-manager](../../includes/virtual-machines-common-endpoints-in-resource-manager.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -31,10 +32,5 @@ Per informazioni dettagliate sulle tecnologie illustrate qui, oltre a guide intr
 * [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)  
 * [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md)  
 * [Panoramica di Azure Resource Manager per i servizi di bilanciamento del carico](../load-balancer/load-balancer-arm.md) 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

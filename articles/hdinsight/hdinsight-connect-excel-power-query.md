@@ -9,15 +9,17 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 01ad2f90-7520-44d9-8c16-4d936faaff9b
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bf45651360a9fe9b5023d46000aadc054ce0ef37
+ms.sourcegitcommit: 6407c371bc51461a05429fabaf38d3f9bc80d32c
+ms.openlocfilehash: 26383db7a3fe6736fb739121dd545518784c098a
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -80,9 +82,4 @@ In questo articolo è stato illustrato come usare Power Query per recuperare dat
 [image-hdi-powerquery-imported-table]: ./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.ImportedTable.PNG
 
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

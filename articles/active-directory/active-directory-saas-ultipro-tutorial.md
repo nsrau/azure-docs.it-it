@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 33f4c13930017bdcbaf899b16d32ba84bdfbf9ee
-ms.openlocfilehash: e531ece88b85b9e91810909f088c1c08fa92415e
+ms.sourcegitcommit: 1b5527090a41c274b590ed9d1ac7b561b6f4ed14
+ms.openlocfilehash: 464ae3be0f937cefc7d1c9f437de21f1fe5a32af
 
 
 ---
@@ -239,6 +239,6 @@ Quando si fa clic sul riquadro UltiPro nel pannello di accesso, si dovrebbe acce
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

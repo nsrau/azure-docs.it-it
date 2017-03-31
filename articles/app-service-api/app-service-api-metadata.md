@@ -3,8 +3,8 @@ title: Metadati delle app per le API del servizio app per l&quot;individuazione 
 description: "Informazioni sulle modalità con cui le app per le API del servizio app di Azure usano i metadati di Swagger per facilitare l&quot;individuazione di API e la generazione di codice."
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
-manager: wpickett
+author: alexkarcher-msft
+manager: erikre
 editor: 
 ms.assetid: c7f8e33a-61cc-486f-89df-4a97dc3c71d4
 ms.service: app-service-api
@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
-ms.author: rachelap
+ms.author: alkarche
 translationtype: Human Translation
-ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
-ms.openlocfilehash: 3b41340f30239dc0102808b5e492ee7300dcd12b
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 92057ef0c40bfc79a66265d2d369d7abf72adc8e
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -34,7 +35,7 @@ Nel [portale di Azure](https://portal.azure.com/) l'URL dell'endpoint può esser
 ![](./media/app-service-api-metadata/apidefblade.png)
 
 ### <a name="azure-resource-manager-property"></a>Proprietà Gestione risorse di Azure
-È anche possibile configurare l'URL di definizione dell'API per un'app per le API usando [Esplora risorse](https://resources.azure.com/) o i [modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) in strumenti da riga di comando come [Azure PowerShell](/powershell/azureps-cmdlets-docs) e l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md). 
+È anche possibile configurare l'URL di definizione dell'API per un'app per le API usando [Esplora risorse](https://resources.azure.com/) o i [modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) in strumenti da riga di comando come [Azure PowerShell](/powershell/azureps-cmdlets-docs) e l'[interfaccia della riga di comando di Azure](../cli-install-nodejs.md). 
 
 In **Esplora risorse** passare a **Sottoscrizioni > {sottoscrizione} > Gruppi di risorse > {gruppo di risorse} > Provider > Microsoft.Web > Siti > {sito} > config > web** per visualizzare la proprietà `apiDefinition`:
 
@@ -56,10 +57,5 @@ Uno dei vantaggi dell'integrazione di Swagger nelle app per le API di Azure è l
 Per un'esercitazione dettagliata sulle procedure di creazione, distribuzione e utilizzo di un'app per le API, vedere [Introduzione alle app per le API nel servizio app di Azure](app-service-api-dotnet-get-started.md).
 
 Se si usa Gestione API di Azure con app per le API, è possibile usare metadati di Swagger per importare l'API in Gestione API. Per altre informazioni, vedere [Come importare la definizione di un'API con le operazioni in Gestione API di Azure](../api-management/api-management-howto-import-api.md). 
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

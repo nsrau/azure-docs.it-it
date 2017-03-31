@@ -1,5 +1,5 @@
 ---
-title: Output JSON per Analisi di flusso | Documentazione Microsoft
+title: Output JSON per Analisi di flusso | Microsoft Docs
 description: "Informazioni su come Analisi di flusso può usare Azure DocumentDB per l&quot;output JSON, consentendo l&quot;esecuzione di query di archiviazione dei dati e a bassa latenza su dati JSON non strutturati."
 keywords: Output JSON
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/24/2017
+ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 20880eccbf28cabfb594bb8129cb0a5a3beeb224
-ms.openlocfilehash: e62e4f6c208f5506108b2ef5f6c1aabe43f086a2
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: ed5589600f536b92312317e97a8fb375869e35ef
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -34,18 +35,15 @@ Di seguito sono descritte alcune delle opzioni per le raccolte di DocumentDB.
 ## <a name="tune-consistency-availability-and-latency"></a>Ottimizzare coerenza, disponibilità e latenza
 In base ai requisiti dell'applicazione, DocumentDB consente di ottimizzare il database e le raccolte e di compensare coerenza, disponibilità e latenza. A seconda dei livelli di coerenza di lettura richiesti dello scenario rispetto alla latenza di lettura e scrittura, è possibile scegliere un livello di coerenza per l'account del database. Per impostazione predefinita, DocumentDB consente anche l'indicizzazione sincrona per ogni operazione CRUD nella raccolta. Si tratta di un'altra opzione utile per controllare le prestazioni di lettura/scrittura di DocumentDB. Per altre informazioni su questo argomento, vedere l'articolo relativo a come [modificare i livelli di coerenza del database e delle query](../documentdb/documentdb-consistency-levels.md) .
 
-## <a name="choose-a-performance-level"></a>Scegliere un livello di prestazioni
-È possibile creare raccolte di DocumentDB a 3 diversi livelli di prestazioni (S1, S2 o S3), che determinano la velocità effettiva disponibile per le operazioni CRUD in una raccolta. Sulle prestazioni influiscono anche i livelli di indicizzazione/coerenza della raccolta. Per informazioni dettagliate su questi livelli di prestazioni, vedere [questo articolo](../documentdb/documentdb-performance-levels.md) .
-
 ## <a name="upserts-from-stream-analytics"></a>Upsert di Analisi di flusso
 L'integrazione di Analisi di flusso con DocumentDB consente di inserire o aggiornare i record nella raccolta di DocumentDB in base a una determinata colonna ID documento. Questa implementazione è detta anche *upsert*.
 
 Analisi di flusso usa un approccio upsert ottimistico in cui gli aggiornamenti vengono eseguiti solo quando l'inserimento non riesce a causa di un conflitto di ID documento. Questo aggiornamento viene eseguito da Analisi di flusso come PATCH, consentendo aggiornamenti parziali al documento, ad esempio l'aggiunta di nuove proprietà o la sostituzione di una proprietà esistente eseguita in modo incrementale. Le modifiche ai valori delle proprietà di matrice nel documento JSON comporta la sovrascrittura dell'intera matrice, ovvero non viene eseguito il merge della matrice.
 
 ## <a name="data-partitioning-in-documentdb"></a>Partizionamento dei dati in DocumentDB
-Le raccolte partizionate di DocumentDB sono ora supportate e si consiglia di usarle per il partizionamento dei dati. 
+Le [raccolte partizionate](../documentdb/documentdb-partition-data.md#single-partition-and-partitioned-collections) di DocumentDB sono l'approccio consigliato per il partizionamento dei dati. 
 
-Per le raccolte DocumentDB singole, l'analisi di flusso consente di partizionare i dati in base ai modelli di query e alle esigenze in termini di prestazioni. Ogni raccolta può contenere fino a 10 GB di dati (massimo) e attualmente non è possibile aumentare una raccolta o eseguirne l'overflow. Per la scalabilità orizzontale, Analisi di flusso consente di scrivere in più raccolte con un determinato prefisso. Vedere i dettagli di utilizzo di seguito. Per partizionare i record di output, Analisi di flusso usa la strategia coerente del [resolver di partizionamento hash](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) basata sulla colonna PartitionKey indicata dall'utente. Il numero di raccolte con il prefisso specificato all'avvio del processo di streaming viene usato come conteggio delle partizioni di output in cui il processo scrive in parallelo (raccolte di DocumentDB = partizioni di output). Per una singola raccolta S3 con indicizzazione differita che esegue solo inserimenti, è prevedibile una velocità effettiva di scrittura di 0,4 MB/s. L'uso di più raccolte può consentire di ottenere una maggiore capacità e una velocità effettiva più elevata.
+Per le raccolte DocumentDB singole, l'analisi di flusso consente di partizionare i dati in base ai modelli di query e alle esigenze in termini di prestazioni. Ogni raccolta può contenere fino a 10 GB di dati (massimo) e attualmente non è possibile aumentare una raccolta o eseguirne l'overflow. Per la scalabilità orizzontale, Analisi di flusso consente di scrivere in più raccolte con un determinato prefisso. Vedere i dettagli di utilizzo di seguito. Per partizionare i record di output, Analisi di flusso usa la strategia coerente del [resolver di partizionamento hash](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) basata sulla colonna PartitionKey indicata dall'utente. Il numero di raccolte con il prefisso specificato all'avvio del processo di streaming viene usato come conteggio delle partizioni di output in cui il processo scrive in parallelo (raccolte di DocumentDB = partizioni di output). Per una singola raccolta con indicizzazione differita che esegue solo inserimenti, è prevedibile una velocità effettiva di scrittura di 0,4 MB/s. L'uso di più raccolte può consentire di ottenere una maggiore capacità e una velocità effettiva più elevata.
 
 Se si prevede di aumentare il numero di partizioni in futuro, potrebbe essere necessario arrestare il processo, ripartizionare i dati dalle raccolte esistenti in nuove raccolte e quindi riavviare il processo di Analisi di flusso. Altre informazioni sull'uso di PartitionResolver e sul ripartizionamento, con codice di esempio, saranno incluse in un post di approfondimento. Anche l'articolo [Partizionamento e scalabilità in Azure DocumentDB](../documentdb/documentdb-partition-data.md) include informazioni dettagliate sull'argomento.
 
@@ -68,11 +66,6 @@ Raccolta partizionata | Più raccolte a partizione singola
 * **Modello del nome di raccolta**: nome della raccolta o modello per le raccolte da usare. Il formato del nome di raccolta può essere costruito utilizzando il token {partizione} facoltativo, dove le partizioni iniziano da 0. Di seguito sono riportati input di esempio validi:  
   1\) MyCollection: deve essere presente una raccolta denominata "MyCollection".  
   2\) MyCollection{partizione}: devono essere presenti le raccolte "MyCollection0", "MyCollection1", "MyCollection2" e così via.  
-* **Chiave di partizione**: valore facoltativo. Necessario solo se si usa un token {partition} nel modello di nome di raccolta. Il nome del campo negli eventi di output utilizzato per specificare la chiave per il partizionamento di output nelle raccolte. Per l'output di una singola raccolta si può usare qualsiasi colonna di output arbitraria, ad esempio PartitionId.  
+* **Chiave di partizione**: valore facoltativo. È necessario solo se si usa un token {partition} nel modello del nome di raccolta. Il nome del campo negli eventi di output utilizzato per specificare la chiave per il partizionamento di output nelle raccolte. Per l'output di una singola raccolta si può usare qualsiasi colonna di output arbitraria, ad esempio PartitionId.  
 * **ID documento** : valore facoltativo. Il nome del campo negli eventi di output usato per specificare la chiave primaria su cui si basano le operazioni di inserimento o aggiornamento.  
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

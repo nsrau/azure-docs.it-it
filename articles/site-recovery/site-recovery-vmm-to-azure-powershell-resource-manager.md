@@ -1,5 +1,5 @@
 ---
-title: Replicare le macchine virtuali Hyper-V in VMM usando Azure Site Recovery e PowerShell (Resource Manager) | Documentazione Microsoft
+title: Replicare le macchine virtuali Hyper-V nei cloud VMM usando Azure Site Recovery e PowerShell (Resource Manager) | Documentazione Microsoft
 description: Replicare le macchine virtuali Hyper-V nei cloud VMM usando Azure Site Recovery e PowerShell
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 19/01/2017
+ms.date: 02/02/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: 75653b84d6ccbefe7d5230449bea81f498e10a98
-ms.openlocfilehash: 7159ea10e05dd6cc9ffd170719fecdb87421515c
+ms.sourcegitcommit: 2c070a6f46e41023ecd2ff7fb5c39b0d021aaef0
+ms.openlocfilehash: 0a900d4ddf6a751a4bf54720d3b62cf9e59e0a71
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -58,7 +59,7 @@ Assicurarsi che siano rispettati i prerequisiti seguenti:
 * È necessario un account [Microsoft Azure](https://azure.microsoft.com/) . Se non si ha un account, creare un [account gratuito](https://azure.microsoft.com/free). È anche possibile leggere le informazioni sui [prezzi di Azure Site Recovery Manager](https://azure.microsoft.com/pricing/details/site-recovery/).
 * Se si prova a usare la replica in uno scenario di sottoscrizione di CSP, sarà necessaria una sottoscrizione di CSP. Per altre informazioni sul programma CSP, vedere [Iscriversi al programma CSP (Cloud Solution Provider)](https://msdn.microsoft.com/library/partnercenter/mt156995.aspx).
 * Per archiviare dati replicati in Azure, è necessario un account di archiviazione di Azure v2 (Resource Manager). Nell'account deve essere abilitata la replica geografica. L'account deve trovarsi nella stessa area geografica in cui si trova il servizio Azure Site Recovery e deve essere associato alla stessa sottoscrizione o alla sottoscrizione di CSP. Per altre informazioni sulla configurazione dell'archiviazione di Azure, vedere [Introduzione ad Archiviazione di Microsoft Azure](../storage/storage-introduction.md) come riferimento.
-* È necessario assicurarsi che le macchine virtuali da proteggere soddisfino i [prerequisiti delle macchine virtuali di Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+* È necessario assicurarsi che le macchine virtuali da proteggere soddisfino i [prerequisiti delle macchine virtuali di Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 > [!NOTE]
 > Attualmente è possibile eseguire tramite Powershell solo le operazioni a livello di VM. Il supporto per le operazioni a livello di piano di ripristino sarà presto disponibile.  Attualmente è possibile eseguire i failover solo a livello di granularità di "VM protetta", non a livello di piano di ripristino.
@@ -132,7 +133,7 @@ Per informazioni sui suggerimenti che facilitano l'uso dei cmdlet, ad esempio i 
 ## <a name="step-3-set-the-recovery-services-vault-context"></a>Passaggio 3: Impostare il contesto dell'insieme di credenziali di Servizi di ripristino
 
 Impostare il contesto dell'insieme eseguendo il comando seguente.
-   
+
        Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
 
 ## <a name="step-4-install-the-azure-site-recovery-provider"></a>Passaggio 4: installare il provider di Azure Site Recovery
@@ -166,7 +167,7 @@ Impostare il contesto dell'insieme eseguendo il comando seguente.
 ## <a name="step-5-create-an-azure-storage-account"></a>Passaggio 5: creare un account di archiviazione di Azure
 
 Se non si ha un account di archiviazione di Azure, creare un account con la replica geografica abilitata nella stessa area in cui si trova l'insieme di credenziali eseguendo il comando seguente:
-   
+
         $StorageAccountName = "teststorageacc1"    #StorageAccountname
         $StorageAccountGeo  = "Southeast Asia"     
         $ResourceGroupName =  “myRG”             #ResourceGroupName
@@ -243,7 +244,7 @@ Dopo la configurazione corretta di server, cloud e reti, sarà possibile abilita
 
  Tenere presente quanto segue:
 
-* Le macchine virtuali devono essere conformi ai requisiti di Azure. Vedere tali requisiti nei collegamenti relativi a [prerequisiti e supporto](site-recovery-best-practices.md) nella guida alla pianificazione.
+* Le macchine virtuali devono essere conformi ai requisiti di Azure. Vedere tali requisiti nei collegamenti relativi a [prerequisiti e supporto](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) nella guida alla pianificazione.
 * Per abilitare la protezione, è necessario che le proprietà del sistema operativo e del disco del sistema operativo siano impostate per la macchina virtuale. Quando si crea una macchina virtuale basata su un modello di macchina virtuale VMM è possibile impostare la proprietà. È possibile impostare queste proprietà anche per le macchine virtuali esistenti nelle schede **Generale** e **Configurazione hardware** delle proprietà delle macchine virtuali. Se queste proprietà non vengono impostate in VMM, sarà possibile configurarle nel portale di Azure Site Recovery.
 
 1. Per abilitare la protezione, eseguire il comando seguente per ottenere il contenitore di protezione:
@@ -307,9 +308,4 @@ Utilizzare i comandi seguenti per monitorare l'attività. Si noti che è necessa
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Altre informazioni](https://msdn.microsoft.com/library/azure/mt637930.aspx) su Azure Site Recovery con i cmdlet PowerShell per Azure Resource Manager.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

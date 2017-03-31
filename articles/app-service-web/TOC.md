@@ -1,272 +1,156 @@
-# [Panoramica](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-## [Panoramica di App Web](app-service-web-overview.md)
-## [Informazioni sul servizio app](../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-## [Piani di servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-## [Servizio app in Linux](app-service-linux-intro.md)
+# Panoramica    
+## [Informazioni su App Web](app-service-web-overview.md)
+## [Confrontare le opzioni di hosting](choose-web-site-cloud-service-vm.md)
 
-# Introduzione
+# Guida introduttiva    
+## [Creare un sito HTML statico](app-service-web-get-started-html.md)
+## [Creare un'app ASP.NET](app-service-web-get-started-dotnet.md)        
+## [Creare un'app PHP](app-service-web-get-started-php.md) 
+## [Creare un'app Node.js](app-service-web-get-started-nodejs.md) 
+## [Creare un'app Java](app-service-web-get-started-java.md)        
+## [Creare un'app Python](app-service-web-get-started-python.md)    
 
-## App Web
-### [HTML](app-service-web-get-started-html.md)
-### [.NET](app-service-web-get-started-dotnet.md)
-### [Node.js](app-service-web-get-started-nodejs.md)
-### [Python](app-service-web-get-started-python.md)
-### [Java](app-service-web-get-started-java.md)
-### [App di Marketplace](web-sites-php-web-site-gallery.md)
-### [PHP](app-service-web-get-started-php.md)   
+# Esempi
+## [Interfaccia della riga di comando di Azure](app-service-cli-samples.md) 
+## [PowerShell](app-service-powershell-samples.md) 
 
-## App per le API
-### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
-### [Java](../app-service-api/app-service-api-java-api-app.md)
-### [Node.js](../app-service-api/app-service-api-nodejs-api-app.md)
-### [CORS](../app-service-api/app-service-api-cors-consume-javascript.md)
+# Esercitazioni
+## [Aggiungere funzionalità a un'app Web](app-service-web-get-started-2.md)
+## [App ASP.NET con database SQL](web-sites-dotnet-get-started.md)
+## [App Laravel con MySQL](app-service-web-php-get-started.md)
+## [App Sails.js con database NoSQL](app-service-web-nodejs-sails.md)
+## [App Java con Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
+## [App Java con IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
+## [App Django con MySQL](web-sites-python-ptvs-django-mysql.md)
 
-## App per dispositivi mobili
-### [Android](../app-service-mobile/app-service-mobile-android-get-started.md)
-### [Cordova](../app-service-mobile/app-service-mobile-cordova-get-started.md)
-### [iOS](../app-service-mobile/app-service-mobile-ios-get-started.md)
-### [Windows](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started.md)
-### [Xamarin.Android](../app-service-mobile/app-service-mobile-xamarin-android-get-started.md)
-### [Xamarin.Forms](../app-service-mobile/app-service-mobile-xamarin-forms-get-started.md)
-### [Xamarin.iOS](../app-service-mobile/app-service-mobile-xamarin-ios-get-started.md)
+# Concetti
+## [Funzionamento del servizio app](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)    
+## [Piani di servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)    
+## [ambienti del servizio app](app-service-app-service-environment-intro.md)
+## [Autenticazione e autorizzazione](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+## [Autenticazione con AD locale](web-sites-authentication-authorization.md)
 
 
-# Procedure
+# Guide alle procedure
+## Sviluppare l'app    
+### ASP.NET
 
-## Pianificare e progettare
-### [Procedure consigliate per il servizio app di Azure](app-service-best-practices.md)
-### [Servizio app di Azure e i servizi di Azure esistenti](app-service-changes-existing-services.md)
-### [Panoramica della cache locale](../app-service/app-service-local-cache.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-### [Panoramica approfondita dei piani del servizio app di Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-### [Offerte di App Web per le aziende](web-sites-enterprise-offerings.md)
-### [Confronto tra servizio app, macchine virtuali, Service Fabric e servizi cloud](choose-web-site-cloud-service-vm.md)
-### [Sviluppo di siti WordPress nel servizio app](develop-wordpress-on-app-service-web-apps.md)
-### [Servizio app in Linux](../app-service/app-service-linux-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-### Architetture di riferimento di Azure
-#### [Applicazione Web di base](../guidance/guidance-web-apps-basic.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-#### [Applicazione Web con disponibilità elevata](../guidance/guidance-web-apps-multi-region.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-### [Hosting ad alta densità](../app-service/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-### [Miglioramento della scalabilità](../guidance/guidance-web-apps-scalability.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-### [Funzionalità del sistema operativo](web-sites-available-operating-system-functionality.md)
-### [Usare efficacemente gli ambienti DevOps](app-service-web-staged-publishing-realworld-scenarios.md)
-### [Uso di Processi Web nel servizio app di Azure](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-### [Ambiente del servizio app](app-service-app-service-environment-intro.md)
-#### [Documentazione relativa agli ambienti del servizio app](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+#### [Sviluppare un'app ASP.NET Core con Visual Studio Code](web-sites-create-web-app-using-vscode.md)
+### PHP
+#### [Configurare il progetto PHP](web-sites-php-configure.md)
+#### [Configurare un'installazione multisito WordPress](web-sites-php-convert-wordpress-multisite.md) 
+### Node.js
+#### [Usare io.js](web-sites-nodejs-iojs.md)
+#### [Eseguire il debug di app Node.js](web-sites-nodejs-debug.md)
+### Java
 
-## Sviluppare
-### [Aggiungere funzionalità alla prima App Web](app-service-web-get-started-2.md)
-### [Creare un'App Web in Linux](app-service-linux-how-to-create-a-web-app.md)
-### [Informazioni di riferimento sul servizio app](app-service-changes-existing-services.md)
-### [Portale di Azure](app-service-web-app-azure-portal.md)
-### [SDK di Processi Web](websites-dotnet-webjobs-sdk-get-started.md)
+#### [Usare Azure SDK per Java](java-create-azure-website-using-java-sdk.md)
+#### [Caricare un'app esistente](web-sites-java-add-app.md)
+#### [Eseguire il debug remoto di Eclipse](app-service-web-debug-java-web-app-in-eclipse.md)
+#### [Eseguire il debug remoto di IntelliJ](app-service-web-debug-java-web-app-in-intellij.md)
 
-### App ASP.NET
-#### [Creare un'app ASP.NET in Azure con Visual Studio](web-sites-dotnet-get-started.md)
-#### [Creare un servizio REST con l'API Web ASP.NET](web-sites-dotnet-rest-service-aspnet-api-sql-database.md)
-#### [Creare un'App Web ASP.NET 5 in Visual Studio Code](web-sites-create-web-app-using-vscode.md)
+### [Inviare messaggi di posta elettronica con SendGrid](sendgrid-dotnet-how-to-send-email.md)
 
-### App Node.js
-#### [Sviluppare Node.js per il servizio app](app-service-web-nodejs-get-started.md)
-#### [Creare un'App Web Node.js](web-sites-nodejs-develop-deploy-mac.md)
-#### [Creare un'applicazione di chat Node.js con Socket.IO](web-sites-nodejs-chat-app-socketio.md)
-#### [Come usare io.js con App Web](web-sites-nodejs-iojs.md)
-#### [Distribuire un'app Web Sails.js nel servizio app di Azure](app-service-web-nodejs-sails.md)
-#### [Compilare e distribuire con WebMatrix](web-sites-nodejs-use-webmatrix.md)
+### Configurare il runtime    
+#### [PHP in Windows](web-sites-php-configure.md)
 
-### App PHP
-#### [Sviluppare app PHP per il servizio app](app-service-web-php-get-started.md) 
-#### [Creare un'App Web PHP-SQL e distribuirla con Git](web-sites-php-sql-database-deploy-use-git.md)
-#### [Creare un'App Web WordPress nel servizio app di Azure](web-sites-php-web-site-gallery.md)
-#### [Creare e connettersi a un database MySQL in Azure](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-#### [WordPress di livello aziendale nel servizio app di Azure](web-sites-php-enterprise-wordpress.md)
+#### [Java](web-sites-java-add-app.md)
+#### [Node.js in Linux](app-service-linux-using-nodejs-pm2.md)
+#### [Python](web-sites-python-configure.md)
+            
+### Configurare l'applicazione
+#### [Usare le impostazioni dell'app](web-sites-configure.md)
+            
+## [Distribuzione in Azure](web-sites-deploy.md)
+### [Eseguire la distribuzione tramite FTP](app-service-deploy-content-sync.md)
+### [Eseguire la distribuzione tramite la sincronizzazione con il cloud](web-sites-deploy.md)
+### [Eseguire la distribuzione continua](app-service-continuous-deployment.md)
+### [Eseguire la distribuzione per lo staging](web-sites-staged-publishing.md)
+### [Eseguire la distribuzione dall'archivio Git locale](app-service-deploy-local-git.md)
+### [Eseguire la distribuzione con un modello](app-service-deploy-complex-application-predictably.md)
+### [Distribuzione Agile](app-service-agile-software-development.md)
+### [Test della versione beta](app-service-web-test-in-production-controlled-test-flight.md)
 
-### App Java
-#### Creare un'app Hello World
-##### [Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
-##### [IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
-#### [Creare un'App Web con Azure SDK per Java](java-create-azure-website-using-java-sdk.md)
-#### [Caricare un'applicazione Java esistente](web-sites-java-add-app.md)
-#### Eseguire il debug di un'app Java remota 
-##### [Eclipse](app-service-web-debug-java-web-app-in-eclipse.md)
-##### [IntelliJ](app-service-web-debug-java-web-app-in-intellij.md)
+### [Impostare le credenziali di distribuzione](app-service-deployment-credentials.md)
 
-### App Python
-#### [Creare un'App Web con Bottle](web-sites-python-create-deploy-bottle-app.md)
-#### [Creare un'App Web con Django](web-sites-python-create-deploy-django-app.md)
-#### [Creare un'App Web con Flask](web-sites-python-create-deploy-flask-app.md)
-#### [Bottle e archiviazione tabelle con Python Tools 2.2 per Visual Studio ](web-sites-python-ptvs-bottle-table-storage.md)
-#### [Flask e archiviazione tabelle con Python Tools 2.2 per Visual Studio ](web-sites-python-ptvs-flask-table-storage.md)
-#### [Django e MySQL in Azure con Python Tools 2.2 per Visual Studio ](web-sites-python-ptvs-django-mysql.md)
-#### [Django e database SQL Database in Azure con Python Tools 2.2 per Visual Studio ](web-sites-python-ptvs-django-sql.md)
+### Eseguire il mapping di un dominio personalizzato
+#### [Acquistare un dominio](custom-dns-web-site-buydomains-web-app.md)
+#### [Eseguire il mapping di un dominio di terze parti](web-sites-custom-domain-name.md)
+#### [Eseguire il mapping di domini con Gestione traffico](web-sites-traffic-manager-custom-domain-name.md)
+#### [Eseguire il mapping di domini GoDaddy](web-sites-godaddy-custom-domain-name.md)
+#### [Eseguire la migrazione di un dominio attivo](app-service-custom-domain-name-migrate.md)
 
-### [Distribuire la prima App Web di base in Azure in cinque minuti](app-service-web-get-started-html.md)
-### [Introduzione al test in ambiente di produzione per le App Web](app-service-web-test-in-production-get-start.md)
-
-### [Processi Web](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-#### [Cos'è l'SDK di Processi Web di Azure](websites-dotnet-webjobs-sdk.md)
-#### [Creare un Processo Web .NET](websites-dotnet-webjobs-sdk-get-started.md)
-#### [Come usare il servizio di archiviazione BLOB di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
-#### [Come usare il servizio di archiviazione di accodamento di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
-#### [Come usare il bus di servizio di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-service-bus.md)
-#### [Come usare il servizio di archiviazione tabelle di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
-
-### Ambiente del servizio app
-#### [Come creare un ambiente del servizio app](app-service-web-how-to-create-an-app-service-environment.md)
-#### [Creare un'app Web in un ambiente del servizio app](app-service-web-how-to-create-a-web-app-in-an-ase.md)
-#### [Come creare un ambiente del servizio app con servizio di bilanciamento del carico interno usando modelli di Azure Resource Manager](app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
-#### [Uso di un servizio di bilanciamento del carico interno](app-service-environment-with-internal-load-balancer.md)
-
-## [Distribuire](../app-service/app-service-deployment-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-### [Distribuire nel servizio app](web-sites-deploy.md)
-### [Distribuzione della sincronizzazione cloud](app-service-deploy-content-sync.md)
-### [Distribuzione continua](app-service-continuous-deployment.md)
-### [App Web ottimizzata per dispositivi mobili](web-sites-dotnet-deploy-aspnet-mvc-mobile-app.md)
-### [Ambienti di gestione temporanea](web-sites-staged-publishing.md)
-### [Distribuzione Git locale](app-service-deploy-local-git.md)
-### Pubblicare un'app PHP-MySQL
-#### [Uso di GIT](web-sites-php-mysql-deploy-use-git.md)
-#### [Uso di FTP](web-sites-php-mysql-deploy-use-ftp.md)
-### [Caricamento di un sito Web Java personalizzato](web-sites-java-custom-upload.md)
 ### [Eseguire la migrazione da IIS](web-sites-migration-from-iis-server.md)
-### [Distribuzione di processi Web usando Visual Studio](websites-dotnet-deploy-webjobs.md)
+### [Eseguire il test in ambiente di produzione](app-service-web-test-in-production-get-start.md)
 
-## [Ridimensionare](../app-service/app-service-scale-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-### [Aumentare le prestazioni di un'app](web-sites-scale.md)
-### [Ambiente del servizio app](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-#### [Scalabilità distribuita a livello geografico con ambienti del servizio app](app-service-app-service-environment-geo-distributed-scale.md)
-#### [Ridimensionamento di app in un ambiente del servizio app](app-service-web-scale-a-web-app-in-an-app-service-environment.md)
-#### [Ridimensionamento automatico e ambiente del servizio app](../app-service/app-service-environment-auto-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-### [Rete CDN di Azure](../cdn/cdn-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+## Connettersi a DB/risorse        
 
-## [Gestire](web-sites-manage-azure-website.md)
-### [Configura](web-sites-configure.md)
-#### [Configurare PHP](web-sites-php-configure.md)
-#### [Configurare Python](web-sites-python-configure.md)
-#### [Configurare l'avvio di Node.js in Linux](app-service-linux-using-nodejs-pm2.md)
+### [Connettersi ai dati locali](web-sites-hybrid-connection-get-started.md) 
+### [Connettersi a una rete virtuale di Azure](web-sites-integrate-with-vnet.md)
+### [Connettersi a una rete virtuale di Azure con PowerShell](app-service-vnet-integration-powershell.md)
+### [Connettersi a MongoDB in una VM di Azure](web-sites-dotnet-store-data-mongodb-vm.md)
+            
+##Proteggere un'app
+### Autenticare gli utenti        
+#### [Eseguire l'autenticazione con Azure AD](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+#### [Eseguire l'autenticazione con Facebook](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+#### [Eseguire l'autenticazione con Google](../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+#### [Eseguire l'autenticazione con l'account Microsoft](../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+#### [Eseguire l'autenticazione con Twitter](../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+#### [Eseguire l'autenticazione con AD locale](web-sites-authentication-authorization.md)
+#### [App con database multi-tenant](web-sites-dotnet-entity-framework-row-level-security.md)
+### Assegnare SSL personalizzato
+#### [Acquistare un certificato SSL](web-sites-purchase-ssl-web-site.md)
+#### [Configurare un certificato SSL di terze parti](web-sites-configure-ssl-certificate.md)
+### [Applicare HTTPS](web-sites-configure-ssl-certificate.md#enforce-https-on-your-app)
+### [Configurare l'autenticazione reciproca TLS](app-service-web-configure-tls-mutual-auth.md)
+            
+##Ridimensionare un'app        
+### [Aumentare le prestazioni](web-sites-scale.md)
+### [Aumentare il numero di istanze](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+### [Bilanciamento del carico con Gestione traffico](web-sites-traffic-manager.md)
+### [Scalabilità elevata con ambienti del servizio app](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+### [Usare la rete CDN di Azure per la copertura globale](cdn-websites-with-cdn.md)
+### [Connettersi a Cache Redis con Memcache](web-sites-connect-to-redis-using-memcache-protocol.md)
+### [Creare una cache Redis](../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+### [Gestire lo stato della sessione con Cache Redis di Azure](web-sites-dotnet-session-state-caching.md)
 
-### Domini personalizzati
-#### [Acquistare e configurare domini personalizzati](custom-dns-web-site-buydomains-web-app.md)
-#### [Eseguire il mapping di un dominio personalizzato](web-sites-custom-domain-name.md)
-#### [Configurare domini GoDaddy](web-sites-godaddy-custom-domain-name.md)
-#### [Domini personalizzati con Gestione traffico](web-sites-traffic-manager-custom-domain-name.md)
+## Monitorare 
+### [Monitorare le app](web-sites-monitor.md)
+### [Abilitare i log](web-sites-enable-diagnostic-log.md)
+### [Eseguire lo streaming dei log](web-sites-streaming-logs-and-console.md)
 
-### [Clonare un'app esistente](app-service-web-app-cloning-portal.md)
-### [Connessioni locali](web-sites-hybrid-connection-get-started.md)
-### [Rete virtuale di Azure](web-sites-integrate-with-vnet.md)
-### [Configurazione avanzata](web-sites-transform-extend.md)
-### [Configurare il contenitore per il servizio app in Linux](app-service-linux-using-custom-docker-image.md)
-### [Gruppi di risorse](app-service-move-resources.md)
-### [Eseguire la conversione da WordPress a multisito](web-sites-php-convert-wordpress-multisite.md) 
+## Eseguire il backup del contenuto        
+### [Eseguire il backup dell'app](web-sites-backup.md)
+### [Ripristinare l'app dal backup](web-sites-restore.md)
+### [Eseguire il backup con l'API REST](websites-csm-backup.md)
 
-### [Processi Web](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-#### [Eseguire attività in background con Processi Web](web-sites-create-web-jobs.md)
-
-### [Ambiente del servizio app](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-#### [Configurare](app-service-web-configure-an-app-service-environment.md)
-#### [Impostazioni di configurazione personalizzate](app-service-app-service-environment-custom-settings.md)
-#### [Come controllare il traffico in ingresso](app-service-app-service-environment-control-inbound-traffic.md)
-#### [Panoramica dell'architettura di rete](app-service-app-service-environment-network-architecture-overview.md)
-#### [Dettagli della configurazione di rete con ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md)
-
-## Backup
-### [Eseguire il backup dell'app in Azure](web-sites-backup.md)
-### [Ripristinare un'app in Azure](web-sites-restore.md)
-### [Usare REST per eseguire il backup e il ripristino di app del servizio app](websites-csm-backup.md)
-
-## [Monitorare](web-sites-monitor.md)
-### [Abilitare la registrazione diagnostica](web-sites-enable-diagnostic-log.md)
-### [Risolvere i problemi con Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
-
-## [Proteggere](../app-service/app-service-security-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-### [Garantire la sicurezza di un'app in Servizio app di Azure](web-sites-security.md)
-### [Autenticazione e autorizzazione](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-### Eseguire l'autenticazione con provider di identità
-#### [Autenticazione di Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-#### [Autenticazione di Facebook](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-#### [Autenticazione di Google](../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-#### [Autenticazione di account Microsoft](../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-#### [Autenticazione di Twitter](../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-### [Eseguire l'autenticazione con l'istanza locale di Active Directory](web-sites-authentication-authorization.md)
-
-### HTTPS
-#### [Configurare l'autenticazione reciproca TLS](app-service-web-configure-tls-mutual-auth.md)
-#### [Acquistare un certificato SSL in Azure](web-sites-purchase-ssl-web-site.md)
-#### [Usare un certificato SSL ottenuto altrove](web-sites-configure-ssl-certificate.md)
-
-### Esercitazioni sulla sicurezza
-#### [Creare un'app line-of-business con l'autenticazione di ADFS](web-sites-dotnet-lob-application-adfs.md)
-#### [Creare un'app line-of-business con l'autenticazione di AAD ](web-sites-dotnet-lob-application-azure-ad.md)
-#### [App Web con database multi-tenant che usa Entity Framework e protezione a livello di riga](web-sites-dotnet-entity-framework-row-level-security.md)
-
-### Proteggere un ambiente del servizio app
-#### [Configurare un Web application firewall](app-service-app-service-environment-web-application-firewall.md)
-#### [Implementare un'architettura di sicurezza su più livelli](app-service-app-service-environment-layered-security.md)
-#### [Connessione sicura alle risorse back-end](app-service-app-service-environment-securely-connecting-to-backend-resources.md)
-
-## Analizzare
-### [Distribuzione di versioni di anteprima (test beta)](app-service-web-test-in-production-controlled-test-flight.md)
-### [Testare le prestazioni dell'App Web di Azure sotto carico](app-service-web-app-performance-test.md) 
-
-## Automazione
-### [Sviluppo Agile](app-service-agile-software-development.md)
-### [Distribuzione Azure Resource Manager](app-service-deploy-complex-application-predictably.md)
-#### [Web + GitHub ](app-service-web-arm-from-github-provision.md)
-#### [Web + SQL ](app-service-web-arm-with-sql-database-provision.md)
-#### [Web + Redis ](../redis-cache/cache-web-app-arm-with-redis-cache-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-#### [Cache Redis](../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-#### [MSDeploy con certificato SSL e nome host personalizzato](app-service-web-arm-with-msdeploy-provision.md)
-### PowerShell
-#### [Automatizzare il backup e il ripristino](../app-service/app-service-powershell-backup.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-#### [Clonazione di app](app-service-web-app-cloning.md)
-#### [Associazione di certificati SSL](app-service-web-app-powershell-ssl-binding.md)
-#### [Usare Azure Resource Manager con PowerShell](app-service-web-app-azure-resource-manager-powershell.md)
+## Gestire le risorse dell'app
+### [Clonare un'app con PowerShell](app-service-web-app-cloning.md)
+### [Clonare un'app con il portale](app-service-web-app-cloning-portal.md)
+### [Spostare le risorse](app-service-move-resources.md)
+### [Usare Azure Resource Manager con PowerShell](app-service-web-app-azure-resource-manager-powershell.md)
 ### [Gestire app con Automazione di Azure](automation-manage-web-app.md)
 
-## Integrare
-### [Accesso alle risorse locali usando connessioni ibride](web-sites-hybrid-connection-get-started.md)
-### [Connettersi a un'istanza di SQL Server locale mediante connessioni ibride](web-sites-hybrid-connection-connect-on-premises-sql-server.md)
-### [Connetter l'app alla rete virtuale tramite PowerShell ](app-service-vnet-integration-powershell.md)
-### [Controllo del traffico delle App Web di Azure con Gestione traffico di Azure](web-sites-traffic-manager.md)
-### Cache Redis
-#### [Connettersi a Cache Redis con il protocollo Memcache](web-sites-connect-to-redis-using-memcache-protocol.md)
-#### [Creare una Cache Redis usando un modello](../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-#### [Gestire lo stato della sessione con Cache Redis di Azure](web-sites-dotnet-session-state-caching.md)
-### [Creare un'App Web di Azure che si connette a MongoDB in esecuzione su una macchina virtuale](web-sites-dotnet-store-data-mongodb-vm.md)
-### [Come inviare e-mail usando SendGrid](sendgrid-dotnet-how-to-send-email.md)
-### [Integrare un'app con una rete virtuale ](web-sites-integrate-with-vnet.md)
-### [App Web Node.js con il servizio tabelle di Azure](storage-nodejs-use-table-storage-web-site.md)
-### [Usare la rete CDN di Azure nel servizio app di Azure](cdn-websites-with-cdn.md)
 
 
-## Risoluzione dei problemi
-### [Abilitare la registrazione diagnostica per le App Web](web-sites-enable-diagnostic-log.md)
-### [Log di streaming e console](web-sites-streaming-logs-and-console.md)
-### [Procedure consigliate e guida alla risoluzione dei problemi per le applicazioni Node](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)
-### [Come eseguire il debug di un'app Web Node.js ](web-sites-nodejs-debug.md)
-### [Risoluzione dei problemi di un'App Web tramite Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
-### [Risolvere gli errori HTTP 502 e 503](app-service-web-troubleshoot-http-502-http-503.md)
-### [Risolvere i problemi di prestazioni delle App Web](app-service-web-troubleshoot-performance-degradation.md)
-
-# Riferimento
-## [Anteprima dell'interfaccia della riga di comando di Azure 2.0](/cli/azure/appservice)
-## [.NET](/dotnet/api)
-## [Java](/java/api/)
-## [REST](/rest/api/appservice)
-
-# Risorse correlate
-## [Azure SDK per .NET - Note sulla versione](azure-sdk-dotnet-release-notes.md)
-### [Versione&2;.9](azure-sdk-dotnet-release-notes-2-9.md)
-### [Versioni&2;.8.X](azure-sdk-dotnet-release-notes-2-8.md)
-### [Versioni&2;.7.X](azure-sdk-dotnet-release-notes-2-7.md)
-### [Versione&2;.6](azure-sdk-dotnet-release-notes-2-6.md)
-### [Versione&2;.5.1](../app-service/app-service-release-notes.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
-
-# Risorse
+# Riferimento    
+## [Interfaccia della riga di comando 2.0](/cli/azure/appservice)
+## [PowerShell](/powershell)
+## [API REST](/rest/api/appservice/) 
+        
+# Risorse    
+## Risoluzione dei problemi        
+### [Risolvere i problemi con Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
+### [Risolvere i problemi relativi a un'app Node.js](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)
+### [Risolvere i problemi relativi a HTTP 502 e 503](app-service-web-troubleshoot-http-502-http-503.md)
+### [Risolvere i problemi di prestazioni](app-service-web-troubleshoot-performance-degradation.md)
+## [Prezzi](https://azure.microsoft.com/pricing/details/app-service/)     
+## [Informazioni sulle quote](../azure-subscription-service-limits.md#app-service-limits)    
+## [Aggiornamenti del servizio e note sulla versione](https://azure.microsoft.com/updates/?product=app-service)    
 ## [procedure consigliate](app-service-best-practices.md)
-## [Elenco delle risorse di Processi Web](websites-webjobs-resources.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+## [Esempi](https://azure.microsoft.com/resources/samples/?service=app-service)    
+## [Video](https://azure.microsoft.com/resources/videos/index/?services=app-service)
+## Guide di riferimento dettagliate    
+### [Architetture di riferimento](../guidance/guidance-ra-app-service.md)    
+### [Script di distribuzione](https://azure.microsoft.com/documentation/scripts/)    

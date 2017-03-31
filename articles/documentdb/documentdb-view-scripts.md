@@ -1,6 +1,6 @@
 ---
-title: Esplora script di DocumentDB, un editor JavaScript | Documentazione Microsoft
-description: Informazioni su Esplora script, uno strumento del portale di Azure che consente di gestire elementi di programmazione sul lato server di DocumentDB quali stored procedure, trigger e funzioni definite dall&quot;utente.
+title: 'Strumento del portale di Azure DocumentDB: Esplora script | Documentazione Microsoft'
+description: Informazioni su Esplora script di DocumentDB, uno strumento del portale di Azure che consente di gestire elementi di programmazione sul lato server di DocumentDB quali stored procedure di JavaScript, trigger e funzioni definite dall&quot;utente.
 keywords: Editor JavaScript
 services: documentdb
 author: kirillg
@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/14/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 70d08de5e7ba775578ea1765ea1c0dda9b04e427
+ms.sourcegitcommit: 429687c6e5a196a3b489dc4dd79ae886b7ad9c38
+ms.openlocfilehash: ccff673996d53d2b3b2c177bfb6fff01613b7097
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -25,7 +26,9 @@ ms.openlocfilehash: 70d08de5e7ba775578ea1765ea1c0dda9b04e427
 Questo articolo fornisce una panoramica di Esplora script di [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) , un editor JavaScript del portale di Azure che consente di visualizzare ed eseguire elementi di programmazione sul lato server di DocumentDB quali stored procedure, trigger e funzioni definite dall'utente. Per altre informazioni sulla programmazione sul lato server di DocumentDB, vedere l'articolo relativo alla [programmazione sul lato server DocumentDB: stored procedure, trigger del database e funzioni definite dall'utente](documentdb-programming.md) .
 
 ## <a name="launch-script-explorer"></a>Avviare Esplora script
-1. Nell'indice del portale di Azure fare clic su **DocumentDB (NoSQL)**. Se **Account DocumentDB** non è visibile, fare clic su **Altri servizi** e quindi su **DocumentDB (NoSQL)**.
+1. Nel [portale di Azure](https://portal.azure.com) nel riquadro di navigazione a sinistra, fare clic sull'![icona di Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**. 
+
+    Se **NoSQL (DocumentDB)** non è visibile, fare clic su **Altri servizi** nella parte inferiore, quindi fare clic sull'![icona di Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**.
 2. Nel menu delle risorse fare clic su **Esplora script**.
    
     ![Schermata del comando Esplora script](./media/documentdb-view-scripts/scriptexplorercommand.png)
@@ -36,7 +39,8 @@ Questo articolo fornisce una panoramica di Esplora script di [Microsoft Azure Do
    
     ![Schermata di Esplora script con risultati del filtro](./media/documentdb-view-scripts/scriptexplorerfilterresults.png)
 
-    > [AZURE.IMPORTANT] La funzionalità di filtro di Esplora script consente di filtrare solo dal set di script ***attualmente*** caricato e non aggiorna automaticamente la raccolta selezionata.
+    > [!IMPORTANT] 
+    > La funzionalità di filtro di Esplora script consente di filtrare solo dal set di script ***attualmente*** caricato e non aggiorna automaticamente la raccolta selezionata.
 
 1. Per aggiornare l'elenco di script caricati da Esplora script, fare semplicemente clic sul comando **Aggiorna** nella parte superiore del pannello.
    
@@ -106,10 +110,5 @@ Esplora script del portale di Azure è solo uno dei modi per utilizzare stored p
 Per altre informazioni sulla programmazione lato server di DocumentDB, vedere l'articolo relativo a [Stored procedure, trigger del database e funzioni definite dall'utente](documentdb-programming.md) .
 
 Anche il [percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/) è una risorsa utile per l'utente durante l'apprendimento di DocumentDB.  
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -1,26 +1,36 @@
 ---
-layout: LandingPage
+title: Documentazione delle macchine virtuali Windows in Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come creare macchine virtuali di Windows. La documentazione consente di pianificare, distribuire e gestire un ambiente di elaborazione con macchina virtuale nel cloud.
-title: 'Documentazione di Macchine virtuali di Azure per Windows: esercitazioni e riferimento per le API | Documentazione Microsoft'
-services: virtual-machines
+services: virtual-machines\windows
 author: carolz
 manager: carolz
+layout: LandingPage
 ms.assetid: 
-ms.service: virtual-machines
+ms.service: virtual-machines\windows
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: c3b5f79fe9ee312b5f45eff460b43224b9c254fe
-ms.openlocfilehash: 927fb368a7d0e0c7c996a591dfe8536ea3509164
-
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 91c81cdba745be375ea6cbdb689d5b6f46e53f98
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="windows-virtual-machines-documentation"></a>Documentazione su Macchine virtuali Windows
 
+<div class="introHolder">
+    <div class="intro">
 Informazioni su come creare macchine virtuali di Windows. Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come pianificare, distribuire e gestire un ambiente di elaborazione con macchina virtuale nel cloud.
+    </div>
+    <div class="calloutHolder">
+        <div class="callout">
+            <a href="https://azure.microsoft.com/community/training/courses/managing-infrastructure-microsoft-azure-getting-started/">
+                <img src="media/index/pluralsight.svg" /> Training video gratuito PluralSight: Gestione dell'infrastruttura con Microsoft Azure </a>
+        </div>
+    </div>
+</div>
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -161,10 +171,5 @@ Informazioni su come creare macchine virtuali di Windows. Esercitazioni, informa
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

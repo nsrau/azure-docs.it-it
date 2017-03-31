@@ -1,5 +1,5 @@
 ---
-title: "Community, novità ed eventi di Azure DocumentDB | Documentazione Microsoft"
+title: "Community, novità ed eventi di Azure DocumentDB | Microsoft Docs"
 description: "È possibile partecipare alla community di Azure DocumentDB per creare relazioni, presentare il proprio lavoro e approfondire le proprie competenze."
 services: documentdb
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/23/2017
+ms.date: 03/07/2017
 ms.author: andrl
 translationtype: Human Translation
-ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
-ms.openlocfilehash: da69b0e91cd945502ef3631755712772d546227f
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 202684a1ae1106d79b9cee4e4ebf20ffa283f41b
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -45,6 +46,13 @@ DoQmentDB è un client Node.js basato su promise che fornisce un livello di tipo
 
 Informazioni su [GitHub](https://github.com/a8m/doqmentdb) e [npm](https://www.npmjs.com/package/doqmentdb).
 
+### <a name="typescript-api"></a>API TypeScript
+*di Jelmer Cormont*
+
+Wrapper per il client Node.js scritto in TypeScript (funziona anche in uno strumento JavaScript normale). Supporta `async/await` e un'API semplificata.
+
+Informazioni su [GitHub](https://github.com/jcormont/documentdb-typescript) e [npm](https://www.npmjs.com/package/documentdb-typescript).
+
 ### <a name="swagger-rest-api-for-documentdb"></a>API REST di Swagger per DocumentDB
 *di Howard Edidin*
 
@@ -59,7 +67,8 @@ fluent-plugin-documentdb è un plug-in Fluentd per l'output in Azure DocumentDB.
 
 Altre informazioni sono disponibili su [GitHub](https://github.com/yokawasa/fluent-plugin-documentdb) e [rubygems](https://rubygems.org/gems/fluent-plugin-documentdb).
 
-*Altri progetti di DocumentDB open source su [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories).*.
+<seg>
+  *Altri progetti di DocumentDB open source su [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories)*.</seg>
 
 ## <a name="news-blogs-and-articles"></a>Notizie, blog e articoli
 Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti di DocumentDB, seguire il [blog](https://azure.microsoft.com/blog/tag/documentdb/).
@@ -96,15 +105,21 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 ### <a name="recent-and-upcoming-events"></a>Eventi recenti e futuri
 | Nome evento | Relatore | Percorso | Date | Hashtag |
 | --- | --- | --- | --- | --- |
-| [Wintellect webinar: An Introduction to Azure DocumentDB](http://www.wintellect.com/software-development-training/register/webinar/30) (Webinar Wintellect: Introduzione ad Azure DocumentDB)| [Josh Lane](https://twitter.com/jplane)|Online|12 gennaio 2017 13:00 EST|n/d|
+|[South Florida Codecamp: NoSQL for .NET developers in under 10 minutes with Azure DocumentDB](http://www.fladotnet.com/codecamp/Agenda.aspx) (South Florida Codecamp: NoSQL per gli sviluppatori .NET in meno di 10 minuti con DocumentDB di Azure)| [Santosh Hari](https://twitter.com/_s_hari)|Davie, FL|11 marzo 2017|[#sflcc](https://twitter.com/search?q=%23sflcc&ref_src=twsrc%5Etfw)|
+|[Orlando Codecamp: NoSQL for .NET developers in under 10 minutes with Azure DocumentDB](http://orlandocodecamp.com/Sessions/Details/20) (Orlando Codecamp: NoSQL per gli sviluppatori .NET in meno di 10 minuti con DocumentDB di Azure)| [Santosh Hari](https://twitter.com/_s_hari)|Sanford, FL|8 aprile 2017|[#OrlandoCC](https://twitter.com/hashtag/OrlandoCC?src=hash&ref_src=twsrc%5Etfw)|
+|[Global Azure Bootcamp: Serverless computing in Azure with Azure Functions and DocumentDB](https://www.eventbrite.com/e/2017-global-azure-bootcamp-atlanta-usa-tickets-31817713638) (Global Azure Bootcamp: calcolo senza server in Azure con Funzioni di Azure e DocumentDB)| [Josh Lane](https://twitter.com/jplane)|Atlanta, GA|22 aprile 2017|[#GlobalAzure](https://twitter.com/hashtag/GlobalAzure?src=hash)|
+|[NDC Oslo 2017: Azure DocumentDB - The Best NoSQL Database You're Probably Not Using (Yet)](http://ndcoslo.com/talk/azure-documentdb-the-best-nosql-database-youre-probably-not-using-yet/) (NDC Olso 2017: Azure DocumentDB - Il miglior database NoSQL probabilmente non (ancora) usato)|[Josh Lane](https://twitter.com/jplane)|Oslo, Norvegia|14 giugno 2017|[#ndcoslo](https://twitter.com/search?q=%23ndcoslo)|
 
 *I relatori o coloro che ospitano un evento [possono fare clic qui](mailto:askdocdb@microsoft.com) per ottenere assistenza.*
 
 ### <a name="previous-events-and-recordings"></a>Eventi e registrazioni precedenti
 | Nome evento | Relatore | Percorso | Date | Registrazione |
 | --- | --- | --- | --- | --- |
-| [Connect(); // 2016](https://connectevent.microsoft.com/) |Kirill Gavrylyuk |New York, NY |16-18 novembre 2016 |[Video di Channel 9 Connect();](https://channel9.msdn.com/Events/Connect) |
-| [Capital City .NET Users Group (Gruppo di utenti .NET della capitale)](http://www.meetup.com/tally-dot-net/events/233768568/) |Santosh Hari |Tallahassee, FL |3 novembre 2016 |n/d |
+|[Ignite Australia: Hello DocumentDB: Azure's blazing fast, planet-scale NoSQL database](https://msftignite.com.au/sessions/session-details/2115/hello-documentdb-azures-blazing-fast-planetscale-nosql-database-da224) (Ignite Australia: Hello DocumentDB: database NoSQL di Azure, ultrarapido e con copertura globale) | [Andrew Liu](https://twitter.com/aliuy8)|Queensland, Australia|Mercoledì 15 febbraio 2017|Imminente|
+|[Ignite Australia: A Deep-Dive with Azure DocumentDB: Partitioning, Data Modelling, and Geo Replication](https://msftignite.com.au/sessions/session-details/2116/a-deepdive-with-azure-documentdb-partitioning-data-modelling-and-geo-replication-da335b) (Ignite Australia: Un'immersione con DocumentDB di Azure: partizionamento, modellazione dei dati e replica geografica) | [Andrew Liu](https://twitter.com/aliuy8)|Queensland, Australia|16 febbraio 2017|Imminente|
+| Wintellect webinar: An Introduction to Azure DocumentDB (Webinar Wintellect: Introduzione a DocumentDB di Azure)| [Josh Lane](https://twitter.com/jplane)|Online|12 gennaio 2017 13:00 EST|[Azure DocumentDB: Your Cloud-powered, Geo-scaled, NoSQL Superweapon... Hiding in Plain Sight](https://www.youtube.com/watch?v=uVcWgIYtBoc) (DocumentDB di Azure: la superarma NoSQL basata sul cloud e con replica geografica... Nascondersi in bella vista)|
+| [Connect(); // 2016](https://connectevent.microsoft.com/) |[Kirill Gavrylyuk](https://twitter.com/kirillg_msft) |New York, NY |16-18 novembre 2016 |[Video di Channel 9 Connect();](https://channel9.msdn.com/Events/Connect) |
+| [Capital City .NET Users Group (Gruppo di utenti .NET della capitale)](http://www.meetup.com/tally-dot-net/events/233768568/) |[Santosh Hari](https://twitter.com/_s_hari)|Tallahassee, FL |3 novembre 2016 |n/d |
 | [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb) |Team di DocumentDB |Atlanta, GA |Dal 26 al 30 settembre, 2016 |[Slidedeck](http://www.slideshare.net/aliuy/pass-summit-2016-azure-documentdb-a-deep-dive-into-advanced-features) |
 | [DevTeach](http://devteach.com/) |Ken Cenerelli |Montreal, Canada |Dal 4 all'8 luglio 2016 |[NoSQL, nessun problema con Azure DocumentDB](http://www.slideshare.net/KenCenerelli) |
 | [Integration and IoT  (Integrazione e IoT) ](http://www.btug.be/events) |Eldert Grootenboer |Kontich, Belgio |30 giugno 2016 |n/d |
@@ -203,7 +218,7 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 È necessaria l'assistenza tecnica? Altre domande? NoSQL è una buona scelta per le proprie esigenze? È possibile pianificare una chat personale direttamente con il team di progettazione di DocumentDB inviando un [messaggio di posta elettronica](mailto:askdocdb@microsoft.com) o un tweet all'indirizzo [@DocumentDB](https://twitter.com/DocumentDB).
 
 ## <a name="open-source-projects"></a>Progetti open source
-Questi progetti sono attivamente sviluppati dal team di Azure DocumentDB in collaborazione con la community open source..
+Questi progetti sono attivamente sviluppati dal team di Azure DocumentDB in collaborazione con la community open source.
 
 ### <a name="sdks"></a>SDK
 | Piattaforma | Github | Pacchetto |
@@ -234,10 +249,5 @@ Gli Wizard di DocumentDB sono leader della community che hanno dimostrato grande
 | [Matías Quaranta](https://twitter.com/ealsur) |[![Matías Quaranta](./media/documentdb-community/wizard-matias-quaranta.jpg)](https://twitter.com/ealsur) |
 
 Come fare per diventare un Wizard di DocumentDB? Anche se non ci sono requisiti particolari per diventare Wizard di DocumentDB, tra i criteri presi in considerazione c'è l'impatto del contributo del candidato nei forum online, ad esempio StackOverflow e MSDN, Wiki e contenuti online, conferenze e gruppi di utenti, podcast, siti Web, blog e social media, nonché articoli e documentazione. Per candidare se stessi o qualcun altro, è sufficiente [inviare un messaggio di posta elettronica](mailto:askdocdb@microsoft.com).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

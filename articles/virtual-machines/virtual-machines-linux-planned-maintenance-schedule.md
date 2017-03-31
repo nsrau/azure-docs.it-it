@@ -1,5 +1,5 @@
 ---
-title: Come pianificare la manutenzione per le macchine virtuali di Azure | Microsoft Docs
+title: Come pianificare la manutenzione per le macchine virtuali Linux in Azure | Documentazione Microsoft
 description: Informazioni su come pianificare la manutenzione nelle VM di Azure.
 services: virtual-machines-linux
 documentationcenter: 
@@ -13,24 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2016
+ms.date: 03/23/2017
 ms.author: igalf
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: c952179bd747ed2afa21f251c436e2e9fd7505fd
+ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
+ms.openlocfilehash: 54b15a13d29eb1921cc1264456c5f746b550386c
+ms.lasthandoff: 01/26/2017
 
 
 ---
 # <a name="how-to-schedule-planned-maintenance-on-azure-vms"></a>Come pianificare la manutenzione nelle VM di Azure
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Per informazioni sulla manutenzione pianificata nel modello di Resource Manager, vedere [qui](virtual-machines-linux-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
+> [!IMPORTANT]
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Per informazioni sulla manutenzione pianificata nel modello di Resource Manager, vedere [qui](virtual-machines-linux-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+ 
 [!INCLUDE [virtual-machines-common-planned-maintenance-schedule](../../includes/virtual-machines-common-planned-maintenance-schedule.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

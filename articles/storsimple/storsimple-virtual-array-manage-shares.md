@@ -1,5 +1,5 @@
 ---
-title: 'Gestione dispositivi StorSimple: gestire condivisioni sull&quot;array virtuale Microsoft Azure StorSimple | Documentazione Microsoft'
+title: Gestire le condivisioni sull&quot;array virtuale StorSimple | Documentazione Microsoft
 description: Descrive Gestione dispositivi StorSimple e illustra come usare questo servizio per gestire le condivisioni sull&quot;array virtuale StorSimple.
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 translationtype: Human Translation
-ms.sourcegitcommit: 5c31ac5284f3ba8fecc1e9f33838a778254658e5
-ms.openlocfilehash: 90b932453c83d15e7e33eb0653f0f7ceaf7eeff4
+ms.sourcegitcommit: 19177fe13db2aefcef7fcf37ea8fef2fa99c728f
+ms.openlocfilehash: e5c62689de36baa175001f5f4f70d87568876ef0
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare le condivisioni sull'array virtuale StorSimple
@@ -74,9 +74,9 @@ Usare le istruzioni di questa esercitazione per eseguire le attività seguenti:
 
 1. Nel pannello di riepilogo servizio StorSimple fare clic su **+ Aggiungi condivisione** dalla barra dei comandi. Verrà visualizzato il pannello **Aggiungi condivisione**.
 
-![Aggiungere la condivisione](./media/storsimple-virtual-array-manage-shares/add-share.png)
+    ![Aggiungere la condivisione](./media/storsimple-virtual-array-manage-shares/add-share.png)
 
-1. Nel pannello **Aggiungi condivisione** eseguire le operazioni seguenti:
+2. Nel pannello **Aggiungi condivisione** eseguire le operazioni seguenti:
    
     1. Nel campo **Nome della condivisione** immettere un nome univoco per la condivisione. Il nome deve essere una stringa contenente da 3 a 127 caratteri.
 
@@ -87,8 +87,8 @@ Usare le istruzioni di questa esercitazione per eseguire le attività seguenti:
     4. Nel campo **Capacità** specificare le dimensioni della condivisione. Una condivisione a livelli deve essere compresa tra 500 GB e 20 TB e una condivisione aggiunta in locale deve essere compresa tra 50 GB e 2 TB.
 
     5. Nel campo **Set default full permissions to** (Imposta le autorizzazioni complete predefinite su) assegnare le autorizzazioni all'utente o al gruppo che avrà accesso a questa condivisione. Specificare il nome dell'utente o del gruppo di utenti nel formato _john@contoso.com_. Si consiglia di usare un gruppo di utenti (anziché un singolo utente) per consentire ai privilegi amministratore di accedere a queste condivisioni. Dopo aver assegnato le autorizzazioni in questa fase, è possibile modificarle con Esplora file.
-2. Al termine della configurazione della condivisione fare clic su **Crea**. Verrà creata una condivisione con le impostazioni specificate e verrà visualizzata una notifica. Per impostazione predefinita, il backup verrà abilitato per la condivisione.
-3. Per verificare che la condivisione sia stata creata, passare al pannello **Condivisioni**. La condivisione viene visualizzata nell'elenco.
+3. Al termine della configurazione della condivisione fare clic su **Crea**. Verrà creata una condivisione con le impostazioni specificate e verrà visualizzata una notifica. Per impostazione predefinita, il backup verrà abilitato per la condivisione.
+4. Per verificare che la condivisione sia stata creata, passare al pannello **Condivisioni**. La condivisione viene visualizzata nell'elenco.
    
     ![Creazione della condivisione completata](./media/storsimple-virtual-array-manage-shares/share-success.png)
 
@@ -146,6 +146,6 @@ Informazioni su come [clonare una condivisione StorSimple](storsimple-virtual-ar
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Macchine virtuali di Azure - Esercitazione 1 DotNet Core | Microsoft Docs
+title: 'Macchine virtuali Windows di Azure: esercitazione DotNet Core 1 | Documentazione Microsoft'
 description: Macchine virtuali di Azure - Esercitazione DotNet Core
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,13 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: cc534bbf4eb282fe3b675f1783e05e2d3357405e
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 3aeefecabb72b57c64fb47aeb5b6523b9ff3239b
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="automating-application-deployments-to-azure-virtual-machines"></a>Automazione della distribuzione di applicazioni nelle macchine virtuali di Azure
+# <a name="automating-application-deployments-to-windows-virtual-machines"></a>Automazione della distribuzione di applicazioni nelle macchine virtuali Windows
+
 Questa serie di quattro articoli descrive in dettaglio la distribuzione e la configurazione di risorse e applicazioni di Azure mediante modelli di Azure Resource Manager. In questa serie viene distribuito un modello di esempio e viene esaminato il modello di distribuzione. L'obiettivo di questa serie è illustrare la relazione tra le risorse di Azure e fornire suggerimenti pratici per la distribuzione di modelli di Azure Resource Manager completamente integrati. Questo documento presuppone un livello base di conoscenze relative ad Azure Resource Manager. Prima di iniziare questa esercitazione, acquisire familiarità con i concetti fondamentali di Azure Resource Manager.
 
 ## <a name="music-store-application"></a>Applicazione Music Store
@@ -68,10 +71,5 @@ Al termine della distribuzione del modello, passare all'indirizzo IP pubblico us
 [Passaggio 3: Disponibilità e scalabilità nei modelli di Azure Resource Manager](virtual-machines-windows-dotnet-core-4-availability-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Passaggio 4: Distribuzione di applicazioni con i modelli di Azure Resource Manager](virtual-machines-windows-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

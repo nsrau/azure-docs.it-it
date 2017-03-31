@@ -1,5 +1,5 @@
 ---
-title: Come proteggere il back-end di un&quot;API Web con Azure Active Directory e Gestione API
+title: Proteggere il back-end di un&quot;API Web con Azure Active Directory e Gestione API | Documentazione Microsoft
 description: Informazioni su come proteggere il back-end di un&quot;API Web con Azure Active Directory e Gestione API.
 services: api-management
 documentationcenter: 
@@ -12,12 +12,12 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: a7ff82a47b4e972db96929acb47fcce760b244b3
-ms.openlocfilehash: 727fdb9a53fe1dec189018e12f42ba7515e6fb54
-
+ms.sourcegitcommit: 690f820b3beb6b7d5d68732b94470602a92e9268
+ms.openlocfilehash: bf0d72f97a32771f86bdff62029fb43e279b6842
+ms.lasthandoff: 02/23/2017
 
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Come proteggere il back-end di un'API Web con Azure Active Directory e Gestione API
@@ -513,7 +513,7 @@ Per un'altra dimostrazione relativa alla configurazione e all'uso di questi crit
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sui [video](https://azure.microsoft.com/documentation/videos/index/?services=api-management) relativi a Gestione API.
-* Per altri metodi di protezione del servizio back-end, vedere [Come proteggere i servizi back-end usando l'autenticazione reciproca dei certificati](api-management-howto-mutual-certificates.md) e [Come configurare connessioni VPN o ExpressRoute](api-management-howto-setup-vpn.md).
+* Per altri metodi di protezione del servizio back-end, vedere [Come proteggere i servizi back-end usando l'autenticazione reciproca dei certificati](api-management-howto-mutual-certificates.md).
 
 [api-management-management-console]: ./media/api-management-howto-protect-backend-with-aad/api-management-management-console.png
 
@@ -563,9 +563,4 @@ Per un'altra dimostrazione relativa alla configurazione e all'uso di questi crit
 
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 [Manage your first API]: api-management-get-started.md
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

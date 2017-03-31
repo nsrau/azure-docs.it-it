@@ -18,6 +18,7 @@ ms.author: mandia
 translationtype: Human Translation
 ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
 ms.openlocfilehash: 60c1d307ede5d66f8e92b048581148d6c7112dac
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -396,10 +397,5 @@ La tabella seguente riporta le risposte alle azioni e ai trigger e le descrizion
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). Esplorare gli altri connettori disponibili nelle app per la logica nell' [elenco delle API](apis-list.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

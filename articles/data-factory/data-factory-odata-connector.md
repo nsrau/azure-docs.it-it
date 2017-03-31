@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 03/13/2017
 ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: 4521a236bfc13e6aca7e13e7400c11d353bc3a66
 ms.openlocfilehash: 9c385adfa3da73bef2d05352049d1f71aa5c5847
+ms.lasthandoff: 12/09/2016
 
 
 ---
@@ -51,6 +52,7 @@ L'esempio copia i dati dall'esecuzione di query su un'origine OData a un BLOB di
 
 **Servizio collegato OData**: questo esempio usa l'autenticazione anonima. Per i diversi tipi di autenticazione disponibili, vedere la sezione [Servizio collegato OData](#odata-linked-service-properties) .
 
+```json
     {
         "name": "ODataLinkedService",
            "properties":
@@ -63,10 +65,11 @@ L'esempio copia i dati dall'esecuzione di query su un'origine OData a un BLOB di
                }
            }
     }
-
+```
 
 **Servizio collegato Archiviazione di Azure**
 
+```json
     {
           "name": "AzureStorageLinkedService",
         "properties": {
@@ -76,11 +79,13 @@ L'esempio copia i dati dall'esecuzione di query su un'origine OData a un BLOB di
             }
           }
     }
+```
 
 **Set di dati di input OData**
 
 Impostando "external" su "true" si comunica al servizio Data Factory che il set di dati è esterno alla data factory e non è prodotto da un'attività al suo interno.
 
+```json
     {
         "name": "ODataDataset",
         "properties":
@@ -104,6 +109,7 @@ Impostando "external" su "true" si comunica al servizio Data Factory che il set 
             }
         }
     }
+```
 
 La specifica di **path** nella definizione del set di dati è facoltativa.
 
@@ -111,6 +117,7 @@ La specifica di **path** nella definizione del set di dati è facoltativa.
 
 I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella per il BLOB viene valutato dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, giorno e ora dell'ora di inizio.
 
+```json
     {
         "name": "AzureBlobODataDataSet",
         "properties": {
@@ -164,13 +171,14 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
             }
         }
     }
-
+```
 
 
 **Pipeline con attività di copia**
 
 La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **RelationalSource** e il tipo di **sink** è impostato su **BlobSink**. La query SQL specificata per la proprietà **query** seleziona i dati più recenti dall'origine OData.
 
+```json
     {
         "name": "CopyODataToBlob",
         "properties": {
@@ -214,7 +222,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
             "end": "2016-02-03T19:00:00Z"
         }
     }
-
+```
 
 La specifica di **query** nella definizione della pipeline è facoltativa. L' **URL** è che il servizio Data Factory usa per recuperare i dati è il seguente: URL specificato nel servizio collegato (obbligatorio) + percorso specificato nel set di dati (facoltativo) + query nella pipeline (facoltativa).
 
@@ -232,6 +240,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | gatewayName |Nome del gateway che il servizio Data Factory deve usare per connettersi al servizio OData locale. Specificare solo se si copiano dati da un'origine OData locale. |No |
 
 ### <a name="using-basic-authentication"></a>Uso dell'autenticazione di base
+```json
     {
         "name": "inputLinkedService",
         "properties":
@@ -246,8 +255,10 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
            }
        }
     }
+```
 
 ### <a name="using-anonymous-authentication"></a>Uso dell'autenticazione anonima
+```json
     {
         "name": "ODataLinkedService",
            "properties":
@@ -260,8 +271,10 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
            }
        }
     }
+```
 
 ### <a name="using-windows-authentication-accessing-on-premises-odata-source"></a>Uso dell'autenticazione di Windows per accedere all'origine OData locale
+```json
     {
         "name": "inputLinkedService",
         "properties":
@@ -277,8 +290,10 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
            }
        }
     }
+```
 
 ### <a name="using-oauth-authentication-accessing-cloud-odata-source"></a>Uso dell'autenticazione OAuth per accedere all'origine OData cloud
+```json
     {
         "name": "inputLinkedService",
         "properties":
@@ -286,12 +301,13 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
             "type": "OData",
                "typeProperties":
             {
-               "url": "<endpoint of cloud OData source e.g. https://<tenant>.crm.dynamics.com/XRMServices/2011/OrganizationData.svc">",
+               "url": "<endpoint of cloud OData source e.g. https://<tenant>.crm.dynamics.com/XRMServices/2011/OrganizationData.svc>",
                "authenticationType": "OAuth",
                "authorizedCredential": "<auto generated by clicking the Authorize button on UI>"
            }
        }
     }
+```
 
 ## <a name="odata-dataset-type-properties"></a>Proprietà del tipo di set di dati OData
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
@@ -329,9 +345,4 @@ Quando i dati vengono spostati da archivi OData, i tipi di dati OData vengono ma
 
 ## <a name="performance-and-tuning"></a>Ottimizzazione delle prestazioni
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

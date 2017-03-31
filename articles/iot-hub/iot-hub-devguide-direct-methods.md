@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 ms.author: nberdy
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: fc2d81ce5d1562bcc71584626d8e45a2d788b2e3
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: ce7860e291c71e825561caf3ee7eafe904101799
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="direct-methods"></a>Metodi diretti
+# <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Comprendere e richiamare metodi diretti dall'hub IoT
 ## <a name="overview"></a>Panoramica
 L'hub IoT offre la possibilità di richiamare metodi diretti nei dispositivi dal cloud. I metodi diretti rappresentano un'interazione di tipo richiesta-risposta con un dispositivo simile a una chiamata HTTP, dato che dopo il timeout specificato dall'utente l'esito positivo o negativo viene comunicato immediatamente. Questo risulta utile in scenari in cui l'azione immediata da intraprendere varia a seconda che il dispositivo sia riuscito o meno a rispondere. Un esempio è rappresentato dall'invio di un SMS di riattivazione a un dispositivo offline, in cui l'invio di un SMS ha un costo maggiore rispetto a una chiamata a un metodo.
 
@@ -43,7 +45,9 @@ I metodi diretti vengono implementati nel dispositivo. Per creare correttamente 
 
 I metodi diretti sono sincroni e possono solo avere esito positivo o negativo dopo il periodo di timeout. Il valore predefinito è 30 secondi, ma il valore massimo impostabile è 3600 secondi. Risultano utili negli scenari interattivi in cui si vuole che il dispositivo agisca esclusivamente se è online e riceve comandi, ad esempio nel caso dell'accensione di una luce da un telefono. In questi scenari l'esito positivo o negativo deve essere immediato, in modo che il servizio cloud possa agire in base al risultato il prima possibile. Il dispositivo può restituire un corpo del messaggio come risultato del metodo, ma non è necessario che il metodo esegua questa operazione. Nelle chiamate ai metodi non esiste alcuna garanzia di ordinamento o semantica di concorrenza.
 
-Le chiamate ai metodi dei dispositivi sono solo HTTP dal lato cloud e solo MQTT dal lato dispositivo.
+I metodi diretti supportano solo HTTP lato cloud e solo MQTT lato dispositivo.
+
+Il payload per le richieste e le risposte del metodo è un documento JSON con dimensioni massime di 8 KB.
 
 ## <a name="reference-topics"></a>Argomenti di riferimento:
 Gli argomenti di riferimento seguenti offrono altre informazioni sull'uso dei metodi diretti.
@@ -139,9 +143,4 @@ Per provare alcuni dei concetti descritti in questo articolo, può essere utile 
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 [lnk-devguide-messages]: iot-hub-devguide-messaging.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

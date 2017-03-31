@@ -1,23 +1,23 @@
 ---
 title: Monitoraggio e gestione di Azure per enti pubblici | Microsoft Docs
 description: "Fornisce un confronto delle funzionalità e alcune linee guida sullo sviluppo di applicazioni per Azure per enti pubblici."
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: 
 ms.assetid: 4b7720c1-699e-432b-9246-6e49fb77f497
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/31/2016
+ms.date: 3/13/2017
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: 3e460dd2aaf51ef2ba9840513d236ce313320c80
-ms.openlocfilehash: 39a87bdbef7c532f9e50f1e71e9c12797bc9a33c
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 4d7de786dc902cb1c32e70a1f69bc74282de44f1
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -39,42 +39,38 @@ Backup è disponibile a livello generale in Azure per enti pubblici.
 
 Per altre informazioni, vedere [Azure Government Backup](documentation-government-services-backup.md) (Backup di Azure per enti pubblici).
 
-### <a name="variations"></a>Varianti
-Le funzionalità di Backup seguenti non sono attualmente disponibili in Azure per enti pubblici:
+## <a name="resource-policy"></a>Criteri delle risorse
 
-* Insieme di credenziali di Azure Resource Manager
-* Gestione tramite il Portale di Azure (è supportato il portale di Azure classico)
-
-Gli URL per Backup sono diversi in Azure per enti pubblici:
+I [criteri delle risorse di Azure](../azure-resource-manager/resource-manager-policy.md) non sono disponibili in Azure per enti pubblici.
 
 ## <a name="site-recovery"></a>Site Recovery
-Site Recovery (ASR) è disponibile a livello generale in Azure per enti pubblici.
+Azure Site Recovery è disponibile a livello generale in Azure per enti pubblici.
 
 Per altre informazioni, vedere la [documentazione pubblica su Site Recovery](../site-recovery/site-recovery-overview.md).
 
 ### <a name="variations"></a>Varianti
 Le funzionalità di Site Recovery seguenti non sono attualmente disponibili in Azure per enti pubblici:
 
-* Insieme di credenziali per il ripristino sito di Azure Resource Manager
+* Insieme di credenziali per Site Recovery per Azure Resource Manager
+* Notifica tramite posta elettronica
 
-| Site Recovery | Classico | Gestione risorse | 
+| Site Recovery | Classico | Gestione risorse |
 | --- | --- | --- |
-| Server fisico/VMware  | GA | Pianificata |
-| Hyper-V | GA | Pianificata |
-| Da sito a sito | GA | Pianificata |
+| Server fisico/VMware  | GA | GA |
+| Hyper-V | GA | GA |
+| Da sito a sito | GA | GA |
 
-Note: la tabella è applicabile alla Virginia e allo Iowa. 
+>[!NOTE]
+>La tabella è valida per US Gov Virginia e US Gov Iowa.
 
-Gli URL per Azure Site Recovery sono diversi in Azure per enti pubblici:
+Gli URL per Site Recovery sono diversi in Azure per enti pubblici:
 
 | Azure Public | Azure Government | Note |
 | --- | --- | --- |
-| *.hypervrecoverymanager.windowsazure.com | *.hypervrecoverymanager.windowsazure.us | Accesso al servizio Site Recovery |
-| *. backup.windowsazure.com  | *.backup.windowsazure.us | Accesso al servizio di protezione |
-| *.blob.core.windows.net | *.blob.core.usgovcloudapi.net | Per l'archiviazione di snapshot di VM |
+| \*.hypervrecoverymanager.windowsazure.com | \*.hypervrecoverymanager.windowsazure.us | Accesso al servizio Site Recovery |
+| \*.backup.windowsazure.com  | \*.backup.windowsazure.us | Accesso al servizio di protezione |
+| \*.blob.core.windows.net | \*.blob.core.usgovcloudapi.net | Per l'archiviazione di snapshot di VM |
 | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | Per scaricare MySQL |
-
-
 
 ## <a name="log-analytics"></a>Log Analytics
 Log Analytics è disponibile a livello generale in Azure per enti pubblici.
@@ -84,7 +80,7 @@ Le funzionalità e le soluzioni di Log Analytics seguenti non sono attualmente d
 
 * Soluzioni in anteprima in Microsoft Azure, tra cui:
   * Soluzione di monitoraggio della rete
-  * Soluzione Application Dependency Monitor
+  * Elenco dei servizi
   * Soluzioni di Office 365
   * Soluzione di analisi di aggiornamento di Windows 10
   * Soluzione Application Insights
@@ -92,8 +88,6 @@ Le funzionalità e le soluzioni di Log Analytics seguenti non sono attualmente d
   * Soluzione Log Analytics per Automazione di Azure
   * Soluzione Log Analytics per l'insieme di credenziali delle chiavi
 * Soluzioni e funzionalità che richiedono aggiornamenti del software locale, tra cui:
-  * Integrazione con System Center Operations Manager 2016. Le versioni precedenti di Operations Manager sono supportate.
-  * Gruppi di computer da System Center Configuration Manager
   * Soluzione Surface Hub
 * Funzionalità in anteprima in Azure pubblico, tra cui:
   * Esportazione di dati in Power BI
@@ -112,12 +106,18 @@ Gli URL per Log Analytics sono diversi in Azure per enti pubblici:
 
 Le funzionalità di Log Analytics seguenti hanno un comportamento diverso in Azure per enti pubblici:
 
-* L'agente Windows deve essere scaricato dal [portale di Log Analytics](https://oms.microsoft.us) per Azure per enti pubblici.
 * Per connettere il server di gestione di System Center Operations Manager a Log Analytics, è necessario scaricare e importare i Management Pack aggiornati.
-  1. Scaricare e salvare i [Management Pack aggiornati](http://go.microsoft.com/fwlink/?LinkId=828749).
-  2. Decomprimere il file scaricato.
-  3. Importare i Management Pack in Operations Manager. Per informazioni su come importare un Management Pack da un disco, vedere [Come importare un Management Pack di Operations Manager](http://technet.microsoft.com/library/hh212691.aspx) nel sito Web Microsoft TechNet.
-  4. Per connettere Operations Manager a Log Analytics, seguire i passaggi in [Connettere Operations Manager a Log Analytics](../log-analytics/log-analytics-om-agents.md).
+  + System Center Operations Manager 2016
+    1. Installare l'[aggiornamento cumulativo 2 per System Center Operations Manager 2016](https://support.microsoft.com/help/3209591).
+    2. Importare i management pack inclusi nell'aggiornamento cumulativo 2 in Operations Manager. Per informazioni su come importare un Management Pack da un disco, vedere [Come importare un Management Pack di Operations Manager](http://technet.microsoft.com/library/hh212691.aspx).
+    3. Per connettere Operations Manager a Log Analytics, seguire i passaggi in [Connettere Operations Manager a Log Analytics](../log-analytics/log-analytics-om-agents.md).
+  + System Center Operations Manager 2012 R2 UR3 (o versione successiva)/Operations Manager 2012 SP1 UR7 (o versione successiva)
+    1. Scaricare e salvare i [Management Pack aggiornati](http://go.microsoft.com/fwlink/?LinkId=828749).
+    2. Decomprimere il file scaricato.
+    3. Importare i Management Pack in Operations Manager. Per informazioni su come importare un Management Pack da un disco, vedere [Come importare un Management Pack di Operations Manager](http://technet.microsoft.com/library/hh212691.aspx).
+    4. Per connettere Operations Manager a Log Analytics, seguire i passaggi in [Connettere Operations Manager a Log Analytics](../log-analytics/log-analytics-om-agents.md).
+  
+* Per usare i [gruppi di computer da System Center Configuration Manager 2016](../log-analytics/log-analytics-sccm.md), è necessario usare [Technical Preview 1701](https://docs.microsoft.com/en-us/sccm/core/get-started/technical-preview) o versione successiva.
 
 ### <a name="frequently-asked-questions"></a>Domande frequenti
 * È possibile eseguire la migrazione di dati da Log Analytics in Microsoft Azure ad Azure per enti pubblici?
@@ -127,21 +127,6 @@ Le funzionalità di Log Analytics seguenti hanno un comportamento diverso in Azu
 
 Per altre informazioni, vedere la [documentazione pubblica su Log Analytics](../log-analytics/log-analytics-overview.md).
 
-## <a name="site-recovery"></a>Site Recovery
-Site Recovery è disponibile a livello generale in Azure per enti pubblici.
-
-Per altre informazioni, vedere la [documentazione pubblica su Site Recovery](../site-recovery/site-recovery-overview.md).
-
-### <a name="variations"></a>Varianti
-Le funzionalità di Site Recovery seguenti non sono attualmente disponibili in Azure per enti pubblici:
-
-* Insieme di credenziali per il ripristino sito di Azure Resource Manager
-
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni aggiuntive e aggiornamenti, sottoscrivere il <a href="https://blogs.msdn.microsoft.com/azuregov/">blog di Microsoft Azure per enti pubblici. </a>
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
-ms.openlocfilehash: 668f6ab0d5c09d53edd85b568cc8c9941b2f9135
+ms.sourcegitcommit: 79004e91c9e22b085b04e446999d4efe05426436
+ms.openlocfilehash: 512c4dc5f77d5f730720909628364c5c9d8b3174
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -41,6 +42,10 @@ Il frammento di codice C# seguente mostra come creare un processo di esportazion
 // Call an export job on the IoT Hub to retrieve all devices
 JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasUri, false);
 ```
+
+> [!NOTE]
+> Per usare la classe il **RegistryManager** nel codice c#, aggiungere il pacchetto NuGet **Microsoft.Azure.Devices** al progetto. La classe **RegistryManager** si trova nello spazio dei nomi **Microsoft.Azure.Devices**.
+
 
 È quindi possibile usare la classe **RegistryManager** per eseguire query sullo stato del **processo** usando i metadati di **JobProperties** restituiti.
 
@@ -355,9 +360,4 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

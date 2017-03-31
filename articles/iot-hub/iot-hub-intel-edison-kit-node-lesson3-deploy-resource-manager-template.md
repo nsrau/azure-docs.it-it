@@ -1,5 +1,5 @@
 ---
-title: Creare un&quot;app per le funzioni di Azure e un account di archiviazione di Azure | Microsoft Docs
+title: 'Connettere Intel Edison (Node) ad Azure IoT: lezione 3: Creare l&quot;app per le funzioni | Documentazione Microsoft'
 description: L&quot;app per le funzioni di Azure rimane in ascolto degli eventi dell&quot;hub IoT di Azure, elabora i messaggi in ingresso e li scrive nell&quot;archiviazione tabelle di Azure.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: f45b3bf00d619376ac07418f0c02eca5f3241939
-ms.openlocfilehash: 2a0471afe0be575405bcc8d542c2f1dec6e309a2
+ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
+ms.openlocfilehash: 72d1496fcf353662fa2f7b003ee3757c45b8181e
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -82,8 +83,3 @@ Per creare queste risorse sono necessari circa cinque minuti. Mentre è in corso
 [arm-template-parameters]: media/iot-hub-intel-edison-lessons/lesson3/arm_para.png
 [created-your-iot-hub-and-registered-intel-edison]: iot-hub-intel-edison-kit-node-lesson2-prepare-azure-iot-hub.md
 [send-device-to-cloud-messages]: iot-hub-intel-edison-kit-node-lesson3-run-azure-blink.md
-
-
-<!--HONumber=Dec16_HO2-->
-
-

@@ -9,9 +9,9 @@
     Questa interfaccia consente alle istanze con supporto di RDMA di comunicare tra loro attraverso una rete InfiniBand che opera a velocità FDR per macchine virtuali H16r e H16mr e a velocità QDR per macchine virtuali A8 e A9. Le funzionalità RDMA esposte in queste macchine virtuali possono aumentare la scalabilità e le prestazioni di alcune applicazioni Linux e Windows Message Passing Interface (MPI). Per conoscere i requisiti, vedere la sezione [Accesso alla rete RDMA](#access-to-the-rdma-network) in questo articolo.
 
 ## <a name="deployment-considerations"></a>Considerazioni sulla distribuzione
-* **Sottoscrizione di Azure** : se si prevede di distribuire numerose istanze a elevato utilizzo di calcolo, prendere in considerazione una sottoscrizione con pagamento in base al consumo o altre opzioni di acquisto. Con un [account gratuito di Azure](https://azure.microsoft.com/free/)è possibile usare solo un numero limitato di core di calcolo di Azure.
+* **Sottoscrizione di Azure**: per distribuire numerose istanze a elevato utilizzo di calcolo, prendere in considerazione una sottoscrizione con pagamento in base al consumo o altre opzioni di acquisto. Con un [account gratuito di Azure](https://azure.microsoft.com/free/)è possibile usare solo un numero limitato di core di calcolo di Azure.
 * **Prezzi e disponibilità** : le dimensioni di VM a elevato uso di calcolo sono offerte solo con il piano tariffario Standard. Per informazioni sulla disponibilità nelle aree di Azure, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/) . 
-* **Quota di core** : può essere necessario aumentare la quota di core nella sottoscrizione di Azure dal valore predefinito di 20 core per sottoscrizione,se si usa il modello di distribuzione classica, o 20 core per area, se si usa il modello di distribuzione Resource Manager. La sottoscrizione può anche limitare il numero di core che è possibile distribuire in alcune famiglie di dimensioni di VM, inclusa la serie H. Per richiedere un aumento della quota, è possibile [aprire una richiesta di assistenza clienti online](../articles/azure-supportability/how-to-create-azure-support-request.md) senza alcun addebito. I limiti predefiniti possono variare in base alla categoria della sottoscrizione.
+* **Quota di core**: potrebbe essere necessario aumentare la quota di core nella sottoscrizione di Azure rispetto al valore predefinito. La sottoscrizione può anche limitare il numero di core che è possibile distribuire in alcune famiglie di dimensioni di macchina virtuale, inclusa la serie H. Per richiedere un aumento della quota, è possibile [aprire una richiesta di assistenza clienti online](../articles/azure-supportability/how-to-create-azure-support-request.md) senza alcun addebito. I limiti predefiniti possono variare in base alla categoria della sottoscrizione.
   
   > [!NOTE]
   > Se si hanno esigenze di capacità su larga scala, contattare il supporto di Azure. Le quote di Azure sono limiti di credito e non garanzie di capacità. A prescindere dalla quota, viene addebitato solo l'uso dei core effettivamente impiegati.
@@ -21,9 +21,4 @@
 * **Servizio cloud o set di disponibilità** : per usare la rete RDMA di Azure, distribuire le VM con supporto di RDMA nello stesso servizio cloud, se si usa il modello di distribuzione classica, o nello stesso set di disponibilità, se si usa il modello di distribuzione Azure Resource Manager. Se si usa Azure Batch, le VM con supporto di RDMA devono trovarsi nello stesso pool.
 * **Ridimensionamento** : a causa dell'hardware specializzato usato nelle istanze a elevato uso di calcolo, è possibile ridimensionare solo le istanze a elevato uso di calcolo all'interno della stessa famiglia di dimensioni (serie H o serie A a elevato uso di calcolo). Ad esempio, è possibile ridimensionare una VM della serie H solo da una dimensione della serie H a un'altra. Inoltre, non è supportato il ridimensionamento da una dimensione non a elevato uso di calcolo.  
 * **Spazio degli indirizzi della rete RDMA** : la rete RDMA in Azure riserva lo spazio degli indirizzi 172.16.0.0/16. Per eseguire applicazioni MPI in istanze distribuite in una rete virtuale di Azure, assicurarsi che lo spazio degli indirizzi di rete virtuale non si sovrapponga alla rete RDMA.
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

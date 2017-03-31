@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.date: 07/31/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: d3456b190d78560dc9380d5ecb56e0e82006e2ea
-ms.openlocfilehash: 209446ae6b1a4f951bc141d95ff481f2f5ab43b0
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 821be267a109bdcb1a1d22107f0ab4c469e6d6aa
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -53,7 +54,7 @@ Per simulare l'interruzione è possibile disabilitare l'applicazione web o la ma
 
 #### <a name="recovery"></a>Ripristino
 * Assicurarsi che la configurazione dell'applicazione nell'area DR punti al database secondario precedente, che diventerà un nuovo database primario completamente accessibile.
-* Eseguire [failover pianificato](sql-database-geo-replication-failover-powershell.md#initiate-a-planned-failover) per rendere il database secondario un nuovo database primario
+* Eseguire [failover pianificato](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) per rendere il database secondario un nuovo database primario
 * Seguire la guida [Configurare un database dopo il ripristino](sql-database-disaster-recovery.md) per completare il ripristino.
 
 #### <a name="validation"></a>Convalida
@@ -64,9 +65,4 @@ Per simulare l'interruzione è possibile disabilitare l'applicazione web o la ma
 * Per informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQL](sql-database-automated-backups.md)
 * Per altre informazioni sull'uso dei backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md)
 * Per altre informazioni sulle opzioni di ripristino più veloci, vedere [Panoramica: Replica geografica attiva per il database SQL di Azure](sql-database-geo-replication-overview.md)  
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

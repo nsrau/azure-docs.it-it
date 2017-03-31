@@ -17,6 +17,7 @@ ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 33b036537211e3bdeacba7f388aca334404385cb
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -36,9 +37,4 @@ ms.openlocfilehash: 33b036537211e3bdeacba7f388aca334404385cb
 * [Rimuovere l'assegnazione di un utente o un gruppo da un'app aziendale](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [Disabilitare l'accesso degli utenti per un'app aziendale](active-directory-coreapps-disable-app-azure-portal.md)
 * [Modificare il nome o il logo di un'app aziendale](active-directory-coreapps-change-app-logo-user-azure-portal.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning | Microsoft Docs
+title: Utilizzare il portale dei servizi Web di Azure Machine Learning | Documentazione Microsoft
 description: Gestione dell&quot;accesso alle aree di lavoro di Azure Machine Learning e distribuzione e gestione dei servizi Web API ML
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 02/28/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3b04aa7406f44130deb4f12c856b459369301449
+ms.sourcegitcommit: 1029c7e4c6a17ad2a290ff0783fc88692555b255
+ms.openlocfilehash: ad1314aa4b504bd2cb3285789073d4f1de1f545d
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -32,6 +33,19 @@ Nel portale dei servizi Web di Azure Machine Learning è possibile:
 * Aggiungere ed eliminare gli endpoint (solo servizi classici)
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
+## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Autorizzazioni per gestire i nuovi servizi Web basati su Resource Manager
+
+I nuovi servizi Web vengono distribuiti come risorse di Azure. Di conseguenza, è necessario disporre delle autorizzazioni corrette per distribuire e gestire i nuovi servizi Web.  Per distribuire o gestire i nuovi servizi Web è necessario che all'utente sia assegnato un ruolo di collaboratore o di amministratore nella sottoscrizione in cui viene distribuito il servizio Web. Se si invita un altro utente a un'area di lavoro di Machine Learning, è necessario assegnargli un ruolo di collaboratore o amministratore della sottoscrizione prima di poter distribuire o gestire i servizi Web. 
+
+Se l'utente non dispone delle autorizzazioni corrette per accedere alle risorse nel portale dei servizi Web di Azure Machine Learning, riceverà l'errore seguente quando cercherà di distribuire un servizio Web:
+
+*Web Service deployment failed. This account does not have sufficient access to the Azure subscription that contains the Workspace. In order to deploy a Web Service to Azure, the same account must be invited to the Workspace and be given access to the Azure subscription that contains the Workspace.* (Distribuzione del servizio Web non riuscita. L'account non dispone dei diritti di accesso sufficienti per accedere alla sottoscrizione di Azure che contiene l'area di lavoro. Per distribuire un servizio Web in Azure, è necessario che lo stesso account sia invitato all'area di lavoro e che gli sia assegnato l'accesso alla sottoscrizione di Azure contenente l'area di lavoro).
+
+Per altre informazioni sulla creazione di un'area di lavoro, vedere [Creare e condividere un'area di lavoro di Azure Machine Learning](machine-learning-create-workspace.md).
+
+Per altre informazioni sull'impostazione delle autorizzazioni di accesso, vedere [Visualizzare le assegnazioni di accesso per utenti e gruppi nel Portale di Azure - Anteprima pubblica](../active-directory/role-based-access-control-manage-assignments.md).
+
 
 ## <a name="manage-new-web-services"></a>Gestire i nuovi servizi Web
 Per gestire i nuovi servizi Web:
@@ -174,10 +188,5 @@ Per gestire account aggiuntivi che hanno accesso all'area di lavoro in Machine L
 > Il link all’ **Accesso a ML Studio** consente di aprire Machine Learning Studio usando l'account Microsoft con cui è stato eseguito l'accesso. L'account Microsoft usato per accedere al portale di Azure classico per creare un'area di lavoro non è automaticamente autorizzato ad aprire tale area di lavoro. Per aprire un'area di lavoro, è necessario essere connessi con l'account Microsoft definito come proprietario dell'area di lavoro oppure ricevere un invito dal proprietario per partecipare all'area di lavoro.
 > 
 > 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

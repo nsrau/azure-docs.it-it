@@ -1,11 +1,24 @@
 ---
-layout: LandingPage
+title: Documentazione di App per la logica di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come sviluppare app per la logica in grado di automatizzare e semplificare i flussi di lavoro aziendali nel cloud e in locale. Esercitazioni, modelli e informazioni di riferimento sulle API.
+services: logic-apps
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: logic-apps
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: abebff15a5385bfc3ef046923927bb74a6ee6ace
-ms.openlocfilehash: c19b7e4ecfa67f54f34fac11dc6d23a843e27232
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: a942b83d1089667a5a9960bfbba849bd243746ec
+ms.lasthandoff: 03/17/2017
 
 ---
+
 # <a name="logic-apps-documentation"></a>Documentazione di App per la logica
 
 Informazioni su come sviluppare app per la logica in grado di semplificare e integrare flussi di lavoro scalabili nel cloud. Esercitazioni, modelli e informazioni di riferimento sulle API in cui viene illustrato come progettare e distribuire flussi di lavoro aziendali automatizzati, nel cloud e in locale.
@@ -124,6 +137,19 @@ Informazioni su come sviluppare app per la logica in grado di semplificare e int
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
+                        <h3>Schemi</h3>
+                        <p><a href="/azure/logic-apps/logic-apps-workflow-definition-language">Linguaggio di definizione del flusso di lavoro</a></p>
+                        <p><a href="/azure/logic-apps/logic-apps-workflow-actions-triggers">Azioni e trigger del flusso di lavoro</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
                         <h3>Cronologia degli schemi</h3>
                         <p><a href="/azure/logic-apps/logic-apps-schema-2016-04-01">Disponibilità generale</a></p>
                         <p><a href="/azure/logic-apps/logic-apps-schema-2015-08-01">Anteprima</a></p>
@@ -146,10 +172,5 @@ Informazioni su come sviluppare app per la logica in grado di semplificare e int
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

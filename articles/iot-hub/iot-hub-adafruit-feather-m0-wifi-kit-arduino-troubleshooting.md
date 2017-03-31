@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi dello starter kit di Azure IoT per Adafruit Feather M0 WiFi | Documentazione Microsoft
+title: 'Connettere Arduino (C) ad Azure IoT: risolvere i problemi | Documentazione Microsoft'
 description: Pagina sulla risoluzione dei problemi per l&quot;esperienza Arduino in Adafruit Feather M0 WiFi
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 5d7eed340d2021c58f68c69100be5a9e13655146
-ms.openlocfilehash: 21ded74f54f71865d6480d8b29dc225a2b18e958
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 448dc0370014ad295ed820d796f7af2eb5fe698e
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -107,8 +108,3 @@ Un'interfaccia della riga di comando completa consente di creare e gestire tutte
 <!-- Images and links -->
 
 [sample-repository]: https://github.com/Azure/azure-cli/blob/master/doc/preview_install_guide.md
-
-
-<!--HONumber=Jan17_HO2-->
-
-

@@ -2,7 +2,6 @@
 title: Risolvere i problemi del gateway di gestione dati | Documentazione Microsoft
 description: Questo articolo offre suggerimenti per risolvere i problemi correlati al gateway di gestione dati.
 services: data-factory
-documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
@@ -14,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2017
 ms.author: jingwang
+published: true
 translationtype: Human Translation
-ms.sourcegitcommit: 03e15660e04e192d9035c25f1a8030310413c118
-ms.openlocfilehash: 738fcd1e2b33bf072f004eb95265ed87e6e931c0
-
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: d04bf7c5a457b90c5128050642bee6a2623787a0
+ms.lasthandoff: 03/29/2017
 
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Risolvere i problemi nell'uso del gateway di gestione dati
@@ -40,7 +40,7 @@ Il computer in cui si prova a installare il gateway non è riuscito a scaricare 
 #### <a name="resolution"></a>Risoluzione
 Verificare se nel firewall del server proxy sono presenti impostazioni che bloccano la connessione di rete dal computer all'[Area download](https://download.microsoft.com/) e aggiornare le impostazioni di conseguenza.
 
-In alternativa, è possibile scaricare il file di installazione del gateway più recente dall'[Area download](https://www.microsoft.com/en-US/download/details.aspx?id=39717) su altri computer che possono accedere all'area download. Dopo averlo scaricato, copiare il file di installazione nel computer host del gateway ed eseguirlo manualmente per installare e aggiornare il gateway.
+In alternativa, è possibile scaricare il file di installazione del gateway più recente dall'[Area download](https://www.microsoft.com/download/details.aspx?id=39717) su altri computer che possono accedere all'area download. Dopo averlo scaricato, copiare il file di installazione nel computer host del gateway ed eseguirlo manualmente per installare e aggiornare il gateway.
 
 ### <a name="2-problem"></a>2. Problema
 Questo errore viene visualizzato quando si prova a installare un gateway facendo clic su **Installa direttamente in questo computer** nel portale di Azure.
@@ -91,10 +91,12 @@ Durante la registrazione di un gateway può essere visualizzato il messaggio di 
 ![La chiave del gateway non è valida oppure è vuota](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
 
 #### <a name="cause"></a>Causa
-La chiave del gateway è stata rigenerata oppure il gateway è stato eliminato nel portale.
+La chiave del gateway è stata rigenerata oppure il gateway è stato eliminato nel portale di Azure. Il problema può verificarsi anche quando la versione del programma di installazione del Gateway di gestione dati non è la più recente.
 
 #### <a name="resolution"></a>Risoluzione
-Se il gateway esiste ancora, rigenerare la chiave del gateway nel portale e usare il pulsante Copia per copiare la chiave intera. Incollarla nella finestra per registrare il gateway. Altrimenti, ricreare il gateway e ricominciare.
+Controllare che la versione del programma di installazione del Gateway di gestione dati sia la più recente (fare riferimento al [Download Center](https://go.microsoft.com/fwlink/p/?LinkId=271260) di Microsoft).
+
+Se la versione del programma di installazione è quella attuale o la più recente e il gateway è ancora presente sul Portale, rigenerare la chiave del gateway nel Portale di Azure e usare il pulsante Copia per copiare l'intera chiave, quindi incollarla in questa finestra per registrare il gateway. In caso contrario ricreare il gateway e ricominciare.
 
 ### <a name="6-problem"></a>6. Problema
 Durante la registrazione di un gateway può essere visualizzato il messaggio di errore seguente:
@@ -124,7 +126,7 @@ Il gateway è stato registrato in precedenza in altri computer. Durante la regis
 Quando si ripristina il gateway in un computer host diverso, la registrazione guidata richiede questo certificato per decrittografare le credenziali crittografate in precedenza con questo certificato.  Senza questo certificato, le credenziali non possono essere decrittografate dal nuovo gateway e le successive attività di copia associate al nuovo gateway avranno esito negativo.  
 
 #### <a name="resolution"></a>Risoluzione
-Se il certificato delle credenziali è stato esportato dal computer gateway originale con il pulsante **Esporta** disponibile nella scheda** Impostazioni** di Gestione configurazione di Gateway di gestione dati, usare il certificato in quel computer.
+Se il certificato delle credenziali è stato esportato dal computer gateway originale con il pulsante **Esporta** disponibile nella scheda**Impostazioni** di Gestione configurazione di Gateway di gestione dati, usare il certificato in quel computer.
 
 Non è possibile ignorare questo passaggio quando si recupera un gateway. Se il certificato è mancante, è necessario eliminare il gateway dal portale e crearne uno nuovo.  Inoltre, tutti i servizi collegati relativi al gateway devono essere aggiornati immettendo di nuovo le credenziali.
 
@@ -284,9 +286,4 @@ Per informazioni dettagliate sui log del gateway, vedere il registro eventi di W
  Per risolvere i problemi correlati al gateway, cercare gli eventi a livello di errore nel Visualizzatore eventi.
 
 ![Gateway di gestione dati - Log nel Visualizzatore eventi](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

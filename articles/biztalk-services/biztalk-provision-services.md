@@ -15,13 +15,12 @@ ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: a2e289de2719be64a9468cb9b24ff4101b2e93db
+ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
+ms.openlocfilehash: 12606d312ba95d9ef73e988fa4677a8314f9a579
 
 
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Creazione di servizi BizTalk tramite il portale di Azure
-Creazione di servizi BizTalk di Azure nel portale di Azure.
 
 > [!TIP]
 > Per accedere al portale di Azure, è necessario un account Azure e una sottoscrizione di Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Vedere [Versione di valutazione gratuita di Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
@@ -116,7 +115,7 @@ Al termine, viene creato il servizio BizTalk di Azure che sarà disponibile per 
 
 A seconda dello stato del servizio BizTalk, alcune operazioni potrebbero non essere completate. Per un elenco di queste operazioni, vedere [Servizi BizTalk: Tabella degli stati del servizio](biztalk-service-state-chart.md).
 
-## <a name="postprovisioning-steps"></a>Passaggi di post-provisioning
+## <a name="post-provisioning-steps"></a>Passaggi di post-provisioning
 * [Installare il certificato in un computer locale](#InstallCert)
 * [Aggiungere un certificato per l'ambiente di produzione](#AddCert)
 * [Ottenere lo spazio dei nomi ACS](#ACS)
@@ -131,7 +130,7 @@ Come parte del provisioning del servizio BizTalk, un certificato autofirmato vie
    ![Modificare un certificato SSL][QuickGlance]
 5. Fare doppio clic sul certificato ed eseguire la procedura guidata per installarlo. Assicurarsi di installare il certificato nell'archivio **Autorità di certificazione radice attendibili** .
 
-#### <a name="a-nameaddcertaadd-a-productionready-certificate"></a><a name="AddCert"></a>Aggiungere un certificato per l'ambiente di produzione
+#### <a name="a-nameaddcertaadd-a-production-ready-certificate"></a><a name="AddCert"></a>Aggiungere un certificato per l'ambiente di produzione
 Il certificato autofirmato creato automaticamente durante la creazione dei Servizi BizTalk è destinato all'uso solo negli ambienti di sviluppo. Per gli scenari di produzione, è necessario sostituirlo con un certificato di produzione.
 
 1. Nella scheda **Dashboard** fare clic su **Aggiorna certificato SSL**.
@@ -275,6 +274,6 @@ Dopo la creazione del servizio BizTalk, è possibile acquisire familiarità con 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

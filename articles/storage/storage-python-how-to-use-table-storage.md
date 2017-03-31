@@ -170,7 +170,7 @@ A questo punto, dopo avere appreso le nozioni di base dell'archiviazione tabelle
 * [Blog del team di Archiviazione di Azure]
 * [Microsoft Azure Storage SDK per Python]
 
-[Azure Storage Team blog]: http://blogs.msdn.com/b/windowsazurestorage/
+[Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Microsoft Azure Storage SDK per Python]: https://github.com/Azure/azure-storage-python
 
 

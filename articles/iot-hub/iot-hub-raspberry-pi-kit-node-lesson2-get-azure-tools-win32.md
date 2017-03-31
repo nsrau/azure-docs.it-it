@@ -1,5 +1,5 @@
 ---
-title: Ottenere gli strumenti di Azure (Windows 7 e versione successiva) | Documentazione Microsoft
+title: 'Connettere Raspberry Pi (Node) ad Azure IoT: lezione 2: Ottenere gli strumenti (Windows) | Documentazione Microsoft'
 description: Installare Python e l&quot;interfaccia della riga di comando di Azure in Windows 7 e versioni successive.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 7fbf21434952ece22468df6873e10e6f3eae1724
-ms.openlocfilehash: 9fe70cbb905ff45498294abcb2893ffadc70b480
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: b2ed91fa40247f188b5f461439807e0dfa573152
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -71,10 +72,5 @@ Se l'installazione ha esito positivo, verrà visualizzato l'output seguente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Creare l'hub IoT e registrare Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

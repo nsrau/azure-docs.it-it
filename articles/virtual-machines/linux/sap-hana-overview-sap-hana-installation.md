@@ -13,13 +13,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3827e74433a859e65071a1041c5ed6c8253db8df
-ms.openlocfilehash: be17b2de227ef6d93f8d326ff060c3c4788eb622
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: 0d998b5347a9da6dd209b0ba106792ab5c34164d
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="install-sap-hana-on-sap-hana-on-azure-large-instances"></a>Installare SAP HANA in SAP HANA in Azure (istanze di grandi dimensioni)
+# <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Come installare e configurare SAP HANA (istanze di grandi dimensioni) in Azure
 
 L'installazione di SAP HANA è responsabilità dell'utente e può essere eseguita immediatamente dopo la consegna di un nuovo SAP HANA su server di Azure (istanze di grandi dimensioni). Si noti che, in base ai criteri SAP, l'installazione di SAP HANA deve essere eseguita da un installatore certificato SAP HANA, ovvero un utente che ha superato l'esame di certificazione Certified SAP Technology Associate – SAP HANA Installation, o da un integratore di sistemi (SI) SAP.
 
@@ -80,10 +82,5 @@ SAP è molto sensibili alle differenze di orario per i vari componenti che costi
 
 Per SAP HANA in Azure (istanze di grandi dimensioni), la sincronizzazione dell'ora eseguita in Azure non si applica alle unità di calcolo nei timestamp dell'istanza di grandi dimensioni. Questo non vale per l'esecuzione delle applicazioni SAP in modo nativo in Azure (nelle VM), poiché Azure assicura la corretta sincronizzazione dell'ora del sistema. Di conseguenza è necessario configurare un server di riferimento ora separato che possa essere utilizzato dai server applicazioni SAP in esecuzione nelle VM di Azure e dalle istanze di database SAP HANA in esecuzione nelle istanze HANA di grandi dimensioni. L'ora dell'infrastruttura di archiviazione nei timestamp dell'istanza di grandi dimensioni è sincronizzata con i server NTP.
 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

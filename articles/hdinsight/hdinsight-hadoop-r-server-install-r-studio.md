@@ -8,15 +8,17 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 918abb0d-8248-4bc5-98dc-089c0e007d49
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2017
+ms.date: 02/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 2df17cddf629cb72b7fa4d590dfaa69311c96aa4
-ms.openlocfilehash: 8a73f04b0b2d6e308f7b2888ef14d48c50c13ce1
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 970419650e1d3e22637733fdb4fba72ff27f5339
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -42,10 +44,8 @@ In questo articolo si apprenderà come installare la versione Community (gratuit
 
    * Nodo head `CLUSTERNAME-ssh.azurehdinsight.net`
    * Nodo perimetrale `CLUSTERNAME-ed-ssh.azurehdinsight.net` 
-2. SSH nel nodo perimetrale del cluster tramite il modello di denominazione precedente. 
+2. SSH nel nodo perimetrale del cluster tramite il modello di denominazione precedente. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-   * Se ci si connette da un client Linux, vedere [Connettersi a un cluster HDInsight basato su Linux](hdinsight-hadoop-linux-use-ssh-unix.md).
-   * Se ci si connette da un client Windows, vedere [Connettersi a un cluster HDInsight basato su Linux tramite PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md).
 3. Dopo aver eseguito la connessione, diventare un utente radice nel cluster. Nella sessione SSH usare il comando seguente.
 
         sudo su -
@@ -79,7 +79,7 @@ In questo articolo si apprenderà come installare la versione Community (gratuit
        Sostituire **USERNAME** con un utente SSH per il cluster HDInsight e **CLUSTERNAME** con il nome del cluster HDInsight. È anche possibile usare una chiave SSH al posto di una password aggiungendo `-i id_rsa_key`        
    * Se si utilizza un client Windows con PuTTY:
 
-     1. Aprire PuTTY e immettere le informazioni di connessione. Se non si ha familiarità con PuTTY, vedere l'articolo relativo all' [uso di SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md) per informazioni su come usarlo con HDInsight.
+     1. Aprire PuTTY e immettere le informazioni di connessione.
      2. Nella sezione **Category** sul lato sinistro della finestra di dialogo espandere **Connection**, **SSH** e infine selezionare **Tunnels**.
      3. Fornire le seguenti informazioni nel modulo **Options controlling SSH port forwarding** :
 
@@ -112,10 +112,5 @@ In alternativa è possibile digitare `source(testhdi.r)` o `source(testhdi_spark
 ## <a name="see-also"></a>Vedere anche
 * [Opzioni del contesto di calcolo per R Server in cluster HDInsight](hdinsight-hadoop-r-server-compute-contexts.md)
 * [Opzioni di Archiviazione di Azure per R Server su HDInsight](hdinsight-hadoop-r-server-storage.md)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -156,8 +156,3 @@
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=app-service) 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

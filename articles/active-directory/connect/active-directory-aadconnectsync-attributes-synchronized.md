@@ -1,5 +1,5 @@
 ---
-title: 'Servizio di sincronizzazione Azure AD Connect: Attributi sincronizzati con Azure Active Directory | Documentazione Microsoft'
+title: Attributi sincronizzati da Azure AD Connect | Documentazione Microsoft
 description: Fornisce l&quot;elenco degli attributi sincronizzati con Azure Active Directory.
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 01/23/2017
 ms.author: markvi;andkjell
 translationtype: Human Translation
-ms.sourcegitcommit: 2a361774095b20aacff91e9926ead2c1a53b8835
-ms.openlocfilehash: b8ed85dc70d0270884d57db61d81e89cfd2bf582
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 9238141fc56abcb618d71e4bfd1eccb77f282c71
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -32,8 +33,8 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 
 > [!WARNING]
 > Quando si deselezionano gli attributi, prestare grande attenzione e deselezionare soltanto quelli che non devono assolutamente essere sincronizzati. Deselezionando altri attributi si potrebbe influire negativamente sulle funzionalità.
-> 
-> 
+>
+>
 
 ## <a name="office-365-proplus"></a>Office 365 ProPlus
 | Nome attributo | Utente | Commento |
@@ -421,7 +422,7 @@ Se si sceglie di abilitare la distribuzione **ibrida di Exchange**, per questi a
 
 | Nome attributo | Utente | Contatto | Gruppo | Commento |
 | --- |:---:|:---:|:---:| --- |
-| msDS-ExternalDirectoryObjectID |X | | |Derivato da cloudAnchor in Azure AD. Si tratta di un nuovo attributo di Exchange 2016. |
+| msDS-ExternalDirectoryObjectID |X | | |Derivato da cloudAnchor in Azure AD. Si tratta di un nuovo attributo di Exchange 2016 e Windows Server 2016 AD. |
 | msExchArchiveStatus |X | | |Archivio online: consente ai clienti di archiviare la posta elettronica. |
 | msExchBlockedSendersHash |X | | |Filtro: esegue il writeback del filtro locale e dei dati dei mittenti attendibili e bloccati dai client. |
 | msExchSafeRecipientsHash |X | | |Filtro: esegue il writeback del filtro locale e dei dati dei mittenti attendibili e bloccati dai client. |
@@ -458,10 +459,4 @@ Gli oggetti dispositivo vengono creati in Active Directory. Questi oggetti posso
 Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

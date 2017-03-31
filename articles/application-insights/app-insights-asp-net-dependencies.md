@@ -1,21 +1,22 @@
 ---
-title: Rilevamento della dipendenza in Application Insights
+title: Monitoraggio delle dipendenze in Azure Application Insights | Microsoft Docs
 description: "Analizzare l&quot;uso, la disponibilità e le prestazioni dell&quot;applicazione locale o Web di Microsoft Azure con Application Insights."
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: d15c4ca8-4c1a-47ab-a03d-c322b4bb2a9e
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: e2e81139152549eaa40d788c80cfdd2388b2d55d
-ms.openlocfilehash: 3b3a203ce261405ee7392561ffbc19c047c0d370
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 35817adde713995ec82eead033f058ee109bf900
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -34,7 +35,9 @@ Il monitoraggio predefinito delle dipendenze attualmente segnala chiamate ai seg
 * Pagina Web
   * Chiamate AJAX
 
-È anche possibile scrivere chiamate SDK per monitorare altre dipendenze, sia nel codice client che nel codice server, usando l'[API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
+Il monitoraggio funziona tramite l'uso di [strumentazione con codice byte](https://msdn.microsoft.com/library/z9z62c29.aspx) basata su determinati metodo. L'overhead delle prestazioni è minimo.
+
+È anche possibile scrivere chiamate SDK per monitorare altre dipendenze, sia nel codice client che nel codice server, usando l'[API TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency).
 
 ## <a name="set-up-dependency-monitoring"></a>Configurare il monitoraggio delle dipendenze
 Informazioni sulle dipendenze parziali vengono raccolte automaticamente da [Application Insights SDK](app-insights-asp-net.md). Per ottenere dati completi, installare l'agente appropriato per il server host.
@@ -81,7 +84,7 @@ I **numeri di errori** sono visualizzati nel pannello **Errori**. Un errore è u
 ## <a name="ajax-calls"></a>Chiamate AJAX
 Il pannello Browser visualizza la durata e la frequenza di errori delle chiamate AJAX da [JavaScript nelle pagine Web](app-insights-javascript.md). Sono visualizzate come dipendenze.
 
-## <a name="a-namediagnosisa-diagnose-slow-requests"></a><a name="diagnosis"></a> Diagnosticare le richieste lente
+## <a name="diagnosis"></a> Diagnosticare le richieste lente
 Ogni evento di richiesta è associato alle chiamate alle dipendenze, alle eccezioni e ad altri eventi registrati mentre l'app elabora la richiesta. Se quindi alcune richieste non vengono eseguite correttamente, è possibile capire se il problema è causato dalle risposte lente da una dipendenza.
 
 Di seguito è illustrato un esempio.
@@ -172,7 +175,7 @@ Fare clic su un'occorrenza di una richiesta non riuscita ed esaminare gli eventi
 ## <a name="custom-dependency-tracking"></a>Rilevamento personalizzato delle dipendenze
 Il modulo standard per il rilevamento delle dipendenze rileva automaticamente le dipendenze esterne, ad esempio database e API REST. È tuttavia possibile che si vogliano gestire allo stesso modo altri componenti.
 
-È possibile scrivere il codice che invia informazioni sulle dipendenze, mediante la stessa [API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency) usata dai moduli standard.
+È possibile scrivere il codice che invia informazioni sulle dipendenze, mediante la stessa [API TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency) usata dai moduli standard.
 
 Ad esempio, se si compila il codice con un assembly non scritto personalmente, sarà possibile misurare il tempo necessario per tutte le chiamate all'assembly, per individuare il contributo dell'assembly ai tempi di risposta. Per visualizzare i dati nei grafici relativi alle dipendenze in Application Insights, inviarli mediante `TrackDependency`.
 
@@ -202,13 +205,12 @@ Per disattivare il modulo standard per il rilevamento delle dipendenze, rimuover
   * Host IIS: installare l'[agente di Application Insights](app-insights-monitor-performance-live-website-now.md) nei server host.
   * App Web di Azure: aprire la scheda Application Insights nel pannello di controllo dell'app Web e installare Application Insights.
 
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
 ## <a name="next-steps"></a>Passaggi successivi
 * [Eccezioni](app-insights-asp-net-exceptions.md)
 * [Dati utente e di pagina](app-insights-javascript.md)
 * [Disponibilità](app-insights-monitor-web-app-availability.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

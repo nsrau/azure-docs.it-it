@@ -10,14 +10,14 @@ ms.assetid:
 ms.service: sql-database
 ms.custom: servers
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 17e2830dceeaa313dd0fd7d406bf68a75b6f900e
+ms.sourcegitcommit: 79a9e72d29b5522dc3960b79bae7876f21acb4c5
+ms.openlocfilehash: 07181e5d35703cddf8a896badd45e7485c9e07a2
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 17e2830dceeaa313dd0fd7d406bf68a75b6f900e
 Questo argomento fornisce considerazioni e linee guida per l'uso dei server logici di SQL di Azure. Per informazioni sui database SQL di Azure, vedere [Database SQL](sql-database-overview.md).
 
 ## <a name="what-is-an-azure-sql-database-logical-server"></a>Informazioni sul server logico del database SQL di Azure
-Un server logico del database SQL di Azure funge da punto di gestione centrale per più database. Nel database SQL un server è un costrutto logico diverso da un'istanza di SQL Server, familiare al mondo locale. In particolare, il servizio del database SQL non fornisce alcuna garanzia sulla posizione dei database in relazione ai server logici collegati e non espone funzionalità o accessi a livello di istanza. Per altre informazioni sui server logici SQL di Azure, vedere [Logical servers](sql-database-server-overview.md) (Server logici). 
+Un server logico del database SQL di Azure funge da punto di gestione centrale per più database. Nel database SQL un server è un costrutto logico diverso da un'istanza di SQL Server, familiare al mondo locale. In particolare, il servizio del database SQL non fornisce alcuna garanzia sulla posizione dei database in relazione ai server logici collegati e non espone funzionalità o accessi a livello di istanza.  
 
 Un server logico del database di Azure:
 
@@ -42,7 +42,7 @@ Un server logico del database di Azure:
 - Fornisce l'ambito per i criteri di gestione che si applicano ai database: account di accesso, firewall, controllo, rilevamento minacce e così via. 
 - È limitato da una quota nella sottoscrizione padre: sei server per sottoscrizione. Vedere i limiti relativi alle sottoscrizioni [qui](../azure-subscription-service-limits.md).
 - Fornisce l'ambito di una quota del database e DTU per le risorse in che esso contenute, ad esempio 45000 DTU nella versione 12.
-- Rappresenta l'ambito di controllo delle versioni per le funzionalità abilitate sulle risorse contenute: la versione più recente è la versione 12.
+- Rappresenta l'ambito di controllo delle versioni per le funzionalità abilitate sulle risorse contenute: la versione più recente è la versione&12;.
 - Gli account di accesso all'entità a livello di server possono gestire tutti i database in un server
 - Può contenere account di accesso simili a quelli delle istanze di SQL Server in locale che dispongono dell'accesso a uno o più database nel server ed è possibile concedere diritti amministrativi limitati. Per altre informazioni, vedere [Autenticazione e autorizzazione per database SQL: concessione dell'accesso](sql-database-manage-logins.md).
 
@@ -55,7 +55,7 @@ Un server logico del database di Azure:
 
 ## <a name="what-collations-are-supported"></a>Regole di confronto supportate
 
-La regola di confronto del database predefinito usato dal database SQL di Microsoft Azure (che comprende il database master) è **SQL_LATIN1_GENERAL_CP1_CI_AS**, in cui **LATIN1_GENERAL** indica la lingua inglese (Stati Uniti), **CP1** la pagina del codice 1252, **CI** l'assenza di distinzione tra maiuscole e minuscole e **AS** l'assenza di distinzione tra caratteri accentati e non accentati. È sconsigliabile modificare le regole di confronto per i database versione 12 dopo la creazione. Per altre informazioni sulle regole di confronto, vedere [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
+La regola di confronto del database predefinito usato dal database SQL di Microsoft Azure (che comprende il database master) è **SQL_LATIN1_GENERAL_CP1_CI_AS**, in cui **LATIN1_GENERAL** indica la lingua inglese (Stati Uniti), **CP1** la pagina del codice 1252, **CI** l'assenza di distinzione tra maiuscole e minuscole e **AS** l'assenza di distinzione tra caratteri accentati e non accentati. È sconsigliabile modificare le regole di confronto per i database versione&12; dopo la creazione. Per altre informazioni sulle regole di confronto, vedere [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
 
 ## <a name="what-are-the-naming-requirements-for-database-objects"></a>Requisiti di denominazione per oggetti del database
 
@@ -85,6 +85,6 @@ Per informazioni sulle funzionalità supportate, vedere [Azure SQL Database feat
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

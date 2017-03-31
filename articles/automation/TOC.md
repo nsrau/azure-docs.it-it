@@ -1,12 +1,16 @@
 # Panoramica
 ## [Che cos'è Automazione di Azure?](automation-intro.md)
-## [Sicurezza in Automazione di Azure](automation-security-overview.md)
 # Introduzione
 ## [Creare runbook](automation-first-runbook-graphical.md)
 ## [Creare un runbook PowerShell](automation-first-runbook-textual-powershell.md)
 ## [Creare un runbook del flusso di lavoro di PowerShell](automation-first-runbook-textual.md)
 ## [Gestire il controllo degli accessi in base al ruolo](automation-role-based-access-control.md)
 # Procedure
+## Configurare l'autenticazione
+### [Autenticazione in Automazione di Azure](automation-security-overview.md)
+### [Account RunAs di Azure](automation-sec-configure-azure-runas-account.md)
+### [Azure Service Management e Resource Manager](automation-sec-configure-aduser-account.md)
+### [Amazon Web Services](automation-sec-configure-aws-account.md)
 ## Creare runbook
 ### [Tipi di runbook](automation-runbook-types.md)
 ### [Creare e importare runbook](automation-creating-importing-runbook.md)
@@ -26,16 +30,13 @@
 ### [Tenere traccia del processo di un runbook](automation-runbook-execution.md)
 ### [Cambiare le impostazioni dei runbook](automation-runbook-settings.md)
 ### [Gestione dei dati di Automazione di Azure](automation-managing-data.md)
+### [Chiamare un runbook di Automazione di Azure da un avviso di Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
 ## Distribuire la gestione della configurazione (DSC)
-### [Configurazione dello stato desiderato](automation-dsc-overview.md)
-### [Introduzione](automation-dsc-getting-started.md)
+### [Panoramica su DSC (Desired State Configuration)](automation-dsc-overview.md)
+### [Attività iniziali](automation-dsc-getting-started.md)
 ### [Onboarding di computer per la gestione](automation-dsc-onboarding.md)
 ### [Compilazione di configurazioni DSC](automation-dsc-compile.md)
 ### [Distribuzione continua tramite Chocolatey](automation-dsc-cd-chocolatey.md)
-## Configurare l'autenticazione
-### [Azure Service Management e Resource Manager](automation-sec-configure-aduser-account.md)
-### [Amazon Web Services](automation-sec-configure-aws-account.md)
-### [Account Azure RunAs](automation-sec-configure-azure-runas-account.md)
 ## Gestire asset di automazione
 ### [Certificati](automation-certificates.md)
 ### [Connessioni](automation-connections.md)
@@ -43,17 +44,22 @@
 ### [Moduli di integrazione](automation-integration-modules.md)
 ### [Pianificazioni](automation-schedules.md)
 ### [Variabili](automation-variables.md)
+### [Aggiornare i moduli di Azure PowerShell](automation-update-azure-modules.md)
 ## Scenari di automatizzazione
 ### [Raccolta di runbook](automation-runbook-gallery.md)
-### [Avviare/Arrestare macchine virtuali](automation-solution-startstopvm-graphical.md)
-### [Avviare/Arrestare macchine virtuali con PowerShell](automation-solution-startstopvm-psworkflow.md)
 ### [Creare una VM Amazon Web Services](automation-scenario-aws-deployment.md)
 ### [Correggere gli avvisi delle VM di Azure](automation-azure-vm-alert-integration.md)
 ### [Avviare/arrestare una VM con tag JSON](automation-scenario-start-stop-vm-wjson-tags.md)
 ### [Rimuovere i gruppi di risorse](automation-scenario-remove-resourcegroup.md)
 ### [Avviare/arrestare le VM durante gli orari di minore attività](automation-solution-vm-management.md)
 ### [Integrazione del controllo del codice sorgente con GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
-## [Monitorare](automation-manage-send-joblogs-log-analytics.md)
+### [Integrazione del controllo del codice sorgente con VSTS](automation-scenario-source-control-integration-with-VSTS.md)
+## Soluzioni
+### [Rilevamento delle modifiche](../log-analytics/log-analytics-change-tracking.md)
+### [Gestione degli aggiornamenti](../operations-management-suite/oms-solution-update-management.md)
+## Monitorare
+### [Inoltrare dati dei processi di Automazione di Azure a Log Analytics](automation-manage-send-joblogs-log-analytics.md)
+### [Scollegare l'account di automazione di Azure dal Log Analytics](automation-unlink-from-log-analytics.md)
 ## Migrazione
 ### [Eseguire la migrazione dall'agente di orchestrazione](automation-orchestrator-migration.md)
 ### [Spostare l'account di Automazione](automation-migrate-account-subscription.md)
@@ -76,8 +82,3 @@
 ## [Training su Automazione di Azure](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
 ## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Video introduttivo su Automazione](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

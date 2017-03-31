@@ -1,5 +1,5 @@
 ---
-title: Pianificare processi con l&quot;hub IoT di Azure (Node) | Documentazione Microsoft
+title: Pianificare processi con l&quot;hub IoT di Azure (Node) | Microsoft Docs
 description: "Come pianificare un processo dell&quot;hub IoT di Azure per richiamare un metodo diretto su più dispositivi. Usare Azure IoT SDK per Node.js per implementare le app per dispositivi simulati e un&quot;app di servizio per eseguire il processo."
 services: iot-hub
 documentationcenter: .net
@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 4700bdd14f6b826116b919c12c63c8405eff6053
+ms.sourcegitcommit: 48c444bfebf46131503dfeefbcd7365b6979215d
+ms.openlocfilehash: 2f59157f47eb211bc7f7d6542f1a7f77ffb90b41
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -108,7 +109,7 @@ In questa sezione si crea un'app console Node.js che risponde a un metodo dirett
         if (err) {
             console.error('Could not connect to IotHub client.');
         }  else {
-            console.log('Client connected to IoT Hub.  Waiting for reboot direct method.');
+            console.log('Client connected to IoT Hub. Register handler for lockDoor direct method.');
             client.onDeviceMethod('lockDoor', onLockDoor);
         }
     });
@@ -146,7 +147,7 @@ In questa sezione si creerà un'app console Node.js che avvia un **lockDoor** re
    
     ```
     var connectionString = '{iothubconnectionstring}';
-    var deviceArray = ['myDeviceId'];
+    var queryCondition = "deviceId IN ['myDeviceId']";
     var startTime = new Date();
     var maxExecutionTimeInSeconds =  3600;
     var jobClient = JobClient.fromConnectionString(connectionString);
@@ -182,7 +183,7 @@ In questa sezione si creerà un'app console Node.js che avvia un **lockDoor** re
     var methodJobId = uuid.v4();
     console.log('scheduling Device Method job with id: ' + methodJobId);
     jobClient.scheduleDeviceMethod(methodJobId,
-                                deviceArray,
+                                queryCondition,
                                 methodParams,
                                 startTime,
                                 maxExecutionTimeInSeconds,
@@ -215,7 +216,7 @@ In questa sezione si creerà un'app console Node.js che avvia un **lockDoor** re
    
     console.log('scheduling Twin Update job with id: ' + twinJobId);
     jobClient.scheduleTwinUpdate(twinJobId,
-                                deviceArray,
+                                queryCondition,
                                 twinPatch,
                                 startTime,
                                 maxExecutionTimeInSeconds,
@@ -243,7 +244,7 @@ A questo punto è possibile eseguire le applicazioni.
     ```
     node simDevice.js
     ```
-2. Al prompt dei comandi nella cartella **scheduleJobService** eseguire questo comando per attivare il riavvio remoto ed eseguire query in modo che il dispositivo gemello trovi l'ora dell'ultimo riavvio.
+2. Eseguire il comando riportato di seguito al prompt dei comandi nella cartella **scheduleJobService** per attivare i processi per bloccare la porta e aggiornare il dispositivo gemello
    
     ```
     node scheduleJobService.js
@@ -265,12 +266,7 @@ Per altre informazioni sulle attività iniziali con l'hub IoT, vedere [Getting s
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-fwupdate]: iot-hub-node-node-firmware-update.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

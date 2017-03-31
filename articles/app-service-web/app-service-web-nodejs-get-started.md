@@ -4,7 +4,7 @@ description: Informazioni su come distribuire un&quot;applicazione Node.js in un
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: fb2b90c8-02b6-4700-929b-5de9a35d67cc
 ms.service: app-service-web
@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 763e956004f460f2f6d0fa7325a6f6b5fca3fd5a
-ms.openlocfilehash: ab16eb45f86f81af719fcd0a4b65f19576f01f01
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 3405fa7bf960ff1ba4b9f789e5e89f3f75fe96d4
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -34,7 +35,7 @@ Questa esercitazione illustra come creare una semplice applicazione [Node.js] e 
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - [Interfaccia della riga di comando di Azure 1.0](app-service-web-nodejs-get-started-cli-nodejs.md): l'interfaccia della riga di comando per i modelli di distribuzione classici e di gestione delle risorse
-- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](app-service-web-nodejs-get-started.md): l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse
+- [Interfaccia della riga di comando di Azure 2.0](app-service-web-nodejs-get-started.md): l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse
 
 ## <a name="prerequisites"></a>Prerequisiti
 * [Node.js]
@@ -300,9 +301,4 @@ Per abilitare Node-Inspector, seguire questa procedura:
 [iislog-kudu-console-find]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-navigate.png
 [iislog-kudu-console-open]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
 [iislog-kudu-console-read]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

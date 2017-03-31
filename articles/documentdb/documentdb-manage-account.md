@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2016
+ms.date: 02/03/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f38b5d6127897ba2b083e0f3bb41562650214ae9
+ms.sourcegitcommit: 3dbf57923e104715d34d1131d16acb6bc6c51637
+ms.openlocfilehash: ee1668dce71a1f5d7b91e839670b69c9527c4892
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: f38b5d6127897ba2b083e0f3bb41562650214ae9
 Informazioni su come impostare la coerenza globale, usare le chiavi ed eliminare un account DocumentDB nel portale di Azure.
 
 ## <a name="a-idconsistencyamanage-documentdb-consistency-settings"></a><a id="consistency"></a>Gestire le impostazioni di coerenza di DocumentDB
-La scelta del livello di coerenza giusto dipende dalla semantica dell'applicazione. È consigliabile acquisire familiarità con i livelli di coerenza disponibili in DocumentDB leggendo [Uso dei livelli di coerenza per ottimizzare la disponibilità e le prestazioni di DocumentDB][consistency]. DocumentDB offre garanzia su coerenza, disponibilità e prestazioni a ogni livello di coerenza disponibile per l'account di database. La configurazione dell'account di database con un forte livello di coerenza richiede che i dati vengano limitati a una singola area di Azure, senza disponibilità globale. D'altra parte, i livelli di coerenza ampi (obsolescenza associata, sessione o finale) consentono di associare tutte le aree di Azure desiderate con l'account di database. La semplice procedura seguente mostra come selezionare il livello di coerenza predefinito per l'account di database. 
+La scelta del livello di coerenza giusto dipende dalla semantica dell'applicazione. È consigliabile acquisire familiarità con i livelli di coerenza disponibili in DocumentDB leggendo [Utilizzo dei livelli di coerenza per ottimizzare la disponibilità e le prestazioni di DocumentDB][consistency]. DocumentDB offre garanzia su coerenza, disponibilità e prestazioni a ogni livello di coerenza disponibile per l'account di database. La configurazione dell'account di database con un forte livello di coerenza richiede che i dati vengano limitati a una singola area di Azure, senza disponibilità globale. D'altra parte, i livelli di coerenza ampi (obsolescenza associata, sessione o finale) consentono di associare tutte le aree di Azure desiderate con l'account di database. La semplice procedura seguente mostra come selezionare il livello di coerenza predefinito per l'account di database. 
 
 ### <a name="to-specify-the-default-consistency-for-a-documentdb-account"></a>Per specificare la coerenza predefinita per un account DocumentDB
 1. Nel [portale di Azure](https://portal.azure.com/)accedere all'account DocumentDB.
@@ -77,7 +77,7 @@ Se si dispone di applicazioni o servizi cloud che usano l'account DocumentDB e s
 > 
 > 
 
-## <a name="get-the-connection-string"></a>Ottenere la stringa di connessione
+## <a name="get-the--connection-string"></a>Ottenere la stringa di connessione
 Per recuperare la stringa di connessione, eseguire le operazioni seguenti: 
 
 1. Nel [Portale di Azure](https://portal.azure.com) accedere all'account DocumentDB.
@@ -87,12 +87,12 @@ Per recuperare la stringa di connessione, eseguire le operazioni seguenti:
 Se si utilizza la stringa di connessione nello [strumento di migrazione del database di DocumentDB](documentdb-import-data.md), aggiungere il nome del database alla fine della stringa di connessione. `AccountEndpoint=< >;AccountKey=< >;Database=< >`.
 
 ## <a name="a-iddeletea-delete-a-documentdb-account"></a><a id="delete"></a> Eliminare un account DocumentDB
-Per rimuovere un account DocumentDB non più usato dal portale di Azure, usare il comando **Delete account** (Elimina account) nel pannello **DocumentDB account** (Account DocumentDB).
+Per rimuovere un account DocumentDB non più usato dal portale di Azure, fare clic sul nome dell'account e quindi su **Elimina account**.
 
 ![Come eliminare un account di DocumentDB nel portale di Azure](./media/documentdb-manage-account/deleteaccount.png)
 
 1. Nel [portale di Azure](https://portal.azure.com/)accedere all'account DocumentDB da eliminare.
-2. Nel pannello **DocumentDB account** (Account DocumentDB) fare clic su **More** (Altro) e quindi su **Delete account** (Elimina account). In alternativa, fare clic con il pulsante destro del mouse sul nome del database e selezionare **Elimina account**.
+2. Nel pannello **Account DocumentDB** fare clic con il pulsante destro del mouse sull'account e quindi su **Elimina account**. 
 3. Nel pannello di conferma risultante digitare il nome dell'account DocumentDB per confermarne l'eliminazione.
 4. Fare clic sul pulsante **Elimina** .
 
@@ -100,8 +100,6 @@ Per rimuovere un account DocumentDB non più usato dal portale di Azure, usare i
 
 ## <a name="a-idnextanext-steps"></a><a id="next"></a>Passaggi successivi
 Informazioni su come [iniziare a usare l'account DocumentDB](http://go.microsoft.com/fwlink/p/?LinkId=402364).
-
-Per altre informazioni su DocumentDB, vedere la documentazione relativa ad Azure DocumentDB in [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409).
 
 <!--Image references-->
 [1]: ./media/documentdb-manage-account/documentdb_add_region-1.png
@@ -119,6 +117,6 @@ Per altre informazioni su DocumentDB, vedere la documentazione relativa ad Azure
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

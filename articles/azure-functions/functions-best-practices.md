@@ -14,24 +14,27 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/09/2016
-ms.author: wesmc
+ms.date: 02/27/2017
+ms.author: glenga
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4544629c47326d448cd99b5d96d79666a56f0274
-ms.openlocfilehash: 04a5e190a69b1a1a4d0fe6c49c16ddb15593ba38
+ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
+ms.openlocfilehash: 53dcaea155471d47eb61317c52d38524c05e4600
+ms.lasthandoff: 03/01/2017
+
 
 ---
 
-# <a name="best-practices-for-azure-functions"></a>Procedure consigliate per Funzioni di Azure
+# <a name="tips-for-improving-the-performance-and-reliability-of-azure-functions"></a>Suggerimenti per migliorare le prestazioni e l'affidabilità delle funzioni di Azure
 
 ##<a name="overview"></a>Panoramica
 
-Questo articolo offre una raccolta di procedure consigliate da tenere in considerazione quando si implementano app per le funzioni. Ricordare che l'applicazione Funzioni di Azure è un servizio app di Azure. Pertanto, tali procedure consigliate sono valide.
+Questo articolo offre una raccolta di procedure consigliate da tenere in considerazione quando si implementano app per le funzioni. Ricordare che l'app per le funzioni di Azure è un servizio app di Azure. Si applicano pertanto le procedure consigliate per il servizio app.
 
 
 ## <a name="avoid-large-long-running-functions"></a>Evitare funzioni di grandi dimensioni con esecuzione prolungata
 
-Le funzioni con esecuzione prolungata e di grandi dimensioni possono causare problemi di timeout imprevisti. Le dimensioni di una funzione possono essere grandi a causa della presenza di molte dipendenze di Node.js. L'importazione di tali dipendenze può fare aumentare i tempi di caricamento causando timeout imprevisti. Le dipendenze di Node.js possono essere caricate in modo esplicito da più istruzioni `require()` nel codice. Possono anche essere implicite, basate su un unico modulo caricato dal codice che ha le proprie dipendenze interne.  
+Le funzioni con esecuzione prolungata e di grandi dimensioni possono causare problemi di timeout imprevisti. Le dimensioni di una funzione possono essere grandi a causa della presenza di molte dipendenze di Node.js. L'importazione di tali dipendenze può fare aumentare i tempi di caricamento causando timeout imprevisti. Le dipendenze di Node.js possono essere caricate in modo esplicito da più istruzioni `require()` nel codice. Le dipendente possono anche essere implicite, basate su un unico modulo caricato dal codice che ha le proprie dipendenze interne.  
 
 Quando è possibile, suddividere le funzioni di grandi dimensioni in gruppi di funzioni più piccoli che possono interagire tra loro e restituire rapidamente le risposte. Ad esempio, un webhook o una funzione di trigger HTTP potrebbe richiedere una risposta di conferma entro un determinato limite di tempo. È possibile passare il payload del trigger HTTP in una coda perché venga elaborato da una funzione di trigger della coda. Questo approccio consente di rinviare l'operazione effettiva e di restituire una risposta immediata. È normale per i webhook richiedere una risposta immediata.
 
@@ -68,10 +71,8 @@ Come reagisce il codice in caso di errore dopo l'inserimento di 5.000 di tali el
 
 Se un elemento della coda è già stato elaborato, consentire alla funzione di essere no-op.
 
-Sfruttare le misure difensive già messe a disposizione per i componenti usati nella piattaforma Funzioni di Azure. Ad esempio, vedere **Gestione di messaggi della coda non elaborabili** nella documentazione relativa ai [trigger della coda di Archiviazione di Azure](functions-bindings-storage.md#storagequeuetrigger).
+Sfruttare le misure difensive già messe a disposizione per i componenti usati nella piattaforma Funzioni di Azure. Ad esempio, vedere **Gestione di messaggi della coda non elaborabili** nella documentazione relativa ai [trigger della coda di Archiviazione di Azure](functions-bindings-storage-queue.md#trigger).
  
-
-
 
 ## <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Non combinare codice di test e di produzione nella stessa app per le funzioni.
 
@@ -103,10 +104,6 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Guida di riferimento per gli sviluppatori C# di Funzioni di Azure](functions-reference-csharp.md)
 * [Guida di riferimento per gli sviluppatori di Funzioni di Azure in F#](functions-reference-fsharp.md)
 * [Guida di riferimento per gli sviluppatori NodeJS di Funzioni di Azure](functions-reference-node.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+* [Schemi e procedure per le ottimizzazioni delle prestazioni HTTP](https://github.com/mspnp/performance-optimization/blob/master/ImproperInstantiation/docs/ImproperInstantiation.md)
 
 

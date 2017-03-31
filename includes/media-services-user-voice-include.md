@@ -1,4 +1,4 @@
-Usare il forum di [suggerimenti degli utenti](http://go.microsoft.com/fwlink/?linkid=698785&clcid=0x409) per fornire commenti e suggerimenti su come migliorare Servizi multimediali di Azure. È anche possibile passare direttamente a una delle categorie seguenti: 
+Usare il forum di [suggerimenti degli utenti](http://go.microsoft.com/fwlink/?linkid=698785&clcid=0x409) per fornire commenti e suggerimenti su come migliorare Servizi multimediali di Azure. È anche possibile passare direttamente a una delle categorie seguenti:
 
 * [Azure Media Player](https://feedback.azure.com/forums/169396-media-services/category/109320-azure-media-player/)
 * [Librerie Client SDK](https://feedback.azure.com/forums/169396-media-services/category/144435-client-sdks/)
@@ -10,7 +10,6 @@ Usare il forum di [suggerimenti degli utenti](http://go.microsoft.com/fwlink/?li
 * [Streaming VoD](https://feedback.azure.com/forums/169396-media-services/category/144429-vod-streaming/)
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

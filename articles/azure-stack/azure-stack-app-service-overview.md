@@ -1,5 +1,5 @@
 ---
-title: App Service on Azure Stack Overview | Microsoft Docs
+title: App Service Overview - Azure Stack | Microsoft Docs
 description: Overview of App Service on Azure Stack
 services: azure-stack
 documentationcenter: 
@@ -12,17 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/10/2016
+ms.date: 3/1/2017
 ms.author: anwestg
 translationtype: Human Translation
-ms.sourcegitcommit: 68a2f9e231e5ae369b6983cb8185de0bebebac75
-ms.openlocfilehash: ceb583c2568e864d26ee4df20d0c8911245aa702
+ms.sourcegitcommit: cf55a0b4f61c971cedee602575f73d39c70f9edb
+ms.openlocfilehash: 17f377e023255dc4629211f41ae0539902ff19b7
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
 # <a name="app-service-on-azure-stack-overview"></a>App Service on Azure Stack Overview
     
+> [!IMPORTANT] 
+> This topic applies only to Azure Stack Technical Preview 2.
+>
+
 App Service on Azure Stack is the Azure offering brought to Azure Stack. The App Service on Azure Stack installer will create the following set of role instances:
 *  Controller;
 *  Management (Two instances will be created);
@@ -59,9 +64,4 @@ You can also try out other [platform as a service (PaaS) services](azure-stack-t
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-overview/AppService_Portal.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -1,6 +1,6 @@
 ---
-title: Soluzioni di Azure per Internet delle cose (hub IoT) | Documentazione Microsoft
-description: Una panoramica di IoT in Azure, inclusa un&quot;architettura della soluzione di esempio e la sua relazione con Suite IoT di Azure e le soluzioni preconfigurate
+title: Soluzioni di Azure per Internet delle cose (IoT Suite) | Documentazione Microsoft
+description: Una panoramica di IoT in Azure, inclusa un&quot;architettura della soluzione di esempio e la sua relazione con Azure IoT Suite e le soluzioni preconfigurate.
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/09/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: 4408f12677c9110acbea468ac62b6cac941fd451
+ms.sourcegitcommit: 37a1653ca058c60a39df95f646127bd9e7fdd556
+ms.openlocfilehash: 57c7b895579e1c1e86224a60d961721d2d4cf638
 
 
 ---
@@ -55,6 +55,6 @@ Esplorare queste risorse per altre informazioni su IoT Suite e sulle soluzioni p
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

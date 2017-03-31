@@ -1,5 +1,5 @@
 ---
-title: "Distribuire più istanze di risorse | Microsoft Docs"
+title: "Distribuire più istanze delle risorse di Azure | Documentazione Microsoft"
 description: "Usare l&quot;operazione di copia e le matrici in un modello di Gestione risorse di Azure per eseguire più iterazioni durante la distribuzione delle risorse."
 services: azure-resource-manager
 documentationcenter: na
@@ -12,59 +12,68 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2016
+ms.date: 02/24/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 28bda592a685de4b2b938da21c3f3aa0a60e632d
-ms.openlocfilehash: 241a22429e8e0fbd2625292890baf4b2c3d77d81
+ms.sourcegitcommit: 04a3866f88b00486c30c578699d34cd6e8e776d7
+ms.openlocfilehash: 056ee5e67b9a6d396586c53b04d50f89e6fbb560
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="create-multiple-instances-of-resources-in-azure-resource-manager"></a>Creare più istanze di risorse in Gestione risorse di Azure
+# <a name="deploy-multiple-instances-of-resources-in-azure-resource-manager-templates"></a>Distribuire più istanze delle risorse nei modelli di Azure Resource Manager
 In questo argomento viene illustrato come eseguire un'iterazione del modello di Gestione risorse di Azure per creare più istanze di una risorsa.
 
 ## <a name="copy-copyindex-and-length"></a>copy, copyIndex e length
 All'interno della risorsa da ricreare più volte è possibile definire un oggetto **copy** che specifica il numero di iterazioni da eseguire. L'oggetto copy avrà il formato seguente:
 
-    "copy": { 
-        "name": "websitescopy", 
-        "count": "[parameters('count')]" 
-    } 
+```json
+"copy": { 
+    "name": "websitescopy", 
+    "count": "[parameters('count')]" 
+} 
+```
 
 Per accedere al valore di iterazione corrente, è possibile usare la funzione **copyIndex()**. Nell'esempio seguente viene usato copyIndex con la funzione concat per costruire un nome.
 
-    [concat('examplecopy-', copyIndex())]
+```json
+[concat('examplecopy-', copyIndex())]
+```
 
 Quando si creano più risorse da una matrice di valori, è possibile usare la funzione **length** per specificare il numero. Fornire la matrice come parametro alla funzione length.
 
-    "copy": {
-        "name": "websitescopy",
-        "count": "[length(parameters('siteNames'))]"
-    }
+```json
+"copy": {
+    "name": "websitescopy",
+    "count": "[length(parameters('siteNames'))]"
+}
+```
 
 L'oggetto copia può essere applicato solo a una risorsa di livello principale, mentre non è possibile applicarlo a una proprietà su un tipo di risorsa o a una risorsa figlio. Tuttavia, in questo argomento viene illustrato come specificare più elementi per una proprietà e creare più istanze di una risorsa figlio. L'esempio di codice seguente mostra in che modo è possibile applicare la copia:
 
+```json
+"resources": [
+  {
+    "type": "{provider-namespace-and-type}",
+    "name": "parentResource",
+    "copy": {  
+      /* yes, copy can be applied here */
+    },
+    "properties": {
+      "exampleProperty": {
+        /* no, copy cannot be applied here */
+      }
+    },
     "resources": [
       {
-        "type": "{provider-namespace-and-type}",
-        "name": "parentResource",
-        "copy": {  
-          /* yes, copy can be applied here */
-        },
-        "properties": {
-          "exampleProperty": {
-            /* no, copy cannot be applied here */
-          }
-        },
-        "resources": [
-          {
-            "type": "{provider-type}",
-            "name": "childResource",
-            /* copy can be applied if resource is promoted to top level */ 
-          }
-        ]
+        "type": "{provider-type}",
+        "name": "childResource",
+        /* copy can be applied if resource is promoted to top level */ 
       }
-    ] 
+    ]
+  }
+] 
+```
 
 Anche se non è possibile applicare la funzione **copy** a una proprietà, tale proprietà rimane parte delle iterazioni della risorsa che la contiene. Pertanto, è possibile usare **copyIndex()** all'interno della proprietà per specificare i valori.
 
@@ -81,27 +90,29 @@ Per usare le risorse figlio, vedere [Create multiple instances of a child resour
 
 Usare il modello seguente:
 
-    "parameters": { 
-      "count": { 
-        "type": "int", 
-        "defaultValue": 3 
-      } 
-    }, 
-    "resources": [ 
-      { 
-          "name": "[concat('examplecopy-', copyIndex())]", 
-          "type": "Microsoft.Web/sites", 
-          "location": "East US", 
-          "apiVersion": "2015-08-01",
-          "copy": { 
-             "name": "websitescopy", 
-             "count": "[parameters('count')]" 
-          }, 
-          "properties": {
-              "serverFarmId": "hostingPlanName"
-          }
-      } 
-    ]
+```json
+"parameters": { 
+  "count": { 
+    "type": "int", 
+    "defaultValue": 3 
+  } 
+}, 
+"resources": [ 
+  { 
+      "name": "[concat('examplecopy-', copyIndex())]", 
+      "type": "Microsoft.Web/sites", 
+      "location": "East US", 
+      "apiVersion": "2015-08-01",
+      "copy": { 
+         "name": "websitescopy", 
+         "count": "[parameters('count')]" 
+      }, 
+      "properties": {
+          "serverFarmId": "hostingPlanName"
+      }
+  } 
+]
+```
 
 ## <a name="offset-index-value"></a>Offset del valore di indice
 Nell'esempio precedente, il valore di indice è compreso fra 0 e 2. Per eseguire l'offset del valore di indice, è possibile passare un valore nella funzione **copyIndex()**, ad esempio **copyIndex(1)**. Il numero di iterazioni da eseguire viene comunque specificato nell'elemento copia, ma il valore di copyIndex è compensato dal valore specificato. Quindi, utilizzando lo stesso modello dell'esempio precedente, ma specificando **copyIndex(1)** si distribuirebbero tre siti Web denominati:
@@ -119,115 +130,119 @@ L'operazione di copia è utile quando si lavora con le matrici in quanto è poss
 
 Usare il modello seguente:
 
-    "parameters": { 
-      "org": { 
-         "type": "array", 
-         "defaultValue": [ 
-             "Contoso", 
-             "Fabrikam", 
-             "Coho" 
-          ] 
-      }
-    }, 
-    "resources": [ 
-      { 
-          "name": "[concat('examplecopy-', parameters('org')[copyIndex()])]", 
-          "type": "Microsoft.Web/sites", 
-          "location": "East US", 
-          "apiVersion": "2015-08-01",
-          "copy": { 
-             "name": "websitescopy", 
-             "count": "[length(parameters('org'))]" 
-          }, 
-          "properties": {
-              "serverFarmId": "hostingPlanName"
-          } 
+```json
+"parameters": { 
+  "org": { 
+     "type": "array", 
+     "defaultValue": [ 
+         "Contoso", 
+         "Fabrikam", 
+         "Coho" 
+      ] 
+  }
+}, 
+"resources": [ 
+  { 
+      "name": "[concat('examplecopy-', parameters('org')[copyIndex()])]", 
+      "type": "Microsoft.Web/sites", 
+      "location": "East US", 
+      "apiVersion": "2015-08-01",
+      "copy": { 
+         "name": "websitescopy", 
+         "count": "[length(parameters('org'))]" 
+      }, 
+      "properties": {
+          "serverFarmId": "hostingPlanName"
       } 
-    ]
+  } 
+]
+```
 
 Naturalmente, è possibile impostare il numero di copie su un valore diverso dalla lunghezza della matrice. Ad esempio, si potrebbe creare una matrice con molti valori, poi passare a un valore di parametro che specifichi il numero degli elementi della matrice da distribuire. In tal caso, impostare il numero di copie come illustrato nel primo esempio. 
 
 ## <a name="depend-on-resources-in-a-loop"></a>In base alle risorse in un ciclo
 L'elemento **dependsOn** consente di specificare che una risorsa sia distribuita dopo un'altra. Per distribuire una risorsa che dipende dalla raccolta di risorse in un ciclo, usare il nome del ciclo di copia nell'elemento **dependsOn** . L'esempio seguente illustra come distribuire tre account di archiviazione prima di distribuire la macchina virtuale. La definizione completa di macchina virtuale non viene visualizzata. Si noti che la copia ha la proprietà **name** impostata su **storagecopy** e l'elemento **dependsOn** per le macchine virtuali impostato su **storagecopy**.
 
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {},
-        "resources": [
-            {
-                "apiVersion": "2015-06-15",
-                "type": "Microsoft.Storage/storageAccounts",
-                "name": "[concat('storage', uniqueString(resourceGroup().id), copyIndex())]",
-                "location": "[resourceGroup().location]",
-                "properties": {
-                    "accountType": "Standard_LRS"
-                 },
-                "copy": { 
-                     "name": "storagecopy", 
-                     "count": 3 
-                  }
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "resources": [
+        {
+            "apiVersion": "2015-06-15",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat('storage', uniqueString(resourceGroup().id), copyIndex())]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "accountType": "Standard_LRS"
             },
-            {
-                "apiVersion": "2015-06-15", 
-                "type": "Microsoft.Compute/virtualMachines", 
-                "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
-                "dependsOn": ["storagecopy"],
-                ...
+            "copy": { 
+                "name": "storagecopy", 
+                "count": 3 
             }
-        ],
-        "outputs": {}
-    }
+        },
+        {
+            "apiVersion": "2015-06-15", 
+            "type": "Microsoft.Compute/virtualMachines", 
+            "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
+            "dependsOn": ["storagecopy"],
+            ...
+        }
+    ],
+    "outputs": {}
+}
+```
 
 ## <a name="create-multiple-instances-of-a-child-resource"></a>Creare più istanze di una risorsa figlio
 Non è possibile usare un ciclo di copia per una risorsa figlio. Per creare più istanze di una risorsa cosiddetta "annidata" all'interno di un'altra risorsa, è invece necessario creare tale risorsa come una risorsa di livello superiore. La relazione con la risorsa padre si definisce con le proprietà **type** e **name**.
 
 Si supponga, ad esempio, di definire in genere un set di dati come una risorsa figlio all'interno di una data factory.
 
+```json
+"resources": [
+{
+    "type": "Microsoft.DataFactory/datafactories",
+    "name": "exampleDataFactory",
+    ...
     "resources": [
     {
-        "type": "Microsoft.DataFactory/datafactories",
-        "name": "exampleDataFactory",
-        ...
-        "resources": [
-        {
-            "type": "datasets",
-            "name": "exampleDataSet",
-            "dependsOn": [
-                "exampleDataFactory"
-            ],
-            ...
-        }
-    }]
-
-Per creare più istanze di un set di dati, spostarlo all'esterno della data factory. Il set di dati deve essere sullo stesso livello della data factory, di cui è comunque una risorsa figlio. La relazione fra set di dati e data factory viene mantenuta con le proprietà **type** e **name**. Poiché non è possibile dedurre il tipo dalla sua posizione nel modello, è necessario specificarne il nome completo nel formato seguente:
-
- **{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}** 
-
-Per stabilire una relazione padre/figlio con un'istanza della data factory, specificare il nome del set di dati che include il nome della risorsa padre. Il nome deve essere nel formato seguente:
-
-**{parent-resource-name}/{child-resource-name}**.  
-
-Nell'esempio seguente viene descritta l'implementazione:
-
-    "resources": [
-    {
-        "type": "Microsoft.DataFactory/datafactories",
-        "name": "exampleDataFactory",
-        ...
-    },
-    {
-        "type": "Microsoft.DataFactory/datafactories/datasets",
-        "name": "[concat('exampleDataFactory', '/', 'exampleDataSet', copyIndex())]",
+        "type": "datasets",
+        "name": "exampleDataSet",
         "dependsOn": [
             "exampleDataFactory"
         ],
-        "copy": { 
-            "name": "datasetcopy", 
-            "count": "3" 
-        } 
         ...
-    }]
+    }
+}]
+```
+
+Per creare più istanze di un set di dati, spostarlo all'esterno della data factory. Il set di dati deve essere sullo stesso livello della data factory, di cui è comunque una risorsa figlio. La relazione fra set di dati e data factory viene mantenuta con le proprietà **type** e **name**. Poiché non è possibile dedurre il tipo dalla sua posizione nel modello, è necessario specificarne il nome completo nel formato: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
+
+Per stabilire una relazione padre/figlio con un'istanza della data factory, specificare il nome del set di dati che include il nome della risorsa padre. Usare il formato: `{parent-resource-name}/{child-resource-name}`.  
+
+Nell'esempio seguente viene descritta l'implementazione:
+
+```json
+"resources": [
+{
+    "type": "Microsoft.DataFactory/datafactories",
+    "name": "exampleDataFactory",
+    ...
+},
+{
+    "type": "Microsoft.DataFactory/datafactories/datasets",
+    "name": "[concat('exampleDataFactory', '/', 'exampleDataSet', copyIndex())]",
+    "dependsOn": [
+        "exampleDataFactory"
+    ],
+    "copy": { 
+        "name": "datasetcopy", 
+        "count": "3" 
+    } 
+    ...
+}]
+```
 
 ## <a name="create-multiple-instances-when-copy-wont-work"></a>Creare più istanze quando l'oggetto copy non funziona
 È possibile usare **copy** solo su tipi di risorse e non sulle proprietà al loro interno. Questo requisito può creare problemi per l'utente quando si desidera creare più istanze di un elemento che fa parte di una risorsa. Uno scenario frequente consiste nel creare più dischi dati per una macchina virtuale. Non è possibile usare **copy** con i dischi dati perché **dataDisks** è una proprietà nella macchina virtuale e non il relativo tipo di risorsa. È invece possibile creare una matrice con tutti i dischi dati necessari e passare il numero effettivo di dischi dati da creare. Nella definizione di macchina virtuale usare la funzione **take** per ottenere solo il numero di elementi effettivamente desiderato dalla matrice.
@@ -236,7 +251,7 @@ Un esempio completo di questo schema è illustrato nel modello per la [creazione
 
 Le sezioni pertinenti del modello di distribuzione sono riportate nell'esempio seguente. Gran parte del modello è stata rimossa per evidenziare le sezioni coinvolte nella creazione dinamica di alcuni dischi dati. Si noti il parametro **numDataDisks** che consente di passare il numero di dischi da creare. 
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -338,7 +353,7 @@ Le sezioni pertinenti del modello di distribuzione sono riportate nell'esempio s
 
 La funzione **take** e l'elemento **copy** possono essere usati insieme per creare più istanze di una risorsa con un numero variabile di elementi per una proprietà. Ad esempio, si supponga di dover creare più macchine virtuali, ma ognuna con un numero diverso di dischi dati. Per assegnare a ciasuno un nome che identifichi la macchina virtuale associata, inserire l'array di dischi dati in un modello distinto. Includere i parametri del nome della macchina virtuale e il numero di dischi dati da restituire. Nella sezione dell'output, inserire il numero di elementi specificati.
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -382,7 +397,7 @@ La funzione **take** e l'elemento **copy** possono essere usati insieme per crea
 
 Nel modello padre si includono i parametri relativi al numero di macchine virtuali e una matrice relativa al numero dei dischi dati per ogni macchina virtuale.
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -404,7 +419,7 @@ Nel modello padre si includono i parametri relativi al numero di macchine virtua
 
 Nella sezione delle risorse distribuire più istanze del modello che definisce i dischi dati. 
 
-```
+```json
 {
   "apiVersion": "2016-09-01",
   "name": "[concat('nested-', copyIndex())]",
@@ -430,7 +445,7 @@ Nella sezione delle risorse distribuire più istanze del modello che definisce i
 
 Nella stessa sezione distribuire più istanze della macchina virtuale. Per i dischi dati, fare riferimento alla distribuzione annidata che contiene il numero e i nomi corretti dei dischi dati.
 
-```
+```json
 {
   "type": "Microsoft.Compute/virtualMachines",
   "name": "[concat('myvm', copyIndex())]",
@@ -454,7 +469,7 @@ Se da un lato è utile creare più istanze di uno stesso tipo di risorsa, dall'a
 
 Innanzitutto, creare il modello nidificato che crea l'account di archiviazione, il quale accetta un parametro di matrice per gli URI dei BLOB. Usare questo parametro per eseguire il round trip di tutti i valori delle distribuzioni precedenti. L'output del modello è una matrice che concatena i nuovi URI dei BLOB agli URI precedenti.
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -495,7 +510,7 @@ Innanzitutto, creare il modello nidificato che crea l'account di archiviazione, 
 
 A questo punto, creare un modello padre che dispone di un'istanza statica del modello nidificato ed esegue il ciclo delle istanze rimanenti del modello nidificato. Per ogni istanza della distribuzione a cicli, trasmettere una matrice che rappresenta l'output della distribuzione precedente.
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -552,10 +567,5 @@ A questo punto, creare un modello padre che dispone di un'istanza statica del mo
 * Per altre informazioni sulle sezioni di un modello, vedere [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md) (Creazione di modelli di Azure Resource Manager).
 * Per conoscere tutte le funzioni che è possibile usare in un modello, vedere [Azure Resource Manager Template Functions](resource-group-template-functions.md) (Funzioni del modello di Gestione risorse di Azure).
 * Per altre informazioni sulla distribuzione di modelli, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](resource-group-template-deploy.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

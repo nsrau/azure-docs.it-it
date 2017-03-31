@@ -1,5 +1,5 @@
 ---
-title: Procedura dettagliata per un&quot;infrastruttura di esempio di Azure | Documentazione Microsoft
+title: Procedura dettagliata per un&quot;infrastruttura di esempio di Azure | Microsoft Docs
 description: Informazioni sulle principali linee guida di progettazione e implementazione per la distribuzione di un&quot;infrastruttura di esempio in Azure.
 documentationcenter: 
 services: virtual-machines-windows
@@ -13,15 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/17/2017
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1e52ae69951b6b1feee6207033a85a583d13bcc2
-ms.openlocfilehash: 851dd4a2a76eff0e2f95c9a0a7280986cfb3e26a
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 7471fa4c73c8aef11bf81cb652cd2bce77ac5420
+ms.lasthandoff: 03/18/2017
 
 
 ---
-# <a name="example-azure-infrastructure-walkthrough"></a>Procedura dettagliata per un'infrastruttura di esempio di Azure
+# <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Procedura dettagliata per un'infrastruttura di esempio di Azure per macchine virtuali Windows
+
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Questo articolo illustra le modalità di compilazione di un'infrastruttura di applicazione di esempio. Sarà trattata la progettazione di un'infrastruttura per un semplice negozio online che riunisce tutte le linee guida e le decisioni sulle convenzioni di denominazione, i set di disponibilità, le reti virtuali e i servizi di bilanciamento del carico e l'effettiva distribuzione delle macchine virtuali.
@@ -45,7 +48,7 @@ La progettazione risultante deve includere:
 
 * Una sottoscrizione e un account di Azure
 * Un unico gruppo di risorse
-* Account di archiviazione
+* Azure Managed Disks
 * Una rete virtuale con due subnet
 * Set di disponibilità per le macchine virtuali con ruoli simili
 * Macchine virtuali
@@ -54,8 +57,6 @@ Tutti gli elementi devono rispettare le convenzioni di denominazione seguenti:
 
 * Adventure Works Cycles usa come prefisso **[carico di lavoro IT]-[località]-[risorsa di Azure]**
   * In questo esempio, "**azos**" (Azure online Store) è il nome del carico di lavoro IT e "**use**" (Stati Uniti orientali 2) è la località
-* Gli account di archiviazione usano adventureazosusesa**[descrizione]**
-  * 'adventure' è stato aggiunto al prefisso per garantire l'univocità, e i nomi account di archiviazione non supportano l'uso di trattini.
 * Le reti virtuali usano AZOS-USE-VN**[numero]**
 * I set di disponibilità usano azos-use-as-**[ruolo]**
 * I nomi delle macchine virtuali usano azos-use-vm-**[nomevm]**
@@ -63,11 +64,11 @@ Tutti gli elementi devono rispettare le convenzioni di denominazione seguenti:
 ## <a name="azure-subscriptions-and-accounts"></a>Sottoscrizioni e account di Azure
 Adventure Works Cycles usa la propria sottoscrizione aziendale, denominata Adventure Works Enterprise Subscription, per fornire la fatturazione per questo carico di lavoro IT.
 
-## <a name="storage-accounts"></a>Account di archiviazione
-Adventure Works Cycles ha stabilito che sono necessari due account di archiviazione:
+## <a name="storage"></a>Archiviazione
+Adventure Works Cycles ha determinato che è necessario usare Managed Disks di Azure. Durante la creazione di macchine virtuali, vengono usati entrambi i livelli di archiviazione disponibili:
 
-* **adventureazosusesawebapp** per l’archiviazione standard di server Web, server applicazioni, controller di dominio e relativi dischi dati aggiuntivi
-* **adventureazosusesasql** per l'archiviazione Premium per le VM di SQL Server e i relativi dischi dati.
+* **Archiviazione Standard** per i server Web, i server applicazioni e i controller di dominio e relativi dischi dati.
+* **Archiviazione Premium** per le VM SQL Server e relativi dischi dati.
 
 ## <a name="virtual-network-and-subnets"></a>Rete virtuale e subnet
 Poiché la rete virtuale non necessita di connettività costante alla rete locale Adventure Work Cycles, l’azienda ha optato per una rete virtuale solo cloud.
@@ -111,7 +112,7 @@ Di seguito è riportata la configurazione risultante.
 Questa configurazione include:
 
 * Una rete virtuale solo cloud con due subnet (front-end e back-end)
-* Due account di archiviazione
+* Managed Disks di Azure con dischi Standard e Premium
 * Quattro set di disponibilità, uno per ciascun livello del negozio online
 * Le macchine virtuali per i quattro livelli
 * Un set esterno con bilanciamento del carico per il traffico Web basato su HTTPS da Internet ai server Web
@@ -120,10 +121,5 @@ Questa configurazione include:
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 1a2ff324cfa65977685f6a0eee9cd398b0717519
@@ -274,6 +274,6 @@ Quando si fa clic sul riquadro @Task nel pannello di accesso, si dovrebbe accede
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

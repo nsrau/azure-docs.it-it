@@ -4,7 +4,7 @@ description: Collegamenti a risorse per la gestione di un&quot;applicazione web 
 services: app-service\web
 documentationcenter: 
 author: erikre
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: d5e2887a-84f9-4747-a573-867635cb8b39
 ms.service: app-service-web
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dadae052868fcb0952b4480525efc0267a4a8e22
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 50630084a3df9bc1fed27efb41bc557d0e03916f
+ms.lasthandoff: 12/06/2016
 
 
 ---
@@ -29,7 +30,7 @@ Nel portale di Azure è possibile eseguire diverse attività di gestione dei sit
 
 ## <a name="before-you-deploy-your-web-app-to-production"></a>Prima della distribuzione del sito alla produzione
 ### <a name="choose-a-tier"></a>Scegliere un livello
-Servizio di applicazione Azure è disponibile in cinque livelli: libero, Shared, Basic, Standard e Premium. Per ulteriori informazioni sulle funzionalità e i prezzi di ciascun livello, vedere [Dettagli prezzi](/pricing/details/app-service/). 
+Servizio di applicazione Azure è disponibile in cinque livelli: libero, Shared, Basic, Standard e Premium. Per ulteriori informazioni sulle funzionalità e i prezzi di ciascun livello, vedere [Dettagli prezzi](https://azure.microsoft.com/pricing/details/app-service/). 
 
 * [Piani di servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) consentono di raggruppare più applicazioni web con lo stesso livello.
 * È sempre possibile [cambiare livello](web-sites-scale.md) dopo aver creato il sito Web.
@@ -83,14 +84,9 @@ Se si utilizza Visual Studio Team Services, è possibile configurare la distribu
 
 <!-- Anchors. -->
 
-[Prima della distribuzione del sito alla produzione]: #before-you-deploy-your-site-to-production
-[Durante l'esecuzione del sito Web]: #while-your-website-is-running
-[Durante l'aggiornamento del sito Web]: #when-you-update-your-website
+[Before you deploy your site to production]: #before-you-deploy-your-site-to-production
+[While your website is running]: #while-your-website-is-running
+[When you update your website]: #when-you-update-your-website
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

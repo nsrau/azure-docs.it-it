@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 17805b49359ed063f44d9b7dacf1e1052649dc61
+ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
+ms.openlocfilehash: 76c884bfdfbfacf474489d41f1e388956e4daaa0
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -61,11 +62,11 @@ Il codice che consente di implementare questa architettura viene illustrato nell
 ## <a name="set-up-the-development-environment"></a>Configurare l'ambiente di sviluppo
 Prima di iniziare a sviluppare applicazioni Azure, è necessario ottenere gli strumenti e configurare l'ambiente di sviluppo.
 
-1. Installare Azure SDK per .NET in [Ottenere strumenti e SDK](https://azure.microsoft.com/downloads/).
-2. Nella colonna **.NET** fare clic sulla versione di Visual Studio in uso. Nelle procedure di questa esercitazione viene usato Visual Studio 2015.
+1. Installare Azure SDK per .NET dalla [pagina di download](https://azure.microsoft.com/downloads/) di SDK.
+2. Nella colonna **.NET** fare clic sulla versione di [Visual Studio](http://www.visualstudio.com) in uso. Nelle procedure di questa esercitazione viene usato Visual Studio 2015.
 3. Quando viene richiesto se eseguire o salvare il file di installazione, fare clic su **Esegui**.
 4. Nell'**Installazione guidata piattaforma Web** fare clic su **Installa** e procedere con l'installazione.
-5. Al termine dell'installazione, saranno disponibili tutti gli strumenti necessari per avviare lo sviluppo dell’app. Nell'SDK sono disponibili gli strumenti che consentono di sviluppare con facilità applicazioni per Azure in Visual Studio. Se Visual Studio non è ancora installato, l'SDK installerà anche la versione gratuita di Visual Studio Express.
+5. Al termine dell'installazione, saranno disponibili tutti gli strumenti necessari per avviare lo sviluppo dell’app. Nell'SDK sono disponibili gli strumenti che consentono di sviluppare con facilità applicazioni per Azure in Visual Studio.
 
 ## <a name="create-a-namespace"></a>Creare uno spazio dei nomi
 Il passaggio successivo consiste nel creare uno spazio dei nomi del servizio e nell'ottenere una chiave di firma di accesso condiviso. Uno spazio dei nomi fornisce un limite per ogni applicazione esposta tramite il bus di servizio. Una chiave di firma di accesso condiviso viene generata dal sistema quando viene creato uno spazio dei nomi. La combinazione di spazio dei nomi e chiave di firma di accesso condiviso fornisce le credenziali che consentono al bus di servizio di autenticare l'accesso a un'applicazione.
@@ -394,9 +395,4 @@ Per altre informazioni sugli scenari multilivello, vedere:
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

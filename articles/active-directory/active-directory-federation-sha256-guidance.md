@@ -1,5 +1,5 @@
 ---
-title: Modificare l&quot;algoritmo hash della firma relativo al trust della relying party di Office 365 | Documentazione Microsoft
+title: Modificare l&quot;algoritmo hash della firma relativo al trust della relying party di Office 365 | Microsoft Docs
 description: Questa pagina fornisce le linee guida per la modifica dell&quot;algoritmo SHA per il trust federativo con Office 365
 keywords: SHA1,SHA256,O365,federazione,aadconnect,adfs,ad fs,modifica algoritmo hash della firma,trust federativo,trust della relying party
 services: active-directory
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: anandy
 translationtype: Human Translation
-ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
-ms.openlocfilehash: 4afdde65fe4c69d1944c0e1a3c5dd3300c5b970c
+ms.sourcegitcommit: e1b909f419c8c04a9332a29669148321ab3dbd2d
+ms.openlocfilehash: 2afd8e04ac325f1c9f2dee8aed867b0d0a6b558d
 
 
 ---
-# <a name="change-signature-hash-algorithm-for-office-365-replying-party-trust"></a>Modificare l'algoritmo hash della firma relativo al trust della relying party di Office 365
-## <a name="overview"></a>Overview
-Azure Active Directory Federation Services (ADFS) firmare i token per Microsoft Azure Active Directory per assicurare che non possano essere manomessi. Questa firma può essere basata sull'algoritmo SHA1 o SHA256. Azure Active Directory ora supporta i token firmati con un algoritmo SHA256, quindi è consigliabile impostare l'algoritmo per la firma di token su SHA256 per garantire il massimo livello di sicurezza. Questo articolo descrive i passaggi necessari per impostare l'algoritmo per la firma di token sul più sicuro livello SHA256.
+# <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Modificare l'algoritmo hash della firma relativo al trust della relying party di Office 365
+## <a name="overview"></a>Panoramica
+Azure Active Directory Federation Services (AD FS) esegue la firma dei token per Microsoft Azure Active Directory per evitare che possano essere alterati. Questa firma può essere basata sull'algoritmo SHA1 o SHA256. Azure Active Directory ora supporta i token firmati con un algoritmo SHA256, quindi è consigliabile impostare l'algoritmo per la firma di token su SHA256 per garantire il massimo livello di sicurezza. Questo articolo descrive i passaggi necessari per impostare l'algoritmo per la firma di token sul più sicuro livello SHA256.
 
 ## <a name="change-the-token-signing-algorithm"></a>Modificare l'algoritmo per la firma di token
 Dopo avere impostato l'algoritmo di firma con uno dei due processi seguenti, AD FS firma i token per il trust della relying party di Office 365 con SHA256. Non è necessario apportare modifiche di configurazione aggiuntive e questa modifica non incide sulla possibilità di accedere a Office 365 o altre applicazioni Azure AD.
@@ -49,6 +49,6 @@ Dopo avere impostato l'algoritmo di firma con uno dei due processi seguenti, AD 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

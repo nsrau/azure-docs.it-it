@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/22/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 39ccb6e9b810d1c02a96b25946893ddd3e316463
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: bd6f81ee12a7bb655166cf059236175bfb9994e5
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -32,7 +33,7 @@ ms.openlocfilehash: 39ccb6e9b810d1c02a96b25946893ddd3e316463
 L'interfaccia della riga di comando di Azure è uno degli strumenti che è possibile usare per distribuire e gestire le risorse con Resource Manager. Questo articolo illustra i metodi comuni per gestire risorse e gruppi di risorse di Azure usando l'interfaccia della riga di comando di Azure in modalità Resource Manager. Per informazioni sull'uso dell'interfaccia della riga di comando per distribuire le risorse, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](resource-group-template-deploy-cli.md). Per informazioni sulle risorse di Azure e su Resource Manager, vedere [Panoramica di Azure Resource Manager](resource-group-overview.md).
 
 > [!NOTE]
-> Per gestire le risorse di Azure con l'interfaccia della riga di comando di Azure, è necessario [installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e [accedere ad Azure](../xplat-cli-connect.md) usando il comando `azure login`. Verificare che l'interfaccia della riga di comando sia in modalità Resource Manager eseguendo `azure config mode arm`. Se queste operazioni sono già state eseguite, si è pronti per proseguire.
+> Per gestire le risorse di Azure con l'interfaccia della riga di comando di Azure, è necessario [installare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md) e [accedere ad Azure](../xplat-cli-connect.md) usando il comando `azure login`. Verificare che l'interfaccia della riga di comando sia in modalità Resource Manager eseguendo `azure config mode arm`. Se queste operazioni sono già state eseguite, si è pronti per proseguire.
 > 
 > 
 
@@ -148,13 +149,8 @@ Usando l'interfaccia della riga di comando di Azure, è possibile esportare un m
 > 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per ottenere i dettagli delle operazioni di distribuzione e risolvere i problemi relativi agli errori di distribuzione con l'interfaccia della riga di comando di Azure, vedere [Visualizzare le operazioni di distribuzione con l'interfaccia della riga di comando di Azure](resource-manager-troubleshoot-deployments-cli.md).
+* Per ottenere i dettagli delle operazioni di distribuzione e risolvere i problemi relativi agli errori di distribuzione con l'interfaccia della riga di comando di Azure, vedere [View deployment operations](resource-manager-deployment-operations.md) (Visualizzare le operazioni di distribuzione).
 * Per usare l'interfaccia della riga di comando per configurare un'applicazione o uno script per accedere alle risorse, vedere [Usare l'interfaccia della riga di comando di Azure per creare un'entità servizio per accedere alle risorse](resource-group-authenticate-service-principal-cli.md).
 * Per indicazioni su come le aziende possono usare Resource Manager per gestire efficacemente le sottoscrizioni, vedere [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Scaffolding aziendale Azure - Governance prescrittiva per le sottoscrizioni).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

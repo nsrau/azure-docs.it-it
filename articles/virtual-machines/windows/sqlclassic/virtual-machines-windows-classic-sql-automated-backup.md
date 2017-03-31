@@ -8,27 +8,28 @@ manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: 3333e830-8a60-42f5-9f44-8e02e9868d7b
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
-ms.date: 09/26/2016
+ms.workload: iaas-sql-server
+ms.date: 01/18/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 3379551c722efbe0d1591e409c6e039cd772d99b
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 5771c7d1716f126570759cd4a3c53ebd3d30adf4
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Backup automatico per SQL Server in macchine virtuali di Azure (distribuzione classica)
 > [!div class="op_single_selector"]
 > * [Gestione risorse](../sql/virtual-machines-windows-sql-automated-backup.md)
-> * [Classico](virtual-machines-windows-classic-sql-automated-backup.md)
+> * [Classico](../classic/sql-automated-backup.md)
 > 
 > 
 
-Backup automatico Configura automaticamente il [backup gestito in Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) per tutti i database nuovi ed esistenti in una macchina virtuale di Azure con SQL Server 2014 Standard o Enterprise in esecuzione. In questo modo è possibile configurare i backup periodici del database che utilizzano l'archiviazione BLOB di Azure durevole. Il backup automatico dipende dall' [estensione dell'agente IaaS di SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Backup automatico Configura automaticamente il [backup gestito in Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) per tutti i database nuovi ed esistenti in una macchina virtuale di Azure con SQL Server 2014 Standard o Enterprise in esecuzione. In questo modo è possibile configurare i backup periodici del database che utilizzano l'archiviazione BLOB di Azure durevole. Il backup automatico dipende dall' [estensione dell'agente IaaS di SQL Server](../classic/sql-server-agent-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 > [!IMPORTANT] 
 > Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Per visualizzare la versione di Resource Manager di questo articolo, vedere [Backup automatico per SQL Server nelle macchine virtuali di Azure (Resource manager)](../sql/virtual-machines-windows-sql-automated-backup.md).
@@ -61,7 +62,7 @@ Per usare il backup automatico, tenere in considerazione i seguenti prerequisiti
 
 **Estensione di SQL Server IaaS**:
 
-* [Installare l'estensione di SQL Server IaaS](virtual-machines-windows-classic-sql-server-agent-extension.md).
+* [Installare l'estensione di SQL Server IaaS](../classic/sql-server-agent-extension.md).
 
 ## <a name="settings"></a>Impostazioni
 Nella seguente tabella sono descritte le opzioni che possono essere configurate per il backup automatico. Nella macchine virtuali classiche, per configurare queste impostazioni è necessario usare PowerShell.
@@ -72,7 +73,8 @@ Nella seguente tabella sono descritte le opzioni che possono essere configurate 
 | **Periodo di conservazione** |1-30 giorni (30 giorni) |Numero di giorni di conservazione di un backup. |
 | **Storage Account** |Account di archiviazione di Azure (account di archiviazione creato per la macchina virtuale specificata) |Account di archiviazione di Azure da usare per archiviare i file del backup automatico nell'archiviazione BLOB. In questa posizione viene creato un contenitore per archiviare tutti i file di backup. La convenzione di denominazione dei file di backup include la data, l'ora e il nome del computer. |
 | **Crittografia** |Enable/Disable (disabilitato) |Abilita o disabilita la crittografia. Quando è abilitata la crittografia, i certificati usati per ripristinare il backup sono contenuti nell'account di archiviazione specificato, nello stesso contenitore automaticbackup con la stessa convenzione di denominazione Se la password viene modificata, viene generato un nuovo certificato con tale password, ma il certificato precedente viene mantenuto per ripristinare i backup precedenti. |
-| **Password** |Testo della password (nessuno) |Password per le chiavi di crittografia. Questa impostazione è necessaria solo se la crittografia è abilitata. Per ripristinare un backup crittografato, è necessario disporre della password corretta e del certificato correlato usato al momento dell'esecuzione del backup. |
+| **Password** |Testo della password (nessuno) |Password per le chiavi di crittografia. Questa impostazione è necessaria solo se la crittografia è abilitata. Per ripristinare un backup crittografato, è necessario disporre della password corretta e del certificato correlato usato al momento dell'esecuzione del backup. | **Backup system databases** (Backup dei database di sistema) | Enable/Disable (disabilitato) | Eseguire backup completi di database master, modello e MSDB |
+| **Configure backup schedule** (Configura la pianificazione dei backup) | Manual/Automated (Automated) (Manuale/Automatizzato - Automatizzato) | Selezionare **Automated** (Automatizzato) per eseguire automaticamente backup completi e di log basati sull'aumento delle dimensioni del log. Selezionare **Manual** (Manuale) per specificare la pianificazione per backup completi e di log. |
 
 ## <a name="configuration-with-powershell"></a>Configurazione con PowerShell
 Nel seguente esempio di PowerShell il backup automatico è configurato per una macchina virtuale esistente di SQL Server 2014. Il comando **New-AzureVMSqlServerAutoBackupConfig** configura le impostazioni di backup automatizzato per archiviare i backup nell'account di archiviazione di Azure specificato dalla variabile $storageaccount. Questi backup verranno conservati per 10 giorni. Il comando **Set-AzureVMSqlServerExtension** aggiorna con queste impostazioni la macchina virtuale di Azure specificata.
@@ -109,13 +111,8 @@ Backup automatico configura backup gestito in Macchine virtuali di Azure. Pertan
 
 È possibile trovare ulteriori indicazioni sul backup e sul ripristino per SQL Server in macchine virtuali di Azure nell'argomento seguente: [Backup e ripristino per SQL Server in Macchine virtuali di Azure](../sql/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
 
-Per informazioni sulle altre attività di automazione disponibili, vedere [Estensione Agente IaaS di SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
+Per informazioni sulle altre attività di automazione disponibili, vedere [Estensione Agente IaaS di SQL Server](../classic/sql-server-agent-extension.md).
 
 Per altre informazioni sull'esecuzione di SQL Server nelle VM di Azure, vedere [Panoramica di SQL Server nelle macchine virtuali di Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

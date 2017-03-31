@@ -1,9 +1,9 @@
 ---
-title: Reimpostazione della password di Azure AD | Documentazione Microsoft
+title: Reimpostazione delle password in Azure Active Directory | Documentazione Microsoft
 description: "Descrizione delle funzionalità di gestione delle password in Azure AD, incluse la reimpostazione delle password, la modifica, il report di gestione delle password e il writeback in Active Directory locale."
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: be6164fc-bae1-49df-af76-761329ba70a1
@@ -12,26 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a6287228622070d566266f184dc1c32ec6c3dea5
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 4904a3e21a54a2c60ee8b35a46370a9759a029f3
+ms.lasthandoff: 03/28/2017
 
 
 ---
-# <a name="azure-ad-password-reset-for-it-administrators"></a>Reimpostazione della password di Azure AD per amministratori IT
+# <a name="azure-active-directory-password-reset-for-it-administrators"></a>Reimpostazione delle password in Azure Active Directory per gli amministratori IT
 > [!IMPORTANT]
-> Si desidera reimpostare la password di Azure o di O365?  Se sì, [passare a questa sezione](#users-how-to-manage-your-own-password).
-> 
-> 
+> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-your-password).
+>
+>
 
-Self-Service è stato a lungo un obiettivo chiave per i reparti IT di tutto il mondo come misura di riduzione dei costi e facile utilizzo.  In effetti, nel mercato si sono diffusi prodotti che consentono di gestire gruppi locali, password o profili utente dal cloud o in locale. Azure AD si distingue da queste offerte fornendo alcune delle funzionalità self-service più efficaci e semplici da usare disponibili attualmente.
+Self-Service è stato a lungo un obiettivo chiave per i reparti IT di tutto il mondo come misura di riduzione dei costi e facile utilizzo.  In effetti, nel mercato si sono diffusi prodotti che consentono di gestire gruppi locali, password o profili utente dal cloud o in locale. Azure Active Directory (Azure AD) si distingue da queste offerte grazie ad alcune funzionalità self-service particolarmente efficaci e semplici da usare disponibili attualmente.
 
 **Gestione delle password di Azure AD** è un insieme di funzionalità che consentono agli utenti di gestire le password da qualsiasi dispositivo, in qualsiasi momento, da qualsiasi posizione, pur rimanendo conforme ai criteri di sicurezza definiti.
 
-## <a name="admins-learn-about-how-to-get-started-with-azure-ad-password-reset"></a>AMMINISTRATORI: Informazioni sulle operazioni preliminari per la reimpostazione della password di AD Azure
-Se si è un amministratore che desidera abilitare la funzione di reimpostazione della password di Azure AD o semplicemente desidera maggiori informazioni, iniziare con i collegamenti seguenti per accedere agli argomenti di pertinenza.
+## <a name="admins-learn-about-how-to-get-started-with-azure-ad-password-reset"></a>AMMINISTRATORI: Informazioni sulle operazioni preliminari per la reimpostazione della password di Azure AD
+Gli amministratori che vogliono abilitare la funzione di reimpostazione della password di Azure AD o semplicemente desiderano altre informazioni possono iniziare con i collegamenti seguenti agli argomenti di pertinenza.
 
 | Argomento |  |
 | --- | --- |
@@ -68,7 +69,7 @@ Di seguito sono elencati alcuni motivi per cui è consigliabile usare le funzion
 * **Consentire la mobilità** : gli utenti possono reimpostare le password da ovunque si trovino
 
 ### <a name="pricing-and-availability"></a>Prezzi e disponibilità
-La funzione di reimpostazione della password di AD Azure è disponibile in 3 livelli, in base al tipo di sottoscrizione eseguita:
+La funzione di reimpostazione della password di AD Azure è disponibile in 3 livelli, in base al tipo di sottoscrizione:
 
 * **Azure AD Free** - Gli amministratori di reti solo cloud possono reimpostare la password personale
 * **Azure AD Basic o una sottoscrizione di O365 a pagamento** - Gli amministratori e gli utenti di reti solo cloud possono reimpostare la password personale
@@ -117,8 +118,8 @@ Per altre informazioni sui prezzi di Azure AD Premium o Basic, visitare la pagin
 | Argomento |  |
 | --- | --- |
 | Dove è possibile visualizzare i report di reimpostazione della password? |[Informazioni generali sui report di gestione delle password](active-directory-passwords-get-insights.md#overview-of-password-management-reports) |
-| Dove si possono trovare informazioni sul modo in cui gli utenti aziendali usano la funzione di reimpostazione della password? |[Visualizzare le attività di reimpostazione delle password nell'organizzazione](active-directory-passwords-get-insights.md#view-password-reset-activity) |
-| Dove è possibile visualizzare quanti utenti stanno effettuando la registrazione e a cosa si stanno registrando? |[Visualizzare le attività di registrazione per la reimpostazione delle password](active-directory-passwords-get-insights.md#view-password-reset-registration-activity) |
+| Dove si possono trovare informazioni sul modo in cui gli utenti aziendali usano la funzione di reimpostazione della password? |[Visualizzare le attività di reimpostazione delle password nell'organizzazione](active-directory-passwords-get-insights.md#how-to-view-password-management-reports) |
+| Dove è possibile visualizzare quanti utenti stanno effettuando la registrazione e a cosa si stanno registrando? |[Visualizzare le attività di registrazione per la reimpostazione delle password](active-directory-passwords-get-insights.md#how-to-view-password-management-reports) |
 | Come è possibile ottenere i report di reimpostazione della password da un'API? |[Creazione di un'applicazione in Azure AD per accedere all'API di generazione di report](active-directory-reporting-api-getting-started.md) |
 | Che tipo di informazioni sulla generazione dei report di reimpostazione della password sono disponibili tramite un'API? |[Eventi di registrazione e reimpostazione della password disponibili nell'API per la generazione di report](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview#SsprActivityEvent) |
 
@@ -166,11 +167,11 @@ Per altre informazioni sui prezzi di Azure AD Premium o Basic, visitare la pagin
 | Ottenere informazioni sui dati usati dalla reimpostazione della password |[Dati usati per la reimpostazione della password](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) |
 
 ## <a name="recent-service-updates"></a>Aggiornamenti recenti del servizio
-#### <a name="enforce-password-reset-registration-at-sign-in-to-office-365-apps---november-2015"></a>Implementare la registrazione per la reimpostazione della password all'accesso ad app di Office 365: novembre 2015
+#### <a name="enforce-password-reset-registration-at-sign-in-to-office-365-apps---november-2015"></a>Implementare la registrazione per la reimpostazione della password all'accesso alle app di Office 365: novembre 2015
 * Dopo aver abilitato la funzione di [registrazione applicata](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) , agli utenti verrà ora richiesto di registrarsi da qualsiasi punto di accesso usando un account aziendale o dell'istituto di istruzione.  In questo modo, le aziende velocizzano considerevolmente il processo di adozione della funzione di reimpostazione della password.  Alcune aziende di grandi dimensioni, ad esempio, hanno adottato questa nuova funzionalità in due sole settimane.
 
-#### <a name="support-for-unlocking-active-directory-accounts-without-resetting-a-password---november-2015"></a>Supporto per lo sblocco di account di Active Directory senza la reimpostazione della password: novembre 2015
-* Il semplice sblocco (senza reset) costituisce oggi un driver di supporto tecnico di grandi dimensioni.  In molte aziende, infatti, fino al 70% del budget destinato alla reimpostazione della password viene impiegato per sbloccare gli account.  Per risolvere questo problema, la funzione di reimpostazione della password di Azure AD consente ora di abilitare una funzionalità che offre agli utenti la possibilità di sbloccare gli account di Active Directory separatamente dalla reimpostazione della password.  Per sapere come attivarla: [Impostazione: Consenti agli utenti di sbloccare gli account senza reimpostare la password](active-directory-passwords-customize.md#allow-users-to-unlock-accounts-without-resetting-their-password)
+#### <a name="support-for-unlocking-on-premises-ad-accounts-without-resetting-a-password---november-2015"></a>Supporto per lo sblocco di account Azure AD locali senza la reimpostazione della password: novembre 2015
+* Il semplice sblocco (senza reset) costituisce oggi un driver di supporto tecnico di grandi dimensioni.  In molte aziende, infatti, fino al 70% del budget destinato alla reimpostazione della password viene impiegato per sbloccare gli account.  Per risolvere questo problema, la reimpostazione della password di Azure AD consente ora di abilitare una funzionalità che offre agli utenti la possibilità di sbloccare gli account AD locali separatamente dalla reimpostazione della password.  Per sapere come attivarla: [Impostazione: Consenti agli utenti di sbloccare gli account locali senza reimpostare la password](active-directory-passwords-customize.md#allow-users-to-unlock-accounts-without-resetting-their-password).
 
 #### <a name="usability-updates-to-registration-page---october-2015"></a>Aggiornamenti a livello di usabilità della pagina di registrazione: ottobre 2015
 * Dopo che i dati di un utente sono stati registrati, sarà ora sufficiente fare clic su "esito positivo" per aggiornare i dati senza dover inviare nuovamente il messaggio di posta elettronica o effettuare una nuova telefonata.
@@ -181,25 +182,25 @@ Per altre informazioni sui prezzi di Azure AD Premium o Basic, visitare la pagin
 #### <a name="api-for-retrieving-password-reset-reporting-data---august-2015"></a>API per il recupero dei dati di report sulla reimpostazione della password: agosto 2015
 * I dati relativi ai report sulla reimpostazione delle password possono ora essere recuperati direttamente dall' [API di Report ed eventi di Azure AD](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
 
-#### <a name="support-for-azure-ad-password-reset-during-cloud-domain-join---august-2015"></a>Supporto per la reimpostazione delle password di Azure AD durante l'aggiunta a un dominio cloud: agosto 2015
+#### <a name="support-for-azure-ad-password-reset-during-cloud-domain-join---august-2015"></a>Supporto per la reimpostazione della password di Azure AD durante l'aggiunta a un dominio cloud: agosto 2015
 * Qualsiasi utente cloud può ora reimpostare la password direttamente dalla schermata di accesso di Windows 10 durante l'esperienza di aggiunta a un dominio cloud.  Si noti che questa funzionalità non è ancora esposta nella schermata di accesso di Windows 10.
 
-#### <a name="enforce-password-reset-registration-at-sign-in-to-azure-and-federated-apps---july-2015"></a>Implementare la registrazione per la reimpostazione delle password all'accesso alle app di Azure e federate: luglio 2015
+#### <a name="enforce-password-reset-registration-at-sign-in-to-azure-and-federated-apps---july-2015"></a>Implementare la registrazione per la reimpostazione della password all'accesso alle app di Azure e federate: luglio 2015
 * Oltre all'implementazione della registrazione all'accesso a myapps.microsoft.com, è ora supportata l'implementazione della registrazione durante l'accesso al portale di gestione di Azure e alle applicazioni federate Single Sign-On
 
 #### <a name="security-question-localization-support---may-2015"></a>Supporto per la localizzazione della domanda di sicurezza: maggio 2015
 * È ora possibile selezionare domande di sicurezza predefinite, localizzate nel set di lingue completo di O365 durante la configurazione delle domande di sicurezza per la reimpostazione delle password.
 
-#### <a name="account-unlock-support-during-password-reset---june-2015"></a>Supporto per lo sblocco dell'account durante la reimpostazione delle password: giugno 2015
+#### <a name="account-unlock-support-during-password-reset---june-2015"></a>Supporto per lo sblocco dell'account durante la reimpostazione della password: giugno 2015
 * Se si usa il writeback delle password e si reimposta la password quando l'account è bloccato, l'account di Active Directory verrà automaticamente sbloccato.
 
-#### <a name="branded-sspr-registration---april-2015"></a>Registrazione SSPR personalizzata: aprile 2015
+#### <a name="branded-self-service-password-reset-sspr-registration---april-2015"></a>Reimpostazione della password self-service personalizzata: aprile 2015
 * La pagina di registrazione per la reimpostazione delle password è ora personalizzata con il logo della società.
 
 #### <a name="security-questions---march-2015"></a>Domande di sicurezza: marzo 2015
 * Le domande di sicurezza sono state rilasciate e sono disponibili a livello generale.
 
-#### <a name="account-unlock---march-2015"></a>Sblocco dell’account: marzo 2015
+#### <a name="account-unlock---march-2015"></a>Sblocco dell'account: marzo 2015
 * I nuovi utenti possono sbloccare i propri account quando si verifica la reimpostazione delle password
 
 ## <a name="coming-soon"></a>Presto disponibile
@@ -209,10 +210,10 @@ Di seguito sono riportate alcune interessanti funzionalità in fase di elaborazi
 
 * Sono ora supportati i promemoria per gli utenti relativi all'aggiornamento dei dati registrati all'accesso a myapps.microsoft.com, ma la possibilità di estenderli a tutti gli accessi è ancora in fase di elaborazione.
 
-## <a name="links-to-password-reset-documentation"></a>Collegamenti alla documentazione relativa alla reimpostazione della password
-Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
+## <a name="next-steps"></a>Passaggi successivi
+Di seguito sono disponibili i collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,**  [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
+* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
 * [**Introduzione**](active-directory-passwords-getting-started.md): informazioni su come consentire agli utenti di reimpostare e modificare le password cloud o locali
 * [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione
@@ -221,10 +222,4 @@ Di seguito vengono forniti collegamenti a tutte le pagine della documentazione r
 * [**Domande frequenti**](active-directory-passwords-faq.md) : risposte alle domande frequenti
 * [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md): informazioni su come risolvere rapidamente eventuali problemi con il servizio
 * [**Altre informazioni**](active-directory-passwords-learn-more.md): approfondimenti sui dettagli tecnici del funzionamento del servizio
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

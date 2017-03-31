@@ -1,52 +1,52 @@
 ---
-title: Aggiungere Application Insights SDK per monitorare un&quot;app Node.js | Microsoft Docs
-description: "Analizzare l&quot;uso, la disponibilità e le prestazioni dell&quot;applicazione locale o Web di Microsoft Azure con Application Insights."
+title: Monitorare l&quot;app Node.js con Azure Application Insights | Microsoft Docs
+description: "Analizzare l&quot;uso, la disponibilità e le prestazioni dell&quot;applicazione locale o Web di Microsoft Azure usando Application Insights."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fb80168b38be88ab18952569e6b6f9bcb53d473a
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: b4e2ca39cf13b25ee02afec3867a57ab4b665cbd
+ms.lasthandoff: 03/16/2017
 
 
 ---
 # <a name="add-application-insights-sdk-to-monitor-your-nodejs-app"></a>Aggiungere Application Insights SDK per monitorare un'app Node.js
-*Application Insights è disponibile in anteprima.*
 
-[Visual Studio Application Insights](app-insights-overview.md) consente di monitorare un'applicazione live per [rilevare e diagnosticare i problemi di prestazioni e le eccezioni](app-insights-detect-triage-diagnose.md) e [rilevare la modalità di uso dell'app](app-insights-overview-usage.md). Può essere usato per app ospitate nei server IIS locali dell'utente o in macchine virtuali di Azure oppure per app Web di Azure,
+
+[Azure Application Insights](app-insights-overview.md) consente di monitorare un'applicazione attiva per [rilevare e diagnosticare i problemi di prestazioni e le eccezioni](app-insights-detect-triage-diagnose.md) e [individuare la modalità d'uso dell'app](app-insights-overview-usage.md). Può essere usato per app ospitate nei server IIS locali dell'utente o in macchine virtuali di Azure oppure per app Web di Azure,
 
 L'SDK offre la raccolta automatica delle risposte e delle frequenze delle richieste HTTP in ingresso, dei contatori delle prestazioni (CPU, memoria, RPS) e delle eccezioni non gestite. È anche possibile aggiungere chiamate personalizzate per rilevare le dipendenze, le metriche o altri eventi.
 
 ![Grafici di monitoraggio delle prestazioni di esempio](./media/app-insights-nodejs/10-perf.png)
 
 #### <a name="before-you-start"></a>Prima di iniziare
-Sono necessari:
+È necessario:
 
-* Visual Studio 2013 o versione successiva. È preferibile una versione successiva.
 * Una sottoscrizione a [Microsoft Azure](http://azure.com). Se il team o l'organizzazione ha una sottoscrizione di Azure, il proprietario potrà aggiungere l'utente alla sottoscrizione usando il rispettivo [account Microsoft](http://live.com).
 
-## <a name="a-nameaddacreate-an-application-insights-resource"></a><a name="add"></a>Creare una risorsa di Application Insights
-Accedere al [portale di Azure][portal] e creare una nuova risorsa di Application Insights. Una [risorsa][roles] in Azure è un'istanza di un servizio. In questa risorsa la telemetria dell'app verrà analizzata e visualizzata.
+## <a name="add"></a>Creare una risorsa di Application Insights
+Accedere al [Portale di Azure][portal] e creare una nuova risorsa di Application Insights. Una [risorsa][roles] in Azure è un'istanza di un servizio. In questa risorsa la telemetria dell'app verrà analizzata e visualizzata.
 
 ![Fare clic su Nuovo, Application Insights](./media/app-insights-nodejs/01-new-asp.png)
 
-Scegliere Altro come tipo di applicazione. La scelta del tipo di applicazione imposta il contenuto predefinito dei pannelli delle risorse e le proprietà visibili in [Esplora metriche][metrics].
+Scegliere Generale come tipo di applicazione. La scelta del tipo di applicazione imposta il contenuto predefinito dei pannelli delle risorse e le proprietà visibili in [Esplora metriche][metrics].
 
 #### <a name="copy-the-instrumentation-key"></a>Eseguire una copia della chiave di strumentazione
 La chiave identifica la risorsa e verrà installata subito nell'SDK per indirizzare i dati alla risorsa.
 
 ![Fare clic su Proprietà, selezionare il tasto e premere CTRL+C](./media/app-insights-nodejs/02-props-asp.png)
 
-## <a name="a-namesdka-install-the-sdk-in-your-application"></a><a name="sdk"></a> Installare l’SDK nell'applicazione
+## <a name="sdk"></a> Installare l’SDK nell'applicazione
 ```
 npm install applicationinsights --save
 ```
@@ -64,17 +64,17 @@ appInsights.setup("<instrumentation_key>").start();
 
 È possibile provare l'SDK senza invio di dati di telemetria, impostando la chiave di strumentazione su una stringa non vuota.
 
-## <a name="a-nameruna-run-your-project"></a><a name="run"></a> Eseguire il progetto
+## <a name="run"></a> Eseguire il progetto
 Eseguire l'applicazione e provarla aprendo pagine diverse per generare alcuni dati di telemetria.
 
-## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> Visualizzare i dati di telemetria
+## <a name="monitor"></a> Visualizzare i dati di telemetria
 Tornare al [portale di Azure](https://portal.azure.com) e passare alla risorsa Application Insights.
 
 Cercare i dati nella pagina di panoramica. All'inizio si vedranno solo uno o due punti. Ad esempio:
 
 ![Fare clic per visualizzare altri dati.](./media/app-insights-nodejs/12-first-perf.png)
 
-Fare clic su qualsiasi grafico per visualizzare metriche più dettagliate. [Altre informazioni sulle metriche][perf].
+Fare clic su qualsiasi grafico per visualizzare metriche più dettagliate. [Altre informazioni sulle metriche.][perf]
 
 #### <a name="no-data"></a>Dati non visualizzati
 * Usare l'applicazione, aprendo pagine diverse in modo da generare alcuni dati di telemetria.
@@ -86,16 +86,13 @@ Fare clic su qualsiasi grafico per visualizzare metriche più dettagliate. [Altr
 Ora distribuire l'applicazione a ISS o ad Azure e osservare l'accumulo dei dati.
 
 #### <a name="no-data-after-you-publish-to-your-server"></a>Nessun dato dopo la pubblicazione nel server?
-Aprire le seguenti porte per il traffico in uscita nel firewall del server:
-
-* `dc.services.visualstudio.com:443`
-* `f5.services.visualstudio.com:443`
+Controllare che [le porte del firewall necessarie siano aperte](app-insights-ip-addresses.md).
 
 #### <a name="trouble-on-your-build-server"></a>Problemi del server di compilazione
 Vedere [questa sezione sulla risoluzione dei problemi](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
 ## <a name="customized-usage"></a>Uso personalizzato
-### <a name="disabling-autocollection"></a>Disabilitazione della raccolta automatica
+### <a name="disabling-auto-collection"></a>Disabilitazione della raccolta automatica
 ```javascript
 import appInsights = require("applicationinsights");
 appInsights.setup("<instrumentation_key>")
@@ -185,6 +182,10 @@ server.on("listening", () => {
 });
 ```
 
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
 ## <a name="next-steps"></a>Passaggi successivi
 * [Monitorare i dati di telemetria nel portale](app-insights-dashboards.md)
 * [Presentazione dello strumento Analisi in Application Insights](app-insights-analytics-tour.md)
@@ -197,9 +198,4 @@ server.on("listening", () => {
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

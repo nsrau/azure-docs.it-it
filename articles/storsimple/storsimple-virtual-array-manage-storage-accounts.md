@@ -1,10 +1,10 @@
 ---
-title: Gestire le credenziali dell&quot;account di archiviazione StorSimple per l&quot;array virtuale Microsoft Azure StorSimple | Documentazione Microsoft
-description: Spiega come usare la pagina Configura di StorSimple Manager per aggiungere, modificare, eliminare o ruotare le chiavi di sicurezza per le credenziali dell&quot;account di archiviazione associate all&quot;array virtuale StorSimple.
+title: Gestire le credenziali dell&quot;account di archiviazione per l&quot;array virtuale StorSimple | Documentazione Microsoft
+description: Spiega come usare la pagina Configura Gestione dispositivi di StorSimple per aggiungere, modificare, eliminare o ruotare le chiavi di sicurezza per le credenziali dell&quot;account di archiviazione associate all&quot;array virtuale StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 234bf8bb-d5fe-40be-9d25-721d7482bc3b
 ms.service: storsimple
@@ -12,14 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 5c31ac5284f3ba8fecc1e9f33838a778254658e5
-ms.openlocfilehash: fe38d4239c26f81aff0108fe6110325a5230c12b
+ms.sourcegitcommit: 4b5c86314bde2acb7d5723909f89691bf7ed8b98
+ms.openlocfilehash: 6bb07bc1e3ab439352b444016167541eca54f788
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="use-the-storsimple-device-manager-service-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per gestire le credenziali dell'account di archiviazione per l'array virtuale StorSimple
+# <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Usare Gestione dispositivi StorSimple per gestire le credenziali dell'account di archiviazione per l'array virtuale StorSimple
 
 ## <a name="overview"></a>Panoramica
 La sezione **Configurazione** del pannello del servizio Gestione dispositivi StorSimple dell'array virtuale StorSimple illustra i parametri globali del servizio che possono essere creati nel servizio StorSimple Manager. Questi parametri possono essere applicati a tutti i dispositivi connessi al servizio e includono:
@@ -150,10 +151,5 @@ Per comunicare la modifica al servizio Gestione dispositivi StorSimple, è neces
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

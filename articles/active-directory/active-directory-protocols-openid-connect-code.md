@@ -3,11 +3,7 @@ redirect_url: /azure/active-directory/develop/active-directory-protocols-openid-
 translationtype: Human Translation
 ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
 ms.openlocfilehash: 6afd123c6534b936265824edaccd2cd08fd7e9bb
+ms.lasthandoff: 02/11/2017
 
 ---
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

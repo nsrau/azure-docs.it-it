@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: acfeb52b-4b81-4a7d-af77-3e9908407404
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,6 +19,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
 ms.openlocfilehash: 8b924f29594a9f0c8c161661b216a12ff65b42a9
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -28,7 +30,7 @@ ms.openlocfilehash: 8b924f29594a9f0c8c161661b216a12ff65b42a9
 
 Questo articolo illustra come usare Pig con HDInsight.
 
-## <a name="a-idwhyawhy-use-pig"></a><a id="why"></a>Perché usare Pig?
+## <a id="why"></a>Perché usare Pig?
 Quando si elaborano dati usando MapReduce in Hadoop, uno dei problemi principali è riuscire a implementare la logica di elaborazione usando solo una mappa e una funzione di riduzione. In caso di esigenze di elaborazione complesse, è spesso necessario interrompere l'elaborazione in più operazioni di MapReduce concatenate insieme per ottenere il risultato desiderato.
 
 Pig non costringe l'utente a usare solo una mappa e una funzione di riduzione, ma consente di definire l'elaborazione come una serie di trasformazioni dei flussi dati fino a raggiungere l'output desiderato.
@@ -49,7 +51,7 @@ Per un esempio sull'uso di funzioni definite dall'utente con Pig, vedere i docum
 * [Usare Python con Pig e Hive in HDInsight](hdinsight-python.md)
 * [Usare C# con Hive e Pig in HDInsight](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-## <a name="a-iddataaabout-the-sample-data"></a><a id="data"></a>Informazioni sui dati di esempio
+## <a id="data"></a>Informazioni sui dati di esempio
 Questo esempio usa un file di esempio *log4j*, che viene archiviato in **/example/data/sample.log** nel contenitore dell'archivio BLOB. Ogni log all'interno del file è costituito da una riga di campi che contiene un campo `[LOG LEVEL]` per visualizzare il tipo e la gravità. Ad esempio:
 
     2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
@@ -72,7 +74,7 @@ Poiché WASB è la risorsa di archiviazione predefinita per HDInsight, è anche 
 > 
 > 
 
-## <a name="a-idjobaabout-the-sample-job"></a><a id="job"></a>Informazioni sull'app di esempio
+## <a id="job"></a>Informazioni sull'app di esempio
 Il processo Pig Latin seguente carica il file **sample.log** dal percorso di archiviazione predefinito per il cluster HDInsight. Esegue quindi una serie di trasformazioni che generano un conteggio delle occorrenze di ciascun livello di log presente nei dati di input. I risultati vengono trasmessi a STDOUT.
 
     LOGS = LOAD 'wasbs:///example/data/sample.log';
@@ -87,7 +89,7 @@ L'immagine seguente illustra un riepilogo dei dati generati da ogni operazione d
 
 ![Rappresentazione grafica delle trasformazioni][image-hdi-pig-data-transformation]
 
-## <a name="a-idrunarun-the-pig-latin-job"></a><a id="run"></a>Eseguire il processo Pig Latin
+## <a id="run"></a>Eseguire il processo Pig Latin
 HDInsight è in grado di eseguire processi Pig Latin in vari modi. Usare la tabella seguente per decidere il metodo più adatto alle proprie esigenze, quindi fare clic sul collegamento per visualizzare una procedura dettagliata.
 
 | **Usare questo** se si desidera... | ...una shell **interattiva** | ...elaborazione**batch** | ...con questo **sistema operativo cluster** | ...da questo **sistema operativo client** |
@@ -109,7 +111,7 @@ HDInsight è in grado di eseguire processi Pig Latin in vari modi. Usare la tabe
 
 Altre informazioni sul Feature Pack di Azure per SSIS sono disponibili [qui][ssispack].
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Passaggi successivi
+## <a id="nextsteps"></a>Passaggi successivi
 Dopo avere appreso come usare Pig con HDInsight, vedere i collegamenti seguenti per scoprire altri modi di usare Azure HDInsight.
 
 * [Caricare dati in HDInsight][hdinsight-upload-data]
@@ -142,10 +144,5 @@ Dopo avere appreso come usare Pig con HDInsight, vedere i collegamenti seguenti 
 
 
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

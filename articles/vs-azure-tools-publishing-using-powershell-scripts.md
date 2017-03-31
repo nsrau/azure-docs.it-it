@@ -15,8 +15,9 @@ ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 9b2d456d8dba33af224ea147f5f8ec49ba7397f9
-ms.openlocfilehash: d82984d87d6517ce429ca887436b88995ede997b
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: f79068d5d1bb28762640545ebf13784b7070440e
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -37,7 +38,7 @@ Non è necessario Azure SDK per generare script per i progetti web. Questa funzi
 Sono disponibili altri strumenti e risorse per l'utilizzo di PowerShell in Visual Studio per lo sviluppo in Azure. Vedere [PowerShell Tools per Visual Studio](http://go.microsoft.com/fwlink/?LinkId=404012).
 
 ## <a name="generating-the-publish-scripts"></a>Come generare script di pubblicazione
-È possibile generare gli script di pubblicazione per una macchina virtuale che ospita il sito Web quando si crea un nuovo progetto seguendo [queste istruzioni](virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). È possibile anche [generare script di pubblicazione per le app Web del Servizio app di Azure](app-service-web/web-sites-dotnet-get-started.md).
+È possibile generare gli script di pubblicazione per una macchina virtuale che ospita il sito Web quando si crea un nuovo progetto seguendo [queste istruzioni](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). È possibile anche [generare script di pubblicazione per le app Web del Servizio app di Azure](app-service-web/web-sites-dotnet-get-started.md).
 
 ## <a name="scripts-that-visual-studio-generates"></a>Script generati da Visual Studio
 Visual Studio genera una cartella a livello di soluzione denominata **PublishScripts** che contiene due file di Windows PowerShell, uno script di pubblicazione per la macchina virtuale o sito Web e un modulo che contiene funzioni che è possibile utilizzare negli script. Visual Studio genera inoltre un file in formato JSON che specifica i dettagli del progetto in distribuzione.
@@ -316,7 +317,7 @@ Per visualizzare la Guida per le funzioni è possibile utilizzare il prompt dei 
 | Trovare-AzureVM |Ottiene la macchina virtuale di Azure specificata. |
 | Formato DevTestMessageWithTime |Antepone la data e l’ora a un messaggio. Questa funzione è progettata per i messaggi scritti ai flussi di errore e dettagliati. |
 | Get-AzureSQLDatabaseConnectionString |Assembla una stringa di connessione per connettersi a un database SQL Azure. |
-| Get-AzureVMStorage |Restituisce il nome del primo account di archiviazione con il modello di nome "devtest*", senza distinzione maiuscole/minuscole, nel percorso o nel gruppo di affinità specificato.* *Se l'account di archiviazione "devtest*" non corrisponde alla posizione o al gruppo di affinità, la funzione lo ignora. È necessario specificare un percorso o un gruppo di affinità. |
+| Get-AzureVMStorage |Restituisce il nome del primo account di archiviazione con il modello di nome "devtest*", senza distinzione maiuscole/minuscole, nel percorso o nel gruppo di affinità specificato.**Se l'account di archiviazione "devtest*" non corrisponde alla posizione o al gruppo di affinità, la funzione lo ignora. È necessario specificare un percorso o un gruppo di affinità. |
 | Get-MSDeployCmd |Restituisce un comando per eseguire lo strumento MsDeploy.exe. |
 | Nuovo AzureVMEnvironment |Trova o crea una macchina virtuale nella sottoscrizione che corrisponde ai valori nel file di configurazione JSON. |
 | Pubblicare-WebPackage |Utilizza MsDeploy.exe e un file Zip del pacchetto di pubblicazione web per distribuire le risorse a un sito Web. Questa funzione non genera alcun output. Se la chiamata a MSDeploy.exe non riesce, la funzione genera un'eccezione. Per ottenere un output più dettagliato, utilizzare l’opzione **-Verbose** . |
@@ -343,9 +344,4 @@ Per visualizzare la Guida per le funzioni è possibile utilizzare il prompt dei 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla creazione di script PowerShell, leggere [Scripting con Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) e vedere gli altri script di Azure PowerShell nello [Script Center](https://azure.microsoft.com/documentation/scripts/).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

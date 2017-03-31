@@ -1,5 +1,5 @@
 ---
-title: Creare un servizio di bilanciamento del carico con connessione Internet con IPv6 usando PowerShell per Resource Manager | Documentazione Microsoft
+title: 'Creare un servizio di bilanciamento del carico di Azure con connessione Internet con IPv6: PowerShell | Documentazione Microsoft'
 description: Informazioni sulla creazione di un servizio di bilanciamento del carico con connessione Internet con IPv6 usando PowerShell per Resource Manager
 services: load-balancer
 documentationcenter: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
+ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 1a1c3c15c51b1e441f21158510e92cc8de057352
-ms.openlocfilehash: 6bc3f58f5e825ccc85255e3e0bf6025adceb18e1
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 5eff828095cd58732c78d4af43b5ff5420dfe8fd
+ms.lasthandoff: 01/24/2017
 
 ---
 
@@ -28,7 +29,7 @@ ms.openlocfilehash: 6bc3f58f5e825ccc85255e3e0bf6025adceb18e1
 > * [Interfaccia della riga di comando di Azure](load-balancer-ipv6-internet-cli.md)
 > * [Modello](load-balancer-ipv6-internet-template.md)
 
-Azure Load Balancer è un servizio di bilanciamento del carico di livello 4 (TCP, UDP). Il servizio di bilanciamento del carico offre disponibilità elevata distribuendo il traffico in ingresso tra istanze del servizio integre in servizi cloud o macchine virtuali in un set di bilanciamento del carico . Azure Load Balancer può anche presentare tali servizi su più porte, più indirizzi IP o entrambi.
+Azure Load Balancer è un servizio di bilanciamento del carico di livello&4; (TCP, UDP). Il servizio di bilanciamento del carico offre disponibilità elevata distribuendo il traffico in ingresso tra istanze del servizio integre in servizi cloud o macchine virtuali in un set di bilanciamento del carico . Azure Load Balancer può anche presentare tali servizi su più porte, più indirizzi IP o entrambi.
 
 ## <a name="example-deployment-scenario"></a>Scenario di distribuzione di esempio
 
@@ -201,7 +202,7 @@ Per altre informazioni, vedere [Creare e preconfigurare una macchina virtuale Wi
     ```powershell
     New-AzureRmAvailabilitySet -Name 'myNrpIPv6AvSet' -ResourceGroupName NRP-RG -location 'West US'
     $availabilitySet = Get-AzureRmAvailabilitySet -Name 'myNrpIPv6AvSet' -ResourceGroupName NRP-RG
-    New-AzureRmStorageAccount -ResourceGroupName NRP-RG -Name 'mynrpipv6stacct' -Location 'West US' -SkuName $LRS
+    New-AzureRmStorageAccount -ResourceGroupName NRP-RG -Name 'mynrpipv6stacct' -Location 'West US' -SkuName "Standard_LRS"
     $CreatedStorageAccount = Get-AzureRmStorageAccount -ResourceGroupName NRP-RG -Name 'mynrpipv6stacct'
     ```
 
@@ -234,9 +235,4 @@ Per altre informazioni, vedere [Creare e preconfigurare una macchina virtuale Wi
 [Configurare una modalità di distribuzione del servizio di bilanciamento del carico](load-balancer-distribution-mode.md)
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

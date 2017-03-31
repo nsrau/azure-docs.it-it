@@ -1,6 +1,6 @@
 ---
-title: 'Panoramica: strumenti di gestione per database SQL | Documentazione Microsoft'
-description: Confronta strumenti e le opzioni per la gestione di database SQL di Azure
+title: Strumenti per la gestione e lo sviluppo con il database SQL di Azure | Microsoft Docs
+description: Introduce le opzioni e gli strumenti per la gestione e lo sviluppo per il database SQL di Azure
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -12,34 +12,41 @@ ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 02/01/2017
+ms.topic: article
+ms.date: 03/03/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 915292a191da82af9e24e89460d46dc61a062b18
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 9b0a3a314e576db2133e5c63fada43bb11a4e520
+ms.lasthandoff: 03/04/2017
 
 
 ---
-# <a name="overview-management-tools-for-sql-database"></a>Panoramica: strumenti di gestione per database SQL
-Questo argomento analizza e mette a confronto strumenti e opzioni per la gestione di database SQL di Azure in modo da selezionare lo strumento appropriato per il processo, l'azienda e l'utente. La scelta dello strumento appropriato dipende dal numero di database gestiti, dall'attività e dalla frequenza con cui viene eseguita un'attività.
+# <a name="overview-tools-to-manage--develop-with-azure-sql-database"></a>Panoramica: Strumenti per la gestione e lo sviluppo con il database SQL di Azure
+In questo argomento vengono descritti gli strumenti per la gestione e lo sviluppo con i database SQL di Azure.
+
+> [!IMPORTANT]
+> Questo insieme di documentazione include guide introduttive, esempi e procedure che mostrano come eseguire operazioni di gestione e sviluppo con il database SQL di Azure tramite gli strumenti presentati nei paragrafi seguenti. Usare il riquadro di spostamento e la casella di filtro a sinistra per trovare contenuti specifici per il Portale di Azure, PowerShell e T-SQL.
+>
 
 ## <a name="azure-portal"></a>Portale di Azure
 Il [portale di Azure](https://portal.azure.com) è un'applicazione basata su Web dove è possibile creare, aggiornare ed eliminare i database e i server logici e monitorare le attività del database. Si tratta dello strumento ideale se si sta appena iniziando a usare Azure, se si gestiscono pochi database o se è necessario operare rapidamente.
 
-Per altre informazioni sull’uso del portale, vedere [Gestione di database SQL tramite il portale di Azure](sql-database-manage-portal.md).
-
-## <a name="sql-server-management-studio-and-sql-server-data-tools-in-visual-studio"></a>SQL Server Management Studio e SQL Server Data Tools in Visual Studio
-SQL Server Management Studio (SSMS) e SQL Server Data Tools (SSDT) sono gli strumenti client che vengono eseguiti sul computer per gestire e sviluppare il database nel cloud. È opportuno che gli sviluppatori di applicazioni con una certa familiarità con Visual Studio o altri ambienti di sviluppo integrato (IDE), [provino a usare SSDT in Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). Molti amministratori di database hanno familiarità con SSMS, che può essere usato con i database SQL di Azure. [Scaricare la versione più recente di SSMS](https://msdn.microsoft.com/library/mt238290) e usare sempre la versione più recente quando si lavora con database SQL di Azure. Per altre informazioni sulla gestione dei database SQL di Azure con SSMS, vedere [Gestire database SQL tramite SSMS](sql-database-manage-azure-ssms.md).
+## <a name="sql-server-management-studio-and-transact-sql"></a>SQL Server Management Studio e Transact-SQL
+SQL Server Management Studio (SSMS) è uno strumento client che viene eseguito nel computer in uso per gestire il database nel cloud tramite Transact-SQL. Molti amministratori di database hanno familiarità con SSMS, che può essere usato con i database SQL di Azure. [Scaricare la versione più recente di SSMS](https://msdn.microsoft.com/library/mt238290) e usare sempre la versione più recente quando si lavora con database SQL di Azure. 
 
 > [!IMPORTANT]
-> Usare sempre la versione più aggiornata di [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290) e [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) per restare sincronizzati con gli aggiornamenti di Microsoft Azure e del database SQL.
+> Usare sempre la versione più recente di [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290).
 >  
 
+## <a name="sql-server-data-tools-in-visual-studio"></a>SQL Server Data Tools in Visual Studio
+SQL Server Data Tools (SSDT) è uno strumento client eseguito sul computer per sviluppare il database nel cloud. È opportuno che gli sviluppatori di applicazioni con una certa familiarità con Visual Studio o altri ambienti di sviluppo integrato (IDE), [provino a usare SSDT in Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx).  
+
+> [!IMPORTANT]
+> Usare sempre la versione più aggiornata di [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) per restare al passo con gli aggiornamenti di Microsoft Azure e del database SQL.
+>  
 ## <a name="powershell"></a>PowerShell
 È possibile usare PowerShell per gestire database e pool elastici e automatizzare le distribuzioni di risorse Azure. Microsoft consiglia questo strumento per la gestione di un numero elevato di database e automatizzare la distribuzione delle modifiche delle risorse in un ambiente di produzione.
-
-Per altre informazioni, vedere [Gestire il database SQL con PowerShell](sql-database-manage-powershell.md)
 
 ## <a name="elastic-database-tools"></a>Strumenti di database elastici
 Usare gli strumenti di database elastico per eseguire azioni quali: 
@@ -52,10 +59,5 @@ Usare gli strumenti di database elastico per eseguire azioni quali:
 * [Gestione risorse di Azure](https://azure.microsoft.com/features/resource-manager/)
 * [Automazione di Azure](https://azure.microsoft.com/documentation/services/automation/)
 * [Utilità di pianificazione di Azure](https://azure.microsoft.com/documentation/services/scheduler/)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

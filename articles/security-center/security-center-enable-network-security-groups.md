@@ -12,37 +12,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 72dcf86c50c6a393ae065e5b487cb99f5701a5dc
+ms.sourcegitcommit: 0046a088f908a8cfdcab2cf6baad62524def6468
+ms.openlocfilehash: 1e034d59d8847f237fa0d4c772344d45cd618576
 
 
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>Abilitare i gruppi di sicurezza di rete nel Centro sicurezza di Azure
-Se non è già disponibile, il Centro sicurezza di Azure consiglierà l'abilitazione di un gruppo di sicurezza di rete. I gruppi di sicurezza di rete contengono un elenco di regole dell'elenco di controllo di accesso (ACL) che consentono o rifiutano il traffico di rete alle istanze VM in una rete virtuale. I gruppi di sicurezza di rete possono essere associati a subnet o singole istanze VM in una subnet. Quando un gruppo di sicurezza di rete viene associato a una subnet, le regole dell'elenco di controllo di accesso si applicano a tutte le istanze VM in tale subnet. Inoltre il traffico verso una singola VM può essere ulteriormente limitato associando un gruppo di sicurezza di rete direttamente a tale VM. Per altre informazioni, vedere [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md)
+Se non è già disponibile, il Centro sicurezza di Azure consiglia l'abilitazione di un gruppo di sicurezza di rete. I gruppi di sicurezza di rete contengono un elenco di regole dell'elenco di controllo di accesso (ACL) che consentono o rifiutano il traffico di rete alle istanze VM in una rete virtuale. I gruppi di sicurezza di rete possono essere associati a subnet o singole istanze VM in una subnet. Quando un gruppo di sicurezza di rete viene associato a una subnet, le regole ACL si applicano a tutte le istanze di VM in tale subnet. Il traffico verso una singola VM può essere inoltre ulteriormente limitato associando un gruppo di sicurezza di rete direttamente a tale VM. Per altre informazioni, vedere [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md)
 
-Se i gruppi di sicurezza di rete non sono stati abilitati, il Centro sicurezza presenterà all'utente due indicazioni, ovvero Abilita i gruppi di sicurezza di rete nelle subnet e Abilita i gruppi di sicurezza di rete sulle macchine virtuali. È possibile scegliere il livello a cui applicare i gruppi di sicurezza di rete, ovvero subnet o VM.
+Se i gruppi di sicurezza di rete non sono stati abilitati, il Centro sicurezza presenta all'utente due indicazioni, ovvero Abilita i gruppi di sicurezza di rete nelle subnet e Abilita i gruppi di sicurezza di rete sulle macchine virtuali. È possibile scegliere il livello a cui applicare i gruppi di sicurezza di rete, ovvero subnet o VM.
 
 > [!NOTE]
 > Il documento introduce il servizio usando una distribuzione di esempio.  Questa non è una guida dettagliata.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implementare la raccomandazione
 1. Nel pannello **Raccomandazioni** selezionare **Abilita i gruppi di sicurezza di rete** nelle subnet o sulle macchine virtuali.
    ![Abilitare i gruppi di sicurezza di rete][1]
 2. Verrà visualizzato il pannello **Configura i gruppi di sicurezza di rete mancanti** per le subnet o le macchine virtuali, in base alla raccomandazione selezionata. Selezionare una subnet o una macchina virtuale su cui configurare un gruppo di sicurezza di rete.
-   
+
    ![Configurare i gruppi di sicurezza di rete per la subnet][2]
-   
+
    ![Configurare i gruppi di sicurezza di rete per le macchine virtuali][3]
-3. Nel pannello **Scegli un gruppo di sicurezza di rete** selezionare un gruppo di sicurezza di rete o crearne uno nuovo.
-   
+3. Nel pannello **Scegli un gruppo di sicurezza di rete** selezionare un gruppo di sicurezza di rete esistente o selezionare **Crea nuovo** per crearne uno nuovo.
+
    ![Scegli un gruppo di sicurezza di rete][4]
 
-Se si crea un nuovo gruppo di sicurezza di rete, seguire la procedura illustrata in [Come gestire gruppi di sicurezza di rete tramite il portale di Azure](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) per creare un gruppo di sicurezza di rete e configurare le regole di sicurezza.
+Se si crea un gruppo di sicurezza di rete, seguire la procedura illustrata in [Come gestire gruppi di sicurezza di rete tramite il portale di Azure](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) per creare un gruppo di sicurezza di rete e configurare le regole di sicurezza.
 
 ## <a name="see-also"></a>Vedere anche
 Questo articolo ha illustrato come implementare la raccomandazione "Abilita i gruppi di sicurezza di rete" per subnet o macchine virtuali nel Centro sicurezza. Per altre informazioni sull'abilitazione dei gruppi di sicurezza di rete, vedere gli articoli seguenti:
@@ -68,6 +68,6 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

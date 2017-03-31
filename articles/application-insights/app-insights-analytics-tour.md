@@ -11,11 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2284b12c87eee6a453844e54cdcb2add5874218b
-ms.openlocfilehash: e5872f48e77cbb729dca88a2e5c603fdf2759fa5
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 132576ca394fe475000449ea58871726c36d078f
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -51,7 +52,7 @@ Scegliere le colonne, trascinarle, creare gruppi in base alle colonne e applicar
 
 Espandere un elemento per visualizzare i dettagli:
 
-![Scegliere Tabella e utsare Configura colonne](./media/app-insights-analytics-tour/040.png)
+![Scegliere Tabella e usare Configura colonne](./media/app-insights-analytics-tour/040.png)
 
 > [!NOTE]
 > Fare clic sull'intestazione di una colonna per riordinare i risultati disponibili nel Web browser. Tuttavia, tenere presente che per un set di risultati di grandi dimensioni, il numero di righe scaricate nel browser è limitato. Questa modalità di ordinamento non sempre illustra gli elementi effettivi massimi o minimi. Per ordinarli in modo affidabile, usare l'operatore `top` o `sort`.
@@ -91,7 +92,7 @@ Di seguito sono illustrate solo le richieste che hanno restituito un particolare
 ```AIQL
 
     requests
-    | where resultCode  == "404" 
+    | where resultCode  == "404"
     | take 10
 ```
 
@@ -100,8 +101,8 @@ Di seguito sono illustrate solo le richieste che hanno restituito un particolare
 L'operatore `where` accetta un'espressione booleana. Tenere presente i punti chiave seguenti:
 
 * `and`, `or`: operatori booleani
-* `==`, `<>`: uguale a e non uguale a
-* `=~`, `!=`: stringa senza distinzione tra maiuscole e minuscole uguale a e non uguale a. Sono disponibili numerosi altri operatori di confronto delle stringhe.
+* `==`, `<>`, `!=`: uguale a e non uguale a
+* `=~`, `!~`: stringa senza distinzione tra maiuscole e minuscole uguale a e non uguale a. Sono disponibili numerosi altri operatori di confronto delle stringhe.
 
 Informazioni dettagliate sulle [espressioni scalari](app-insights-analytics-reference.md#scalars).
 
@@ -114,7 +115,7 @@ Individuare le richieste non riuscite:
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
-`responseCode` è di tipo stringa, quindi per un confronto numerico è necessario [eseguire il cast](app-insights-analytics-reference.md#casts) .
+`resultCode` è di tipo stringa, quindi per un confronto numerico è necessario [eseguire il cast](app-insights-analytics-reference.md#casts) .
 
 ## <a name="time-range"></a>Intervallo di tempo
 
@@ -128,26 +129,26 @@ Eseguire l'override dell'intervallo di tempo scrivendo una query che includa `ti
 
     // What were the slowest requests over the past 3 days?
     requests
-    | where timestamp > ago(3d)  // Override the time range 
+    | where timestamp > ago(3d)  // Override the time range
     | top 5 by duration
 ```
 
-La funzionalità di intervallo di tempo è equivalente a una clausola 'where' inserita dopo ogni menzione di una delle tabelle di origine. 
+La funzionalità di intervallo di tempo è equivalente a una clausola 'where' inserita dopo ogni menzione di una delle tabelle di origine.
 
-`ago(3d)` significa 'tre giorni fa'. Le altre unità di tempo includono ore (`2h`, `2.5h`), minuti (`25m`) e secondi (`10s`). 
+`ago(3d)` significa 'tre giorni fa'. Le altre unità di tempo includono ore (`2h`, `2.5h`), minuti (`25m`) e secondi (`10s`).
 
 Altri esempi:
 
 ```AIQL
 
     // Last calendar week:
-    requests 
-    | where timestamp > startofweek(now()-7d) 
-        and timestamp < startofweek(now()) 
+    requests
+    | where timestamp > startofweek(now()-7d)
+        and timestamp < startofweek(now())
     | top 5 by duration
 
     // First hour of every day in past seven days:
-    requests 
+    requests
     | where timestamp > ago(7d) and timestamp % 1d < 1h
     | top 5 by duration
 
@@ -212,7 +213,7 @@ I timestamp sono sempre espressi in formato UTC. Pertanto, se ci si trova sulla 
 
 ```AIQL
 
-    requests 
+    requests
     | top 10 by timestamp desc
     | extend localTime = timestamp - 8h
 ```
@@ -307,7 +308,7 @@ La presenza di più espressioni nella clausola `by` determina la creazione di pi
 ![Tabella delle richieste in base a ora e località](./media/app-insights-analytics-tour/090.png)
 
 ### <a name="segment-a-chart-by-dimensions"></a>Segmentare un grafico in base alle dimensioni
-Se si crea un grafico per una tabella contenente una colonna di stringhe e una colonna numerica, la stringa può essere usata per suddividere i dati numerici in serie separate di punti. Se è presente più di una colonna di stinghe, è possibile scegliere la colonna da usare come discriminatore.
+Se si crea un grafico per una tabella contenente una colonna di stringhe e una colonna numerica, la stringa può essere usata per suddividere i dati numerici in serie separate di punti. Se è presente più di una colonna di stringhe, è possibile scegliere la colonna da usare come discriminatore.
 
 ![Segmentare un grafico di analisi](./media/app-insights-analytics-tour/100.png)
 
@@ -318,14 +319,14 @@ Convertire un valore booleano in una stringa per usarlo come discriminatore:
 ```AIQL
 
     // Bounce rate: sessions with only one page view
-    requests 
-    | where notempty(session_Id) 
+    requests
+    | where notempty(session_Id)
     | where tostring(operation_SyntheticSource) == "" // real users
-    | summarize pagesInSession=sum(itemCount), sessionEnd=max(timestamp) 
-               by session_Id 
-    | extend isbounce= pagesInSession == 1 
-    | summarize count() 
-               by tostring(isbounce), bin (sessionEnd, 1h) 
+    | summarize pagesInSession=sum(itemCount), sessionEnd=max(timestamp)
+               by session_Id
+    | extend isbounce= pagesInSession == 1
+    | summarize count()
+               by tostring(isbounce), bin (sessionEnd, 1h)
     | render timechart
 ```
 
@@ -343,7 +344,7 @@ Conteggiare le richieste per un modulo di un giorno, suddivise in ore:
 
 ```AIQL
 
-    requests 
+    requests
     | where timestamp > ago(30d)  // Override "Last 24h"
     | where tostring(operation_SyntheticSource) == "" // real users
     | extend hour = bin(timestamp % 1d , 1h)
@@ -449,7 +450,7 @@ Per trovare le eccezioni correlate a una richiesta che ha restituito una rispost
 ```AIQL
 
     requests
-    | where toint(responseCode) >= 500
+    | where toint(resultCode) >= 500
     | join (exceptions) on operation_Id
     | take 30
 ```
@@ -459,6 +460,7 @@ Per trovare le eccezioni correlate a una richiesta che ha restituito una rispost
 Nelle stesse clausole, si rinomina la colonna timestamp.
 
 ## <a name="letapp-insights-analytics-referencemdlet-clause-assign-a-result-to-a-variable"></a>[Let](app-insights-analytics-reference.md#let-clause): assegnare un risultato a una variabile
+
 Usare `let` per separare le parti dell'espressione precedente. I risultati rimangono invariati:
 
 ```AIQL
@@ -471,23 +473,37 @@ Usare `let` per separare le parti dell'espressione precedente. I risultati riman
     | take 30
 ```
 
-> Suggerimento: nel client Analisi non inserire righe vuote tra le parti di questa query. Verificare che vengano eseguiti tutti gli elementi.
->
+> [!Tip] 
+> Nel client Analisi non inserire righe vuote tra le parti della query. Verificare che vengano eseguiti tutti gli elementi.
 >
 
-### <a name="functions"></a>Funzioni 
+Usare `toscalar` per convertire una cella di tabella in un valore:
+
+```AIQL
+let topCities =  toscalar (
+   requests
+   | summarize count() by client_City 
+   | top n by count_ 
+   | summarize makeset(client_City));
+requests
+| where client_City in (topCities(3)) 
+| summarize count() by client_City;
+```
+
+
+### <a name="functions"></a>Funzioni
 
 Usare *Let* per definire una funzione:
 
 ```AIQL
 
-    let usdate = (t:datetime) 
+    let usdate = (t:datetime)
     {
-      strcat(getmonth(t), "/", dayofmonth(t),"/", getyear(t), " ", 
+      strcat(getmonth(t), "/", dayofmonth(t),"/", getyear(t), " ",
       bin((t-1h)%12h+1h,1s), iff(t%24h<12h, "AM", "PM"))
     };
     requests  
-    | extend PST = usdate(timestamp-8h) 
+    | extend PST = usdate(timestamp-8h)
 ```
 
 ## <a name="accessing-nested-objects"></a>Accesso a oggetti annidati
@@ -542,29 +558,29 @@ Per verificare se una dimensione personalizzata è di tipo specifico:
 ## <a name="dashboards"></a>Dashboard
 È possibile aggiungere i risultati a un dashboard in modo da riunire tutti i grafici e le tabelle più importanti.
 
-* [Dashoboard condiviso di Azure](app-insights-dashboards.md#share-dashboards): fare clic sull'icona di aggiunta. Per poterlo fare, è necessario disporre di un dashboard condiviso. Nel portale di Azure, aprire o creare un dashboard e fare clic su Condividi.
+* [Dashboard condiviso di Azure](app-insights-dashboards.md#share-dashboards): fare clic sull'icona di aggiunta. Per poterlo fare, è necessario disporre di un dashboard condiviso. Nel portale di Azure, aprire o creare un dashboard e fare clic su Condividi.
 * [Dashboard di Power BI](app-insights-export-power-bi.md): fare clic su Esporta, Power BI Query (Query Power BI). Un vantaggio di questa alternativa consiste nel fatto che è possibile visualizzare la query insieme ad altri risultati da un'ampia gamma di origini.
 
 ## <a name="combine-with-imported-data"></a>Combinare con dati importati
 
-I report di Analisi hanno un ottimo aspetto nel dashboard, tuttavia a volte si desidera convertire i dati in un formato più semplice. Si supponga, ad esempio, che gli utenti autenticati siano identificati nei dati di telemetria da un alias. Si desidera visualizzarne i nomi reali nei risultati. A tale scopo, è necessario un file CSV con il mapping dagli alias ai nomi reali. 
+I report di Analisi hanno un ottimo aspetto nel dashboard, tuttavia a volte si desidera convertire i dati in un formato più semplice. Si supponga, ad esempio, che gli utenti autenticati siano identificati nei dati di telemetria da un alias. Si desidera visualizzarne i nomi reali nei risultati. A tale scopo, è necessario un file CSV con il mapping dagli alias ai nomi reali.
 
 È possibile importare un file di dati e usarlo come qualsiasi tabella standard (richieste, eccezioni e così via). Eseguire una query sulla propria tabella oppure aggiungerla ad altre tabelle. Ad esempio, se si dispone di una tabella denominata usermap contenente le colonne `realName` e `userId`, è possibile usarla per convertire il campo `user_AuthenticatedId` nei dati di telemetria della richiesta:
 
 ```AIQL
 
     requests
-    | where notempty(user_AuthenticatedId) 
+    | where notempty(user_AuthenticatedId)
     | project userId = user_AuthenticatedId
       // get the realName field from the usermap table:
-    | join kind=leftouter ( usermap ) on userId 
+    | join kind=leftouter ( usermap ) on userId
       // count transactions by name:
     | summarize count() by realName
 ```
 
-Per importare in una tabella, nel pannello Schema, in **Altre origini dati**, seguire le istruzioni per aggiungere una nuova origine dati, caricando un campione dei dati. È quindi possibile usare questa definizione per caricare le tabelle. 
+Per importare in una tabella, nel pannello Schema, in **Altre origini dati**, seguire le istruzioni per aggiungere una nuova origine dati, caricando un campione dei dati. È quindi possibile usare questa definizione per caricare le tabelle.
 
-La funzionalità di importazione è attualmente in anteprima e sarà inizialmente visualizzato un collegamento "Contattaci" in "Altre origini dati." Usare questo collegamento per iscriversi al programma di anteprima. Il collegamento verrà puoi sostituito da un pulsante "Aggiungi nuova origine dati". 
+La funzionalità di importazione è attualmente in anteprima e sarà inizialmente visualizzato un collegamento "Contattaci" in "Altre origini dati." Usare questo collegamento per iscriversi al programma di anteprima. Il collegamento verrà puoi sostituito da un pulsante "Aggiungi nuova origine dati".
 
 
 ## <a name="tables"></a>Tabelle
@@ -580,7 +596,7 @@ Trovare le richieste con il maggior numero di esiti negativi:
 ![Richieste di conteggio segmentate per nome](./media/app-insights-analytics-tour/analytics-failed-requests.png)
 
 ### <a name="custom-events-table"></a>Tabella di eventi personalizzati
-Se si usa [Trackevent()](app-insights-api-custom-events-metrics.md#track-event) per inviare eventi personalizzati, è possibile leggerli da questa tabella.
+Se si usa [Trackevent()](app-insights-api-custom-events-metrics.md#trackevent) per inviare eventi personalizzati, è possibile leggerli da questa tabella.
 
 Esaminiamo un esempio in cui il codice dell'app contiene le righe seguenti:
 
@@ -602,7 +618,7 @@ Estrarre le misure e le dimensioni degli eventi:
 ![Frequenza di visualizzazione degli eventi personalizzati](./media/app-insights-analytics-tour/analytics-custom-events-dimensions.png)
 
 ### <a name="custom-metrics-table"></a>Tabella delle metriche personalizzate
-Se si usa [TrackMetric()](app-insights-api-custom-events-metrics.md#track-metric) per inviare i valori metrici, i risultati sono disponibili nel flusso **customMetrics**. Ad esempio:  
+Se si usa [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) per inviare i valori metrici, i risultati sono disponibili nel flusso **customMetrics**. Ad esempio:  
 
 ![Metriche personalizzate in Application Insights - Analisi](./media/app-insights-analytics-tour/analytics-custom-metrics.png)
 
@@ -655,16 +671,16 @@ Contiene i risultati delle chiamate che l'applicazione esegue sul database e sul
 Chiamate AJAX dal browser:
 
 ```AIQL
-    
-    dependencies | where client_Type == "Browser" 
+
+    dependencies | where client_Type == "Browser"
     | take 10
 ```
 
 Chiamate di dipendenza dal server:
 
 ```AIQL
-    
-    dependencies | where client_Type == "PC" 
+
+    dependencies | where client_Type == "PC"
     | take 10
 ```
 
@@ -673,16 +689,13 @@ I risultati della dipendenza lato server mostrano sempre `success==False` se l'a
 ### <a name="traces-table"></a>Tabella delle tracce
 Contiene i dati di telemetria inviati dall'app tramite TrackTrace() o [altri framework di registrazione](app-insights-asp-net-trace-logs.md).
 
-
+## <a name="video"></a>Video 
+ 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Informazioni di riferimento sul linguaggio di Analisi](app-insights-analytics-reference.md)
 * Il [foglio informativo sugli utenti SQL](https://aka.ms/sql-analytics) traduce i linguaggi più comuni.
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

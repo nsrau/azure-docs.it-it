@@ -4,7 +4,7 @@ description: Informazioni su come abilitare la distribuzione continua nel serviz
 services: app-service
 documentationcenter: 
 author: dariagrigoriu
-manager: wpickett
+manager: erikre
 editor: mollybos
 ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
 ms.service: app-service
@@ -15,17 +15,18 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: dariagrigoriu
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: d0f7412571da30febff1ec8ffd92ea52b3c0a1e3
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 8f4bfb71e25691b3c3eec51186e533202a0f9db0
+ms.lasthandoff: 03/21/2017
 
 
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Distribuzione continua nel servizio app di Azure
-Questa esercitazione illustra come configurare un flusso di lavoro di distribuzione continua per l'app del [servizio app di Azure] . L'integrazione del servizio app con BitBucket, GitHub e Visual Studio Team Services (VSTS) consente un flusso di lavoro di distribuzione continua in cui Azure effettua il pull degli aggiornamenti più recenti dal progetto pubblicato in uno di questi servizi. La distribuzione continua è un'ottima opzione per i progetti in cui vengono integrati contributi numerosi e frequenti.
+Questa esercitazione illustra come configurare un flusso di lavoro di distribuzione continua per l'app del [servizio app di Azure] . L'integrazione del servizio app con BitBucket, GitHub e [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/team-services/) consente un flusso di lavoro di distribuzione continua in cui Azure effettua il pull degli aggiornamenti più recenti dal progetto pubblicato in uno di questi servizi. La distribuzione continua è un'ottima opzione per i progetti in cui vengono integrati contributi numerosi e frequenti.
 
 Per informazioni su come configurare manualmente la distribuzione continua da un repository cloud non elencato nel portale di Azure (ad esempio, [GitLab](https://gitlab.com/)), vedere [Setting up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps) (Configurazione manuale della distribuzione continua).
 
-## <a name="a-nameoverviewaenable-continuous-deployment"></a><a name="overview"></a>Abilitare la distribuzione continua
+## <a name="overview"></a>Abilitare la distribuzione continua
 Per abilitare la distribuzione continua,
 
 1. Pubblicare il contenuto dell'app nel repository che verrà utilizzato per la distribuzione continua.  
@@ -52,7 +53,7 @@ Per abilitare la distribuzione continua,
 5. Per verificare che l'applicazione sia distribuita correttamente, fare clic sull'**URL** nella parte superiore del pannello dell'app nel portale di Azure.
 6. Per verificare che la distribuzione continua sia in corso dal repository scelto, eseguire il push di una modifica al repository. L'app dovrebbe aggiornarsi in base alle modifiche poco dopo il completamento del push nel repository. Per verificare che sia stato eseguito il pull nell'aggiornamento, esaminare il pannello **Opzioni di distribuzione** dell'app.
 
-## <a name="a-namevssolutionacontinuous-deployment-of-a-visual-studio-solution"></a><a name="VSsolution"></a>Distribuzione continua di una soluzione di Visual Studio
+## <a name="VSsolution"></a>Distribuzione continua di una soluzione di Visual Studio
 Il push di una soluzione di Visual Studio nel servizio app di Azure è paragonabile al push di un semplice file index.html. Il processo di distribuzione del servizio app semplifica tutti i dettagli, inclusi il ripristino delle dipendenze di NuGet e la compilazione dei file binari dell'applicazione. È possibile seguire le procedure consigliate per il controllo del codice sorgente riguardanti la gestione del codice solo nel repository Git, lasciando che tutte le altre operazioni siano effettuate tramite la distribuzione del servizio app.
 
 La procedura per il push della soluzione di Visual Studio nel servizio app corrisponde a quella descritta nella [sezione precedente](#overview), purché la soluzione e il repository siano configurati come indicato di seguito:
@@ -64,7 +65,7 @@ La procedura per il push della soluzione di Visual Studio nel servizio app corri
 
 Dopo avere impostato il repository come descritto e avere configurato l'app in Azure per la pubblicazione continua da uno dei repository Git online, sarà possibile sviluppare l'applicazione ASP.NET localmente in Visual Studio e distribuire continuamente il codice con il semplice push delle modifiche al repository Git online.
 
-## <a name="a-namedisablecdadisable-continuous-deployment"></a><a name="disableCD"></a>Disabilitare la distribuzione continua
+## <a name="disableCD"></a>Disabilitare la distribuzione continua
 Per disabilitare la distribuzione continua,
 
 1. Nel pannello del menu dell'app del [Portale di Azure] fare clic su **DISTRIBUZIONE APP > Opzioni di distribuzione**. Fare quindi clic su **Disconnetti** nel pannello **Opzioni di distribuzione**.
@@ -78,6 +79,7 @@ Per disabilitare la distribuzione continua,
 * [Come usare gli strumenti da riga di comando di Azure per Mac e Linux]
 * [Documentazione su Git]
 * [Progetto Kudu](https://github.com/projectkudu/kudu/wiki)
+* [Use Azure to automatically generate a CI/CD pipeline to deploy an ASP.NET 4 app](https://www.visualstudio.com/docs/build/get-started/aspnet-4-ci-cd-azure-automatic) (Usare Azure per generare automaticamente una pipeline CI/CD per distribuire un'app ASP.NET 4)
 
 > [!NOTE]
 > Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
@@ -89,16 +91,11 @@ Per disabilitare la distribuzione continua,
 [VSTS Portal]: https://www.visualstudio.com/en-us/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Come usare PowerShell per Azure]: /powershell/azureps-cmdlets-docs
-[Come usare gli strumenti da riga di comando di Azure per Mac e Linux]: ../xplat-cli-install.md
+[Come usare gli strumenti da riga di comando di Azure per Mac e Linux]:../cli-install-nodejs.md
 [Documentazione su Git]: http://git-scm.com/documentation
 
 [creazione di repository (GitHub)]: https://help.github.com/articles/create-a-repo
 [creazione di repository (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
-[VSTS]: https://www.visualstudio.com/get-started/overview-of-get-started-tasks-vs
+[VSTS]: https://www.visualstudio.com/docs/vsts-tfs-overview
 [Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

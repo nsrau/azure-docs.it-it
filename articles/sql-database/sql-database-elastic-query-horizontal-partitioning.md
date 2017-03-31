@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8714d6b06a08428835ed1b2d955b8e97fc42f4b3
+ms.sourcegitcommit: 430fed27780076738e319dabca4cc9abaed70691
+ms.openlocfilehash: c43b34124fd0ccdbe03ce3d336388cbd3b77ad9a
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -191,14 +192,16 @@ Usare le normali stringhe di connessione di SQL Server per connettere l'applicaz
 * La query elastica non esegue attualmente l'eliminazione di partizioni quando i predicati sulla chiave di partizionamento consentono l'esclusione sicura di alcune partizioni dall'elaborazione.
 * La query elastica funziona in modo ottimale per le query in cui la maggior parte dei calcoli può essere eseguita sulle partizioni. In genere si ottiene le migliori prestazioni di query con predicati del filtro selettivo che può essere valutata in join le partizioni tramite le chiavi di partizionamento che possono essere eseguite in modo su tutte le partizioni allineate alle partizioni. Altri modelli di query potrebbero richiedere il caricamento di quantità elevate di dati dalle partizioni al nodo head e potrebbero offrire prestazioni ridotte.
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+## <a name="next-steps"></a>Passaggi successivi
+
+* Per un approfondimento, vedere [Panoramica delle query elastiche](sql-database-elastic-query-overview.md).
+* Per un'esercitazione sul partizionamento verticale, vedere [Introduzione alle query tra database (partizionamento verticale)](sql-database-elastic-query-getting-started-vertical.md).
+* Per le query di esempio e sintassi per i dati con partizionamento verticale, vedere [Eseguire query su dati con partizionamento verticale](sql-database-elastic-query-vertical-partitioning.md)
+* Per un'esercitazione sul partizionamento orizzontale, vedere la [guida introduttiva alle query elastiche per il partizionamento orizzontale](sql-database-elastic-query-getting-started.md).
+* Vedere [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) per una stored procedure che esegue un'istruzione Transact-SQL su un singolo database SQL di Azure remoto o un set di database che fungono da partizioni in uno schema di partizionamento orizzontale.
+
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

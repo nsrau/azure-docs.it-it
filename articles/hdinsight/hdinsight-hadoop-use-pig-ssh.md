@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: b646a93b-4c51-4ba4-84da-3275d9124ebe
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,6 +19,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
 ms.openlocfilehash: 271a15d258177c98ad72be007c20ae278df6236b
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -32,7 +34,7 @@ Il linguaggio di programmazione Pig Latin consente di descrivere le trasformazio
 > Se si ha già familiarità con l'uso di server Hadoop basati su Linux ma non si è esperti di HDInsight, vedere [Informazioni sull'uso di HDInsight in Linux](hdinsight-hadoop-linux-information.md).
 
 
-## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Prerequisiti
+## <a id="prereq"></a>Prerequisiti
 Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
 
 * Un cluster HDInsight basato su Linux (Hadoop su HDInsight).
@@ -42,7 +44,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
 * Un client SSH. Linux, Unix e Mac OS dovrebbero essere dotati di un client SSH. Per gli utenti di Windows è necessario scaricare un client, ad esempio [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-## <a name="a-idsshaconnect-with-ssh"></a><a id="ssh"></a>Connettersi con SSH
+## <a id="ssh"></a>Connettersi con SSH
 Connettersi al nome di dominio completo (FQDN) del cluster HDInsight usando il comando SSH. L'FQDN è costituito dal nome assegnato al cluster, seguito da **.azurehdinsight.net**. Ad esempio, il seguente comando stabilirà la connessione a un cluster denominato **myhdinsight**.
 
     ssh admin@myhdinsight-ssh.azurehdinsight.net
@@ -60,7 +62,7 @@ Windows non fornisce un client SSH incorporato. È consigliabile usare **PuTTY**
 
 Per altre informazioni sull'uso di PuTTY, vedere [Usare SSH con Hadoop basato su Linux in HDInsight da Windows ](hdinsight-hadoop-linux-use-ssh-windows.md).
 
-## <a name="a-idpigause-the-pig-command"></a><a id="pig"></a>Usare il comando Pig
+## <a id="pig"></a>Usare il comando Pig
 1. Una volta connessi, avviare l'interfaccia della riga di comando di Pig (CLI) mediante il comando seguente.
    
         pig
@@ -137,10 +139,10 @@ Per altre informazioni sull'uso di PuTTY, vedere [Usare SSH con Hadoop basato su
         (ERROR,6)
         (FATAL,2)
 
-## <a name="a-idsummaryasummary"></a><a id="summary"></a>Riepilogo
+## <a id="summary"></a>Riepilogo
 Come si può notare, il comando Pig consente di eseguire operazioni MapReduce in modo interattivo con Pig Latin, nonché di eseguire istruzioni archiviate in un file batch.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Passaggi successivi
+## <a id="nextsteps"></a>Passaggi successivi
 Per informazioni generali su Pig in HDInsight.
 
 * [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
@@ -149,10 +151,5 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 
 * [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

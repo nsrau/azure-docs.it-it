@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 02/14/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 71d165b8eaf4fe292577dce138d96ad049de61ab
-ms.openlocfilehash: 14032f3e54a078389d1be75742dda757d6a74a36
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: a4658f1eee3cdd24b3da47b4c7319c61ea39cb34
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -34,6 +35,11 @@ ms.openlocfilehash: 14032f3e54a078389d1be75742dda757d6a74a36
 > 
 
 Questa esercitazione illustra come creare e monitorare una data factory di Azure con il portale di Azure. La pipeline nella data factory usa un'attività di copia per copiare i dati dall'archivio BLOB di Azure al database SQL di Azure.
+
+> [!NOTE]
+> La pipeline di dati in questa esercitazione copia i dati da un archivio dati di origine a un archivio dati di destinazione. Non trasforma i dati di input per produrre dati di output. Per un'esercitazione su come trasformare i dati usando Azure Data Factory, vedere [Esercitazione: Creare una pipeline per trasformare i dati usando un cluster Hadoop](data-factory-build-your-first-pipeline.md).
+> 
+> È possibile concatenare due attività, ovvero eseguire un'attività dopo l'altra, impostando il set di dati di output di un'attività come set di dati di input di altre attività. Per informazioni dettagliate, vedere [Pianificazione ed esecuzione con Data Factory](data-factory-scheduling-and-execution.md). 
 
 Di seguito sono elencati i passaggi da eseguire in questa esercitazione:
 
@@ -120,7 +126,7 @@ In questo passaggio vengono creati due servizi collegati: **AzureStorageLinkedSe
 4. Assicurarsi che **AzureSqlLinkedService** sia visibile nella visualizzazione albero. 
 
 > [!NOTE]
-> Per informazioni dettagliate sulle proprietà JSON, vedere la sezione relativa allo [spostamento di dati da o nel database SQL di Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) .
+> Per informazioni dettagliate sulle proprietà JSON, vedere la sezione relativa allo [spostamento di dati da o nel database SQL di Azure](data-factory-azure-sql-connector.md#linked-service-properties) .
 > 
 > 
 
@@ -196,7 +202,7 @@ In questo passaggio viene creato un set di dati denominato **InputDataset** che 
 3. Fare clic su **Distribuisci** sulla barra degli strumenti per creare e distribuire il set di dati **InputDataset**. Assicurarsi che **InputDataset** sia visibile nella visualizzazione albero.
 
 > [!NOTE]
-> Per informazioni dettagliate sulle proprietà JSON, vedere la sezione relativa allo [spostamento di dati da o in BLOB di Azure](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) .
+> Per informazioni dettagliate sulle proprietà JSON, vedere la sezione relativa allo [spostamento di dati da o in BLOB di Azure](data-factory-azure-blob-connector.md#dataset-properties) .
 > 
 > 
 
@@ -231,7 +237,7 @@ In questa parte del passaggio si crea un set di dati di output denominato **Outp
         }
       }
     }
-    ```     
+    ```       
     Tenere presente quanto segue: 
    
    * Il set di dati **type** è impostato su **AzureSQLTable**.
@@ -242,7 +248,7 @@ In questa parte del passaggio si crea un set di dati di output denominato **Outp
 3. Fare clic su **Distribuisci** sulla barra degli strumenti per creare e distribuire il set di dati **OutputDataset**. Assicurarsi che **OutputDataset** sia visibile nella visualizzazione albero. 
 
 > [!NOTE]
-> Per informazioni dettagliate sulle proprietà JSON, vedere la sezione relativa allo [spostamento di dati da o nel database SQL di Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) .
+> Per informazioni dettagliate sulle proprietà JSON, vedere la sezione relativa allo [spostamento di dati da o nel database SQL di Azure](data-factory-azure-sql-connector.md#linked-service-properties) .
 > 
 > 
 
@@ -404,15 +410,7 @@ In questa esercitazione è stata creata una data factory di Azure per copiare da
 ## <a name="see-also"></a>Vedere anche
 | Argomento | Descrizione |
 |:--- |:--- |
-| [Attività di spostamento dei dati](data-factory-data-movement-activities.md) |Questo articolo fornisce informazioni dettagliate sull'attività di copia usata nell'esercitazione. |
-| [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) |Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello applicativo di Data factory di Azure. |
 | [Pipeline](data-factory-create-pipelines.md) |Questo articolo fornisce informazioni sulle pipeline e le attività in Azure Data Factory. |
 | [Set di dati](data-factory-create-datasets.md) |Questo articolo fornisce informazioni sui set di dati in Azure Data Factory. |
-| [Monitorare e gestire le pipeline con l'app di monitoraggio](data-factory-monitor-manage-app.md) |Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline usando l'app di monitoraggio e gestione. |
-
-
-
-
-<!--HONumber=Jan17_HO2-->
-
+| [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) |Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello applicativo di Data factory di Azure. |
 

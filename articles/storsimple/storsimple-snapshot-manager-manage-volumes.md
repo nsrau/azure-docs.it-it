@@ -1,5 +1,5 @@
 ---
-title: StorSimple Snapshot Manager e volumi | Microsoft Docs
+title: StorSimple Snapshot Manager e volumi | Documentazione Microsoft
 description: Illustra come usare lo snap-in MMC StorSimple Snapshot Manager per visualizzare e gestire i volumi e per configurare i backup.
 services: storsimple
 documentationcenter: NA
@@ -15,13 +15,13 @@ ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ad6693598cffd5aec7554f5612bc75d7c61d80dd
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5086fa86149e4d8133df339b1261d3792fa66b4c
 
 
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Utilizzare StorSimple Snapshot Manager per visualizzare e gestire i volumi
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 È possibile usare il nodo **Volumi** di StorSimple Snapshot Manager (nel riquadro **Ambito**) per selezionare i volumi e visualizzare le relative informazioni. I volumi vengono presentati come unità che corrispondono ai volumi montati dall'host. Il nodo **Volumi** indica i volumi locali e i tipi di volume supportati da StorSimple, compresi i volumi individuati tramite l'uso di iSCSI e di un dispositivo. 
 
 Per altre informazioni sui volumi supportati, passare al [supporto per più tipi di volume](storsimple-what-is-snapshot-manager.md#support-for-multiple-volume-types).
@@ -48,31 +48,31 @@ Usare la procedura seguente per montare, inizializzare e formattare volumi StorS
 
 #### <a name="to-mount-volumes"></a>Montare volumi
 1. Sul computer, avviare iSCSI Microsoft Initiator.
-2. Specificare uno degli indirizzi IP di interfaccia come portale di destinazione o indirizzo IP di individuazione e connettersi al dispositivo. Dopo che il dispositivo è connesso, i volumi sono accessibili nel sistema di Windows. Per altre informazioni sull'uso dell'iniziatore iSCSI Microsoft, vedere la sezione "Connessione a un dispositivo di destinazione iSCSI" in [Installazione e Configurazione di iSCSI Initiator][1].
-3. Per avviare Gestione Disco, utilizzare una delle opzioni seguenti:
+2. Specificare uno degli indirizzi IP di interfaccia come portale di destinazione o indirizzo IP di individuazione e connettersi al dispositivo. Dopo che il dispositivo è connesso, i volumi sono accessibili nel sistema di Windows. Per altre informazioni sull'uso dell'iniziatore iSCSI Microsoft, vedere la sezione "Connecting to an iSCSI target device" (Connessione a un dispositivo di destinazione iSCSI) in [Installing and Configuring Microsoft iSCSI Initiator][1] (Installazione e configurazione dell'iniziatore iSCSI Microsoft).
+3. Per avviare Gestione Disco, usare una delle opzioni seguenti:
    
    * DigitareDiskmgmt.msc nella casella **Esegui**.
    * Avviare Server Manager, espandere il nodo **Archiviazione** e quindi selezionare **Gestione disco**.
    * Avviare **Strumenti di amministrazione**, espandere il nodo **Gestione computer** e quindi selezionare **Gestione disco**. 
      
      > [!NOTE]
-     > È necessario utilizzare i privilegi di amministratore per eseguire Gestione disco.
+     > È necessario usare i privilegi di amministratore per eseguire Gestione disco.
      > 
      > 
 4. Portare i volumi online:
    
    1. In Gestione disco, fare doppio clic su un volume contrassegnato **Offline**.
    2. Scegliere **Riattiva disco specificato**. Il disco deve essere contrassegnato come **Online** dopo la riattivazione.
-5. Inizializzare il/i volume/i
+5. Inizializzare il/i volume/i:
    
-   1. Cliccare col tasto destro del mouse sui volumi individuati.
-   2. Nel menu, selezionare **Inizializza Disco**.
-   3. Nella finestra di dialogo **Inizializza disco** selezionare i dischi che si desidera inizializzare e quindi fare clic su **OK**.
+   1. Fare clic con il pulsante destro del mouse sui volumi individuati.
+   2. Nel menu selezionare **Inizializza Disco**.
+   3. Nella finestra di dialogo **Inizializza disco** selezionare i dischi da inizializzare e quindi fare clic su **OK**.
 6. Formattare volumi semplici:
    
-   1. Fare doppio clic su un volume che si desidera formattare.
-   2. Nel menu, selezionare **Nuovo Volume Semplice**.
-   3. Utilizzare la procedura guidata Nuovo Volume Semplice per formattare il volume:
+   1. Fare clic con il pulsante destro del mouse su un volume da formattare.
+   2. Nel menu selezionare **Nuovo Volume Semplice**.
+   3. Usare la procedura guidata Nuovo Volume Semplice per formattare il volume:
       
       * Specificare le dimensioni del volume.
       * Specificare una lettera di unità.
@@ -81,7 +81,7 @@ Usare la procedura seguente per montare, inizializzare e formattare volumi StorS
       * Eseguire una formattazione veloce.
 7. Formattare volumi con più partizioni. Per istruzioni, vedere la sezione "Partizioni e Volumi" in [Esecuzione Gestione Disco](https://msdn.microsoft.com/library/dd163556.aspx).
 
-## <a name="view-information-about-your-volumes"></a>Visualizza informazioni sui tuoi volumi
+## <a name="view-information-about-your-volumes"></a>Visualizzare informazioni sui volumi
 Utilizzare la procedura seguente per visualizzare informazioni sui volumi locali e di Azure StorSimple di Azure.
 
 #### <a name="to-view-volume-information"></a>Per visualizzare le informazioni del volume
@@ -94,7 +94,7 @@ Utilizzare la procedura seguente per visualizzare informazioni sui volumi locali
    |:--- |:--- |
    |  Nome |Il **colonna** Nome, contiene la lettera di unità assegnata a ogni volume individuato. |
    |  Dispositivo |La **colonna** dispositivo contiene l'indirizzo IP del dispositivo connesso al computer. |
-   |  Nome Dispositivo Volume  |La **Colonna** Nome Dispositivo Volume contiene il nome del volume del dispositivo a cui appartiene il volume selezionato. Questo è il nome del volume definito nel portale di Azure classico per il volume specifico. |
+   |  Nome Dispositivo Volume |La **Colonna** Nome Dispositivo Volume contiene il nome del volume del dispositivo a cui appartiene il volume selezionato. Questo è il nome del volume definito nel portale di Azure classico per il volume specifico. |
    |  Percorsi di accesso |La **colonna** Percorsi di Accesso mostra il percorso di accesso al volume. Si tratta del punto di montaggio o lettera di unità in cui il volume è accessibile nel computer. |
 
 ## <a name="delete-a-volume"></a>Eliminare un volume
@@ -170,7 +170,7 @@ Prima di iniziare:
 Gestione disco è un'utilità di sistema per la gestione dei dischi rigidi e i volumi o partizioni in essi contenuti. Per altre informazioni su Gestione disco, vedere [Gestione Disco](https://technet.microsoft.com/library/cc770943.aspx) nel sito Web Microsoft TechNet.
 
 #### <a name="to-create-a-dynamic-mirrored-volume"></a>Per creare un volume con mirroring dinamico
-1. Per avviare Gestione Disco, utilizzare una delle opzioni seguenti: 
+1. Per avviare Gestione Disco, usare una delle opzioni seguenti: 
    
    * Aprire la casella **Esegui**, digitare **Diskmgmt.msc** e premere Invio.
    * Avviare Server Manager, espandere il nodo **Archiviazione** e quindi selezionare **Gestione disco**. 
@@ -178,7 +178,7 @@ Gestione disco è un'utilità di sistema per la gestione dei dischi rigidi e i v
 2. Assicurarsi che siano disponibili due volumi nel dispositivo StorSimple. Nell'esempio i volumi disponibili sono **Disco 1** e **Disco 2**. 
 3. Nella finestra Gestione disco, nella colonna di destra del riquadro inferiore, fare clic con il pulsante destro del mouse sul **Disco 1** e scegliere **Nuovo volume con mirroring**. 
    
-    ![uovo volume con mirroring](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_New_mirrored_volume.png) 
+    ![Nuovo volume con mirroring](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_New_mirrored_volume.png) 
 4. Nella pagina **Nuovo volume con mirroring** della procedura guidata fare clic su **Avanti**.
 5. Nella pagina **Seleziona dischi** selezionare **Disco 2** nel riquadro **Selezionati**, fare clic su **Aggiungi** e quindi su **Avanti**. 
 6. Nella pagina **Assegna lettera o percorso unità** accettare le impostazioni predefinite e quindi fare clic su **Avanti**. 
@@ -189,7 +189,7 @@ Gestione disco è un'utilità di sistema per la gestione dei dischi rigidi e i v
     ![Messaggi di conversione del disco dinamico](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Disk_management_msg.png) 
 10. In Gestione disco, verificare che Disco 1 e Disco 2 vengano visualizzati come volumi con mirroring dinamico. Nella colonna dello stato dovrebbe essere visualizzata la dicitura**Dinamico** e le barre di capacità dovrebbero diventare rosse a indicare un volume con mirroring. 
     
-    ![Gestione Disco dischi dinamici con mirroring di ](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Verify_dynamic_disks_2.png) 
+    ![Dischi dinamici con mirroring di Gestione disco](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Verify_dynamic_disks_2.png) 
 
 ### <a name="step-2-use-storsimple-snapshot-manager-to-configure-backup"></a>Passaggio 2: Utilizzare StorSimple Snapshot Manager per configurare il backup
 Utilizzare la procedura seguente per configurare un volume con mirroring dinamico, avviare immediatamente un backup o creare un criterio per i backup pianificati.
@@ -215,6 +215,6 @@ Utilizzare la procedura seguente per configurare un volume con mirroring dinamic
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

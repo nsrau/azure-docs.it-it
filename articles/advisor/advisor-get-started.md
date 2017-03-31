@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
 translationtype: Human Translation
-ms.sourcegitcommit: 14e9e494d6e824964b9164ff36d9938341e244be
-ms.openlocfilehash: 7adaa1a457e19c66bdc31a01f4e04b7911e58062
+ms.sourcegitcommit: e7fc6cb4ee4752bb7ed90a8f64edcc7c82ec3a88
+ms.openlocfilehash: 8ed18f6f62b6d2895e2470df1c3bdd448ea98210
+ms.lasthandoff: 02/21/2017
 
 ---
 
@@ -35,7 +36,7 @@ Informazioni su come accedere ad Advisor tramite il Portale di Azure e ricevere,
 4. Per ricevere consigli per una determinata categoria, fare clic su una delle schede (**Disponibilità elevata**, **Sicurezza**, **Prestazioni** o **Costo**).
  
 > [!NOTE]
-> Azure Advisor genera consigli per le sottoscrizioni in cui all'utente è assegnato il ruolo di **proprietario**, **collaboratore** o **lettore**.
+> Per accedere alle raccomandazioni di Advisor, è innanzitutto necessario **registrare** la sottoscrizione con Advisor. Una sottoscrizione viene registrata quando il **proprietario della sottoscrizione** avvia il dashboard di Advisor e fa clic sul pulsante **Get recommendations** (Ottieni consigli). Si tratta di un'**operazione una tantum**. Dopo aver registrato una sottoscrizione, è possibile accedere alle raccomandazioni di Advisor come **Proprietario**, **Collaboratore** o **Lettore** di una sottoscrizione, di un gruppo di risorse o di una risorsa specifica.
 
   ![Dashboard di Azure Advisor](./media/advisor-overview/advisor-all-tab.png)
 
@@ -78,9 +79,4 @@ Per altre informazioni su Advisor, vedere le risorse seguenti:
 -  [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)
 -  [Advisor Performance recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sulle prestazioni)
 -  [Advisor Cost recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sui costi)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

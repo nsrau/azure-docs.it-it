@@ -1,5 +1,5 @@
 ---
-title: Guida di riferimento per gli sviluppatori di Funzioni di Azure | Documentazione Microsoft
+title: Guida di riferimento per gli sviluppatori di Funzioni di Azure | Microsoft Docs
 description: Informazioni su come sviluppare Funzioni di Azure in C#.
 services: functions
 documentationcenter: na
@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/13/2016
+ms.date: 03/20/2017
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: da9da90e7ccd5d324b8f87a3585555ea5d5ed475
-ms.openlocfilehash: d587ff744fea5393a34d5a576e6af32cac5d2b44
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 38546a1cc3ae1696dbb37d4dd47d2d540ecd08fa
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -52,6 +53,11 @@ public class MyClass
     public string Id { get; set; }
 }
 ```
+
+> [!TIP]
+>
+> Se si prevede di usare i binding HTTP o WebHook, è consigliabile leggere il documento sulle procedure consigliate relative a [HTTPClient](https://github.com/mspnp/performance-optimization/blob/master/ImproperInstantiation/docs/ImproperInstantiation.md).
+>
 
 ## <a name="logging"></a>Registrazione
 Per registrare l'output nei log in streaming in C#, è possibile includere un argomento tipizzato `TraceWriter` . È consigliabile denominarlo `log`. È consigliabile evitare `Console.Write` in Funzioni di Azure.
@@ -166,6 +172,8 @@ Per usare i pacchetti NuGet in una funzione C#, caricare un file *project.json* 
 Poiché è supportato solo .NET Framework 4.6, verificare che nel file *project.json* sia specificato `net46` come illustrato qui.
 
 Quando si carica un file *project.json* , il runtime ottiene i pacchetti e aggiunge automaticamente riferimenti agli assembly dei pacchetti. Non è necessario aggiungere direttive `#r "AssemblyName"` . Per usare i tipi definiti nei pacchetti NuGet è sufficiente aggiungere le istruzioni `using` necessarie al file *run.csx* .
+
+Nel runtime di Funzioni NuGet ripristina le operazioni confrontando `project.json` e `project.lock.json`. Se gli indicatori di data e ora dei file non corrispondono, NuGet esegue un ripristino e aggiorna i pacchetti. In caso contrario, NuGet non esegue alcun ripristino. Di conseguenza, `project.lock.json` non deve essere distribuito perché in tal caso NuGet ignorerebbe il ripristino e la funzione non includerà i pacchetti necessari. Per evitare la distribuzione del file di blocco, aggiungere `project.lock.json` al `.gitignore` file.
 
 ### <a name="how-to-upload-a-projectjson-file"></a>Come caricare un file project.json
 1. Assicurarsi prima di tutto che l'app di funzione sia in esecuzione aprendo la funzione nel portale di Azure. 
@@ -314,10 +322,5 @@ Per altre informazioni, vedere le seguenti risorse:
 * [Guida di riferimento per gli sviluppatori di Funzioni di Azure in F#](functions-reference-fsharp.md)
 * [Guida di riferimento per gli sviluppatori NodeJS di Funzioni di Azure](functions-reference-node.md)
 * [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 05/24/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d42b76d4d03e6ac841f90e236b6ba0bfad1306f1
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 842ea26941a1141cde7db4e6ebff07d52aed9450
 
 
 ---
@@ -40,7 +40,7 @@ Consultare gli articoli seguenti nella sequenza indicata per distribuire StorSim
 | --- | --- | --- | --- |
 | 1. |**Configurare il portale di Azure classico** |Creare e configurare il servizio StorSimple Manager prima di eseguire il provisioning di un dispositivo virtuale StorSimple. |[Preparare il portale](storsimple-ova-deploy1-portal-prep.md) |
 | 2. |**Eseguire il provisioning dell'array virtuale** |Per Hyper-V, eseguire il provisioning e connettersi al dispositivo virtuale StorSimple su un sistema host che esegue Hyper-V in Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2. <br></br> <br></br> Per VMware, eseguire il provisioning e connettersi a un dispositivo virtuale locale StorSimple in un sistema host che esegue VMware ESXi 5.5 e versioni successive.<br></br> |[Eseguire il provisioning di un array virtuale in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [Eseguire il provisioning di un array virtuale in VMware](storsimple-ova-deploy2-provision-vmware.md) |
-| 3. |**Configurare l'array virtuale** |Per il file server, eseguire l'installazione iniziale, registrare il file server StorSimple e completare l'installazione del dispositivo. È quindi possibile eseguire il provisioning delle condivisioni SMB. <br></br> <br></br>  Per il server iSCSI, eseguire l'installazione iniziale, registrare il server iSCSI StorSimple e completare l'installazione del dispositivo. È quindi possibile eseguire il provisioning dei volumi iSCSI. |[Configurare l'array virtuale come file server](storsimple-ova-deploy3-fs-setup.md)<br></br> <br></br>[Configurare l'array virtuale come server iSCSI](storsimple-ova-deploy3-iscsi-setup.md) |
+| 3. |**Configurare l'array virtuale** |Per il file server, eseguire l'installazione iniziale, registrare il file server StorSimple e completare l'installazione del dispositivo. È quindi possibile eseguire il provisioning delle condivisioni SMB. <br></br> <br></br> Per il server iSCSI, eseguire l'installazione iniziale, registrare il server iSCSI StorSimple e completare l'installazione del dispositivo. È quindi possibile eseguire il provisioning dei volumi iSCSI. |[Configurare l'array virtuale come file server](storsimple-ova-deploy3-fs-setup.md)<br></br> <br></br>[Configurare l'array virtuale come server iSCSI](storsimple-ova-deploy3-iscsi-setup.md) |
 
 #### <a name="deployment-videos"></a>Video sulla distribuzione
 | **Per eseguire questo passaggio** | **Guardare questo video** |
@@ -137,7 +137,7 @@ Eseguire i passaggi seguenti nel [portale di Azure classico](https://manage.wind
 
 Guardare il video per istruzioni dettagliate su come iniziare a usare StorSimple Virtual Array.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Get-Started-with-the-StorSimple-Virtual-Array/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Get-Started-with-the-StorSimple-Virtual-Array/player]
 > 
 > 
 
@@ -164,12 +164,12 @@ Eseguire i passaggi seguenti nel [portale di Azure classico](https://manage.wind
 ## <a name="next-step"></a>Passaggio successivo
 Il passaggio successivo riguarda il provisioning di una macchina virtuale per il dispositivo virtuale StorSimple. A seconda del sistema operativo host, vedere le istruzioni dettagliate in:
 
-* [Eseguire il provisioning di StorSimple Virtual Array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
-* [Eseguire il provisioning di StorSimple Virtual Array in VMware](storsimple-ova-deploy2-provision-vmware.md)
+* [Eseguire il provisioning di un array virtuale StorSimple in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
+* [Eseguire il provisioning di un array virtuale StorSimple in VMware](storsimple-ova-deploy2-provision-vmware.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

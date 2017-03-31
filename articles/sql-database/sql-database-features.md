@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 02/01/2017
+ms.date: 03/03/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: e052109ff10f21c3a737f336479fe43fb54e500e
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -39,15 +40,15 @@ Per altre informazioni sui database SQL di Azure, vedere [Database SQL](sql-data
 
 ## <a name="what-features-are-supported"></a>Funzionalità supportate
 
-Le tabelle seguenti elencano le principali funzionalità del database SQL di Azure e di SQL Server, specificano il supporto e forniscono il collegamento a pagine informative sulla funzionalità in ciascuna piattaforma. Per le funzionalità di Transact-SQL, seguire il collegamento nella tabella relativo alla categoria della funzionalità. Per altre informazioni sui motivi del mancato supporto per determinati tipi di funzionalità, vedere anche [Differenze di Transact-SQL del Database SQL di Azure](sql-database-transact-sql-information.md).
+Le tabelle seguenti elencano le principali funzionalità del database SQL di Azure e di SQL Server, specificano il supporto e forniscono il collegamento a pagine informative sulle funzionalità in ogni piattaforma. Per le funzionalità di Transact-SQL, seguire il collegamento nella tabella relativo alla categoria della funzionalità. Per altre informazioni sui motivi del mancato supporto per determinati tipi di funzionalità, vedere anche [Differenze di Transact-SQL del Database SQL di Azure](sql-database-transact-sql-information.md).
 
-Altre funzionalità continueranno a essere aggiunte alla versione 12. È quindi consigliabile visitare la pagina Web Aggiornamenti del servizio di Azure e usare i filtri disponibili:
+Altre funzionalità continueranno a essere aggiunte alla versione&12;. È quindi consigliabile visitare la pagina Web Aggiornamenti del servizio di Azure e usare i filtri disponibili:
 
 * Filtrato per [servizio Database SQL](https://azure.microsoft.com/updates/?service=sql-database).
 * Filtrato per Disponibilità generale [annunci](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) per le funzionalità del database SQL.
 
 > [!TIP]
-> Per testare un database esistente per la compatibilità con il database SQL di Azure, vedere [Validate Azure SQL Database compatibility](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md) (Convalidare la compatibilità del database SQL di Azure).
+> Per testare la compatibilità di un database esistente con il database SQL di Azure, vedere l'articolo relativo alla [migrazione di un database SQL Server in Azure](sql-database-cloud-migrate.md).
 >
 
 | **Funzionalità** | **SQL Server** | **Database SQL di Azure** | 
@@ -57,12 +58,12 @@ Altre funzionalità continueranno a essere aggiunte alla versione 12. È quindi 
 | Gruppi di disponibilità AlwaysOn | [Supportato](https://msdn.microsoft.com/library/hh510230.aspx) | Non supportato: vedere [Panoramica: Replica geografica attiva per il database SQL di Azure](sql-database-geo-replication-overview.md) |
 | Collegamento di un database | [Supportato](https://msdn.microsoft.com/library/ms190209.aspx) | Non supportate |
 | Ruoli applicazione | [Supportato](https://msdn.microsoft.com/library/ms190998.aspx) | [Supportato](https://msdn.microsoft.com/library/ms190998.aspx) |
-| Scalabilità automatica | Non supportate | [Supportato](sql-database-scale-up.md) |
+| Scalabilità automatica | Non supportate | [Supportato](sql-database-service-tiers.md) |
 | Azure Active Directory | Non supportate | [Supportato](sql-database-aad-authentication.md) |
-| Data factory di Azure | Non supportato: vedere [SQL Server Integration Services (SSIS)](https://msdn.microsoft.com/library/ms141026.aspx) | [Supportato](https://azure.microsoft.com/services/data-factory/) |
-| Controllo | [Supportato](https://msdn.microsoft.com/library/cc280386.aspx) | [Supportato](sql-database-auditing-get-started.md) |
+| Data factory di Azure | [Supportato](../data-factory/data-factory-introduction.md) | [Supportato](../data-factory/data-factory-introduction.md) |
+| Controllo | [Supportato](https://msdn.microsoft.com/library/cc280386.aspx) | [Supportato](sql-database-auditing.md) |
 | File BACPAC (esportazione) | [Supportato](https://msdn.microsoft.com/library/hh213241.aspx) | [Supportato](sql-database-export.md) |
-| File BACPAC (importazione) | [Supportato](https://msdn.microsoft.com/library/hh710052.aspx) | [Supportato](sql-database-import.md) |
+| File BACPAC (importazione) | [Supportato](https://msdn.microsoft.com/library/hh710052.aspx) | [Supportato](sql-database-import-portal.md) |
 | Istruzioni BACKUP e RESTORE | [Supportato](https://msdn.microsoft.com/library/ff848768.aspx) | Non supportate |
 | Funzioni predefinite | [Supportato](https://msdn.microsoft.com/library/ms174318.aspx) | [La maggior parte](https://msdn.microsoft.com/library/ms174318.aspx) |
 | Change Data Capture | [Supportato](https://msdn.microsoft.com/library/cc645937.aspx) | Non supportate |
@@ -117,7 +118,8 @@ Altre funzionalità continueranno a essere aggiunte alla versione 12. È quindi 
 | PolyBase | [Supportato](https://msdn.microsoft.com/library/mt143171.aspx) | [Non supportato]
 | Gestione basata su criteri | [Supportato](https://msdn.microsoft.com/library/bb510667.aspx) | Non supportate |
 | Predicati | [Supportato](https://msdn.microsoft.com/library/ms189523.aspx) | [La maggior parte](https://msdn.microsoft.com/library/ms189523.aspx)
-| Resource governor | [Supportato](https://msdn.microsoft.com/library/bb933866.aspx) | [Predefinito](sql-database-service-tiers.md) |
+| Servizi R | [Supportato](https://msdn.microsoft.com/library/mt604845.aspx)
+| Resource governor | [Supportato](https://msdn.microsoft.com/library/bb933866.aspx) | Non supportate |
 | Ripristino del database da backup | [Supportato](https://msdn.microsoft.com/library/ms187048.aspx#anchor_6) | [Solo da backup predefiniti](sql-database-recovery-using-backups.md) |
 | Sicurezza a livello di riga | [Supportato](https://msdn.microsoft.com/library/dn765131.aspx) | [Supportato](https://msdn.microsoft.com/library/dn765131.aspx) |
 | Istruzioni per la sicurezza | [Supportato](https://msdn.microsoft.com/library/ff848791.aspx) | [Alcuni](https://msdn.microsoft.com/library/ff848791.aspx) |
@@ -132,7 +134,7 @@ Altre funzionalità continueranno a essere aggiunte alla versione 12. È quindi 
 | SQL Server Integration Services (SSIS) | [Supportato](https://msdn.microsoft.com/library/ms141026.aspx) | Non supportato: vedere [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) |
 | SQL Server PowerShell | [Supportato](https://msdn.microsoft.com/library/hh245198.aspx) | [Supportato](https://msdn.microsoft.com/library/hh245198.aspx) |
 | SQL Server Profiler | [Supportato](https://msdn.microsoft.com/library/ms181091.aspx) | Non supportato: vedere [Eventi estesi](https://msdn.microsoft.com/library/ms181091.aspx) |
-| Replica SQL Server | [Supportato](https://msdn.microsoft.com/library/ms151198.aspx) | [Solo per iscritti alla replica transazionale e snapshot](sql-database-cloud-migrate-compatible-using-transactional-replication.md) |
+| Replica SQL Server | [Supportato](https://msdn.microsoft.com/library/ms151198.aspx) | [Solo per iscritti alla replica transazionale e snapshot](sql-database-cloud-migrate.md) |
 | SQL Server Reporting Services (SSRS) | [Supportato](https://msdn.microsoft.com/library/ms159106.aspx) | Non supportate |
 | Stored procedure | [Supportato](https://msdn.microsoft.com/library/ms190782.aspx) | [Supportato](https://msdn.microsoft.com/library/ms190782.aspx) |
 | Funzioni archiviate dal sistema | [Supportato](https://msdn.microsoft.com/library/ff848780.aspx) | [Alcuni](https://msdn.microsoft.com/library/ff848780.aspx) |
@@ -158,9 +160,4 @@ Altre funzionalità continueranno a essere aggiunte alla versione 12. È quindi 
 - Informazioni sulle quote specifiche di risorse e sulle limitazioni in base al **livello di servizio**. Per una panoramica dei livelli di servizio, vedere [Livelli di servizio del Database SQL](sql-database-service-tiers.md).
 - Per una panoramica della sicurezza, vedere [Azure SQL Database Security Overview](sql-database-security-overview.md) (Panoramica della sicurezza del database SQL di Azure).
 - Per informazioni sulla disponibilità di driver e sul supporto per il database SQL, vedere [Raccolte di connessioni per database SQL e SQL Server](sql-database-libraries.md).
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

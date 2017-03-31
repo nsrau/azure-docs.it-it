@@ -1,5 +1,5 @@
 ---
-title: Ottenere gli strumenti di Azure per lo starter kit di Azure IoT per macOS 10.10 | Documentazione Microsoft
+title: 'Connettere Intel Edison (C) ad Azure IoT: lezione 2: Strumenti di Azure (macOS) | Documentazione Microsoft'
 description: Installare Python e l&quot;interfaccia della riga di comando di Azure in macOS.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 74aaf17819eea7fbda04f91a02ef77823342bc8b
-ms.openlocfilehash: d4be409e8718cd8cb5c867ee41ba8041490d9d0b
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: c79f1595c0e1359044c8c3ec3b6e8bc87f4aa4fa
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -81,9 +82,4 @@ Se l'installazione ha esito positivo, verrà visualizzato l'output seguente.
 [windows]: iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-win32.md
 [ubuntu]: iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-ubuntu.md
 [macos]: iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-mac.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

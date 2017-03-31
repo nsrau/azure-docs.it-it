@@ -1,6 +1,6 @@
 ---
 title: Confrontare l&quot;Hub IoT di Azure e gli Hub eventi di Azure | Documentazione Microsoft
-description: Un confronto tra i servizi Azure IoT Hub e gli Hub di eventi di Azure evidenzia delle differenze funzionali e dei casi di utilizzo.
+description: Un confronto tra i servizi di Azure Hub IoT e Hub eventi evidenzia le differenze funzionali e i casi d&quot;uso. Il confronto include protocolli supportati, gestione dei dispositivi, monitoraggio e caricamenti di file.
 services: iot-hub
 documentationcenter: 
 author: fsautomata
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 01/31/2017
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: ce514e19370d2b42fb16b4e96b66f212d5fa999c
-ms.openlocfilehash: 9c7e33ceebb28f6a263d2c92e0c0208434e64ffc
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: 2075c7a1b8f3393e100ab92ae7d497c56965f887
 
 
 ---
@@ -35,6 +35,7 @@ I servizi presentano tuttavia molte differenze, illustrate in dettaglio nella ta
 | Scalabilità |È ottimizzato per supportare milioni di dispositivi connessi simultaneamente. |Può supportare un numero più limitato di connessioni simultanee: fino a 5000 connessioni AMQP, in base a quanto descritto in [Quote del bus di servizio Azure][Azure Service Bus quotas]. D'altra parte, Hub eventi consente di specificare la partizione per ogni messaggio inviato. |
 | SDK del dispositivo |Fornisce [SDK di dispositivi][Azure IoT SDKs] per una vasta gamma di piattaforme e linguaggi, oltre a indirizzare le API MQTT, AMQP e HTTP. |È supportato su .NET, Java e C, oltre alle interfacce di invio AMQP e HTTP. |
 | Caricamento di file |Consente alle soluzioni IoT di caricare file dai dispositivi al cloud. Include un endpoint di notifica di file per l'integrazione del flusso di lavoro e una categoria di monitoraggio delle operazioni per il supporto del debug. | Non supportati. |
+| Inviare messaggi a più endpoint | Sono supportati fino a 10 endpoint personalizzati. Le regole determinano il modo in cui i messaggi vengono indirizzati agli endpoint personalizzati. Per altre informazioni, vedere [Inviare e ricevere messaggi con l'hub IoT][lnk-devguide-messaging]. | È necessario scrivere e ospitare codice aggiuntivo per l'invio del messaggio. |
 
 In breve, anche se il solo caso di utilizzo è l'ingresso dei dati di telemetria da dispositivo a cloud, l'hub IoT fornisce un servizio progettato per la connettività dei dispositivi IoT. Esso continua a espandere le proposte di valore per questi scenari con funzionalità specifiche per IoT. Hub eventi è progettato per l'ingresso di eventi su vasta scala, sia nel contesto di scenari all'interno e tra i data center.
 
@@ -45,7 +46,7 @@ Per altre informazioni sulla pianificazione della distribuzione dell'hub IoT, ve
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
-* [Guida per sviluppatori][lnk-devguide]
+* [Guida per gli sviluppatori dell'hub IoT][lnk-devguide]
 * [Simulazione di un dispositivo con IoT Gateway SDK][lnk-gateway]
 
 [lnk-twins]: iot-hub-devguide-device-twins.md
@@ -55,17 +56,18 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [Azure Event Hubs]: ../event-hubs/event-hubs-what-is-event-hubs.md
 [sezione protezione della Guida per gli sviluppatori di hub IoT]: iot-hub-devguide-security.md
 [Event Hubs - security]: ../event-hubs/event-hubs-authentication-and-security-model-overview.md
-[Event Hubs publisher policies]: ../event-hubs/event-hubs-overview.md#common-publisher-tasks
+[Event Hubs publisher policies]: ../event-hubs/event-hubs-what-is-event-hubs.md#event-publishers
 [Azure Service Bus quotas]: ../service-bus-messaging/service-bus-quotas.md
-[Azure IoT SDKs]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
+[Azure IoT SDKs]: https://github.com/Azure/azure-iot-sdks
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO5-->
 
 

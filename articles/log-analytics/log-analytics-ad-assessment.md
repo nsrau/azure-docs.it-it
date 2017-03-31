@@ -1,5 +1,5 @@
 ---
-title: Ottimizzare l&quot;ambiente con la soluzione Active Directory Assessment in Log Analytics | Documentazione Microsoft
+title: Ottimizzare l&quot;ambiente Active Directory con Log Analytics di Azure|Documentazione Microsoft
 description: "È possibile usare la soluzione Active Directory Assessment per valutare i rischi e l&quot;integrità degli ambienti server a intervalli regolari."
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 58eee787b54122380b48f1c7a96dbe2e79e4bcef
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: d50d25e4ea594b5231d29a862f3a98f07de70324
+ms.lasthandoff: 03/11/2017
 
 
 ---
-# <a name="optimize-your-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Ottimizzare l'ambiente con la soluzione Active Directory Assessment in Log Analytics
+# <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Ottimizzare l'ambiente Active Directory con la soluzione Active Directory Assessment in Log Analytics
+
 È possibile usare la soluzione Active Directory Assessment per valutare i rischi e l'integrità degli ambienti server a intervalli regolari. Questo articolo consente di installare e usare la soluzione in modo che si possano intraprendere azioni correttive per problemi potenziali.
 
 La soluzione offre un elenco con priorità di raccomandazioni specifiche per l'infrastruttura distribuita dei server, classificate in quattro aree di interesse che consentono di comprendere rapidamente il rischio e agire in maniera appropriata.
@@ -39,8 +42,8 @@ Dopo aver aggiunto la soluzione e completato una valutazione, nel dashboard **AD
 Usare le informazioni seguenti per installare e configurare le soluzioni.
 
 * Gli agenti devono essere installati nei controller di dominio membri del dominio da valutare.
-* La soluzione Active Directory Assessment richiede l'installazione di .NET Framework 4 in ogni computer che contiene un agente OMS.
-* Aggiungere la soluzione Active Directory Assessment all'area di lavoro OMS usando la procedura descritta in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).  Non è richiesta alcuna ulteriore configurazione.
+* La soluzione Active Directory Assessment richiede l'installazione di una versione di .NET Framework 4 (4.5.2 o superiore) supportata in ogni computer che contiene un agente OMS.
+* Aggiungere la soluzione Active Directory Assessment all'area di lavoro OMS da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ADAssessmentOMS?tab=Overview) o seguendo la procedura descritta in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).  Non è richiesta alcuna ulteriore configurazione.
 
   > [!NOTE]
   > Dopo aver aggiunto la soluzione, il file AdvisorAssessment.exe viene aggiunto al server con agenti. I dati di configurazione vengono letti e quindi inviati al servizio OMS nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud.
@@ -153,7 +156,7 @@ Dopo la successiva esecuzione della valutazione pianificata, per impostazione pr
 
 * Vengono raccolti i tipi di dati seguenti:
   * WMI
-  *  Registro
+  * Registro
   * Contatori delle prestazioni
 
 *È possibile definire l'orario per la raccolta di dati?*
@@ -170,9 +173,4 @@ Dopo la successiva esecuzione della valutazione pianificata, per impostazione pr
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per visualizzare dati e raccomandazioni dettagliati di AD Assessment usare [Ricerche nei log in Log Analytics](log-analytics-log-searches.md) .
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: klam
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cd25b99d8d94d57638806317ef35d850adcad17b
-ms.openlocfilehash: fc1129efaf03d9d96804146294f5ad4e105d7411
+ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
+ms.openlocfilehash: 17486fd41b471356648656b65ca66e1234313d4c
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="logic-app-templates"></a>Modelli di app per la logica
+# <a name="configure-a-workflow-using-a-pre-built-template-or-pattern-to-get-started-quickly"></a>Configurare un flusso di lavoro usando un modello predefinito o un modello per iniziare rapidamente
+
 ## <a name="what-are-logic-app-templates"></a>Informazioni sui modelli di app per la logica
 Un modello di app per la logica è un'app per la logica predefinita che è possibile usare per iniziare subito a creare il proprio flusso di lavoro. 
 
@@ -67,10 +70,5 @@ Dopo aver caricato il modello e apportato le modifiche necessarie, fare clic sul
  ![](../../includes/media/app-service-logic-templates/template6.png)  
 
 Per altre informazioni su come aggiungere altri passaggi in un modello di app per la logica esistente o apportare modifiche in generale, vedere [Creare una nuova app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

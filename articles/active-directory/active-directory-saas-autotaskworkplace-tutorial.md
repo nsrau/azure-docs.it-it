@@ -16,6 +16,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: d22f107be306ad47426b89adb99f07f9d1f6617c
 ms.openlocfilehash: 10292e19216e01034a597368e0f2570d49e71610
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -276,9 +277,4 @@ Quando si fa clic sul riquadro di Autotask nel riquadro di accesso, si dovrebbe 
 [203]: ./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

@@ -15,21 +15,22 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: b7d141e8fc7f7580b5b17b2152dfe418a0ca130e
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 93640e208c99db41d922399d42c80622022287eb
+ms.lasthandoff: 03/09/2017
 
 ---
 
-# <a name="log-analytics-for-azure-load-balancer-preview"></a>Analisi dei log per il servizio di bilanciamento del carico di Azure (anteprima)
+# <a name="log-analytics-for-azure-load-balancer"></a>Analisi dei log per il servizio di bilanciamento del carico di Azure
 
-In Azure è possibile usare diversi tipi di log per gestire e risolvere i problemi dei bilanciamenti del carico. Alcuni di questi log sono accessibili tramite il portale e tutti i log possono essere estratti da un Archiviazione BLOB di Azure e visualizzati in diversi strumenti, ad esempio Excel e PowerBI. L'elenco seguente contiene altre informazioni sui diversi tipi di log.
+In Azure è possibile usare diversi tipi di log per gestire e risolvere i problemi dei bilanciamenti del carico. Alcuni di questi log sono accessibili tramite il portale Tutti i log possono essere estratti da Archiviazione BLOB di Azure e visualizzati in strumenti differenti, ad esempio Excel e PowerBI. L'elenco seguente contiene altre informazioni sui diversi tipi di log.
 
 * **Log di controllo:** è possibile usare i [log di controllo di Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (noti in precedenza come log operativi) per visualizzare tutte le operazioni da inviare alle sottoscrizioni di Azure e il relativo stato. I log di controllo sono abilitati per impostazione predefinita e possono essere visualizzati nel portale di Azure.
 * **Log eventi di avviso:** è possibile usare questo log per visualizzare gli avvisi generati per il bilanciamento del carico. Le informazioni di stato per il bilanciamento del carico vengono raccolte ogni cinque minuti. Questo log viene scritto solo se viene generato un evento di avviso del bilanciamento del carico.
-* **Log del probe di integrità:** è possibile usare questo log per verificare lo stato del controllo integrità del probe, il numero di istanze online nel back-end del bilanciamento del carico e la percentuale di macchine virtuali che riceve il traffico di rete dal bilanciamento del carico. Questo log viene scritto se l'evento dello stato del probe cambia.
+* **Log del probe di integrità:** è possibile usare questo registro per visualizzare i problemi rilevati dal probe di integrità, ad esempio il numero di istanze del pool di back-end che non stanno ricevendo richieste dal servizio di bilanciamento del carico a causa di problemi del probe di integrità. Questo log viene scritto quando si apporta una modifica nello stato del probe di integrità.
 
 > [!IMPORTANT]
->  Attualmente l'analisi di log funziona solo per i servizi di bilanciamento del carico con connessione Internet. I log sono disponibili solo per le risorse distribuite nel modello di distribuzione di Gestione risorse. Non è possibile usare i log per le risorse nel modello di distribuzione classica. Per altre informazioni su questi modelli di distribuzione, vedere l'articolo relativo alle [informazioni sulla distribuzione di Gestione risorse e sulla distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md).
+> Attualmente l'analisi di log funziona solo per i servizi di bilanciamento del carico con connessione Internet. I log sono disponibili solo per le risorse distribuite nel modello di distribuzione di Gestione risorse. Non è possibile usare i log per le risorse nel modello di distribuzione classica. Per altre informazioni su questi modelli di distribuzione, vedere l'articolo relativo alle [informazioni sulla distribuzione di Gestione risorse e sulla distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="enable-logging"></a>Abilitazione della registrazione
 
@@ -49,7 +50,8 @@ Accedere al [portale di Azure](http://portal.azure.com). Prima di procedere, [cr
 
 5. Nel riquadro **Diagnostica**, in **Stato**, selezionare **On**.
 6. Fare clic su **Account di archiviazione**.
-7. In **LOG** selezionare un account di archiviazione esistente o crearne uno nuovo. Usare il dispositivo di scorrimento per stabilire per quanti giorni conservare i dati dell'evento nei registri eventi. 8. Fare clic su **Save**.
+7. In **LOG** selezionare un account di archiviazione esistente o crearne uno nuovo. Usare il dispositivo di scorrimento per stabilire per quanti giorni i dati dell'evento verranno archiviati nei registri eventi. 
+8. Fare clic su **Save**.
 
     ![Portale - Log di diagnostica](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
 
@@ -145,9 +147,4 @@ L'output JSON mostra nel campo proprietà le informazioni di base per lo stato d
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Informazioni sui probe di bilanciamento del carico](load-balancer-custom-probe-overview.md)
-
-
-
-<!--HONumber=Nov16_HO5-->
-
 

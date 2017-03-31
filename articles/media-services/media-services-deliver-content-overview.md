@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 42428d9456c5ea00192a981265bd50263cbf66ba
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 249b87ecc9e43fa26a74e27f91f807d60b275eeb
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -28,6 +29,9 @@ Per raggiungere questo obiettivo è possibile:
 * Codificare il flusso in un flusso video a bitrate multipli (a bitrate adattivo). In questo modo la qualità e le condizioni di rete saranno gestite adeguatamente.
 * Usare la funzione di [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md) di Servizi multimediali di Microsoft Azure per riorganizzare dinamicamente il flusso in nuovi pacchetti creati con protocolli diversi. In questo modo si garantisce la trasmissione a diversi tipi di dispositivi. Servizi multimediali supporta le tecnologie di streaming a bitrate adattivo seguenti: HTTP Live Streaming (HLS), Smooth Streaming e MPEG-DASH.
 
+>[!NOTE]
+>Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
+
 In questo articolo viene fornita una panoramica di importanti concetti di consegna dei contenuti.
 
 Per verificare i problemi noti, vedere [Problemi noti](media-services-deliver-content-overview.md#known-issues).
@@ -35,14 +39,11 @@ Per verificare i problemi noti, vedere [Problemi noti](media-services-deliver-co
 ## <a name="dynamic-packaging"></a>creazione dinamica dei pacchetti
 La creazione dinamica dei pacchetti offerta da Servizi multimediali consente di distribuire i contenuti codificati in formato MP4 o Smooth Streaming a bitrate adattivo nei formati di streaming supportati da Servizi multimediali, ovvero MPEG-DASH, HLS, Smooth Streaming, senza dover ricreare i pacchetti in questi formati di streaming. Si consiglia di distribuzione il contenuto con la creazione dinamica dei pacchetti.
 
-Per sfruttare i vantaggi del servizio di creazione dinamica dei pacchetti, è necessario seguire questa procedura:
-
-* Codificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a bitrate adattivo.
-* Ottenere almeno un'unità di streaming on demand per l'endpoint di streaming da cui si pianifica la distribuzione dei contenuti. Per altre informazioni, vedere l'articolo sulla [procedura per scalare unità riservate di streaming on demand](media-services-portal-manage-streaming-endpoints.md).
+Per sfruttare la creazione dinamica dei pacchetti, è necessario codificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming con velocità in bit adattiva.
 
 La creazione dinamica dei pacchetti consente di archiviare e pagare i file in un solo formato di archiviazione. Servizi multimediali creerà e fornirà la risposta appropriata in base alle richieste.
 
-Oltre a consentire l'accesso alle funzionalità di creazione dinamica dei pacchetti, le unità riservate di streaming on demand offrono capacità in uscita dedicate, acquistabili in incrementi di 200 Mbps. Per impostazione predefinita, lo streaming on demand è configurato in un modello di istanza condivisa in base al quale le risorse del server (ad esempio, calcolo o capacità in uscita) vengono condivise con tutti gli altri utenti. È possibile migliorare la velocità effettiva dello streaming on demand acquistando unità riservate di streaming on demand.
+La creazione dinamica dei pacchetti è disponibile per endpoint di streaming Standard e Premium. 
 
 Per altre informazioni, vedere [Creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md).
 
@@ -66,7 +67,7 @@ Per i localizzatori vengono definite date di scadenza. Il portale di Azure impos
 > 
 > 
 
-Per aggiornare la data di scadenza di un localizzatore, è possibile usare le API [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) o [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Si noti che quando si aggiorna la data di scadenza di un localizzatore di firma di accesso condiviso, l'URL viene modificato.
+Per aggiornare la data di scadenza di un localizzatore, è possibile usare le API [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) o [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Si noti che quando si aggiorna la data di scadenza di un localizzatore di firma di accesso condiviso, l'URL viene modificato.
 
 I localizzatori non sono progettati per gestire il controllo dell'accesso per utente. È possibile assegnare a singoli utenti diritti di accesso diversi usando soluzioni DRM (Digital Rights Management). Per altre informazioni, vedere [Protezione dei file multimediali](http://msdn.microsoft.com/library/azure/dn282272.aspx).
 
@@ -78,9 +79,9 @@ Le tecnologie a bitrate adattivo consentono al lettore video di determinare le c
 Per poter fornire agli utenti URL di streaming, è prima necessario creare un localizzatore OnDemandOrigin. Creando il localizzatore è possibile ottenere il valore Path di base dell'asset che include i contenuti da trasmettere in streaming. Tuttavia, per trasmettere in streaming questi contenuti, è necessario modificare ulteriormente il percorso. Per creare un URL completo per il file manifesto di streaming, si deve concatenare il valore Path del localizzatore e il nome del file manifesto (nomefile.ism). Quindi aggiungere **/Manifest** e un formato appropriato (se necessario) al percorso di origine del localizzatore.
 
 > [!NOTE]
-> Lo streaming dei contenuti può essere eseguito anche tramite una connessione SSL. A questo scopo, verificare che gli URL di streaming inizino con HTTPS.
+> Lo streaming dei contenuti può essere eseguito anche tramite una connessione SSL. A questo scopo, verificare che gli URL di streaming inizino con HTTPS. Si noti che attualmente AMS non supporta SSL con domini personalizzati.  
 > 
-> 
+
 
 Lo streaming tramite SSL è possibile solo se l'endpoint di streaming da cui si inviano i contenuti è stato creato dopo il 10 settembre 2014. Se gli URL di streaming si basano sugli endpoint di streaming creati dopo il 10 settembre 2014, l'URL contiene "streaming.mediaservices.windows.net". Gli URL di streaming contenenti "origin.mediaservices.windows.net" (il vecchio formato) non supportano SSL. Se l'URL è nel vecchio formato e si desidera poter eseguire lo streaming tramite SSL, creare un nuovo endpoint di streaming. Usare gli URL basati sul nuovo endpoint di streaming per lo streaming dei contenuti tramite SSL.
 
@@ -143,7 +144,11 @@ Si applicano le considerazioni seguenti:
 * Un download ha esito negativo se non viene completato entro 12 ore.
 
 ## <a name="streaming-endpoints"></a>Endpoint di streaming
-Un endpoint di streaming rappresenta un servizio di streaming in grado di distribuire contenuti direttamente a un'applicazione di lettore client o a una rete CDN (Content Delivery Network, rete per la distribuzione di contenuti) per la successiva distribuzione. Il flusso in uscita da un servizio endpoint di streaming può essere costituito da un flusso live o da un asset video on demand associato all'account di Servizi multimediali. È possibile inoltre controllare la capacità del servizio endpoint di streaming in modo da poter gestire esigenze di larghezza di banda crescenti modificando le unità riservate di streaming. È consigliabile allocare almeno un'unità riservata per le applicazioni in un ambiente di produzione. Per altre informazioni, vedere la sezione relativa al [ridimensionamento di un servizio multimediale](media-services-portal-manage-streaming-endpoints.md).
+
+Un endpoint di streaming rappresenta un servizio di streaming in grado di distribuire contenuti direttamente a un'applicazione di lettore client o a una rete CDN (Content Delivery Network, rete per la distribuzione di contenuti) per la successiva distribuzione. Il flusso in uscita da un servizio endpoint di streaming può essere costituito da un flusso live o da un asset video on demand associato all'account di Servizi multimediali. Sono disponibili due tipi di endpoint di streaming, **Standard** e **Premium**. Per altre informazioni, vedere [Streaming endpoints overview](media-services-streaming-endpoints-overview.md) (Panoramica degli endpoint di streaming).
+
+>[!NOTE]
+>Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
 
 ## <a name="known-issues"></a>Problemi noti
 ### <a name="changes-to-smooth-streaming-manifest-version"></a>Modifiche alla versione del manifesto Smooth Streaming
@@ -180,10 +185,5 @@ Nella versione del servizio di luglio 2016, il manifesto Smooth Streaming genera
 
 ## <a name="related-topics"></a>Argomenti correlati
 [Aggiornamento di Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione](media-services-roll-storage-access-keys.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

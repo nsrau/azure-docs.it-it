@@ -1,5 +1,5 @@
 ---
-title: "Monitorare i log di accesso e delle prestazioni, l&quot;integrità back-end e le metriche per il gateway applicazione | Documentazione Microsoft"
+title: "Monitorare i log di accesso e delle prestazioni, l&quot;integrità back-end e le metriche per il gateway applicazione | Microsoft Docs"
 description: Informazioni su come abilitare e gestire i log di accesso e delle prestazioni per il gateway applicazione
 services: application-gateway
 documentationcenter: na
@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: amitsriva
 translationtype: Human Translation
-ms.sourcegitcommit: ca5291e00fcf4fbd9927fe3cadad01f62b235d10
-ms.openlocfilehash: c6829c94bb8e5de3bec155bf326ac61c300477cb
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 2c4b3e23c478a006b081929269ae066d00af20cd
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -36,7 +37,7 @@ Azure consente di monitorare le risorse tramite la registrazione e le metriche. 
 Il gateway applicazione consente di monitorare l'integrità dei singoli membri dei pool back-end tramite il portale, PowerShell e l'interfaccia della riga di comando. Le informazioni di riepilogo dell'integrità dei pool back-end sono disponibili anche tramite i log di diagnostica delle prestazioni. Il report sull'integrità back-end riflette l'output del probe di integrità del gateway applicazione per le istanze di back-end. Se il probing ha esito positivo ed è possibile inviare traffico al back-end, questo verrà considerato integro, altrimenti verrà considerato danneggiato.
 
 > [!important]
-> Se è presente un gruppo di sicurezza di rete nella subnet del gateway applicazione, è necessario aprire gli intervalli di porte 65503-65534 sulle istanze del gateway applicazione.
+> Se nella subnet di Gateway applicazione è presente un gruppo di sicurezza di rete, gli intervalli di porte 65503-65534 devono essere aperti nella subnet di Gateway applicazioni per i membri del pool di back-end. Tali porte sono necessarie per il corretto funzionamento dell'integrità back-end.
 
 ### <a name="view-backend-health-through-the-portal"></a>Visualizzare l'integrità back-end tramite il portale
 
@@ -210,6 +211,9 @@ Questo log viene generato solo se è stato abilitato per il singolo gateway appl
 }
 ```
 
+> [!NOTE]
+> La latenza è calcolata dall'ora di ricezione del primo byte della richiesta HTTP al momento dell'invio dell'ultimo byte della risposta HTTP. Si tratta della somma del tempo di elaborazione del gateway applicazione più il costo di rete per il back-end e il tempo impiegato dal back-end per elaborare la richiesta.
+
 ### <a name="firewall-log"></a>Log del firewall
 
 Questo log viene generato solo se è stato abilitato per il singolo gateway applicazione come descritto nei passaggi precedenti. Questo log richiede anche che il firewall applicazione Web sia configurato in un gateway applicazione. I dati vengono archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. Vengono registrati i dati seguenti:
@@ -312,8 +316,4 @@ Per maggiori informazioni sui webhook e su come usarli con gli avvisi, visitare 
 [8]: ./media/application-gateway-diagnostics/figure8.png
 [9]: ./media/application-gateway-diagnostics/figure9.png
 [10]: ./media/application-gateway-diagnostics/figure10.png
-
-
-<!--HONumber=Jan17_HO4-->
-
 

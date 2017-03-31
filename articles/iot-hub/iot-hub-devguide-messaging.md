@@ -1,5 +1,5 @@
 ---
-title: Informazioni sulla messaggistica hub IoT di Azure | Documentazione Microsoft
+title: Informazioni sulla messaggistica hub IoT di Azure | Microsoft Docs
 description: Guida per gli sviluppatori - Messaggistica da dispositivo a cloud e da cloud a dispositivo con l&quot;hub IoT. Include informazioni sui formati dei messaggi e sui protocolli di comunicazione supportati.
 services: iot-hub
 documentationcenter: .net
@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
-ms.openlocfilehash: 768e21205e341f4915f8be50129fd246285a2efc
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: e9e1649e4329d10ca8b87c730ad8c6beb3be818f
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -88,16 +89,16 @@ Per altre informazioni sulla creazione di endpoint personalizzati nell'hub IoT, 
 
 ### <a name="built-in-endpoint-messagesevents"></a>Endpoint predefinito: messages/events
 
-Un hub IoT espone le proprietà seguenti per consentire il controllo dell'endpoint di messaggistica predefinito **messages/events**.
+Un hub IoT espone le proprietà seguenti per consentire il controllo dell'endpoint di messaggistica predefinito **messages/events**, compatibile con Hub eventi.
 
-* **Conteggio partizioni**. Impostare questa proprietà in fase di creazione per definire il numero di partizioni per l'inserimento di eventi da dispositivo a cloud.
-* **Periodo di memorizzazione**. Questa proprietà specifica il periodo di memorizzazione per i messaggi da dispositivo a cloud. Il valore predefinito è un giorno, ma può essere aumentato a sette giorni.
+* **Conteggio partizioni**. Impostare questa proprietà in fase di creazione per definire il numero di [partizioni][lnk-event-hub-partitions] per l'inserimento di eventi da dispositivo a cloud.
+* **Periodo di memorizzazione**. Questa proprietà specifica per quanti giorni i messaggi vengono conservati dall'hub IoT. Il valore predefinito è un giorno, ma può essere aumentato a sette giorni.
 
 L'hub IoT consente inoltre di gestire i gruppi di consumer nell'endpoint di ricezione predefinito da dispositivo a cloud.
 
 Per impostazione predefinita, tutti i messaggi che non corrispondono in modo esplicito a una regola di routing vengono scritti nell'endpoint predefinito. Se si disattiva questa route di fallback, i messaggi che non corrispondono in modo esplicito a una regola di routing verranno eliminati.
 
-È possibile modificare tutte queste proprietà a livello di codice con le [API del provider di risorse dell'hub IoT di Azure][lnk-resource-provider-apis] oppure usando il [portale di Azure][lnk-management-portal].
+È possibile modificare il tempo di conservazione a livello di codice con le [API del provider di risorse dell'hub IoT di Azure][lnk-resource-provider-apis] oppure usando il [portale di Azure][lnk-management-portal].
 
 ### <a name="anti-spoofing-properties"></a>Proprietà anti-spoofing
 Per evitare lo spoofing di dispositivi nei messaggi da dispositivo a cloud, l'hub IoT contrassegna tutti i messaggi con le proprietà seguenti:
@@ -190,7 +191,7 @@ Il corpo è una matrice serializzata con JSON dei record, ognuno con le propriet
 | --- | --- |
 | EnqueuedTimeUtc |Timestamp che indica quando è stato creato il risultato del messaggio. Ad esempio, il dispositivo ha completato l'operazione o il messaggio è scaduto. |
 | OriginalMessageId |**MessageId** del messaggio da cloud a dispositivo correlato a queste informazioni sui commenti. |
-| StatusCode |Numero intero obbligatorio. Usato nei messaggi con commenti generati dall'hub IoT. <br/> 0 = esito positivo <br/> 1 = il messaggio è scaduto <br/> 2 = il numero massimo di recapiti è stato superato <br/> &3; = messaggio rifiutato |
+| StatusCode |Numero intero obbligatorio. Usato nei messaggi con commenti generati dall'hub IoT. <br/> 0 = esito positivo <br/> 1 = il messaggio è scaduto <br/> 2 = il numero massimo di recapiti è stato superato <br/> 3 = messaggio rifiutato |
 | Descrizione |Valori stringa per **StatusCode**. |
 | deviceId |**DeviceId** del messaggio da cloud a dispositivo correlato a queste informazioni sui commenti. |
 | DeviceGenerationId |**DeviceGenerationId** del dispositivo di destinazione del messaggio da cloud a dispositivo correlato a queste informazioni sui commenti. |
@@ -291,7 +292,7 @@ La tabella seguente riporta il set delle proprietà di sistema nei messaggi dell
 | Numero di sequenza |Numero, univoco per ogni dispositivo-coda, assegnato dall'hub IoT a ogni messaggio da cloud a dispositivo. |
 | To |Destinazione specificata nei messaggi [da cloud a dispositivo][lnk-c2d]. |
 | ExpiryTimeUtc |Data e ora della scadenza del messaggio. |
-| EnqueuedTime |Data e ora di ricezione del messaggio da parte dell'hub IoT. |
+| EnqueuedTime |Date e ora del messaggio [da cloud a dispositivo][lnk-c2d] ricevute dall'hub IoT. |
 | CorrelationId |Proprietà stringa in un messaggio di risposta che contiene in genere il valore MessageId della richiesta nei modelli richiesta-risposta. |
 | UserId |ID usato per specificare l'origine dei messaggi. Quando i messaggi vengono generati dall'hub IoT, viene impostata su `{iot hub name}`. |
 | Ack |Generatore di messaggi con commenti. Questa proprietà viene usata nei messaggi da cloud a dispositivo per richiedere all'hub IoT di generare messaggi con commenti come risultato dell'utilizzo del messaggio da parte del dispositivo. I valori possibili sono i seguenti: **none** (predefinito): non viene generato alcun messaggio con commenti, **positive**: si riceve un messaggio con commenti se il messaggio è stato completato, **negative**: si riceve un messaggio con commenti se il messaggio è scaduto o se è stato raggiunto il numero massimo di recapiti senza il completamento da parte del dispositivo, **full**: sia per esito positivo che negativo. Per altre informazioni, vedere [Commenti sui messaggi][lnk-feedback]. |
@@ -434,9 +435,5 @@ Per provare alcuni dei concetti descritti in questo articolo, possono essere uti
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
-
-
-
-<!--HONumber=Jan17_HO5-->
-
+[lnk-event-hub-partitions]: ../event-hubs/event-hubs-what-is-event-hubs.md#partitions
 

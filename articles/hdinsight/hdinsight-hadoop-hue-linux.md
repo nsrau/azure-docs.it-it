@@ -8,15 +8,17 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 9e57fcca-e26c-479d-a745-7b80a9290447
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 02/09/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 9096b87dc93e261c2810a069a95d954121822cf5
-ms.openlocfilehash: 903a8b7f143ac08b69d94aa2bc442a43ca041b64
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: a5fbd7cd4b57b1bd54c5483fc39733cfd3a8dcca
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -46,8 +48,7 @@ Hue è un insieme di applicazioni Web che consente di interagire con un cluster 
 
 ## <a name="install-hue-using-script-actions"></a>Installare Hue mediante azioni script
 
-È possibile usare l'azione script seguente per installare Hue in un cluster HDInsight basato su Linux.
-https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+Lo script https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh consente di installare Hue in un cluster HDInsight basato su Linux. Usare questo script per installare Hue nei cluster con Archiviazione BLOB di Azure (WASB) o Azure Data Lake Store come risorsa di archiviazione predefinita.
 
 Questa sezione fornisce istruzioni su come usare lo script quando si effettua il provisioning del cluster usando il portale di Azure.
 
@@ -88,10 +89,8 @@ Il tunneling SSH è il solo modo di accedere a Hue nel cluster una volta che è 
 
 2. Dopo aver creato un tunnel SSH e configurato il browser per inoltrare il traffico attraverso di esso, è necessario trovare il nome host del nodo head primario. È possibile farlo tramite la connessione al cluster con SSH sulla porta 22. Ad esempio, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net` dove **USERNAME** è il nome utente SSH e **CLUSTERNAME** è il nome del cluster.
 
-    Per altre informazioni sull'uso di SSH, consultare i documenti seguenti:
+    Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-   * [Usare SSH con HDInsight da Linux, Unix oppure client Mac OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 3. Una volta connessi, utilizzare il comando seguente per ottenere il nome di dominio completo del nodo head primario:
 
         hostname -f
@@ -138,7 +137,7 @@ Il tunneling SSH è il solo modo di accedere a Hue nel cluster una volta che è 
 2. Durante l'installazione vengono riavviati più servizi Hadoop (HDFS, YARN, MR2, Oozie) per l'aggiornamento della configurazione. Al termine dell'installazione di Hue tramite lo script, è possibile che l'avvio di altri servizi Hadoop richieda qualche istante. Ciò potrebbe influire inizialmente sulle prestazioni di Hue. Una volta avviati tutti i servizi, Hue sarà completamente funzionale.
 3. Hue non riconosce i processi di Tez, che attualmente corrisponde all'importazione predefinita per Hive. Se si vuole usare MapReduce come motore di esecuzione di Hive, aggiornare lo script per l'uso dei comandi seguenti:
 
-        set hive.execution.engine=mr;
+         set hive.execution.engine=mr;
 
 4. Con i cluster Linux è possibile avere uno scenario in cui i servizi vengono eseguiti sul nodo head primario mentre Resource Manager potrebbe essere in esecuzione su quello secondario. Questo scenario potrebbe causare errori (illustrati di seguito) quando si usa Hue per visualizzare i dettagli dei processi IN ESECUZIONE nel cluster. I dettagli del processo possono tuttavia essere visualizzati dopo il completamento del processo.
 
@@ -155,9 +154,4 @@ Il tunneling SSH è il solo modo di accedere a Hue nel cluster una volta che è 
 [powershell-install-configure]: install-configure-powershell-linux.md
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

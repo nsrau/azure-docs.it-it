@@ -13,16 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 01/06/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: a5bd3866f3150b1c787e5f3700bdbd0b74fbaf42
-ms.openlocfilehash: 666a8031a262aef72fc8c3e73647f81d79b1c916
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 598f5ce445e520b6cdc347c80f7f3dcbc9c2c9e5
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Esercitazione con guida rapida per il linguaggio di programmazione R per Azure Machine Learning
-Stephen F Elston, Ph.D.
+
+<!-- Stephen F Elston, Ph.D. -->
 
 ## <a name="introduction"></a>Introduzione
 Questa esercitazione con guida rapida consente di iniziare rapidamente a estendere Azure Machine Learning usando il linguaggio di programmazione R. Seguire questa esercitazione sulla programmazione R per creare, testare ed eseguire il codice R in Azure Machine Learning. Usando questa esercitazione, sarà possibile creare una soluzione completa di previsione con il linguaggio R in Azure Machine Learning.  
@@ -49,7 +51,7 @@ La procedura sarà formata da diversi passaggi che consentiranno di apprendere c
 * Con i dati preparati verrà eseguita un'analisi delle correlazioni tra più variabili nel set di dati.
 * Infine, verrà creato un modello di previsione in serie temporale (stagionale) per la produzione di latte.
 
-## <a name="a-idmlstudioainteract-with-r-language-in-machine-learning-studio"></a><a id="mlstudio"></a>Interagire con il linguaggio R in Machine Learning Studio
+## <a id="mlstudio"></a>Interagire con il linguaggio R in Machine Learning Studio
 Questa sezione illustra alcune nozioni di base relative all'interazione con il linguaggio di programmazione R nell'ambiente di Machine Learning Studio. Il linguaggio R fornisce uno strumento potente per creare moduli personalizzati di analisi e manipolazione di dati nell'ambiente di Azure Machine Learning.
 
 In questa guida useremo RStudio per sviluppare, testare ed eseguire il debug di codice R su piccola scala. Questo codice viene quindi tagliato e incollato in un modulo [Execute R Script][execute-r-script] (Esegui script R) in Machine Learning Studio, pronto per l'esecuzione.  
@@ -130,13 +132,13 @@ Un'esercitazione introduttiva a RStudio è disponibile all'indirizzo https://sup
 
 Altre informazioni sull'uso di RStudio sono disponibili nell'[Appendice A][appendixa].  
 
-## <a name="a-idscriptmoduleaget-data-in-and-out-of-the-execute-r-script-module"></a><a id="scriptmodule"></a>Input e output dei dati nel modulo Execute R Script
+## <a id="scriptmodule"></a>Input e output dei dati nel modulo Execute R Script
 Questa sezione descrive come eseguire l'input e l'output di dati nel modulo [Execute R Script][execute-r-script]. Viene inoltre esaminato come gestire i diversi tipi di dati di input e output nel modulo [Execute R Script][execute-r-script].
 
 Il codice completo per questa sezione è contenuto nel file con estensione zip scaricato in precedenza.
 
 ### <a name="load-and-check-data-in-machine-learning-studio"></a>Caricare e controllare i dati in Machine Learning Studio
-#### <a name="a-idloadingaload-the-dataset"></a><a id="loading"></a>Caricare il set di dati
+#### <a id="loading"></a>Caricare il set di dati
 Prima di tutto, caricare il file **csdairydata.csv** in Azure Machine Learning Studio.
 
 * Avviare l'ambiente di Azure Machine Learning Studio.
@@ -313,7 +315,7 @@ Scorrendo verso il basso è possibile visualizzare l'output grafico generato dal
 
 *Figura 8. Output dei grafici dalla porta R Device.*  
 
-## <a name="a-idfilteringadata-filtering-and-transformation"></a><a id="filtering"></a>Filtraggio e trasformazione dei dati
+## <a id="filtering"></a>Filtraggio e trasformazione dei dati
 In questa sezione effettueremo alcune operazioni di filtraggio e trasformazione di base sui dati caseari della California. Al termine di questa sezione i dati saranno disponibili in un formato adatto alla creazione di un modello di analisi.  
 
 In particolare, in questa sezione vengono eseguite diverse attività comuni di pulizia e trasformazione dei dati: trasformazione del tipo, filtraggio nei frame di dati, aggiunta di nuove colonne elaborate e trasformazioni dei valori. Queste procedure di base potrebbero essere utili per affrontare le numerose variazioni che spesso si generano nei problemi della vita reale.
@@ -596,7 +598,7 @@ I valori sono stati trasformati correttamente. La produzione di latte supera ora
 
 A questo punto i nostri dati sono puliti e siamo pronti per qualche operazione di modeling. Osservando il riepilogo della visualizzazione per l'output Result Dataset del modulo [Execute R Script][execute-r-script], si può notare che la colonna 'Month' è 'Categorical' con 12 valori univoci, ovvero il risultato desiderato.
 
-## <a name="a-idtimeseriesatime-series-objects-and-correlation-analysis"></a><a id="timeseries"></a>Oggetti della serie temporale e analisi delle correlazioni
+## <a id="timeseries"></a>Oggetti della serie temporale e analisi delle correlazioni
 In questa sezione analizzeremo alcuni oggetti serie temporale di R e analizzeremo le correlazioni tra alcune delle variabili. Il nostro obiettivo è generare un frame di dati contenente informazioni di correlazione pairwise a vari intervalli.
 
 Il codice R completo per questa sezione è disponibile nel file con estensione zip scaricato in precedenza.
@@ -877,7 +879,7 @@ L'esecuzione del codice produce l'output mostrato nella Figura 19 quando si **vi
 
 *Figura 19. Output dei risultati dall'analisi delle correlazioni.*
 
-## <a name="a-idseasonalforecastingatime-series-example-seasonal-forecasting"></a><a id="seasonalforecasting"></a>Esempio di serie temporale: previsione stagionale
+## <a id="seasonalforecasting"></a>Esempio di serie temporale: previsione stagionale
 Ora i dati sono in un formato adatto all'analisi ed è stato stabilito che non sono presenti correlazioni significative tra le variabili. Passiamo quindi alla creazione di un modello di previsione in serie temporale, che ci permetterà di prevedere la produzione di latte in California nei 12 mesi del 2013.
 
 Il nostro modello previsionale sarà costituito da due componenti: trend e stagionale. La previsione completa è data dal prodotto di queste due componenti. Questo tipo di modello prende il nome di modello moltiplicativo, alternativo al modello additivo. Una trasformazione logaritmica è stata già applicata alle variabili di interesse, quindi l'analisi diventa più gestibile.
@@ -1207,7 +1209,7 @@ L'esecuzione di questo codice produce nella porta di output Result Dataset il co
 
 Da questi risultati si evince che l'aggiunta di fattori stagionali al modello riduce in modo significativo l'errore RMS. Come previsto, inoltre, la deviazione standard per i dati di addestramento è leggermente inferiore rispetto alla previsione.
 
-## <a name="a-idappendixaaappendix-a-guide-to-rstudio"></a><a id="appendixa"></a>APPENDICE A: Guida a RStudio
+## <a id="appendixa"></a>APPENDICE A: Guida a RStudio
 RStudio viene fornito con una documentazione molto dettagliata. In questa appendice mi limiterò quindi a fornire alcuni link alle sezioni principali della documentazione RStudio, utili per acquisire familiarità con questo prodotto.
 
 1. Creazione di progetti
@@ -1224,7 +1226,7 @@ RStudio viene fornito con una documentazione molto dettagliata. In questa append
    
    La documentazione sulle funzionalità di risoluzione dei problemi relativi ai punti di interruzione è disponibile all'indirizzo https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting.
 
-## <a name="a-idappendixbaappendix-b-further-reading"></a><a id="appendixb"></a>APPENDICE B: Letture di approfondimento
+## <a id="appendixb"></a>APPENDICE B: Letture di approfondimento
 Questa esercitazione sulla programmazione R illustra le nozioni di base sull'ambito di utilizzo del linguaggio R con Azure Machine Learning Studio. Se non si ha familiarità con R, in CRAN sono disponibili due introduzioni:
 
 * "R for Beginners" di Emmanuel Paradis, un ottimo punto di inizio: http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.  
@@ -1244,7 +1246,8 @@ Il libro Introductory Time Series with R di Paul Cowpertwait e Andrew Metcalfe f
 
 Alcune importanti risorse su Internet:
 
-* DataCamp: DataCamp insegna a usare R dal proprio browser con lezioni video ed esercizi sulla codifica. Sono disponibili anche esercitazioni interattive sulle ultime tecniche e pacchetti di R. È possibile partecipare alle esercitazioni interattive e gratuite su R all'indirizzo https://www.datacamp.com/courses/introduction-to-r  
+* DataCamp: DataCamp insegna a usare R dal proprio browser con lezioni video ed esercizi sulla codifica. Sono disponibili anche esercitazioni interattive sulle ultime tecniche e pacchetti di R. È possibile partecipare alle esercitazioni interattive e gratuite su R all'indirizzo https://www.datacamp.com/courses/introduction-to-r
+* Una Guida introduttiva alla programmazione con R da Programiz https://www.programiz.com/r-programming
 * Una rapida esercitazione su R di Kelly Black della Clarkson University è disponibile all'indirizzo http://www.cyclismo.org/tutorial/R/
 * Oltre&60; risorse su R sono elencate all'indirizzo http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
 
@@ -1281,9 +1284,4 @@ Alcune importanti risorse su Internet:
 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

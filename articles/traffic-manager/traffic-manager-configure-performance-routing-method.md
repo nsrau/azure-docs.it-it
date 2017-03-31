@@ -1,59 +1,55 @@
 ---
-title: Configurare un metodo di routing del traffico delle prestazioni | Documentazione Microsoft
-description: "Questo articolo aiuterà a configurare il metodo di routing del traffico failover in Gestione traffico"
+title: Configurare un metodo di routing del traffico delle prestazioni con Gestione traffico di Azure | Microsoft Docs
+description: "Questo articolo descrive come configurare Gestione traffico per instradare il traffico all&quot;endpoint con latenza più bassa"
 services: traffic-manager
 documentationcenter: 
 author: kumudd
 manager: timlt
-editor: tysonn
-ms.assetid: 6dd23b8e-0ed5-4ea4-b5ae-018f42e72688
+editor: 
+ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 03/20/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 51a3f970059f4b83240cb61411dbf612209d9293
-
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 014aa646459cd64fca7c697419324caa3edaeeea
+ms.lasthandoff: 03/22/2017
 
 ---
-<!-- repub for nofollow -->
 
-# <a name="configure-performance-traffic-routing-method"></a>Configurare un metodo di routing del traffico delle prestazioni
-Per eseguire il routing del traffico per i servizi cloud e siti Web (endpoint) che si trovano in diversi data center (noti anche come aree) in tutto il mondo, è possibile indirizzare il traffico in ingresso proveniente dal client che effettua la richiesta all'endpoint con latenza più bassa. In genere, il data center con latenza più bassa corrisponde a quello più vicino in termini di distanza geografica. Il metodo di routing del traffico basato sulle prestazioni consente di distribuire il carico in base alla latenza più bassa, ma non può tenere conto delle modifiche in tempo reale della configurazione della rete o del carico. Per altre informazioni sui diversi metodi di routing del traffico forniti da Gestione traffico di Azure, vedere [Metodi di routing di Gestione traffico](traffic-manager-routing-methods.md).
+# <a name="configure-the-performance-traffic-routing-method"></a>Configurare un metodo di routing del traffico delle prestazioni
 
-## <a name="route-traffic-based-on-lowest-latency-across-a-set-of-endpoints"></a>Eseguire il routing del traffico in base alla latenza più bassa in un set di endpoint:
-1. Nel riquadro sinistro del portale di Azure classico fare clic sull'icona **Gestione traffico** per aprire il relativo riquadro. Se non è ancora stato creato il profilo di Gestione traffico, vedere [Gestire i profili di Gestione traffico](traffic-manager-manage-profiles.md) per i passaggi necessari per la creazione di un profilo di base di Gestione traffico.
-2. Nel riquadro di Gestione traffico del portale di Azure classico individuare il profilo di Gestione traffico in cui sono contenute le impostazioni da modificare e quindi fare clic sulla freccia a destra del nome del profilo. Verrà aperta la pagina delle impostazioni per il profilo.
-3. Nella parte superiore della pagina del profilo fare clic su **Endpoint** e verificare che siano presenti gli endpoint servizio che si desidera includere nella configurazione. Per i passaggi necessari per aggiungere o rimuovere endpoint dal profilo, vedere [Gestire gli endpoint in Gestione traffico](traffic-manager-endpoints.md).
-4. Nella parte superiore della pagina del profilo fare clic su **Configura** per aprire la pagina di configurazione.
-5. Nelle **impostazioni del metodo di routing del traffico** verificare che il metodo di routing del traffico sia **Prestazioni*. In caso contrario, fare clic su **Prestazioni** nell'elenco a discesa.
-6. Verificare che le **Impostazioni di monitoraggio** siano configurate correttamente. Tramite il monitoraggio viene assicurato il mancato invio di traffico agli endpoint offline. Per monitorare gli endpoint, è necessario specificare un percorso e un nome file. Si noti che la barra ("/") è una voce valida per il percorso relativo e implica che il file si trovi nella directory radice (impostazione predefinita). Per altre informazioni sul monitoraggio, vedere [Informazioni sul monitoraggio di Gestione traffico](traffic-manager-monitoring.md).
-7. Dopo aver completato le modifiche di configurazione, fare clic su **Salva** nella parte inferiore della pagina.
-8. Verificare le modifiche apportate alla configurazione. Per altre informazioni, vedere [Test delle impostazioni di Gestione traffico](traffic-manager-testing-settings.md).
-9. Dopo avere impostato e verificato il funzionamento del profilo di Gestione traffico, modificare il record DNS sul server DNS autorevole per fare in modo che il nome del dominio aziendale punti al nome di dominio di Gestione traffico. Per altre informazioni, vedere [Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico](traffic-manager-point-internet-domain.md).
+Il metodo di routing del traffico Prestazioni consente di indirizzare il traffico all'endpoint con latenza più bassa dalla rete del client. In genere, il data center con latenza più bassa è quello più vicino in termini di distanza geografica. Questo metodo di routing del traffico non può basarsi per le modifiche in tempo reale sul carico o sulla configurazione di rete.
+
+##  <a name="to-configure-performance-routing-method"></a>Per configurare un metodo di routing del traffico delle prestazioni
+
+1. In un browser accedere al [portale di Azure](http://portal.azure.com). Se non si ha già di un account, è possibile iscriversi per ottenere una [versione di valutazione gratuita della durata di un mese](https://azure.microsoft.com/free/). 
+2. Nella barra di ricerca del portale cercare i **profili di Gestione traffico** e quindi fare clic sul nome di profilo per cui si vuole configurare il metodo.
+3. Nel pannello **Profilo di Gestione traffico** verificare che siano presenti sia i servizi cloud che i siti Web che si intende includere nella configurazione.
+4. Nella sezione **Impostazioni** fare clic su **Configurazione** e nel pannello **Configurazione** procedere come indicato di seguito:
+    1. Nelle **impostazioni del metodo di routing del traffico** per **Metodo di routing** selezionare **Prestazioni**.
+    2. Specificare le stesse le stesse **impostazioni di monitoraggio degli endpoint** per tutti gli endpoint in questo profilo come indicato di seguito:
+        1. Selezionare il **protocollo** appropriato e specificare il numero di **porta**. 
+        2. In **Percorso** immettere una barra */*. Per monitorare gli endpoint, è necessario specificare un percorso e un nome file. Una barra ("/") è una voce valida per il percorso relativo e implica che il file si trovi nella directory radice (impostazione predefinita).
+        3. Nella parte superiore della pagina fare clic su **Salva**.
+5.  Verificare le modifiche apportate alla configurazione come indicato di seguito:
+    1.    Nella barra di ricerca del portale cercare il nome del profilo di Gestione traffico e fare clic su tale profilo nei risultati visualizzati.
+    2.    Nel pannello **Profilo di Gestione traffico** fare clic su **Informazioni generali**.
+    3.    Nel pannello **Profilo di Gestione traffico** viene visualizzato il nome DNS del profilo di Gestione traffico creato. Questo nome può essere usato da qualsiasi client (ad esempio accedendovi tramite un Web browser) per essere indirizzato all'endpoint corretto in base al tipo di routing. In questo caso tutte le richieste vengono indirizzate all'endpoint con latenza più bassa dalla rete del client.
+6. Dopo aver verificato il funzionamento del profilo di Gestione traffico, modificare il record DNS sul server DNS autorevole per fare in modo che il nome del dominio aziendale punti al nome di dominio di Gestione traffico.
+
+![Configurazione del metodo di routing del traffico delle prestazioni con Gestione traffico][1]
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Impostare un dominio Internet aziendale in modo che punti a un dominio di Gestione traffico](traffic-manager-point-internet-domain.md)
 
-[Metodi di routing di Gestione traffico](traffic-manager-routing-methods.md)
+- Informazioni sul [metodo di routing del traffico Ponderato](traffic-manager-configure-weighted-routing-method.md).
+- Informazioni sul [metodo di routing Priorità](traffic-manager-configure-priority-routing-method.md).
+- Informazioni sul [metodo di routing Geografico](traffic-manager-configure-geographic-routing-method.md).
+- Informazioni su come [testare le impostazioni di Gestione traffico](traffic-manager-testing-settings.md).
 
-[Configurare metodo di routing failover](traffic-manager-configure-failover-routing-method.md)
-
-[Configurare il metodo di routing Round Robin](traffic-manager-configure-round-robin-routing-method.md)
-
-[Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md)
-
-[Gestione traffico: disabilitare, abilitare o eliminare un profilo](disable-enable-or-delete-a-profile.md)
-
-[Gestione traffico: disabilitare o abilitare un endpoint](disable-or-enable-an-endpoint.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+<!--Image references-->
+[1]: ./media/traffic-manager-performance-routing-method/traffic-manager-performance-routing-method.png

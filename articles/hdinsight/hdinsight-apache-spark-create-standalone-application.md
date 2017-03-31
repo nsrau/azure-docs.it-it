@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: b2467a40-a340-4b80-bb00-f2c3339db57b
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
 ms.openlocfilehash: 153b1ea4ec3d326fb533817cdb74d3489135f7d9
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -145,7 +147,7 @@ Per eseguire l'applicazione nel cluster, è necessario eseguire le operazioni se
 * **Copiare il file jar dell’applicazione nel BLOB di archiviazione Azure** associato al cluster. A tale scopo è possibile usare [**AzCopy**](../storage/storage-use-azcopy.md), un'utilità della riga di comando. È possibile usare molti altri client per caricare i dati. Ulteriori informazioni in merito sono disponibili in [Caricare dati per processi Hadoop in HDInsight](hdinsight-upload-data.md).
 * **Usare Livy per inviare un processo dell’applicazione in modalità remota** al cluster Spark. I cluster Spark in HDInsight includono Livy che espone gli endpoint REST per inviare in modalità remota i processi Spark. Per ulteriori informazioni, vedere [Inviare processi Spark in modalità remota utilizzando Livy con cluster Spark in HDInsight](hdinsight-apache-spark-livy-rest-interface.md).
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Vedere anche
+## <a name="seealso"></a>Vedere anche
 * [Panoramica: Apache Spark su Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenari
@@ -169,10 +171,5 @@ Per eseguire l'applicazione nel cluster, è necessario eseguire le operazioni se
 ### <a name="manage-resources"></a>Gestire risorse
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-job-debugging.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

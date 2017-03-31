@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/14/2016
+ms.date: 02/13/2017
 ms.author: borisb
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 8b00d3c4461494d35665c976e0e1098a246abb68
+ms.sourcegitcommit: 6b54633b6beed738a93070aa4235ee4e24333b5e
+ms.openlocfilehash: e1867aa3c5339373b494744ba26c750bcc11b5b5
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -26,21 +27,44 @@ Le macchine virtuali create dalle immagini di Red Hat Enterprise Linux (RHEL) su
 L'elenco di repository yum, gestito da RHUI, viene configurato nell'istanza di RHEL durante il provisioning. Non è necessario eseguire altre attività di configurazione. Eseguire `yum update` non appena l'istanza di RHEL è pronta per l'installazione degli aggiornamenti più recenti.
 
 > [!NOTE]
-> L'infrastruttura RHUI di Azure è stata aggiornata di recente (settembre 2016) e richiede modifiche alla configurazione delle istanze di RHEL esistenti per l'accesso ininterrotto a tale infrastruttura. Per informazioni dettagliate, fare riferimento alla sezione Aggiornamento dell'infrastruttura RHUI di Azure.
-> 
+> In settembre 2016 è stata distribuita l'infrastruttura RHUI di Azure aggiornata e in gennaio 2017 è stato avviato l'arresto graduale della precedente. Se si usano immagini RHEL (o i relativi snapshot) da settembre 2016 o da un momento successivo probabilmente non è richiesta alcuna azione. Se invece si dispone di snapshot/VM precedenti, la loro configurazione deve essere aggiornata per l'accesso ininterrotto all'infrastruttura RHUI di Azure.
 > 
 
 ## <a name="rhui-azure-infrastructure-update"></a>Aggiornamento dell'infrastruttura RHUI di Azure
-A partire da settembre 2016, Azure offre un nuovo set di server RHUI (Red Hat Update Infrastructure). Questi server vengono distribuiti con [Gestione traffico di Azure](https://azure.microsoft.com/services/traffic-manager/) in modo che un singolo endpoint (rhui-1.micrsoft.com) possa essere usato da qualsiasi VM indipendentemente dall'area. Usano inoltre un certificato SSL concatenato a un'autorità di certificazione nota (radice Baltimore). Poiché l'esecuzione automatica di questo aggiornamento può essere pericolosa per alcuni clienti che dispongono di ACL o tabelle di routing personalizzate per i server di aggiornamento RHUI, è necessario acconsentire esplicitamente all'aggiornamento. Questa pagina illustra la procedura manuale per l'introduzione di questi nuovi server e uno script completo per l'esecuzione automatica della procedura (dopo la verifica dei singoli passaggi). Le nuove immagini RHEL con pagamento in base al consumo in Azure Marketplace (versioni di settembre 2016 o successive) punteranno automaticamente ai nuovi server RHUI di Azure senza richiedere altre operazioni.
+A partire da settembre 2016, Azure offre un nuovo set di server RHUI (Red Hat Update Infrastructure). Questi server vengono distribuiti con [Gestione traffico di Azure](https://azure.microsoft.com/services/traffic-manager/) in modo che un singolo endpoint (rhui-1.micrsoft.com) possa essere usato da qualsiasi VM indipendentemente dall'area. Le nuove immagini RHEL Pay-As-You-Go (PAYG) con pagamento in base al consumo in Azure Marketplace (versioni di settembre 2016 o successive) puntano ai nuovi server RHUI di Azure senza richiedere altre operazioni.
 
-### <a name="the-new-azure-rhui-infrastructure-onboarding-timeline"></a>Sequenza temporale dell'introduzione della nuova infrastruttura RHUI di Azure
-| Data | Nota |
-| --- | --- |
-| 22 settembre 2016 |I server RHUI e le istruzioni di installazione sono disponibili per l'uso. Le macchine virtuali distribuite mediante le nuove immagini RHEL con pagamento in base al consumo (versioni di settembre 2016) disponibili in Marketplace useranno automaticamente i nuovi server RHUI, ma le macchine virtuali esistenti richiedono un consenso esplicito. |
-| 1 novembre 2016 |Le immagini legacy delle macchine virtuali RHEL con pagamento in base al consumo (che usano i server RHUI di Azure precedenti) verranno rimosse dalla raccolta di Azure Marketplace. |
-| 16 gennaio 2017 |I server RHUI di Azure precedenti verranno ritirati. Per mantenere l'accesso all'infrastruttura RHUI di Azure, aggiornare entro questa data tutte le macchine virtuali RHEL con pagamento in base al consumo interessate. |
+### <a name="determine-if-action-is-required"></a>Determinare se è richiesta qualche azione
+Se si verificano problemi di connessione all'infrastruttura RHUI di Azure da una VM con pagamento in base al consumo di Azure RHEL, seguire questi passaggi
+1. Individuare nella configurazione della VM un endpoint Azure RHUI
+
+    Controllare se il file `/etc/yum.repos.d/rh-cloud.repo` contiene riferimenti a `rhui-[1-3].microsoft.com` nel baseurl della sezione `[rhui-microsoft-azure-rhel*]` del file. In questo caso è in uso la nuova infrastruttura RHUI di Azure.
+
+    Se punta un percorso con il modello `mirrorlist.*cds[1-4].cloudapp.net`, è necessario l'aggiornamento della configurazione.
+
+    Se è in uso la nuova configurazione ma non è possibile connettersi all'infrastruttura RHUI di Azure, rivolgersi al servizio di supporto di Microsoft o di Red Hat.
+
+    > [!NOTE]
+    > L'accesso all'istanza di RHUI ospitata in Azure è limitato alle macchine virtuali comprese negli [intervalli di indirizzi IP dei data center di Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+    > 
+
+2. Se la vecchia infrastruttura RHUI di Azure è ancora disponibile quando si eseguire questo controllo e si desidera aggiornare automaticamente la configurazione, eseguire il comando seguente:
+
+    `sudo yum update RHEL6`o `sudo yum update RHEL7` a seconda della versione della famiglia RHEL.
+
+3. Se non è più possibile connettersi alla vecchia infrastruttura RHUI di Azure, seguire i passaggi manuali descritti nella sezione successiva.
+
+4. Assicurarsi di aggiornare la configurazione sull'immagine/snapshot sorgente da cui è stato eseguito il provisioning della VM interessata.
+
+### <a name="phased-shutdown-of-the-old-azure-rhui"></a>Arresto graduale della precedente infrastruttura RHUI di Azure
+Durante l'arresto della precedente infrastruttura RHUI di Azure, l'accesso all'infrastruttura stessa è limitato come segue:
+
+1. Accesso ulteriormente limitato (elenco di controllo di accesso) al gruppo di indirizzi IP già connessi. Possibili effetti collaterali: se si continua a usare la precedente infrastruttura RHUI di Azure, le nuove VM potrebbero non riuscire a connettersi a essa. Le VM RHEL con indirizzi IP dinamici che passano attraverso la sequenza di arresto/deallocazione/avvio possono ricevere un nuovo IP e pertanto potrebbero iniziare a non riuscire a connettersi alla precedente infrastruttura RHUI di Azure
+
+2. Arresto del server di distribuzione di contenuti di mirror. Possibili effetti collaterali: poiché sono stati arrestati altri CDSes, potrebbe essere necessario più tempo per la manutenzione di `yum update` e potrebbero verificarsi più timeout fino a quando non sarà più possibile connettersi alla vecchia infrastruttura RHUI di Azure.
 
 ### <a name="the-ips-for-the-new-rhui-content-delivery-servers-are"></a>Gli indirizzi IP per i nuovi server di distribuzione di contenuti RHUI sono
+Se si usa la configurazione di rete per limitare ulteriormente l'accesso dalle VM RHEL con pagamento in base al consumo, assicurarsi che siano consentiti i seguenti IP per il funzionamento di `yum update` a seconda dell'ambiente in cui ci si trova. 
+
 ```
 # Azure Global
 13.91.47.76
@@ -50,6 +74,10 @@ A partire da settembre 2016, Azure offre un nuovo set di server RHUI (Red Hat Up
 
 # Azure US Government
 13.72.186.193
+
+# Azure Germany
+51.5.243.77
+51.4.228.145
 ```
 
 ### <a name="manual-update-procedure-to-use-the-new-azure-rhui-servers"></a>Procedura di aggiornamento manuale per l'uso dei nuovi server RHUI di Azure
@@ -134,7 +162,7 @@ sudo rpm -U azureclient.rpm
 
 Al termine, verificare che sia possibile accedere all'infrastruttura RHUI di Azure dalla macchina virtuale
 
-### <a name="all-in-one-script-for-automating-the-above-task"></a>Script all-in-one per automatizzare l'attività precedente
+### <a name="all-in-one-script-for-automating-the-preceding-task"></a>Script all-in-one per automatizzare l'attività precedente
 Usare lo script seguente, in base alle proprie esigenze, per automatizzare l'attività di aggiornamento delle macchine virtuali interessate ai nuovi server RHUI di Azure.
 
 ```sh
@@ -178,7 +206,7 @@ sudo rpm -U azureclient.rpm
 [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) offre una soluzione altamente scalabile per gestire il contenuto del repository yum per le istanze cloud di Red Hat Enterprise Linux ospitate dai provider cloud certificati da Red Hat. In base al progetto Pulp upstream, RHUI consente ai provider cloud di eseguire il mirroring locale del contenuto del repository ospitato da Red Hat e creare repository personalizzati con il proprio contenuto e rendere disponibili tali repository per un ampio gruppo di utenti finali tramite un sistema di distribuzione del contenuto con bilanciamento del carico.
 
 ## <a name="regions-where-rhui-is-available"></a>Aree in cui viene è disponibile l'infrastruttura RHUI
-Il servizio RHUI è disponibile in tutte le aree in cui sono disponibili le immagini di RHEL su richiesta. Include attualmente tutte le aree pubbliche elencate nella pagina di [dashboard dello stato di Azure](https://azure.microsoft.com/status/) e nelle aree del governo degli Stati Uniti di Azure. L'accesso al servizio RHUI per macchine virtuali sottoposte a provisioning da immagini di RHEL su richiesta è incluso nel rispettivo prezzo. La disponibilità di cloud locale/nazionale verrà aggiornata in base all'espansione della disponibilità di RHEL su richiesta in futuro.
+Il servizio RHUI è disponibile in tutte le aree in cui sono disponibili le immagini di RHEL su richiesta. Include attualmente tutte le aree pubbliche elencate nella pagina del [dashboard di stato di Azure](https://azure.microsoft.com/status/), le aree di Azure per il governo degli Stati Uniti e le aree di Azure per la Germania. L'accesso al servizio RHUI per macchine virtuali sottoposte a provisioning da immagini di RHEL su richiesta è incluso nel rispettivo prezzo. La disponibilità di cloud locale/nazionale verrà aggiornata in base all'espansione della disponibilità di RHEL su richiesta in futuro.
 
 > [!NOTE]
 > L'accesso all'istanza di RHUI ospitata in Azure è limitato alle macchine virtuali comprese negli [intervalli di indirizzi IP dei data center di Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
@@ -186,9 +214,9 @@ Il servizio RHUI è disponibile in tutte le aree in cui sono disponibili le imma
 > 
 
 ## <a name="get-updates-from-another-update-repository"></a>Ottenere aggiornamenti da un altro repository di aggiornamenti
-Se è necessario ottenere aggiornamenti da un repository di aggiornamenti diverso, invece del servizio RHUI ospitato in Azure, sarà necessario annullare la registrazione delle istanze da RHUI e ripeterne la registrazione nell'infrastruttura di aggiornamento desiderata, ad esempio Red Hat Satellite o Red Hat Customer Portal CDN. Saranno necessarie sottoscrizioni di Red Hat appropriate per questi servizi e una registrazione per il programma [Red Hat Cloud Access in Azure](https://access.redhat.com/ecosystem/partners/ccsp/microsoft-azure).
+Se è necessario ottenere gli aggiornamenti da un repository di aggiornamento diverso (anziché da un'infrastruttura RHUI ospitata in Azure), prima è necessario annullare la registrazione delle istanze dall'infrastruttura RHUI. Quindi è necessario registrarle nuovamente con l'infrastruttura di aggiornamento desiderata (ad esempio Red Hat Satellite o la rete CDN Red Hat Customer Portal). Saranno necessarie sottoscrizioni di Red Hat appropriate per questi servizi e una registrazione per il programma [Red Hat Cloud Access in Azure](https://access.redhat.com/ecosystem/partners/ccsp/microsoft-azure).
 
-Per annullare la registrazione a RHUI e registrarsi all'infrastruttura di aggiornamento desiderata, seguire questa procedura.
+Per annullare la registrazione all'infrastruttura RHUI e registrarsi all'infrastruttura di aggiornamento desiderata, seguire questa procedura:
 
 1. Modificare /etc/yum.repos.d/rh-cloud.repo e sostituire tutte le occorrenze di `enabled=1` con `enabled=0`. ad esempio:
    
@@ -200,18 +228,12 @@ Per annullare la registrazione a RHUI e registrarsi all'infrastruttura di aggior
 3. Eseguire quindi la registrazione all'infrastruttura desiderata, ad esempio il portale dei clienti di Red Hat. Per informazioni su come [eseguire la registrazione e la sottoscrizione di un sistema nel portale dei clienti di Red Hat](https://access.redhat.com/solutions/253273), vedere la guida della soluzione Red Hat.
 
 > [!NOTE]
-> L'accesso al servizio RHUI ospitato in Azure è incluso nel prezzo dell'immagine di RHEL con pagamento in base al consumo. L'annullamento della registrazione di una macchina virtuale RHEL con pagamento in base al consumo dal servizio RHUI ospitato in Azure non converte la macchina virtuale in una VM di tipo Bring Your Own License (BYOL). È quindi possibile che vengano applicati addebiti doppi se si registra la stessa macchina virtuale in un'altra origine di aggiornamenti. 
+> L'accesso al servizio RHUI ospitato in Azure è incluso nel prezzo dell'immagine di RHEL con pagamento in base al consumo. Annullando la registrazione di una VM RHEL con pagamento in base al consumo dall'infrastruttura RHUI ospitata in Azure non si converte la VM nel tipo BYOL (Bring-Your-Own-License). Se si registra la stessa VM con un'altra origine di aggiornamenti si potrebbe incorrere in addebiti doppi: la prima volta per la tariffa del software Azure RHEL e la seconda volta per le sottoscrizioni di Red Hat. 
 > 
 > Se è necessario usare in modo continuativo un'infrastruttura di aggiornamento diversa dall'infrastruttura RHUI ospitata in Azure, prendere in considerazione la creazione e la distribuzione di immagini personalizzate di tipo BYOL, come descritto nell'articolo [Preparare una macchina virtuale basata su RedHat per Azure](virtual-machines-linux-redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
-> 
 > 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per creare una macchina virtuale Red Hat Enterprise Linux dall'immagine con pagamento in base al consumo di Azure Marketplace e sfruttare i vantaggi dell'infrastruttura RHUI ospitata in Azure, passare ad [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/). Sarà possibile usare `yum update` nell'istanza di RHEL senza impostazioni aggiuntive.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

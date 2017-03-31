@@ -1,5 +1,5 @@
 ---
-title: Creare cluster Hadoop basati su Linux in HDInsight usando modelli di Azure Resource Manager | Documentazione Microsoft
+title: Creare cluster Azure HDInsight (Hadoop) usando modelli | Documentazione Microsoft
 description: Informazioni su come creare cluster per Azure HDInsight usando modelli di Azure Resource Manager.
 services: hdinsight
 documentationcenter: 
@@ -9,27 +9,29 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 00a80dea-011f-44f0-92a4-25d09db9d996
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 03/14/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 756369d219c34e5530edc91de0dc74cbf88c02c5
-ms.openlocfilehash: 78276ecfbeb339721c76af40428a452681c3407d
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 37567bf014d1deb5bcd36af94924948550d55f8e
+ms.lasthandoff: 03/21/2017
 
 
 ---
-# <a name="create-linux-based-hadoop-clusters-in-hdinsight-using-azure-resource-manager-templates"></a>Creare cluster Hadoop basati su Linux in HDInsight tramite modelli di Azure Resource Manager
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+# <a name="create-hadoop-clusters-in-hdinsight-using-azure-resource-management-templates"></a>Creare cluster Hadoop in HDInsight tramite modelli di Azure Resource Manager
+[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Informazioni su come creare cluster HDInsight tramite modelli di Gestione risorse di Azure. Per altre informazioni, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](../azure-resource-manager/resource-group-template-deploy.md). Per altri strumenti e funzionalità per la creazione di cluster, fare clic sulla scheda Seleziona nella parte superiore di questa pagina o vedere [Metodi di creazione di cluster](hdinsight-provision-clusters.md#cluster-creation-methods).
+Informazioni su come creare cluster HDInsight usando modelli di Azure Resource Manager. Per altre informazioni, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](../azure-resource-manager/resource-group-template-deploy.md). Per informazioni su altri strumenti e funzionalità per la creazione di cluster, fare clic sulla scheda Seleziona nella parte superiore di questa pagina o vedere [Metodi di creazione di cluster](hdinsight-hadoop-provision-linux-clusters.md#cluster-creation-methods).
 
 ## <a name="prerequisites"></a>Prerequisiti:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre di:
+Per poter eseguire le istruzioni descritte in questo articolo è necessario che siano soddisfatti i prerequisiti seguenti:
 
 * [Sottoscrizione di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Azure PowerShell e/o interfaccia della riga di comando di Azure
@@ -39,29 +41,45 @@ Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre 
 ### <a name="access-control-requirements"></a>Requisiti di controllo di accesso
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-## <a name="resource-manager-templates"></a>Modelli di Gestione risorse
+## <a name="resource-management-templates"></a>Modelli di Resource Manager
 Il modello di Resource Manager semplifica la creazione di cluster HDInsight, delle risorse dipendenti (ad esempio, l'account di archiviazione predefinito) e di altre risorse (ad esempio, il database SQL di Azure per usare Apache Sqoop) per l'applicazione in un'unica operazione coordinata. Nel modello vengono definite le risorse necessarie per l'applicazione e vengono specificati i parametri di distribuzione per immettere valori nei diversi ambienti di distribuzione. Il modello è composto da JSON ed espressioni che è possibile usare per creare valori per la distribuzione.
 
-Nell' [Appendice A](#appx-a-arm-template)è disponibile un modello di Resource Manager per la creazione di un cluster HDInsight e dell'account di Archiviazione di Azure dipendente. Usare lo strumento multipiattaforma [VSCode](https://code.visualstudio.com/#alt-downloads) con l'[estensione per Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) o un editor di testo per salvare il modello in un file sulla workstation. Si apprenderà come chiamare il modello usando diversi strumenti.
+È possibile trovare modelli di HDInsight di esempio in [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight). Usare lo strumento multipiattaforma [VSCode](https://code.visualstudio.com/#alt-downloads) con l'[estensione per Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) o un editor di testo per salvare il modello in un file sulla workstation. Si apprenderà come chiamare il modello usando metodi diversi.
 
-Per altre informazioni sul modello di Resource Manager, vedere
+Per altre informazioni sul modello di Resource Manager, vedere gli articoli seguenti:
 
-* [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Creare modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Distribuire un'applicazione con un modello di Gestione risorse di Azure](../azure-resource-manager/resource-group-template-deploy.md)
 
-Per individuare lo schema JSON per determinati elementi, è possibile eseguire la procedura seguente:
+## <a name="generate-templates"></a>Generare modelli
 
-1. Aprire il [Portale di Azure](https://porta.azure.com) per creare un cluster HDInsight.  Vedere [Creare cluster basati su Linux in HDInsight tramite il portale di Azure](hdinsight-hadoop-create-linux-clusters-portal.md).
-2. Configurare gli elementi necessari per lo schema JSON.
-3. Prima di fare clic su **Crea**, scegliere **Opzioni di Automazione** come illustrato nello screenshot seguente:
+Tramite il portale di Azure è possibile configurare tutte le proprietà di un cluster e salvare il modello prima di distribuirlo,  in modo da poterlo riusare.
 
-    ![Creare cluster Hadoop in HDInsight tramite le opzioni di automazione dello schema del modello di Resource Manager](./media/hdinsight-hadoop-create-linux-clusters-arm-templates/hdinsight-create-cluster-resource-manager-template-automation-option.png)
+**Per generare un modello usando il portale di Azure**
 
-    Il portale crea un modello di Resource Manager in base alle configurazioni.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Fare clic su **Nuovo** nel menu a sinistra, su **Intelligence e analisi** e quindi su **HDInsight**.
+3. Immettere le proprietà seguendo le istruzioni. È possibile usare l'opzione **Creazione rapida** o **Personalizza**.
+4. Nella scheda Riepilogo fare clic su **Scarica modello e parametri**.
 
-   ## <a name="deploy-with-powershell"></a>Distribuire con PowerShell
+    ![Download del modello di Resource Manager per la creazione del cluster HDInsight Hadoop](./media/hdinsight-hadoop-create-linux-clusters-arm-templates/hdinsight-create-cluster-resource-manager-template-download.png)
 
-Con la procedura seguente si creano cluster HDInsight basati su Linux.
+    Vengono elencati il file del modello, il file dei parametri e gli esempi di codice necessari per distribuire il modello:
+
+    ![Opzioni di download del modello di Resource Manager per la creazione del cluster HDInsight Hadoop](./media/hdinsight-hadoop-create-linux-clusters-arm-templates/hdinsight-create-cluster-resource-manager-template-download-options.png)
+
+    Da questa pagina è possibile scaricare il modello e salvarlo nella libreria di modelli oppure distribuirlo.
+
+    Per accedere a un modello nella libreria, fare clic su **Altri servizi** nel menu a sinistra e quindi fare clic su **Modelli** (nella categoria **Altro**).
+
+> [!Note]
+> I modelli devono essere usati insieme ai file dei parametri;  in caso contrario, è possibile che si ottengano risultati imprevisti.  Il valore predefinito della proprietà clusterKind, ad esempio, è sempre hadoop indipendentemente da quanto specificato prima di scaricare il modello.
+
+
+
+## <a name="deploy-with-powershell"></a>Distribuire con PowerShell
+
+La procedura seguente consente di creare un cluster Hadoop in HDInsight:
 
 **Per distribuire un cluster usando il modello di Resource Manager**
 
@@ -121,7 +139,7 @@ Con la procedura seguente si creano cluster HDInsight basati su Linux.
 
 Per altre informazioni, vedere [Distribuire con PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy).
 
-## <a name="deploy-with-azure-cli"></a>Distribuire con l'interfaccia della riga di comando di Azure
+## <a name="deploy-with-cli"></a>Eseguire la distribuzione con l'interfaccia della riga di comando
 L'esempio seguente crea un cluster e i relativi account di archiviazione e contenitore dipendenti chiamando un modello di Resource Manager:
 
     azure login
@@ -151,7 +169,7 @@ Questo articolo ha spiegato vari modi per creare un cluster HDInsight. Per altre
 * Per un elenco delle funzioni che è possibile usare in un modello di Azure Resource Manager, vedere [Funzioni di modello](../azure-resource-manager/resource-group-template-functions.md).
 
 ## <a name="appx-a-resource-manager-template"></a>Appendice A: Modello di Resource Manager
-Il modello di Gestione risorse di Azure seguente crea un cluster Hadoop basato su Linux con l'account di archiviazione di Azure dipendente.
+Il modello di Azure Resource Manager seguente crea un cluster Hadoop basato su Linux con l'account di archiviazione di Azure dipendente.
 
 > [!NOTE]
 > L'esempio include informazioni per la configurazione di metastore Hive e metastore Oozie.  Prima di utilizzare il modello, rimuovere o configurare la sezione.
@@ -356,9 +374,4 @@ Il modello di Gestione risorse di Azure seguente crea un cluster Hadoop basato s
         }
     }
     }
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

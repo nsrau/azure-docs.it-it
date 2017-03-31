@@ -1,9 +1,9 @@
 ---
-title: Come scegliere gli algoritmi di Machine Learning | Documentazione Microsoft
+title: Come scegliere gli algoritmi di Machine Learning | Microsoft Docs
 description: Come scegliere gli algoritmi di Azure Machine Learning per l&quot;apprendimento supervisionato e non supervisionato negli esperimenti di clustering, classificazione o regressione.
 services: machine-learning
 documentationcenter: 
-author: brohrer
+author: garyericson
 manager: jhubbard
 editor: cgronlun
 tags: 
@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 08/09/2016
-ms.author: brohrer;garye
+ms.date: 03/14/2017
+ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 216152123e4a5c17ec93775adff9fd4c1eb18654
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 720822c4a6a2b236ca772016c647827050e27d44
+ms.lasthandoff: 03/17/2017
 
 
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Come scegliere gli algoritmi di Microsoft Azure Machine Learning
-La risposta alla domanda "Quale algoritmo di Machine Learning devo usare" è sempre "Dipende". Dipende dalla dimensione, dalla qualità e dalla natura dei dati. Dipende da ciò che si desidera fare con la risposta. Dipende da come i calcoli dell'algoritmo sono stati convertiti in istruzioni per il computer in uso. E dipende dal tempo a disposizione. Nemmeno gli scienziati dei dati più esperti possono stabilire quale algoritmo funzionerà meglio prima di provarlo.
+La risposta alla domanda "Quale algoritmo di Machine Learning devo usare" è sempre "Dipende". Dipende dalla dimensione, dalla qualità e dalla natura dei dati. Dipende da cosa si vuole fare con la risposta. Dipende da come i calcoli dell'algoritmo sono stati convertiti in istruzioni per il computer in uso. E dipende dal tempo a disposizione. Nemmeno gli scienziati dei dati più esperti possono stabilire quale algoritmo funzionerà meglio prima di provarlo.
 
 ## <a name="the-machine-learning-algorithm-cheat-sheet"></a>Foglio informativo sugli algoritmi di Machine Learning
 Il **foglio illustrativo sugli algoritmi di Microsoft Azure Machine Learning** aiuta a scegliere l'algoritmo di Machine Learning appropriato da usare per le proprie soluzioni di analisi predittiva nella libreria di algoritmi di Microsoft Azure Machine Learning.
@@ -51,9 +52,9 @@ Ecco un esempio tratto da [Cortana Intelligence Gallery](http://gallery.cortanai
 
 ## <a name="flavors-of-machine-learning"></a>Varianti di Machine Learning
 ### <a name="supervised"></a>Supervisionato
-Gli algoritmi di apprendimento supervisionato fanno previsioni in base a un set di esempi. Ad esempio, l’andamento storico dei titoli può essere utilizzato per azzardare ipotesi sui prezzi futuri. Ogni esempio utilizzato per l’addestramento viene etichettato con il valore di interesse: in questo caso, il prezzo dei titoli. Un algoritmo di apprendimento supervisionato cerca modelli ripetitivi nelle etichette dei valori. Può utilizzare tutte le informazioni che potrebbero essere rilevanti, ovvero il giorno della settimana, la stagione, i dati finanziari dell'azienda, il tipo di settore, la presenza di eventi geopolitici di disturbo, e ogni algoritmo cerca tipi diversi di modelli ripetitivi. Dopo che l'algoritmo ha trovato il modello ripetitivo migliore possibile, lo utilizza per eseguire stime per i dati di prova senza etichetta: i prezzi di domani.
+Gli algoritmi di apprendimento supervisionato fanno previsioni in base a un set di esempi. Ad esempio, l’andamento storico dei titoli può essere utilizzato per azzardare ipotesi sui prezzi futuri. Ogni esempio utilizzato per l’addestramento viene etichettato con il valore di interesse: in questo caso, il prezzo dei titoli. Un algoritmo di apprendimento supervisionato cerca modelli ripetitivi nelle etichette dei valori. Può usare tutte le informazioni che potrebbero essere rilevanti, ovvero il giorno della settimana, la stagione, i dati finanziari dell'azienda, il tipo di settore, la presenza di eventi geopolitici di disturbo, e ogni algoritmo cerca tipi diversi di modelli ripetitivi. Dopo che l'algoritmo ha trovato il modello ripetitivo migliore possibile, lo utilizza per eseguire stime per i dati di prova senza etichetta: i prezzi di domani.
 
-Questo tipo di Machine Learning è utile e diffuso. Con una eccezione, tutti i moduli di Azure Machine Learning sono algoritmi di apprendimento supervisionato. Sono presenti diversi tipi specifici di apprendimento supervisionato rappresentati all'interno di Azure Machine Learning: classificazione, regressione e rilevamento di anomalie.
+L'apprendimento supervisionato è un tipo di Machine Learning è utile e diffuso. Con una eccezione, tutti i moduli di Azure Machine Learning sono algoritmi di apprendimento supervisionato. Sono presenti diversi tipi specifici di apprendimento supervisionato rappresentati all'interno di Azure Machine Learning: classificazione, regressione e rilevamento di anomalie.
 
 * **Classificazione**. Quando i dati vengono utilizzati per prevedere una categoria, l’apprendimento supervisionato è chiamato anche classificazione. Ciò avviene quando si assegna un'immagine, come un’immagine di "gatto" o "cane". Quando sono disponibili solo due opzioni, è chiamato **a due classi** o **classificazione binomiale**. Quando sono presenti più categorie, come quando si prevede il vincitore di un torneo, questo problema è noto come **classificazione multiclasse**.
 * **Regressione**. Quando un valore viene previsto, come con i prezzi dei titoli, l’apprendimento supervisionato viene chiamato regressione.
@@ -121,17 +122,17 @@ Alcuni algoritmi di apprendimento fanno ipotesi particolari sulla struttura dei 
 | [rete neurale](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[È possibile un’ulteriore personalizzazione](http://go.microsoft.com/fwlink/?LinkId=402867) |
 | [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Visualizzare le proprietà del metodo a due classi selezionato |
 | **Regressionee** | | | | | |
-| [Lineare](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
+| [lineare](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
 | [Regressione lineare Bayesiana](https://msdn.microsoft.com/library/azure/dn906022.aspx) | |○ |● |2 | |
 | [foresta delle decisioni](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |
 | [albero delle decisioni con boosting scalabile](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5 |Footprint della memoria di grandi dimensioni |
 | [Quantile della foresta rapida](https://msdn.microsoft.com/library/azure/dn913093.aspx) |● |○ | |9 |Distribuzioni invece di previsioni punti |
 | [rete neurale](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[È possibile un’ulteriore personalizzazione](http://go.microsoft.com/fwlink/?LinkId=402867) |
-| [Poisson ](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Tecnicamente logaritmica-lineare. Per la previsione di conteggi. |
+| [Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Tecnicamente logaritmica-lineare. Per la previsione di conteggi. |
 | [Ordinale](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |Per la previsione dell'ordinamento delle classificazioni |
 | **Rilevamento anomalie** | | | | | |
 | [macchina a vettori di supporto](https://msdn.microsoft.com/library/azure/dn913103.aspx) |○ |○ | |2 |Particolarmente valido per set di funzioni di grandi dimensioni |
-| [Rilevamento delle anomalie basato su PCA ](https://msdn.microsoft.com/library/azure/dn913102.aspx) | |○ |● |3 | |
+| [Rilevamento delle anomalie basato su PCA](https://msdn.microsoft.com/library/azure/dn913102.aspx) | |○ |● |3 | |
 | [K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/) | |○ |● |4 |Algoritmo di clustering |
 
 **Proprietà algoritmo:**
@@ -175,7 +176,7 @@ Le reti neurali sono algoritmi di apprendimento ispirati al cervello che coprono
 Queste alte prestazioni non sono però possibili senza un costo. Le reti neurali possono richiedere molto tempo per l’addestramento, in particolare per grandi set di dati con molte caratteristiche. Dispongono anche di più parametri rispetto alla maggior parte degli algoritmi, il che significa che lo sweep dei parametri dilata notevolmente il tempo di addestramento.
 Per le persone ambiziose che desiderano [specificare la propria struttura di rete](http://go.microsoft.com/fwlink/?LinkId=402867), le possibilità sono infinite.
 
-## <a name="boundaries-learned-by-neural-networks6"></a>![Limiti appresi dalle reti neurali][6]
+![Limiti appresi dalle reti neurali][6]
 ***I limiti appresi dalle reti neurali possono essere complessi e irregolari***
 
 La [percezione media a due classi](https://msdn.microsoft.com/library/azure/dn906036.aspx) è la risposta delle reti neurali a tempi di addestramento lunghissimi. Utilizza una struttura di rete che fornisce limiti di classe lineari. È quasi primitiva per gli standard odierni, ma dispone di una lunga storia di funzionamento affidabile ed è sufficientemente piccola per apprendere rapidamente.
@@ -198,8 +199,12 @@ Si noti che questi ipotizzano che i dati possano essere suddivisi o adattati con
 Dal punto di vista storico, le Bayes Point Machine sono state sviluppate presso Microsoft Research. Si basano su un lavoro teorico estremamente interessante. Lo studente interessato viene indirizzato all'[articolo originale in JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) e a un [blog dettagliato di Chris Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
 
 ### <a name="specialized-algorithms"></a>Algoritmi specializzati
-Se si dispone di un obiettivo molto specifico si potrebbe essere fortunati. All'interno della raccolta di Azure Machine Learning sono disponibili algoritmi specializzati nella previsione delle classifiche ([regressione ordinale](https://msdn.microsoft.com/library/azure/dn906029.aspx)), nella previsione dei conteggi ([regressione di Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx)) e nel rilevamento delle anomalie (uno basato sull'[analisi dei componenti principali](https://msdn.microsoft.com/library/azure/dn913102.aspx) e uno basato sulle [macchine a vettori di supporto](https://msdn.microsoft.com/library/azure/dn913103.aspx)s).
-Esiste anche un algoritmo di clustering unico ([K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)).
+Se si dispone di un obiettivo molto specifico si potrebbe essere fortunati. All'interno della raccolta di Azure Machine Learning, sono disponibili algoritmi specifici per:
+
+- stima di classificazione ([regressione ordinale](https://msdn.microsoft.com/library/azure/dn906029.aspx)),
+- stima di conteggio ([regressione Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx)),
+- rilevamento di anomalie (uno basato sull'[analisi dei componenti principali](https://msdn.microsoft.com/library/azure/dn913102.aspx) e l'altro basato sulle [macchine a vettori di supporto](https://msdn.microsoft.com/library/azure/dn913103.aspx))
+- Clustering ([K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/))
 
 ![Rilevamento delle anomalie basato su PCA][8]
 
@@ -219,6 +224,13 @@ Azure Machine Learning include inoltre l'accesso a una struttura di Machine Lear
 VW sfugge alla categorizzazione in questo caso, poiché può apprendere problemi sia di classificazione che di regressione e può apprendere anche dati parzialmente senza etichetta. È possibile configurarlo in modo che utilizzi uno di una serie di algoritmi di apprendimento, funzioni di perdita e algoritmi di ottimizzazione. È stato progettato da zero per essere efficace, parallelo ed estremamente veloce. Consente di gestire insiemi di caratteristiche estremamente grandi con uno sforzo minimo.
 Avviato e condotto da John Langford di Microsoft Research, VW è un elemento da Formula Uno in un campo di algoritmi pari a vetture di serie. Non tutti i problemi sono adatti a VW, ma per quelli che lo sono, potrebbe valere la pena superare la curva di apprendimento della relativa interfaccia. È inoltre disponibile come [codice open source autonomo](https://github.com/JohnLangford/vowpal_wabbit) in diverse lingue.
 
+## <a name="more-help-with-algorithms"></a>Altre informazioni sugli algoritmi
+* Per ottenere una descrizione degli algoritmi e alcuni esempi, vedere [Infografica scaricabile: nozioni fondamentali di Machine Learning con esempi di algoritmi](machine-learning-basics-infographic-with-algorithm-examples.md).
+* Per un elenco per categoria degli algoritmi di apprendimento automatico disponibili in Azure Machine Learning Studio, vedere l'argomento relativo al [modello di inizializzazione][initialize-model] nella Guida degli algoritmi e dei moduli di Machine Learning Studio.
+* Per un elenco alfabetico completo degli algoritmi e dei moduli disponibili in Azure Machine Learning Studio, vedere l'argomento relativo all'[elenco alfabetico dei moduli di Machine Learning Studio][a-z-list] nella Guida degli algoritmi e dei moduli di Machine Learning Studio.
+* Per scaricare e stampate un diagramma che offra una panoramica delle funzionalità di Azure Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
+
+
 <!-- Media -->
 
 [1]: ./media/machine-learning-algorithm-choice/image1.png
@@ -231,9 +243,4 @@ Avviato e condotto da John Langford di Microsoft Research, VW è un elemento da 
 [8]: ./media/machine-learning-algorithm-choice/image8.png
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

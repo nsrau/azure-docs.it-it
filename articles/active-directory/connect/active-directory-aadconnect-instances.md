@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: ce4d51c4ed38645ee81325404ff7214f845d5bf0
 ms.openlocfilehash: 317f3be6cb39da7c7c57f7f368c750672609726e
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -68,9 +69,4 @@ Funzionalità attualmente non presenti nel cloud di Microsoft Azure per enti pub
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

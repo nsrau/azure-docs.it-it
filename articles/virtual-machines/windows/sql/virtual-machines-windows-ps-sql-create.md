@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/17/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 7706fd453ef8be4ebe65b65da643ec38b7c18433
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 218d7dcf14ebbb28ac043e50e6f9248ecb942aaa
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.openlocfilehash: 7706fd453ef8be4ebe65b65da643ec38b7c18433
 ## <a name="overview"></a>Panoramica
 Questa esercitazione illustra come creare una singola macchina virtuale di Azure usando il modello di distribuzione **Azure Resource Manager** con i cmdlet di Azure PowerShell. In questa esercitazione verrà creata una singola macchina virtuale con una singola unità disco da un'immagine di SQL Gallery. Verranno creati nuovi provider per le risorse di archiviazione, rete e calcolo che verranno usate dalla macchina virtuale. Se esistono già provider per queste risorse, è possibile usarli.
 
-Se è necessaria la versione classica di questo argomento, vedere [Effettuare il provisioning di una macchina virtuale di SQL Server con Azure PowerShell (classico)](../sqlclassic/virtual-machines-windows-classic-ps-sql-create.md).
+Se è necessaria la versione classica di questo argomento, vedere [Effettuare il provisioning di una macchina virtuale di SQL Server con Azure PowerShell (classico)](../classic/ps-sql-create.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per questa esercitazione occorrono:
@@ -190,7 +191,7 @@ Eseguire il cmdlet seguente e nella finestra della richiesta di credenziali di W
     $Credential = Get-Credential -Message "Type the name and password of the local administrator account."
 
 ### <a name="set-the-operating-system-properties-for-the-virtual-machine"></a>Configurare le proprietà del sistema operativo per la macchina virtuale
-È ora possibile configurare le proprietà del sistema operativo per la macchina virtuale. Verrà usato il cmdlet [Set-AzureRmVMOperatingSystem](https://msdn.microsoft.com/library/mt603843.aspx) per configurare il tipo di sistema operativo come Windows, richiedere l'installazione dell'[agente di macchine virtuali](../../virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json), specificare che il cmdlet abilita l'aggiornamento automatico e configurare il nome della macchina virtuale, il nome del computer e le credenziali usando le variabili inizializzate in precedenza.
+È ora possibile configurare le proprietà del sistema operativo per la macchina virtuale. Verrà usato il cmdlet [Set-AzureRmVMOperatingSystem](https://msdn.microsoft.com/library/mt603843.aspx) per configurare il tipo di sistema operativo come Windows, richiedere l'installazione dell'[agente di macchine virtuali](../classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json), specificare che il cmdlet abilita l'aggiornamento automatico e configurare il nome della macchina virtuale, il nome del computer e le credenziali usando le variabili inizializzate in precedenza.
 
 Eseguire il cmdlet seguente per configurare le proprietà del sistema operativo per la macchina virtuale.
 
@@ -295,10 +296,5 @@ Lo script seguente contiene lo script PowerShell completo per l'esercitazione. S
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo la creazione della macchina virtuale, è possibile connettersi alla macchina virtuale mediante RDP e configurare la connettività. Per altre informazioni, vedere [Connettersi a una macchina virtuale di SQL Server in Azure (Resource Manager)](virtual-machines-windows-sql-connect.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -3,8 +3,8 @@ title: "Autenticazione dell&quot;entità servizio per app per le API nel servizi
 description: Informazioni su come proteggere un&quot;app per le API nel servizio app di Azure per scenari da servizio a servizio.
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
-manager: wpickett
+author: alexkarcher-msft
+manager: erikre
 editor: 
 ms.assetid: 7ca0bab2-1d29-4d51-b779-dce0edd34f8b
 ms.service: app-service-api
@@ -13,10 +13,11 @@ ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
-ms.author: rachelap
+ms.author: alkarche
 translationtype: Human Translation
 ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
 ms.openlocfilehash: 232446806309148f7958609608d4afc28ffea98d
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -36,7 +37,7 @@ L'articolo contiene due sezioni:
 * La sezione [Come configurare l'autenticazione dell'entità servizio di Servizio app di Azure](#authconfig) illustra in generale come configurare l'autenticazione per le app per le API e come utilizzare un'app per le API protetta. Questa sezione si applica allo stesso modo a tutti i framework supportati dal servizio app, inclusi .NET, Node.js e Java.
 * A partire dalla sezione [Proseguimento della serie di esercitazioni sulle app per le API .NET](#tutorialstart) , l'esercitazione descrive la configurazione di uno scenario di "accesso interno" per un'applicazione .NET di esempio in esecuzione nel servizio app. 
 
-## <a name="a-idauthconfiga-how-to-configure-service-principal-authentication-in-azure-app-service"></a><a id="authconfig"></a> Come configurare l'autenticazione dell'entità servizio nel servizio app di Azure
+## <a id="authconfig"></a> Come configurare l'autenticazione dell'entità servizio nel servizio app di Azure
 Questa sezione fornisce istruzioni generali applicabili a tutte le app per le API. Per i passaggi specifici dell'applicazione .NET di esempio, To Do List, vedere [Proseguimento della serie di esercitazioni sulle app per le API .NET](#tutorialstart).
 
 1. Nel [portale di Azure](https://portal.azure.com/) passare al pannello **Impostazioni** dell'app per le API da proteggere, individuare la sezione **Funzionalità**, quindi fare clic su **Autenticazione/Autorizzazione**.
@@ -83,7 +84,7 @@ Il servizio app fornisce anche l'attestazione `objectidentifier` nell'intestazio
 ### <a name="how-to-protect-the-api-app-from-browser-access"></a>Come proteggere l'app per le API dall'accesso dal browser
 Se non si convalidano le attestazioni nel codice nell'app per le API protetta e si usa un'applicazione Azure AD separata per l'app per le API protetta, verificare che l'URL di risposta dell'applicazione Azure AD non sia lo stesso URL di base dell'app per le API. Se l'URL di risposta punta direttamente all'app per le API protetta, un utente nello stesso tenant di Azure AD potrebbe selezionare l'app per le API, accedere e chiamare l'API.
 
-## <a name="a-idtutorialstarta-continuing-the-net-api-apps-tutorial-series"></a><a id="tutorialstart"></a> Proseguimento della serie di esercitazioni su .NET
+## <a id="tutorialstart"></a> Proseguimento della serie di esercitazioni su .NET
 Se si sta seguendo la serie di esercitazioni su Node.js o Java per le app per le API, passare alla sezione [Passaggi successivi](#next-steps) . 
 
 Il resto di questo articolo rappresenta la continuazione della serie di esercitazioni sulle app per le API .NET. Queste esercitazioni presuppongono che sia stata completata l'[esercitazione sull'autenticazione utente](app-service-api-dotnet-user-principal-auth.md) e che l'applicazione di esempio sia in esecuzione in Azure con l'autenticazione utente abilitata.
@@ -348,10 +349,5 @@ Per altre informazioni su Azure Active Directory, vedere le risorse seguenti.
     L'esempio [WebApp-WebAPI-OAuth2-AppIdentity-DotNet](http://github.com/AzureADSamples/WebApp-WebAPI-OAuth2-AppIdentity-DotNet) è simile a quanto illustrato in questa esercitazione, ma non usa l'autenticazione del servizio app.
 
 Per informazioni su altre modalità di distribuzione di progetti Visual Studio in app per le API usando Visual Studio o [automatizzando la distribuzione](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) da un [sistema di controllo del codice sorgente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), vedere [Distribuire l'app nel servizio app di Azure](../app-service-web/web-sites-deploy.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

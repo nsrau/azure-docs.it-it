@@ -1,15 +1,37 @@
 ---
-layout: LandingPage
+title: Documentazione del database SQL di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni sul database SQL, DaaS (Database-as-a-service) nel cloud. Esercitazioni, video e altri documenti in cui viene illustrato come impostare, collegare e gestire un database relazionale.
+services: sql-database
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: sql-database
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 2dfb79cc8f2aa2e2ca63b905666f519e083aa69d
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: e982e07b6279c1338398980aa07d46ce08ede11c
+ms.lasthandoff: 03/22/2017
 
 ---
 
 # <a name="sql-database-documentation"></a>Documentazione sul database SQL
 
+<div class="introHolder">
+    <div class="intro">
 Informazioni su come usare il database SQL, un database relazionale distribuito come servizio nel cloud e basato sul motore Microsoft SQL Server. Esercitazioni, video e altri documenti in cui viene illustrato come impostare, collegare e gestire un database SQL.
+    </div>
+    <div class="calloutHolder">
+        <div class="callout">
+            <a href="https://azure.microsoft.com/community/training/courses/managing-infrastructure-microsoft-azure-getting-started/">
+                <img src="media/index/pluralsight.svg" /> Training video gratuito PluralSight: Gestione dell'infrastruttura con Microsoft Azure </a>
+        </div>
+    </div>
+</div>
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -116,6 +138,7 @@ Informazioni su come usare il database SQL, un database relazionale distribuito 
                         <h3>Riga di comando</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">PowerShell</a></p>
                         <p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">PowerShell (database elastico)</a></p>
+                        <p><a href="/cli/azure/sql">Interfaccia della riga di comando di Azure 2.0</a></p>
                     </div>
                 </div>
             </div>
@@ -151,12 +174,38 @@ Informazioni su come usare il database SQL, un database relazionale distribuito 
             </div>
         </div>
     </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3><a href="https://msdn.microsoft.com/library/mt238365.aspx">Strumenti di SQL Server</a></h3>
+                        <p><a href="https://msdn.microsoft.com/library/mt238290.aspx">SQL Server Management Studio (SSMS)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt204009.aspx">SQL Server Data Tools (SSDT)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/ms162802.aspx">BCP</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/ms162773.aspx">SQLCMD</a></p>
+                        <p><a href="https://msdn.microsoft.com/hh550080.aspx">SqlPackage</a></p>
+                        <p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Sql">Pacchetto della libreria di gestione del database SQL</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3><a href="https://msdn.microsoft.com/library/mt654049.aspx">Driver di SQL Server</a></h3>
+                        <p><a href="https://msdn.microsoft.com/library/mt657768.aspx">ADO.NET</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt484311.aspx">JDBC</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt654048.aspx">ODBC</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

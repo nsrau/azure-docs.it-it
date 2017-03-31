@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 7418595e6f070f15c9ebeac759bffe692da5d143
+ms.sourcegitcommit: 2969e6063d7bc59a6c8ca733912904abeeb7e7e8
+ms.openlocfilehash: afecb15f36525c53a66f30047dffe8a3e8f36107
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -81,12 +82,12 @@ Specificare il corpo della richiesta usando il modello seguente.
 * `description` fornisce una descrizione facoltativa del logger e può essere una stringa di lunghezza zero, se lo si desidera.
 * `credentials` contiene i valori `name` e `connectionString` di Hub eventi di Azure.
 
-Quando si esegue la richiesta, se viene creato il logger, verrà visualizzato un codice di stato `201 Created` . 
+Quando si esegue la richiesta, se viene creato il logger, verrà visualizzato un codice di stato `201 Created` .
 
 > [!NOTE]
 > Per altri possibili codici restituiti e i relativi motivi, vedere [Creare un logger](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). Per informazioni su come eseguire altre operazioni, ad esempio elencare, aggiornare o eliminare, vedere la documentazione relativa all'entità [Logger](https://msdn.microsoft.com/library/azure/mt592020.aspx) .
-> 
-> 
+>
+>
 
 ## <a name="configure-log-to-eventhubs-policies"></a>Configurare i criteri log-to-eventhubs
 Dopo la configurazione del logger in Gestione API, è possibile configurare i criteri log-to-eventhubs in modo da registrare gli eventi desiderati. I criteri log-to-eventhubs possono essere usati nella sezione relativa ai criteri in ingresso o in quella relativa ai criteri in uscita.
@@ -117,8 +118,8 @@ Fare clic su **Salva** per salvare la configurazione aggiornata dei criteri. Il 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sull'Hub eventi di Azure
-  * [Introduzione all'Hub eventi](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-  * [Ricevere messaggi con EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
+  * [Introduzione all'Hub eventi](../event-hubs/event-hubs-c-getstarted-send.md)
+  * [Ricevere messaggi con EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Guida alla programmazione di Hub eventi](../event-hubs/event-hubs-programming-guide.md)
 * Altre informazioni sull'integrazione di Gestione API e Hub eventi
   * [Informazioni di riferimento per l'entità logger](https://msdn.microsoft.com/library/azure/mt592020.aspx)
@@ -127,8 +128,8 @@ Fare clic su **Salva** per salvare la configurazione aggiornata dei criteri. Il 
 
 ## <a name="watch-a-video-walkthrough"></a>Guardare un video con la procedura dettagliata
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Integrate-Azure-API-Management-with-Event-Hubs/player]
-> 
-> 
+>
+>
 
 [publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png
 [create-event-hub]: ./media/api-management-howto-log-event-hubs/create-event-hub.png
@@ -138,15 +139,4 @@ Fare clic su **Salva** per salvare la configurazione aggiornata dei criteri. Il 
 [sending-policy]: ./media/api-management-howto-log-event-hubs/sending-policy.png
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
-
-
-
-
-
-
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

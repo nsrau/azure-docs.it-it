@@ -42,12 +42,18 @@ Se non si dispone già di una sottoscrizione di Azure, ma si dispone di una sott
 
 L'account può includere più di una sottoscrizione. È possibile elencare le sottoscrizioni digitando `azure account list`, comando che potrebbe essere visualizzato in modo simile al seguente:
 
-```azure cli azure account list info:    Executing command account list data:    Name                              Id                                    Tenant Id                            Current data:    --------------------------------  ------------------------------------  ------------------------------------  ------- data:    Contoso Admin                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  true data:    Fabrikam dev                      xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
+```azurecli
+azure account list
+info:    Executing command account list
+data:    Name                              Id                                    Tenant Id                            Current
+data:    --------------------------------  ------------------------------------  ------------------------------------  -------
+data:    Contoso Admin                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  true
+data:    Fabrikam dev                      xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
 data:    Fabrikam test                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
 data:    Contoso production                xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
 ```
 
-You can set the current Azure subscription by typing the following. Use the subscription name or the ID that has the resources you want to manage.
+È possibile impostare la sottoscrizione di Azure corrente digitando quanto segue. Usare il nome o l'ID della sottoscrizione che contiene le risorse da gestire.
 
 ```azurecli
 azure account set <subscription name or ID> true
@@ -1302,6 +1308,6 @@ Per altri esempi che mostrano come usare l'interfaccia della riga di comando di 
 Per altri modelli disponibili, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/) e [Framework applicazioni usando i modelli](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,11 +1,24 @@
 ---
-layout: LandingPage
+title: Documentazione di Azure Key Vault - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come usare l&quot;insieme di credenziali delle chiavi per creare e gestire chiavi in grado di accedere e crittografare le risorse, le app e le soluzioni cloud. Esercitazioni, informazioni di riferimento sulle API e altro ancora.
+services: key-vault
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: key-vault
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 0c53b569e45569fd7a7c56142d66fbab8d8b0a05
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 1913116e8d43d25a01ea2a8f4eb112c001dbc7ff
+ms.lasthandoff: 03/22/2017
 
 ---
+
 # <a name="key-vault-documentation"></a>Documentazione sull'insieme di credenziali delle chiavi
 
 Informazioni su come usare l'insieme di credenziali delle chiavi per proteggere e gestire le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come creare e gestire chiavi in grado di accedere e crittografare risorse e soluzioni.
@@ -114,7 +127,7 @@ Informazioni su come usare l'insieme di credenziali delle chiavi per proteggere 
                     <div class="cardText">
                         <h3>Riga di comando</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault">PowerShell</a></p>
-                         <p><a href="/cli/azure/keyvault">Interfaccia della riga di comando di Azure 2.0 (anteprima)</a></p>
+                         <p><a href="/cli/azure/keyvault">Interfaccia della riga di comando di Azure 2.0</a></p>
                     </div>
                 </div>
             </div>
@@ -150,10 +163,5 @@ Informazioni su come usare l'insieme di credenziali delle chiavi per proteggere 
 </ul>
 
 ---
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

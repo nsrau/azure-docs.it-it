@@ -4,7 +4,7 @@ description: "Informazioni su come eseguire facilmente app Web nel servizio app 
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 65c9bdd9-8763-4c56-8e15-f790992e951e
 ms.service: app-service-web
@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 2c750583212d7ed13e3bb5f4d0770d52aa9610b2
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: cf8da88d10c65f96dea36ac07c67d95cdaedd841
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -38,11 +39,11 @@ Si apprenderà come:
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - [Interfaccia della riga di comando di Azure 1.0](app-service-web-get-started-cli-nodejs.md): l'interfaccia della riga di comando per i modelli di distribuzione classici e di gestione delle risorse
-- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](app-service-web-get-started.md): l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse
+- [Interfaccia della riga di comando di Azure 2.0](app-service-web-get-started.md): interfaccia della riga di comando di prossima generazione per il modello di distribuzione di Gestione risorsa
 
 ## <a name="prerequisites"></a>Prerequisiti
 * [Git](http://www.git-scm.com/downloads).
-* [Interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+* [Interfaccia della riga di comando di Azure](../cli-install-nodejs.md).
 * Un account Microsoft Azure. Se non si ha un account, è possibile [iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) oppure [attivare i vantaggi per i sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
@@ -136,10 +137,5 @@ In alternativa, è possibile fare altre prove con la prima app Web, ad esempio:
 
 * Provare [altri modi per distribuire il codice in Azure](web-sites-deploy.md). Per eseguire la distribuzione da un repository GitHub, ad esempio, è sufficiente selezionare **GitHub** anziché **Repository Git locale** in **Opzioni di distribuzione**.
 * Ottimizzare l'app Azure: autenticare gli utenti, ridimensionare l'app in base alla richiesta e configurare alcuni avvisi sulle prestazioni, tutto con pochi clic. Vedere [Aggiungere funzionalità alla prima app Web](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -16,8 +16,9 @@ ms.workload: sql-database
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3b251edc753575f2235b9741a7c1eb5d1cf2f821
+ms.sourcegitcommit: 144774c9106bf5a0e389c99075c822d1c5282692
+ms.openlocfilehash: f9c53a981376cf534c50d80ae2f60fc01f193e4d
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -34,10 +35,10 @@ Le transazioni di database elastico sono destinate agli scenari seguenti:
 
 * Applicazioni con più database in Azure: con questo scenario i dati sono partizionati verticalmente in più database nel database SQL, in modo che diversi tipi di dati risiedano in database diversi. Alcune operazioni richiedono modifiche ai dati mantenuti in due o più database. L'applicazione usa le transazioni di database elastico per coordinare le modifiche tra i database e garantire l'atomicità.
 * Applicazioni di database partizionato in Azure: con questo scenario il livello dati usa la [libreria client dei database elastici](sql-database-elastic-database-client-library.md) o il partizionamento automatico per eseguire il partizionamento orizzontale dei dati in molti database nel database SQL. Un caso d'uso significativo è la necessità di eseguire modifiche atomiche per un'applicazione multi-tenant partizionata, quando le modifiche si estendono a più tenant. Si pensi ad esempio a un trasferimento da un tenant all'altro, entrambi residenti in database diversi. Un secondo caso è il partizionamento orizzontale con granularità fine per soddisfare le esigenze di capacità per un tenant di grandi dimensioni che, a sua volta, implica in genere la necessità che alcune operazioni atomiche siano estese a diversi database usati per lo stesso tenant. Un terzo caso sono gli aggiornamenti atomici per fare riferimento ai dati replicati tra i database. Le operazioni atomiche e transazionali che seguono questo schema ora possono essere coordinate in diversi database usando l'anteprima.
-  Le transazioni di database elastico usano il protocollo 2PC per garantire l'atomicità delle transazioni nei database. È una scelta ideale per le transazioni che coinvolgono meno di 100 database alla volta in una singola transazione. Questi limiti non vengono applicati, ma quando vengono superati è consigliabile prevedere una riduzione delle prestazioni e delle percentuali di riuscita delle transazioni di database elastico.
+  Le transazioni di database elastico usano il protocollo&2;PC per garantire l'atomicità delle transazioni nei database. È una scelta ideale per le transazioni che coinvolgono meno di 100 database alla volta in una singola transazione. Questi limiti non vengono applicati, ma quando vengono superati è consigliabile prevedere una riduzione delle prestazioni e delle percentuali di riuscita delle transazioni di database elastico.
 
 ## <a name="installation-and-migration"></a>Installazione e migrazione
-Le funzionalità per le transazioni di database elastico nel database SQL vengono fornite tramite aggiornamenti alle librerie .NET System.Data.dll e System.Transactions.dll. Le DLL assicurano che il protocollo 2PC venga usato dove necessario per garantire l'atomicità. Per iniziare a sviluppare applicazioni che usano transazioni di database elastico, installare [.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) o una versione successiva. Quando si esegue una versione precedente di .NET Framework, le transazioni non verranno alzate di livello a una transazione distribuita e verrà generata un'eccezione.
+Le funzionalità per le transazioni di database elastico nel database SQL vengono fornite tramite aggiornamenti alle librerie .NET System.Data.dll e System.Transactions.dll. Le DLL assicurano che il protocollo&2;PC venga usato dove necessario per garantire l'atomicità. Per iniziare a sviluppare applicazioni che usano transazioni di database elastico, installare [.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) o una versione successiva. Quando si esegue una versione precedente di .NET Framework, le transazioni non verranno alzate di livello a una transazione distribuita e verrà generata un'eccezione.
 
 Dopo l'installazione, è possibile usare l'API di transazione distribuita in System.Transactions con connessioni al database SQL. Se sono disponibili applicazioni di MSDTC che usano queste API, è sufficiente ricompilare le applicazioni esistenti per .NET 4.6 dopo avere installato la versione 4.6.1 di Framework. Se i progetti sono destinati a .NET 4.6, verranno usate automaticamente le DLL aggiornate della nuova versione di Framework e le chiamate API di transazione distribuita in combinazione con le connessioni al database SQL ora riusciranno.
 
@@ -145,17 +146,12 @@ Per le transazioni di database elastico nel database SQL si applicano attualment
 * Sono supportati solo i database nel database SQL di Azure V12.
 * Le transazioni tra i servizi WCF non sono supportate. Ad esempio, si dispone di un metodo del servizio WCF che esegue una transazione. Se si racchiude la chiamata all'interno di un ambito della transazione, essa avrà esito negativo come eccezione [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 
-## <a name="additional-resources"></a>Risorse aggiuntive
+## <a name="next-steps"></a>Passaggi successivi
 Se ancora non si usano le funzionalità del database elastico per le applicazioni Azure Vedere la [mappa della documentazione](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). Se ci sono domande, è possibile visitare il [forum sul database SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) mentre è possibile inserire le richieste di nuove funzionalità nel [forum relativo a commenti e suggerimenti sul database SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

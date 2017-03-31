@@ -1,5 +1,5 @@
 ---
-title: Creare e distribuire l&quot;applicazione per il lampeggiamento nello starter kit di Azure IoT | Documentazione Microsoft
+title: 'Connettere Intel Edison (Node) ad Azure IoT: lezione 1: Configurare il dispositivo | Documentazione Microsoft'
 description: Configurare Intel Edison per il primo uso.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/7/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: f45b3bf00d619376ac07418f0c02eca5f3241939
-ms.openlocfilehash: 4511f88bc6a3e71fe3ea9375711dade15fd4ef70
+ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
+ms.openlocfilehash: 203d3976b9ba0960f5a3dbff4e2b1fcdf4c0dc33
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -143,8 +144,3 @@ Questo articolo ha illustrato come assemblare la scheda Edison, eseguirne il fla
 
 [troubleshooting]: iot-hub-intel-edison-kit-node-troubleshooting.md
 [get-the-tools]: iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32.md
-
-
-<!--HONumber=Dec16_HO2-->
-
-

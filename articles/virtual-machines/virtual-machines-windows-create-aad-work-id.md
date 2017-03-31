@@ -1,5 +1,5 @@
 ---
-title: "Creare un&quot;identità di lavoro o scuola in AAD | Microsoft Docs"
+title: "Creare un&quot;identità aziendale o dell&quot;istituto di istruzione in AAD per Windows | Documentazione Microsoft"
 description: "Informazioni su come creare un&quot;identità di lavoro o scuola in Azure Active Directory da usare con macchine virtuali Windows."
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 08/23/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 4df6ed7cd62a5f59057624039522f0f97b335108
+ms.sourcegitcommit: 1d35114800ba024d0c201840722df2c6a74d1d61
+ms.openlocfilehash: 824f8535a3043d5141dd1955e38ad7430b89ba89
 
 
 ---
@@ -33,6 +33,6 @@ Tuttavia, le modifiche più recenti consentono di gestire la sottoscrizione con 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

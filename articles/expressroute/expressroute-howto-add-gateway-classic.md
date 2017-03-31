@@ -16,15 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 10/03/2016
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
-ms.openlocfilehash: 4b05e12c2b30f1e8aa3efc7cd47cb79c4958dc1e
+ms.sourcegitcommit: 2a0db85dc5699b362aa6a920cc26c40bdfdfc28d
+ms.openlocfilehash: 1679bc2f2344ce3dd78599a1e6a8e2cc974ee905
+ms.lasthandoff: 12/14/2016
 
 
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-classic-deployment-model-and-powershell"></a>Configurare un gateway di rete virtuale per ExpressRoute con il modello di distribuzione classico e PowerShell
 > [!div class="op_single_selector"]
-> * [PowerShell - Gestione risorse](expressroute-howto-add-gateway-resource-manager.md)
-> * [PowerShell - Classico](expressroute-howto-add-gateway-classic.md)
+> * [Resource Manager - PowerShell](expressroute-howto-add-gateway-resource-manager.md)
+> * [Classica: PowerShell](expressroute-howto-add-gateway-classic.md)
+> * [Video - Portale di Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
 > 
 > 
 
@@ -41,10 +43,5 @@ Verificare di avere installato i cmdlet di Azure PowerShell richiesti per questa
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo avere creato il gateway VNet, è possibile collegare la rete virtuale a un circuito ExpressRoute. Vedere [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

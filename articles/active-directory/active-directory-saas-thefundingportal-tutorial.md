@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 82e5a947d48f8a289deb2f6e85bbb47990a9fcd7
@@ -250,6 +250,6 @@ Quando si fa clic sul riquadro The Funding Portal nel pannello di accesso, si do
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/10/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 38d70ed302eeab912ce4fe33272f85e96f1b1eda
-ms.openlocfilehash: 819e627df382e03c03d9a98f85f1b68c518fffcf
+ms.sourcegitcommit: cc14f7747c4a24acea434f62b7615d10819bd619
+ms.openlocfilehash: 0506cf13223f0555abf841143a8fe8a77cd19b70
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 819e627df382e03c03d9a98f85f1b68c518fffcf
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-In Azure DevTest Labs è possibile usare i file VHD per creare immagini personalizzate da usare per il provisioning di macchine virtuali. In questo articolo viene illustrato come usare [Esplora archivi di Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) per caricare un file VHD nell'account di archiviazione di un lab. Dopo avere caricato il file VHD, vedere la [sezione Passaggi successivi](#next-steps) per un elenco di articoli che illustrano come creare un'immagine personalizzata dal file VHD caricato. Per altre informazioni sui dischi e sui dischi rigidi virtuali in Azure, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](../virtual-machines/virtual-machines-linux-about-disks-vhds.md)
+In Azure DevTest Labs è possibile usare i file VHD per creare immagini personalizzate da usare per il provisioning di macchine virtuali. In questo articolo viene illustrato come usare [Esplora archivi di Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) per caricare un file VHD nell'account di archiviazione di un lab. Dopo avere caricato il file VHD, vedere la [sezione Passaggi successivi](#next-steps) per un elenco di articoli che illustrano come creare un'immagine personalizzata dal file VHD caricato. Per altre informazioni sui dischi e sui dischi rigidi virtuali in Azure, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](../storage/storage-about-disks-and-vhds-linux.md)
 
 ## <a name="step-by-step-instructions"></a>Istruzioni dettagliate
 
@@ -43,15 +43,15 @@ La procedura seguente illustra come caricare un file VHD in DevTest Labs usando 
     
     1. Nel pannello del lab selezionare **Configurazione**. 
     
-    1. Nel pannello **Configurazione** del lab selezionare **Immagini personalizzate**.
+    1. Nel pannello **Configuration** (Configurazione) del lab selezionare **Custom images (VHDs)** (Immagini personalizzate (VHD)).
     
-    1. Nel pannello **Immagini personalizzate** selezionare **+ Aggiungi**. 
+    1. Nel pannello **Custom images** (Immagini personalizzate) selezionare **+Add** (+Aggiungi). 
     
-    1. Nel pannello **Immagine personalizzata** selezionare **VHD**.
+    1. Nel pannello **Custom image** (Immagine personalizzata) selezionare **VHD**.
     
-    1. Nel pannello **VHD** selezionare l'opzione **Upload a VHD using PowerShell** (Carica un disco rigido virtuale con PowerShell).
+    1. Nel pannello **VHD** selezionare l'opzione **Upload a VHD using PowerShell** (Carica un file VHD con PowerShell).
     
-        ![Caricare il VHD mediante PowerShell][0]
+        ![Carica un file VHD con PowerShell][0]
     
     1. Nel pannello **Upload an image using PowerShell** (Carica un'immagine usando PowerShell) è visualizzata una chiamata al cmdlet **Add-AzureVhd**. Il primo parametro (*Destination*) contiene il nome dell'account di archiviazione per il lab nel formato seguente:
     
@@ -79,7 +79,7 @@ La procedura seguente illustra come caricare un file VHD in DevTest Labs usando 
     
         ![Selezionare le sottoscrizioni di Azure][3]
     
-    1. Il riquadro sinistro visualizza gli account di archiviazione associati alle sottoscrizioni di Azure selezionate.
+    1. Il riquadro sinistro mostra gli account di archiviazione associati alle sottoscrizioni di Azure selezionate.
     
         ![Sottoscrizioni di Azure selezionate][4]
 
@@ -140,6 +140,6 @@ La procedura seguente illustra come caricare un file VHD in DevTest Labs usando 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

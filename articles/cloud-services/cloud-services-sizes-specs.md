@@ -1,5 +1,5 @@
 ---
-title: Dimensioni dei servizi cloud | Documentazione Microsoft
+title: Dimensioni delle macchine virtuali per i servizi cloud di Azure | Documentazione Microsoft
 description: Elenco delle diverse dimensioni e ID delle macchine virtuali per i ruoli Web e di lavoro del servizio cloud di Azure.
 services: cloud-services
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: tbd
 ms.date: 01/12/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: d18c204617bfa62797a875b379e3fa4a39dd6806
-ms.openlocfilehash: 73d6f352671165a020a0e3ab3b20fba725d99158
+ms.sourcegitcommit: 45011050a6d2f8e4d9d92f4124d6dc9a9eec4cf7
+ms.openlocfilehash: 88032b3855c2f89b935064abe496a8455dcff88b
 
 
 ---
@@ -200,6 +200,6 @@ Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceS
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva a Reliable Services | Documentazione Microsoft
+title: Creare il primo microservizio di Azure affidabile in Java | Documentazione Microsoft
 description: "Introduzione alla creazione di un’applicazione dell’infrastruttura di servizi di Microsoft Azure con i servizi con e senza stato."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 4450ad62a9b05ac4c963ae3271590f9431b782ed
-ms.openlocfilehash: 2a2378dbeb5e7994039291deffd35cb04bf8057c
+ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
+ms.openlocfilehash: 5a29d6838af7f3952ad96158e5962b17c0f4cb6b
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: 2a2378dbeb5e7994039291deffd35cb04bf8057c
 > [!div class="op_single_selector"]
 > * [C# su Windows](service-fabric-reliable-services-quick-start.md)
 > * [Java su Linux](service-fabric-reliable-services-quick-start-java.md)
-> 
-> 
+>
+>
 
 Questo articolo illustra le nozioni fondamentali di Reliable Services di Azure Service Fabric e le procedure per creare e distribuire una semplice applicazione Reliable Services scritta in Java. Questo video di Microsoft Virtual Academy illustra anche come creare un servizio Reliable Services senza stato: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
 <img src="./media/service-fabric-reliable-services-quick-start-java/ReliableServicesJavaVid.png" WIDTH="360" HEIGHT="244">  
@@ -39,18 +39,18 @@ Se è necessario configurarlo, andare alla [guida introduttiva per Mac](service-
 Per iniziare a usare Reliable Services, è sufficiente comprendere solo alcuni concetti di base:
 
 * **Tipo di servizio**: si tratta dell'implementazione del servizio. Viene definito dalla classe scritta che estende `StatelessService` e qualsiasi altro codice o dipendenze usate, insieme al nome e al numero della versione.
-* **Istanza di servizio denominata**: per eseguire il servizio, si creano le istanze denominate del tipo di servizio, analogamente al modo in cui si creano le istanze di un oggetto di un tipo di classe. Le istanze del servizio sono, di fatto, istanze di oggetto della classe del servizio che si scrive. 
+* **Istanza di servizio denominata**: per eseguire il servizio, si creano le istanze denominate del tipo di servizio, analogamente al modo in cui si creano le istanze di un oggetto di un tipo di classe. Le istanze del servizio sono, di fatto, istanze di oggetto della classe del servizio che si scrive.
 * **Host del servizio**: le istanze del servizio denominate che si creano devono essere eseguite all'interno di un host. L'host del servizio è semplicemente un processo in cui eseguire le istanze del servizio.
 * **Registrazione del servizio**: la registrazione raccoglie tutti gli elementi. Il tipo di servizio deve essere registrato con il runtime di Service Fabric in un host del servizio per consentire a Service Fabric di creare istanze per l'esecuzione.  
 
 ## <a name="create-a-stateless-service"></a>Creare un servizio senza stato
-Iniziare a creare una nuova applicazione di Service Fabric. Service Fabric SDK per Linux include un generatore Yeoman per la creazione dello scaffolding per un'applicazione di Service Fabric con un servizio senza stato. Iniziare eseguendo il comando Yeoman seguente:
+Iniziare a creare un'applicazione di Service Fabric. Service Fabric SDK per Linux include un generatore Yeoman per la creazione dello scaffolding per un'applicazione di Service Fabric con un servizio senza stato. Iniziare eseguendo il comando Yeoman seguente:
 
 ```bash
 $ yo azuresfjava
 ```
 
-Seguire le istruzioni per creare un **servizio di Reliable Service senza stato**. Per questa esercitazione, denominare l'applicazione "HelloWorldApplication" e il servizio "HelloWorld". Il risultato includerà le directory per `HelloWorldApplication` e `HelloWorld`.
+Seguire le istruzioni per creare un **servizio di Reliable Service senza stato**. Per questa esercitazione, denominare l'applicazione "HelloWorldApplication" e il servizio "HelloWorld". Il risultato include le directory per `HelloWorldApplication` e `HelloWorld`.
 
 ```bash
 HelloWorldApplication/
@@ -84,7 +84,7 @@ Aprire **HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService
 
 ```java
 @Override
-protected CompletableFuture<?> runAsync() {
+protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
     ...
 }
 ```
@@ -98,10 +98,10 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 }
 ```
 
-Questa esercitazione si concentra sul metodo del punto di ingresso `runAsync()` . In questo punto è possibile iniziare immediatamente a eseguire il codice.
+Questa esercitazione si concentra sul metodo `runAsync()` del punto di ingresso. In questo punto è possibile iniziare immediatamente a eseguire il codice.
 
 ### <a name="runasync"></a>RunAsync
-La piattaforma chiama questo metodo quando si inserisce un'istanza di un servizio pronta per l'esecuzione. Il ciclo di apertura e chiusura di un'istanza del servizio può verificarsi più volte per tutta la durata del servizio nel suo complesso. Questa situazione può verificarsi per vari motivi, tra cui:
+La piattaforma chiama questo metodo quando si inserisce un'istanza di un servizio pronta per l'esecuzione. Per un servizio senza stato, la piattaforma chiama il metodo quando l'istanza del servizio viene aperta. Viene fornito un token di annullamento che determina quando è necessario chiudere l'istanza del servizio. In Service Fabric questo ciclo di apertura e chiusura di un'istanza del servizio può verificarsi più volte per tutta la durata del servizio nel suo complesso. Questa situazione può verificarsi per vari motivi, tra cui:
 
 * Il sistema sposta le istanze del servizio per il bilanciamento delle risorse.
 * Si verificano errori nel codice.
@@ -110,42 +110,34 @@ La piattaforma chiama questo metodo quando si inserisce un'istanza di un servizi
 
 Questa orchestrazione viene gestita da Service Fabric per assicurare l'elevata disponibilità e il corretto bilanciamento del servizio.
 
+`runAsync()` non deve bloccarsi in modo sincrono. L'implementazione di runAsync deve restituire un valore CompletableFuture per consentire al runtime di procedere. Se il carico di lavoro deve implementare un'attività a esecuzione prolungata, tale operazione deve essere completata entro il valore specificato da CompletableFuture.
+
 #### <a name="cancellation"></a>Annullamento
-È fondamentale che il codice in `runAsync()` possa interrompere l'esecuzione su segnalazione di Service Fabric. L'elemento `CompletableFuture` restituito da `runAsync()` viene annullato quando Service Fabric richiede l'arresto dell'esecuzione del servizio. L'esempio seguente mostra come gestire un evento di annullamento: 
+L'annullamento del carico di lavoro è un'operazione cooperativa coordinata dal token di annullamento fornito. Il sistema attende la fine dell'attività (per esito positivo, annullamento o errore) prima di continuare. È importante rispettare il token di annullamento, completare le operazioni e chiudere `runAsync()` il più rapidamente possibile quando viene richiesto l'annullamento dal sistema. L'esempio seguente mostra come gestire un evento di annullamento:
 
 ```java
     @Override
-    protected CompletableFuture<?> runAsync() {
+    protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 
-        CompletableFuture<?> completableFuture = new CompletableFuture<>();
-        ExecutorService service = Executors.newFixedThreadPool(1);
+        // TODO: Replace the following sample code with your own logic
+        // or remove this runAsync override if it's not needed in your service.
 
-        Future<?> userTask = service.submit(() -> {
-            while (!Thread.currentThread().isInterrupted()) {
-                try
-                {
-                   logger.log(Level.INFO, this.context().serviceName().toString());
-                   Thread.sleep(1000);
-                }
-                catch (InterruptedException ex)
-                {
-                    logger.log(Level.INFO, this.context().serviceName().toString() + " interrupted. Exiting");
-                    return;
-                }
+        CompletableFuture.runAsync(() -> {
+          long iterations = 0;
+          while(true)
+          {
+            cancellationToken.throwIfCancellationRequested();
+            logger.log(Level.INFO, "Working-{0}", ++iterations);
+
+            try
+            {
+              Thread.sleep(1000);
             }
-         });
-
-        completableFuture.handle((r, ex) -> {
-            if (ex instanceof CancellationException) {
-                userTask.cancel(true);
-                service.shutdown();
-            }
-            return null;
+            catch (IOException ex) {}
+          }
         });
-
-        return completableFuture;
-   }
-``` 
+    }
+```
 
 ### <a name="service-registration"></a>Registrazione del servizio
 I tipi del servizio devono essere registrati nel runtime di Service Fabric. Il tipo di servizio è definito nel `ServiceManifest.xml` e nella classe di servizio che implementa `StatelessService`. La registrazione del servizio viene eseguita nel punto di ingresso principale del processo. In questo esempio il punto di ingresso principale del processo è `HelloWorldServiceHost.java`:
@@ -156,9 +148,9 @@ public static void main(String[] args) throws Exception {
         ServiceRuntime.registerStatelessServiceAsync("HelloWorldType", (context) -> new HelloWorldService(), Duration.ofSeconds(10));
         logger.log(Level.INFO, "Registered stateless service type HelloWorldType.");
         Thread.sleep(Long.MAX_VALUE);
-    } 
+    }
     catch (Exception ex) {
-        logger.log(Level.SEVERE, "Exception in registration: {0}", ex.toString());
+        logger.log(Level.SEVERE, "Exception in registration:", ex);
         throw ex;
     }
 }
@@ -171,14 +163,14 @@ Lo scaffolding Yeoman include uno script Gradle per compilare l'applicazione e s
 $ gradle
 ```
 
-Si otterrà un pacchetto dell'applicazione di Service Fabric che può essere distribuito tramite l'interfaccia della riga di comando di Azure Service Fabric. Lo script install.sh contiene i comandi dell'interfaccia della riga di comando di Azure necessari per distribuire il pacchetto dell'applicazione. Per la distribuzione è sufficiente eseguire lo script install.sh:
+Si ottiene un pacchetto dell'applicazione di Service Fabric che può essere distribuito tramite l'interfaccia della riga di comando di Azure Service Fabric. Lo script install.sh contiene i comandi dell'interfaccia della riga di comando di Azure necessari per distribuire il pacchetto dell'applicazione. Eseguire lo script install.sh per la distribuzione:
 
-```bask
+```bash
 $ ./install.sh
 ```
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

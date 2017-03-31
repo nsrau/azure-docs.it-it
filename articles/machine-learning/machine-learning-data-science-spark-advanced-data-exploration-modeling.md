@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 02/15/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c844eeb0e01422dac468484a8458f243a2afb87d
+ms.sourcegitcommit: 5be82735c0221d14908af9d02500cc42279e325b
+ms.openlocfilehash: e6bf6bd3c905f077841ef166540337a251b91ad1
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -28,9 +29,9 @@ Questa procedura dettagliata usa HDInsight Spark per eseguire l'esplorazione dei
 * L'attività di **classificazione binaria** consente di prevedere se per la corsa viene lasciata o meno una mancia. 
 * L'attività di **regressione** consente di prevedere l'importo della mancia in base ad altre funzionalità relative alle mance. 
 
-La procedura di modellazione include anche un codice che illustra come eseguire il training, valutare e salvare ogni tipo di modello. Nell'argomento vengono illustrati alcuni aspetti comuni all'argomento [Modellazione ed esplorazione dei dati con Spark](machine-learning-data-science-spark-data-exploration-modeling.md). Tuttavia, questo argomento è più "avanzato" nel senso che usa anche la convalida incrociata in combinazione con la ricerca di iperparametri per formare modelli precisi di classificazione e regressione in modo ottimale. 
+La procedura di modellazione include anche un codice che illustra come eseguire il training, valutare e salvare ogni tipo di modello. Nell'argomento vengono illustrati alcuni aspetti comuni all'argomento [Modellazione ed esplorazione dei dati con Spark](machine-learning-data-science-spark-data-exploration-modeling.md). Tuttavia, questo argomento è più "avanzato" nel senso che usa anche la convalida incrociata con la ricerca di iperparametri per formare modelli precisi di classificazione e regressione in modo ottimale. 
 
-La **convalida incrociata** è una tecnica che consente di valutare in che modo un modello con training eseguito su un set di dati noto viene generalizzato per stimare le funzionalità di set di dati su cui non è stato eseguito il training. L'idea generale alla base di questa tecnica consiste nell'eseguire il training di un modello su un set di dati noti e quindi di testare l'accuratezza delle stime su un set di dati indipendente. Un'implementazione comune usata qui consiste nel dividere un set di dati in K riduzioni e quindi eseguire il training del modello in base a uno schema round robin su tutte le riduzioni eccetto una. 
+La **convalida incrociata** è una tecnica che consente di valutare in che modo un modello con training eseguito su un set di dati noto viene generalizzato per stimare le funzionalità di set di dati su cui non è stato eseguito il training.  Un'implementazione comune usata qui consiste nel dividere un set di dati in K riduzioni e quindi eseguire il training del modello in base a uno schema round robin su tutte le riduzioni eccetto una. Viene valutata la capacità del modello di eseguire una stima accurata quando testata in confronto con il set di dati indipendenti in questa sezione non usata per il training del modello.
 
 **ottimizzazione degli iperparametri** consiste nello scegliere un set di iperparametri per un algoritmo di apprendimento, in genere con l'obiettivo di ottimizzare una misura delle prestazioni dell'algoritmo su un set di dati indipendente. **iperparametri** sono valori che devono essere specificati al di fuori della procedura di training del modello. I presupposti di questi valori possono influire sulla flessibilità e l'accuratezza dei modelli. Gli alberi delle decisioni includono, ad esempio, iperparametri come la profondità desiderata e il numero di foglie nell'albero. Le macchine a vettori di supporto (SVM, Support Vector Machine) richiedono l'impostazione di una penalità per errata classificazione. 
 
@@ -50,8 +51,16 @@ Esempi di modelli che usano la convalida incrociata e sweep di iperparametri son
 > 
 > 
 
-## <a name="prerequisites"></a>Prerequisiti
-Per completare questa procedura dettagliata è necessario avere un account Azure e un cluster Spark 1.6 su HDInsight 3.4. Per istruzioni su come soddisfare questi requisiti, vedere [Panoramica dell'analisi scientifica dei dati con Spark in Azure HDInsight](machine-learning-data-science-spark-overview.md). Questo argomento contiene inoltre una descrizione dei dati dei taxi di NYC per il 2013 usati qui e istruzioni su come eseguire il codice da un notebook Jupyter nel cluster Spark. Il notebook **pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb** contenente gli esempi di codice usati in questo argomento è disponibile in [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
+## <a name="setup-spark-clusters-and-notebooks"></a>Configurazione: notebook e cluster Spark
+La procedura di installazione e il codice forniti in questa procedura dettagliata sono per l'uso di un HDInsight Spark 1.6. Ma vengono forniti i notebook di Jupyter per i cluster HDInsight sia Spark 1.6 sia Spark 2.0. Vengono inoltre forniti una descrizione dei notebook e i relativi collegamenti nel [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) per il repository GitHub che li contiene. Inoltre, il codice in questo esempio e nei notebook collegati è generico e funzionerà in qualsiasi cluster Spark. Se non si usa HDInsight Spark, i passaggi di configurazione e gestione del cluster possono essere leggermente diversi rispetto a quanto illustrato qui. Per praticità, ecco i collegamenti per il notebook di Jupyter per Spark 1.6 e 2.0 da eseguire nel kernel pyspark del server del notebook di Jupyter:
+
+### <a name="spark-16-notebooks"></a>Notebook Spark 1.6
+
+[pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): include gli argomenti nel notebook numero 1 e modella lo sviluppo usando l'ottimizzazione degli iperparametri e la convalida incrociata.
+
+### <a name="spark-20-notebooks"></a>Notebook Spark 2.0
+
+[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): questo file fornisce informazioni su come eseguire l'esplorazione dei dati, la modellazione e l'assegnazione del punteggio nei cluster Spark 2.0.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -191,9 +200,7 @@ Dopo aver inserito i dati in Spark, il passaggio successivo del processo di anal
 Questo codice e i frammenti di codice successivi usano un magic SQL per eseguire una query sul campione e un magic local per tracciare i dati.
 
 * **Magic SQL (`%%sql`)**: il kernel HDInsight PySpark supporta l'esecuzione di query HiveQL inline semplici su sqlContext. L'argomento (-o NOME_VARIABILE) salva in modo permanente l'output della query SQL come frame di dati Pandas nel server Jupyter. Questo significa che è disponibile in modalità locale.
-* Il **`%%local`** viene usato per eseguire il codice in locale nel server Jupyter, che costituisce il nodo head del cluster HDInsight. In genere si usa il magic `%%local` in combinazione con il magic `%%sql` con il parametro -o. Il parametro -o rende persistente l'output della query SQL a livello locale e quindi il magic %%local attiva il successivo set di frammenti di codice che viene eseguito localmente a fronte dell'output della query SQL persistente a livello locale.
-
-L'output viene visualizzato automaticamente dopo aver eseguito il codice.
+* Il **`%%local`** viene usato per eseguire il codice in locale nel server Jupyter, che costituisce il nodo head del cluster HDInsight. In genere, si usa Magic `%%local` dopo il Magic `%%sql -o` per eseguire una query. Il parametro -o salva in modo permanente l'output della query SQL in locale. Il Magic `%%local` attiva il set successivo di frammenti di codice per eseguire localmente l'output delle query SQL che è stato mantenuto in locale. L'output viene visualizzato automaticamente dopo aver eseguito il codice.
 
 Questa query recupera le corse per numero di passeggeri. 
 
@@ -298,15 +305,15 @@ Questa cella di codice usa la query SQL per creare tre tracciati.
 ## <a name="feature-engineering-transformation-and-data-preparation-for-modeling"></a>Progettazione di funzionalità, trasformazione e preparazione dei dati per la modellazione
 Questa sezione descrive le procedure usate per preparare i dati da usare nella modellazione per l'apprendimento automatico, fornisce il relativo codice e illustra come eseguire queste attività:
 
-* Ottenere una nuova funzionalità dalla creazione di contenitori per gli orari di trasporto
+* Creare una nuova funzionalità dalla partizione di contenitori per gli orari di trasporto
 * Indicizzare funzionalità categoriche e applicare la codifica one-hot
 * Creare oggetti punto etichettato per l'inserimento in funzioni di apprendimento automatico
 * Creare un sottocampionamento casuale dei dati e dividerlo in set di training e di testing
 * Ridimensionamento di funzionalità
 * Memorizzazione nella cache di oggetti in memoria
 
-### <a name="create-a-new-feature-by-binning-hours-into-traffic-time-buckets"></a>Ottenere una nuova funzionalità dalla creazione di contenitori per gli orari di trasporto
-Questo codice illustra come ottenere una nuova funzionalità dalla creazione di contenitori per gli orari di trasporto e come memorizzare nella cache il frame di dati risultante in memoria. Quando si usano ripetutamente RDD (Resilient Distributed Dataset) e frame di dati, la memorizzazione nella cache consente di migliorare i tempi di esecuzione. RDD e frame di dati vengono quindi memorizzati nella cache in varie fasi di questa procedura dettagliata.
+### <a name="create-a-new-feature-by-partitioning-traffic-times-into-bins"></a>Creare una nuova funzionalità dalla partizione di contenitori per gli orari di trasporto
+Questo codice illustra come ottenere una nuova funzionalità dalla creazione di contenitori per gli orari di trasporto e come memorizzare nella cache il frame di dati risultante in memoria. La memorizzazione nella cache consente di migliorare i tempi di esecuzione, quando si usano ripetutamente RDD (Resilient Distributed Dataset) e frame di dati. RDD e frame di dati vengono quindi memorizzati nella cache in varie fasi di questa procedura dettagliata.
 
     # CREATE FOUR BUCKETS FOR TRAFFIC TIMES
     sqlStatement = """
@@ -383,7 +390,7 @@ Di seguito è riportato il codice per l'indicizzazione e la codifica delle funzi
 Tempo impiegato per eseguire questa cella: 3,14 secondi.
 
 ### <a name="create-labeled-point-objects-for-input-into-ml-functions"></a>Creare oggetti punto etichettato per l'inserimento in funzioni di apprendimento automatico
-Questa sezione contiene codice che illustra come indicizzare dati di testo categorici come tipo di dati punto etichettato e codificarli per l'uso per il training e il testing della regressione logistica MLlib e di altri modelli di classificazione. Gli oggetti punto etichettato sono RDD (Resilient Distributed Dataset) formattati come richiesto per i dati di input dalla maggior parte degli algoritmi di apprendimento automatico in MLlib. Un [punto etichettato](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) è un vettore locale, che può essere denso o sparso, associato a un'etichetta o a una risposta.
+Questa sezione contiene il codice che illustra come indicizzare i dati di testo suddivisi in categorie come tipo di dati come punto etichettato e come codificarlo. Consente di prepararlo ad essere usato per il training e test di regressione logistica MLlib e altri modelli di classificazione. Gli oggetti punto etichettato sono RDD (Resilient Distributed Dataset) formattati come richiesto per i dati di input dalla maggior parte degli algoritmi di apprendimento automatico in MLlib. Un [punto etichettato](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) è un vettore locale, che può essere denso o sparso, associato a un'etichetta o a una risposta.
 
 Ecco il codice per indicizzare e codificare le funzionalità di testo per la classificazione binaria.
 
@@ -432,7 +439,7 @@ Ecco il codice per codificare e indicizzare le funzionalità di testo categorich
 
 
 ### <a name="create-a-random-sub-sampling-of-the-data-and-split-it-into-training-and-testing-sets"></a>Creare un sottocampionamento casuale dei dati e dividerlo in set di training e di testing
-Questo codice crea un campionamento casuale dei dati, qui viene usato il 25%. Anche se non è necessario per questo esempio, date le dimensioni del set di dati, viene illustrato come eseguire il campionamento e come usarlo quando necessario. Nei campioni di grandi dimensioni questa operazione permette di risparmiare molto tempo durante il training dei modelli. Successivamente il campione viene suddiviso in un set di training (75%) e un set di testing (25%) da usare nei modelli di regressione e classificazione.
+Questo codice crea un campionamento casuale dei dati, qui viene usato il&25;%. Anche se non è necessario per questo esempio, date le dimensioni del set di dati, viene illustrato come eseguire il campionamento. Adesso si sa come usarlo per il proprio problema, se necessario. Nei campioni di grandi dimensioni questa operazione permette di risparmiare molto tempo durante il training dei modelli. Successivamente il campione viene suddiviso in un set di training (75%) e un set di testing (25%) da usare nei modelli di regressione e classificazione.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -476,7 +483,7 @@ Questo codice crea un campionamento casuale dei dati, qui viene usato il 25%. An
 Tempo impiegato per eseguire questa cella: 0,31 secondi.
 
 ### <a name="feature-scaling"></a>Ridimensionamento di funzionalità
-Il ridimensionamento di funzionalità, noto anche come normalizzazione dei dati, permette di fare in modo che alle funzionalità con valori molto dispersi non venga attribuito un peso eccessivo nella funzione obiettivo. Per ridimensionare le funzionalità alla varianza unitaria, il relativo codice usa [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) . Viene fornito da MLlib per l'uso nella regressione lineare con la discesa del gradiente stocastica (SGD), un algoritmo molto diffuso per il training di una vasta gamma di modelli di apprendimento automatico, come la regressione regolarizzata o le macchine a vettori di supporto (SVM).   
+Il ridimensionamento di funzionalità, noto anche come normalizzazione dei dati, permette di fare in modo che alle funzionalità con valori molto dispersi non venga attribuito un peso eccessivo nella funzione obiettivo. Per ridimensionare le funzionalità alla varianza unitaria, il relativo codice usa [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) . Viene fornito da MLlib per l'uso nella regressione lineare con Stochastic Gradient Descent (SGD). SGD è un algoritmo molto diffuso per il training di una vasta gamma di modelli di apprendimento automatico, come la regressione regolarizzata o le macchine a vettori di supporto (SVM).   
 
 > [!TIP]
 > L'algoritmo LinearRegressionWithSGD è risultato sensibile al ridimensionamento di funzionalità.   
@@ -563,7 +570,7 @@ Ogni sezione di codice di compilazione del modello è suddivisa in passaggi:
 Ecco due modi per eseguire la convalida incrociata con sweep di parametri:
 
 1. Tramite codice **generico** personalizzato che può essere applicato a qualsiasi algoritmo in MLlib e a qualsiasi set di parametri in un algoritmo. 
-2. Tramite la **funzione della pipeline CrossValidator pySpark**. Si noti che anche se utile, in base all'esperienza CrossValidator presenta alcune limitazioni per Spark 1.5.0: 
+2. Tramite la **funzione della pipeline CrossValidator pySpark**. Si noti che CrossValidator presenta alcune limitazioni per Spark 1.5.0: 
    
    * I modelli di pipeline non possono essere salvati/resi persistenti per un utilizzo futuro.
    * Non può essere usato per ogni parametro in un modello.
@@ -1436,10 +1443,5 @@ BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-0
 Dopo aver creato i modelli regressivi e di classificazione con MlLib di Spark, è possibile imparare a valutare e assegnare punteggi a questi modelli.
 
 **Uso dei modelli:** per informazioni su come valutare e assegnare punteggi ai modelli di regressione e di classificazione creati in questo argomento, vedere [Assegnare punteggi a modelli di apprendimento automatico compilati con Spark](machine-learning-data-science-spark-model-consumption.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

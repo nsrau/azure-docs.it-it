@@ -1,0 +1,64 @@
+---
+
+title: Che cosa sono le licenze basate sui gruppi in Azure Active Directory? | Microsoft Docs
+description: Informazioni sulle licenze basate sui gruppi di Azure Active Directory, come funzionano, come iniziare e procedure consigliate
+services: active-directory
+keywords: Licenze di Azure AD
+documentationcenter: 
+author: curtand
+manager: femila
+editor: 
+ms.assetid: 
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 02/27/2017
+ms.author: curtand
+ms.custom: H1Hack27Feb2017
+translationtype: Human Translation
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: b5153d2339f688b22796789d74cb9117985a43d2
+ms.lasthandoff: 03/09/2017
+
+
+---
+
+# <a name="group-based-licensing-basics-in-azure-active-directory"></a>Concetti base sulle licenze basate sui gruppi in Azure Active Directory
+
+I servizi cloud Microsoft come Office 365, Enterprise Mobility + Security, Dynamics CRM e altri prodotti simili richiedono la licenza. Tali licenze sono assegnate a ogni utente che deve accedere a tali servizi. Per gestire le licenze, gli amministratori usano uno dei portali di gestione di Office o di Azure e i cmdlet di PowerShell. Azure Active Directory è l'infrastruttura sottostante che supporta la gestione delle identità per tutti i servizi cloud Microsoft. Azure AD archivia le informazioni sugli stati di assegnazione delle licenze per gli utenti.
+
+Fino ad ora, le licenze potevano essere assegnate solo a livello di utente singolo, ma questo può complicare la gestione su vasta scala. Ad esempio, per aggiungere o rimuovere licenze utente in base ai cambiamenti nell'organizzazione, come l'aggiunta o la rimozione di utenti dall'organizzazione o da un reparto, l'amministratore deve spesso scrivere un complesso script di PowerShell. Lo script esegue chiamate singole al servizio cloud.
+
+Per risolvere tali problematiche, Azure AD comprende ora licenze basate sui gruppi. È possibile assegnare una o più licenze del prodotto a un gruppo. Azure AD fa in modo che le licenze vengano assegnate a tutti i membri del gruppo. A tutti i nuovi membri che si uniscono al gruppo vengono assegnate le licenze appropriate. Quando i membri abbandonano il gruppo, le licenze vengono rimosse. Questo elimina la necessità di automatizzare la gestione delle licenze tramite PowerShell per riflettere i cambiamenti nell'organizzazione e nella struttura dei reparti in base al singolo utente.
+
+## <a name="features"></a>Funzionalità
+
+Di seguito sono riportate le licenze principali basate sui gruppi:
+
+- È possibile assegnare le licenze a qualsiasi gruppo di sicurezza in Azure AD. I gruppi di sicurezza possono essere sincronizzati in locale tramite Azure AD Connect. È possibile anche creare gruppi di sicurezza direttamente in Azure AD (denominati anche gruppi solo cloud) o crearli automaticamente tramite la funzionalità gruppo dinamico di Azure AD.
+
+- Quando viene assegnata una licenza del prodotto a un gruppo, l'amministratore può disabilitare uno o più piani di servizio nel prodotto. In genere, ciò avviene quando l'organizzazione non è ancora pronta a iniziare a usare un servizio incluso in un prodotto. Ad esempio, l'amministratore può assegnare Office 365 a un reparto, ma disabilitare temporaneamente il servizio Yammer.
+
+- Sono supportati tutti i servizi cloud Microsoft che richiedono licenze a livello di utente. Sono inclusi tutti i prodotti di Office 365, Enterprise Mobility + Security e Dynamics CRM.
+
+- Le licenze basate sui gruppi sono attualmente disponibili solo tramite il [portale di Azure](https://portal.azure.com). Se si usano principalmente altri portali per la gestione di utenti e gruppi, ad esempio il portale di Office 365, è possibile continuare a farlo. Tuttavia, è necessario usare il portale di Azure per gestire le licenze a livello di gruppo.
+
+- Azure AD gestisce automaticamente le modifiche alle licenze determinate da modifiche all'appartenenza a gruppi. In genere, le modifiche alle licenza sono attive dopo pochi minuti rispetto alle modifiche all'appartenenza.
+
+- Un utente può essere membro di più gruppi con norme di licenza specificate. Un utente può anche disporre di alcune licenze assegnate in modo diretto, indipendentemente dai gruppi. Lo stato utente che ne risulta sarà una combinazione di tutte le licenze dei prodotti e servizi assegnati.
+
+- In alcuni casi, non è possibile assegnare licenze a un utente. Ad esempio, potrebbe non essere disponibile un numero di licenze sufficiente nel tenant oppure è possibile che contemporaneamente siano stati assegnati servizi incompatibili. Gli amministratori hanno accesso alle informazioni sugli utenti per i quali Azure AD non ha potuto elaborare per intero le licenze di gruppo. Possono adottare misure correttive in base a tali informazioni.
+
+- Durante l'anteprima pubblica, per usare la gestione delle licenze in base ai gruppi è necessaria una sottoscrizione a pagamento o di valutazione di Azure AD Basic o Premium nel tenant. A ogni utente che eredita licenze da gruppi deve anche essere assegnata la licenza di Azure AD a pagamento.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per informazioni su altri scenari per la gestione delle licenze tramite i gruppi, vedere:
+
+* [Assegnazione di licenze a un gruppo in Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)
+* [Identificazione e risoluzione dei problemi relativi alle licenze per un gruppo in Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
+* [Come eseguire la migrazione di singoli utenti con licenza alle licenze basate sui gruppi in Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
+* [Scenari aggiuntivi relativi alle licenze basate sui gruppi in Azure Active Directory](active-directory-licensing-group-advanced.md)
+

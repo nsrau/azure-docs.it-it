@@ -25,7 +25,7 @@
 
 # Procedure
 ## Spostare dati
-### [Copia guidata di data factory](data-factory-copy-wizard.md)
+### [Copia guidata di data factory](data-factory-azure-copy-wizard.md)
 #### [Caricare 1 TB in 15 minuti](data-factory-load-sql-data-warehouse.md)
 ### [Attività di copia](data-factory-data-movement-activities.md)
 #### [Guida alle prestazioni e all'ottimizzazione](data-factory-copy-activity-performance.md)
@@ -43,30 +43,37 @@
 #### [File system](data-factory-onprem-file-system-connector.md)
 #### [FTP](data-factory-ftp-connector.md)
 #### [HDFS](data-factory-hdfs-connector.md)
+#### [HTTP](data-factory-http-connector.md)
 #### [MongoDB](data-factory-on-premises-mongodb-connector.md)
 #### [MySQL](data-factory-onprem-mysql-connector.md)
-#### [Origini OData](data-factory-odata-connector.md)
-#### [Archivi di dati ODBC](data-factory-odbc-connector.md)
+#### [OData](data-factory-odata-connector.md)
+#### [ODBC](data-factory-odbc-connector.md)
 #### [Oracle](data-factory-onprem-oracle-connector.md)
 #### [PostgreSQL](data-factory-onprem-postgresql-connector.md)
 #### [Salesforce](data-factory-salesforce-connector.md)
+#### [SAP Business Warehouse](data-factory-sap-business-warehouse-connector.md)
+#### [SFTP](data-factory-sftp-connector.md)
+#### [SAP HANA](data-factory-sap-hana-connector.md)
 #### [SQL Server](data-factory-sqlserver-connector.md)
 #### [Sybase](data-factory-onprem-sybase-connector.md)
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Tabella Web](data-factory-web-table-connector.md)
 ### [Gateway di gestione dati](data-factory-data-management-gateway.md)
 ### [Spostare dati tra origini locali e cloud](data-factory-move-data-between-onprem-and-cloud.md)
+### [Eseguire il mapping delle colonne di input e output del set di dati](data-factory-map-columns.md)
+### [Formati di file e di compressione supportati](data-factory-supported-file-and-compression-formats.md)
 
 ## [Trasformare i dati](data-factory-data-transformation-activities.md)
 ### [Attività Hive di HDInsight](data-factory-hive-activity.md)
 ### [Attività Pig di HDInsight](data-factory-pig-activity.md)
 ### [Attività MapReduce di HDInsight](data-factory-map-reduce.md)
 ### [Attività di streaming di HDInsight](data-factory-hadoop-streaming-activity.md)
+### [Attività HDInsight Spark](data-factory-spark.md)
 ### [Attività di esecuzione batch di Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+### [Attività della risorsa di aggiornamento di Machine Learning](data-factory-azure-ml-update-resource-activity.md)
 ### [Attività stored procedure](data-factory-stored-proc-activity.md)
 ### [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
 ### [Attività personalizzata .NET](data-factory-use-custom-activities.md)
-### [Chiamare i programmi Spark](data-factory-spark.md)
 ### [Chiamare gli script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 ## Sviluppare
 ### [Modello di Azure Resource Manager](data-factory-how-to-use-resource-manager-templates.md)
@@ -84,7 +91,6 @@
 # Riferimento
 ## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
-## [Guida di riferimento per gli sviluppatori di Data factory di Azure](data-factory-sdks.md)
 ## [REST](/rest/api/datafactory/)
 
 # Risorse
@@ -100,8 +106,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-factory)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=data-factory)
 ## [Richiedere una funzionalità](https://feedback.azure.com/forums/270578-azure-data-factory)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

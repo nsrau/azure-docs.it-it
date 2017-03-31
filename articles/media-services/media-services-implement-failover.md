@@ -1,5 +1,5 @@
 ---
-title: Implementazione di uno scenario di streaming con failover | Microsoft Docs
+title: Implementare lo streaming del failover con Servizi multimediali di Azure | Microsoft Docs
 description: Questo argomento descrive come implementare uno scenario di streaming con failover.
 services: media-services
 documentationcenter: 
@@ -15,40 +15,40 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 7a99b931a30c04e13d535caa2abd46980c4a3fb3
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: eaa87671a90ab6b090fb04f346ef551edba4d173
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="implementing-failover-streaming-scenario"></a>Implementazione di uno scenario di streaming con failover
+# <a name="implement-failover-streaming-with-azure-media-services"></a>Implementare lo streaming del failover con Servizi multimediali di Azure
 
-Questa procedura dettagliata illustra come copiare contenuto (BLOB) da un asset all'altro per gestire la ridondanza per lo streaming on demand. Questo scenario è utile per i clienti che desiderano configurare la rete CDN per il failover tra due data center nel caso si verifichi un guasto all'interno di uno di essi.
-Usando Microsoft Azure Media Services SDK, l'API REST di Servizi multimediali di Microsoft Azure e Azure Storage SDK, viene dimostrato come eseguire queste attività:
+Questa procedura dettagliata illustra come copiare il contenuto (BLOB) da un asset all'altro per gestire la ridondanza dello streaming on demand. Questo scenario è utile se si desidera configurare la rete di distribuzione dei contenuti di Azure affinché esegua il failover tra due data center, in caso di interruzione in uno di essi. In questa procedura dettagliata viene usato l'SDK dei Servizi multimediali di Azure, l'API REST di Servizi multimediali di Microsoft Azure e l'SDK di Archiviazione di Azure per dimostrare queste attività:
 
-1. Impostare un account di Servizi multimediali nel "data center A".
+1. Configurare un account di Servizi multimediali nel "Data center A".
 2. Caricare in un asset di origine un file in formato intermedio.
 3. Codificare l'asset in file MP4 a bit multipli. 
-4. Creare per l'asset di origine un localizzatore SAS di sola lettura che consenta l'accesso in lettura al contenitore nell'account di archiviazione associato all'asset.
-5. Ottenere il nome del contenitore dell'asset di origine dal localizzatore SAS di sola lettura creato nel passaggio precedente. Queste informazioni sono necessarie per copiare i BLOB tra account di archiviazione, operazione descritta più avanti in questo argomento.
+4. Creare un localizzatore per la firma di accesso condiviso di sola lettura. Questo consente all'asset di origine di avere l'accesso in lettura al contenitore nell'account di archiviazione associato all'asset di origine.
+5. Ottenere il nome del contenitore dell'asset di origine dal localizzatore firma di accesso condiviso di sola lettura creato nel passaggio precedente. Questa operazione è necessaria per copiare i BLOB tra gli account di archiviazione, operazione descritta più avanti in questo argomento.
 6. Creare un localizzatore di origine per l'asset creato mediante l'attività di codifica. 
 
 A quel punto, per gestire il failover:
 
-1. Impostare un account di Servizi multimediali nel "data center B".
+1. Configurare un account di Servizi multimediali nel "Data center B".
 2. Creare un asset di destinazione vuoto nell'account di Servizi multimediali di destinazione.
-3. Creare per l'asset vuoto di destinazione un localizzatore SAS di scrittura che consenta l'accesso in scrittura al contenitore nell'account di archiviazione di destinazione associato all'asset.
-4. Usare Azure Storage SDK per copiare i BLOB (file di asset) tra l'account di archiviazione di origine nel "data center A" e l'account di archiviazione di destinazione nel "data center B" (tali account sono associati agli asset di interesse).
+3. Creare un localizzatore per la firma di accesso condiviso di scrittura. Questo consente all'asset vuoto di destinazione di avere l'accesso in scrittura al contenitore nell'account di archiviazione di destinazione associato all'asset di destinazione.
+4. Usare SDK di Archiviazione di Azure per copiare i BLOB (file di asset) tra l'account di archiviazione di origine nel "Data center A" e l'account di archiviazione di destinazione nel "Data center B". Questi account di archiviazione sono associati agli asset di interesse.
 5. Associare all'asset di destinazione i BLOB (file di asset) copiati nel contenitore BLOB di destinazione. 
-6. Creare un localizzatore di origine per l'asset nel "data center B" e specificarne l'ID generato per l'asset nel "data center A". 
-7. In questo modo si ottengono URL di streaming in cui i percorsi relativi sono uguali (differiscono solo gli URL di base). 
+6. Creare un localizzatore di origine per l'asset nel "Data center B" e specificarne l'ID generato per l'asset nel "Data center A".
 
-Per gestire eventuali guasti, è quindi possibile creare una rete CDN basata su tali localizzatori di origine. 
+In questo modo si ottengono URL di streaming in cui i percorsi relativi sono uguali (differiscono solo gli URL di base). 
+
+Per gestire eventuali guasti, è quindi possibile creare una rete per la distribuzione di contenuti basata su tali localizzatori di origine. 
 
 Si applicano le considerazioni seguenti:
 
-* La versione corrente di Media Services SDK non supporta la creazione di un localizzatore con un ID specificato. Per eseguire questa attività, è necessario usare l'API REST di Servizi multimediali.
-* La versione corrente di Media Services SDK non supporta la generazione a livello di codice delle informazioni IAssetFile per l'associazione di un asset ai file di asset. Per eseguire questa attività, è necessario usare l'API REST CreateFileInfos di Servizi multimediali. 
-* Gli asset con crittografia di archiviazione (AssetCreationOptions.StorageEncrypted) non sono supportati per la replica, in quanto la chiave di crittografia sarà diversa nei due account di Servizi multimediali. 
+* La versione corrente di Media Services SDK non supporta la generazione a livello di codice delle informazioni IAssetFile per l'associazione di un asset ai file di asset. Usare invece l'API REST CreateFileInfos dell'API REST di Servizi multimediali per farlo. 
+* Gli asset con crittografia di archiviazione (AssetCreationOptions.StorageEncrypted) non sono supportati per la replica, in quanto la chiave di crittografia è diversa nei due account di Servizi multimediali. 
 * Se si vuole sfruttare i vantaggi della creazione dinamica dei pacchetti, verificare che l'endpoint di streaming da cui trasmettere i contenuti si trovi nello stato **In esecuzione**.
 
 > [!NOTE]
@@ -63,13 +63,13 @@ Si applicano le considerazioni seguenti:
 * Visual Studio 2010 SP1 o versioni successive (Professional, Premium, Ultimate o Express).
 
 ## <a name="set-up-your-project"></a>Configurare il progetto
-In questa sezione si creerà e si configurerà un progetto di applicazione console in C#.
+In questa sezione si crea e si configura un progetto di applicazione console in C#.
 
-1. Usare Visual Studio per creare una nuova soluzione contenente il progetto di applicazione console in C#. Immettere HandleRedundancyForOnDemandStreaming come nome e quindi fare clic su OK.
-2. Creare la cartella SupportFiles allo stesso livello del file di progetto HandleRedundancyForOnDemandStreaming.csproj. Nella cartella SupportFiles creare le sottocartelle OutputFiles e MP4Files. Copiare nella cartella MP4Files un file con estensione mp4 (in questo esempio viene usato il file BigBuckBunny.mp4). 
-3. Usare **NuGet** per aggiungere riferimenti alle DLL correlate a Servizi multimediali. Nel menu principale di Visual Studio scegliere STRUMENTI -> Gestione pacchetti libreria -> Console di Gestione pacchetti. Nella finestra della console digitare Install-Package windowsazure.mediaservices e premere INVIO.
+1. Usare Visual Studio per creare una nuova soluzione contenente il progetto di applicazione console in C#. Immettere **HandleRedundancyForOnDemandStreaming** come nome e quindi fare clic su **OK**.
+2. Creare la cartella **SupportFiles** allo stesso livello del file di progetto **HandleRedundancyForOnDemandStreaming.csproj**. Nella cartella **SupportFiles** creare le cartelle **OutputFiles** e **MP4Files**. Copiare un file con estensione .mp4 nella cartella **MP4Files**. (In questo esempio, viene usato il file **BigBuckBunny.mp4**.) 
+3. Usare **NuGet** per aggiungere riferimenti alle DLL correlate a Servizi multimediali. Nel **menu principale di Visual Studio** scegliere **STRUMENTI** > **Library Package Manager (Gestione pacchetti libreria)** > **Console di Gestione pacchetti**. Nella finestra della console digitare **Install-Package windowsazure.mediaservices** e premere Invio.
 4. Aggiungere gli altri riferimenti necessari per il progetto: System.Configuration, System.Runtime.Serialization e System.Web.
-5. Sostituire le istruzioni using aggiunte per impostazione predefinita al file Programs.cs con le seguenti:
+5. Sostituire le istruzioni **using** aggiunte per impostazione predefinita al file **Programs.cs** con le seguenti:
    
         using System;
         using System.Configuration;
@@ -88,7 +88,7 @@ In questa sezione si creerà e si configurerà un progetto di applicazione conso
         using Microsoft.WindowsAzure.Storage;
         using Microsoft.WindowsAzure.Storage.Blob;
         using Microsoft.WindowsAzure.Storage.Auth;
-6. Aggiungere la sezione appSettings al file di configurazione e aggiornare i valori in base ai valori di chiave e nome dell'account di Servizi multimediali e di archiviazione. 
+6. Aggiungere la sezione **appSetting**s al file **.config** e aggiornare i valori in base ai valori di chiave e nome dell'account di Servizi multimediali e di archiviazione. 
    
         <appSettings>
           <add key="MediaServicesAccountNameSource" value="Media-Services-Account-Name-Source"/>
@@ -101,7 +101,9 @@ In questa sezione si creerà e si configurerà un progetto di applicazione conso
           <add key="MediaServicesStorageAccountKeyTarget" value=" Media-Services-Storage-Account-Key-Target" />
         </appSettings>
 
-## <a name="add-code-that-handles-redundancy-for-on-demand-streaming"></a>Aggiungere codice in grado di gestire la ridondanza per lo streaming on demand
+## <a name="add-code-that-handles-redundancy-for-on-demand-streaming"></a>Aggiungere un codice in grado di gestire la ridondanza per lo streaming on demand
+In questa sezione, si crea la possibilità di gestire la ridondanza.
+
 1. Aggiungere alla classe Program i campi a livello di classe seguenti.
        
         // Read values from the App.config file.
@@ -207,8 +209,11 @@ In questa sezione si creerà e si configurerà un progetto di applicazione conso
                 writeSasLocator.Delete();
         }
 
-3. Definizioni dei metodi chiamati dal metodo Main.
-   
+3. Le definizioni seguenti dei metodi sono chiamati dal metodo Main.
+
+    >[!NOTE]
+    >È previsto un limite di 1.000.000 di criteri per i diversi criteri di Servizi multimediali (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Se si usano sempre gli stessi giorni e le stesse autorizzazioni di accesso, è necessario usare lo stesso ID criterio. Ad esempio, usare lo stesso ID per i criteri dei localizzatori che devono rimanere sul posto per molto tempo (criteri di non-caricamento). Per altre informazioni, vedere [questo argomento](media-services-dotnet-manage-entities.md#limit-access-policies).
+
         public static IAsset CreateAssetAndUploadSingleFile(CloudMediaContext context,
                                                         AssetCreationOptions assetCreationOptions,
                                                         string singleFilePath)
@@ -244,10 +249,10 @@ In questa sezione si creerà e si configurerà un progetto di applicazione conso
                                                     "Media Encoder Standard");
    
             // Create a task with the encoding details, using a string preset.
-            // In this case "H264 Multiple Bitrate 720p" preset is used.
+            // In this case "Adaptive Streaming" preset is used.
             ITask task = job.Tasks.AddNew("My encoding task",
                 processor,
-                "H264 Multiple Bitrate 720p",
+                "Adaptive Streaming",
                 TaskOptions.ProtectedConfiguration);
    
             // Specify the input asset to be encoded.
@@ -471,8 +476,8 @@ In questa sezione si creerà e si configurerà un progetto di applicazione conso
 
                 if (sourceCloudBlob.Properties.Length > 0)
                 {
-                    // In AMS, the files are stored as block blobs. 
-                    // Page blobs are not supported by AMS.  
+                    // In Azure Media Services, the files are stored as block blobs. 
+                    // Page blobs are not supported by Azure Media Services.  
                     var destinationBlob = targetContainer.GetBlockBlobReference(fileName);
                     destinationBlob.StartCopyFromBlob(new Uri(sourceBlob.Uri.AbsoluteUri + blobToken));
 
@@ -939,17 +944,12 @@ In questa sezione si creerà e si configurerà un progetto di applicazione conso
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-È ora possibile usare uno strumento di gestione traffico per instradare le richieste tra i due data center e quindi il failover in caso di guasti.
+È ora possibile usare uno strumento di gestione del traffico per instradare le richieste tra i due data center e quindi il failover in caso di guasti.
 
-## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
+## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

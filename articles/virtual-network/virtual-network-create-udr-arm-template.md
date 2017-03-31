@@ -1,5 +1,5 @@
 ---
-title: Controllare il routing e i dispositivi virtuali mediante un modello | Documentazione Microsoft
+title: Controllare il routing e le appliance virtuali mediante un modello di Azure | Microsoft Docs
 description: Informazioni su come controllare il routing e i dispositivi virtuali usando un modello di Azure Resource Manager.
 services: virtual-network
 documentationcenter: na
@@ -16,19 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: ba7a67b8ae57da165f45bd3552a3dfac5f4ef64b
-ms.openlocfilehash: 6e6afd1088ef02fcad6126dfe6b6e3f0b4dff31d
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 344391589a926cad5d06bf8dff095a97565ca123
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>Creare route definite dall'utente (UDR) mediante un modello
 
 > [!div class="op_single_selector"]
-- [PowerShell](virtual-network-create-udr-arm-ps.md)
-- [Interfaccia della riga di comando di Azure](virtual-network-create-udr-arm-cli.md)
-- [Modello](virtual-network-create-udr-arm-template.md)
-- [PowerShell (versione classica)](virtual-network-create-udr-classic-ps.md)
-- [Interfaccia della riga di comando (versione classica)](virtual-network-create-udr-classic-cli.md)
+> * [PowerShell](virtual-network-create-udr-arm-ps.md)
+> * [Interfaccia della riga di comando di Azure](virtual-network-create-udr-arm-cli.md)
+> * [Modello](virtual-network-create-udr-arm-template.md)
+> * [PowerShell (versione classica)](virtual-network-create-udr-classic-ps.md)
+> * [Interfaccia della riga di comando (versione classica)](virtual-network-create-udr-classic-cli.md)
 
 > [!IMPORTANT]
 > Prima di iniziare a usare le risorse di Azure, è importante comprendere che Azure al momento offre due modelli di distribuzione, la distribuzione classica e Azure Resource Manager. È importante comprendere i [modelli e strumenti di distribuzione](../azure-resource-manager/resource-manager-deployment-model.md) prima di lavorare con le risorse di Azure. È possibile visualizzare la documentazione relativa a diversi strumenti facendo clic sulle schede nella parte superiore di questo articolo. Questo articolo illustra il modello di distribuzione Gestione risorse. 
@@ -45,7 +46,7 @@ La sezione seguente illustra la definizione di UDR front-end nel file **azuredep
     "name": "[parameters('frontEndRouteTableName')]",
     "location": "[resourceGroup().location]",
     "tags": {
-      "displayName": "UDR - FrontEnd"   
+      "displayName": "UDR - FrontEnd"    
     },
     "properties": {
       "routes": [
@@ -175,7 +176,7 @@ Il modello di esempio disponibile nel repository pubblico usa un file di paramet
 
 Per distribuire il modello ARM tramite l'interfaccia della riga di comando di Azure, completare la procedura seguente:
 
-1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
+1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
 2. Eseguire il comando seguente per passare alla modalità Resource Manager:
 
     ```azurecli
@@ -406,9 +407,4 @@ Per distribuire il modello ARM tramite l'interfaccia della riga di comando di Az
 > [!TIP]
 > Se non è possibile visualizzare tutte le risorse, eseguire il comando `azure group deployment show` per assicurarsi che lo stato di provisioning della distribuzione sia *Riuscito*.
 > 
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

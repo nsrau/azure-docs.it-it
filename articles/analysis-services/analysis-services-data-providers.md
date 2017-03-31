@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/20/2016
+ms.date: 02/27/2016
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 4dbd2c87d648f6923772b070fdfe7379de22e6c5
-ms.openlocfilehash: e1adeaca702de3bad1c2e572f89ade9eba753173
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 03720b926e3a75c5443308f510b38132144318ff
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -28,11 +29,20 @@ Le applicazioni client richiedono provider di dati, chiamati anche librerie clie
 
 Analysis Services usa tre provider di dati. ADOMD.NET e Analysis Services Management Objects (AMO) sono provider di dati gestiti. Il provider Analysis Services OLE DB (MSOLAP DLL) è un provider di dati nativo. In genere, tutti e tre i provider vengono installati nello stesso momento. Azure Analysis Services richiede le versioni più recenti dei provider di dati. 
 
-Le applicazioni client di Microsoft, ad esempio Power BI Desktop ed Excel, installano tutti e tre i provider di dati. Tuttavia, a seconda della versione di Excel o a seconda se ogni mese siano aggiornate versioni più recenti di Excel e Power BI Desktop, i provider di dati installati potrebbero non essere aggiornati alle versioni più recenti richieste da Azure Analysis Services. Lo stesso vale per le applicazioni personalizzate o per le altre interfacce come AsCmd, TOM e ADOMD.NET. Queste applicazioni richiedono l'installazione manuale dei provider. I provider di dati per l'installazione manuale sono inclusi nei Feature Pack di SQL Server come pacchetti distribuibili; tuttavia, questi vengono associati alla versione di SQL Server e potrebbe non essere i più recenti.  
+Le applicazioni client di Microsoft, ad esempio Power BI Desktop ed Excel, installano tutti e tre i provider di dati. Tuttavia, a seconda della versione di Excel o a seconda se ogni mese siano aggiornate versioni più recenti di Excel e Power BI Desktop, i provider di dati installati potrebbero non essere aggiornati alle versioni più recenti richieste da Azure Analysis Services. Lo stesso vale per le applicazioni personalizzate o per le altre interfacce come AsCmd, TOM e ADOMD.NET. Queste applicazioni richiedono l'installazione manuale dei provider. I provider di dati per l'installazione manuale sono inclusi nei Feature Pack di SQL Server come pacchetti distribuibili; tuttavia, questi vengono associati alla versione di SQL Server e potrebbero non essere quelli più recenti.  
 
 I provider di dati per le connessioni client sono diversi da quelli necessari per connettersi da un server di Azure Analysis Services a un'origine dati. Per ulteriori informazioni sulle connessioni alle origini dati, vedere [Connessioni alle origini dati](analysis-services-datasource.md).
- 
-## <a name="download-the-latest-data-providers"></a>Scaricare i provider di dati più recenti  
+
+## <a name="download-the-latest-preview-data-providers"></a>Scaricare i provider di dati **in anteprima** più recenti  
+Usare il provider di dati seguenti per ottenere le correzioni di bug e gli aggiornamenti più recenti. Questi provider di dati sono consigliati per la connessione all'anteprima di Azure Analysis Services o a SQL Server vNext Analysis Services.
+
+[Anteprima di MSOLAP (amd64)](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.304.138/1033/x64/SQL_AS_OLEDB.msi)</br>
+[Anteprima di MSOLAP (x86)](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.304.138/1033/x86/SQL_AS_OLEDB.msi)</br>
+[Anteprima AMO](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.304.138/1033/x64/SQL_AS_AMO.msi)</br>
+[Anteprima ADOMD](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.304.138/1033/x64/SQL_AS_ADOMD.msi)</br>
+
+## <a name="download-the-latest-rtm-data-providers"></a>Scaricare i provider di dati **RTM** più recenti  
+Usare i seguenti provider di dati se ci si trova in un ambiente di produzione e si richiedono versioni completamente rilasciate e supportate.
 
 [MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)</br>
 [MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)</br>
@@ -40,10 +50,5 @@ I provider di dati per le connessioni client sono diversi da quelli necessari pe
 [ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)</br>
 
 ## <a name="next-steps"></a>Passaggi successivi
-Con i provider di dati più recenti installati, l'applicazione client è pronta a connettersi a un server. Per altre informazioni sulla connessione, vedere [Ottenere dati da Azure Analysis Services](analysis-services-connect.md).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
+Con i provider di dati più recenti installati, l'applicazione client è pronta a connettersi a un server. Per altre informazioni sulla connessione da un client, vedere [Ottenere dati da Azure Analysis Services](analysis-services-connect.md).
 

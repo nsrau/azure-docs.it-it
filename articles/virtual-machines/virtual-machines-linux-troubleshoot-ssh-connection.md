@@ -17,8 +17,9 @@ ms.topic: article
 ms.date: 12/21/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 10419c0e76ea647c0ef9e15f4cd0e514795a858e
-ms.openlocfilehash: 0191d6d84476b367e6cad6775738305e534c96a8
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 5d99c53ab5a6c71446b971fb19c6ca4ac4164e2b
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -49,7 +50,7 @@ Continuare la lettura per la procedura di risoluzione dei problemi e spiegazioni
 È possibile reimpostare le credenziali o la configurazione SSH usando uno dei metodi seguenti:
 
 * [Portale di Azure](#use-the-azure-portal): indicato per ripristinare rapidamente la configurazione SSH o la chiave SSH nel caso in cui non siano stati installati gli strumenti di Azure.
-* [Interfaccia della riga di comando di Azure 1.0](#use-the-azure-cli-10): se ci si trova già nella riga di comando, reimpostare rapidamente le credenziali o la configurazione SSH. Si può usare anche l'[Interfaccia della riga di comando di Azure 2.0 (Anteprima)](#use-the-azure-cli-20-preview)
+* [Interfaccia della riga di comando di Azure 2.0](#use-the-azure-cli-20): se ci si trova già nella riga di comando, reimpostare rapidamente le credenziali o la configurazione SSH. È possibile anche usare l'[interfaccia della riga di comando di Azure 1.0](#use-the-azure-cli-10)
 * [Estensione VMAccessForLinux di Azure](#use-the-vmaccess-extension): creare e usare di nuovo i file di definizione JSON per reimpostare le credenziali utente o la configurazione di SSH.
 
 Dopo ogni passaggio della procedura di risoluzione dei problemi, ritentare di connettersi alla VM. Se ancora non è possibile connettersi, procedere al passaggio successivo.
@@ -69,42 +70,8 @@ Per reimpostare le credenziali di un utente esistente, selezionare `Reset SSH pu
 
 Da questo menu è possibile anche creare un utente con privilegi sudo nella macchina virtuale. Inserire il nuovo nome utente e la password o la chiave SSH associata, quindi fare clic sul pulsante **Reimposta**.
 
-## <a name="use-the-azure-cli-10"></a>Usare l'interfaccia della riga di comando di Azure 1.0
-Se necessario, [installare l'interfaccia della riga di comando di Azure 1.0 e connettersi alla sottoscrizione di Azure](../xplat-cli-install.md). Verificare di usare la modalità di Resource Manager come indicato di seguito:
-
-```azurecli
-azure config mode arm
-```
-
-Se è stata creata e caricata un'immagine del disco Linux personalizzata, verificare che sia installato l'[agente Linux di Microsoft Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) in versione 2.0.5 o successiva. Per le macchine virtuali create tramite le immagini della raccolta, questa estensione dell'accesso è già installata e configurata automaticamente.
-
-### <a name="reset-ssh-configuration"></a>Reimpostare la configurazione SSH
-La configurazione del disco SSHD in sé può essere errata oppure il servizio ha rilevato un errore. È possibile reimpostare il disco SSHD per controllare la validità della configurazione SSH. La reimpostazione SSHD deve essere il primo passaggio da eseguire per la risoluzione dei problemi.
-
-L'esempio seguente reimposta SSHD su una macchina virtuale denominata `myVM` nel gruppo di risorse `myResourceGroup`. Usare i nomi della macchina virtuale e del gruppo di risorse personalizzati come segue:
-
-```azurecli
-azure vm reset-access --resource-group myResourceGroup --name myVM \
-    --reset-ssh
-```
-
-### <a name="reset-ssh-credentials-for-a-user"></a>Reimpostare le credenziali SSH di un utente
-Se il disco SSHD funziona correttamente, è possibile reimpostare la password di un determinato utente. L'esempio seguente reimposta le credenziali per `myUsername` sul valore specificato in `myPassword` nella macchina virtuale denominata `myVM` in `myResourceGroup`. Usare i valori personalizzati come di seguito:
-
-```azurecli
-azure vm reset-access --resource-group myResourceGroup --name myVM \
-     --user-name myUsername --password myPassword
-```
-
-Se si usa l'autenticazione con chiave SSH, è possibile reimpostare la chiave SSH per un determinato utente. L'esempio seguente aggiorna la chiave SSH archiviata in `~/.ssh/id_rsa.pub` per l'utente denominato `myUsername` nella macchina virtuale denominata `myVM` in `myResourceGroup`. Usare i valori personalizzati come di seguito:
-
-```azurecli
-azure vm reset-access --resource-group myResourceGroup --name myVM \
-    --user-name myUsername --ssh-key-file ~/.ssh/id_rsa.pub
-```
-
-## <a name="use-the-azure-cli-20-preview"></a>Usare l'Interfaccia della riga di comando di Azure 2.0 (Anteprima)
-Se non è già stato fatto, installare l'[Interfaccia della riga di comando di Azure 2.0 (Anteprima)](/cli/azure/install-az-cli2) e accedere a un account di Azure tramite il comando [az login](/cli/azure/#login).
+## <a name="use-the-azure-cli-20"></a>Usare l'interfaccia della riga di comando di Azure 2.0
+Se non è già stato fatto, installare la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e accedere a un account di Azure tramite il comando [az login](/cli/azure/#login).
 
 Se è stata creata e caricata un'immagine del disco Linux personalizzata, verificare che sia installato l'[agente Linux di Microsoft Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) in versione 2.0.5 o successiva. Per le macchine virtuali create tramite le immagini della raccolta, questa estensione dell'accesso è già installata e configurata automaticamente.
 
@@ -122,7 +89,6 @@ Se si usa l'autenticazione con chiave SSH, è possibile reimpostare la chiave SS
 az vm access set-linux-user --resource-group myResourceGroup --name myVM \
     --username myUsername --ssh-key-value ~/.ssh/id_rsa.pub
 ```
-
 
 ## <a name="use-the-vmaccess-extension"></a>Usare l'estensione VMAccess
 L'estensione di accesso alla macchina virtuale per Linux legge un file json che definisce le azioni da eseguire. Queste azioni includono la reimpostazione SSHD, la reimpostazione di una chiave SSH o l'aggiunta di un utente. È comunque possibile usare l'interfaccia della riga di comando di Azure per chiamare l'estensione VMAccess, ma è possibile anche usare di nuovo i file json tra più macchine virtuali, se desiderato. Questo approccio consente di creare un archivio di file json da chiamare per determinati scenari.
@@ -169,6 +135,40 @@ azure vm extension set myResourceGroup myVM \
     --private-config-path PrivateConf.json
 ```
 
+## <a name="use-the-azure-cli-10"></a>Usare l'interfaccia della riga di comando di Azure 1.0
+Se necessario, [installare l'interfaccia della riga di comando di Azure 1.0 e connettersi alla sottoscrizione di Azure](../cli-install-nodejs.md). Verificare di usare la modalità di Resource Manager come indicato di seguito:
+
+```azurecli
+azure config mode arm
+```
+
+Se è stata creata e caricata un'immagine del disco Linux personalizzata, verificare che sia installato l'[agente Linux di Microsoft Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) in versione 2.0.5 o successiva. Per le macchine virtuali create tramite le immagini della raccolta, questa estensione dell'accesso è già installata e configurata automaticamente.
+
+### <a name="reset-ssh-configuration"></a>Reimpostare la configurazione SSH
+La configurazione del disco SSHD in sé può essere errata oppure il servizio ha rilevato un errore. È possibile reimpostare il disco SSHD per controllare la validità della configurazione SSH. La reimpostazione SSHD deve essere il primo passaggio da eseguire per la risoluzione dei problemi.
+
+L'esempio seguente reimposta SSHD su una macchina virtuale denominata `myVM` nel gruppo di risorse `myResourceGroup`. Usare i nomi della macchina virtuale e del gruppo di risorse personalizzati come segue:
+
+```azurecli
+azure vm reset-access --resource-group myResourceGroup --name myVM \
+    --reset-ssh
+```
+
+### <a name="reset-ssh-credentials-for-a-user"></a>Reimpostare le credenziali SSH di un utente
+Se il disco SSHD funziona correttamente, è possibile reimpostare la password di un determinato utente. L'esempio seguente reimposta le credenziali per `myUsername` sul valore specificato in `myPassword` nella macchina virtuale denominata `myVM` in `myResourceGroup`. Usare i valori personalizzati come di seguito:
+
+```azurecli
+azure vm reset-access --resource-group myResourceGroup --name myVM \
+     --user-name myUsername --password myPassword
+```
+
+Se si usa l'autenticazione con chiave SSH, è possibile reimpostare la chiave SSH per un determinato utente. L'esempio seguente aggiorna la chiave SSH archiviata in `~/.ssh/id_rsa.pub` per l'utente denominato `myUsername` nella macchina virtuale denominata `myVM` in `myResourceGroup`. Usare i valori personalizzati come di seguito:
+
+```azurecli
+azure vm reset-access --resource-group myResourceGroup --name myVM \
+    --user-name myUsername --ssh-key-file ~/.ssh/id_rsa.pub
+```
+
 
 ## <a name="restart-a-vm"></a>Riavviare una macchina virtuale
 Se sono state reimpostate la configurazione SSH e le credenziali utente o si è verificato un errore durante queste operazioni, è possibile provare a riavviare la macchina virtuale per risolvere i problemi di calcolo alla base.
@@ -185,7 +185,7 @@ L'esempio seguente riavvia la macchina virtuale denominata `myVM` nel gruppo di 
 azure vm restart --resource-group myResourceGroup --name myVM
 ```
 
-### <a name="azure-cli-20-preview"></a>Interfaccia della riga di comando di Azure 2.0 (anteprima)
+### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
 L'esempio seguente usa il comando [az vm restart](/cli/azure/vm#restart) per riavviare la macchina virtuale denominata `myVM` nel gruppo di risorse denominato `myResourceGroup`. Usare i valori personalizzati come di seguito:
 
 ```azurecli
@@ -213,7 +213,7 @@ L'esempio seguente ridistribuisce la macchina virtuale denominata `myVM` nel gru
 azure vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
-### <a name="azure-cli-20-preview"></a>Interfaccia della riga di comando di Azure 2.0 (anteprima)
+### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
 L'esempio seguente usa il comando [az vm redeploy](/cli/azure/vm#redeploy) per ridistribuire la macchina virtuale denominata `myVM` nel gruppo di risorse denominato `myResourceGroup`. Usare i valori personalizzati come di seguito:
 
 ```azurecli
@@ -232,7 +232,7 @@ Per risolvere gli errori di connessione SSH più comuni nelle VM create con il m
 * Ridistribuire la VM su un nuovo nodo di Azure. Per informazioni su come eseguire questa operazione, vedere [Ridistribuzione della macchina virtuale su un nuovo nodo di Azure](virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
     Al termine di questa operazione i dati temporanei del disco andranno persi e gli indirizzi IP dinamici associati alla macchina virtuale saranno aggiornati.
-* Seguire le istruzioni in [Come reimpostare una password o SSH per le macchine virtuali basate su Linux](virtual-machines-linux-classic-reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) per:
+* Seguire le istruzioni in [Come reimpostare una password o SSH per le macchine virtuali basate su Linux](linux/classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) per:
   
   * Reimpostare la password o la chiave SSH.
   * Creare un account utente *sudo*.
@@ -243,11 +243,6 @@ Per risolvere gli errori di connessione SSH più comuni nelle VM create con il m
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * Se non si riesce ancora a eseguire la configurazione SSH sulla macchina virtuale dopo aver eseguito la relativa procedura, usare i [passaggi dettagliati per la risoluzione dei problemi](virtual-machines-linux-detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per esaminare altre procedure per la risoluzione del problema.
 * Per altre informazioni sulla risoluzione dei problemi di accesso dell'applicazione, vedere [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* Per altre informazioni sulla risoluzione dei problemi di macchine virtuali create con il modello di distribuzione classica, vedere l'articolo su come [reimpostare una password o SSH per macchine virtuali basate su Linux](virtual-machines-linux-classic-reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-
-
-
-
-<!--HONumber=Dec16_HO4-->
+* Per altre informazioni sulla risoluzione dei problemi di macchine virtuali create con il modello di distribuzione classica, vedere l'articolo su come [reimpostare una password o SSH per macchine virtuali basate su Linux](linux/classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 

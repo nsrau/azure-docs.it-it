@@ -1,5 +1,5 @@
 ---
-title: Distribuire un&quot;area di lavoro di Machine Learning con il modello di Azure Resource Manager | Documentazione Microsoft
+title: Distribuire un&quot;area di lavoro di Machine Learning con Azure Resource Manager | Documentazione Microsoft
 description: Come distribuire un&quot;area di lavoro per Azure Machine Learning usando il modello di Azure Resource Manager
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 3/15/2017
 ms.author: ahgyger
 translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: e0a06c070159a87932cda4b31d9363e54c008a35
+ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
+ms.openlocfilehash: cf00c0c11f1572c0cca066ac1c0aac2a0f350393
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -149,9 +150,4 @@ Dopo il provisioning dell'area di lavoro, è anche possibile automatizzare diver
 
 
 <!--Link references-->
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

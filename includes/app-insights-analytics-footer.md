@@ -1,10 +1,10 @@
 
-## Analytics
+## <a name="analytics"></a>Analytics
 * [Panoramica](../articles/application-insights/app-insights-analytics.md)
 * [Presentazione dello strumento Analisi in Application Insights](../articles/application-insights/app-insights-analytics-tour.md)
   * Inizia da qui. Un'esercitazione che copre le funzionalità principali.
-* [Query](../articles/application-insights/app-insights-analytics-reference.md#queries)
-  * Per compilare le query, usare gli operatori come ad esempio `where` e `count`.
+* [Query](../articles/application-insights/app-insights-analytics-reference.md#queries-and-operators)
+  * Per compilare le query, usare gli operatori, ad esempio `where` e `count`.
 * [Aggregazione](../articles/application-insights/app-insights-analytics-reference.md#aggregations)
   * Usata per calcolare le statistiche dei gruppi di record
 * [Valori scalari](../articles/application-insights/app-insights-analytics-reference.md#scalars)
@@ -15,4 +15,8 @@
   * Riferimento di una pagina.
 * [Risoluzione dei problemi](../articles/application-insights/app-insights-analytics-troubleshooting.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

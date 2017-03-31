@@ -17,6 +17,7 @@ ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: febc8fef864f88fa07accf91efc9b87727a48b32
 ms.openlocfilehash: 8b1029075178fbc591645a5fd6a112ad0a7f8b86
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -756,7 +757,7 @@ Per generare la sezione del set di dati [**start**, **end**], una funzione deve 
 
 ```
 DatasetSlice = [start, end]
-DependecyPeriod = [f(start, end), g(start, end)]
+DependencyPeriod = [f(start, end), g(start, end)]
 ```
 
 **F** e **g** sono funzioni di mapping che consentono di calcolare l'inizio e la fine del periodo di dipendenza per ogni input di attività.
@@ -855,10 +856,5 @@ Tenere presente quanto segue:
 * La **disponibilità** dei set di dati di input e output viene specificata (**frequenza** e **intervallo**) anche se i valori non vengono usati da Data Factory.  
 * Le pipeline monouso non vengono visualizzate nella vista Diagramma. Questo comportamento dipende dalla progettazione.
 * Le pipeline monouso non possono essere aggiornate. È possibile clonare una pipeline monouso, rinominarla, aggiornarne le proprietà e distribuirla per crearne un'altra.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

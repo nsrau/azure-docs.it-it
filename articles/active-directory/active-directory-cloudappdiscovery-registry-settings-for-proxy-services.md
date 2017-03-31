@@ -16,6 +16,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
 ms.openlocfilehash: 7f2a3c4bf8fda9dd235986be8b0ceaa8eb8313e0
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -49,10 +50,5 @@ Questo argomento illustra tutti i passaggi da eseguire per impostare la porta ne
 **Risorse aggiuntive**
 
 * [Come individuare app cloud non autorizzate usate nell'organizzazione](active-directory-cloudappdiscovery-whatis.md) 
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

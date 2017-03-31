@@ -12,17 +12,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 03/08/2017
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: ddc181bde6a154cb3fb35254da6b76a91450ba6b
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 78fce5e464e065620e2f2da7f001d34b5cfd7a9f
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="upload-files-from-devices-to-the-cloud-with-iot-hub"></a>Caricare file dai dispositivi al cloud con l'hub IoT
+# <a name="upload-files-from-your-simulated-device-to-the-cloud-with-iot-hub"></a>Eseguire l'upload di file dal dispositivo simulato al cloud con l'hub IoT
 ## <a name="introduction"></a>Introduzione
-L'hub IoT di Azure è un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi e un back-end della soluzione. Nelle esercitazioni precedenti ([Introduzione all'hub IoT] e [Inviare messaggi da cloud a dispositivo con l'hub IoT]) sono illustrate le funzionalità di messaggistica di base da dispositivo a cloud e da cloud a dispositivo dell'hub IoT, mentre nell'esercitazione [Elaborare messaggi da dispositivo a cloud] vengono fornite istruzioni sull'archiviazione affidabile dei messaggi da dispositivo a cloud nell'Archiviazione BLOB di Azure. Tuttavia in alcuni scenari non è possibile mappare facilmente i dati che i dispositivi inviano in messaggi relativamente ridotti da dispositivo a cloud, che l'hub IoT accetta. Gli esempi includono file di grandi dimensioni contenenti immagini, video, dati di esempio sulle vibrazioni ad alta frequenza o contenenti qualche tipo di dati pre-elaborati. Questi dati in genere vengono elaborati in batch nel cloud con strumenti come [Azure Data Factory] o lo stack [Hadoop]. Quando si preferisce caricare un file da un dispositivo invece di inviare eventi, è ugualmente possibile usare le funzionalità di sicurezza e affidabilità dell'hub IoT.
+L'hub IoT di Azure è un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi e un back-end della soluzione. Le esercitazioni [Introduzione all'hub IoT] e [Inviare messaggi da cloud a dispositivo con l'hub IoT] illustrano le funzionalità di messaggistica di base da dispositivo a cloud e da cloud a dispositivo dell'hub IoT. L'esercitazione [Elaborare messaggi da dispositivo a cloud] illustra come archiviare in modo affidabile i messaggi da dispositivo a cloud nell'archivio BLOB di Azure. Tuttavia in alcuni scenari non è possibile mappare facilmente i dati che i dispositivi inviano in messaggi relativamente ridotti da dispositivo a cloud, che l'hub IoT accetta. Ad esempio, i file di grandi dimensioni che contengono immagini, video, dati di esempio sulle vibrazioni ad alta frequenza o qualche tipo di dati pre-elaborati. Questi dati in genere vengono elaborati in batch nel cloud con strumenti come [Azure Data Factory] o lo stack [Hadoop]. Quando si preferisce caricare un file da un dispositivo invece di inviare eventi, è ugualmente possibile usare le funzionalità di sicurezza e affidabilità dell'hub IoT.
 
 Questa esercitazione si basa sul codice dell'esercitazione [Inviare messaggi da cloud a dispositivo con l'hub IoT] che illustra come usare le funzionalità di caricamento di file dell'hub IoT. Illustra le operazioni seguenti:
 
@@ -41,13 +42,16 @@ Al termine di questa esercitazione vengono eseguite due app console .NET:
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Microsoft Visual Studio 2015
+* Visual Studio 2015 o Visual Studio 2017
 * Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito][lnk-free-trial] in pochi minuti.
 
 ## <a name="associate-an-azure-storage-account-to-iot-hub"></a>Associare un account di archiviazione di Azure all'hub IoT
-Poiché l'app per dispositivo simulato carica un file in un BLOB, è necessario avere un account di [Archiviazione di Azure] associato all'hub IoT. Quando si associa un account di archiviazione di Azure a un hub IoT, l'hub IoT può generare un URI di firma di accesso condiviso che un dispositivo può usare per caricare in modo sicuro un file in un contenitore BLOB. Il servizio hub IoT e gli SDK di dispositivo coordinano il processo che genera l'URI di firma di accesso condiviso e lo rendono disponibile per un dispositivo che lo userà per caricare un file.
+Poiché l'app per dispositivo simulato carica un file in un BLOB, è necessario avere un account di [Archiviazione di Azure] associato all'hub IoT. Quando si associa un account di Archiviazione di Azure a un hub IoT, l'hub IoT genera un URI di firma di accesso condiviso. Un dispositivo può usare questo URI di firma di accesso condiviso per eseguire l'upload di un file in modo sicuro in un contenitore BLOB. Il servizio hub IoT e gli SDK di dispositivo coordinano il processo che genera l'URI di firma di accesso condiviso e lo rendono disponibile per un dispositivo che lo userà per caricare un file.
 
-Seguire le istruzioni in [Configure file uploads using the Azure portal][lnk-configure-upload] (Configurare i caricamenti di file tramite il portale di Azure) per associare un account di archiviazione di Azure all'hub IoT.
+Seguire le istruzioni in [Configure file uploads using the Azure portal][lnk-configure-upload] (Configurare i caricamenti di file tramite il portale di Azure) per associare un account di archiviazione di Azure all'hub IoT. Assicurarsi che un contenitore BLOB venga associato all'hub IoT e che siano abilitate le notifiche file. 
+   
+![Abilitazione di notifiche file nel portale][3]
+
 
 ## <a name="upload-a-file-from-a-simulated-device-app"></a>Caricare un file da un'app per dispositivo simulato
 In questa sezione si modifica l'app per dispositivo simulato creata in [Inviare messaggi da cloud a dispositivo con l'hub IoT] per ricevere i messaggi da cloud a dispositivo dall'hub IoT.
@@ -92,10 +96,9 @@ In questa sezione verrà scritta un'app console di .NET che riceve messaggi di n
 1. Nella soluzione di Visual Studio corrente creare un progetto di Windows in Visual C# usando il modello di progetto **Applicazione console** . Denominare il progetto **ReadFileUploadNotification**.
    
     ![Nuovo progetto in Visual Studio][2]
-2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **ReadFileUploadNotification** e quindi scegliere **Gestisci pacchetti NuGet**.
-   
-    Questa azione visualizza la finestra Gestisci pacchetti NuGet.
-3. Cercare `Microsoft.Azure.Devices`, fare clic su **Installa**e accettare le condizioni per l'uso. 
+2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **ReadFileUploadNotification** e quindi scegliere **Gestisci pacchetti NuGet...**.
+       
+3. Nella finestra **Gestisci pacchetti NuGet** cercare **Microsoft.Azure.Devices**, fare clic su **Installa** e accettare le condizioni per l'utilizzo. 
    
     L'azione consente di scaricare, installare e aggiungere un riferimento al [pacchetto NuGet Azure IoT Service SDK] nel progetto **ReadFileUploadNotification**.
 
@@ -126,7 +129,7 @@ In questa sezione verrà scritta un'app console di .NET che riceve messaggi di n
             }
         }
    
-    Si noti che il modello di ricezione è identico a quello utilizzato per ricevere messaggi da cloud a dispositivo dall'app dispositivo.
+    Si noti che il modello di ricezione è identico a quello usato per ricevere messaggi da cloud a dispositivo dall'app per dispositivo.
 7. Aggiungere infine le righe seguenti al metodo **Main** :
    
         Console.WriteLine("Receive file upload notifications\n");
@@ -138,12 +141,12 @@ In questa sezione verrà scritta un'app console di .NET che riceve messaggi di n
 A questo punto è possibile eseguire le applicazioni.
 
 1. In Visual Studio fare clic con il pulsante destro del mouse sulla soluzione e selezionare **Imposta progetti di avvio**. Selezionare **Progetti di avvio multipli**, quindi selezionare l'azione **Avvia** per **ReadFileUploadNotification** e **SimulatedDevice**.
-2. Premere **F5**. Si avviano entrambe le applicazioni. Verrà visualizzato il messaggio di completamento del caricamento in un'applicazione console e il messaggio di notifica di caricamento ricevuto da altre app console. È possibile usare il [portale di Azure] o Esplora server di Visual Studio per verificare la presenza del file caricato nell'account di archiviazione di Azure.
+2. Premere **F5**. Si avviano entrambe le applicazioni. Verrà visualizzato il messaggio di completamento del caricamento in un'applicazione console e il messaggio di notifica di caricamento ricevuto da altre applicazioni console. È possibile usare il [portale di Azure] o Esplora server di Visual Studio per verificare la presenza del file caricato nell'account di archiviazione di Azure.
    
    ![][50]
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa esercitazione si è appreso come sfruttare le funzionalità di caricamento file dell'hub IoT per semplificare i caricamenti di file dai dispositivi. È possibile continuare a esplorare le funzionalità e gli scenari dell'hub IoT vedendo i seguenti articoli:
+In questa esercitazione si è appreso come usare le funzionalità di caricamento file dell'hub IoT per semplificare i caricamenti di file dai dispositivi. È possibile continuare a esplorare le funzionalità e gli scenari dell'hub IoT vedendo i seguenti articoli:
 
 * [Creare un hub IoT a livello di codice][lnk-create-hub]
 * [Introduzione a C SDK][lnk-c-sdk]
@@ -157,7 +160,8 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 [50]: ./media/iot-hub-csharp-csharp-file-upload/run-apps1.png
 [1]: ./media/iot-hub-csharp-csharp-file-upload/image-properties.png
-[2]: ./media/iot-hub-csharp-csharp-file-upload/create-identity-csharp1.png
+[2]: ./media/iot-hub-csharp-csharp-file-upload/file-upload-project-csharp1.png
+[3]: ./media/iot-hub-csharp-csharp-file-upload/enable-file-notifications.png
 
 <!-- Links -->
 
@@ -181,12 +185,7 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-gateway]: iot-hub-windows-gateway-sdk-simulated-device.md
 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

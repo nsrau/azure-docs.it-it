@@ -1,10 +1,10 @@
 ---
-title: Spostamento dei dati da e verso Archiviazione di Azure | Microsoft Docs
-description: In questo articolo sono raccolte informazioni generali sulle diverse soluzioni per spostare i dati da e verso Archiviazione di Azure.
+title: "Spostamento di grandi quantità di dati da e verso l&quot;archiviazione cloud in Azure | Documentazione Microsoft"
+description: Panoramica dei diversi metodi per spostare i dati da e verso Archiviazione di Azure.
 services: storage
 documentationcenter: 
-author: micurd
-manager: jahogg
+author: JarrettRenshaw
+manager: msmets
 editor: tysonn
 ms.assetid: 5e3947a9-d99b-4108-9d57-3eb67c03e7ba
 ms.service: storage
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
-ms.author: micurd
+ms.date: 01/30/2017
+ms.author: jarrettr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 26dc2d2269855bcb31bc8f6faf2277ac059b81f5
+ms.sourcegitcommit: 245fb30a64c8a19f6ea0073d533419e9c3628cb5
+ms.openlocfilehash: 538a43e549f47709616dd93e7eab9c8cb7d99dc6
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -74,10 +75,7 @@ Per altre informazioni, vedere [StorSimple](../storsimple/storsimple-overview.md
 In presenza di carichi di lavoro e applicazioni locali, è consigliabile l’uso di una soluzione che sia in grado di garantire continuità aziendale in caso di emergenza. Azure Site Recovery coordina la replica, il failover e il ripristino di macchine virtuali e server fisici. I dati replicati vengono archiviati in Archiviazione di Azure eliminando così la necessità di un centro dati on-site secondario.
 
 Per altre informazioni, vedere [Azure Site Recovery](../site-recovery/site-recovery-overview.md) .
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+### <a name="moving-data-faq"></a>Domande frequenti sullo spostamento di dati:
+## <a name="can-i-migrate-vhds-from-one-region-to-another-without-copying"></a>È possibile migrare i dischi rigidi virtuali da un'area a un'altra senza eseguire una copia?
+L'unico modo per copiare i dischi rigidi virtuali tra aree diverse consiste nel copiare i dati tra gli account di archiviazione di ogni area. A questo scopo è possibile usare AZCopy. Per altre informazioni, vedere Trasferire dati con l'utilità della riga di comando AzCopy . Per grandi quantità di dati è possibile anche usare il servizio Importazione/Esportazione di Azure. Per altre informazioni, vedere [Usare il servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati nell'archiviazione BLOB](https://docs.microsoft.com/en-us/azure/storage/storage-import-export-service) .
 

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2016
+ms.date: 02/22/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 533fd337ba16a61579b6f322771913cda36d8272
+ms.sourcegitcommit: 9c20ace9112c62e733b7b679e3f0be717144f3c2
+ms.openlocfilehash: 933a485e36b3cf0f514f28fc069d49161605af3a
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -27,26 +28,27 @@ Il Centro sicurezza PC di Azure impedisce, rileva e risponde alle minacce median
 Il Centro sicurezza è disponibile in due livelli:
 
 * Il **livello gratuito** è attivato automaticamente per tutte le sottoscrizioni di Azure. Il livello gratuito permette di conoscere lo stato di protezione delle risorse di Azure, i criteri di sicurezza di base, i consigli sulla sicurezza e l'aspetto di integrazione con i prodotti e i servizi dei partner.
-* Il **livello standard** aggiunge funzionalità avanzate per il rilevamento delle minacce, tra cui business intelligence, analisi del comportamento, rilevamento delle anomalie, eventi imprevisti per la sicurezza e report di valutazione delle minacce. Per il livello standard è disponibile una **versione di valutazione gratuita di 90 giorni**.
+* Il **livello standard** aggiunge funzionalità avanzate per il rilevamento delle minacce, tra cui business intelligence, analisi del comportamento, rilevamento delle anomalie, eventi imprevisti per la sicurezza e report di valutazione delle minacce. Il livello Standard è gratuito per i primi 60 giorni.
 
 Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/) del Centro sicurezza.
 
 > [!NOTE]
-> Il Centro sicurezza usa Archiviazione di Azure per salvare i dati sulla sicurezza generati dai nodi protetti. I costi associati a questa risorsa di archiviazione non sono incluse nel prezzo del servizio e vengono addebitati separatamente secondo le normali [tariffe di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/). I costi di archiviazione si applicano anche alla versione di valutazione.
-> 
-> 
+> Il Centro sicurezza usa Archiviazione di Azure per salvare i dati sulla sicurezza generati dai nodi protetti. I costi associati a questa risorsa di archiviazione non sono incluse nel prezzo del servizio e vengono addebitati separatamente secondo le normali [tariffe di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/). I costi di archiviazione si applicano anche alla versione di valutazione di 60 giorni.
+>
+>
 
-## <a name="try-standard-free-for-90-days"></a>Prova gratuita del livello standard per 90 giorni
-Per il livello standard è disponibile una versione di valutazione gratuita valida 90 giorni. Per avere la versione di valutazione gratuita del livello standard, selezionare il riquadro **Policy** (Criteri) del pannello **Centro sicurezza**. Selezionare la sottoscrizione che si desidera aggiornare al livello Standard. Nel pannello **Security policy** (Criteri di sicurezza) selezionare **Pricing tier** (Piano tariffario). Nel pannello **Scegliere un piano tariffario** selezionare **Standard - Versione di valutazione gratuita**.
+## <a name="try-standard-free-for-60-days"></a>Prova gratuita del livello Standard per 60 giorni
+Il livello Standard è gratuito per i primi 60 giorni. Al termine dei 60 giorni, se si sceglie di continuare a usare il servizio, l'uso verrà addebitato automaticamente.
 
-![Versione di prova gratuita][1]
+Per ottenere il livello Standard:
 
-Al termine dei 90 giorni, se si sceglie di continuare a usare il servizio, l'uso verrà addebitato automaticamente.
+1. Selezionare il riquadro **Criteri** nel pannello **Centro sicurezza**.
+2. Selezionare la sottoscrizione che si desidera aggiornare al livello Standard.
+3. Nel pannello **Security policy** (Criteri di sicurezza) selezionare **Pricing tier** (Piano tariffario).
+4. Nel pannello **Scegliere un piano tariffario** selezionare **Standard**.
+5. Fare clic su **Seleziona**.
 
-## <a name="upgrade-to-standard"></a>Aggiornamento alla versione standard
-Eseguire l'aggiornamento al livello standard per aggiungere il rilevamento avanzato delle minacce. Per ottenere il livello standard, fare clic sul riquadro **Criterio** nel pannello **Centro sicurezza**. Selezionare la sottoscrizione che si desidera aggiornare al livello Standard. Nel pannello **Security policy** (Criteri di sicurezza) selezionare **Pricing tier** (Piano tariffario). Nel pannello **Scegliere un piano tariffario** selezionare **Standard**.
-
-![Livello Standard][2]
+![Livello Standard][1]
 
 ## <a name="why-upgrade-to-standard"></a>Perché eseguire l'aggiornamento al livello standard?
 Il livello standard del Centro sicurezza fornisce tutte le funzionalità del livello gratuito, con in più il rilevamento avanzato. Il rilevamento avanzato delle minacce consente di identificare le minacce attive dirette alle risorse di Azure, fornendo le informazioni necessarie per rispondervi rapidamente.
@@ -61,16 +63,22 @@ Il livello standard fornisce le analisi di sicurezza seguenti:
 
 Nel pannello **Avvisi di sicurezza** illustrato di seguito il Centro sicurezza ha rilevato un **evento imprevisto** per la sicurezza. Con la definizione di evento imprevisto per la sicurezza si intende un'aggregazione di tutti gli avvisi relativi a una risorsa corrispondenti a modelli kill chain. Selezionando l'evento imprevisto per la sicurezza, compaiono altri dettagli sull'evento imprevisto, insieme a un elenco degli avvisi correlati. Selezionando l'avviso è possibile avere altre sull'evento imprevisto in questione.
 
-![Evento imprevisto della sicurezza][3]
+![Evento imprevisto della sicurezza][2]
 
 L'avviso sulla **comunicazione di rete** qui di seguito fornisce dettagli sull'evento imprevisto. Le informazioni includono una descrizione completa del problema, la gravità, lo stato (che in questo caso viene ignorato, su decisione dell'utente), la risorsa attaccata e le contromisure. È inoltre disponibile un elenco di collegamenti ai report di Microsoft con informazioni sulle minacce, utili per risolvere i problemi di sicurezza e per attuare contromisure di protezione.
 
-![Dettagli dell'avviso di sicurezza][4]
+![Dettagli dell'avviso di sicurezza][3]
 
 ## <a name="enable-data-collection"></a>Abilitare la raccolta di dati
-Per abilitare l'analisi del comportamento delle macchine virtuali, occorre attivare la raccolta dei dati. Potrebbe essere necessario abilitare la raccolta dei dati al primo accesso al Centro sicurezza o quando si creano criteri di sicurezza.
+Per abilitare l'analisi del comportamento delle macchine virtuali, occorre attivare la raccolta dei dati.
 
-Per controllare che sia abilitata la raccolta dei dati, selezionare il riquadro **Criterio**. Si apre il pannello **Criteri di sicurezza**, con elencate le sottoscrizioni Azure. Selezionare una sottoscrizione. Se la **Raccolta dei dati** è disattivata, attivarla e salvare la modifica. Vedere [Abilitare la raccolta dati nel Centro sicurezza di Azure](security-center-enable-data-collection.md).
+Per controllare che sia abilitata la raccolta dei dati:
+
+1. Selezionare il riquadro **Criterio**. Si apre il pannello **Criteri di sicurezza**, con elencate le sottoscrizioni Azure.
+2. Selezionare una sottoscrizione.
+3. Se la **Raccolta dei dati** è disattivata, attivarla e salvare la modifica.
+
+Per altre informazioni, vedere [Abilitare la raccolta dati nel Centro sicurezza di Azure](security-center-enable-data-collection.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * In questo documento sono stati presentati i prezzi del Centro sicurezza. Per altre informazioni sui prezzi, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/) del Centro sicurezza.
@@ -79,13 +87,7 @@ Per controllare che sia abilitata la raccolta dei dati, selezionare il riquadro 
 * Se si hanno ancora domande sull'uso del Centro sicurezza o di Azure, visitare i [forum di Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureSecurityCenter&filter=alltypes&sort=lastpostdesc).
 
 <!--Image references-->
-[1]: ./media/security-center-pricing/free-trial.png
-[2]: ./media/security-center-pricing/standard.png
-[3]: ./media/security-center-pricing/incident.png
-[4]: ./media/security-center-pricing/network-alert.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
+[1]: ./media/security-center-pricing/standard.png
+[2]: ./media/security-center-pricing/incident.png
+[3]: ./media/security-center-pricing/network-alert.png
 

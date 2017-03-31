@@ -1,11 +1,24 @@
 ---
-layout: LandingPage
+title: Documentazione di Azure Load Balancer - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni sull&quot;utilizzo del servizio di bilanciamento del carico per le prestazioni di rete delle app. Gestione del traffico per macchine virtuali e risorse cloud, anche in reti virtuali cross-premise.
+services: load-balancer
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: load-balancer
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 53a3e534f9c93c73ef6d28696c5a9d6430a7a258
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 96da506c8545a1b863e62133706a2687c2498bbd
+ms.lasthandoff: 03/22/2017
 
 ---
+
 #<a name="load-balancer-documentation"></a>Documentazione sul servizio di bilanciamento del carico
 
 Informazioni su come configurare il servizio di bilanciamento del carico per offrire elevati livelli di disponibilità e prestazioni di rete per le applicazioni. La documentazione illustra come bilanciare il carico del traffico da e verso le macchine virtuali e le risorse cloud, anche in reti virtuali cross-premise.
@@ -96,7 +109,7 @@ Informazioni su come configurare il servizio di bilanciamento del carico per off
                     <div class="cardText">
                         <h3>Riga di comando</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network">PowerShell</a></p>
-                        <p><a href="/cli/azure/network/lb">Interfaccia della riga di comando di Azure 2.0 (anteprima)</a></p>
+                        <p><a href="/cli/azure/network/lb">Interfaccia della riga di comando di Azure 2.0</a></p>
                     </div>
                 </div>
             </div>
@@ -132,10 +145,5 @@ Informazioni su come configurare il servizio di bilanciamento del carico per off
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

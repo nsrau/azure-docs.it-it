@@ -4,7 +4,7 @@ description: Informazioni sulla sicurezza di app Web, back-end di app per dispos
 services: app-service
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 5ce560b4-42d7-4b20-935c-0445fd539e39
 ms.service: app-service
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 169366535ed15d40de22bf71f444df7569562c8a
+ms.sourcegitcommit: eaf3df69428124127ef3daf134bc948cd0988ec6
+ms.openlocfilehash: c1956e97444077f197ab5d0fd67097ddea0f7244
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -54,17 +55,17 @@ Uno dei modi più semplici per iniziare a eseguire test di vulnerabilità per le
 
 Se si preferisce eseguire i propri test di penetrazione o usare un altro gruppo o fornitore di strumenti di scansione, è necessario seguire il [processo di approvazione dei test di penetrazione di Azure](https://security-forms.azure.com/penetration-testing/terms) e ottenere l'approvazione preventiva per eseguire i test di penetrazione desiderati.
 
-## <a name="a-namehttpsa-secure-communication-with-customers"></a><a name="https"></a> Garantire la sicurezza delle comunicazioni con i clienti
+## <a name="https"></a> Garantire la sicurezza delle comunicazioni con i clienti
 Se si usa il nome di dominio **\*.azurewebsites.net** creato per l'app del servizio app, è possibile usare immediatamente HTTPS, in quanto viene reso disponibile un certificato SSL per tutti i nomi di dominio **\*.azurewebsites.net**. Se il sito usa un [nome di dominio personalizzato](web-sites-custom-domain-name.md) è possibile caricare un certificato SSL per [abilitare HTTPS](web-sites-configure-ssl-certificate.md) per il dominio personalizzato.
 
 L'abilitazione di [HTTPS](https://en.wikipedia.org/wiki/HTTPS) aumenta la protezione da attacchi MITM nelle comunicazioni tra l'app e gli utenti.
 
 ## <a name="secure-data-tier"></a>Sicurezza del livello dati
-Il servizio app si integra strettamente con il database SQL, in modo che tutte le stringhe di connessione vengano crittografate a tutti i livelli e vengano decrittografate solo sulla VM che esegue l'app *e* solo quando l'app viene eseguita. Il database SQL di Azure include anche molte funzionalità di sicurezza per proteggere i dati dell'applicazione da minacce informatiche, tra cui [crittografia dei dati inattivi](https://msdn.microsoft.com/library/dn948096.aspx), [crittografia sempre attiva](https://msdn.microsoft.com/library/mt163865.aspx), [maschera dati dinamica](../sql-database/sql-database-dynamic-data-masking-get-started.md) e [rilevamento delle minacce](../sql-database/sql-database-threat-detection-get-started.md). In caso di dati sensibili o requisiti di conformità, vedere l'articolo relativo alla [sicurezza del database SQL](../sql-database/sql-database-security.md) per altre informazioni su come proteggere i dati.
+Il servizio app si integra strettamente con il database SQL, in modo che tutte le stringhe di connessione vengano crittografate a tutti i livelli e vengano decrittografate solo sulla VM che esegue l'app *e* solo quando l'app viene eseguita. Il database SQL di Azure include anche molte funzionalità di sicurezza per proteggere i dati dell'applicazione da minacce informatiche, tra cui [crittografia dei dati inattivi](https://msdn.microsoft.com/library/dn948096.aspx), [crittografia sempre attiva](https://msdn.microsoft.com/library/mt163865.aspx), [maschera dati dinamica](../sql-database/sql-database-dynamic-data-masking-get-started.md) e [rilevamento delle minacce](../sql-database/sql-database-threat-detection.md). In caso di dati sensibili o requisiti di conformità, vedere l'articolo relativo alla [sicurezza del database SQL](../sql-database/sql-database-security-overview.md) per altre informazioni su come proteggere i dati.
 
 Se si usa un provider di database di terze parti, ad esempio ClearDB, è consigliabile consultare direttamente la documentazione del fornitore per le procedure di sicurezza consigliate.  
 
-## <a name="a-namedevelopa-secure-development-and-deployment"></a><a name="develop"></a> Garantire la sicurezza dello sviluppo e della distribuzione
+## <a name="develop"></a> Garantire la sicurezza dello sviluppo e della distribuzione
 ### <a name="publishing-profiles-and-publish-settings"></a>Profili e impostazioni di pubblicazione
 Quando si sviluppano applicazioni, si eseguono attività di gestione o si automatizzano attività usando utilità come **Visual Studio**, **Web Matrix**, **Azure PowerShell** o l'**interfaccia della riga di comando di Azure**, è possibile usare un file di *impostazioni di pubblicazione* o un *profilo di pubblicazione*. Entrambi i tipi di file eseguono l'autenticazione dell'utente con Azure e devono essere protetti per evitare accessi non autorizzati.
 
@@ -116,10 +117,5 @@ Per informazioni sulla registrazione di informazioni nelle app del servizio app,
 
 ## <a name="whats-changed"></a>Modifiche apportate
 * Per una guida relativa al passaggio da Siti Web al servizio app, vedere [Servizio app di Azure e impatto sui servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

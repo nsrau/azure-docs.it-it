@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 79adce1f3fb9a33e60159af72e83118dd88e0946
-ms.openlocfilehash: ecddf255f4b4750bf67f2689b0274c04f8ec54b7
+ms.sourcegitcommit: bb078183b24cd5c5172b48f1135eced061220cf5
+ms.openlocfilehash: 3c0c00bf9e4380a682ff1e155fb6d9a3826f4b00
 
 
 ---
@@ -70,7 +70,7 @@ Questo passaggio non è necessario se si sta eseguendo la replica in Azure.
 3. Configurare l'autenticazione:
 
    * In **Autenticazione e porte** selezionare la modalità di autenticazione del server primario e le porte di autenticazione. Se si usa un certificato, fare clic su **Seleziona certificato** per selezionarne uno. Usare Kerberos se gli host Hyper-V primario e di ripristino si trovano nello stesso dominio o in domini attendibili. Usare i certificati per domini diversi o la distribuzione in un gruppo di lavoro.
-   * In **Autorizzazione e spazi di archiviazione** consentire a **qualsiasi** server (primario) autenticato di inviare dati di replica al server di replica. 
+   * In **Autorizzazione e spazi di archiviazione** consentire a **qualsiasi** server (primario) autenticato di inviare dati di replica al server di replica.
 
      ![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image1.png)
    * Eseguire **netsh http show servicestate** per controllare che il listener sia in esecuzione per il protocollo e la porta specificati:  
@@ -133,11 +133,9 @@ Dopo aver completato la pianificazione della capacità, iniziare la distribuzion
 * [Replicare le VM Hyper-V nei cloud VMM in Azure.](site-recovery-vmm-to-azure.md)
 * [Eseguire la replica di VM Hyper-V (senza VMM) in Azure](site-recovery-hyper-v-site-to-azure.md)
 * [Eseguire la replica di VM Hyper-V tra siti VMM](site-recovery-vmm-to-vmm.md)
-* [Eseguire la replica di VM Hyper-V tra siti VMM con SAN](site-recovery-vmm-san.md)
-* [Eseguire la replica di VM Hyper-V su server VMM singolo](site-recovery-single-vmm.md)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

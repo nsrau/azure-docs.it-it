@@ -1,5 +1,5 @@
 ---
-title: Gestire gli indirizzi IP riservati (classica) tramite PowerShell | Documenti di Microsoft
+title: Gestire gli indirizzi IP riservati di Azure (versione classica) - PowerShell | Microsoft Docs
 description: Comprendere gli indirizzi IP riservati (classica) e come gestirli tramite PowerShell.
 services: virtual-network
 documentationcenter: na
@@ -15,19 +15,20 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: c934f78e514230958fad8b2aa9be4d2e56a3a835
-ms.openlocfilehash: 55071ffe1bcc17b2181b4c52f51d28571a2f0eff
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 276b1bcebbe3c32d6fead8ee240dd1ddfb01c872
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="reserved-ip-addresses-classic"></a>Indirizzi IP riservati (classica)
 
 > [!div class="op_single_selector"]
-- [Portale di Azure](virtual-network-deploy-static-pip-arm-portal.md)
-- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-- [Interfaccia della riga di comando di Azure](virtual-network-deploy-static-pip-arm-cli.md)
-- [Modello](virtual-network-deploy-static-pip-arm-template.md)
-- [PowerShell (Classic)](virtual-networks-reserved-public-ip.md) (PowerShell (classico))
+> * [Portale di Azure](virtual-network-deploy-static-pip-arm-portal.md)
+> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+> * [Interfaccia della riga di comando di Azure](virtual-network-deploy-static-pip-arm-cli.md)
+> * [Modello](virtual-network-deploy-static-pip-arm-template.md)
+> * [PowerShell (Classic)](virtual-networks-reserved-public-ip.md) (PowerShell (classico))
 
 Gli indirizzi IP in Azure rientrano in due categorie: indirizzi dinamici e indirizzi riservati. Gli indirizzi IP pubblici gestiti da Azure sono dinamici per impostazione predefinita. Questo significa che l'indirizzo IP usato per un determinato servizio cloud (VIP) oppure per accedere direttamente a una macchina virtuale o a un'istanza del ruolo (ILPIP) può cambiare di tanto in tanto.
 
@@ -164,10 +165,5 @@ Set-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName TestSer
 * Informazioni sul funzionamento degli [indirizzi IP](virtual-network-ip-addresses-overview-classic.md) nel modello di distribuzione classica.
 * Informazioni su [indirizzi IP privati riservati](virtual-networks-reserved-private-ip.md).
 * Informazioni su [indirizzo IP pubblico a livello di istanza (ILPIP)](virtual-networks-instance-level-public-ip.md).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

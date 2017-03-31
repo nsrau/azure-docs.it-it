@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 01/19/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f9acb44fb6b6fac41da4dc05745a68066b0477fb
+ms.sourcegitcommit: 6b82132b24fb2be3f0d8ab5112c712c27edb733e
+ms.openlocfilehash: 4d7754e73abedb704b81fa0001e1957422bde1b3
 
 
 ---
@@ -98,7 +98,7 @@ Il modo più rapido per iniziare è compilare ed eseguire l'esempio .NET riporta
     DocumentDBBenchmark completed successfully.
 
 
-**Passaggio 4 (se necessario)** : la velocità effettiva segnalata (UR/sec) dallo strumento deve essere analoga o superiore a quella della raccolta. In caso contrario, l'aumento di DegreeOfParallelism in incrementi ridotti può aiutare a raggiungere il limite. Se la velocità effettiva dall'app client su stabilizza, l'avvio di più istanze dell'app nelle stesse macchine o in macchine diverse consente di raggiungere il limite di provisioning tra istanze diverse. Per richiedere assistenza per questa operazione, scrivere un e-mail a askdocdb@microsoft.com o compilare un ticket di supporto.
+**Passaggio 4 (se necessario)** : la velocità effettiva segnalata (UR/sec) dallo strumento deve essere analoga o superiore a quella della raccolta. In caso contrario, l'aumento di DegreeOfParallelism in incrementi ridotti può aiutare a raggiungere il limite. Se la velocità effettiva dall'app client su stabilizza, l'avvio di più istanze dell'app nelle stesse macchine o in macchine diverse consente di raggiungere il limite di provisioning tra istanze diverse. Per ottenere assistenza per questo passaggio, inviare un messaggio di posta elettronica all'indirizzo askdocdb@microsoft.com o creare un ticket di supporto dal [portale di Azure](https://portal.azure.com).
 
 Quando l'app è in esecuzione, è possibile provare diversi [criteri di indicizzazione](documentdb-indexing-policies.md) e [livelli di coerenza](documentdb-consistency-levels.md) per comprenderne l'impatto sulla velocità effettiva e sulla latenza. È anche possibile esaminare il codice sorgente e implementare configurazioni analoghe alle suite di test o alle applicazioni di produzione.
 
@@ -116,6 +116,6 @@ In questo articolo è stato illustrato come eseguire test delle prestazioni e de
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

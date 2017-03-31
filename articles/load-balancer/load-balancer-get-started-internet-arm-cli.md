@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 002fa917e0cc17c34e0e617a28f2e21ba9b7e35f
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 3b1780033cbc8aa3e108a213a4d2bfd0332fd7d7
+ms.lasthandoff: 03/21/2017
 
 ---
 # <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>Creazione di un servizio di bilanciamento del carico Internet tramite l'interfaccia della riga di comando di Azure
@@ -52,7 +53,7 @@ Per altre informazioni, vedere [Supporto di Gestione risorse di Azure per il ser
 
 ## <a name="set-up-cli-to-use-resource-manager"></a>Configurare l'interfaccia della riga di comando per l'uso di Resource Manager
 
-1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
+1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
 2. Eseguire il comando **azure config mode** per passare alla modalità Gestione risorse, come illustrato di seguito.
 
     ```azurecli
@@ -131,7 +132,7 @@ Questo esempio crea gli elementi seguenti.
 2. Creare una regola del servizio di bilanciamento del carico.
 
     ```azurecli
-        azure network lb rule create --resource-group nrprg nrplb --lb-name lbrule --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name NRPfrontendpool --backend-address-pool-name NRPbackendpool
+        azure network lb rule create --resource-group nrprg --lb-name nrplb --name lbrule --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name NRPfrontendpool --backend-address-pool-name NRPbackendpool
     ```
 
 3. Creare un probe di integrità.
@@ -308,9 +309,4 @@ azure network lb delete --resource-group nrprg --name nrplb
 [Configurare una modalità di distribuzione del servizio di bilanciamento del carico](load-balancer-distribution-mode.md)
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

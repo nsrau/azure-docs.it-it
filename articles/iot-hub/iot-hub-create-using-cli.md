@@ -1,6 +1,6 @@
 ---
 title: Creare un hub IoT usando l&quot;interfaccia della riga di comando di Azure (az.py) | Documentazione Microsoft
-description: Come creare un hub IoT di Azure usando l&quot;interfaccia della riga di comando di Azure multipiattaforma 2.0 (anteprima) (az.py).
+description: Come creare un hub IoT di Azure usando l&quot;interfaccia della riga di comando di Azure 2.0 multipiattaforma (az.py).
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,31 +12,32 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2016
+ms.date: 03/16/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 39c8c4944ef19379dc04e04a717ab60d305593c4
-ms.openlocfilehash: c52d9a5fadf494cc066bee773543c9d67bb8334b
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 6fe5ed03611d68a1201e4fe48580a3499811abeb
+ms.lasthandoff: 03/17/2017
 
 
 ---
-# <a name="create-an-iot-hub-using-the-azure-cli-20-preview"></a>Creare un hub IoT usando l'interfaccia della riga di comando di Azure 2.0 (anteprima)
+# <a name="create-an-iot-hub-using-the-azure-cli-20"></a>Creare un hub IoT usando l'interfaccia della riga di comando di Azure 2.0
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## <a name="introduction"></a>Introduzione
 
-È possibile usare l'interfaccia della riga di comando di Azure 2.0 (anteprima) (az.py) per creare e gestire hub IoT di Azure a livello di codice. Questo articolo illustra come usare l'interfaccia della riga di comando di Azure 2.0 (anteprima) (az.py) per creare un hub IoT.
+È possibile usare l'interfaccia della riga di comando di Azure 2.0 (az.py) per creare e gestire hub IoT di Azure a livello di codice. Questo articolo illustra come usare l'interfaccia della riga di comando di Azure 2.0 (az.py) per creare un hub IoT.
 
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 * [Interfaccia della riga di comando di Azure (azure.js)](iot-hub-create-using-cli-nodejs.md): l'interfaccia della riga di comando per i modelli di distribuzione classica e di gestione delle risorse.
-* Interfaccia della riga di comando di Azure 2.0 (anteprima) (az.py): l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse, come descritto in questo articolo.
+* Interfaccia della riga di comando di Azure 2.0 (az.py): interfaccia avanzata per il modello di distribuzione di gestione delle risorse, come descritto in questo articolo.
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Un account Azure attivo. Se non si ha un account, è possibile crearne uno [gratuito][lnk-free-trial] in pochi minuti.
-* [Interfaccia della riga di comando di Azure 2.0 (anteprima)][lnk-CLI-install].
+* [Interfaccia della riga di comando di Azure 2.0][lnk-CLI-install].
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Accedere all'account Azure e impostarlo
 
@@ -62,18 +63,6 @@ Accedere all'account di Azure e configurare l'interfaccia della riga di comando 
     az account set --subscription {your subscription name or id}
     ```
 
-3. È necessario registrare il provider IoT per poter distribuire le risorse IoT. Eseguire questo [comando per registrare il provider IoT][lnk-az-register-command]:
-    
-    ```azurecli
-    az provider register -namespace "Microsoft.Devices"
-    ```
-
-4. Potrebbe essere necessario installare il _componente iot_ dell'interfaccia della riga di comando di Azure. Eseguire questo [comando per aggiungere il componente iot][lnk-az-addcomponent-command]:
-    
-    ```azurecli
-    az component update --add iot
-    ```
-
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
 Usare l'interfaccia della riga di comando di Azure per creare un gruppo di risorse e quindi aggiungere un hub IoT.
@@ -81,7 +70,7 @@ Usare l'interfaccia della riga di comando di Azure per creare un gruppo di risor
 1. Quando si crea un hub IoT, è necessario crearlo in un gruppo di risorse. Usare un gruppo di risorse esistente o eseguire questo [comando per creare un gruppo di risorse][lnk-az-resource-command]:
     
     ```azurecli
-     az resource group create --name {your resource group name} --location westus
+     az group create --name {your resource group name} --location westus
     ```
 
     > [!TIP]
@@ -96,7 +85,7 @@ Usare l'interfaccia della riga di comando di Azure per creare un gruppo di risor
     ```
 
 > [!NOTE]
-> Il nome dell'hub IoT deve essere globalmente univoco. Il comando precedente crea un hub IoT nel piano tariffario S1 che viene fatturato. Per altre informazioni, vedere [Prezzi dell'hub Iot di Azure][lnk-iot-pricing].
+> Il nome dell'hub IoT deve essere globalmente univoco. Il comando precedente crea un hub IoT nel piano tariffario S1 che viene fatturato. Per altre informazioni, vedere [Azure IoT Hub Prezzi][lnk-iot-pricing].
 >
 >
 
@@ -113,11 +102,11 @@ az resource delete --name {your iot hub name} --resource-group {your resource gr
 Per eliminare un gruppo di risorse e tutte le risorse, eseguire questo comando:
 
 ```azurecli
-az resource group delete --name {your resource group name}
+az group delete --name {your resource group name}
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle attività di sviluppo per l'hub IoT, vedere quanto segue:
+Per altre informazioni sulle attività di sviluppo per l'hub IoT, vedere gli articoli seguenti:
 
 * [Guida per gli sviluppatori dell'hub IoT][lnk-devguide]
 
@@ -137,9 +126,4 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-iot-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-portal]: iot-hub-create-through-portal.md 
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

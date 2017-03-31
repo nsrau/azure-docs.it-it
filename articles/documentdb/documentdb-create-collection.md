@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2017
+ms.date: 02/08/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: ab863266e1462f970b7906f68be2bcf5edb0dfc3
-ms.openlocfilehash: ac64bb0de03053702a4663c9356b3f9ce332c7de
+ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
+ms.openlocfilehash: 8ee846e659d0a47a5fb39d6baa3235f59e19d653
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -40,7 +41,7 @@ Per informazioni sulle raccolte, vedere [Creare una raccolta DocumentDB](#what-i
 
     Impostare la capacità di archiviazione su **10 GB** se si desidera una [raccolta a partizione singola](documentdb-partition-data.md#single-partition-and-partitioned-collections) con livelli di velocità effettiva da 400-10.000 unità richiesta/secondo (UR/s). Una unità richiesta corrisponde alla velocità effettiva dell'operazione di lettura di un documento da 1 KB. Per altre informazioni sulle unità richiesta, vedere l'articolo [Unità richiesta in DocumentDB](documentdb-request-units.md).
 
-    Impostare la capacità di archiviazione su **250 GB** se si desidera una [raccolta partizionata](documentdb-partition-data.md#single-partition-and-partitioned-collections) scalabile per gestire una quantità illimitata di archiviazione in più partizioni e in grado di offrire livelli di velocità effettiva da 10.100 UR/s.
+    Impostare la capacità di archiviazione su **250 GB** se si vuole una [raccolta partizionata](documentdb-partition-data.md#single-partition-and-partitioned-collections) scalabile per gestire una quantità illimitata di archiviazione in più partizioni e in grado di offrire livelli di velocità effettiva da 2.500 UR/s.
 
     Impostare la capacità di archiviazione su **Personalizzata** se si desidera eseguire il provisioning di una quantità diversa da 10 GB o 250 GB. DocumentDB ha una scalabilità praticamente illimitata, pertanto, è consigliabile includere la dimensione e la velocità effettiva di archiviazione richieste nella richiesta di supporto.
 
@@ -79,10 +80,5 @@ A questo punto, dopo aver creato una raccolta, il passaggio successivo consiste 
 * È possibile [importare i documenti e i dati](documentdb-import-data.md) usando lo strumento di migrazione dati di DocumentDB, che consente di importare i file JSON e CSV, oltre ai dati da SQL Server, MongoDB, Archiviazione tabelle di Azure e altre raccolte DocumentDB.
 * Oppure è possibile aggiungere i documenti usando gli [SDK di DocumentDB](documentdb-sdk-dotnet.md). DocumentDB dispone di .NET, Java, Python, Node. js e SDK di API JavaScript. Per esempi di codice C# che illustrano l'uso dei documenti con DocumentDB .NET SDK, vedere [Esempi di documento per C#](documentdb-dotnet-samples.md#document-examples). Per esempi di codice Node.js che illustrano l'uso dei documenti con DocumentDB Node.js SDK, vedere [Esempi di documento per Node.js](documentdb-nodejs-samples.md#document-examples).
 
-Quando sono presenti documenti in una raccolta, è possibile usare [DocumentDB SQL](documentdb-sql-query.md) per [eseguire query](documentdb-sql-query.md#executing-sql-queries) nei documenti con [Esplora query](documentdb-query-collections-query-explorer.md) nel portale, l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK](documentdb-sdk-dotnet.md). 
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+Quando sono presenti documenti in una raccolta, è possibile usare [DocumentDB SQL](documentdb-sql-query.md) per [eseguire query](documentdb-sql-query.md#ExecutingSqlQueries) nei documenti con [Esplora query](documentdb-query-collections-query-explorer.md) nel portale, l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK](documentdb-sdk-dotnet.md). 
 

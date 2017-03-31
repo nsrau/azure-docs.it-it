@@ -9,6 +9,7 @@ author: Blackmist
 tags: azure-portal
 ms.assetid: 303649a5-4be5-4933-bf1d-4b232083c354
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,8 +17,9 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
-ms.openlocfilehash: e6a3e91e5821e761af0ff710da2a817eb7c185bb
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 32e86b0c3e7c0091b1a0510aa682419d2d030dd8
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -38,10 +40,8 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 ## <a name="install-freetds"></a>Installare FreeTDS
 1. Usare SSH per connettersi al cluster HDInsight basato su Linux. L'indirizzo da usare durante la connessione è `CLUSTERNAME-ssh.azurehdinsight.net` e la porta è `22`.
 
-    Per altre informazioni sull'uso di SSH per connettersi a HDInsight, vedere i seguenti documenti:
+    Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-   * **Client Linux, Unix o OS X**: vedere [Connettersi a un cluster HDInsight basato su Linux, Unix e OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * **Client Windows**: vedere [Connettersi a un cluster HDInsight basato su Linux da client Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 2. Immettere il comando seguente per installare FreeTDS:
 
         sudo apt-get --assume-yes install freetds-dev freetds-bin
@@ -196,9 +196,4 @@ In questa esercitazione si è appreso come usare Sqoop. Per altre informazioni, 
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2016
+ms.date: 03/4/2016
 ms.author: helaw
 translationtype: Human Translation
-ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
-ms.openlocfilehash: 065f935c07737f13adf0c5f5d8e0c665a98a2af7
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 5530d2d10695f1760ff56e9f171af836f926bead
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -31,13 +32,14 @@ Because Azure Stack is hosted in your datacenter, it has different service endpo
       '/',variables('OSDiskName'),'.vhd')]"}}
 
 ## <a name="api-versioning"></a>API versioning
-Azure service versions may differ between Azure and Azure Stack. Each resource requires the apiVersion attribute, which defines the capabilities offered. To ensure API version compatibility in Azure Stack TP2, the following are valid API versions for each Resource Provider:
+Azure service versions may differ between Azure and Azure Stack. Each resource requires the apiVersion attribute, which defines the capabilities offered. To ensure API version compatibility in Azure Stack TP3, the following are valid API versions for each Resource Provider:
 
 | Resource Provider | apiVersion |
 | --- | --- |
 | Compute |'2015-06-15' |
 | Network |'2015-06-15', '2015-05-01-preview' |
 | Storage |'2016-01-01', '2015-06-15', '2015-05-01-preview' |
+| KeyVault | '2015-06-01' |
 | App Service |'2015-08-01' |
 | MySQL |'2015-09-01' |
 | SQL |'2014-04-01-preview' |
@@ -49,7 +51,7 @@ Resource Manager [functions](../azure-resource-manager/resource-group-template-f
 * Reference values from other resources
 * Iterating on resources to deploy multiple instances 
 
-As you build your templates, some functions are not available in Azure Stack Technical Preview 2, and should not be used. These functions are:
+As you build your templates, some functions are not available in Azure Stack TP3, and should not be used. These functions are:
 
 * Skip
 * Take
@@ -75,10 +77,5 @@ Resource Manager templates use a location attribute to place resources during de
 * [Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)
 * [Deploy templates with Azure CLI](azure-stack-deploy-template-command-line.md)
 * [Deploy templates with Visual Studio](azure-stack-deploy-template-visual-studio.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

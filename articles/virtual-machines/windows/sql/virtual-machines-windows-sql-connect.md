@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/15/2016
+ms.date: 02/28/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 699d0c37adb9618827b6b39d74d09c2f9ba92913
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 37b0abfa38282d7e8789ba5687f0937a60262464
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-resource-manager"></a>Connettersi a una macchina virtuale di SQL Server in Azure (Gestione risorse)
 > [!div class="op_single_selector"]
 > * [Gestione risorse](virtual-machines-windows-sql-connect.md)
-> * [Classico](../sqlclassic/virtual-machines-windows-classic-sql-connect.md)
+> * [Classico](../classic/sql-connect.md)
 > 
 > 
 
@@ -32,7 +33,7 @@ Questo argomento descrive la modalità di connessione all'istanza di SQL Server 
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Per visualizzare la versione classica di questo articolo, vedere [Connettersi a una macchina virtuale di SQL Server in Azure (distribuzione classica)](../sqlclassic/virtual-machines-windows-classic-sql-connect.md).
+Per visualizzare la versione classica di questo articolo, vedere [Connettersi a una macchina virtuale di SQL Server in Azure (distribuzione classica)](../classic/sql-connect.md).
 
 Per una procedura dettagliata completa del provisioning e della connettività, vedere [Provisioning di una macchina virtuale di SQL Server in Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
@@ -112,10 +113,5 @@ Per la procedura di configurazione della connettività e del provisioning, veder
 [Esplorare il percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) per SQL Server in macchine virtuali di Azure.
 
 Per altri argomenti relativi all'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

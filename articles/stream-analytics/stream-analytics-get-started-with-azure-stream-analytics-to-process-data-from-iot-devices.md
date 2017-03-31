@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/24/2017
+ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
 ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
 ms.openlocfilehash: 9624405d8bc454e886e8011c1cb4920fdf7e0640
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -118,10 +119,5 @@ In questo caso viene usato un **LEFT OUTER JOIN** per lo stesso flusso di dati (
 
 ## <a name="conclusion"></a>Conclusione
 Lo scopo di questa esercitazione è illustrare come scrivere diverse query nel linguaggio di query di Analisi di flusso e visualizzare i risultati nel browser. Si tratta, tuttavia, di informazioni di base, perché Analisi di flusso consente di eseguire molte altre attività. Analisi di flusso supporta un'ampia gamma di input e output e può anche usare le funzioni di Azure Machine Learning per offrire uno strumento efficace per l'analisi dei flussi di dati. Per iniziare a esplorare Analisi di flusso, è possibile usare la [mappa di apprendimento](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/). Per altre informazioni su come scrivere le query, vedere l'articolo sui [modelli di query comuni](stream-analytics-stream-analytics-query-patterns.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

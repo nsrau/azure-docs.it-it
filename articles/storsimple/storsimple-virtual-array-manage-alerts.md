@@ -4,7 +4,7 @@ description: "Vengono descritte le condizioni di avviso dell&quot;array virtuale
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 97ee25a1-0ec3-4883-9a0a-54b722598462
 ms.service: storsimple
@@ -12,14 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ae076d52b532f5181868b2ab24ee8f2ffa887af7
-ms.openlocfilehash: 33b14d56b8d3622ba4e7bfb553e86055e57362fb
+ms.sourcegitcommit: b870974efdde2ebdf339013ca86b772b665151a4
+ms.openlocfilehash: 8cfdad48524c24b3ad69c01ae0330e90ce197b3a
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="use-the-storsimple-device-manager-service-to-view-and-manage-alerts-for-the-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare e gestire gli avvisi per l'array virtuale StorSimple
+# <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Usare Gestione dispositivi StorSimple per gestire gli avvisi per l'array virtuale StorSimple
 
 ## <a name="overview"></a>Panoramica
 
@@ -142,15 +144,15 @@ Nelle tabelle seguenti sono elencati alcuni avvisi di StorSimple che potrebbero 
 
 | Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
-| Non è stato possibile completare il backup di <*nome dispositivo*>. |Il processo di backup non è riuscito. |Non è stato possibile creare un backup. Considerare uno degli aspetti seguenti:<ul><li>I problemi di connettività potrebbero impedire il completamento dell'operazione di backup. Assicurarsi che non siano presenti problemi di connettività. Per altre informazioni sulle risoluzione dei problemi di connettività, vedere l'[interfaccia utente Web locale](storsimple-ova-web-ui-admin.md) del dispositivo virtuale.</li><li>È stato raggiunto il limite di archiviazione disponibile. Provare a eliminare i backup che non sono più necessari per liberare spazio.</li></ul>  Risolvere i problemi, cancellare l'avviso e ripetere l'operazione. |
-| Non è stato possibile completare la creazione del clone di <*nome dispositivo*>. |Il processo di clonazione non è riuscito. |Impossibile creare un clone. Considerare uno degli aspetti seguenti:<ul><li>L'elenco di backup potrebbe non essere valido. Aggiornare l'elenco per verificare che sia ancora valido.</li><li>I problemi di connettività potrebbero impedire il completamento dell'operazione di clonazione. Assicurarsi che non siano presenti problemi di connettività.</li><li>È stato raggiunto il limite di archiviazione disponibile. Provare a eliminare i backup che non sono più necessari per liberare spazio.</li></ul> Risolvere i problemi, cancellare l'avviso e ripetere l'operazione. |
+| Non è stato possibile completare il backup di <*nome dispositivo*>. |Il processo di backup non è riuscito. |Non è stato possibile creare un backup. Considerare uno degli aspetti seguenti:<ul><li>I problemi di connettività potrebbero impedire il completamento dell'operazione di backup. Assicurarsi che non siano presenti problemi di connettività. Per altre informazioni sulle risoluzione dei problemi di connettività, vedere l'[interfaccia utente Web locale](storsimple-ova-web-ui-admin.md) del dispositivo virtuale.</li><li>È stato raggiunto il limite di archiviazione disponibile. Provare a eliminare i backup che non sono più necessari per liberare spazio.</li></ul> Risolvere i problemi, cancellare l'avviso e ripetere l'operazione. |
+| Non è stato possibile completare la creazione del clone di <*nome dispositivo*>. |Il processo di clonazione non è riuscito. |Impossibile creare un clone. Considerare uno degli aspetti seguenti:<ul><li>L'elenco di backup potrebbe non essere valido. Aggiornare l'elenco per verificare che sia ancora valido.</li><li>I problemi di connettività potrebbero impedire il completamento dell'operazione di clonazione. Assicurarsi che non siano presenti problemi di connettività.</li><li>È stato raggiunto il limite di archiviazione disponibile. Provare a eliminare i backup che non sono più necessari per liberare spazio.</li></ul>Risolvere i problemi, cancellare l'avviso e ripetere l'operazione. |
 
 ### <a name="performance-alerts"></a>Avvisi di prestazioni
 
 | Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Si stanno verificando ritardi imprevisti nel trasferimento dei dati. |Trasferimento dati lento. |Gli errori di limitazione si verificano quando si superano gli obiettivi di scalabilità di un servizio di archiviazione. In questo modo il servizio di archiviazione assicura che nessun client o tenant possa usare il servizio a spese di altri. Per altre informazioni sulla risoluzione dei problemi relativi all'account di archiviazione di Azure, vedere [Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure](../storage/storage-monitoring-diagnosing-troubleshooting.md). |
-| Lo spazio su disco riservato in locale in <*nome dispositivo*> è quasi esaurito. |Tempo di risposta lento. |Il 10% delle dimensioni totali di cui è stato eseguito il provisioning per <*nome dispositivo*> è riservato nel dispositivo locale e al momento lo spazio riservato è quasi esaurito. Il carico di lavoro in <*nome dispositivo*> sta generando un'elevata varianza o è possibile che di recente sia stata eseguita la migrazione di una grande quantità di dati causando una riduzione delle prestazioni. Questo può comportare una riduzione delle prestazioni. Per risolvere questo problema, provare a eseguire una delle azioni seguenti:<ul><li>Aumentare la larghezza di banda cloud sul dispositivo.</li><li>Ridurre o spostare i carichi di lavoro in un altro volume o condivisione.</li></ul> |
+| Lo spazio su disco riservato in locale in <*nome dispositivo*> è quasi esaurito. |Tempo di risposta lento. |Il&10;% delle dimensioni totali di cui è stato eseguito il provisioning per <*nome dispositivo*> è riservato nel dispositivo locale e al momento lo spazio riservato è quasi esaurito. Il carico di lavoro in <*nome dispositivo*> sta generando un'elevata varianza o è possibile che di recente sia stata eseguita la migrazione di una grande quantità di dati causando una riduzione delle prestazioni. Questo può comportare una riduzione delle prestazioni. Per risolvere questo problema, provare a eseguire una delle azioni seguenti:<ul><li>Aumentare la larghezza di banda cloud sul dispositivo.</li><li>Ridurre o spostare i carichi di lavoro in un altro volume o condivisione.</li></ul> |
 
 ### <a name="security-alerts"></a>Avvisi di sicurezza
 
@@ -168,10 +170,5 @@ Nelle tabelle seguenti sono elencati alcuni avvisi di StorSimple che potrebbero 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Informazioni sull'array virtuale StorSimple](storsimple-ova-overview.md).
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

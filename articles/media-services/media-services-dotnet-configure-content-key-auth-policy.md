@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 01/05/2017
 ms.author: juliako;mingfeiy
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 39f4f0b7e9bbe28a36471558c8535ee9f3cd17ff
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 3dcd45307716b7343fbac00e083e8f26c9eb967f
+ms.lasthandoff: 01/11/2017
 
 
 ---
@@ -38,14 +39,14 @@ Servizi multimediali non fornisce servizi token di sicurezza. Per il rilascio di
 
 Per altre informazioni, vedere
 
-[Autenticazione dei token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
+[Autenticazione tramite token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 
 [Integrare l'app basata su OWIN MVC di Servizi multimediali di Azure con Azure Active Directory e limitare la distribuzione di chiavi simmetriche in base ad attestazioni JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
 [Usare il Servizio di controllo di accesso di Azure per il rilascio di token](http://mingfeiy.com/acs-with-key-services).
 
 ### <a name="some-considerations-apply"></a>Considerazioni applicabili:
-* Per usare la funzionalità di creazione dinamica dei pacchetti e la crittografia dinamica, è necessario assicurarsi di avere almeno un'unità riservata di streaming. Per altre informazioni, vedere la sezione relativa al [ridimensionamento di un servizio multimediale](media-services-portal-manage-streaming-endpoints.md).
+* Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming dei contenuti e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming deve trovarsi nello stato **In esecuzione**. 
 * L'asset deve contenere un set di file MP4 o Smooth Streaming a velocità in bit adattiva. Per altre informazioni, vedere l'articolo relativo alla [codifica di un asset](media-services-encode-asset.md).
 * Caricare e codificare gli asset mediante l'opzione **AssetCreationOptions.StorageEncrypted** .
 * Se si prevede di avere più chiavi simmetriche che richiedono una stessa configurazione di criteri, è consigliabile creare un singolo criterio di autorizzazione e applicarlo a più chiavi simmetriche.
@@ -59,11 +60,16 @@ Se si applica una restrizione Open, il sistema distribuirà la chiave a chiunque
 
 Il seguente esempio crea un criterio di autorizzazione Open e lo aggiunge alla chiave simmetrica.
 
-static public void AddOpenAuthorizationPolicy(IContentKey contentKey) { // Create ContentKeyAuthorizationPolicy with Open restrictions // e creare un criterio di autorizzazione IContentKeyAuthorizationPolicy policy = _context.
-ContentKeyAuthorizationPolicies.
-CreateAsync("Open Authorization Policy").Result;
-
-List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>();
+    static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
+    {
+        // Create ContentKeyAuthorizationPolicy with Open restrictions
+        // and create authorization policy
+        IContentKeyAuthorizationPolicy policy = _context.
+        ContentKeyAuthorizationPolicies.
+        CreateAsync("Open Authorization Policy").Result;
+        
+        List<ContentKeyAuthorizationPolicyRestriction> restrictions =
+            new List<ContentKeyAuthorizationPolicyRestriction>();
 
         ContentKeyAuthorizationPolicyRestriction restriction =
             new ContentKeyAuthorizationPolicyRestriction
@@ -420,10 +426,5 @@ Per ottenere un token di test basato sulla restrizione Token usata per i criteri
 
 ## <a name="next-step"></a>Passaggio successivo
 Dopo aver configurato i criteri di autorizzazione della chiave simmetrica, passare all'argomento [Come configurare i criteri di distribuzione degli asset](media-services-dotnet-configure-asset-delivery-policy.md) .
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

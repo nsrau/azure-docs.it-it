@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/02/2016
-ms.author: chrande
+ms.date: 01/18/2017
+ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
-ms.openlocfilehash: 36cf563a8318acb9371c48ba7d29e24694446e45
+ms.sourcegitcommit: 770cac8809ab9f3d6261140333ec789ee1390daf
+ms.openlocfilehash: bf9bd2a1b5acdf5a4a4f862bef693f8c60c63a33
 
 
 ---
@@ -46,28 +46,27 @@ Il trigger della coda di archiviazione per una funzione usa gli oggetti JSON seg
 }
 ```
 
-`connection` deve contenere il nome di un'impostazione app che contiene una stringa di connessione di archiviazione. Nel portale di Azure l'editor standard disponibile nella scheda **Integra** configura automaticamente questa impostazione app quando si crea un account di archiviazione o si seleziona un account già esistente. Per creare manualmente questa impostazione app, vedere la sezione relativa alla [configurazione manuale dell'impostazione app]().
+`connection` deve contenere il nome di un'impostazione app che contiene una stringa di connessione di archiviazione. Nel portale di Azure è possibile configurare questa impostazione dell'app nella scheda **Integrazione**, quando si crea un account di archiviazione o si seleziona un account esistente. Per creare manualmente questa impostazione app, vedere la sezione relativa alla [gestione delle impostazioni del servizio app](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings).
 
 È possibile specificare [impostazioni aggiuntive](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) in un file host.json per ottimizzare i trigger della coda di archiviazione.  
 
 ### <a name="handling-poison-queue-messages"></a>Gestione di messaggi della coda non elaborabili
-Quando una funzione di trigger della coda ha esito negativo, per impostazione predefinita Funzioni di Azure ritenta l'esecuzione fino a 5 volte (incluso il primo tentativo) per un dato messaggio della coda. Se tutti i 5 tentativi non riescono, Funzioni aggiunge un messaggio a una coda di archiviazione denominata *&lt;nomecodaoriginale >-poison*. È possibile scrivere una funzione per elaborare i messaggi dalla coda non elaborabile archiviandoli o inviando una notifica della necessità di un intervento manuale. 
+Quando una funzione di trigger della coda ha esito negativo, Funzioni di Azure ritenta l'esecuzione fino a cinque volte per un dato messaggio della coda, incluso il primo tentativo. Se tutti i cinque tentativi non hanno esito negativo, Funzioni aggiunge un messaggio a una coda di archiviazione denominata *&lt;nomecodaoriginale >-poison*. È possibile scrivere una funzione per elaborare i messaggi dalla coda non elaborabile archiviandoli o inviando una notifica della necessità di un intervento manuale. 
 
-Per gestire manualmente i messaggi non elaborabili, è possibile verificare in `dequeueCount`quante volte un messaggio è stato prelevato per l'elaborazione (vedere la sezione relativa ai [metadati dei trigger della coda](#meta)).
+Per gestire manualmente i messaggi non elaborabili, è possibile verificare in `dequeueCount` quante volte un messaggio è stato prelevato per l'elaborazione. Vedere in proposito la sezione relativa ai [metadati dei trigger della coda](#meta).
 
 <a name="triggerusage"></a>
 
-## <a name="trigger-usage"></a>Utilizzo dei trigger
+## <a name="trigger-usage"></a>Uso dei trigger
 Nelle funzioni C# l'associazione al messaggio di input viene eseguita usando un parametro denominato nella firma funzione, ad esempio `<T> <name>`.
 `T` è il tipo di dati in cui si vogliono deserializzare i dati e `paramName` è il nome specificato nell'[associazione del trigger](#trigger). Nelle funzioni Node.js si accede a dati del BLOB di input usando `context.bindings.<name>`.
 
 Il messaggio della coda può essere deserializzato in uno qualsiasi dei seguenti tipi:
 
-* Qualsiasi [oggetto](https://msdn.microsoft.com/library/system.object.aspx), utile per i messaggi serializzati con JSON.
-  Se si dichiara un tipo di input personalizzato, ad esempio `FooType`, Funzioni di Azure tenta di deserializzare i dati JSON nel tipo specificato.
+* [Oggetto](https://msdn.microsoft.com/library/system.object.aspx): usato per i messaggi serializzati JSON. Quando si dichiara un tipo di input personalizzato, il runtime prova a deserializzare l'oggetto JSON. 
 * string
-* Matrice di byte 
-* `CloudQueueMessage` (C#) 
+* Matrice di byte
+* [CloudQueueMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.aspx) (solo C#)
 
 <a name="meta"></a>
 
@@ -148,7 +147,7 @@ public static void Run(string myQueueItem,
 
 ```javascript
 module.exports = function (context) {
-    context.log('Node.js queue trigger function processed work item' context.bindings.myQueueItem);
+    context.log('Node.js queue trigger function processed work item', context.bindings.myQueueItem);
     context.log('queueTrigger =', context.bindingData.queueTrigger);
     context.log('expirationTime =', context.bindingData.expirationTime);
     context.log('insertionTime =', context.bindingData.insertionTime);
@@ -177,45 +176,46 @@ L'output della coda di archiviazione per una funzione usa gli oggetti JSON segue
 }
 ```
 
-`connection` deve contenere il nome di un'impostazione app che contiene una stringa di connessione di archiviazione. Nel portale di Azure l'editor standard disponibile nella scheda **Integra** configura automaticamente questa impostazione app quando si crea un account di archiviazione o si seleziona un account già esistente. Per creare manualmente questa impostazione app, vedere la sezione relativa alla [configurazione manuale dell'impostazione app]().
+`connection` deve contenere il nome di un'impostazione app che contiene una stringa di connessione di archiviazione. Nel portale di Azure l'editor standard disponibile nella scheda **Integra** configura automaticamente questa impostazione app quando si crea un account di archiviazione o si seleziona un account già esistente. Per creare manualmente questa impostazione app, vedere la sezione relativa alla [gestione delle impostazioni del servizio app](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings).
 
 <a name="outputusage"></a>
 
 ## <a name="output-usage"></a>Uso dell'output
-Nelle funzioni C# è possibile scrivere un messaggio della coda usando il parametro denominato `out` nella firma funzione, ad esempio `out <T> <name>`, dove `T` è il tipo di dati in cui si vuole serializzare il messaggio e `paramName` è il nome specificato nell'[associazione di output](#output). Nelle funzioni Node.js si accede all'output usando `context.bindings.<name>`.
+Nelle funzioni C# la scrittura di un messaggio della coda viene eseguita usando il parametro `out` denominato nella firma della funzione, ad esempio `out <T> <name>`. In questo caso `T` è il tipo di dati in cui si vuole serializzare il messaggio e `paramName` è il nome specificato nell'[associazione di output](#output). Nelle funzioni Node.js si accede all'output usando `context.bindings.<name>`.
 
 È possibile restituire un messaggio della coda usando uno dei tipi di dati nel codice:
 
-* Qualsiasi [oggetto](https://msdn.microsoft.com/library/system.object.aspx), utile per la serializzazione con JSON.
-  Se si dichiara un tipo di output personalizzato (ad esempio `out FooType paramName`), Funzioni di Azure tenta di serializzare l'oggetto in JSON. Se il parametro di output è null quando la funzione viene chiusa, il runtime di Funzioni crea un messaggio della coda come un oggetto null.
-* Stringa (`out string paramName`), utile per i messaggi di prova. Il runtime di Funzioni crea il messaggio solo se il parametro di stringa è diverso da null quando la funzione viene chiusa.
-* Matrice di byte (`out byte[]`) 
-* `out CloudQueueMessage`, solo C# 
+* Qualsiasi [oggetto](https://msdn.microsoft.com/library/system.object.aspx): `out MyCustomType paramName`  
+Usato per la serializzazione JSON.  Quando si dichiara un tipo di output personalizzato, il runtime prova a serializzare l'oggetto in JSON. Se il parametro di output è Null quando la funzione viene chiusa, il runtime crea un messaggio della coda come un oggetto Null.
+* Stringa: `out string paramName`  
+Usato per i messaggi di test. Il runtime crea il messaggio solo se il parametro di stringa è diverso da Null quando la funzione viene chiusa.
+* Matrice di byte: `out byte[]` 
 
-In C# è anche possibile definire l'associazione a `ICollector<T>` o `IAsyncCollector<T>` dove `T` è uno dei tipi supportati.
+Questi tipi di output aggiuntivi sono supportati da una funzione C#:
+
+* [CloudQueueMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.aspx): `out CloudQueueMessage` 
+* `ICollector<T>` o `IAsyncCollector<T>`, dove `T` è uno dei tipi supportati.
 
 <a name="outputsample"></a>
 
 ## <a name="output-sample"></a>Esempio di output
 Si supponga di avere il seguente function.json, che definisce un [trigger della coda di archiviazione](functions-bindings-storage-queue.md), un input del BLOB di archiviazione e un output del BLOB di archiviazione:
 
-Esempio di *function.json* per un'associazione di output della coda di archiviazione che usa il trigger della coda e scrive un messaggio della coda:
+Esempio di *function.json* per un'associazione di output della coda di archiviazione che usa un trigger manuale e scrive l'input in un messaggio della coda:
 
 ```json
 {
   "bindings": [
     {
-      "name": "myQueueItem",
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnection",
-      "type": "queueTrigger",
-      "direction": "in"
+      "type": "manualTrigger",
+      "direction": "in",
+      "name": "input"
     },
     {
-      "name": "myQueue",
-      "queueName": "samples-workitems-out",
-      "connection": "MyStorageConnection",
       "type": "queue",
+      "name": "myQueueItem",
+      "queueName": "myqueue",
+      "connection": "my_storage_connection",
       "direction": "out"
     }
   ],
@@ -233,19 +233,19 @@ Vedere l'esempio specifico del linguaggio che scrive un messaggio della coda di 
 ### <a name="output-sample-in-c"></a>Esempio di output in C# #
 
 ```cs
-public static void Run(string myQueueItem, out string myQueue, TraceWriter log)
+public static void Run(string input, out string myQueueItem, TraceWriter log)
 {
-    myQueue = myQueueItem + "(next step)";
+    myQueueItem = "New message: " + input;
 }
 ```
 
 Oppure, per inviare più messaggi,
 
 ```cs
-public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWriter log)
+public static void Run(string input, ICollector<string> myQueueItem, TraceWriter log)
 {
-    myQueue.Add(myQueueItem + "(step 1)");
-    myQueue.Add(myQueueItem + "(step 2)");
+    myQueueItem.Add("Message 1: " + input);
+    myQueueItem.Add("Message 2: " + "Some other message.");
 }
 ```
 
@@ -263,7 +263,8 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 
 ```javascript
 module.exports = function(context) {
-    context.bindings.myQueue = context.bindings.myQueueItem + "(next step)";
+    // Define a new message for the myQueueItem output binding.
+    context.bindings.myQueueItem = "new message";
     context.done();
 };
 ```
@@ -272,20 +273,21 @@ Oppure, per inviare più messaggi,
 
 ```javascript
 module.exports = function(context) {
-    context.bindings.myQueue = [];
-
-    context.bindings.myQueueItem.push("(step 1)");
-    context.bindings.myQueueItem.push("(step 2)");
+    // Define a message array for the myQueueItem output binding. 
+    context.bindings.myQueueItem = ["message 1","message 2"];
     context.done();
 };
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+Per un esempio di funzione che usa trigger e associazioni della coda di archiviazione, vedere [Creare una funzione di Azure connessa a un servizio di Azure](functions-create-an-azure-connected-function.md).
+
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

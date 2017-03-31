@@ -4,7 +4,7 @@ description: Un&quot;esercitazione che illustra come eseguire un&quot;app Web di
 services: app-service\web
 documentationcenter: php
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 tags: mysql
 ms.assetid: cb73859d-48aa-470a-b486-d984746d6d26
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 4e1c3e8fa45f4ef4ee7df7e6bc9ea4aa4fe1b1aa
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: fe1143a2c6966a547caab6b9bd35d78a91446e34
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -43,12 +44,12 @@ Gli sviluppatori PHP possono integrare trasferire il proprio framework PHP prefe
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - [Interfaccia della riga di comando di Azure 1.0](app-service-web-php-get-started-cli-nodejs.md): l'interfaccia della riga di comando per i modelli di distribuzione classici e di gestione delle risorse
-- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](app-service-web-php-get-started.md): l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse
+- [Interfaccia della riga di comando di Azure 2.0](app-service-web-php-get-started.md): interfaccia della riga di comando di prossima generazione per il modello di distribuzione di Gestione risorsa
 
 ## <a name="prerequisites"></a>Prerequisiti
 * [PHP 5.6.29](http://php.net/downloads.php)
 * [Composer](https://getcomposer.org/download/)
-* [Interfaccia della riga di comando di Azure](../xplat-cli-install.md)
+* [Interfaccia della riga di comando di Azure](../cli-install-nodejs.md)
 * [Git](http://www.git-scm.com/downloads)
 * Un account Microsoft Azure. Se non si ha un account, è possibile [iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) oppure [attivare i vantaggi per i sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
@@ -250,10 +251,5 @@ Scoprire come aggiungere dati all'app [creando un database MySQL in Azure](../st
 * [Configurare PHP in App Web del servizio app di Azure](web-sites-php-configure.md)
 * [Conversione di WordPress in un multisito nel servizio app di Azure](web-sites-php-convert-wordpress-multisite.md)
 * [WordPress di livello aziendale nel servizio app di Azure](web-sites-php-enterprise-wordpress.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

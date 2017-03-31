@@ -1,6 +1,6 @@
 ---
 title: Distribuire un cluster per contenitori Docker - Interfaccia della riga di comando di Azure | Documentazione Microsoft
-description: Distribuire un cluster del servizio contenitore di Azure usando la versione 2.0 (anteprima) dell&quot;interfaccia della riga di comando di Azure
+description: Distribuire una soluzione Kubernetes, DC/OS o Docker Swarm nel servizio contenitore di Azure usando l&quot;interfaccia della riga di comando di Azure 2.0
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -14,116 +14,134 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 03/01/2017
 ms.author: saudas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
-ms.openlocfilehash: 991e91fe7699840fe126e22fc55c9f28ea150a8c
+ms.sourcegitcommit: 2464901d22bb91cbf396ef60f4bda6d979b578b7
+ms.openlocfilehash: a0cbf24c2e2f1e6f3a1d2097e6146c09b4eee4fe
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="using-the-azure-cli-20-preview-to-create-an-azure-container-service-cluster"></a>Uso della versione 2.0 (anteprima) dell'interfaccia della riga di comando di Azure per creare un cluster del servizio contenitore di Azure
+# <a name="deploy-a-docker-container-hosting-solution-using-the-azure-cli-20"></a>Distribuire una soluzione di hosting di contenitori Docker usando l'interfaccia della riga di comando di Azure 2.0
 
-Per creare un cluster del servizio contenitore di Azure sono necessari questi elementi:
-* Un account Azure (è possibile [ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/))
-* Aver installato la [versione 2.0 dell'interfaccia della riga di comando di Azure (anteprima)](https://github.com/Azure/azure-cli#installation)
-* Connessione all'account Azure (vedere più avanti)
+Usare i comandi `az acs` nell'interfaccia della riga di comando di Azure 2.0 per creare e gestire i cluster nel servizio contenitore di Azure. È anche possibile distribuire un cluster del servizio contenitore di Azure usando il [portale di Azure](container-service-deployment.md) o le API del servizio contenitore di Azure.
 
-## <a name="log-in-to-your-account"></a>Accedere all'account
+Per informazioni sui comandi `az acs`, passare il parametro `-h` a qualsiasi comando. Ad esempio: `az acs create -h`.
+
+
+
+## <a name="prerequisites"></a>Prerequisiti
+Per creare un cluster del servizio contenitore di Azure usando l'interfaccia della riga di comando di Azure 2.0, è necessario:
+* Avere un account Azure ([versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/))
+* Avere installato e configurato l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2)
+
+## <a name="get-started"></a>Introduzione 
+### <a name="log-in-to-your-account"></a>Accedere all'account
 ```azurecli
 az login 
 ```
-È necessario selezionare questo [collegamento](https://login.microsoftonline.com/common/oauth2/deviceauth) per eseguire l'autenticazione con il codice di dispositivo fornito nell'interfaccia della riga di comando.
 
-![Comando type](media/container-service-create-acs-cluster-cli/login.png)
+Seguire i prompt per accedere in modo interattivo. Per altri metodi di accesso, vedere [Get started with Azure CLI 2.0](/cli/azure/get-started-with-az-cli2) (Introduzione all'interfaccia della riga di comando di Azure 2.0).
 
-![browser](media/container-service-create-acs-cluster-cli/login-browser.png)
+### <a name="set-your-azure-subscription"></a>Configurare la sottoscrizione di Azure
+
+Se si hanno più sottoscrizioni Azure, configurare la sottoscrizione predefinita. Ad esempio:
+
+```
+az account set --subscription "f66xxxxx-xxxx-xxxx-xxx-zgxxxx33cha5"
+```
 
 
-## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
+### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
+È consigliabile creare un gruppo di risorse per ogni cluster. Specificare un'area di Azure in cui sia [disponibile](https://azure.microsoft.com/en-us/regions/services/) il servizio contenitore di Azure. Ad esempio:
+
 ```azurecli
 az group create -n acsrg1 -l "westus"
 ```
+L'output è simile al seguente:
 
-![Immagine della creazione del gruppo di risorse](media/container-service-create-acs-cluster-cli/rg-create.png)
+![Creare un gruppo di risorse](media/container-service-create-acs-cluster-cli/rg-create.png)
 
-## <a name="list-of-available-azure-container-service-cli-commands"></a>Elenco di comandi disponibili dell'interfaccia della riga di comando del servizio contenitore di Azure
-
-```azurecli
-az acs -h
-```
-
-![Utilizzo del comando del servizio contenitore di Azure](media/container-service-create-acs-cluster-cli/acs-command-usage-help.png)
 
 ## <a name="create-an-azure-container-service-cluster"></a>Creare un cluster del servizio contenitore di Azure
 
-*Utilizzo del comando create del servizio contenitore di Azure nell'interfaccia della riga di comando*
+Per creare un cluster, usare `az acs create`.
+Un nome per il cluster e il nome del gruppo di risorse creato nel passaggio precedente sono parametri obbligatori. 
 
-```azurecli
-az acs create -h
-```
-Il nome del servizio contenitore, il gruppo di risorse create nel passaggio precedente e un nome DNS univoco sono obbligatori. Altri input vengono impostati sui valori predefiniti (vedere la schermata seguente con lo snapshot della Guida), a meno che non vengano sovrascritti usando le rispettive opzioni.
-![Immagine della Guida per il comando create del servizio contenitore di Azure](media/container-service-create-acs-cluster-cli/acs-command-usage-help.png)
+Altri input vengono impostati su valori predefiniti, come illustrato nella schermata seguente, a meno che non vengano sovrascritti tramite le rispettive opzioni. Ad esempio, l'agente di orchestrazione viene impostato per impostazione predefinita su DC/OS. Se non si specifica alcun valore, viene creato un prefisso del nome DNS in base al nome del cluster.
 
-*Creazione rapida del servizio contenitore di Azure con impostazioni predefinite. Se non è disponibile una chiave SSH, usare il secondo comando. Il secondo comando create con l'opzione --generate-ssh-keys creerà automaticamente un cluster*
+![az acs create usage](media/container-service-create-acs-cluster-cli/create-help.png)
+
+
+### <a name="quick-acs-create-using-defaults"></a>Operazione rapida con i valori predefiniti per `acs create`
+Se è disponibile un file di chiave pubblica SSH RSA `id_rsa.pub` nel percorso predefinito o se ne è stato creato uno per [OS X e Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) o [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md), usare un comando simile al seguente:
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789
 ```
+Se non è disponibile alcuna chiave pubblica SSH, usare il comando seguente. Questo comando con l'opzione `--generate-ssh-keys` crea automaticamente il file.
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789 --generate-ssh-keys
 ```
 
-*Assicurarsi che dns-prefix (opzione -d) sia univoco. Se viene visualizzato un errore, riprovare con una stringa univoca.*
-
-Dopo avere digitato il comando precedente, attendere circa 10 minuti per il completamento della creazione del cluster.
+Dopo avere immesso il comando, attendere circa 10 minuti per la creazione del cluster. L'output del comando include nomi di dominio completi dei nodi master e agente e un comando SSH per la connessione al primo master. Ecco un output abbreviato:
 
 ![Immagine del comando create del servizio contenitore di Azure](media/container-service-create-acs-cluster-cli/cluster-create.png)
 
-## <a name="list-acs-clusters"></a>Elencare i cluster del servizio contenitore di Azure 
+> [!TIP]
+> La [Procedura dettagliata per Kubernetes](container-service-kubernetes-walkthrough.md) illustra come usare `az acs create` con i valori predefiniti per creare un cluster Kubernetes.
+>
 
-### <a name="under-a-subscription"></a>In una sottoscrizione
+## <a name="manage-acs-clusters"></a>Gestire i cluster del servizio contenitore di Azure
+
+Usare comandi `az acs` aggiuntivi per gestire il cluster. Di seguito sono riportati alcuni esempi.
+
+### <a name="list-clusters-under-a-subscription"></a>Elencare i cluster in una sottoscrizione
 
 ```azurecli
 az acs list --output table
 ```
 
-### <a name="in-a-specific-resource-group"></a>In un gruppo di risorse specifico
+### <a name="list-clusters-in-a-resource-group"></a>Elencare i cluster in un gruppo di risorse
 
 ```azurecli
 az acs list -g acsrg1 --output table
 ```
 
-![Immagine dell'elenco del servizio contenitore di Azure](media/container-service-create-acs-cluster-cli/acs-list.png)
+![acs list](media/container-service-create-acs-cluster-cli/acs-list.png)
 
 
-## <a name="display-details-of-a-container-service-cluster"></a>Visualizzare i dettagli di un cluster del servizio contenitore
+### <a name="display-details-of-a-container-service-cluster"></a>Visualizzare i dettagli di un cluster del servizio contenitore
 
 ```azurecli
 az acs show -g acsrg1 -n acs-cluster --output list
 ```
 
-![Immagine dell'elenco del servizio contenitore di Azure](media/container-service-create-acs-cluster-cli/acs-show.png)
+![acs show](media/container-service-create-acs-cluster-cli/acs-show.png)
 
 
-## <a name="scale-the-acs-cluster"></a>Ridimensionare il cluster del servizio contenitore di Azure
-*È consentito sia ridurre che aumentare il numero di istanze. Il parametro new-agent-count è il nuovo numero di agenti nel cluster del servizio contenitore di Azure.*
+### <a name="scale-the-cluster"></a>Ridimensionare il cluster
+È consentito sia ridurre che aumentare il numero di istanze dei nodi agente. Il parametro `new-agent-count` è il nuovo numero di agenti nel cluster del servizio contenitore di Azure.
 
 ```azurecli
 az acs scale -g acsrg1 -n acs-cluster --new-agent-count 4
 ```
 
-![Immagine del ridimensionamento del servizio contenitore di Azure](media/container-service-create-acs-cluster-cli/acs-scale.png)
+![acs scale](media/container-service-create-acs-cluster-cli/acs-scale.png)
 
 ## <a name="delete-a-container-service-cluster"></a>Eliminare un cluster del servizio contenitore
 ```azurecli
 az acs delete -g acsrg1 -n acs-cluster 
 ```
-*Si noti che il comando di eliminazione non elimina tutte le risorse (di rete e di archiviazione) create durante la creazione del servizio contenitore. Per eliminare tutte le risorse, è consigliabile creare un singolo cluster del servizio contenitore di Azure per ogni gruppo di risorse e quindi eliminare il gruppo di risorse stesso quando il cluster del servizio contenitore di Azure non è più necessario, in modo da assicurare che tutte le risorse correlate vengano eliminate e non venga applicato alcun addebito.*
+Questo comando non elimina tutte le risorse (di rete e di archiviazione) create durante la creazione del servizio contenitore. Per eliminare facilmente tutte le risorse, è consigliabile distribuire ogni cluster in un gruppo di risorse distinto. Eliminare quindi il gruppo di risorse quando il cluster non è più necessario.
 
+## <a name="next-steps"></a>Passaggi successivi
+Ora che si ha a disposizione un cluster funzionante, vedere i documenti seguenti per informazioni dettagliate sulla connessione e la gestione:
 
-
-<!--HONumber=Jan17_HO4-->
-
-
+* [Connettersi a un cluster del servizio contenitore di Azure](container-service-connect.md)
+* [Gestione di contenitori tramite l'API REST](container-service-mesos-marathon-rest.md)
+* [Gestione dei contenitori con Docker Swarm](container-service-docker-swarm.md)
+* [Uso del servizio contenitore di Azure e Kubernetes](container-service-kubernetes-walkthrough.md)

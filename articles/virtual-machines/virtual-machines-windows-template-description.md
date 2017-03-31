@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 03/07/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: c94d114c50d44a3ca2933ec3464e7a2396867d60
-ms.openlocfilehash: eb94a0e383be4a2c125b9f5a2e7c1e49beacd4df
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: ea363667db5a4ef0dd6c3f06a13f3f8f6c192714
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -30,15 +31,15 @@ Sono disponibili numerosi [modelli nella raccolta](https://azure.microsoft.com/d
 
 Questo esempio mostra una sezione di risorse tipica di un modello per la creazione di un numero specificato di VM:
 
-```
+```json
 "resources": [
   { 
-    "apiVersion": "2016-03-30", 
+    "apiVersion": "2016-04-30-preview", 
     "type": "Microsoft.Compute/virtualMachines", 
     "name": "[concat('myVM', copyindex())]", 
     "location": "[resourceGroup().location]",
     "copy": {
-      "name": "virtualMachineLoop", 
+      "name": "virtualMachineLoop",    
       "count": "[parameters('numberOfInstances')]"
     },
     "dependsOn": [
@@ -62,10 +63,6 @@ Questo esempio mostra una sezione di risorse tipica di un modello per la creazio
         }, 
         "osDisk": { 
           "name": "[concat('myOSDisk', copyindex())]" 
-          "vhd": { 
-            "uri": "[concat('https://', variables('storageName'), 
-              '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]" 
-          }, 
           "caching": "ReadWrite", 
           "createOption": "FromImage" 
         }
@@ -74,10 +71,6 @@ Questo esempio mostra una sezione di risorse tipica di un modello per la creazio
             "name": "[concat('myDataDisk', copyindex())]",
             "diskSizeGB": "100",
             "lun": 0,
-            "vhd": {
-              "uri": "[concat('https://', variables('storageName'), 
-                '.blob.core.windows.net/vhds/myDataDisk', copyindex(),'.vhd')]"
-            },  
             "createOption": "Empty"
           }
         ] 
@@ -164,7 +157,7 @@ Questo esempio mostra una sezione di risorse tipica di un modello per la creazio
 Quando si distribuiscono risorse usando un modello, è necessario specificare una versione dell'API da usare. L'esempio illustra l'uso di questa risorsa di macchina virtuale usando l'elemento apiVersion:
 
 ```
-"apiVersion": "2016-03-30",
+"apiVersion": "2016-04-30-preview",
 ```
 
 La versione dell'API specificata nel modello influisce sulle proprietà che è possibile definire nel modello. In generale, è opportuno selezionare la versione più recente dell'API durante la creazione di modelli. Per i modelli esistenti, è possibile decidere se si desidera continuare a usare una versione precedente dell'API o aggiornare il modello alla versione più recente per sfruttare i vantaggi delle nuove funzionalità.
@@ -173,7 +166,7 @@ Per ottenere le versioni dell'API più aggiornate:
 
 - API REST: [Elencare tutti i provider di risorse](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
 - PowerShell: [Get-AzureRmResourceProvider](https://docs.microsoft.com/powershell/resourcemanager/Azurerm.Resources/v3.1.0/Get-AzureRmResourceProvider?redirectedfrom=msdn)
-- Interfaccia della riga di comando di Azure 2.0 (anteprima): [az provider show](https://docs.microsoft.com/cli/azure/provider#show)
+- Interfaccia della riga di comando di Azure 2.0: [az provider show](https://docs.microsoft.com/cli/azure/provider#show)
 
 ## <a name="parameters-and-variables"></a>Parametri e variabili
 
@@ -230,20 +223,25 @@ Quando sono necessarie più macchine virtuali per l'applicazione, è possibile u
 
 ```
 "copy": {
-  "name": "virtualMachineLoop", 
+  "name": "virtualMachineLoop",    
   "count": "[parameters('numberOfInstances')]"
 },
 ```
 
-Si noti anche nell'esempio che l'indice di ciclo viene usato quando si specificano alcuni valori per la risorsa. Ad esempio, se è stato immesso un numero di istanze pari a tre, la definizione per il disco rigido virtuale risulta nei dischi denominati myOSDisk1, myOSDisk2 e myOSDisk3:
+Si noti anche nell'esempio che l'indice di ciclo viene usato quando si specificano alcuni valori per la risorsa. Ad esempio, se è stato immesso un numero di istanze pari a tre, i nomi dei dischi del sistema operativo sono myOSDisk1, myOSDisk2 e myOSDisk3:
 
 ```
-"vhd": { 
-  "uri": "[concat('https://', variables('storageName'), 
-    '.blob.core.windows.net/vhds/myOSDisk', 
-    copyindex(),'.vhd')]" 
-},
+"osDisk": { 
+  "name": "[concat('myOSDisk', copyindex())]" 
+  "caching": "ReadWrite", 
+  "createOption": "FromImage" 
+}
 ```
+
+> [!NOTE] 
+>Questo esempio usa dischi gestiti per le macchine virtuali.
+>
+>
 
 Tenere presente che la creazione di un ciclo per una risorsa nel modello potrebbe richiedere di usare il ciclo quando si crea o si accede ad altre risorse. Ad esempio, più VM non possono usare la stessa interfaccia di rete; pertanto se esegue il ciclo di creazione di tre VM, il modello deve anche eseguire il ciclo di creazione di tre interfacce di rete. Quando si assegna un'interfaccia di rete a una VM, l'indice di ciclo viene usato per la relativa identificazione:
 
@@ -277,23 +275,7 @@ Come è possibile stabilire se è necessaria una dipendenza? Esaminare i valori 
 }
 ```
 
-Per impostare questa proprietà, è necessario che esista l'interfaccia di rete. Pertanto, è necessaria una dipendenza. È inoltre necessario impostare una dipendenza quando viene definita una risorsa (figlio) all'interno di un'altra risorsa (padre). Ad esempio, le estensioni dello script personalizzate e le impostazioni di diagnostica vengono entrambe definite come risorse figlio della macchina virtuale. Non possono essere create fino a quando non esiste la macchina virtuale. Pertanto, entrambe le risorse sono contrassegnate come dipendenti nella macchina virtuale. 
-
-Si potrebbe chiedere perché la risorsa di macchina virtuale non dispone di una dipendenza dall'account di archiviazione. La macchina virtuale contiene elementi che puntano all'account di archiviazione.
-
-```
-"osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]" 
-  "vhd": { 
-    "uri": "[concat('https://', variables('storageName'), 
-      '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]" 
-  }, 
-  "caching": "ReadWrite", 
-  "createOption": "FromImage" 
-}
-```
-
-In questo caso, si suppone che l'account di archiviazione esista già. Se l'account di archiviazione viene distribuito nello stesso modello, è necessario impostare una dipendenza dall'account di archiviazione.
+Per impostare questa proprietà, è necessario che esista l'interfaccia di rete. Pertanto, è necessaria una dipendenza. È inoltre necessario impostare una dipendenza quando viene definita una risorsa (figlio) all'interno di un'altra risorsa (padre). Ad esempio, le estensioni dello script personalizzate e le impostazioni di diagnostica vengono entrambe definite come risorse figlio della macchina virtuale. Non possono essere create fino a quando non esiste la macchina virtuale. Pertanto, entrambe le risorse sono contrassegnate come dipendenti nella macchina virtuale.
 
 ## <a name="profiles"></a>Profili
 
@@ -307,7 +289,7 @@ Quando si definisce una risorsa di macchina virtuale, vengono usati diversi elem
 
 ## <a name="disks-and-images"></a>Dischi e immagini
    
-In Azure i file del disco rigido virtuale possono rappresentare [dischi o immagini](virtual-machines-windows-about-disks-vhds.md). Quando il sistema operativo in un file di disco rigido virtuale è specializzato per essere una VM specifica, vi viene fatto riferimento come disco. Quando il sistema operativo in un file di disco rigido virtuale è generalizzato per essere usato per creare più VM, viene considerato un'immagine.   
+In Azure i file del disco rigido virtuale possono rappresentare [dischi o immagini](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Quando il sistema operativo in un file di disco rigido virtuale è specializzato per essere una VM specifica, vi viene fatto riferimento come disco. Quando il sistema operativo in un file di disco rigido virtuale è generalizzato per essere usato per creare più VM, viene considerato un'immagine.   
     
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>Creare nuove macchine virtuali e nuovi dischi da un'immagine della piattaforma
 
@@ -333,83 +315,64 @@ Se si vuole creare un sistema operativo Linux, è possibile usare questa definiz
 },
 ```
 
-Le impostazioni di configurazione per il disco vengono assegnate con l'elemento osDisk. L'esempio definisce la posizione di archiviazione dei dischi, la modalità di caching dei dischi e la creazione dei dischi da un'[immagine della piattaforma](virtual-machines-windows-cli-ps-findimage.md):
+Le impostazioni di configurazione per il disco del sistema operativo vengono assegnate con l'elemento osDisk. L'esempio definisce un nuovo disco gestito con la modalità di memorizzazione nella cache impostata su **ReadWrite** e con il disco creato da un'[immagine della piattaforma](virtual-machines-windows-cli-ps-findimage.md):
 
 ```
 "osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]" 
-  "vhd": { 
-    "uri": "[concat('https://', variables('storageName'), 
-      '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]" 
-  }, 
+  "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
   "createOption": "FromImage" 
 }
 ```
 
-### <a name="create-new-virtual-machines-from-existing-disks"></a>Creare nuove macchine virtuali dai dischi esistenti
+### <a name="create-new-virtual-machines-from-existing-managed-disks"></a>Creare nuove macchine virtuali da dischi gestiti esistenti
 
 Se si vuole creare macchine virtuali da dischi esistenti, rimuovere gli elementi imageReference e osProfile e definire le impostazioni del disco:
 
 ```
 "osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]", 
   "osType": "Windows",
-  "vhd": { 
-    "[concat('https://', variables('storageName'),
-      '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]" 
+  "managedDisk": { 
+    "id": "[resourceId('Microsoft.Compute/disks', [concat('myOSDisk', copyindex())])]" 
   }, 
   "caching": "ReadWrite",
   "createOption": "Attach" 
 }
 ```
 
-In questo esempio l'URI punta ai file del disco rigido virtuale esistente anziché a un percorso per i nuovi file. Per collegare i dischi esistenti viene impostato createOption.
+### <a name="create-new-virtual-machines-from-a-managed-image"></a>Creare nuove macchine virtuali da un'immagine gestita
 
-### <a name="create-new-virtual-machines-from-a-custom-image"></a>Creare nuove macchine virtuali da un'immagine personalizzata
-
-Se si vuole creare una macchina virtuale da un'[immagine personalizzata](virtual-machines-windows-upload-image.md), rimuovere l'elemento imageReference e definire le impostazioni del disco:
+Se si vuole creare una macchina virtuale da un'immagine gestita, cambiare l'elemento imageReference e definire queste impostazioni del disco:
 
 ```
-"osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]",
-  "osType": "Windows", 
-  "vhd": { 
-    "uri": "[concat('https://', variables('storageName'), 
-      '.blob.core.windows.net/vhds/myOSDisk', copyindex(),'.vhd')]"
+"storageProfile": { 
+  "imageReference": {
+    "id": "[resourceId('Microsoft.Compute/images', 'myImage')]"
   },
-  "image": {
-    "uri": "[concat('https://', variables('storageName'), 
-      'blob.core.windows.net/images/myImage.vhd"
-  },
-  "caching": "ReadWrite", 
-  "createOption": "FromImage" 
+  "osDisk": { 
+    "name": "[concat('myOSDisk', copyindex())]",
+    "osType": "Windows",
+    "caching": "ReadWrite", 
+    "createOption": "FromImage" 
+  }
 }
 ```
 
-In questo esempio, l'URI del disco rigido virtuale punta a una posizione in cui vengono archiviati i nuovi dischi e l'URI dell'immagine punta all'immagine personalizzata da usare.
-
 ### <a name="attach-data-disks"></a>Collegare i dischi dei dati
 
-È facoltativamente possibile aggiungere dischi di dati alle VM. Il [numero di dischi](virtual-machines-windows-sizes.md) dipende dalle dimensioni del disco del sistema operativo in uso. Con le dimensioni delle VM impostate su Standard_DS1_v2, il numero massimo di dischi dati che possono essere aggiunti è due. Nell'esempio viene aggiunto un disco dati a ogni VM:
+È facoltativamente possibile aggiungere dischi di dati alle VM. Il [numero di dischi](virtual-machines-windows-sizes.md) dipende dalle dimensioni del disco del sistema operativo in uso. Con le dimensioni delle VM impostate su Standard_DS1_v2, il numero massimo di dischi dati che possono essere aggiunti è due. Nell'esempio viene aggiunto un disco dati gestito a ogni VM:
 
 ```
 "dataDisks": [
   {
     "name": "[concat('myDataDisk', copyindex())]",
     "diskSizeGB": "100",
-    "lun": 0,
-    "vhd": {
-      "uri": "[concat('https://', variables('storageName'), 
-        '.blob.core.windows.net/vhds/myDataDisk', copyindex(),'.vhd')]"
-    },  
+    "lun": 0, 
     "caching": "ReadWrite",
     "createOption": "Empty"
   }
 ]
 ```
-
-Il disco rigido virtuale in questo esempio è un nuovo file creato per il disco. È possibile impostare l'URI su un disco rigido virtuale esistente e impostare createOption su **Attach**.
 
 ## <a name="extensions"></a>Estensioni
 
@@ -481,9 +444,9 @@ Lo script start.ps1 può eseguire molte attività di configurazione. Ad esempio,
 
 ![Recuperare lo stato dell'estensione](./media/virtual-machines-windows-template-description/virtual-machines-show-extensions.png)
 
-È possibile anche ottenere informazioni sull'estensione tramite il comando **Get-AzureRmVMExtension** di PowerShell, il comando **vm extension get** dell'interfaccia della riga di comando di Azure 2.0 (anteprima) oppure l'API REST **Get extension information**.
+È possibile anche ottenere informazioni sull'estensione tramite il comando **Get-AzureRmVMExtension** di PowerShell, il comando **vm extension get** dell'interfaccia della riga di comando di Azure 2.0 oppure l'API REST **Get extension information**.
 
-## <a name="deployments"></a>Deployments
+## <a name="deployments"></a>Distribuzioni
 
 Quando si distribuisce un modello, Azure tiene traccia delle risorse distribuite come gruppo e assegna automaticamente un nome a questo gruppo distribuito. Il nome della distribuzione corrisponde a quello del modello.
 
@@ -498,8 +461,3 @@ Non è un problema usare lo stesso modello per creare risorse o per aggiornare l
 - È possibile creare un modello personalizzato usando le informazioni presenti in [Creazione di modelli di Azure Resource Manager](../resource-group-authoring-templates.md).
 - Distribuire il modello creato usando [Creare una macchina virtuale Windows con un modello di Resource Manager](virtual-machines-windows-ps-template.md).
 - Per informazioni su come gestire le VM create, vedere [Gestire macchine virtuali con Azure Resource Manager e PowerShell](virtual-machines-windows-ps-manage.md).
-
-
-<!--HONumber=Jan17_HO1-->
-
-

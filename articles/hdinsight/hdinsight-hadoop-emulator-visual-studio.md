@@ -1,22 +1,24 @@
 ---
-title: Usare Microsoft Azure Data Lake Tools per Visual Studio con Sandbox di Hortonworks | Documentazione Microsoft
+title: Strumenti Azure Data Lake per Visual Studio con Hortonworks Sandbox | Documentazione Microsoft
 description: "Informazioni su come usare gli strumenti di Azure Data Lake per VIsual Studio con Sandbox di Hortonworks (in esecuzione su una macchina virtuale locale). Grazie a questi strumenti è possibile creare ed eseguire i processi Hive e Pig in Sandbox, oltre a visualizzare l&quot;output del processo e la cronologia."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
-manager: paulettm
+manager: jhubbard
 editor: cgronlun
 ms.assetid: e3434c45-95d1-4b96-ad4c-fb59870e2ff0
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/15/2016
+ms.date: 02/28/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4b0572d8fb3b81fd4bd2a34794141f137b50eed0
-ms.openlocfilehash: 42f53e0c725ed7744c2e3d919c960c42e4cebc0c
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 599aeb1f38c804c2edf6590140e739c9705ab1ab
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -30,7 +32,7 @@ Sandbox di Hortonworks consente di utilizzare Hadoop in locale nell'ambiente di 
 
 * Sandbox di Hortonworks in esecuzione su una macchina virtuale nell'ambiente di sviluppo. Questo documento è stato scritto e testato con Sandbox in esecuzione in Oracle VirtualBox, configurato con le informazioni contenute nel documento [Introduzione all'ecosistema Hadoop](hdinsight-hadoop-emulator-get-started.md) .
 
-* Visual Studio 2013 o 2015, qualsiasi edizione.
+* Visual Studio 2013, 2015 o 2017, qualsiasi edizione.
 
 * [Azure SDK per .NET](https://azure.microsoft.com/downloads/) 2.7.1 o versioni successive.
 
@@ -38,11 +40,12 @@ Sandbox di Hortonworks consente di utilizzare Hadoop in locale nell'ambiente di 
 
 ## <a name="configure-passwords-for-the-sandbox"></a>Configurare le password per Sandbox
 
-Assicurarsi che Sandbox di Hortonworks sia in esecuzione, quindi seguire la procedura descritta nell'[introduzione all'ecosistema Hadoop](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords) per configurare la password dell'account `root` SSH e dell'account `admin` Ambari. Queste password verranno utilizzate quando ci si connette a Sandbox da Visual Studio.
+Assicurarsi che Sandbox di Hortonworks sia in esecuzione e quindi seguire la procedura descritta nell'[introduzione all'ecosistema Hadoop](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords) per configurare la password dell'account `root` SSH e dell'account `admin` Ambari. Queste password vengono usate per la connessione a Sandbox da Visual Studio.
 
 ## <a name="connect-the-tools-to-the-sandbox"></a>Connettere gli strumenti a Sandbox
 
 1. Aprire Visual Studio e selezionare **Visualizza** e quindi **Esplora server**.
+
 2. In **Esplora server** fare clic con il pulsante destro del mouse sulla voce **HDInsight** e quindi scegliere **Connect to HDInsight Emulator** (Connetti a HDInsight Emulator).
 
     ![Connetti a HDInsight Emulator](./media/hdinsight-hadoop-emulator-visual-studio/connect-emulator.png)
@@ -59,7 +62,7 @@ Assicurarsi che Sandbox di Hortonworks sia in esecuzione, quindi seguire la proc
 
     Selezionare **Avanti** per continuare.
 
-5. Attendere il completamento della convalida dei servizi. In alcuni casi, la convalida potrebbe non riuscire e verrebbe chiesto di aggiornare la configurazione. In questa eventualità, selezionare il pulsante **Aggiorna** e attendere il completamento della configurazione e della verifica del servizio.
+5. Attendere il completamento della convalida dei servizi. In alcuni casi, la convalida potrebbe non riuscire e verrebbe chiesto di aggiornare la configurazione. Se la convalida ha esito negativo, selezionare il pulsante **Aggiorna** e attendere il completamento della configurazione e della verifica del servizio.
 
     ![Errori e pulsante Aggiorna](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update.png)
 
@@ -77,7 +80,7 @@ Al termine della procedura indicata, si dispone di una voce "Cluster locale HDIn
 
 ## <a name="write-a-hive-query"></a>Scrivere una query Hive
 
-Hive fornisce un linguaggio di query simile a SQL (HiveQL) per l'utilizzo dei dati strutturati. Utilizzare la procedura seguente per informazioni su come eseguire query ad hoc rispetto al cluster locale.
+Hive fornisce un linguaggio di query simile a SQL (HiveQL) per la gestione dei dati strutturati. Utilizzare la procedura seguente per informazioni su come eseguire query ad hoc rispetto al cluster locale.
 
 1. In **Esplora server** fare clic con il pulsante destro del mouse sulla voce del cluster locale aggiunto in precedenza e quindi scegliere **Scrivi una query Hive**.
 
@@ -85,7 +88,7 @@ Hive fornisce un linguaggio di query simile a SQL (HiveQL) per l'utilizzo dei da
 
     Così facendo si apre una finestra di query che consente di digitare rapidamente e inviare una query al cluster locale.
 
-2. Nella finestra delle query, immettere quanto segue:
+2. Nella nuova finestra di query immettere il comando seguente:
 
         select count(*) from sample_08;
 
@@ -93,11 +96,11 @@ Hive fornisce un linguaggio di query simile a SQL (HiveQL) per l'utilizzo dei da
 
     ![finestra di query e pulsante di invio](./media/hdinsight-hadoop-emulator-visual-studio/submit-hive.png)
 
-    Tenere presente che è anche possibile usare il menu a discesa accanto a **Invia** per selezionare **Avanzate**. Ciò consente di aprire una finestra di dialogo per fornire altre opzioni durante l'invio del processo.
+    È anche possibile usare il menu a discesa accanto a **Invia** per selezionare **Avanzate**. In questo modo è possibile specificare opzioni aggiuntive durante l'invio del processo.
 
     ![invio avanzato](./media/hdinsight-hadoop-emulator-visual-studio/advanced-hive.png)
 
-3. Quando si invia la query, viene visualizzato lo stato del processo, che fornisce informazioni sul processo mentre viene elaborato da Hadoop. La voce **Stato processo** indica lo stato corrente del processo. Lo stato verrà aggiornato periodicamente, oppure è possibile utilizzare l'icona Aggiorna per un aggiornamento manuale dello stato.
+3. Dopo aver inviato la query viene visualizzato lo stato del processo, che fornisce informazioni sul processo mentre viene elaborato da Hadoop. La voce **Stato processo** indica lo stato del processo. Anche se lo stato viene aggiornato periodicamente, è possibile usare l'icona di aggiornamento per eseguire l'operazione manualmente.
 
     ![Stato processo](./media/hdinsight-hadoop-emulator-visual-studio/job-state.png)
 
@@ -112,16 +115,16 @@ Hive fornisce un linguaggio di query simile a SQL (HiveQL) per l'utilizzo dei da
 
     ![Query interattiva](./media/hdinsight-hadoop-emulator-visual-studio/interactive-query.png)
 
-    In questo modo il log di output generato durante l'elaborazione viene trasmesso alla finestra **Output HiveServer2**.
+    Una query interattiva trasmette il log di output generato durante l'elaborazione alla finestra **Output HiveServer2**.
 
     > [!NOTE]
-    > Si tratta delle stesse informazioni accessibili dal collegamento **Job Log** (Log processo) dopo il completamento del processo.
+    > Si tratta delle stesse informazioni accessibili dal collegamento **Log processo** dopo il completamento del processo.
 
     ![Output di HiveServer2 ](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output.png)
 
 ## <a name="create-a-hive-project"></a>Creare un progetto Hive
 
-Inoltre, è possibile creare un progetto che contiene più script Hive. Ciò è utile quando si hanno degli script correlati da tenere insieme o da conservare utilizzando un sistema di controllo delle versioni.
+Inoltre, è possibile creare un progetto che contiene più script Hive. Un progetto risulta particolarmente utile quando si hanno script correlati da tenere insieme o da gestire usando un sistema di controllo delle versioni.
 
 1. In Visual Studio selezionare **File**, **Nuovo** e quindi Progetto.
 
@@ -133,13 +136,13 @@ Il progetto **Hive Sample** (Esempio Hive) contiene due script, **WebLogAnalysis
 
 ## <a name="create-a-pig-project"></a>Creare un progetto Pig
 
-Mentre Hive offre un linguaggio simile a SQL per utilizzare i dati strutturati, Pig fornisce un linguaggio (Pig Latin) che consente di sviluppare una pipeline di trasformazioni da applicare ai dati. Attenersi alla seguente procedura per utilizzare Pig con il cluster locale.
+Mentre Hive offre un linguaggio simile a SQL per la gestione dei dati strutturati, Pig esegue trasformazioni sui dati. Pig offre infatti un linguaggio (Pig Latin) che consente di sviluppare una pipeline di trasformazioni. Seguire questa procedura per usare Pig con il cluster locale:
 
 1. Aprire Visual Studio e selezionare **File** **Nuovo** e quindi **Progetto**. Nell'elenco dei progetti espandere **Modelli** e **Azure Data Lake** e quindi selezionare **Pig (HDInsight)**. Nell'elenco dei modelli selezionare **Pig Application** (Applicazione Pig). Immettere un nome e un percorso e quindi selezionare **OK**.
 
     ![Progetto Pig (HDInsight)](./media/hdinsight-hadoop-emulator-visual-studio/new-pig.png)
 
-2. Immettere quanto segue come contenuto del file **script.pig** creato con questo progetto.
+2. Immettere il testo seguente come contenuto del file **script.pig** creato con questo progetto.
 
         a = LOAD '/demo/data/Website/Website-Logs' AS (
             log_id:int,
@@ -178,7 +181,7 @@ Gli strumenti di Azure Data Lake consentono anche di visualizzare facilmente le 
 
 ## <a name="view-hive-databases"></a>Visualizzare i database Hive
 
-1. In **Esplora server** espandere la voce **HDInsight local cluster** (Cluster locale HDInsight) e quindi **Hive Databases** (Database Hive). Verranno così visualizzati i database **Predefinito** e **xademo** nel cluster locale. Attraverso l'espansione di un database è possibile visualizzare le tabelle al suo interno.
+1. In **Esplora server** espandere la voce **HDInsight local cluster** (Cluster locale HDInsight) e quindi **Hive Databases** (Database Hive). Verranno visualizzati i database **Default** e **xademo** nel cluster locale. Attraverso l'espansione di un database è possibile visualizzare le tabelle al suo interno.
 
     ![database espansi](./media/hdinsight-hadoop-emulator-visual-studio/expanded-databases.png)
 
@@ -188,9 +191,9 @@ Gli strumenti di Azure Data Lake consentono anche di visualizzare facilmente le 
 
 ### <a name="database-and-table-properties"></a>Proprietà del database e della tabella
 
-Si sarà notato che è possibile scegliere di visualizzare **Proprietà** per un database o una tabella, così da mostrare i dettagli per l'elemento selezionato nella finestra Proprietà.
+Si sarà notato che è possibile scegliere di visualizzare **Proprietà** per un database o una tabella, in modo da mostrare i dettagli per l'elemento selezionato nella finestra **Proprietà**.
 
-![Properties](./media/hdinsight-hadoop-emulator-visual-studio/properties.png)
+![Proprietà](./media/hdinsight-hadoop-emulator-visual-studio/properties.png)
 
 ### <a name="create-a-table"></a>Creare una tabella
 
@@ -206,9 +209,4 @@ Per creare una nuova tabella, fare clic con il pulsante destro del mouse su un d
 
 * [Acquisire dimestichezza con Sandbox di Hortonworks](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 * [Esercitazione di Hadoop: introduzione a HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

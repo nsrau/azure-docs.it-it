@@ -6,39 +6,57 @@ keywords: "azure active directory identity protection, cloud app discovery, gest
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 01/18/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: ffc64fc0469cd3588d6d13524411575b423ab4e5
-ms.openlocfilehash: 8672cf1e90bafc370a24a2d00c25926f3fe7b50e
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f09aa6cffbbaa2a3df7f84edee2d3e03aa23a719
+ms.lasthandoff: 03/18/2017
 
 
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
-Azure Active Directory Identity Protection è una funzionalità di Azure AD Premium P2 Edition che fornisce una visualizzazione consolidata degli eventi di rischio e delle potenziali vulnerabilità che interessano le identità dell'organizzazione. Microsoft protegge le identità basate sul cloud da oltre dieci anni. Con Azure AD Identity Protection, questi stessi sistemi di protezione sono ora a disposizione dei clienti aziendali. Identity Protection si avvale delle funzionalità di rilevamento anomalie di Azure AD, disponibili tramite i report di Anomalie dell'attività di Azure AD, e introduce nuovi tipi di eventi di rischio che permettono di rilevare anomalie in tempo reale.
 
-## <a name="getting-started"></a>Introduzione
-La maggior parte delle violazioni della sicurezza si verifica quando utenti malintenzionati ottengono l'accesso a un ambiente impadronendosi dell'identità di un utente. Gli utenti malintenzionati hanno messo a punto tecniche sempre più efficaci per sfruttare le violazioni di terze parti e sferrare sofisticati attacchi di phishing. L'accesso a un account utente, anche uno con privilegi limitati, permette agli utenti malintenzionati di accedere a risorse aziendali importanti in modo relativamente semplice tramite il movimento laterale. È quindi fondamentale proteggere tutte le identità e prevenire attivamente lo sfruttamento di eventuali identità compromesse.
+Azure Active Directory Identity Protection è una funzionalità dell'edizione Azure AD Premium P2 che consente di:
 
-Trovare le identità compromesse non è un compito facile. Identity Protection è utile a questo scopo, perché usa l'euristica e algoritmi adattivi di Machine Learning per rilevare anomalie ed eventi di rischio che possono indicare la compromissione di un'identità.
+- Rilevare le potenziali vulnerabilità per le identità dell'organizzazione
 
-Sulla base di tali dati, Identity Protection genera report e avvisi che consentono di analizzare gli eventi di rischio e adottare le azioni di correzione o mitigazione appropriate.
+- Configurare risposte automatizzate alle azioni sospette rilevate correlate alle identità dell'organizzazione  
 
-Azure Active Directory Identity Protection è, del resto, ben più di un semplice strumento di monitoraggio e reporting. In base agli eventi di rischio, Identity Protection calcola un livello di rischio utente per ogni utente e permette di configurare criteri basati sul rischio per proteggere automaticamente le identità dell'organizzazione.  I criteri basati sul rischio, insieme ad altri controlli di accesso condizionale forniti da Azure Active Directory e da Servizi di gestione emergenze, possono eseguire il blocco automatico o proporre azioni di correzione adattive, incluse la reimpostazione della password e l'applicazione dell'autenticazione a più fattori.  
+- Esaminare gli eventi imprevisti sospetti ed eseguire l'azione appropriata per risolverli   
 
-#### <a name="explore-identity-protections-capabilities"></a>Funzionalità di Identity Protection
-**Rilevamento di eventi di rischio e account rischiosi:**  
 
-* Rilevamento di sei tipi di eventi di rischio tramite regole euristiche e Machine Learning.
-* Calcolo dei livelli di rischio utente.
+## <a name="getting-started"></a>introduttiva
+
+Microsoft protegge le identità basate sul cloud per oltre un decennio. Con Azure Active Directory Identity Protection, è possibile usare nell'ambiente gli stessi sistemi di protezione usati da Microsoft per proteggere le identità.
+
+La maggior parte delle violazioni della sicurezza si verifica quando utenti malintenzionati ottengono l'accesso a un ambiente impadronendosi dell'identità di un utente. Nel corso degli anni, gli utenti malintenzionati hanno messo a punto tecniche sempre più efficaci per sfruttare le violazioni di terze parti e sferrare sofisticati attacchi di phishing. L'accesso a un account utente, anche quelli con privilegi limitati, permette agli utenti malintenzionati di accedere immediatamente a risorse aziendali importanti in modo relativamente semplice tramite il movimento laterale.
+
+Di conseguenza, è necessario:
+
+- Proteggere tutte le identità indipendentemente dal livello di privilegi
+
+- Impedire in modo proattivo l'uso improprio delle identità compromesse
+
+Trovare le identità compromesse non è un compito facile. Azure Active Directory usa l'euristica e gli algoritmi adattivi di apprendimento automatico per rilevare anomalie ed eventi imprevisti sospetti che indicano identità potenzialmente compromesse. Sulla base di tali dati, Identity Protection genera report e avvisi che consentono di valutare i problemi rilevati e di adottare le azioni di correzione o mitigazione appropriate.
+
+Azure Active Directory Identity Protection è ben più di un semplice strumento di monitoraggio e reporting. Per proteggere le identità dell'organizzazione, è possibile configurare criteri basati sul rischio che rispondano automaticamente ai problemi rilevati quando viene raggiunto un livello di rischio specificato. Questi criteri, con altri controlli di accesso condizionale forniti da Azure Active Directory e da EMS, possono eseguire il blocco automatico o avviare azioni di correzione adattive, incluse la reimpostazione della password e l'applicazione dell'autenticazione a più fattori.
+
+
+#### <a name="identity-protection-capabilities"></a>Funzionalità di Identity Protection
+
+**Rilevamento di vulnerabilità e di account rischiosi:**  
+
 * Raccomandazioni personalizzate per migliorare il comportamento di sicurezza in generale evidenziando le vulnerabilità.
+* Calcolo dei livelli di rischio di accesso.
+* Calcolo dei livelli di rischio utente.
+
 
 **Analisi degli eventi di rischio:**
 
@@ -53,23 +71,17 @@ Azure Active Directory Identity Protection è, del resto, ben più di un semplic
 * Criteri per bloccare o proteggere gli account utente rischiosi.
 * Criteri per richiedere la registrazione degli utenti per l'autenticazione a più fattori
 
-## <a name="detection-and-risk"></a>Rilevamento e rischio
+## <a name="detection"></a>Rilevamento
+
+### <a name="vulnerabilities"></a>Vulnerabilità
+
+Azure Active Directory Identity Protection analizza la configurazione e rileva le vulnerabilità che possono avere effetto sulle identità dell'utente. Per altri dettagli, vedere [Vulnerabilità rilevate da Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md).
+
 ### <a name="risk-events"></a>Eventi di rischio
-Gli eventi di rischio sono eventi contrassegnati come sospetti da Identity Protection e indicano che un'identità potrebbe essere compromessa. Per un elenco completo degli eventi di rischio, vedere [Tipi di eventi di rischio rilevati da Azure Active Directory](active-directory-identityprotection-risk-events-types.md).
 
-### <a name="risk-level"></a>Livello di rischio
-Il livello di rischio è un'indicazione della gravità, misurata come alta, media o bassa, di un evento di rischio. Il livello di rischio consente agli utenti di Identity Protection di classificare in ordine di priorità le azioni da intraprendere per ridurre il rischio per l'organizzazione. La gravità dell'evento di rischio rappresenta il grado di probabilità che l'identità sia compromessa, unita alla quantità di disturbo che in genere produce.
+Azure Active Directory usa l'euristica e algoritmi adattivi di apprendimento automatico per rilevare azioni sospette correlate alle identità dell'utente. Il sistema crea un record per ogni azione sospetta rilevata. Questi record sono denominati anche eventi di rischio.  
+Per altre informazioni, vedere [Eventi di rischio di Azure Active Directory](active-directory-identity-protection-risk-events.md).
 
-* **Alta**: evento di rischio con livello di gravità elevato e attendibilità elevata. Questi eventi sono fortemente indicativi di una compromissione dell'identità dell'utente e tutti gli account utente interessati devono essere corretti.
-* **Media**: evento di rischio con livello di gravità elevato e minore attendibilità o viceversa. Questi eventi sono potenzialmente rischiosi e tutti gli account utente interessati devono essere corretti.
-* **Bassa**: evento di rischio con livello di gravità basso e attendibilità bassa. Questi eventi potrebbero non richiedere un'azione immediata, ma in combinazione con altri eventi di rischio possono essere fortemente indicativi di una compromissione dell'identità.
-
-![Livello di rischio](./media/active-directory-identityprotection/01.png "Livello di rischio")
-
-Gli eventi di rischio vengono identificati **in tempo reale**oppure offline in fase di post-elaborazione, dopo che l'evento di rischio si è già verificato. Attualmente, la maggior parte degli eventi di rischio in Identity Protection viene calcolata offline e visualizzata in Identity Protection da due a quattro ore dopo.
-Durante la valutazione in tempo reale, gli eventi di rischio in tempo reale vengono visualizzati nella console di Identity Protection da cinque a dieci minuti dopo.
-
-Attualmente, diversi client legacy non supportano il rilevamento e la prevenzione degli eventi di rischio in tempo reale. Di conseguenza, non è possibile rilevare o prevenire in tempo reale gli accessi da tali client.
 
 ## <a name="investigation"></a>Analisi
 L'esperienza con Identity Protection inizia in genere dal relativo dashboard.
@@ -87,10 +99,109 @@ Si tratta in genere del punto di partenza dell'analisi, ovvero del processo di a
 
 Le sezioni seguenti forniscono altre informazioni e i passaggi relativi a un'analisi.  
 
-## <a name="what-is-a-user-risk-level"></a>Che cos'è un livello di rischio utente?
-Il livello di rischio utente può essere Alto, Medio o Basso e indica la probabilità che l'identità dell'utente sia stata compromessa. Viene calcolato in base agli eventi di rischio utente associati all'identità dell'utente.
 
-Lo stato di un evento di rischio può essere **attivo** o **chiuso**. Solo gli eventi di rischio **attivi** vengono conteggiati nel calcolo del rischio utente.
+## <a name="risky-sign-ins"></a>Accessi a rischio
+
+Aure Active Directory rileva alcuni [tipi di eventi di rischio](active-directory-reporting-risk-events.md#risk-event-types) in tempo reale. Tutti gli eventi di rischio in tempo reale rilevati durante un accesso di un utente rientrano nel concetto logico degli *accessi a rischio*. Un accesso a rischio è indicativo di un tentativo di accesso che potrebbe non essere stato eseguito dal legittimo proprietario di un account utente. Il ciclo di vita di un accesso a rischio termina quando un utente effettua la disconnessione.
+
+### <a name="sign-in-risk-level"></a>Livello di rischio di un accesso
+
+Il livello di rischio di un accesso è un'indicazione (Alto, Medio o Basso) della probabilità che un tentativo di accesso non sia stato eseguito dal legittimo proprietario di un account utente.
+
+### <a name="mitigating-sign-in-risk-events"></a>Mitigazione degli eventi di rischio di accesso
+
+La mitigazione è un'azione che consente di limitare la possibilità che un utente malintenzionato sfrutti un'identità o un dispositivo compromesso senza ripristinare l'identità o il dispositivo a uno stato sicuro. La mitigazione non risolve gli eventi di rischio di accesso precedenti associati all'identità o al dispositivo.
+
+Per attenuare automaticamente gli accessi a rischio, è possibile configurare criteri di rischio per gli accessi. Usando questi criteri, si tiene conto del livello di rischio dell'utente o dell'accesso per bloccare gli accessi rischiosi o richiedere all'utente di eseguire l'autenticazione a più fattori. Queste azioni possono impedire a un utente malintenzionato di sfruttare un'identità rubata per causare danni e permettono di guadagnare tempo per proteggere l'identità.
+
+### <a name="sign-in-risk-security-policy"></a>Criteri di sicurezza per il rischio di accesso
+I criteri di rischio di accesso sono criteri di accesso condizionale che valutano il rischio associato a un accesso specifico e applicano le azioni di mitigazione in base a condizioni e regole predefinite.
+
+![Criteri di rischio di accesso](./media/active-directory-identityprotection/1014.png "Criteri di rischio di accesso")
+
+Azure AD Identity Protection consente di gestire le azioni di mitigazione degli accessi rischiosi seguendo questa procedura:
+
+* Impostare gli utenti e i gruppi a cui vengono applicati i criteri:
+
+    ![Criteri di rischio di accesso](./media/active-directory-identityprotection/1015.png "Criteri di rischio di accesso")
+* Impostare la soglia del livello di rischio di accesso, bassa, media o alta, che attiva il criterio:
+
+    ![Criteri di rischio di accesso](./media/active-directory-identityprotection/1016.png "Criteri di rischio di accesso")
+* Impostare i controlli da applicare quando viene attivato il criterio:  
+
+    ![Criteri di rischio di accesso](./media/active-directory-identityprotection/1017.png "Criteri di rischio di accesso")
+* Cambiare lo stato dei criteri:
+
+    ![Registrazione MFA](./media/active-directory-identityprotection/403.png "Registrazione MFA")
+* Esaminare e valutare l'impatto di una modifica prima di attivarla:
+
+    ![Criteri di rischio di accesso](./media/active-directory-identityprotection/1018.png "Criteri di rischio di accesso")
+
+#### <a name="what-you-need-to-know"></a>Informazioni importanti
+È possibile configurare un criterio di sicurezza per il rischio di accesso per richiedere l'autenticazione a più fattori:
+
+![Criteri di rischio di accesso](./media/active-directory-identityprotection/1017.png "Criteri di rischio di accesso")
+
+Tuttavia, per motivi di sicurezza, questa impostazione funziona soltanto per gli utenti che sono già stati registrati per l'autenticazione a più fattori. Se la condizione per richiedere l'autenticazione a più fattori risulta soddisfatta per un utente che non è ancora registrato per l'autenticazione a più fattori, tale utente viene bloccato.
+
+Se si vuole richiedere l'autenticazione a più fattori per gli accessi rischiosi, è consigliabile procedere nel modo indicato di seguito:
+
+1. Abilitare il [criterio di registrazione per l'autenticazione a più fattori](#multi-factor-authentication-registration-policy) per gli utenti interessati.
+2. Richiedere agli utenti interessati di accedere in una sessione non rischiosa per eseguire la registrazione per l'autenticazione a più fattori
+
+L'esecuzione di questa procedura assicura che, in caso di accesso rischioso, venga richiesta l'autenticazione a più fattori.
+
+#### <a name="best-practices"></a>Procedure consigliate
+La scelta di una soglia **alta** riduce la frequenza di attivazione dei criteri e riduce al minimo l'impatto sugli utenti.  
+
+Tuttavia, esclude dai criteri gli accessi contrassegnati per il rischio con una soglia **bassa** o **media**. Questa scelta può non impedire a un utente malintenzionato di sfruttare un'identità compromessa.
+
+Quando si impostano i criteri:
+
+* Escludere gli utenti non hanno o non possono avere l'autenticazione a più fattori
+* Escludere gli utenti con impostazioni locali in cui abilitare i criteri non è pratico, ad esempio per la mancanza di accesso al supporto tecnico
+* Escludere gli utenti che possono generare molti falsi positivi, ad esempio sviluppatori o analisti della sicurezza
+* Usare una soglia **alta** durante il rollout iniziale dei criteri o se è necessario ridurre al minimo gli avvisi visualizzati dagli utenti finali.
+* Usare una soglia **bassa** se l'organizzazione richiede una maggiore sicurezza. La scelta di una soglia **bassa** introduce richieste di accesso aggiuntive per l'utente, ma garantisce una maggiore sicurezza.
+
+L'impostazione predefinita consigliata per la maggior parte delle organizzazioni è la configurazione di una regola per una soglia **media** , che permette di bilanciare usabilità e sicurezza.
+
+I criteri di rischio di accesso:
+
+* Vengono applicati a tutto il traffico tramite browser e agli accessi che usano l'autenticazione moderna.
+* Non vengono applicati alle applicazioni che usano protocolli di sicurezza meno recenti disabilitando l'endpoint WS-Trust in corrispondenza dell'IDP federato, ad esempio ADFS.
+
+La pagina **Eventi di rischio** nella console di Identity Protection contiene un elenco di tutti gli eventi:
+
+* Visualizzare a quali eventi sono stati applicati i criteri
+* Esaminare l'attività e determinare se l'azione è stata appropriata o meno
+
+Per una panoramica dell'esperienza utente correlata, vedere:
+
+* [Ripristino di un accesso rischioso](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
+* [Accesso rischioso bloccato](active-directory-identityprotection-flows.md#risky-sign-in-blocked)  
+* [Esperienze di accesso con Azure AD Identity Protection](active-directory-identityprotection-flows.md)  
+
+**Per aprire la relativa finestra di dialogo di configurazione**:
+
+- Nel pannello **Azure AD Identity Protection** fare clic su **Criteri di rischio di accesso** nella sezione **Configura**.
+
+    ![Criteri di rischio utente](./media/active-directory-identityprotection/1014.png "Criteri di rischio utente")
+
+
+
+## <a name="users-flagged-for-risk"></a>Utenti contrassegnati per il rischio
+
+Tutti gli [eventi di rischio](active-directory-identity-protection-risk-events.md) rilevati da Azure Active Directory per un utente rientrano nel concetto logico degli *utenti contrassegnati per il rischio*. Un *utente contrassegnato per il rischio*, o *utente a rischio*, è indicativo di un account utente che potrebbe essere stato compromesso.   
+
+![Utenti contrassegnati per il rischio](./media/active-directory-identityprotection/1200.png)
+
+
+### <a name="user-risk-level"></a>Livello di rischio utente
+
+Il livello di rischio utente può essere Alto, Medio o Basso e indica la probabilità che l'identità dell'utente sia stata compromessa. Viene calcolato in base agli eventi di rischio utente associati all'identità di un utente.
+
+Lo stato di un evento di rischio può essere **attivo** o **chiuso**. Solo gli eventi di rischio **attivi** vengono conteggiati nel calcolo del livello di rischio utente.
 
 Il livello di rischio utente viene calcolato usando le informazioni seguenti:
 
@@ -98,11 +209,12 @@ Il livello di rischio utente viene calcolato usando le informazioni seguenti:
 * Livello di rischio di tali eventi.
 * Eventuali azioni di correzione intraprese o meno.
 
-![Rischi utente](./media/active-directory-identityprotection/1001.png "Rischi utente")
+![Rischi utente](./media/active-directory-identityprotection/1031.png "Rischi utente")
 
-È possibile usare i livelli di rischio utente per creare criteri di accesso condizionale per bloccare l'accesso degli utenti rischiosi o per fare in modo che modifichino la password in modo sicuro.
+È possibile usare i livelli di rischio utente per creare criteri di accesso condizionale che bloccano l'accesso degli utenti a rischio o per fare in modo che modifichino la password in modo sicuro.
 
-## <a name="closing-risk-events-manually"></a>Chiusura manuale degli eventi di rischio
+### <a name="closing-risk-events-manually"></a>Chiusura manuale degli eventi di rischio
+
 Nella maggior parte dei casi, per chiudere automaticamente gli eventi di rischio si procede con azioni di correzione come la reimpostazione della password di protezione. Tuttavia, questo potrebbe non essere sempre possibile.  
 Ad esempio quando:
 
@@ -138,7 +250,8 @@ Invece di chiudere manualmente i singoli eventi di rischio per un utente, Azure 
 
 Quando si fa clic su **Dismiss all events**(Ignora tutti gli eventi), tutti gli eventi vengono chiusi e l'utente interessato non è più a rischio.
 
-## <a name="remediating-user-risk-events"></a>Correzione di eventi di rischio utente
+### <a name="remediating-user-risk-events"></a>Correzione di eventi di rischio utente
+
 Una correzione è un'azione che consente di proteggere un'identità o un dispositivo che in precedenza è stato sospettato o ritenuto essere compromesso. Un'azione di correzione ripristina l'identità o il dispositivo a uno stato sicuro e risolve gli eventi di rischio precedenti associati all'identità o al dispositivo.
 
 Per correggere gli eventi di rischio utente, è possibile:
@@ -147,7 +260,7 @@ Per correggere gli eventi di rischio utente, è possibile:
 * Configurare criteri di sicurezza per il rischio utente per mitigare o correggere automaticamente gli eventi di rischio utente
 * Ricreare l'immagine del dispositivo infetto  
 
-### <a name="manual-secure-password-reset"></a>Reimpostazione manuale della password di protezione
+#### <a name="manual-secure-password-reset"></a>Reimpostazione manuale della password di protezione
 La reimpostazione della password di protezione un'azione di correzione efficace per molti eventi di rischio. Quando viene eseguita, permette di chiudere automaticamente gli eventi di rischio e ricalcolare il livello di rischio utente. È possibile usare il dashboard di Identity Protection per avviare una reimpostazione della password per un utente rischioso.
 
 La finestra di dialogo correlata fornisce due metodi diversi per reimpostare una password:
@@ -170,7 +283,7 @@ La finestra di dialogo correlata fornisce due metodi diversi per reimpostare una
 
     ![Reimpostazione manuale della password](./media/active-directory-identityprotection/1008.png "Reimpostazione manuale della password")
 
-## <a name="user-risk-security-policy"></a>Criteri di sicurezza per il rischio utente
+### <a name="user-risk-security-policy"></a>Criteri di sicurezza per il rischio utente
 I criteri di sicurezza per il rischio utente sono criteri di accesso condizionale che valutano il livello di rischio per un utente specifico e applicano azioni di correzione e mitigazione dei rischi in base a regole e condizioni predefinite.
 
 ![Criteri di rischio utente](./media/active-directory-identityprotection/1009.png "Criteri di rischio utente")
@@ -212,11 +325,11 @@ Per una panoramica dell'esperienza utente correlata, vedere:
 
 **Per aprire la relativa finestra di dialogo di configurazione**:
 
-1. Nel pannello **Azure AD Identity Protection** fare clic su **Criteri di rischio utente** nella sezione **Configura**.
+- Nel pannello **Azure AD Identity Protection** fare clic su **Criteri di rischio utente** nella sezione **Configura**.
 
     ![Criteri di rischio utente](./media/active-directory-identityprotection/1009.png "Criteri di rischio utente")
 
-## <a name="mitigating-user-risk-events"></a>Mitigazione di eventi di rischio utente
+### <a name="mitigating-user-risk-events"></a>Mitigazione di eventi di rischio utente
 Gli amministratori possono impostare criteri di sicurezza per il rischio utente per bloccare gli utenti al momento dell'accesso in base al livello di rischio.
 
 Il blocco dell'accesso:
@@ -224,87 +337,7 @@ Il blocco dell'accesso:
 * Impedisce la generazione di nuovi eventi di rischio utente per l'utente interessato
 * Consente agli amministratori di correggere manualmente gli eventi di rischio che interessano l'identità dell'utente e di ripristinarne lo stato protetto
 
-## <a name="what-is-a-sign-in-risk-level"></a>Che cos'è un livello di rischio di accesso?
-Un livello di rischio di accesso (alto, medio o basso) indica la probabilità che per un accesso specifico altre persone stiano cercando di autenticarsi con l'identità dell'utente. Il livello di rischio di accesso viene valutato al momento dell'accesso e prende in considerazione gli eventi di rischio e gli indicatori rilevati in tempo reale per l'accesso specifico.
 
-## <a name="mitigating-sign-in-risk-events"></a>Mitigazione degli eventi di rischio di accesso
-La mitigazione è un'azione che consente di limitare la possibilità che un utente malintenzionato sfrutti un'identità o un dispositivo compromesso senza ripristinare l'identità o il dispositivo a uno stato sicuro. La mitigazione non risolve gli eventi di rischio di accesso precedenti associati all'identità o al dispositivo.
-
-Per mitigare automaticamente gli eventi di rischio di accesso, è possibile usare l'accesso condizionale in Azure AD Identity Protection. Usando questi criteri, si tiene conto del livello di rischio dell'utente o dell'accesso per bloccare gli accessi rischiosi o richiedere all'utente di eseguire l'autenticazione a più fattori. Queste azioni possono impedire a un utente malintenzionato di sfruttare un'identità rubata per causare danni e permettono di guadagnare tempo per proteggere l'identità.
-
-## <a name="sign-in-risk-security-policy"></a>Criteri di sicurezza per il rischio di accesso
-I criteri di rischio di accesso sono criteri di accesso condizionale che valutano il rischio associato a un accesso specifico e applicano le azioni di mitigazione in base a condizioni e regole predefinite.
-
-![Criteri di rischio di accesso](./media/active-directory-identityprotection/1014.png "Criteri di rischio di accesso")
-
-Azure AD Identity Protection consente di gestire le azioni di mitigazione degli accessi rischiosi seguendo questa procedura:
-
-* Impostare gli utenti e i gruppi a cui vengono applicati i criteri:
-
-    ![Criteri di rischio di accesso](./media/active-directory-identityprotection/1015.png "Criteri di rischio di accesso")
-* Impostare la soglia del livello di rischio di accesso, bassa, media o alta, che attiva il criterio:
-
-    ![Criteri di rischio di accesso](./media/active-directory-identityprotection/1016.png "Criteri di rischio di accesso")
-* Impostare i controlli da applicare quando viene attivato il criterio:  
-
-    ![Criteri di rischio di accesso](./media/active-directory-identityprotection/1017.png "Criteri di rischio di accesso")
-* Cambiare lo stato dei criteri:
-
-    ![Registrazione MFA](./media/active-directory-identityprotection/403.png "Registrazione MFA")
-* Esaminare e valutare l'impatto di una modifica prima di attivarla:
-
-    ![Criteri di rischio di accesso](./media/active-directory-identityprotection/1018.png "Criteri di rischio di accesso")
-
-### <a name="what-you-need-to-know"></a>Informazioni importanti
-È possibile configurare un criterio di sicurezza per il rischio di accesso per richiedere l'autenticazione a più fattori:
-
-![Criteri di rischio di accesso](./media/active-directory-identityprotection/1017.png "Criteri di rischio di accesso")
-
-Tuttavia, per motivi di sicurezza, questa impostazione funziona soltanto per gli utenti che sono già stati registrati per l'autenticazione a più fattori. Se la condizione per richiedere l'autenticazione a più fattori risulta soddisfatta per un utente che non è ancora registrato per l'autenticazione a più fattori, tale utente viene bloccato.
-
-Se si vuole richiedere l'autenticazione a più fattori per gli accessi rischiosi, è consigliabile procedere nel modo indicato di seguito:
-
-1. Abilitare il [criterio di registrazione per l'autenticazione a più fattori](#multi-factor-authentication-registration-policy) per gli utenti interessati.
-2. Richiedere agli utenti interessati di accedere in una sessione non rischiosa per eseguire la registrazione per l'autenticazione a più fattori
-
-L'esecuzione di questa procedura assicura che, in caso di accesso rischioso, venga richiesta l'autenticazione a più fattori.
-
-### <a name="best-practices"></a>Procedure consigliate
-La scelta di una soglia **alta** riduce la frequenza di attivazione dei criteri e riduce al minimo l'impatto sugli utenti.  
-
-Tuttavia, esclude dai criteri gli accessi contrassegnati per il rischio con una soglia **bassa** o **media**. Questa scelta può non impedire a un utente malintenzionato di sfruttare un'identità compromessa.
-
-Quando si impostano i criteri:
-
-* Escludere gli utenti non hanno o non possono avere l'autenticazione a più fattori
-* Escludere gli utenti con impostazioni locali in cui abilitare i criteri non è pratico, ad esempio per la mancanza di accesso al supporto tecnico
-* Escludere gli utenti che possono generare molti falsi positivi, ad esempio sviluppatori o analisti della sicurezza
-* Usare una soglia **alta** durante il rollout iniziale dei criteri o se è necessario ridurre al minimo gli avvisi visualizzati dagli utenti finali.
-* Usare una soglia **bassa** se l'organizzazione richiede una maggiore sicurezza. La scelta di una soglia **bassa** introduce richieste di accesso aggiuntive per l'utente, ma garantisce una maggiore sicurezza.
-
-L'impostazione predefinita consigliata per la maggior parte delle organizzazioni è la configurazione di una regola per una soglia **media** , che permette di bilanciare usabilità e sicurezza.
-
-I criteri di rischio di accesso:
-
-* Vengono applicati a tutto il traffico tramite browser e agli accessi che usano l'autenticazione moderna.
-* Non vengono applicati alle applicazioni che usano protocolli di sicurezza meno recenti disabilitando l'endpoint WS-Trust in corrispondenza dell'IDP federato, ad esempio ADFS.
-
-La pagina **Eventi di rischio** nella console di Identity Protection contiene un elenco di tutti gli eventi:
-
-* Visualizzare a quali eventi sono stati applicati i criteri
-* Esaminare l'attività e determinare se l'azione è stata appropriata o meno
-
-Per una panoramica dell'esperienza utente correlata, vedere:
-
-* [Ripristino di un accesso rischioso](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
-* [Accesso rischioso bloccato](active-directory-identityprotection-flows.md#risky-sign-in-blocked)  
-* [Esperienze di accesso con Azure AD Identity Protection](active-directory-identityprotection-flows.md)  
-
-**Per aprire la relativa finestra di dialogo di configurazione**:
-
-1. Nel pannello **Azure AD Identity Protection** fare clic su **Criteri di rischio di accesso** nella sezione **Configura**.
-
-    ![Criteri di rischio utente](./media/active-directory-identityprotection/1014.png "Criteri di rischio utente")
 
 ## <a name="multi-factor-authentication-registration-policy"></a>Criteri di registrazione per l'autenticazione a più fattori
 Azure Multi-Factor Authentication è un metodo di verifica dell'identità dell'utente che richiede l'uso di più fattori, oltre a un nome utente e una password. Fornisce un secondo livello di sicurezza agli accessi e alle transazioni degli utenti.  
@@ -339,24 +372,28 @@ Per una panoramica dell'esperienza utente correlata, vedere:
 
 **Per aprire la relativa finestra di dialogo di configurazione**:
 
-1. Nel pannello **Azure AD Identity Protection** fare clic su **Criteri di registrazione per l'autenticazione a più fattori** nella sezione **Configura**.
+- Nel pannello **Azure AD Identity Protection** fare clic su **Criteri di registrazione per l'autenticazione a più fattori** nella sezione **Configura**.
 
     ![Criteri MFA](./media/active-directory-identityprotection/1019.png "Criteri MFA")
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
-* [Tipi di eventi di rischio rilevati da Azure Active Directory](active-directory-identityprotection-risk-events-types.md)
-* [Vulnerabilità rilevate da Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md)
-* [Notifiche di Azure Active Directory Identity Protection](active-directory-identityprotection-notifications.md)
-* [Studio di Azure Active Directory Identity Protection](active-directory-identityprotection-playbook.md)
-* [Glossario di Azure Active Directory Identity Protection](active-directory-identityprotection-glossary.md)
-* [Esperienze di accesso con Azure AD Identity Protection](active-directory-identityprotection-flows.md)
+
 * [Abilitazione di Azure Active Directory Identity Protection](active-directory-identityprotection-enable.md)
+
+* [Vulnerabilità rilevate da Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md)
+
+* [Eventi di rischio di Azure Active Directory](active-directory-identity-protection-risk-events.md)
+
+* [Notifiche di Azure Active Directory Identity Protection](active-directory-identityprotection-notifications.md)
+
+* [Studio di Azure Active Directory Identity Protection](active-directory-identityprotection-playbook.md)
+
+* [Glossario di Azure Active Directory Identity Protection](active-directory-identityprotection-glossary.md)
+
+* [Esperienze di accesso con Azure AD Identity Protection](active-directory-identityprotection-flows.md)
+
 * [Azure Active Directory Identity Protection: come sbloccare gli utenti](active-directory-identityprotection-unblock-howto.md)
+
 * [Introduzione ad Azure Active Directory Identity Protection e a Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

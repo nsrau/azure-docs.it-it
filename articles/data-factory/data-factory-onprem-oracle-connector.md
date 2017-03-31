@@ -1,5 +1,5 @@
 ---
-title: Spostare i dati da/verso Oracle con Data Factory | Documentazione Microsoft
+title: Spostare i dati da/verso Oracle con Data Factory | Microsoft Docs
 description: Informazioni su come spostare i dati da e verso database Oracle in locale mediante Data factory di Azure.
 services: data-factory
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2017
+ms.date: 03/17/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 45b44b7b5cb4fd299fcc9c4f704a602048dd15c5
-ms.openlocfilehash: e875aab41e09066df2facd3669eec09eea621fd2
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: a27ec9e1ebfde3493e41c493b85c0dc7f0ada2a0
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -32,17 +33,13 @@ Data Factory supporta la connessione a origini Oracle locali mediante il gateway
 ## <a name="supported-versions-and-installation"></a>Versioni supportate e installazione
 Il connettore Oracle supporta due versioni di driver:
 
-- Il **driver Microsoft per Oracle** è incluso nel gateway di gestione dati a partire dalla versione 2.7. È quindi necessario installare solo il gateway per connettersi a Oracle. È supportato Oracle Database 10g Release 2 o versioni successive. È **consigliabile** usare il driver per semplificare la configurazione dell'ambiente.
+- Il **driver Microsoft per Oracle** è incluso nel gateway di gestione dati a partire dalla versione 2.7. È **consigliabile** usare questo driver. È quindi necessario installare solo il gateway per connettersi a Oracle, con un'esperienza di copia migliore. È supportato Oracle Database 10g Release 2 o versioni successive.
 
     > [!NOTE]
-    > Il driver Microsoft per Oracle supporta attualmente solo la copia dei dati da Oracle ma non la scrittura in Oracle.
+    > Il driver Microsoft per Oracle supporta attualmente solo la copia dei dati da Oracle ma non la scrittura in Oracle. Si noti che la funzionalità di connessione di test nella scheda Diagnostica del Gateway di gestione dati supporta questo driver. In alternativa, è possibile usare la procedura guidata di copia per convalidare la connettività.
     >
 
-- **Provider di dati Oracle per .NET:** è possibile scegliere di usare il Provider di dati Oracle per copiare i dati da/in Oracle. Questo componente è incluso in [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Installare la versione appropriata (32/64 bit) nel computer in cui è installato il gateway. [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) può accedere a Oracle Database 10g Release 2 o versione successiva.
-
-    Se si sceglie di installare XCopy, eseguire la procedura indicata nel file readme.htm. È consigliabile scegliere il programma di installazione con l'interfaccia utente (non XCopy).
-
-    Dopo avere installato il provider, **riavviare** il servizio host di Gateway di gestione dati nel computer mediante l'applet Services (o) Gestione configurazione di Gateway di gestione di dati.  
+- **Provider di dati Oracle per .NET:** nel gateway di gestione dati versione 2.7 o versioni successive è incluso questo componente, pertanto non è necessario installarlo separatamente. Se si usa un gateway con versione inferiore a 2.7, è consigliabile installare la versione più recente del gateway da [qui](https://www.microsoft.com/download/details.aspx?id=39717). È possibile trovare la versione del gateway nella pagina della Guida di Gateway di gestione dati di Configuration Manager (cercare "Gateway di gestione dati").
 
 ## <a name="copy-data-wizard"></a>Copia di dati guidata
 Il modo più semplice per creare una pipeline che copia i dati da e in un database Oracle in uno degli archivi dati sink supportati consiste nell'usare la Copia dati guidata. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
@@ -415,7 +412,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | --- | --- | --- |
 | type |La proprietà type deve essere impostata su: **OnPremisesOracle** |Sì |
 | driverType | Specificare il driver da usare per copiare i dati da/verso il database Oracle. I valori consentiti sono **Microsoft** o **ODP** (impostazione predefinita). Per informazioni dettagliate sui driver, vedere la sezione [Versione e installazione supportate](#supported-versions-and-installation). | No |
-| connectionString | Specificare le informazioni necessarie per connettersi all'istanza del database Oracle per la proprietà connectionString. Vedere gli esempi seguenti. | Sì |
+| connectionString | Specificare le informazioni necessarie per connettersi all'istanza del database Oracle per la proprietà connectionString. | Sì |
 | gatewayName | Nome del gateway usato per connettersi al server Oracle locale |Sì |
 
 Vedere [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md) per informazioni dettagliate sull'impostazione delle credenziali per un'origine dati Oracle locale.
@@ -476,7 +473,7 @@ Nell'attività di copia con origine di tipo **OracleSource** sono disponibili le
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| oracleReaderQuery |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: select * Se non è specificata, corrisponde all'istruzione SQL eseguita: select * Se non è specificata, corrisponde all'istruzione SQL eseguita: select * from MyTable <br/><br/> * Se non è specificata, corrisponde all'istruzione SQL eseguita: select * Se non è specificata, corrisponde all'istruzione SQL eseguita: select * from MyTable |No (se **tableName** di **set di dati** è specificato) |
+| oracleReaderQuery |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: select *Se non è specificata, corrisponde all'istruzione SQL eseguita: select * Se non è specificata, corrisponde all'istruzione SQL eseguita: select * from MyTable <br/><br/>* Se non è specificata, corrisponde all'istruzione SQL eseguita: select * Se non è specificata, corrisponde all'istruzione SQL eseguita: select * from MyTable |No (se **tableName** di **set di dati** è specificato) |
 
 ### <a name="oraclesink"></a>OracleSink
 **OracleSink** supporta le proprietà seguenti:
@@ -566,9 +563,4 @@ Quando si spostano dati da Oracle, vengono usati i mapping seguenti dal tipo di 
 
 ## <a name="performance-and-tuning"></a>Ottimizzazione delle prestazioni
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

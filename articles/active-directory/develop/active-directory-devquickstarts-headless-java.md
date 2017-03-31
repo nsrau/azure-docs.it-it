@@ -1,9 +1,9 @@
 ---
-title: Introduzione a Java per Azure AD | Microsoft Docs
+title: Introduzione alla riga di comando Java per Azure AD | Microsoft Docs
 description: Come compilare un&quot;app della riga di comando Java che faccia accedere gli utenti a un&quot;API.
 services: active-directory
 documentationcenter: java
-author: brandwe
+author: xerners
 manager: mbaldwin
 editor: 
 ms.assetid: 51e1a8f9-6ff0-4643-a350-0ba794e26fd1
@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 01/23/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: d7fd3656e4a2263c98c26615051b6584ebbfb30e
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 4e6d859ee621a730e0d2c1062d3a31e7c053e798
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -50,8 +51,8 @@ Per consentire all'app di autenticare gli utenti, sarà innanzitutto necessario 
 5. Seguire le istruzioni e creare una nuova **Applicazione Web e/o API Web**.
   * Il **nome** dell'applicazione deve essere una descrizione per gli utenti finali.
   * L' **URL accesso** è l'URL di base dell'app.  Il valore predefinito della struttura è `http://localhost:8080/adal4jsample/`.
-  * L' **URI ID app** è un identificatore univoco dell'applicazione.  Per convenzione si usa `https://<tenant-domain>/<app-name>`, ad esempio `http://localhost:8080/adal4jsample/`.
 6. Dopo avere completato la registrazione, AAD assegnerà all'app un ID app univoco.  Poiché questo valore sarà necessario nelle sezioni successive, copiarlo dalla scheda dell'applicazione.
+7. Dalla pagina **Impostazioni** -> **Proprietà** dell'applicazione aggiornare l'URI dell'ID app. L' **URI ID app** è un identificatore univoco dell'applicazione.  Per convenzione si usa `https://<tenant-domain>/<app-name>`, ad esempio `http://localhost:8080/adal4jsample/`.
 
 Dopo aver eseguito l'accesso al portale per l'app, creare una **Chiave** dalla pagina **Impostazioni** per l'applicazione e copiarla.  Verrà richiesto a breve.
 
@@ -267,10 +268,5 @@ Congratulazioni. È stata compilata un'applicazione Java funzionante che può au
 Come riferimento, l'esempio completato (senza i valori di configurazione) [è disponibile in un file con estensione .zip qui](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip). In alternativa, è possibile clonarlo da GitHub:
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

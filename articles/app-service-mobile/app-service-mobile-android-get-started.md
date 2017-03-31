@@ -4,7 +4,7 @@ description: Seguire questa esercitazione per iniziare a usare i back-end dell&q
 services: app-service\mobile
 documentationcenter: android
 author: ysxu
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 355f0959-aa7f-472c-a6c7-9eecea3a34a9
 ms.service: app-service-mobile
@@ -15,15 +15,16 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e4aa29329242a7397fdb5939fa7b5b04340b53c5
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 7752cd091d7952a905001f14414eba84b90f0d51
+ms.lasthandoff: 03/09/2017
 
 
 ---
 # <a name="create-an-android-app"></a>Creare un'app per Android
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app per dispositivi mobili Android mediante un back-end per app per dispositivi mobili di Azure.  Verranno creati un nuovo back-end di app per dispositivi mobili e una semplice app Android di tipo *Todo list* che archivia dati delle app in Azure.
 
 Il completamento di questa esercitazione è un prerequisito per tutte le altre esercitazioni Android relative all'uso della funzionalità delle app per dispositivi mobili in Servizio app di Azure.
@@ -45,11 +46,6 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 [!INCLUDE [app-service-mobile-android-run-app](../../includes/app-service-mobile-android-run-app.md)]
 
 <!-- URLs -->
-[portale di Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

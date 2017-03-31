@@ -1,5 +1,5 @@
 ---
-title: Convertire un esperimento di training di Machine Learning in un esperimento predittivo | Documentazione Microsoft
+title: Effettuare la conversione in un esperimento predittivo in Azure Machine Learning | Microsoft Docs
 description: "Come convertire un esperimento di training di Machine Learning usato per il training del modello di analisi predittiva in un esperimento predittivo che può essere distribuito come servizio Web."
 services: machine-learning
 documentationcenter: 
@@ -12,18 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 03/20/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
-ms.openlocfilehash: 7fbdaa7238d1c3c5d858e76c38f4691cfa0769a5
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: db91a464843a7c2dc5460f12f7f306972d3a7da8
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="convert-a-machine-learning-training-experiment-to-a-predictive-experiment"></a>Convertire un esperimento di training di Machine Learning in un esperimento predittivo
 Azure Machine Learning consente di compilare, testare e distribuire soluzioni di analisi predittiva.
 
-Dopo avere creato ed eseguito l'iterazione di un *esperimento di training* per eseguire il training del modello di analisi predittiva e si è pronti a usarlo per assegnare un punteggio a nuovi dati, è necessario preparare e semplificare l'esperimento per l'assegnazione di punteggi. È quindi possibile distribuire questo *esperimento predittivo* come servizio Web di Azure, per consentire agli utenti di inviare dati al modello e ricevere le relative stime.
+Dopo avere creato ed eseguito l'iterazione di un *esperimento di training* per eseguire il training del modello di analisi predittiva e si è pronti a usarlo per assegnare un punteggio a nuovi dati, è necessario preparare e semplificare l'esperimento per l'assegnazione di punteggi. È quindi possibile rendere operativo questo *esperimento predittivo* come servizio Web di Azure, per consentire agli utenti di inviare dati al modello e ricevere le relative stime.
 
 Effettuando la conversione in un esperimento predittivo, si prepara il modello sottoposto a training per la distribuzione come servizio Web. Gli utenti del servizio Web possono inviare dati di input al modello che poi restituirà i risultati della stima. Quindi se si effettua la conversione in un esperimento predittivo, è consigliabile valutare in che modo il modello verrà usato da altri utenti.
 
@@ -39,7 +40,7 @@ Il processo di conversione di un esperimento di training in un esperimento predi
 Dopo avere eseguito l'esperimento (pulsante **RUN** (ESEGUI) nella parte inferiore dell'area di disegno dell'esperimento), il pulsante **Set Up Web Service** (Configura servizio Web), disponibile selezionando l'opzione **Predictive Web Service** (Servizio Web predittivo), eseguirà automaticamente i tre passaggi per la conversione dell'esperimento di training in un esperimento predittivo:
 
 1. Salva il modello sottoposto a training come modulo nella sezione **Trained Models** (Modelli sottoposti a training) della tavolozza del modulo (a sinistra dell'area di disegno dell'esperimento), quindi sostituisce l'algoritmo di Machine Learning e i moduli [Train Model][train-model] con il modello sottoposto a training salvato.
-2. Rimuove i moduli chiaramente non necessari. L'esempio include i moduli [Split Data][split] (Dividi dati), il secondo modulo [Score Model][score-model] (Modello di punteggio) ed [Evaluate Model][evaluate-model] (Modello di valutazione).
+2. Rimuove i moduli chiaramente non necessari. L'esempio include i moduli [Split Data][split] (Dividi dati), il secondo modulo<sup></sup> [Score Model][score-model] (Modello di punteggio) e [Evaluate Model][evaluate-model] (Modello di valutazione).
 3. Crea i moduli di input e output del servizio Web e li aggiunge alle posizioni predefinite nell'esperimento.
 
 Ad esempio, il seguente esperimento esegue il training di un modello di albero delle decisioni incrementato a due classi utilizzando dati di classificazione di esempio:
@@ -57,7 +58,7 @@ Quando si converte l'esperimento di training in un esperimento predittivo, alcun
   
     In questo esempio, nel set di dati di esempio potrebbero mancare dei valori e sono incluse delle colonne non necessarie per il eseguire il training del modello. Sono stati quindi inclusi un modulo [Clean Missing Data][clean-missing-data] (Pulisci dati mancanti) per gestire i valori mancanti e un modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) per escludere le colonne aggiuntive dal flusso di dati. Se si è certi che i dati inviati per la classificazione tramite il servizio Web non presentino valori mancanti, è possibile rimuovere il modulo [Clean Missing Data][clean-missing-data]. Tuttavia, poiché il modulo [Select Columns in Dataset][select-columns] consente di definire il set di funzionalità da classificare, il modulo deve essere mantenuto.
 * **Train** (Training): questi moduli vengono usati per eseguire il training del modello. Quando si fa clic su **Set Up Web Service** (Configura servizio Web), questi moduli vengono sostituiti con un modulo del modello sottoposto a training singolo. Il nuovo modulo viene salvato nella sezione **Trained Models** (Modelli sottoposti a training) della tavolozza dei moduli.
-* **Score** : in questo esempio il modulo Split viene usato per suddividere il flusso di dati in un set di dati di test e dati di training. Nell'esperimento predittivo non è necessario, quindi può essere rimosso. In modo analogo, il secondo modulo [Score Model][score-model] e il modulo [Evaluate Model][evaluate-model] vengono usati per confrontare i risultati dei dati di test, quindi questi moduli non sono necessari nell'esperimento predittivo. Il modulo rimanente [Score Model][score-model] è però necessario per restituire un risultato relativo all'assegnazione del punteggio tramite il servizio Web.
+* **Score** : in questo esempio il modulo [Split Data][split] viene usato per suddividere il flusso di dati in un set di dati di test e dati di training. Nell'esperimento predittivo non è necessario, quindi può essere rimosso. In modo analogo, il secondo<sup></sup> modulo [Score Model][score-model] e il modulo [Evaluate Model][evaluate-model] vengono usati per confrontare i risultati dei dati di test, quindi questi moduli non sono necessari nell'esperimento predittivo. Il modulo rimanente [Score Model][score-model] è però necessario per restituire un risultato relativo all'assegnazione del punteggio tramite il servizio Web.
 
 Ecco come appare l'esempio dopo aver fatto clic su **Set Up Web Service**:
 
@@ -128,9 +129,4 @@ Per altre informazioni sul processo di distribuzione completo, vedere [Distribui
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [export-data]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

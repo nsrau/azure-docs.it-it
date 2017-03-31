@@ -1,77 +1,12 @@
 ---
-title: Inviare eventi con Hub eventi di Azure in Java e riceverli in C# | Documentazione Microsoft
-description: Eseguire questa esercitazione per iniziare a usare gli hub eventi di Azure, inviare gli eventi in Java e riceverli in C# mediante EventProcessorHost.
-services: event-hubs
-documentationcenter: 
-author: jtaubensee
-manager: timlt
-editor: 
-ms.assetid: 1c9988ca-1473-4287-a033-f99122c429bc
-ms.service: event-hubs
-ms.workload: core
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/04/2017
-ms.author: jotaub;sethm
+redirect_url: /azure/event-hubs/event-hubs-java-get-started-send
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 2e16874e20b233b93370ec81f8e534475c7c562a
-
+ms.sourcegitcommit: 4ba8c859940f315c347cadcc6f6cb36f61cae841
+ms.openlocfilehash: bccb9b1f41bd0caf010fb335f7985dbf3c31f3ce
 
 ---
-# <a name="get-started-with-event-hubs"></a>Introduzione all'Hub eventi
-[!INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
-
-## <a name="introduction"></a>Introduzione
-Hub eventi è un sistema di inserimento a scalabilità elevata, in grado di accettare milioni di eventi al secondo, che permette a un'applicazione di elaborare e analizzare le elevate quantità di dati prodotti dalle applicazioni e dai dispositivi connessi. Dopo la raccolta nell'hub eventi, i dati possono essere trasformati e archiviati tramite qualsiasi provider di analisi in tempo reale o qualsiasi cluster di archiviazione.
-
-Per altre informazioni, vedere [Panoramica di Hub eventi][Event Hubs overview].
-
-Questa esercitazione illustra come inserire messaggi in Hub eventi usando un'applicazione console in Java e come recuperarli in parallelo usando la libreria dell'[Host processore di eventi][Event Processor Host] in C#.
-
-Per completare questa esercitazione, sono necessari gli elementi seguenti:
-
-* Ambiente di sviluppo in Java. Per questa esercitazione si presuppone l'uso di [Eclipse](https://www.eclipse.org/).
-* [Microsoft Visual Studio](http://visualstudio.com)
-* Un account Azure attivo. <br/>Se non si ha un account, è possibile creare un account gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">versione di valutazione gratuita di Azure</a>.
-
-[!INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
-
-[!INCLUDE [service-bus-event-hubs-get-started-send-java](../../includes/service-bus-event-hubs-get-started-send-java.md)]
-
-[!INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
-
-## <a name="run-the-applications"></a>Eseguire le applicazioni
-A questo punto è possibile eseguire le applicazioni.
-
-1. Eseguire il progetto **Receiver** da Visual Studio, quindi attendere che il progetto avvii i ricevitori per tutte le partizioni.
-   
-   ![][21]
-2. Eseguire il progetto **Sender** .
-   
-   ![][22]
-
-## <a name="next-steps"></a>Passaggi successivi
-Ora che è stata creata un'applicazione che crea un Hub eventi e invia e riceve i dati, è possibile passare ai seguenti scenari:
-
-* Un' [applicazione di esempio completa che usa Hub eventi][sample application that uses Event Hubs].
-* Esempio relativo alla [scalabilità orizzontale dell'elaborazione di eventi con l'Hub eventi][Scale out Event Processing with Event Hubs].
-
-Per ulteriori informazioni, vedere il [Centro per sviluppatori di Java](/develop/java/).
-
-<!-- Images. -->
-[21]: ./media/event-hubs-java-ephcs-getstarted/run-csharp-ephcs1.png
-[22]: ./media/event-hubs-java-ephcs-getstarted/java-send.png
-
-<!-- Links -->
-[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs overview]: event-hubs-overview.md
-[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 
 
-
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

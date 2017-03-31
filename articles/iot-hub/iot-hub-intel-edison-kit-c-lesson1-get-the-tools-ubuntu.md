@@ -1,5 +1,5 @@
 ---
-title: Ottenere gli strumenti per lo starter kit di Azure IoT per Ubuntu 16.04 | Documentazione Microsoft
+title: 'Connettere Intel Edison (C) ad Azure IoT: lezione 1: Ottenere gli strumenti (Ubuntu) | Documentazione Microsoft'
 description: Scaricare e installare il software e gli strumenti necessari per la prima applicazione di esempio per Edison in Ubuntu.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: add691f1349ab27c057263b9aa0561b84fd8f262
-ms.openlocfilehash: dbf1a2c1af218d4285b2e20a5a6914e2b3cf6864
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: d9c7eee6cb104e3ec0b8faa1bb84f8bbe1ce0640
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -86,9 +87,4 @@ Sono stati installati gli strumenti di sviluppo e il software necessari per la p
 [windows]: iot-hub-intel-edison-kit-c-lesson1-get-the-tools-win32.md
 [ubuntu]: iot-hub-intel-edison-kit-c-lesson1-get-the-tools-ubuntu.md
 [macos]: iot-hub-intel-edison-kit-c-lesson1-get-the-tools-mac.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

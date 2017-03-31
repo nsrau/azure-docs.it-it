@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: e207c221a7294d1288e38c377d64327d889b29de
-ms.openlocfilehash: 7a635fa0f63e851f63f56dc7eb3bca405603dec0
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: fe1d7abf3585efab67a7dbc10afa7bf3c4d466e5
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: 7a635fa0f63e851f63f56dc7eb3bca405603dec0
 L'emulatore di archiviazione di Microsoft Azure offre un ambiente locale che emula i servizi BLOB, code e tabelle di Azure per scopi di sviluppo. Usando l'emulatore di archiviazione, è possibile testare l'applicazione con i servizi di archiviazione in locale, senza creare una sottoscrizione di Azure o sostenere alcun costo. Quando si è soddisfatti della modalità di funzionamento dell'applicazione nell'emulatore, è possibile passare all'utilizzo di un account di archiviazione di Azure nel cloud.
 
 > [!NOTE]
-> L'emulatore di archiviazione è disponibile come parte di [Microsoft Azure SDK](https://azure.microsoft.com/downloads/). È inoltre possibile installare l'emulatore di archiviazione usando il [programma di installazione autonomo](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409). Per configurare l'emulatore di archiviazione, è necessario avere i privilegi di amministratore nel computer.
+> L'emulatore di archiviazione è disponibile come parte di [Microsoft Azure SDK](https://azure.microsoft.com/downloads/). È inoltre possibile installare l'emulatore di archiviazione usando il [programma di installazione autonomo](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409). Per installare l'emulatore di archiviazione, è necessario disporre dei privilegi di amministratore nel computer.
 >
 > L'emulatore di archiviazione attualmente viene eseguito solo in Windows.
 >
@@ -88,10 +89,10 @@ La prima volta che si esegue l'emulatore di archiviazione, l'ambiente di archivi
 L'emulatore di archiviazione viene installato per impostazione predefinita nella directory C:\Programmi (x86)\Microsoft SDKs\Azure\Storage Emulator.
 
 ### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>Inizializzare l'emulatore di archiviazione per l'uso di un database SQL diverso
-È possibile usare lo strumento da riga di comando emulatore di archiviazione per inizializzare l'emulatore di archiviazione in modo che punti a un'istanza di database SQL diversa dall'istanza predefinita LocalDB. È necessario eseguire lo strumento da riga di comando con privilegi amministrativi per inizializzare il database back-end per l'emulatore di archiviazione:
+È possibile usare lo strumento della riga di comando Emulatore di archiviazione per inizializzare l'emulatore di archiviazione in modo che punti a un'istanza di database SQL diversa dall'istanza LocalDB predefinita:
 
 1. Fare clic sul pulsante **Start** o premere il tasto **WINDOWS**. Iniziare a digitare `Azure Storage Emulator` e selezionarlo quando compare, per visualizzare lo strumento da riga di comando emulatore di archiviazione.
-2. Nella finestra del prompt dei comandi digitare il seguente comando dove `<SQLServerInstance>` è il nome dell'istanza di SQL Server. Per usare LocalDB, specificare `(localdb)\v11.0` come istanza di SQL Server.
+2. Nella finestra del prompt dei comandi digitare il seguente comando dove `<SQLServerInstance>` è il nome dell'istanza di SQL Server. Per usare LocalDB, specificare `(localdb)\MSSQLLocalDb` come istanza di SQL Server.
 
         AzureStorageEmulator init /server <SQLServerInstance>
 
@@ -160,7 +161,7 @@ Per visualizzare l'elenco di opzioni, digitare `/help` al prompt dei comandi.
 | **Stop** |Interrompe l'emulatore di archiviazione. |`AzureStorageEmulator stop` | |
 | **Status** |Stampa lo stato dell'emulatore di archiviazione. |`AzureStorageEmulator status` | |
 | **Cancella** |Cancella i dati in tutti i servizi specificati nella riga di comando. |`AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    ` |*blob*: cancella i dati BLOB. <br/>*queue*: cancella i dati della coda. <br/>*table*: cancella i dati delle tabelle. <br/>*all*: cancella tutti i dati in tutti i servizi. |
-| **Init** |Esegue l'inizializzazione una tantum per configurare l'emulatore. |`AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` |*-server serverName\instanceName*: specifica il server che ospita l'istanza di SQL. <br/>*-sqlinstance instanceName*: specifica il nome dell'istanza di SQL da usare. <br/>*-forcecreate*: forza la creazione del database SQL, anche se già esistente. <br/>*-inprocess*: esegue l'inizializzazione nel processo corrente anziché generare un nuovo processo. Il processo corrente deve essere avviato con autorizzazioni elevate per eseguire l'inizializzazione. |
+| **Init** |Esegue l'inizializzazione una tantum per configurare l'emulatore. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*: specifica il server che ospita l'istanza di SQL. <br/>*-sqlinstance instanceName*: specifica il nome dell'istanza di SQL da usare. <br/>*-forcecreate*: forza la creazione del database SQL, anche se già esistente. <br/>*-skipcreate*: ignora la creazione del database SQL. Questa opzione ha la precedenza sull'opzione -forcecreate.<br/>*-reserveports*: tenta di prenotare le porte HTTP associate ai servizi.<br/>*-unreserveports*: tenta di rimuovere le prenotazioni delle porte HTTP associate ai servizi. Questa opzione ha la precedenza sull'opzione -reserveports.<br/>*-inprocess*: esegue l'inizializzazione nel processo corrente anziché generare un nuovo processo. Se si modificano le prenotazioni delle porte, è necessario avviare il processo corrente con autorizzazioni elevate. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>Differenze tra l'emulatore di archiviazione e Archiviazione di Azure
 Poiché l'emulatore di archiviazione è un ambiente emulato eseguito in un'istanza di SQL locale, esistono differenze a livello di funzionalità tra l'emulatore e un account di archiviazione di Azure nel cloud:
@@ -195,6 +196,18 @@ All'archiviazione tabelle nell'emulatore si applicano le seguenti differenze:
 Non esistono differenze specifiche per l'archiviazione di accodamento nell'emulatore.
 
 ## <a name="storage-emulator-release-notes"></a>Note sulla versione dell'emulatore di archiviazione
+### <a name="version-51"></a>Versione 5.1
+* È stato risolto un bug per cui l'emulatore di archiviazione restituiva l'intestazione `DataServiceVersion` in risposte in cui il servizio non era presente.
+
+### <a name="version-50"></a>Versione 5.0
+* Il programma di installazione dell'emulatore di archiviazione non verifica l'eventuale presenza di installazioni MSSQL e .NET Framework esistenti.
+* Il programma di installazione dell'emulatore di archiviazione non crea più il database come parte del processo di installazione.  Se necessario, il database verrà comunque creato come parte del processo di avvio.
+* Per la creazione del database non è più necessaria l'elevazione dei privilegi.
+* Per l'avvio non sono più necessarie prenotazioni di porte.
+* Aggiunge a *init* le opzioni seguenti: -reserveports (è richiesta l'elevazione), -unreserveports (è richiesta l'elevazione), -skipcreate.
+* L'opzione Storage Emulator UI (Interfaccia utente emulatore di archiviazione) sull'icona nell'area di notifica avvia ora l'interfaccia della riga di comando.  L'interfaccia utente grafica precedente non è più disponibile.
+* Alcune DLL sono state rimosse o rinominate.
+
 ### <a name="version-46"></a>Versione 4.6
 * L'emulatore di archiviazione supporta ora la versione 2016-05-31 dei servizi di archiviazione per gli endpoint di servizio BLOB, di accodamento e tabelle.
 
@@ -231,9 +244,4 @@ Non esistono differenze specifiche per l'archiviazione di accodamento nell'emula
 * L'emulatore di archiviazione di Azure non è più disponibile nello stesso pacchetto dell'emulatore di calcolo.
 * L'interfaccia utente grafica dell'emulatore di archiviazione è deprecata a favore di un'interfaccia della riga di comando configurabile tramite script. Per informazioni dettagliate sull'interfaccia della riga di comando, vedere le informazioni di riferimento sullo strumento da riga di comando dell'emulatore di archiviazione. L'interfaccia grafica continuerà a essere presente nella versione 3.0, ma è possibile accedervi solo quando è installato l'emulatore di calcolo facendo clic con il pulsante destro del mouse sull'icona della barra delle applicazioni e selezionando Mostra interfaccia utente emulatore di archiviazione.
 * La versione 2013-08-15 dei servizi di archiviazione di Azure è ora completamente supportata. (In precedenza questa versione era supportata solo dalla versione 2.2.1 dell'emulatore di archiviazione di anteprima.)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

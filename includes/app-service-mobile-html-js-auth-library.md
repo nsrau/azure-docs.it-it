@@ -80,6 +80,6 @@ fetch(url, { headers: headers })
 L'operazione di recupero è disponibile come [pacchetto npm](https://www.npmjs.com/package/whatwg-fetch) oppure può essere scaricato tramite il browser da [CDNJS](https://cdnjs.com/libraries/fetch). È anche possibile usare jQuery o un'altra API AJAX per recuperare le informazioni.  I dati saranno ricevuti come oggetto JSON.
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

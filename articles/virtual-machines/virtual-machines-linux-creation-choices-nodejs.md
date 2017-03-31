@@ -10,14 +10,15 @@ tags: azure-resource-manager
 ms.assetid: f38f8a44-6c88-4490-a84a-46388212d24c
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: 
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 1cbc3534aa0415a14d8b955dbcd291d2200c276e
-ms.openlocfilehash: 2ffc8d1f8ec924914c624f882bf35a08f0dd5888
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: c3959babbfa6d7d512248e262060d44390de28a4
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -28,9 +29,9 @@ Azure offre la possibilità di creare una macchina virtuale (VM) Linux usando gl
 È possibile creare macchine virtuali in Azure usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - Interfaccia della riga di comando di Azure 1.0: interfaccia della riga di comando per i modelli di distribuzione classica e di gestione delle risorse (questo articolo)
-- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](virtual-machines-linux-creation-choices.md): l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse
+- [Interfaccia della riga di comando di Azure 2.0](virtual-machines-linux-creation-choices.md): interfaccia della riga di comando di prossima generazione per il modello di distribuzione di Gestione risorsa
 
-L'interfaccia della riga di comando di Azure 1.0 è disponibile per più piattaforme tramite un pacchetto npm, pacchetti forniti tramite distribuzione o un contenitore Docker. Altre informazioni su come [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md). Le esercitazioni seguenti offrono esempi relativi all'uso dell'interfaccia della riga di comando di Azure 1.0. Vedere ogni articolo per altre informazioni sui comandi di avvio rapido dell'interfaccia della riga di comando illustrati:
+L'interfaccia della riga di comando di Azure 1.0 è disponibile per più piattaforme tramite un pacchetto npm, pacchetti forniti tramite distribuzione o un contenitore Docker. Altre informazioni su come [Installare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md). Le esercitazioni seguenti offrono esempi relativi all'uso dell'interfaccia della riga di comando di Azure 1.0. Vedere ogni articolo per altre informazioni sui comandi di avvio rapido dell'interfaccia della riga di comando illustrati:
 
 * [Creare una VM Linux dall'interfaccia della riga di comando di Azure per sviluppo e test](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
@@ -130,10 +131,5 @@ Per personalizzazioni specifiche è possibile usare un'immagine basata su una VM
 * Creare una VM Linux dal [portale](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), con l'[interfaccia della riga di comando](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) oppure usando un [modello di Azure Resource Manager](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Dopo aver creato una VM Linux, [aggiungere un disco dati](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Azioni rapide per [reimpostare una password o chiavi SSH e gestire gli utenti](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

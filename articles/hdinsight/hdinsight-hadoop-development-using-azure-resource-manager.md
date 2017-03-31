@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione agli strumenti di sviluppo di Azure Resource Manager per i cluster HDInsight | Documentazione Microsoft
+title: Eseguire la migrazione agli strumenti di Azure Resource Manager per HDInsight | Documentazione Microsoft
 description: Come eseguire la migrazione a strumenti di sviluppo di Azure Resource Manager per i cluster HDInsight
 services: hdinsight
 editor: cgronlun
@@ -8,19 +8,22 @@ author: nitinme
 documentationcenter: 
 ms.assetid: 05efedb5-6456-4552-87ff-156d77fbe2e1
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 938abf03191dec10da8d2fabf27c5db2415d6bc5
-ms.openlocfilehash: 660ea89373fe77dac9b77e529adf37025a0a80cc
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 3606df64b619b62f8b9e5aec2abc4efc994c37e3
+ms.lasthandoff: 01/24/2017
 
 
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrazione a strumenti di sviluppo basati su Azure Resource Manager per i cluster HDInsight
+
 In HDInsight stanno per essere deprecati gli strumenti basati su Azure Service Management (ASM) per HDInsight. Se si usa Azure PowerShell, l'interfaccia della riga di comando di Azure o HDInsight .NET SDK per l'utilizzo dei cluster HDInsight, in futuro è consigliabile passare alle versioni di PowerShell, dell'interfaccia della riga di comando e di .NET SDK basate su Azure Resource Manager (ARM). Questo articolo fornisce informazioni utili su come eseguire la migrazione al nuovo approccio basato su ARM. Se applicabili, l'articolo evidenzia anche le differenze tra gli approcci basati su ASM e ARM per HDInsight.
 
 > [!IMPORTANT]
@@ -48,8 +51,6 @@ Ecco i nuovi comandi disponibili con Azure Resource Manager:
 * `azure hdinsight cluster resize` : modifica dinamicamente il numero di nodi di lavoro del cluster.
 * `azure hdinsight cluster enable-http-access` : abilita l'accesso HTTPs al cluster (attivato per impostazione predefinita).
 * `azure hdinsight cluster disable-http-access` : disabilità l'accesso HTTPs al cluster.
-* `azure hdinsight-enable-rdp-access` : abilita Remote Desktop Protocol in un cluster HDInsight basato su Windows.
-* `azure hdinsight-disable-rdp-access` : disabilita Remote Desktop Protocol in un cluster HDInsight basato su Windows.
 * `azure hdinsight script-action`: fornisce i comandi per la creazione o la gestione di azioni script in un cluster.
 * `azure hdinsight config`: fornisce i comandi per la creazione di un file di configurazione che può essere usato con il comando `hdinsight cluster create` per fornire informazioni di configurazione.
 
@@ -324,7 +325,7 @@ Di seguito sono riportati alcuni esempi sulla modalità di esecuzione di un'oper
                 Location = "West US",
                 ClusterType = "Hadoop",
                 Version = "3.1",
-                OSType = OSType.Windows,
+                OSType = OSType.Linux,
                 DefaultStorageAccountName = "mystorage.blob.core.windows.net",
                 DefaultStorageAccountKey =
                     "O9EQvp3A3AjXq/W27rst1GQfLllhp0gUeiUUn2D8zX2lU3taiXSSfqkZlcPv+nQcYUxYw==",
@@ -362,10 +363,5 @@ Di seguito sono riportati alcuni esempi sulla modalità di esecuzione di un'oper
 * Nuovo comando (ARM)
   
         client.Clusters.Delete(resourceGroup, dnsname);
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

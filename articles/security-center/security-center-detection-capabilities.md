@@ -12,11 +12,12 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a18ffc2b3b0f317a4209a9d6457bdcc571d9f899
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 8d24ab744715df69c707df5a119fa71c72338b62
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: a18ffc2b3b0f317a4209a9d6457bdcc571d9f899
 Questo documento illustra le funzionalità di rilevamento avanzate del Centro sicurezza di Azure, che consentono di identificare le minacce attive rivolte alle risorse di Microsoft Azure e fornisce le informazioni dettagliate necessarie per rispondere rapidamente a tali minacce.
 
 > [!NOTE]
-> Il piano Standard del Centro sicurezza di Azure include funzionalità di rilevamento avanzate. È disponibile una versione di valutazione gratuita di 90 giorni. È possibile eseguire l'aggiornamento dal piano tariffario selezionato in [Criteri di sicurezza](security-center-policies.md). Per altre informazioni sui prezzi, vedere la [pagina del Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/) . 
+> Il piano Standard del Centro sicurezza di Azure include funzionalità di rilevamento avanzate. È disponibile una versione di valutazione gratuita di 60 giorni. È possibile eseguire l'aggiornamento dal piano tariffario selezionato in [Criteri di sicurezza](security-center-policies.md). Per altre informazioni sui prezzi, vedere la [pagina del Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/) . 
 > 
 > 
 
@@ -89,10 +90,5 @@ In questo documento si è appreso come utilizzare le funzionalità di monitoragg
 * [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md) : informazioni su come monitorare l'integrità delle soluzioni dei partner.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/) : post di blog sulla sicurezza e sulla conformità di Azure.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

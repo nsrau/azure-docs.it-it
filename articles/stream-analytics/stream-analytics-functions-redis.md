@@ -1,5 +1,5 @@
 ---
-title: Come archiviare i dati dall&quot;analisi di flusso di Azure nella Cache Redis di Azure utilizzando le funzioni di Azure | Documentazione Microsoft
+title: Elaborazione in tempo reale in Analisi di flusso per le funzioni di Azure | Documentazione Microsoft
 description: Informazioni su come utilizzare una funzione di Azure connessa a una coda del bus di servizio per popolare una cache Redis di Azure dall&quot;output di un processo di analisi di flusso.
 keywords: flusso di dati, cache redis, coda bus di servizio
 services: stream-analytics
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2016
+ms.date: 03/28/2017
 ms.author: ryancraw
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e792f8c8b1ffddbd534b1660421e4cc89a63d35a
+ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
+ms.openlocfilehash: 3753846e955308a7607d92ed25648d75b9cc3a35
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -204,9 +205,4 @@ Per tenersi aggiornati sulle ultime novità e sulle funzionalità più recenti, 
 [servicebus-getstarted]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 [use-rediscache]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md
 [functions-getstarted]: ../azure-functions/functions-create-first-azure-function.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

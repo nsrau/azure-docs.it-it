@@ -1,5 +1,5 @@
 ---
-title: Abilitare Transparent Data Encryption (TDE) per Estensione database di SQL Server su Azure | Documentazione Microsoft
+title: Abilitare Transparent Data Encryption per Estensione database - Azure | Documentazione Microsoft
 description: Abilitare Transparent Data Encryption (TDE) per Estensione database di SQL Server su Azure
 services: sql-server-stretch-database
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/14/2016
 ms.author: douglasl
 translationtype: Human Translation
-ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
-ms.openlocfilehash: a8a2c05bb341869e6dd67a9d6872fba6a35ffabe
+ms.sourcegitcommit: bcb0a66425439522e0c9a353798ac70505b91e39
+ms.openlocfilehash: ceb355d2ba872ed5d3886c6dc82ca75b1854db0a
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: a8a2c05bb341869e6dd67a9d6872fba6a35ffabe
 > [!div class="op_single_selector"]
 > * [Portale di Azure](sql-server-stretch-database-encryption-tde.md)
 > * [TSQL](sql-server-stretch-database-tde-tsql.md)
-> 
-> 
+>
+>
 
 La funzionalità Transparent Data Encryption (TDE) consente di proteggersi da attività dannose eseguendo in tempo reale la crittografia e la decrittografia dei database, dei backup associati e dei file di log delle transazioni inattivi, senza dover apportare modifiche all'applicazione.
 
@@ -61,6 +61,6 @@ Per disabilitare TDE per un database di Azure che archivia i dati migrati da un 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

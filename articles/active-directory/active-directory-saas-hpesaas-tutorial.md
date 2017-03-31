@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 92d61ff08b70e89b5e5310cf4b0f7fb88abf3ef9
+ms.sourcegitcommit: 0837cb33bf438fb7fd9665d21d411f0170cdd393
+ms.openlocfilehash: 59939dd678452fc29b1861b70073e6f79c230196
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -232,9 +233,4 @@ Quando si fa clic sul riquadro HPE SaaS nel pannello di accesso, si accederà au
 [203]: ./media/active-directory-saas-hpesaas-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-hpesaas-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-hpesaas-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

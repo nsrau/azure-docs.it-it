@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e4281c70dc0edd45ff485c64a499291b23ad51b7
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: 5f4f7052d48b4ca4ed91212d970551141e78e852
 
 
 ---
@@ -29,7 +29,7 @@ Ad esempio, è possibile:
 * Attendere fino a un determinato giorno della settimana per inviare un aggiornamento di stato tramite posta elettronica.
 * Ritardare il flusso di lavoro fino a quando una chiamata HTTP viene completata prima di riprendere e recuperare i risultati.
 
-Per iniziare a usare un'azione di ritardo in un'app per la logica, vedere [Creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Per iniziare a usare un'azione di ritardo in un'app per la logica, vedere [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="use-the-delay-actions"></a>Usare le azioni di ritardo
 Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](connectors-overview.md).
@@ -72,11 +72,11 @@ Un asterisco (*) indica che è un campo obbligatorio.
 <br>
 
 ## <a name="next-steps"></a>Passaggi successivi
-Provare ora a usare la piattaforma e [creare un'app per la logica](../app-service-logic/app-service-logic-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
+Provare ora a usare la piattaforma e [creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 7d122d04dfd9cb1f565e86b60f2180f9534588c9
+ms.sourcegitcommit: 4818c0c036c7e462af5b8d99f1085f8d9025156c
+ms.openlocfilehash: 7b4db2f215b8f7369694a45533d0c862b8f8d08e
 
 
 ---
@@ -51,7 +51,7 @@ Alcuni aspetti da considerare:
     Questo è uno strumento di risoluzione dei problemi indispensabile che mostra lo stato delle risorse di Azure Resource Manager. Fare clic sulla sottoscrizione ed esaminare il gruppo di risorse di cui si sta provando a risolvere i problemi. In Provider di risorse di calcolo esaminare il set di scalabilità di macchine virtuali la relativa visualizzazione delle istanze, che mostra lo stato di una distribuzione. Controllare anche la visualizzazione delle istanze delle macchine virtuali incluse nel set di scalabilità. Accedere quindi al provider di risorse Microsoft.Insights e verificare lo stato delle regole di scalabilità automatica.
 * L'estensione della diagnostica funziona e genera dati sulle prestazioni?
   
-    **Aggiornamento:** la funzione di scalabilità automatica di Azure è stata migliorata per l'uso di una pipeline di metriche basate su host che non richiede più l'installazione di un'estensione di diagnostica. Ciò significa che i paragrafi seguenti non avranno più validità se si crea un'applicazione di scalabilità automatica usando la nuova pipeline. Alcuni esempi di modelli di Azure che sono stati convertiti per l'uso della pipeline host sono: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale, https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale. 
+    **Aggiornamento:** la funzione di scalabilità automatica di Azure è stata migliorata per l'uso di una pipeline di metriche basate su host che non richiede più l'installazione di un'estensione di diagnostica. Ciò significa che i paragrafi seguenti non avranno più validità se si crea un'applicazione di scalabilità automatica usando la nuova pipeline. Un esempio di modelli di Azure che sono stati convertiti per utilizzare la pipeline host è: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
   
     È consigliabile usare le metriche basate su host per eseguire la scalabilità automatica per i motivi seguenti:
   
@@ -85,6 +85,6 @@ Alcuni aspetti da considerare:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

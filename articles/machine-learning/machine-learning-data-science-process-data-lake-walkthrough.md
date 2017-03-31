@@ -1,5 +1,5 @@
 ---
-title: 'Analisi scientifica dei dati scalabile in Azure Data Lake: procedura dettagliata end-to-end | Microsoft Docs'
+title: 'Analisi scientifica dei dati scalabile in Azure Data Lake: procedura dettagliata end-to-end | Documentazione Microsoft'
 description: "Come usare Azure Data Lake per eseguire attività di esplorazione di dati e di classificazione binaria su un set di dati."
 services: machine-learning
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 01/30/2017
 ms.author: bradsev;weig
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8c625752b40cffd0e7f791bd3a360f4bfb4622e7
+ms.sourcegitcommit: 29c718d0c34d1e2f9d17b285a7270541a9ff15cf
+ms.openlocfilehash: c7444d457592538a26834091c77f49a3c1ef8591
+ms.lasthandoff: 02/24/2017
 
 
 ---
-# <a name="scalable-data-science-in-azure-data-lake-an-end-to-end-walkthrough"></a>Analisi scientifica dei dati scalabile in Azure Data Lake: procedura dettagliata end-to-end
+# <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Analisi scientifica dei dati scalabile in Azure Data Lake: procedura dettagliata end-to-end
 Questa procedura dettagliata end-to-end illustra come usare Azure Data Lake per eseguire attività di esplorazione dei dati e di classificazione binaria su un campione del set di dati relativo alle corse e alle tariffe dei taxi di NYC, in modo da prevedere se un passeggero pagherà la mancia. Vengono esaminati i passaggi del [processo di analisi scientifica dei dati del team](http://aka.ms/datascienceprocess), end-to-end, dall'acquisizione dei dati al training modello e quindi alla distribuzione di un servizio Web che pubblica il modello.
 
 ### <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics.
@@ -45,22 +46,14 @@ In questa procedura dettagliata sono illustrati solo i passaggi principali. È p
 ## <a name="prerequisites"></a>Prerequisiti
 Per eseguire le procedure descritte nell'articolo è necessario:
 
-* Una sottoscrizione di Azure. Se non è già disponibile, vedere l'articolo che illustra [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)(Ottenere una versione di valutazione gratuita di Azure).
-* [Consigliato] Visual Studio 2013 o 2015. Se non è già installata una di queste versioni, è possibile scaricare una versione Community gratuita da [questa pagina](https://www.visualstudio.com/visual-studio-homepage-vs.aspx). Fare clic sul pulsante **Scarica Community 2015** sotto la sezione Visual Studio. 
+* Una sottoscrizione di Azure. Se non è già disponibile, vedere l'articolo che illustra [come ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* [Consigliato] Visual Studio 2013 o versione successiva. Se non è già installata una di queste versioni, è possibile scaricare una versione Community gratuita da [Visual Studio Community](https://www.visualstudio.com/vs/community/).
 
 > [!NOTE]
 > Invece di Visual Studio, è possibile usare anche il portale di Azure per inviare query di Azure Data Lake. Le istruzioni per eseguire queste operazioni con Visual Studio e con il portale sono disponibili nella sezione intitolata **Elaborare i dati con U-SQL**. 
 > 
 > 
 
-* Iscrizione all'anteprima di Azure Data Lake
-
-> [!NOTE]
-> È necessario ottenere l'approvazione per usare Archivio Azure Data Lake (ADLS) e Analisi Azure Data Lake (ADLA), perché questi servizi sono disponibili in anteprima. L'iscrizione verrà richiesta quando si crea la prima istanza di ADLS o ADLA. Per iscriversi, fare clic su **Iscrizione all'anteprima**, leggere il contratto e fare clic su **OK**. Ecco, ad esempio, la pagina di iscrizione per ADLS:
-> 
-> 
-
- ![2](./media/machine-learning-data-science-process-data-lake-walkthrough/2-ADLA-preview-signup.PNG)
 
 ## <a name="prepare-data-science-environment-for-azure-data-lake"></a>Preparare un ambiente di analisi scientifica dei dati per Azure Data Lake
 Per preparare l'ambiente di analisi scientifica dei dati per questa procedura guidata, creare le risorse seguenti:
@@ -72,13 +65,15 @@ Per preparare l'ambiente di analisi scientifica dei dati per questa procedura gu
 * Azure Data Lake Tools per Visual Studio (consigliato)
 
 Questa sezione fornisce istruzioni per la creazione di tutte queste risorse. Se si sceglie di usare tabelle Hive con Azure Machine Learning, anziché Python, per creare un modello è necessario anche effettuare il provisioning di un cluster HDInsight (Hadoop). Questa procedura alternativa viene descritta in un'apposita sezione riportata di seguito.
-<br/>
 
-> AZURE.NOTE **Azure Data Lake Store** può essere creato separatamente oppure quando si crea **Azure Data Lake Analytics** come archiviazione predefinita. Le istruzioni per la creazione di ognuna delle risorse sono fornite separatamente più avanti, ma l'account di archiviazione di Data Lake non deve essere creato in modo separato.
-> <br/>
+
+> [!NOTE]
+> **Azure Data Lake Store** può essere creato separatamente oppure quando si crea **Azure Data Lake Analytics** come archiviazione predefinita. Le istruzioni per la creazione di ognuna delle risorse sono fornite separatamente più avanti, ma l'account di archiviazione di Data Lake non deve essere creato in modo separato.
+>
 > 
-> ### <a name="create-an-azure-data-lake-store"></a>Creare un Archivio Azure Data Lake
-> 
+
+### <a name="create-an-azure-data-lake-store"></a>Creare un Archivio Azure Data Lake
+
 
 Creare un Archivio Azure Data Lake dal [portale di Azure](http://portal.azure.com). Per informazioni dettagliate, vedere [Creare un cluster HDInsight con Archivio Data Lake tramite il portale di Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Assicurarsi di configurare l'identità di AAD del cluster nel pannello **Origine dati** del pannello **Configurazione facoltativa** come illustrato in questo articolo. 
 
@@ -151,7 +146,7 @@ Per eseguire U-SQL, aprire Visual Studio, fare clic su **File --> Nuovo --> Prog
 
 ![9](./media/machine-learning-data-science-process-data-lake-walkthrough/9-portal-submit-job.PNG)
 
-### <a name="a-nameingestadata-ingestion-read-in-data-from-public-blob"></a><a name="ingest"></a>Inserimento di dati: leggere dati dal BLOB pubblico
+### <a name="ingest"></a>Inserimento di dati: leggere dati dal BLOB pubblico
 La posizione dei dati nel BLOB di Azure viene indicata come **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** e può essere estratta tramite **Extractors.Csv()**. Sostituire il nome del contenitore e il nome dell'account di archiviazione personali negli script seguenti per container_name@blob_storage_account_name nell'indirizzo wasb. Poiché i nomi di file hanno lo stesso formato, è possibile usare **trip\_data_{\*\}.csv** per leggere tutti i 12 file delle corse. 
 
     ///Read in Trip data
@@ -213,7 +208,7 @@ Analogamente, è possibile leggere nei set di dati relativi alle tariffe. Fare c
 
  ![11](./media/machine-learning-data-science-process-data-lake-walkthrough/11-data-in-ADL.PNG)
 
-### <a name="a-namequalityadata-quality-checks"></a><a name="quality"></a>Controlli della qualità dei dati
+### <a name="quality"></a>Controlli della qualità dei dati
 Dopo la lettura delle tabelle relative a corse e tariffe, è possibile eseguire controlli della qualità dei dati nel modo seguente. I file CSV risultati possono essere restituiti all'archivio BLOB di Azure o all'Archivio Azure Data Lake. 
 
 È possibile trovare il numero di licenze e il numero univoco delle licenze:
@@ -285,7 +280,7 @@ Dopo la lettura delle tabelle relative a corse e tariffe, è possibile eseguire 
 
 
 
-### <a name="a-nameexploreadata-exploration"></a><a name="explore"></a>Esplorazione dei dati
+### <a name="explore"></a>Esplorazione dei dati
 È possibile esplorare i dati per ottenere una migliore comprensione dei dati stessi.
 
 È possibile trovare la distribuzione di corse associate o non associate alla mancia:
@@ -352,7 +347,7 @@ Dopo la lettura delle tabelle relative a corse e tariffe, è possibile eseguire 
     USING Outputters.Csv(); 
 
 
-### <a name="a-namejoinajoin-trip-and-fare-tables"></a><a name="join"></a>Unire le tabelle relative a corse e tariffe
+### <a name="join"></a>Unire le tabelle relative a corse e tariffe
 Le tabelle relative alle corse e alle tariffe possono essere unite in base ai valori medallion, hack_license e pickup_time.
 
     //join trip and fare table
@@ -394,7 +389,7 @@ Per ogni livello di conteggio di passeggeri, è possibile calcolare il numero di
     USING Outputters.Csv();
 
 
-### <a name="a-namesampleadata-sampling"></a><a name="sample"></a>Campionamento dei dati
+### <a name="sample"></a>Campionamento dei dati
 Selezionare in modo casuale lo 0,1% dei dati dalla tabella unita:
 
     //random select 1/1000 data for modeling purpose
@@ -434,7 +429,7 @@ Eseguire quindi un campionamento stratificato in base alla variabile binaria tip
     USING Outputters.Csv(); 
 
 
-### <a name="a-namerunarun-u-sql-jobs"></a><a name="run"></a>Eseguire processi U-SQL
+### <a name="run"></a>Eseguire processi U-SQL
 Al termine della modifica degli script U-SQL, è possibile inviarli al server usando il proprio account Analisi Azure Data Lake. Fare clic su **Data Lake**, **Invia processo**, selezionare il proprio **account Analisi**, scegliere **Parallelismo** e fare clic sul pulsante **Invia**.  
 
  ![12](./media/machine-learning-data-science-process-data-lake-walkthrough/12-submit-USQL.PNG)
@@ -691,10 +686,5 @@ Nel percorso di apprendimento relativo al [Processo di analisi scientifica dei d
 * [Processo di analisi scientifica dei dati per i team in azione: uso dei cluster Hadoop di HDInsight](machine-learning-data-science-process-hive-walkthrough.md)
 * [Processo di analisi scientifica dei dati per i team: uso di SQL Sever](machine-learning-data-science-process-sql-walkthrough.md)
 * [Panoramica del Processo di analisi scientifica dei dati con Spark in Azure HDInsight](machine-learning-data-science-spark-overview.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

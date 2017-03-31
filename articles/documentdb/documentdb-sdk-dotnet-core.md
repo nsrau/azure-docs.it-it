@@ -1,5 +1,5 @@
 ---
-title: SDK e API .NET Core di DocumentDB | Documentazione Microsoft
+title: API .NET Core, risorse e SDK per Azure DocumentDB | Microsoft Docs
 description: Tutte le informazioni sull&quot;SDK e sull&quot;API .NET Core, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le versioni di DocumentDB .NET Core SDK.
 services: documentdb
 documentationcenter: .net
@@ -12,15 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 03/20/2017
 ms.author: rnagpal
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 855fd05d9addc2e57568067e4d434836ceeed570
-ms.openlocfilehash: 21a5f321bd1a3b45cd87c2c9274139c47562cee7
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 43a09fc208bee29c41776df402c5be664bb38e18
+ms.lasthandoff: 03/21/2017
 
 
 ---
-# <a name="documentdb-apis-and-sdks"></a>SDK e API di DocumentDB
+# <a name="documentdb-net-core-sdk-release-notes-and-resources"></a>DocumentDB .NET Core SDK: note sulla versione e risorse
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
@@ -33,7 +35,6 @@ ms.openlocfilehash: 21a5f321bd1a3b45cd87c2c9274139c47562cee7
 > 
 > 
 
-## <a name="documentdb-net-core-api-and-sdk"></a>SDK e API di DocumentDB .NET Core
 <table>
 
 <tr><td>**Download dell'SDK**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)</td></tr>
@@ -54,7 +55,24 @@ ms.openlocfilehash: 21a5f321bd1a3b45cd87c2c9274139c47562cee7
 DocumentDB .NET Core SDK ha le stesse funzionalità delle versione più recente di [DocumentDB .NET SDK](documentdb-sdk-dotnet.md).
 
 > [!NOTE] 
-> DocumentDB .NET Core SDK non è ancora compatibile con le app della piattaforma UWP (Universal Windows Platform). Per una versione di anteprima di .NET Core SDK che supporta le app della piattaforma UWP, inviare un messaggio di posta elettronica a [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+> DocumentDB .NET Core SDK non è ancora compatibile con le app della piattaforma UWP (Universal Windows Platform). In caso di interesse a .NET Core SDK che supporta le app della piattaforma UWP, inviare un messaggio di posta elettronica a [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+
+### <a name="a-name112112httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore112"></a><a name="1.1.2"/>[1.1.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.1.2)
+
+* Correzione di un problema che occasionalmente causa un'eccezione WebException, ovvero l'impossibilità di risolvere il nome remoto.
+* Aggiunta del supporto per la lettura diretta di un documento con tipo includendo nuovi overload all'API ReadDocumentAsync.
+
+### <a name="a-name111111httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore111"></a><a name="1.1.1"/>[1.1.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.1.1)
+
+* Aggiunta del supporto LINQ per le query di aggregazione (COUNT, MIN, MAX, SUM e AVG).
+* Correzione per un problema di perdita di memoria per l'oggetto ConnectionPolicy provocata dall'uso del gestore eventi.
+* Correzione per un problema relativo al mancato funzionamento di UpsertAttachmentAsync in caso di uso di ETag.
+* Correzione di un problema relativo al mancato funzionamento della continuazione della query di tipo order-by tra partizioni in caso di ordinamento in un campo di tipo stringa.
+
+### <a name="a-name110110httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore110"></a><a name="1.1.0"/>[1.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.1.0)
+
+* Aggiunta del supporto per le query di aggregazione (COUNT, MIN, MAX, SUM e AVG). Vedere [Supporto dell'aggregazione](documentdb-sql-query.md#Aggregates).
+* Velocità effettiva minima ridotta nelle raccolte partizionate da 10.100 UR/s a 2.500 UR/s.
 
 ### <a name="a-name100100httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore100"></a><a name="1.0.0"/>[1.0.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.0.0)
 
@@ -76,15 +94,13 @@ Per domande su questo SDK, pubblicare un post su [StackOverflow](http://stackove
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [1.1.2](#1.1.2) |20 marzo 2017 |--- |
+| [1.1.1](#1.1.1) |14 marzo 2017 |--- |
+| [1.1.0](#1.1.0) |16 febbraio 2017 |--- |
 | [1.0.0](#1.0.0) |21 dicembre 2016 |--- |
 | [0.1.0-preview](#0.1.0-preview) |15 novembre 2016 |31 dicembre 2016 |
 
 ## <a name="see-also"></a>Vedere anche
 Per altre informazioni su DocumentDB, vedere la pagina del servizio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) . 
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

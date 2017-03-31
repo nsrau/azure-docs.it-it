@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 1b3d94b1-207d-4550-aece-21dc45485549
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,6 +19,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
 ms.openlocfilehash: 2fbbfd3d221ef2f6bce302ed169eddf5a8b0d73e
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -84,10 +86,5 @@ Di seguito sono riportati i valori di configurazione predefiniti che possono inf
 [maximum-applications]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.3/bk_system-admin-guide/content/setting_application_limits.html
 [max-procs]: https://hive.apache.org/javadocs/hcat-r0.5.0/configuration.html
 [max-age-ms]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.6.0/ds_Hadoop/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

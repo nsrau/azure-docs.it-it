@@ -15,8 +15,9 @@ ms.workload: azure-government
 ms.date: 12/22/2016
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: a7e53dcdbf3cecd8a00ad3424ffa0d62cc8fde43
-ms.openlocfilehash: 73d34bc7f34b9b9730e826e17537f82d0f689c03
+ms.sourcegitcommit: 831334f2b835d00aa3fd22292764b69e85d735a6
+ms.openlocfilehash: a6b61df5884031eb5b53f983b834357bd23a622e
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -35,7 +36,7 @@ Per informazioni dettagliate su questo servizio e su come usarlo, vedere la [doc
 | [Archiviazione BLOB per accesso frequente/sporadico] (../storage/storage-blob-storage-tiers.md) |ND |ND |
 | [Crittografia servizio di archiviazione] (../storage/storage-service-encryption.md) |GA |GA |
 | [Archiviazione Premium] (../storage/storage-premium-storage.md) |GA |ND | Ciò vale anche per le macchine virtuali serie DS. |
-| [Importazione/Esportazione BLOB] (../storage/storage-import-export-service.md) |GA |GA | Al momento sono supportati solo gli account di archiviazione classici. |
+| [Importazione/Esportazione BLOB] (../storage/storage-import-export-service.md) |GA |GA |
 | [StorSimple] (../storsimple/storsimple-ova-overview.md) |GA |GA |
 
 ### <a name="variations"></a>Varianti
@@ -82,9 +83,4 @@ Le informazioni seguenti identificano il limite di Azure per enti pubblici per A
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni e aggiornamenti, iscriversi al <a href="https://blogs.msdn.microsoft.com/azuregov/">blog di Microsoft Azure per enti pubblici</a>.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

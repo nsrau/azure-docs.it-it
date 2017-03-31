@@ -4,7 +4,7 @@ description: "Informazioni su come eseguire facilmente app Web nel servizio app 
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 65c9bdd9-8763-4c56-8e15-f790992e951e
 ms.service: app-service-web
@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 9f262eb2fa4c0bd8bf1442a7a3d013af6d9ad649
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 7cf4f7c5e0d3e4b51c98fb7a98bbf9de95c9fd7b
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -38,7 +39,7 @@ Si apprenderà come:
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - [Interfaccia della riga di comando di Azure 1.0](app-service-web-get-started-cli-nodejs.md): l'interfaccia della riga di comando per i modelli di distribuzione classici e di gestione delle risorse
-- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](app-service-web-get-started.md): l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse
+- [Interfaccia della riga di comando di Azure 2.0](app-service-web-get-started.md): l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse
 
 ## <a name="prerequisites"></a>Prerequisiti
 * [Git](http://www.git-scm.com/downloads).
@@ -53,7 +54,7 @@ Si apprenderà come:
 ## <a name="deploy-a-web-app"></a>Distribuire un'app Web
 Verrà ora distribuita un'app Web in Servizio app di Azure.
 
-1. Aprire un nuovo prompt dei comandi di Windows, una finestra di PowerShell, una shell di Linux o un terminale di OS X. Eseguire `git --version` e `azure --version` per verificare che Git e l'interfaccia della riga di comando di Azure siano installati nel computer.
+1. Aprire un nuovo prompt dei comandi di Windows, una finestra di PowerShell, una shell di Linux o un terminale di OS X. Eseguire `git --version` e `az --version` per verificare che Git e l'interfaccia della riga di comando di Azure siano installati nel computer.
    
     ![Installazione di prova degli strumenti dell'interfaccia della riga di comando per la prima app Web in Azure](./media/app-service-web-get-started/1-test-tools-2.0.png)
    
@@ -157,10 +158,5 @@ In alternativa, è possibile fare altre prove con la prima app Web, ad esempio:
 
 * Provare [altri modi per distribuire il codice in Azure](web-sites-deploy.md). Per eseguire la distribuzione da un repository GitHub, ad esempio, è sufficiente selezionare **GitHub** anziché **Repository Git locale** in **Opzioni di distribuzione**.
 * Ottimizzare l'app Azure: autenticare gli utenti, ridimensionare l'app in base alla richiesta e configurare alcuni avvisi sulle prestazioni, tutto con pochi clic. Vedere [Aggiungere funzionalità alla prima app Web](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

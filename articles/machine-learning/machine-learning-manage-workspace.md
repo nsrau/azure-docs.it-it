@@ -12,19 +12,47 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/27/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: c5479dd817e8929ff5e9129d4643d49758e7ab16
-ms.openlocfilehash: 32e74821309507fed4a20b005dbfbba12ffb0703
+ms.sourcegitcommit: 1029c7e4c6a17ad2a290ff0783fc88692555b255
+ms.openlocfilehash: 94800f51baf83311c33490cada5f991ff2101da9
+ms.lasthandoff: 03/02/2017
 
 
 ---
 # <a name="manage-an-azure-machine-learning-workspace"></a>Gestire un'area di lavoro di Azure Machine Learning
+
 > [!NOTE]
-> Le procedure descritte in questo articolo sono relative ai servizi Web classici di Azure Machine Learning. Per informazioni sulla gestione dei servizi Web nel portale dei servizi Web di Machine Learning, vedere [Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning](machine-learning-manage-new-webservice.md).
+> Per informazioni sulla gestione dei servizi Web nel portale dei servizi Web di Machine Learning, vedere [Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning](machine-learning-manage-new-webservice.md).
 > 
 > 
+
+È possibile gestire le aree di lavoro di Machine Learning nel portale di Azure o nel portale di Azure classico.
+
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
+## <a name="use-the-azure-portal"></a>Usare il portale di Azure
+
+Per gestire un'area di lavoro nel portale di Azure:
+
+1. Accedere al [portale di Azure](https://portal.azure.com/) usando un account amministratore della sottoscrizione di Azure.
+2. Nella casella di ricerca nella parte superiore della pagina immettere "aree di lavoro di Machine Learning" e quindi selezionare **Aree di lavoro di Machine Learning**.
+3. Fare clic sull'area di lavoro da gestire.
+
+Oltre alle informazioni e alle opzioni di gestione delle risorse standard disponibili, viene offerta la possibilità di effettuare le operazioni seguenti.
+
+- Visualizzare **Proprietà**: questa pagina visualizza informazioni relative all'area di lavoro e alle risorse e consente di modificare la sottoscrizione e il gruppo di risorse a cui è connessa l'area di lavoro.
+- **Risincronizzare le chiavi di archiviazione**: l'area di lavoro mantiene le chiavi per l'account di archiviazione. Se le chiavi vengono modificate nell'account di archiviazione, è possibile fare clic su **Risincronizza le chiavi** per sincronizzarle con l'area di lavoro.
+
+Per gestire i servizi Web associati all'area di lavoro, usare il portale dei servizi Web di Machine Learning. Per informazioni complete, vedere [Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning](machine-learning-manage-new-webservice.md).
+
+> [!NOTE]
+> Per distribuire o gestire nuovi servizi Web è necessario che all'utente sia assegnato un ruolo di collaboratore o di amministratore nella sottoscrizione in cui viene distribuito il servizio Web. Se si invita un altro utente in un'area di lavoro di Machine Learning, affinché possa distribuire o gestire servizi Web è prima necessario assegnargli un ruolo di collaboratore o di amministratore nella sottoscrizione. 
+> 
+>Per altre informazioni sull'impostazione delle autorizzazioni di accesso, vedere [Visualizzare le assegnazioni di accesso per utenti e gruppi nel Portale di Azure - Anteprima pubblica](../active-directory/role-based-access-control-manage-assignments.md).
+
+## <a name="use-the-azure-classic-portal"></a>Usare il portale di Azure classico
 
 Tramite il portale di Azure classico è possibile gestire le aree di lavoro di Machine Learning per:
 
@@ -33,8 +61,6 @@ Tramite il portale di Azure classico è possibile gestire le aree di lavoro di M
 * Gestire i servizi Web creati nell'area di lavoro
 * Eliminare l'area di lavoro.
 
-[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
 Nella scheda Dashboard viene inoltre fornita una panoramica dell'utilizzo dell'area di lavoro e un riepilogo rapido delle informazioni relative all'area di lavoro.  
 
 > [!TIP]
@@ -42,7 +68,7 @@ Nella scheda Dashboard viene inoltre fornita una panoramica dell'utilizzo dell'a
 > 
 > 
 
-Per gestire un'area di lavoro:
+Per gestire un'area di lavoro nel portale di Azure classico:
 
 1. Accedere al [portale di Azure classico](https://manage.windowsazure.com/) usando l'account di Microsoft Azure associato alla sottoscrizione di Azure.
 2. Nel riquadro dei servizi di Microsoft Azure fare clic su **MACHINE LEARNING**.
@@ -54,7 +80,7 @@ La pagina dell'area di lavoro contiene tre schede:
 * **CONFIGURE** : permette di gestire l'accesso all'area di lavoro.
 * **WEB SERVICES** (SERVIZI WEB): permette di gestire i servizi Web pubblicati da questa area di lavoro.
 
-## <a name="to-monitor-how-the-workspace-is-being-used"></a>Per monitorare la modalità d'uso dell'area di lavoro
+### <a name="to-monitor-how-the-workspace-is-being-used"></a>Per monitorare la modalità d'uso dell'area di lavoro
 Fare clic sulla scheda **DASHBOARD** .
 
 Dal dashboard è possibile visualizzare l'utilizzo complessivo dell'area di lavoro e ottenere un riepilogo rapido delle informazioni dell'area di lavoro.
@@ -68,7 +94,7 @@ Dal dashboard è possibile visualizzare l'utilizzo complessivo dell'area di lavo
 > 
 > 
 
-## <a name="to-grant-or-suspend-access-for-users"></a>Per concedere o sospendere l'accesso agli utenti
+### <a name="to-grant-or-suspend-access-for-users"></a>Per concedere o sospendere l'accesso agli utenti
 Fare clic sulla scheda **CONFIGURE** .
 
 Dalla scheda di configurazione è possibile:
@@ -77,7 +103,7 @@ Dalla scheda di configurazione è possibile:
 
 Per gestire account aggiuntivi che hanno accesso all'area di lavoro in Machine Learning Studio, fare clic su **Accedi a ML Studio** nella scheda **DASHBOARD** (vedere la nota precedente relativa al comando **Accedi a ML Studio**). Verrà aperta l'area di lavoro in Machine Learning Studio. A questo punto, fare clic sulla scheda **SETTINGS** (IMPOSTAZIONI) e quindi su **USERS** (UTENTI). È possibile fare clic su **INVITE MORE USERS** (INVITA ALTRI UTENTI) per concedere agli utenti l'accesso all'area di lavoro oppure selezionare un utente e fare clic su **REMOVE** (RIMUOVI).
 
-## <a name="to-manage-web-services-in-this-workspace"></a>Per gestire i servizi Web in questa area di lavoro
+### <a name="to-manage-web-services-in-this-workspace"></a>Per gestire i servizi Web in questa area di lavoro
 Fare clic sulla scheda **WEB SERVICES** .
 
 Verrà visualizzato un elenco di servizi Web pubblicati da questa area di lavoro.
@@ -110,10 +136,5 @@ Dalla pagina di configurazione è possibile aggiornare le proprietà seguenti:
 * **Description** (Descrizione) consente di immettere una descrizione per il servizio Web. La descrizione è un campo obbligatorio.
 * **Logging** (Registrazione) consente di abilitare o disabilitare la registrazione nell'endpoint. Per altre informazioni sulla registrazione, vedere [Abilitare la registrazione per i servizi Web di Machine Learning](machine-learning-web-services-logging.md).
 * **Enable Sample data** (Abilita dati di esempio) consente di fornire dati di esempio che è possibile usare per testare il servizio di richiesta-risposta. Se il servizio Web è stato creato in Machine Learning Studio, i dati di esempio vengono prelevati dai dati usati per il training del modello. Se il servizio è stato creato a livello di codice, i dati vengono ricavati dai dati di esempio forniti come parte del pacchetto JSON.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

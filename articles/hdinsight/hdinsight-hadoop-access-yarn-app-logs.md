@@ -13,21 +13,23 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
+ms.date: 02/06/2017
 ms.author: jgao
+ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e36ddba193295fc474d09a484d6a99f4b522e00c
+ms.sourcegitcommit: 6407c371bc51461a05429fabaf38d3f9bc80d32c
+ms.openlocfilehash: bd9133fde0c3ebfd915c8ae33daa6d0113b37889
+ms.lasthandoff: 02/07/2017
 
 
 ---
 # <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>Accesso ai log applicazioni YARN in HDInsight basato su Windows
-Questo argomento illustra come accedere ai log applicazioni YARN (Yet Another Resource Negotiator) completati in un cluster Hadoop in Azure HDInsight
+Questo argomento illustra come accedere ai log delle applicazioni di YARN (Yet Another Resource Negotiator) completati in un cluster Hadoop basato su Windows in Azure HDInsight
 
-> [!NOTE]
-> Le informazioni contenute in questo documento si applicano solo ai cluster HDInsight basati su Windows. Per informazioni sull'accesso ai log YARN in cluster HDInsight basati su Linux, vedere [Accedere ai log delle applicazioni YARN su Hadoop basato su Linux in HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+> [!IMPORTANT]
+> Le informazioni contenute in questo documento si applicano solo ai cluster HDInsight basati su Windows. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Per informazioni sull'accesso ai log YARN in cluster HDInsight basati su Linux, vedere [Accedere ai log delle applicazioni YARN su Hadoop basato su Linux in HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 > 
-> 
+
 
 ### <a name="prerequisites"></a>Prerequisiti
 * Un cluster HDInsight basato su Windows.  Vedere [Creare cluster Hadoop basati su Windows in HDInsight](hdinsight-provision-clusters.md).
@@ -53,15 +55,15 @@ Nei cluster HDInsight queste informazioni verranno archiviate da Gestione risors
 ## <a name="yarn-applications-and-logs"></a>Log e applicazioni YARN
 YARN supporta diversi modelli di programmazione, tra cui MapReduce, separando la gestione delle risorse dalla pianificazione e dal monitoraggio dell'applicazione. A tale scopo, vengono usati un oggetto *ResourceManager* (RM) globale, oggetti *NodeManagers* (NM) per ogni nodo di lavoro e oggetti *ApplicationMasters* (AM) per ogni applicazione. L'AM per applicazione negozia le risorse (CPU, memoria, disco e rete) per l'esecuzione dell'applicazione con l'RM. L'oggetto RM opera con gli oggetti NM per concedere queste risorse come *contenitori*. L'AM è responsabile del monitoraggio dello stato dei contenitori assegnati dall'RM. A seconda del tipo, un'applicazione può richiedere più contenitori.
 
-Ogni applicazione, inoltre, può essere costituita da più *tentativi dell'applicazione* finalizzati al completamento in presenza di arresti anomali o di perdita della comunicazione tra gli oggetti AM e RM. Di conseguenza, i contenitori vengono concessi a uno specifico tentativo di un'applicazione. In un certo senso, un contenitore fornisce il contesto per l'unità di base del lavoro eseguito da un'applicazione YARN e tutto il lavoro svolto all'interno del contesto di un contenitore viene eseguito nel singolo nodo di lavoro in cui è stato allocato il contenitore. Per altri riferimenti, vedere [YARN Concepts][YARN-concepts].
+Ogni applicazione, inoltre, può essere costituita da più *tentativi dell'applicazione* finalizzati al completamento in presenza di arresti anomali o di perdita della comunicazione tra gli oggetti AM e RM. Di conseguenza, i contenitori vengono concessi a uno specifico tentativo di un'applicazione. In un certo senso, un contenitore fornisce il contesto per l'unità di base del lavoro eseguito da un'applicazione YARN e tutto il lavoro svolto all'interno del contesto di un contenitore viene eseguito nel singolo nodo di lavoro in cui è stato allocato il contenitore. Per altri riferimenti, vedere [Concetti YARN][YARN-concepts].
 
-I log applicazione (e i log contenitore associati) sono essenziali per il debug di applicazioni Hadoop problematiche. YARN fornisce un framework utile per la raccolta, l'aggregazione e l'archiviazione dei log applicazioni mediante la funzionalità [Aggregazione dei log][log-aggregation]. La funzionalità di aggregazione dei log rende più deterministico l'accesso ai log applicazioni poiché aggrega i log di tutti i contenitori in un nodo di lavoro e li archivia sotto forma di unico file di log aggregato per ogni nodo di lavoro nel file system predefinito dopo il completamento di un'applicazione. L'applicazione può usare centinaia o migliaia di contenitori, ma i log di tutti i contenitori eseguiti su un singolo nodo di lavoro verranno sempre aggregati in un unico file, dando luogo a un solo file di log per ogni nodo di lavoro usato dall'applicazione. La funzionalità di aggregazione dei log è abilitata per impostazione predefinita nei cluster HDInsight (versione 3.0 e successive). I log aggregati si trovano nel contenitore predefinito del cluster nel percorso seguente:
+I log applicazione (e i log contenitore associati) sono essenziali per il debug di applicazioni Hadoop problematiche. YARN offre un framework utile per la raccolta, l'aggregazione e l'archiviazione dei log applicazioni tramite la funzionalità di [aggregazione dei log][log-aggregation]. La funzionalità di aggregazione dei log rende più deterministico l'accesso ai log applicazioni poiché aggrega i log di tutti i contenitori in un nodo di lavoro e li archivia sotto forma di unico file di log aggregato per ogni nodo di lavoro nel file system predefinito dopo il completamento di un'applicazione. L'applicazione può usare centinaia o migliaia di contenitori, ma i log di tutti i contenitori eseguiti su un singolo nodo di lavoro verranno sempre aggregati in un unico file, dando luogo a un solo file di log per ogni nodo di lavoro usato dall'applicazione. La funzionalità di aggregazione dei log è abilitata per impostazione predefinita nei cluster HDInsight (versione 3.0 e successive). I log aggregati si trovano nel contenitore predefinito del cluster nel percorso seguente:
 
     wasbs:///app-logs/<user>/logs/<applicationId>
 
 In questo percorso, *user* è il nome dell'utente che ha avviato l'applicazione e *applicationId* è l'identificatore univoco di un'applicazione assegnato dall'oggetto RM YARN.
 
-I log aggregati non sono leggibili direttamente, poiché vengono scritti in un oggetto [TFile][T-file], un [formato binario][binary-format] indicizzato dal contenitore. YARN fornisce gli strumenti CLI per eseguire il dump di questi log come testo normale per le applicazioni o i contenitori di interesse. È possibile visualizzare questi log come testo normale eseguendo uno dei seguenti comandi YARN direttamente sui nodi del cluster (dopo la connessione tramite RDP):
+I log aggregati non sono leggibili direttamente perché vengono scritti in un oggetto [TFile][T-file], un [formato binario][binary-format] indicizzato dal contenitore. YARN fornisce gli strumenti CLI per eseguire il dump di questi log come testo normale per le applicazioni o i contenitori di interesse. È possibile visualizzare questi log come testo normale eseguendo uno dei seguenti comandi YARN direttamente sui nodi del cluster (dopo la connessione tramite RDP):
 
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
@@ -80,9 +82,4 @@ L'interfaccia utente di YARN ResourceManager viene eseguita sul nodo head del cl
 [T-file]:https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf
 [binary-format]:https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]:http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

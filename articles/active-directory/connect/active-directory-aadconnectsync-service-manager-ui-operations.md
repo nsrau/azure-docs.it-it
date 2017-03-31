@@ -1,5 +1,5 @@
 ---
-title: 'Servizio di sincronizzazione Azure AD Connect: Interfaccia utente di Synchronization Service Manager | Documentazione Microsoft'
+title: Operazioni di Synchronization Service Manager per Azure AD Connect | Microsoft Docs
 description: Comprendere la scheda Connettori in Synchronization Service Manager di Azure AD Connect.
 services: active-directory
 documentationcenter: 
@@ -12,22 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 03/02/2017
 ms.author: billmath
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 610dab0af17f927d86b677f647acd0dfe2569583
-ms.openlocfilehash: 53b98aaf67b874b0af7d0e94e29bcbe23fc6fc5b
-
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 7f50ce0d4842bde809664c392ebee5425a70e6f0
+ms.lasthandoff: 03/08/2017
 
 ---
-# <a name="azure-ad-connect-sync-synchronization-service-manager"></a>Servizio di sincronizzazione Azure AD Connect: Synchronization Service Manager
+# <a name="using-the-sync-service-manager-operations-tab"></a>Uso della scheda Operazioni di Synchronization Service Manager
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/operations.png)
 
 La scheda Operazioni mostra i risultati delle ultime operazioni. Questa scheda è fondamentale per comprendere e risolvere i problemi.
 
 ## <a name="understand-the-information-visible-in-the-operations-tab"></a>Comprendere le informazioni della scheda Operazioni
-Nella metà superiore sono mostrate tutte le esecuzioni in ordine cronologico. Per impostazione predefinita, il log delle operazioni mantiene le informazioni relative agli ultimi sette giorni, ma è possibile modificare questa impostazione tramite l' [utilità di pianificazione](active-directory-aadconnectsync-feature-scheduler.md). Si vogliono cercare le esecuzioni che non hanno lo stato di operazione riuscita. È possibile modificare l'ordinamento facendo clic sulle intestazioni.
+La metà superiore mostra tutte le esecuzioni in ordine cronologico. Per impostazione predefinita, il log delle operazioni mantiene le informazioni relative agli ultimi sette giorni, ma è possibile modificare questa impostazione tramite l' [utilità di pianificazione](active-directory-aadconnectsync-feature-scheduler.md). Si vogliono cercare le esecuzioni che non hanno lo stato di operazione riuscita. È possibile modificare l'ordinamento facendo clic sulle intestazioni.
 
 La colonna **Status** (Stato) visualizza le informazioni più importanti e segnala il problema più grave di un'esecuzione. Ecco un breve riepilogo degli stati disponibili, ordinati in base alla priorità con cui vanno analizzati (dove * indica diverse stringhe di errore possibili).
 
@@ -41,27 +42,10 @@ La colonna **Status** (Stato) visualizza le informazioni più importanti e segna
 
 Quando si seleziona una riga, la parte inferiore viene aggiornata per visualizzare i dettagli di quella esecuzione. All'estrema sinistra della parte inferiore è possibile avere un elenco con voci del tipo **Step #**(Passaggio [n.]). L'elenco è mostrato solo quando nella foresta sono presenti più domini e ogni dominio è rappresentato da un passaggio. Il nome di dominio è visibile sotto l'intestazione **Partition**(Partizione). In **Synchronization Statistics**(Statistiche di sincronizzazione) sono presenti altre informazioni sul numero delle modifiche elaborate. È possibile fare clic sui collegamenti per ottenere un elenco degli oggetti modificati. Se alcuni oggetti presentano errori, questi verranno visualizzati in **Synchronization Errors**(Errori di sincronizzazione).
 
-## <a name="troubleshoot-errors-in-operations-tab"></a>Risolvere gli errori nella scheda Operazioni
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/errorsync.png)  
-In caso di errori, sia l'oggetto con l'errore che l'errore stesso appaiono sotto forma di collegamenti per la visualizzazione di altre informazioni.
-
-Per iniziare, fare clic su una stringa di errore. Nella figura si tratta di **sync-rule-error-function-triggered**. Verrà prima presentata una panoramica dell'oggetto. Per visualizzare l'errore effettivo, fare clic sul pulsante **Stack Trace** (Analisi dello stack). Questa analisi indica informazioni di debug relative all'errore.
-
-**SUGGERIMENTO:** è possibile fare clic con il pulsante destro del mouse nella casella delle **informazioni sullo stack delle chiamate**, scegliere **select all** (seleziona tutto) e quindi **copy** (copia). Si può quindi copiare lo stack ed esaminare l'errore nell'editor preferito, ad esempio il Blocco note.
-
-* Se l'errore proviene da **SyncRulesEngine**, le informazioni sullo stack delle chiamate visualizzano prima di tutto un elenco di tutti gli attributi dell'oggetto. Scorrere verso il basso fino all'intestazione **InnerException =>**.  
-  ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/errorinnerexception.png)  
-  L'errore è visualizzato nella riga successiva. Nell'immagine precedente l'errore proviene da una regola di sincronizzazione personalizzata creata da Fabrikam.
-
-Se l'errore non fornisce informazioni sufficienti, è necessario esaminare i dati. È possibile fare clic sul collegamento con l'identificatore di oggetto e [seguire un oggetto e i relativi dati attraverso il sistema](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system).
+Per altre informazioni, vedere [Risoluzione dei problemi relativi a un oggetto che non esegue la sincronizzazione in Azure AD](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

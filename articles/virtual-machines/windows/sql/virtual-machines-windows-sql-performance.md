@@ -1,5 +1,5 @@
 ---
-title: Esaminare le procedure consigliate relative alle prestazioni per SQL Server | Documentazione Microsoft
+title: Esaminare le procedure consigliate relative alle prestazioni per SQL Server | Microsoft Docs
 description: In questo argomento vengono fornite le procedure consigliate per ottimizzare le prestazioni di SQL Server in Macchine virtuali di Microsoft Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/09/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 407b189af12116d633ed505facf4bcfde9be5822
-ms.openlocfilehash: 609f2a06b1091a61cd95c54ea9f62888e11f16c1
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 16b659bf07cc44d56234bb5532f931d5ca6fb0a6
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -36,7 +37,7 @@ Di seguito è riportato un elenco controllo rapido per ottimizzare le prestazion
 
 | Area | Ottimizzazioni |
 | --- | --- |
-| [Dimensioni macchina virtuale](#vm-size-guidance) |[DS3](../../virtual-machines-windows-sizes.md#ds-series) o superiore per SQL Enterprise.<br/><br/>[DS2](../../virtual-machines-windows-sizes.md#ds-series) o superiore per SQL Standard Edition e Web Edition. |
+| [Dimensioni macchina virtuale](#vm-size-guidance) |[DS3](../../virtual-machines-windows-sizes-memory.md) o superiore per SQL Enterprise.<br/><br/>[DS2](../../virtual-machines-windows-sizes-memory.md) o superiore per SQL Standard Edition e Web Edition. |
 | [Archiviazione](#storage-guidance) |Usare [Archiviazione Premium](../../../storage/storage-premium-storage.md). Archiviazione Standard è consigliata solo per i carichi di lavoro di sviluppo/test.<br/><br/>Mantenere l'[account di archiviazione](../../../storage/storage-create-storage-account.md) e la macchina virtuale di SQL Server nella stessa area.<br/><br/>Disabilitare l' [archiviazione con ridondanza geografica](../../../storage/storage-redundancy.md) (replica geografica) di Azure nell'account di archiviazione. |
 | [Dischi](#disks-guidance) |Usare almeno 2 [dischi P30](../../../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets) (1 per i file di log, 1 per i file di dati e TempDB).<br/><br/>Evitare l'uso del sistema operativo o di dischi temporanei per la registrazione o l'archiviazione di database.<br/><br/>Abilitare la lettura della cache sui dischi che ospitano i file di dati e TempDB.<br/><br/>Non abilitare la memorizzazione nella cache sui dischi che ospitano il file di log.<br/><br/>Importante: arrestare SQL Server quando si modificano le impostazioni della cache per un disco di una macchina virtuale di Azure.<br/><br/>Eseguire lo striping di più dischi dati di Azure per ottenere una maggiore velocità effettiva I/O.<br/><br/>Formattare con dimensioni di allocazione documentate. |
 | [I/O](#io-guidance) |Abilitare la compressione di pagina di database.<br/><br/>Abilitare l'inizializzazione immediata dei file per i file di dati.<br/><br/>Limitare o disabilitare l'aumento automatico delle dimensioni per il database.<br/><br/>Disabilitare la compattazione automatica per il database.<br/><br/>Spostare tutti i database su dischi dati, inclusi i database di sistema.<br/><br/>Spostare le directory dei file di traccia e dei log degli errori di SQL Server sui dischi dati.<br/><br/>Configurare il percorso predefinito del file di backup e del file di database.<br/><br/>Abilitare le pagine bloccate.<br/><br/>Applicare le correzioni delle prestazioni di SQL Server. |
@@ -82,8 +83,8 @@ Per le VM serie D, Dv2 e G, l'unità temporanea è basata su SSD. Se il carico d
 Per le macchine virtuali che supportano Archiviazione Premium (serie DS, DSv2 e GS), si consiglia di archiviare TempDB su un disco che supporta Archiviazione Premium con il caching di lettura attivato. Esiste un'eccezione a questo consiglio: se TempDB è soggetto a uso intenso in scrittura, è possibile migliorare le prestazioni archiviando TempDB nell'unità locale **D** , che in macchine di queste dimensioni è anche basata su SSD.
 
 ### <a name="data-disks"></a>Dischi dati
-* **Usare i dischi dati per i file di dati e di log**: come minimo, usare 2 [dischi P30](../../../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets) con Archiviazione Premium di cui uno contenente i file di log e l'altro contenente i file di dati e TempDB.
-* **Striping del disco**: per una maggiore velocità effettiva, è possibile aggiungere ulteriori dischi dati e usare lo striping del disco. Per determinare il numero di dischi dati, è necessario analizzare il numero di operazioni di input/output al secondo disponibili per i dischi dati e di log. Per altre informazioni, vedere le tabelle di operazioni di input/output al secondo per tutte le [dimensioni di VM](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e dimensioni di disco nell'articolo seguente: [Uso di Archiviazione Premium per dischi](../../../storage/storage-premium-storage.md). Tenere in considerazione le linee guida seguenti:
+* **Usare i dischi dati per i file di dati e di log**: come minimo, usare 2 [dischi P30](../../../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets) con Archiviazione Premium di cui uno contenente i file di log e l'altro contenente i file di dati e TempDB. Ogni disco di Archiviazione Premium dispone di un numero di IOPs e larghezza di banda (MB/s) a seconda delle dimensioni, come descritto nell'articolo seguente: [Uso di Archiviazione Premium per dischi](../../../storage/storage-premium-storage.md). 
+* **Striping del disco**: per una maggiore velocità effettiva, è possibile aggiungere ulteriori dischi dati e usare lo striping del disco. Per determinare il numero di dischi dati, è necessario analizzare il numero di IOPS e larghezza di banda necessari per i file di log e i file di dati e TempDB. Si noti che a seconda delle dimensioni delle VM i limiti nel numero di IOPs e larghezza di banda supportati cambiano. Vedere le tabelle relative agli IOPS per [dimensione di VM](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Usare le linee guida seguenti:
 
   * Per Windows 8 e Windows Server 2012 o versioni successive, usare gli [spazi di archiviazione](https://technet.microsoft.com/library/hh831739.aspx). Impostare la dimensione di striping su 64 KB per carichi di lavoro OLTP e su 256 KB per carichi di lavoro di data warehouse per evitare effetti sulle prestazioni causati dal disallineamento delle partizioni. Impostare il numero di colonne sul numero di dischi fisici. Per configurare uno spazio di archiviazione con più di 8 dischi è necessario usare PowerShell (non l'interfaccia utente di Gestione server) per impostare in modo esplicito il numero di colonne in modo che corrisponda al numero di dischi. Per altre informazioni su come configurare gli [spazi di archiviazione](https://technet.microsoft.com/library/hh831739.aspx), vedere [Cmdlet per spazi di archiviazione in Windows PowerShell](https://technet.microsoft.com/library/jj851254.aspx).
   * Per Windows 2008 R2 o versioni precedenti, è possibile usare i dischi dinamici (volumi con striping del sistema operativo) e la dimensione di striping è sempre di 64 KB. Si noti che questa opzione è deprecata a partire da Windows 8 e Windows Server 2012. Per informazioni, vedere l'informativa di supporto relativa al [passaggio dal servizio dischi virtuali all'API di gestione archiviazione di Windows](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx).
@@ -129,14 +130,9 @@ Alcune distribuzioni possono ottenere ulteriori miglioramenti delle prestazioni 
 * **File di dati di SQL Server in Azure**: questa nuova funzionalità ( [file di dati di SQL Server in Azure](https://msdn.microsoft.com/library/dn385720.aspx)) è disponibile a partire da SQL Server 2014. L'esecuzione di SQL Server con file di dati in Azure dimostra le caratteristiche di prestazioni paragonabili a quelle dei dischi dati di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per esplorare l'archiviazione Premium e SQL Server in modo più approfondito, vedere l'articolo [Usare Archiviazione Premium di Azure con SQL Server in Macchine virtuali di Azure](../sqlclassic/virtual-machines-windows-classic-sql-server-premium-storage.md).
+Per esplorare l'archiviazione Premium e SQL Server in modo più approfondito, vedere l'articolo [Usare Archiviazione Premium di Azure con SQL Server in Macchine virtuali di Azure](../classic/sql-server-premium-storage.md).
 
 Per le procedure consigliate relative alla sicurezza, vedere [Considerazioni relative alla sicurezza per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-security.md).
 
 Esaminare altri argomenti relativi alle macchine virtuali di SQL Server in [Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

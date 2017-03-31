@@ -1,8 +1,7 @@
 > [!div class="op_single_selector"]
-> * [Azure Portal](../articles/virtual-network/virtual-networks-static-private-ip-arm-pportal.md)
+> * [portale di Azure](../articles/virtual-network/virtual-networks-static-private-ip-arm-pportal.md)
 > * [PowerShell](../articles/virtual-network/virtual-networks-static-private-ip-arm-ps.md)
-> * [Azure CLI](../articles/virtual-network/virtual-networks-static-private-ip-arm-cli.md)
-> 
-> 
-
-<!---HONumber=AcomDC_0204_2016-->
+> * [Interfaccia della riga di comando di Azure](../articles/virtual-network/virtual-networks-static-private-ip-arm-cli.md)
+> * [Portale di Azure (classico)](../articles/virtual-network/virtual-networks-static-private-ip-classic-pportal.md)
+> * [PowerShell (Classic)](../articles/virtual-network/virtual-networks-static-private-ip-classic-ps.md) (PowerShell (classico))
+> * [Interfaccia della riga di comando di Azure (versione classica)](../articles/virtual-network/virtual-networks-static-private-ip-classic-cli.md)

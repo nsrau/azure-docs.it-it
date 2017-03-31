@@ -12,20 +12,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 03/09/2017
 ms.author: elioda
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 3c9b3a9509493e8c6900d90b5ab6519de7a0721f
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: e72fcd696a4f21aa4b2cff7ae7178dbc372f1929
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="device-twins"></a>Dispositivi gemelli
+# <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendere e usare dispositivi gemelli nell'hub IoT
 ## <a name="overview"></a>Panoramica
-I *dispositivi gemelli* sono documenti JSON nei quali vengono archiviate informazioni sullo stato dei dispositivi (metadati, configurazioni e condizioni). L'hub IoT rende permanente un dispositivo gemello per ogni dispositivo che viene connesso all'hub IoT. In questo articolo verrà illustrato quanto segue:
+I *dispositivi gemelli* sono documenti JSON nei quali vengono archiviate informazioni sullo stato dei dispositivi (metadati, configurazioni e condizioni). L'hub IoT rende permanente un dispositivo gemello per ogni dispositivo che viene connesso all'hub IoT. L'articolo illustra:
 
-* la struttura del dispositivo gemello: *tag*, proprietà *desiderate* e *segnalate*, e
-* le operazioni che le app per i dispositivi e i back-end possono eseguire sui dispositivi gemelli.
+* La struttura del dispositivo gemello: *tag*, proprietà *desiderate* e *segnalate*.
+* Le operazioni che le app per dispositivo e i back-end possono eseguire sui dispositivi gemelli.
 
 > [!NOTE]
 > Al momento i dispositivi gemelli sono accessibili solo dai dispositivi che si connettono all'hub IoT tramite il protocollo MQTT. Per istruzioni su come convertire l'app per dispositivo esistente in modo che usi MQTT, vedere l'articolo [Supporto di MQTT][lnk-devguide-mqtt].
@@ -35,13 +37,13 @@ I *dispositivi gemelli* sono documenti JSON nei quali vengono archiviate informa
 ### <a name="when-to-use"></a>Quando usare le autorizzazioni
 Usare i dispositivi gemelli per:
 
-* Archiviare i metadati specifici del dispositivo nel cloud, ad esempio la località di distribuzione di un distributore automatico.
-* Segnalare le informazioni di stato correnti, ad esempio capacità e condizioni disponibili dell'app per il dispositivo, come nel caso di un dispositivo che si connette tramite rete dati o WiFi.
-* Sincronizzare lo stato dei flussi di lavoro a esecuzione prolungata tra app per dispositivo e app back-end, ad esempio quando il back-end della soluzione specifica la nuova versione del firmware da installare e l'app per dispositivo segnala le varie fasi del processo di aggiornamento.
+* Archiviare i metadati specifici del dispositivo nel cloud, ad esempio il percorso di distribuzione di un distributore automatico.
+* Segnalare informazioni sullo stato corrente, come funzionalità disponibili e condizioni dall'app per dispositivo. Ad esempio, un dispositivo è connesso all'hub IoT mediante il cellulare o il Wi-Fi.
+* Sincronizzare lo stato dei flussi di lavoro a esecuzione prolungata tra l'app per dispositivi e back-end, ad esempio quando il back-end della soluzione specifica la nuova versione del firmware da installare e l'app per dispositivo segnala le varie fasi del processo di aggiornamento.
 * Eseguire query sui metadati, la configurazione o lo stato dei dispositivi.
 
-Vedere [Device-to-cloud communication guidance][lnk-d2c-guidance] (Indicazioni sulla comunicazione da dispositivo a cloud) in caso di dubbi tra l'uso delle proprietà indicate, dei messaggi da dispositivo a cloud o del caricamento di file.
-Vedere [Cloud-to-device communication guidance][lnk-c2d-guidance] (Indicazioni sulla comunicazione da cloud a dispositivo) in caso di dubbi tra l'uso delle proprietà specifiche, dei metodi diretti o dei messaggi da cloud a dispositivo.
+Vedere [Indicazioni sulle comunicazioni da dispositivo a cloud][lnk-d2c-guidance] per informazioni sull'uso delle proprietà indicate, dei messaggi da dispositivo a cloud o del caricamento di file.
+Vedere [Indicazioni sulle comunicazioni da cloud a dispositivo][lnk-c2d-guidance] per informazioni sull'uso delle proprietà specifiche, dei metodi diretti o dei messaggi da cloud a dispositivo.
 
 ## <a name="device-twins"></a>Dispositivi gemelli
 I dispositivi gemelli consentono di archiviare informazioni sul dispositivo che possono essere usate:
@@ -53,15 +55,15 @@ Il ciclo di vita di un dispositivo gemello è correlato all'[identità del dispo
 
 Un dispositivo gemello è un documento JSON che include:
 
-* **Tag**. Un documento JSON letto e scritto dal back-end della soluzione. I tag non sono visibili alle applicazioni per dispositivi.
-* **Proprietà desiderate**. Sono usate insieme alle proprietà segnalate per sincronizzare la configurazione o la condizione del dispositivo. Le proprietà desiderate possono essere impostate solo dal back-end della soluzione e possono essere lette dall'app per dispositivo. L'app per dispositivo può anche ricevere in tempo reale le notifiche relative alle modifiche apportate alle proprietà desiderate.
-* **Proprietà segnalate**. Usate insieme alle proprietà desiderate per sincronizzare la configurazione o la condizione del dispositivo. Le proprietà segnalate possono essere impostate solo dall'app per dispositivo e possono essere lette e sottoposte a query dal back-end della soluzione.
+* **Tag**. Una sezione del documento JSON che il back-end della soluzione è in grado di leggere e in cui può scrivere. I tag non sono visibili alle applicazioni per dispositivi.
+* **Proprietà desiderate**. Sono usate insieme alle proprietà segnalate per sincronizzare la configurazione o le condizioni del dispositivo. Le proprietà desiderate possono essere impostate solo dal back-end della soluzione e possono essere lette dall'app per dispositivo. L'app per dispositivo può anche ricevere in tempo reale le notifiche relative alle modifiche apportate alle proprietà desiderate.
+* **Proprietà segnalate**. Sono usate insieme alle proprietà desiderate per sincronizzare la configurazione o le condizioni del dispositivo. Le proprietà segnalate possono essere impostate solo dall'app per dispositivo e possono essere lette e sottoposte a query dal back-end della soluzione.
 
-La radice del dispositivo gemello, inoltre, contiene le proprietà di sola lettura dell'identità corrispondente, come indicato nel [registro delle identità][lnk-identity].
+La radice del documento JSON del dispositivo gemello, inoltre, contiene le proprietà di sola lettura dell'identità di dispositivo corrispondente archiviata nel [registro delle identità][lnk-identity].
 
 ![][img-twin]
 
-Di seguito è riportato un esempio di documento JSON del dispositivo gemello:
+L'esempio seguente illustra un documento JSON del dispositivo gemello:
 
         {
             "deviceId": "devA",
@@ -99,17 +101,18 @@ Di seguito è riportato un esempio di documento JSON del dispositivo gemello:
             }
         }
 
-Nell'oggetto radice si trovano le proprietà di sistema e gli oggetti contenitore per `tags` ed entrambe le proprietà `reported` e `desired`. Nel contenitore `properties` sono presenti alcuni elementi di sola lettura (`$metadata`, `$etag` e `$version`) descritti rispettivamente nelle sezioni [Metadati del gemello][lnk-twin-metadata] e [Concorrenza ottimistica][lnk-concurrency].
+Nell'oggetto radice si trovano le proprietà di sistema e gli oggetti contenitore per `tags` ed entrambe le proprietà `reported` e `desired`. Nel contenitore `properties` sono presenti alcuni elementi di sola lettura (`$metadata`, `$etag` e `$version`) descritti nelle sezioni [Metadati del dispositivo gemello][lnk-twin-metadata] e [Concorrenza ottimistica][lnk-concurrency].
 
 ### <a name="reported-property-example"></a>Esempio di proprietà segnalata
-Nell'esempio precedente, il dispositivo gemello contiene la proprietà `batteryLevel` che viene segnalata dall'app per dispositivo. Questa proprietà consente di eseguire una query e di far funzionare i dispositivi in base al livello di carica della batteria più recente segnalato. In un altro esempio l'applicazione segnala la capacità o le opzioni di connettività del dispositivo.
+Nell'esempio precedente, il dispositivo gemello contiene la proprietà `batteryLevel` che viene segnalata dall'app per dispositivo. Questa proprietà consente di eseguire una query e di far funzionare i dispositivi in base al livello di carica della batteria più recente segnalato. Altri esempi sono l'app per dispositivo che segnala le funzionalità o le opzioni di connettività del dispositivo.
 
-Si noti come le proprietà segnalate semplificano gli scenari in cui il back-end della soluzione è interessato all'ultimo valore noto di una proprietà. Usare i [messaggi dal dispositivo al cloud][lnk-d2c] se il back-end della soluzione deve elaborare la telemetria del dispositivo in forma di sequenze di eventi con timestamp, ad esempio una serie temporale.
+> [!NOTE]
+> Le proprietà segnalate semplificano gli scenari in cui il back-end della soluzione è interessato all'ultimo valore noto di una proprietà. Usare i [messaggi dal dispositivo al cloud][lnk-d2c] se il back-end della soluzione deve elaborare la telemetria del dispositivo in forma di sequenze di eventi con timestamp, ad esempio una serie temporale.
 
 ### <a name="desired-property-example"></a>Esempio di proprietà desiderata
 Nell'esempio precedente le proprietà desiderate e segnalate del dispositivo gemello `telemetryConfig` vengono usate dal back-end della soluzione e dall'app per dispositivo per sincronizzare la configurazione della telemetria per questo dispositivo. Ad esempio:
 
-1. Il back-end della soluzione imposta la proprietà desiderata sul valore di configurazione desiderato. Questa è la parte del documento con la proprietà desiderata:
+1. Il back-end della soluzione imposta la proprietà desiderata sul valore di configurazione desiderato. Questa è la parte del documento con il set di proprietà desiderate:
    
         ...
         "desired": {
@@ -133,17 +136,17 @@ Nell'esempio precedente le proprietà desiderate e segnalate del dispositivo gem
 3. Il back-end della soluzione può tenere traccia dei risultati dell'operazione di configurazione su più dispositivi, eseguendo [query][lnk-query] sui dispositivi gemelli.
 
 > [!NOTE]
-> I frammenti di codice precedenti sono esempi ottimizzati per una migliore leggibilità, di un possibile modo per codificare una configurazione del dispositivo e il relativo stato. L'hub IoT non impone uno schema specifico per l'uso delle proprietà desiderate e segnalate del dispositivo gemello nei dispositivi gemelli.
+> I frammenti di codice precedenti sono esempi ottimizzati per una migliore leggibilità, di un modo per codificare una configurazione del dispositivo e il relativo stato. L'hub IoT non impone uno schema specifico per l'uso delle proprietà desiderate e segnalate del dispositivo gemello nei dispositivi gemelli.
 > 
 > 
 
-Spesso i gemelli vengono usati per sincronizzare le operazioni a esecuzione prolungata, ad esempio gli aggiornamenti del firmware. Vedere [Usare le proprietà desiderate per configurare i dispositivi][lnk-twin-properties] per altre informazioni su come usare le proprietà per sincronizzare e tenere traccia delle operazioni a esecuzione prolungata sui dispositivi.
+È possibile usare i gemelli per sincronizzare le operazioni a esecuzione prolungata, ad esempio gli aggiornamenti del firmware. Per altre informazioni su come usare le proprietà per sincronizzare e tenere traccia dell'operazione a esecuzione prolungata sui dispositivi, vedere [Usare le proprietà desiderate per configurare i dispositivi][lnk-twin-properties].
 
 ## <a name="back-end-operations"></a>Operazioni di back-end
 Il back-end della soluzione opera sul dispositivo gemello tramite le seguenti operazioni atomiche esposte tramite HTTP:
 
-1. **Recuperare un dispositivo gemello tramite ID**. Questa operazione restituisce il contenuto del documento del dispositivo gemello, inclusi tag e proprietà desiderate, segnalate e di sistema.
-2. **Aggiornare parzialmente il dispositivo gemello**. Questa operazione consente al back-end della soluzione di aggiornare parzialmente i tag o le proprietà desiderate del dispositivo gemello. L'aggiornamento parziale è espresso come documento JSON che aggiunge o aggiorna tutte le proprietà indicate. Le proprietà impostate su `null` vengono rimosse. L'esempio seguente crea una nuova proprietà desiderata con valore `{"newProperty": "newValue"}`, sostituisce il valore esistente di `existingProperty` con `"otherNewValue"`, e rimuove completamente `otherOldProperty`. Non vengono modificate le altre proprietà desiderate o tag esistenti:
+1. **Recuperare un dispositivo gemello tramite ID**. Questa operazione restituisce il documento del dispositivo gemello, inclusi tag e proprietà desiderate, segnalate e di sistema.
+2. **Aggiornare parzialmente il dispositivo gemello**. Questa operazione consente al back-end della soluzione di aggiornare parzialmente i tag o le proprietà desiderate di un dispositivo gemello. L'aggiornamento parziale è espresso come documento JSON che aggiunge o aggiorna tutte le proprietà. Le proprietà impostate su `null` vengono rimosse. L'esempio seguente crea una nuova proprietà desiderata con valore `{"newProperty": "newValue"}`, sostituisce il valore esistente di `existingProperty` con `"otherNewValue"`, e rimuove `otherOldProperty`. Non vengono apportate altre modifiche alle altre proprietà desiderate o ai tag esistenti:
    
         {
             "properties": {
@@ -157,18 +160,21 @@ Il back-end della soluzione opera sul dispositivo gemello tramite le seguenti op
             }
         }
 3. **Sostituzione di proprietà desiderate**. Questa operazione consente al back-end della soluzione di sovrascrivere completamente tutte le proprietà desiderate esistenti e di sostituirle con un nuovo documento JSON `properties/desired`.
-4. **Sostituzione di tag**. Analogamente alla sostituzione delle proprietà desiderate, questa operazione consente al back-end della soluzione di sovrascrivere completamente tutti i tag esistenti e di sostituirli con un nuovo documento JSON `tags`.
+4. **Sostituzione di tag**. Questa operazione consente al back-end della soluzione di sovrascrivere completamente tutti i tag esistenti e di sostituirli con un nuovo documento JSON `tags`.
 
 Tutte le operazioni precedenti supportano la [concorrenza ottimistica][lnk-concurrency] e richiedono l'autorizzazione **ServiceConnect**, come indicato nell'articolo [Sicurezza][lnk-security].
 
-Oltre a queste operazioni, il back-end della soluzione può eseguire una query sui dispositivi gemelli usando un [linguaggio di query dell'hub IoT][lnk-query] simile a SQL e può anche eseguire operazioni su grandi set di dispositivi gemelli usando i [processi][lnk-jobs].
+Oltre a queste operazioni, il back-end della soluzione può:
+
+* Eseguire una query sui dispositivi gemelli usando il [linguaggio di query Hub IoT ][lnk-query] simile a SQL.
+* Eseguire operazioni su set di grandi dimensioni dei dispositivi gemelli usando i [processi][lnk-jobs].
 
 ## <a name="device-operations"></a>Operazioni del dispositivo
 Il dispositivo opera sul dispositivo gemello usando le seguenti operazioni atomiche:
 
-1. **Recuperare un dispositivo gemello**. Questa operazione restituisce il contenuto del documento del dispositivo gemello, inclusi tag e proprietà desiderate, segnalate e di sistema, del dispositivo attualmente connesso.
-2. **Aggiornamento parziale delle proprietà segnalate**. Questa operazione consente l'aggiornamento parziale delle proprietà segnalate del dispositivo attualmente connesso. Usa lo stesso formato di aggiornamento JSON del back-end della soluzione che esegue l'aggiornamento parziale delle proprietà desiderate.
-3. **Osservazione di proprietà desiderate**. Il dispositivo attualmente connesso può ricevere la notifica degli aggiornamenti delle proprietà desiderate non appena vengono eseguiti. Il dispositivo riceve lo stesso modulo di aggiornamento che segnala la sostituzione parziale o completa eseguita dal back-end della soluzione.
+1. **Recuperare un dispositivo gemello**. Questa operazione restituisce il documento del dispositivo gemello, inclusi tag e proprietà desiderate, segnalate e di sistema, del dispositivo attualmente connesso.
+2. **Aggiornamento parziale delle proprietà segnalate**. Questa operazione consente l'aggiornamento parziale delle proprietà segnalate del dispositivo attualmente connesso. Questa operazione usa lo stesso formato di aggiornamento JSON che il back-end della soluzione usa per un aggiornamento parziale delle proprietà desiderate.
+3. **Osservazione di proprietà desiderate**. Il dispositivo attualmente connesso può scegliere di ricevere la notifica degli aggiornamenti delle proprietà desiderate quando vengono eseguiti. Il dispositivo riceve lo stesso modulo di aggiornamento che segnala la sostituzione parziale o completa eseguita dal back-end della soluzione.
 
 Tutte le operazioni precedenti richiedono l'autorizzazione **DeviceConnect**, come indicato nell'articolo [Sicurezza][lnk-security].
 
@@ -212,7 +218,7 @@ I tag e le proprietà desiderate e segnalate sono oggetti JSON soggetti alle res
 ## <a name="device-twin-size"></a>Dimensioni del dispositivo gemello
 L'hub IoT impone un limite di dimensione pari a 8 KB sui valori di `tags`, `properties/desired` e `properties/reported`, a esclusione degli elementi di sola lettura.
 Le dimensioni vengono calcolate contando tutti i caratteri a esclusione dei caratteri di controllo UNICODE (segmenti C0 e C1) e lo spazio `' '` quando è visualizzato al di fuori di una costante di tipo stringa.
-L'hub IoT rifiuta con errore tutte le operazioni che aumentano le dimensioni dei documenti oltre al limite specificato.
+L'hub IoT rifiuta con errore tutte le operazioni che aumentano le dimensioni dei documenti oltre il limite specificato.
 
 ## <a name="device-twin-metadata"></a>Metadati del dispositivo gemello
 L'hub IoT conserva il timestamp dell'ultimo aggiornamento di ogni oggetto JSON nelle proprietà desiderate e segnalate del dispositivo gemello. I timestamp sono in formato UTC e codificati in formato [ISO8601]`YYYY-MM-DDTHH:MM:SS.mmmZ`.
@@ -264,12 +270,12 @@ Ad esempio:
 Queste informazioni vengono mantenute a ogni livello (non solo al livello foglia della struttura JSON) per conservare gli aggiornamenti che rimuovono le chiavi dell'oggetto.
 
 ## <a name="optimistic-concurrency"></a>Concorrenza ottimistica
-Le tag e le proprietà desiderate e segnalate supportano la concorrenza ottimistica.
-I tag sono dotati di un eTag, come indicato in [RFC7232], che rappresenta il JSON del tag. Per garantire la coerenza è possibile usare l'eTag nelle operazioni di aggiornamento condizionale dal back-end della soluzione.
+I tag e le proprietà desiderate e segnalate supportano la concorrenza ottimistica.
+I tag sono dotati di un ETag, come indicato in [RFC7232], che rappresenta il JSON del tag. Per garantire la coerenza è possibile usare l'ETag nelle operazioni di aggiornamento condizionale dal back-end della soluzione.
 
-Le proprietà desiderate e segnalate del dispositivo gemello non sono dotate di eTag, ma hanno un valore `$version` sempre incrementale. Analogamente a un eTag, la versione può essere usata dall'elemento che esegue l'aggiornamento, ad esempio l'app per dispositivo di una proprietà segnalata o il back-end della soluzione di una proprietà desiderata, per imporre la coerenza degli aggiornamenti.
+Le proprietà desiderate e segnalate del dispositivo gemello non sono dotate di ETags, ma hanno un valore `$version` sempre incrementale. In modo analogo a un valore ETag, la versione può essere usata dall'entità di aggiornamento per garantire la coerenza degli aggiornamenti. Ad esempio, un'app per dispositivo per una proprietà segnalata o la soluzione del back-end per una proprietà desiderata.
 
-Sono inoltre utili quando un agente di osservazione, ad esempio l'app per dispositivo che osserva le proprietà desiderate, deve riconciliare le concorrenze tra il risultato di un'operazione di recupero e una notifica di aggiornamento. Altre informazioni sono reperibili nella sezione [Flusso di riconnessione del dispositivo][lnk-reconnection].
+Le versioni sono utili anche quando un agente di osservazione, ad esempio l'app per dispositivo che osserva le proprietà desiderate, deve riconciliare le concorrenze tra il risultato di un'operazione di recupero e una notifica di aggiornamento. Altre informazioni sono reperibili nella sezione [Flusso di riconnessione del dispositivo][lnk-reconnection].
 
 ## <a name="device-reconnection-flow"></a>Flusso di riconnessione del dispositivo
 L'hub IoT non conserva le notifiche di aggiornamento delle proprietà desiderate dei dispositivi connessi. Ne consegue che un dispositivo che esegue la connessione deve recuperare il documento completo delle proprietà desiderate, ed eseguire la sottoscrizione alle notifiche di aggiornamento. Data la possibilità di concorrenza tra le notifiche di aggiornamento e il recupero completo, deve essere assicurato il flusso seguente:
@@ -278,7 +284,7 @@ L'hub IoT non conserva le notifiche di aggiornamento delle proprietà desiderate
 2. L'app per dispositivo esegue la sottoscrizione per le notifiche di aggiornamento delle proprietà desiderate.
 3. L'app per dispositivo recupera il documento completo delle proprietà desiderate.
 
-L'app per dispositivo è in grado di ignorare tutte le notifiche con il valore di `$version` minore o uguale a quello dell'intero documento recuperato. Ciò è possibile poiché hub IoT garantisce l'incremento delle versioni.
+L'app per dispositivo è in grado di ignorare tutte le notifiche con il valore di `$version` minore o uguale a quello dell'intero documento recuperato. Questo approccio è possibile poiché l'hub IoT garantisce l'incremento delle versioni.
 
 > [!NOTE]
 > Questa logica è già implementata in [Azure IoT SDK per dispositivi][lnk-sdks]. La descrizione è utile solo se l'app per dispositivo non può usare un Azure IoT SDK per dispositivi e deve programmare direttamente l'interfaccia MQTT.
@@ -288,11 +294,11 @@ L'app per dispositivo è in grado di ignorare tutte le notifiche con il valore d
 ## <a name="additional-reference-material"></a>Materiale di riferimento
 Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida per gli sviluppatori dell'hub IoT:
 
-* [IoT Hub endpoints][lnk-endpoints] (Endpoint dell'hub IoT) illustra i diversi endpoint esposti da ogni hub IoT per operazioni della fase di esecuzione e di gestione.
-* [Quote e limitazioni][lnk-quotas] descrive le quote applicabili al servizio Hub IoT e il comportamento di limitazione previsto quando si usa il servizio.
-* [Azure IoT device and service SDKs][lnk-sdks] (Azure IoT SDK per dispositivi e servizi) elenca gli SDK nei diversi linguaggi da usare quando si sviluppano app per dispositivi e servizi che interagiscono con l'hub IoT.
-* [Linguaggio di query per dispositivi gemelli e processi][lnk-query] illustra il linguaggio di query dell'hub IoT che è possibile usare per recuperare informazioni dall'hub IoT sui dispositivi gemelli e sui processi.
-* [Supporto di MQTT nell'hub IoT][lnk-devguide-mqtt] offre altre informazioni sul supporto dell'hub IoT per il protocollo MQTT.
+* L'articolo [IoT Hub endpoints][lnk-endpoints] (Endpoint dell'hub IoT) illustra i diversi endpoint esposti da ogni hub IoT per operazioni della fase di esecuzione e di gestione.
+* L'articolo [Quote e limitazioni][lnk-quotas] descrive le quote applicabili al servizio hub IoT e il comportamento di limitazione previsto quando si usa il servizio.
+* L'articolo [Azure IoT SDK per dispositivi e servizi][lnk-sdks] elenca gli SDK nei diversi linguaggi che è possibile usare quando si sviluppano app per dispositivi e servizi che interagiscono con l'hub IoT.
+* L'articolo [Linguaggio di query per dispositivi gemelli e processi][lnk-query] illustra il linguaggio di query dell'hub IoT che è possibile usare per recuperare informazioni dall'hub IoT sui dispositivi gemelli e sui processi.
+* L'articolo [Supporto di MQTT nell'hub IoT][lnk-devguide-mqtt] offre altre informazioni sul supporto dell'hub IoT per il protocollo MQTT.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione si è appreso come usare i dispositivi gemelli. Altri argomenti di interesse disponibili nella Guida per sviluppatori dell'hub IoT:
@@ -332,9 +338,4 @@ Per provare alcuni dei concetti descritti in questo articolo, possono essere uti
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow
 
 [img-twin]: media/iot-hub-devguide-device-twins/twin.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

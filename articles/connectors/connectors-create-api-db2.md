@@ -18,6 +18,7 @@ ms.author: plarsen
 translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: bba03cfb21e8eebdbf67152de9c6e2da6f22f5a2
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -410,10 +411,5 @@ Il connettore supporta le piattaforme e le versioni di IBM DB2 seguenti, nonché
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). Esplorare gli altri connettori disponibili nelle app per la logica nell' [elenco delle API](apis-list.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

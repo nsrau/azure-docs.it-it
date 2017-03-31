@@ -1,6 +1,6 @@
 ---
-title: Soluzione Contenitori in Log Analytics | Documentazione Microsoft
-description: La soluzione Contenitori in Log Analytics consente di visualizzare e gestire gli host di contenitori Docker in un&quot;unica posizione.
+title: Soluzione Contenitori in Log Analytics di Azure | Microsoft Docs
+description: La soluzione Contenitori in Log Analytics consente di visualizzare e gestire gli host del contenitore Docker e Windows in un&quot;unica posizione.
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,30 +12,39 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/22/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 6cdc0730d7632e41b393c4abb17badc255e21a8d
-ms.openlocfilehash: 0bc5366417f08c63f5fd5588c94381faf6a2397d
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 45b07f5dd29b7e920ac2abe6765020e0337ecf95
+ms.lasthandoff: 03/11/2017
 
 
 ---
 # <a name="containers-preview-solution-log-analytics"></a>Soluzione Contenitori (anteprima) in Log Analytics
-Questo articolo descrive come configurare e usare la soluzione Contenitori in Log Analytics per visualizzare e gestire gli host di contenitori Docker in un'unica posizione. Docker è un sistema di virtualizzazione software usato per creare contenitori che consentono di automatizzare la distribuzione del software nell'infrastruttura IT.
+Questo articolo descrive come configurare e usare la soluzione Contenitori in Log Analytics per visualizzare e gestire gli host del contenitore Docker e Windows in un'unica posizione. Docker è un sistema di virtualizzazione software usato per creare contenitori che consentono di automatizzare la distribuzione del software nell'infrastruttura IT.
 
-Con la soluzione è possibile visualizzare i contenitori in esecuzione negli host di contenitori e le immagini in esecuzione nei contenitori. È possibile visualizzare informazioni di controllo dettagliate che indicano i comandi usati con i contenitori. È anche possibile risolvere i problemi dei contenitori visualizzando i log centralizzati ed eseguendo ricerche al loro interno senza dover visualizzare gli host Docker in remoto. È possibile trovare contenitori che consumano una quantità eccessiva di risorse in un host. È anche possibile visualizzare informazioni centralizzate su utilizzo di CPU, memoria, archiviazione e rete e sulle prestazioni dei contenitori.
+Con la soluzione è possibile visualizzare i contenitori in esecuzione negli host di contenitori e le immagini in esecuzione nei contenitori. È possibile visualizzare informazioni di controllo dettagliate che indicano i comandi usati con i contenitori. È anche possibile risolvere i problemi dei contenitori visualizzando i log centralizzati ed eseguendo ricerche al loro interno senza dover visualizzare gli host Docker o Windows in remoto. È possibile trovare contenitori che consumano una quantità eccessiva di risorse in un host. È anche possibile visualizzare informazioni centralizzate su utilizzo di CPU, memoria, archiviazione e rete e sulle prestazioni dei contenitori. Nei computer che eseguono Windows, è possibile centralizzare e confrontare i log dai contenitori Windows Server, Hyper-V e Docker.
+
+Il diagramma seguente mostra le relazioni tra vari host del contenitore e agenti con OMS.
+
+![Diagramma dei contenitori](./media/log-analytics-containers/containers-diagram.png)
 
 ## <a name="installing-and-configuring-the-solution"></a>Installazione e configurazione della soluzione
 Usare le informazioni seguenti per installare e configurare la soluzione.
 
-Aggiungere la soluzione Contenitori all'area di lavoro di OMS usando la procedura descritta nell'articolo [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).
+Aggiungere la soluzione Contenitori all'atra di lavoro OMS da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).
 
-Esistono due metodi per installare e usare Docker con OMS:
+Esistono alcuni metodi per installare e usare Docker con OMS:
 
-* Nei sistemi operativi Linux supportati installare ed eseguire Docker e quindi installare e configurare l'agente OMS per Linux
+* Nei sistemi operativi Linux supportati installare ed eseguire Docker, quindi installare e configurare l'agente OMS per Linux.
 * Non è possibile eseguire l'agente OMS per Linux in CoreOS. È invece necessario eseguire una versione di tale agente inserita in contenitori.
+* In Windows Server 2016 e Windows 10, installare il motore e il client Docker, quindi connettere un agente per raccogliere informazioni da inviare a Log Analytics.
 
-Esaminare le versioni di Docker e Linux supportate per l'host di contenitori in [GitHub](https://github.com/Microsoft/OMS-docker).
+
+È possibile esaminare le versioni di sistemi operativi Docker e Linux supportate per l'host del contenitore in [GitHub](https://github.com/Microsoft/OMS-docker).
+
+Consultare l'articolo sul [motore Docker in Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) per altre informazioni su come installare e configurare i motori di Docker sui computer che eseguono Windows.
 
 > [!IMPORTANT]
 > Docker deve essere in esecuzione **prima** di installare l'[agente OMS per Linux](log-analytics-linux-agents.md) negli host di contenitori. Se l'agente è stato installato prima di installare Docker, è necessario reinstallare l'agente di OMS per Linux. Per altre informazioni su Docker, vedere il [sito Web di Docker](https://www.docker.com).
@@ -44,13 +53,13 @@ Esaminare le versioni di Docker e Linux supportate per l'host di contenitori in 
 
 Sono necessarie le seguenti impostazioni negli host di contenitori prima di poter monitorare i contenitori.
 
-## <a name="configure-settings-for-the-linux-container-host"></a>Configurare le impostazioni per l'host di contenitori Linux
+## <a name="configure-settings-for-a-linux-container-host"></a>Configurare le impostazioni per l'host del contenitore Linux
 
 Le distribuzioni Linux x64 seguenti sono supportate come host del contenitore:
 
 - Ubuntu 14.04 LTS, 16.04 LTS
 - CoreOS (stable)
-- Amazon Linux 2016.03
+- Amazon Linux 2016.09.0
 - openSUSE 13.2
 - CentOS 7
 - SLES 12
@@ -58,11 +67,12 @@ Le distribuzioni Linux x64 seguenti sono supportate come host del contenitore:
 
 Dopo aver installato Docker, usare le impostazioni seguenti per l'host di contenitori per configurare l'agente per l'uso con Docker. Saranno necessari l'[ID area di lavoro e la chiave di OMS](log-analytics-linux-agents.md).
 
-### <a name="for-all-container-hosts-except-coreos"></a>Per tutti gli host del contenitore, ad eccezione di CoreOS
+
+### <a name="for-all-linux-container-hosts-except-coreos"></a>Per tutti gli host del contenitore Linux, ad eccezione di CoreOS
 
 - Seguire le istruzioni riportate in [Steps to install the OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md) (Procedura per l'installazione dell'agente OMS per Linux).
 
-### <a name="for-all-container-hosts-including-coreos"></a>Per tutti gli host del contenitore, incluso CoreOS
+### <a name="for-all-linux-container-hosts-including-coreos"></a>Per tutti gli host del contenitore Linux inclusi CoreOS
 
 Avviare il contenitore OMS da monitorare. Modificare usando l'esempio seguente.
 
@@ -70,19 +80,83 @@ Avviare il contenitore OMS da monitorare. Modificare usando l'esempio seguente.
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
 ```
 
-### <a name="switching-from-using-an-installed-agent-to-one-in-a-container"></a>Passaggio dall'uso di un agente installato a un agente in un contenitore
+### <a name="switching-from-using-an-installed-linux-agent-to-one-in-a-container"></a>Passaggio dall'uso di un agente Linux installato a un agente in un contenitore
 Se in precedenza veniva usato l'agente installato direttamente e si vuole usare invece un agente in esecuzione in un contenitore, è prima necessario rimuovere OMSAgent. Per altre informazioni, vedere i [passaggi per installare l'agente OMS per Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md).
 
+## <a name="supported-windows-versions"></a>Versioni supportate di Windows
+
+- Windows Server 2016
+- Versione di Windows per il 10° anniversario (professionale o aziendale)
+
+### <a name="docker-versions-supported-on-windows"></a>Versioni di Docker supportate in Windows
+
+- Docker 1.12 – 1.13
+
+### <a name="preparation-before-installing-agents"></a>Preparazione prima dell'installazione degli agenti
+
+Prima di installare gli agenti nei computer che eseguono Windows, è necessario configurare il servizio Docker. La configurazione consente all'agente di Windows o all'estensione macchina virtuale Log Analytics di usare il socket TCP di Docker in modo che gli agenti possano accedere in remoto al daemon Docker e acquisire i dati per il monitoraggio.
+
+I dati sulle prestazioni non sono supportati nei computer che eseguono Windows.
+
+Per altre informazioni sulla configurazione del daemon Docker con Windows, vedere [Motore Docker in Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
+
+#### <a name="to-start-docker-and-verify-its-configuration"></a>Per avviare Docker e verificare la configurazione
+
+1.    In Windows PowerShell, abilitare pipe TCP e named pipe.
+
+    ```
+    Stop-Service docker
+    dockerd --unregister-service
+    dockerd -H npipe:// -H 0.0.0.0:2375 --register-service
+    Start-Service docker
+    ```
+
+2.    Verificare la configurazione con Netstat. Dovrebbe essere visualizzata la porta 2375.
+
+    ```
+    PS C:\Users\User1> netstat -a | sls 2375
+
+    TCP    127.0.0.1:2375         Win2016TP5:0           LISTENING
+    TCP    127.0.0.1:2375         Win2016TP5:49705       ESTABLISHED
+    TCP    127.0.0.1:2375         Win2016TP5:49706       ESTABLISHED
+    TCP    127.0.0.1:2375         Win2016TP5:49707       ESTABLISHED
+    TCP    127.0.0.1:2375         Win2016TP5:49708       ESTABLISHED
+    TCP    127.0.0.1:49705        Win2016TP5:2375        ESTABLISHED
+    TCP    127.0.0.1:49706        Win2016TP5:2375        ESTABLISHED
+    TCP    127.0.0.1:49707        Win2016TP5:2375        ESTABLISHED
+    TCP    127.0.0.1:49708        Win2016TP5:2375        ESTABLISHED
+    ```
+
+### <a name="install-windows-agents"></a>Installare gli agenti Windows
+
+Per abilitare il monitoraggio dei contenitori Windows e Hyper-V, installare gli agenti nei computer Windows che sono host del contenitore. Per i computer che eseguono Windows nell'ambiente locale, vedere [Collegare i computer di Windows a Log Analytics](log-analytics-windows-agents.md). Per le macchine virtuali eseguite in Azure, collegarle a Log Analytics usando l'[estensione macchina virtuale](log-analytics-azure-vm-extension.md).
+
+Per verificare che la soluzione Contenitori sia impostata correttamente:
+
+- Verificare che il management pack sia stato scaricato correttamente e cercare *ContainerManagement.xxx*.
+    - Il file dovrebbe trovarsi nella cartella C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs.
+- Verificare che l'ID dell'area di lavoro OMS sia corretta andando in **Pannello di controllo** > **Sistema e sicurezza**.
+    - Aprire **Microsoft Monitoring Agent** e verificare che le informazioni dell'area di lavoro siano corrette.
+
+
 ## <a name="containers-data-collection-details"></a>Informazioni dettagliate sulla raccolta di dati dei contenitori
-La soluzione Contenitori raccoglie le varie metriche delle prestazioni e i vari dati di log da host di contenitori e contenitori usando gli agenti OMS per Linux abilitati e da OMSAgent in esecuzione nei contenitori.
+La soluzione Contenitori raccoglie le varie metriche delle prestazioni e i vari dati di log da host del contenitore e contenitori usando gli agenti abilitati.
 
 La tabella seguente illustra i metodi di raccolta dei dati e altri dettagli sulla modalità di raccolta dei dati per i contenitori.
 
-| Piattaforma | Agente OMS per Linux | Agente SCOM | Archiviazione di Azure | SCOM obbligatorio? | Dati dell'agente SCOM inviati con il gruppo di gestione | Frequenza della raccolta |
+| Piattaforma | [Agente OMS per Linux](log-analytics-linux-agents.md) | Agente SCOM | Archiviazione di Azure | SCOM obbligatorio? | Dati dell'agente SCOM inviati con il gruppo di gestione | Frequenza della raccolta |
 | --- | --- | --- | --- | --- | --- | --- |
-|  Linux |![Sì](./media/log-analytics-containers/oms-bullet-green.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |ogni 3 minuti |
+| Linux |![Sì](./media/log-analytics-containers/oms-bullet-green.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |ogni 3 minuti |
 
-La tabella seguente mostra esempi di tipi di dati raccolti dalla soluzione Contenitori nonché i tipi di dati usati in Ricerca log e nei risultati:
+| Piattaforma | [Agente Windows](log-analytics-windows-agents.md) | Agente SCOM | Archiviazione di Azure | SCOM obbligatorio? | Dati dell'agente SCOM inviati con il gruppo di gestione | frequenza della raccolta |
+| --- | --- | --- | --- | --- | --- | --- |
+| Windows |![Sì](./media/log-analytics-containers/oms-bullet-green.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |ogni 3 minuti |
+
+| Piattaforma | [Estensione macchina virtuale di Log Analytics](log-analytics-azure-vm-extension.md) | Agente SCOM | Archiviazione di Azure | SCOM obbligatorio? | Dati dell'agente SCOM inviati con il gruppo di gestione | frequenza della raccolta |
+| --- | --- | --- | --- | --- | --- | --- |
+| Azure |![Sì](./media/log-analytics-containers/oms-bullet-green.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |ogni 3 minuti |
+
+La tabella seguente mostra esempi di tipi di dati raccolti dalla soluzione Contenitori nonché i tipi di dati usati nella ricerca e nei risultati dei log. Tuttavia, i dati sulle prestazioni non sono ancora supportati nei computer che eseguono Windows.
 
 | Tipo di dati | Tipo di dati in Ricerca log | Fields |
 | --- | --- | --- |
@@ -190,9 +264,4 @@ Dopo aver creato una query che si ritiene utile, salvarla facendo clic su **Pref
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Eseguire ricerche nei log](log-analytics-log-searches.md) per visualizzare i record di dati dettagliati per i contenitori.
-
-
-
-<!--HONumber=Nov16_HO5-->
-
 

@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a3d79c2df96c21d1af77c8ea1f53a2cc4e28343e
-ms.openlocfilehash: 30b1a9144e06db92ba12030dfe37a83e79d62857
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: de2e6d201ba54774697356e1cd55c4881664a401
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="connect-computers-and-devices-to-oms-using-the-oms-gateway"></a>Connettere computer e dispositivi a OMS tramite il gateway OMS
+# <a name="connect-computers-and-devices-without-internet-access-to-oms-using-the-oms-gateway"></a>Connettere computer e dispositivi senza accesso a Internet a OMS tramite il gateway OMS
+
 Questo documento descrive in che modo i dispositivi gestiti OMS e i computer monitorati da System Center Operations Manager (SCOM) possono inviare dati al servizio OMS quando non è disponibile l'accesso a Internet. Il gateway OMS può raccogliere i dati e inviarli al servizio OMS per conto dei dispositivi.
 
 Il gateway è un proxy di inoltro HTTP che supporta il tunneling HTTP tramite il comando HTTP CONNECT. Il gateway può gestire fino a 2000 dispositivi OMS connessi contemporaneamente quando vengono eseguiti su una CPU a 4 core e un server da 16 GB che esegue Windows.
@@ -72,9 +75,9 @@ Per ottenere il file di configurazione del gateway OMS, sono disponibili tre mod
 
 ### <a name="oms-portal"></a>Portale OMS
 
-1.  Accedere all'area di lavoro OMS.
-2.  Selezionare **Settings** > **Connected Sources** > **Windows Servers** (Impostazioni, Origini connesse, Server Windows).
-3.  Fare clic su **Download OMS Gateway** (Scarica gateway OMS).
+1.    Accedere all'area di lavoro OMS.
+2.    Selezionare **Settings** > **Connected Sources** > **Windows Servers** (Impostazioni, Origini connesse, Server Windows).
+3.    Fare clic su **Download OMS Gateway** (Scarica gateway OMS).
 
 
 ### <a name="azure-portal"></a>Portale di Azure
@@ -100,11 +103,11 @@ Prerequisiti: .NET Framework 4.5, Windows Server 2012 R2 SP1 e versione successi
 4. Nella pagina degli indirizzi della porta e del proxy:
    1. Digitare il numero di porta TCP da usare per il gateway. Il programma di installazione visualizza il numero di porta da Windows Firewall. Il valore predefinito è 8080.
       L'intervallo valido del numero di porta è 1-65535. Se l'input non è compreso in questo intervallo, viene visualizzato un messaggio di errore.
-   2. In alternativa, se il server in cui è installato il gateway deve usare un proxy, digitare l'indirizzo del proxy in cui il gateway deve connettersi. Ad esempio, `http://myorgname.corp.contoso.com:80`. Se vuoto, il gateway tenterà di connettersi direttamente a Internet. In caso contrario, il gateway si connette al proxy. Se il server proxy richiede l'autenticazione, digitare il nome utente e la password.
+   2. In alternativa, se il server in cui è installato il gateway deve usare un proxy, digitare l'indirizzo del proxy in cui il gateway deve connettersi. Ad esempio, `http://myorgname.corp.contoso.com:80`. Se vuoto, il gateway tenterà di connettersi direttamente a Internet. In caso contrario, il gateway si connette al proxy. Se il server proxy richiede l'autenticazione, digitare il nome utente e la password.  
        ![Configurazione guidata del proxy del gateway](./media/log-analytics-oms-gateway/gateway-wizard02.png)  
    3. Fare clic su **Avanti**
 5. Se Microsoft Update non è abilitato, viene visualizzata la pagina di Microsoft Update in cui è possibile scegliere di abilitare questo servizio. Effettuare una selezione e quindi fare clic su **Avanti**. In caso contrario, continuare con il passaggio successivo.
-6. Nella pagina Cartella di destinazione lasciare la cartella predefinita **%ProgramFiles%\OMS Gateway** oppure digitare il percorso in cui si vuole installare il gateway e quindi fare clic su **Avanti**.
+6. Nella pagina Cartella di destinazione lasciare la cartella predefinita folder c:\ProgramFiles\OMS Gateway oppure digitare il percorso in cui si vuole installare il gateway e quindi fare clic su **Avanti**.
 7. Nella pagina Pronto per l'installazione fare clic su **Installa**. È possibile che venga visualizzato Controllo account utente per la richiesta dell'autorizzazione all'installazione. In questo caso fare clic su **Sì**.
 8. Al termine dell'installazione fare clic su **Fine**. È possibile verificare se il servizio è in esecuzione aprendo lo snap-in services.msc e verificare che il **gateway OMS** viene visualizzato nell'elenco dei servizi.  
     ![Servizi – Gateway OMS](./media/log-analytics-oms-gateway/gateway-service.png)
@@ -214,7 +217,7 @@ I cmdlet consentono di completare le attività necessarie per aggiornare le impo
 4. Se non si verifica alcun errore nel passaggio precedente, il modulo è stato importato ed è possibile usare i cmdlet. Digitare `Get-Module OMSGateway`.
 5. Dopo aver apportato le modifiche usando i cmdlet, assicurarsi di riavviare il servizio del gateway.
 
-Se si verifica un errore nel passaggio 3, il modulo non è stato importato. L'errore può verificarsi quando PowerShell non riesce a trovare il modulo. È possibile trovarlo nel percorso di installazione del gateway: C:\Programmi\Microsoft OMS Gateway\PowerShell.
+Se si verifica un errore nel passaggio 3, il modulo non è stato importato. L'errore può verificarsi quando PowerShell non riesce a trovare il modulo. È possibile trovarlo nel percorso di installazione del gateway: C:\Program Files\Microsoft OMS Gateway\PowerShell.
 
 | **Cmdlet** | **Parametri** | **Descrizione** | **esempi** |
 | --- | --- | --- | --- |
@@ -277,9 +280,4 @@ Per richiedere supporto, fare clic sul simbolo del punto interrogativo nell'ango
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Aggiungere le origini dati](log-analytics-data-sources.md) per raccogliere i dati dalle origini connesse nell'area di lavoro di OMS e archiviarli nel repository OMS.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

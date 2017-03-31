@@ -1,5 +1,5 @@
 ---
-title: Criteri avanzati di Gestione API di Azure | Documentazione Microsoft
+title: Criteri avanzati di Gestione API di Azure | Microsoft Docs
 description: Informazioni sui criteri avanzati disponibili per l&quot;uso in Gestione API di Azure.
 services: api-management
 documentationcenter: 
@@ -15,20 +15,23 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: f1158f363a4796518997633847470f21a5864131
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: bfadac7b34eca2ef1f9bcabc6e267ca9572990b8
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="api-management-advanced-policies"></a>Criteri avanzati di gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="a-nameadvancedpoliciesa-advanced-policies"></a><a name="AdvancedPolicies"></a>Criteri avanzati  
+##  <a name="AdvancedPolicies"></a>Criteri avanzati  
   
 -   [Controlla flusso](api-management-advanced-policies.md#choose): applica in modo condizionale le istruzioni dei criteri sulla base dei risultati della valutazione di [espressioni](api-management-policy-expressions.md) booleane.  
   
 -   [Inoltra richiesta](#ForwardRequest) : inoltra la richiesta al servizio back-end.  
   
--   [Registra in Hub eventi](#log-to-eventhub): invia messaggi nel formato specificato a un Hub eventi definito da un'entità Logger.  
+-   [Registra in Hub eventi](#log-to-eventhub): invia messaggi nel formato specificato a un Hub eventi definito da un'entità Logger. 
+
+-   [Restituisci risposta](#mock-response): interrompe l'esecuzione della pipeline e restituisce una risposta fittizia direttamente al chiamante.
   
 -   [Riprova](#Retry) : riprova l'esecuzione delle istruzioni dei criteri, se e fino a quando non viene soddisfatta la condizione. L'esecuzione verrà ripetuta a specifici intervalli di tempo e per il numero di tentativi indicato.  
   
@@ -48,10 +51,10 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   [Attendi](#Wait): attende il completamento dei criteri inclusi per l'[invio della richiesta](api-management-advanced-policies.md#SendRequest), il [recupero del valore dalla cache](api-management-caching-policies.md#GetFromCacheByKey) o il [flusso di controllo](api-management-advanced-policies.md#choose) prima di procedere.  
   
-##  <a name="a-namechoosea-control-flow"></a><a name="choose"></a>Flusso di controllo  
+##  <a name="choose"></a>Flusso di controllo  
  Il criterio `choose` si applica alle istruzioni del criterio incluse in base al risultato della valutazione di espressioni booleane, simili a un costrutto if-then-else o switch in un linguaggio di programmazione.  
   
-###  <a name="a-namechoosepolicystatementa-policy-statement"></a><a name="ChoosePolicyStatement"></a>Istruzione del criterio  
+###  <a name="ChoosePolicyStatement"></a>Istruzione del criterio  
   
 ```xml  
 <choose>   
@@ -71,7 +74,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 ### <a name="examples"></a>Esempi  
   
-####  <a name="a-namechooseexamplea-example"></a><a name="ChooseExample"></a>Esempio  
+####  <a name="ChooseExample"></a>Esempio  
  L'esempio seguente illustra un criterio [set-variable](api-management-advanced-policies.md#set-variable) e due criteri di flusso di controllo.  
   
  Il criterio di impostazione della variabile si trova nella sezione in ingresso e crea `isMobile`, una variabile di [contesto](api-management-policy-expressions.md#ContextVariables) booleana, che è impostata su true se l'intestazione della richiesta `User-Agent` contiene il testo `iPad` o `iPhone`.  
@@ -142,14 +145,14 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |---------------|-----------------|--------------|  
 |condition="Boolean expression &#124; Boolean constant"|La costante o espressione booleana da valutare quando viene valutata l'istruzione del criterio contenente `when`.|Sì|  
   
-###  <a name="a-namechooseusagea-usage"></a><a name="ChooseUsage"></a>Uso  
+###  <a name="ChooseUsage"></a>Uso  
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:**in ingresso, in uscita, back-end, on-error  
   
 -   **Ambiti del criterio:** tutti gli ambiti  
   
-##  <a name="a-nameforwardrequesta-forward-request"></a><a name="ForwardRequest"></a>Inoltra richiesta  
+##  <a name="ForwardRequest"></a>Inoltra richiesta  
  Il criterio `forward-request` inoltra la richiesta in ingresso al servizio back-end specificato nel [contesto](api-management-policy-expressions.md#ContextVariables) della richiesta. L'URL del servizio back-end è specificato nelle [impostazioni](https://azure.microsoft.com/documentation/articles/api-management-howto-create-apis/#configure-api-settings) API e può essere modificato tramite il criterio [imposta servizio back-end](api-management-transformation-policies.md).  
   
 > [!NOTE]
@@ -260,7 +263,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   **Ambiti del criterio:** tutti gli ambiti  
   
-##  <a name="a-namelog-to-eventhuba-log-to-event-hub"></a><a name="log-to-eventhub"></a>Registra in Hub eventi  
+##  <a name="log-to-eventhub"></a>Registra in Hub eventi  
  Il criterio `log-to-eventhub` invia messaggi nel formato specificato a un Hub eventi definito da un'entità Logger. Come suggerisce il nome, il criterio viene usato per il salvataggio di informazioni selezionate sul contesto di richiesta o risposta per l'analisi online o offline.  
   
 > [!NOTE]
@@ -310,8 +313,50 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 -   **Sezioni del criterio:**in ingresso, in uscita, back-end, on-error  
   
 -   **Ambiti del criterio:** tutti gli ambiti  
+
+##  <a name="mock-response"></a> Restituisci risposta  
+Il criterio `mock-response`, come implica il nome, viene usato per restituire API e operazioni. Interrompe la normale esecuzione della pipeline e restituisce una risposta fittizia direttamente al chiamante. Il criterio cerca sempre di restituire risposte della massima fedeltà. Include esempi di contenuto di risposta ogni volta che è possibile. Nelle situazioni in cui vengono forniti schemi ma non esempi, genera risposte di esempio dagli schemi. Se non sono presenti né esempi né schemi, restituisce risposte senza contenuto.
   
-##  <a name="a-nameretrya-retry"></a><a name="Retry"></a> Riprova  
+### <a name="policy-statement"></a>Istruzione del criterio  
+  
+```xml  
+<mock-response status-code="code" content-type="media type"/>  
+  
+```  
+  
+### <a name="examples"></a>esempi  
+  
+```xml  
+<!-- Returns 200 OK status code. Content is based on an example or schema, if provided for this 
+status code. First found content type is used. If no example or schema is found, the content is empty. -->
+<mock-response/>
+
+<!-- Returns 200 OK status code. Content is based on an example or schema, if provided for this 
+status code and media type. If no example or schema found, the content is empty. -->
+<mock-response status-code='200' content-type='application/json'/>  
+```  
+  
+### <a name="elements"></a>Elementi  
+  
+|Elemento|Descrizione|Obbligatoria|  
+|-------------|-----------------|--------------|  
+|mock-response|Elemento radice.|Sì|  
+  
+### <a name="attributes"></a>Attributi  
+  
+|Attributo|Descrizione|Obbligatorio|Default|  
+|---------------|-----------------|--------------|--------------|  
+|status-code|Specifica il codice di stato della risposta e viene usato per selezionare l'esempio o lo schema corrispondente.|No|200|  
+|content-type|Specifica il valore di intestazione della risposta `Content-Type` e viene usato per selezionare l'esempio o lo schema corrispondente.|No|None|  
+  
+### <a name="usage"></a>Uso  
+ Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
+  
+-   **Sezioni del criterio:** inbound, outbound, on-error  
+  
+-   **Ambiti del criterio:** tutti gli ambiti
+
+##  <a name="Retry"></a> Riprova  
  Il criterio `retry` esegue i criteri figlio una volta e quindi ritenta l'esecuzione degli stessi fino a quando il tentativo `condition` diventa `false` o fino a esaurimento del tentativo `count`.  
   
 ### <a name="policy-statement"></a>Istruzione del criterio  
@@ -376,7 +421,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   **Ambiti del criterio:** tutti gli ambiti  
   
-##  <a name="a-namereturnresponsea-return-response"></a><a name="ReturnResponse"></a>Restituisci risposta  
+##  <a name="ReturnResponse"></a>Restituisci risposta  
  Il criterio `return-response` interrompe l'esecuzione della pipeline e restituisce al chiamante una risposta predefinita o personalizzata. La risposta predefinita è `200 OK`, senza corpo. La risposta personalizzata può essere specificata tramite una variabile di contesto o le istruzioni del criterio. Quando entrambi sono specificati, la risposta contenuta all'interno della variabile di contesto viene modificata tramite le istruzioni del criterio prima di essere restituita al chiamante.  
   
 ### <a name="policy-statement"></a>Istruzione del criterio  
@@ -424,7 +469,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   **Ambiti del criterio:** tutti gli ambiti  
   
-##  <a name="a-namesendonewayrequesta-send-one-way-request"></a><a name="SendOneWayRequest"></a>Invia richiesta unidirezionale  
+##  <a name="SendOneWayRequest"></a>Invia richiesta unidirezionale  
  Il criterio `send-one-way-request` invia la richiesta specificata all'URL specificato senza attendere una risposta.  
   
 ### <a name="policy-statement"></a>Istruzione del criterio  
@@ -493,7 +538,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   **Ambiti del criterio:** tutti gli ambiti  
   
-##  <a name="a-namesendrequesta-send-request"></a><a name="SendRequest"></a> Invio richiesta  
+##  <a name="SendRequest"></a> Invio richiesta  
  Il criterio `send-request` invia la richiesta fornita all'URL specificato, attendendo non oltre il valore di timeout impostato.  
   
 ### <a name="policy-statement"></a>Istruzione del criterio  
@@ -575,16 +620,16 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   **Ambiti del criterio:** tutti gli ambiti  
   
-##  <a name="a-nameset-variablea-set-variable"></a><a name="set-variable"></a>Impostare una variabile  
+##  <a name="set-variable"></a>Impostare una variabile  
  Il criterio `set-variable` dichiara una variabile di [contesto](api-management-policy-expressions.md#ContextVariables) e assegna a essa un valore specificato tramite un'[espressione](api-management-policy-expressions.md) o un valore letterale di stringa. Se l'espressione contiene un valore letterale, questo verrà convertito in una stringa e il tipo di valore sarà `System.String`.  
   
-###  <a name="a-nameset-variablepolicystatementa-policy-statement"></a><a name="set-variablePolicyStatement"></a>Istruzione del criterio  
+###  <a name="set-variablePolicyStatement"></a>Istruzione del criterio  
   
 ```xml  
 <set-variable name="variable name" value="Expression | String literal" />  
 ```  
   
-###  <a name="a-nameset-variableexamplea-example"></a><a name="set-variableExample"></a>Esempio  
+###  <a name="set-variableExample"></a>Esempio  
  L'esempio seguente illustra un criterio di impostazione della variabile nella sezione in ingresso. Il criterio di impostazione della variabile crea `isMobile`, una variabile di [contesto](api-management-policy-expressions.md#ContextVariables) booleana, che è impostata su true se l'intestazione della richiesta `User-Agent` contiene il testo `iPad` o `iPhone`.  
   
 ```xml  
@@ -611,7 +656,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   **Ambiti del criterio:** tutti gli ambiti  
   
-###  <a name="a-nameset-variableallowedtypesa-allowed-types"></a><a name="set-variableAllowedTypes"></a>Tipi consentiti  
+###  <a name="set-variableAllowedTypes"></a>Tipi consentiti  
  Le espressioni usate nel criterio `set-variable` devono restituire uno dei seguenti tipi di base.  
   
 -   System.Boolean  
@@ -676,7 +721,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   System.DateTime?  
   
-##  <a name="a-namesetrequestmethoda-set-request-method"></a><a name="SetRequestMethod"></a> Impostare il metodo di richiesta  
+##  <a name="SetRequestMethod"></a> Impostare il metodo di richiesta  
  Il criterio `set-method` consente di modificare il metodo di richiesta HTTP per una richiesta.  
   
 ### <a name="policy-statement"></a>Istruzione del criterio  
@@ -728,7 +773,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   **Ambiti del criterio:** tutti gli ambiti  
   
-##  <a name="a-namesetstatusa-set-status-code"></a><a name="SetStatus"></a> Impostare il codice di stato  
+##  <a name="SetStatus"></a> Impostare il codice di stato  
  Il criterio `set-status` modifica il codice di stato HTTP sul valore specificato.  
   
 ### <a name="policy-statement"></a>Istruzione del criterio  
@@ -775,7 +820,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   **Ambiti del criterio:** tutti gli ambiti  
   
-##  <a name="a-nametracea-trace"></a><a name="Trace"></a> Traccia  
+##  <a name="Trace"></a> Traccia  
  Il criterio `trace` aggiunge una stringa nell'output di [Controllo API](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/). Il criterio verrà eseguito solo quando la traccia è attivata, ad esempio quando è presente l'intestazione della richiesta `Ocp-Apim-Trace` ed è impostata su `true` e quando è presente l'intestazione della richiesta `Ocp-Apim-Subscription-Key` e contiene una chiave valida associata all'account amministratore.  
   
 ### <a name="policy-statement"></a>Istruzione del criterio  
@@ -807,7 +852,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   **Ambiti del criterio:** tutti gli ambiti  
   
-##  <a name="a-namewaita-wait"></a><a name="Wait"></a> Attesa  
+##  <a name="Wait"></a> Attesa  
  Il criterio `wait` esegue i criteri figlio immediati in parallelo e attende che tutti o uno dei relativi criteri figlio immediati vengano completati prima di terminare la sua attività. I criteri di attesa possono avere come criteri figlio immediati i criteri [Invio della richiesta](api-management-advanced-policies.md#SendRequest), [Recupero del valore dalla cache](api-management-caching-policies.md#GetFromCacheByKey) e [Flusso di controllo](api-management-advanced-policies.md#choose).  
   
 ### <a name="policy-statement"></a>Istruzione del criterio  
@@ -878,9 +923,4 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 Per altre informazioni sull'uso di questi criteri, vedere:
 -    [Criteri in Gestione API](api-management-howto-policies.md) 
 -    [Espressioni di criteri](api-management-policy-expressions.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

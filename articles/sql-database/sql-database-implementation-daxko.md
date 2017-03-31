@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 00c8a713-f20c-4d6b-b8b7-0c1b9ba5f05b
 ms.service: sql-database
-ms.custom: app development case study
+ms.custom: customer implementations
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -16,8 +16,9 @@ ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 98a83c735a79cdba080dd74af8e2677788c075e3
+ms.sourcegitcommit: b759e9936a45f989088de5e89a59371c5ea64e1c
+ms.openlocfilehash: 079a05d16ccebb705f410e25f0ed5762db20ae22
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -89,15 +90,10 @@ Il database SQL di Azure non rappresenta solo un enorme vantaggio per i clienti 
 ## <a name="more-information"></a>Altre informazioni
 * Per altre informazioni sui pool elastici, vedere [pool elastici](sql-database-elastic-pool.md).
 * Per altre informazioni sugli strumenti del database e sulla scalabilità elastica, vedere [Iniziare a utilizzare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md).
-* Per altre informazioni sulla migrazione di un database SQL Server, vedere [Eseguire la migrazione del database del server SQL al database SQL tramite la procedura guidata Distribuire il database nel database di Microsoft Azure](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md).
+* Per altre informazioni sulla migrazione di un database SQL Server, vedere [Migrare un database SQL Server in Azure](sql-database-cloud-migrate.md).
 * Per altre informazioni sulla replica geografica attiva, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md)
 * Per altre informazioni sui ruoli Web e i ruoli di lavoro, vedere l'argomento relativo ai [ruoli di lavoro](../fundamentals-introduction-to-azure.md#compute).    
 * Per altre informazioni sul bus di servizio di Azure, vedere [Bus di servizio](https://azure.microsoft.com/services/service-bus/).
 * Per altre informazioni sulla scalabilità automatica, vedere [Come configurare la scalabilità automatica di un servizio cloud](../cloud-services/cloud-services-how-to-scale.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

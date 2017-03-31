@@ -1,6 +1,6 @@
 ---
 title: Panoramica di Monitoraggio di Azure | Documentazione Microsoft
-description: "Panoramica generale della funzionalità Monitoraggio di Azure in Microsoft Azure, inclusi avvisi, webhook, ridimensionamento automatico e altro."
+description: "Monitoraggio di Azure raccoglie dati statistici da usare in avvisi, webhook, scalabilità automatica e automazione. L&quot;articolo elenca anche altre opzioni di monitoraggio di Microsoft."
 author: rboucher
 manager: carmonm
 editor: 
@@ -12,32 +12,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 03/02/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2f8ff117966b11e7415abaa5e7a0735742d7ef99
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: ca55f1c295d99ff92abaef1a919d4c90d3c33b8a
+ms.lasthandoff: 03/09/2017
 
 
 ---
 
-# <a name="overview-of-monitoring-in-microsoft-azure"></a>Panoramica sul monitoraggio in Microsoft Azure
+# <a name="overview-of-azure-monitor"></a>Panoramica di Monitoraggio di Azure
 Questo articolo fornisce una panoramica concettuale del monitoraggio delle risorse di Azure con collegamenti a informazioni su tipi di risorse specifici.  Per informazioni generali sul monitoraggio dell'applicazione da un punto di vista diverso da Azure, vedere [Indicazioni di monitoraggio e diagnostica](../best-practices-monitoring.md).
 
-Una procedura dettagliata video di Monitoraggio di Azure è disponibile alla pagina  
-[Explore Microsoft Azure monitoring and diagnostics](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor) (Esplorare le funzionalità Diagnostica e Monitoraggio di Microsoft Azure). Un altro video che illustra uno scenario in cui è possibile usare Monitoraggio di Azure è disponibile alla pagina [Explore Microsoft Azure monitoring and diagnostics](https://channel9.msdn.com/events/Ignite/2016/BRK2234) (Esplorare le funzionalità Diagnostica e Monitoraggio di Microsoft Azure).  
+Un video della procedura dettagliata di Monitoraggio di Azure è disponibile alla pagina  
+[Introduzione a Monitoraggio di Azure](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor). Un altro video che illustra uno scenario in cui è possibile usare Monitoraggio di Azure è disponibile alla pagina [Explore Microsoft Azure monitoring and diagnostics](https://channel9.msdn.com/events/Ignite/2016/BRK2234) (Esplorare le funzionalità Diagnostica e Monitoraggio di Microsoft Azure).  
 
 Le applicazioni cloud sono complesse e hanno molte parti mobili. Il monitoraggio offre la possibilità di garantire il funzionamento e l'integrità dell'applicazione. Consente anche di prevenire i problemi potenziali o di risolvere quelli precedenti. Inoltre, è possibile usare i dati di monitoraggio per ottenere informazioni approfondite sull'applicazione, utili per migliorarne le prestazioni o la manutenibilità oppure per automatizzare azioni che altrimenti richiederebbero un intervento manuale.
 
 Il diagramma seguente mostra una visualizzazione concettuale del monitoraggio di Azure, incluso il tipo di log che è possibile raccogliere e cosa fare con i dati.   
 
-![Modello logico per il monitoraggio e la diagnostica per risorse non di calcolo](./media/monitoring-overview/MonitoringAzureResources-non-compute_v3.png)
+![Modello di monitoraggio e diagnostica per risorse non di calcolo](./media/monitoring-overview/Monitoring_Azure_Resources-compute_v4.png)
 
 Figura 1: Modello logico per il monitoraggio e la diagnostica per le risorse non di calcolo
 
 <br/>
 
-![Modello logico per il monitoraggio e la diagnostica per risorse di calcolo](./media/monitoring-overview/MonitoringAzureResources-compute_v3.png)
+![Modello di monitoraggio e diagnostica per risorse di calcolo](./media/monitoring-overview/Monitoring_Azure_Resources-non-compute_v4.png)
 
 Figura 2: Modello concettuale per il monitoraggio e la diagnostica per le risorse di calcolo
 
@@ -55,7 +56,7 @@ Per altri servizi di Azure non esiste necessariamente una corrispondenza 1:1 tra
 ### <a name="resource---metrics-and-diagnostics-logs"></a>Risorsa: log di diagnostica e metriche
 Le metriche che è possibile raccogliere variano in base al tipo di risorsa. Ad esempio, Macchine virtuali fornisce statistiche sull'I/O del disco e sulla percentuale CPU. Queste statistiche non esistono invece per una coda del bus di servizio, che invece fornisce metriche come le dimensioni della coda e la velocità effettiva dei messaggi.
 
-Per le risorse di calcolo è possibile ottenere metriche relative al sistema operativo guest e moduli di diagnostica come Diagnostica di Azure. Diagnostica di Azure consente di raccogliere e instradare i dati di diagnostica raccolti in altre posizioni, ad esempio Archiviazione di Azure.
+Per le risorse di calcolo è possibile ottenere metriche relative al sistema operativo guest e moduli di diagnostica come Diagnostica di Azure. Diagnostica di Azure consente di raccogliere e inviare i dati di diagnostica in altre posizioni, ad esempio Archiviazione di Azure.
 
 In [Metriche supportate](monitoring-supported-metrics.md) è disponibile un elenco delle metriche che è attualmente possibile raccogliere.
 
@@ -113,7 +114,8 @@ Tra gli esempi sono inclusi:
 * Invio a Hub eventi per il routing a strumenti di terze parti per eseguire l'analisi in tempo reale.
 
 ### <a name="automate"></a>Automazione
-È possibile usare i dati di monitoraggio per attivare eventi o interi processi. Ecco alcuni esempi:
+È possibile usare i dati di monitoraggio per attivare avvisi o anche interi processi.
+Tra gli esempi sono inclusi:
 
 * Usare i dati per la scalabilità automatica delle istanze di calcolo in base al carico dell'applicazione.
 * Inviare messaggi di posta elettronica quando una metrica supera una soglia predeterminata.
@@ -134,7 +136,7 @@ Le offerte di Azure consentono di monitorare i servizi, dall'infrastruttura bare
 
 * [Monitoraggio di Azure](http://aka.ms/azmondocs): offre funzionalità di visualizzazione, query, routing, avviso, ridimensionamento automatico e automazione dei dati sia dall'infrastruttura di Azure (log attività) che da ogni singola risorsa di Azure (log di diagnostica). Questo articolo fa parte della documentazione di Monitoraggio di Azure. Il nome Monitoraggio di Azure è stato rilasciato il 25 settembre nel corso dell'evento Ignite 2016.  In precedenza il nome era "Azure Insights".  
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) : consente il rilevamento avanzato e la diagnostica per i problemi a livello dell'applicazione del servizio, ben integrati nei dati provenienti dal monitoraggio di Azure. Si tratta della piattaforma di diagnostica predefinita per app Web del servizio app,  a cui è possibile indirizzare i dati da altri servizi.  
-* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/), parte di [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite): offre una soluzione di gestione IT olistica per l'infrastruttura sia locale che e basata sul cloud di terze parti (ad esempio Amazon Web Services), oltre alle risorse di Azure.  I dati di Monitoraggio di Azure possono essere indirizzati direttamente a Log Analytics, in modo da visualizzare le metriche e i log dell'intero ambiente in un'unica posizione.     
+* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/), parte di [Operations Management Suite](https://www.microsoft.com/oms/): offre una soluzione di gestione IT olistica per l'infrastruttura sia locale che e basata sul cloud di terze parti (ad esempio Amazon Web Services), oltre alle risorse di Azure.  I dati di Monitoraggio di Azure possono essere indirizzati direttamente a Log Analytics, in modo da visualizzare le metriche e i log dell'intero ambiente in un'unica posizione.     
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su:
@@ -144,10 +146,5 @@ Altre informazioni su:
 * [Diagnostica di Azure](../azure-diagnostics.md) , utile per la diagnosi di problemi nelle applicazioni di Servizi cloud, Macchine virtuali e Service Fabric.
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) , utili per la diagnosi di problemi nell'app Web del servizio app.
 * [Risoluzione dei problemi di Archiviazione di Azure](../storage/storage-e2e-troubleshooting.md) , utile per l'uso di BLOB, tabelle o code di archiviazione.
-* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) e [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
+* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) e [Operations Management Suite](https://www.microsoft.com/oms/)
 

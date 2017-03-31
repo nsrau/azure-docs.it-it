@@ -16,18 +16,13 @@ ms.workload: data-management
 ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 473d6195acf7867c3dd1348ff8644d0c3a26f986
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: 6d5ee44b57ce3e60b72ff2a2d182f2b8a39ecf81
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="initiate-a-planned-or-unplanned-failover-for-azure-sql-database-with-transact-sql"></a>Avviare un failover pianificato o non pianificato per il database SQL di Azure con Transact-SQL
-> [!div class="op_single_selector"]
-> * [Portale di Azure](sql-database-geo-replication-failover-portal.md)
-> * [PowerShell](sql-database-geo-replication-failover-powershell.md)
-> * [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-> 
-> 
 
 Questo articolo illustra come avviare il failover su un database SQL secondario con Transact-SQL. Per configurare la replica geografica, vedere [Configurare la replica geografica per il database SQL di Azure con Transact-SQL](sql-database-geo-replication-transact-sql.md).
 
@@ -95,10 +90,5 @@ Usare la procedura seguente per avviare un failover non pianificato.
 * Per informazioni sulla progettazione di applicazioni cloud per l'uso della replica geografica attiva, vedere [Progettazione di applicazioni cloud per la continuità aziendale mediante la replica geografica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 * Per informazioni sulla replica geografica attiva con i pool elastici, vedere [Strategie di ripristino di emergenza con pool elastico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 * Per un quadro generale, vedere la [panoramica della continuità aziendale](sql-database-business-continuity.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

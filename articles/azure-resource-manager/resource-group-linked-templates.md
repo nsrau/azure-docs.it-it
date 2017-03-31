@@ -1,5 +1,5 @@
 ---
-title: Modelli collegati con Resource Manager | Microsoft Docs
+title: Collegare modelli per la distribuzione di Azure | Microsoft Docs
 description: Descrive come usare i modelli collegati in un modello di Azure Resource Manager per creare una soluzione basata su un modello modulare. Mostra come passare i valori dei parametri, specificare un file di parametri e gli URL creati in modo dinamico.
 services: azure-resource-manager
 documentationcenter: na
@@ -12,21 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 03/14/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 922b08ab343d6aa0fd4b67d720e2f195e9dfac0f
-ms.openlocfilehash: 8f316ef559b9d1287ece7475192ec0b7a80af4e7
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: a6c3e0150a60777d9f824cb1e0768bd44a8c981e
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="using-linked-templates-with-azure-resource-manager"></a>Uso di modelli collegati con Azure Resource Manager
+# <a name="using-linked-templates-when-deploying-azure-resources"></a>Uso di modelli collegati nella distribuzione di risorse di Azure
 Dall'interno di un modello di Azure Resource Manager è possibile collegarsi a un altro modello che consente di scomporre la distribuzione in un set di modelli di destinazione specifici. In modo analogo alla scomposizione di un'applicazione in diverse classi di codice, la scomposizione offre vantaggi in termini di testing, riuso e leggibilità.  
 
 È possibile passare parametri da un modello principale a un modello collegato. Tali parametri possono venire associati direttamente ai parametri e alle variabili esposti dal modello chiamante. Il modello collegato può inoltre passare una variabile di output al modello di origine, consentendo un scambio bidirezionale di dati tra modelli.
 
 ## <a name="linking-to-a-template"></a>Collegamento a un modello
-Per creare un collegamento tra due modelli, aggiungere una risorsa di distribuzione all'interno del modello principale che punta al modello collegato. Impostare la proprietà **templateLink** sull'URI del modello collegato. È possibile fornire i valori dei parametri per il modello nidificato specificando i valori direttamente nel modello o mediante il collegamento a un file di parametri. Nel seguente esempio viene utilizzata la proprietà **parameters** per specificare direttamente un valore di parametro.
+Per creare un collegamento tra due modelli, aggiungere una risorsa di distribuzione all'interno del modello principale che punta al modello collegato. Impostare la proprietà **templateLink** sull'URI del modello collegato. È possibile specificare i valori dei parametri per il modello collegato direttamente nel modello o in un file di parametri. Nel seguente esempio viene utilizzata la proprietà **parameters** per specificare direttamente un valore di parametro.
 
 ```json
 "resources": [ 
@@ -87,7 +88,7 @@ Nell'esempio seguente viene illustrato un modello padre che si collega a un altr
 ],
 ```
 
-Anche se il token viene passato come stringa sicura, l'URI del modello collegato, incluso il token di firma di accesso condiviso, è registrato nelle operazioni di distribuzione per il gruppo di risorse in questione. Per limitare l'esposizione, impostare una scadenza per il token.
+Anche se il token viene passato come stringa sicura, l'URI del modello collegato, incluso il token di firma di accesso condiviso, è registrato nelle operazioni di distribuzione. Per limitare l'esposizione, impostare una scadenza per il token.
 
 Resource Manager gestisce ogni modello collegato come una distribuzione distinta. Nella cronologia delle distribuzioni relativa al gruppo di risorse, sono visibili distribuzioni distinte per il modello padre i modelli annidati.
 
@@ -308,26 +309,36 @@ Nella PowerShell, ottenere un token per il contenitore e distribuire i modelli c
 ```powershell
 Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 $token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ("https://storagecontosotemplates.blob.core.windows.net/templates/parent.json" + $token) -containerSasToken $token
+$url = (Get-AzureStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri.AbsoluteUri
+New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
 ```
 
-Nell'interfaccia della riga di comando di Azure, ottenere un token per il contenitore e distribuire i modelli con il seguente codice. Attualmente, è necessario specificare un nome da assegnare alla distribuzione quando si utilizza l'URI di un modello che include un token con firma di accesso condiviso.  
+Nell'interfaccia della riga di comando 2.0 di Azure si ottiene un token per il contenitore e si distribuiscono i modelli con il codice seguente:
 
+```azurecli
+seconds='@'$(( $(date +%s) + 1800 ))
+expiretime=$(date +%Y-%m-%dT%H:%MZ --date=$seconds)
+connection=$(az storage account show-connection-string \
+    --resource-group ManageGroup \
+    --name storagecontosotemplates \
+    --query connectionString)
+token=$(az storage container generate-sas \
+    --name templates \
+    --expiry $expiretime \
+    --permissions r \
+    --output tsv \
+    --connection-string $connection)
+url=$(az storage blob url \
+    --container-name templates \
+    --name parent.json \
+    --output tsv \
+    --connection-string $connection)
+parameter='{"containerSasToken":{"value":"?'$token'"}}'
+az group deployment create --resource-group ExampleGroup --template-uri $url?$token --parameters $parameter
 ```
-expiretime=$(date -I'minutes' --date "+30 minutes")  
-azure storage container sas create --container templates --permissions r --expiry $expiretime --json | jq ".sas" -r
-azure group deployment create -g ExampleGroup --template-uri "https://storagecontosotemplates.blob.core.windows.net/templates/parent.json?{token}" -n tokendeploy  
-```
-
-Viene richiesto di fornire il token di firma di accesso condiviso come parametro. È necessario che il token sia preceduto da **?**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per informazioni sulla definizione dell'ordine di distribuzione per le risorse, vedere [Definizione delle dipendenze nei modelli di Azure Resource Manager](resource-group-define-dependencies.md)
 * Per informazioni su come definire una sola risorsa e crearne molte istanze, vedere [Creare più istanze di risorse in Azure Resource Manager](resource-group-create-multiple.md)
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

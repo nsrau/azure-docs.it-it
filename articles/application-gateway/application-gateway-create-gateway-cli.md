@@ -1,6 +1,6 @@
 ---
-title: Creare un gateway applicazione con l&quot;interfaccia della riga di comando di Azure | Documentazione Microsoft
-description: Informazioni su come creare un gateway applicazione usando l&quot;interfaccia della riga di comando di Azure in Resource Manager
+title: Creare un gateway applicazione di Azure - Interfaccia della riga di comando di Azure 2.0 | Documentazione Microsoft
+description: Informazioni su come creare un gateway applicazione usando l&quot;interfaccia della riga di comando di Azure 2.0 in Resource Manager
 services: application-gateway
 documentationcenter: na
 author: georgewallace
@@ -9,34 +9,41 @@ editor:
 tags: azure-resource-manager
 ms.assetid: c2f6516e-3805-49ac-826e-776b909a9104
 ms.service: application-gateway
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 02/27/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: e20f7349f30c309059c2867d7473fa6fdefa9b61
-ms.openlocfilehash: 165289acd1d2a5bc098e9a83f43613d16a023045
+ms.sourcegitcommit: 1481fcb070f383d158c5a6ae32504e498de4a66b
+ms.openlocfilehash: 68d3e3ee9b35f2d6d88cde68365cef91d9683462
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Creare un gateway applicazione con l'interfaccia della riga di comando di Azure
+# <a name="create-an-application-gateway-by-using-the-azure-cli-20"></a>Creare un gateway applicazione con l'interfaccia della riga di comando di Azure 2.0
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](application-gateway-create-gateway-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-create-gateway-arm.md)
 > * [PowerShell per Azure classico](application-gateway-create-gateway.md)
 > * [Modello di Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
-> * [Interfaccia della riga di comando di Azure](application-gateway-create-gateway-cli.md)
-> 
-> 
+> * [Interfaccia della riga di comando di Azure 1.0](application-gateway-create-gateway-cli.md)
+> * [Interfaccia della riga di comando di Azure 2.0](application-gateway-create-gateway-cli.md)
 
 Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello&7;. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale. Il gateway applicazione offre le seguenti funzionalità di distribuzione delle applicazioni: bilanciamento del carico HTTP, affinità di sessione basata sui cookie, offload SSL (Secure Sockets Layer), probe di integrità personalizzati e supporto per più siti.
 
-## <a name="prerequisite-install-the-azure-cli"></a>Prerequisito: installare l'interfaccia della riga di comando di Azure
+## <a name="cli-versions-to-complete-the-task"></a>Versioni dell'interfaccia della riga di comando per completare l'attività
 
-Per eseguire i passaggi in questo articolo, è necessario [installare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows (interfaccia della riga di comando di Azure)](../xplat-cli-install.md) ed è necessario [accedere ad Azure](../xplat-cli-connect.md). 
+È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
+
+* [Interfaccia della riga di comando di Azure 1.0](application-gateway-create-gateway-cli-nodejs.md): l'interfaccia della riga di comando per il modello di distribuzione classico e di gestione delle risorse.
+* [Interfaccia della riga di comando di Azure 2.0](application-gateway-create-gateway-cli.md): interfaccia avanzata per il modello di distribuzione di gestione delle risorse
+
+## <a name="prerequisite-install-the-azure-cli-20"></a>Prerequisito: installare l'interfaccia della riga di comando di Azure 2.0
+
+Per eseguire i passaggi indicati in questo articolo è necessario [installare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows (interfaccia della riga di comando di Azure)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
 
 > [!NOTE]
 > Se non si dispone di un account Azure, è necessario procurarsene uno. Usare la [versione di valutazione gratuita](../active-directory/sign-up-organization.md).
@@ -66,8 +73,10 @@ Il gateway applicazione di Azure richiede una propria subnet. Quando si crea una
 Aprire il **prompt dei comandi di Microsoft Azure**ed effettuare l'accesso. 
 
 ```azurecli
-azure login
+az login -u "username"
 ```
+
+>[NOTA] È possibile anche usare `az login` senza lo switch per l'accesso del dispositivo che richiederà l'inserimento di un codice in aka.ms/devicelogin.
 
 Dopo avere digitato l'esempio precedente, viene fornito un codice. Passare a https://aka.ms/devicelogin in un browser per continuare il processo di accesso.
 
@@ -81,34 +90,26 @@ Dopo avere immesso il codice ed effettuato l'accesso, chiudere il browser per co
 
 ![Accesso eseguito][3]
 
-## <a name="switch-to-resource-manager-mode"></a>Passare alla modalità Resource Manager
-
-```azurecli
-azure config mode arm
-```
-
 ## <a name="create-the-resource-group"></a>Creare il gruppo di risorse.
 
 Prima di creare il gateway applicazione viene creato un gruppo di risorse che contenga il gateway applicazione. Di seguito è riportato il comando.
 
 ```azurecli
-azure group create -n AdatumAppGatewayRG -l eastus
+az resource group create --name myresourcegroup --location "West US"
 ```
 
-## <a name="create-a-virtual-network"></a>Crea rete virtuale
+## <a name="create-a-virtual-network-and-subnet"></a>Creare una rete virtuale e una subnet
 
-Dopo aver creato il gruppo di risorse, viene creata una rete virtuale per il gateway applicazione.  Nell'esempio seguente, lo spazio degli indirizzi era 10.0.0.0/16 come definito nelle note sullo scenario precedente.
-
-```azurecli
-azure network vnet create -n AdatumAppGatewayVNET -a 10.0.0.0/16 -g AdatumAppGatewayRG -l eastus
-```
-
-## <a name="create-a-subnet"></a>Creare una subnet
-
-Dopo aver creato la rete virtuale, viene aggiunta una subnet per il gateway applicazione.  Se si intende usare il gateway applicazione con un'app Web ospitata nella stessa rete virtuale del gateway applicazione, assicurarsi di lasciare spazio sufficiente per un'altra subnet.
+Dopo aver creato il gruppo di risorse, viene creata una rete virtuale per il gateway applicazione.  Nell'esempio seguente lo spazio degli indirizzi definito per la rete virtuale è 10.0.0.0/16 e per la subnet è 10.0.0.0/28, come illustrato nelle note relative allo scenario precedente.
 
 ```azurecli
-azure network vnet subnet create -g AdatumAppGatewayRG -n Appgatewaysubnet -v AdatumAppGatewayVNET -a 10.0.0.0/28 
+az network vnet create \
+--name AdatumAppGatewayVNET \
+--address-prefix 10.0.0.0/16 \
+--subnet-name Appgatewaysubnet \
+--subnet-prefix 10.0.0.0/28 \
+--resource-group AdatumAppGateway \
+--location eastus
 ```
 
 ## <a name="create-the-application-gateway"></a>Creare il gateway applicazione
@@ -116,11 +117,30 @@ azure network vnet subnet create -g AdatumAppGatewayRG -n Appgatewaysubnet -v Ad
 Dopo aver creato la rete virtuale e la subnet, i prerequisiti per il gateway applicazione sono soddisfatti. Per il passaggio seguente sono necessari anche un certificato PFX esportato prima e la password del certificato. Gli indirizzi IP usati per il back-end sono gli indirizzi IP per il server back-end. Questi valori possono essere indirizzi IP privati nella rete virtuale, indirizzi IP pubblici o nomi di dominio completi per i server back-end.
 
 ```azurecli
-azure network application-gateway create -n AdatumAppGateway -l eastus -g AdatumAppGatewayRG -e AdatumAppGatewayVNET -m Appgatewaysubnet -r 134.170.185.46,134.170.188.221,134.170.185.50 -y c:\AdatumAppGateway\adatumcert.pfx -x P@ssw0rd -z 2 -a Standard_Medium -w Basic -j 443 -f Enabled -o 80 -i http -b https -u Standard
+az network application-gateway create \
+--name AdatumAppGateway \
+--location eastus \
+--resource-group AdatumAppGatewayRG \
+--vnet-name AdatumAppGatewayVNET \
+--vnet-address-prefix 10.0.0.0/16 \
+--subnet Appgatewaysubnet \
+--subnet-address-prefix 10.0.0.0/28 \
+--servers 10.0.0.4 10.0.0.5 \
+--cert-file /mnt/c/Users/username/Desktop/application-gateway/fabrikam.pfx \
+--cert-password P@ssw0rd \
+--capacity 2 \
+--sku-tier Standard \
+--sku-name Standard_Small \
+--http-settings-cookie-based-affinity Enabled \
+--http-settings-protocol Http \
+--frontend-port 443 \
+--routing-rule-type Basic \
+--http-settings-port 80
+
 ```
 
 > [!NOTE]
-> Per un elenco di parametri che possono essere specificati durante la creazione, eseguire questo comando: **azure network application-gateway create --help**.
+> Per un elenco dei parametri che possono essere specificati durante la creazione, eseguire questo comando: **az network application-gateway create --help**.
 
 Questo esempio crea un gateway applicazione di base con le impostazioni predefinite per il listener, il pool back-end, le impostazioni HTTP back-end e le regole. Viene anche configurato l'offload SSL. Queste impostazioni possono essere modificate in base alla propria distribuzione dopo che è stato completato il provisioning.
 Se l'applicazione Web è già stata definita con il pool back-end nei passaggi precedenti, dopo la creazione, inizia il bilanciamento del carico.
@@ -137,9 +157,4 @@ Per informazioni su come configurare l'offload SSL ed evitare costose attività 
 [1]: ./media/application-gateway-create-gateway-cli/figure1.png
 [2]: ./media/application-gateway-create-gateway-cli/figure2.png
 [3]: ./media/application-gateway-create-gateway-cli/figure3.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

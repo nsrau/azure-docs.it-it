@@ -1,5 +1,5 @@
 ---
-title: 'Servizio di sincronizzazione Azure AD Connect: come apportare modifiche alla configurazione predefinita | Documentazione Microsoft'
+title: 'Servizio di sincronizzazione Azure AD Connect: apportare modifiche alla configurazione nel servizio di sincronizzazione Azure AD Connect | Documentazione Microsoft'
 description: Fornisce informazioni dettagliate su come apportare modifiche alla configurazione nel servizio di sincronizzazione Azure AD Connect.
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: 1e5356dca98e8da035c1ffb1eca16e8b16dbfe77
+ms.sourcegitcommit: 7c237bfb42fdd2ffdfface1a12ab21c51d2504bb
+ms.openlocfilehash: b327671b12bf6e2ce040ef6e6b0a58a0fead22b4
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -65,7 +66,7 @@ Per impostazione predefinita, l' [utilità di pianificazione](active-directory-a
 4. Lasciare vuoto il campo in **Join rules**(Regole di unione).
 5. Nella pagina **Transformations** (Trasformazioni) modificare FlowType in **Expression** (Espressione). Per Target Attribute (Attributo di destinazione) selezionare **givenName** e in Source (Origine) immettere `PCase([givenName])`.
    ![Trasformazioni di regole in ingresso](./media/active-directory-aadconnectsync-change-the-configuration/transformations.png)  
-    Il motore di sincronizzazione fa distinzione tra maiuscole e minuscole sia nel nome della funzione che nel nome dell'attributo. Nel caso di un errore di digitazione, viene visualizzato un avviso quando si aggiunge la regola. L'editor consente di salvare e continuare, quindi si dovrà riaprire la regola e correggerla.
+   Il motore di sincronizzazione fa distinzione tra maiuscole e minuscole sia nel nome della funzione che nel nome dell'attributo. Nel caso di un errore di digitazione, viene visualizzato un avviso quando si aggiunge la regola. L'editor consente di salvare e continuare, quindi si dovrà riaprire la regola e correggerla.
 6. Fare clic su **Add** (Aggiungi) per salvare la regola.
 
 La nuova regola personalizzata sarà visibile insieme alle altre regole di sincronizzazione nel sistema.
@@ -83,12 +84,12 @@ Avviare **Synchronization Service** (Servizio di sincronizzazione) dal menu Star
    ![Sincronizzazione completa](./media/active-directory-aadconnectsync-change-the-configuration/fullsync.png)  
    Gli oggetti vengono aggiornati nel metaverse. Ora si vuole esaminare l'oggetto nel metaverse.
 2. **Anteprima e sincronizzazione completa in un singolo oggetto**  
-   Selezionare **Connectors** (Connettori) nella parte superiore. Identificare il connettore modificato nella sezione precedente, in questo caso Servizi di dominio Active Directory, e selezionarlo. Selezionare **Search Connector Space**(Cerca spazio connettore). Usare l'ambito per trovare un oggetto che si vuole usare per testare la modifica. Selezionare l'oggetto e fare clic su **Preview**(Anteprima). Nella nuova schermata selezionare **Commit Preview**(Anteprima commit).
+   Selezionare **Connectors** (Connettori) nella parte superiore. Identificare il connettore modificato nella sezione precedente, in questo caso Servizi di dominio Active Directory, e selezionarlo. Selezionare **Search Connector Space**(Cerca spazio connettore). Usare l'ambito per trovare un oggetto che si vuole usare per testare la modifica. Selezionare l'oggetto e fare clic su **Preview**(Anteprima). Nella nuova schermata selezionare **Commit Preview**(Anteprima commit).  
    ![Commit preview](./media/active-directory-aadconnectsync-change-the-configuration/commitpreview.png)  
-    Viene eseguito il commit della modifica nel metaverse.
+   Viene eseguito il commit della modifica nel metaverse.
 
 **Esaminare l'oggetto nel metaverse**  
- Si vogliono selezionare alcuni oggetti di esempio per assicurarsi che il valore sia previsto e la regola applicata. Selezionare **Metaverse Search** (Ricerca metaverse) nella parte superiore. Aggiungere il filtro necessario per trovare gli oggetti pertinenti. Dai risultati della ricerca aprire un oggetto. Esaminare i valori dell'attributo e verificare anche che nella colonna **Sync Rules** (Regole di sincronizzazione) la regola sia applicata come previsto.  
+Si vogliono selezionare alcuni oggetti di esempio per assicurarsi che il valore sia previsto e la regola applicata. Selezionare **Metaverse Search** (Ricerca metaverse) nella parte superiore. Aggiungere il filtro necessario per trovare gli oggetti pertinenti. Dai risultati della ricerca aprire un oggetto. Esaminare i valori dell'attributo e verificare anche che nella colonna **Sync Rules** (Regole di sincronizzazione) la regola sia applicata come previsto.  
 ![Metaverse search](./media/active-directory-aadconnectsync-change-the-configuration/mvsearch.png)  
 
 ### <a name="enable-the-scheduler"></a>Abilitare l'utilità di pianificazione
@@ -107,7 +108,7 @@ Per creare una regola con altri flussi di attributi, eseguire queste operazioni:
 
 * Avviare l' **editor delle regole di sincronizzazione** dal menu Start.
 * Con la voce **Inbound** (In ingresso) ancora selezionata a sinistra, fare clic sul pulsante **Add new rule** (Aggiungi nuova regola).
-* Assegnare alla regola un nome e una descrizione. Selezionare la directory Active Directory locale e i tipi di oggetto pertinenti.  In **Link Type** (Tipo di collegamento) selezionare **Join** (Unisci). Per la precedenza scegliere un numero non usato da un'altra regola. Le regole predefinite iniziano con 100, quindi in questo esempio si può usare il valore 50.
+* Assegnare alla regola un nome e una descrizione. Selezionare la directory Active Directory locale e i tipi di oggetto pertinenti. In **Link Type** (Tipo di collegamento) selezionare **Join** (Unisci). Per la precedenza scegliere un numero non usato da un'altra regola. Le regole predefinite iniziano con 100, quindi in questo esempio si può usare il valore 50.
   ![Flusso dell'attributo 2](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp2.png)
 * Lasciare vuoto l'ambito, perché deve essere applicato a tutti gli oggetti utente della foresta.
 * Lasciare vuote le regole di unione, per consentire alla regola predefinita di gestire tutte le unioni.
@@ -133,7 +134,7 @@ In questa espressione selezionare tutti gli elementi che si trovano a sinistra d
 Alcuni attributi in Active Directory sono di tipo multivalore nello schema, anche se compaiono come valore singolo in Utenti e computer di Active Directory, ad esempio l'attributo description.  
 `description` <- `IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`
 
-Se l'attributo ha un valore in questa espressione, si seleziona il primo elemento (Item) dell'attributo, si rimuovono gli spazi iniziali e finali (Trim) e quindi si mantengono i primi 448 caratteri (Left) della stringa.
+Se in questa espressione l'attributo ha un valore, selezionare il primo elemento (Item) dell'attributo, rimuovere gli spazi iniziali e finali (Trim) e mantenere i primi 448 caratteri (Left) della stringa.
 
 ### <a name="do-not-flow-an-attribute"></a>Non trasmettere un attributo
 Per informazioni generali sullo scenario per questa sezione, vedere [Controllare il processo del flusso dell'attributo](active-directory-aadconnectsync-understanding-declarative-provisioning.md#control-the-attribute-flow-process).
@@ -152,6 +153,25 @@ In Fabrikam si è notato che alcuni degli attributi sincronizzati nel cloud non 
 * Verificare che le modifiche richieste stiano per essere esportate mediante la ricerca dello spazio connettore.
   ![Eliminazione di gestione temporanea](./media/active-directory-aadconnectsync-change-the-configuration/deletetobeexported.png)
 
+## <a name="create-rules-with-powershell"></a>Creare regole con PowerShell
+L'uso dell'editor delle regole di sincronizzazione è ottimale quando le regole da modificare sono poche. Se è necessario apportare molte modifiche, PowerShell è un'opzione migliore. Alcune funzionalità avanzate sono disponibili solo con PowerShell.
+
+### <a name="get-the-powershell-script-for-an-out-of-box-rule"></a>Ottenere lo script di PowerShell per una regola predefinita
+Per visualizzare lo script di PowerShell con il quale è stata creata una regola predefinita, selezionare la regola nell'editor delle regole di sincronizzazione e fare clic su **Esporta**. Questa azione fornisce lo script di PowerShell che ha creato la regola.
+
+### <a name="advanced-precedence"></a>Precedenza avanzata
+Le regole di sincronizzazione predefinite iniziano con un valore di precedenza pari a 100. Se si dispone di molte forest ed è necessario apportare numerose modifiche personalizzate, 99 regole di sincronizzazione potrebbero non essere sufficienti.
+
+È possibile indicare al motore di sincronizzazione che si vuole inserire le regole aggiuntive prima di quelle predefinite. Per ottenere questo comportamento, seguire questa procedura:
+
+1. Contrassegnare la prima regola di sincronizzazione predefinita (**In from AD-User Join**) nell'editor delle regole di sincronizzazione e selezionare **Esporta**. Copiare il valore dell'identificatore di SR.  
+![PowerShell prima della modifica](./media/active-directory-aadconnectsync-change-the-configuration/powershell1.png)  
+2. Creare la nuova regola di sincronizzazione. Per creare la regole è possibile usare l'editor delle regole di sincronizzazione. Esportare la regola in uno script di PowerShell.
+3. Nella proprietà **PrecedenceBefore**, inserire il valore dell'identificatore della regola predefinita. Impostare la **Precedenza** su **0**. Assicurarsi che l'attributo dell'identificatore sia univoco e non si stia riusando il GUID di un'altra regola. Assicurarsi inoltre che la proprietà **ImmutableTag** non sia impostata; questa proprietà deve essere impostata solo per una regola predefinita. Salvare lo script di PowerShell ed eseguirlo. Il risultato è che alla regola personalizzata viene assegnato un valore di precedenza pari a 100 e tutte le altre regole predefinite vengono incrementate.  
+![PowerShell dopo la modifica](./media/active-directory-aadconnectsync-change-the-configuration/powershell2.png)  
+
+È possibile configurare molte regole di sincronizzazione personalizzate usando lo stesso valore **PrecedenceBefore** quando necessario.
+
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sul modello di configurazione, vedere [Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 * Per altre informazioni sul linguaggio delle espressioni, vedere [Servizio di sincronizzazione Azure AD Connect: Informazioni sulle espressioni di provisioning dichiarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
@@ -160,10 +180,4 @@ In Fabrikam si è notato che alcuni degli attributi sincronizzati nel cloud non 
 
 * [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

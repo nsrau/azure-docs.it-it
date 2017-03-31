@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2016
 ms.author: andbuc
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: 3493afbebf2a75a190d344ac1e66b00b9ddfd582
+ms.sourcegitcommit: 37b2a82d7f6043224e68219fde753eef73078ffd
+ms.openlocfilehash: 4b6cb52c3dcc34c70fd3b86031af48a12573cb8b
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="get-started-with-the-azure-iot-gateway-sdk-windows"></a>Introduzione ad Azure IoT Gateway SDK (Windows)
+# <a name="explore-the-iot-gateway-sdk-architecture-on-windows"></a>Esplorare l'architettura di IoT Gateway SDK in Windows
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## <a name="how-to-build-the-sample"></a>Come compilare l'esempio
@@ -28,7 +30,7 @@ Prima di iniziare, è necessario [configurare l'ambiente di sviluppo][lnk-setupd
 
 1. Aprire un **prompt dei comandi per gli sviluppatori per VS2015** .
 2. Accedere alla directory principale nella copia locale del repository **azure-iot-gateway-sdk** .
-3. Eseguire lo script **tools\\build.cmd**. Questo script crea un file di soluzione Visual Studio, compila la soluzione ed esegue i test. È possibile trovare la soluzione di Visual Studio nella cartella **build** nella copia locale del repository **azure-iot-gateway-sdk**.
+3. Eseguire lo script **tools\\build.cmd**. Questo script crea un file di soluzione Visual Studio e compila la soluzione. È possibile trovare la soluzione di Visual Studio nella cartella **build** nella copia locale del repository **azure-iot-gateway-sdk**. Si possono specificare nello script parametri aggiuntivi per compilare ed eseguire unit test e test end-to-end. Questi parametri sono rispettivamente **--run-unittests** e **--run-e2e-tests**. 
 
 ## <a name="how-to-run-the-sample"></a>Per eseguire l'esempio
 1. Lo script **build.cmd** crea una cartella denominata **build** nella copia locale del repository. Questa cartella contiene i due moduli usati in questo esempio.
@@ -83,9 +85,4 @@ Prima di iniziare, è necessario [configurare l'ambiente di sviluppo][lnk-setupd
 
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

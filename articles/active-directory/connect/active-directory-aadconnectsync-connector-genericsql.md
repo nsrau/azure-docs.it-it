@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 03/10/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: c4eef02a10cbb646e3d96ed444a0b3d957e0361d
-ms.openlocfilehash: 8a6c84ba559545cd1b786fc42cbbb7b190585e66
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 7185ab62ee0e4383a7128fe731bd68da0ae87e66
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -47,7 +48,7 @@ A livello generale, le funzionalità seguenti sono supportate dalla versione cor
 Prima di usare il connettore, verificare che nel server di sincronizzazione sia disponibile quanto segue:
 
 * Microsoft .NET 4.5.2 Framework o versione successiva
-* Driver client ODBC a 64 bit
+* Driver client ODBC a&64; bit
 
 ### <a name="permissions-in-connected-data-source"></a>Autorizzazioni nell'origine dati connessa
 Per creare o eseguire una delle operazioni supportate nel connettore Generic SQL, è necessario avere:
@@ -144,10 +145,25 @@ In questa pagina si configura, per tutti gli attributi di riferimento, a quale p
 
 Se si usa **DN is anchor**(DN è Anchor) è necessario usare lo stesso tipo di oggetto da cui si fa riferimento. Non è possibile fare riferimento a un altro tipo di oggetto.
 
-### <a name="global-parameters"></a>Parametri globali
+>[!NOTE]
+A partire dall'aggiornamento di marzo 2017 è disponibile un'opzione per "*" Quando l'opzione è selezionata, vengono importati tutti i possibili tipi di membro.
+
+![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
+
+
+Dopo l'importazione verrà visualizzato qualcosa di simile all'immagine riportata di seguito:
+
+  ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/after-import.png)
+
+
+
+### <a name="global-parameters"></a>Global Parameters
 La pagina Global Parameters viene usata per configurare l'importazione delta, il formato di data/ora e il metodo di password.
 
 ![globalparameters1](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters1.png)
+
+>[!IMPORTANT]
+ Non è possibile usare "*" ovvero**qualsiasi opzione** durante le operazioni di esportazione/eliminazione.
 
 Il connettore Generic SQL supporta i seguenti metodi per l'importazione delta:
 
@@ -157,7 +173,7 @@ Il connettore Generic SQL supporta i seguenti metodi per l'importazione delta:
   * La strategia Watermark (Limite) non supporta gli oggetti eliminati.
 * **Snapshot**(funziona solo con Microsoft SQL Server) [Generating Delta Views Using Snapshots](https://technet.microsoft.com/library/cc720640.aspx)
 * **Change Tracking**(funziona solo con Microsoft SQL Server) [Informazioni sul rilevamento delle modifiche (SQL Server)](https://msdn.microsoft.com/library/bb933875.aspx)  
-   Limitazioni:
+  Limitazioni:
   * L'attributo Anchor & DN deve essere parte della chiave primaria per l'oggetto selezionato nella tabella.
   * La query SQL non è supportata durante l'importazione e l'esportazione con il rilevamento delle modifiche.
 
@@ -259,7 +275,7 @@ Il connettore Generic SQL supporta l'esportazione tramite quattro metodi support
 * Query SQL
 
 **Table/View**  
- (Tabella/Vista) Se si sceglie l'opzione Table/View (Tabella/Vista), il connettore genera le rispettive query per eseguire l'esportazione.
+(Tabella/Vista) Se si sceglie l'opzione Table/View (Tabella/Vista), il connettore genera le rispettive query per eseguire l'esportazione.
 
 **Stored procedure**  
 ![runstep8](./media/active-directory-aadconnectsync-connector-genericsql/runstep8.png)
@@ -284,10 +300,4 @@ Se si sceglie l'opzione SQL query, l'esportazione richiede tre diverse query per
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 * Per informazioni su come abilitare la registrazione per risolvere i problemi relativi al connettore, vedere l'articolo relativo a [come abilitare la traccia ETW per i connettori](http://go.microsoft.com/fwlink/?LinkId=335731).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

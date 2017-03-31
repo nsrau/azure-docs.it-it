@@ -1,5 +1,5 @@
 ---
-title: Foglio informativo sugli algoritmi di Machine Learning | Documentazione Microsoft
+title: Foglio informativo sugli algoritmi di Machine Learning | Microsoft Docs
 description: Un foglio informativo sugli algoritmi di Machine Learning stampabile aiuta a scegliere il giusto algoritmo per il proprio modello predittivo in Azure Machine Learning Studio.
 keywords: foglio informativo sugli algoritmi, foglio informatico, algoritmo di machine learning
 services: machine-learning
@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2016
+ms.date: 03/14/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4b7cbaec88b79cbc6f43fd32b85d104eada403da
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 2cf4f498a107b8c6085489723ae946b119bb6244
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -41,44 +42,42 @@ Scaricare e stampare il foglio informativo sugli algoritmi di Machine Learning i
 > 
 
 ## <a name="more-help-with-algorithms"></a>Altre informazioni sugli algoritmi
-* Per una discussione più approfondita sui diversi tipi di algoritmi di Machine Learning, sul loro utilizzo e su come utilizzare questo foglio informativo per la scelta dell'algoritmo corretto, vedere [Come scegliere gli algoritmi di Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
+* Per informazioni sull'uso di questo foglio informativo per la scelta dell'algoritmo corretto e per una discussione più approfondita sui diversi tipi di algoritmi di apprendimento automatico e sul relativo uso, vedere [Come scegliere gli algoritmi di Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
+* Per ottenere una descrizione degli algoritmi e alcuni esempi, vedere [Infografica scaricabile: nozioni fondamentali di Machine Learning con esempi di algoritmi](machine-learning-basics-infographic-with-algorithm-examples.md).
 * Per un elenco per categoria degli algoritmi di Machine Learning disponibili in Machine Learning Studio, vedere l'argomento relativo al [modello di inizializzazione][initialize-model] nella Guida degli algoritmi e dei moduli di Machine Learning Studio.
-* Per un elenco completo degli algoritmi e dei moduli disponibili in Machine Learning Studio, vedere l'argomento relativo all'[elenco alfabetico dei moduli di Machine Learning Studio][a-z-list] nella Guida degli algoritmi e dei moduli di Machine Learning Studio.
+* Per un elenco alfabetico completo degli algoritmi e dei moduli disponibili in Machine Learning Studio, vedere l'argomento relativo all'[elenco alfabetico dei moduli di Machine Learning Studio][a-z-list] nella Guida degli algoritmi e dei moduli di Machine Learning Studio.
 * Per scaricare e stampate un diagramma che offra una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!-- This needs to be updated based on the new Choosing and Algorithm article
+## <a name="notes-and-terminology-definitions-for-the-machine-learning-algorithm-cheat-sheet"></a>Note e definizioni terminologiche per il foglio informativo sugli algoritmi di Machine Learning
 
-## Notes and terminology definitions for the machine learning algorithm cheat sheet
+* I consigli offerti in questo foglio informativo sugli algoritmi sono regole empiriche puramente indicative. Alcuni possono essere modificati, altri totalmente ignorati. Queste informazioni vengono fornite come punto di partenza consigliato. È anche possibile provare a eseguire un confronto in parallelo tra diversi algoritmi sui dati. Questa può rivelarsi la soluzione migliore per comprendere i principi di ogni algoritmo e il sistema che ha generato i dati.
 
-* The suggestions offered in this algorithm cheat sheet are approximate rules-of-thumb. Some can be bent, and some can be flagrantly violated. This is intended to suggest a starting point. Don’t be afraid run a head-to-head competition between several algorithms on your data. There is simply no substitute for understanding the principles of each algorithm and understanding the system that generated your data.
+* Ogni algoritmo di apprendimento automatico ha il proprio stile o *bias induttivo*. Per un problema specifico, possono essere appropriati diversi algoritmi, uno dei quali può rivelarsi una scelta più adatta rispetto agli altri. Non è sempre possibile, tuttavia, conoscere in anticipo la soluzione ottimale. In casi simili, nel foglio informativo sono elencati insieme diversi algoritmi. Una strategia appropriata può essere quella di provare un algoritmo e quindi provarne altri se i risultati del primo non sono soddisfacenti. Un esempio tratto da [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) di un esperimento che prova diversi algoritmi sugli stessi dati e ne confronta i risultati è disponibile in: [Compare Multi-class Classifiers: Letter recognition](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92) (Confrontare classificatori multiclasse: riconoscimento di lettere).
 
-* Every machine learning algorithm has its own style or *inductive bias*. For a specific problem, several algorithms may be appropriate and one algorithm may be a better fit than others. But knowing which will be the best fit beforehand is not always possible. In cases like these, several algorithms are listed together in the cheat sheet. An appropriate strategy would be to try one algorithm, and if the results are not yet satisfactory, try the others. Here’s an example from the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) of an experiment that tries several algorithms against the same data and compares the results: [Compare Multi-class Classifiers: Letter recognition](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+* L'apprendimento automatico si divide in tre categorie principali: **apprendimento supervisionato**, **apprendimento non supervisionato** e **apprendimento per rinforzo**.
 
-* There are three main categories of machine learning: **supervised learning**, **unsupervised learning**, and **reinforcement learning**.
+  * Nell'**apprendimento supervisionato** ogni punto dati è etichettato con o associato a una categoria o un valore di interesse.  Un esempio di un'etichetta di categoria è l'assegnazione di un'immagine come "gatto" o "cane".  Un esempio di un'etichetta di valore è il prezzo di vendita associato a un'auto usata. L'obiettivo di apprendimento controllato consiste nello studio di molti esempi etichettati come questi e quindi di essere in grado di eseguire stime sui futuri punti dati, ad esempio l'identificazione di nuove foto con l'animale corretto o l'assegnazione di prezzi di vendita precisi ad altre auto usate. Questo tipo di Machine Learning è utile e diffuso. Tutti i moduli di Azure Machine Learning sono algoritmi di apprendimento supervisionato, ad eccezione di [K-Means Clustering][k-means-clustering].
 
-  * In **supervised learning**, each data point is labeled or associated with a category or value of interest.  An example of a categorical label is assigning an image as either a ‘cat’ or a ‘dog’.  An example of a value label is the sale price associated with a used car. The goal of supervised learning is to study many labeled examples like these, and then to be able to make predictions about future data points - for example, to identify new photos with the correct animal or to assign accurate sale prices to other used cars. This is a popular and useful type of machine learning. All of the modules in Azure Machine Learning are supervised learning algorithms except for [K-Means Clustering][k-means-clustering].
+  * Nell'**apprendimento non supervisionato** ai punti dati non sono associate etichette. L'obiettivo di un algoritmo di apprendimento non supervisionato è invece l'organizzazione dei dati in un certo modo o la descrizione della loro struttura. Questo può significare il raggruppamento dei dati in cluster, come fa K-Means, o l'individuazione di modi diversi in cui osservare dati complessi perché appaiano semplici.
 
-  * In **unsupervised learning**, data points have no labels associated with them. Instead, the goal of an unsupervised learning algorithm is to organize the data in some way or to describe its structure. This can mean grouping it into clusters, as K-means does, or finding different ways of looking at complex data so that it appears simpler.
+  * Nell'**apprendimento per rinforzo** l'algoritmo arriva a scegliere un'azione in risposta a ogni punto dati. Si tratta di un approccio comune in robotica, in cui il set di letture del sensore in un certo momento è un punto dati e l'algoritmo deve scegliere l'azione successiva del robot. Questo approccio è ideale anche per applicazioni "Internet delle cose" (Internet of Things, IoT). L'algoritmo di apprendimento riceve anche un segnale di ricompensa poco dopo, a indicare il livello di correttezza della decisione presa. In base a questo segnale, l'algoritmo modifica la propria strategia per ottenere la ricompensa maggiore. Attualmente in Azure ML non sono disponibili moduli di algoritmi di apprendimento per rinforzo.
 
-  * In **reinforcement learning**, the algorithm gets to choose an action in response to each data point. It is a common approach in robotics, where the set of sensor readings at one point in time is a data point, and the algorithm must choose the robot’s next action. It's also a natural fit for Internet of Things applications. The learning algorithm also receives a reward signal a short time later, indicating how good the decision was. Based on this, the algorithm modifies its strategy in order to achieve the highest reward. Currently there are no reinforcement learning algorithm modules in Azure ML.
+* I **metodi bayesiani** presuppongono punti dati statisticamente indipendenti. Questo significa che la variabilità non modellata in un punto dati non è correlata agli altri, ovvero non può essere stimata. Ad esempio, se i dati registrati sono il numero di minuti fino all'arrivo del prossimo treno della metropolitana, due misurazioni eseguite a distanza di un giorno sono statisticamente indipendenti. Tuttavia, due misurazioni eseguite a distanza di un minuto non sono statisticamente indipendenti e il valore di una è altamente predittivo rispetto a quello dell'altra.
 
-* **Bayesian methods** make the assumption of statistically independent data points. This means that the unmodeled variability in one data point is uncorrelated with others, that is, it can’t be predicted. For example, if the data being recorded is the number of minutes until the next subway train arrives, two measurements taken a day apart are statistically independent. However, two measurements taken a minute apart are not statistically independent - the value of one is highly predictive of the value of the other.
+* La **regressione con alberi delle decisioni con boosting** sfrutta la sovrapposizione delle caratteristiche o l'interazione tra caratteristiche. Questo significa che, in ogni punto dati specifico, il valore di una caratteristica è in parte predittivo del valore di un'altra. Ad esempio, nel caso di dati di bassa/alta temperatura giornaliera, la possibilità di determinare la bassa temperatura del giorno permette di stimare ragionevolmente anche quella alta. Le informazioni contenute nelle due caratteristiche sono in parte ridondanti.
 
-* **Boosted decision tree regression** takes advantage of feature overlap or interaction among features. That means that, in any given data point, the value of one feature is somewhat predictive of the value of another. For example, in daily high/low temperature data, knowing the low temperature for the day allows you to make a reasonable guess at the high. The information contained in the two features is somewhat redundant.
+* La classificazione di dati in più di due categorie può essere eseguita usando un classificatore essenzialmente multiclasse o combinando un set di classificatori a due classi in un **insieme**. L'approccio basato su un insieme prevede un classificatore a due classi per ogni classe, ognuno dei quali separa i dati in due categorie: "questa classe" e "non questa classe". I classificatori votano quindi l'assegnazione corrente del punto dati. Questo è il principio operativo alla base del modulo [One-vs-All Multiclass][one-vs-all-multiclass].
 
-* Classifying data into more than two categories can be done by either using an inherently multi-class classifier, or by combining a set of two-class classifiers into an **ensemble**. In the ensemble approach, there is a separate two-class classifier for each class - each one separates the data into two categories:  “this class” and “not this class.” Then these classifiers vote on the correct assignment of the data point. This is the operational principle behind [One-vs-All Multiclass][one-vs-all-multiclass].
+* Diversi metodi, tra cui la regressione logistica e Bayes Point Machine, presuppongono **limiti tra classi lineari**, ovvero assumono che i limiti tra le classi siano approssimativamente linee rette (oppure iperpiani nel caso più generale). Spesso questa caratteristica dei dati non viene individuata fino a dopo aver provato a separarli, ma può essere determinata in genere visualizzando i dati in anticipo. Se i limiti di classe appaiono molto irregolari, optare per alberi delle decisioni, giungle delle decisioni, macchine a vettori di supporto o reti neurali.
 
-* Several methods, including logistic regression and the Bayes point machine, assume **linear class boundaries**, that is, that the boundaries between classes are approximately straight lines (or hyperplanes in the more general case). Often this is a characteristic of the data that you don’t know until after you’ve tried to separate it, but it’s something that typically can be learned by visualizing beforehand. If the class boundaries look very irregular, stick with decision trees, decision jungles, support vector machines, or neural networks.
+* Le reti neurali possono essere usate con variabili di categoria creando una **variabile fittizia** per ogni categoria e impostandola su 1 nei casi in cui la categoria è applicabile e su 0 quando non lo è.
 
-* Neural networks can be used with categorical variables by creating a **dummy variable** for each category and setting it to 1 in cases where the category applies, 0 where it doesn’t.
 
--->
-
-<!-- This is how you can add a link to the image in HTML. Don't know how to do this in markdown.
+<!-- This is how you can embed a link in an image in HTML. Don't know how to do this in markdown.
 <a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet.pdf">
-<img src="C:\Users\garye\azure-content-pr\articles\media\machine-learning-algorithm-cheat-sheet\cheat-sheet-small.png">
+<img src="C:\Users\garye\azure-docs-pr\articles\media\machine-learning-algorithm-cheat-sheet\cheat-sheet-small.png">
 </a>
 -->
 
@@ -87,9 +86,4 @@ Scaricare e stampare il foglio informativo sugli algoritmi di Machine Learning i
 [initialize-model]: https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

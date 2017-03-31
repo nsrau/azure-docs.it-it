@@ -1,5 +1,5 @@
 ---
-title: Configurare un gateway applicazione per l&quot;offload SSL con la distribuzione classica | Documentazione Microsoft
+title: Configurare l&quot;offload SSL - Gateway applicazione di Azure - PowerShell versione classica | Documentazione Microsoft
 description: Questo articolo fornisce istruzioni per la creazione di un gateway applicazione con offload SSL tramite il modello di distribuzione classica di Azure.
 documentationcenter: na
 services: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1506729fb346a8a67930a5a2cd4c15f375c52e3f
-ms.openlocfilehash: 0f565431f03527c4fac463f93c5664504a90662f
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 9c56914091ecac3eb97977dd5afc2dc4588a052c
 
 
 ---
@@ -214,6 +214,6 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

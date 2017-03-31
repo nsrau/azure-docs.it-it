@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: ce40a93372205a4b7c6b0c753ebf30c2b3d51d7a
-ms.openlocfilehash: 86cd149d351cc957577d213d77db732bd5e16658
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: d61e50b7440dcd107df3e5dd085a36b149779553
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -105,7 +106,7 @@ Gli errori 502 possono anche indicare frequentemente che il probe di integrità 
 * Se BackendHttpSetting specifica una porta diversa da 80, il sito predefinito deve essere configurato per ascoltare tale porta.
 * La chiamata a http://127.0.0.1:port deve restituire un codice risultato HTTP di 200. Questo valore deve essere restituito entro il periodo di timeout di 30 secondi.
 * Verificare che la porta configurata sia aperta e che non esistano regole del firewall o gruppi di sicurezza di rete di Azure che bloccano il traffico in ingresso o in uscita sulla porta configurata.
-* Se le macchine virtuali classiche di Azure o il servizio cloud vengono usati con indirizzi FQDN o IP pubblici, verificare che l' [endpoint](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) corrispondente sia aperto.
+* Se le macchine virtuali classiche di Azure o il servizio cloud vengono usati con indirizzi FQDN o IP pubblici, verificare che l' [endpoint](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) corrispondente sia aperto.
 * Se la macchina virtuale è stata configurata tramite Azure Resource Manager e si trova all'esterno della rete virtuale in cui è distribuito il gateway applicazione, è necessario configurare un [Gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) per consentire l'accesso alla porta desiderata.
 
 ## <a name="problems-with-custom-health-probe"></a>Problemi con il probe di integrità personalizzato
@@ -150,10 +151,5 @@ Il gateway applicazione consente agli utenti di configurare questa impostazione 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Se i passaggi precedenti non risolvono il problema, aprire un [ticket di supporto](https://azure.microsoft.com/support/options/).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

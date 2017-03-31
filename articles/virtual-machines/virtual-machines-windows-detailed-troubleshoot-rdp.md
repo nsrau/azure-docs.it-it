@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dettagliata del Desktop remoto | Microsoft Docs
+title: Risoluzione dettagliata dei problemi di Desktop remoto in Azure | Documentazione Microsoft
 description: "Rivedere i passaggi dettagliati della procedura di risoluzione dei problemi riguardo all&quot;impossibilità di Desktop remoto di connettersi a una macchina virtuale di Windows in Azure."
 services: virtual-machines-windows
 documentationcenter: 
@@ -7,19 +7,19 @@ author: iainfoulds
 manager: timlt
 editor: 
 tags: top-support-issue,azure-service-management,azure-resource-manager
-keywords: >
-  cannot connect to remote desktop, troubleshoot remote desktop, remote desktop cannot connect, remote desktop errors, remote desktop troubleshooting, remote desktop problems
+keywords: "non è possibile connettersi a Remote Desktop, risolvere i problemi di Remote Desktop, Remote Desktop non riesce a connettersi, errori di Remote Desktop, risoluzione dei problemi di Remote Desktop, problemi di Remote Desktop"
 ms.assetid: 9da36f3d-30dd-44af-824b-8ce5ef07e5e0
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/27/2016
+ms.date: 12/20/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 1f42e8f320e061fed8428b7ef88f3cb5247b81a2
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 35dbfaa1cdc274fb2c1fcb3afc68547ffefe80ab
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -28,8 +28,6 @@ Questo articolo contiene una procedura dettagliata sulla risoluzione dei problem
 
 > [!IMPORTANT]
 > Per eliminare gli errori più comuni di Desktop remoto, verificare di aver letto l'articolo relativo alla [risoluzione dei problemi di base di Desktop remoto](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) prima di procedere.
-> 
-> 
 
 È possibile che vanga visualizzato un messaggio di errore di Desktop remoto che non corrisponde a uno dei messaggi di errore specifici descritti nella [guida alla risoluzione dei problemi di base di Desktop remoto](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Seguire questa procedura per capire il motivo per cui il client Desktop remoto (o RDP) non riesce a connettersi al servizio RDP nella VM di Azure.
 
@@ -110,7 +108,7 @@ Se è possibile connettersi tramite Desktop remoto a una macchina virtuale nello
 * La configurazione dell'endpoint per il traffico di Desktop remoto nella VM di destinazione: la porta TCP privata dell'endpoint deve corrispondere alla porta TCP in cui è in ascolto il servizio Desktop remoto della macchina virtuale (l'impostazione predefinita è 3389).
 * L'ACL per l'endpoint del traffico di Desktop remoto sulla VM di destinazione: gli ACL consentono di specificare il traffico in ingresso da Internet consentito o negato in base al relativo indirizzo IP di origine. ACL configurati in modo errato possono impedire il traffico di Desktop remoto in ingresso all'endpoint. Verificare gli ACL per assicurarsi che il traffico in ingresso dagli indirizzi IP pubblici del proxy o da altri server periferici sia consentito. Per altre informazioni, vedere [Che cos'è un elenco di controllo di accesso di rete (ACL)?](../virtual-network/virtual-networks-acl.md)
 
-Per controllare se l'endpoint è l'origine del problema, rimuovere l'endpoint corrente e creare un nuovo endpoint, scegliendo una porta casuale nell'intervallo tra 49152 e 65535 per il numero di porta esterna. Per altre informazioni, vedere [Come configurare gli endpoint in una macchina virtuale](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Per controllare se l'endpoint è l'origine del problema, rimuovere l'endpoint corrente e creare un nuovo endpoint, scegliendo una porta casuale nell'intervallo tra 49152 e 65535 per il numero di porta esterna. Per altre informazioni, vedere [Come configurare gli endpoint in una macchina virtuale](windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="source-4-network-security-groups"></a>Origine 4: gruppi di sicurezza di rete
 I gruppi di sicurezza di rete consentono un controllo più granulare del traffico in entrata e in uscita consentito. È possibile creare regole che si estendono alle subnet e ai servizi cloud in una rete virtuale di Azure. Verificare le regole del gruppo di sicurezza di rete per assicurarsi che sia consentito il traffico di Desktop remoto da Internet:
@@ -127,7 +125,7 @@ Per ulteriori informazioni, vedere [Che cos'è un gruppo di sicurezza di rete](.
 ## <a name="source-5-windows-based-azure-vm"></a>Origine 5: Macchina virtuale di Azure basata su Windows
 ![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_5.png)
 
-Usare il [pacchetto di diagnostica di IaaS di Azure (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864) per verificare se l'errore è dovuto alla macchina virtuale di Azure stessa. Se il pacchetto di diagnostica non riesce a risolvere il problema di **connettività RDP a una VM di Azure (riavvio necessario)**, seguire le istruzioni riportate in [questo articolo](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per reimpostare il servizio Desktop remoto nella macchina virtuale:
+Seguire le istruzioni disponibili in [questo articolo](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). per reimpostare il servizio Desktop remoto nella macchina virtuale:
 
 * Verrà abilitata la regola predefinita "Desktop remoto" di Windows Firewall (porta TCP 3389).
 * Verranno abilitate le connessioni Desktop remoto impostando il valore del Registro di sistema HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections su 0.
@@ -141,7 +139,7 @@ Provare nuovamente la connessione dal computer. Se non si è ancora in grado di 
 
 Per le VM create usando il modello di distribuzione classico, usare una sessione remota di Azure PowerShell per connettersi alla macchina virtuale di Azure. In primo luogo, è necessario installare un certificato per il servizio cloud di hosting della macchina virtuale. Passare alla pagina dello script per [Configure Secure Remote PowerShell Access to Azure Virtual Machines](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) (Configurare l'accesso remoto PowerShell sicuro alle macchine virtuali di Azure) e scaricare il file di script **InstallWinRMCertAzureVM.ps1** nel computer locale.
 
-Successivamente, installare Azure PowerShell, se non è stato già installato. Vedere [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+Successivamente, installare Azure PowerShell, se non è stato già installato. Vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Successivamente, aprire un prompt dei comandi di Azure PowerShell e modificare la cartella corrente nel percorso del file di script **InstallWinRMCertAzureVM.ps1** . Per eseguire uno script di Azure PowerShell, è necessario impostare i criteri di esecuzione corretti. Eseguire il comando **Get-ExecutionPolicy** per determinare il livello di criterio corrente. Per informazioni sull'impostazione del livello appropriato, vedere [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx).
 
@@ -169,7 +167,7 @@ Dopo aver immesso le credenziali di amministratore valide, verrà visualizzato u
 La prima parte di questo prompt è il nome del servizio cloud che contiene la VM di destinazione, che può essere diverso da "cloudservice4testing.cloudapp.net". È ora possibile inviare comandi di Azure PowerShell per questo servizio cloud, per analizzare i problemi menzionati in precedenza e apportare correzioni alla configurazione.
 
 ### <a name="to-manually-correct-the-remote-desktop-services-listening-tcp-port"></a>Per correggere manualmente Servizi Desktop remoto in ascolto sulla porta TCP
-Se non è possibile eseguire il [pacchetto di diagnostica Azure IaaS (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864) per il problema **Connettività RDP a una macchina virtuale di Azure (riavvio necessario)** , eseguire questo comando nel prompt della sessione remota di Azure PowerShell.
+Al prompt della sessione remota di Azure PowerShell, eseguire questo comando.
 
     Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
 
@@ -188,19 +186,12 @@ Chiudere la sessione remota di Azure PowerShell utilizzando questo comando.
 Verificare che anche l'endpoint Desktop remoto per la VM di Azure usi la porta TCP 3398 come porta interna. Riavviare la VM di Azure e tentare nuovamente la connessione Desktop remoto.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
-[Pacchetto di diagnostica Azure IaaS (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)
-
 [Come reimpostare una password o il servizio Desktop remoto per le macchine virtuali di Windows](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Come installare e configurare Azure PowerShell](../powershell-install-configure.md)
+[Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 [Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Risoluzione dei problemi di accesso a un'applicazione in esecuzione in una macchina virtuale di Azure](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

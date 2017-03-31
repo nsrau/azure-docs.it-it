@@ -2,86 +2,88 @@
 title: 'Esercitazione: Integrazione di Azure Active Directory con Fuse | Microsoft Docs'
 description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Fuse.
 services: active-directory
-documentationcenter: 
+documentationCenter: na
 author: jeevansd
 manager: femila
-editor: 
 ms.assetid: 5ef34f58-863a-4b37-875c-e8efa3e18bb3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/25/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 292820076830bc0c81a2f5311a8079f0ab1500b4
+ms.sourcegitcommit: cb7a8a505122f0b6d2e5744c31a48018c2c05351
+ms.openlocfilehash: 10a51c8b272a8e8460079f8beb8a23dc40d3701d
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fuse"></a>Esercitazione: Integrazione di Azure Active Directory con Fuse
-Questa esercitazione descrive l'integrazione di Fuse con Azure Active Directory (Azure AD).
+
+Questa esercitazione descrive come integrare Fuse con Azure Active Directory (Azure AD).
 
 L'integrazione di Fuse con Azure AD offre i vantaggi seguenti:
 
-* È possibile controllare in Azure AD chi può accedere a Fuse
-* È possibile abilitare gli utenti per l'accesso automatico a Fuse (Single Sign-On) con i propri account Azure AD
-* È possibile gestire gli account da una posizione centrale: il portale di Azure classico
+- È possibile controllare in Azure AD chi può accedere a Fuse
+- È possibile abilitare gli utenti per l'accesso automatico a Fuse (Single Sign-On) con i propri account Azure AD
+- È possibile gestire gli account da una posizione centrale: il portale di gestione di Azure
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 Per configurare l'integrazione di Azure AD con Fuse, sono necessari gli elementi seguenti:
 
-* Sottoscrizione di Azure AD.
-* Sottoscrizione di Fuse abilitata per l'accesso Single Sign-On
+- Sottoscrizione di Azure AD.
+- Sottoscrizione di Fuse abilitata per l'accesso Single Sign-On
+
 
 > [!NOTE]
 > Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
-> 
-> 
+
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
-* Non usare l'ambiente di produzione, a meno che non sia necessario.
-* Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+- Non usare l'ambiente di produzione, a meno che non sia necessario.
+- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test. 
-
-Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
 1. Aggiunta di Fuse dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+
 
 ## <a name="adding-fuse-from-the-gallery"></a>Aggiunta di Fuse dalla raccolta
 Per configurare l'integrazione di Fuse in Azure AD, è necessario aggiungere Fuse dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Fuse dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
-   
-    ![Active Directory][1]
-2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
-3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
-   
-    ![Applications][2]
-4. Fare clic su **Add** nella parte inferiore della pagina.
-   
-    ![Applicazioni][3]
-5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
-   
-    ![Applicazioni][4]
-6. Nella casella di ricerca digitare **Fuse**.
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_01.png)
-7. Nel riquadro dei risultati selezionare **Fuse** e quindi fare clic su **Completa** per aggiungere l'applicazione.
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_02.png)
+1. Nel **[portale di gestione di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
-Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Fuse in base a un utente test di nome "Britta Simon".
+    ![Active Directory][1]
+
+2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+
+    ![Applicazioni][2]
+    
+3. Fare clic sul pulsante **Aggiungi** nella parte superiore della finestra di dialogo.
+
+    ![Applicazioni][3]
+
+4. Nella casella di ricerca digitare **Fuse**.
+
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_001.png)
+
+5. Nel pannello dei risultati selezionare **Fuse** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_0001.png)
+
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Fuse in base a un utente test di nome "Britta Simon".
 
 Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Fuse che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Fuse.
 
@@ -89,136 +91,157 @@ La relazione di collegamento viene stabilita assegnando il valore di **nome uten
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Fuse, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente test di Fuse](#creating-a-fuse-test-user)** : per avere una controparte di Britta Simon in Fuse collegata alla relativa rappresentazione in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
-Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione Fuse.
+
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di gestione di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Fuse.
 
 **Per configurare Single Sign-On di Azure AD con Fuse, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **Fuse** del portale di Azure classico, fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo** Configura accesso Single Sign-On**.
-   
-    ![Configura accesso Single Sign-On][6] 
-2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Fuse** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.
-   
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_03.png) 
-3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
-   
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_04.png) 
-   
-    a. Nella casella di testo URL di accesso digitare l'URL usato dagli utenti per accedere all'applicazione Fuse adottando il modello seguente: **"https://\<tenant name\>.fusion-universal.com/ "**.
-   
-   > [!NOTE]
-   > Se non si conosce l'URL di accesso, contattare il [team di supporto Fuse](mailto:support@fusion-universal.com) per riceverlo.
-   > 
-   > 
-   
-    b. Fare clic su **Avanti**.
-4. Nella pagina **Configura accesso Single Sign-On in Fuse** seguire questa procedura:
-   
+1. Nella pagina di integrazione dell'applicazione **Fuse** del portale di gestione di Azure fare clic su **Single Sign-On**.
+
+    ![Configura accesso Single Sign-On][4]
+
+2. Nella finestra di dialogo **Single Sign-On** in **Modalità** selezionare **Accesso basato su SAML** per abilitare Single Sign-On.
+ 
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_01.png)
+
+3. Nella sezione **URL e dominio Fuse** seguire questa procedura:
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_02.png)
+
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<tenant name>.fusion-universal.com/`
+
+    b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<tenant name>.fusion-universal.com`
+
+    > [!NOTE] 
+    > Si noti che questi non sono i valori reali. È necessario aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto di Fuse](mailto:support@fusion-universal.com). 
+
+4. Nella sezione **Certificato di firma SAML** fare clic su **Crea nuovo certificato**.
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_03.png)   
+
+5. Nella finestra di dialogo **Crea nuovo certificato** fare clic sull'icona del calendario e selezionare una **data di scadenza**. Fare quindi clic sul pulsante **Salva**.
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-fuse-tutorial/tutorial_general_300.png)
+
+6. Nella sezione **Certificato di firma SAML** selezionare **Rendi attivo il certificato nuovo** e fare clic sul pulsante **Salva**.
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_04.png)
+
+7. Nella finestra popup **Certificato di rollover** fare clic su **OK**.
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-fuse-tutorial/tutorial_general_400.png)
+
+8. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (base)** e quindi salvare il file del certificato nel computer.
+
     ![Configura accesso Single Sign-On](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_05.png) 
-   
-    a. Fare clic su **Download certificato**e quindi salvarlo nel computer.
-   
-    b. Copiare **URL dell'autorità di certificazione**, **URL servizio Single Sign-On** e **URL servizio di Single Sign-Out**.
-5. Per ottenere SSO configurato per l'applicazione, contattare il team di supporto di Fuse all'indirizzo **support@fusion-universal.com**, allegare il file del certificato scaricato e includere l'**URL dell'autorità di certificazione**, l'**URL del servizio Single Sign-On** e l'**URL servizio Single Sign-Out**.
-6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
-   
-    ![Single Sign-On di Microsoft Azure AD][10]
-7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.  
-   
-    ![Single Sign-On di Microsoft Azure AD][11]
+
+9. Nella sezione **Configurazione di Fuse** fare clic su **Configura Fuse** per aprire la finestra **Configura accesso**.
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_06.png) 
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_07.png)
+
+10. Per ottenere l'accesso Single Sign-On configurato per l'applicazione, contattare il [team di supporto di Fuse](mailto:support@fusion-universal.com) e fornire i seguenti elementi: 
+
+    •  **File del certificato** scaricato
+
+    •  **URL servizio Single Sign-On SAML**
+
+    •  **ID entità SAML**
+
+    •  **URL di disconnessione**
+  
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
-Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.
+Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di gestione di Azure.
 
-Nell'elenco di utenti selezionare **Britta Simon**.
-
-![Creare un utente di Azure AD][20]
+![Creare un utente di Azure AD][100]
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-fuse-tutorial/create_aaduser_09.png) 
-2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
-3. Per visualizzare l'elenco di utenti, fare clic su **Utenti**nel menu in alto.
-   
+1. Nel **portale di gestione di Azure** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
+
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-fuse-tutorial/create_aaduser_01.png) 
+
+2. Andare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
+    
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-fuse-tutorial/create_aaduser_02.png) 
+
+3. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
+ 
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-fuse-tutorial/create_aaduser_03.png) 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
-   
+
+4. Nella finestra di dialogo **Utente** seguire questa procedura:
+ 
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-fuse-tutorial/create_aaduser_04.png) 
-5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-fuse-tutorial/create_aaduser_05.png) 
-   
-    a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
-   
-    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
-   
-    c. Fare clic su **Avanti**.
-6. Nella pagina **Profilo utente** seguire questa procedura:
-   
-   ![Creazione di un utente test di Azure AD](./media/active-directory-saas-fuse-tutorial/create_aaduser_06.png)
-   
-   a. Nella casella di testo **Nome** digitare **Britta**.  
-   
-   b. Nella casella di testo **Cognome** digitare **Simon**.
-   
-   c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
-   
-   d. Nell'elenco **Ruolo** selezionare **Utente**.
-   
-   e. Fare clic su **Avanti**.
-7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-fuse-tutorial/create_aaduser_07.png)
-8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-fuse-tutorial/create_aaduser_08.png)
-   
-    a. Prendere nota del valore visualizzato in **Nuova password**.
-   
-    b. Fare clic su **Complete**.   
+
+    a. Nella casella di testo **Nome** digitare **BrittaSimon**.
+
+    b. Nella casella di testo **Nome utente** digitare l'**indirizzo di posta elettronica** di BrittaSimon.
+
+    c. Selezionare **Mostra password** e prendere nota del valore di **Password**.
+
+    d. Fare clic su **Crea**. 
+
+
 
 ### <a name="creating-a-fuse-test-user"></a>Creazione di un utente test di Fuse
-L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simon in Fuse. Fuse supporta il provisioning just-in-time, che è abilitato per impostazione predefinita.
 
-Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a Fuse verrà creato un nuovo utente, se questo non esiste già. [Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on).
+In questa sezione viene creato un utente di nome Britta Simon in Fuse. Collaborare con il [team di supporto di Fuse](mailto:support@fusion-universal.com) per aggiungere gli utenti alla piattaforma Fuse.
+
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
-Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Fuse.
+
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Fuse.
 
 ![Assegna utente][200] 
 
 **Per assegnare Britta Simon a Fuse, seguire questa procedura:**
 
-1. Per aprire la visualizzazione applicazioni nel portale di Azure classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.
-   
+1. Nel portale di gestione di Azure aprire la visualizzazione con le applicazioni e quindi passare alla visualizzazione con le directory e andare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
+
     ![Assegna utente][201] 
+
 2. Nell'elenco delle applicazioni selezionare **Fuse**.
-   
+
     ![Configura accesso Single Sign-On](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_50.png) 
-3. Scegliere **Utenti**dal menu in alto.
-   
-    ![Assegna utente][203] 
-4. Nell'elenco di utenti selezionare **Britta Simon**.
-5. Fare clic su **Assegna**sulla barra degli strumenti in basso.
-   
-    ![Assegna utente][205]
+
+3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+
+    ![Assegna utente][202] 
+
+4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+
+    ![Assegna utente][203]
+
+5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+
+6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+
+7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+    
+
 
 ### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
-Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Fuse nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Fuse.
 
+
 ## <a name="additional-resources"></a>Risorse aggiuntive
+
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+
+
 
 <!--Image references-->
 
@@ -227,19 +250,14 @@ Quando si fa clic sul riquadro Fuse nel pannello di accesso, si dovrebbe acceder
 [3]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_205.png
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

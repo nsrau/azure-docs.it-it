@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 02/27/2017
 ms.author: larryfr
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: 37409ad3f50cdd4a7a384c96a57a35ef8c83fb8f
-
+ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
+ms.openlocfilehash: 4cde035f75bfa3c448f12e9ebf2896b9a54a6873
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="use-ssh-with-hdinsight-hadoop-from-windows-linux-unix-or-os-x"></a>Usare SSH con HDInsight (Hadoop) da Windows, Linux, Unix o OS X
+# <a name="use-ssh-with-hdinsight-hadoop-from-bash-on-windows-10-linux-unix-or-os-x"></a>Usare SSH con HDInsight (Hadoop) da Bash in Windows 10, Linux, Unix o OS X
 
 > [!div class="op_single_selector"]
 > * [PuTTY (Windows)](hdinsight-hadoop-linux-use-ssh-windows.md)
@@ -42,13 +43,11 @@ Molti sistemi operativi offrono la funzionalità client SSH tramite le utilità 
 * __ssh__: client SSH generale che può essere usato per stabilire una sessione remota della riga di comando e creare tunnel.
 * __scp__: utilità che consente di copiare file tra sistemi locali e remoti usando il protocollo SSH.
 
-Il client SSH è disponibile in Windows solo a partire dall'edizione dell'anniversario di Windows 10. Questa versione di Windows include la funzionalità Bash per Windows 10 per gli sviluppatori, che include `ssh`, `scp` e altri comandi di Linux. Per altre informazioni sull'uso di Bash per Windows 10, vedere [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about) (Bash in Ubuntu in Windows).
+L'Aggiornamento dell'anniversario di Windows 10 offre Bash come funzionalità per gli sviluppatori. Fornisce `ssh`, `scp` e altri comandi Linux. Per altre informazioni sull'uso di Bash per Windows 10, vedere [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about) (Bash in Ubuntu in Windows).
 
 Se si usa Windows e non si ha accesso a Bash per Windows 10, è possibile usare i client SSH riportati di seguito:
 
 * [Git per Windows](https://git-for-windows.github.io/): offre le utilità della riga di comando `ssh` e `scp`.
-* [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/): offre un client SSH con interfaccia grafica.
-* [MobaXterm](http://mobaxterm.mobatek.net/): offre un client SSH con interfaccia grafica.
 * [Cygwin](https://cygwin.com/): offre le utilità della riga di comando `ssh` e `scp`.
 
 > [!NOTE]
@@ -64,7 +63,7 @@ L'uso della crittografia a chiave pubblica prevede la creazione di una coppia di
 
 * La **chiave privata** è ciò che viene presentato al cluster HDInsight per la verifica dell'identità quando si accede con un client SSH. Sulla chiave privata è necessario mantenere la massima riservatezza, evitando di condividerla.
 
-    Per migliorare ulteriormente la sicurezza è possibile creare una passphrase per la chiave privata. In questo modo, per poter usare la chiave è necessario specificare la passphrase.
+    Per migliorare ulteriormente la sicurezza è possibile creare una passphrase per la chiave privata. Se si usa una passphrase, è necessario immetterla durante l'autenticazione con SSH.
 
 ### <a name="create-a-public-and-private-key"></a>Creare una chiave pubblica e una privata
 
@@ -91,7 +90,7 @@ Al termine dell'esecuzione del comando, sono disponibili due nuovi file:
 * __id\_rsa__: questo file contiene la chiave privata.
 
     > [!WARNING]
-    > È necessario limitare l'accesso a questo file per impedire l'accesso non autorizzato ai servizi protetti dalla chiave pubblica.
+    > Limitare l'accesso a questo file per impedire l'accesso non autorizzato ai servizi protetti dalla chiave pubblica.
 
 * __id\_rsa.pub__: questo file contiene la chiave pubblica. Usare questo file durante la creazione di un cluster HDInsght.
 
@@ -115,7 +114,7 @@ Per altre informazioni sulla configurazione di SSH durante la creazione di un cl
 
 È possibile aggiungere altri utenti SSH al cluster dopo la sua creazione, ma non è consigliabile farlo.
 
-* I nuovi utenti SSH devono essere aggiunti manualmente a ogni nodo del cluster.
+* I nuovi utenti SSH devono essere aggiunti a ogni nodo del cluster.
 
 * I nuovi utenti SSH hanno lo stesso accesso a HDInsight dell'utente predefinito. Non è possibile limitare l'accesso ai dati o ai processi in HDInsight sulla base dell'account utente SSH.
 
@@ -123,7 +122,7 @@ Per limitare l'accesso in base al singolo utente è necessario usare un cluster 
 
 L'uso di un cluster HDInsight aggiunto a un dominio permette di eseguire l'autenticazione tramite Active Directory dopo la connessione tramite SSH. Più utenti possono connettersi usando SSH e quindi eseguire l'autenticazione al proprio account Active Directory dopo la connessione. Per altre informazioni, vedere la sezione [HDInsight aggiunto a un dominio](#domainjoined).
 
-##<a name="a-idconnecta-connect-to-hdinsight"></a><a id="connect"></a> Connettersi a HDInsight
+##<a id="connect"></a> Connettersi a HDInsight
 
 Anche se tutti i nodi in un cluster HDInsight eseguono il server SSH, è possibile connettersi solo ai nodi head o ai nodi perimetrali tramite Internet pubblico.
 
@@ -147,7 +146,7 @@ Se l'account SSH è protetto da una chiave pubblica, potrebbe essere necessario 
 
 ### <a name="connect-to-other-nodes"></a>Connettersi ad altri nodi
 
-I nodi di lavoro e i nodi Zookeeper non sono direttamente accessibili dall'esterno del cluster, ma è possibile accedervi dai nodi head o dai nodi perimetrali del cluster. Di seguito è riportata la procedura generale da seguire a questo scopo:
+I nodi di lavoro e i nodi Zookeeper non sono direttamente accessibili dall'esterno del cluster, ma è possibile accedervi dai nodi head o dai nodi perimetrali del cluster. Di seguito è riportata la procedura generale da seguire per connettersi ad altri nodi:
 
 1. Usare SSH per connettersi a un nodo head o perimetrale:
 
@@ -196,7 +195,7 @@ Se si usa una chiave SSH per autenticare l'account utente, è necessario assicur
 
 [HDInsight aggiunto al dominio](hdinsight-domain-joined-introduction.md) integra Kerberos con Hadoop in HDInsight. L'utente SSH non è un utente di dominio di Active Directory. Non è quindi possibile eseguire comandi Hadoop finché non si esegue l'autenticazione con Active Directory. Per autenticare la sessione SSH con Active Directory, seguire questa procedura:
 
-1. Connettersi a un cluster HDInsight aggiunto a un dominio tramite SSH, come indicato nella sezione [Connettersi a HDInsight](#connect). Ad esempio, il comando seguente si connette a un cluster HDInsight denominato __myhdi__ usando un account SSH denominato __sshuser__.
+1. Connettersi a un cluster HDInsight aggiunto al dominio usando SSH. Ad esempio, il comando seguente si connette a un cluster HDInsight denominato __myhdi__ usando un account SSH denominato __sshuser__.
 
         ssh sshuser@myhdi-ssh.azurehdinsight.net
 
@@ -210,9 +209,9 @@ Se si usa una chiave SSH per autenticare l'account utente, è necessario assicur
 
 Dopo aver eseguito l'autenticazione con il comando `kinit`, è possibile usare comandi Hadoop come `hdfs dfs -ls /` o `hive`.
 
-## <a name="a-idtunnelassh-tunneling"></a><a id="tunnel"></a>Tunneling SSH
+## <a id="tunnel"></a>Tunneling SSH
 
-SSH può essere usato anche per effettuare il tunneling di richieste locali, ad esempio richieste Web, al cluster HDInsight. La richiesta verrà quindi instradata alla risorsa richiesta come se provenisse dal nodo head del cluster HDInsight.
+SSH può essere usato anche per effettuare il tunneling di richieste locali, ad esempio richieste Web, al cluster HDInsight. La richiesta viene inoltrata al cluster e quindi risolta all'interno del cluster stesso.
 
 > [!IMPORTANT]
 > Un tunnel SSH è un requisito per l'accesso al web dell'interfaccia utente per alcuni servizi Hadoop. Ad esempio, la UI di cronologia processi o di gestione delle risorse dell'interfaccia utente possono essere accessibili solo tramite un tunnel SSH.
@@ -228,9 +227,4 @@ Ora che si è appreso come eseguire l'autenticazione usando una chiave SSH, è p
 * [Usare processi MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

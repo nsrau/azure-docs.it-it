@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Usare la libreria client di Azure Batch per .NET | Documentazione Microsoft'
-description: Informazioni sui concetti di base di Azure Batch e sullo sviluppo per il servizio Batch con uno scenario di esempio.
+description: Apprendere i concetti di base di Azure Batch e creare una soluzione semplice mediante .NET.
 services: batch
 documentationcenter: .net
 author: tamram
@@ -12,15 +12,18 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 5af894b60180d32593ed19c13aecf2732645120a
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 08b478b3108f0673f3a130612020408a0e61c815
+ms.lasthandoff: 03/09/2017
 
 
 ---
-# <a name="get-started-with-the-azure-batch-library-for-net"></a>Introduzione alla libreria di Azure Batch per .NET
+# <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Iniziare a creare soluzioni con la libreria di client Batch per .NET
+
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
@@ -45,7 +48,7 @@ Questo articolo presuppone che si sia in grado di usare C# e Visual Studio e di 
 >
 
 ### <a name="visual-studio"></a>Visual Studio
-Per compilare il progetto di esempio è necessario **Visual Studio 2015** . Le versioni gratuite e di valutazione di Visual Studio sono disponibili in [Panoramica dei prodotti Visual Studio 2015][visual_studio].
+Per compilare il progetto di esempio, è necessario **Visual Studio 2015 o versioni successive**. Le versioni gratuite e di valutazione di Visual Studio sono disponibili nella [panoramica dei prodotti Visual Studio][visual_studio].
 
 ### <a name="dotnettutorial-code-sample"></a>*DotNetTutorial* 
 L'esempio [DotNetTutorial][github_dotnettutorial] è uno dei molti esempi di codice Batch disponibili nel repository [azure-batch-samples][github_samples] in GitHub. È possibile scaricare tutti gli esempi facendo clic su **Clone or download > Download ZIP** (Clona o scarica > Scarica ZIP) nella home page del repository oppure facendo clic sul collegamento di download diretto [azure-batch-samples-master.zip][github_samples_zip]. Dopo l'estrazione dei contenuti del file ZIP, la soluzione sarà disponibile nella cartella seguente:
@@ -56,7 +59,7 @@ L'esempio [DotNetTutorial][github_dotnettutorial] è uno dei molti esempi di cod
 [Azure Batch Explorer][github_batchexplorer] è un'utilità gratuita inclusa nel repository [azure-batch-samples][github_samples] in GitHub. Nonostante non sia necessaria per completare questa esercitazione, può essere utile durante lo sviluppo e il debug delle soluzioni Batch.
 
 ## <a name="dotnettutorial-sample-project-overview"></a>Panoramica del progetto di esempio DotNetTutorial
-L'esempio di codice *DotNetTutorial* è una soluzione di Visual Studio 2015 costituita da due progetti: **DotNetTutorial** e **TaskApplication**.
+L'esempio di codice *DotNetTutorial* è una soluzione di Visual Studio costituita da due progetti: **DotNetTutorial** e **TaskApplication**.
 
 * **DotNetTutorial** è l'applicazione client che interagisce con i servizi Batch e Archiviazione per eseguire un carico di lavoro parallelo nei nodi di calcolo (macchine virtuali). L'esempio DotNetTutorial viene eseguito nella workstation locale.
 * **TaskApplication** è il programma che viene eseguito nei nodi di calcolo in Azure per completare le operazioni effettive. Nell'esempio, `TaskApplication.exe` analizza il testo in un file scaricato da Archiviazione di Azure (file di input). Produce quindi un file di testo (file di output) che contiene un elenco delle prime tre parole visualizzate nel file di input. Dopo la creazione del file di output, TaskApplication carica il file in Archiviazione di Azure, rendendolo disponibile all'applicazione client per il download. TaskApplication viene eseguito in parallelo su più nodi di calcolo nel servizio Batch.
@@ -246,7 +249,7 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
 
         CloudBlobContainer container = blobClient.GetContainerReference(containerName);
         CloudBlockBlob blobData = container.GetBlockBlobReference(blobName);
-        await blobData.UploadFromFileAsync(filePath, FileMode.Open);
+        await blobData.UploadFromFileAsync(filePath);
 
         // Set the expiry time and permissions for the blob shared access signature.
         // In this case, no start time is specified, so the shared access signature
@@ -478,7 +481,7 @@ private static void UploadFileToContainer(string filePath, string containerSas)
         try
         {
                 CloudBlockBlob blob = container.GetBlockBlobReference(blobName);
-                blob.UploadFromFile(filePath, FileMode.Open);
+                blob.UploadFromFile(filePath);
 
                 Console.WriteLine("Write operation succeeded for SAS URL " + containerSas);
                 Console.WriteLine();
@@ -789,7 +792,7 @@ Dopo avere acquisito familiarità con il flusso di lavoro di base di una soluzio
 [nuget_packagemgr]: https://docs.nuget.org/consume/installing-nuget
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 [storage_explorers]: http://storageexplorer.com/
-[visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
+[visual_studio]: https://www.visualstudio.com/vs/
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Creare contenitori in Archiviazione di Azure"
 [2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Caricare l'applicazione dell'attività e i file di input (dati) nei contenitori"
@@ -802,9 +805,4 @@ Dopo avere acquisito familiarità con il flusso di lavoro di base di una soluzio
 [9]: ./media/batch-dotnet-get-started/credentials_batch_sm.png "Credenziali di Batch nel portale"
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Credenziali del servizio di archiviazione nel portale"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Flusso di lavoro della soluzione Batch (diagramma minimo)"
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

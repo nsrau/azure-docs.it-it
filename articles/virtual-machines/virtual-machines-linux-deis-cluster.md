@@ -15,13 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/24/2015
 ms.author: hbai
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: 8e69e791128710e640cba0c9edfbbadc0ea70ef5
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: cb631a1bcbe73c18b06e247b29056a83cfa61a46
+ms.lasthandoff: 03/21/2017
 
 
 ---
-# <a name="deploy-a-3-node-deis-cluster"></a>Distribuzione di un cluster Deis a 3 nodi
+# <a name="deploy-and-configure-a-3-node-deis-cluster-in-azure"></a>Distribuire e configurare un cluster Deis a 3 nodi in Azure
 In questo articolo viene illustrato il provisioning di un cluster [Deis](http://deis.io/) su Azure. Vengono descritti tutti i passaggi dalla creazione dei certificati necessari per la distribuzione e la scalabilità di un’applicazione **Go** di esempio sul cluster di cui è stato appena eseguito il provisioning.
 
 Nel diagramma seguente viene mostrata l'architettura del sistema distribuito. Un amministratore di sistema gestisce il cluster usando strumenti Deis come **deis** e **deisctl**. Le connessioni vengono stabilite tramite un servizio di bilanciamento del carico di Azure, che inoltra le connessioni a uno dei nodi membri sul cluster. Anche i client effettuano l’accesso alle applicazioni distribuite tramite il servizio di bilanciamento del carico. In questo caso, il servizio di bilanciamento del carico inoltra il traffico a un router mesh Deis, che indirizza ulteriormente il traffico ai contenitori Docker corrispondenti ospitati sul cluster.
@@ -32,7 +34,7 @@ Per eseguire i passaggi seguenti, saranno necessari:
 
 * Una sottoscrizione di Azure attiva. Se non si dispone di una sottoscrizione, è possibile ottenere una versione di valutazione gratuita su [azure.com](https://azure.microsoft.com/).
 * Un ID di lavoro o di scuola per utilizzare i gruppi di risorse di Azure. Se si dispone di un account personale e si accede con un ID di Microsoft, è necessario [creare un ID di lavoro da quello personale](virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* A seconda del sistema operativo del client, [Azure PowerShell](/powershell/azureps-cmdlets-docs) o l'[interfaccia della riga di comando di Azure per Mac, Linux e Windows](../xplat-cli-install.md).
+* A seconda del sistema operativo del client, [Azure PowerShell](/powershell/azureps-cmdlets-docs) o l'[interfaccia della riga di comando di Azure per Mac, Linux e Windows](../cli-install-nodejs.md).
 * [OpenSSL](https://www.openssl.org/). OpenSSL viene utilizzato per generare i certificati necessari.
 * Un client Git, come [Git Bash](https://git-scm.com/).
 * Per eseguire un test sull'applicazione di esempio, sarà necessario anche un server DNS. È possibile utilizzare tutti i server o i servizi DNS che supportano i record A con carattere jolly.
@@ -248,12 +250,7 @@ In questo articolo vengono illustrati tutti i passaggi per eseguire il provision
 [Come usare l'interfaccia della riga di comando di Azure][azure-command-line-tools]  
 [Using Azure PowerShell with Azure Resource Manager][powershell-azure-resource-manager] (Uso di Azure PowerShell con Azure Resource Manager)  
 
-[azure-command-line-tools]: ../xplat-cli-install.md
+[azure-command-line-tools]: ../cli-install-nodejs.md
 [resource-group-overview]: ../azure-resource-manager/resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

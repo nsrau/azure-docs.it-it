@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 03/07/2017
 ms.author: sethm;clemensv
 translationtype: Human Translation
-ms.sourcegitcommit: 05ca343cfdfc602759eb3ea30a7186a0bb47bd74
-ms.openlocfilehash: 3f20a19c212c082aa766cc2bd67e938aaabf715e
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 930b3da630b88eecdec56e86d621daee53070257
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -28,7 +29,7 @@ Il modello di sicurezza di Hub eventi di Azure soddisfa i requisiti seguenti:
 * A un dispositivo non autorizzato può essere impedito l’invio di dati a un Hub eventi.
 
 ## <a name="device-authentication"></a>Autenticazione del dispositivo
-Il modello di sicurezza di Hub eventi si basa su una combinazione di token di [firma di accesso condiviso](../service-bus-messaging/service-bus-shared-access-signature-authentication.md) e *autori di eventi*. Un autore di eventi definisce un endpoint virtuale per un Hub eventi. L’autore è utilizzabile solo per inviare messaggi a un Hub eventi. Non è possibile ricevere messaggi da un autore.
+Il modello di sicurezza di Hub eventi si basa su una combinazione di token di [firma di accesso condiviso](../service-bus-messaging/service-bus-sas.md) e *autori di eventi*. Un autore di eventi definisce un endpoint virtuale per un Hub eventi. L’autore è utilizzabile solo per inviare messaggi a un Hub eventi. Non è possibile ricevere messaggi da un autore.
 
 In genere, un Hub eventi utilizza un autore per ogni dispositivo. Tutti i messaggi inviati a uno qualsiasi degli autori di un Hub eventi vengono accodati all'interno di tale Hub eventi. Gli autori consentono la limitazione e il controllo di accesso con granularità fine.
 
@@ -103,16 +104,11 @@ In assenza di autenticazione SAS per gruppi di consumer singoli, è possibile ut
 Per altre informazioni su Hub eventi, vedere gli argomenti seguenti:
 
 * [Panoramica di Hub eventi]
-* [SAS overview] (Panoramica della firma di accesso condiviso)
-* Un'[applicazione di esempio completa che usa Hub eventi]
+* [Panoramica delle firme di accesso condiviso]
+* [Applicazioni di esempio che usano Hub eventi]
 
-[Panoramica di Hub eventi]: event-hubs-overview.md
-[applicazione di esempio completa che usa Hub eventi]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[SAS overview]: ../service-bus-messaging/service-bus-sas-overview.md (Panoramica della firma di accesso condiviso)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
+[Panoramica di Hub eventi]: event-hubs-what-is-event-hubs.md
+[Applicazioni di esempio che usano Hub eventi]: https://github.com/Azure/azure-event-hubs/tree/master/samples
+[Panoramica delle firme di accesso condiviso]: ../service-bus-messaging/service-bus-sas.md
 
 

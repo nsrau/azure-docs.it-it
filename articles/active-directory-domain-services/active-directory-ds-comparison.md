@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 67575bbbb7d99ffeef3cb5dab74f4a68065bacc1
+ms.sourcegitcommit: 1c4045bd9b705ab3e909a06035f27b85635fdf36
+ms.openlocfilehash: 3d83a919d8e7bc59bd51e226c56ff2bb42c87955
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -40,6 +41,7 @@ La tabella seguente riporta informazioni utili per scegliere se usare Servizi di
 | [**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
 | [**Aggiunta a un dominio**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
 | [**Autenticazione di dominio tramite NTLM e Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
+| [**Delega vincolata Kerberos**](active-directory-ds-comparison.md#kerberos-constrained-delegation)|basata sulle risorse|basata sulle risorse e basata su account|
 | [**Struttura personalizzata per le unità organizzative**](active-directory-ds-comparison.md#custom-ou-structure) |**&#x2713;** |**&#x2713;** |
 | [**Estensioni dello schema**](active-directory-ds-comparison.md#schema-extensions) |**&#x2715;** |**&#x2713;** |
 | [**Relazioni di trust di dominio/foresta di AD**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**&#x2715;** |**&#x2713;** |
@@ -57,6 +59,7 @@ Il dominio gestito è bloccato in modo sicuro in base alle procedure consigliate
 
 #### <a name="dns-server"></a>Server DNS
 Un dominio gestito da Servizi di dominio Azure AD include servizi DNS gestiti. I membri del gruppo "AAD DC Administrators" possono gestire il DNS sul dominio gestito. Ai membri di questo gruppo sono concessi privilegi di amministrazione DNS completi per il dominio gestito. La gestione del DNS può essere eseguita mediante la console di amministrazione DNS inclusa nel pacchetto degli Strumenti di amministrazione remota del server.
+[Altre informazioni](active-directory-ds-admin-guide-administer-dns.md)
 
 #### <a name="domain-or-enterprise-administrator-privileges"></a>Privilegi amministrativi per il dominio o per l'organizzazione
 Questi privilegi elevati non sono disponibili in un dominio gestito di Servizi di dominio Azure AD. Le applicazioni che richiedono l'installazione/esecuzione di questi privilegi elevati non possono essere eseguite nei domini gestiti. Un sottoinsieme più piccolo di privilegi amministrativi è disponibile per i membri del gruppo di amministrazione delegato chiamato "AAD DC Administrators". Tali privilegi comprendono privilegi per configurare il server DNS, configurare i criteri di gruppo, ottenere privilegi amministrativi sui computer appartenenti a un dominio e così via.
@@ -67,8 +70,13 @@ Questi privilegi elevati non sono disponibili in un dominio gestito di Servizi d
 #### <a name="domain-authentication-using-ntlm-and-kerberos"></a>Autenticazione di dominio tramite NTLM e Kerberos
 Con Servizi di dominio Azure AD è possibile usare le credenziali aziendali per l'autenticazione con il dominio gestito. Le credenziali vengono mantenute sincronizzate con il tenant di Azure AD. Per i tenant sincronizzati, Azure AD Connect garantisce che le modifiche apportate alle credenziali in locale siano sincronizzate con Azure AD. Con una configurazione di dominio fai da te, potrebbe essere necessario impostare una relazione di trust di dominio con una foresta di account locali per l'autenticazione degli utenti con le proprie credenziali aziendali. In alternativa potrebbe essere necessario impostare la replica di AD per assicurarsi che le password utente siano sincronizzate con le macchine virtuali controller di dominio di Azure.
 
+#### <a name="kerberos-constrained-delegation"></a>Delega vincolata Kerberos
+Non si dispone dei privilegi di "Domain Admin" in un dominio gestito Active Directory Domain Services. Pertanto non è possibile configurare la delega vincolata Kerberos basata su account (tradizionale). Si può comunque configurare la più sicura delega vincolata basata sulle risorse.
+[Altre informazioni](active-directory-ds-enable-kcd.md)
+
 #### <a name="custom-ou-structure"></a>Struttura personalizzata per le unità organizzative
-I membri del gruppo "AAD DC Administrators" possono creare unità organizzative nel dominio gestito.
+I membri del gruppo "AAD DC Administrators" possono creare unità organizzative nel dominio gestito. Agli utenti che creano unità organizzative personalizzate vengono concessi privilegi amministrativi completi per l'unità organizzativa. 
+[Altre informazioni](active-directory-ds-admin-guide-create-ou.md)
 
 #### <a name="schema-extensions"></a>Estensioni dello schema
 Non è possibile estendere lo schema di base di un dominio gestito di Servizi di dominio Azure AD. Di conseguenza le applicazioni che fanno affidamento sulle estensioni allo schema di AD (ad esempio nuovi attributi nell'oggetto utente) non possono essere elevate e spostate su domini di Servizi di dominio Azure AD.
@@ -81,12 +89,14 @@ Il dominio gestito supporta i carichi di lavoro di lettura LDAP. Pertanto è pos
 
 #### <a name="secure-ldap"></a>LDAP sicuro
 È possibile configurare Servizi di dominio Azure AD in modo da fornire l'accesso LDAP sicuro al dominio gestito anche su Internet.
+[Altre informazioni](active-directory-ds-admin-guide-configure-secure-ldap.md)
 
 #### <a name="ldap-write"></a>Scrittura LDAP
 Il dominio gestito è di sola lettura per gli oggetti utente. Di conseguenza, le applicazioni che eseguono operazioni di scrittura LDAP su attributi dell'oggetto utente non funzionano in un dominio gestito. Inoltre, le password utente non possono essere modificate dall'interno del dominio gestito. Un altro esempio sarebbe la modifica dell'appartenenza ai gruppi o degli attributi di gruppo all'interno del dominio gestito, che non è consentita. Tuttavia, le modifiche agli attributi o alle password utente apportate in Azure AD (tramite PowerShell o il portale di Azure) o in AD locale vengono sincronizzate con il dominio gestito di Servizi di dominio Azure AD.
 
 #### <a name="group-policy"></a>Criteri di gruppo
-Costrutti di criteri di gruppo sofisticati non sono supportati nel domino gestito di Servizi di dominio Azure AD. Ad esempio, non è possibile creare e distribuire oggetti Criteri di gruppo separati per ogni unità organizzativa del dominio o usare filtri WMI per indirizzare i criteri di gruppo. Esiste un oggetto Criteri di gruppo integrato per il contenitore "AADDC Computers" e uno per il contenitore "AADDC Users", che possono essere personalizzati per la configurazione dei criteri di gruppo.
+Esiste un oggetto Criteri di gruppo integrato per il contenitore "AADDC Computers" e uno per il contenitore "AADDC Users", che possono essere personalizzati per la configurazione dei criteri di gruppo. I membri del gruppo "AAD DC Administrators" possono anche creare oggetti criterio di gruppo personalizzati e collegarli a unità organizzative esistenti (incluse le unità organizzative personalizzate).
+[Altre informazioni](active-directory-ds-admin-guide-administer-group-policy.md)
 
 #### <a name="geo-dispersed-deployments"></a>Distribuzioni geograficamente sparse
 I domini gestiti di Servizi di dominio Azure AD sono disponibili in una singola rete virtuale in Azure. Per scenari che richiedono controller di dominio disponibili in più aree di Azure in tutto il mondo, l'impostazione di controller di dominio in VM IaaS di Azure potrebbe essere l'alternativa migliore.
@@ -100,8 +110,8 @@ Possono esistere situazioni di distribuzione in cui sono necessarie alcune delle
 
 > [!NOTE]
 > Un'opzione fai da te potrebbe essere più adatta per determinate situazioni di distribuzione. [Condividendo i loro commenti](active-directory-ds-contact-us.md) gli utenti ci aiuteranno a comprendere quali funzionalità potrebbero far ricadere la loro scelta in futuro su Servizi di dominio Azure AD. Questi commenti e suggerimenti ci consentiranno di migliorare il servizio in modo da adattarlo ad altre esigenze di distribuzione e casi di utilizzo.
-> 
-> 
+>
+>
 
 Microsoft ha pubblicato alcune [linee guida per la distribuzione di Active Directory di Windows Server nelle macchine virtuali Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx) come aiuto per l'installazione.
 
@@ -109,10 +119,4 @@ Microsoft ha pubblicato alcune [linee guida per la distribuzione di Active Direc
 * [Funzionalità - Servizi di dominio Azure AD](active-directory-ds-features.md)
 * [Scenari di distribuzione - Servizi di dominio Azure AD](active-directory-ds-scenarios.md)
 * [Linee guida per la distribuzione di Active Directory di Windows Server in macchine virtuali di Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

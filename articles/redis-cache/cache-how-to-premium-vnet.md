@@ -1,5 +1,5 @@
 ---
-title: Come configurare il supporto di una rete virtuale per un&quot;istanza Premium di Cache Redis di Azure | Microsoft Docs
+title: Configurare una rete virtuale per un&quot;istanza di Cache Redis di Azure Premium | Documentazione Microsoft
 description: In questo articolo viene illustrato come creare e gestire il supporto di una rete virtuale per le istanze di Cache Redis di Azure Premium.
 services: redis-cache
 documentationcenter: 
@@ -12,18 +12,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 02/09/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
-ms.openlocfilehash: a3e1472ed737039157a4593404dce371c57906da
+ms.sourcegitcommit: 50d8db29ccce1244387f1fe0e3e42e610575e483
+ms.openlocfilehash: 057affeccd955245ac07fc5e174447562e81b959
 
 
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Come configurare il supporto di una rete virtuale per un'istanza Premium di Cache Redis di Azure
-Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache, incluso il nuovo livello Premium.
-
-Le funzioni del piano Premium di Cache Redis di Azure includono il clustering, la persistenza e il supporto della rete virtuale. Una rete virtuale è una rete privata nel cloud. Quando un'istanza di Cache Redis di Azure viene configurata con una rete virtuale, non è indirizzabile pubblicamente ed è accessibile solo da macchine virtuali e applicazioni all'interno della rete virtuale. Questo articolo descrive come configurare il supporto di una rete virtuale per un'istanza Premium di Cache Redis di Azure.
+Cache Redis di Azure dispone di diverse offerte di cache che assicurano flessibilità nella scelta delle funzionalità e delle dimensioni della cache, incluse le funzionalità del livello Premium quali clustering, persistenza e supporto della rete virtuale. Una rete virtuale è una rete privata nel cloud. Quando un'istanza di Cache Redis di Azure viene configurata con una rete virtuale, non è indirizzabile pubblicamente ed è accessibile solo da macchine virtuali e applicazioni all'interno della rete virtuale. Questo articolo descrive come configurare il supporto di una rete virtuale per un'istanza Premium di Cache Redis di Azure.
 
 > [!NOTE]
 > Cache Redis di Azure supporta le reti virtuali classiche e ARM.
@@ -60,7 +58,7 @@ Nell'elenco a discesa **Subnet** selezionare la subnet desiderata e specificare 
 > 
 > 
 
-Dopo aver creato la cache, è possibile visualizzare la configurazione della rete virtuale facendo clic su **Rete virtuale** nel pannello **Impostazioni**.
+Dopo aver creato la cache, è possibile visualizzare la configurazione della rete virtuale facendo clic su **Rete virtuale** dal **menu Risorse**.
 
 ![Rete virtuale][redis-cache-vnet-info]
 
@@ -168,6 +166,6 @@ Informazioni su come usare altre funzionalità di cache premium.
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

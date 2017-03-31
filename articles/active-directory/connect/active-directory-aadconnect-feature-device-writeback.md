@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
 ms.openlocfilehash: bf7dd55be2b0e6ae43fc148ff36d8d2141a2f12b
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -45,7 +46,7 @@ Per preparare il writeback dei dispositivi, seguire questa procedura.
 1. Dal computer in cui è installato Azure AD, avviare PowerShell con privilegi elevati.
 2. Se il modulo Active Directory PowerShell NON è installato, installarlo usando il comando seguente:
    
-   `Install-WindowsFeature –Name AD-Domain-Services –IncludeManagementTools`
+   `Add-WindowsFeature RSAT-AD-PowerShell`
 3. Se il modulo di Azure Active Directory per PowerShell NON è installato, scaricarlo e installarlo da [Modulo di Azure Active Directory per Windows PowerShell (versione a 64 bit)](http://go.microsoft.com/fwlink/p/?linkid=236297). Questo componente presenta una dipendenza dall'Assistente per l'accesso, che viene installato con Azure AD Connect.
 4. Con le credenziali di amministratore dell'organizzazione, eseguire i comandi seguenti e quindi uscire da PowerShell.
    
@@ -138,10 +139,5 @@ Verificare la configurazione in Active Directory:
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

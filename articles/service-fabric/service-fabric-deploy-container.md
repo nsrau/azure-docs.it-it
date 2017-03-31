@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/4/2017
+ms.date: 2/17/2017
 ms.author: msfussell
 translationtype: Human Translation
-ms.sourcegitcommit: d7aa8568dd6fdd806d8ad70e408f108c722ec1ce
-ms.openlocfilehash: c444ed85e2108a1b54d468f410c446aa6032e2a2
+ms.sourcegitcommit: 47b3fffb2d5c24b7473884e490be19ff17b61b61
+ms.openlocfilehash: 97b0cb7a5f04f2c5c547cb4b70d87273aa8f2383
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.openlocfilehash: c444ed85e2108a1b54d468f410c446aa6032e2a2
 Questo articolo descrive in dettaglio il processo di creazione di servizi in contenitori Windows.
 
 > [!NOTE]
-> Questa funzionalità è disponibile in anteprima per Linux e Windows Server 2016.
+> Questa funzionalità è disponibile in anteprima per Windows Server 2016.
 >  
 
 Service Fabric offre diverse funzionalità relative ai contenitori che consentono di creare applicazioni costituite da microservizi inseriti in contenitori, 
@@ -57,7 +58,7 @@ Visual Studio include un modello di servizio di Service Fabric che consente di d
 
 1. Scegliere **File** > **Nuovo progetto** e creare un'applicazione di Service Fabric.
 2. Scegliere **Guest Container (Contenitore guest)** come modello del servizio.
-3. Scegliere **Image Name (Nome immagine)** e specificare il percorso dell'immagine nel repository del contenitore, come https://hub.docker.com/. Esempio: myrepo/myimage:v1 
+3. Scegliere **Image Name (Nome immagine)** e specificare il percorso dell'immagine nel repository del contenitore, come https://hub.docker.com/, ad esempio myrepo/myimage:v1 
 4. Assegnare un nome al servizio e fare clic su **OK**.
 5. Se il servizio nel contenitore richiede un endpoint per la comunicazione, è ora possibile aggiungere il protocollo, la porta e il tipo al file ServiceManifest.xml. Ad esempio: 
      
@@ -65,10 +66,24 @@ Visual Studio include un modello di servizio di Service Fabric che consente di d
     
     Se si specifica l'elemento `UriScheme`, questo registra automaticamente l'endpoint del contenitore con il servizio di denominazione (Naming) di Service Fabric per l'individuazione. La porta può essere stabilita (come illustrato nell'esempio precedente) o allocata in modo dinamico (valore lasciato vuoto per allocare una porta presente nell'intervallo di porte dell'applicazione designata) esattamente come per qualsiasi altro servizio.
     È anche necessario configurare il mapping tra porta del contenitore e porta dell'host specificando un elemento di criteri `PortBinding` nel manifesto dell'applicazione come descritto in precedenza.
-6. Se per il contenitore è necessaria una governance delle risorse, aggiungere un elemento `ResourceGovernancePolicy`. Per un esempio, vedere di seguito.
-8. Se il contenitore deve eseguire l'autenticazione con un repository privato, aggiungere `RepositoryCredentials`. Per un esempio, vedere di seguito.
+6. Se per il contenitore è necessaria una governance delle risorse, aggiungere un elemento `ResourceGovernancePolicy`.
+8. Se il contenitore deve eseguire l'autenticazione con un repository privato, aggiungere `RepositoryCredentials`.
 7. È ora possibile usare il pacchetto e pubblicare l'azione nel cluster locale se quest'ultimo è Windows Server 2016 con supporto del contenitore attivato. 
 8. Quando si è pronti, pubblicare l'applicazione in un cluster remoto o archiviare la soluzione nel controllo del codice sorgente. 
+
+Per un'applicazione di esempio [vedere gli esempi di codice di contenitore Service Fabric su GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+
+## <a name="creating-a-windows-server-2016-cluster"></a>Creazione di un cluster di Windows Server 2016
+Per distribuire l'applicazione nei contenitori, è necessario creare un cluster che esegue Windows Server 2016 con il supporto di contenitore abilitato. Il cluster può trovarsi nel computer di sviluppo locale o può essere distribuito tramite Azure Resource Manager (ARM) in Azure. 
+
+Per distribuire un cluster con ARM, scegliere l'opzione di immagine **Windows Server 2016 with Containers** (Windows Server 2016 con contenitori) in Azure. Vedere l'articolo [Creare un cluster di Service Fabric usando Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Assicurarsi di usare le seguenti impostazioni di ARM:
+
+```xml
+"vmImageOffer": { "type": "string","defaultValue": "WindowsServer"     },
+"vmImageSku": { "defaultValue": "2016-Datacenter-with-Containers","type": "string"     },
+"vmImageVersion": { "defaultValue": "latest","type": "string"     },  
+```
+È inoltre possibile usare il [modello ARM a&5; nodi presente qui](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) per creare un cluster. In alternativa leggere [qui il post di blog di Leok](https://loekd.blogspot.com/2017/01/running-windows-containers-on-azure.html) sull'uso di Service Fabric e dei contenitori di Windows.
 
 <a id="manually"></a>
 
@@ -286,9 +301,6 @@ Di seguito è riportato un manifesto del servizio di esempio (specificato nel ma
 ## <a name="next-steps"></a>Passaggi successivi
 Ora che è stato distribuito un servizio in contenitori, vedere [Ciclo di vita dell'applicazione Service Fabric](service-fabric-application-lifecycle.md) per informazioni su come gestire il ciclo di vita del servizio.
 
-
-
-
-<!--HONumber=Jan17_HO2-->
-
+* [Panoramica di Service Fabric e contenitori](service-fabric-containers-overview.md)
+* Per un'applicazione di esempio [vedere gli esempi di codice di contenitore Service Fabric su GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 

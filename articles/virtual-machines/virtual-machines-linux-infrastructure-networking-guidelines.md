@@ -1,5 +1,5 @@
 ---
-title: Linee guida sull&quot;infrastruttura di rete di Azure | Documentazione Microsoft
+title: Linee guida sull&quot;infrastruttura di rete di Azure - Linux| Documentazione Microsoft
 description: Informazioni sulle principali linee guida di progettazione e implementazione per la distribuzione di una rete virtuale nei servizi di infrastruttura di Azure.
 documentationcenter: 
 services: virtual-machines-linux
@@ -13,15 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/17/2017
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 70e52cefccee4b963e512724b96525bcbacf330c
-ms.openlocfilehash: 906ea9308ffee9dc719e1f17171deaba394a26d6
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 1faab292ec93c2138eed2efd977a0bdecbb4574b
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="azure-networking-infrastructure-guidelines"></a>Linee guida sull'infrastruttura di rete di Azure
+# <a name="azure-networking-infrastructure-guidelines-for-linux-vms"></a>Linee guida sull'infrastruttura di rete di Azure per macchine virtuali Linux
+
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Questo articolo è incentrato sulla comprensione dei passaggi necessari per la pianificazione della rete virtuale in Azure e sulla connettività tra ambienti locali esistenti.
@@ -50,7 +53,7 @@ L'uso dei gruppi di risorse offre maggiore flessibilità alla progettazione dei 
 ### <a name="cloud-only-virtual-networks"></a>Reti virtuali solo cloud
 Se utenti e computer locali non richiedono connettività costante alle VM in una rete virtuale Azure, progettare la rete virtuale è semplice:
 
-![Diagramma rete virtuale di base solo cloud](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
+![Diagramma rete virtuale di base solo cloud](windows/media/infrastructure-networking-guidelines/vnet01.png)
 
 Questo approccio è in genere indicato per i carichi di lavoro con connessione Internet, come nel caso di un server Web basato su Internet. È possibile gestire queste macchine virtuali tramite SSH o connessioni VPN da punto a sito.
 
@@ -59,7 +62,7 @@ Poiché non si connettono alla rete locale, le reti virtuali solo Azure possono 
 ### <a name="cross-premises-virtual-networks"></a>Reti virtuali cross-premise
 Se utenti e computer locali richiedono una connettività costante alle VM in una rete virtuale di Azure, creare una rete virtuale cross-premise. Connettere la rete virtuale alla rete locale con ExpressRoute o una connessione VPN da sito a sito.
 
-![Diagramma rete virtuale cross-premise](./media/virtual-machines-common-infrastructure-service-guidelines/vnet02.png)
+![Diagramma rete virtuale cross-premise](windows/media/infrastructure-networking-guidelines/vnet02.png)
 
 In questa configurazione, la rete virtuale di Azure è essenzialmente un'estensione della rete locale basata su cloud.
 
@@ -102,10 +105,5 @@ Come accade in un'infrastruttura di rete locale fisica, la rete virtuale di Azur
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

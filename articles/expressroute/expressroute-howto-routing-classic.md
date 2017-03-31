@@ -13,19 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 12/13/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
-ms.openlocfilehash: df4b11210aca695a04abf145b6efd9e98c870b67
+ms.sourcegitcommit: ec5e547b88bedd50f451997616c7d72b0b1b4bd4
+ms.openlocfilehash: 66c06ab6beb5e1de9cba25382834f4f9f209fa2f
+ms.lasthandoff: 12/14/2016
 
 
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Creare e modificare il routing per un circuito ExpressRoute
 > [!div class="op_single_selector"]
-> * [Portale di Azure - Gestione risorse](expressroute-howto-routing-portal-resource-manager.md)
-> * [PowerShell - Gestione risorse](expressroute-howto-routing-arm.md)
-> * [PowerShell - Classico](expressroute-howto-routing-classic.md)
+> * [Resource Manager - Portale di Azure](expressroute-howto-routing-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](expressroute-howto-routing-arm.md)
+> * [Classico - PowerShell](expressroute-howto-routing-classic.md)
+> * [Video - Peering privato](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [Video - Peering pubblico](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
+> * [Video - Peering Microsoft](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > 
 > 
 
@@ -306,10 +310,5 @@ Successivamente, [Collegare una rete virtuale a un circuito ExpressRoute](expres
 
 * Per ulteriori informazioni sui flussi di lavoro, vedere [Flussi di lavoro ExpressRoute](expressroute-workflows.md).
 * Per altre informazioni sul peering del circuito, vedere l'articolo relativo ai [circuiti ExpressRoute e domini di routing](expressroute-circuit-peerings.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

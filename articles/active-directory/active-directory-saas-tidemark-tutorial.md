@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 02/13/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5b32c40c1887d6695c4ad1379ac14e0aa525bb43
+ms.sourcegitcommit: 7cc133d6289bffbc3b7fc591104bc51ebfc67ddd
+ms.openlocfilehash: 9c3927b64009c51fb8236e42fa9e6137a9909a4a
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -26,7 +27,7 @@ Questa esercitazione descrive l'integrazione di Tidemark con Azure Active Direct
 L'integrazione di Tidemark con Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD chi può accedere a Tidemark.
-* È possibile abilitare gli utenti per l'accesso automatico a Tidemark (Single Sign-On) con i propri account Azure AD.
+* È possibile abilitare gli utenti per l'accesso automatico Single Sign-On (SSO) a Tidemark con i propri account Azure AD
 * È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -35,11 +36,10 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 Per configurare l'integrazione di Azure AD con Tidemark, sono necessari gli elementi seguenti:
 
 * Sottoscrizione di Azure AD.
-* Sottoscrizione di Tidemark abilitata per l'accesso Single Sign-On.
+* Sottoscrizione di Tidemark abilitata per l'accesso Single Sign-On (SSO)
 
-> [!NOTE]
-> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
-> 
+>[!NOTE]
+>Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione. 
 > 
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
@@ -52,10 +52,10 @@ L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure
 
 Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
-1. Aggiunta di Tidemark dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+* Aggiunta di Tidemark dalla raccolta
+* Configurazione e test dell'accesso Single Sign-On (SSO) di Azure AD
 
-## <a name="adding-tidemark-from-the-gallery"></a>Aggiunta di Tidemark dalla raccolta
+## <a name="add-tidemark-from-the-gallery"></a>Aggiungere Tidemark dalla raccolta
 Per configurare l'integrazione di Tidemark in Azure AD, è necessario aggiungere Tidemark dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Tidemark dalla raccolta, seguire questa procedura:**
@@ -80,7 +80,7 @@ Per configurare l'integrazione di Tidemark in Azure AD, è necessario aggiungere
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Tidemark in base a un utente test di nome "Britta Simon".
 
 Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Tidemark che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Tidemark.
@@ -89,13 +89,13 @@ La relazione di collegamento viene stabilita assegnando il valore di **user name
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Tidemark, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente test Tidemark](#creating-a-tidemark-test-user)** : per avere una controparte di Britta Simon in Tidemark collegata alla relativa rappresentazione in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione Tidemark.
 
 **Per configurare l'accesso Single Sign-On di Azure AD con Tidemark, seguire questa procedura:**
@@ -108,27 +108,22 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_03.png) 
 3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
    
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_04.png) 
-
-    a. Nella casella di testo URL di accesso digitare l'URL usato dagli utenti per accedere all'applicazione Tidemark adottando il modello seguente: **"https://contoso.tidemark.com/login"** o **"https://contoso.tidemark.net/login"**.
-
-
-1. Nella pagina **Configura accesso Single Sign-On in Tidemark** seguire questa procedura:
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_04.png)
+  * Nella casella di testo URL di accesso digitare l'URL usato dagli utenti per accedere all'applicazione Tidemark adottando il modello seguente: **"https://contoso.tidemark.com/login"** o **"https://contoso.tidemark.net/login"**.
+4. Nella pagina **Configura accesso Single Sign-On in Tidemark** seguire questa procedura:
    
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_05.png) 
-   
-    a. Fare clic su **Scarica certificato**e quindi salvare il file nel computer.
-   
-    b. Fare clic su **Avanti**.
-2. Per ottenere SSO configurato per l'applicazione, contattare il team di supporto Tidemark allegando al messaggio di posta elettronica il file del certificato scaricato. Inoltre fornire URL SSO SAML, URL di disconnessione e URL dell’autorità di certificazione in modo da configurarli per l'integrazione SSO.
-3. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_05.png)   
+  1. Fare clic su **Scarica certificato**e quindi salvare il file nel computer.
+  2. Fare clic su **Avanti**.
+5. Per ottenere SSO configurato per l'applicazione, contattare il team di supporto Tidemark allegando al messaggio di posta elettronica il file del certificato scaricato. Inoltre fornire URL SSO SAML, URL di disconnessione e URL dell’autorità di certificazione in modo da configurarli per l'integrazione SSO.
+6. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
    
     ![Single Sign-On di Microsoft Azure AD][10]
-4. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.  
+7. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.  
    
     ![Single Sign-On di Microsoft Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.
 
 ![Creare un utente di Azure AD][20]
@@ -148,45 +143,34 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-tidemark-tutorial/create_aaduser_05.png) 
-   
-    a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
-   
-    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
-   
-    c. Fare clic su **Avanti**.
+  1. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
+  2. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
+  3. Fare clic su **Avanti**.
 6. Nella pagina **Profilo utente** seguire questa procedura:
    
    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-tidemark-tutorial/create_aaduser_06.png) 
-   
-   a. Nella casella di testo **Nome** digitare **Britta**.  
-   
-   b. Nella casella di testo **Cognome** digitare **Simon**.
-   
-   c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
-   
-   d. Nell'elenco **Ruolo** selezionare **Utente**.
-   
-   e. Fare clic su **Avanti**.
+  1. Nella casella di testo **Nome** digitare **Britta**. 
+  2. Nella casella di testo **Cognome** digitare **Simon**.
+  3. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**   
+  4. Nell'elenco **Ruolo** selezionare **Utente**.
+  5. Fare clic su **Avanti**.
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-tidemark-tutorial/create_aaduser_07.png) 
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-tidemark-tutorial/create_aaduser_08.png) 
-   
-    a. Prendere nota del valore visualizzato in **Nuova password**.
-   
-    b. Fare clic su **Complete**.   
+  1. Prendere nota del valore visualizzato in **Nuova password**.
+  2. Fare clic su **Complete**.   
 
-### <a name="creating-a-tidemark-test-user"></a>Creazione di un utente test Tidemark
+### <a name="create-a-tidemark-test-user"></a>Creare un utente test Tidemark
 Questa sezione descrive come creare un utente chiamato Britta Simon in Tidemark. Collaborare con il team di supporto di Tidemark per aggiungere utenti all'account Tidemark. 
 
-> [!NOTE]
-> Per creare un utente manualmente, è necessario contattare il team di supporto di Tidemark.
-> 
+>[!NOTE]
+>Per creare un utente manualmente, è necessario contattare il team di supporto di Tidemark. 
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Tidemark.
 
 ![Assegna utente][200] 
@@ -207,7 +191,7 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
    
     ![Assegna utente][205]
 
-### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Tidemark nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Tidemark.
@@ -233,9 +217,4 @@ Quando si fa clic sul riquadro Tidemark nel pannello di accesso, si dovrebbe acc
 [203]: ./media/active-directory-saas-tidemark-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-tidemark-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-tidemark-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

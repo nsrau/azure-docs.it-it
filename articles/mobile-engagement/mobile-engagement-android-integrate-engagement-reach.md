@@ -4,7 +4,7 @@ description: Ultimi aggiornamenti e procedure relativi ad Azure Mobile Engagemen
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 9ec3fab3-35ec-458e-bf41-6cdd69e3fa44
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: fd8ba95ee1fb2703926fb35cdb49e6a503637a7d
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -242,7 +243,7 @@ Se non si vuole che la sovrimpressione venga aggiunta all'attività e se non si 
               <meta-data android:name="engagement:notification:overlay" android:value="false"/>
             </activity>
 
-#### <a name="a-namecategoriesa-categories"></a><a name="categories"></a> Categorie
+#### <a name="categories"></a> Categorie
 Quando si modificano i layout forniti, si modifica l'aspetto di tutte le notifiche. Le categorie consentono di definire diversi aspetti assegnati (comportamenti) delle notifiche. Quando si crea una campagna Reach, è possibile specificare una categoria. Tenere presente che le categorie consentono di personalizzare annunci e sondaggi, come descritto successivamente nel documento.
 
 Per registrare un gestore di categorie per le notifiche, è necessario aggiungere una chiamata durante l'inizializzazione dell'applicazione.
@@ -320,7 +321,7 @@ Per usare semplicemente layout alternativi per una categoria specifica, è possi
               }
             }
 
-**Esempio di `my_notification_overlay.xml`: **
+**Esempio di `my_notification_overlay.xml`:**
 
             <?xml version="1.0" encoding="utf-8"?>
             <RelativeLayout
@@ -335,7 +336,7 @@ Per usare semplicemente layout alternativi per una categoria specifica, è possi
 
 Come si può notare, l'identificatore visualizzazione di sovrimpressione è diverso da quello standard. È importante che ogni layout usi un identificatore univoco per le sovrimpressioni.
 
-**Esempio di `my_notification_area.xml`: **
+**Esempio di `my_notification_area.xml`:**
 
             <?xml version="1.0" encoding="utf-8"?>
             <merge
@@ -638,9 +639,4 @@ Come si può notare, se è stato chiamato `actionContent(this)` e l'attività è
 [qui]:http://developer.android.com/tools/extras/support-library.html#Downloading
 [Google Cloud Messaging]:http://developer.android.com/guide/google/gcm/index.html
 [Amazon Device Messaging]:https://developer.amazon.com/sdk/adm.html
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

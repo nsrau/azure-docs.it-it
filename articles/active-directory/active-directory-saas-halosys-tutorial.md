@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 37dc0772ccf74b19656b60f11e66e065815dc2a6
@@ -124,7 +124,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     a. Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione Halosys usando il modello seguente: `https://<company-name>.Halosys.com/client-api/api`.
 
-    Nella casella di testo **Identificatore** digitare l'URL usando il modello seguente: `https://<company-name>.Halosys.com`.   
+    Nella casella di testo **Identificatore** digitare l'URL usando il modello seguente: `https://<company-name>.Halosys.com`.    
          
 4. Nella pagina **Configura accesso Single Sign-On in Halosys** fare clic su **Scarica metadati** e salvare il file nel computer:
 

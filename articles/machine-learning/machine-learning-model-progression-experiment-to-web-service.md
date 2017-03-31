@@ -1,5 +1,5 @@
 ---
-title: "Modalità di passaggio di un modello di Machine Learning da esperimento a servizio Web operativo | Microsoft Docs"
+title: Come un modello di Azure Machine Learning diventa un servizio Web | Documentazione Microsoft
 description: Panoramica dei meccanismi in base a cui il modello di Azure Machine Learning passa da esperimento di sviluppo a servizio Web operativo.
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 03/20/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: b47aa6730aff534b796cfc5427e613defdf69926
-ms.openlocfilehash: 0f0b2a10ae0f16411d9043351064eafe3a26c5aa
+ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
+ms.openlocfilehash: 8c5a3ca30ae0539cded6cf9cd93ba1a42e19ba58
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -118,10 +119,5 @@ Per esempi dell'intero processo, vedere:
 
 * [Esercitazione di Machine Learning: Creare il primo esperimento in Azure Machine Learning Studio](machine-learning-create-experiment.md)
 * [Procedura dettagliata: Sviluppare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

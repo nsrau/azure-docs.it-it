@@ -12,16 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 03/20/2017
 ms.author: bradsev;garye
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 53c84ff1e99236343585ff31ef1bcb57e0250fdc
+ms.sourcegitcommit: 46c624608773fcd55e7ee3548aaa32fbbc630056
+ms.openlocfilehash: b6d0c877e0f0515dd82c0615850009910aa0b0be
+ms.lasthandoff: 02/07/2017
 
 
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning"></a>Come valutare le prestazioni del modello in Azure Machine Learning
-Questo argomento illustra come valutare le prestazioni di un modello in Azure Machine Learning Studio e fornisce una breve spiegazione delle metriche disponibili per questa attività. L'argomento presenta inoltre tre scenari di apprendimento sorvegliato comuni: 
+Questo articolo illustra come valutare le prestazioni di un modello in Azure Machine Learning Studio e offre una breve spiegazione delle metriche disponibili per questa attività. L'argomento presenta inoltre tre scenari di apprendimento sorvegliato comuni: 
 
 * Regressione
 * Classificazione binaria 
@@ -115,7 +116,9 @@ Figura 6. Matrice di confusione di classificazione binaria.
 
 Tornando al problema della classificazione del reddito, di seguito vengono fornite alcune domande sulla valutazione, utili a comprendere le prestazioni del classificatore usato. Una domanda da porsi è: "Delle persone con un modello di guadagno stimato >50.000 (VP+FP), quante sono state classificate correttamente (VP)?" È possibile rispondere a questa domanda osservando la **precisione** del modello, che è la percentuale di positivi classificati correttamente: VP/(VP+FP). Un'altra domanda comune è la seguente: "Di tutti i dipendenti con un reddito >50.000 (VP+FN), quanti sono stati classificati correttamente dal classificatore (VP)?". Questo è il **richiamo** o tasso di veri positivi, VP/(VP+FN), del classificatore. Come si può notare, vi è un chiaro compromesso tra precisione e richiamo. Ad esempio, in presenza di un set di dati relativamente bilanciato, un classificatore che stima istanze soprattutto positive avrà un richiamo elevato ma una precisione più bassa, poiché molte delle istanze negative verranno classificate in modo errato dando come risultato una serie di falsi positivi. Per vedere un tracciato delle variazioni di queste due metriche, è possibile fare clic sulla curva "PRECISIONE/RICHIAMO" nella pagina di output dei risultati di valutazione (la parte superiore sinistra della figura 7).
 
-![Risultati della valutazione della classificazione binaria](media/machine-learning-evaluate-model-performance/7.png) Figura 7. Risultati della valutazione della classificazione binaria.
+![Risultati della valutazione della classificazione binaria](media/machine-learning-evaluate-model-performance/7.png)
+
+Figura 7. Risultati della valutazione della classificazione binaria.
 
 Un'altra metrica correlata spesso usata è **Punteggio F1**, che prende in considerazione precisione e richiamo. Si tratta della media armonica di queste 2 metriche ed è calcolata nel modo seguente: F1 = 2 (precisione x richiamo) / (precisione + richiamo). Il punteggio F1 è un buon modo per riassumere la valutazione in un unico numero, ma si dovrebbe sempre tenere conto di precisione e richiamo parallelamente per comprendere meglio il comportamento di un classificatore.
 
@@ -151,7 +154,7 @@ Impostare l'indice della colonna delle etichette del modulo [Train Model][train-
 
 Fare clic sul modulo [Import Data][import-data] (Impora dati) e impostare la proprietà *Data source* (Origine dati) su *Web URL via HTTP* (URL Web via HTTP) e *URL* su http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
 
-Impostare la frazione delle istanze da usare per il training nel modulo [Split Data][split], ad esempio 0,7.
+Impostare la frazione delle istanze da usare per il training nel modulo [Split Data][split], ad esempio&0;,7.
 
 ![Valutazione di un classificatore multiclasse](media/machine-learning-evaluate-model-performance/10.png)
 
@@ -185,10 +188,5 @@ Figura 13. Risultati della convalida incrociata di un modello di classificazione
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-logistic-regression]: https://msdn.microsoft.com/library/azure/b0fd7660-eeed-43c5-9487-20d9cc79ed5d/
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

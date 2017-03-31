@@ -1,5 +1,5 @@
 ---
-title: Recupero di informazioni sullo stato per un processo del servizio Importazione/Esportazione di Azure | Documentazione Microsoft
+title: Recupero di informazioni sullo stato per un processo di Importazione/Esportazione di Azure | Documentazione Microsoft
 description: Informazioni su come ottenere informazioni sullo stato per i processi del servizio Importazione/Esportazione di Microsoft Azure
 author: muralikk
 manager: syadav
@@ -15,13 +15,14 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 22e37e26fec913a7638c71b2547c38f5efacd10b
-ms.openlocfilehash: c1626024262959d33e18dbceba74b89997972c98
+ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
+ms.openlocfilehash: d8156439cc81a88172d5af97c31147b6ceb23ff6
+ms.lasthandoff: 02/16/2017
 
 
 ---
 
-# <a name="retrieving-state-information-for-a-job"></a>Recupero delle informazioni sullo stato per un processo
+# <a name="retrieving-state-information-for-an-importexport-job"></a>Recupero delle informazioni sullo stato per un processo di Importazione/Esportazione di Azure
 È possibile chiamare l'operazione [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) per recuperare informazioni su entrambi i processi: importazione ed esportazione. Le informazioni restituite includono:
 
 -   Lo stato corrente del processo.
@@ -91,10 +92,5 @@ La tabella seguente descrive gli stati di errore delle unità e le azioni intrap
 Quando un processo o un'unità non procede regolarmente nel ciclo di vita previsto, il processo o l'unità verrà spostato in uno stato `Faulted`. A questo punto, il team operativo contatterà il cliente tramite posta elettronica o telefono. Una volta risolto il problema, il processo o l'unità con errore passerà dallo stato `Faulted` allo stato appropriato.
 
 ## <a name="see-also"></a>Vedere anche
-[Using the Import/Export service REST API](storage-import-export-using-the-rest-api.md) (Uso dell'API REST del servizio Importazione/Esportazione)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+[Uso dell'API REST del servizio Importazione/Esportazione](storage-import-export-using-the-rest-api.md)
 

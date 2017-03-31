@@ -1,10 +1,10 @@
 ---
-title: Ruoli personalizzati in Controllo degli accessi in base al ruolo di Azure | Microsoft Docs
+title: Creare ruoli personalizzati per il controllo degli accessi in base al ruolo di Azure | Documentazione Microsoft
 description: "Informazioni su come definire i ruoli personalizzati con il Controllo degli accessi in base al ruolo per una gestione più precisa delle identità nella sottoscrizione di Azure."
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: kgremban
+manager: femila
 editor: 
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/25/2016
+ms.date: 02/21/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b5ffc0f9d337c776f2702aa95d991d1b57829f3b
-
+ms.sourcegitcommit: 53fa0876ce1e3e2b2ac47316f37c5a0de2591d41
+ms.openlocfilehash: c8189af2ebd9cabfa3e20e6b3520ba347d6147ff
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="custom-roles-in-azure-rbac"></a>Ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure
+# <a name="create-custom-roles-for-azure-role-based-access-control"></a>Creare ruoli personalizzati per il controllo degli accessi in base al ruolo di Azure
 Creare un ruolo personalizzato nel Controllo degli accessi in base al ruolo di Azure, se nessuno dei ruoli predefiniti soddisfa le esigenze di accesso specifiche. I ruoli personalizzati possono essere creati usando [Azure PowerShell](role-based-access-control-manage-access-powershell.md), l'[interfaccia della riga di comando di Azure](role-based-access-control-manage-access-azure-cli.md) e l'[API REST](role-based-access-control-manage-access-rest.md). Analogamente ai ruoli predefiniti, i ruoli personalizzati possono essere assegnati a utenti, gruppi e applicazioni nell'ambito della sottoscrizione, del gruppo di risorse e delle risorse. I ruoli personalizzati vengono archiviati in un tenant di Azure AD e possono essere condivisi tra tutte le sottoscrizioni che usano tale tenant come directory di Azure AD per la sottoscrizione.
 
 Ecco un esempio di ruolo personalizzato, che consente il monitoraggio e il riavvio di macchine virtuali:
@@ -54,9 +55,10 @@ Ecco un esempio di ruolo personalizzato, che consente il monitoraggio e il riavv
 }
 ```
 ## <a name="actions"></a>Azioni
-La proprietà **Actions** di un ruolo personalizzato specifica le operazioni di Azure a cui il ruolo concede l'accesso. Si tratta di una raccolta di stringhe di operazione che identificano operazioni a protezione diretta dei provider di risorse di Azure. Le stringhe di operazione che contengono caratteri jolly (\*) concedono l'accesso a tutte le operazioni corrispondenti alla stringa di operazione. Ad esempio:
+La proprietà **Actions** di un ruolo personalizzato specifica le operazioni di Azure a cui il ruolo concede l'accesso. Si tratta di una raccolta di stringhe di operazione che identificano operazioni a protezione diretta dei provider di risorse di Azure. Le stringhe di operazione seguono il formato di `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Le stringhe di operazione che contengono caratteri jolly (\*) concedono l'accesso a tutte le operazioni corrispondenti alla stringa di operazione. Ad esempio:
 
 * `*/read` concede l'accesso a operazioni di lettura per tutti i tipi di risorsa di tutti i provider di risorse di Azure.
+* `Microsoft.Compute/*` concede l'accesso a tutte le operazioni per tutti i tipi di risorsa nel provider di risorse Microsoft.Compute.
 * `Microsoft.Network/*/read` concede l'accesso a operazioni di lettura per tutti i tipi di risorsa nel provider di risorse Microsoft.Network di Azure.
 * `Microsoft.Compute/virtualMachines/*` concede l'accesso a tutte le operazioni delle macchine virtuali e ai relativi tipi di risorse figlio.
 * `Microsoft.Web/sites/restart/Action` concede l'accesso per il riavvio dei siti Web.
@@ -69,7 +71,7 @@ Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Ope
 Get-AzureRMProviderOperation Microsoft.Network/*
 ```
 
-![Screenshot di PowerShell: Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
+![Schermata PowerShell - Get-AzureRMProviderOperation](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
 
 ```
 azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js on | jq '.[] | .operation'
@@ -84,8 +86,8 @@ Usare la proprietà **NotActions** se il set di operazioni che si vuole consenti
 
 > [!NOTE]
 > Se a un utente viene assegnato un ruolo che esclude un'operazione in **NotActions** e un secondo ruolo che concede l'accesso alla stessa operazione, l'utente potrà eseguire tale operazione. **NotActions** non è una regola di negazione. È semplicemente un modo comodo per creare una serie di operazioni consentite quando è necessario escludere operazioni specifiche.
-> 
-> 
+>
+>
 
 ## <a name="assignablescopes"></a>AssignableScopes
 La proprietà **AssignableScopes** del ruolo personalizzato specifica gli ambiti, ovvero sottoscrizioni, gruppi di risorse o risorse, entro i quali il ruolo personalizzato è disponibile per l'assegnazione. È possibile rendere disponibile il ruolo personalizzato per l'assegnazione solo nelle sottoscrizioni o nei gruppi di risorse che lo richiedono, in modo da non complicare l'esperienza utente per le altre sottoscrizioni o gli altri gruppi di risorse.
@@ -98,8 +100,8 @@ Ecco alcuni esempi di ambiti assegnabili validi:
 
 > [!NOTE]
 > È necessario usare almeno una sottoscrizione, un gruppo di risorse o un ID della risorsa.
-> 
-> 
+>
+>
 
 ## <a name="custom-roles-access-control"></a>Controllo di accesso ai ruoli personalizzati
 La proprietà **AssignableScopes** del ruolo personalizzato controlla anche quali utenti possono visualizzare, modificare ed eliminare il ruolo.
@@ -119,10 +121,4 @@ La proprietà **AssignableScopes** del ruolo personalizzato controlla anche qual
   * [Interfaccia della riga di comando di Azure](role-based-access-control-manage-access-azure-cli.md)
   * [API REST](role-based-access-control-manage-access-rest.md)
 * [Ruoli predefiniti](role-based-access-built-in-roles.md): informazioni dettagliate sui ruoli predefiniti del controllo degli accessi in base al ruolo.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

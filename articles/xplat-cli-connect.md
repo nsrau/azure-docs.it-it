@@ -17,8 +17,9 @@ ms.date: 10/04/2016
 ms.author: rasquill
 "\"/": 
 translationtype: Human Translation
-ms.sourcegitcommit: 03d93ac0416a947d43dca66297588c4c5b656a1d
-ms.openlocfilehash: 18ea4ab3ab6b82fd43ee290ece790d61cabf16a4
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 31efab60690b54faf7992251fcd01e307c4464f2
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -28,7 +29,7 @@ L'interfaccia della riga di comando di Azure è un insieme di comandi multipiatt
 * Eseguire il comando `azure login` dell'interfaccia della riga di comando per l'autenticazione con Azure Active Directory. Questo metodo consente di accedere ai comandi dell'interfaccia della riga di comando in entrambe le [modalità di comando](#cli-command-modes). Quando si esegue il comando senza opzioni aggiuntive, `azure login` chiede di continuare la procedura di accesso in modo interattivo da un portale Web. Per le opzioni di comando aggiuntive di `azure login`, vedere gli scenari in questo articolo o digitare `azure login --help`.
 * Se è solo necessario usare i comandi dell'interfaccia della riga di comando CLI in modalità di gestione del servizio Azure (non consigliati per le distribuzioni più nuove), è possibile scaricare e installare un file di impostazioni di pubblicazione nel computer in uso.
 
-Se l'interfaccia non è stata ancora installata, vedere [Installare l'interfaccia della riga di comando di Azure](xplat-cli-install.md). Se non si dispone di una sottoscrizione di Azure, è possibile creare un [account gratuito](http://azure.microsoft.com/free/) in pochi minuti.
+Se l'interfaccia non è stata ancora installata, vedere [Installare l'interfaccia della riga di comando di Azure](cli-install-nodejs.md). Se non si dispone di una sottoscrizione di Azure, è possibile creare un [account gratuito](http://azure.microsoft.com/free/) in pochi minuti.
 
 Per informazioni sulle diverse identità dell'account e sulle sottoscrizioni di Azure, vedere [Associare le sottoscrizioni di Azure ad Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md).
 
@@ -162,12 +163,7 @@ Per disconnettersi, usare il comando seguente:
 Se le sottoscrizioni associate all'account vengono autenticate solo con Active Directory, dopo la disconnessione le informazioni di sottoscrizione verranno eliminate dal profilo locale. Se però per le sottoscrizioni è stato anche importato un file di impostazioni di pubblicazione, con la disconnessione verranno eliminate dal profilo locale solo le informazioni correlate ad Active Directory.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per l'uso dei comandi dell'interfaccia della riga di comando di Azure, vedere [Comandi dell'interfaccia della riga di comando di Azure in modalità Resource Manager](virtual-machines/azure-cli-arm-commands.md) e [Comandi dell'interfaccia della riga di comando di Azure in modalità Gestione servizi di Azure](virtual-machines-command-line-tools.md).
+* Per l'uso dei comandi dell'interfaccia della riga di comando di Azure, vedere [Comandi dell'interfaccia della riga di comando di Azure in modalità Resource Manager](virtual-machines/azure-cli-arm-commands.md) e [Comandi dell'interfaccia della riga di comando di Azure in modalità Gestione servizi di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 * Per altre informazioni sull'interfaccia della riga di comando di Azure, il download del codice sorgente, la segnalazione dei problemi o la collaborazione al progetto, visitare il [repository GitHub per tale interfaccia](https://github.com/azure/azure-xplat-cli).
 * In caso di problemi durante l'uso dell'interfaccia della riga di comando di Azure o di Azure, visitare i [forum di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

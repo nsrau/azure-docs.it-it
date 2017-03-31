@@ -12,18 +12,21 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 03/08/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 582339ae078b9b7fbded2913e56afc36ce2120d5
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 1ebe72255697af16fc28191a102a7c0487968eda
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="batch-feature-overview-for-developers"></a>Panoramica delle funzionalità di Batch per sviluppatori
+# <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Sviluppare soluzioni di calcolo parallele su larga scala con Batch
+
 Questa panoramica dei componenti di base del servizio Azure Batch illustra le funzionalità e le risorse primarie del servizio che gli sviluppatori di Batch possono usare per compilare soluzioni di calcolo parallele su larga scala.
 
-Si usano molte delle risorse e delle funzionalità illustrate in questo articolo, sia per sviluppare un'applicazione o un servizio di calcolo distribuito che rilascia chiamate [API REST][batch_rest_api] dirette che quando si usa uno degli [SDK di Batch](batch-technical-overview.md#batch-development-apis).
+Si usano molte delle risorse e delle funzionalità illustrate in questo articolo, sia per sviluppare un'applicazione o un servizio di calcolo distribuito che rilascia chiamate [API REST][batch_rest_api] dirette che quando si usa uno degli [SDK di Batch](batch-apis-tools.md#batch-development-apis).
 
 > [!TIP]
 > Per un'introduzione più generale al servizio Batch, vedere [Panoramica delle funzionalità di Batch per sviluppatori](batch-technical-overview.md).
@@ -102,7 +105,7 @@ Quando si crea un pool, è possibile specificare gli attributi seguenti:
   * Analogamente ai ruoli di lavoro, è consigliabile specificare `*` per la *Versione sistema operativo*, in modo che i nodi vengano aggiornati automaticamente senza doversi occupare delle nuove versioni rilasciate. Il caso d'uso principale per la selezione di una versione specifica del sistema operativo consiste nell'assicurare la compatibilità delle applicazioni, che permette l'esecuzione del test di compatibilità con le versioni precedenti prima di consentire l'aggiornamento della versione. Dopo la convalida, la *Versione sistema operativo* per il pool può essere aggiornata ed è possibile installare la nuova immagine del sistema operativo. Eventuali attività in esecuzione vengono interrotte e accodate di nuovo.
 * **Dimensioni dei nodi**
 
-    **Cloud Services Configuration** (Configurazione servizi cloud) sono elencate in [Dimensioni dei servizi cloud](../cloud-services/cloud-services-sizes-specs.md). Batch supporta tutte le dimensioni dei servizi cloud tranne `ExtraSmall`.
+    **Cloud Services Configuration** (Configurazione servizi cloud) sono elencate in [Dimensioni dei servizi cloud](../cloud-services/cloud-services-sizes-specs.md). Batch supporta tutte le dimensioni dei servizi cloud tranne `ExtraSmall`, `STANDARD_A1_V2` e `STANDARD_A2_V2`.
 
     Le dimensioni disponibili per i nodi di calcolo **Configurazione macchina virtuale** sono elencate in [Dimensioni delle macchine virtuali in Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) e [Dimensioni delle macchine virtuali in Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows). Batch supporta tutte le dimensioni delle VM di Azure tranne `STANDARD_A0` e quelle con l'archiviazione Premium (serie `STANDARD_GS`, `STANDARD_DS` e `STANDARD_DSV2`).
 
@@ -111,7 +114,7 @@ Quando si crea un pool, è possibile specificare gli attributi seguenti:
     Tutti i nodi in un pool devono hanno le stesse dimensioni. Se si prevede di eseguire applicazioni con requisiti di sistema e/o livelli di carico diversi, è consigliabile usare pool separati.
 * **Numero di nodi di destinazione**
 
-    È il numero di nodi di calcolo che si vuole distribuire nel pool. Viene detto *di destinazione* perché, in alcune situazioni, il pool potrebbe non raggiungere il numero desiderato di nodi. È possibile che un pool non raggiunga il numero desiderato di nodi se raggiunge la [quota core](batch-quota-limit.md#batch-account-quotas) per l'account Batch oppure se al pool è stata applicata una formula di scalabilità automatica che limita il numero massimo di nodi. Vedere la sezione "Criteri di ridimensionamento" seguente.
+    È il numero di nodi di calcolo che si vuole distribuire nel pool. Viene detto *di destinazione* perché, in alcune situazioni, il pool potrebbe non raggiungere il numero desiderato di nodi. È possibile che un pool non raggiunga il numero desiderato di nodi se raggiunge la [quota core](batch-quota-limit.md) per l'account Batch oppure se al pool è stata applicata una formula di scalabilità automatica che limita il numero massimo di nodi. Vedere la sezione "Criteri di ridimensionamento" seguente.
 * **Criteri di ridimensionamento**
 
     Per carichi di lavoro dinamici, è possibile scrivere e applicare una [formula di ridimensionamento automatico](#scaling-compute-resources) a un pool. Il servizio Batch valuta periodicamente la formula e rettifica il numero di nodi nel pool in base a vari parametri relativi a pool, processi e attività specificati.
@@ -424,6 +427,7 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 >
 
 ## <a name="next-steps"></a>Passaggi successivi
+* Informazioni sulle [API e gli strumenti di Batch](batch-apis-tools.md) disponibili per la compilazione di soluzioni Batch.
 * Esaminare in dettaglio un'applicazione Batch di esempio in [Introduzione alla libreria di Azure Batch per .NET](batch-dotnet-get-started.md). È disponibile anche una [versione per Python](batch-python-tutorial.md) dell'esercitazione che esegue un carico di lavoro nei nodi di calcolo Linux.
 * Scaricare e compilare il progetto di esempio [Batch Explorer][github_batchexplorer] da usare durante lo sviluppo di soluzioni Batch. Con Batch Explorer è possibile eseguire le operazioni seguenti e altre ancora:
 
@@ -486,9 +490,4 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
-ms.author: billmath
+ms.date: 2/27/2017
+ms.author: vakarand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: aa20b20c86763791eb579883b5273ea79cc714b5
-ms.openlocfilehash: 00ce8ecfed0516dd9423e6be15f6defbe886c598
-
+ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
+ms.openlocfilehash: 0ae3f2ddfa37d617c02df2628411a877381412d5
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="using-azure-ad-connect-health-with-ad-fs"></a>Uso di Azure AD Connect Health con AD FS
+# <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorare AD FS con Azure AD Connect Health
 La documentazione seguente è specifica per il monitoraggio dell'infrastruttura AD FS con Azure AD Connect Health. Per informazioni sul monitoraggio di Azure Active Directory Connect (Sincronizzazione) con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health per la sincronizzazione](active-directory-aadconnect-health-sync.md). Per informazioni sul monitoraggio di Servizi di dominio Active Directory con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health con Servizi di dominio Active Directory](active-directory-aadconnect-health-adds.md).
 
 ## <a name="alerts-for-ad-fs"></a>Avvisi per AD FS
@@ -35,34 +36,47 @@ Analisi di utilizzo di Azure AD Connect Health analizza il traffico di autentica
 
 > [!NOTE]
 > Per poter usare l'analisi di utilizzo con AD FS, è necessario verificare che il controllo di AD FS sia abilitato. Per altre informazioni, vedere [Abilitare il controllo per AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
-> 
-> 
+>
+>
 
 ![portale di Azure AD Connect Health](./media/active-directory-aadconnect-health/report1.png)
 
-Per selezionare altre metriche, specificare un intervallo di tempo o modificare il raggruppamento, è sufficiente fare clic con il pulsante destro del mouse sul pannello dell'analisi di utilizzo e scegliere Modifica grafico. È quindi possibile specificare l'intervallo di tempo, selezionare metriche diverse e cambiare il raggruppamento. È possibile visualizzare la distribuzione del traffico di autenticazione in "metriche" diverse e raggruppare ogni metrica con i parametri di raggruppamento pertinenti descritti nella tabella seguente:
+Per selezionare altre metriche, specificare un intervallo di tempo o modificare il raggruppamento, è sufficiente fare clic con il pulsante destro del mouse sul pannello dell'analisi di utilizzo e scegliere Modifica grafico. È quindi possibile specificare l'intervallo di tempo, selezionare metriche diverse e cambiare il raggruppamento. È possibile visualizzare la distribuzione del traffico di autenticazione in "metriche" diverse e raggruppare ogni metrica con i parametri di raggruppamento pertinenti descritti nella sezione seguente:
 
-| Metrica | Raggruppa per | Cosa significa il raggruppamento e perché è utile? |
-| --- | --- | --- |
-| Richieste totali: numero totale di richieste elaborate dal servizio federativo |Tutti |Visualizza il conteggio del numero totale di richieste senza raggruppamento. |
-| Applicazione |Raggruppa le richieste totali in base alla relying party di destinazione. Questo raggruppamento è utile per conoscere la percentuale del traffico totale ricevuta da ogni applicazione. | |
-| Server |Raggruppa le richieste totali in base al server che ha elaborato la richiesta. Questo raggruppamento è utile per conoscere la distribuzione del carico del traffico totale. | |
-| Aggiunta all'area di lavoro |Raggruppa le richieste totali in base al fatto che provengano da dispositivi aggiunti all'area di lavoro (noti). Questo raggruppamento è utile per conoscere se le risorse sono accessibili con dispositivi sconosciuti all'infrastruttura di gestione delle identità. | |
-| Metodo di autenticazione |Raggruppa le richieste totali in base al metodo di autenticazione usato per l'autenticazione. Questo raggruppamento è utile per conoscere il metodo di autenticazione comune usato per l'autenticazione. Di seguito sono indicati i metodi di autenticazione possibili  <ol> <li>Autenticazione integrata di Windows (Windows)</li> <li>Autenticazione basata su moduli (Forms)</li> <li>SSO (Single Sign On)</li> <li>Autenticazione certificato X509 (certificato)</li> <br>Se i server federativi ricevono la richiesta con un cookie SSO, tale richiesta viene considerata SSO (Single Sign-On). In questi casi, se il cookie è valido, all'utente non viene chiesto di fornire le credenziali e ottiene l'accesso trasparente all'applicazione. Questo comportamento è normale se sono presenti più relying party protette dai server federativi. | |
-| Percorso di rete |Raggruppa le richieste totali in base al percorso di rete dell'utente. Può essere Intranet o Extranet. Questo raggruppamento è utile per conoscere la percentuale del traffico proveniente dalla Intranet e dalla Extranet. | |
-| Totale richieste non riuscite: numero totale di richieste non riuscite elaborate dal servizio federativo. <br> (Questa metrica è disponibile solo in AD FS per Windows Server 2012 R2) |Tipo di errore |Mostra il numero di errori in base ai tipi di errore predefiniti. Questo raggruppamento è utile per conoscere i tipi di errori comuni. <ul><li>Nome utente o password non corretta: errori causati da un nome utente o una password non corretta.</li> <li>"Blocco Extranet": errori causati dalle richieste ricevute da un utente per il quale è stato bloccato l'accesso alla Extranet. </li><li> "Password scaduta": errori causati da utenti che effettuano l'accesso con una password scaduta.</li><li>"Account disabilitato": errori causati da utenti che effettuano l'accesso con un account disabilitato.</li><li>"Autenticazione dispositivo": errori causati da utenti che non riescono ad autenticarsi con Autenticazione dispositivo.</li><li>"Autenticazione certificato utente": errori causati da utenti che non riescono ad autenticarsi a causa di un certificato non valido.</li><li>"MFA": errori causati da utenti che non riescono ad autenticarsi con Multi-Factor Authentication.</li><li>"Altre credenziali" e "Autorizzazione rilascio": errori causati da errori di autorizzazione.</li><li>"Delega rilascio": errori causati da errori di delega rilascio.</li><li>"Accettazione token": errori causati dal rifiuto da parte di AD FS del token di un provider di identità di terze parti.</li><li>"Protocollo": errore causato da errori del protocollo.</li><li>"Sconosciuto": tutti gli errori. Eventuali altri errori che non rientrano nelle categorie definite.</li> |
-| Server |Raggruppa gli errori in base al server. Questo raggruppamento è utile per conoscere la distribuzione degli errori nei server. Una distribuzione non uniforme potrebbe indicare che un server è in uno stato difettoso. | |
-| Percorso di rete |Raggruppa gli errori in base al percorso di rete delle richieste (Intranet ed Extranet). Questo raggruppamento è utile per conoscere il tipo di richieste che hanno esito negativo. | |
-| Applicazione |Raggruppa gli errori in base all'applicazione di destinazione (relying party). Questo raggruppamento è utile per conoscere l'applicazione di destinazione che sta visualizzando il maggior numero di errori. | |
-| Conteggio utenti: numero medio di utenti univoci attivi nel sistema |Tutti |Questa metrica fornisce un conteggio del numero medio di utenti che usano il servizio federativo nel periodo di tempo selezionato. Gli utenti non sono raggruppati. <br>La media dipende dal periodo di tempo selezionato. |
-| Applicazione |Raggruppa il numero medio di utenti in base all'applicazione di destinazione (relying party). Questo raggruppamento è utile per conoscere quanti utenti stanno usando una determinata applicazione. | |
+**Metrica: richieste totali**, numero totale di richieste elaborate dal servizio AD FS.
+
+|Raggruppa per | Cosa significa il raggruppamento e perché è utile? |
+| --- | --- |
+| Tutti | Mostra il conteggio del numero totale di richieste elaborate da tutti i server AD FS.|
+| Applicazione | Raggruppa le richieste totali in base alla relying party di destinazione. Questo raggruppamento è utile per conoscere la percentuale del traffico totale ricevuta da ogni applicazione. |
+|  Server |Raggruppa le richieste totali in base al server che ha elaborato la richiesta. Questo raggruppamento è utile per conoscere la distribuzione del carico del traffico totale.
+| Aggiunta all'area di lavoro |Raggruppa le richieste totali in base al fatto che provengano da dispositivi aggiunti all'area di lavoro (noti). Questo raggruppamento è utile per conoscere se le risorse sono accessibili con dispositivi sconosciuti all'infrastruttura di gestione delle identità. |
+|  Metodo di autenticazione | Raggruppa le richieste totali in base al metodo di autenticazione usato per l'autenticazione. Questo raggruppamento è utile per conoscere il metodo di autenticazione comune usato per l'autenticazione. Di seguito sono indicati i metodi di autenticazione possibili  <ol> <li>Autenticazione integrata di Windows (Windows)</li> <li>Autenticazione basata su moduli (Forms)</li> <li>SSO (Single Sign On)</li> <li>Autenticazione certificato X509 (certificato)</li> <br>Se i server federativi ricevono la richiesta con un cookie SSO, tale richiesta viene considerata SSO (Single Sign-On). In questi casi, se il cookie è valido, all'utente non viene chiesto di fornire le credenziali e ottiene l'accesso trasparente all'applicazione. Questo comportamento è normale se sono presenti più relying party protette dai server federativi. |
+| Percorso di rete | Raggruppa le richieste totali in base al percorso di rete dell'utente. Può essere Intranet o Extranet. Questo raggruppamento è utile per conoscere la percentuale del traffico proveniente dalla Intranet e dalla Extranet. |
+
+
+**Metrica: totale richieste non riuscite**, numero totale di richieste non riuscite elaborate dal servizio federativo. (Questa metrica è disponibile solo in AD FS per Windows Server 2012 R2)
+
+|Raggruppa per | Cosa significa il raggruppamento e perché è utile? |
+| --- | --- |
+| Tipo di errore | Mostra il numero di errori in base ai tipi di errore predefiniti. Questo raggruppamento è utile per conoscere i tipi di errori comuni. <ul><li>Nome utente o password non corretta: errori causati da un nome utente o una password non corretta.</li> <li>"Blocco Extranet": errori causati dalle richieste ricevute da un utente per il quale è stato bloccato l'accesso alla Extranet. </li><li> "Password scaduta": errori causati da utenti che effettuano l'accesso con una password scaduta.</li><li>"Account disabilitato": errori causati da utenti che effettuano l'accesso con un account disabilitato.</li><li>"Autenticazione dispositivo": errori causati da utenti che non riescono ad autenticarsi con Autenticazione dispositivo.</li><li>"Autenticazione certificato utente": errori causati da utenti che non riescono ad autenticarsi a causa di un certificato non valido.</li><li>"MFA": errori causati da utenti che non riescono ad autenticarsi con Multi-Factor Authentication.</li><li>"Altre credenziali" e "Autorizzazione rilascio": errori causati da errori di autorizzazione.</li><li>"Delega rilascio": errori causati da errori di delega rilascio.</li><li>"Accettazione token": errori causati dal rifiuto da parte di AD FS del token di un provider di identità di terze parti.</li><li>"Protocollo": errore causato da errori del protocollo.</li><li>"Sconosciuto": tutti gli errori. Eventuali altri errori che non rientrano nelle categorie definite.</li> |
+| Server | Raggruppa gli errori in base al server. Questo raggruppamento è utile per conoscere la distribuzione degli errori nei server. Una distribuzione non uniforme potrebbe indicare che un server è in uno stato difettoso. |
+| Percorso di rete | Raggruppa gli errori in base al percorso di rete delle richieste (Intranet ed Extranet). Questo raggruppamento è utile per conoscere il tipo di richieste che hanno esito negativo. |
+|  Applicazione | Raggruppa gli errori in base all'applicazione di destinazione (relying party). Questo raggruppamento è utile per conoscere l'applicazione di destinazione che sta visualizzando il maggior numero di errori. |
+
+**Metrica: numero di utenti**, media del numero di utenti univoci che eseguono attivamente l'autenticazione con ADFS
+
+|Raggruppa per | Cosa significa il raggruppamento e perché è utile? |
+| --- | --- |
+|Tutti |Questa metrica fornisce un conteggio del numero medio di utenti che usano il servizio federativo nel periodo di tempo selezionato. Gli utenti non sono raggruppati. <br>La media dipende dal periodo di tempo selezionato. |
+| Applicazione |Raggruppa il numero medio di utenti in base all'applicazione di destinazione (relying party). Questo raggruppamento è utile per conoscere quanti utenti stanno usando una determinata applicazione. |
 
 ## <a name="performance-monitoring-for-ad-fs"></a>Monitoraggio delle prestazioni per AD FS
 Il monitoraggio delle prestazioni di Azure AD Connect Health offre informazioni di monitoraggio sulle metriche. Se si seleziona la casella Monitoraggio, viene visualizzato un nuovo pannello che include informazioni dettagliate sulle metriche.
 
 ![portale di Azure AD Connect Health](./media/active-directory-aadconnect-health/perf1.png)
 
-Selezionando l'opzione Filtro nella parte superiore del pannello, è possibile filtrare in base al server per visualizzare le metriche di un singolo server. Per modificare le metriche, fare clic con il pulsante destro del mouse sul grafico di monitoraggio sotto il pannello Monitoraggio e scegliere Modifica grafico. Dal nuovo pannello visualizzato è quindi possibile selezionare altre metriche nell'elenco a discesa e specificare un intervallo di tempo per cui visualizzare i dati delle prestazioni.
+Selezionando l'opzione Filtro nella parte superiore del pannello, è possibile filtrare in base al server per visualizzare le metriche di un singolo server. Per modificare le metriche, fare clic con il pulsante destro del mouse sul grafico di monitoraggio nel pannello Monitoraggio e scegliere Modifica grafico (oppure selezionare il pulsante Modifica grafico). Dal nuovo pannello visualizzato è possibile selezionare altre metriche nell'elenco a discesa e specificare un intervallo di tempo per cui visualizzare i dati delle prestazioni.
 
 ## <a name="reports-for-ad-fs"></a>Report per AD FS
 Azure AD Connect Health fornisce report sulle attività e le prestazioni di AD FS. I report forniscono informazioni significative sulle attività dei server AD FS agli amministratori.
@@ -102,8 +116,8 @@ Il report fornisce le informazioni seguenti:
 
 > [!NOTE]
 > Il report viene aggiornato automaticamente ogni due ore con le nuove informazioni raccolte. Di conseguenza, i tentativi di accesso nelle ultime due ore potrebbero non essere inclusi nel report.
-> 
-> 
+>
+>
 
 ## <a name="related-links"></a>Collegamenti correlati
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
@@ -113,10 +127,3 @@ Il report fornisce le informazioni seguenti:
 * [Uso di Azure AD Connect Health con Servizi di dominio Active Directory](active-directory-aadconnect-health-adds.md)
 * [Domande frequenti su Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Cronologia delle versioni di Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

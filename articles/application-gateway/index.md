@@ -1,12 +1,24 @@
 ---
-layout: LandingPage
+title: Documentazione del gateway applicazione di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come distribuire un controller di distribuzione di applicazioni cloud. I documenti mostrano come configurare servizi di routing e bilanciamento del carico a livello di applicazione per un front-end Web.
+services: application-gateway
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: application-gateway
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 8f9b8cee583b9bc12df14bf5161cab1952e3e022
-ms.openlocfilehash: 5e7843adfb31fcfc56986cce44fc5d59ee558d58
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 535364a9da46b137c4d32e1c3049a5be3496e5d2
+ms.lasthandoff: 03/15/2017
 
 ---
-#<a name="application-gateway-documentation"></a>Documentazione sul gateway applicazione
+# <a name="application-gateway-documentation"></a>Documentazione sul gateway applicazione
 
 Informazioni su come distribuire un gateway applicazione, un controller della distribuzione di applicazioni come servizio. Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come configurare servizi di routing e bilanciamento del carico a livello di applicazione per creare un front-end Web scalabile e a disponibilità elevata.
 
@@ -114,7 +126,7 @@ Informazioni su come distribuire un gateway applicazione, un controller della di
                     <div class="cardText">
                         <h3>Riga di comando</h3>
                         <p><a href="/powershell/resourcemanager">PowerShell</a></p>
-                        <p><a href="/cli/azure/network/application-gateway">Anteprima dell'interfaccia della riga di comando di Azure 2.0</a></p>
+                        <p><a href="/cli/azure/network/application-gateway">Interfaccia della riga di comando di Azure 2.0</a></p>
                     </div>
                 </div>
             </div>
@@ -143,24 +155,13 @@ Informazioni su come distribuire un gateway applicazione, un controller della di
                     <div class="cardText">
                         <h3>REST</h3>
                         <p><a href="https://msdn.microsoft.com/library/mt684941">Informazioni di riferimento sulle API REST</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt299393">Versione classica delle informazioni di riferimento sulle API REST</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt299393">Informazioni di riferimento sulle API REST (versione classica)</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
-</ul>   
+</ul>    
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-gateway.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scarica la documentazione del gateway applicazione </div>
-    </a>
-</div>
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

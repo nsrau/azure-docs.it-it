@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2016
+ms.date: 02/13/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3e6982023a40d0794ab1285302f48047e68c499d
+ms.sourcegitcommit: 7cc133d6289bffbc3b7fc591104bc51ebfc67ddd
+ms.openlocfilehash: 603505ed07f7ab38470b669295acf08a35d9f38e
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -35,25 +36,26 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 Per configurare l'integrazione di Azure AD con Pacific Timesheet sono necessari gli elementi seguenti:
 
 * Sottoscrizione di Azure AD.
-* Sottoscrizione di **Pacific Timesheet** abilitata per l'accesso Single Sign-On
+* Sottoscrizione di Pacific Timesheet abilitata per l'accesso Single Sign-On (SSO)
 
-> [!NOTE]
-> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
-> 
-> 
+>[!NOTE]
+>Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
+>  
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 * Non usare l'ambiente di produzione, a meno che non sia necessario.
-* Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+* Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. 
 
-1. Aggiunta di Pacific Timesheet dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
-## <a name="adding-pacific-timesheet-from-the-gallery"></a>Aggiunta di Pacific Timesheet dalla raccolta
+* Aggiunta di Pacific Timesheet dalla raccolta
+* Configurazione e test dell'accesso Single Sign-On di Azure AD
+
+## <a name="add-pacific-timesheet-from-the-gallery"></a>Aggiungere Pacific Timesheet dalla raccolta
 Per configurare l'integrazione di Pacific Timesheet in Azure AD, è necessario aggiungere Pacific Timesheet dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Pacific Timesheet dalla raccolta, seguire questa procedura:**
@@ -78,19 +80,20 @@ Per configurare l'integrazione di Pacific Timesheet in Azure AD, è necessario a
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-pacific-timesheet-tutorial/tutorial_pacific_timesheet_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Pacific Timesheet con un utente test di nome "Britta Simon".
 
 Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere l'utente controparte di Pacific Timesheet che corrisponde a un utente di Azure AD. In altre parole deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Pacific Timesheet.
+
 La relazione di collegamento viene stabilita assegnando al valore di **nome utente** in Azure AD lo stesso valore di **Username** (Nome utente) in Pacific Timesheet. Per configurare e testare l'accesso Single Sign-On di Azure AD con Pacific Timesheet è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente test di Pacific Timesheet](#creating-a-pacific-timesheet-test-user)**: per avere una controparte di Britta Simon in Pacific Timesheet collegata alla relativa rappresentazione in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione Pacific Timesheet.
 
 **Per configurare l'accesso Single Sign-On di Azure AD con Pacific Timesheet, seguire questa procedura:**
@@ -107,25 +110,23 @@ Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel 
 4. Nella pagina della finestra di dialogo **Configurare le impostazioni dell'app**, per configurare l'applicazione in **modalità avviata da IDP** seguire questa procedura:
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-pacific-timesheet-tutorial/tutorial_pacific_timesheet_07.png)
+  1. Nella casella di testo Identificatore digitare l'URL nel formato seguente: `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`
+  2. Nella casella di testo URL di risposta digitare l'URL usando il modello seguente: `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`.
+  3. Fare clic su **Avanti**.
 
-    a. Nella casella di testo Identificatore digitare l'URL nel formato seguente: `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`.
-
-    b. Nella casella di testo URL di risposta digitare l'URL usando il modello seguente: `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`.
-
-    b. Fare clic su **Avanti**.
-
-1. Nella pagina **Configura accesso Single Sign-On in Pacific Timesheet**. fare clic su **Scarica certificato**e quindi salvare il file nel computer.
+5. Nella pagina **Configura accesso Single Sign-On in Pacific Timesheet**. fare clic su **Scarica certificato**e quindi salvare il file nel computer.
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-pacific-timesheet-tutorial/tutorial_pacific_timesheet_09.png)
-2. Per ottenere la configurazione di SSO per l'applicazione, contattare il team di supporto di Pacific Timesheet. Si noti che è necessario inviare un messaggio di posta elettronica con l'URL dell'autorità emittente e i valori URL SSO SAML della pagina **Configura accesso Single Sign-On in Pacific Timesheet** e allegare il certificato scaricato.
-3. Nel portale di Azure classico selezionare la conferma della configurazione e quindi fare clic su **Avanti**.
+6. Per ottenere la configurazione di SSO per l'applicazione, contattare il team di supporto di Pacific Timesheet. Si noti che è necessario inviare un messaggio di posta elettronica con l'URL dell'autorità emittente e i valori URL SSO SAML della pagina **Configura accesso Single Sign-On in Pacific Timesheet** e allegare il certificato scaricato.
+
+7. Nel portale di Azure classico selezionare la conferma della configurazione e quindi fare clic su **Avanti**.
    
     ![Single Sign-On di Microsoft Azure AD][10]
 4. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.  
    
     ![Single Sign-On di Microsoft Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 In questa sezione viene creato un utente test chiamato Britta Simon nel portale classico.
 
 ![Creare un utente di Azure AD][20]
@@ -145,40 +146,30 @@ In questa sezione viene creato un utente test chiamato Britta Simon nel portale 
 5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-pacific-timesheet-tutorial/create_aaduser_05.png) 
-   
-    a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
-   
-    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
-   
-    c. Fare clic su **Avanti**.
+  1. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
+  2. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
+  3. Fare clic su **Avanti**.
 6. Nella pagina **Profilo utente** seguire questa procedura:
    
    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-pacific-timesheet-tutorial/create_aaduser_06.png) 
-   
-   a. Nella casella di testo **Nome** digitare **Britta**.  
-   
-   b. Nella casella di testo **Cognome** digitare **Simon**.
-   
-   c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
-   
-   d. Nell'elenco **Ruolo** selezionare **Utente**.
-   
-   e. Fare clic su **Avanti**.
+  1. Nella casella di testo **Nome** digitare **Britta**.   
+  2. Nella casella di testo **Cognome** digitare **Simon**.
+  3. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
+  4. Nell'elenco **Ruolo** selezionare **Utente**.
+  5. Fare clic su **Avanti**.
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-pacific-timesheet-tutorial/create_aaduser_07.png) 
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-pacific-timesheet-tutorial/create_aaduser_08.png) 
-   
-    a. Prendere nota del valore visualizzato in **Nuova password**.
-   
-    b. Fare clic su **Completa**.   
+  1. Prendere nota del valore visualizzato in **Nuova password**.
+  2. Fare clic su **Completa**.   
 
-### <a name="creating-a-pacific-timesheet-test-user"></a>Creazione di un utente di test di Pacific Timesheet
+### <a name="create-a-pacific-timesheet-test-user"></a>Creare un utente di test di Pacific Timesheet
 In questa sezione viene creato un utente di nome Britta Simon in Pacific Timesheet. Collaborare con il team di supporto di Pacific Timesheet per creare un utente nell'applicazione.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 In questa sezione, Britta Simon viene abilitata all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Pacific Timesheet.
 
 ![Assegna utente][200] 
@@ -199,7 +190,7 @@ In questa sezione, Britta Simon viene abilitata all'uso dell'accesso Single Sign
    
     ![Assegna utente][205]
 
-### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Pacific Timesheet nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Pacific Timesheet.
@@ -228,9 +219,4 @@ Quando si fa clic sul riquadro Pacific Timesheet nel pannello di accesso, si dov
 [203]: ./media/active-directory-saas-pacific-timesheet-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-pacific-timesheet-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-pacific-timesheet-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

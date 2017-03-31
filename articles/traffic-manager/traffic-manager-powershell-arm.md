@@ -1,5 +1,5 @@
 ---
-title: Supporto di Azure Resource Manager per Gestione traffico | Documentazione Microsoft
+title: Uso di PowerShell per Gestione traffico in Azure | Microsoft Docs
 description: Uso di PowerShell per Gestione traffico con Azure Resource Manager
 services: traffic-manager
 documentationcenter: na
@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: f97ba8ebc940d4b3eec5d2610503f8a86af8dbe2
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: c2fb44817f168eee8303d0c07473f043ae30d350
+ms.lasthandoff: 03/18/2017
 
 ---
 
-# <a name="azure-resource-manager-support-for-azure-traffic-manager"></a>Supporto di Azure Resource Manager per Gestione traffico di Azure
+# <a name="using-powershell-to-manage-traffic-manager"></a>Uso di PowerShell per Gestione traffico
 
 Azure Resource Manager è l'interfaccia di gestione preferita dei servizi in Azure. I profili di Gestione traffico di Azure possono ora essere gestiti usando le API e gli strumenti basati su Azure Resource Manager.
 
@@ -30,23 +31,6 @@ Gestione traffico di Azure viene configurato utilizzando una serie di impostazio
 Ogni profilo di Gestione traffico è rappresentato da una risorsa di tipo "TrafficManagerProfiles". A livello di API REST, l'URI per ogni profilo è analogo al seguente:
 
     https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/trafficManagerProfiles/{profile-name}?api-version={api-version}
-
-## <a name="comparison-with-the-azure-traffic-manager-classic-api"></a>Confronto con l'API classica di Gestione traffico di Azure
-
-Il supporto di Azure Resource Manager per Gestione traffico usa una terminologia diversa rispetto al modello di distribuzione classica. La tabella seguente illustra le differenze tra i termini usati nel modello Resource Manager e quelli usati nel modello classico:
-
-| Termine di Resource Manager | Termine classico |
-| --- | --- |
-| Metodo di routing del traffico |Metodo di bilanciamento del carico |
-| Metodo Priorità |Metodo Failover |
-| Metodo Ponderato |Metodo Round robin |
-| Metodo Prestazioni |Metodo Prestazioni |
-
-Questa modifica è stata introdotta in base ai commenti degli utenti per migliorare la chiarezza e ridurre le incomprensioni comuni. Non esistono differenze in termini di funzionalità.
-
-## <a name="limitations"></a>Limitazioni
-
-Quando si fa riferimento a un endpoint di tipo "AzureEndpoints" per un App Web, gli endpoint di Gestione traffico possono fare riferimento solo allo [slot dell'App Web](../app-service-web/web-sites-staged-publishing.md) (produzione) predefinito. Gli slot personalizzati non sono supportati. In alternativa, gli slot personalizzati possono essere configurati usando il tipo 'ExternalEndpoints'.
 
 ## <a name="setting-up-azure-powershell"></a>Configurazione di Azure PowerShell
 
@@ -127,11 +111,10 @@ In tutti e tre i casi è possibile aggiungere gli endpoint in due modi:
 
 ## <a name="adding-azure-endpoints"></a>Aggiunta di endpoint di Azure
 
-Gli endpoint di Azure fanno riferimento ai servizi ospitati in Azure. Sono attualmente supportati 3 tipi di endpoint di Azure:
+Gli endpoint di Azure fanno riferimento ai servizi ospitati in Azure. Sono attualmente supportati due tipi di endpoint di Azure:
 
 1. App Web di Azure 
-2. Servizi cloud "classici" (che possono includere un servizio PaaS o macchine virtuali IaaS)
-3. Risorse di tipo publicIpAddress di Azure, che possono essere associate a un servizio di bilanciamento del carico o a una scheda di interfaccia di rete di una macchina virtuale. La risorsa di tipo PublicIpAddress deve avere un nome DNS assegnato da usare in Gestione traffico.
+2. Risorse di tipo publicIpAddress di Azure, che possono essere associate a un servizio di bilanciamento del carico o a una scheda di interfaccia di rete di una macchina virtuale. La risorsa di tipo PublicIpAddress deve avere un nome DNS assegnato da usare in Gestione traffico.
 
 In ogni caso:
 
@@ -152,17 +135,7 @@ $webapp2 = Get-AzureRMWebApp -Name webapp2
 Add-AzureRmTrafficManagerEndpointConfig -EndpointName webapp2ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp2.Id -EndpointStatus Enabled
 Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 ```
-
-### <a name="example-2-adding-a-classic-cloud-service-endpoint-using-new-azurermtrafficmanagerendpoint"></a>Esempio 2: Aggiunta di un endpoint di servizio cloud "classico" mediante `New-AzureRmTrafficManagerEndpoint`
-
-In questo esempio viene aggiunto un endpoint di servizio cloud "classico" a un profilo di Gestione traffico. In questo esempio il profilo viene specificato usando i nomi del profilo e del gruppo di risorse, anziché passando un oggetto profilo. Sono supportati entrambi gli approcci.
-
-```powershell
-$cloudService = Get-AzureRmResource -ResourceName MyCloudService -ResourceType "Microsoft.ClassicCompute/domainNames" -ResourceGroupName MyCloudService
-New-AzureRmTrafficManagerEndpoint -Name MyCloudServiceEndpoint -ProfileName MyProfile -ResourceGroupName MyRG -Type AzureEndpoints -TargetResourceId $cloudService.Id -EndpointStatus Enabled
-```
-
-### <a name="example-3-adding-a-publicipaddress-endpoint-using-new-azurermtrafficmanagerendpoint"></a>Esempio 3: Aggiunta di un endpoint publicIpAddress usando `New-AzureRmTrafficManagerEndpoint`
+### <a name="example-2-adding-a-publicipaddress-endpoint-using-new-azurermtrafficmanagerendpoint"></a>Esempio 2: Aggiunta di un endpoint publicIpAddress usando `New-AzureRmTrafficManagerEndpoint`
 
 In questo esempio viene aggiunta una risorsa indirizzo IP pubblico al profilo di Gestione traffico. L'indirizzo IP pubblico deve avere un nome DNS configurato e può essere associato alla NIC di una VM o a un servizio di bilanciamento del carico.
 
@@ -339,9 +312,4 @@ Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remov
 [Monitoraggio di Gestione traffico](traffic-manager-monitoring.md)
 
 [Considerazioni sulle prestazioni di gestione traffico](traffic-manager-performance-considerations.md)
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

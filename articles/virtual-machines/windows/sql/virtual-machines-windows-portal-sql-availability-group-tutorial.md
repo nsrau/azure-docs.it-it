@@ -1,5 +1,5 @@
 ---
-title: "Gruppi di disponibilità di SQL Server: Macchine virtuali di Azure: esercitazione | Documentazione Microsoft"
+title: "Gruppi di disponibilità di SQL Server: Macchine virtuali di Azure: esercitazione | Microsoft Docs"
 description: "Questa esercitazione illustra come creare un gruppo di disponibilità SQL Server AlwaysOn in Macchine virtuali di Azure."
 services: virtual-machines
 documentationCenter: na
@@ -14,11 +14,12 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/10/2016
+ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 54dcec29b9ec6a6e518658e9be15c4ed63917bd4
-ms.openlocfilehash: c59bf8bfdee095ebc0a9afe07f2c43beb77e772d
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 81de52ac95aaf1b6d02572a70a4c1a84fb541401
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -55,7 +56,8 @@ Prima di iniziare l'esercitazione, è necessario [completare i prerequisiti per 
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
 
-## <a name="a-namecreateclusteracreate-the-cluster"></a><a name="CreateCluster"></a>Creare il cluster
+<a name="CreateCluster"></a>
+## Creare il cluster
 
 Dopo avere completato i prerequisiti, il primo passaggio prevede la creazione di un cluster di failover Windows Server con due istanze di SQL Server e un server di controllo.  
 
@@ -88,7 +90,7 @@ Dopo avere completato i prerequisiti, il primo passaggio prevede la creazione di
 3. Selezionare **Indirizzo IP statico** e nella casella di testo Indirizzo specificare un indirizzo disponibile dalla subnet in cui si trova l'istanza di SQL Server. Fare quindi clic su **OK**.
 4. Nella sezione **Risorse principali del cluster** fare clic con il pulsante destro del mouse sul nome del cluster e scegliere **Porta online**. Attendere finché entrambe le risorse non sono online Quando la risorsa del nome cluster torna online, il server del controller di dominio viene aggiornato con un nuovo account del computer Active Directory. Usare l'account Active Directory per eseguire il servizio del cluster del gruppo di disponibilità in un secondo momento.
 
-### <a name="a-nameaddnodeaadd-the-other-sql-server-to-cluster"></a><a name="addNode"></a>Aggiungere l'altra istanza di SQL Server al cluster
+### <a name="addNode"></a>Aggiungere l'altra istanza di SQL Server al cluster
 
 Aggiungere l'altra istanza di SQL Server al cluster.
 
@@ -221,7 +223,7 @@ Repeat these steps on the second SQL Server.
 7. In **Esplora oggetti** fare clic con il pulsante destro del mouse su **Database** e scegliere **Nuovo database**.
 8. In **Nome database** digitare **MyDB1**, quindi fare clic su **OK**.
 
-### <a name="a-namebackupsharea-create-a-backup-share"></a><a name="backupshare"></a> Creare una condivisione di backup
+### <a name="backupshare"></a> Creare una condivisione di backup
 
 1. In **Server Manager** nella prima istanza di SQL Server fare clic su **Strumenti**. Aprire **Gestione computer**.
 
@@ -294,7 +296,7 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
 
     ![Creazione guidata nuovo gruppo di disponibilità: selezionare la sincronizzazione dati iniziale](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. Nella pagina **Seleziona sincronizzazione dei dati iniziale** selezionare **Completa** e specificare un percorso di rete condiviso. Per il percorso, usare la [condivisione di backup creata](#backupshare). Nell'esempio era **\\\\\<Prima istanza di SQL Server\>\Backup\**. Fare clic su **Avanti**.
+8. Nella pagina **Seleziona sincronizzazione dei dati iniziale** selezionare **Completa** e specificare un percorso di rete condiviso. Per il percorso, usare la [condivisione di backup creata](#backupshare). Nell'esempio era **\\\\\<Prima istanza di SQL Server\>\Backup\**. Fare clic su**Avanti**.
 
    >[!NOTE]
    >La sincronizzazione completa acquisisce un backup completo del database nella prima istanza di SQL Server e lo ripristina nella seconda istanza. Per i database di grandi dimensioni, la sincronizzazione completa non è consigliabile perché può richiedere diverso tempo. È possibile ridurre manualmente il tempo necessario acquisendo un backup del database e ripristinandolo con `NO RECOVERY`. Se il database è già stato ripristinato con `NO RECOVERY` nella seconda istanza di SQL Server prima di configurare il gruppo di disponibilità, scegliere **Solo join**. Per acquisire il backup dopo la configurazione del gruppo di disponibilità, scegliere **Ignora sincronizzazione dei dati iniziale**.
@@ -330,7 +332,7 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
    ![Gruppo di disponibilità in Gestione cluster di failover](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/80-clustermanager.png)
 
    > [!WARNING]
-   > Non provare a eseguire il failover del gruppo di disponibilità da Gestione cluster di failover. È consigliabile eseguire tutte le operazioni di failover nel **Dashboard AlwaysOn** in SSMS. Per altre informazioni, vedere le [restrizioni relative all'uso di Gestione cluster di failover WSFC con i gruppi di disponibilità](https://msdn.microsoft.com/library/ff929171.aspx).
+   > Non provare a eseguire il failover del gruppo di disponibilità da Gestione cluster di failover. È consigliabile eseguire tutte le operazioni di failover nel **Dashboard AlwaysOn** in SSMS. Per altre informazioni, vedere [Restrictions on Using The Failover Cluster Manager with Availability Groups](https://msdn.microsoft.com/library/ff929171.aspx) (Limitazioni sull'uso di Gestione cluster di failover con i gruppi di disponibilità).
     >
 
 A questo punto, è presente un gruppo di disponibilità con repliche in due istanze di SQL Server. È possibile spostare il gruppo di disponibilità tra le istanze. Non è ancora possibile connettersi al gruppo di disponibilità perché non si ha un listener. Nelle macchine virtuali di Azure il listener richiede un servizio di bilanciamento del carico. Il passaggio successivo consiste nel creare il servizio di bilanciamento del carico in Azure.
@@ -432,7 +434,7 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
 
 1. Fare clic su **OK** per impostare le regole di bilanciamento del carico.
 
-## <a name="a-nameconfigure-listenera-configure-the-listener"></a><a name="configure-listener"></a> Configurare il listener
+## <a name="configure-listener"></a> Configurare il listener
 
 A questo punto, è necessario configurare il listener del gruppo di disponibilità nel cluster di failover.
 
@@ -453,7 +455,7 @@ In SQL Server Management Studio impostare la porta del listener.
 
 1. Viene visualizzato il nome del listener creato in Gestione Cluster di Failover. Fare clic con il pulsante destro del mouse sul nome del listener e quindi su **Proprietà**.
 
-1. Nella casella **Porta** specificare il numero di porta per il listener del gruppo di disponibilità usando il valore di $EndpointPort usato in precedenza (l'impostazione predefinita era&1433;), quindi fare clic su **OK**.
+1. Nella casella **Porta** specificare il numero di porta per il listener del gruppo di disponibilità usando il valore di $EndpointPort usato in precedenza (l'impostazione predefinita era 1433), quindi fare clic su **OK**.
 
 Ora si ha un gruppo di disponibilità di SQL Server nelle macchine virtuali di Azure in esecuzione in modalità Resource Manager.
 
@@ -501,9 +503,4 @@ La connessione SQLCMD si connette automaticamente a qualsiasi istanza di SQL Ser
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Add an IP address to a load balancer for a second availability group](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md#Add-IP) (Aggiungere un indirizzo IP a un servizio di bilanciamento del carico per un secondo gruppo di disponibilità).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

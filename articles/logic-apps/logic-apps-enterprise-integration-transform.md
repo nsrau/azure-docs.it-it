@@ -1,6 +1,6 @@
 ---
-title: Panoramica di Enterprise Integration Pack | Documentazione Microsoft
-description: "Usare le funzionalità di Enterprise Integration Pack per abilitare processi aziendali e scenari di integrazione tramite il Servizio app di Microsoft Azure"
+title: Convertire i dati XML con le trasformazioni - App per la logica di Azure | Microsoft Docs
+description: Creare trasformazioni o mappe per convertire i dati XML da un formato a un altro nelle app per la logica con l&quot;SDK di Enterprise Integration
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: deonhe
+ms.author: estfan
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: cca850073040cde0fb6f035f041419ac777bb0a2
+ms.sourcegitcommit: 9369b90471ee775664b942b21ceb450b8852eafd
+ms.openlocfilehash: a8684769e73dd3f7a76cba9c78046abceb842918
 
 
 ---
@@ -75,6 +75,6 @@ A questo punto, la configurazione della mappa è completa. In un'applicazione re
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

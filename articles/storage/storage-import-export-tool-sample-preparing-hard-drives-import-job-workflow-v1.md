@@ -1,5 +1,5 @@
 ---
-title: Flusso di lavoro campione per preparare i dischi rigidi per un processo di importazione | Microsoft Docs
+title: Flusso di lavoro campione per preparare i dischi rigidi per un processo di importazione di Azure | Documentazione Microsoft
 description: "Viene illustrata una procedura dettagliata e completa su come preparare le unità per un processo di importazione nel servizio di Importazione/Esportazione di Azure"
 author: muralikk
 manager: syadav
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: fbcc295284d060b9a8bc5cf1cb9f8b2fca566db4
-ms.openlocfilehash: 775deb2717e5062e8eb4be7f10dd5bf3c2682f1b
+ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
+ms.openlocfilehash: ee7a8c9ae4cda5b67184100dd37ee4e0384aff26
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -164,9 +165,4 @@ Dopo aver completato le sessioni di copia, è possibile disconnettere le due uni
 ## <a name="see-also"></a>Vedere anche  
 [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)  (Preparazione dei dischi rigidi per un processo di importazione)  
 [Quick Reference for Frequently Used Commands](storage-import-export-tool-quick-reference-v1.md) (Riferimento rapido per i comandi usati più di frequente) 
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

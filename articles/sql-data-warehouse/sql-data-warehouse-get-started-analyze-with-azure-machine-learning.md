@@ -4,7 +4,7 @@ description: Usare Azure Machine Learning per creare un modello predittivo di ap
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
-manager: barbkess
+manager: jhubbard
 editor: 
 ms.assetid: 95635460-150f-4a50-be9c-5ddc5797f8a9
 ms.service: sql-data-warehouse
@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: kevin;barbkess
+ms.date: 03/02/2017
+ms.author: kevin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 42d71bf43070e08ae287a7b251c5bb94a6a80548
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: a5befbf1dc1862b3b0803eb4940341d246ec036c
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -32,7 +33,7 @@ ms.openlocfilehash: 42d71bf43070e08ae287a7b251c5bb94a6a80548
 
 Questa esercitazione usa Azure Machine Learning per creare un modello predittivo di apprendimento automatico basato sui dati archiviati in Azure SQL Data Warehouse. Nello specifico, verrà compilata una campagna di marketing mirata di Adventure Works, il negozio di biciclette, per stimare la probabilità che un cliente acquisti una bicicletta o meno.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Integrating-Azure-Machine-Learning-with-Azure-SQL-Data-Warehouse/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Integrating-Azure-Machine-Learning-with-Azure-SQL-Data-Warehouse/player]
 > 
 > 
 
@@ -41,7 +42,7 @@ Per eseguire questa esercitazione, è necessario:
 
 * Un'istanza di SQL Data Warehouse in cui sia precaricato il database di esempio AdventureWorksDW. Per effettuarne il provisioning, vedere [Creare un Azure SQL Data Warehouse][Create a SQL Data Warehouse] e scegliere di caricare i dati di esempio. Se si ha già un data warehouse, ma non i dati di esempio, è possibile [caricare manualmente i dati di esempio][load sample data manually].
 
-## <a name="1-get-data"></a>1. Ottenere i dati
+## <a name="1-get-the-data"></a>1. Ottenere i dati
 I dati sono disponibili nella visualizzazione dbo.vTargetMail nel database AdventureWorksDW. Per leggere i dati:
 
 1. Accedere ad [Azure Machine Learning Studio][Azure Machine Learning studio] e fare clic sugli esperimenti personali.
@@ -146,9 +147,4 @@ Per altre informazioni sulla creazione di modelli di apprendimento automatico pr
 [Introduction to Machine Learning on Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
 [load sample data manually]: sql-data-warehouse-load-sample-databases.md
 [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

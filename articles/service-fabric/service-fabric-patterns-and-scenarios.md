@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/30/2016
+ms.date: 03/08/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: e96941bebe07553f8575be4f5dd4ead3271225c9
-ms.openlocfilehash: 924f3287a2b34103eba56310e8e4c4e3e063a44b
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: df7c127f4ab140cb26c82e723964f1d99f03131a
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -94,14 +95,9 @@ Ottenere la risposta alla domanda "Perché usare i contenitori?" Informazioni su
 <table><tr><th>Video</th><th>Presentazione di PowerPoint</th></tr>
 <tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=V1ERJhSGD_305167344">
 <img src="./media/service-fabric-patterns-and-scenarios/containers.png" WIDTH="360" HEIGHT="244">
-</a></td><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mlYsZRSGD_2105167344">Contenitori e supporto di Linux</a></td></tr>
+</a></td><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mlYsZRSGD_2105167344">Contenitori e supporto Linux</a></td></tr>
 </table>
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver raccolto informazioni dettagliate sui modelli e gli scenari di utilizzo di Service Fabric, è possibile procedere con la lettura e scoprire come [creare e gestire i cluster](service-fabric-deploy-anywhere.md), [eseguire la migrazione delle app di Servizi cloud a Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md), [configurare il recapito continuo](service-fabric-set-up-continuous-integration.md) e [distribuire i contenitori](service-fabric-containers-overview.md).
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

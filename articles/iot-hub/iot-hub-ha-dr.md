@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: f133300d88b0ffc10b287879ec78f4c63e9ba62d
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 76c3187549e1821908263c30e394db26ee6f75e6
 
 
 ---
@@ -29,10 +29,10 @@ Oltre alla disponibilità elevata all'interno della stessa area, l'hub IoT imple
 | Funzionalità | RPO |
 | --- | --- |
 | Disponibilità del servizio per le operazioni del Registro di sistema e di comunicazione |Possibile perdita di CName |
-| Dati sull'identità nel registro delle identità |Perdita di dati da 0 a 5 minuti |
+| Dati sull'identità nel registro delle identità |Perdita di dati da&0; a&5; minuti |
 | Messaggi da dispositivo a cloud |Tutti i messaggi non letti vengono persi |
 | Messaggi di monitoraggio delle operazioni |Tutti i messaggi non letti vengono persi |
-| Messaggi da cloud a dispositivo |Perdita di dati da 0 a 5 minuti |
+| Messaggi da cloud a dispositivo |Perdita di dati da&0; a&5; minuti |
 | Coda di commenti da cloud a dispositivo |Tutti i messaggi non letti vengono persi |
 
 ## <a name="regional-failover-with-iot-hub"></a>Failover di area con l'hub IoT
@@ -62,6 +62,6 @@ Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

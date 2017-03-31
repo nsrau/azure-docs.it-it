@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/25/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: c3540d86a12935cea100248f7f6669df34ae2209
-ms.openlocfilehash: cedc52b514eacb6cf7bc32634819573f5ee154c3
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 226e86703843b026d20123543cf5311a5355aad4
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -27,10 +28,10 @@ Vedere [Cenni preliminari sulla diagnostica di Azure](../azure-diagnostics.md) p
 Questa procedura dettagliata descrive come implementare un ruolo di lavoro di Azure che emette i dati di telemetria con la classe EventSource .NET. Il modulo Diagnostica Azure viene usato per raccogliere i dati di telemetria e memorizzarli in un account di archiviazione di Azure. Quando si crea un ruolo di lavoro, Visual Studio abilita automaticamente Diagnostica 1.0 come parte della soluzione in Azure SDK per .NET 2.4 e versioni precedenti. Le seguenti istruzioni descrivono il processo per creare il ruolo di lavoro, disabilitare Diagnostica 1.0 dalla soluzione e implementare Diagnostica 1.2 o 1.3 nel ruolo di lavoro.
 
 ### <a name="prerequisites"></a>Prerequisiti
-In questo articolo si presuppone che l'utente abbia una sottoscrizione di Azure e usi Visual Studio 2013 con Azure SDK. Se non si ha una sottoscrizione di Azure, è possibile ottenere una [versione di prova gratuita][Free Trial]. Assicurarsi di [installare e configurare Azure PowerShell versione 0.8.7 o successiva][Install and configure Azure PowerShell version 0.8.7 or later].
+In questo articolo si presuppone che l'utente disponga di una sottoscrizione di Azure e che usi Visual Studio con Azure SDK. Se non si ha una sottoscrizione di Azure, è possibile ottenere una [versione di prova gratuita][Free Trial]. Assicurarsi di [installare e configurare Azure PowerShell versione 0.8.7 o successiva][Install and configure Azure PowerShell version 0.8.7 or later].
 
 ### <a name="step-1-create-a-worker-role"></a>Passaggio 1: Creare un ruolo di lavoro
-1. Avviare **Visual Studio 2013**.
+1. Avviare **Visual Studio**.
 2. Creare un nuovo progetto **Servizio cloud di Azure** dal modello **Cloud** per .NET Framework 4.5.  Assegnare al progetto il nome "WadExample" e fare clic su OK.
 3. Selezionare **Ruolo di lavoro** e fare clic su OK. Verrà creato il progetto.
 4. In **Esplora soluzioni** fare doppio clic sul file delle proprietà **WorkerRole1**.
@@ -173,7 +174,7 @@ namespace WorkerRole1
 I cmdlet di PowerShell per la gestione della diagnostica in un ruolo Web o di lavoro sono: : Set-AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension e Remove-AzureServiceDiagnosticsExtension.
 
 1. Aprire Azure PowerShell.
-2. Eseguire lo script per installare la diagnostica nel ruolo di lavoro (sostituire *StorageAccountKey* con la chiave dell'account di archiviazione di wadexample):
+2. Eseguire lo script per installare la diagnostica nel ruolo di lavoro (sostituire *StorageAccountKey* con la chiave dell'account di archiviazione di wadexample e *config_path* con il percorso del file *WadExample.xml*):
 
 ```powershell
 $storage_name = "wadexample"
@@ -196,7 +197,7 @@ Il file di configurazione della diagnostica definisce i valori usati per inizial
 Se si verificano problemi, vedere l'argomento relativo alla [risoluzione dei problemi di Diagnostica di Azure](../azure-diagnostics-troubleshooting.md) per informazioni sui problemi comuni.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Vedere un elenco di articoli sulla diagnostica di Azure relativi a macchine virtuali](../azure-diagnostics.md#cloud-services-using-azure-diagnostics) per modificare i dati raccolti, risolvere i problemi o ottenere altre informazioni sulla diagnostica in generale.
+[Vedere un elenco di articoli sulla diagnostica di Azure relativi a macchine virtuali](../monitoring-and-diagnostics/azure-diagnostics.md#cloud-services-using-azure-diagnostics) per modificare i dati raccolti, risolvere i problemi o ottenere altre informazioni sulla diagnostica in generale.
 
 [EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 
@@ -204,9 +205,4 @@ Se si verificano problemi, vedere l'argomento relativo alla [risoluzione dei pro
 [Collect Logging Data by Using Azure Diagnostics]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [Free Trial]: http://azure.microsoft.com/pricing/free-trial/
 [Install and configure Azure PowerShell version 0.8.7 or later]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

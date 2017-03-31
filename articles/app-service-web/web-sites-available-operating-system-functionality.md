@@ -4,7 +4,7 @@ description: "Informazioni sulle funzionalità del sistema operativo disponibili
 services: app-service
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: mollybos
 ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.service: app-service
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b113eb43148f9085c6e36787cb344050a438f351
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 931954e312b02c7a71acc7a3268b5ee3c0a11708
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -110,16 +111,14 @@ Le app hanno accesso in sola lettura alla maggior parte del Registro di sistema 
 
 L'accesso in scrittura al registro è bloccato, incluso l'accesso a qualsiasi chiave di registro per utente. Dal punto di vista dell'app, l'accesso in scrittura al Registro di sistema nell'ambiente Azure non deve mai essere considerato affidabile poiché le app sono soggette a migrazione tra macchine virtuali diverse. L'unica risorsa di archiviazione scrivibile permanente che può essere considerata affidabile da un'app è la struttura della directory dei contenuti per app archiviata nelle condivisioni UNC del servizio app. 
 
+## <a name="more-information"></a>Altre informazioni
+
+[App Web Sandbox di Azure](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox): informazioni aggiornate sull'ambiente di esecuzione del servizio App. Questa pagina è gestita direttamente dal team di sviluppo del servizio App.
+
 > [!NOTE]
-> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 
-[!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

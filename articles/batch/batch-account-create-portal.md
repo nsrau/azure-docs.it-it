@@ -12,15 +12,18 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2016
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
-ms.openlocfilehash: fb53c1748d42e605048d1ab4e033460399c75911
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 09be891b5385871554f45bc1f824b4351ffd3bc2
+ms.lasthandoff: 03/21/2017
 
 
 ---
-# <a name="create-an-azure-batch-account-using-the-azure-portal"></a>Creare un account Azure Batch usando il portale di Azure
+# <a name="create-a-batch-account-with-the-azure-portal"></a>Creare un account Batch nel portale di Azure
+
 > [!div class="op_single_selector"]
 > * [Portale di Azure](batch-account-create-portal.md)
 > * [.NET per la gestione di Batch](batch-management-dotnet.md)
@@ -57,7 +60,7 @@ Dopo avere creato l'account, è possibile aprire il pannello **Account Batch** p
 
 ![Pannello Account Batch nel portale di Azure][account_blade]
 
-* **URL dell'account Batch**: quando si sviluppa un'applicazione con le [API Batch](batch-technical-overview.md#batch-development-apis), sarà necessario un URL dell'account per accedere alle risorse di Batch. Un URL dell'account Batch ha il seguente formato:
+* **URL dell'account Batch**: quando si sviluppa un'applicazione con le [API Batch](batch-apis-tools.md#batch-development-apis), sarà necessario un URL dell'account per accedere alle risorse di Batch. Un URL dell'account Batch ha il seguente formato:
   
     `https://<account_name>.<region>.batch.azure.com`
 
@@ -104,7 +107,7 @@ Inoltre, per aumentare molte di queste quote, è sufficiente inviare una richies
 Oltre a usare il portale di Azure, è anche possibile creare e gestire account Batch con gli strumenti seguenti:
 
 * [Cmdlet di PowerShell per Batch](batch-powershell-cmdlets-get-started.md)
-* [Interfaccia della riga di comando di Azure](../xplat-cli-install.md)
+* [Interfaccia della riga di comando di Azure](../cli-install-nodejs.md)
 * [.NET per la gestione di Batch](batch-management-dotnet.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -125,9 +128,4 @@ Oltre a usare il portale di Azure, è anche possibile creare e gestire account B
 [account_url]: ./media/batch-account-create-portal/account_url.png
 [storage_account]: ./media/batch-account-create-portal/storage_account.png
 [quotas]: ./media/batch-account-create-portal/quotas.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

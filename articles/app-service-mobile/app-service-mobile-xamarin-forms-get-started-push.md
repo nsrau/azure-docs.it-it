@@ -1,10 +1,10 @@
 ---
-title: Aggiungere notifiche push all&quot;app Xamarin.Forms | Documentazione Microsoft
+title: Aggiungere notifiche push all&quot;app Xamarin.Forms | Microsoft Docs
 description: Informazioni su come usare i servizi di Azure per inviare notifiche push multipiattaforma alle app Xamarin.Forms.
 services: app-service\mobile
 documentationcenter: xamarin
 author: ysxu
-manager: dwrede
+manager: adrianha
 editor: 
 ms.assetid: d9b1ba9a-b3f2-4d12-affc-2ee34311538b
 ms.service: app-service-mobile
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: f6989f65f80027be7803a889c0a87f6afbae150d
-ms.openlocfilehash: 703ab64e96894df6c974fd441b737568fb905004
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: f1fe97c6b3e2d28b7e17d035bc7e3ecced8a0d0f
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -31,7 +32,7 @@ Se non si usa il progetto server di avvio rapido scaricato, sarà necessario agg
 ## <a name="prerequisites"></a>Prerequisiti
 Per iOS sono necessari un dispositivo iOS fisico e un'[appartenenza all'Apple Developer Program](https://developer.apple.com/programs/ios/). [Il simulatore iOS non supporta le notifiche push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html).
 
-## <a name="a-nameconfigure-hubaconfigure-a-notification-hub"></a><a name="configure-hub"></a>Configurare un hub di notifica
+## <a name="configure-hub"></a>Configurare un hub di notifica
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## <a name="update-the-server-project-to-send-push-notifications"></a>Aggiornare il progetto server per l'invio di notifiche push
@@ -184,7 +185,7 @@ Dopo aver configurato il back-end con FCM, è possibile aggiungere componenti e 
             }
         }
 
-        Note that this code uses the `messageParam` parameter in the template registration.
+    Si noti che questo codice usa il parametro `messageParam` nella registrazione del modello.
 12. Aggiungere il codice seguente che implementa **OnMessage**:
 
         protected override void OnMessage(Context context, Intent intent)
@@ -434,9 +435,4 @@ Altre informazioni sulle notifiche push:
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

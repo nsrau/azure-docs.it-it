@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: multiple
-ms.date: 10/14/2016
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 75cb029e61006636de91e945404e38fd6d955697
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 9dbfa813ea64666779f1f85b3ccda2b4fa1a755b
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="automatically-scale-compute-nodes-in-an-azure-batch-pool"></a>Ridimensionare automaticamente i nodi di calcolo in un pool di Azure Batch
+# <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creare una formula di scalabilità automatica per la scalabilità dei nodi di calcolo in un pool Batch
+
 Con il ridimensionamento automatico, il servizio Azure Batch può aggiungere o rimuovere in modo dinamico i nodi di calcolo in un pool in base ai parametri definiti dall'utente. È possibile risparmiare tempo e denaro ottimizzando automaticamente la potenza di calcolo usata dall'applicazione, aggiungendo nodi quando l'attività del processo richiede un incremento della potenza e rimuovendo nodi quando questa esigenza viene meno.
 
 È possibile abilitare la scalabilità automatica in un pool di nodi di calcolo associandola a una *formula di scalabilità automatica* definita dall'utente, ad esempio con il metodo [PoolOperations.EnableAutoScale][net_enableautoscale] della libreria [Batch .NET](batch-dotnet-get-started.md). Il servizio Batch usa quindi questa formula per determinare il numero di nodi di calcolo necessari per eseguire il carico di lavoro. Batch tiene conto dei campioni di dati di metrica del servizio raccolti periodicamente e modifica il numero di nodi di calcolo nel pool a intervalli configurabili, in base alla formula associata.
@@ -182,7 +185,7 @@ Alcune delle funzioni descritte nella tabella precedente possono accettare un el
 
 Il valore *doubleVecList* viene convertito in un singolo *doubleVec* prima della valutazione. Ad esempio, se `v = [1,2,3]`, la chiamata di `avg(v)` equivale alla chiamata di `avg(1,2,3)`. La chiamata di `avg(v, 7)` equivale alla chiamata di `avg(1,2,3,7)`.
 
-## <a name="a-namegetsampledataaobtain-sample-data"></a><a name="getsampledata"></a>Ottenere dati di esempio
+## <a name="getsampledata"></a>Ottenere dati di esempio
 Le formule di ridimensionamento automatico agiscono sui dati di metrica (campioni) forniti dal servizio Batch. Una formula aumenta o riduce le dimensioni del pool in base ai valori che ottiene dal servizio. Le variabili definite dal servizio descritte sopra sono oggetti che offrono vari metodi per accedere ai dati associati a un dato oggetto. Ad esempio, l'espressione seguente mostra una richiesta per recuperare gli ultimi&5; minuti di utilizzo della CPU:
 
 ```
@@ -237,7 +240,7 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 A causa del ritardo nella disponibilità dei campioni citato in precedenza, è anche importante specificare sempre un intervallo di tempo con un'ora di inizio antecedente di almeno un minuto. La propagazione dei campioni attraverso il sistema richiede infatti un minuto circa, quindi i campioni nell'intervallo `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` spesso non saranno disponibili. Anche in questo caso, è possibile usare il parametro percentuale di `GetSample()` per imporre uno specifico requisito di percentuale dei campioni.
 
 > [!IMPORTANT]
-> È **consigliabile** **evitare di basarsi *solo* su `GetSample(1)` nelle formule di scalabilità automatica**. `GetSample(1)` indica infatti essenzialmente al servizio Batch di restituire l'ultimo campione disponibile, indipendentemente da quanto tempo prima è stato ottenuto. Essendo solo un singolo campione, che potrebbe anche non essere recente, potrebbe non essere rappresentativo dell'immagine più ampia dello stato recente di attività o risorse. Se si usa `GetSample(1)`, accertarsi che faccia parte di un'istruzione di dimensioni maggiori e non sia il solo punto dati su cui si basa la formula.
+> È **consigliabile** **evitare di basarsi*solo* su `GetSample(1)` nelle formule di scalabilità automatica**. `GetSample(1)` indica infatti essenzialmente al servizio Batch di restituire l'ultimo campione disponibile, indipendentemente da quanto tempo prima è stato ottenuto. Essendo solo un singolo campione, che potrebbe anche non essere recente, potrebbe non essere rappresentativo dell'immagine più ampia dello stato recente di attività o risorse. Se si usa `GetSample(1)`, accertarsi che faccia parte di un'istruzione di dimensioni maggiori e non sia il solo punto dati su cui si basa la formula.
 > 
 > 
 
@@ -247,11 +250,11 @@ Quando si definisce una formula, è possibile usare metriche di **risorse** e di
 <table>
   <tr>
     <th>Metrica</th>
-    <th>Description</th>
+    <th>Descrizione</th>
   </tr>
   <tr>
     <td><b>Risorsa</b></td>
-    <td><p><b>La metrica delle risorse </b> si basa sull'uso della memoria, della CPU e della larghezza di banda dei nodi di calcolo, nonché sul numero di nodi.</p>
+    <td><p>La <b>metrica delle risorse</b> si basa sull'uso della memoria, della CPU e della larghezza di banda dei nodi di calcolo, nonché sul numero di nodi.</p>
         <p> Queste variabili definite dal servizio sono utili per eseguire adeguamenti in base al conteggio dei nodi:</p>
     <p><ul>
       <li>$TargetDedicated</li>
@@ -273,7 +276,7 @@ Quando si definisce una formula, è possibile usare metriche di **risorse** e di
   </tr>
   <tr>
     <td><b>Attività</b></td>
-    <td><p><b>La metrica delle attività</b> si basa sullo stato delle attività, ad esempio Attiva, In sospeso e Completata. Le variabili definite dal servizio seguenti sono utili per gli adeguamenti delle dimensioni del pool basati sulla metrica delle attività:</p>
+    <td><p>La <b>metrica delle attività</b> si basa sullo stato delle attività, ad esempio Attiva, In sospeso e Completata. Le variabili definite dal servizio seguenti sono utili per gli adeguamenti delle dimensioni del pool basati sulla metrica delle attività:</p>
     <p><ul>
       <li>$ActiveTasks</li>
       <li>$RunningTasks</li>
@@ -352,7 +355,7 @@ pool.AutoScaleEvaluationInterval = TimeSpan.FromMinutes(30);
 pool.Commit();
 ```
 
-Oltre alle API REST di Batch e l'SDK .NET, è possibile usare qualsiasi altro [SDK Batch](batch-technical-overview.md#batch-development-apis), [cmdlet PowerShell di Batch](batch-powershell-cmdlets-get-started.md) e [interfaccia della riga di comando di Batch](batch-cli-get-started.md) da usare per la scalabilità automatica.
+Oltre alle API REST di Batch e l'SDK .NET, è possibile usare qualsiasi altro [SDK Batch](batch-apis-tools.md#batch-development-apis), [cmdlet PowerShell di Batch](batch-powershell-cmdlets-get-started.md) e [interfaccia della riga di comando di Batch](batch-cli-get-started.md) da usare per la scalabilità automatica.
 
 > [!IMPORTANT]
 > Quando si crea un pool abilitato per la scalabilità automatica, **non** specificare il parametro `targetDedicated`. Si noti anche che per ridimensionare manualmente un pool abilitato per la scalabilità automatica, ad esempio con [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool], è necessario **disabilitare** prima la scalabilità automatica nel pool e quindi ridimensionarlo.
@@ -643,9 +646,4 @@ string formula = string.Format(@"
 [rest_autoscaleformula]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 [rest_autoscaleinterval]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 [rest_enableautoscale]: https://msdn.microsoft.com/library/azure/dn820173.aspx
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

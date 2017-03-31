@@ -4,7 +4,7 @@ description: Informazioni su come usare Python Tools per Visual Studio per crear
 services: app-service\web
 documentationcenter: python
 author: huguesv
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: f075124b-db79-4e51-b394-09187dd6c634
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: huvalo
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 4aa0e4d036b7031e51abc6ac53872db64c2f90b4
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -65,7 +66,7 @@ In questa sezione verrà creato un progetto di Visual Studio usando un modello d
 Per effettuare operazioni di archiviazione, è necessario un account di archiviazione di Azure. Per creare un account di archiviazione, attenersi alla procedura riportata di seguito
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Fare clic sull'icona **Nuovo** nella parte inferiore sinistra del portale, quindi fare clic su **Dati e archiviazione** > ** Account di archiviazione**.  Fare clic sul pulsante **Crea** quindi assegnare un nome univoco all'account di archiviazione e creare un nuovo [gruppo di risorse](../azure-resource-manager/resource-group-overview.md) correlato.
+2. Fare clic sull'icona **Nuovo** nella parte inferiore sinistra del portale, quindi fare clic su **Dati e archiviazione** > **Account di archiviazione**.  Fare clic sul pulsante **Crea** quindi assegnare un nome univoco all'account di archiviazione e creare un nuovo [gruppo di risorse](../azure-resource-manager/resource-group-overview.md) correlato.
    
       ![Quick Create](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png)
    
@@ -190,9 +191,4 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Progetti servizio cloud]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Archiviazione di Azure]: http://azure.microsoft.com/documentation/services/storage/
 [Azure SDK per Python]: https://github.com/Azure/azure-sdk-for-python
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

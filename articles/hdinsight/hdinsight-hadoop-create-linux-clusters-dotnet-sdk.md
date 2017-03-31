@@ -1,5 +1,5 @@
 ---
-title: Creare cluster Hadoop, HBase, Storm o Spark in Linux in HDInsight tramite HDInsight .NET SDK | Documentazione Microsoft
+title: Creare cluster Azure HDInsight (Hadoop) usando .NET | Documentazione Microsoft
 description: "Informazioni su come creare cluster Hadoop, HBase, Storm o Spark su Linux per HDInsight tramite l’SDK HDInsight .NET."
 services: hdinsight
 documentationcenter: 
@@ -9,15 +9,17 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 9c74e3dc-837f-4c90-bbb1-489bc7124a3d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/19/2016
+ms.date: 03/03/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 349b73e7f80c1762408ebd38d0ba27a395328ddb
-ms.openlocfilehash: 01028e0a6820ef6b78fb57ab853b78eb4ecefb7e
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 8377c936e37b464c2d566f9482ebda63a1e374df
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -38,19 +40,14 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso di HDIns
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Un account di archiviazione di Azure**. Vedere [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account).
-* **Visual Studio 2013 o 2015**.
+* **Visual Studio 2013, Visual Studio 2015 o Visual Studio 2017**.
 
 ### <a name="access-control-requirements"></a>Requisiti di controllo di accesso
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-clusters"></a>Creare i cluster
-1. Aprire Visual Studio 2013 o 2015.
-2. Creare un nuovo progetto di Visual Studio con le impostazioni seguenti:
-   
-   | Proprietà | Valore |
-   | --- | --- |
-   | Modello |Templates/Visual C#/Windows/Console Application |
-   | Nome |CreateHDICluster |
+1. Aprire Visual Studio 2017.
+2. Creare una nuova applicazione console in Visual C#.
 3. Dal menu **Strumenti** fare clic su **Gestione pacchetti NuGet**, quindi su **Console di Gestione pacchetti**.
 4. Eseguire il comando seguente nella console per installare i pacchetti:
    
@@ -92,12 +89,12 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso di HDIns
                 private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
                 private const OSType NewClusterOSType = OSType.Linux;
                 private const string NewClusterType = "Hadoop";
-                private const string NewClusterVersion = "3.4";
+                private const string NewClusterVersion = "3.5";
                 private const string NewClusterUsername = "admin";
                 private const string NewClusterPassword = "<Enter HTTP User Password>";
                 private const string NewClusterSshUserName = "sshuser";
 
-                // You can use eitehr password or public key.  See https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-windows or https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix
+                // You can use eitehr password or public key. See https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix
                 private const string NewClusterSshPassword = "<Enter SSH User Password>";
                 private const string NewClusterSshPublicKey = @"---- BEGIN SSH2 PUBLIC KEY ----
                     Comment: ""rsa-key-20150731""
@@ -381,10 +378,5 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 * [Eseguire processi Pig con .NET SDK in HDInsight](hdinsight-hadoop-use-pig-dotnet-sdk.md)
 * [Eseguire processi Sqoop con .NET SDK in HDInsight](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 * [Eseguire processi Oozie in HDInsight](hdinsight-use-oozie.md)
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 02/01/2017
 ms.author: juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 3feaac838fe89e54a3b561b7572a9eb3393edc4c
-ms.openlocfilehash: 3b0f6127e2b64989d83efce8c5a930ffee481a01
+ms.sourcegitcommit: 5b8d989d950c17d867f30a6fa8a464a8750e2303
+ms.openlocfilehash: 98922addf7aa8bfc77033be29bf137b362378661
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: 3b0f6127e2b64989d83efce8c5a930ffee481a01
 
 Questo argomento contiene informazioni dettagliate su **Azure Media Redactor** e illustra come usare questa funzionalità con Media Services SDK per .NET.
 
-Il processore di contenuti multimediali **Azure Media Redactor** è attualmente in anteprima. È disponibile in tutte le aree di Azure pubbliche, nonché nei data center cinesi e del governo degli USA. Al momento questa versione di anteprima è disponibile gratuitamente. Nella versione corrente la durata dei video elaborati è limitata a 10 minuti.
+Il processore di contenuti multimediali **Azure Media Redactor** è attualmente in anteprima. È disponibile in tutte le aree di Azure pubbliche, nonché nei data center cinesi e del governo degli USA. Al momento questa versione di anteprima è disponibile gratuitamente. 
 
 ## <a name="face-redaction-modes"></a>Modalità per l'offuscamento dei volti
 La funzionalità di offuscamento dei volti rileva i volti in ogni fotogramma del video e monitora l'oggetto volto avanti e indietro nel tempo in modo da consentire la sfocatura della stessa persona anche da altre angolazioni. Il processo di offuscamento automatizzato è molto complesso e non sempre produce al 100% l'output desiderato. Per tale motivo, Analisi Servizi multimediali offre alcuni modi per modificare l'output finale.
@@ -304,10 +305,5 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 [Panoramica di Analisi servizi multimediali di Azure](media-services-analytics-overview.md)
 
 [Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

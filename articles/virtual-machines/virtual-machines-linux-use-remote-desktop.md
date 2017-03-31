@@ -12,25 +12,26 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 03/07/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 95a79ccb83d5a3ba386d5db2fd47f3887a03fa8a
-ms.openlocfilehash: 4abb2fa6591c0e014e8d9563f69f9586e081e7b2
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 1b8ad526ee59bd1547cbd7f4a208720fb6557fc2
+ms.lasthandoff: 03/27/2017
 
 
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installare e configurare Desktop remoto per connettersi a una VM Linux di Azure
-Le macchine virtuali Linux (VM) di Azure in genere vengono gestite dalla riga di comando tramite una connessione secure shell (SSH). Quando si è nuovi a Linux, o per scenari di risoluzione dei problemi rapidi, l'uso di desktop remoto potrebbe risultare più facile. Questo articolo illustra come installare e configurare un ambiente desktop ([xfce](https://www.xfce.org)) e desktop remoto ([xrdp](http://www.xrdp)) per VM Linux usando il modello di distribuzione Resource Manager. È anche possibile [eseguire questi passaggi per le macchine virtuali usando il modello di distribuzione classica](virtual-machines-linux-classic-remote-desktop.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Le macchine virtuali Linux (VM) di Azure in genere vengono gestite dalla riga di comando tramite una connessione secure shell (SSH). Quando si è nuovi a Linux, o per scenari di risoluzione dei problemi rapidi, l'uso di desktop remoto potrebbe risultare più facile. Questo articolo illustra come installare e configurare un ambiente desktop ([xfce](https://www.xfce.org)) e desktop remoto ([xrdp](http://www.xrdp)) per VM Linux usando il modello di distribuzione Resource Manager. È anche possibile [eseguire questi passaggi per le macchine virtuali usando il modello di distribuzione classica](linux/classic/remote-desktop.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 
 ## <a name="prerequisites"></a>Prerequisiti
 Questo articolo richiede l'esistenza di una VM Linux di Azure. Se è necessario creare una macchina virtuale, usare uno dei metodi seguenti:
 
-- L'[interfaccia della riga di comando di Azure 1.0](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o l'[interfaccia della riga di comando di Azure 2.0 (anteprima)](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Interfaccia della riga di comando di Azure 2.0](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o [interfaccia della riga di comando di Azure 1.0](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - Il[portale di Azure](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-È necessario anche disporre della versione più recente dell'[interfaccia della riga di comando di Azure 1.0](../xplat-cli-install.md) o dell'[interfaccia della riga di comando di Azure 2.0 (anteprima)](/cli/azure/install-az-cli2) installata e registrata a un [account Azure attivo](https://azure.microsoft.com/pricing/free-trial/).
+È inoltre necessario essere connessi a un [account Azure attivo](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="quick-commands"></a>Comandi rapidi
@@ -69,16 +70,7 @@ Impostare una password per l'account utente se attualmente si usa solo la chiave
 sudo passwd ops
 ```
 
-Chiudere la sessione SSH nella macchina virtuale Linux. Usare l'interfaccia della riga di comando di Azure nel computer locale per creare una regola del gruppo di sicurezza di rete per consentire il traffico di desktop remoto. L'esempio seguente usa l'interfaccia della riga di comando di Azure 1.0 per creare una regola denominata `myNetworkSecurityGroupRule` all'interno di `myNetworkSecurityGroup` per consentire il traffico sulla porta tcp 3389:
-
-```azurecli
-azure network nsg rule create --resource-group myResourceGroup \
-    --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
-    --protocol tcp --direction inbound --priority 1010 \
-    --destination-port-range 3389 --access allow
-```
-
-In alternativa usare [az network nsg rule create](/cli/azure/network/nsg/rule#create) con l'interfaccia della riga di comando di Azure 2.0 (anteprima):
+Chiudere la sessione SSH nella macchina virtuale Linux. Usare l'interfaccia della riga di comando di Azure nel computer locale per creare una regola del gruppo di sicurezza di rete per consentire il traffico di desktop remoto. Usare [az network nsg rule create](/cli/azure/network/nsg/rule#create) con l'interfaccia della riga di comando di Azure 2.0. L'esempio seguente crea una regola denominata `myNetworkSecurityGroupRule` all'interno di `myNetworkSecurityGroup` per consentire il traffico sulla porta tcp 3389:
     
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup \
@@ -87,6 +79,15 @@ az network nsg rule create --resource-group myResourceGroup \
     --source-address-prefix '*' --source-port-range '*' \
     --destination-address-prefix '*' --destination-port-range 3389 \
     --access allow
+```
+
+Oppure, con l'interfaccia della riga di comando di Azure 1.0:
+
+```azurecli
+azure network nsg rule create --resource-group myResourceGroup \
+    --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
+    --protocol tcp --direction inbound --priority 1010 \
+    --destination-port-range 3389 --access allow
 ```
 
 Connettersi alla VM Linux usando il client di Desktop remoto preferito.
@@ -149,16 +150,7 @@ Per consentire al traffico di Desktop remoto di raggiungere la VM Linux, è nece
 
 Nell'esempio seguente viene creata una regola del gruppo di sicurezza di rete denominata `myNetworkSecurityGroupRule` per `allow` il traffico sulla porta `tcp` `3389`.
 
-- Usare l'interfaccia della riga di comando di Azure 1.0:
-
-    ```azurecli
-    azure network nsg rule create --resource-group myResourceGroup \
-        --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
-        --protocol tcp --direction inbound --priority 1010 \
-        --destination-port-range 3389 --access allow
-    ```
-
-- In alternativa usare [az network nsg rule create](/cli/azure/network/nsg/rule#create) con l'interfaccia della riga di comando di Azure 2.0 (anteprima):
+- Usare [az network nsg rule create](/cli/azure/network/nsg/rule#create) con l'interfaccia della riga di comando di Azure 2.0:
     
     ```azurecli
     az network nsg rule create --resource-group myResourceGroup \
@@ -169,6 +161,14 @@ Nell'esempio seguente viene creata una regola del gruppo di sicurezza di rete de
         --access allow
     ```
 
+- In alternativa, usare l'interfaccia della riga di comando di Azure 1.0:
+
+    ```azurecli
+    azure network nsg rule create --resource-group myResourceGroup \
+        --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
+        --protocol tcp --direction inbound --priority 1010 \
+        --destination-port-range 3389 --access allow
+    ```
 
 ## <a name="connect-your-linux-vm-with-a-remote-desktop-client"></a>Connettere la macchina virtuale Linux con un client di Desktop remoto
 Aprire il client di Desktop remoto locale e connettersi all'indirizzo IP o nome DNS della VM Linux. Immettere il nome utente e la password per l'account utente nella macchina virtuale come indicato di seguito:
@@ -215,10 +215,5 @@ Se non si riceve alcuna risposta nel client di Desktop remoto e non viene visual
 Per altre informazioni sulla creazione e l'uso di chiavi SSH con macchine virtuali Linux, vedere [Creare una coppia di chiavi SSH pubblica e privata per le macchine virtuali di Linux](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Per informazioni sull'uso di SSH da Windows, vedere [Come usare SSH con Windows in Azure](virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

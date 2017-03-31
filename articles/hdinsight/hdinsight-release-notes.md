@@ -1,5 +1,5 @@
 ---
-title: Note sulla versione dei componenti Hadoop in Azure HDInsight | Documentazione Microsoft
+title: Note sulla versione dei componenti Hadoop in Azure HDInsight | Microsoft Docs
 description: "Note sulla versione più recente e le versioni di componenti Hadoop per Azure HDInsight. È possibile ottenere suggerimenti per lo sviluppo e i dettagli per Hadoop, Apache Storm e HBase."
 services: hdinsight
 documentationcenter: 
@@ -9,30 +9,40 @@ author: nitinme
 tags: azure-portal
 ms.assetid: a363e5f6-dd75-476a-87fa-46beb480c1fe
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/18/2017
+ms.date: 2/28/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 9f1222e797446a5835726a10e5c9e8b535a8cf4d
-ms.openlocfilehash: c1c13f21fff7ba201eb00f6c9f594131a75c44fc
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 7a9e23e8d06bc73855058242cdebd315c9d4d243
+ms.lasthandoff: 03/21/2017
 
 
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Note sulla versione di componenti Hadoop in Azure HDInsight
 
 > [!IMPORTANT]
-> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere l'[articolo sul controllo delle versioni di HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
+##<a name="notes-for-02282017-release-of-spark-21-on-hdinsight-36-preview"></a>Note sulla versione Spark 2.1 in HDInsight 3.6 Preview rilasciata il 28/02/2017
+* [Spark 2.1](http://spark.apache.org/releases/spark-release-2-1-0.html) risolve i molti problemi relativi a usabilità e stabilità riscontrati con le versioni precedenti. Offre anche nuove funzionalità in tutti i carichi di lavoro di Spark, ad esempio Spark Core, SQL, ML e Streaming.
+* Streaming strutturati presentano una migliore scalabilità con il supporto per soglie di tempo dell'evento e con il connettore Kafka 0.10.
+* Il partizionamento Spark SQL viene ora gestito usando il nuovo meccanismo di gestione di partizioni scalabili. Per altre informazioni su come eseguire l'aggiornamento, vedere [qui](http://spark.apache.org/releases/spark-release-2-1-0.html).
+* Spark 2.1 in Azure HDInsight 3.6 Preview attualmente non supporta la connettività degli strumenti di Business Intelligence tramite il driver ODBC.
+* L'accesso di Azure Data Lake Store dai cluster Spark 2.1 non è supportato in questa versione di anteprima.
+
 
 ##<a name="notes-for-11182016-release-of-spark-201-on-hdinsight-35"></a>Note sulla versione Spark 2.0.1 in HDInsight 3.5 rilasciata il 18/11/2016
 Spark 2.0.1 è ora disponibile in cluster Spark (HDInsight versione 3.5).
 
 ## <a name="notes-for-11162016-release-of-r-server-90-on-hdinsight-35-spark-20"></a>Note sulla versione R Server 9.0 in HDInsight 3.5 (Spark 2.0) rilasciata il 16/11/2016
-*   Nei cluster R Server è ora possibile scegliere due versioni: R Server 9.0 in HDI 3.5 (Spark 2.0) e R Server 8.0 in HDI 3.4 (Spark 1.6).
-*   R Server 9.0 in HDI 3.5 (Spark 2.0) si basa su R 3.3.2 e include nuove funzioni di origine dati per ScaleR, denominate RxHiveData e RxParquetData, per il caricamento diretto di dati da Hive e Parquet a frame di dati Spark per l'analisi in ScaleR. Per altre informazioni su queste funzioni, vedere la guida in linea di R usando i comandi ?RxHiveData e ?RxParquetData.
-*   RStudio Server Community Edition è ora installato per impostazione predefinita (con possibilità di rifiuto esplicito) nel pannello Configurazione cluster, nell'ambito del flusso di provisioning.
+*    Nei cluster R Server è ora possibile scegliere due versioni: R Server 9.0 in HDI 3.5 (Spark 2.0) e R Server 8.0 in HDI 3.4 (Spark 1.6).
+*    R Server 9.0 in HDI 3.5 (Spark 2.0) si basa su R 3.3.2 e include nuove funzioni di origine dati per ScaleR, denominate RxHiveData e RxParquetData, per il caricamento diretto di dati da Hive e Parquet a frame di dati Spark per l'analisi in ScaleR. Per altre informazioni su queste funzioni, vedere la guida in linea di R usando i comandi ?RxHiveData e ?RxParquetData.
+*    RStudio Server Community Edition è ora installato per impostazione predefinita (con possibilità di rifiuto esplicito) nel pannello Configurazione cluster, nell'ambito del flusso di provisioning.
 
 ## <a name="notes-for-11092016-release-of-spark-20-on-hdinsight"></a>Note sulla versione Spark 2.0 in HDInsight rilasciata il 09/11/2016
 * I cluster Spark 2.0 in HDInsight 3.5 supportano ora servizi Livy e Jupyter.
@@ -66,7 +76,7 @@ Numeri di versione completi per i cluster HDInsight basati su Windows distribuit
 * R Server 8.0.5 - principalmente una versione di correzione di bug. Per altre informazioni, vedere le [note sulla versione per R Server](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes) .
 * Il pacchetto AzureML nel nodo perimetrale, [questo pacchetto R](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html), consente la pubblicazione e l'uso dei modelli R come servizio Web di Azure ML.  Per altre informazioni, vedere la sezione ["Rendere operativo un modello"](hdinsight-hadoop-r-server-overview.md#operationalize-a-model) dell'articolo ["Panoramica di R Server su HDInsight"](hdinsight-hadoop-r-server-overview.md).
 * Dipendenze di Linux dei [primi 100 pacchetti R più diffusi](https://github.com/metacran/cranlogs): queste dipendenze di pacchetto Linux sono ora preinstallate.
-* Possibilità di usare il repository CRAN quando si aggiungono pacchetti R ai nodi di dati. Per altre informazioni, vedere la sezione ["Installare pacchetti R"](hdinsight-hadoop-r-server-get-started.md#install-r-packages) dell'articolo ["Introduzione all'uso di R Server su HDInsight"](hdinsight-hadoop-r-server-get-started.md).
+* Possibilità di usare il repository CRAN quando si aggiungono pacchetti R ai nodi di dati. Per altre informazioni, vedere [Introduzione all'uso di R Server su HDInsight](hdinsight-hadoop-r-server-get-started.md).
 * Miglioramento dell'affidabilità del provisioning di R Server dopo la creazione dei cluster.
 
 ## <a name="notes-for-08012016-release-of-hdinsight"></a>Note sulla versione di HDInsight rilasciata in data 01/08/2016
@@ -347,7 +357,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 | --- | --- | --- | --- | --- |
 | Versione HDP predefinita modificata in HDP 2.2 |La versione predefinita per i cluster HDInsight basati su Windows è stata modificata in HDP 2.2. HDInsight versione 3.2 (HDP 2.2) è disponibile a livello generale dal mese di febbraio 2015. Questa modifica riguarda solo la versione predefinita del cluster, installata quando non viene effettuata alcuna selezione esplicita durante il provisioning del cluster tramite il portale di Azure, cmdlet di PowerShell o SDK. |Service |Tutti |N/D |
 | Modifiche al formato dei nomi di macchina virtuale per la distribuzione di più cluster HDInsight basati su Linux in un'unica rete virtuale |In questa versione è stato aggiunto il supporto per la distribuzione di più cluster HDInsight basati su Linux in un'unica rete virtuale. Nell'ambito di questo aggiornamento, il formato dei nomi di macchina virtuale nel cluster è stato modificato, rispettivamente, da headnode\*, workernode\* e zookeepernode\* a hn\*, wn\* e zk\*. Non è consigliabile impostare una dipendenza diretta sul formato dei nomi di macchina virtuale, poiché sono soggetti a modifica. Usare "hostname -f" nel computer locale o nelle API di Ambari per determinare l'elenco di host e il mapping dei componenti agli host. Altre informazioni sono disponibili agli indirizzi [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) e [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md). |Service |Cluster HDInsight basati su Linux |N/D |
-| Modifiche di configurazione |Per i cluster HDInsight 3.1, sono state abilitate le configurazioni seguenti:  <ul><li>tez.yarn.ats.enabled e yarn.log.server.url. In questo modo, Application Timeline Server e il server di log possono supportare anche file di registro.</li></ul>Per i cluster HDInsight 3.2, sono state modificate le configurazioni seguenti: <ul><li>mapreduce.fileoutputcommitter.algorithm.version è stato impostato su 2. In questo modo, è possibile usare la versione&2; di FileOutputCommitter.</li></ul> |Service |Tutti |N/D |
+| Modifiche di configurazione |Per i cluster HDInsight 3.1, sono state abilitate le configurazioni seguenti:  <ul><li>tez.yarn.ats.enabled e yarn.log.server.url. In questo modo, Application Timeline Server e il server di log possono supportare anche file di registro.</li></ul>Per i cluster HDInsight 3.2, sono state modificate le configurazioni seguenti: <ul><li>mapreduce.fileoutputcommitter.algorithm.version è stato impostato su 2. In questo modo, è possibile usare la versione 2 di FileOutputCommitter.</li></ul> |Service |Tutti |N/D |
 
 ## <a name="notes-for-09092015-release-of-hdinsight"></a>Note per la versione di HDInsight rilasciata il 09/09/2015
 Numeri di versione completi per i cluster HDInsight distribuiti con questa versione:
@@ -475,7 +485,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 <td>Passaggio alla versione più recente di Azure SDK per Java utilizzato dal driver WASB. L'SDK più recente include alcune correzioni e le relative note sulla versione sono disponibili all'indirizzo https://github.com/Azure/azure-storage-java/blob/master/ChangeLog.txt.</td>
 <td>Funzionalità principale di Hadoop</td>
 <td>Tutti</td>
-<td><a href="https://issues.apache.org/jira/browse/HADOOP-11959" target="_blank">HADOOP&11959;</a></td>
+<td><a href="https://issues.apache.org/jira/browse/HADOOP-11959" target="_blank">HADOOP-11959</a></td>
 </tr>
 <tr>
 <td>Passare a HDP 2.1.15 per i cluster HDInsight 3.1</td>
@@ -944,7 +954,7 @@ Questa versione contiene gli aggiornamenti seguenti.
 </tr>
 <tr>
 <td>Aggiornamento di manutenzione HDP 2.1</td>
-<td>HDInsight 3.1 è aggiornato per la distribuzione di HDP 2.1.10.0. Per altre informazioni, vedere <a href ="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.10/bk_releasenotes_hdp_2.1/content/ch_relnotes-HDP-2.1.10.html" target="_blank">Release Notes HDP-2.1.10</a> (Note sulla versione di HDP&2;.1.10). </td>
+<td>HDInsight 3.1 è aggiornato per la distribuzione di HDP 2.1.10.0. Per altre informazioni, vedere <a href ="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.10/bk_releasenotes_hdp_2.1/content/ch_relnotes-HDP-2.1.10.html" target="_blank">Release Notes HDP-2.1.10</a> (Note sulla versione di HDP 2.1.10). </td>
 <td>Software open source</td>
 <td>Tutti</td>
 <td>N/D</td>
@@ -1280,7 +1290,7 @@ Per altre informazioni sulle impostazioni di configurazione di memoria usate da 
 Per quanto riguarda Azure PowerShell e il messaggio di errore HDInsight SDK: "*Cluster is not configured for HTTP services access*":
 
 * Questo errore è un [problema di compatibilità](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) noto che può verificarsi a causa di una differenza tra la versione di HDInsight SDK o Azure PowerShell e la versione del cluster. Per i cluster creati sulla versione 8/15 o successiva esiste il supporto della nuova funzionalità di provisioning nelle reti virtuali, che però non viene interpretata correttamente dalle versioni precedenti di HDInsight SDK o Azure PowerShell. Il risultato è un errore in alcune operazioni di invio dei processi. Se si usano le API di HDInsight SDK o i cmdlet di Azure PowerShell (**Use-AzureRmHDInsightCluster** o **Invoke-AzureRmHDInsightHiveJob**) per inviare i processi, è possibile che tali operazioni abbiano esito negativo e che venga generato il messaggio di errore "*Cluster <clustername> is not configured for HTTP services access*" (Il cluster <nomecluster> non è configurato per l'accesso ai servizi HTTP). In alternativa, a seconda dell'operazione, è possibile che venga generato un altro messaggio, ad esempio "*Cannot connect to cluster*" (Non è possibile connettersi al cluster).
-* Questi problemi di compatibilità sono stati risolti nelle versioni più recenti di SDK HDInsight e di Azure PowerShell. È consigliabile aggiornare HDInsight SDK alla versione 1.3.1.6 o successiva e gli strumenti di Azure PowerShell alla versione 0.8.8 o successiva. È possibile accedere alla versione più recente di HDInsight SDK da [](http://nuget.codeplex.com/wikipage?title=Getting%20Started) e agli strumenti di Azure PowerShell in [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Questi problemi di compatibilità sono stati risolti nelle versioni più recenti di SDK HDInsight e di Azure PowerShell. È consigliabile aggiornare HDInsight SDK alla versione 1.3.1.6 o successiva e gli strumenti di Azure PowerShell alla versione 0.8.8 o successiva. È possibile accedere alla versione più recente di HDInsight SDK da [Nuget](http://nuget.codeplex.com/wikipage?title=Getting%20Started) e agli strumenti di Azure PowerShell in [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="notes-for-9122014-release-of-hdinsight-31"></a>Note per la versione di HDInsight 3.1 rilasciata il 12/09/2014
 * Questa versione è basata su Hortonworks Data Platform (HDP) 2.1.5. Per un elenco dei bug corretti in questa versione, vedere la pagina relativa alle [correzioni disponibili in questa versione](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.5/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.5-fixed.html) nel sito Hortonworks.
@@ -1526,9 +1536,4 @@ Le note sulla versione relative alle piattaforme HDP (Hortonworks Data Platform)
 
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

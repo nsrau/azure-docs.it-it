@@ -2,8 +2,9 @@
 redirect_url: https://azure.microsoft.com/services/documentdb/
 ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
-ms.openlocfilehash: 23663ecbba3507bc0443a28e1a06e5c44769f085
+ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
+ms.openlocfilehash: ee193a9b4e99c2a1e24ca7e725cfa7c50eb62677
+ms.lasthandoff: 02/23/2017
 
 
 
@@ -462,7 +463,7 @@ Nel diagramma seguente viene illustrato come la sintassi di query di SQL Documen
 
 ![Diagramma che illustra l'ambito e il significato della query usata nell'esercitazione su NoSQL per creare un'applicazione console C#](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
 
-La parola chiave [FROM](documentdb-sql-query.md#from-clause) è facoltativa nella query perché le query di DocumentDB sono già limitate a una singola raccolta. Di conseguenza, "FROM Families f" può essere scambiata con "FROM root r" o con il nome di qualsiasi altra variabile scelta. DocumentDB dedurrà che Families, root o il nome della variabile scelta, si riferisce per impostazione predefinita alla raccolta attuale.
+La parola chiave [FROM](documentdb-sql-query.md#FromClause) è facoltativa nella query perché le query di DocumentDB sono già limitate a una singola raccolta. Di conseguenza, "FROM Families f" può essere scambiata con "FROM root r" o con il nome di qualsiasi altra variabile scelta. DocumentDB dedurrà che Families, root o il nome della variabile scelta, si riferisce per impostazione predefinita alla raccolta attuale.
 
 ## <a name="a-idreplacedocumentastep-8-replace-json-document"></a><a id="ReplaceDocument"></a>Passaggio 8: Sostituire un documento JSON
 DocumentDB supporta la sostituzione di documenti JSON.  
@@ -587,10 +588,5 @@ Congratulazioni. L'esercitazione su NoSQL è stata completata ed è stata creata
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: media/documentdb-get-started-quickstart/nosql-tutorial-keys.png
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

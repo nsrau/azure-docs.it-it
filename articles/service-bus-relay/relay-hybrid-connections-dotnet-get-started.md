@@ -12,27 +12,30 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/28/2016
-ms.author: jotaub,sethm
+ms.date: 03/27/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: a645d742c1e6d80e86ac29d78d78422b5b47a286
+ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
+ms.openlocfilehash: d27016559ede5d810d7efcec2a3abc78334f0f0a
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>Introduzione alle connessioni ibride di inoltro
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
+Questa esercitazione offre un'introduzione alle [connessioni ibride di inoltro di Azure](relay-what-is-it.md#hybrid-connections) e illustra come creare un'applicazione client che invia messaggi a un'applicazione listener corrispondente. 
+
 ## <a name="what-will-be-accomplished"></a>Contenuto dell'esercitazione
-Poiché le connessioni ibride richiedono sia un componente client sia un componente server, in questa esercitazione verranno create due applicazioni console. Di seguito sono riportati i passaggi necessari:
+Dato che le connessioni ibride richiedono sia un componente client che un componente server, nel corso dell'esercitazione vengono create due applicazioni console. Procedura:
 
 1. Creare uno spazio dei nomi di inoltro usando il portale di Azure.
 2. Creare una connessione ibrida usando il portale di Azure.
-3. Scrivere un'applicazione console server per ricevere messaggi.
-4. Scrivere un'applicazione console client per inviare messaggi.
+3. Scrivere un'applicazione console server (listener) per ricevere messaggi.
+4. Scrivere un'applicazione console client (mittente) per inviare messaggi.
 
 ## <a name="prerequisites"></a>Prerequisiti
-1. [Visual Studio 2013 o Visual Studio 2015](http://www.visualstudio.com). Negli esempi di questa esercitazione viene usato Visual Studio 2015.
+1. [Visual Studio 2015 o versione successiva](http://www.visualstudio.com). Negli esempi di questa esercitazione viene usato Visual Studio 2015.
 2. Una sottoscrizione di Azure.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
@@ -70,10 +73,5 @@ A questo punto è stata creata un'applicazione per le connessioni ibride end-to-
 * [Domande frequenti sul servizio di inoltro](relay-faq.md)
 * [Creare uno spazio dei nomi](relay-create-namespace-portal.md)
 * [Introduzione all'applicazione Node](relay-hybrid-connections-node-get-started.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

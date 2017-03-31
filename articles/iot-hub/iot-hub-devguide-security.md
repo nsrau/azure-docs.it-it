@@ -1,5 +1,5 @@
 ---
-title: Informazioni sulla sicurezza dell&quot;hub IoT di Azure | Documentazione Microsoft
+title: Informazioni sulla sicurezza dell&quot;hub IoT di Azure | Microsoft Docs
 description: Guida per sviluppatori - Come controllare l&quot;accesso all&quot;hub IoT per app back-end e per dispositivi. Include informazioni sui token di sicurezza e sul supporto per i certificati x.509.
 services: iot-hub
 documentationcenter: .net
@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: f27dbd437e00ec4954419699d1dab1199970c8fc
-ms.openlocfilehash: de0b016cd9fc1a81e6acd0d2ab1d233a711a427c
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 1345af54729f278229c98e596d0d213331c2faaf
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -41,10 +42,10 @@ Per concedere le [autorizzazioni](#iot-hub-permissions) è possibile procedere n
 * **Criteri di accesso condivisi a livello di hub IoT**. I criteri di accesso condiviso possono concedere qualsiasi combinazione di [autorizzazioni](#iot-hub-permissions). È possibile definire i criteri nel [portale di Azure][lnk-management-portal] o a livello di codice usando le [API REST del provider di risorse dell'hub IoT][lnk-resource-provider-apis]. Un hub IoT appena creato ha i criteri predefiniti seguenti:
   
   * **iothubowner**: criteri con tutte le autorizzazioni.
-  * **service**: criteri con autorizzazione ServiceConnect.
-  * **device**: criteri con autorizzazione DeviceConnect.
-  * **registryRead**: criteri con autorizzazione RegistryRead.
-  * **registryReadWrite**: criteri con autorizzazioni RegistryRead e RegistryWrite.
+  * **service**: criteri con autorizzazione **ServiceConnect**.
+  * **device**: criteri con autorizzazione **DeviceConnect**.
+  * **registryRead**: criteri con autorizzazione **RegistryRead**.
+  * **registryReadWrite**: criteri con autorizzazioni **RegistryRead** e RegistryWrite.
   * **Credenziali di sicurezza specifiche del dispositivo**. Ogni hub IoT contiene un [registro delle identità][lnk-identity-registry]. Per ogni dispositivo presente in questo registro delle identità è possibile configurare credenziali di sicurezza che concedono autorizzazioni **DeviceConnect** con ambito agli endpoint di dispositivo corrispondenti.
 
 Ad esempio, in una soluzione IoT tipica:
@@ -54,7 +55,10 @@ Ad esempio, in una soluzione IoT tipica:
 * Il componente della logica di business di runtime del dispositivo usa i criteri *service* .
 * I singoli dispositivi si connettono usando le credenziali archiviate nel registro delle identità dell'hub IoT.
 
-## <a name="authentication"></a>Autenticazione
+> [!NOTE]
+> Per informazioni dettagliate, vedere [Autorizzazioni](#iot-hub-permissions).
+
+## <a name="authentication"></a>Authentication
 L'hub IoT di Azure concede l'accesso agli endpoint tramite la verifica di un token rispetto ai criteri di accesso condiviso e alle credenziali di sicurezza del registro delle identità.
 
 Le credenziali di sicurezza, ad esempio le chiavi asimmetriche, non vengono mai trasmesse in rete.
@@ -222,7 +226,7 @@ Il risultato, che concede l'accesso a tutte le funzionalità per device1, sarà:
     SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697
 
 > [!NOTE]
-> È possibile generare un token di firma di accesso condiviso tramite lo strumento .NET [Device Explorer][lnk-device-explorer].
+> È possibile generare un token SAS con lo strumento [Esplora dispositivi][lnk-device-explorer] di .NET o tramite l'utilità da riga di comando [iothub-explorer][lnk-iothub-explorer], multipiattaforma e basata su nodi.
 > 
 > 
 
@@ -289,7 +293,7 @@ Il risultato, che concede l'accesso in lettura a tutte le identità dispositivo,
 
 * **Un certificato X.509 esistente**. Un dispositivo potrebbe già avere un certificato X.509 associato. Il dispositivo può usare questo certificato per autenticarsi con hub IoT.
 * **Un certificato X-509 auto-generato e auto-firmato**. Un produttore di dispositivi o un distributore interno può generare questi certificati e archiviare la chiave privata corrispondente (e il certificato) nel dispositivo. È possibile usare strumenti come [OpenSSL][lnk-openssl] e l'utilità [Windows SelfSignedCertificate][lnk-selfsigned] per questo scopo.
-* **Certificato X.509 firmato da un'autorità di certificazione**. È possibile usare un certificato X.509 generato e firmato da un'autorità di certificazione (CA) anche per identificare un dispositivo e autenticare un dispositivo con hub IoT.
+* **Certificato X.509 firmato da un'autorità di certificazione**. È possibile usare un certificato X.509 generato e firmato da un'autorità di certificazione (CA) anche per identificare un dispositivo e autenticare un dispositivo con hub IoT. IoTHub verifica solo che l'identificazione personale presentata corrisponda all'identificazione personale configurata. IoTHub non convalida la catena di certificati.
 
 Un dispositivo può usare un certificato X.509 o un token di sicurezza per l'autenticazione, ma non per entrambi.
 
@@ -325,7 +329,7 @@ await registryManager.AddDeviceAsync(device);
 [Azure IoT SDK per dispositivi per .NET][lnk-client-sdk] (versione 1.0.11+) supporta l'uso dei certificati X.509.
 
 ### <a name="c-support"></a>Supporto per C\#
-La classe **DeviceAuthenticationWithX509Certificate** supporta la creazione di istanze di  **DeviceClient** usando un certificato X.509.
+La classe **DeviceAuthenticationWithX509Certificate** supporta la creazione di istanze di  **DeviceClient** usando un certificato X.509. Il certificato X.509 deve essere nel formato PFX (denominato anche PKCS #12) che include la chiave privata. 
 
 Di seguito è riportato un frammento di codice di esempio:
 
@@ -369,10 +373,10 @@ La tabella seguente elenca le autorizzazioni che è possibile usare per controll
 
 | Autorizzazione | Note |
 | --- | --- |
-| **RegistryRead** |Concede l'accesso di sola lettura al registro di identità. Per altre informazioni, vedere [Registro delle identità][lnk-identity-registry]. |
-| **RegistryReadWrite** |Concede l'accesso di lettura e scrittura al registro di identità. Per altre informazioni, vedere [Registro delle identità][lnk-identity-registry]. |
-| **ServiceConnect** |Concede l'accesso alle comunicazioni per il servizio cloud e al monitoraggio degli endpoint. Ad esempio, concede ai servizi cloud back-end l'autorizzazione per la ricezione di messaggi da dispositivo a cloud, l'invio di messaggi da cloud a dispositivo e il recupero degli acknowledgment di recapito corrispondenti. |
-| **DeviceConnect** |Concede l'accesso agli endpoint per il dispositivo. Ad esempio, concede l'autorizzazione per l'invio di messaggi da dispositivo a cloud e la ricezione di messaggi da cloud a dispositivo. Questa autorizzazione viene usata dai dispositivi. |
+| **RegistryRead** |Concede l'accesso di sola lettura al registro di identità. Per altre informazioni, vedere [Registro delle identità][lnk-identity-registry]. <br/>Questa autorizzazione viene usata dai servizi cloud back-end. |
+| **RegistryReadWrite** |Concede l'accesso di lettura e scrittura al registro di identità. Per altre informazioni, vedere [Registro delle identità][lnk-identity-registry]. <br/>Questa autorizzazione viene usata dai servizi cloud back-end. |
+| **ServiceConnect** |Concede l'accesso alle comunicazioni per il servizio cloud e al monitoraggio degli endpoint. <br/>Concede l'autorizzazione per la ricezione di messaggi da dispositivo a cloud, l'invio di messaggi da cloud a dispositivo e il recupero degli acknowledgment di recapito corrispondenti. <br/>Concede l'autorizzazione per il recupero degli acknowledgement di recapito per caricamenti di file. <br/>Concede l'autorizzazione per l'accesso a dispositivi gemelli per l'aggiornamento dei tag e delle proprietà indicate, il recupero delle proprietà segnalate e l'esecuzione di query. <br/>Questa autorizzazione viene usata dai servizi cloud back-end. |
+| **DeviceConnect** |Concede l'accesso agli endpoint per il dispositivo. <br/>Concede l'autorizzazione per l'invio di messaggi da dispositivo a cloud e la ricezione di messaggi da cloud a dispositivo. <br/>Concede l'autorizzazione per il caricamento di file da un dispositivo. <br/>Concede l'autorizzazione per la ricezione di notifiche su particolari proprietà del dispositivo gemello e l'aggiornamento delle proprietà segnalate di quest'ultimo. <br/>Concede l'autorizzazione per il caricamento di file. <br/>Questa autorizzazione viene usata dai dispositivi. |
 
 ## <a name="additional-reference-material"></a>Materiale di riferimento
 Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida per gli sviluppatori dell'hub IoT:
@@ -428,13 +432,9 @@ Per provare alcuni dei concetti descritti in questo articolo, possono essere uti
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
+[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

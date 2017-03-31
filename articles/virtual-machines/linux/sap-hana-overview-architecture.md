@@ -13,13 +13,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 42a2f5488bac192311cd0652286e45a2280032f2
-ms.openlocfilehash: 8bb2c8138d5f5ef76490e5439ba2427cbaf9b33d
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: a412304c33d915be6e30c6b748c8431a9c7e9f34
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="overview-and-architecture-of-sap-hana-on-azure-large-instances"></a>Panoramica e architettura di SAP HANA in Azure (istanze di grandi dimensioni)
+# <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Panoramica e architettura di SAP HANA (istanze di grandi dimensioni) in Azure 
 Questa guida all'architettura e alla distribuzione è suddivisa in cinque parti e include informazioni per facilitare la distribuzione di soluzioni SAP nella nuova piattaforma SAP HANA in Azure (istanze di grandi dimensioni). La guida non è completa e non tratta dettagli specifici per l'installazione di soluzioni SAP, ma offre informazioni utili per la distribuzione iniziale e l'esecuzione delle operazioni. Non usarla in sostituzione della documentazione di SAP correlata all'installazione di SAP HANA o delle varie note di supporto SAP che riguardano l'argomento. La guida fornisce inoltre informazioni dettagliate sull'installazione di SAP HANA in Azure (istanze di grandi dimensioni).
 
 
@@ -358,10 +360,5 @@ La figura precedente illustra come le diverse reti virtuali di Azure in entrambe
 > [!IMPORTANT] 
 > Se vengono usati più circuiti ExpressRoute, è necessario definire le impostazioni AS Path Prepending (Percorso AS anteposto) e Local Preference BGP (BGP preferenza locale) per consentire il routing appropriato del traffico.
 
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

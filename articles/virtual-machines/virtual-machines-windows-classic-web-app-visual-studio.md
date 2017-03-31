@@ -1,34 +1,10 @@
 ---
-title: Creare una macchina virtuale per un&quot;applicazione Web | Microsoft Docs
-description: Creazione di una macchina virtuale per un progetto Web con Visual Studio e Windows
-services: virtual-machines-windows
-documentationcenter: 
-author: TomArcher
-manager: timlt
-editor: 
-tags: azure-service-management
-ms.assetid: cafec36f-c828-4e57-88b7-b8bed3d9a2f7
-ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: dotnet
-ms.topic: article
-ms.date: 08/15/2016
-ms.author: tarcher
+redirect_url: /azure/virtual-machines/windows/classic/web-app-visual-studio
+redirect_document_id: true
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b6aa80057c5c36fdd57f6985bb5026cf7dcc364a
-
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: f2535b0012279b3e46c2ec9ee9f21fda014b03fd
+ms.lasthandoff: 03/25/2017
 
 ---
-# <a name="creating-a-virtual-machine-for-a-web-application-with-visual-studio"></a>Creazione di una macchina virtuale per un’applicazione web con Visual Studio
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-[!INCLUDE [virtual-machines-common-classic-web-app-visual-studio](../../includes/virtual-machines-common-classic-web-app-visual-studio.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -3,8 +3,7 @@ title: Note sulla versione di Azure SDK per .NET 2.9
 description: Note sulla versione di Azure SDK per .NET 2.9
 services: app-service\web
 documentationcenter: .net
-author: Juliako
-manager: erikre
+author: chrissfanos
 editor: 
 ms.assetid: c83d815b-fc19-4260-821e-7d2a7206dffc
 ms.service: app-service
@@ -12,11 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 11/16/2016
+ms.date: 02/24/2017
 ms.author: juliako;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: b0bbde6828ed556eef8063a56a35b325fee1865c
-ms.openlocfilehash: 4ba7d6c43a5e0893366669e7511d8e1cfe149b81
+ms.sourcegitcommit: 71c5a4f1b816fdcfe7ef267c20e6ed42e6cc51e6
+ms.openlocfilehash: 3c3fb275a7c980f71a3a30e6875b9515321bad99
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -43,6 +43,10 @@ In questa versione non sono state introdotte modifiche di rilievo ad Azure SDK 2
 ### <a name="windows-server-2016-virtual-machines"></a>Macchine virtuali Windows Server 2016
 
 - Visual Studio supporta ora la distribuzione di Servizi cloud in macchine virtuali con la famiglia di sistemi operativi 5 (Windows Server 2016). Per i servizi cloud esistenti, è possibile modificare le impostazioni specificando come destinazione la nuova famiglia di sistemi operativi. In caso di creazione di nuovi servizi cloud, se si sceglie di creare il servizio con .NET 4.6 o versioni successive verrà usata per impostazione predefinita la famiglia di sistemi operativi 5.  Per altre informazioni, vedere la [tabella relativa al supporto per le famiglie di sistemi operativi guest](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-guestos-update-matrix/).
+
+#### <a name="known-issues"></a>Problemi noti
+
+- Azure .NET SDK 2.9.6 ha introdotto una restrizione che blocca la distribuzione di progetti tramite framework .NET non supportati (ad esempio .NET 4.6) verso le famiglie di sistemi operativi < 5. Una soluzione alternativa viene fornita [qui](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9).
 
  
 ### <a name="azure-in-role-cache"></a>Cache nel ruolo di Azure 
@@ -87,10 +91,5 @@ In questa versione è stato aggiunto il supporto di [KeyVault](../azure-resource
 
 ## <a name="see-also"></a>Vedere anche
 [Post di annuncio di Azure SDK 2.9](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

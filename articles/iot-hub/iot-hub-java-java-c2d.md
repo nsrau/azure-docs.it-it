@@ -12,11 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 03/07/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: bd3b92e044a28237706fb004fdc43cca056047ad
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 624f5947e31f08f689ceb6c48bc572447acd64ac
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -57,22 +58,21 @@ In questa sezione si modificherà l'app per il dispositivo simulato creata in [I
 2. Aggiungere la seguente classe **MessageCallback** come classe annidata all'interno della classe **App**. Il metodo **execute** viene richiamato quando il dispositivo riceve un messaggio dall'hub IoT. In questo esempio, il dispositivo notifica sempre all'hub IoT di aver completato il messaggio:
    
     ```
-    private static class MessageCallback implements
-    com.microsoft.azure.iothub.MessageCallback {
+    private static class AppMessageCallback implements MessageCallback {
       public IotHubMessageResult execute(Message msg, Object context) {
         System.out.println("Received message from hub: "
           + new String(msg.getBytes(), Message.DEFAULT_IOTHUB_MESSAGE_CHARSET));
-   
+    
         return IotHubMessageResult.COMPLETE;
       }
     }
     ```
-3. Modificare il metodo **main** per creare un'istanza di **MessageCallback** e chiamare il metodo **setMessageCallback** prima dell'apertura del client, come indicato di seguito:
+3. Modificare il metodo **main** per creare un'istanza di **AppMessageCallback** e chiamare il metodo **setMessageCallback** prima dell'apertura del client, come indicato di seguito:
    
     ```
     client = new DeviceClient(connString, protocol);
    
-    MessageCallback callback = new MessageCallback();
+    MessageCallback callback = new AppMessageCallback();
     client.setMessageCallback(callback, null);
     client.open();
     ```
@@ -95,17 +95,21 @@ In questa sezione si crea un'app console Java che invia messaggi da cloud a disp
    
     ```
     <dependency>
-      <groupId>com.microsoft.azure.iothub-java-client</groupId>
-      <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.10</version>
+      <groupId>com.microsoft.azure.sdk.iot</groupId>
+      <artifactId>iot-service-client</artifactId>
+      <version>1.2.17</version>
     </dependency>
     ```
+
+    > [!NOTE]
+    > È possibile cercare la versione più recente di **iot-service-client** usando la [ricerca di Maven][lnk-maven-service-search].
+
 4. Salvare e chiudere il file pom.xml.
 5. In un editor di testo aprire il file send-c2d-messages\src\main\java\com\mycompany\app\App.java.
 6. Aggiungere al file le istruzioni **import** seguenti:
    
     ```
-    import com.microsoft.azure.iot.service.sdk.*;
+    import com.microsoft.azure.sdk.iot.service.*;
     import java.io.IOException;
     import java.net.URISyntaxException;
     ```
@@ -114,9 +118,9 @@ In questa sezione si crea un'app console Java che invia messaggi da cloud a disp
     ```
     private static final String connectionString = "{yourhubconnectionstring}";
     private static final String deviceId = "{yourdeviceid}";
-    private static final IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQP;
+    private static final IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQPS;
     ```
-8. Sostituire il metodo **main** con il codice seguente che si connette all'hub IoT, invia un messaggio al dispositivo e quindi attende un riconoscimento che il dispositivo ha ricevuto ed elaborato il messaggio:
+8. Sostituire il metodo **main** con il codice seguente. Il codice seguente si connette all'hub IoT, invia un messaggio al dispositivo e quindi attende un riconoscimento che il dispositivo ha ricevuto ed elaborato il messaggio:
    
     ```
     public static void main(String[] args) throws IOException,
@@ -192,9 +196,4 @@ Per altre informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [portale di Azure]: https://portal.azure.com
 [Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-
+[lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22

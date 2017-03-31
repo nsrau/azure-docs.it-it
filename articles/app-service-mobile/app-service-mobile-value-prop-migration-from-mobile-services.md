@@ -4,7 +4,7 @@ description: "Informazioni sui vantaggi che il servizio app può portare ai prog
 services: app-service\mobile
 documentationcenter: ios
 author: adrianhall
-manager: dwrede
+manager: adrianha
 editor: 
 ms.assetid: 26b68a11-8352-4f78-acd2-e4e0ec177781
 ms.service: app-service-mobile
@@ -17,6 +17,7 @@ ms.author: adrianha
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: f3b75c10ed0012d682562eb943cb67fc8176ddbb
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -63,10 +64,5 @@ Backup automatico del back-end e del database. Il codice e i dati sono sempre al
 Con il *servizio app di Azure* è ora possibile creare più ambienti privati di test e staging per le app per dispositivi mobili. Usare questi ambienti per testare le app prima della distribuzione. Passaggio alla produzione con tempo di inattività pari a zero. Le app Web sono precaricate per garantire la miglior esperienza utente possibile.
 
 È possibile iniziare a usare il *servizio app* sperimentando i vantaggi per il servizio mobile esistente seguendo questa [esercitazione](app-service-mobile-migrating-from-mobile-services.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

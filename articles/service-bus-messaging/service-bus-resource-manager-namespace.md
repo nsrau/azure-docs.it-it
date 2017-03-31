@@ -12,20 +12,22 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/04/2016
+ms.date: 01/10/2017
 ms.author: sethm;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 39907193d006d6060152c9ac737a082d655c2256
+ms.sourcegitcommit: dfd1ae52cc56a4d4b4c7ee3f69f0c454be607401
+ms.openlocfilehash: bb37faa10000c0352fcad3d7b2cefadc604716e5
 
 
 ---
+
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Creare uno spazio dei nomi del bus di servizio tramite il modello di Azure Resource Manager
+
 Questo articolo illustra come usare un modello di Azure Resource Manager per creare uno spazio dei nomi del bus di servizio di tipo **Messaging** con SKU Standard/Basic. L'articolo definisce anche i parametri specificati per eseguire la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
 
-Per altre informazioni sulla creazione di modelli, vedere [Creazione di modelli di Azure Resource Manager][Creazione di modelli di Azure Resource Manager]. (Creazione di modelli di Azure Resource Manager).
+Per altre informazioni sulla creazione di modelli, vedere [Creazione di modelli di Azure Resource Manager][Authoring Azure Resource Manager templates].
 
-Per il modello completo, vedere il [modello dello spazio dei nomi del bus di servizio][modello dello spazio dei nomi del bus di servizio] su GitHub.
+Per il modello completo, vedere il [modello dello spazio dei nomi del bus di servizio][Service Bus namespace template] su GitHub.
 
 > [!NOTE]
 > Questi modelli di Azure Resource Manager sono disponibili per il download e la distribuzione. 
@@ -35,7 +37,7 @@ Per il modello completo, vedere il [modello dello spazio dei nomi del bus di ser
 > * [Creare uno spazio dei nomi del bus di servizio con coda e regola di autorizzazione](service-bus-resource-manager-namespace-auth-rule.md)
 > * [Creare uno spazio dei nomi del bus di servizio con argomento, sottoscrizione e regola](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Per cercare i modelli più recenti, visitare la raccolta [Modelli di avvio rapido di Azure][Modelli di avvio rapido di Azure] e cercare un bus di servizio.
+> Per verificare la disponibilità di nuovi modelli, visitare la raccolta [Modelli di avvio rapido di Azure][Azure Quickstart Templates] e cercare "service bus".
 > 
 > 
 
@@ -54,7 +56,7 @@ Questo modello definisce i parametri seguenti.
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 Nome dello spazio dei nomi del bus di servizio da creare.
 
-```
+```json
 "serviceBusNamespaceName": {
 "type": "string",
 "metadata": { 
@@ -66,7 +68,7 @@ Nome dello spazio dei nomi del bus di servizio da creare.
 ### <a name="servicebussku"></a>serviceBusSKU
 Nome dello [SKU](https://azure.microsoft.com/pricing/details/service-bus/) del bus di servizio da creare.
 
-```
+```json
 "serviceBusSku": { 
     "type": "string", 
     "allowedValues": [ 
@@ -83,12 +85,12 @@ Nome dello [SKU](https://azure.microsoft.com/pricing/details/service-bus/) del b
 
 Il modello definisce i valori consentiti per il parametro (Basic, Standard o Premium) e assegna un valore predefinito (Standard) nel caso in cui non venga specificato alcun valore.
 
-Per altre informazioni sui prezzi del bus di servizio, vedere [Prezzi e fatturazione del bus di servizio][Prezzi e fatturazione del bus di servizio] (Prezzi e fatturazione del bus di servizio).
+Per altre informazioni sui prezzi del bus di servizio, vedere [Service Bus pricing and billing][Service Bus pricing and billing] (Prezzi e fatturazione del bus di servizio).
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
 Versione API del bus di servizio del modello.
 
-```
+```json
 "serviceBusApiVersion": { 
        "type": "string", 
        "defaultValue": "2015-08-01", 
@@ -101,7 +103,7 @@ Versione API del bus di servizio del modello.
 ### <a name="service-bus-namespace"></a>Spazio dei nomi del bus di servizio
 Crea uno spazio dei nomi del bus di servizio standard di tipo **Messaggistica**.
 
-```
+```json
 "resources": [
     {
         "apiVersion": "[parameters('serviceBusApiVersion')]",
@@ -123,12 +125,12 @@ Crea uno spazio dei nomi del bus di servizio standard di tipo **Messaggistica**.
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
-```
+```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
 ```
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-```
+```CLI
 azure config mode arm
 
 azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
@@ -138,17 +140,17 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
 Dopo aver creato e distribuito le risorse con Azure Resource Manager, imparare a gestire le risorse leggendo gli articoli seguenti:
 
 * [Gestire Bus di servizio con PowerShell](service-bus-powershell-how-to-provision.md)
-* [Gestire le risorse del bus di servizio con Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+* [Gestire le risorse del bus di servizio con Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
-[Creazione di modelli di Azure Resource Manager]: ../resource-group-authoring-templates.md
-[modello dello spazio dei nomi del bus di servizio]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
-[Modelli di avvio rapido di Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
-[Prezzi e fatturazione del bus di servizio]: https://azure.microsoft.com/documentation/articles/service-bus-pricing-billing/
-[Uso di Azure PowerShell con Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Manager]: ../xplat-cli-azure-resource-manager.md
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
+[Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
+[Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+[Service Bus pricing and billing]: https://azure.microsoft.com/documentation/articles/service-bus-pricing-billing/
+[Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
+[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

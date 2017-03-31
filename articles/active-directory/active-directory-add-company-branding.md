@@ -12,11 +12,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/30/2016
+ms.date: 03/03/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 98c8352152b6cd1817d32c6418597c566d94d44f
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 1ec1a20dec318153923afd6a0875545d1e102f29
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -31,8 +32,8 @@ Questo argomento illustra come personalizzare la pagina di accesso e il pannello
 > [!NOTE]
 > * La possibilità di aggiungere informazioni personalizzate distintive dell'azienda è disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory o si è utenti di Office 365. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
 > * Le edizioni Premium e Basic di Azure Active Directory sono disponibili per i clienti in Cina che usano l'istanza globale di Azure Active Directory. Azure Active Directory Premium e le edizioni Basic non sono attualmente supportati nel servizio di Microsoft Azure gestito da 21Vianet in Cina. Per altre informazioni, è possibile contattare Microsoft attraverso il [forum di Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
-> 
-> 
+>
+>
 
 ## <a name="customizing-the-sign-in-page"></a>Personalizzazione della pagina di accesso
 Di solito si usa la pagina di accesso se è necessario accedere con un browser alle app e ai servizi cloud sottoscritti dall'organizzazione.
@@ -46,8 +47,8 @@ Quando si visita un servizio con URL non specifici del tenant (ad esempio, https
 > [!NOTE]
 > * Il nome di dominio deve essere visualizzato come "Attivo" nella sezione **Active Directory** > **Directory** > **Domini** del portale di Azure classico dopo la configurazione della personalizzazione.
 > * La personalizzazione della pagina di accesso non si applica alla pagina di accesso degli utenti di Microsoft. Se si accede con un account Microsoft personale, potrebbe essere visualizzato un elenco personalizzato di icone utente reso disponibile da Azure AD, ma le informazioni di personalizzazione dell'organizzazione non vengono applicate alla pagina di accesso degli account Microsoft.
-> 
-> 
+>
+>
 
 Se si vuole mostrare il marchio, i colori e altri elementi personalizzabili dell'azienda in questa pagina, vedere le immagini seguenti per capire la differenza tra le due esperienze.
 
@@ -91,8 +92,8 @@ Ecco gli elementi che è possibile personalizzare nella pagina di accesso:
 
 > [!NOTE]
 > Tutti gli elementi sono facoltativi. Se, ad esempio, si specifica un logo del banner senza immagine di grandi dimensioni, la pagina di accesso mostra il logo e l'immagine per il sito di destinazione, ovvero l'immagine dell'autostrada californiana di Office 365.
-> 
-> 
+>
+>
 
 Nella pagina di accesso, la casella di controllo **Mantieni l'accesso** consente a un utente di rimanere connesso quando chiude e riapre il browser. Non influisce sulla durata della sessione. È possibile nascondere la casella di controllo nella pagina di accesso di Azure Active Directory.
 
@@ -100,12 +101,12 @@ La casella di controllo viene selezionata o meno a seconda dell'impostazione di 
 
 ![][9]
 
-Per nascondere la casella di controllo, configurare questa impostazione come **Nascosta**. 
+Per nascondere la casella di controllo, configurare questa impostazione come **Nascosta**.
 
 > [!NOTE]
 > Alcune funzionalità di SharePoint Online e di Office 2010 dipendono dalla possibilità per gli utenti di selezionare questa casella. Se si configura questa impostazione come nascosta, gli utenti potrebbero visualizzare prompt aggiuntivi e imprevisti con una richiesta di accesso.
-> 
-> 
+>
+>
 
 È anche possibile localizzare tutti gli elementi della pagina. Dopo aver configurato un set di elementi di personalizzazione "predefinito", è possibile configurare altre versioni per impostazioni locali diverse. È anche possibile combinare e abbinare diversi elementi. Ad esempio, è possibile:
 
@@ -133,6 +134,10 @@ Se la lingua preferita è il tedesco, viene visualizzato il logo del banner pred
 
 Benché sia tecnicamente possibile configurare un set diverso per ogni lingua supportata da Azure AD, è preferibile mantenere ridotto il numero di variazioni, per motivi di manutenzione e prestazioni.
 
+> [!IMPORTANT]
+> Yammer mostra la pagina di accesso personalizzata di Azure AD solo dopo l'accesso dell'utente. L'utente vede prima la pagina di accesso a Office 365 generica e poi la pagina personalizzata.   
+ 
+ 
 **Per aggiungere informazioni personalizzate distintive della società alla directory, seguire questa procedura:**
 
 1. Accedere al [portale di Azure classico](https://manage.windowsazure.com) come amministratore della directory da personalizzare.
@@ -148,7 +153,7 @@ Può trascorrere fino a un'ora prima che qualsiasi nuova modifica apportata per 
 
 1. Accedere al [portale di Azure classico](https://manage.windowsazure.com) come amministratore della directory da personalizzare.
 2. Selezionare la directory da personalizzare.
-3. Sulla barra degli strumenti in alto fare clic su **Configura**.
+fs3. Sulla barra degli strumenti in alto fare clic su **Configura**.
 4. Fare clic su **Modifica personalizzazione**.
 5. Fare clic su **Aggiungi impostazioni di personalizzazione per una lingua specifica**.
 6. Selezionare la lingua per cui si vuole personalizzare il logo, quindi fare clic su **Avanti**.
@@ -163,15 +168,15 @@ Può trascorrere fino a un'ora prima che qualsiasi nuova modifica apportata per 
 4. Fare clic su **Modifica personalizzazione**.
 5. Nella pagina Modifica personalizzazione selezionare **Modifica impostazioni di personalizzazione esistenti** e quindi passare alla pagina successiva.
 6. A seconda degli elementi che si vuole rimuovere, eseguire una o più delle operazioni seguenti:
-   
+
     a. In **Logo banner** selezionare **Rimuovi logo caricato**.
-   
+
     b. In **Logo icona** selezionare **Rimuovi logo caricato**.
-   
+
     c. Rimuovere il testo da tutte le caselle di testo.
-   
+
     d. Fare clic su **Next**.
-   
+
     e. Rimuovere il testo da tutte le caselle di testo.
 7. Fare clic su **Salva** per rimuovere gli elementi.
 8. Se necessario, fare di nuovo clic su **Modifica personalizzazione** e ripetere gli stessi passaggi per tutte le personalizzazioni specifiche della lingua da rimuovere.
@@ -221,9 +226,4 @@ Alcuni elementi personalizzabili in Azure AD prevedono più casi di utilizzo. I 
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 [9]: ./media/active-directory-add-company-branding/hidekmsi.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

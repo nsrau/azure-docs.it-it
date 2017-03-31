@@ -1,6 +1,6 @@
 ---
-title: VM Linux di Azure e Archiviazione di Azure | Documentazione Microsoft
-description: Descrive l&quot;archiviazione Standard e Premium di Azure con le macchine virtuali Linux.
+title: VM Linux di Azure e Archiviazione di Azure | Microsoft Docs
+description: Descrive l&quot;archiviazione Standard e Premium di Azure, Managed Disks e i dischi non gestiti con le macchine virtuali Linux.
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: vlivech
@@ -12,28 +12,85 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/04/2016
-ms.author: v-livech
+ms.date: 2/7/2017
+ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: a3dc017811cb891bc82b072e13e58b3af047a490
-ms.openlocfilehash: e74ede9b3132ff4b4c3e67e614b9996f56856ebc
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 1ada403a502972ee0d8cd96af2d62d923d43f6cf
+ms.lasthandoff: 03/18/2017
 
 
 ---
 # <a name="azure-and-linux-vm-storage"></a>Archiviazione delle macchine virtuali Linux e Azure
 Archiviazione di Azure è la soluzione di archiviazione cloud per le applicazioni moderne basate su durata, disponibilità e scalabilità per soddisfare le esigenze dei clienti.  Oltre a consentire agli sviluppatori di compilare applicazioni di grande portata per supportare nuovi scenari, Archiviazione di Azure offre anche la base di archiviazione per le macchine virtuali di Azure.
 
-## <a name="azure-storage-standard-and-premium"></a>Archiviazione di Azure: Standard e Premium
-Le macchine virtuali di Azure possono essere create su dischi di archiviazione standard o premium.  Quando si usa il portale per scegliere la macchina virtuale, è necessario aprire un menu a tendina nella schermata Informazioni di base per visualizzare i dischi standard e premium.  Tale menu è mostrato nella schermata sotto.  Quando se ne esegue l'attivazione sull'unità SSD, vengono mostrate soltanto le macchine virtuali con l'archiviazione premium abilitata, tutte supportate dalle unità SSD.  Quando se ne esegue l'attivazione sull'unità HDD, vengono visualizzate le macchine virtuali con l'archiviazione standard abilitata supportate dalle unità disco rotante, oltre alle macchine virtuali con l'archiviazione premium supportate dalle unità SSD.
+## <a name="managed-disks"></a>Managed Disks
 
-  ![schermata1](../virtual-machines/media/virtual-machines-linux-azure-vm-storage-overview/screen1.png)
+Sono ora disponibili macchine virtuali di Azure con [Azure Managed Disks](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), che consentono di creare macchine virtuali senza dover creare o gestire da sé gli [account di archiviazione di Azure](../storage/storage-introduction.md). È sufficiente specificare se si desidera l'Archiviazione Premium o Standard e le dimensioni del disco. Azure penserà a creare i dischi della macchina virtuale. Le macchine virtuali con Managed Disks hanno diverse funzionalità importanti, tra cui:
+
+- Supporto per la scalabilità automatica. Azure crea i dischi e gestisce l'archiviazione sottostante per supportare fino a 10.000 dischi per sottoscrizione.
+- Maggiore affidabilità con i set di disponibilità. Azure assicura che i dischi di macchine virtuali siano isolati automaticamente tra loro all'interno dei set di disponibilità.
+- Maggiore controllo degli accessi. Managed Disks espone varie operazioni controllate dal [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-what-is.md).
+
+Il prezzo di Managed Disks è diverso da quello dei dischi non gestiti. Per le relative informazioni, vedere [Prezzi e fatturazione di Managed Disks](../storage/storage-managed-disks-overview.md#pricing-and-billing).
+
+È possibile convertire le macchine virtuali esistenti che usano i dischi non gestiti per usare quelli gestiti tramite [az vm convert](/cli/azure/vm#convert). Per altre informazioni, vedere [come convertire una macchina virtuale Linux da dischi non gestiti ad Azure Managed Disks](virtual-machines-linux-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Non è possibile convertire un disco non gestito in un disco gestito se il disco non gestito si trova in un account di archiviazione che è stato, anche in passato, crittografato con la [Crittografia del servizio di archiviazione di Azure (SSE)](../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). La procedura seguente illustra come convertire dischi non gestiti che sono, o sono stati, in un account di archiviazione crittografato:
+
+- Copiare il disco rigido virtuale con [az storage blob copy start](/cli/azure/storage/blob/copy#start) in un account di archiviazione che non è mai stato abilitato per la crittografia del servizio di archiviazione di Azure.
+- Creare una macchina virtuale che usi dischi gestiti e specificare il file del disco rigido virtuale durante la creazione con [az vm create](/cli/azure/vm#create) o
+- Collegare il disco rigido virtuale copiato con [az vm disk attach](/cli/azure/vm/disk#attach) a una macchina virtuale in esecuzione con dischi gestiti.
+
+
+## <a name="azure-storage-standard-and-premium"></a>Archiviazione di Azure: Standard e Premium
+È possibile creare macchine virtuali di Azure, con Managed Disks o dischi non gestiti, basate su dischi di archiviazione Standard o Premium. Quando si usa il portale per scegliere la macchina virtuale, è necessario aprire un menu a tendina nella schermata **Informazioni di base** per visualizzare i dischi Standard e Premium. Quando se ne esegue l'attivazione sull'unità SSD, vengono mostrate soltanto le macchine virtuali con l'archiviazione premium abilitata, tutte supportate dalle unità SSD.  Quando se ne esegue l'attivazione sull'unità HDD, vengono visualizzate le macchine virtuali con l'archiviazione standard abilitata supportate dalle unità disco rotante, oltre alle macchine virtuali con l'archiviazione premium supportate dalle unità SSD.
 
 Durante la creazione di una macchina virtuale da `azure-cli` è possibile scegliere tra l'archiviazione standard e quella premium quando si sceglie la dimensione della macchina virtuale tramite il flag dell'interfaccia della riga di comando di `-z` o `--vm-size`.
 
-### <a name="create-a-vm-with-standard-storage-vm-on-the-cli"></a>Creare una macchina virtuale con l'archiviazione standard nell'interfaccia della riga di comando
-Il flag dell'interfaccia della riga di comando di `-z` sceglie Standard_A1 dove A1 rappresenta l'archiviazione standard basata sulla VM Linux.
+## <a name="creating-a-vm-with-a-managed-disk"></a>Creazione di una macchina virtuale con un disco gestito
 
-```bash
+L'esempio seguente richiede l'interfaccia della riga di comando di Azure 2.0, [installabile da qui].
+
+Creare innanzitutto un gruppo di risorse per gestire le risorse:
+
+```azurecli
+az group create --location westus --name myResourceGroup
+```
+
+Quindi creare la macchina virtuale con il comando `az vm create`, come nell'esempio seguente. È necessario specificare un argomento `--public-ip-address-dns-name` univoco, poiché `manageddisks` sarà probabilmente in uso.
+
+```azurecli
+az vm create \
+--image credativ:Debian:8:latest \
+--admin-username azureuser \
+--ssh-key-value ~/.ssh/id_rsa.pub
+--public-ip-address-dns-name manageddisks \
+--resource-group myResourceGroup \
+--location westus \
+--name myVM
+```
+
+L'esempio precedente crea una macchina virtuale con un disco gestito in un account di archiviazione Standard. Per usare un account di archiviazione Premium, aggiungere l'argomento `--storage-sku Premium_LRS`, come nell'esempio seguente:
+
+```azurecli
+az vm create \
+--storage-sku Premium_LRS
+--image credativ:Debian:8:latest \
+--admin-username azureuser \
+--ssh-key-value ~/.ssh/id_rsa.pub
+--public-ip-address-dns-name manageddisks \
+--resource-group myResourceGroup \
+--location westus \
+--name myVM
+```
+
+
+### <a name="create-a-vm-with-an-unmanaged-standard-disk-using-the-azure-cli-10"></a>Creare una macchina virtuale con un disco Standard non gestito tramite l'interfaccia della riga di comando di Azure 1.0
+
+È naturalmente possibile usare anche l'interfaccia della riga di comando di Azure 1.0 per creare macchine virtuali con dischi Standard e Premium. In questo momento non è possibile usare tale interfaccia per creare macchine virtuali con Managed Disks.
+
+L'opzione `-z` sceglie Standard_A1, che rappresenta una macchina virtuale Linux basata sull'archiviazione Standard.
+
+```azurecli
 azure vm quick-create -g rbg \
 exampleVMname \
 -l westus \
@@ -44,10 +101,10 @@ exampleVMname \
 -z Standard_A1
 ```
 
-### <a name="create-a-vm-with-premium-storage-on-the-cli"></a>Creare una macchina virtuale con archiviazione premium sull'interfaccia della riga di comando
-Il flag dell'interfaccia della riga di comando di `-z` sceglie Standard_DS1 dove DS1 rappresenta l'archiviazione premium basata sulla VM Linux.
+### <a name="create-a-vm-with-premium-storage-using-the-azure-cli-10"></a>Creare una macchina virtuale con archiviazione Premium usando l'interfaccia della riga di comando di Azure 1.0
+L'opzione `-z` sceglie Standard_DS1, che rappresenta una macchina virtuale Linux basata sull'archiviazione Premium.
 
-```bash
+```azurecli
 azure vm quick-create -g rbg \
 exampleVMname \
 -l westus \
@@ -176,16 +233,17 @@ Si discuterà di Crittografia del servizio di archiviazione (SSE) e come è poss
 
 * [Guida alla sicurezza di Archiviazione di Azure](../storage/storage-security-guide.md)
 
+## <a name="temporary-disk"></a>Disco temporaneo
+Ogni VM contiene un disco temporaneo. Il disco temporaneo offre archiviazione a breve termine per applicazioni e processi ed è destinato solo all'archiviazione di dati come file di paging o di scambio. I dati presenti nel disco temporaneo potrebbero andare persi durante un [evento di manutenzione](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#understand-planned-vs-unplanned-maintenance) o la [ridistribuzione di una VM](virtual-machines-linux-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Durante un riavvio standard della VM, i dati nell'unità temporanea vengono mantenuti.
+
+Nelle macchine virtuali Linux il disco è in genere **/dev/sdb** e viene formattato e montato in **/mnt** dall'agente Linux di Azure. Le dimensioni del disco temporaneo variano in base alle dimensioni della macchina virtuale. Per altre informazioni, vedere [Dimensioni per le macchine virtuali Linux](../virtual-machines/virtual-machines-linux-sizes.md).
+
+Per altre informazioni sull'uso del disco temporaneo in Azure, vedere l'articolo relativo alle [unità temporanee nelle macchine virtuali di Microsoft Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+
 ## <a name="cost-savings"></a>Risparmi sui costi
 * [Costi di archiviazione](https://azure.microsoft.com/pricing/details/storage/)
 * [Calcolatore dei costi di archiviazione](https://azure.microsoft.com/pricing/calculator/?service=storage)
 
 ## <a name="storage-limits"></a>Limiti relativi ad Archiviazione
 * [Limiti del servizio di archiviazione](../azure-subscription-service-limits.md#storage-limits)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

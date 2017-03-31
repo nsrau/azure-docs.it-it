@@ -4,13 +4,11 @@
 
 # Attività iniziali
 
-## [Creare una zona DNS](dns-getstarted-create-dnszone-portal.md)
-### [PowerShell](dns-getstarted-create-dnszone.md)
-### [Interfaccia della riga di comando](dns-getstarted-create-dnszone-cli.md)
-
-## [Creare record DNS](dns-getstarted-create-recordset-portal.md)
-### [PowerShell](dns-getstarted-create-recordset.md)
-### [Interfaccia della riga di comando](dns-getstarted-create-recordset-cli.md)
+## Creare una zona e un record DNS
+### [Portale](dns-getstarted-portal.md)
+### [PowerShell](dns-getstarted-powershell.md)
+### [Interfaccia della riga di comando di Azure 1.0](dns-getstarted-cli-nodejs.md)
+### [Interfaccia della riga di comando di Azure 2.0](dns-getstarted-cli.md)
 
 ## [Delegare il dominio al servizio DNS di Azure](dns-domain-delegation.md)
 ## [Creare record DNS personalizzati per un'app Web](dns-web-sites-custom-domain.md)
@@ -19,14 +17,15 @@
 
 ## Gestire le zone DNS
 ### [PowerShell](dns-operations-dnszones.md)
-### [Interfaccia della riga di comando](dns-operations-dnszones-cli.md)
+### [Interfaccia della riga di comando di Azure](dns-operations-dnszones-cli.md)
+
 
 ## [Gestire i record DNS](dns-operations-recordsets-portal.md)
 ### [PowerShell](dns-operations-recordsets.md)
-### [Interfaccia della riga di comando](dns-operations-recordsets-cli.md)
+### [Interfaccia della riga di comando di Azure](dns-operations-recordsets-cli.md)
 
 ## [Gestire record DNS inversi](dns-reverse-dns-record-operations-ps.md)
-### [Interfaccia della riga di comando](dns-reverse-dns-record-operations-cli.md)
+### [Interfaccia della riga di comando di Azure](dns-reverse-dns-record-operations-cli.md)
 ### [PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
 
 ## [Importare ed esportare un file di zona DNS](dns-import-export.md)
@@ -39,7 +38,7 @@
 
 # Riferimento
 ## [PowerShell](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns)
-## [Interfaccia della riga di comando di Azure 2.0 (anteprima)](/cli/azure/network/dns)
+## [Interfaccia della riga di comando di Azure](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
 ## [Java](/java/api/com.microsoft.azure.management.dns)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/)
@@ -60,8 +59,3 @@
 ## [Prezzi](https://azure.microsoft.com/pricing/details/dns/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Blog sulle reti](http://azure.microsoft.com/blog/topics/networking)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

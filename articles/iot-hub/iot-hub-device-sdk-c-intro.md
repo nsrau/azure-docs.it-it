@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
 translationtype: Human Translation
-ms.sourcegitcommit: 5d7eed340d2021c58f68c69100be5a9e13655146
-ms.openlocfilehash: 02907ef15742cda456fd0c5f10b777b11aa7c35e
+ms.sourcegitcommit: ef066a50b71389cb1cdd3bb0f8d342a34a4cc722
+ms.openlocfilehash: 0033f1cc036e1eef63f0728be8d5d73c8dbbccf6
 
 
 ---
@@ -30,7 +30,7 @@ Esiste una vasta gamma di piattaforme in cui è stato testato l'SDK. Per altri d
 In questo articolo verrà introdotta l'architettura di Azure IoT device SDK per C. Verrà illustrato come inizializzare la libreria di dispositivi, inviare eventi all'hub IoT e riceverne i messaggi. Le informazioni contenute in questo articolo dovrebbero essere sufficienti per iniziare a usare l'SDK, ma forniscono anche puntatori per ottenere informazioni aggiuntive sulle librerie.
 
 ## <a name="sdk-architecture"></a>Architettura dell'SDK
-È possibile trovare il repository GitHub di [**Azure IoT SDK per dispositivi per C**](https://github.com/Azure/azure-iot-sdk-c) e visualizzare i dettagli dell'API nelle [informazioni di riferimento per l'API C](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
+È possibile trovare il repository GitHub di [**Azure IoT SDK per dispositivi per C**](https://github.com/Azure/azure-iot-sdk-c) e visualizzare i dettagli dell'API nelle [informazioni di riferimento per l'API C](https://azure.github.io/azure-iot-sdk-c/index.html).
 
 L'ultima versione delle librerie è disponibile nel ramo **master** di questo repository:
 
@@ -466,6 +466,6 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

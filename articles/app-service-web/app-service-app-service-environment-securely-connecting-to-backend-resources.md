@@ -4,7 +4,7 @@ description: Informazioni su come connettersi in modo sicuro alle risorse back-e
 services: app-service
 documentationcenter: 
 author: stefsch
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b
 ms.service: app-service
@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2783e9c84684a52fb9b85074eabc490c24b6eb9a
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 0b6d3a47dc429c469b37c2c74f546cfeca580358
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="securely-connecting-to-backend-resources-from-an-app-service-environment"></a>Connessione sicura alle risorse back-end da un ambiente del servizio app
-## <a name="overview"></a>Overview
-Poiché un ambiente del servizio app viene sempre creato in una **rete virtuale** di Azure Resource Manager virtual network **o** in una [rete virtuale][virtualnetwork] creata con il modello di distribuzione classica, le connessioni in uscita da un ambiente del servizio app ad altre risorse back-end possono transitare esclusivamente tramite la rete virtuale.  Con una modifica recente apportata a giugno 2016, gli ambienti del servizio app possono essere distribuiti nelle reti virtuali che usano intervalli di indirizzi pubblici o spazi di indirizzi RFC1918, ovvero indirizzi privati.  
+## <a name="overview"></a>Panoramica
+Poiché un ambiente del servizio app viene sempre creato in una **rete virtuale** di Azure Resource Manager **o** in una [rete virtuale][virtualnetwork] creata con il modello di distribuzione classica, le connessioni in uscita da un ambiente del servizio app ad altre risorse back-end possono transitare esclusivamente tramite la rete virtuale.  Con una modifica recente apportata a giugno 2016, gli ambienti del servizio app possono essere distribuiti nelle reti virtuali che usano intervalli di indirizzi pubblici o spazi di indirizzi RFC1918, ovvero indirizzi privati.  
 
 Ad esempio, potrebbe essere in esecuzione un'istanza di SQL Server in un cluster di macchine virtuali con la porta 1433 bloccata.  In base all'elenco di controllo di accesso definito per l'endpoint, potrebbe essere consentito solo l'accesso da altre risorse nella stessa rete virtuale.  
 
@@ -90,7 +91,7 @@ Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione all'amb
 
 Per informazioni dettagliate su come controllare il traffico in ingresso all'ambiente del servizio app, vedere [Controllo del traffico in ingresso a un ambiente del servizio app][ControlInboundASE]
 
-Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Servizio app di Azure][AzureAppService].
+Per altre informazioni sulla piattaforma del servizio app di Azure, vedere l'articolo relativo al [servizio app di Azure][AzureAppService].
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -111,9 +112,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Serv
 [SqlServerEndpoint]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/SqlServerEndpoint01.png
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

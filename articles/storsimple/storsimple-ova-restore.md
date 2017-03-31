@@ -4,7 +4,7 @@ description: "Scoprire di più su come ripristinare un backup di StorSimple Virt
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 4d0deb8c-e3c7-4bc4-b89d-9881041960cb
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/07/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2801bc0fc645f9ed23733d1025f1cb42a5174022
+ms.sourcegitcommit: 840deacac773846a9c57d9437cb6f331cd8fcecb
+ms.openlocfilehash: 5ec5cab591907ccc5d9139da2ba149325daf8422
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="restore-from-a-backup-of-your-storsimple-virtual-array"></a>Ripristinare da un backup dell'array virtuale StorSimple
+# <a name="restore-from-a-backup-set-of-shares-and-volumes-on-your-storsimple-virtual-array"></a>Ripristinare da un set di backup di condivisioni e volumi nell'array virtuale StorSimple
+
 ## <a name="overview"></a>Panoramica
 Le informazioni contenute in questo articolo si applicano solo a Microsoft Azure StorSimple Virtual Array (noto anche come dispositivo virtuale locale StorSimple o dispositivo virtuale StorSimple) che esegue la versione di disponibilità generale (GA) di marzo 2016 o una versione successiva. Questo articolo illustra passo per passo come ripristinare da un set di backup di condivisioni o volumi sull'array virtuale StorSimple. L'articolo illustra anche come funziona il ripristino a livello di elemento su StorSimple Virtual Array configurato come file server.
 
@@ -98,16 +101,11 @@ Ogni condivisione dispone di una cartella *.backups* contenente i backup più re
 
 Guardare il video per scoprire come è possibile creare condivisioni, eseguire il backup di condivisioni e il ripristino dei dati in StorSimple Virtual Array.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Use-the-StorSimple-Virtual-Array/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Use-the-StorSimple-Virtual-Array/player]
 > 
 > 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni su come [Usare l'interfaccia utente Web per amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

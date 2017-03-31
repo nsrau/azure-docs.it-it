@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 91f8a95bdab98f079b748b5391e9b611378c6e79
-ms.openlocfilehash: ce18993832ce4953a1c3b21707206cdd06580edd
+ms.sourcegitcommit: 6a01f53ce05aa8084f0a18e56714b1790cfce912
+ms.openlocfilehash: 00dcedb09ea63b4337b2b730746fb2f5a1f27e64
 
 
 ---
@@ -183,7 +183,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     d. In **SAML entity ID**(ID entità SAML) immettere lo stesso valore inserito nel campo SAML host URI (URI host SAML).
     
-    e. **SAML IdP metadata** (Metadati IdP SAML) è il campo modificato nella precedente sezione relativa alla **modifica dei metadati della federazione della configurazione di Azure AD**.  **Prima di caricare i metadati IdP, è necessario modificare il file** rimuovendo informazioni in modo da garantire il corretto funzionamento tra Azure AD e il server Qlik Sense.  **Se il file non è ancora stato modificato, vedere le istruzioni riportate sopra.**   Se il file è stato modificato, fare clic sul pulsante Browse (Sfoglia) e selezionare il file di metadati modificato per caricarlo nella configurazione del proxy virtuale.
+    e. **SAML IdP metadata** (Metadati IdP SAML) è il campo modificato nella precedente sezione relativa alla **modifica dei metadati della federazione della configurazione di Azure AD**.  **Prima di caricare i metadati IdP, è necessario modificare il file** rimuovendo informazioni in modo da garantire il corretto funzionamento tra Azure AD e il server Qlik Sense.  **Se il file non è ancora stato modificato, vedere le istruzioni riportate sopra.**  Se il file è stato modificato, fare clic sul pulsante Browse (Sfoglia) e selezionare il file di metadati modificato per caricarlo nella configurazione del proxy virtuale.
     
     f. Immettere il nome dell'attributo o il riferimento dello schema per l'attributo SAML che rappresenta l' **ID utente** che Azure AD invierà al server Qlik Sense.  Le informazioni relative al riferimento dello schema sono disponibili nelle schermate dell'app in Azure in seguito alla configurazione.  Per usare l'attributo del nome, **immettere http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
     
@@ -202,7 +202,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     ![Qlik Sense][qs13]
     
-    a. Host white list (Elenco host consentiti) identifica i nomi host accettati per la connessione al server Qlik Sense.  **Immettere il nome host che gli utenti specificheranno per la connessione al server Qlik Sense.**  Il nome host è lo stesso valore specificato in SAML host URI (URI host SAML) senza https://.
+    a. Host white list (Elenco host consentiti) identifica i nomi host accettati per la connessione al server Qlik Sense.  **Immettere il nome host che gli utenti specificheranno per la connessione al server Qlik Sense.** Il nome host è lo stesso valore specificato in SAML host URI (URI host SAML) senza https://.
 15. Fare clic sul pulsante Apply (Applica).
     
     ![Qlik Sense][qs14]
@@ -219,7 +219,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     ![QlikSense][qs18]
     ![QlikSense][qs19]
-20. Dopo circa 5-10 secondi verrà visualizzato il messaggio per l'aggiornamento di QMC.  Fare clic sul pulsante Refresh QMC (Aggiorna QMC).
+20. Dopo circa&5;-10 secondi verrà visualizzato il messaggio per l'aggiornamento di QMC.  Fare clic sul pulsante Refresh QMC (Aggiorna QMC).
     
     ![Qlik Sense][qs20]
 21. Dopo l'aggiornamento di QMC, fare clic sulla voce di menu Virtual proxies (Proxy virtuali). La nuova voce del proxy virtuale SAML sarà elencata nella tabella visualizzata.  Fare clic sulla voce del proxy virtuale.
@@ -375,6 +375,6 @@ Quando si fa clic sul riquadro Qlik Sense Enterprise nel pannello di accesso, si
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

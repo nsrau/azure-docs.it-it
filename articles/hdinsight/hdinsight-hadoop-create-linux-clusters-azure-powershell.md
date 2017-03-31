@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/05/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
-ms.openlocfilehash: b3589dd3424d7723351165c103a2b1b122ff44cc
+ms.sourcegitcommit: 2dd64398fce3a85f92492b01951008eab31a2c3f
+ms.openlocfilehash: a566fe935da98d303f1260cbc2a2009e5702530a
 
 
 ---
@@ -38,7 +38,12 @@ Prima di iniziare questa procedura è necessario disporre di quanto segue:
 * Azure PowerShell.
     Per altre informazioni sull'uso di Azure PowerShell con HDInsight, vedere [Amministrare HDInsight tramite PowerShell](hdinsight-administer-use-powershell.md). Per l'elenco dei cmdlet di Windows PowerShell per HDInsight, vedere la [documentazione di riferimento dei cmdlet per HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
   
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+    > [!IMPORTANT]
+    > Il supporto di Azure PowerShell per la gestione delle risorse HDInsight tramite Azure Service Manager è **deprecato** ed è stato rimosso dal 1° gennaio 2017. La procedura descritta in questo documento usa i nuovi cmdlet HDInsight, compatibili con Azure Resource Manager.
+    > 
+    > Per installare la versione più recente, seguire la procedura descritta in [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) . Se sono presenti script che devono essere modificati per l'uso dei nuovi cmdlet compatibili con Azure Resource Manager, per altre informazioni vedere [Migrazione a strumenti di sviluppo basati su Azure Resource Manager per i cluster HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md) .
+    > 
+    > 
 
 ### <a name="access-control-requirements"></a>Requisiti di controllo di accesso
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
@@ -64,6 +69,7 @@ I due parametri più importanti da impostare per la creazione dei cluster Linux 
 Lo script seguente illustra come creare un nuovo cluster:
 
     $token ="<SpecifyAnUniqueString>"
+    $subscriptionID = "<SubscriptionName>"        # Provide your Subscription Name
 
     $resourceGroupName = $token + "rg"      # Provide a Resource Group name
     $clusterName = $token
@@ -76,8 +82,7 @@ Lo script seguente illustra come creare un nuovo cluster:
     Login-AzureRmAccount
 
     # Select the subscription to use if you have multiple subscriptions
-    #$subscriptionID = "<SubscriptionName>"        # Provide your Subscription Name
-    #Select-AzureRmSubscription -SubscriptionId $subscriptionID
+    Select-AzureRmSubscription -SubscriptionId $subscriptionID
 
     # Create an Azure Resource Group
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
@@ -88,7 +93,7 @@ Lo script seguente illustra come creare un nuovo cluster:
         -StorageAccountName $defaultStorageAccountName `
         -Location $location `
         -Type Standard_LRS
-    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -Name $defaultStorageAccountName -ResourceGroupName $resourceGroupName)[0].Key1
+    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -Name $defaultStorageAccountName -ResourceGroupName $resourceGroupName)[0].Value
     $destContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
     New-AzureStorageContainer -Name $defaultStorageContainerName -Context $destContext
 
@@ -186,6 +191,6 @@ Dopo aver creato un cluster HDInsight, usare le risorse seguenti per acquisire f
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

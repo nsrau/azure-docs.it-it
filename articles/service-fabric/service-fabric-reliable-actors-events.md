@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2016
+ms.date: 03/02/2017
 ms.author: amanbha
 translationtype: Human Translation
 ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
 ms.openlocfilehash: 92df9505416c5b4326f007dbf4b920f2c7ec3bd8
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -80,10 +81,4 @@ ev.GameScoreUpdated(Id.GetGuidId(), score);
 * [Diagnostica e monitoraggio delle prestazioni per Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 * [Documentazione di riferimento delle API di Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Codice di esempio](https://github.com/Azure/servicefabric-samples)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

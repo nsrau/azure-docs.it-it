@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 03/10/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 783952ef1a19d18c3dd5d25c9ccf25cf3b29af45
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 9245a2ce63746f039a3015a5a0cda2ff05cf950e
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -114,7 +115,7 @@ I controlli e le funzionalità LDAP seguenti devono essere disponibili nel serve
 
 Il filtro True/False spesso non viene segnalato come supportato dalle directory LDAP e potrebbe essere visualizzato nella **Global Page** in **Mandatory Features Not Found**. Viene usato per creare filtri **OR** nelle query LDAP, ad esempio quando si importano più tipi di oggetto. Se è possibile importare più di un tipo di oggetto, il server LDAP supporta questa funzionalità.
 
-Se si usa una directory in cui un identificatore univoco è l'ancoraggio, dovrà essere disponibile anche quanto segue (per altre informazioni, vedere la sezione [Configurare gli ancoraggi](#configure-anchors) più avanti in questo articolo):  
+Se si usa una directory in cui un identificatore univoco è l'ancoraggio, dovrà essere disponibile anche quanto segue. Per altre informazioni, vedere la sezione [Configurare gli ancoraggi](#configure-anchors):  
 `1.3.6.1.4.1.4203.1.5.1` Tutti gli attributi operativi
 
 Se la directory ha più oggetti di quanti sia possibile inserirne in una sola chiamata alla directory, è consigliabile usare il paging. Per il funzionamento del paging, è necessaria una delle opzioni seguenti:
@@ -162,7 +163,7 @@ Nella pagina Connectivity (Connettività) è necessario specificare le informazi
 * Per gli altri valori di Binding immettere le informazioni in nome utente/password o selezionare un certificato.
 * Se si usa Kerberos per l'autenticazione, fornire anche le informazioni per l'area autenticazione o il dominio dell'utente.
 
-La casella di testo **Attribute Aliases** viene usata per gli attributi definiti nello schema con la sintassi RFC4522. Questi attributi non possono essere rilevati durante il rilevamento dello schema ed è necessario l'intervento dell'utente per consentire al connettore di identificarli. Ad esempio, è necessario immettere quanto segue nella casella Attribute Aliases per identificare correttamente l'attributo userCertificate come attributo binario:
+La casella di testo **Attribute Aliases** viene usata per gli attributi definiti nello schema con la sintassi RFC4522. Questi attributi non possono essere rilevati durante il rilevamento dello schema ed è necessario l'intervento dell'utente per consentire al connettore di identificarli. È ad esempio necessario immettere quanto segue nella casella relativa agli alias dell'attributo per identificare correttamente l'attributo userCertificate come attributo binario:
 
 `userCertificate;binary`
 
@@ -228,10 +229,18 @@ Per ogni spazio dei nomi è anche possibile configurare le impostazioni di conne
 
 È anche possibile selezionare i contenitori e le OU in cui il connettore deve esportare e importare.
 
+Quando si esegue una ricerca, l'operazione viene eseguita in tutti i contenitori della partizione. Se è presente un numero elevato di contenitori ciò comporta un peggioramento delle prestazioni.
+
+>[!NOTE]
+A partire dall'aggiornamento di marzo 2017 del connettore Generic LDAP le ricerche possono essere limitate nell'ambito solo ai contenitori selezionati. Questa operazione può essere eseguita selezionando la casella di controllo "Search only in selected containers" ("Cerca solo in contenitori selezionati") come illustrato nell'immagine seguente.
+
+![Eseguire la ricerca solo in contenitori selezionati](./media/active-directory-aadconnectsync-connector-genericldap/partitions-only-selected-containers.png)
+
 ### <a name="configure-anchors"></a>Configurare gli ancoraggi
 Questa pagina ha  sempre un valore preconfigurato e non può essere modificato. Se il fornitore del server è stato identificato, l'ancoraggio potrebbe essere popolato con un attributo non modificabile, ad esempio, il GUID di un oggetto. Se non è stato rilevato o non ha un attributo non modificabile, il connettore usa un DN (nome distinto) come ancoraggio.
 
 ![ancoraggi](./media/active-directory-aadconnectsync-connector-genericldap/anchors.png)
+
 
 Di seguito è riportato un elenco di server LDAP e l' ancoraggio usato:
 
@@ -261,10 +270,4 @@ Per le directory con un log delle modifiche differenziali basato su data/ora, è
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 * Per informazioni su come abilitare la registrazione per risolvere i problemi relativi al connettore, vedere l'articolo relativo a [come abilitare la traccia ETW per i connettori](http://go.microsoft.com/fwlink/?LinkId=335731).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

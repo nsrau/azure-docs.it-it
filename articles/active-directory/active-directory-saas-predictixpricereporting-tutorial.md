@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 675014c9914ea8ff95c65b53e626061f7644266f
-ms.openlocfilehash: aca828ae5d065ed5369584a2ec81cd666a1a08e4
+ms.sourcegitcommit: 400793331aa2d56358a83a51ce64c67f59bbf3b7
+ms.openlocfilehash: dfb5859a08234d034fe6b0d87910b9dd92e4ac47
 
 
 ---
@@ -260,6 +260,6 @@ Quando si fa clic sul riquadro Predictix Price Reporting nel pannello di accesso
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

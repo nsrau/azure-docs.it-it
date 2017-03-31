@@ -1,12 +1,23 @@
 ---
-layout: LandingPage
+title: Documentazione di Diagnostica e Monitoraggio di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come usare i servizi di monitoraggio e diagnostica per monitorare le prestazioni, gestire la sicurezza e individuare le tendenze. Informazioni di riferimento sulle API, procedure consigliate e altro ancora.
+services: monitoring-and-diagnostics
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: monitoring-and-diagnostics
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: e59d88dbd538aad3e21a31fd721361cd9ffd4919
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 0d57ccb26a3dde16c50d2e837d392ab8e6fea979
+ms.lasthandoff: 03/22/2017
 
 ---
-
 # <a name="monitoring-and-diagnostics-documentation"></a>Documentazione di Monitoraggio e diagnostica
 
 Informazioni su come usare i servizi di monitoraggio e diagnostica di Azure per monitorare le prestazioni, gestire la sicurezza e individuare le tendenze. Esercitazioni, informazioni di riferimento sulle API, procedure consigliate e altri documenti in cui vengono illustrati gli usi di monitoraggio e diagnostica e come pianificare e distribuire soluzioni scalabili e affidabili.
@@ -144,12 +155,35 @@ Informazioni su come usare i servizi di monitoraggio e diagnostica di Azure per 
             </div>
         </div>
     </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Monitoraggio</h3>
+                            <p><a href="/azure/monitoring-and-diagnostics/monitoring-supported-metrics">Elenco delle metriche supportate</a></p>
+                            <p><a href="/azure/monitoring-and-diagnostics/monitoring-data-sources">Origini dei dati di monitoraggio</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Diagnostica</h3>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema">Schema di Diagnostica di Azure</a></p>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot0">Schema di Diagnostica di Azure 1.0</a></p>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot2">Schema di Diagnostica di Azure 1.2</a></p>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later">Schema di Diagnostica di Azure da 1.3 a 1.5</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

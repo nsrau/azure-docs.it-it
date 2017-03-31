@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/27/2016
+ms.date: 03/15/2017
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: 5054ea1d5bd17712a4b343319d583e62a256752d
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -26,7 +27,7 @@ Centro sicurezza di Azure invia avvisi in caso di macchine virtuali non crittogr
 ![Raccomandazione di crittografare il disco](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
-> Le informazioni contenute in questo documento si applicano alla versione di anteprima del Centro sicurezza di Azure.
+> Le informazioni contenute in questo documento riguardano la crittografia delle macchine virtuali senza usare una chiave di crittografia (che è obbligatoria per il backup delle macchine virtuali mediante Backup di Azure). Per informazioni su come usare una chiave di crittografia per il supporto di Backup di Azure per macchine virtuali di Azure crittografate, vedere l'articolo [Azure Disk Encryption per le macchine virtuali IaaS Windows e Linux](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) .
 >
 >
 
@@ -178,9 +179,4 @@ In questo documento si è appreso come crittografare una macchina virtuale di Az
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'utilizzo del servizio
 * [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/) : post di blog sulla sicurezza e sulla conformità di Azure
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

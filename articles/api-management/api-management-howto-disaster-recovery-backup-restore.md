@@ -1,5 +1,5 @@
 ---
-title: Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure | Microsoft Docs
+title: Implementare il ripristino di emergenza usando il backup e il ripristino in Gestione API di Azure | Documentazione Microsoft
 description: Informazioni su come usare il backup e il ripristino per eseguire il ripristino di emergenza in Gestione API di Azure.
 services: api-management
 documentationcenter: 
@@ -12,12 +12,12 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: a7ff82a47b4e972db96929acb47fcce760b244b3
-ms.openlocfilehash: 73bb12643a5c94e364ac4040f6e1678cb1495fb2
-
+ms.sourcegitcommit: 1c812fc31011b57f2cdb357574877d6b7125280f
+ms.openlocfilehash: c5ae5049588d5bc7628442942e71f182a425fead
+ms.lasthandoff: 02/10/2017
 
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
@@ -30,7 +30,7 @@ Questa guida descrive come autenticare le richieste di Gestione risorse di Azure
 > [!NOTE]
 > Il processo di backup e ripristino di un'istanza del servizio Gestione API per il ripristino di emergenza può essere usato anche per la replica delle istanze del servizio Gestione API per scenari quali la gestione temporanea.
 >
-> Si noti che ogni backup scade dopo 7 giorni. Se si tenta di ripristinare un backup dopo la scadenza del periodo di 7 giorni, il ripristino avrà esito negativo e verrà visualizzato il messaggio `Cannot restore: backup expired` .
+> Si noti che ogni backup scade dopo 30 giorni. Se si tenta di ripristinare un backup dopo la scadenza del periodo di 30 giorni, il ripristino avrà esito negativo e verrà visualizzato il messaggio `Cannot restore: backup expired` .
 >
 >
 
@@ -149,7 +149,7 @@ Quando si crea una richiesta di backup, occorre notare i vincoli seguenti.
 
 * Il **contenitore** specificato nel corpo della richiesta **deve esistere**.
 * Mentre il backup è in corso, **non tentare di eseguire alcuna operazione di gestione dei servizi** , ad esempio l'aggiornamento o il downgrade di SKU, la modifica di nomi di dominio e così via.
-* Il ripristino di un **backup è garantito solo per 7 giorni** dal momento della sua creazione.
+* Il ripristino di un **backup è garantito solo per 30 giorni** dal momento della sua creazione.
 * I **dati di utilizzo** usati per creare report analitici **non sono inclusi** nel backup. Usare l'[API REST di Gestione API di Azure][Azure API Management REST API] per recuperare periodicamente i report analitici e custodirli al sicuro.
 * La frequenza con cui si eseguono i backup dei servizi influenzerà i propri obiettivi relativi ai punti di ripristino. Per ridurla al minimo, si consiglia di implementare backup regolari e di eseguire backup su richiesta dopo aver apportato modifiche importanti al servizio di Gestione API.
 * Le **modifiche** apportate alla configurazione del servizio (ad esempio alle API, ai criteri, all'aspetto del portale per sviluppatori) durante l'esecuzione del processo di backup **potrebbero non essere incluse nel backup e potrebbero quindi andare perse**.
@@ -211,9 +211,4 @@ Consultare i blog Microsoft seguenti per due diverse procedure dettagliate del p
 [api-management-aad-resources]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-aad-resources.png
 [api-management-arm-token]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-arm-token.png
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

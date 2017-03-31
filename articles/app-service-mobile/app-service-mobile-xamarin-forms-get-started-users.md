@@ -4,7 +4,7 @@ description: "Informazioni su come usare le app per dispositivi mobili per auten
 services: app-service\mobile
 documentationcenter: xamarin
 author: adrianhall
-manager: dwrede
+manager: adrianha
 editor: 
 ms.assetid: 9c55e192-c761-4ff2-8d88-72260e9f6179
 ms.service: app-service-mobile
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 65c8ff42c9c34eb51cb26153eff9b45aa0926838
+ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
+ms.openlocfilehash: 30fac48cbacb26b03ce430987997c38c68368385
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -29,7 +30,7 @@ Questo argomento descrive come autenticare gli utenti di un'app mobile del servi
 ## <a name="prerequisites"></a>Prerequisiti
 Per ottenere risultati ottimali con questa esercitazione, è consigliabile completare prima di tutto l'esercitazione [Creare un'app Xamarin.Forms][1]. Al termine di questa esercitazione, sarà disponibile un progetto Xamarin.Forms che corrisponde a un'app TodoList multipiattaforma.
 
-Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiungere il pacchetto di estensione di autenticazione al progetto. Per altre informazioni sui pacchetti di estensione server, vedere [Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure][2].
+Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiungere il pacchetto di estensione di autenticazione al progetto. Per altre informazioni sui pacchetti di estensione server, vedere l'articolo [Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure][2].
 
 ## <a name="register-your-app-for-authentication-and-configure-app-services"></a>Registrare l'app per l'autenticazione e configurare i servizi app
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
@@ -38,7 +39,7 @@ Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiun
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="add-authentication-to-the-portable-class-library"></a>Aggiungere l'autenticazione alla libreria di classi portabile
-Le app per dispositivi mobili usano il metodo di estensione [LoginAsync][3] in [MobileServiceClient][4] per consentire l'accesso di un utente con l'autenticazione del servizio app. Questo esempio usa un flusso di autenticazione gestito dal server che mostra l'interfaccia di accesso del provider nell'app. Per altre informazioni, vedere [Autenticazione gestita dal server][5]. Per offrire un'esperienza utente migliore nell'app di produzione, è consigliabile prendere invece in considerazione l'uso dell'[autenticazione gestita dal client][6].
+L'app per dispositivi mobili usa il metodo di estensione [LoginAsync][3] in [MobileServiceClient][4] per eseguire l'accesso di un utente con l'autenticazione del servizio app. Questo esempio usa un flusso di autenticazione gestito dal server che mostra l'interfaccia di accesso del provider nell'app. Per altre informazioni, vedere [Autenticazione gestita dal server][5]. Per offrire un'esperienza utente migliore nell'app di produzione, è consigliabile prendere invece in considerazione l'uso dell'[autenticazione gestita dal client][6].
 
 Per eseguire l'autenticazione con un progetto Xamarin.Forms, definire un'interfaccia **IAuthenticate** nella libreria di classi portabile per l'app. Aggiungere quindi un pulsante di **accesso** all'interfaccia utente definita nella libreria di classi portabile, su cui fare clic per avviare l'autenticazione. Al completamento dell'autenticazione, i dati vengono caricati dal back-end dell'app per dispositivi mobili.
 
@@ -322,9 +323,4 @@ Dopo aver completato questa esercitazione sull'autenticazione di base, provare a
 [5]: app-service-mobile-dotnet-how-to-use-client-library.md#serverflow
 [6]: app-service-mobile-dotnet-how-to-use-client-library.md#clientflow
 [7]: https://msdn.microsoft.com/library/azure/jj730936(v=azure.10).aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

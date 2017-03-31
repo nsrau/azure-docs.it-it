@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 02/09/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 21ec253e35b31af770cacb9747210deb4b9f5fa0
+ms.sourcegitcommit: af15b530dd512873e4534fb61d276c8c8c3a196a
+ms.openlocfilehash: 7b7d3b87e1285993d744e74d01f5192732b70e77
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -24,6 +25,9 @@ ms.openlocfilehash: 21ec253e35b31af770cacb9747210deb4b9f5fa0
 Questo articolo illustra come usare l'attività di copia in una data factory di Azure per copiare dati da un database Cassandra locale in qualsiasi archivio dati elencato nella colonna Sink della sezione relativa alle [origini e ai sink supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats) . Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) , che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
 
 Data Factory supporta attualmente solo lo spostamento di dati da un database Cassandra agli [archivi dati sink supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats)e non supporta lo spostamento dei dati da altri archivi dati in un database Cassandra.
+
+## <a name="supported-versions"></a>Versioni supportate
+Questo connettore Cassandra supporta Cassandra versione 2.X.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per consentire al servizio Azure Data Factory di connettersi al database Cassandra in locale, è necessario installare quanto segue:
@@ -322,9 +326,4 @@ Le tabelle seguenti illustrano le tabelle virtuali che normalizzano di nuovo i d
 
 ## <a name="performance-and-tuning"></a>Ottimizzazione delle prestazioni
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

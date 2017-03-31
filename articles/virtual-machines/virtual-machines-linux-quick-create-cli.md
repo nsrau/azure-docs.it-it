@@ -1,132 +1,95 @@
 ---
-title: Creare una VM Linux usando l&quot;interfaccia della riga di comando di Azure 2.0 (anteprima) | Microsoft Azure
-description: Creare una VM Linux usando l&quot;interfaccia della riga di comando di Azure 2.0 (anteprima).
+title: Avvio rapido in Azure - Creare l&quot;interfaccia della riga di comando per una VM | Documentazione Microsoft
+description: Informazioni veloci su come creare macchine virtuali con l&quot;interfaccia della riga di comando di Azure.
 services: virtual-machines-linux
-documentationcenter: 
-author: squillace
+documentationcenter: virtual-machines
+author: neilpeterson
 manager: timlt
-editor: 
-ms.assetid: 82005a05-053d-4f52-b0c2-9ae2e51f7a7e
+editor: tysonn
+tags: azure-resource-manager
+ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/26/2016
-ms.author: rasquill
+ms.date: 03/10/2017
+ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 95b924257c64a115728c66956d5ea38eb8764a35
-ms.openlocfilehash: 70592ac773aced0bfcec5c7418a6dc53555fab33
-
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: c1d7cfe614ab4e677e7fff989e79eb09acb3feed
+ms.lasthandoff: 03/22/2017
 
 ---
 
-# <a name="create-a-linux-vm-using-the-azure-cli-20-preview-azpy"></a>Creare una VM Linux usando l'interfaccia della riga di comando di Azure 2.0 (az.py)
-Questo articolo illustra come distribuire rapidamente una macchina virtuale (VM) Linux in Azure con il comando [az vm create](/cli/azure/vm#create) usando l'interfaccia della riga di comando di Azure 2.0 (anteprima). 
+# <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>Creare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure
 
-> [!NOTE] 
-> L'anteprima dell'interfaccia della riga di comando di Azure 2.0 è l'interfaccia della riga di comando multipiattaforma di nuova generazione. [Versione di valutazione.](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2)
->
-> Nel resto della documentazione viene usata l'interfaccia della riga di comando di Azure esistente. Per creare una VM usando l'interfaccia della riga di comando di Azure 1.0 esistente invece dell'anteprima della versione 2.0, vedere [Creare una VM con l'interfaccia della riga di comando di Azure](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida illustra in dettaglio l'uso dell'interfaccia della riga di comando di Azure per distribuire una macchina virtuale che esegue Ubuntu 16.04 LTS.
 
-Per creare una VM, è necessario: 
+Prima di iniziare, verificare che l'interfaccia della riga di comando di Azure sia stata installata. Per altre informazioni, vedere [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli) (Guida all'installazione dell'interfaccia della riga di comando di Azure). 
 
-* Un account Azure (è possibile [ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/))
-* Aver installato la [versione 2.0 dell'interfaccia della riga di comando di Azure (anteprima)](/cli/azure/install-az-cli2)
-* Essere connessi all'account Azure (digitare [az login](/cli/azure/#login))
+## <a name="log-in-to-azure"></a>Accedere ad Azure 
 
-È anche possibile distribuire rapidamente una VM Linux usando il [portale di Azure](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Accedere alla sottoscrizione di Azure con il comando [az login](/cli/azure/#login) e seguire le istruzioni visualizzate.
 
-L'esempio seguente mostra come distribuire una VM Debian e collegare la chiave SSH (Secure Shell). Gli argomenti possono variare. Se si vuole usare un'immagine diversa, è [possibile cercarne una](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+```azurecli
+az login
+```
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Digitare prima di tutto [az group create](/cli/azure/group#create) per creare un gruppo di risorse contenente tutte le risorse distribuite:
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. 
+
+Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nella posizione `westeurope`.
 
 ```azurecli
-az group create -n myResourceGroup -l westus
+az group create --name myResourceGroup --location westeurope
 ```
 
-L'output sarà simile al seguente. Se si vuole, è possibile scegliere un'opzione `--output` diversa.
+## <a name="create-virtual-machine"></a>Crea macchina virtuale
 
-```json
-{
-  "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup",
-  "location": "westus",
-  "name": "myResourceGroup",
-  "properties": {
-    "provisioningState": "Succeeded"
-  },
-  "tags": null
-}
-```
+Creare una VM con il comando [az vm create](/cli/azure/vm#create). 
 
-## <a name="create-your-vm-using-the-latest-debian-image"></a>Creare la VM usando l'immagine Debian più recente
-
-È ora possibile creare la VM e il relativo ambiente. Ricordare di sostituire il valore di `----public-ip-address-dns-name` con un valore univoco. Quello riportato di seguito potrebbe essere già in uso.
+L'esempio seguente crea una VM denominata `myVM` e crea le chiavi SSH se non esistono già in una posizione predefinita. Per usare un set specifico di chiavi, utilizzare l'opzione `--ssh-key-value`.  
 
 ```azurecli
-az vm create \
---image credativ:Debian:8:latest \
---admin-username ops \
---ssh-key-value ~/.ssh/id_rsa.pub \
---public-ip-address-dns-name mydns \
---resource-group myResourceGroup \
---location westus \
---name myVM
+az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
+Dopo che la VM è stata creata, l'interfaccia della riga di comando di Azure mostra informazioni simili all'esempio seguente. Prendere nota dell'indirizzo IP pubblico. Questo indirizzo viene usato per accedere alla VM.
 
-L'output sarà simile al seguente. Prendere nota del valore di `publicIpAddress` o di `fqdn` per connettersi con **ssh** alla VM.
-
-
-```json
+```azurecli
 {
-  "fqdn": "mydns.westus.cloudapp.azure.com",
-  "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
-  "macAddress": "00-0D-3A-32-05-07",
+  "fqdns": "",
+  "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+  "location": "westeurope",
+  "macAddress": "00-0D-3A-23-9A-49",
+  "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
-  "publicIpAddress": "40.112.217.29",
+  "publicIpAddress": "52.174.34.95",
   "resourceGroup": "myResourceGroup"
 }
 ```
 
-Connettersi alla macchina virtuale usando l'indirizzo IP pubblico elencato nell'output. È anche possibile usare il nome di dominio completo (FQDN) elencato.
+## <a name="connect-to-virtual-machine"></a>Connettersi alla macchina virtuale
 
-```bash
-ssh ops@mydns.westus.cloudapp.azure.com
+Usare il comando seguente per creare una sessione SSH con la macchina virtuale. Sostituire l'indirizzo IP con l'indirizzo IP pubblico della macchina virtuale.
+
+```bash 
+ssh <Public IP Address>
 ```
 
-L'output visualizzato dovrebbe essere simile al seguente, a seconda della distribuzione scelta:
+## <a name="delete-virtual-machine"></a>Eliminare una macchina virtuale
 
-```
-The authenticity of host 'mydns.westus.cloudapp.azure.com (40.112.217.29)' can't be established.
-RSA key fingerprint is SHA256:xbVC//lciRvKild64lvup2qIRimr/GB8C43j0tSHWnY.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'mydns.westus.cloudapp.azure.com,40.112.217.29' (RSA) to the list of known hosts.
+Quando non servono più, il comando seguente consente di rimuovere il gruppo di risorse, la VM e tutte le risorse correlate.
 
-The programs included with the Debian GNU/Linux system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.
-
-Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
-permitted by applicable law.
-ops@mynewvm:~$ ls /
-bin  boot  dev  etc  home  initrd.img  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var  vmlinuz
+```azurecli
+az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Il comando `az vm create` consente di distribuire rapidamente una macchina virtuale per poter accedere a una shell bash e iniziare a lavorare. L'uso di `az vm create` , tuttavia, non consente un controllo esteso né permette di creare un ambiente più complesso.  Per informazioni su come distribuire una VM Linux personalizzata per l'infrastruttura, è possibile vedere gli articoli seguenti:
 
-* [Usare un modello di Azure Resource Manager per creare una distribuzione specifica](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Creare un ambiente Linux completo mediante l'interfaccia della riga di comando di Azure](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Creare una VM Linux usando un modello di Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Creare esercitazioni per macchine virtuali a disponibilità elevata](./virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-È anche possibile [usare il driver di Azure `docker-machine` con vari comandi per creare rapidamente una VM Linux come host Docker](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Se si usa Java, provare il metodo [create()](/java/api/com.microsoft.azure.management.compute._virtual_machine).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
-
+[Esplorare gli esempi dell'interfaccia della riga di comando per la distribuzione della VM](./virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

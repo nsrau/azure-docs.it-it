@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b241d70ab7c7e8468a3f358fef5af47a89d42e56
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: e5a33f58dfb07b82d4acab533d68135d8ed6a446
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -144,7 +145,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 
 **Altre informazioni:**
 
-* [Come aggiornare la password](active-directory-passwords-update-your-own-password.md)
+* [Come aggiornare la password](active-directory-passwords-update-your-own-password.md#reset-your-password)
 
 #### <a name="connect--sync-engine-that-extends-on-premises-directories-to-azure-active-directory"></a>Connect (motore di sincronizzazione che estende le directory locali ad Azure Active Directory)
 **Tipo:** funzionalità comuni
@@ -241,7 +242,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 ## <a name="premium-features"></a>Funzionalità Premium
 
 
-#### <a name="a-nameself-service-groupaself-service-group-and-app-managementself-service-application-additionsdynamic-groups"></a><a name="self-service-group"></a>Gestione self-service dei gruppi e delle app, aggiunta self-service di applicazioni, gruppi dinamici
+#### <a name="self-service-group"></a>Gestione self-service dei gruppi e delle app, aggiunta self-service di applicazioni, gruppi dinamici
 **Tipo:** funzionalità Premium
 
 **Disponibilità:**
@@ -273,7 +274,7 @@ La quota di utilizzo predefinita è 150.000 oggetti. Un oggetto è una voce del 
 * [Informazioni su Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
 
-#### <a name="a-namemim-cal-mim-serveramim-cal--mim-server"></a><a name="mim-cal-mim-server"></a>Licenze CAL MIM e server MIM
+#### <a name="mim-cal-mim-server"></a>Licenze CAL MIM e server MIM
 I diritti software di Microsoft Identity Manager Server vengono concessi attraverso licenze di Windows Server (qualsiasi edizione). Poiché Microsoft Identity Manager viene eseguito nel sistema operativo Windows Server, purché il server esegua una copia con licenza valida di Windows Server, allora Microsoft Identity Manager può essere installato e utilizzato su tale server. Nessuna altra licenza separata è necessaria per il Server di gestione identità Microsoft.
 
 **Tipo:** funzionalità Premium
@@ -344,7 +345,7 @@ I diritti software di Microsoft Identity Manager Server vengono concessi attrave
 | ![Controllo][12] |![Controllo][12] |![Controllo][12] |![Controllo][12] |
 
 
-#### <a name="a-namemdm-auto-enrollmentamdm-auto-enrollment-self-service-bitlocker-recovery-additional-local-administrators-to-windows-10-devices-via-azure-ad-join"></a><a name="mdm-auto-enrollment"></a>Iscrizione automatica MDM, ripristino Bitlocker self-service, amministratori locali aggiuntivi per dispositivi Windows 10 tramite aggiunta ad Azure AD
+#### <a name="mdm-auto-enrollment"></a>Iscrizione automatica MDM, ripristino Bitlocker self-service, amministratori locali aggiuntivi per dispositivi Windows 10 tramite aggiunta ad Azure AD
 **Tipo:** Aggiunta ad Azure Active Directory - Solo funzionalità correlate a Windows 10
 
 **Disponibilità:**
@@ -377,16 +378,11 @@ Oltre alle funzionalità disponibili a livello generale delle edizioni Free, Bas
 * [Autenticazione basata su certificati in iOS](active-directory-certificate-based-authentication-ios.md)
 * [Autenticazione basata su certificati in Android](active-directory-certificate-based-authentication-android.md)
 
-## <a name="whats-next"></a>Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md)
 * [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso](active-directory-add-company-branding.md)
 * [Visualizzare i report di accesso e utilizzo](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

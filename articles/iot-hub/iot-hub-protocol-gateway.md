@@ -52,6 +52,6 @@ Per altre informazioni sulla pianificazione della distribuzione dell'hub IoT, ve
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

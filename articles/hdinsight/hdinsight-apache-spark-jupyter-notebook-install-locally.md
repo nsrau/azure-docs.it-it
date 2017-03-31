@@ -1,5 +1,5 @@
 ---
-title: Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark | Documentazione Microsoft
+title: Installare un notebook di Jupyter localmente e connetterlo a un cluster Azure Spark | Documentazione Microsoft
 description: Informazioni su come installare Jupyter Notebook in locale nel computer e su come connetterlo a un cluster Apache Spark in Azure HDInsight.
 services: hdinsight
 documentationcenter: 
@@ -9,19 +9,22 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 48593bdf-4122-4f2e-a8ec-fdc009e47c16
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/17/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 57df4ab0b2a1df6631eb6e67a90f69cebb1dfe75
-ms.openlocfilehash: e6aeacd091e58a010348c031294f7b7c98df57fb
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 26cdaf4dc68876fa2bed4ca15d8bfb7fd3ac4b6d
+ms.lasthandoff: 01/24/2017
 
 
 ---
-# <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-cluster-on-hdinsight-linux"></a>Installare Jupyter Notebook nel computer e connetterlo al cluster Apache Spark in HDInsight Linux
+# <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-cluster-on-hdinsight"></a>Installare un notebook di Jupyter localmente e connetterlo al cluster Apache Spark in HDInsight
+
 Questo articolo illustra come installare Jupyter Notebook, insieme ai kernel personalizzati PySpark (per Python) e Spark (per Scala) e al magic Spark, e come connettere l'applicazione a un cluster HDInsight. L'installazione di Jupyter nel computer locale può essere dettata da molti motivi e può anche presentare alcuni problemi. Per un elenco di motivi e problemi, vedere la sezione [Perché installare Jupyter nel computer locale](#why-should-i-install-jupyter-on-my-computer) alla fine di questo articolo.
 
 L'installazione di Jupyter e del magic Spark nel computer si articola in tre passaggi chiave.
@@ -36,7 +39,7 @@ Per altre informazioni sui kernel personalizzati e su Spark magic disponibili pe
 I prerequisiti elencati di seguito non riguardano l'installazione di Jupyter. Riguardano invece la connessione di Jupyter Notebook a un cluster HDInsight dopo l'installazione.
 
 * Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Un cluster Apache Spark in HDInsight Linux. Per istruzioni, vedere l'articolo relativo alla [creazione di cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo relativo alla [creazione di cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## <a name="install-jupyter-notebook-on-your-computer"></a>Installare Jupyter Notebook nel computer
 Prima di installare i notebook Jupyter è necessario installare Python. Sia Python che Jupyter sono disponibili come parte della [distribuzione Anaconda](https://www.continuum.io/downloads). Quando si installa Anaconda, viene effettivamente installata una distribuzione di Python. Dopo aver installato Anaconda, aggiungere l'installazione di Jupyter mediante l'esecuzione di un comando. Questa sezione fornisce istruzioni che è necessario seguire.
@@ -85,11 +88,11 @@ Questa sezione illustra come configurare il magic Spark installato in precedenza
           }
         }
 
-4. Sostituire **{USERNAME}**, **{CLUSTERDNSNAME}** e **{BASE64ENCODEDPASSWORD}** con i valori appropriati. È possibile usare diverse utilità del linguaggio di programmazione preferito o uno strumento online per convertire la password corrente in una password con codifica Base 64. Un semplice frammento di codice Python da eseguire dal prompt dei comandi può essere il seguente:
+4. Sostituire **{USERNAME}**, **{CLUSTERDNSNAME}** e **{BASE64ENCODEDPASSWORD}** con i valori appropriati. È possibile usare diverse utilità del linguaggio di programmazione preferito o uno strumento online per convertire la password corrente in una password con codifica Base&64;. Un semplice frammento di codice Python da eseguire dal prompt dei comandi può essere il seguente:
 
         python -c "import base64; print(base64.b64encode('{YOURPASSWORD}'))"
 
-5. Configurare le impostazioni degli heartbeat corrette in `config.json`:
+5. Configurare le impostazioni di heartbeat corrette in `config.json`. Queste impostazioni devono essere aggiunte allo stesso livello dei frammenti `kernel_python_credentials` e `kernel_scala_credentials` aggiunti in precedenza. Per un esempio di come e dove aggiungere le impostazioni di heartbeat, vedere questo [file config.json di esempio](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
 
     * Per `sparkmagic 0.5.0` (cluster v3.4), includere:
 
@@ -114,7 +117,7 @@ Questa sezione illustra come configurare il magic Spark installato in precedenza
 
    1. Creare un nuovo notebook. Nell'angolo a destra fare clic su **New**. Verranno visualizzati il kernel predefinito **Python2** e i due nuovi kernel installati, **PySpark** e **Spark**.
 
-       ![Creare un nuovo notebook Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Create a new Jupyter notebook")
+       ![Creare un nuovo notebook Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Creare un nuovo notebook Jupyter")
 
         Fare clic su **PySpark**.
 
@@ -143,7 +146,7 @@ Può esistere una serie di motivi per cui è consigliabile installare Jupyter ne
 >
 >
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Vedere anche
+## <a name="seealso"></a>Vedere anche
 * [Panoramica: Apache Spark su Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenari
@@ -167,9 +170,4 @@ Può esistere una serie di motivi per cui è consigliabile installare Jupyter ne
 ### <a name="manage-resources"></a>Gestire risorse
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-job-debugging.md)
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

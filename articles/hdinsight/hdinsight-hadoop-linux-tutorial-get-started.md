@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 6a12ed4c-9d49-4990-abf5-0a79fdfca459
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
@@ -16,8 +17,9 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: e026008afcdb86fa80c80cb13c7ff4d94027d6ee
-ms.openlocfilehash: a86350fcdbcf3312d3b1d0dd7c895d9402609245
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: d038245747ff8cfd2c80d7a7e0f05373ccb1e5fe
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -26,7 +28,6 @@ ms.openlocfilehash: a86350fcdbcf3312d3b1d0dd7c895d9402609245
 Informazioni su come creare cluster [Hadoop](http://hadoop.apache.org/) in HDInsight e come eseguire processi Hive in HDInsight. [Apache Hive](https://hive.apache.org/) è il componente più diffuso dell'ecosistema Hadoop. Attualmente HDInsight viene fornito con tipi di cluster diversi: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), [Interactive Hive (anteprima)](hdinsight-hadoop-use-interactive-hive.md) e [R server](hdinsight-hadoop-r-server-overview.md).  Ogni tipo di cluster supporta un set diverso di componenti. I sei tipi di cluster supportano Hive. Per un elenco dei componenti supportati in HDInsight, vedere [Novità delle versioni cluster di Hadoop incluse in HDInsight](hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
-
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare questa esercitazione, è necessario avere:
 
@@ -59,11 +60,11 @@ Il modello di Resource Manager usato in questa esercitazione è disponibile in [
     Alcune proprietà sono state impostate come hardcoded nel modello.  È possibile configurare questi valori dal modello.
 
     * **Località**: sia la località del cluster che quella dell'account di archiviazione dipendente usano la stessa posizione del gruppo di risorse.
-    * **Versione del cluster**: 3.4
+    * **Versione del cluster**: 3.5
     * **Tipo di sistema operativo**: Linux
     * **Numero di nodi del ruolo di lavoro**: 2
 
-     Ogni cluster ha una dipendenza dall'account di archiviazione BLOB di Azure. Viene in genere indicato come account di archiviazione predefinito. Il cluster HDInsight e l'account di archiviazione predefinito devono avere un percorso condiviso nella stessa area di Azure. L'eliminazione dei cluster non comporta l'eliminazione dell'account di archiviazione. 
+     Ogni cluster ha una dipendenza dall'account di Archiviazione di Azure. Viene in genere indicato come account di archiviazione predefinito. Il cluster HDInsight e l'account di archiviazione predefinito devono avere un percorso condiviso nella stessa area di Azure. L'eliminazione dei cluster non comporta l'eliminazione dell'account di archiviazione. 
      
      Per una spiegazione più approfondita di queste proprietà, vedere l'articolo su come [create cluster Hadoop in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -135,7 +136,7 @@ Per altre informazioni sull'analisi dei dati con HDInsight, vedere gli articoli 
 
 Se si è pronti per iniziare a usare i dati, ma sono necessarie altre informazioni sulle modalità di archiviazione dei dati in HDInsight o sulle procedure di importazione dei dati in HDInsight, vedere gli argomenti seguenti:
 
-* Per informazioni sul modo in cui HDInsight usa l'archiviazione BLOB di Azure, vedere [Usare l'archiviazione BLOB di Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md).
+* Per informazioni sul modo in cui HDInsight usa Archiviazione di Azure, vedere [Usare Archiviazione di Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md).
 * Per informazioni sulle modalità di caricamento di dati in HDInsight, vedere [Caricare dati in HDInsight][hdinsight-upload-data].
 
 Per altre informazioni sulla creazione o la gestione di un cluster HDInsight, vedere gli argomenti seguenti:
@@ -156,10 +157,5 @@ Per altre informazioni sulla creazione o la gestione di un cluster HDInsight, ve
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

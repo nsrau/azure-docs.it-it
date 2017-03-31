@@ -13,17 +13,18 @@ ms.custom: authentication and authorization
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.date: 01/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 4ef415b7c0e7079da9930ecc6d8375dfc5a3c0a9
-ms.openlocfilehash: f3c8b487f23b5d1642de90d795eb2b41bfdb674d
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: b97872ed00746009a800817b345f31937309ed67
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="sql-database-tutorial-aad-authentication-logins-and-user-accounts-database-roles-permissions-server-level-firewall-rules-and-database-level-firewall-rules"></a>Esercitazione sul database SQL: autenticazione di AAD, account di accesso e utente, ruoli del database, autorizzazioni e regole del firewall a livello di server e a livello di database
-Questa esercitazione introduttiva illustra come usare SQL Server Management Studio per gestire l'autenticazione di Azure Active Directory, gli account di accesso, gli utenti e i ruoli del database che concedono l'accesso e le autorizzazioni per i database e i server di database SQL di Azure. Si apprenderà come:
+# <a name="azure-ad-authentication-access-and-database-level-firewall-rules"></a>Autenticazione, accesso e regole del firewall a livello di database di Azure AD
+Questa esercitazione illustra come usare SQL Server Management Studio per gestire l'autenticazione, gli account di accesso, gli utenti e i ruoli del database di Azure Active Directory che concedono l'accesso e le autorizzazioni per i database e i server di database SQL di Azure. Si apprenderà come:
 
 - Visualizzare le autorizzazioni utente nel database master e nei database utente
 - Creare account di accesso e utenti in base all'autenticazione di Azure Active Directory
@@ -36,17 +37,21 @@ Questa esercitazione introduttiva illustra come usare SQL Server Management Stud
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* È necessario un account Azure. È possibile [aprire un account Azure gratuito](/pricing/free-trial/?WT.mc_id=A261C142F) o [attivare i benefici della sottoscrizione di Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* **Account Azure**. È necessario un account Azure. È possibile [aprire un account Azure gratuito](https://azure.microsoft.com/free/) o [attivare i benefici della sottoscrizione di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
-* È necessario essere in grado di connettersi al portale di Azure usando un account membro del ruolo proprietario o collaboratore della sottoscrizione. Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Introduzione alla gestione degli accessi nel portale di Azure](../active-directory/role-based-access-control-what-is.md).
+* **Autorizzazioni di creazione di Azure**. È necessario essere in grado di connettersi al portale di Azure usando un account membro del ruolo proprietario o collaboratore della sottoscrizione. Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Introduzione alla gestione degli accessi nel portale di Azure](../active-directory/role-based-access-control-what-is.md).
 
-* Aver completato l'esercitazione [Introduzione ai server del database SQL di Azure, ai database e alle regole del firewall usando il portale di Azure ed SQL Server Management Studio](sql-database-get-started.md) o la [versione per PowerShell](sql-database-get-started-powershell.md) equivalente. In caso contrario, completare questa esercitazione preliminare oppure eseguire lo script di PowerShell in fondo alla [versione per PowerShell](sql-database-get-started-powershell.md) di questa esercitazione prima di continuare.
+* **SQL Server Management Studio**. Per scaricare e installare l'ultima versione di SQL Server Management Studio (SSMS), vedere [Scaricare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Per la connessione al database SQL di Azure usare sempre l'ultima versione di SSMS, perché vengono continuamente rilasciate nuove funzionalità.
+
+* **Server e database di base** Per installare e configurare un server e i due database usati in questa esercitazione, fare clic sul pulsante **Distribuisci in Azure**. Facendo clic sul pulsante, si apre il pannello **Deploy from a template** (Distribuisci da un modello). Creare un nuovo gruppo di risorse e specificare la **password di accesso amministratore** per il nuovo server che verrà creato:
+
+   [![Download](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fsqldbtutorial.blob.core.windows.net%2Ftemplates%2Fsqldbgetstarted.json)
 
    > [!NOTE]
-   > Il completamento dell'esercitazione correlata per l'autenticazione di SQL Server, [SQL Database tutorial: SQL authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md) (Esercitazione sul database SQL: autenticazione di SQL Server, account di accesso e utente, ruoli del database, autorizzazioni e regole del firewall a livello di server e a livello di database), è facoltativo. In tale esercitazione, tuttavia, vengono illustrati concetti che non vengono ripetuti in questa. Le procedure di questa esercitazione relative alle regole del firewall a livello di server e a livello di database non sono necessarie se l'esercitazione correlata è stata eseguita sugli stessi computer (con gli stessi indirizzi IP) e sono contrassegnate come facoltative per tale motivo. Gli screenshot in questa esercitazione, inoltre, presuppongono che sia stata completata l'esercitazione correlata. 
+   > Il completamento dell'esercitazione correlata per l'autenticazione di SQL Server, [l'autenticazione di SQL, account di accesso e utente, ruoli del database, autorizzazioni e regole del firewall a livello di server e a livello di database](sql-database-control-access-sql-authentication-get-started.md), è facoltativo. In tale esercitazione, tuttavia, vengono illustrati concetti che non vengono ripetuti qui. Le procedure di questa esercitazione relative al firewall a livello di server e a livello di database non sono necessarie se l'esercitazione correlata è stata eseguita sugli stessi computer (con gli stessi indirizzi IP) e sono contrassegnate come facoltative per tale motivo. Gli screenshot in questa esercitazione, inoltre, presuppongono che sia stata completata l'esercitazione correlata. 
    >
 
-* Aver creato e popolato un'istanza di Azure Active Directory. Per altre informazioni, vedere [Integrating your on-premises identities with Azure Active Directory](../active-directory/active-directory-aadconnect.md) (Integrazione delle identità locali con Azure Active Directory), [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](../active-directory/active-directory-add-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Nuovo supporto per la federazione in Microsoft Azure con Active Directory di Windows Server), [Amministrazione della directory di Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Gestire Azure AD con Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) e [Hybrid Identity Required Ports and Protocols](../active-directory/active-directory-aadconnect-ports.md) (Porte e protocolli necessari per la soluzione ibrida di gestione delle identità).
+* Aver creato e popolato un'istanza di Azure Active Directory. Per altre informazioni, consultare [Integrazione delle identità locali con Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Aggiungere un nome di dominio personalizzato ad Azure AD](../active-directory/active-directory-add-domain.md), [Windows Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Nuovo supporto per la federazione con Active Directory di Windows Server in Windows Azure), [Amministrazione della directory di Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) e [Gestire Azure AD con Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) e [Porte e protocolli necessari per la soluzione ibrida di gestione delle identità](../active-directory/active-directory-aadconnect-ports.md).
 
 > [!NOTE]
 > Questa esercitazione supporta l'apprendimento del contenuto degli argomenti relativi al [controllo dell'accesso al database SQL](sql-database-control-access.md), ad [account di accesso, utenti e ruoli del database](sql-database-manage-logins.md), alle [entità](https://msdn.microsoft.com/library/ms181127.aspx), ai [ruoli del database](https://msdn.microsoft.com/library/ms189121.aspx), alle [regole del firewall per il database SQL](sql-database-firewall-configure.md) e all'[autenticazione di Azure Active Directory](sql-database-aad-authentication.md). 
@@ -85,7 +90,7 @@ In questa sezione dell'esercitazione vengono visualizzate le informazioni relati
    ![Salvare l'account amministratore di AAD selezionato](./media/sql-database-control-access-aad-authentication-get-started/aad_admin_save.png)
 
 > [!NOTE]
-> Per esaminare le informazioni di connessione per il server, vedere l'articolo su come [visualizzare o aggiornare le impostazioni del server](sql-database-view-update-server-settings.md). Per questa serie di esercitazioni, il nome completo del server è "sqldbtutorialserver.database.windows.net".
+> Per esaminare le informazioni di connessione per il server, andare in [Gestisci i server](sql-database-manage-servers-portal.md). Per questa serie di esercitazioni, il nome completo del server è "sqldbtutorialserver.database.windows.net".
 >
 
 ## <a name="connect-to-sql-server-using-sql-server-management-studio-ssms"></a>Connettersi ad SQL Server con SQL Server Management Studio (SSMS)
@@ -256,7 +261,7 @@ In questa sezione dell'esercitazione si crea un account utente nel database Adve
 ## <a name="create-a-database-level-firewall-rule-for-adventureworkslt-database-users"></a>Creare una regola del firewall a livello di database per gli utenti del database AdventureWorksLT
 
 > [!NOTE]
-> Se è stata completata la procedura equivalente nell'esercitazione correlata per l'autenticazione di SQL Server, [SQL Database tutorial: SQL authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md) (Esercitazione sul database SQL: autenticazione di SQL Server, account di accesso e utente, ruoli del database, autorizzazioni e regole del firewall a livello di server e a livello di database), e si usa lo stesso computer con lo stesso indirizzo IP, non è necessario completare questa procedura.
+> Non è necessario completare questa procedura se è stata completata la procedura equivalente nell'esercitazione correlata per l'autenticazione di SQL Server, [autenticazione e autorizzazione SQL](sql-database-control-access-sql-authentication-get-started.md) e se l'utente sta imparando a usare lo stesso computer con lo stesso indirizzo IP.
 >
 
 In questa sezione dell'esercitazione si tenta l'accesso con il nuovo account utente da un computer con un diverso indirizzo IP, si crea una regola del firewall a livello di database come amministratore del server e quindi si esegue l'accesso con questa nuova regola del firewall a livello di database. 
@@ -273,17 +278,17 @@ In questa sezione dell'esercitazione si tenta l'accesso con il nuovo account ute
 
 2. Nella finestra **Connetti al server** immettere il nome del server e le informazioni di autenticazione per connettersi usando l'autenticazione di SQL Server con l'account aaduser1@microsoft.com. 
     
-   ![Connettersi come aaduser1@microsoft.com senza regola del firewall 1](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule1.png)
+   ![Connettersi come aaduser1@microsoft.com senza regola del firewall&1;](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule1.png)
 
 3. Fare clic su **Opzioni** per specificare il database a cui connettersi e quindi digitare **AdventureWorksLT** nella casella di riepilogo a discesa **Connetti al database** della scheda **Proprietà connessione**.
    
-   ![Connettersi come aaduser1 senza regola del firewall 2](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule2.png)
+   ![Connettersi come aaduser1 senza regola del firewall&2;](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule2.png)
 
 4. Fare clic su **Connect**. Verrà visualizzata una finestra di dialogo che informa che il computer da cui si sta tentando di connettersi al database SQL non ha una regola del firewall che consente l'accesso al database. La finestra di dialogo può essere visualizzata in due varianti, a seconda dei passaggi eseguiti precedentemente con i firewall. In genere, tuttavia, viene visualizzata la prima finestra di dialogo illustrata.
 
-   ![Connettersi come user1 senza regola del firewall 3](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule3.png)
+   ![Connettersi come user1 senza regola del firewall&3;](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule3.png)
 
-   ![Connettersi come user1 senza regola del firewall 4](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule4.png)
+   ![Connettersi come user1 senza regola del firewall&4;](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule4.png)
 
    > [!NOTE]
    > Le versioni più recenti di SSMS includono una funzionalità che consente ai proprietari e ai collaboratori di una sottoscrizione di accedere a Microsoft Azure e creare una regole del firewall a livello di server.
@@ -299,7 +304,7 @@ In questa sezione dell'esercitazione si tenta l'accesso con il nuovo account ute
      @start_ip_address = 'x.x.x.x', @end_ip_address = 'x.x.x.x';
    ```
 
-   ![Aggiungere una regola del firewall a livello di database 4](./media/sql-database-control-access-aad-authentication-get-started/aaduser1_add_rule_aw.png)
+   ![Aggiungere una regola del firewall a livello di database&4;](./media/sql-database-control-access-aad-authentication-get-started/aaduser1_add_rule_aw.png)
 
 8. Cambiare nuovamente computer e fare clic su **Connetti** nella finestra di dialogo **Connetti al server** per connettersi ad AdventureWorksLT come aaduser1. 
 
@@ -313,10 +318,5 @@ In questa sezione dell'esercitazione si tenta l'accesso con il nuovo account ute
 - Per altre informazioni sulle entità di database, vedere [Entità](https://msdn.microsoft.com/library/ms181127.aspx).
 - Per altre informazioni sui ruoli del database, vedere [Ruoli a livello di database](https://msdn.microsoft.com/library/ms189121.aspx).
 - Per informazioni generali sulle regole del firewall, vedere l'articolo relativo alle [regole del firewall per il database SQL](sql-database-firewall-configure.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

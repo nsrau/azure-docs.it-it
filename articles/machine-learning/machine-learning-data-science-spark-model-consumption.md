@@ -1,6 +1,6 @@
 ---
-title: Assegnare punteggi a modelli di apprendimento automatico compilati con Spark | Documentazione Microsoft
-description: Informazioni su come assegnare punteggi a modelli di apprendimento salvati in BLOB di Archiviazione di Azure (WASB).
+title: Rendere operativi i modelli di apprendimento automatico compilati con Spark | Documentazione Microsoft
+description: Informazioni su come caricare e assegnare punteggi ai modelli di apprendimento salvati in Archiviazione BLOB di Azure (WASB) con Python.
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -12,22 +12,35 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4aa61eb5fb6c441bdfebd8bcc46ad62fbaf78548
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: cfab4ea7491d15321d54cd9482e35a89fe7c7275
+ms.lasthandoff: 03/17/2017
 
 
 ---
-# <a name="score-spark-built-machine-learning-models"></a>Assegnare punteggi a modelli di apprendimento automatico compilati con Spark
+# <a name="operationalize-spark-built-machine-learning-models"></a>Rendere operativi i modelli di apprendimento automatico compilati con Spark
 [!INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
 
-Questo argomento descrive come caricare modelli di Machine Learning compilati con MLlib di Spark e archiviati in BLOB di Archiviazione di Azure (WASB) e come assegnare loro un punteggio con set di dati archiviati in WASB. Illustra come pre-elaborare i dati di input, come trasformare le funzionalità con le funzioni di codifica e indicizzazione nel toolkit MLlib e come creare un oggetto dati punto etichettato da usare come input per l'assegnazione dei punteggi con i modelli di apprendimento automatico. I modelli usati per l'assegnazione dei punteggi includono la regressione lineare, la regressione logistica, le foreste casuali e gli alberi con boosting a gradienti.
+Questo argomento illustra come rendere operativo un modello di apprendimento automatico (ML) salvato mediante Python in cluster HDInsight Spark. Descrive come caricare modelli di apprendimento automatico compilati con MLlib di Spark e archiviati in BLOB di Archiviazione di Azure (WASB) e come assegnare loro un punteggio con dataset archiviati in WASB. Illustra come pre-elaborare i dati di input, come trasformare le funzionalità con le funzioni di codifica e indicizzazione nel toolkit MLlib e come creare un oggetto dati punto etichettato da usare come input per l'assegnazione dei punteggi con i modelli di apprendimento automatico. I modelli usati per l'assegnazione dei punteggi includono la regressione lineare, la regressione logistica, le foreste casuali e gli alberi con boosting a gradienti.
+
+## <a name="spark-clusters-and-jupyter-notebooks"></a>Cluster Spark e notebook di Jupyter
+La procedura di configurazione e il codice per rendere operativo un modello ML, forniti in questa procedura dettagliata, sono applicabili sia con cluster HDInsight Spark 1.6 sia che con cluster Spark 2.0. Il codice per queste procedure è fornito anche nel notebook di Jupyter.
+
+### <a name="notebook-for-spark-16"></a>Notebook per Spark 1.6
+Il notebook di Jupyter [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) illustra come rendere operativo un modello salvato usando Python sui cluster di HDInsight. 
+
+### <a name="notebook-for-spark-20"></a>Notebook per Spark 2.0
+Al fine di modificare il notebook di Jupyter per Spark 1.6 per l'uso di un cluster HDInsight Spark 2.0, sostituire il file di codice Python con [questo file](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py). Questo codice illustra come usare i modelli creati in Spark 2.0.
+
 
 ## <a name="prerequisites"></a>Prerequisiti
-1. Per completare questa procedura dettagliata è necessario avere un account Azure e un cluster Spark 1.6 su HDInsight 3.4. Per istruzioni su come soddisfare questi requisiti, vedere [Panoramica dell'analisi scientifica dei dati con Spark in Azure HDInsight](machine-learning-data-science-spark-overview.md). Questo argomento contiene anche una descrizione dei dati relativi ai taxi della città di New York nel 2013 usati qui e istruzioni su come eseguire il codice da un notebook di Jupyter nel cluster Spark. Il notebook **pySpark-machine-learning-data-science-spark-model-consumption.ipynb** contenente gli esempi di codice usati in questo argomento è disponibile in [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
-2. È anche necessario creare i modelli di Machine Learning per l'assegnazione dei punteggi seguendo le istruzioni nell'argomento [Modellazione ed esplorazione dei dati con Spark](machine-learning-data-science-spark-data-exploration-modeling.md).   
+
+1. Per completare questa procedura dettagliata sono necessari un account Azure e un cluster HDInsight Spark 1.6 o 2.0. Per istruzioni su come soddisfare questi requisiti, vedere [Panoramica dell'analisi scientifica dei dati con Spark in Azure HDInsight](machine-learning-data-science-spark-overview.md). Questo argomento contiene inoltre una descrizione dei dati dei taxi di NYC per il 2013 usati qui e istruzioni su come eseguire il codice da un notebook Jupyter nel cluster Spark. 
+2. È anche necessario creare i modelli di Machine Learning per l'assegnazione dei punteggi seguendo le istruzioni nell'argomento [Modellazione ed esplorazione dei dati con Spark](machine-learning-data-science-spark-data-exploration-modeling.md) per il cluster Spark 1.6 o i notebook Spark 2.0. 
+3. I notebook Spark 2.0 usano un dataset aggiuntivo per l'attività di classificazione, il noto dataset sulle partenze puntuali dei voli tra il 2011 e il 2012. Vengono inoltre forniti una descrizione dei notebook e i relativi collegamenti nel [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) per il repository GitHub che li contiene. Inoltre, il codice in questo esempio e nei notebook collegati è generico e funzionerà in qualsiasi cluster Spark. Se non si usa HDInsight Spark, i passaggi di configurazione e gestione del cluster possono essere leggermente diversi rispetto a quanto illustrato qui. 
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -579,10 +592,5 @@ Se si preferisce non ricorrere al codice, usare [App per la logica di Azure](htt
 
 ## <a name="whats-next"></a>Passaggi successivi
 **Convalida incrociata e sweep di iperparametri**: vedere [Esplorazione e modellazione avanzate dei dati con Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) per informazioni su come istruire i modelli sulla convalida incrociata e lo sweep di iperparametri.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

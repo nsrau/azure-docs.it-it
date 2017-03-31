@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/25/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
-ms.openlocfilehash: 8b085c94078a8e6c4ded95c85443d14637025dc2
+ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
+ms.openlocfilehash: 78117fd3947be922e339931a0f8f31040ebf79fe
 
 
 ---
@@ -31,7 +31,12 @@ ms.openlocfilehash: 8b085c94078a8e6c4ded95c85443d14637025dc2
 >
 >
 
-In questo articolo viene usata l'API REST di Data Factory per creare la prima data factory di Azure.
+In questo articolo viene usata l'API REST di Data Factory per creare la prima data factory di Azure. Per eseguire l'esercitazione usando altri strumenti/SDK, selezionare una delle opzioni dall'elenco a discesa.
+
+> [!NOTE]
+> La pipeline di dati in questa esercitazione trasforma i dati di input per produrre dati di output. Non copia dati da un archivio dati di origine a un archivio dati di destinazione. Per un'esercitazione su come copiare dati usando Azure Data Factory, vedere [Copiare dati da un archivio BLOB al database SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> 
+> È possibile concatenare due attività, ovvero eseguire un'attività dopo l'altra, impostando il set di dati di output di un'attività come set di dati di input di altre attività. Per informazioni dettagliate, vedere [Pianificazione ed esecuzione con Data Factory](data-factory-scheduling-and-execution.md). 
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Vedere la [panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md) ed eseguire i passaggi relativi ai **prerequisiti** .
@@ -477,16 +482,14 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 ## <a name="see-also"></a>Vedere anche
 | Argomento | Descrizione |
 |:--- |:--- |
-| [Informazioni di riferimento sull'API REST di Data Factory](https://msdn.microsoft.com/library/azure/dn906738.aspx) |Vedere la documentazione completa sui cmdlet di Data factory |
-| [Attività di trasformazione dei dati](data-factory-data-transformation-activities.md) |Questo articolo fornisce un elenco di attività di trasformazione dei dati (ad esempio, la trasformazione Hive di HDInsight usata in questa esercitazione) supportate da Azure Data Factory. |
-| [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) |Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello applicativo di Data factory di Azure. |
+| [Informazioni di riferimento sull'API REST di Data Factory](/rest/api/datafactory/) |Vedere la documentazione completa sui cmdlet di Data factory |
 | [Pipeline](data-factory-create-pipelines.md) |Questo articolo fornisce informazioni sulle pipeline e sulle attività in Azure Data Factory e su come usarle per costruire flussi di lavoro end-to-end basati sui dati per lo scenario o l'azienda. |
 | [Set di dati](data-factory-create-datasets.md) |Questo articolo fornisce informazioni sui set di dati in Azure Data Factory. |
-| [Monitorare e gestire le pipeline con i pannelli del portale di Azure.](data-factory-monitor-manage-pipelines.md) |Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline con i pannelli del portale di Azure. |
+| [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) |Questo articolo descrive gli aspetti di pianificazione ed esecuzione del modello applicativo di Data factory di Azure. |
 | [Monitorare e gestire le pipeline con l'app di monitoraggio](data-factory-monitor-manage-app.md) |Questo articolo descrive come monitorare, gestire ed eseguire il debug delle pipeline usando l'app di monitoraggio e gestione. |
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

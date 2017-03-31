@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 8c9bac62a92947ea888f1ccdbd300f5b40cb3e07
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -86,9 +87,4 @@ Fino al termine del periodo di verifica, è possibile ricordare agli utenti di c
 [2]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_configure.png
 [3]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_role.png
 [4]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_reviewers.png
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

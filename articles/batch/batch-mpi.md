@@ -1,5 +1,5 @@
 ---
-title: "Eseguire applicazioni MPI in Azure Batch con attività a istanze multiple | Microsoft Docs"
+title: "Usare attività a istanze multiple per eseguire applicazioni MPI: Azure Batch | Documentazione Microsoft"
 description: "Informazioni su come eseguire applicazioni MPI (Message Passing Interface) usando il tipo di attività a istanze multiple in Azure Batch."
 services: batch
 documentationcenter: .net
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/20/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 90e41fc2a2a0109aa69bfd0d826444b6d3d559ea
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: a23ae729e20dcf79ada73f7545861356e31b957e
+ms.lasthandoff: 03/09/2017
 
 
 ---
-# <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-azure-batch"></a>Usare le attività a istanze multiple per eseguire applicazioni MPI (Message Passing Interface) in Azure Batch
+# <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Usare le attività a istanze multiple per eseguire applicazioni MPI (Message Passing Interface) in Batch
+
 Le attività a istanze multiple permettono di eseguire un'attività di Azure Batch in più nodi di calcolo contemporaneamente e di abilitare scenari high performance computing, ad esempio le applicazioni MPI (Message Passing Interface) in Batch. Questo articolo illustra come eseguire attività a istanze multiple usando la libreria [Batch .NET][api_net].
 
 > [!NOTE]
@@ -75,7 +78,7 @@ StartTask startTask = new StartTask
 {
     CommandLine = "cmd /c MSMpiSetup.exe -unattend -force",
     ResourceFiles = new List<ResourceFile> { new ResourceFile("https://mystorageaccount.blob.core.windows.net/mycontainer/MSMpiSetup.exe", "MSMpiSetup.exe") },
-    RunElevated = true,
+    UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin)),
     WaitForSuccess = true
 };
 myCloudPool.StartTask = startTask;
@@ -234,7 +237,7 @@ await subtasks.ForEachAsync(async (subtask) =>
     Console.WriteLine("subtask: {0}", subtask.Id);
     Console.WriteLine("exit code: {0}", subtask.ExitCode);
 
-    if (subtask.State == TaskState.Completed)
+    if (subtask.State == SubtaskState.Completed)
     {
         ComputeNode node =
             await batchClient.PoolOperations.GetComputeNodeAsync(subtask.ComputeNodeInformation.PoolId,
@@ -272,7 +275,7 @@ Il codice di esempio [MultiInstanceTasks][github_mpi] su GitHub illustra come us
 
 ### <a name="execution"></a>Esecuzione
 1. Scaricare [azure-batch-samples][github_samples_zip] da GitHub.
-2. Aprire la **soluzione** MultiInstanceTasks in Visual Studio 2015. Il `MultiInstanceTasks.sln` file della soluzione si trova:
+2. Aprire la **soluzione** MultiInstanceTasks in Visual Studio 2015 o versione più recente. Il `MultiInstanceTasks.sln` file della soluzione si trova:
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. Immettere le credenziali dell'account di archiviazione e Batch in `AccountSettings.settings` nel progetto **Microsoft.Azure.Batch.Samples.Common**.
@@ -366,9 +369,4 @@ Sample complete, hit ENTER to exit...
 [rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 
 [1]: ./media/batch-mpi/batch_mpi_01.png "Panoramica sulle istanze multiple"
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

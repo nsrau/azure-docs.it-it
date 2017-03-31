@@ -1,5 +1,5 @@
 ---
-title: Ripetere il training di un nuovo servizio Web usando i cmdlet di gestione di PowerShell per Machine Learning | Documentazione Microsoft
+title: Ripetere il training di un nuovo servizio Web di Machine Learning Azure con PowerShell | Documentazione Microsoft
 description: Informazioni su come ripetere il training di un modello in modo programmatico e aggiornare il servizio Web per l&quot;uso del modello appena sottoposto a training in Azure Machine Learning con i cmdlet di gestione di PowerShell.
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 066ff1d2c8255c895fbfcb0ad8c0b1fef298f8c7
-ms.openlocfilehash: d0decc1da1444254c319e7c2e1bbe4f567ef386e
+ms.sourcegitcommit: 1029c7e4c6a17ad2a290ff0783fc88692555b255
+ms.openlocfilehash: e971bd36f9245032296537ea3e0b64e5f3e18ddd
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -27,9 +28,9 @@ Quando si ripete il training di un nuovo servizio Web, si aggiorna la definizion
 È necessario impostare un esperimento di training e un esperimento predittivo come illustrato in [Ripetere il training dei modelli di Machine Learning in modo programmatico](machine-learning-retrain-models-programmatically.md). 
 
 > [!IMPORTANT]
-> L'esperimento predittivo deve essere distribuito come servizio Web nuovo di Machine Learning basato su Azure Resource Manager. 
-> 
-> 
+> L'esperimento predittivo deve essere distribuito come servizio Web nuovo di Machine Learning basato su Azure Resource Manager. Per distribuire un nuovo servizio Web è necessario disporre delle autorizzazioni sufficienti nella sottoscrizione a cui si sta distribuendo il servizio Web. Per altre informazioni, vedere [Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning](machine-learning-manage-new-webservice.md). 
+
+
 
 Per altre informazioni sulla distribuzione di servizi Web, vedere [Distribuire un servizio Web di Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
@@ -108,10 +109,5 @@ Usando i cmdlet di gestione PowerShell per Machine Learning, è possibile aggior
 
 * Ripetizione periodica del training del modello con nuovi dati.
 * Distribuzione di un modello ai clienti per fare in modo che possano ripetere il training del modello con i propri dati.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

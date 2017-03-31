@@ -1,5 +1,5 @@
 ---
-title: Ottenere gli strumenti di Azure per lo starter kit di Azure IoT per Ubuntu 16.04 | Microsoft Docs
+title: 'Connettere Intel Edison (C) ad Azure IoT: lezione 2: Strumenti di Azure (Ubuntu) | Documentazione Microsoft'
 description: Installare Python e l&quot;interfaccia della riga di comando di Azure in Ubuntu.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 97054e61b2586d74b2eab348d75b64399f66667b
-ms.openlocfilehash: 5d8f626380372847cdba72895abb4598e32f8829
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: e3b1c4dd3ff9a361c6c32cabd04fec523f8d6578
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -79,9 +80,4 @@ Se l'installazione ha esito positivo, verrà visualizzato l'output seguente.
 [windows]: iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-win32.md
 [ubuntu]: iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-ubuntu.md
 [macos]: iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-mac.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: Introduzione a Raspberry Pi 3 | Documentazione Microsoft
+title: 'Connettere Raspberry Pi (C) ad Azure IoT: introduzione | Microsoft Docs'
 description: Introduzione a Raspberry Pi 3 e informazioni su come creare l&quot;hub IoT di Azure e connettervi il dispositivo Pi.
 services: iot-hub
 documentationcenter: 
@@ -13,20 +13,25 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9f7647d89a6cf3c962bd4a6986e521cade3fd838
-ms.openlocfilehash: da2f32eb91dc8a2e10a3d76741d892b3c355ea1e
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 1d78a77ab28989bbac031e7dd967c050b1322ad7
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="get-started-with-raspberry-pi-3-c"></a>Introduzione a Raspberry Pi 3 (C)
+# <a name="connect-your-raspberry-pi-3-device-to-your-iot-hub-using-c"></a>Connettere il dispositivo Raspberry Pi 3 all'hub IoT con C
 > [!div class="op_single_selector"]
 > * [Node.JS](iot-hub-raspberry-pi-kit-node-get-started.md)
 > * [C](iot-hub-raspberry-pi-kit-c-get-started.md)
 
 Questa esercitazione illustra le nozioni di base sull'uso di Raspberry Pi 3 con il sistema operativo Raspbian. Viene poi illustrato come connettere i dispositivi al cloud usando l'[hub IoT di Azure](iot-hub-what-is-iot-hub.md). Per esempi di Windows 10 IoT Core, vedere [Windows Dev Center](http://www.windowsondevices.com/).
+
+> [!NOTE]
+> Apprezzi Docker o preferisci compilare il codice sorgente nel computer host? In caso affermativo, è possibile provare la soluzione basata su Docker in [GitHub](https://github.com/Azure-Samples/iot-hub-c-raspberrypi-docker).
 
 ## <a name="lesson-1-configure-your-device"></a>Lezione 1: Configurare il dispositivo
 ![Diagramma di flusso della lezione 1](media/iot-hub-raspberry-pi-lessons/e2e-lesson1.png)
@@ -126,9 +131,4 @@ Passare a [Sezione facoltativa: Modificare il comportamento di accensione e speg
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 In caso di problemi durante le lezioni, è possibile cercare soluzioni nell'articolo [Risoluzione dei problemi](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

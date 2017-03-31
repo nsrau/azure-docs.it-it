@@ -1,5 +1,5 @@
 ---
-title: Gestire i backup delle macchine virtuali distribuite con Resource Manager | Documentazione Microsoft
+title: Gestire i backup delle macchine virtuali distribuite con Resource Manager | Microsoft Docs
 description: Informazioni su come gestire e monitorare i backup delle macchine virtuali distribuite con Resource Manager
 services: backup
 documentationcenter: 
@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
-ms.author: markgal; trinadhk
+ms.author: trinadhk;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: d64ca980b82e279e446d2ea279124ae3f54b0f49
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f8cb0030290d200ab79e340b9b0fe8f5765d49f0
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -95,7 +96,7 @@ Nella procedura precedente è stato aperto il dashboard dell'insieme di credenzi
    * Arrestare la protezione delle macchine virtuali <br\>
    * Riprendere la protezione delle macchine virtuali <br\>
    * Eliminare i dati di un backup o un punto di ripristino <br\>
-   * [Ripristinare un backup o un punto di ripristino](backup-azure-arm-restore-vms.md#restore-a-recovery-point) <br\>
+   * [ripristinare i dischi di backup](backup-azure-arm-restore-vms.md#restore-backed-up-disks)  <br\>
 
 Per le procedure seguenti, il punto di partenza è il dashboard dell'elemento dell'insieme di credenziali.
 
@@ -220,9 +221,4 @@ Per eliminare i dati di backup in una macchina virtuale con il *backup disabilit
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni su come ricreare una macchina virtuale da un punto di ripristino, vedere [Ripristinare macchine virtuali in Azure](backup-azure-restore-vms.md). Per informazioni sulla protezione delle macchine virtuali, vedere [Primo approccio: Proteggere le VM di Azure con un insieme di credenziali dei servizi di ripristino](backup-azure-vms-first-look-arm.md). Per informazioni sul monitoraggio degli eventi, vedere [Monitor alerts for Azure virtual machine backups](backup-azure-monitor-vms.md)(Monitorare gli avvisi per i backup delle macchine virtuali di Azure).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

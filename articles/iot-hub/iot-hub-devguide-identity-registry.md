@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: dobett
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
-ms.openlocfilehash: 08ebf8f6f5a2adab90c7de1084bfb5e4aed77fd3
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 64a7bfeefd8282f854aa5b143a1708dfbe02ff42
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="identity-registry"></a>Registro delle identità
+# <a name="understand-identity-registry-in-your-iot-hub"></a>Comprendere il registro delle identità nell'hub IoT
 ## <a name="overview"></a>Panoramica
 Ogni hub IoT ha un registro delle identità in cui sono archiviate le informazioni sui dispositivi a cui è consentito connettersi all'hub IoT. Prima che un dispositivo possa connettersi a un hub IoT, è necessario che sia presente una voce relativa al dispositivo nel registro delle identità dell'hub IoT. Un dispositivo deve autenticarsi anche con l'hub IoT in base alle credenziali archiviate nel registro delle identità.
 
@@ -108,7 +110,7 @@ Le identità dei dispositivi vengono rappresentate da documenti JSON con le prop
 | --- | --- | --- |
 | deviceId |Obbligatoria, di sola lettura negli aggiornamenti |Stringa con distinzione tra maiuscole e minuscole (con lunghezza massima di 128 caratteri) di caratteri alfanumerici ASCII a 7 bit + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
 | generationId |Obbligatoria, di sola lettura |Stringa con distinzione tra maiuscole/minuscole generata dall'hub IoT con lunghezza massima di 128 caratteri. Tale valore viene usato per distinguere i dispositivi con la stessa proprietà **deviceId** in caso di eliminazione e nuova creazione. |
-| etag |Obbligatoria, di sola lettura |Stringa che rappresenta un eTag vulnerabile per l'identità del dispositivo, come indicato in [RFC7232][lnk-rfc7232]. |
+| etag |Obbligatoria, di sola lettura |Stringa che rappresenta un ETag vulnerabile per l'identità del dispositivo, come indicato in [RFC7232][lnk-rfc7232]. |
 | auth |Facoltativa |Oggetto composito contenente le informazioni di autenticazione e i materiali di sicurezza. |
 | auth.symkey |Facoltativa |Oggetto composito contenente una chiave primaria e una chiave secondaria, archiviate in formato Base&64;. |
 | status |Obbligatoria |Indicatore di accesso. Può essere **Enabled** o **Disabled**. Se è **Enabled**, il dispositivo sarà autorizzato alla connessione. Se è **Disabled**, il dispositivo non potrà accedere ad alcun endpoint per il dispositivo. |
@@ -165,9 +167,4 @@ Per provare alcuni dei concetti descritti in questo articolo, può essere utile 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

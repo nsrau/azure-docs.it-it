@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cb9e051dcb5cb3c59f80a4e0c022654166ca747d
+ms.sourcegitcommit: 325d92e493f6e011367d2c85b52c92838327101e
+ms.openlocfilehash: 3ef8a204144461092cdce2e797116ed51d4e7411
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -26,7 +27,7 @@ Questa esercitazione descrive l’integrazione di Asset Bank con Azure Active Di
 L'integrazione di Asset Bank con Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD chi può accedere ad Asset Bank
-* È possibile abilitare gli utenti per l'accesso automatico ad Asset Bank (Single Sign-On) con i propri account Azure AD.
+* È possibile abilitare gli utenti per l'accesso Single Sign-On (SSO) automatico ad Asset Bank con i propri account Azure AD
 * È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -35,12 +36,11 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 Per configurare l'integrazione di Azure AD con Asset Bank, sono necessari gli elementi seguenti:
 
 * Sottoscrizione di Azure AD.
-* Sottoscrizione di Asset Bank abilitata per l'accesso Single Sign-On.
+* Sottoscrizione di Asset Bank abilitata per l'accesso Single Sign-On (SSO)
 
-> [!NOTE]
-> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
-> 
-> 
+>[!NOTE]
+>Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
+>  
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
@@ -52,10 +52,10 @@ L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure
 
 Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
-1. Aggiunta di Asset Bank dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+* Aggiunta di Asset Bank dalla raccolta
+* Configurazione e test dell'accesso Single Sign-On di Azure AD
 
-## <a name="adding-asset-bank-from-the-gallery"></a>Aggiunta di Asset Bank dalla raccolta
+## <a name="add-asset-bank-from-the-gallery"></a>Aggiungere Asset Bank dalla raccolta
 Per configurare l'integrazione di Asset Bank in Azure AD, è necessario aggiungere Asset Bank dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Asset Bank dalla raccolta, seguire questa procedura:**
@@ -80,7 +80,7 @@ Per configurare l'integrazione di Asset Bank in Azure AD, è necessario aggiunge
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-assetbank-tutorial/tutorial_assetbank_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Asset Bank in base a un utente test di nome "Britta Simon".
 
 Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Asset Bank che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Asset Bank.
@@ -89,13 +89,13 @@ La relazione di collegamento viene stabilita assegnando al valore di **nome uten
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Asset Bank, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente test di Asset Bank](#creating-a-asset-bank-test-user)** : per avere una controparte di Britta Simon in Asset Bank collegata alla relativa rappresentazione in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di Azure classico e come configurare l'accesso Single Sign-On nell'applicazione Asset Bank.
 
 **Per configurare Single Sign-On di Azure AD con Asset Bank, seguire questa procedura:**
@@ -110,18 +110,13 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
 2. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-assetbank-tutorial/tutorial_assetbank_04.png) 
-
-    a. Nella casella di testo URL di accesso digitare l'URL utilizzato dagli utenti per accedere all'applicazione Asset Bank adottando il modello seguente: **"https://\<nome società\>.assetbank-server.com"**.
-
-    b. Fare clic su **Avanti**.
-
+    1. Nella casella di testo URL di accesso digitare l'URL usato dagli utenti per accedere all'applicazione Asset Bank adottando il modello seguente: **"https://\<nome società\>.assetbank-server.com"**.
+    2. Fare clic su **Avanti**.
 1. Nella pagina **Configura accesso Single Sign-On in Asset Bank** seguire questa procedura:
    
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-assetbank-tutorial/tutorial_assetbank_05.png) 
-   
-    a. Fare clic su **Scarica metadati**e quindi salvare il file nel computer.
-   
-    b. Fare clic su **Avanti**.
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-assetbank-tutorial/tutorial_assetbank_05.png)    
+    1. Fare clic su **Scarica metadati**e quindi salvare il file nel computer.
+    2. Fare clic su **Avanti**.
 2. Per ottenere la configurazione dell'accesso Single Sign-On per l'applicazione, contattare il team di supporto di Asset Bank all'indirizzo [support@assetbank.co.uk](mailto:support@assetbank.co.uk) e allegare il file di metadati al messaggio di posta elettronica.
 3. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
    
@@ -130,7 +125,7 @@ Questa sezione descrive come abilitare Single Sign-On di Azure AD nel portale di
    
     ![Single Sign-On di Microsoft Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di Azure classico.
 
 Nell'elenco di utenti selezionare **Britta Simon**.
@@ -152,46 +147,35 @@ Nell'elenco di utenti selezionare **Britta Simon**.
 5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-assetbank-tutorial/create_aaduser_05.png) 
-   
-    a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
-   
-    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
-   
-    c. Fare clic su **Avanti**.
+    1. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
+    2. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
+    3. Fare clic su **Avanti**.
 6. Nella pagina **Profilo utente** seguire questa procedura:
    
    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-assetbank-tutorial/create_aaduser_06.png) 
-   
-   a. Nella casella di testo **Nome** digitare **Britta**.  
-   
-   b. Nella casella di testo **Cognome** digitare **Simon**.
-   
-   c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
-   
-   d. Nell'elenco **Ruolo** selezionare **Utente**.
-   
-   e. Fare clic su **Avanti**.
+   1. Nella casella di testo **Nome** digitare **Britta**.  
+   2. Nella casella di testo **Cognome** digitare **Simon**.
+   3. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
+   4. Nell'elenco **Ruolo** selezionare **Utente**.
+   5. Fare clic su **Avanti**.
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-assetbank-tutorial/create_aaduser_07.png) 
 8. Nella pagina della finestra di dialogo **Ottieni password temporanea** seguire questa procedura:
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-assetbank-tutorial/create_aaduser_08.png) 
-   
-    a. Prendere nota del valore visualizzato in **Nuova password**.
-   
-    b. Fare clic su **Complete**.   
+    1. Prendere nota del valore visualizzato in **Nuova password**.
+    2. Fare clic su **Complete**.   
 
-### <a name="creating-a-asset-bank-test-user"></a>Creazione di un utente test di Asset Bank
+### <a name="create-a-asset-bank-test-user"></a>Creare un utente test di Asset Bank
 L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simon in Asset Bank. Asset Bank supporta il provisioning just-in-time, che è abilitato per impostazione predefinita.
 
 Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso ad Asset Bank verrà creato un nuovo utente, se questo non esiste già. 
 
-> [!NOTE]
-> Per creare un utente manualmente, è necessario contattare il team di supporto di Asset Bank.
-> 
+>[!NOTE]
+>Per creare un utente manualmente, è necessario contattare il team di supporto di Asset Bank.
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad Asset Bank.
 
 ![Assegna utente][200] 
@@ -212,7 +196,7 @@ Questa sezione descrive come abilitare Britta Simon per l'uso dell'accesso Singl
    
     ![Assegna utente][205]
 
-### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Asset Bank nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Asset Bank.
@@ -238,9 +222,4 @@ Quando si fa clic sul riquadro Asset Bank nel pannello di accesso, si dovrebbe a
 [203]: ./media/active-directory-saas-assetbank-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-assetbank-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-assetbank-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

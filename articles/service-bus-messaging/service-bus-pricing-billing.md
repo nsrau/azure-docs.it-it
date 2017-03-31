@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/06/2016
+ms.date: 02/16/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: 58d1b84c1a9fe19937846842f30f5e7b48cda1c7
+ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
+ms.openlocfilehash: bd042908fec2dcf499dd1cb5230f62ec4be9fdea
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 58d1b84c1a9fe19937846842f30f5e7b48cda1c7
 Il bus di servizio è disponibile nei livelli Basic, Standard e [Premium](service-bus-premium-messaging.md). È possibile scegliere un livello di servizio per ogni spazio dei nomi del bus di servizio creato e questa selezione del livello si applica a tutte le entità create all'interno dello spazio dei nomi.
 
 > [!NOTE]
-> Per informazioni dettagliate sui prezzi correnti del bus di servizio, vedere la [pagina dei prezzi del bus di servizio di Azure](https://azure.microsoft.com/pricing/details/service-bus/) e [Domande frequenti sul bus di servizio](service-bus-faq.md#service-bus-pricing).
+> Per informazioni dettagliate sui prezzi correnti del bus di servizio, vedere la [pagina dei prezzi del bus di servizio di Azure](https://azure.microsoft.com/pricing/details/service-bus/) e [Domande frequenti sul bus di servizio](service-bus-faq.md#pricing).
 >
 >
 
@@ -39,7 +39,7 @@ Il livello **Premium** fornisce l'isolamento delle risorse a livello di CPU e me
 
 Si noti che il costo di base standard viene addebitato una sola volta al mese per ogni sottoscrizione di Azure. Ciò significa che, dopo aver creato un unico spazio dei nomi del bus di servizio nei livelli Standard o Premium, sarà possibile creare tutti gli spazi dei nomi di livello Standard o Premium aggiuntivi desiderati nella stessa sottoscrizione di Azure, senza incorrere in costi aggiuntivi di base.
 
-Tutti gli spazi dei nomi del Bus di servizio esistenti creati prima del 1 novembre 2014 sono stati automaticamente inseriti nel livello Standard. In questo modo ci si assicura di continuare ad avere accesso a tutte le funzionalità attualmente disponibili con il Bus di servizio. Successivamente, è possibile usare il [portale di Azure classico][portale di Azure classico] per effettuare eventualmente il downgrade al livello di base.
+Tutti gli spazi dei nomi del Bus di servizio esistenti creati prima del 1 novembre 2014 sono stati automaticamente inseriti nel livello Standard. In questo modo ci si assicura di continuare ad avere accesso a tutte le funzionalità attualmente disponibili con il Bus di servizio. Successivamente è possibile usare il [portale di Azure classico][Azure classic portal] per effettuare il downgrade al livello di base se lo si desidera.
 
 Nella tabella seguente vengono riepilogate le differenze funzionali tra i livelli di base e quelli Standard/Premium.
 
@@ -100,7 +100,7 @@ Il livello di base include ed è rigorosamente limitato a 100 connessioni negozi
 | Oltre 500.000/mese |$0.015 per ogni connessione/mese |
 
 > [!NOTE]
-> Con il livello di messaggistica Standard (tramite l'addebito di base) sono incluse 1.000 connessioni negoziate, che possono essere condivise tra tutte le code, gli argomenti e le sottoscrizioni all'interno della sottoscrizione di Azure associata.
+> Con il livello di messaggistica Standard (tramite l'addebito di base) sono incluse&1;.000 connessioni negoziate, che possono essere condivise tra tutte le code, gli argomenti e le sottoscrizioni all'interno della sottoscrizione di Azure associata.
 >
 >
 
@@ -147,12 +147,12 @@ Sì. Non sono previsti costi di connessione per l'invio di eventi tramite HTTP, 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sui prezzi del bus di servizio, vedere la [pagina dei prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/).
-* Per le risposte alle domande frequenti sui prezzi e sulla fatturazione del bus di servizio, vedere [Domande frequenti sul bus di servizio](service-bus-faq.md#service-bus-pricing).
+* Per le risposte alle domande frequenti sui prezzi e sulla fatturazione del bus di servizio, vedere [Domande frequenti sul bus di servizio](service-bus-faq.md#pricing).
 
-[portale di Azure classico]: http://manage.windowsazure.com
+[Azure classic portal]: http://manage.windowsazure.com
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

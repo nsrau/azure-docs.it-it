@@ -1,5 +1,5 @@
 ---
-title: Leggere i messaggi con salvataggio permanente in Archiviazione di Azure | Documentazione Microsoft
+title: 'Connettere Intel Edison (C) ad Azure IoT: lezione 3: Monitorare i messaggi | Documentazione Microsoft'
 description: Monitorare i messaggi da dispositivo a cloud mentre vengono scritti nell&quot;archiviazione tabelle di Azure.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: fc9090bd9d2dd621767c23f3cfb76dcc88b66a71
-ms.openlocfilehash: c798669a111417cd4cf719a59a15221e734c7ff3
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: 1be4de1fef11da43c2940fdd890027d0e9728515
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -76,8 +77,3 @@ Per leggere i messaggi nell'archiviazione tabelle di Azure, seguire questi passa
 [run-the-azure-blink-sample-application-on-intel-edison]: iot-hub-intel-edison-kit-c-lesson3-run-azure-blink.md
 [gulp run]: media/iot-hub-intel-edison-lessons/lesson3/gulp_read_message_c.png
 [receive-cloud-to-device-messages]: iot-hub-intel-edison-kit-c-lesson4-send-cloud-to-device-messages.md
-
-
-<!--HONumber=Dec16_HO2-->
-
-

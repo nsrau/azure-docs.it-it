@@ -8,16 +8,17 @@ manager: erikre
 editor: monicar
 tags: azure-service-management
 ms.assetid: 78b76318-d9bf-48ef-9d9e-d1b7d8cf3042
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
-ms.date: 10/04/2016
+ms.workload: iaas-sql-server
+ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: c1df69b37b85544f00fc6ed68827f4817d766443
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 8f85a4cee6a59316eb5c321007b5b9d562c71302
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -29,8 +30,6 @@ ms.openlocfilehash: c1df69b37b85544f00fc6ed68827f4817d766443
 
 > [!IMPORTANT]
 > I modelli di applicazione Web MVC ASP.NET non supportano il controllo ReportViewer.
-> 
-> 
 
 Per incorporare ReportViewer nel sito Web di Microsoft Azure, è necessario completare le attività seguenti.
 
@@ -39,16 +38,12 @@ Per incorporare ReportViewer nel sito Web di Microsoft Azure, è necessario comp
 * **Pubblicare** l'applicazione Web ASP.NET in Azure
 
 ## <a name="prerequisites"></a>Prerequisiti
-Consultare la sezione "Indicazioni generali e procedure consigliate" in [SQL Server Business Intelligence in Macchine virtuali di Azure](virtual-machines-windows-classic-ps-sql-bi.md).
+Consultare la sezione "Indicazioni generali e procedure consigliate" in [SQL Server Business Intelligence in Macchine virtuali di Azure](../classic/ps-sql-bi.md).
 
 > [!NOTE]
 > I controlli ReportViewer vengono offerti con Visual Studio Standard Edition o versione successiva. Se si usa Web Developer Express Edition, è necessario installare [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747) per usare le funzionalità di runtime di ReportViewer.
 > 
 > ReportViewer configurato in modalità di elaborazione locale non è supportato in Microsoft Azure.
-> 
-> 
-
-Esaminare il white paper [Controllo visualizzatore di report del servizio di creazione report e server di report basati sulle macchine virtuali di Microsoft Azure](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx).
 
 ## <a name="adding-assemblies-to-the-deployment-package"></a>Aggiunta di assembly al pacchetto di distribuzione
 Quando si ospita l'applicazione ASP.NET in locale, gli assembly di ReportViewer vengono solitamente installati direttamente nella Global Assembly Cache (GAC) del server IIS durante l'installazione di Visual Studio e sono accessibili direttamente dall'applicazione. Tuttavia, quando si ospita l'applicazione ASP.NET nel cloud, Microsoft Azure non consente alcuna installazione nella Global Assembly Cache, pertanto è necessario verificare che gli assembly di ReportViewer siano disponibili localmente per l'applicazione. È possibile eseguire questa operazione aggiungendo i riferimenti agli assembly nel progetto e configurandoli per essere copiati localmente.
@@ -95,15 +90,8 @@ Per istruzioni sulla pubblicazione di un'applicazione Web ASP.NET in Azure, vede
 ## <a name="resources"></a>Risorse
 [Report di Microsoft](http://go.microsoft.com/fwlink/?LinkId=205399)
 
-[SQL Server Business Intelligence in Macchine virtuali di Azure](virtual-machines-windows-classic-ps-sql-bi.md)
+[SQL Server Business Intelligence in Macchine virtuali di Azure](../classic/ps-sql-bi.md)
 
-[Usare PowerShell per creare una macchina virtuale di Azure con un server di report in modalità nativa](virtual-machines-windows-classic-ps-sql-report.md)
-
-[Controllo visualizzatore di report del servizio di creazione report e server di report basati sulle macchine virtuali di Microsoft Azure](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
+[Usare PowerShell per creare una macchina virtuale di Azure con un server di report in modalità nativa](../classic/ps-sql-report.md)
 
 

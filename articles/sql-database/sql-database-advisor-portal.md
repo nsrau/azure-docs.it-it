@@ -16,17 +16,13 @@ ms.workload: data-management
 ms.date: 09/30/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e16587c3eb7366c92297455e8a175ab118174526
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: f63bd47c15439e6fedc0f6edf579681697155592
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="sql-database-advisor-using-the-azure-portal"></a>Advisor per database SQL tramite il portale di Azure
-> [!div class="op_single_selector"]
-> * [Panoramica di Advisor per database SQL](sql-database-advisor.md)
-> * [Portale](sql-database-advisor-portal.md)
-> 
-> 
 
 È possibile usare Azure SQL Database Advisor nel portale di Azure per rivedere e implementare le raccomandazioni per i database SQL esistenti che consentono di migliorare le prestazioni correnti delle query.
 
@@ -152,10 +148,5 @@ Monitorare le raccomandazioni e continuare ad applicarle in modo da migliorare l
 * [Archivio query](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
 * [Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

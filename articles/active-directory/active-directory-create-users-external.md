@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/22/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 92b951ca273534a48648df5d8a7967d9b321c26f
+ms.sourcegitcommit: 7b506668b3025774edec25b6a37b83a47d702cb0
+ms.openlocfilehash: b2eaddc631087d8b7b94e40f508bdd5da5229736
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: 92b951ca273534a48648df5d8a7967d9b321c26f
 > [!div class="op_single_selector"]
 > * [Portale di Azure](active-directory-users-create-external-azure-portal.md)
 > * [Portale di Azure classico](active-directory-create-users-external.md)
-> 
-> 
+>
+>
 
 Questo articolo illustra come aggiungere utenti da altre directory in Azure Active Directory o aggiungere utenti da società partner. Per informazioni sull'aggiunta di nuovi utenti nell'organizzazione e di utenti che possiedono account Microsoft, vedere [Aggiungere nuovi utenti o utenti con account Microsoft in Azure Active Directory](active-directory-create-users.md). Gli utenti aggiunti non hanno autorizzazioni di amministratore per impostazione predefinita, ma è possibile assegnare loro dei ruoli in qualsiasi momento.
 
@@ -34,7 +34,7 @@ Questo articolo illustra come aggiungere utenti da altre directory in Azure Acti
 2. Selezionare **Active Directory**e quindi aprire la directory.
 3. Selezionare la scheda **Utenti** e quindi **Aggiungi utente** nella barra dei comandi.
 4. Nella pagina **Informazioni sull'utente** selezionare in **Tipo di utente** una delle opzioni seguenti.
-   
+
    * **Utente in un'altra directory di Microsoft Azure AD** : consente di aggiungere alla directory un account utente originato da un'altra directory di Azure AD. È possibile selezionare un utente in un'altra directory solo se si è membri di tale directory.
    * **Utenti nelle società partner**: consente di invitare e autorizzare utenti di società partner nella propria directory. Vedere [Collaborazione B2B di Azure Active Directory](active-directory-b2b-what-is-azure-ad-b2b.md). È necessario [caricare un file CSV che specifica gli indirizzi di posta elettronica](active-directory-b2b-references-csv-file-format.md).
 5. Nella pagina **Profilo** dell'utente specificare nome e cognome, un nome descrittivo e un ruolo utente nell'elenco **Ruoli**. Per altre informazioni sui ruoli utente e di amministratore, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](active-directory-assign-admin-roles.md). Specificare eventualmente **Abilita Multi-Factor Authentication** per l'utente.
@@ -42,11 +42,11 @@ Questo articolo illustra come aggiungere utenti da altre directory in Azure Acti
 
 > [!IMPORTANT]
 > Se l'organizzazione usa più di un dominio, è opportuno essere a conoscenza dei problemi seguenti quando si aggiunge un account utente:
-> 
-> * Per aggiungere account utente con lo stesso nome dell'entità utente (UPN) in tutti i domini, aggiungere **prima**, ad esempio, geoffgrisso@contoso.onmicrosoft.com, **seguito da** geoffgrisso@contoso.com.
+>
+> * Per aggiungere account utente con lo stesso nome dell'entità utente (UPN) in tutti i domini, aggiungere **prima di tutto**, ad esempio, geoffgrisso@contoso.onmicrosoft.com, **seguito da** geoffgrisso@contoso.com.
 > * **Non** aggiungere geoffgrisso@contoso.com prima di aggiungere geoffgrisso@contoso.onmicrosoft.com. Quest'ordine è importante e può essere complesso da annullare.
-> 
-> 
+>
+>
 
 Se si modificano le informazioni per un utente la cui identità è sincronizzata con il servizio di Active Directory locale, non sarà possibile modificare le informazioni sull'utente nel portale di Azure classico. Per modificare le informazioni sull'utente, usare gli strumenti di gestione del servizio Active Directory locale.
 
@@ -62,8 +62,8 @@ L'unico collegamento tra i due account consiste nel fatto che l'utente esegue se
 
 > [!NOTE]
 > È comunque possibile disabilitare l'utente esterno nella directory, con il conseguente blocco dell'accesso alla propria directory.
-> 
-> 
+>
+>
 
 Se un utente viene eliminato nella home directory o se viene annullato il relativo account Microsoft, l'utente esterno continua a esistere nella propria directory, ma non può accedere alle risorse nella directory, perché non è più autorizzato a effettuare l'autenticazione con la home directory o l'account Microsoft.
 
@@ -79,6 +79,7 @@ Se un utente viene eliminato nella home directory o se viene annullato il relati
 * PowerBI al momento non supporta l'accesso da parte di utenti esterni
 * Il portale di Office non supporta la concessione di licenze a utenti esterni
 * Per quanto riguarda Azure AD PowerShell, gli utenti esterni vengono registrati nella rispettiva home directory e non possono gestire directory in cui sono utenti esterni
+* Durante la configurazione del plug-in di Dynamics CRM per Outlook, è possibile che gli utenti esterni debbano inserire manualmente l'URL del tenant di Dynamics CRM Online invece di selezionare 'CRM Online'.
 
 ## <a name="whats-next"></a>Passaggi successivi
 * [Aggiungere o modificare utenti in Azure Active Directory](active-directory-create-users.md)
@@ -88,7 +89,6 @@ Se un utente viene eliminato nella home directory o se viene annullato il relati
 
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

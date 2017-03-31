@@ -1,6 +1,6 @@
 ---
-title: Protocolli v2.0 di Azure AD | Microsoft Docs
-description: Guida ai protocolli supportati dall&quot;endpoint v 2.0 di Azure AD.
+title: Informazioni sui protocolli di autorizzazione supportati da Azure AD&2;.0 | Documentazione Microsoft
+description: Guida ai protocolli supportati dall&quot;endpoint v&2;.0 di Azure AD.
 services: active-directory
 documentationcenter: 
 author: dstrockis
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 05a9fbab63ae19ee48eb88951dfdc4dc9beaabbd
+ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
+ms.openlocfilehash: 02bf4191e60bfe7a49a37eed10f7571e08502150
 
 
 ---
@@ -25,7 +25,7 @@ L'endpoint v2.0 può usare Azure AD per il servizio IaaS (identity-as-a-service)
 <!-- TODO: Need link to libraries above -->
 
 > [!NOTE]
-> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint 2.0.  Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
+> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint&2;.0.  Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
 > 
 > 
 
@@ -40,7 +40,7 @@ In quasi tutti i flussi di OAuth e OpenID Connect, sono coinvolte nello scambio 
 * Il **server della risorsa** è la posizione in cui si trova la risorsa o i dati.  Consente al server di autorizzazione di autenticare e autorizzare il client OAuth in modo sicuro e usa i token di accesso Bearer per assicurarsi che sia garantito l'accesso a una risorsa.
 
 ## <a name="app-registration"></a>Registrazione delle app
-Ogni app che usa l'endpoint 2.0 dovrà essere registrata in [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) per poter interagire usando OAuth oppure OpenID Connect.  Il processo di registrazione raccoglie e assegna all'app alcuni valori:
+Ogni app che usa l'endpoint&2;.0 dovrà essere registrata in [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) per poter interagire usando OAuth oppure OpenID Connect.  Il processo di registrazione raccoglie e assegna all'app alcuni valori:
 
 * Un **ID applicazione** che identifica l'app in modo univoco
 * Un **URI di reindirizzamento** o un **identificatore di pacchetto** che può essere usato per indirizzare le risposte all'app
@@ -85,6 +85,6 @@ Se si è pronti vedere alcuni esempi di richieste, iniziare con una delle eserci
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

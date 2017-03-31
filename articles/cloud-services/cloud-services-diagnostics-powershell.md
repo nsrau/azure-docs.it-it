@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
-ms.openlocfilehash: 291f7d7f8f9addadde95bc30924b040d09c90fc7
+ms.sourcegitcommit: 43eaec477ef5279631454edd584f22573e224977
+ms.openlocfilehash: b97a81cd516b6d3d20740609c064a13fb9f8622a
 
 
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>Abilitare la diagnostica nei servizi cloud di Azure con PowerShell
-È possibile raccogliere dati di diagnostica come log delle applicazioni, contatore delle prestazioni ecc. da un servizio Cloud mediante l'estensione Diagnostica di Azure. Questo articolo descrive come abilitare l'estensione Diagnostica di Azure per un servizio Cloud tramite PowerShell.  Per i prerequisiti necessari per questo articolo, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+È possibile raccogliere dati di diagnostica come log applicazioni, contatori delle prestazioni e così via da un servizio cloud mediante l'estensione Diagnostica di Azure. Questo articolo descrive come abilitare l'estensione Diagnostica di Azure per un servizio Cloud tramite PowerShell.  Per i prerequisiti necessari per questo articolo, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>Abilitare l'estensione delle funzionalità di diagnostica come parte della distribuzione di un servizio Cloud
-Questo approccio è utile per il tipo di integrazione continua degli scenari in cui l'estensione Diagnostica può essere abilitata come parte della distribuzione del servizio cloud. Quando si crea una nuova distribuzione del servizio cloud, è possibile abilitare l'estensione Diagnostica passando il parametro *ExtensionConfiguration* al cmdlet [New-AzureDeployment](https://msdn.microsoft.com/library/azure/mt589089.aspx) . Il parametro *ExtensionConfiguration* accetta una matrice di configurazioni di diagnostica che può essere creata utilizzando il cmdlet [New AzureServiceDiagnosticsExtensionConfig](https://msdn.microsoft.com/library/azure/mt589168.aspx) .
+Questo approccio è applicabile al tipo di scenari di integrazione continua, in cui l'estensione Diagnostica può essere abilitata come parte della distribuzione del servizio cloud. Quando si crea una nuova distribuzione del servizio cloud, è possibile abilitare l'estensione Diagnostica passando il parametro *ExtensionConfiguration* al cmdlet [New-AzureDeployment](https://msdn.microsoft.com/library/azure/mt589089.aspx) . Il parametro *ExtensionConfiguration* accetta una matrice di configurazioni di diagnostica che può essere creata utilizzando il cmdlet [New AzureServiceDiagnosticsExtensionConfig](https://msdn.microsoft.com/library/azure/mt589168.aspx) .
 
-Nell'esempio seguente viene illustrato come abilitare la diagnostica per un servizio cloud con un WebRole e un WorkerRole, ciascuno dei quali dispone di una configurazione di diagnostica diversa.
+L'esempio seguente mostra come abilitare la diagnostica per un servizio cloud con un WebRole e un WorkerRole, ognuno dei quali ha una configurazione di diagnostica diversa.
 
 ```powershell
 $service_name = "MyService"
@@ -41,7 +41,7 @@ $workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "Worke
 New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration @($webrole_diagconfig,$workerrole_diagconfig)
 ```
 
-Se il file di configurazione della diagnostica specifica un elemento StorageAccount con il nome di un account di archiviazione, il cmdlet New-AzureServiceDiagnosticsExtensionConfig userà automaticamente quell'account di archiviazione. A questo scopo, l'account di archiviazione deve trovarsi nella stessa sottoscrizione del servizio cloud da distribuire.
+Se il file di configurazione della diagnostica specifica un elemento `StorageAccount` con il nome di un account di archiviazione, il cmdlet `New-AzureServiceDiagnosticsExtensionConfig` userà automaticamente tale account di archiviazione. A questo scopo, l'account di archiviazione deve trovarsi nella stessa sottoscrizione del servizio cloud da distribuire.
 
 Da Azure SDK 2.6 in poi, i file di configurazione dell'estensione generati dall'output della destinazione di pubblicazione di MSBuild includeranno il nome dell'account di archiviazione basato sulla stringa di configurazione della diagnostica specificata nel file di configurazione del servizio (cscfg). Lo script seguente mostra come analizzare i file di configurazione dell'estensione dall'output della destinazione di pubblicazione e configurare l'estensione Diagnostica per ogni ruolo quando si distribuisce il servizio cloud.
 
@@ -84,11 +84,11 @@ foreach ($extPath in $diagnosticsExtensions)
 New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration $diagnosticsConfigurations
 ```
 
-Visual Studio Online Usa un approccio simile per le distribuzioni automatiche di Servizi cloud con l'estensione Diagnostica. Per un esempio completo, vedere [Publish-AzureCloudDeployment.ps1](https://github.com/Microsoft/vso-agent-tasks/blob/master/Tasks/AzureCloudPowerShellDeployment/Publish-AzureCloudDeployment.ps1) .
+Visual Studio Online usa un approccio simile per le distribuzioni automatiche di Servizi cloud con l'estensione Diagnostica. Per un esempio completo, vedere [Publish-AzureCloudDeployment.ps1](https://github.com/Microsoft/vso-agent-tasks/blob/master/Tasks/AzureCloudPowerShellDeployment/Publish-AzureCloudDeployment.ps1) .
 
-Se nella configurazione di diagnostica non è stato specificato alcun elemento StorageAccount, è necessario passare il parametro StorageAccountName al cmdlet. Se viene specificato il parametro StorageAccountName, il cmdlet userà sempre l'account di archiviazione specificato nel parametro e non quello specificato nel file di configurazione della diagnostica.
+Se nella configurazione di diagnostica non è specificato alcun elemento `StorageAccount`, è necessario passare il parametro *StorageAccountName* al cmdlet. Se il parametro *StorageAccountName* è specificato, il cmdlet userà sempre l'account di archiviazione specificato nel parametro e non quello specificato nel file di configurazione della diagnostica.
 
-Se l'account di archiviazione di diagnostica si trova in una sottoscrizione diversa da quella del servizio cloud, è necessario passare al cmdlet i parametri StorageAccountName e StorageAccountKey in modo esplicito. Il parametro StorageAccountKey non è necessario quando l'account di archiviazione di diagnostica si trova nella stessa sottoscrizione, perché il cmdlet può eseguire automaticamente una query e impostare il valore della chiave durante l'abilitazione dell'estensione Diagnostica. Tuttavia, se l'account di archiviazione di diagnostica si trova in una sottoscrizione diversa, il cmdlet potrebbe non essere in grado di ottenere automaticamente la chiave, quindi si deve specificare la chiave in modo esplicito tramite il parametro StorageAccountKey.
+Se l'account di archiviazione di diagnostica si trova in una sottoscrizione diversa da quella del servizio cloud, è necessario passare al cmdlet i parametri *StorageAccountName* e *StorageAccountKey* in modo esplicito. Il parametro *StorageAccountKey* non è necessario quando l'account di archiviazione di diagnostica si trova nella stessa sottoscrizione perché il cmdlet può automaticamente eseguire una query e impostare il valore della chiave durante l'abilitazione dell'estensione di diagnostica. Tuttavia, se l'account di archiviazione di diagnostica si trova in una sottoscrizione diversa, il cmdlet potrebbe non essere in grado di ottenere automaticamente la chiave, quindi si deve specificare la chiave in modo esplicito tramite il parametro *StorageAccountKey* .
 
 ```powershell
 $webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
@@ -140,6 +140,6 @@ Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

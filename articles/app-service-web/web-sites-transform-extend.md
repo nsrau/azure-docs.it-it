@@ -4,7 +4,7 @@ description: Utilizzare le dichiarazioni XMDT (XML Document Transformation) per 
 author: cephalin
 writer: cephalin
 editor: mollybos
-manager: wpickett
+manager: erikre
 services: app-service
 documentationcenter: 
 ms.assetid: b441a286-ef38-4abc-b102-cdb249baf5bc
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2e10b89aecd12dd9eeb91855242421bf8d7c0a0b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: abd55399ef780df945a2d643940a71425d085692
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -169,7 +170,7 @@ Si noti che l'aspetto dell'URL è uguale a quello dell'URL dell'app Web, ad ecce
 È possibile disabilitare tutte le estensionii provate (non preinstallate) per l'app Web durante sviluppo e analisi aggiungendo impostazioni di un'app con la chiave `WEBSITE_PRIVATE_EXTENSIONS` e il valore `0`.
 
 > [!NOTE]
-> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 
@@ -179,10 +180,5 @@ Si noti che l'aspetto dell'URL è uguale a quello dell'URL dell'app Web, ad ecce
 <!-- IMAGES -->
 [TransformSitePHPUI]: ./media/web-sites-transform-extend/TransformSitePHPUI.png
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

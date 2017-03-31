@@ -12,11 +12,12 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2016
+ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: c9730b553e59d12b8720bbf3a06cc956912e27de
-ms.openlocfilehash: 37063d35e76d03a84f6e4451c2f6c363704607f2
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 46b62b0ebc5b81241815e3b5b4fa3fe275b88af1
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -38,7 +39,7 @@ Il primo passaggio per la raccolta dei log consiste nel distribuire l'estensione
 
 Per distribuire l'estensione di diagnostica nelle VM del cluster come parte della creazione del cluster, impostare **Diagnostica** su **Attiva**. Dopo aver creato il cluster, è possibile modificare questa impostazione tramite il portale.
 
-Configurare quindi l'estensione Diagnostica di Azure per Linux per raccogliere i file e inserirli nel proprio account di archiviazione. Questo processo viene illustrato nello scenario 3 ("Caricamento dei propri file di log") descritto nell'articolo relativo all' [uso dell'estensione Diagnostica di Azure per Linux per il monitoraggio e la diagnosi di VM Linux](../virtual-machines/virtual-machines-linux-classic-diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json). Questo processo consente di ottenere l'accesso alle tracce. È possibile anche caricare le tracce in un visualizzatore a scelta.
+Configurare quindi l'estensione Diagnostica di Azure per Linux per raccogliere i file e inserirli nel proprio account di archiviazione. Questo processo viene illustrato nello scenario 3 ("Caricamento dei propri file di log") descritto nell'articolo relativo all' [uso dell'estensione Diagnostica di Azure per Linux per il monitoraggio e la diagnosi di VM Linux](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json). Questo processo consente di ottenere l'accesso alle tracce. È possibile anche caricare le tracce in un visualizzatore a scelta.
 
 È anche possibile distribuire l'estensione di Diagnostica con Azure Resource Manager. Il processo è simile per Windows e per Linux ed è documentato per i cluster Windows nell'articolo [Come raccogliere log con Diagnostica di Azure](service-fabric-diagnostics-how-to-setup-wad.md).
 
@@ -47,11 +48,6 @@ Configurare quindi l'estensione Diagnostica di Azure per Linux per raccogliere i
 Dopo aver terminato la configurazione, l'agente di Diagnostica di Azure per Linux monitora i file di log specificati. Ogni volta che viene aggiunta una nuova riga al file, l'agente crea una voce syslog che viene inviata alla risorsa di archiviazione specificata dall'utente.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per comprendere più nel dettaglio gli eventi da esaminare durante la risoluzione dei problemi, vedere la [documentazione di LTTng](http://lttng.org/docs) e l'articolo relativo all'[uso dell'estensione Diagnostica di Azure per Linux](../virtual-machines/virtual-machines-linux-classic-diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
+Per comprendere più nel dettaglio gli eventi da esaminare durante la risoluzione dei problemi, vedere la [documentazione di LTTng](http://lttng.org/docs) e l'articolo relativo all'[uso dell'estensione Diagnostica di Azure per Linux](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 

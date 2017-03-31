@@ -4,7 +4,7 @@ description: Fornisce le risposte ad alcune possibili domande degli amministrato
 services: active-directory
 keywords: impostazioni di enterprise state roaming, cloud windows, domande frequenti su enterprise state roaming
 documentationcenter: 
-author: femila
+author: tanning
 manager: swadhwa
 editor: 
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
-ms.author: femila
+ms.date: 03/08/2017
+ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 58a583a761a400d8fa0488fbc4fbfec35ec62c41
-ms.openlocfilehash: ebdf73ad8a7a2f2690a404676e0c81ee01e77357
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 5d6b0869d2cf0e90b7b81b2304d95e01d1937925
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -29,7 +30,7 @@ Questo argomento descrive come risolvere e diagnosticare i problemi di Enterpris
 Prima di iniziare la risoluzione dei problemi, verificare che l'utente e il dispositivo siano stati configurati correttamente e che siano soddisfatti tutti i requisiti di Enterprise State Roaming per il dispositivo e l'utente. 
 
 1. Windows 10 con gli aggiornamenti più recenti e la versione 1511 (build del sistema operativo 10586) o versione successiva è installato nel dispositivo. 
-2. Il dispositivo è aggiunto ad Azure AD o aggiunto a un dominio e registrato con Azure AD.
+2. Il dispositivo è aggiunto ad Azure AD o a un dominio e registrato con Azure AD.
 3. Nel portale di Azure Active Directory, **Enterprise State Roaming** è abilitato per la directory in **Configura** > **Dispositivi** > **Gli utenti possono sincronizzare le impostazioni e i dati delle app aziendali**. Sono selezionati tutti gli utenti oppure l'utente è abilitato per la sincronizzazione tramite l'opzione selezionata e incluso nel gruppo di sicurezza.
 4. L'utente dispone di una sottoscrizione di Azure Active Directory Premium.  
 5. Il dispositivo è stato riavviato e l'utente ha effettuato l'accesso dopo l'abilitazione di Enterprise State Roaming.
@@ -59,14 +60,14 @@ Questa sezione offre suggerimenti su come risolvere e diagnosticare i problemi r
 ### <a name="verify-the-device-registration-status"></a>Verificare lo stato di registrazione del dispositivo
 Enterprise State Roaming richiede che il dispositivo sia registrato con Azure AD. Sebbene non siano specifiche per Enterprise State Roaming, con le istruzioni riportate di seguito è possibile verificare che il client Windows 10 sia registrato, nonché confermare l'identificazione personale, l'URL delle impostazioni di Azure AD, lo stato NGC e altre informazioni.
 
-1.  Aprire il prompt dei comandi con privilegi non elevati. Per fare questo in Windows, aprire la finestra Esegui (WIN+R) e digitare "cmd".
-2.  Dopo aver aperto il prompt dei comandi, digitare "*dsregcmd.exe /status*".
-3.  Per ottenere l'output previsto, il valore del campo **AzureAdJoined** deve essere "YES", il valore del campo **WamDefaultSet** deve essere "YES" e il valore del campo **WamDefaultGUID** deve essere un GUID con "(AzureAd)" alla fine.
+1.    Aprire il prompt dei comandi con privilegi non elevati. Per fare questo in Windows, aprire la finestra Esegui (WIN+R) e digitare "cmd".
+2.    Dopo aver aperto il prompt dei comandi, digitare "*dsregcmd.exe /status*".
+3.    Per ottenere l'output previsto, il valore del campo **AzureAdJoined** deve essere "SÌ", il valore del campo **WamDefaultSet** deve essere "SÌ" e il valore del campo **WamDefaultGUID** deve essere un GUID con "(AzureAd)" alla fine.
 
 **Potenziale problema**: **WamDefaultSet** e **AzureAdJoined** presentano entrambi "NO" come valore del campo, il dispositivo è stato aggiunto al dominio e registrato con Azure AD e il dispositivo non viene sincronizzato. Se viene visualizzato questo, il dispositivo potrebbe dover attendere che i criteri siano applicati oppure l'autenticazione del dispositivo non è riuscita durante la connessione ad Azure AD. L'utente potrebbe dover attendere alcune ore per l'applicazione dei criteri. Altri passaggi di risoluzione dei problemi potrebbero includere un nuovo tentativo di registrazione automatica mediante disconnessione e riconnessione o l'avvio dell'attività nell'Utilità di pianificazione. In alcuni casi eseguendo "*dsregcmd.exe /leave*" in una finestra del prompt dei comandi con privilegi elevati, riavviando e ripetendo il tentativo di registrazione si può risolvere il problema.
 
 
-**Potenziale problema**: il campo **AzureAdSettingsUrl** è vuoto e il dispositivo non viene sincronizzato. L'utente potrebbe aver eseguito l'ultimo accesso al dispositivo prima dell'abilitazione di Enterprise State Roaming nel portale di Azure Active Directory. Nel portale provare a fare in modo che l'amministratore IT disattivi e riattivi Gli utenti possono sincronizzare le impostazioni e i dati delle app aziendali. Una volta riattivata l'opzione, riavviare il dispositivo e fare in modo che l'utente esegua l'accesso. 
+**Potenziale problema**: il campo **AzureAdSettingsUrl** è vuoto e il dispositivo non viene sincronizzato. L'utente potrebbe aver eseguito l'ultimo accesso al dispositivo prima dell'abilitazione di Enterprise State Roaming nel portale di Azure Active Directory. Riavviare il dispositivo e fare in modo che l'utente esegua l'accesso. In alternativa, nel portale provare a fare in modo che l'amministratore IT disattivi e riattivi Gli utenti possono sincronizzare le impostazioni e i dati delle app aziendali. Una volta riattivata l'opzione, riavviare il dispositivo e fare in modo che l'utente esegua l'accesso. Se il problema non viene risolto, **AzureAdSettingsUrl** può essere vuoto nel caso di un certificato del dispositivo non valido. In questo caso eseguendo "*dsregcmd.exe /leave*" in una finestra del prompt dei comandi con privilegi elevati, riavviando e ripetendo il tentativo di registrazione si può risolvere il problema.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Enterprise State Roaming e Multi-Factor Authentication 
 In determinate condizioni, l'Enterprise State Roaming potrebbe non riuscire a sincronizzare i dati se è configurata la funzione Azure Multi-Factor Authentication. Per altre informazioni su questi problemi, vedere il documento di supporto [KB3193683](https://support.microsoft.com/kb/3193683). 
@@ -101,7 +102,7 @@ Assicurarsi che il client Windows 10 v1511 disponga dell'aggiornamento cumulativ
 
 ### <a name="theme-is-not-syncing-as-well-as-data-protected-with-windows-information-protection"></a>Il tema non viene sincronizzato e neppure i dati protetti con Windows Information Protection 
 
-Per impedire la perdita di dati, i dati protetti con [Windows Information Protection](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-wip) non vengono sincronizzati tramite Enterprise State Roaming per i dispositivi con Windows 10 Anniversary Update.
+Per evitare la perdita di dati, i dati protetti con [Windows Information Protection](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-wip) non vengono sincronizzati tramite Enterprise State Roaming per i dispositivi con Windows 10 Anniversary Update.
 
 
 
@@ -144,16 +145,28 @@ Connettere il dispositivo a una rete aziendale in modo da riprendere la sincroni
 
 ---
 
-### <a name="event-id-6065-80070533-this-user-cant-sign-in-because-this-account-is-currently-disabled"></a>ID evento 6065: 80070533 L'utente non può eseguire l'accesso perché questo account è attualmente disabilitato  
-Nel Visualizzatore eventi, nei registri SettingSync/Debug, questo errore può verificarsi quando il tenant non ha ottenuto il provisioning automatico di AzureRMS. 
+ ### <a name="azure-ad-joined-device-is-not-syncing-and-the-user-has-a-mixed-case-user-principal-name"></a>Il dispositivo aggiunto ad Azure AD non esegue la sincronizzazione e l'utente ha un nome dell'entità utente con maiuscole e minuscole miste.
+ Se l'utente dispone di un UPN con maiuscole miste a minuscole (ad esempio NomeUtente anziché nome utente) e si trova su un dispositivo aggiunto ad Azure AD aggiornato da Windows 10 compilato da 10586 a 14393, il dispositivo dell'utente potrebbe non eseguire per la sincronizzazione. 
 
 **Azione consigliata**  
-Procedere con i passaggi elencati in [KB3193791](https://support.microsoft.com/kb/3193791). 
+L'utente dovrà separare e aggiungere nuovamente il dispositivo al cloud. Per farlo, effettuare l'accesso come utente amministratore locale e separare il dispositivo andando in **Impostazioni** > **Sistema** > **About (Informazioni)** e selezionare "Gestisci o disconnettiti dall'azienda o dall'istituto di istruzione". Cancellare i file seguenti e aggiungere di nuovo il dispositivo ad Azure AD in **Impostazioni** > **Sistema** > **About (Informazioni)**, selezionando "Connetti all'azienda o all'istituto di istruzione". Continuare la procedura per aggiungere il dispositivo ad Azure Active Directory e completare il flusso.
+
+Nel passaggio sulla pulizia, cancellare i file seguenti:
+- Settings.dat in `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
+- Tutti i file nella cartella `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\AC\TokenBroker\Account`
 
 ---
 
-### <a name="event-id-1098-error-0xcaa5001c-token-broker-operation-failed"></a>ID evento 1098: Errore: 0xCAA5001C Operazione broker del token non riuscita  
-Nel Visualizzatore eventi, nei registri AAD/Operational, questo errore può essere presente con Evento 1104: chiamata del plug-in AAD Cloud Il token Get ha restituito l'errore: 0xC000005F. Questo problema si verifica se mancano autorizzazioni o attributi di proprietà.  
+### <a name="event-id-6065-80070533-this-user-cant-sign-in-because-this-account-is-currently-disabled"></a>ID evento 6065: 80070533 L'utente non può eseguire l'accesso perché questo account è attualmente disabilitato    
+Nel Visualizzatore eventi, nei log SettingSync/Debug, questo errore può verificarsi quando le credenziali dell'utente sono scadute. Inoltre, può verificarsi quando il tenant non dispone automaticamente del provisioning di AzureRMS. 
+
+**Azione consigliata**  
+Nel primo caso, richiedere all'utente di aggiornare le credenziali e di effettuare l'accesso al dispositivo con le nuove credenziali. Per risolvere il problema di AzureRMS, procedere con i passaggi elencati in [KB3193791](https://support.microsoft.com/kb/3193791). 
+
+---
+
+### <a name="event-id-1098-error-0xcaa5001c-token-broker-operation-failed"></a>ID evento 1098: Errore: 0xCAA5001C Operazione broker del token non riuscita    
+Nel Visualizzatore eventi, nei registri AAD/Operational, questo errore può essere presente con Evento 1104: chiamata del plug-in AAD Cloud Il token Get ha restituito l'errore: 0xC000005F. Questo problema si verifica se mancano autorizzazioni o attributi di proprietà.     
 
 **Azione consigliata**  
 Procedere con i passaggi elencati in [KB3196528](https://support.microsoft.com/kb/3196528).  
@@ -172,9 +185,4 @@ Procedere con i passaggi elencati in [KB3196528](https://support.microsoft.com/k
 * [Domande frequenti su impostazioni e dati in roaming](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Criteri di gruppo e impostazioni del software MDM per la sincronizzazione delle impostazioni](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Riferimento alle impostazioni di roaming di Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi | Documentazione Microsoft
+title: 'Connettere Raspberry Pi (C) ad Azure IoT: risolvere i problemi | Documentazione Microsoft'
 description: Pagina sulla risoluzione dei problemi relativi all&quot;esperienza Node.js del dispositivo Raspberry Pi
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: e3e4ad430d8941a09543ce2dc97f8e449a39bced
-ms.openlocfilehash: 755961b8a0b141a716530f75e21b65c00fa8d2d8
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 52d76bb967471ae49b55b0fcb930c223984b39e3
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -120,9 +121,4 @@ Un'interfaccia della riga di comando completa consente di creare e gestire tutte
 
 ## <a name="azure-storage-issues"></a>Problemi di Archiviazione di Azure
 [Microsoft Azure Storage Explorer (anteprima)](http://storageexplorer.com) è un'app autonoma di Microsoft che consente di utilizzare i dati di Archiviazione di Azure in Windows, macOS e Linux. Questo strumento permette di connettersi alla tabella e visualizzarne i dati. È possibile usare questo strumento per risolvere i problemi di Archiviazione di Azure.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

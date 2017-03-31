@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: d12ccdc13d6964a6de8068a63f945c7eac40b682
+ms.sourcegitcommit: 801eef31e4a06fd1b89ddf504d643d9dcfcdcbdc
+ms.openlocfilehash: 99e6f4c1be6fa73db05fc4635fa5c34a579af588
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -29,7 +30,7 @@ Se si è interrotto l'uso di Azure RemoteApp dopo l'[annuncio del ritiro](https:
 
 L'approccio IaaS self-service consiste in una distribuzione "fai da te" gestita dall'utente e di sua proprietà, direttamente distribuita su macchine virtuali (VM) o sistemi fisici. Altrimenti, un'offerta PaaS/SaaS completamente gestita è più simile ad Azure RemoteApp: un partner fornisce un livello di servizio in una soluzione .NET di comunicazione remota che gestisce gli aspetti operativi e di manutenzione, mentre il cliente si occupa di gestire app e immagini.
 
-Continuare a leggere per ulteriori informazioni, tra cui gli esempi delle diverse opzioni di hosting.    
+[Visualizzare il webinar di Azure RemoteApp sulle opzioni di migrazione](https://social.msdn.microsoft.com/Forums/azure/40557aaa-3e9f-403c-b221-ad3eac10dc56/migration-option-webinar-recordings?forum=AzureRemoteApp) oppure continuare a leggere per altre informazioni (inclusi alcuni esempi di diverse opzioni di hosting).
 
 ## <a name="self-managed-iaas-solutions"></a>Soluzioni autogestite (IaaS)
 ### <a name="rds-on-iaas"></a>**RDS su IaaS**
@@ -61,6 +62,21 @@ Ulteriori informazioni su [Citrix XenApp Express](http://now.citrix.com/remoteap
 ### <a name="citrix-service-provider-program"></a>**Programma Citrix Service Provider**
 Il programma Citrix Service Provider facilita i provider di servizi nell'offrire alle piccole e medie imprese la semplicità del cloud computing virtuale, racchiudendo tutti i servizi desiderati in un agevole modello con pagamento in base al consumo. I provider di servizi Citrix possono accrescere il business relativo al contratto Microsoft SPLA ed espandere gli investimenti nella piattaforma dei Servizi Desktop remoto con qualsiasi dispositivo, l'accesso da postazioni remote, il supporto per il maggior numero di applicazioni, un'esperienza avanzata e livelli superiori di sicurezza e scalabilità. A loro volta, gli stessi provider di servizi Citrix possono attrarre più sottoscrittori, aumentare la soddisfazione dei clienti e ridurre i costi operativi. [Leggere altre informazioni](http://www.citrix.com/products/service-providers.html) o [cercare un partner](https://www.citrix.com/buy/partnerlocator.html).
 
+### <a name="frame"></a>Frame
+
+Organizzazioni IT in enterprise ed enti pubblici, fornitori di servizi gestiti e fornitori leader di software scelgono Frame per creare e gestire nel cloud aree di lavoro software-defined protette. Dalle piccole alle grandi organizzazioni, Frame rende incredibilmente semplice l'accesso degli utenti alle applicazioni Windows in qualsiasi browser e da qualsiasi dispositivo. La piattaforma Frame include tutto ciò che serve a un amministratore per distribuire le applicazioni dal cloud, inclusa l'infrastruttura di Azure e le licenze RDS (usare il proprio account Azure e le proprie licenze è facoltativo). 
+
+Altre informazioni su [Frame in Azure](https://www.fra.me/ara). 
+
+Località primaria: San Mateo, CA, USA
+
+Regione operativa: tutto il mondo
+
+Partner Microsoft: Sì
+
+1-480-269-4668
+
+
 ### <a name="microsoft-hosted-service-provider"></a>**Provider di servizi ospitati Microsoft**
 I partner di hosting offrono in genere un servizio per desktop e applicazioni Windows ospitato completamente gestito, che può includere la gestione delle risorse di Azure, dei sistemi operativi, delle applicazioni e del supporto tecnico tramite i contratti di licenza stipulati fra il partner e Microsoft e altri fornitori di software, in aggiunta a un contratto di licenza per provider di servizi che disciplina la rivendita di licenze SAL (Subscriber Access License). Le informazioni seguenti forniscono tutti i dettagli e i contatti di alcuni provider di servizi di hosting specializzati nell'assistere i clienti durante la migrazione di Azure RemoteApp. Consultare l'[elenco aggiornato dei provider di servizi ospitati](http://aka.ms/rdsonazurecertified) che hanno portato a termine il percorso di apprendimento e la valutazione su RDS in IaaS.  
 
@@ -86,7 +102,7 @@ Soluzioni per la migrazione di Azure RemoteApp: sì, [altre informazioni](https:
 * Web: [http://cloud.aspex.be/contact-ara-0](http://cloud.aspex.be/contact-ara-0)
 
 #### <a name="conexlink-platform-name-mycloudit"></a>**Conexlink (nome della piattaforma: MyCloudIT)**
-[MyCloudIT](http://www.mycloudit.com) è una piattaforma di automazione che consente alle aziende IT di semplificare, ottimizzare e ridimensionare la migrazione e l'erogazione di desktop remoti, applicazioni remote e infrastrutture nel cloud di Microsoft Azure. 
+[MyCloudIT](https://mycloudit.com) è una piattaforma di automazione che consente alle aziende IT di semplificare, ottimizzare e ridimensionare la migrazione e l'erogazione di desktop remoti, applicazioni remote e infrastrutture nel cloud di Microsoft Azure. 
 
 La piattaforma MyCloudIT riduce i tempi di distribuzione del 95% e i costi di Azure del 30%, trasferendo nel cloud l'intera infrastruttura IT di ogni cliente in poche sequenze di tasti. Ora i partner possono gestire i clienti da un unico dashboard globale, assistere gli utenti finali del servizio in tutto il mondo come mai prima d'ora e aumentare i ricavi senza aggiungere costi generali o richiedere una formazione completa su Azure.  
 
@@ -208,10 +224,5 @@ Per farsi aiutare nella scelta o se si hanno altre domande, usare uno dei metodi
 1. Scrivere un'e-mail all'indirizzo [arainfo@microsoft.com](mailto:arainfo@microsoft.com).
 2. Contattare il [supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Aprire un [caso di supporto su Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 3. Contattare il [team di vendita locale](https://azure.microsoft.com/overview/sales-number/).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

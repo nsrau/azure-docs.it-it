@@ -11,18 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/22/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
-ms.openlocfilehash: acb1cd18cf6e4fa9504d76fcac48dbe85579eab0
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 6017fa3fe2134452bf24d2fc54c8f82b08862dbb
+ms.lasthandoff: 03/18/2017
 
 
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Indice di articoli per la gestione di applicazioni in Azure Active Directory
 Questa pagina fornisce un elenco completo di tutti i documenti scritti sulle diverse funzionalità relative alle applicazioni in Azure Active Directory (Azure AD).
 
-Include anche una breve introduzione per ogni area relativa a una funzionalità principale, oltre a indicazioni sugli articoli da leggere in base alle informazioni cercate. 
+Include anche una breve introduzione per ogni area relativa a una funzionalità principale, oltre a indicazioni sugli articoli da leggere in base alle informazioni cercate.
 
 ## <a name="overview-articles"></a>Articoli generali
 Gli articoli seguenti sono un ottimo punto di partenza per chi vuole semplicemente una breve spiegazione delle funzionalità di gestione delle applicazioni di Azure AD.
@@ -99,7 +100,7 @@ Se l'organizzazione ha un'istanza locale di Windows Server Active Directory oltr
 | Indicazioni sull'uso di provider di identità di terze parti per abilitare l'accesso Single Sign-On |[Elenco di provider di identità di terze parti compatibili che possono essere usati per abilitare l'accesso Single Sign-On](https://aka.ms/ssoproviders) |
 | Informazioni su come gli utenti di Windows 10 possono sfruttare i vantaggi dell'accesso Single Sign-On tramite l'aggiunta ad Azure AD. |[Estensione delle funzionalità del cloud ai dispositivi Windows 10 tramite l'aggiunta ad Azure Active Directory](active-directory-azureadjoin-overview.md) |
 
-Azure AD Connect è disponibile per [tutte le edizioni di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Reimpostazione password self-service di Azure AD è disponibile per [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) e [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). Il writeback delle password per le istanze locali di AD è una funzionalità di [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) . 
+Azure AD Connect è disponibile per [tutte le edizioni di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Reimpostazione password self-service di Azure AD è disponibile per [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) e [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). Il writeback delle password per le istanze locali di AD è una funzionalità di [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) .
 
 ### <a name="conditional-access-enforce-additional-security-requirements-for-high-risk-apps"></a>Accesso condizionale: applicare requisiti di sicurezza aggiuntivi per app a rischio elevato
 Dopo la configurazione dell'accesso Single Sign-On per le app e le risorse, è possibile proteggere ulteriormente le applicazioni sensibili applicando requisiti di sicurezza specifici per ogni accesso all'app. Ad esempio, è possibile usare Azure AD per fare in modo che tutti gli accessi a un'app specifica richiedano l'autenticazione a più fattori, indipendentemente dal fatto che l'app supporti in modo nativo tale funzionalità. Un altro esempio comune di accesso condizionale consiste nel richiedere che gli utenti siano connessi alla rete attendibile dell'organizzazione per potere accedere a un'applicazione particolarmente sensibile.
@@ -107,9 +108,9 @@ Dopo la configurazione dell'accesso Single Sign-On per le app e le risorse, è p
 | Guida agli articoli |  |
 |:---:| --- |
 | Introduzione alle funzionalità di accesso condizionale disponibili in Azure AD, Office365 e Intune. |[Gestione dei rischi con l'accesso condizionale](active-directory-conditional-access.md) |
-| Come abilitare l'accesso condizionale per i tipi di risorse seguenti. |[Accesso condizionale per app SaaS](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Accesso condizionale per i servizi di Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Accesso condizionale per applicazioni locali](active-directory-conditional-access-on-premises-setup.md)<br /><br />[Accesso condizionale per applicazioni locali pubblicate tramite proxy di app di Azure AD](active-directory-application-proxy-conditional-access.md) |
-| Come registrare dispositivi in Azure Active Directory per abilitare i criteri di accesso condizionale basati su dispositivo. |[Panoramica di Registrazione dispositivo di Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Come abilitare la registrazione automatica dei dispositivi per dispositivi Windows aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration.md)<br />- [Procedura per dispositivi Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)<br />- [Procedura per dispositivi Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md) |
-| Come usare la versione Android dell'app Azure Authenticator per i criteri correlati all'autenticazione a più fattori. |[Azure Authenticator per Android](active-directory-conditional-access-azure-authenticator-app.md) |
+| Come abilitare l'accesso condizionale per i tipi di risorse seguenti. |[Accesso condizionale per app SaaS](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Accesso condizionale per i servizi di Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Accesso condizionale per applicazioni locali](active-directory-conditional-access.md)<br /><br />[Accesso condizionale per applicazioni locali pubblicate tramite proxy di app di Azure AD](active-directory-application-proxy-conditional-access.md) |
+| Come registrare dispositivi in Azure Active Directory per abilitare i criteri di accesso condizionale basati su dispositivo. |[Panoramica di Registrazione dispositivo di Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Come abilitare la registrazione automatica dei dispositivi per dispositivi Windows aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration.md)<br />- [Procedura per dispositivi Windows 8.1](active-directory-device-registration.md#configure-automatic-device-registration-for-windows-7-and-windows-81-domain-joined-devices)<br />- [Procedura per dispositivi Windows 7](active-directory-device-registration.md#configure-automatic-device-registration-for-windows-7-and-windows-81-domain-joined-devices) |
+| Procedura: Usare l'app Microsoft Authenticator per la verifica in due passaggi |[Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
 
 L'accesso condizionale è una funzionalità di [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) .
 
@@ -141,7 +142,7 @@ Automatizzazione delle operazioni di creazione, gestione e rimozione delle ident
 Il provisioning utenti automatico è disponibile per tutte le edizioni di Azure AD fino a un massimo di dieci app per utente. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) supporta un numero illimitato di applicazioni. Se nell'organizzazione è disponibile [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) o [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), è possibile [usare i gruppi per gestire gli utenti da sottoporre a provisioning](#managing-access-to-applications).
 
 ### <a name="building-applications-that-integrate-with-azure-ad"></a>Sviluppo di applicazioni integrate con Azure AD
-Se l'organizzazione sviluppa o gestisce applicazioni LoB (Line-of-Business) o se si sviluppano app per clienti che usano Azure Active Directory, le esercitazioni seguenti sono utili per integrare le applicazioni con Azure AD. 
+Se l'organizzazione sviluppa o gestisce applicazioni LoB (Line-of-Business) o se si sviluppano app per clienti che usano Azure Active Directory, le esercitazioni seguenti sono utili per integrare le applicazioni con Azure AD.
 
 | Guida agli articoli |  |
 |:---:| --- |
@@ -177,7 +178,7 @@ Se la propria azienda collabora con altre aziende partner, è probabile che sia 
 L'anteprima di Collaborazione B2B è attualmente disponibile per [tutte le edizioni di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ### <a name="access-panel-a-portal-for-accessing-apps-and-self-service-features"></a>Pannello di accesso: un portale per l'accesso alle app e alle funzionalità self-service
-Il pannello di accesso di Azure AD consente agli utenti finali di avviare le proprie app e di accedere alle funzionalità self-service per la gestione delle proprie app e delle proprie appartenenze a gruppi. Oltre al pannello di accesso, l'elenco seguente include altre opzioni per l'accesso alle app abilitate per Single Sign-On. 
+Il pannello di accesso di Azure AD consente agli utenti finali di avviare le proprie app e di accedere alle funzionalità self-service per la gestione delle proprie app e delle proprie appartenenze a gruppi. Oltre al pannello di accesso, l'elenco seguente include altre opzioni per l'accesso alle app abilitate per Single Sign-On.
 
 | Guida agli articoli |  |
 |:---:| --- |
@@ -209,10 +210,4 @@ Per visualizzare i report inclusi nelle diverse edizioni di Azure Active Directo
 [Servizi di dominio Azure Active Directory](https://azure.microsoft.com/services/active-directory-ds/)
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

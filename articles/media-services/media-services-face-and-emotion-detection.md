@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 02/09/2017
 ms.author: milanga;juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: bd3dfe9472e944a127230d3dc0d564d344c4fbec
-ms.openlocfilehash: 2ca5813c12e1358afaa20b4a919de4ee8a355865
+ms.sourcegitcommit: adaf2a71e022d6d29493ab0a679bd593ea40195e
+ms.openlocfilehash: acb3b4d4a14ea546e94ccc38806251460e21a6bc
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -171,10 +172,10 @@ Quando si crea un'attività con **Rilevamento multimediale volti di Azure**, è 
 #### <a name="aggregate-defaults"></a>Impostazioni predefinite degli aggregati
 Di seguito sono specificati i valori consigliati per la finestra di aggregazione e le impostazioni di intervallo. Il valore di AggregateEmotionWindowMs non deve essere maggiore del valore di AggregateEmotionIntervalMs.
 
-| Impostazioni predefinite | Min(s) | Max(s) |
-| --- | --- | --- | --- |
-| AggregateEmotionWindowMs |0,5 |2 |
-| AggregateEmotionIntervalMs |0,5 |1 |
+|| Impostazioni predefinite | Min(s) | Max(s) |
+|--- | --- | --- | --- |
+| AggregateEmotionWindowMs |0,5 |2 |0,25|
+| AggregateEmotionIntervalMs |0,5 |1 |0,25|
 
 ### <a name="json-output"></a>Output JSON
 Output JSON per l'emozione aggregata (troncato):
@@ -521,10 +522,5 @@ Il programma seguente illustra come:
 [Panoramica di Analisi servizi multimediali di Azure](media-services-analytics-overview.md)
 
 [Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

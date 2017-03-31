@@ -1,6 +1,6 @@
 ---
-title: Creare una copia della macchina virtuale Windows | Microsoft Docs
-description: Informazioni su come creare una copia della macchina virtuale Azure specializzata che esegue Windows nel modello di distribuzione di Resource Manager.
+title: Creare una macchina virtuale da un disco specializzato in Azure | Documentazione Microsoft
+description: Creare una nuova macchina virtuale collegando un disco gestito o non gestito specializzato nel modello di distribuzione di Resource Manager.
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -13,20 +13,30 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 02/06/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: a779f084e0ad6de71ad3e2de86a2fb85738b8fe6
+ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
+ms.openlocfilehash: cbe3d72bbd0d9cc425b1b26ad412e77b33f385b2
+ms.lasthandoff: 02/11/2017
 
 
 ---
-# <a name="create-a-vm-from-a-specialized-vhd"></a>Creare una VM da un disco rigido virtuale specializzato
-Creare una nuova macchina virtuale collegando un disco rigido virtuale specializzato come il disco del sistema operativo con Powershell. Un disco rigido virtuale specializzato gestisce gli account utente, le applicazioni e altri dati di stato dalla macchina virtuale originale. 
+# <a name="create-a-vm-from-a-specialized-disk"></a>Creare una macchina virtuale da un disco specializzato
 
-Se si vuole creare una VM da un disco rigido virtuale generico, vedere [Creare una VM da un'immagine disco rigido virtuale generico](virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Creare una nuova macchina virtuale collegando un disco specializzato come il disco del sistema operativo con Powershell. Un disco specializzato è una copia del disco rigido virtuale proveniente da una macchina virtuale esistente che gestisce gli account utente, le applicazioni e altri dati di stato dalla macchina virtuale originale. È possibile usare un [disco gestito](../storage/storage-managed-disks-overview.md) o non gestito specializzato per creare la nuova macchina virtuale.
+
+## <a name="before-you-begin"></a>Prima di iniziare
+Se si usa PowerShell, verificare di disporre della versione più recente del modulo di PowerShell AzureRM.Compute. Eseguire il comando seguente per installarlo.
+
+```powershell
+Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+```
+Per altre informazioni, vedere [Controllo delle versioni di Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+
 
 ## <a name="create-the-subnet-and-vnet"></a>Creare la subNet e la vNet
+
 Creare la rete virtuale e la subnet della [rete virtuale](../virtual-network/virtual-networks-overview.md).
 
 1. Creare la subnet. In questo esempio viene creata una subnet denominata **mySubNet** nel gruppo di risorse **myResourceGroup** e il prefisso dell'indirizzo della subnet viene impostato su **10.0.0.0/24**.
@@ -59,13 +69,12 @@ Per abilitare la comunicazione con la macchina virtuale nella rete virtuale, son
    
     ```powershell
     $nicName = "myNicName"
-    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location `
-        -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
+    -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
     ```
 
 ## <a name="create-the-network-security-group-and-an-rdp-rule"></a>Creare il gruppo di sicurezza di rete e una regola RDP
 Per essere in grado di accedere alla VM tramite RDP, è necessario disporre di una regola di sicurezza che consenta l'accesso RDP sulla porta 3389. Poiché il disco rigido virtuale per la nuova macchina virtuale è stato creato da una VM specializzata esistente, dopo l'avvenuta creazione della macchina virtuale è possibile usare un account esistente dalla VM di origine che aveva l'autorizzazione di accedere tramite RDP.
-
 In questo esempio il nome NSG impostato è **myNsg**, mentre il nome della regola RDP è **myRdpRule**.
 
 ```powershell
@@ -75,48 +84,90 @@ $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Al
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
     -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
-
 $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
     -Name $nsgName -SecurityRules $rdpRule
+    
 ```
 
 Per altre informazioni sugli endpoint e sulle regole NSG, vedere [Apertura di porte a una VM tramite PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a name="create-the-vm-configuration"></a>Creare la configurazione della macchina virtuale
-Impostare la configurazione della macchina virtuale per collegare il disco rigido virtuale copiato come il disco rigido virtuale del sistema operativo.
+## <a name="set-the-vm-name-and-size"></a>Impostare il nome e le dimensioni della macchina virtuale
 
+In questo esempio il nome della macchina virtuale viene impostato su "myVM" e le dimensioni su "Standard_A2".
 ```powershell
-# Set the URI for the VHD that you want to use. In this example, the VHD file named "myOsDisk.vhd" is kept 
-# in a storage account named "myStorageAccount" in a container named "myContainer".
-$osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
-
-# Set the VM name and size. This example sets the VM name to "myVM" and the VM size to "Standard_A2".
 $vmName = "myVM"
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
-
-# Add the NIC
-$vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
-
-# Add the OS disk by using the URL of the copied OS VHD. In this example, when the OS disk is created, the 
-# term "osDisk" is appened to the VM name to create the OS disk name. This example also specifies that this 
-# Windows-based VHD should be attached to the VM as the OS disk.
-$osDiskName = $vmName + "osDisk"
-$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
 ```
 
+## <a name="add-the-nic"></a>Aggiungere la scheda di interfaccia di rete
+    
+```powershell
+$vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
+```
+    
+    
+## <a name="configure-the-os-disk"></a>Configurare il disco del sistema operativo
 
-Se si dispone di dischi dati da associare alla macchina virtuale, è necessario anche aggiungere quanto segue: 
+Il sistema operativo specializzato potrebbe essere un disco rigido virtuale [caricato in Azure](virtual-machines-windows-upload-image.md) o una [copia del disco rigido virtuale da una macchina virtuale di Azure esistente](virtual-machines-windows-vhd-copy.md). 
+
+È possibile scegliere una delle due opzioni:
+- **Opzione 1**: creare un disco gestito specializzato da un disco rigido virtuale specializzato in un account di archiviazione esistente da usare come disco del sistema operativo.
+
+oppure 
+
+- **Opzione 2**: usare un disco rigido virtuale specializzato archiviato nel proprio account di archiviazione (un disco non gestito). 
+
+### <a name="option-1-create-a-managed-disk-from-an-unmanaged-specialized-disk"></a>Opzione 1: Creare un disco gestito da un disco specializzato non gestito
+
+1. Creare un disco gestito dal disco rigido virtuale specializzato esistente nell'account di archiviazione. Questo esempio usa **myOSDisk1** come nome del disco, inserisce il disco nell'archiviazione **StandardLRS** usa **https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vh.vhd** come URI per il disco rigido virtuale di origine.
+
+    ```powershell
+    $osDisk = New-AzureRmDisk -DiskName "myOSDisk1" -Disk (New-AzureRmDiskConfig `
+    -AccountType StandardLRS  -Location $location -CreationDataCreateOption Import `
+    -SourceUri https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vh.vhd) `
+    -ResourceGroupName $rgName
+    ```
+
+2. Aggiungere il disco del sistema operativo alla configurazione. In questo esempio le dimensioni del disco vengono impostate su **128 GB** e viene collegato il disco gestito come disco del sistema operativo **Windows**.
+    
+    ```powershell
+    $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType StandardLRS `
+    -DiskSizeInGB 128 -CreateOption Attach -Windows
+    ```
+
+Facoltativo: collegare dischi gestiti aggiuntivi come dischi dati. Questa opzione presuppone che sia stato creato il disco dati gestito tramite [Create managed data disks](virtual-machines-windows-create-managed-disk-ps.md) (Creare dischi dati gestiti). 
 
 ```powershell
-# Optional: Add data disks by using the URLs of the copied data VHDs at the appropriate Logical Unit 
-# Number (Lun).
-$dataDiskName = $vmName + "dataDisk"
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 0 -CreateOption attach
+$vm = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
 ```
 
-Gli URL dei dischi dei dati e del sistema operativo sono simili al seguente: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. Per trovarlo nel portale, passare al contenitore di archiviazione di destinazione, fare clic sul disco rigido virtuale del sistema operativo o dei dati copiato e quindi copiare il contenuto dell'URL.
+
+### <a name="option-2-attach-a-vhd-that-is-in-an-existing-storage-account"></a>Opzione 2: collegare un disco rigido virtuale che si trova in un account di archiviazione esistente
+
+1. Impostare l'URI per il disco rigido virtuale che si desidera usare. In questo esempio, il file del disco rigido virtuale denominato **myOsDisk.vhd** viene mantenuto in un account di archiviazione denominato **myStorageAccount** all'interno di un contenitore denominato **myContainer**.
+
+    ```powershell
+    $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
+    ```
+2. Aggiungere il disco del sistema operativo usando l'URL del disco rigido virtuale del sistema operativo copiato. In questo esempio, quando viene creato il disco del sistema operativo, il termine "osDisk" viene collegato al nome della macchina virtuale per creare il nome del disco del sistema operativo. Questo esempio specifica anche che il disco rigido virtuale basato su Windows deve essere collegato alla macchina virtuale come disco del sistema operativo.
+    
+    ```powershell
+    $osDiskName = $vmName + "osDisk"
+    $vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
+    ```
+
+Facoltativo: se si dispone di dischi dati da associare alla macchina virtuale, aggiungere i dischi dati tramite gli URL dei dischi rigidi virtuali di dati e il numero di unità logica (LUN) appropriato.
+
+```powershell
+$dataDiskName = $vmName + "dataDisk"
+$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 1 -CreateOption attach
+```
+
+Quando si usa un account di archiviazione, gli URL dei dischi dati e del sistema operativo sono simili al seguente: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. Per trovarlo nel portale, passare al contenitore di archiviazione di destinazione, fare clic sul disco rigido virtuale del sistema operativo o dei dati copiato e quindi copiare il contenuto dell'URL.
+
 
 ## <a name="create-the-vm"></a>Creare la VM
+
 Creare la macchina virtuale usando le configurazioni appena create.
 
 ```powershell
@@ -143,10 +194,5 @@ $vmList.Name
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per accedere alla nuova macchina virtuale, passare alla VM nel [portale](https://portal.azure.com), fare clic su **Connetti**e aprire il file RDP di Desktop remoto. Usare le credenziali dell'account della macchina virtuale originale per accedere alla nuova macchina virtuale. Per altre informazioni, vedere [Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

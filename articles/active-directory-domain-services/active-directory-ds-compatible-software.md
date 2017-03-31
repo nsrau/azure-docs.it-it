@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 553111d37543a0d5d6d3c89afab118b209704fec
 ms.openlocfilehash: b6ed4bd6898d54f6f9ef3206de38e2be6d2900be
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -41,9 +42,4 @@ One Identity Authentication Services consente ai sistemi operativi Unix, Linux e
 Red Hat Enterprise Linux è la piattaforma Linux enterprise più diffusa al mondo progettata per soddisfare le esigenze delle grandi imprese moderne di oggi. Red Hat Enterprise Linux è la scelta preferita per carichi di lavoro di macchine virtuali (VM) Linux enterprise in Microsoft Azure. Red Hat Enterprise Linux è una piattaforma aperta, affidabile e protetta progettata per i clienti che desiderano flessibilità nella distribuzione per i carichi di lavoro business-critical (dai data center al cloud Azure), sostenuta dal supporto di classe enterprise altamente integrato di Red Hat e Microsoft.
 
 [Aggiungere una macchina virtuale RedHat Enterprise Linux 7.2 a Servizi di dominio di Azure Active Directory](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

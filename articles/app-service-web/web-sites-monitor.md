@@ -4,7 +4,7 @@ description: Informazioni su come monitorare le app nel servizio app di Azure tr
 services: app-service
 documentationcenter: 
 author: btardif
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.service: app-service
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/07/2016
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8f119626aff7a7826e61f4534de686d2c22ed5d7
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: d779170030b61540de2c0459e574a72cdc77f342
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -152,7 +153,7 @@ Per altre informazioni sulle metriche, vedere [Monitor service metrics](../monit
 Le app del servizio app ospitate nei piani di servizio app Basic, Standard e Premium supportano la **scalabilità automatica**. È quindi possibile configurare regole per il monitoraggio delle metriche del piano di servizio app e aumentare o ridurre automaticamente il numero di istanze per fornire risorse aggiuntive quando necessario o per risparmiare denaro quando il provisioning dell'applicazione è eccessivo rispetto all'utilizzo effettivo. Per altre informazioni sul ridimensionamento automatico, vedere [How to Scale](../monitoring-and-diagnostics/insights-how-to-scale.md) (Come ridimensionare) e [Best practices for Azure Monitor autoscaling](../monitoring-and-diagnostics/insights-autoscale-best-practices.md) (Procedure consigliate per il ridimensionamento automatico in Monitoraggio di Azure)
 
 > [!NOTE]
-> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 
@@ -168,9 +169,4 @@ Le app del servizio app ospitate nei piani di servizio app Basic, Standard e Pre
 [http403]: ./media/web-sites-monitor/http403.png
 [quotas]: ./media/web-sites-monitor/quotas.png
 [metrics]: ./media/web-sites-monitor/metrics.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

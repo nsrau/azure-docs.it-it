@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/15/2016
+ms.date: 03/08/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 87a303fc04b2a528928eed5ce8f65a19700e0bc0
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 14cbebe2a00dd1a666971a1d5626b2e467356a24
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -97,11 +98,4 @@ Per altre informazioni sullo sviluppo, il test e la gestione di applicazioni e s
 * [Distribuire un'applicazione](service-fabric-deploy-remove-applications.md)
 * [Aggiornamento dell'applicazione](service-fabric-application-upgrade.md)
 * [Panoramica di Testabilità](service-fabric-testability-overview.md)
-* [Esempio di ciclo di vita di un'applicazione basata su REST](service-fabric-rest-based-application-lifecycle-sample.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

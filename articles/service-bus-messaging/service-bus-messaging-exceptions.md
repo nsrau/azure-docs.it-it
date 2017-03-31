@@ -1,5 +1,5 @@
 ---
-title: Eccezioni di messaggistica del bus di servizio | Documentazione Microsoft
+title: Eccezioni di messaggistica del bus di servizio di Azure | Microsoft Docs
 description: Elenco delle eccezioni di messaggistica del bus di servizio e relative azioni consigliate.
 services: service-bus-messaging
 documentationcenter: na
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2017
+ms.date: 03/03/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: e872848a91834cf19cd6ebdd4db637c54120c33b
-ms.openlocfilehash: 5321a465a0fab9dac4c4c0755da3e3ca4c8d7369
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 3b543b1c94122a037cdd3b16e25d60957add1cb7
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -49,7 +50,7 @@ La tabella seguente elenca i tipi di eccezioni di messaggistica, ne riporta le p
 | [SessionLockLostException](/dotnet/api/microsoft.servicebus.messaging.sessionlocklostexception) |È stato perso il blocco associato a questa sessione. |Interrompere l'oggetto [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) . |Ripetere l'operazione non serve. |
 | [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) |Eccezione di messaggistica generica che può essere generata nei casi seguenti:<br /> È stato eseguito un tentativo di creare una classe [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) usando un nome o un percorso appartenente a un tipo di entità diverso, ad esempio un argomento.<br />  È stato eseguito un tentativo di inviare un messaggio di dimensioni superiori a 256 KB. Si è verificato un errore nel server o nel servizio durante l'elaborazione della richiesta. Per informazioni dettagliate, vedere il messaggio di eccezione. Si tratta in genere di un'eccezione temporanea. |Controllare il codice e verificare che per il corpo del messaggio siano stati usati solo oggetti serializzabili (oppure usare un serializzatore personalizzato). Consultare la documentazione per identificare i tipi di valori delle proprietà supportati e usare solo quelli. Controllare la proprietà [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception#Microsoft_ServiceBus_Messaging_MessagingException_IsTransient) . Se è **true**, è possibile ripetere l'operazione. |Il comportamento di ripetizione dei tentativi non è definito e ripetere l'operazione può non essere utile. |
 | [MessagingEntityAlreadyExistsException](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) |È stato eseguito un tentativo di creare un'entità con un nome già usato da un'altra entità dello stesso spazio dei nomi del servizio. |Eliminare l'entità esistente o scegliere un nome diverso per l'entità da creare. |Ripetere l'operazione non serve. |
-| [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) |L'entità di messaggistica ha raggiunto le dimensioni massime consentite. |Creare spazio nell'entità mediante la ricezione di messaggi dall'entità o dalle relative code secondarie. Vedere [QuotaExceededException](#quotaexceededexception). |Se nel frattempo sono stati rimossi i messaggi, può essere utile ripetere l'operazione. |
+| [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) |L'entità di messaggistica ha raggiunto le dimensioni massime consentite oppure è stato superato il numero massimo di connessioni a uno spazio dei nomi. |Creare spazio nell'entità mediante la ricezione di messaggi dall'entità o dalle relative code secondarie. Vedere [QuotaExceededException](#quotaexceededexception). |Se nel frattempo sono stati rimossi i messaggi, può essere utile ripetere l'operazione. |
 | [RuleActionException](/dotnet/api/microsoft.servicebus.messaging.ruleactionexception) |Il bus di servizio restituisce questa eccezione se si tenta di creare un'azione di regola non valida. Il bus di servizio assegna questa eccezione a un messaggio non recapitabile se si verifica un errore durante l'elaborazione dell'azione di regola per il messaggio. |Verificare la correttezza dell'azione di regola. |Ripetere l'operazione non serve. |
 | [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) |Il bus di servizio restituisce questa eccezione se si tenta di creare un filtro non valido. Il bus di servizio assegna questa eccezione a un messaggio non recapitabile se si verifica un errore durante l'elaborazione del filtro per il messaggio. |Verificare la correttezza del filtro. |Ripetere l'operazione non serve. |
 | [SessionCannotBeLockedException](/dotnet/api/microsoft.servicebus.messaging.sessioncannotbelockedexception) |È stato eseguito un tentativo di accettare una sessione con un ID di sessione specifico, ma la sessione è attualmente bloccata da un altro client. |Assicurarsi che la sessione venga sbloccata dagli altri client. |Se nel frattempo la sessione è stata rilasciata, può essere utile ripetere l'operazione. |
@@ -74,6 +75,17 @@ Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-
 ```
 
 Il messaggio indica che l'argomento ha superato il limite di dimensioni, in questo caso 1 GB (limite di dimensioni predefinito). 
+
+### <a name="namespaces"></a>Spazi dei nomi
+
+Per gli spazi dei nomi, [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) può indicare che un'applicazione ha superato il numero massimo di connessioni a uno spazio dei nomi. Ad esempio:
+
+```
+Microsoft.ServiceBus.Messaging.QuotaExceededException: ConnectionsQuotaExceeded for namespace xxx.
+<tracking-id-guid>_G12 ---> 
+System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: 
+ConnectionsQuotaExceeded for namespace xxx.
+```
 
 #### <a name="common-causes"></a>Cause comuni
 Per questo errore, esistono due cause comuni: la coda dei messaggi non recapitabili e l'interruzione da parte dei destinatari dei messaggi.
@@ -115,10 +127,5 @@ Per altre informazioni sul [bus di servizio](https://azure.microsoft.com/service
 * [Panoramica della messaggistica del bus di servizio](service-bus-messaging-overview.md)
 * [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 * [Architettura del bus di servizio](service-bus-architecture.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

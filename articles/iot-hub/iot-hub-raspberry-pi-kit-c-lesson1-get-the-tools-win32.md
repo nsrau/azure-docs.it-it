@@ -1,5 +1,5 @@
 ---
-title: Ottenere gli strumenti (Windows 7+) | Documentazione Microsoft
+title: 'Connettere Raspberry Pi (C) ad Azure IoT: lezione 1: Ottenere gli strumenti (Windows) | Documentazione Microsoft'
 description: Scaricare e installare gli strumenti necessari e il software per la prima applicazione di esempio per Pi in Windows 7 e versioni successive.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 155e5d6280d86b06b1718fc3032c2c224539183d
-ms.openlocfilehash: 7dad64ae5044838646915a0ec933e29c90edd1b9
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: d53efc7d25714427e25d4f88279f3b0d4f61c150
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -81,9 +82,4 @@ Sono stati installati gli strumenti di sviluppo e il software necessari per la p
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Creare e distribuire l'applicazione per il lampeggiamento](iot-hub-raspberry-pi-kit-c-lesson1-deploy-blink-app.md)
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

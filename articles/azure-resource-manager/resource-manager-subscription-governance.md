@@ -17,6 +17,7 @@ ms.author: rodend;karlku;tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: adae9827bbdb5f72b9e0fb4a1792fe54b9324706
 ms.openlocfilehash: 9f4f0ce9e389fa560345c77502db8e225827f054
+ms.lasthandoff: 01/10/2017
 
 
 ---
@@ -250,10 +251,5 @@ Il [Centro sicurezza di Azure](../security-center/security-center-intro.md) forn
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Ora che sono state acquisite informazioni sulla governance delle sottoscrizioni, è il momento di vedere l'applicazione pratica di questi consigli. Vedere [Examples of implementing Azure subscription governance](resource-manager-subscription-examples.md) (Esempi di implementazione della governance delle sottoscrizioni di Azure).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Creare una copia di una macchina virtuale specializzata in Azure | Documentazione Microsoft
+title: Creare una copia di una macchina virtuale specializzata in Azure | Microsoft Docs
 description: Informazioni su come creare una copia di una VM Windows specializzata in esecuzione in Azure, nel modello di distribuzione Resource Manager.
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/20/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: e516d3cea9a53dec209a51fc8729f2cca934d3cd
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 9fa8835003b1d8a0dbc56bf9ff8996e48fc41acf
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -37,7 +38,7 @@ Verificare quanto segue:
 ## <a name="deallocate-the-vm"></a>Deallocare la VM
 Deallocare la VM, operazione che consente di liberare il disco rigido virtuale da copiare. 
 
-* **Portale**: fare clic su ** Macchine virtuali** > **myVM** > Stop (Termina)
+* **Portale**: fare clic su **Macchine virtuali** > **myVM** > Stop (Termina)
 * **PowerShell**: `Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM` dealloca la VM denominata **myVM** nel gruppo di risorse **myResourceGroup**.
 
 Nel portale di Azure lo **Stato** della VM passa da **Interrotto** a **Arrestato (deallocato)**.
@@ -93,14 +94,9 @@ Elapsed time:            00.00:13:07
 ```
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
-* Quando si usa AZCopy, se viene visualizzato il messaggio di errore "Autenticazione della richiesta non riuscita nel server. Verificare che il formato dell'intestazione Authorization, firma inclusa, sia corretto" e si sta usando la chiave 2 o la chiave di archiviazione secondaria, provare a usare la chiave 1 o la chiave di archiviazione primaria.
+* Quando si usa AZCopy, se viene visualizzato l'errore "Il server non è stato in grado di autenticare la richiesta", assicurarsi che il valore dell'intestazione di autorizzazione sia formato correttamente, inclusa la firma. Se si sta usando la chiave 2 o la chiave di archiviazione secondaria, provare a usare la chiave 1 o la chiave di archiviazione primaria.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * È possibile creare una nuova VM [collegando la copia del disco rigido virtuale a una macchina VM come disco del sistema operativo](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

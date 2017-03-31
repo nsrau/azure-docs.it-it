@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: bb4188bed4839aea6d19c49a8f0e6d154a343ec1
-ms.openlocfilehash: e0f77f88ee91b263c49a148197e418fdf64cca0b
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 9702f179a65754be88646987f868385b02a9f2d7
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -891,10 +892,10 @@ Il debug è costituito da alcune tecniche di base:
 ### <a name="next-steps-consume-the-data"></a>Passaggi successivi: Utilizzare i dati
 Dopo l'elaborazione dei dati, è possibile usarli con strumenti online come **Microsoft Power BI**. Ecco alcuni collegamenti che illustrano Power BI e come è possibile usarlo in Azure:
 
-* [Esplorare un set di dati in Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-data/)
-* [Introduzione a Power BI Desktop](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started/)
-* [Aggiornamento dei dati in Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-refresh-data/)
-* [Azure e Power BI - Panoramica di base](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/)
+* [Esplorare un set di dati in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
+* [Introduzione a Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
+* [Aggiornamento dei dati in Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
+* [Azure e Power BI - Panoramica di base](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
 ## <a name="references"></a>Riferimenti
 * [Data factory di Azure](https://azure.microsoft.com/documentation/services/data-factory/)
@@ -911,9 +912,4 @@ Dopo l'elaborazione dei dati, è possibile usarli con strumenti online come **Mi
 
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: Introduzione alle funzioni di backup e ripristino dei database SQL di Azure per la protezione dei dati e il ripristino con Azure PowerShell | Documentazione Microsoft
+title: 'PowerShell: backup e ripristino del database SQL di Azure | Documentazione Microsoft'
 description: Questa esercitazione illustra come eseguire il ripristino da backup automatizzati in un determinato punto nel tempo, archiviare i backup automatizzati nell&quot;insieme di credenziali di Servizi di ripristino di Azure ed eseguire il ripristino dall&quot;insieme di credenziali di Servizi di ripristino di Azure usando PowerShell.
 keywords: esercitazione database SQL
 services: sql-database
@@ -13,20 +13,21 @@ ms.custom: tutorial
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
-ms.topic: hero-article
+ms.topic: article
 ms.date: 12/19/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 68a4ed7aad946dda644a0f085c48fd33f453e018
-ms.openlocfilehash: 15d5cb803332133c8015a8ba23ca5751b8abc29a
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 85897322bc341f549c52dbe4758e8c7f860df22c
+ms.lasthandoff: 03/10/2017
 
 
 ---
 
 
-# <a name="get-started-with-backup-and-restore-for-data-protection-and-recovery-using-powershell"></a>Introduzione al backup e ripristino per la protezione dei dati e il ripristino con PowerShell
+# <a name="tutorial-back-up-and-restore-an-azure-sql-database-using-powershell"></a>Esercitazione: backup e ripristino di un database SQL di Azure con PowerShell
 
-In questa esercitazione introduttiva si apprenderà come usare Azure PowerShell per:
+In questa esercitazione si apprenderà come usare Azure PowerShell per:
 
 - Visualizzare backup esistenti di un database
 - Ripristinare un database a un momento precedente
@@ -38,16 +39,20 @@ In questa esercitazione introduttiva si apprenderà come usare Azure PowerShell 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* È necessario un account Azure. È possibile [aprire un account Azure gratuito](/pricing/free-trial/?WT.mc_id=A261C142F) o [attivare i benefici della sottoscrizione di Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* **Account Azure**. È necessario un account Azure. È possibile [aprire un account Azure gratuito](https://azure.microsoft.com/free/) o [attivare i benefici della sottoscrizione di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
-* È necessario connettersi ad Azure usando un account membro del ruolo proprietario o collaboratore della sottoscrizione. Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Introduzione alla gestione degli accessi nel portale di Azure](../active-directory/role-based-access-control-what-is.md).
+* **Autorizzazioni di creazione di Azure**. È necessario essere in grado di connettersi al portale di Azure usando un account membro del ruolo proprietario o collaboratore della sottoscrizione. Per altre informazioni sul controllo degli accessi in base al ruolo, vedere [Introduzione alla gestione degli accessi nel portale di Azure](../active-directory/role-based-access-control-what-is.md).
 
-* È necessario che sia installata ed eseguita la versione più recente di Azure PowerShell. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* **PowerShell** È necessario che sia installata ed eseguita la versione più recente di Azure PowerShell. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-* Aver completato [Introduzione ai server del database SQL di Azure, ai database e alle regole del firewall usando il portale di Azure ed SQL Server Management Studio](sql-database-get-started.md) o la [versione per PowerShell](sql-database-get-started-powershell.md) equivalente. In caso contrario, completare questa esercitazione obbligatoria oppure eseguire lo script di PowerShell in fondo alla [versione per PowerShell](sql-database-get-started-powershell.md) prima di continuare.
+* **SQL Server Management Studio**. Per scaricare e installare l'ultima versione di SQL Server Management Studio (SSMS), vedere [Scaricare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Per la connessione al database SQL di Azure usare sempre l'ultima versione di SSMS, perché vengono continuamente rilasciate nuove funzionalità.
+
+* **Server e database di base** Per installare e configurare un server e i due database usati in questa esercitazione, fare clic sul pulsante **Distribuisci in Azure**. Facendo clic sul pulsante, si apre il pannello **Deploy from a template** (Distribuisci da un modello). Creare un nuovo gruppo di risorse e specificare la **password di accesso amministratore** per il nuovo server che verrà creato:
+
+   [![Download](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fsqldbtutorial.blob.core.windows.net%2Ftemplates%2Fsqldbgetstarted.json)
 
 > [!TIP]
-> Per eseguire queste stesse attività in un'esercitazione introduttiva, è possibile usare il [portale di Azure](sql-database-get-started-backup-recovery.md).
+> Per eseguire queste stesse attività in un'esercitazione introduttiva, è possibile usare il [portale di Azure](sql-database-get-started-backup-recovery-portal.md).
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
@@ -114,7 +119,7 @@ In questa sezione dell'esercitazione si [configurerà un insieme di credenziali 
 
 
 > [!TIP]
-> Per eliminare i backup con conservazione a lungo termine, vedere [Delete long-term retention backups](sql-database-long-term-retention-delete.md) (Eliminare i backup con conservazione a lungo termine).
+> Per eliminare i backup con conservazione a lungo termine, vedere [Gestire i backup con conservazione a lungo termine usando PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
 
 
 ### <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
@@ -378,8 +383,4 @@ $restoredDbFromLtr
 - Per informazioni sui backup automatici generati dal servizio, vedere l'articolo relativo ai [backup automatici](sql-database-automated-backups.md)
 - Per altre informazioni sulla conservazione dei backup a lungo termine, vedere [conservazione dei backup a lungo termine](sql-database-long-term-retention.md)
 - Per altre informazioni sul ripristino da backup, vedere [ripristino dal backup](sql-database-recovery-using-backups.md)
-
-
-<!--HONumber=Dec16_HO4-->
-
 

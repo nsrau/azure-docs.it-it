@@ -9,15 +9,17 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 56b913ee-0f9a-4e9f-9eaf-c571f8603dd6
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
-ms.openlocfilehash: 6e6f7793e03930cc002183172ccfbed6305378bd
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 74fe2d241dfcd6e572f0f20714f91c6aff970f34
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -58,12 +60,12 @@ Microsoft fornisce le utilità seguenti da usare con l'archivio BLOB di Azure:
 >
 >
 
-### <a name="a-idxplatcliaazure-cli"></a><a id="xplatcli"></a>
+### <a id="xplatcli"></a>
 L'interfaccia della riga di comando di Azure è uno strumento multipiattaforma che consente di gestire i servizi di Azure. Per caricare dati nell'archivio BLOB di Azure, seguire questa procedura:
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-1. [Installare e configurare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows](../xplat-cli-install.md).
+1. [Installare e configurare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows](../cli-install-nodejs.md).
 2. Aprire un prompt dei comandi, una sessione Bash o un'altra shell e usare quanto riportato di seguito per eseguire l'autenticazione alla sottoscrizione di Azure.
 
         azure login
@@ -97,7 +99,7 @@ L'interfaccia della riga di comando di Azure è uno strumento multipiattaforma c
 >
 >
 
-### <a name="a-idpowershellaazure-powershell"></a><a id="powershell"></a>Azure PowerShell
+### <a id="powershell"></a>Azure PowerShell
 Azure PowerShell è un ambiente di scripting che può essere usato per controllare e automatizzare la distribuzione e la gestione dei carichi di lavoro in Azure. Per informazioni sulla configurazione della workstation per l'esecuzione di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell.md)]
@@ -125,7 +127,7 @@ Azure PowerShell è un ambiente di scripting che può essere usato per controlla
 
 Per script di PowerShell di esempio creati per funzionare con HDInsight, vedere [Strumenti HDInsight](https://github.com/blackmist/hdinsight-tools).
 
-### <a name="a-idazcopyaazcopy"></a><a id="azcopy"></a>AzCopy
+### <a id="azcopy"></a>AzCopy
 AzCopy è un strumento della riga di comando progettato per semplificare l'attività di trasferimento dati in entrata e in uscita da un account di archiviazione di Azure. Può essere usato come strumento autonomo o può essere incorporato in un'applicazione esistente. [Download di AzCopy][azure-azcopy-download].
 
 La sintassi di AzCopy è:
@@ -134,7 +136,7 @@ La sintassi di AzCopy è:
 
 Per altre informazioni, vedere [AzCopy: caricamento/download di file per BLOB di Azure][azure-azcopy].
 
-### <a name="a-idcommandlineahadoop-command-line"></a><a id="commandline"></a>Riga di comando di Hadoop
+### <a id="commandline"></a>Riga di comando di Hadoop
 La riga di comando di Hadoop è utile solo per archiviare i dati nell'archivio BLOB quando i dati sono già presenti nel nodo head del cluster.
 
 Per usare il comando Hadoop, è innanzitutto necessario connettersi nel nodo head mediante uno dei metodi seguenti:
@@ -178,7 +180,7 @@ Esistono diverse applicazioni che forniscono un'interfaccia grafica per usare Ar
 ### <a name="visual-studio-tools-for-hdinsight"></a>Visual Studio Tools per HDInsight
 Per altre informazioni, vedere [Esplorare le risorse collegate](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources).
 
-### <a name="a-idstorageexploreraazure-storage-explorer"></a><a id="storageexplorer"></a>Azure Storage Explorer
+### <a id="storageexplorer"></a>Azure Storage Explorer
 *Azure Storage Explorer* è uno strumento utile per l'esame e la modifica dei dati nei BLOB. Si tratta di uno strumento gratuito open-source che è possibile scaricare da [http://storageexplorer.com/](http://storageexplorer.com/). Anche il codice sorgente è disponibile da questo collegamento.
 
 Prima di usare lo strumento è necessario conoscere il nome e la chiave dell'account di archiviazione di Azure. Per istruzioni sull'acquisizione di queste informazioni, vedere la sezione "Procedura: Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione" dell'articolo [Creare, gestire o eliminare un account di archiviazione][azure-create-storage-account].
@@ -209,7 +211,7 @@ Data factory di Azure può essere usato per spostare i dati nell'archivio BLOB d
 
 Per altre informazioni, vedere [Documentazione di Data factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
-### <a name="a-idsqoopaapache-sqoop"></a><a id="sqoop"></a>Apache Sqoop
+### <a id="sqoop"></a>Apache Sqoop
 Sqoop è uno strumento progettato per il trasferimento di dati tra Hadoop e i database relazionali. Può essere usato per importare dati in HDFS (Hadoop Distributed File System) da un sistema di gestione di database relazionali (RDBMS), ad esempio SQL, MySQL oppure Oracle, trasformare i dati in Hadoop con MapReduce o Hive e quindi esportarli nuovamente in un sistema RDBMS.
 
 Per altre informazioni, vedere [Usare Sqoop con HDInsight][hdinsight-use-sqoop].
@@ -227,7 +229,7 @@ Per altre informazioni, vedere [Usare Sqoop con HDInsight][hdinsight-use-sqoop].
 Per altre informazioni sull'installazione di SDK di Azure, vedere [Download di Azure](https://azure.microsoft.com/downloads/)
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
-### <a name="a-idstorageexceptionastorage-exception-for-write-on-blob"></a><a id="storageexception"></a>Eccezione di archiviazione per la scrittura nel BLOB
+### <a id="storageexception"></a>Eccezione di archiviazione per la scrittura nel BLOB
 **Sintomi**: quando si usa il comando `hadoop` o `hdfs dfs` per scrivere file di dimensioni pari o superiori a ~12 GB in un cluster HBase, è possibile che si verifichi l'errore seguente:
 
     ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge
@@ -301,15 +303,10 @@ Dopo aver appreso come importare dati in HDInsight, leggere gli articoli seguent
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
-[azurecli]: ../xplat-cli-install.md
+[azurecli]: ../cli-install-nodejs.md
 
 
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 01/23/2017
+ms.date: 03/08/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 550b4154f0fe510cb37ec4f8bdef251b06f0b495
-ms.openlocfilehash: e739bb129ea2b280803380f3f9c20ca052b3f122
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: af5e181ce254fefe55c847d9988dd8245c75e864
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -43,7 +44,7 @@ Il Servizio cache gestita di Azure e la Cache Redis di Azure sono simili, ma imp
 
 | Funzionalità del Servizio cache gestita | Supporto del Servizio cache gestita | Supporto della Cache Redis di Azure |
 | --- | --- | --- |
-| Cache denominate |Viene configurata una cache predefinita e nelle offerte cache Standard e Premium possono essere configurate fino a nove cache denominate aggiuntive, se necessario. |Le cache Redis di Azure hanno un numero di database configurabile, 16 database per impostazione predefinita, che possono essere usati per implementare una funzionalità simile alle cache denominate. Per altre informazioni, vedere [Configurazione predefinita del server Redis](cache-configure.md#default-redis-server-configuration). |
+| Cache denominate |Viene configurata una cache predefinita e nelle offerte cache Standard e Premium possono essere configurate fino a nove cache denominate aggiuntive, se necessario. |Le cache Redis di Azure hanno un numero di database configurabile, 16 database per impostazione predefinita, che possono essere usati per implementare una funzionalità simile alle cache denominate. Per altre informazioni, vedere [Cosa sono i database Redis?](cache-faq.md#what-are-redis-databases) e [Configurazione predefinita del server Redis](cache-configure.md#default-redis-server-configuration). |
 | Disponibilità elevata |Fornisce disponibilità elevata per gli elementi nella cache nelle offerte cache Standard e Premium. Se gli elementi vengono persi a causa di un errore, sono ancora disponibili le copie di backup degli elementi nella cache. Le scritture nella cache secondaria vengono eseguite in modo sincrono. |La disponibilità elevata è disponibile nelle offerte cache Standard e Premium, che hanno una configurazione primaria/di replica a due nodi (ogni condivisione in una cache Premium ha una coppia primaria/ di replica). Le scritture nella replica vengono eseguite in modo asincrono. Per altre informazioni, vedere [Prezzi di Cache Redis di Azure](https://azure.microsoft.com/pricing/details/cache/). |
 | Notifiche |Consente ai client di ricevere notifiche asincrone quando in una cache denominata si verificano svariate operazioni della cache. |Le applicazioni client possono usare la pubblicazione/sottoscrizione di Redis o le [notifiche dello spazio delle chiavi](cache-configure.md#keyspace-notifications-advanced-settings) per ottenere una funzionalità simile alle notifiche. |
 | Cache locale |Archivia una copia degli oggetti memorizzati nella cache in locale nel client per un accesso velocissimo. |Le applicazioni client dovrebbero implementare questa funzionalità usando un dizionario o una struttura di dati simile. |
@@ -76,7 +77,7 @@ Una volta creata e configurata la cache, il passaggio successivo consiste nel ri
 ### <a name="remove-the-managed-cache-service-configuration"></a>Rimuovere la configurazione del Servizio cache gestita
 Prima che le applicazioni client possano essere configurate per la Cache Redis di Azure, è necessario rimuovere la configurazione e i riferimenti ad assembly del Servizio cache gestita esistenti disinstallando il pacchetto NuGet del Servizio cache gestita.
 
-Per disinstallare il pacchetto NuGet del Servizio cache gestita, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**. Selezionare il nodo ** installati** e digitare **WindowsAzure.Caching** nella casella di ricerca dei pacchetti installati. Selezionare **Windows** **Azure Cache** (o **Windows** **Azure Caching** a seconda della versione del pacchetto NuGet), fare clic su **Disinstalla** e su **Chiudi**.
+Per disinstallare il pacchetto NuGet del Servizio cache gestita, fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**. Selezionare il nodo **installati** e digitare **WindowsAzure.Caching** nella casella di ricerca dei pacchetti installati. Selezionare **Windows** **Azure Cache** (o **Windows** **Azure Caching** a seconda della versione del pacchetto NuGet), fare clic su **Disinstalla** e su **Chiudi**.
 
 ![Disinstallare il pacchetto NuGet del Servizio cache gestita di Azure](./media/cache-migrate-to-redis/IC757666.jpg)
 
@@ -186,10 +187,5 @@ La Cache Redis di Azure include provider sia per lo stato della sessione ASP.NET
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per esercitazioni, esempi, video e altro ancora, vedere la [documentazione sulla Cache Redis di Azure](https://azure.microsoft.com/documentation/services/cache/) .
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

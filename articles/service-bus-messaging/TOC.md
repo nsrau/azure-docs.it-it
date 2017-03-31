@@ -1,6 +1,7 @@
 # Panoramica
 ## [Che cos'è la messaggistica del bus di servizio?](service-bus-messaging-overview.md)
 ## [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
+## [Architettura del bus di servizio](service-bus-architecture.md)
 ## [Domande frequenti](service-bus-faq.md)
 
 # Attività iniziali
@@ -12,7 +13,7 @@
 ### [PHP](service-bus-php-how-to-use-queues.md)
 ### [Python](service-bus-python-how-to-use-queues.md)
 ### [Ruby](service-bus-ruby-how-to-use-queues.md)
-### [REST](service-bus-brokered-tutorial-rest.md)
+### [REST](/rest/api/servicebus/queues)
 ## Usare argomenti e sottoscrizioni
 ### [.NET](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 ### [Java](service-bus-java-how-to-use-topics-subscriptions.md)
@@ -39,6 +40,7 @@
 ### [Code e argomenti partizionati](service-bus-partitioning.md)
 ### [Code di messaggi non recapitabili](service-bus-dead-letter-queues.md)
 ### [Elaborazione di transazioni](service-bus-transactions.md)
+### [Log di diagnostica](service-bus-diagnostic-logs.md)
 ### AMQP
 #### [.NET](service-bus-amqp-dotnet.md)
 #### [Java](service-bus-amqp-java.md)
@@ -54,7 +56,7 @@
 ## .NET
 ### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.Management.ServiceBus](/dotnet/api/microsoft.azure.management.servicebus)
-## [PowerShell](service-bus-powershell-how-to-provision.md)
+## [PowerShell](/powershell/resourcemanager/azurerm.servicebus/v0.0.2/azurerm.servicebus)
 ## [REST](/rest/api/servicebus)
 ## [Eccezioni](service-bus-messaging-exceptions.md)
 ## [Quote](service-bus-quotas.md)
@@ -71,10 +73,5 @@
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=service-bus)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

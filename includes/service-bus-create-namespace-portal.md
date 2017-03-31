@@ -25,15 +25,15 @@ Per creare uno spazio dei nomi:
    
     ![connection-string][connection-string]
 
+5. Ripetere il passaggio precedente e copiare e incollare il valore della **chiave primaria** in un percorso temporaneo per usarlo in seguito.
+
 <!--Image references-->
 
 [create-namespace]: ./media/service-bus-create-namespace-portal/create-namespace.png
 [connection-info]: ./media/service-bus-create-namespace-portal/connection-info.png
 [connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
 [Azure portal]: https://portal.azure.com
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

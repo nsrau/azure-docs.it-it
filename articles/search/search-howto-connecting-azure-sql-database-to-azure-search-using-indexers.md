@@ -12,11 +12,12 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 02/15/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 096fcd2a7415da03714f05bb1f29ceac6f186eda
-ms.openlocfilehash: dba7cd466d94cb68896ee9270bc765fe822ca00e
+ms.sourcegitcommit: 0841744b806f3dba38dddee21fb7fe881e07134f
+ms.openlocfilehash: 51c9d9afb6c2ed460abd4c47a6afbc404b97a85e
+ms.lasthandoff: 02/16/2017
 
 ---
 
@@ -203,11 +204,13 @@ Anche se sono consigliati, i criteri di rilevamento modifiche integrato di SQL p
 
 * Tutti gli inserimenti specificano un valore per la colonna.
 * Tutti gli aggiornamenti a un elemento modificano anche il valore della colonna.
-* Il valore di questa colonna aumenta a ogni modifica.
+* Il valore di questa colonna aumenta in base a ogni modifica o aggiornamento.
 * Le query con le clausole QUERY e ORDER BY seguenti possono essere eseguite in modo efficiente: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`.
 
-Ad esempio, una colonna **rowversion** indicizzata è un candidato ideale per la colonna con limite massimo.
-Per utilizzare questo criterio, creare o aggiornare l'origine dati nel modo indicato di seguito:
+> [!IMPORTANT] 
+> È consigliabile usare una colonna **rowversion** per il rilevamento delle modifiche. Se viene usato un qualsiasi altro tipo di dati, il rilevamento delle modifiche potrebbe non garantire l'acquisizione di tutte le modifiche in presenza di transazioni in esecuzione contemporaneamente a una query dell'indicizzatore.
+
+Per usare questo criterio di limite massimo, creare o aggiornare l'origine dati nel modo seguente:
 
     {
         "name" : "myazuresqldatasource",
@@ -216,7 +219,7 @@ Per utilizzare questo criterio, creare o aggiornare l'origine dati nel modo indi
         "container" : { "name" : "table or view name" },
         "dataChangeDetectionPolicy" : {
            "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-           "highWaterMarkColumnName" : "[a row version or last_updated column name]"
+           "highWaterMarkColumnName" : "[a rowversion or last_updated column name]"
       }
     }
 
@@ -312,9 +315,4 @@ A: Sì. Tuttavia, è possibile eseguire un solo indicizzatore per volta in un no
 **D:** L’esecuzione di un indicizzatore influisce sul carico di lavoro della query?
 
 A: Sì. L'indicizzatore viene eseguito in uno dei nodi del servizio di ricerca e le risorse di tale nodo vengono condivise tra l'indicizzazione e la gestione del traffico di query e altre richieste API. Se si eseguono un’indicizzazione e dei carichi di lavoro di query intensivi e si verifica una frequenza elevata di errori 503 o un aumento dei tempi di risposta, considerare il ridimensionamento del servizio di ricerca.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

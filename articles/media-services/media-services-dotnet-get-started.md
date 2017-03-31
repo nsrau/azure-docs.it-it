@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 34b166d63e539883a110dc96f7333a2379bc4963
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 124eff2edccb6b4ad56ee39a2b37e892ef8c6cb4
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -33,7 +34,7 @@ Per completare l'esercitazione è necessario quanto segue:
 * Un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Account di Servizi multimediali. Per creare un account Servizi multimediali, vedere [Creare un account Servizi multimediali di Azure con il portale di Azure](media-services-portal-create-account.md).
 * .NET Framework 4.0 o versione successiva.
-* Visual Studio 2010 SP1 (Professional, Premium, Ultimate, o Express) o versioni successive.
+* Visual Studio.
 
 Questa esercitazione include le attività seguenti:
 
@@ -80,7 +81,7 @@ Per avviare l'endpoint di streaming, eseguire queste operazioni:
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 
-1. Creare una nuova applicazione console C# in Visual Studio 2013, Visual Studio 2012 o Visual Studio 2010 SP1. Immettere un valore nei campi **Nome**, **Percorso** e **Nome soluzione** e fare clic su **OK**.
+1. Creare una nuova applicazione console C# in Visual Studio. Immettere un valore nei campi **Nome**, **Percorso** e **Nome soluzione** e fare clic su **OK**.
 2. Usare il pacchetto NuGet [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) per installare **Azure Media Services .NET SDK Extensions**.  Media Services .NET SDK Extensions è un set di metodi di estensione e funzioni di supporto che semplificano il codice e lo sviluppo con Servizi multimediali. Insieme al pacchetto viene installato anche **Media Services .NET SDK** e vengono aggiunte tutte le altre dipendenze necessarie.
 
     Per aggiungere riferimenti usando NuGet, seguire questa procedura: in Esplora soluzioni fare clic con il pulsante destro del mouse sul nome del progetto e scegliere **Gestisci pacchetti NuGet**. Cercare quindi **windowsazure.mediaservices.extensions** e fare clic su **Installa**.
@@ -183,7 +184,7 @@ Il metodo **CreateFromFile** acquisisce **AssetCreationOptions**, che consente d
 
 * **None** : non viene usata alcuna crittografia. Si tratta del valore predefinito. Quando si usa questa opzione, il contenuto non è protetto durante il transito, né nell'archiviazione locale.
   Se si pianifica la distribuzione di un file MP4 con il download progressivo, usare questa opzione.
-* **StorageEncrypted** : usare questa opzione per crittografare localmente il contenuto non crittografato applicando la crittografia AES (Advanced Encryption Standard) a 256 bit e quindi caricarlo nel servizio Archiviazione di Azure, in cui viene archiviato in forma crittografata. Gli asset protetti con la crittografia di archiviazione vengono decrittografati automaticamente e inseriti in un file system crittografato prima della codifica, quindi ricrittografati facoltativamente prima di essere ricaricati di nuovo come nuovo asset di output. La crittografia di archiviazione viene usata principalmente quando si vogliono proteggere i file multimediali con input di alta qualità con una crittografia avanzata sul disco locale.
+* **StorageEncrypted** : usare questa opzione per crittografare localmente il contenuto non crittografato applicando la crittografia AES (Advanced Encryption Standard) a&256; bit e quindi caricarlo nel servizio Archiviazione di Azure, in cui viene archiviato in forma crittografata. Gli asset protetti con la crittografia di archiviazione vengono decrittografati automaticamente e inseriti in un file system crittografato prima della codifica, quindi ricrittografati facoltativamente prima di essere ricaricati di nuovo come nuovo asset di output. La crittografia di archiviazione viene usata principalmente quando si vogliono proteggere i file multimediali con input di alta qualità con una crittografia avanzata sul disco locale.
 * **CommonEncryptionProtected** : usare questa opzione per caricare contenuti già crittografati e protetti con Common Encryption o PlayReady DRM (ad esempio, Smooth Streaming protetto con PlayReady DRM).
 * **EnvelopeEncryptionProtected** : usare questa opzione se si stanno caricando contenuti HLS crittografati con AES. I file devono essere stati codificati e crittografati da Transform Manager.
 
@@ -230,7 +231,7 @@ Aggiungere il seguente metodo alla classe Program.
 
         IJob job = _context.Jobs.CreateWithSingleTask(
             "Media Encoder Standard",
-            "H264 Multiple Bitrate 720p",
+            "Adaptive Streaming",
             asset,
             "Adaptive Bitrate MP4",
             options);
@@ -417,9 +418,4 @@ L'esempio di codice seguente contiene il codice creato in questa esercitazione: 
 <!-- URLs. -->
 [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
 [Portal]: http://manage.windowsazure.com/
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

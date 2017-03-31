@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: edd0ec4f-664d-4266-910c-6ecc94172ad8
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,8 +16,9 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: f6bc08230384b637f6b7b83fe32915ab09647d37
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 8b32aa77e1dbe18076d73e10914b59be107c3588
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -102,10 +104,10 @@ Per distribuire il progetto in un cluster HDInsight che esegue Apache Storm, seg
     Verrà creato un file denominato **WordCount--1.0-SNAPSHOT.jar** nella directory `/target` di questo progetto.
 2. Caricare il file JAR nel cluster Hadoop usando uno dei metodi seguenti:
    
-   * Per i cluster HDInsight **basati su Linux: **usare `scp WordCount-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:WordCount-1.0-SNAPSHOT.jar` per copiare il file JAR nel cluster, sostituendo USERNAME con il nome utente SSH e CLUSTERNAME con il nome del cluster HDInsight.
+   * Per i cluster HDInsight **basati su Linux:**usare `scp WordCount-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:WordCount-1.0-SNAPSHOT.jar` per copiare il file JAR nel cluster, sostituendo USERNAME con il nome utente SSH e CLUSTERNAME con il nome del cluster HDInsight.
      
        Una volta che il file è stato caricato, connettersi al cluster tramite SSH e avviare la topologia con `storm jar WordCount-1.0-SNAPSHOT.jar com.microsoft.example.WordCount wordcount`
-   * Per i cluster HDInsight **basati su Windows: **connettersi al Dashboard di Storm passando a HTTPS://CLUSTERNAME.azurehdinsight.net/ nel browser. Sostituire CLUSTERNAME con il nome del cluster HDInsight e fornire il nome e la password dell'amministratore, quando richiesto.
+   * Per i cluster HDInsight **basati su Windows:**connettersi al Dashboard di Storm passando a HTTPS://CLUSTERNAME.azurehdinsight.net/ nel browser. Sostituire CLUSTERNAME con il nome del cluster HDInsight e fornire il nome e la password dell'amministratore, quando richiesto.
      
        Usando il modulo, eseguire le azioni seguenti:
      
@@ -155,10 +157,8 @@ Per arrestare la topologia, usare **CTRL+C**.
              scp wordcount-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:wordcount-1.0-SNAPSHOT.jar
         
          Sostituire USERNAME con un utente SSH per il cluster e CLUSTERNAME con il nome del cluster HDInsight.
-     2. Dopo aver copiato il file nel cluster, usare SSH per connettersi al cluster e inviare il processo. Per informazioni sull'uso di SSH con HDInsight, vedere uno degli argomenti seguenti:
-        
-        * [Usare SSH con HDInsight basato su Linux da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-        * [Usare SSH con HDInsight basato su Linux da Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+     2. Dopo aver copiato il file nel cluster, usare SSH per connettersi al cluster e inviare il processo. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+     
      3. Dopo la connessione, usare il comando seguente per avviare la topologia:
         
              storm jar wordcount-1.0-SNAPSHOT.jar wordcount.core wordcount
@@ -183,10 +183,5 @@ In questo documento si è appreso come usare i componenti Python da una topologi
 
 * [Come usare Python per il flusso di processi MapReduce](hdinsight-hadoop-streaming-python.md)
 * [Come usare funzioni definite dall'utente Python in Pig e Hive](hdinsight-python.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

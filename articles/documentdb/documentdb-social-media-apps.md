@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/17/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: d9f6c8c73cb7803547053ec495812f993eb44c43
-ms.openlocfilehash: b2f8683be1dea938cba84766efe32287eeebb712
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: a49021d7887ee91da902e5c3dea8cbc6cb3de29d
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -64,7 +65,7 @@ Esistono speciali database a grafo [eseguibili in Azure](http://neo4j.com/develo
 
 E può essere ottenuto con una singola query, senza l'uso di join. Questa soluzione è molto più semplice e lineare e, a livello di budget, permette di ottenere risultati migliori con meno risorse.
 
-Con Azure DocumentDB tutte le proprietà vengono indicizzate tramite l'[indicizzazione automatica](documentdb-indexing.md), che può anche essere [personalizzata](documentdb-indexing-policies.md). L'approccio senza schema consente di archiviare documenti con strutture varie e dinamiche. Se in futuro si volesse associare un elenco di categorie o hashtag ai post, DocumentDB gestirebbe i nuovi documenti con gli attributi aggiuntivi senza richiedere ulteriori interventi.
+Con Azure DocumentDB tutte le proprietà vengono indicizzate tramite l'indicizzazione automatica, che può anche essere [personalizzata](documentdb-indexing-policies.md). L'approccio senza schema consente di archiviare documenti con strutture varie e dinamiche. Se in futuro si volesse associare un elenco di categorie o hashtag ai post, DocumentDB gestirebbe i nuovi documenti con gli attributi aggiuntivi senza richiedere ulteriori interventi.
 
 I commenti a un post possono essere considerati come altri post con una proprietà padre e questo semplifica il mapping degli oggetti. 
 
@@ -102,7 +103,7 @@ Per la creazione di feed è sufficiente creare documenti che possano contenere u
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-Si potrebbe avere un flusso delle notizie "più recenti", con i post ordinati per data di creazione, un flusso delle notizie "più interessanti", con i post più popolari delle ultime 24 ore, e perfino un flusso personalizzato per ogni utente, in base ai follower oppure agli interessi, ma rimarrebbe comunque un elenco di post. Dopo aver compilato gli elenchi, le prestazioni di lettura rimangono invariate. Dopo l'acquisizione di uno di questi elenchi, viene inviata una singola query a DocumentDB usando l' [operatore IN](documentdb-sql-query.md#where-clause) per ottenere più pagine di post alla volta.
+Si potrebbe avere un flusso delle notizie "più recenti", con i post ordinati per data di creazione, un flusso delle notizie "più interessanti", con i post più popolari delle ultime 24 ore, e perfino un flusso personalizzato per ogni utente, in base ai follower oppure agli interessi, ma rimarrebbe comunque un elenco di post. Dopo aver compilato gli elenchi, le prestazioni di lettura rimangono invariate. Dopo l'acquisizione di uno di questi elenchi, viene inviata una singola query a DocumentDB usando l' [operatore IN](documentdb-sql-query.md#WhereClause) per ottenere più pagine di post alla volta.
 
 I flussi di feed possono essere creati usando i processi in background dei [servizi app di Azure](https://azure.microsoft.com/services/app-service/), ovvero [Processi Web](../app-service-web/web-sites-create-web-jobs.md). Dopo che un post è stato creato, l'elaborazione in background può essere attivata tramite le [code](https://azure.microsoft.com/services/storage/) di [Archiviazione di Azure](../storage/storage-dotnet-how-to-use-queues.md), mentre i Processi Web possono essere attivati tramite [Azure Webjobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md), implementando la propagazione dei post all'interno dei flussi in base a una logica personalizzata. 
 
@@ -168,7 +169,7 @@ Il gradino intermedio è quello dell'utente e contiene i dati completi che verra
 
 Il gradino più grande è quello dell'utente esteso. Include tutte le informazioni critiche relative all'utente e altri dati che non è necessario leggere rapidamente o che vengono usati poco di frequente, ad esempio la procedura di accesso. Questi dati possono essere archiviati al di fuori di DocumentDB, nel database SQL di Azure o nelle tabelle di archiviazione di Azure.
 
-Suddividere i dati dell'utente e archiviare le informazioni in posizioni diverse risulta utile perché lo spazio di archiviazione in DocumentDB [non è infinito](documentdb-limits.md) e perché, in termini di prestazioni, le query su documenti di grandi dimensioni hanno un costo maggiore. I documenti devono quindi essere leggeri e contenere le informazioni necessarie per eseguire query basate sulle prestazioni per un social network. È consigliabile archiviare le informazioni aggiuntive per altri scenari, come ad esempio le modifiche all'intero profilo, gli account di accesso e il data mining per l'analisi di utilizzo e le iniziative legate ai Big Data. Non importa se la raccolta dei dati per il data mining risulta lenta, perché è in esecuzione in un database SQL di Azure. Ciò che conta è offrire un'esperienza utente agile e veloce. Un utente archiviato in DocumentDB si presenta come segue:
+Suddividere i dati dell'utente e archiviare le informazioni in posizioni diverse risulta utile perché lo spazio di archiviazione in DocumentDB non è infinito e perché, in termini di prestazioni, le query su documenti di grandi dimensioni hanno un costo maggiore. I documenti devono quindi essere leggeri e contenere le informazioni necessarie per eseguire query basate sulle prestazioni per un social network. È consigliabile archiviare le informazioni aggiuntive per altri scenari, come ad esempio le modifiche all'intero profilo, gli account di accesso e il data mining per l'analisi di utilizzo e le iniziative legate ai Big Data. Non importa se la raccolta dei dati per il data mining risulta lenta, perché è in esecuzione in un database SQL di Azure. Ciò che conta è offrire un'esperienza utente agile e veloce. Un utente archiviato in DocumentDB si presenta come segue:
 
     {
         "id":"dse4-qwe2-ert4-aad2",
@@ -200,7 +201,7 @@ Grazie ad Azure DocumentDB è possibile implementare facilmente un motore di ric
 
 Perché è così semplice?
 
-Ricerca di Azure implementa i cosiddetti [indicizzatori](https://msdn.microsoft.com/library/azure/dn946891.aspx), ovvero processi in background che agganciano i repository di dati e aggiungono, aggiornano e rimuovono automaticamente gli oggetti contenuti negli indici. Supporta gli [indicizzatori di database SQL di Azure](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), gli[ indicizzatori di BLOB di Azure](../search/search-howto-indexing-azure-blob-storage.md) e, soprattutto, gli [indicizzatori di Azure DocumentDB](documentdb-search-indexer.md). Il passaggio delle informazioni da DocumentDB a Ricerca di Azure è semplice, perché entrambi archiviano le informazioni in formato JSON. È sufficiente [creare l'indice](../search/search-create-index-portal.md) ed eseguire il mapping degli attributi dei documenti da indicizzare. In pochi minuti, a seconda delle dimensioni dei dati, tutto il contenuto sarà disponibile per la ricerca, con la migliore soluzione di ricerca distribuita come servizio nell'infrastruttura cloud. 
+Ricerca di Azure implementa i cosiddetti [indicizzatori](https://msdn.microsoft.com/library/azure/dn946891.aspx), ovvero processi in background che agganciano i repository di dati e aggiungono, aggiornano e rimuovono automaticamente gli oggetti contenuti negli indici. Supporta gli [indicizzatori di database SQL di Azure](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), gli[ indicizzatori di BLOB di Azure](../search/search-howto-indexing-azure-blob-storage.md) e, soprattutto, gli [indicizzatori di Azure DocumentDB](../search/search-howto-index-documentdb.md). Il passaggio delle informazioni da DocumentDB a Ricerca di Azure è semplice, perché entrambi archiviano le informazioni in formato JSON. È sufficiente [creare l'indice](../search/search-create-index-portal.md) ed eseguire il mapping degli attributi dei documenti da indicizzare. In pochi minuti, a seconda delle dimensioni dei dati, tutto il contenuto sarà disponibile per la ricerca, con la migliore soluzione di ricerca distribuita come servizio nell'infrastruttura cloud. 
 
 Per altre informazioni su Ricerca di Azure, vedere la [guida a Ricerca di Azure](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/)nel relativo post di blog.
 
@@ -219,7 +220,28 @@ Per ottenere uno di questi scenari di Machine Learning, è possibile usare [Azur
 
 Un'altra opzione disponibile consiste nell'usare i [servizi cognitivi Microsoft](https://www.microsoft.com/cognitive-services) per analizzare i contenuti per gli utenti; non solo è possibile comprenderli meglio (tramite l'analisi di ciò che gli utenti scrivono con l'[API di analisi del testo](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)), ma è anche possibile rilevare i contenuto indesiderati o per soli adulti e agire di conseguenza per mezzo dell'[API Visione artificiale](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). I servizi cognitivi includono molte delle soluzioni pronte all'uso che non richiedono alcuna conoscenza pregressa di Machine Learning.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="a-planet-scale-social-experience"></a>Un'esperienza social su scala globale
+C'è un ultimo, ma non meno importante, argomento da affrontare: la **scalabilità**. Quando si progetta un'architettura è essenziale che ogni componente possa essere individualmente scalabile, perché è necessario elaborare più dati o perché si desidera disporre di una copertura geografica più ampia (o per entrambi i motivi). Per fortuna, il raggiungimento di questo obiettivo così complesso si rivela un'**esperienza innovativa** con DocumentDB.
+
+DocumentDB supporta [il partizionamento dinamico](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) predefinito mediante la creazione automatica delle partizioni basate su una determinata **chiave di partizione** (definita come uno degli attributi nei documenti). La definizione della chiave di partizione corretta è un'operazione che deve essere eseguita in fase di progettazione e tenendo presente le [procedure consigliate](documentdb-partition-data.md#designing-for-partitioning) disponibili. Nel caso dell'esperienza social, la strategia di partizionamento deve essere allineata con la modalità in cui si esegue una query (è consigliabile eseguire letture all'interno della stessa partizione) e si scrive (evitare "hot spot" distribuendo le scritture in più partizioni). Alcune opzioni sono: partizioni basate su una chiave temporale (giorno/mese/settimana), basate sulla categoria del contenuto, sull'area geografica, sull'utente. Tutto dipende in realtà da come si esegue una query sui dati e come la si visualizza nell'esperienza social. 
+
+Un aspetto interessante da citare è che DocumentDB eseguirà le query (incluse le [aggregazioni](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) in tutte le partizioni in modo trasparente, senza dover aggiungere una logica con l'aumento dei dati.
+
+Con il tempo, infine aumenterà il traffico e il consumo di risorse (misurato in [RU](documentdb-request-units.md) o unità di richiesta). Le operazioni di lettura e scrittura verranno eseguite con una frequenza maggiore man mano che cresce la base di utenti e le operazioni di creazione e lettura del contenuto aumenteranno: la capacità di **ridimensionare la velocità effettiva** è fondamentale. Aumentare le RU è molto semplice: è possibile farlo con pochi clic nel portale di Azure o [inviando i comandi tramite l'API](https://docs.microsoft.com/rest/api/documentdb/replace-an-offer).
+
+![Scalabilità verticale e definizione di una chiave di partizione](./media/documentdb-social-media-apps/social-media-apps-scaling.png)
+
+Cosa accade se le cose migliorano e gli utenti di un'altra area, paese o continente, notano la piattaforma e iniziano a usarla. Una magnifica sorpresa!
+
+Ma subito dopo ci si accorge che l'esperienza degli utenti con la piattaforma non è ottimale. Sono così lontani dall'area operativa che la latenza è molto elevata. Bisogna evitare che gli utenti abbandonino la piattaforma. Ci vorrebbe un modo semplice per **estendere la portata globale**... e questo modo esiste.
+
+DocumentDB consente di [replicare i dati a livello globale](documentdb-portal-global-replication.md) e in modo trasparente con un paio di clic e di scegliere automaticamente tra le aree disponibili del [codice client](documentdb-developing-with-multiple-regions.md). Questo significa anche che è possibile avere [più aree di failover](documentdb-regional-failovers.md). 
+
+Quando si replicano i dati a livello globale, è necessario assicurarsi che i client possano sfruttarli. Se si usa un front-end Web o si accede all'API da client mobili, è possibile distribuire [Gestione traffico di Azure](https://azure.microsoft.com/services/traffic-manager/) e clonare il Servizio app di Azure in tutte le aree desiderate, usando una [configurazione di prestazioni](../app-service-web/web-sites-traffic-manager.md) per supportare la copertura globale estesa. Quando i client accedono al front-end o alle API, verranno indirizzati al servizio app più vicino, che a sua volta, si connetterà alla replica di DocumentDB locale.
+
+![Aggiunta della copertura globale alla piattaforma social](./media/documentdb-social-media-apps/social-media-apps-global-replicate.png)
+
+## <a name="conclusion"></a>Conclusione
 Questo articolo illustra come creare social network interamente in Azure, con servizi a costo contenuto e ottimi risultati, promuovendo l'uso di una distribuzione dei dati e di una soluzione di archiviazione a più livelli detta "a gradini".
 
 ![Diagramma di interazione tra servizi di Azure per il social networking](./media/documentdb-social-media-apps/social-media-apps-azure-solution.png)
@@ -230,10 +252,5 @@ Non esiste un metodo infallibile per questo tipo di scenario. È la sinergia cre
 Per altre informazioni sulla modellazione di dati, vedere [Modellazione dei dati in DocumentDB](documentdb-modeling-data.md) . Per altri casi d'uso di DocumentDB, vedere [Casi di uso comuni di DocumentDB](documentdb-use-cases.md).
 
 Per altre informazioni su DocumentDB, seguire il [percorso di apprendimento per DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -4,7 +4,7 @@ description: Informazioni su come distribuire un&quot;applicazione Node.js nel s
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 8877ddc8-1476-45ae-9e7f-3c75917b4564
 ms.service: app-service-web
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 2bc84ce01918878abbef1faf539561a4fec4c2e9
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: b3c8a2d54ea05462db8a873c852a70e64111bc2f
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -39,7 +40,7 @@ Avere una conoscenza pratica di Sails.js. Questa esercitazione non fornisce info
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - [Interfaccia della riga di comando di Azure 1.0](app-service-web-nodejs-sails-cli-nodejs.md): l'interfaccia della riga di comando per i modelli di distribuzione classici e di gestione delle risorse
-- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](app-service-web-nodejs-sails.md): l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse
+- [Interfaccia della riga di comando di Azure 2.0](app-service-web-nodejs-sails.md): interfaccia della riga di comando di prossima generazione per il modello di distribuzione di Gestione risorsa
 
 ## <a name="prerequisites"></a>Prerequisiti
 * [Node.JS](https://nodejs.org/)
@@ -274,9 +275,4 @@ Per connettersi a un database in Azure, creare il database desiderato in Azure, 
 ## <a name="more-resources"></a>Altre risorse
 * [Introduzione alle app Web Node.js nel servizio app di Azure](app-service-web-nodejs-get-started.md)
 * [Utilizzo di moduli Node.js con le applicazioni Azure](../nodejs-use-node-modules-azure-apps.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

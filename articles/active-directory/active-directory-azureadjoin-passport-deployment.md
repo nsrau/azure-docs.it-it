@@ -18,6 +18,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 6f08fcdb4ec6dd124760cff54c522d998d5a0327
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -112,10 +113,5 @@ Nella pagina **Registrazione SCEP** del profilo certificato è necessario scegli
 * [Scenari di utilizzo per Aggiunta ad Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurare Aggiunta di Azure AD](active-directory-azureadjoin-setup.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

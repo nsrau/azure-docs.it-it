@@ -1,5 +1,5 @@
 ---
-title: Ricerche nei log in Log Analytics | Microsoft Docs
+title: Trovare dati con ricerche nei log in Log Analytics di Azure | Documentazione Microsoft
 description: "Le ricerche nei log permettono di combinare e correlare i dati del computer provenienti da più origini nell&quot;ambiente corrente."
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3e1810850651cff4680ea558178ebf92aeac4faa
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: d4935af0647f0629cca327a7e87c29f1252af382
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="log-searches-in-log-analytics"></a>Ricerche nei log in Log Analytics
+# <a name="find-data-using-log-searches"></a>Trovare dati tramite ricerche nei log
+
 Un elemento fondamentale di Log Analytics è la funzionalità di ricerca nei log, che permette di combinare e correlare i dati del computer da più origini all'interno dell'ambiente. Anche le soluzioni sono basate sulla ricerca log, per offrire metriche specifiche per una particolare area problematica.
 
 Nella pagina Search è possibile creare una query e quindi, durante la ricerca, filtrare i risultati usando controlli facet. È anche possibile creare query avanzate per trasformare, filtrare e creare report sui risultati.
@@ -574,9 +577,4 @@ Per altre informazioni sulle ricerche nei log:
 
 * Usare [Campi personalizzati in Log Analytics](log-analytics-custom-fields.md) per estendere le ricerche nei log.
 * Vedere il [riferimento alla ricerca nei log di Log Analytics](log-analytics-search-reference.md) per visualizzare tutti i campi di ricerca e i facet disponibili in Log Analytics.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

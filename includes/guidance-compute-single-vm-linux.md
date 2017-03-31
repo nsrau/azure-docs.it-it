@@ -136,7 +136,7 @@ Usare il [controllo degli accessi in base al ruolo][rbac] per controllare l'acce
 
 Oltre a poter assegnare un utente a più ruoli, è possibile creare ruoli personalizzati per autorizzazioni ancora più dettagliate.
 
-> [!NOTE]
+d> [!NOTE]
 > Il controllo degli accessi in base al ruolo non limita le azioni eseguibili da un utente registrato in una VM. Le autorizzazioni sono determinate dal tipo di account sul sistema operativo guest.   
 > 
 > 
@@ -146,8 +146,7 @@ Per verificare le azioni di provisioning e altri eventi della VM, usare i [log d
 Se è necessario crittografare i dischi del sistema operativo e i dischi dati, usare [Crittografia dischi di Azure ][disk-encryption]. 
 
 ## <a name="solution-deployment"></a>Distribuzione della soluzione
-
-Una distribuzione di questa architettura di riferimento è disponibile in [GitHub][github-folder]. Include una rete virtuale, un gruppo di sicurezza di rete e una singola VM. Per distribuire l'architettura, seguire questi passaggi: 
+m Una distribuzione di questa architettura di riferimento è disponibile in [GitHub][github-folder]. Include una rete virtuale, un gruppo di sicurezza di rete e una singola VM. Per distribuire l'architettura, seguire questi passaggi: 
 
 1. Fare clic con il pulsante destro del mouse sul pulsante seguente e scegliere "Apri collegamento in una nuova scheda" o "Apri collegamento in una nuova finestra".
    [![Distribuzione in Azure](../articles/guidance/media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-single-vm%2Fazuredeploy.json)
@@ -156,7 +155,7 @@ Una distribuzione di questa architettura di riferimento è disponibile in [GitHu
    * Poiché il nome del **gruppo di risorse** è già definito nel file dei parametri, selezionare **Crea nuovo** e immettere `ra-single-vm-rg` nella casella di testo.
    * Selezionare l'area dalla casella di riepilogo a discesa **Località**.
    * Non modificare le caselle di testo **Template Root Uri** (URI radice modello) né **Parameter Root Uri** (URI radice parametro).
-   * Selezionare **linux** nella casella di riepilogo a discesa **Tipo di sistema operativo**.
+.   *Selezionare **linux** nella casella di riepilogo a discesa **Tipo di sistema operativo**.
    * Leggere i termini e le condizioni, quindi fare clic sulla casella di controllo **Accetto le condizioni riportate sopra**.
    * Fare clic sul pulsante **Acquista**.
 3. Attendere il completamento della distribuzione.
@@ -168,7 +167,7 @@ Per una maggiore disponibilità, distribuire due o più macchine virtuali dietro
 <!-- links -->
 
 [audit-logs]: https://azure.microsoft.com/en-us/blog/analyze-azure-audit-logs-in-powerbi-more/
-[availability-set]: ../articles/virtual-machines/virtual-machines-windows-create-availability-set.md
+[availability-set]:../articles/virtual-machines/windows/create-availability-set.md
 [azure-cli]: /cli/azure/get-started-with-az-cli2
 [azure-linux]: ../articles/virtual-machines/virtual-machines-linux-azure-overview.md
 [azure-storage]: ../articles/storage/storage-introduction.md
@@ -176,7 +175,7 @@ Per una maggiore disponibilità, distribuire due o più macchine virtuali dietro
 [blob-storage]: ../articles/storage/storage-introduction.md
 [boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
-[data-disk]: ../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md
+[data-disk]: ../articles/storage/storage-about-disks-and-vhds-linux.md
 [disk-encryption]: ../articles/security/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md
 [fqdn]: ../articles/virtual-machines/virtual-machines-linux-portal-create-fqdn.md
@@ -209,15 +208,10 @@ Per una maggiore disponibilità, distribuire due o più macchine virtuali dietro
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
-[vm-size-tables]: ../articles/virtual-machines/virtual-machines-windows-sizes.md#size-tables
+[vm-size-tables]:../articles/virtual-machines/windows/sizes.md#size-tables
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [readme]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm
 [components]: #Solution-components
 [blocks]: https://github.com/mspnp/template-building-blocks
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Singola architettura VM di Linux in Azure"
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

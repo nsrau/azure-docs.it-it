@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b0c89d0839402130bc2badc5f33cd633a1e5b7da
+ms.sourcegitcommit: f5640d84774898e1c51c5dcfa52aab781cddf044
+ms.openlocfilehash: a94f88271d7b51a5cc78f9cd611dd824ee125227
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -229,9 +230,4 @@ Quando si fa clic sul riquadro Cloud Management Portal for Microsoft Azure nel p
 [203]: ./media/active-directory-saas-newsignature-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-newsignature-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-newsignature-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

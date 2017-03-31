@@ -1,5 +1,5 @@
 ---
-title: Creare un&quot;app per le funzioni di Azure e un account di archiviazione di Azure | Microsoft Docs
+title: 'Connettere Arduino (C) ad Azure IoT: lezione 3: Distribuzione del modello | Documentazione Microsoft'
 description: L&quot;app per le funzioni di Azure rimane in ascolto degli eventi dell&quot;hub IoT di Azure, elabora i messaggi in ingresso e li scrive nell&quot;archiviazione tabelle di Azure.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 946d66cc7ed1173e7b2b92dae90a1ce69ba3c165
-ms.openlocfilehash: 18806dc515a9a8951134d580a2c0664ff503e17c
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: cf666d17406a49036082a6a4dd15bad89c04aa8f
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -86,8 +87,3 @@ Per creare queste risorse sono necessari circa cinque minuti. Mentre è in corso
 [arm-template-params]: media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson3/arm_para_arduino.png
 [created-iot-hub-and-registered-arduino-board]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md
 [send-device-to-cloud-messages]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md
-
-
-<!--HONumber=Dec16_HO2-->
-
-

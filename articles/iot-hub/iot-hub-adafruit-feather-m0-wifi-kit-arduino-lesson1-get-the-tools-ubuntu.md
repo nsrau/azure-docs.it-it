@@ -1,5 +1,5 @@
 ---
-title: Ottenere gli strumenti per lo starter kit di Azure IoT per Ubuntu 16.04 | Documentazione Microsoft
+title: 'Connettere Arduino ad Azure IoT: lezione 1: Ottenere gli strumenti (Ubuntu) | Documentazione Microsoft'
 description: Scaricare e installare il software e gli strumenti necessari per la prima applicazione di esempio per Adafruit Feather M0 WiFi in Ubuntu.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 9e8084fe26229ef9ed1676c0a3c34e0ee7be88b1
-ms.openlocfilehash: 6eaf3c0a0509f78276a9303102837e37b06a80e0
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: d33fc9b04f69b161e92a266cd3604488e35e74af
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -89,8 +90,3 @@ Sono stati installati gli strumenti di sviluppo e il software necessari per la p
 [macos]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-mac.md
 [troubleshooting]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md
 [create-and-deploy-the-blink-sample-application]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app.md
-
-
-<!--HONumber=Dec16_HO2-->
-
-

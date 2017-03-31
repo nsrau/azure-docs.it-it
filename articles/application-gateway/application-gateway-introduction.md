@@ -11,16 +11,18 @@ ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/14/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 3c1fda0661d577e3042f1ad7103017eed74704ad
-ms.openlocfilehash: bb979cde449a7e6d8038f6ea392c3529ced29853
+ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
+ms.openlocfilehash: 15db7dad6b83f6df3891aea60b308f2cf6008dd9
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="application-gateway-overview"></a>Panoramica del gateway applicazione
+# <a name="overview-of-application-gateway"></a>Panoramica del gateway applicazione
 
 ## <a name="what-is-application-gateway"></a>Che cos'è il gateway applicazione?
 
@@ -67,7 +69,7 @@ Sono attualmente disponibili due SKU: **WAF** e **Standard**.
 
 È possibile creare fino a 50 gateway applicazione per sottoscrizione e ogni gateway applicazione può includere fino a 10 istanze. Ogni gateway applicazione può essere costituito da 20 listener HTTP. Per un elenco completo dei limiti del gateway applicazione, vedere i [limiti del servizio Gateway applicazione](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
-La tabella seguente illustra una velocità effettiva media delle prestazioni per ogni istanza del gateway applicazione:
+La tabella seguente illustra una velocità effettiva media delle prestazioni per ogni istanza del gateway applicazione con offload SSL abilitato:
 
 | Risposta della pagina di back-end | Small | Media | Large |
 | --- | --- | --- | --- |
@@ -92,9 +94,4 @@ Quando viene configurato, il gateway applicazione può usare per l'endpoint un I
 Dopo aver acquisito familiarità con il gateway applicazione, è possibile [creare un gateway applicazione](application-gateway-create-gateway-portal.md) oppure [configurare un gateway applicazione per l'offload SSL](application-gateway-ssl-arm.md) per bilanciare il carico delle connessioni HTTPS.
 
 Per informazioni su come creare un gateway applicazione usando il routing del contenuto basato su URL, vedere [Creare un gateway applicazione con il routing basato su URL](application-gateway-create-url-route-arm-ps.md) .
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

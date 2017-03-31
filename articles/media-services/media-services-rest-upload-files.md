@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/13/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: cbdb5bf62af1ff0f4670c9c3b597146a2a57f565
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: c0ea95ed12a704116e8cdff257dacd7768b45708
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -31,11 +32,11 @@ ms.openlocfilehash: cbdb5bf62af1ff0f4670c9c3b597146a2a57f565
 In Servizi multimediali è possibile caricare i file digitali in un asset. L'entità [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli codificati, oltre ai metadati relativi a questi file.  Dopo il caricamento dei file nell'asset, i contenuti vengono archiviati in modo sicuro nel cloud per altre operazioni di elaborazione e streaming. 
 
 > [!NOTE]
-> Quando si sceglie un nome di file per l'asset, valgono le seguenti considerazioni:
+> Si applicano le considerazioni seguenti:
 > 
 > * Servizi multimediali usa il valore della proprietà IAssetFile.Name durante la creazione di URL per i contenuti in streaming, ad esempio http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà **Name** non può contenere i [caratteri riservati per la codifica percentuale](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#[]". L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
 > * La lunghezza del nome non deve essere superare i 260 caratteri.
-> 
+> * È previsto un limite per le dimensioni massime dei file supportate per l'elaborazione in Servizi multimediali. Vedere [questo](media-services-quotas-and-limitations.md) argomento per informazioni dettagliate sulla limitazione per le dimensioni dei file.
 > 
 
 Il flusso di lavoro di base per il caricamento degli asset si divide nelle sezioni seguenti:
@@ -186,6 +187,10 @@ Dopo avere caricato il file multimediale digitale in un contenitore BLOB, è nec
 
 
 ### <a name="creating-the-accesspolicy-with-write-permission"></a>Creazione dell'entità AccessPolicy con autorizzazioni di scrittura
+
+>[!NOTE]
+>È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Usare lo stesso ID criterio se si usano sempre gli stessi giorni/autorizzazioni di accesso, come nel cado di criteri per i localizzatori che devono rimanere attivi per molto tempo (criteri di non caricamento). Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) argomento.
+
 Prima di caricare i file nell'archiviazione BLOB, impostare i diritti dei criteri di accesso per la scrittura in un asset. A questo scopo, inviare una richiesta HTTP al set di entità AccessPolicies. Definire un valore DurationInMinutes durante la creazione. In caso contrario, si riceverà un messaggio di errore interno del server 500 in risposta. Per altre informazioni su AccessPolicies, vedere [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
 
 Il seguente esempio mostra come creare un'entità AccessPolicy:
@@ -371,7 +376,7 @@ Se l'esito è positivo, viene restituita la seguente risposta:
     HTTP/1.1 204 No Content 
     ...
 
-## <a name="a-iduploadinbulkaupload-assets-in-bulk"></a><a id="upload_in_bulk"></a>Caricare gli asset in blocco
+## <a id="upload_in_bulk"></a>Caricare gli asset in blocco
 ### <a name="create-the-ingestmanifest"></a>Creare l'entità IngestManifest
 IngestManifest è un contenitore per un set di asset, file di asset e informazioni statistiche che possono essere usate per determinare lo stato di avanzamento dell'inserimento in blocco del set.
 
@@ -506,21 +511,18 @@ L'entità ContentKey viene associata a uno o più asset mediante l'invio di una 
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
 
+## <a name="next-steps"></a>Passaggi successivi
 
+Ora è possibile codificare gli asset caricati. Per altre informazioni, vedere [Encode assets](media-services-portal-encode.md)(Codificare gli asset).
 
-## <a name="next-step"></a>Passaggio successivo
-Analizzare i percorsi di apprendimento di Servizi multimediali.
+È anche possibile usare Funzioni di Azure per attivare un processo di codifica basato su un file che arriva nel contenitore configurato. Per altre informazioni, vedere [questo esempio](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ).
 
+## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 [How to Get a Media Processor]: media-services-get-media-processor.md
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -9,6 +9,7 @@ tags: azure-portal
 author: mumian
 ms.assetid: 87bacd13-7775-4b71-91da-161cb6224a96
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +19,7 @@ ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
 ms.openlocfilehash: 9cadb72e065f82de8e007b38e909d2bc07d18126
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -120,10 +122,5 @@ In questa esercitazione si è appreso come usare Sqoop. Per altre informazioni, 
 * [Usare Oozie con HDInsight](hdinsight-use-oozie.md): usare un'azione di Sqoop nel flusso di lavoro di Oozie.
 * [Analizzare i dati sui ritardi dei voli usando HDInsight](hdinsight-analyze-flight-delay-data.md): usare Hive nell'analisi dei dati sui ritardi dei voli e quindi usare Sqoop per esportare dati nel database SQL di Azure.
 * [Caricare i dati in HDInsight](hdinsight-upload-data.md): per altri metodi per il caricamento di file in HDInsight o nell'archiviazione BLOB di Azure.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

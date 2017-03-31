@@ -1,5 +1,5 @@
 ---
-title: CI/CD con il servizio contenitore di Azure e DC/OS | Documentazione Microsoft
+title: CI/CD con il servizio contenitore di Azure e DC/OS | Microsoft Docs
 description: Informazioni su come automatizzare completamente lo sviluppo e la distribuzione di un&quot;applicazione Docker multi-contenitore in un cluster del servizio contenitore di Azure che esegue DC/OS.
 services: container-service
 documentationcenter: 
@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: johnsta
 translationtype: Human Translation
-ms.sourcegitcommit: 831f585a9591338c2f404f7ec031d40937731eab
-ms.openlocfilehash: dcf4c0b67bc7a6596070cdf44644a6c451e3afc1
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 65fc37a1fd1d1d0149b98767117f8faafb5dcd2b
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -29,7 +30,7 @@ In questa esercitazione viene illustrato come automatizzare completamente lo svi
 ## <a name="get-started"></a>Introduzione
 È possibile eseguire questa esercitazione in OS X, Windows o Linux.
 - È necessaria una sottoscrizione di Azure. Se non si ha un account, è possibile [iscriversi per ottenere un account](https://azure.microsoft.com/).
-- Installare gli [strumenti da riga di comando di Azure](https://github.com/Azure/azure-cli#microsoft-azure-cli-20---preview).
+- Installare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2).
 
 ## <a name="what-well-create"></a>Risultati della procedura
 Ecco alcuni aspetti principali dell'app e del rispettivo flusso di distribuzione in fase di configurazione:
@@ -287,6 +288,7 @@ Se si apre la definizione di compilazione in VSTS, si otterrà un risultato simi
     ```
 
     * Come valore dell'etichetta è possibile specificare l'URL del nome di dominio completo (FQDN) dell'agente del servizio contenitore di Azure oppure un dominio personalizzato, ad esempio app.contoso.com. Per trovare il nome di dominio completo dell'agente del servizio contenitore di Azure, eseguire il comando `az acs list`, quindi controllare la proprietà per `agentPoolProfiles.fqdn`. Ad esempio: `myacsagents.westus.cloudapp.azure.com`.
+    * Per impostazione predefinita, l'applicazione di esempio è in ascolto sulla porta 80. Per coloro che hanno le proprie applicazioni docker in ascolto su altre porte, ad esempio `port 8080` o `443`, collegare il numero di porta al nome di dominio completo. Ad esempio: `myacsagents.westus.cloudapp.azure.com:8080`. Quando si tenta di accedere all'applicazione dall'esterno, è necessario tuttavia eseguire una query sulla porta 80.
     * Seguendo la convenzione relativa al nome file docker-compose.env.*nome-ambiente*.yml, queste impostazioni influiscono solo sull'ambiente indicato, in questo caso l'ambiente denominato *Produzione*. Esaminare la definizione di versione in VSTS. L'attività di distribuzione di ogni ambiente è configurata per la lettura da un file docker-compose il cui nome è basato su questa convenzione.
 
 1. Eseguire il commit e il push del file nel repository di origine master per avviare un'altra compilazione.
@@ -319,7 +321,7 @@ Vedere anche:
 ## <a name="clean-up"></a>Eseguire la pulizia
 Per limitare gli addebiti per risorse di calcolo correlati a questa esercitazione, eseguire il comando seguente e annotare le risorse della pipeline di distribuzione correlate a un cluster del servizio contenitore di Azure:
 
-```azurecli 
+```azurecli    
 az container release list --resource-name myacs --resource-group myacs-rg
 ```
 
@@ -345,9 +347,4 @@ Eliminare la definizione di versione di VSTS:
 2. Nell'elenco di definizioni di rilascio disponibile a sinistra fare clic sulla freccia a discesa accanto alla definizione di versione da eliminare, quindi selezionare **Elimina**.
 
 `![Eliminare la definizione di versione di VSTS](media/container-service-setup-ci-cd/vsts-delete-release-def.png)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

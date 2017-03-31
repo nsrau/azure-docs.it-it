@@ -1,9 +1,21 @@
 ---
-layout: LandingPage
+title: Documentazione di Archiviazione di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come usare l&quot;Archiviazione di Azure, gli archivi BLOB e tabella e le archiviazioni code, file e su disco macchina virtuale nel cloud. Esercitazioni, informazioni di riferimento sulle API e altri documenti.
+services: storage
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 1e9cc940d681893abbc351ef440c90f579e6c40a
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 8c76eaa6681b10370fd4db3df88e0c50c46df44d
+ms.lasthandoff: 03/14/2017
 
 ---
 
@@ -110,7 +122,7 @@ Informazioni su come usare l'Archiviazione di Azure, un servizio di archiviazion
                     <div class="cardText">
                         <h3>Lingue</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.storage">.NET: Resource Manager</a></p>
-                        <p><a href="https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx">.NET: spostamento dei dati</a></p>
+                        <p><a href="/dotnet/api/microsoft.windowsazure.storage.datamovement">.NET: spostamento dei dati</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/mt347887.aspx">.NET: BLOB, code, tabelle e file</a></p>
                         <p><a href="/java/api/">Java</a></p>
                         <p><a href="http://azure.github.io/azure-storage-node">Node.js</a></p>
@@ -133,6 +145,7 @@ Informazioni su come usare l'Archiviazione di Azure, un servizio di archiviazion
                         <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">BLOB, code, tabelle e file</a></p>
                         <p><a href="/rest/api/storagerp">Provider di risorse</a></p>
                         <p><a href="/rest/api/storageimportexport">Importazione/Esportazione</a></p>
+                        <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">API REST per i dati di archiviazione</a></p>
                    </div>
                 </div>
             </div>
@@ -140,10 +153,5 @@ Informazioni su come usare l'Archiviazione di Azure, un servizio di archiviazion
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

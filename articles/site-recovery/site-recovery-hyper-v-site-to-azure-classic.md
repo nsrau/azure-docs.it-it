@@ -1,6 +1,6 @@
 ---
-title: Eseguire la replica tra macchine virtuali Hyper-V locali e Azure (senza VMM) con Site Recovery | Documentazione Microsoft
-description: Questo articolo descrive come eseguire la replica di macchine virtuali Hyper-V in Azure con Azure Site Recovery quando le macchine non sono gestite in cloud VMM.
+title: Replicare le macchine virtuali Hyper-V in Azure nel portale classico | Documentazione Microsoft
+description: Questo articolo descrive come eseguire la replica di macchine virtuali Hyper-V in Azure quando le macchine non sono gestite in cloud VMM.
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/23/2016
+ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: ea89244efea6afa7d7b9d60f400117284fb5d1e1
-ms.openlocfilehash: 3c5e51c562d9251f2ad40eeb1939d1651c845391
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 2b5e2c2d5cc572ba951a61fd1eb78613c43ec453
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -28,23 +29,16 @@ ms.openlocfilehash: 3c5e51c562d9251f2ad40eeb1939d1651c845391
 >
 >
 
-Benvenuti nel servizio Azure Site Recovery.
-
-Site Recovery è un servizio di Azure che contribuisce al miglioramento della strategia di continuità aziendale e ripristino di emergenza (BCDR). Site Recovery orchestra la replica delle macchine virtuali e dei server fisici locali nel cloud di Azure o in un data center secondario. In caso di interruzioni nella località primaria, verrà eseguito il failover alla località secondaria per mantenere disponibili app e carichi di lavoro. Quando la località primaria sarà di nuovo operativa, si tornerà a tale località. Altre informazioni sono disponibili in [Che cos'è Azure Site Recovery?](site-recovery-overview.md)
-
-Questo articolo illustra come eseguire la replica di macchine virtuali Hyper-V locali in Azure usando Azure Site Recovery nel portale di Azure. In questo scenario, i server Hyper-V non sono gestiti in cloud VMM.
+Questo articolo illustra come replicare macchine virtuali Hyper-V locali in Azure usando il servizio [Azure Site Recovery](site-recovery-overview.md) nel portale di Azure. In questo scenario, i server Hyper-V non sono gestiti in cloud VMM.
 
 Dopo la lettura di questo articolo, è possibile inserire commenti nella parte inferiore oppure porre domande tecniche nel [forum sui servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
-
-
 
 
 ## <a name="site-recovery-in-the-azure-portal"></a>Site Recovery nel portale di Azure
 
 Azure offre due [modelli di distribuzione](../resource-manager-deployment-model.md) diversi per creare e usare le risorse: Azure Resource Manager e distribuzione classica. Sono disponibili due portali: il portale di Azure classico e il portale di Azure.
 
-Questo articolo descrive come eseguire la distribuzione nel portale classico. Il portale classico può essere usato per gestire gli insiemi di credenziali esistenti. Non è possibile creare nuovi insiemi di credenziali usando il portale classico.
+Questo articolo descrive come eseguire la distribuzione nel portale classico. Il portale classico può essere usato per gestire gli insiemi di credenziali esistenti. Non è possibile creare nuovi insieme di credenziali usando il portale classico.
 
 ## <a name="site-recovery-in-your-business"></a>Site Recovery in azienda
 
@@ -67,7 +61,7 @@ Le organizzazioni necessitano di una strategia di continuità aziendale e ripris
 * Eseguire le correzioni descritte nell'articolo [2961977](https://support.microsoft.com/en-us/kb/2961977 "KB2961977").
 
 ## <a name="virtual-machine-prerequisites"></a>Prerequisiti delle macchine virtuali
-Le macchine virtuali da proteggere devono essere conformi ai [Requisiti delle macchine virtuali di Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+Le macchine virtuali da proteggere devono essere conformi ai [Requisiti delle macchine virtuali di Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 ## <a name="provider-and-agent-prerequisites"></a>Prerequisiti di provider e agente
 Durante la distribuzione di Azure Site Recovery verranno installati il provider di Azure Site Recovery e l'agente Servizi di ripristino di Azure in ogni server Hyper-V. Si noti che:
@@ -214,21 +208,21 @@ Aggiungere macchine virtuali a un gruppo di protezione per abilitare la protezio
      * **Dimensioni**: le dimensioni della macchina virtuale di destinazione che esegue il failover.
 
        ![Configurare le proprietà della macchina virtuale](./media/site-recovery-hyper-v-site-to-azure-classic/vm-properties.png)
-   * Configurare altre impostazioni della macchina virtuale in *Elementi protetti** > **Gruppi protezione** > *nome_gruppodiprotezione* > **Macchine virtuali** *nome_macchina_virtuale* > **Configura**, tra cui:
+   * Configurare altre impostazioni della macchina virtuale in *Elementi protetti** > **Gruppi protezione** > *nome_gruppodiprotezione* > **Macchine virtuali***nome_macchina_virtuale* > **Configura**, tra cui:
 
-     * **Schede di rete**: il numero di schede di rete dipende dalle dimensioni specificate per la macchina virtuale di destinazione. Per il numero di schede di rete supportate dalle dimensioni della macchina virtuale, vedere le [specifiche sulle dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) .
+     * **Schede di rete**: il numero di schede di rete dipende dalle dimensioni specificate per la macchina virtuale di destinazione. Per il numero di schede di rete supportate dalle dimensioni della macchina virtuale, vedere le [specifiche sulle dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-linux-sizes.md) .
 
        Quando si modificano le dimensioni di una macchina virtuale e si salvano le impostazioni, il numero di schede di rete cambia alla successiva apertura della pagina **Configura** . Il numero di schede di rete delle macchine virtuali di destinazione corrisponde minimo al numero di schede di rete nella macchina virtuale di origine e al numero massimo di schede di rete supportate dalla dimensione della macchina virtuale selezionata. Questo concetto è illustrato di seguito:
 
        * Se il numero di schede di rete nella macchina di origine è minore o uguale al numero di schede consentite per la macchina di destinazione, la destinazione avrà lo stesso numero di schede dell’origine.
        * Se il numero di schede per la macchina virtuale di origine supera il numero consentito per le dimensioni di destinazione, verrà utilizzata la dimensione di destinazione massima.
        * Ad esempio, se una macchina di origine dispone di due schede di rete e le dimensioni della macchina di destinazione ne supportano quattro, la macchina di destinazione avrà due schede. Se la macchina di origine dispone di due schede ma le dimensioni di destinazione supportate ne consentono solo una, la macchina di destinazione avrà una sola scheda.
-       
+
      * **Rete di Azure**: specificare la rete in cui la macchina virtuale deve eseguire il failover. Se la macchina virtuale ha più schede di rete, tutte le schede devono essere connesse alla stessa rete di Azure.
      * **Subnet** : per ogni scheda di rete nella macchina virtuale, selezionare la subnet nella rete di Azure a cui deve connettersi la macchina dopo il failover.
      * **Indirizzo IP di destinazione**: se la scheda di rete della macchina virtuale di origine è configurata per usare un indirizzo IP statico, è possibile specificare l'indirizzo IP per la macchina virtuale di destinazione per assicurarsi che la macchina abbia lo stesso indirizzo IP dopo il failover.  Se non si specifica un indirizzo IP, al momento del failover verrà assegnato un qualsiasi indirizzo disponibile. Se si specifica un indirizzo che si sta usando, il failover avrà esito negativo.
 
-     > [!NOTE] 
+     > [!NOTE]
      > La [migrazione di reti](../azure-resource-manager/resource-group-move-resources.md) all'interno dei gruppi di risorse con la stessa sottoscrizione o all'interno delle sottoscrizioni non è supportata per le reti usate per la distribuzione di Site Recovery.
      >
 
@@ -248,7 +242,7 @@ Per testare la distribuzione è possibile eseguire un failover di test per una s
 
 Per eseguire un failover di test senza specificare una rete di Azure non è necessario preparare l'ambiente.
 
-Per eseguire un failover di test con una rete di Azure di destinazione, è necessario creare una nuova rete di Azure isolata dalla rete di Azure di produzione, ovvero il comportamento predefinito quando si crea una nuova rete in Azure. Per altre informazioni dettagliate, vedere [Eseguire un failover di test](site-recovery-failover.md#run-a-test-failover) .
+Per eseguire un failover di test con una rete di Azure di destinazione, è necessario creare una nuova rete di Azure isolata dalla rete di Azure di produzione, ovvero il comportamento predefinito quando si crea una nuova rete in Azure. Per altre informazioni dettagliate, vedere [Eseguire un failover di test](site-recovery-failover.md) .
 
 Per testare completamente la replica e la distribuzione di rete è necessario configurare l'infrastruttura in modo che la macchina virtuale replicata funzioni come previsto. Un modo di procedere consiste nel configurare una macchina virtuale come controller di dominio con DNS ed eseguirne la replica in Azure usando Site Recovery per crearla nella rete di test eseguendo un failover di test.  [Altre informazioni](site-recovery-active-directory.md#test-failover-considerations) e considerazioni sul failover di test per Active Directory.
 
@@ -283,9 +277,4 @@ Eseguire il failover di test come descritto di seguito:
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver configurato correttamente la distribuzione, leggere [altre informazioni](site-recovery-failover.md) sul failover.
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

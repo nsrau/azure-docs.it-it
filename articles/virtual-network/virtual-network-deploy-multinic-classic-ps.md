@@ -1,10 +1,10 @@
 ---
-title: "Creare una macchina virtuale (classica) con più schede di interfaccia di rete usando PowerShell | Documentazione Microsoft"
-description: "Informazioni su come creare una macchina virtuale con più schede di interfaccia di rete tramite il modello di distribuzione classica usando PowerShell."
+title: "Creare una VM (classica) con più schede di interfaccia di rete - Azure PowerShell | Microsoft Docs"
+description: "Informazioni su come creare una VM (classica) con più schede di interfaccia di rete mediante PowerShell."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 6e50f39a-2497-4845-a5d4-7332dbc203c5
@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5f6f14a3bf779de0c4ef6d1f31c283b72d3a18f7
-ms.openlocfilehash: 9243294318c3f6c4c7a3563444f0db0ebcf33f28
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 6e2bb0e228aa28c79969cba07352061abbb47951
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -140,8 +142,8 @@ Le macchine virtuali di back-end dipendono dalla creazione delle risorse seguent
 4. Impostare il valore predefinito NIC e assegnare un indirizzo IP statico.
 
     ```powershell
-    Set-AzureSubnet         -SubnetNames $backendSubnetName -VM $vmConfig
-    Set-AzureStaticVNetIP   -IPAddress ($ipAddressPrefix+$suffixNumber+3) -VM $vmConfig
+    Set-AzureSubnet            -SubnetNames $backendSubnetName -VM $vmConfig
+    Set-AzureStaticVNetIP     -IPAddress ($ipAddressPrefix+$suffixNumber+3) -VM $vmConfig
     ```
 
 5. Aggiungere una seconda scheda di rete per ogni macchina virtuale.
@@ -185,19 +187,13 @@ Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo sc
 1. Salvare lo script ed eseguirlo dal prompt dei comandi **PowerShell** o **PowerShell ISE**. Verrà visualizzato l'output iniziale, come illustrato di seguito.
 
         OperationDescription    OperationId                          OperationStatus
-        --------------------    -----------                          ---------------
-        New-AzureService        xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
-        New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
 
+        New-AzureService        xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
+        New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
+        
         WARNING: No deployment found in service: 'IaaSStory-Backend'.
-2. Compilare le informazioni necessarie nella richiesta di credenziali e fare clic su **OK**. Verrà visualizzato l'output seguente.
+2. Compilare le informazioni necessarie nella richiesta di credenziali e fare clic su **OK**. Viene restituito l'output seguente.
 
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

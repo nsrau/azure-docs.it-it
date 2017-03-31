@@ -4,7 +4,7 @@ description: Informazioni su come usare le code e gli argomenti del bus di servi
 services: app-service\web, service-bus
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: 2114a934-135b-42b8-871c-6cc040214e76
 ms.service: app-service-web
@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
-ms.author: tdykstra
+ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4d5205b1c693b8c1f199235784263f3f7b6189ff
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: e44199dec6de1e89545f3d122481aa81e97d75ac
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -43,7 +44,7 @@ public class Program
 
 Un [esempio di codice completo del bus di servizio](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Program.cs) è disponibile nel repository di esempi azure-webjobs-sdk-samples in GitHub.com.
 
-## <a name="a-idprerequisitesa-prerequisites"></a><a id="prerequisites"></a> Prerequisiti
+## <a id="prerequisites"></a> Prerequisiti
 Per usare il bus di servizio, è necessario installare il pacchetto NuGet [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/) oltre agli altri pacchetti di WebJobs SDK. 
 
 È anche necessario impostare la stringa di connessione AzureWebJobsServiceBus oltre alle stringhe di connessione di archiviazione.  Questa operazione può essere effettuata nella sezione `connectionStrings` del file App.config, come mostrato nell'esempio seguente:
@@ -58,7 +59,7 @@ Per un progetto di esempio che include l'impostazione della stringa di connessio
 
 Le stringhe di connessione possono essere impostate anche nell'ambiente di runtime di Azure, che quindi sostituisce le impostazioni di App.config quando il processo Web viene eseguito in Azure. Per altre informazioni, vedere[Introduzione a WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md#configure-the-web-app-to-use-your-azure-sql-database-and-storage-account).
 
-## <a name="a-idtriggera-how-to-trigger-a-function-when-a-service-bus-queue-message-is-received"></a><a id="trigger"></a> Come attivare una funzione quando viene ricevuto un messaggio di coda del bus di servizio
+## <a id="trigger"></a> Come attivare una funzione quando viene ricevuto un messaggio di coda del bus di servizio
 Per scrivere una funzione che viene chiamata da WebJobs SDK quando viene ricevuto un messaggio di coda, usare l'attributo `ServiceBusTrigger` . Il costruttore di attributo accetta un parametro che specifica il nome della coda di cui eseguire il polling.
 
 ### <a name="how-servicebustrigger-works"></a>Funzionamento di ServicebusTrigger
@@ -98,7 +99,7 @@ Se il codice che crea il messaggio in coda non utilizza WebJobs SDK, utilizzare 
 ### <a name="types-servicebustrigger-works-with"></a>Tipi con cui funziona ServiceBusTrigger
 Oltre ai tipi `string` e POCO, è possibile usare l'attributo `ServiceBusTrigger` con una matrice di byte o un oggetto `BrokeredMessage`.
 
-## <a name="a-idcreatea-how-to-create-service-bus-queue-messages"></a><a id="create"></a> Come creare messaggi di coda del bus di servizio
+## <a id="create"></a> Come creare messaggi di coda del bus di servizio
 Per scrivere una funzione che crea un nuovo messaggio di coda, usare l'attributo `ServiceBus` e passare il nome della coda al costruttore dell'attributo. 
 
 ### <a name="create-a-single-queue-message-in-a-non-async-function"></a>Creare un singolo messaggio in coda in una funzione non asincrona
@@ -135,7 +136,7 @@ Per creare più messaggi, usare l'attributo `ServiceBus` con `ICollector<T>` o `
 
 Ogni messaggio di coda viene creato immediatamente quando viene chiamato il metodo `Add` .
 
-## <a name="a-idtopicsahow-to-work-with-service-bus-topics"></a><a id="topics"></a>Come usare gli argomenti del bus di servizio
+## <a id="topics"></a>Come usare gli argomenti del bus di servizio
 Per scrivere una funzione che l'SDK chiama quando viene ricevuto un messaggio su un argomento del bus di servizio, usare l'attributo `ServiceBusTrigger` con il costruttore che accetta il nome di argomento e sottoscrizione, come illustrato nel seguente esempio di codice:
 
         public static void WriteLog([ServiceBusTrigger("outputtopic","subscription1")] string message,
@@ -154,9 +155,9 @@ Nella versione 1.1 sono state aggiunte le funzionalità seguenti:
 * Un modello di strategia `MessageProcessor` consente di specificare un processore per ogni coda o argomento.
 * La concorrenza dell'elaborazione dei messaggi è supportata per impostazione predefinita. 
 * Semplicità di personalizzazione di `OnMessageOptions` tramite `ServiceBusConfiguration.MessageOptions`.
-* Possibilità di specificare [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71) per `ServiceBusTriggerAttribute`/`ServiceBusAttribute` (per gli scenari in cui non si dispone di diritti di gestione). 
+* Possibilità di specificare [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71) per `ServiceBusTriggerAttribute`/`ServiceBusAttribute` (per gli scenari in cui non si dispone di diritti di gestione). Si noti che Processi Web di Azure non è in grado di eseguire automaticamente il provisioning di code e argomenti inesistenti senza gestire AccessRights.
 
-## <a name="a-idqueuesarelated-topics-covered-by-the-storage-queues-how-to-article"></a><a id="queues"></a>Argomenti correlati trattati nell'articolo delle procedure per le code di archiviazione
+## <a id="queues"></a>Argomenti correlati trattati nell'articolo delle procedure per le code di archiviazione
 Per informazioni sugli scenari di WebJobs SDK non specifici del bus di servizio, vedere la pagina relativa a [come usare l'archiviazione code di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
 Gli argomenti trattati in questo articolo includono quanto segue:
@@ -170,12 +171,7 @@ Gli argomenti trattati in questo articolo includono quanto segue:
 * Attivare manualmente una funzione
 * Scrivere i log
 
-## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Passaggi successivi
+## <a id="nextsteps"></a> Passaggi successivi
 In questa guida sono stati forniti esempi di codice che illustrano come gestire scenari comuni per l'uso del bus di servizio di Azure. Per altre informazioni su come usare i processi Web di Azure e su WebJobs SDK, vedere le [risorse consigliate per i processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Creare un registro contenitori di Azure - Portale | Documentazione Microsoft
-description: Introduzione alla creazione e gestione dei registri di contenitori di Azure con il portale di Azure
+title: Creare un registro per contenitori Docker privati - Portale di Azure | Microsoft Docs
+description: Introduzione alla creazione e gestione dei registri per contenitori Docker privati con il portale di Azure
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -16,15 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
-ms.openlocfilehash: 5302121ff65eec4f15a7ce3a06a1e3ed744117e9
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 33944d34ce695e1729b761a7f762e24a6dce70a2
+ms.lasthandoff: 03/06/2017
 
 ---
-# <a name="create-a-container-registry-using-the-azure-portal"></a>Creare un registro contenitori con il portale di Azure
-Usare il portale di Azure per creare un registro contenitori e gestirne le impostazioni. È anche possibile creare e gestire registri di contenitori usando i [comandi dell'anteprima dell'interfaccia della riga di comando di Azure 2.0](container-registry-get-started-azure-cli.md) oppure, a livello di codice, con l'[API REST](https://go.microsoft.com/fwlink/p/?linkid=834376) del servizio Registro contenitori.
 
-Per concetti e informazioni di base, vedere [Informazioni su Registro contenitori di Azure](container-registry-intro.md)
+# <a name="create-a-private-docker-container-registry-using-the-azure-portal"></a>Creare un registro per contenitori Docker privati con il portale di Azure
+Usare il portale di Azure per creare un registro contenitori e gestirne le impostazioni. È anche possibile creare e gestire registri di contenitori usando i [comandi dell'interfaccia della riga di comando di Azure 2.0](container-registry-get-started-azure-cli.md) oppure, a livello di codice, con l'[API REST](https://go.microsoft.com/fwlink/p/?linkid=834376) del servizio Registro contenitori.
+
+Per informazioni di base e concetti, vedere la [panoramica](container-registry-intro.md).
 
 
 > [!NOTE]
@@ -45,14 +48,16 @@ Per concetti e informazioni di base, vedere [Informazioni su Registro contenitor
    
     b. **Resource group** (Gruppo di risorse): selezionare un [gruppo di risorse](../azure-resource-manager/resource-group-overview.md#resource-groups) esistente o specificare il nome di un nuovo gruppo. 
    
-    c. **Location** (Percorso): selezionare il percorso di un data center di Azure in cui il servizio è [disponibile](https://azure.microsoft.com/regions/services/), ad esempio **Stati Uniti centro-meridionali**. 
+    c. **Location** (Posizione): selezionare la posizione di un data center di Azure in cui il servizio è [disponibile](https://azure.microsoft.com/regions/services/), ad esempio **Stati Uniti centro-meridionali**. 
    
     d. **Admin user** (Utente amministratore): consentire eventualmente a un utente amministratore di accedere al registro. È possibile modificare questa impostazione dopo aver creato il registro.
    
-   > [!IMPORTANT]
-   > Oltre a consentire l'accesso tramite un account utente amministratore, i registri dei contenitori supportano l'autenticazione basata sulle entità servizio di Azure Active Directory. Per altre informazioni e considerazioni, vedere [Authenticate with the container registry](container-registry-authentication.md) (Eseguire l'autenticazione al registro contenitori).
-   
-    e. **Storage account** (Account di archiviazione): usare l'impostazione predefinita per creare un [account di archiviazione](../storage/storage-introduction.md) oppure selezionarne uno esistente nello stesso percorso.
+    > [!IMPORTANT]
+    > Oltre a consentire l'accesso tramite un account utente amministratore, i registri dei contenitori supportano l'autenticazione basata sulle entità servizio di Azure Active Directory. Per altre informazioni e considerazioni, vedere [Authenticate with the container registry](container-registry-authentication.md) (Eseguire l'autenticazione al registro contenitori).
+    >
+    
+    e. **Storage account** (Account di archiviazione): usare l'impostazione predefinita per creare un [account di archiviazione](../storage/storage-introduction.md) oppure selezionarne uno esistente nella stessa posizione. Archiviazione Premium non è attualmente supportata.
+
 
 ## <a name="manage-registry-settings"></a>Gestire le impostazioni del registro
 Dopo aver creato il registro, trovare le impostazioni iniziando dal pannello **Container Registries** (Registri dei contenitori) nel portale. Le impostazioni potrebbero essere ad esempio necessarie per accedere al registro o abilitare o disabilitare l'utente amministratore.
@@ -73,10 +78,5 @@ Dopo aver creato il registro, trovare le impostazioni iniziando dal pannello **C
 * [Effettuare il push della prima immagine tramite l'interfaccia della riga di comando di Docker](container-registry-get-started-docker-cli.md)
 
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

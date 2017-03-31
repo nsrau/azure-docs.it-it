@@ -4,7 +4,7 @@ description: Informazioni su come configurare un&quot;app Web per l&quot;uso del
 services: app-service
 documentationcenter: 
 author: naziml
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.service: app-service
@@ -15,13 +15,14 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: db2f48b248e2232f913a99b4ffbc0d18b77407e8
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: db69852cffd1ff331ac4a640b04ea4360d00bf75
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>Come configurare l'autenticazione reciproca TLS per un'app Web
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 È possibile limitare l'accesso all'app web di Azure abilitandone diversi tipi di autenticazione. A questo scopo è possibile eseguire l'autenticazione usando un certificato client quando la richiesta è per TLS/SSL. Questo meccanismo è detto l'autenticazione reciproca TLS o autenticazione del certificato client. Questo articolo illustra come configurare un'app Web per l'uso dell'autenticazione del certificato client.
 
 > **Nota:** se si accede al sito tramite HTTP e non HTTPS, non si riceveranno i certificati client. Pertanto, se l'applicazione richiede i certificati client è consigliabile non consentire le richieste all'applicazione tramite HTTP.
@@ -39,13 +40,16 @@ Per semplificare la definizione della chiamata all'API REST, è possibile usare 
 
 sostituire tutti gli elementi tra {} con le informazioni per l'app Web e la creare un file denominato enableclientcert.json con il contenuto JSON seguente:
 
-> { "location": "My Web App Location",   
-> "properties": {  
-> "clientCertEnabled": true } }  
-> 
-> 
+    {
+        "location": "My Web App Location",
+        "properties": {
+            "clientCertEnabled": true
+        }
+    }
 
 Assicurarsi di modificare il valore di "posizione" con la posizione in cui si trova l'app Web, ad esempio Stati Uniti centro-settentrionali o Stati Uniti occidentali e così via.
+
+È anche possibile usare https://resources.azure.com per impostare la proprietà `clientCertEnabled` su `true`.
 
 > **Nota:** se si esegue ARMClient da Powershell, è necessario eseguire l'escape del simbolo @ per il file JSON con un apice inverso `.
 > 
@@ -191,9 +195,4 @@ Il certificato client inviato all'applicazione non viene sottoposto ad alcuna co
             }
         }
     }
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

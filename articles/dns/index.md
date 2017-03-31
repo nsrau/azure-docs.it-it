@@ -1,13 +1,26 @@
 ---
+title: Documentazione di DNS Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
+description: Informazioni su come gestire i record DNS utilizzando Azure Domain Name System. Nella documentazione viene illustrato come impostare e gestire zone e record DNS per i nomi di dominio.
+services: dns
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: dns
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: e32393348fc26fa4cb0a5221695a9bf8bb4d36e1
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 659e0989e3a1f7114796c2211606e5d629cf68fd
+ms.lasthandoff: 03/22/2017
 
 ---
 # <a name="dns-documentation"></a>Documentazione di DNS
 
-DNS Azure (Domain Name System) è un servizio per i domini DNS che fornisce la risoluzione dei nomi usando l'infrastruttura di Microsoft Azure.  Ospitando i domini in Azure, è possibile gestire i record DNS usando le stesse credenziali, API, strumenti e fatturazione come per gli altri servizi Azure.
+Informazioni su come gestire i record DNS utilizzando Azure Domain Name System, un servizio di hosting. Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come impostare e gestire zone e record DNS per i nomi di dominio.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +42,7 @@ DNS Azure (Domain Name System) è un servizio per i domini DNS che fornisce la r
         </a>
     </li>
     <li>
-        <a href="/azure/dns/dns-getstarted-create-dnszone-portal">
+        <a href="/azure/dns/dns-getstarted-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -47,7 +60,7 @@ DNS Azure (Domain Name System) è un servizio per i domini DNS che fornisce la r
         </a>
     </li>
     <li>
-        <a href="/azure/dns/dns-getstarted-create-dnszone">
+        <a href="/azure/dns/dns-getstarted-powershell">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -65,7 +78,7 @@ DNS Azure (Domain Name System) è un servizio per i domini DNS che fornisce la r
         </a>
     </li>
      <li>
-        <a href="/azure/dns/dns-getstarted-create-recordset">
+        <a href="/azure/dns/dns-getstarted-cli">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -75,7 +88,7 @@ DNS Azure (Domain Name System) è un servizio per i domini DNS che fornisce la r
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introduzione ai set di record DNS con Azure PowerShell</h3>
+                        <h3>Introduzione a DNS Azure con l'interfaccia della riga di comando di Azure</h3>
                     </div>
                 </div>
             </div>
@@ -131,16 +144,5 @@ DNS Azure (Domain Name System) è un servizio per i domini DNS che fornisce la r
 </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/dns.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scaricare la documentazione di DNS </div>
-    </a>
-</div>
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ca1b2a7435d4ae72cab85c5f0aea5466a95f2bba
+ms.sourcegitcommit: bf5588885de9c280eb70712dbf800efe509ee912
+ms.openlocfilehash: fe040c6d799c8b1a19d8329b6e4aebefcbae6190
 
 
 ---
@@ -292,6 +292,6 @@ Quando si fa clic sul riquadro HR2day by Merces nel pannello di accesso, si dovr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

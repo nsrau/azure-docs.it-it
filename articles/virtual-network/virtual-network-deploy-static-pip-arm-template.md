@@ -1,10 +1,10 @@
 ---
-title: Creare una VM con un IP pubblico statico usando un modello | Documentazione Microsoft
-description: Informazioni su come creare una VM con un indirizzo IP pubblico statico tramite Azure Resource Manager usando un modello.
+title: Creare una VM con un indirizzo IP pubblico statico - Modello di Azure Resource Manager | Documentazione Microsoft
+description: Informazioni su come creare una VM con un indirizzo IP pubblico statico mediante un modello di Azure Resource Manager.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: d551085a-c7ed-4ec6-b4c3-e9e1cebb774c
@@ -15,20 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 536cb4cd7975283dd61c8c4f2fe1a707a735504e
-ms.openlocfilehash: 7e05ab9c6ba1d23399d2ded63eb9b413c422f7bc
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 1bb49c0c03a3103194d068b511fa92ecb996caf3
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="create-a-vm-with-a-static-public-ip-using-a-template"></a>Creare una VM con un IP pubblico statico usando un modello
+# <a name="create-a-vm-with-a-static-public-ip-address-using-an-azure-resource-manager-template"></a>Creare una VM con un indirizzo IP pubblico statico mediante un modello di Azure Resource Manager
 
 > [!div class="op_single_selector"]
-- [Portale di Azure](virtual-network-deploy-static-pip-arm-portal.md)
-- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-- [Interfaccia della riga di comando di Azure](virtual-network-deploy-static-pip-arm-cli.md)
-- [Modello](virtual-network-deploy-static-pip-arm-template.md)
-- [PowerShell (Classic)](virtual-networks-reserved-public-ip.md) (PowerShell (classico))
+> * [Portale di Azure](virtual-network-deploy-static-pip-arm-portal.md)
+> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+> * [Interfaccia della riga di comando di Azure](virtual-network-deploy-static-pip-arm-cli.md)
+> * [Modello](virtual-network-deploy-static-pip-arm-template.md)
+> * [PowerShell (Classic)](virtual-networks-reserved-public-ip.md) (PowerShell (classico))
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
@@ -116,7 +118,7 @@ Il modello di esempio disponibile nel repository pubblico usa un file di paramet
 
 Per distribuire il modello scaricato tramite PowerShell, seguire questa procedura.
 
-1. Se non è mai stato usato Azure PowerShell, completare la procedura descritta nell'articolo [Come installare e configurare Azure PowerShell](../powershell-install-configure.md).
+1. Se non è mai stato usato Azure PowerShell, completare la procedura descritta nell'articolo [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 2. In una console PowerShell, eseguire il cmdlet `New-AzureRmResourceGroup` per creare un nuovo gruppo di risorse, se necessario. Se è già stato creato un gruppo di risorse, andare al passaggio 3.
 
     ```powershell
@@ -169,7 +171,7 @@ Per distribuire il modello scaricato tramite PowerShell, seguire questa procedur
 ## <a name="deploy-the-template-by-using-the-azure-cli"></a>Distribuire il modello tramite l'interfaccia della riga di comando di Azure
 Per distribuire il modello tramite l'interfaccia della riga di comando di Azure, completare la procedura seguente:
 
-1. Se non è stata mai usata l'interfaccia della riga di comando di Azure, seguire la procedura riportata nell'articolo [Installare e configurare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) per installarla e configurarla.
+1. Se non è stata mai usata l'interfaccia della riga di comando di Azure, seguire la procedura riportata nell'articolo [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md) per installarla e configurarla.
 2. Eseguire il comando `azure config mode` per passare alla modalità Gestione risorse, come illustrato di seguito.
 
     ```azurecli
@@ -203,10 +205,5 @@ Per distribuire il modello tramite l'interfaccia della riga di comando di Azure,
         data:    Tags: null
         data:
         info:    group create command OK
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

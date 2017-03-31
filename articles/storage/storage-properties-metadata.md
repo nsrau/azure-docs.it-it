@@ -12,26 +12,28 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 02/13/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6e89921509bb273d6d97f829d4867eded20c82bc
+ms.sourcegitcommit: 3868d36948342739eb78b013bb4b466df4381b4f
+ms.openlocfilehash: 7c1ca950c3ab1b8ffb754a74597d45b82777838c
+ms.lasthandoff: 02/15/2017
 
 
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Impostare e recuperare proprietà e metadati
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Oggetti nelle proprietà di sistema di supporto di archiviazione di Azure e i metadati definiti dall'utente, oltre ai dati che contengono:
 
-* **Proprietà di sistema.**  Proprietà di sistema su ogni risorsa di archiviazione. Alcune di esse possono essere lette o impostate, mentre altre sono di sola lettura. Anche se in modo non esplicito, alcune proprietà di sistema corrispondono a specifiche intestazioni HTTP standard. La libreria client di archiviazione di Azure gestisce tale funzionalità.
-* **Metadati definiti dall’utente.**  I metadati definiti dall'utente sono metadati specificati in una determinata risorsa, sotto forma di coppia nome-valore. È possibile utilizzare i metadati per archiviare valori aggiuntivi con una risorsa di archiviazione; questi valori sono destinati esclusivamente all’utente e non influiscono sul comportamento della risorsa.
+* **Proprietà di sistema.** Proprietà di sistema su ogni risorsa di archiviazione. Alcune di esse possono essere lette o impostate, mentre altre sono di sola lettura. Anche se in modo non esplicito, alcune proprietà di sistema corrispondono a specifiche intestazioni HTTP standard. La libreria client di archiviazione di Azure gestisce tale funzionalità.
+* **Metadati definiti dall’utente.** I metadati definiti dall'utente sono metadati specificati in una determinata risorsa, sotto forma di coppia nome-valore. È possibile utilizzare i metadati per archiviare valori aggiuntivi con una risorsa di archiviazione; questi valori sono destinati esclusivamente all’utente e non influiscono sul comportamento della risorsa.
 
 Il recupero dei valori di proprietà e dei metadati per una risorsa è un processo in due fasi. Prima di leggere questi valori, è necessario recuperarli in modo esplicito chiamando il metodo **FetchAttributes** .
 
 > [!IMPORTANT]
 > I valori di proprietà e i metadati per una risorsa di archiviazione non vengono popolati a meno che non si chiami uno dei metodi **FetchAttributes** .
 >
+> Verrà visualizzato un messaggio `400 Bad Request`, se una qualsiasi coppia nome/valore contiene caratteri non ASCII. Le coppie nome/valore di metadati sono intestazioni HTTP valide e devono essere conformi alle restrizioni imposte sulle intestazioni HTTP. È quindi consigliabile usare la codifica URL o la codifica Base64 per i nomi e i valori contenenti caratteri non ASCII.
 >
 
 ## <a name="setting-and-retrieving-properties"></a>Impostazione e recupero di proprietà
@@ -106,10 +108,5 @@ public static void ListContainerMetadata(CloudBlobContainer container)
 ## <a name="see-also"></a>Vedere anche
 * [Informazioni di riferimento sulla libreria client di archiviazione di Azure per .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 * [Pacchetto sulla libreria client di archiviazione di Azure per .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

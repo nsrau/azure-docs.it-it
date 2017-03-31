@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/19/2016
+ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: edb48bda7fd5d68544794ba72d17a4d70c2513af
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 9b6668bf4b3f826a1d41527ce4a7ae8d05936731
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -86,9 +87,21 @@ IMyActor myActor = ActorProxy.Create<IMyActor>(actorId, new Uri("fabric:/MyApp/M
 await myActor.DoWorkAsync();
 ```
 
+```java
+// Create actor ID with some name
+ActorId actorId = new ActorId("Actor1");
+
+// This only creates a proxy object, it does not activate an actor or invoke any methods yet.
+MyActor myActor = ActorProxyBase.create(actorId, new URI("fabric:/MyApp/MyActorService"), MyActor.class);
+
+// This will invoke a method on the actor. If an actor with the given ID does not exist, it will be activated by this method call.
+myActor.DoWorkAsync().get();
+```
+
+
 Osservare come le due porzioni di informazioni usate per creare l'oggetto proxy dell'attore siano l'ID dell'attore e il nome dell'applicazione. L'ID attore identifica in modo univoco l'attore, mentre il nome dell'applicazione identifica l' [applicazione Service Fabric](service-fabric-reliable-actors-platform.md#application-model) in cui è distribuito l'attore.
 
-La classe `ActorProxy` sul lato client esegue la risoluzione necessaria per individuare l'attore in base al suo ID e aprire un canale di comunicazione con esso. In caso di errore di comunicazione e failover, la classe `ActorProxy` tenta di individuare nuovamente l'attore. Il recapito dei messaggi, di conseguenza, presenta le caratteristiche seguenti:
+La classe `ActorProxy`(C#) / `ActorProxyBase`(Java) sul lato client esegue la risoluzione necessaria per individuare l'attore in base al relativo ID e aprire un canale di comunicazione con esso. In caso di errore di comunicazione e failover, la classe tenta di individuare nuovamente l'attore. Il recapito dei messaggi, di conseguenza, presenta le caratteristiche seguenti:
 
 * Il recapito del messaggio è il massimo sforzo.
 * Gli attori possono ricevere messaggi duplicati dallo stesso client.
@@ -122,7 +135,7 @@ Alcuni elementi importanti da considerare:
 * Mentre *Method1* è in esecuzione per conto di *ActorId2* in risposta alla richiesta client *xyz789*, arriva un'altra richiesta client *abc123* per l'esecuzione di *Method1* da parte di *ActorId2*. La seconda esecuzione di *Method1* tuttavia non inizia finché non è terminata l'esecuzione precedente. Analogamente, un promemoria registrato da *ActorId2* viene attivato mentre *Method1* è in esecuzione in risposta alla richiesta client *xyz789*. Il callback di promemoria viene eseguito solo dopo che entrambe le esecuzioni di *Method1* sono state completate. Tutto ciò è regolato dalla concorrenza basata su turni applicata per *ActorId2*.
 * Questa concorrenza basata sui turni viene applicata analogamente anche per *ActorId1*, come dimostrato dall'esecuzione di *Method1*, *Method2* e del callback del timer per conto di *ActorId1* eseguito in modalità seriale.
 * L'esecuzione di *Method1* per conto di *ActorId1* si sovrappone all'esecuzione per conto di *ActorId2*. Questo accade perché la concorrenza basata su turni viene applicata solo all'interno di un attore e non tra più attori.
-* In alcune esecuzioni di metodo o callback, l'oggetto `Task` restituito dal metodo o dal callback viene completato solo dopo la restituzione del metodo. In altre esecuzioni, l'oggetto `Task` risulta già completato al momento della restituzione del metodo o del callback. In entrambi i casi, il blocco per attore viene rilasciato soltanto dopo la restituzione del metodo o del callback e il completamento dell'oggetto `Task` .
+* In alcune esecuzioni di metodo o callback, l'oggetto `Task`(C#) / `CompletableFuture`(Java) restituito dal metodo o dal callback viene completato solo dopo la restituzione del metodo. In altre esecuzioni, l'operazione asincrona risulta già completata al momento della restituzione del metodo o del callback. In entrambi i casi, il blocco per attore viene rilasciato soltanto dopo la restituzione del metodo o del callback e il completamento dell'operazione asincrona.
 
 #### <a name="reentrancy"></a>Rientranza
 Per impostazione predefinita, il runtime di Actors consente la reentrancy. In altre parole, se un metodo dell'*Actor A* chiama un metodo sull'*Actor B*, che a sua volta chiama un altro metodo sull'*Actor A*, il metodo può essere eseguito. perché fa parte dello stesso contesto logico della catena di chiamate. Tutte le chiamate di timer e promemoria iniziano con il nuovo contesto logico di chiamate. Per altre informazioni, vedere [Rientranza di Reliable Actors](service-fabric-reliable-actors-reentrancy.md).
@@ -145,9 +158,4 @@ Il runtime di Actors fornisce queste garanzie di concorrenza nelle situazioni in
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 [2]: ./media/service-fabric-reliable-actors-introduction/distribution.png
 [3]: ./media/service-fabric-reliable-actors-introduction/actor-communication.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

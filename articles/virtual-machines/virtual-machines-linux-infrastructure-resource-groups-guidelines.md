@@ -1,5 +1,5 @@
 ---
-title: Linee guida sui gruppi di risorse di Azure | Documentazione Microsoft
+title: Gruppi di risorse per macchine virtuali Linux in Azure | Documentazione Microsoft
 description: Informazioni sulle principali linee guida di progettazione e implementazione per la distribuzione dei gruppi di risorse nei servizi di infrastruttura di Azure.
 documentationcenter: 
 services: virtual-machines-linux
@@ -13,15 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/17/2017
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 70e52cefccee4b963e512724b96525bcbacf330c
-ms.openlocfilehash: 092c07fb22dcc09e1ff21258fde5d0149ade1ef3
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 5c86a7fab851d98a33e610c1625fd04ae9b29c28
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="azure-resource-group-guidelines"></a>Linee guida sui gruppi di risorse di Azure
+# <a name="azure-resource-group-guidelines-for-linux-vms"></a>Linee guida sui gruppi di risorse di Azure per macchine virtuali Linux 
+
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Questo articolo si incentra su come creare in modo logico un ambiente e raggruppare tutti i componenti in gruppi di risorse.
@@ -53,10 +56,5 @@ Procedendo con la scalabilità orizzontale, i gruppi di risorse centralizzati co
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

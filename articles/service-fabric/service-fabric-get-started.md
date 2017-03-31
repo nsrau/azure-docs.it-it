@@ -12,11 +12,12 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/15/2016
+ms.date: 03/07/2017
 ms.author: ryanwi, mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 122b672c784357d781ac55e11fb9f648fdbbac24
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: cf48dc816661fa3d61f831fb176aba048a6f5b58
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -46,8 +47,8 @@ Per lo sviluppo, sono supportati i sistemi operativi seguenti:
 > 
 
 ## <a name="install-the-sdk-and-tools"></a>Installare l'SDK e gli strumenti
-### <a name="to-use-visual-studio-2017-rc"></a>Per usare Visual Studio 2017 RC
-Gli strumenti di Service Fabric fanno parte del carico di lavoro di sviluppo e gestione di Azure in Visual Studio 2017 RC. È necessario abilitare questo carico di lavoro durante l'installazione di Visual Studio.
+### <a name="to-use-visual-studio-2017"></a>Per usare Visual Studio 2017
+Gli strumenti di Service Fabric fanno parte del carico di lavoro di sviluppo e gestione di Azure in Visual Studio 2017. Abilitare questo carico di lavoro durante l'installazione di Visual Studio.
 È anche necessario installare Microsoft Azure Service Fabric SDK, usando Installazione guidata piattaforma Web.
 
 * [Installare Microsoft Azure Service Fabric SDK][core-sdk]
@@ -62,16 +63,16 @@ Se è necessario solo l'SDK, è possibile installare questo pacchetto:
 * [Installare Microsoft Azure Service Fabric SDK][core-sdk]
 
 > [!WARNING]
-> Alcuni clienti hanno segnalato errori durante l'installazione mediante questi collegamenti di avvio o quando hanno usato tali collegamenti nel browser Chrome. Sono problemi noti dell'Installazione guidata piattaforma Web attualmente in corso di risoluzione.  Come soluzione alternativa, provare quanto segue:
->- Avviare i collegamenti dal browser Internet Explorer o Edge. Oppure
+> Alcuni clienti hanno segnalato errori durante l'installazione mediante questi collegamenti di avvio o quando hanno usato tali collegamenti nel browser Chrome. Questi errori sono problemi noti dell'Installazione guidata piattaforma Web attualmente in corso di risoluzione.  Attenersi alle soluzioni alternative seguenti:
+>- Avviare i collegamenti precedenti dal browser Internet Explorer o Edge. Oppure
 >- Avviare l'Installazione guidata piattaforma Web dal menu Start, individuare "Service Fabric" e installare l'SDK.
 > 
 > Ci scusiamo per l'inconveniente. 
 
 Le versioni correnti sono:
-* Service Fabric SDK 2.4.145
-* Service Fabric runtime 5.4.145
-* Strumenti di Visual Studio 2015 1.4.41209
+* Service Fabric SDK 2.4.164
+* Service Fabric runtime 5.4.164
+* Strumenti di Visual Studio 2015 1.4.50124
 
 Per un elenco delle versioni supportate, vedere [Service Fabric support](service-fabric-support.md) (Supporto di Service Fabric)
 
@@ -99,9 +100,4 @@ Dopo avere configurato l'ambiente di sviluppo, iniziare a compilare ed eseguire 
 [full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Collegamento WebPI Dev15"
 [core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Collegamento WebPI Core SDK"
 [powershell5-download]:https://www.microsoft.com/en-us/download/details.aspx?id=50395
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

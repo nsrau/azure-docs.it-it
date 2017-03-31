@@ -4,18 +4,19 @@ description: Configurare i test Web in Application Insights. Ottenere avvisi se 
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
+ms.date: 03/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 003db6e1479be1007dd292555ce5997f1c138809
-ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 153a97154faf65598141f321bcd33c4503fa30b0
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -29,11 +30,11 @@ Dopo aver distribuito l'app Web o il sito Web in qualsiasi server, è possibile 
 Sono disponibili due tipi di test Web:
 
 * [Test di ping URL](#create): un semplice test che può essere creato nel portale di Azure.
-* [Test Web in più passaggi](#multi-step-web-tests): viene creato in Visual Studio Ultimate o Visual Studio Enterprise e caricato nel portale.
+* [Test Web in più passi](#multi-step-web-tests): viene creato in Visual Studio Enterprise e caricato nel portale.
 
 È possibile creare fino a 10 test Web per ogni risorsa dell'applicazione.
 
-## <a name="a-namecreatea1-create-a-resource-for-your-test-reports"></a><a name="create"></a>1. Creare una risorsa per i report di test
+## <a name="create"></a>1. Creare una risorsa per i report di test
 Ignorare questo passaggio se è già stata [configurata una risorsa di Application Insights][start] per questa applicazione e si vogliono visualizzare i report di disponibilità nella stessa posizione.
 
 Accedere a [Microsoft Azure](http://azure.com), passare al [portale di Azure](https://portal.azure.com) e creare una risorsa di Application Insights.
@@ -42,7 +43,7 @@ Accedere a [Microsoft Azure](http://azure.com), passare al [portale di Azure](ht
 
 Fare clic su **Tutte le risorse** per aprire il pannello Panoramica per la nuova risorsa.
 
-## <a name="a-namesetupa2-create-a-url-ping-test"></a><a name="setup"></a>2. Creare un test di ping URL
+## <a name="setup"></a>2. Creare un test di ping URL
 Nella risorsa di Application Insights cercare il riquadro Disponibilità. Fare clic per aprire il pannello dei test Web per l'applicazione e aggiungere un test Web.
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
@@ -66,7 +67,7 @@ Nella risorsa di Application Insights cercare il riquadro Disponibilità. Fare c
 ### <a name="test-more-urls"></a>Testare più URL
 Aggiungere altri test. Ad esempio, oltre a testare la home page, è possibile verificare che il database sia in esecuzione testando l'URL per una ricerca.
 
-## <a name="a-namemonitora3-see-your-web-test-results"></a><a name="monitor"></a>3. Visualizzare i risultati del test Web
+## <a name="monitor"></a>3. Visualizzare i risultati del test Web
 I risultati verranno visualizzati dopo 1-2 minuti nel pannello Test Web.
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
@@ -75,40 +76,23 @@ Fare clic su qualsiasi barra nel grafico di riepilogo per ottenere una visualizz
 
 Questi grafici combinano i risultati per tutti i test Web di questa applicazione.
 
-## <a name="a-namefailuresaif-you-see-failures"></a><a name="failures"></a>In caso di errori
+## <a name="failures"></a>In caso di errori
 Fare clic su un punto rosso.
 
-![Click a red dot](./media/app-insights-monitor-web-app-availability/14-availRedDot.png)
+![Click a red dot](./media/app-insights-monitor-web-app-availability/open-instance.png)
 
-In alternativa, scorrere verso il basso e fare clic su un test con risultato inferiore al 100%.
 
-![Click a specific webtest](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
+Da un risultato del test Web è possibile:
 
-Verranno visualizzati i risultati del test.
+* Controllare la risposta ricevuta dal server.
+* Aprire i dati di telemetria inviati dall'app server durante l'elaborazione dell'istanza della richiesta non riuscita.
+* Registrare un problema o elemento di lavoro in Git o VSTS per tenere traccia del problema. Il bug conterrà un collegamento a questo evento.
+* Aprire il risultato del test Web in Visual Studio.
 
-![Click a specific webtest](./media/app-insights-monitor-web-app-availability/16-1test.png)
-
-Il test viene eseguito da diverse posizioni&#151;selezionarne una in cui i risultati siano inferiori al 100%.
-
-![Click a specific webtest](./media/app-insights-monitor-web-app-availability/17-availViewDetails.png)
-
-Scorrere verso il basso fino a **Test non superati** e selezionare un risultato.
-
-Fare clic sul risultato per valutarlo nel portale e visualizzare il motivo dell'errore.
-
-![Webtest run result](./media/app-insights-monitor-web-app-availability/18-availDetails.png)
-
-In alternativa, scaricare il file dei risultati ed esaminarlo in Visual Studio.
 
 *Ha un aspetto corretto ma è segnalato come errore?* Controllare tutte le immagini, gli script, i fogli di stile e qualsiasi altro file caricato dalla pagina. In caso di errore in uno di essi, il test verrà segnalato come non superato, anche se la pagina HTML principale viene caricata correttamente.
 
-### <a name="open-the-server-request-and-exceptions"></a>Aprire il report della richieste e delle eccezioni del server
-
-Dalle proprietà dettagliate di un determinato test, è possibile aprire il report sul lato server relativo alla richiesta e ad altri eventi, ad esempio le eccezioni.
-
-![Webtest run result](./media/app-insights-monitor-web-app-availability/web-test-linked-to-server-telemetry.png)
-
-Se non vengono visualizzati elementi correlati, il problema può essere dovuto al fatto che è in corso il [campionamento](app-insights-sampling.md).
+*Nessun elemento correlato?* Questo potrebbe essere causato dal fatto che il [campionamento](app-insights-sampling.md) è in esecuzione.
 
 ## <a name="multi-step-web-tests"></a>Test Web in più passaggi
 È possibile monitorare uno scenario che comporta una sequenza di URL. Ad esempio, se si monitora un sito Web di vendita, si potrebbe testare il corretto funzionamento dell'aggiunta di articoli al carrelli acquisti.
@@ -117,16 +101,19 @@ Se non vengono visualizzati elementi correlati, il problema può essere dovuto a
 > È prevista una tariffa per i test Web in più passaggi. Vedere lo [schema dei prezzi](http://azure.microsoft.com/pricing/details/application-insights/).
 > 
 
-Per creare un test in più passaggi, registrare lo scenario con Visual Studio, quindi caricare la registrazione in Application Insights. Application Insights riprodurrà lo scenario a intervalli e verificherà le risposte.
+Per creare un test in più passaggi, registrare lo scenario con Visual Studio Enterprise, quindi caricare la registrazione in Application Insights. Application Insights riprodurrà lo scenario a intervalli e verificherà le risposte.
 
 Si noti che non è possibile usare funzioni codificate nei test: i passaggi dello scenario devono essere contenuti sotto forma di script nel file con estensione webtest.
 
 #### <a name="1-record-a-scenario"></a>1. Registrare uno scenario
-Usare Visual Studio Enterprise o Ultimate per registrare una sessione Web.
+Usare Visual Studio Enterprise per registrare una sessione Web.
 
 1. Creare un progetto di test delle prestazioni Web.
 
-    ![In Visual Studio creare un progetto dal modello di test di carico e prestazioni Web.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+    ![In Visual Studio Enterprise creare un progetto dal modello di test di carico e prestazioni Web.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+
+ * *Se il modello di test di carico e prestazioni Web non viene visualizzato*, chiudere Visual Studio Enterprise. Aprire il **programma di installazione di Visual Studio** per modificare l'installazione di Visual Studio Enterprise. In **Singoli componenti** selezionare **Strumenti per test di carico e delle prestazioni Web**.
+
 2. Aprire il file con estensione webtest e iniziare la registrazione.
 
     ![Aprire il file con estensione webtest e fare clic su Registra.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-start.png)
@@ -224,7 +211,7 @@ Se il test deve eseguire l'accesso con OAuth, procedere come indicato di seguito
 * Impostare i parametri dei token quando questi vengono restituiti dall'autenticatore e usarli per l'esecuzione di query nel sito.
   Visual Studio prova a impostare i parametri del test, ma non imposta correttamente i parametri dei token.
 
-## <a name="a-nameedita-edit-or-disable-a-test"></a><a name="edit"></a> Modificare o disabilitare un test
+## <a name="edit"></a> Modificare o disabilitare un test
 Aprire un singolo test per modificarlo o disabilitarlo.
 
 ![Modificare o disabilitare un test Web](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
@@ -239,7 +226,7 @@ Dal pannello Panoramica aprire **Impostazioni**, **Test delle prestazioni**. Qua
 Al termine del test verranno visualizzati i tempi di risposta e le percentuali di successo.
 
 ## <a name="automation"></a>Automazione
-* [Usare script di PowerShell per configurare automaticamente un test Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) .
+* [Usare script di PowerShell per configurare automaticamente un test Web](app-insights-powershell.md#add-an-availability-test) .
 * Configurare un [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) che verrà chiamato quando viene generato un avviso.
 
 ## <a name="questions-problems"></a>Domande? Problemi?
@@ -273,12 +260,12 @@ Al termine del test verranno visualizzati i tempi di risposta e le percentuali d
 
     Questa funzionalità non è supportata.
 
-## <a name="a-namevideoavideo"></a><a name="video"></a>Video
+## <a name="video"></a>Video
 > [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Monitoring-Availability-with-Application-Insights/player]
 >
 >
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Passaggi successivi
+## <a name="next"></a>Passaggi successivi
 [Ricerca nei registri di diagnostica][diagnostic]
 
 [Risoluzione dei problemi][qna]
@@ -291,9 +278,4 @@ Al termine del test verranno visualizzati i tempi di risposta e le percentuali d
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

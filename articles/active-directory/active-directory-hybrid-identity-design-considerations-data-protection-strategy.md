@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d4f5d9dbe60e549d270e190e626a87a66696f07c
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 82bc44b20158a22dfae0d6c8fbf5f1c1f4577c91
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -50,8 +51,8 @@ A seconda delle risposte fornite alle domande nella sezione [Determinare i requi
 > [!NOTE]
 > Per altre informazioni sulle garanzie relative alla conformità per ogni servizio di Azure, vedere [Conformità in base al prodotto](https://azure.microsoft.com/support/trust-center/services/) nel [Centro protezione di Microsoft Azure](https://azure.microsoft.com/support/trust-center/).
 > Poiché le opzioni per la protezione dei dati usano un approccio multilivello, il confronto tra tali opzioni non è applicabile per questa attività. Assicurarsi di usare tutte le opzioni disponibili per ogni stato dei dati.
-> 
-> 
+>
+>
 
 ## <a name="define-content-management-options"></a>Definire le opzioni di gestione del contenuto
 Uno dei vantaggi derivanti dall'uso di Azure AD per gestire un'infrastruttura ibrida di gestione delle identità sta nel fatto che il processo è completamente trasparente dal punto di vista dell'utente finale. L'utente tenterà di accedere a una risorsa condivisa, la risorsa richiede l'autenticazione, quindi l'utente deve inviare una richiesta di autenticazione ad Azure AD per ottenere il token e accedere alla risorsa. Questo processo viene eseguito in background, senza alcuna interazione dell'utente. È anche possibile concedere l'autorizzazione a un [gruppo](active-directory-manage-groups.md#getting-started-with-access-management) di utenti per consentire loro di eseguire determinate azioni comuni.
@@ -72,14 +73,14 @@ Per un'efficace gestione del contenuto, è necessario sapere chi accede a una de
 > [!NOTE]
 > Per altre informazioni sulle funzionalità di registrazione in Azure, vedere l'articolo relativo alla [gestione dei log di controllo e sicurezza di Microsoft Azure](http://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf) .
 > A seconda delle risposte fornite alle domande nella sezione [Determinare i requisiti di gestione del contenuto](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md), sarà possibile stabilire come si vuole che il contenuto venga gestito nella soluzione ibrida di gestione delle identità. Sebbene tutte le opzioni esposte nella tabella 6 possano essere integrate con Azure AD, è importante definire quella più appropriata in base alle esigenze aziendali.
-> 
-> 
+>
+>
 
 | Opzioni di gestione del contenuto | Vantaggi | Svantaggi: |
 | --- | --- | --- |
-| Centralizzata locale (server Active Directory Rights Management) |Controllo completo sull'infrastruttura server responsabile della classificazione dei dati  <br> Funzionalità predefinita in Windows Server, senza necessità di licenza o sottoscrizione supplementare <br> Può essere integrato con Azure AD in uno scenario ibrido <br> Supporta la funzionalità Information Rights Management (IRM) nei servizi Microsoft Online come Exchange Online e SharePoint Online, nonché Office 365 <br>  Supporta i prodotti server Microsoft locali, ad esempio Exchange Server, SharePoint Server e file server che eseguono Windows Server e Infrastruttura di classificazione file. |Manutenzione più elevata (aggiornamenti, configurazioni e potenziali aggiornamenti di versione), poiché il server è di proprietà del reparto IT  <br> Richiede un'infrastruttura di server locale<br>  Non usa le funzionalità di Azure in modo nativo |
-| Centralizzata nel cloud (Azure RMS) |Più facile da gestire rispetto alla soluzione locale  <br> Può essere integrato con Servizi di dominio Active Directory in uno scenario ibrido <br>  Completamente integrato con Azure Active Directory <br> Non richiede un server locale per distribuire il servizio <br> Supporta i prodotti server Microsoft locali, ad esempio Exchange Server, SharePoint Server e file server che eseguono Windows Server e Infrastruttura di classificazione file <br>  Il reparto IT ha il controllo completo sulla chiave del tenant grazie alla funzionalità BYOK (Bring Your Own Key). |L'organizzazione deve avere una sottoscrizione cloud che supporta RMS  <br>  L'organizzazione deve avere una directory di Azure AD per supportare l'autenticazione utente per RMS |
-| Ibrida (soluzione Azure RMS integrata con un server Active Directory Rights Management locale) |Questo scenario combina i vantaggi di entrambe le opzioni precedenti, centralizzata locale e nel cloud. |L'organizzazione deve avere una sottoscrizione cloud che supporta RMS  <br> L'organizzazione deve avere una directory di Azure AD per supportare l'autenticazione utente per RMS, <br>  Richiede una connessione tra il servizio cloud di Azure e l'infrastruttura locale |
+| Centralizzata locale (server Active Directory Rights Management) |Controllo completo sull'infrastruttura server responsabile della classificazione dei dati  <br> Funzionalità predefinita in Windows Server, senza necessità di licenza o sottoscrizione supplementare <br> Può essere integrato con Azure AD in uno scenario ibrido <br> Supporta la funzionalità Information Rights Management (IRM) nei servizi Microsoft Online come Exchange Online e SharePoint Online, nonché Office 365 <br> Supporta i prodotti server Microsoft locali, ad esempio Exchange Server, SharePoint Server e file server che eseguono Windows Server e Infrastruttura di classificazione file. |Manutenzione più elevata (aggiornamenti, configurazioni e potenziali aggiornamenti di versione), poiché il server è di proprietà del reparto IT  <br> Richiede un'infrastruttura di server locale<br> Non usa le funzionalità di Azure in modo nativo |
+| Centralizzata nel cloud (Azure RMS) |Più facile da gestire rispetto alla soluzione locale  <br> Può essere integrato con Servizi di dominio Active Directory in uno scenario ibrido <br>  Completamente integrato con Azure Active Directory <br> Non richiede un server locale per distribuire il servizio <br> Supporta i prodotti server Microsoft locali, ad esempio Exchange Server, SharePoint Server e file server che eseguono Windows Server e Infrastruttura di classificazione file <br> Il reparto IT ha il controllo completo sulla chiave del tenant grazie alla funzionalità BYOK (Bring Your Own Key). |L'organizzazione deve avere una sottoscrizione cloud che supporta RMS  <br> L'organizzazione deve avere una directory di Azure AD per supportare l'autenticazione utente per RMS |
+| Ibrida (soluzione Azure RMS integrata con un server Active Directory Rights Management locale) |Questo scenario combina i vantaggi di entrambe le opzioni precedenti, centralizzata locale e nel cloud. |L'organizzazione deve avere una sottoscrizione cloud che supporta RMS  <br> L'organizzazione deve avere una directory di Azure AD per supportare l'autenticazione utente per RMS, <br> Richiede una connessione tra il servizio cloud di Azure e l'infrastruttura locale |
 
 ## <a name="define-access-control-options"></a>Definire le opzioni di controllo di accesso
 Le funzionalità di autenticazione, autorizzazione e controllo di accesso disponibili in Azure AD consentono alla società di usare un repository delle identità centralizzato e al contempo di permettere a utenti e partner di usare l'accesso Single Sign-On (SSO), come illustrato nella figura seguente:
@@ -98,15 +99,15 @@ Azure Active Directory offre l'accesso Single Sign-On a migliaia di applicazioni
 
 > [!NOTE]
 > Per informazioni dettagliate su ogni protocollo e sulle relative funzionalità in Azure, leggere la pagina relativa ai [protocolli di autenticazione di Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx) .
-> 
-> 
+>
+>
 
 Grazie al supporto di Azure AD, le applicazioni aziendali per dispositivi mobili possono usare la stessa esperienza di autenticazione semplificata a Servizi mobili per consentire ai dipendenti di accedere alle applicazioni per dispositivi mobili con le proprie credenziali Active Directory aziendali. Con questa funzionalità, Azure AD è supportato come un provider di identità in Servizi mobili, insieme agli altri provider di identità già supportati, ad esempio Account Microsoft, ID Facebook, ID Google e ID Twitter. Se le app locali usano le credenziali dell'utente che risiedono nell'istanza di Servizi di dominio Active Directory locale, l'accesso da partner e utenti provenienti dal cloud dovrebbe essere trasparente. È possibile gestire il controllo di accesso condizionale dell'utente alle applicazioni Web (basate sul cloud), alle API Web, ai servizi cloud Microsoft, alle applicazioni SaaS di terze parti e alle applicazioni client (per dispositivi mobili) native e usufruire al contempo delle funzionalità di sicurezza, controllo e creazione di report da un'unica posizione centralizzata. È tuttavia consigliabile convalidare questa soluzione in un ambiente non di produzione o con un numero limitato di utenti.
 
 > [!TIP]
 > È importante tenere presente che in Azure AD non è disponibile la funzionalità Criteri di gruppo come in Servizi di dominio Active Directory. Per imporre criteri per i dispositivi sarà necessario adottare una soluzione per la gestione di dispositivi mobili, ad esempio [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx).
-> 
-> 
+>
+>
 
 Una volta autenticato l'utente tramite Azure AD, è importante valutare il livello di accesso che verrà assegnato all'utente. Il livello di accesso che verrà assegnato all'utente per una risorsa può variare. Sebbene Azure AD possa aggiungere un ulteriore livello di sicurezza controllando l'accesso ad alcune risorse, è necessario tenere presente che potrebbe essere stato definito un elenco di controllo di accesso separato per la risorsa stessa, ad esempio per l'accesso ai file che risiedono in un file server. La figura seguente riassume i livelli di controllo di accesso che possono essere impostati in uno scenario ibrido:
 
@@ -114,7 +115,7 @@ Una volta autenticato l'utente tramite Azure AD, è importante valutare il livel
 
 Ogni interazione nel diagramma illustrato nella figura X rappresenta uno scenario di controllo di accesso che può essere gestito da Azure AD. Di seguito è mostrata una descrizione di ogni scenario:
 
-1.Accesso condizionale alle applicazioni ospitate in locale: è possibile usare i dispositivi registrati con criteri di accesso per le applicazioni configurate per l'uso di AD FS con Windows Server 2012 R2. Per altre informazioni su come configurare l'accesso condizionale in locale, vedere [Configurazione dell'accesso condizionale in locale usando il servizio Registrazione del dispositivo di Azure Active Directory](active-directory-conditional-access-on-premises-setup.md).
+1.Accesso condizionale alle applicazioni ospitate in locale: è possibile usare i dispositivi registrati con criteri di accesso per le applicazioni configurate per l'uso di AD FS con Windows Server 2012 R2. Per altre informazioni su come configurare l'accesso condizionale in locale, vedere [Configurazione dell'accesso condizionale in locale usando il servizio Registrazione del dispositivo di Azure Active Directory](active-directory-conditional-access.md).
 2.Controllo di accesso al portale di gestione di Azure: Azure consente anche di controllare l'accesso al portale di gestione tramite il controllo degli accessi in base al ruolo. Questo metodo permette alla società di limitare la quantità di operazioni che possono essere eseguite da un soggetto una volta effettuato l'accesso al portale di gestione di Azure. L'uso del controllo degli accessi in base al ruolo per controllare gli accessi al portale, permette agli amministratori IT di delegare l'accesso tramite gli approcci di gestione dell'accesso seguenti:
 
 * Assegnazione di ruolo basata su gruppo: è possibile assegnare l'accesso ai gruppi di Azure AD che possono essere sincronizzati dall'istanza di Active Directory locale. Questo consente di sfruttare gli investimenti esistenti dell'organizzazione in termini di strumenti e processi per la gestione dei gruppi. È anche possibile usare la funzionalità di delega della gestione dei gruppi disponibile in Azure AD Premium.
@@ -123,8 +124,8 @@ Ogni interazione nel diagramma illustrato nella figura X rappresenta uno scenari
 
 > [!NOTE]
 > Per informazioni dettagliate su questa funzionalità, vedere [Role-based access control in Azure](https://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/) (Controllo di accessi in base al ruolo in Azure). Gli sviluppatori che creano applicazioni e che vogliono personalizzare il controllo di accesso per tali applicazioni, possono usare i ruoli applicazione di Azure AD per l'autorizzazione. Per informazioni su come progettare l'app per usare questa funzionalità, vedere l' [esempio WebApp-RoleClaims-DotNet](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) .
-> 
-> 
+>
+>
 
 3.Accesso condizionale per applicazioni di Office 365 con Microsoft Intune: gli amministratori IT possono effettuare il provisioning dei criteri di accesso condizionale dei dispositivi per proteggere le risorse aziendali, consentendo allo stesso tempo agli operatori dei sistemi informativi che usano dispositivi compatibili di accedere ai servizi. Per altre informazioni, vedere [Criteri di accesso condizionale dei dispositivi per i servizi di Office 365](active-directory-conditional-access-device-policies.md).
 
@@ -143,8 +144,8 @@ Azure AD può supportare il reparto IT nell'identificazione dei potenziali risch
 
 > [!TIP]
 > Un altro report che può risultare utile per il team che gestisce le risposte per gli eventi imprevisti è il report [Utenti con credenziali perse](http://blogs.technet.com/b/ad/archive/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials.aspx) .  Questo report evidenzia eventuali corrispondenze tra l'elenco delle credenziali perse e il tenant in uso.
-> 
-> 
+>
+>
 
 Altri importanti report predefiniti disponibili in Azure AD che possono risultare utili per fornire le risposte durante l'analisi degli eventi imprevisti sono:
 
@@ -168,10 +169,4 @@ Poiché le opzioni per le risposte agli eventi imprevisti usano un approccio mul
 
 ## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

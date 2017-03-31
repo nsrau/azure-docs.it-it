@@ -1,10 +1,10 @@
 ---
-title: Prerequisiti per l&quot;adozione di ExpressRoute | Microsoft Docs
+title: Prerequisiti per l&quot;adozione di Azure ExpressRoute | Documentazione Microsoft
 description: Questa pagina fornisce un elenco di requisiti da soddisfare prima di potere ordinare un circuito Azure ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: f872d25e-acfd-405d-9d1b-dcb9f323a2ff
 ms.service: expressroute
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 1/6/2017
+ms.date: 03/22/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: f408e65abcb92308a19a37816c206d822e932f24
-ms.openlocfilehash: 18fccf1ce6b4d2a6fa46e6db9e1a38eb998b9d64
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: a56749a5ac1098db3970140a76b71c77c1f74c07
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -30,11 +31,12 @@ Per connettersi ai servizi di Microsoft Cloud usando ExpressRoute sarà necessar
 * Una sottoscrizione di Office 365 attiva (se si usano servizi di Office 365). Per altre informazioni, vedere la sezione sui [requisiti specifici di Office 365](#office-365-specific-requirements) in questo articolo.
 
 ## <a name="connectivity-provider"></a>Provider di connettività
-* È possibile collaborare con un [partner per la connettività ExpressRoute](expressroute-locations.md#partners) per connettersi a Microsoft Cloud. È possibile configurare una connessione tra la rete locale e Microsoft in [tre modi](expressroute-introduction.md#howtoconnect)diversi. 
-* Se il provider non è un partner per la connettività ExpressRoute, è comunque possibile connettersi a Microsoft Cloud tramite un [provider Cloud Exchange](expressroute-locations.md#nonpartners).
+
+* È possibile collaborare con un [partner per la connettività ExpressRoute](expressroute-locations.md#partners) per connettersi a Microsoft Cloud. È possibile configurare una connessione tra la rete locale e Microsoft in [tre modi](expressroute-introduction.md)diversi. 
+* Se il provider non è un partner per la connettività ExpressRoute, è comunque possibile connettersi a Microsoft Cloud tramite un [provider Cloud Exchange](expressroute-locations.md#c1partners).
 
 ## <a name="network-requirements"></a>Requisiti di rete
-* **Connettività ridondante**: non è stato definito alcun requisito di ridondanza per la connettività fisica con il provider. Microsoft richiede la configurazione di sessioni BGP ridondanti tra i router di Microsoft e i router di peering, anche in presenza di [una sola connessione fisica a un'infrastruttura Cloud Exchange](expressroute-faqs.md#onep2plink). 
+* **Connettività ridondante**: non è stato definito alcun requisito di ridondanza per la connettività fisica con il provider. Microsoft richiede la configurazione di sessioni BGP ridondanti tra i router di Microsoft e i router di peering, anche in presenza di [una sola connessione fisica a un'infrastruttura Cloud Exchange](expressroute-faqs.md#onep2plink).
 * **Routing**: a seconda di come ci si connette a Microsoft Cloud, è necessario configurare e gestire le sessioni BGP per i [domini di routing](expressroute-circuit-peerings.md)o chiedere al provider di farlo. Alcuni provider di connettività Ethernet o provider Cloud Exchange possono offrire la gestione BGP come servizio a valore aggiunto.
 * **NAT**: Microsoft accetta solo indirizzi IP pubblici tramite peer Microsoft. Se si usano indirizzi IP privati nella rete locale, è necessario convertirli in indirizzi IP pubblici (o chiedere al provider di farlo) [tramite il processo NAT](expressroute-nat.md).
 * **QoS**: Skype for Business include diversi servizi, ad esempio voce, video o testo, che richiedono una gestione QoS differenziata. È necessario seguire i [requisiti QoS](expressroute-qos.md).
@@ -64,10 +66,4 @@ Se si prevede di abilitare CRM Online in ExpressRoute, esaminare i documenti seg
   * [Creare un circuito ExpressRoute](expressroute-howto-circuit-classic.md)
   * [Configurare il routing](expressroute-howto-routing-classic.md)
   * [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

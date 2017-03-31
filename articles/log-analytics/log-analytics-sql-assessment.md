@@ -1,6 +1,6 @@
 ---
-title: Ottimizzare l&quot;ambiente con la soluzione SQL Assessment in Log Analytics | Documentazione Microsoft
-description: "È possibile usare la soluzione SQL Assessment per valutare i rischi e l&quot;integrità degli ambienti server a intervalli regolari."
+title: Ottimizzare l&quot;ambiente SQL Server con Log Analytics di Azure|Documentazione Microsoft
+description: "Con Log Analytics di Azure è possibile usare la soluzione SQL Assessment per valutare i rischi e l&quot;integrità degli ambienti SQL Server a intervalli regolari."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
-ms.openlocfilehash: 0b0c739f1d89b83c43314d8ace794d26abf10054
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: a78c3877ac64b9376104d853d6b66b90fbb476d8
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="optimize-your-environment-with-the-sql-assessment-solution-in-log-analytics"></a>Ottimizzare l'ambiente con la soluzione SQL Assessment in Log Analytics
+# <a name="optimize-your-sql-server-environment-with-the-sql-assessment-solution-in-log-analytics"></a>Ottimizzare l'ambiente SQL Server con la soluzione SQL Assessment in Log Analytics
+
 È possibile usare la soluzione SQL Assessment per valutare i rischi e l'integrità degli ambienti server a intervalli regolari. Questo articolo consente di installare la soluzione in modo che si possano intraprendere azioni correttive per problemi potenziali.
 
 La soluzione offre un elenco con priorità di raccomandazioni specifiche per l'infrastruttura distribuita dei server, classificate in sei aree di interesse che consentono di comprendere rapidamente il rischio e agire in maniera appropriata.
@@ -41,7 +44,8 @@ SQL Assessment è compatibile con le edizioni Standard, Developer ed Enterprise 
 Usare le informazioni seguenti per installare e configurare la soluzione.
 
 * Nei server in cui è installato SQL Server devono essere installati gli agenti.
-* La soluzione SQL Assessment richiede l'installazione di .NET Framework 4 in ogni computer che contiene un agente OMS.
+* La soluzione SQL Assessment richiede l'installazione di una versione di .NET Framework 4 supportata in ogni computer che contiene un agente OMS.
+* Per installare la soluzione, l'utente deve essere amministratore o collaboratore della sottoscrizione di Azure se si usa il portale di Azure. L'utente deve anche essere membro del ruolo di amministratore o collaboratore dell'area di lavoro OMS nel portale di OMS.
 * Quando si usa l'agente Operations Manager con SQL Assessment, è necessario usare un account RunAs di Operations Manager. Per altre informazioni, vedere di seguito [Account RunAs di Operations Manager per OMS](#operations-manager-run-as-accounts-for-oms) .
 
   > [!NOTE]
@@ -52,8 +56,6 @@ Usare le informazioni seguenti per installare e configurare la soluzione.
 
 > [!NOTE]
 > Dopo aver aggiunto la soluzione, il file AdvisorAssessment.exe viene aggiunto al server con agenti. I dati di configurazione vengono letti e quindi inviati al servizio OMS nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud.
->
->
 
 ## <a name="sql-assessment-data-collection-details"></a>Informazioni dettagliate sulla raccolta dei dati di SQL Assessment
 SQL Assessment raccoglie dati WMI, dati del Registro di sistema, dati sulle prestazioni e risultati delle visualizzazioni a gestione dinamica di SQL Server usando gli agenti abilitati.
@@ -221,7 +223,7 @@ Per ignorare delle raccomandazioni è possibile creare un file di testo che OMS 
 
 * Vengono raccolti i tipi di dati seguenti:
   * WMI
-  *  Registro
+  * Registro
   * Contatori delle prestazioni
   * DMV (Dynamic Management View) di SQL.
 
@@ -243,9 +245,4 @@ Per ignorare delle raccomandazioni è possibile creare un file di testo che OMS 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Eseguire ricerche nei log](log-analytics-log-searches.md) per visualizzare raccomandazioni e dati dettagliati di SQL Assessment.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

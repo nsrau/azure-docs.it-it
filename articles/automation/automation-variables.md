@@ -4,7 +4,7 @@ description: Gli asset di tipo variabile sono valori disponibili per tutti i run
 services: automation
 documentationcenter: 
 author: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: b880c15f-46f5-4881-8e98-e034cc5a66ec
 ms.service: automation
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/14/2016
+ms.date: 03/10/2017
 ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: dac32c62f34dea958754fe9e85ed02b2221bd81c
-ms.openlocfilehash: a2f953961cb372677b3204046825b84027653c95
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 4c0c4f8c0d6c7cdc98406559f1cd36c87d33bf47
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -28,9 +29,9 @@ Gli asset di tipo variabile sono valori disponibili per tutti i runbook e le con
 
 - Condivisione di un valore tra più processi dello stesso runbook o configurazione DSC.
 
-- Gestione di un valore dal portale o dalla riga di comando di Windows PowerShell usata da runbook o configurazioni DSC, ad esempio un set di elementi di configurazione comuni come un elenco specifico di nomi di VM, un gruppo di risorse specifico, un nome di dominio AD e così via.  
+- Gestione di un valore dal portale o dalla riga di comando di Windows PowerShell usata da runbook o dalle configurazioni DSC, ad esempio un set di elementi di configurazione comuni come un elenco specifico di nomi di VM, un gruppo di risorse specifico, un nome di dominio AD.  
 
-Le variabili di automazione vengono salvate in maniera permanente in modo da continuare a essere disponibili anche in caso di errore del runbook o della configurazione DSC.  In tal modo, è anche possibile impostare in un runbook un valore che verrà quindi usato da un altro runbook oppure dallo stesso runbook o configurazione DSC alla successiva esecuzione.
+Le variabili di automazione vengono salvate in maniera permanente in modo da continuare a essere disponibili anche in caso di errore del runbook o della configurazione DSC.  In tal modo, è anche possibile impostare in un runbook un valore che verrà quindi usato da un altro runbook oppure dallo stesso runbook o configurazione DSC alla successiva esecuzione.     
 
 Quando si crea una variabile, è possibile specificare che venga archiviata in modalità crittografata.  Se una variabile viene crittografata, viene archiviata in modo sicuro in Automazione di Azure e non è possibile recuperarne il valore con il cmdlet [Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx) incluso nel modulo Azure PowerShell.  L'unico modo in cui è possibile recuperare un valore crittografato è dall'attività **Get-AutomationVariable** in un runbook o configurazione DSC.
 
@@ -51,11 +52,14 @@ Di seguito è riportato un elenco dei tipi di variabile disponibili in Automazio
 * Boolean
 * Null
 
+>[!NOTE]
+>Gli asset variabili sono limitati a 1024 caratteri. 
+
 ## <a name="cmdlets-and-workflow-activities"></a>Cmdlet e attività flusso di lavoro
 
-I cmdlet della tabella seguente vengono usati per creare e gestire variabili di automazione con Windows PowerShell. Sono inclusi nel [modulo Azure PowerShell](../powershell-install-configure.md) , disponibile per l'uso nei runbook di Automazione e nella configurazione DSC.
+I cmdlet della tabella seguente vengono usati per creare e gestire variabili di automazione con Windows PowerShell. Sono inclusi nel [modulo Azure PowerShell](/powershell/azureps-cmdlets-docs), disponibile per l'uso nei runbook di Automazione e nelle configurazioni DSC.
 
-|Cmdlets|Descrizione|
+|Cmdlet|Descrizione|
 |:---|:---|
 |[Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx)|Recupera il valore di una variabile esistente.|
 |[New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx)|Crea una nuova variabile e ne imposta il valore.|
@@ -72,27 +76,19 @@ Le attività flusso di lavoro incluse nella tabella seguente vengono usate per a
 > [!NOTE] 
 > È consigliabile evitare di usare le variabili nel parametro –Name di **Get-AutomationVariable** in un runbook o una configurazione DSC perché ciò può complicare l'individuazione delle dipendenze tra i runbook o la configurazione DSC e le variabili di automazione in fase di progettazione.
 
-## <a name="creating-a-new-automation-variable"></a>Creazione di una nuova variabile di automazione
+## <a name="creating-an-automation-variable"></a>Creazione di una variabile di automazione
 
-### <a name="to-create-a-new-variable-with-the-azure-portal"></a>Per creare una nuova variabile con il portale di Azure
+### <a name="to-create-a-variable-with-the-azure-portal"></a>Per creare una variabile con il Portale di Azure
 
-1. Dall'account di automazione fare clic su **Asset** nella parte superiore della finestra.
-1. Nella parte inferiore della finestra fare clic su **Aggiungi impostazione**.
-1. Fare clic su **Aggiungi variabile**.
-1. Completare la procedura guidata e selezionare la casella di controllo per salvare la nuova variabile.
-
-
-### <a name="to-create-a-new-variable-with-the-azure-portal"></a>Per creare una nuova variabile con il portale di Azure
-
-1. Dall'account di automazione fare clic sulla parte **Asset** per aprire il pannello **Asset**.
-1. Fare clic sulla parte **Variabili** per aprire il pannello **Variabili**.
-1. Fare clic su **Aggiungi variabile** nella parte superiore del pannello.
+1. Dall'account di automazione fare clic sul riquadro **Asset** per aprire il pannello **Asset**.
+1. Fare clic sul riquadro **Variabili** per aprire il pannello **Variabili**.
+1. Selezionare **Aggiungi variabile** nella parte superiore del pannello.
 1. Completare il modulo e fare clic su **Crea** per salvare la nuova variabile.
 
 
-### <a name="to-create-a-new-variable-with-windows-powershell"></a>Per creare una nuova variabile con Windows PowerShell
+### <a name="to-create-a-variable-with-windows-powershell"></a>Per creare una variabile con Windows PowerShell
 
-Il cmdlet [New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx) crea una nuova variabile e ne imposta il valore iniziale. È possibile recuperare il valore usando [Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx). Se il valore è di tipo semplice, verrà restituito lo stesso tipo. Se è di tipo complesso, verrà restituito un **PSCustomObject** .
+Il cmdlet [New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx) crea una variabile e ne imposta il valore iniziale. È possibile recuperare il valore usando [Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx). Se il valore è di tipo semplice, verrà restituito lo stesso tipo. Se è di tipo complesso, verrà restituito un **PSCustomObject** .
 
 I comandi di esempio seguenti mostrano come creare una variabile di tipo stringa e restituirne il valore.
 
@@ -113,10 +109,9 @@ I comandi di esempio seguenti mostrano come creare una variabile di tipo comples
     $vmIpAddress = $vmValue.IpAddress
 
 
-
 ## <a name="using-a-variable-in-a-runbook-or-dsc-configuration"></a>Uso di una variabile in un Runbook o in una configurazione DSC
 
-Usare l'attività **Set-AutomationVariable** per impostare il valore di una variabile di automazione in un runbook o una configurazione DSC e **Get-AutomationVariable** per recuperarlo.  Non è consigliabile usare i cmdlet **Set-AzureAutomationVariable** o **Get-AzureAutomationVariable** in un runbook o una configurazione DSC perché sono meno efficienti rispetto alle attività flusso di lavoro.  Non è inoltre possibile recuperare il valore delle variabili sicure con **Get-AzureAutomationVariable**.  L'unico modo per creare una nuova variabile dall'interno di un runbook o una configurazione DSC consiste nell'usare il cmdlet [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx).
+Usare l'attività **Set-AutomationVariable** per impostare il valore di una variabile di automazione in un runbook o una configurazione DSC e **Get-AutomationVariable** per recuperarlo.  Non è consigliabile usare i cmdlet **Set-AzureAutomationVariable** o **Get-AzureAutomationVariable** in un runbook o una configurazione DSC perché sono meno efficienti rispetto alle attività flusso di lavoro.  Non è inoltre possibile recuperare il valore delle variabili sicure con **Get-AzureAutomationVariable**.  L'unico modo per creare una variabile dall'interno di un runbook o di una configurazione DSC consiste nell'usare il cmdlet [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx).
 
 
 ### <a name="textual-runbook-samples"></a>Esempi di runbook testuali
@@ -169,6 +164,32 @@ Nel codice seguente la raccolta viene recuperata dalla variabile e usata per avv
        }
     }
 
+#### <a name="setting-and-retrieving-a-secure-string"></a>Impostazione e recupero di una stringa sicura
+
+Se è necessario trasferire una stringa sicura o una credenziale, è consigliabile creare prima l'asset come credenziale o variabile sicura. 
+
+    $securecredential = get-credential
+
+    New-AzureRmAutomationCredential -ResourceGroupName contoso `
+    -AutomationAccountName contosoaccount -Name ContosoCredentialAsset -Value $securecredential
+
+È quindi possibile trasferire il nome dell'asset come parametro al runbook e usare le attività incorporate da recuperare e usare nello script come illustrato nell'esempio di codice seguente:  
+
+    ExampleScript
+    Param
+
+      (
+         $ContosoCredentialAssetName
+      )
+
+    $ContosoCred = Get-AutomationPSCredential -Name $ContosoCredentialAssetName
+
+Il seguente esempio mostra come chiamare il runbook:  
+
+    $RunbookParams = @{"ContosoCredentialAssetName"="ContosoCredentialAsset"}
+
+    Start-AzureRMAutomationRunbook -ResourceGroupName contoso `
+    -AutomationAccountName contosoaccount -Name ExampleScript -Parameters $RunbookParams
 
 ### <a name="graphical-runbook-samples"></a>Esempi di runbook grafici
 
@@ -185,10 +206,5 @@ La figura seguente illustra attività di esempio per aggiornare una variabile co
 
 * Per altre informazioni su come collegare attività nella creazione grafica, vedere [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md#links-and-workflow)
 * Per iniziare a usare runbook grafici, vedere [Il primo runbook grafico](automation-first-runbook-graphical.md) 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

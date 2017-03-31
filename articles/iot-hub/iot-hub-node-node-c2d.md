@@ -1,5 +1,5 @@
 ---
-title: Messaggi da cloud a dispositivo con l&quot;hub IoT di Azure (Node) | Documentazione Microsoft
+title: Messaggi da cloud a dispositivo con l&quot;hub IoT di Azure (Node) | Microsoft Docs
 description: Come inviare messaggi da cloud a dispositivo a un dispositivo da un hub IoT di Azure tramite Azure IoT SDK per Node. js. Modificare un&quot;app per dispositivo simulato per ricevere messaggi da cloud a dispositivo e modificare un&quot;app back-end per inviare i messaggi da cloud a dispositivo.
 services: iot-hub
 documentationcenter: nodejs
@@ -12,11 +12,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2016
+ms.date: 03/16/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 05ccc7f419a420cb80f9fd71d5c59912468eb8f8
+ms.sourcegitcommit: 2e4220bedcb0091342fd9386669d523d4da04d1c
+ms.openlocfilehash: 312e9081c8597f59c32e99d594f2e729410986d8
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -53,7 +54,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 In questa sezione si modificherà l'app per il dispositivo simulato creata in [Introduzione all'hub IoT di Azure] per ricevere i messaggi da cloud a dispositivo dall'hub IoT.
 
 1. Con un editor di testo aprire il file SimulatedDevice.js.
-2. Modificare la funzione **connectCallback** per gestire i messaggi inviati dall'hub IoT. In questo esempio il dispositivo richiama sempre la funzione **complete** per notificare all'hub IoT Hub che ha elaborato il messaggio. La nuova versione della funzione **connectCallback** è simile alla seguente:
+2. Modificare la funzione **connectCallback** per gestire i messaggi inviati dall'hub IoT. In questo esempio il dispositivo richiama sempre la funzione **complete** per notificare all'hub IoT Hub che ha elaborato il messaggio. La nuova versione della funzione **connectCallback** è simile al frammento seguente:
    
     ```
     var connectCallback = function (err) {
@@ -95,7 +96,7 @@ In questa sezione si crea un'app console Node.js che invia messaggi da cloud a d
     ```
     npm install azure-iothub --save
     ```
-3. Con un editor di testo creare un nuovo file **SendCloudToDeviceMessage.js** nella cartella **sendcloudtodevicemessage**.
+3. Con un editor di testo, creare un file **SendCloudToDeviceMessage.js** nella cartella **sendcloudtodevicemessage**.
 4. Aggiungere le istruzioni `require` seguenti all'inizio del file **SendCloudToDeviceMessage.js** :
    
     ```
@@ -167,7 +168,7 @@ A questo punto è possibile eseguire le applicazioni.
     node SendCloudToDeviceMessage.js 
     ```
    
-    ![Eseguire l'app per inviare il comando c2d][img-send-command]
+    ![Eseguire l'app per inviare il comando da cloud a dispositivo][img-send-command]
    
    > [!NOTE]
    > Per semplicità, in questa esercitazione non si implementa alcun criterio di nuovi tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN [Transient Fault Handling](Gestione degli errori temporanei).
@@ -192,13 +193,8 @@ Per altre informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [
 [Guida per sviluppatori dell'hub IoT]: iot-hub-devguide.md
 [Centro per sviluppatori Azure IoT]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [portale di Azure]: https://portal.azure.com
 [Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

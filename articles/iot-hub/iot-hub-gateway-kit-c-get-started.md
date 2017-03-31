@@ -1,5 +1,5 @@
 ---
-title: Introduzione allo starter kit del gateway IoT di Azure | Microsoft Docs
+title: 'Dispositivo SensorTag e gateway Azure IoT: introduzione | Documentazione Microsoft'
 description: Informazioni introduttive sullo starter kit del gateway IoT, su come creare l&quot;hub IoT di Azure e connettere il dispositivo SensorTag e il gateway all&quot;hub IoT
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ab8f4f7bbb823cc56783a0cb39bb22157c74087f
-ms.openlocfilehash: fb45ef6239827ea2860b707b2bb5016ea680ad17
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: dd14d137c23fbccb3616b60db8a63e668ae7ea80
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -107,8 +108,3 @@ In caso di problemi durante le lezioni, è possibile cercare soluzioni nell'arti
 
 ## <a name="explore-more"></a>Scopri di più
 Per ulteriori informazioni, visitare la pagina relativa a [Intel IoT Gateway Kit in Developer Zone](http://software.intel.com/iot/microsoft-azure).
-
-
-<!--HONumber=Jan17_HO1-->
-
-

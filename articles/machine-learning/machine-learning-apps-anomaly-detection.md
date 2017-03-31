@@ -1,28 +1,33 @@
 ---
-title: 'App Machine Learning: Servizio di rilevamento delle anomalie | Documentazione Microsoft'
-description: "API di rilevamento delle anomalie è un esempio compilato con Microsoft Azure Machine Learning che consente di rilevare anomalie nei dati della serie temporale con i valori numerici disposti in modo uniforme nel tempo."
+title: Servizio di rilevamento anomalie di Azure Machine Learning (deprecato) | Documentazione Microsoft
+description: "Il servizio di rilevamento anomalie (deprecato) è un esempio compilato con Microsoft Azure Machine Learning che rileva le anomalie nei dati delle serie temporali con valori numerici distanziati in modo uniforme nel tempo."
 services: machine-learning
 documentationcenter: 
 author: alokkirpal
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 52fafe1f-e93d-47df-a8ac-9a9a53b60824
 ms.service: machine-learning
 ms.devlang: na
-ms.topic: article
+ms.topic: deprecated
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 10/11/2016
+ms.date: 01/18/2017
 ms.author: alok
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cbcd469f39b42d741d73f9d96daf17d011b7ebc7
+ms.sourcegitcommit: eff129aceac18342a79f06376023301afc676763
+ms.openlocfilehash: 847c24f8baf5f5db93474b469eb402d3ab7d4880
 
 
 ---
-# <a name="machine-learning-anomaly-detection-service"></a>Servizio di rilevamento delle anomalie Machine Learning
+# <a name="machine-learning-anomaly-detection-service-deprecated"></a>Servizio di rilevamento anomalie di Machine Learning (deprecato)
+> [!NOTE]
+> È ora possibile distribuire questa API nella sottoscrizione di Azure con la nuova opzione di **iscrizione** disponibile in [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2). Per altre informazioni, vedere [Machine Learning Anomaly Detection API](machine-learning-apps-anomaly-detection-api.md) (API di rilevamento anomalie di Machine Learning).
+> 
+> Il metodo di accesso all'API tramite Azure Datamarket descritto in questo articolo è stato deprecato.
+
 ## <a name="overview"></a>Panoramica
-[API di rilevamento delle anomalie](https://datamarket.azure.com/dataset/aml_labs/anomalydetection) è un esempio compilato con Azure Machine Learning che consente di rilevare anomalie nei dati della serie temporale con i valori numerici disposti in modo uniforme nel tempo. 
+L'[API di rilevamento anomalie (deprecata)](https://datamarket.azure.com/dataset/aml_labs/anomalydetection) è un esempio compilato con Azure Machine Learning che rileva le anomalie nei dati delle serie temporali con valori numerici distanziati in modo uniforme nel tempo. 
 
 Questa API può rilevare i seguenti tipi di modelli di anomalie nei dati delle serie temporali:
 
@@ -170,13 +175,13 @@ Informazioni più dettagliate su questi parametri di input sono elencate nella t
 | preprocess.aggregationFunc |Funzione usata per aggregare i dati nel parametro AggregationInterval specificato. |mean |enumerato |mean, sum, length |N/D |
 | preprocess.replaceMissing |Valori usati per l'attribuzione dei dati mancanti. |lkv (ultimo valore noto) |enumerato |zero, lkv, mean |N/D |
 | detectors.historyWindow |Cronologia, in numero di punti dati, usata per il calcolo del punteggio delle anomalie |500 |integer |10-2000 |In base alle serie temporali. |
-| upleveldetector.sensitivity |Sensibilità per il rilevamento delle modifiche di livello verso l'alto. |3.25 |double |None |Da 3,25 a 5. Minori sono i valori, maggiore è la sensibilità. |
-| bileveldetector.sensitivity |Sensibilità per il rilevamento delle modifiche di livello bidirezionali. |3.25 |double |None |Da 3,25 a 5. Minori sono i valori, maggiore è la sensibilità. |
-| trenddetector.sensitivity |Sensibilità per il rilevamento di tendenza positiva. |3.25 |double |None |Da 3,25 a 5. Minori sono i valori, maggiore è la sensibilità. |
-| tspikedetector.sensitivity |Sensibilità per il rilevamento di picchi TSpike. |3 |integer |1-10 |Da 3 a 5. Minori sono i valori, maggiore è la sensibilità. |
-| zspikedetector.sensitivity |Sensibilità per il rilevamento di picchi ZSpike |3 |integer |1-10 |Da 3 a 5. Minori sono i valori, maggiore è la sensibilità. |
+| upleveldetector.sensitivity |Sensibilità per il rilevamento delle modifiche di livello verso l'alto. |3.25 |double |None |Da&3;,25 a&5;. Minori sono i valori, maggiore è la sensibilità. |
+| bileveldetector.sensitivity |Sensibilità per il rilevamento delle modifiche di livello bidirezionali. |3.25 |double |None |Da&3;,25 a&5;. Minori sono i valori, maggiore è la sensibilità. |
+| trenddetector.sensitivity |Sensibilità per il rilevamento di tendenza positiva. |3.25 |double |None |Da&3;,25 a&5;. Minori sono i valori, maggiore è la sensibilità. |
+| tspikedetector.sensitivity |Sensibilità per il rilevamento di picchi TSpike. |3 |integer |1-10 |Da&3; a&5;. Minori sono i valori, maggiore è la sensibilità. |
+| zspikedetector.sensitivity |Sensibilità per il rilevamento di picchi ZSpike |3 |integer |1-10 |Da&3; a&5;. Minori sono i valori, maggiore è la sensibilità. |
 | seasonality.enable |Se è necessario eseguire analisi di stagionalità. |true |boolean |true, false |In base alle serie temporali. |
-| seasonality.numSeasonality |Numero massimo di cicli periodici da rilevare. |1 |integer |1, 2 |Da 1 a 2 |
+| seasonality.numSeasonality |Numero massimo di cicli periodici da rilevare. |1 |integer |1, 2 |Da&1; a&2; |
 | seasonality.transform |Se i componenti stagionali (e) di tendenza devono essere rimossi prima di applicare il rilevamento delle anomalie. |deseason |enumerato |none, deseason, deseasontrend |N/D |
 | postprocess.tailRows |Numero di punti dati più recenti da mantenere nei risultati di output. |0 |integer |0 (mantiene tutti i punti dati) o specificare il numero di punti da mantenere nei risultati. |N/D |
 
@@ -191,11 +196,11 @@ L'API esegue tutte le funzionalità di rilevamento sui dati delle serie temporal
 | Tspike |Indicatore binario per indicare se viene rilevato un picco dalla funzionalità di rilevamento di TSpike. |
 | Zspike |Indicatore binario per indicare se viene rilevato un picco dalla funzionalità di rilevamento di ZSpike. |
 | Pscore |Numero mobile che rappresenta il punteggio dell'anomalia nella modifica di livello verso l'alto. |
-| Palert |Valore 1/0 che indica la presenza di un'anomalia nella modifica di livello verso l'alto, in base alla sensibilità di input. |
+| Palert |Valore&1;/0 che indica la presenza di un'anomalia nella modifica di livello verso l'alto, in base alla sensibilità di input. |
 | RPScore |Numero mobile che rappresenta il punteggio dell'anomalia nella modifica di livello bidirezionale. |
-| RPAlert |Valore 1/0 che indica la presenza di un'anomalia nella modifica di livello bidirezionale, in base alla sensibilità di input. |
+| RPAlert |Valore&1;/0 che indica la presenza di un'anomalia nella modifica di livello bidirezionale, in base alla sensibilità di input. |
 | TScore |Numero mobile che rappresenta il punteggio dell'anomalia nella tendenza positiva. |
-| TAlert |Valore 1/0 che indica la presenza di un'anomalia nella tendenza positiva, in base alla sensibilità di input. |
+| TAlert |Valore&1;/0 che indica la presenza di un'anomalia nella tendenza positiva, in base alla sensibilità di input. |
 
 Questo output può essere analizzato con un [semplice parser](https://adresultparser.codeplex.com/) , che include codice di esempio che illustra come connettersi all'API e analizzare l'output. Le anomalie rilevate possono essere visualizzate in un dashboard e/o passate a utenti esperti per l'esecuzione di azioni correttive o integrate in sistemi di creazione di ticket.
 
@@ -208,6 +213,6 @@ Questo output può essere analizzato con un [semplice parser](https://adresultpa
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

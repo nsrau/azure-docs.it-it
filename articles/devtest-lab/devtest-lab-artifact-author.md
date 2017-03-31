@@ -1,5 +1,5 @@
 ---
-title: Creare elementi personalizzati per le macchine virtuali di lab di sviluppo/test | Documentazione Microsoft
+title: Creare elementi personalizzati per le macchine virtuali di lab di sviluppo/test | Microsoft Docs
 description: Informazioni su come creare i propri elementi per l&quot;uso nei Lab di sviluppo/test
 services: devtest-lab,virtual-machines
 documentationcenter: na
@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/25/2016
+ms.date: 03/16/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2615e5c063a54b8cebc208c155f99460fcfa7e05
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: e86af029422340bdfa38ba233f0ed61f6f1d8ca2
+ms.lasthandoff: 03/17/2017
 
 
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-vm"></a>Creare elementi personalizzati per le macchine virtuali di lab di sviluppo e test
-> [AZURE.VIDEO how-to-author-custom-artifacts] 
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/how-to-author-custom-artifacts/player]
 > 
 > 
 
@@ -75,7 +76,7 @@ I parametri vengono definiti con la struttura seguente:
 | Nome dell'elemento | Obbligatorio? | Descrizione |
 | --- | --- | --- |
 | type |Sì |Tipo di valore del parametro. Vedere di seguito l'elenco dei tipi consentiti: |
-| displayName    Sì |Nome del parametro che viene visualizzato a un utente nel lab. | |
+| displayName |Sì |Nome del parametro che viene visualizzato a un utente nel lab. | |
 | Descrizione |Sì |Descrizione del parametro che viene visualizzato nel lab. |
 
 I tipi consentiti sono:
@@ -129,10 +130,5 @@ Creare l'elemento personalizzato eseguendo i passaggi seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [Aggiungere un archivio elementi Git a un lab](devtest-lab-add-artifact-repo.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

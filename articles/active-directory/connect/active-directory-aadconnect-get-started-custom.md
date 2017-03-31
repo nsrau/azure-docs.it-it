@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/07/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: c0c33506d134db9fc49bd873e9c95063dd2ab845
-ms.openlocfilehash: d5dcdc94490ff46e39ff5894f6d70d5dcb5dd527
+ms.sourcegitcommit: 6c26fdd11031ab482d12611ca338df5c90a14193
+ms.openlocfilehash: a482e20bdbf60889f93f4532ed042b41ec51b81e
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -95,7 +96,10 @@ Verificare ogni dominio contrassegnato come **Non aggiunto** e **Non verificato*
 
 ### <a name="domain-and-ou-filtering"></a>Filtro unità organizzativa e dominio
 Per impostazione predefinita, vengono sincronizzati tutti i domini e le unità organizzative. Per escludere alcuni domini o unità organizzative dalla sincronizzazione con Azure AD, è possibile deselezionarli.  
-![Filtro unità organizzativa e dominio](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png) Questa pagina della procedura guidata configura i filtri basati sul dominio e sull'unità organizzativa. Per altre informazioni, vedere [Domain-based filtering](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) (Filtro basato sul dominio) e [Organizational-unit–based filtering](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) (Filtro basato sull'unità organizzativa). Se si usa il filtro basato sull'unità organizzativa, le nuove unità organizzative aggiunte successivamente verranno sincronizzate per impostazione predefinita. Per far sì che le nuove unità organizzative non vengano sincronizzate, è possibile configurare questo comportamento al termine della procedura guidata con il [filtro basato sull'unità organizzativa](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering).
+![Filtro DomainOU](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png)  
+Questa pagina della procedura guidata configura i filtri basati sul dominio e su unità organizzativa. Se si prevede di apportare modifiche, vedere gli articoli sui [filtri basati su dominio](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) e [filtri basati sull'unità organizzativa](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) prima di apportare queste modifiche. Alcune unità organizzative sono essenziali per la funzionalità e non devono essere deselezionate.
+
+Se si usa il filtro basato sull'unità organizzativa, le nuove unità organizzative aggiunte successivamente verranno sincronizzate per impostazione predefinita. Per far sì che le nuove unità organizzative non vengano sincronizzate, è possibile configurare questo comportamento al termine della procedura guidata con il [filtro basato sull'unità organizzativa](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering).
 
 Se si prevede di usare il [filtro basato sul gruppo](#sync-filtering-based-on-groups), assicurarsi che l'unità organizzativa con il gruppo venga inclusa e non filtrata con il filtro basato sull'unità organizzativa. Il filtro basato sull'unità organizzativa viene valutato prima del filtro basato sul gruppo.
 
@@ -174,8 +178,8 @@ Per altre informazioni, vedere [Estensioni della directory](active-directory-aad
 ### <a name="enabling-single-sign-on-sso"></a>Abilitazione di Single Sign-On (SSO)
 La configurazione di Single Sign-On per l'uso con la sincronizzazione delle password e l'autenticazione pass-through è un processo semplice che è necessario eseguire una sola volta per ogni foresta sincronizzata con Azure AD. La configurazione comporta due passaggi, come indicato di seguito:
 
-1.  Creare l'account computer necessario in Active Directory locale.
-2.  Configurare l'area Intranet dei computer client per il supporto Single Sign-On.
+1.    Creare l'account computer necessario in Active Directory locale.
+2.    Configurare l'area Intranet dei computer client per il supporto Single Sign-On.
 
 #### <a name="create-the-computer-account-in-active-directory"></a>Creare l'account computer in Active Directory
 Per ogni foresta aggiunta in Azure AD Connect è necessario specificare le credenziali di amministratore del dominio in modo che l'account computer possa essere creato in ogni foresta. Le credenziali vengono usate solo per creare l'account e non vengono archiviate o usate per altre operazioni. È sufficiente aggiungere le credenziali nella pagina **Abilita Single Sign-On** della procedura guidata di Azure AD Connect come illustrato di seguito:
@@ -189,20 +193,20 @@ Per ogni foresta aggiunta in Azure AD Connect è necessario specificare le crede
 Per assicurarsi che il client acceda automaticamente all'area Intranet, è necessario verificare che due URL facciano parte dell'area Intranet. In questo modo, il computer aggiunto al dominio invierà automaticamente un ticket Kerberos ad Azure AD quando è connesso alla rete aziendale.
 In un computer con gli strumenti di gestione dei criteri di gruppo.
 
-1.  Aprire gli strumenti di gestione dei criteri di gruppo
-2.  Modificare i criteri di gruppo che verranno applicati a tutti gli utenti. Ad esempio, il criterio di dominio predefinito.
-3.  Passare a **Configurazione utente\Modelli amministrativi\Componenti Windows\Internet Explorer\Pannello di controllo Internet\Scheda Sicurezza** e selezionare **Elenco di assegnazione siti ad aree**, come indicato nell'immagine seguente.
-4.  Abilitare i criteri e immettere i due elementi seguenti nella finestra di dialogo.
+1.    Aprire gli strumenti di gestione dei criteri di gruppo
+2.    Modificare i criteri di gruppo che verranno applicati a tutti gli utenti. Ad esempio, il criterio di dominio predefinito.
+3.    Passare a **Configurazione utente\Modelli amministrativi\Componenti Windows\Internet Explorer\Pannello di controllo Internet\Scheda Sicurezza** e selezionare **Elenco di assegnazione siti ad aree**, come indicato nell'immagine seguente.
+4.    Abilitare i criteri e immettere i due elementi seguenti nella finestra di dialogo.
 
-        Value: `https://autologon.microsoftazuread-sso.com`  
-        Data: 1  
-        Value: `https://aadg.windows.net.nsatc.net`  
-        Data: 1
+        Valore: `https://autologon.microsoftazuread-sso.com`  
+        Data 1  
+        Valore: `https://aadg.windows.net.nsatc.net`  
+        Data 1
 
-5.  Dovrebbe essere simile a quello riportato di seguito:  
+5.    Dovrebbe essere simile a quello riportato di seguito:  
 ![Aree Intranet](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
 
-6.  Fare clic su **OK** due volte.
+6.    Fare clic su **OK** due volte.
 
 ## <a name="configuring-federation-with-ad-fs"></a>Configurazione della federazione con ADFS
 Configurare ADFS con Azure AD Connect è semplice e richiede l'esecuzione di pochi passaggi. Prima della configurazione, sono necessari gli elementi seguenti.
@@ -313,9 +317,4 @@ Altre informazioni su queste funzionalità che sono state abilitate con l'instal
 Altre informazioni su questi argomenti comuni: [utilità di pianificazione e come attivare la sincronizzazione](active-directory-aadconnectsync-feature-scheduler.md).
 
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

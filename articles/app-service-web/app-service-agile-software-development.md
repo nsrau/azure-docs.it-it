@@ -4,7 +4,7 @@ description: "Informazioni su come creare applicazioni complesse con scalabilit�
 services: app-service
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: c0fdb676-36a6-4738-925f-65b4835d187f
 ms.service: app-service
@@ -15,13 +15,14 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: c214e37fb4211e8a2686a2beb18cf84ee77d5783
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 5ea7af4744876f1085e14de800d599e001c3f3dd
+ms.lasthandoff: 03/27/2017
 
 
 ---
 # <a name="agile-software-development-with-azure-app-service"></a>Agile Software Development con il servizio app di Azure
-In questa esercitazione viene illustrato come creare applicazioni complesse con scalabilità elevata con il [servizio app di Azure](/services/app-service/) in modo da supportare [Agile Software Development](https://en.wikipedia.org/wiki/Agile_software_development). L'esercitazione presuppone che si sappia già come [distribuire applicazioni complesse in modo prevedibile in Azure](app-service-deploy-complex-application-predictably.md).
+In questa esercitazione viene illustrato come creare applicazioni complesse con scalabilità elevata con il [servizio app di Azure](/azure/app-service/) in modo da supportare [Agile Software Development](https://en.wikipedia.org/wiki/Agile_software_development). L'esercitazione presuppone che si sappia già come [distribuire applicazioni complesse in modo prevedibile in Azure](app-service-deploy-complex-application-predictably.md).
 
 Le limitazioni nei processi tecnici spesso possono rappresentare un ostacolo alla corretta implementazione di metodologie Agile. Il servizio app di Azure, grazie a funzionalità come la [pubblicazione continua](app-service-continuous-deployment.md), gli [ambienti di staging](web-sites-staged-publishing.md) (slot) e il [monitoraggio](web-sites-monitor.md), se attentamente associato all'orchestrazione e alla gestione della distribuzione in [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), può essere parte di un'ottima soluzione per gli sviluppatori che adottano Agile Software Development.
 
@@ -269,13 +270,8 @@ Agile Software Development è uno strumento indispensabile per molte aziende che
 * [Diramazione Git - Diramazione e unione di base](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 * [Blog di David Ebbo](http://blog.davidebbo.com/)
 * [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-* [Strumenti della riga di comando multipiattaforma di Azure](../xplat-cli-install.md)
+* [Strumenti della riga di comando multipiattaforma di Azure](../cli-install-nodejs.md)
 * [Creare o modificare utenti in Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 * [Wiki del progetto Kudu](https://github.com/projectkudu/kudu/wiki)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

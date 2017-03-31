@@ -1,5 +1,5 @@
 ---
-title: Eseguire un&quot;applicazione di esempio per inviare messaggi da dispositivo a cloud | Documentazione Microsoft
+title: 'Connettere Raspberry Pi (C) ad Azure IoT: lezione 3: Eseguire l&quot;esempio | Documentazione Microsoft'
 description: Distribuire ed eseguire un&quot;applicazione di esempio nel dispositivo Raspberry Pi 3 che invia messaggi all&quot;hub IoT e fa lampeggiare il LED.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 155e5d6280d86b06b1718fc3032c2c224539183d
-ms.openlocfilehash: 946e80b450fdda244a48e2c4d2aa87a7822be456
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 985ba895bfcad1611bebe80a6c2fc8ffed780da5
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -108,10 +109,5 @@ Il LED connesso al dispositivo Pi dovrebbe lampeggiare ogni due secondi. Ogni vo
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Leggere i messaggi con salvataggio permanente in Archiviazione di Azure](iot-hub-raspberry-pi-kit-c-lesson3-read-table-storage.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

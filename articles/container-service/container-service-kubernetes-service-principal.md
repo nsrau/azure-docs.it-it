@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
+ms.date: 02/21/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 24e12e4606a5ec4fabf7046fe9847123033bb70a
-ms.openlocfilehash: 073a9e66ac68643b27ecdd44a4ecac3ad79ec218
+ms.sourcegitcommit: 71c6c5ffacf49b907e3e9f488789f31928b25823
+ms.openlocfilehash: e01a9ef7d223e7a5a06475cf419b73959baa803f
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -27,21 +28,19 @@ ms.openlocfilehash: 073a9e66ac68643b27ecdd44a4ecac3ad79ec218
 
 
 
-Kubernetes richiede un'[entità servizio di Azure Active Directory](../active-directory/active-directory-application-objects.md) nel servizio contenitore di Azure come account del servizio per l'interazione con le API di Azure. L'entità servizio è necessaria per la gestione dinamica di risorse quali le [route definite dall'utente](../virtual-network/virtual-networks-udr-overview.md) e [Azure Load Balancer](../load-balancer/load-balancer-overview.md) di livello 4.
+Kubernetes richiede un'[entità servizio di Azure Active Directory](../active-directory/active-directory-application-objects.md) nel servizio contenitore di Azure come account del servizio per l'interazione con le API di Azure. L'entità servizio è necessaria per la gestione dinamica di risorse quali le route definite dall'utente e Azure Load Balancer di livello 4.
 
-Questo articolo illustra le diverse opzioni disponibili per specificare un'entità servizio per il cluster Kubernetes. Se, ad esempio, l'[interfaccia della riga di comando di Azure 2.0 (anteprima)](https://docs.microsoft.com/cli/azure/install-az-cli2) è già stata installata e configurata, è possibile eseguire il comando [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) per creare il cluster Kubernetes e l'entità servizio contemporaneamente.
+Questo articolo illustra le diverse opzioni disponibili per specificare un'entità servizio per il cluster Kubernetes. Se, ad esempio, l'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) è già stata installata e configurata, è possibile eseguire il comando [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) per creare il cluster Kubernetes e l'entità servizio contemporaneamente.
 
-> [!NOTE]
-> Il supporto per Kubernetes nel servizio contenitore di Azure è attualmente disponibile in anteprima.
 
 
 ## <a name="requirements-for-the-service-principal"></a>Requisiti per l'entità servizio
 
 Di seguito sono disponibili i requisiti per l'entità servizio di Azure Active Directory in un cluster Kubernetes nel servizio contenitore di Azure. 
 
-* **Ambito**: la sottoscrizione di Azure in cui è distribuito il cluster.
+* **Ambito**: il gruppo di risorse in cui è distribuito il cluster
 
-* **Ruolo** - **Collaboratore**
+* **Ruolo**: **Collaboratore**.
 
 * **Segreto client**: deve essere una password. Non è attualmente possibile usare un'entità servizio configurata per l'autenticazione del certificato.
 
@@ -54,32 +53,38 @@ Di seguito sono disponibili i requisiti per l'entità servizio di Azure Active D
 
 ### <a name="option-1-pass-the-service-principal-client-id-and-client-secret"></a>Opzione 1: passare l'ID client e il segreto client dell'entità servizio
 
-Specificare l'**ID client**, spesso definito `appId` ovvero ID applicazione, e il **segreto client** (`password`) di un'entità servizio esistente come parametri durante la creazione del cluster Kubernetes. Se si usa un'entità servizio esistente, assicurarsi che rispetti i requisiti specificati nella sezione precedente. Se è necessario creare un'entità servizio, vedere [Creare un'entità servizio](#create-a-service-principal-in-azure-active-directory) più avanti in questo articolo.
+Specificare l'**ID client**, anche chiamato `appId` ovvero ID applicazione, e il **segreto client** (`password`) di un'entità servizio esistente come parametri durante la creazione del cluster Kubernetes. Se si usa un'entità servizio esistente, assicurarsi che rispetti i requisiti specificati nella sezione precedente. Se è necessario creare un'entità servizio, vedere [Creare un'entità servizio](#create-a-service-principal-in-azure-active-directory) più avanti in questo articolo.
 
-È possibile specificare questi parametri durante la [distribuzione del cluster Kubernetes](./container-service-deployment.md) usando il portale, l'interfaccia della riga di comando di Azure o Azure PowerShell.
+È possibile specificare questi parametri durante la [distribuzione del cluster Kubernetes](./container-service-deployment.md) usando il portale, la versione 2.0 dell'interfaccia della riga di comando di Azure, Azure PowerShell o altri metodi.
 
 >[!TIP] 
 >Quando si specifica l'**ID client**, assicurarsi di usare il valore `appId`, non `ObjectId`, dell'entità servizio.
 >
 
-L'esempio seguente illustra un modo per passare i parametri con l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md) in [modalità Resource Manager](../xplat-cli-connect.md). Questo esempio usa il [modello di avvio rapido di Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
+L'esempio seguente illustra un modo per passare i parametri con l'interfaccia della riga di comando di Azure 2.0. Vedere le [istruzioni di installazione e configurazione](/cli/azure/install-az-cli2). Questo esempio usa il [modello di avvio rapido di Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
 
-1. [Scaricare](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) il file di parametri per il modello azuredeploy.parameters.json da GitHub.
+1. [Scaricare](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) il file di parametri del modello `azuredeploy.parameters.json` da GitHub.
 
 2. Per specificare l'entità servizio, immettere i valori per `servicePrincipalClientId` e `servicePrincipalClientSecret` nel file. È anche necessario specificare valori personalizzati per `dnsNamePrefix` e `sshRSAPublicKey`, che indica la chiave pubblica SSH per l'accesso al cluster. Salvare il file.
 
     ![Passare i parametri dell'entità servizio](./media/container-service-kubernetes-service-principal/service-principal-params.png)
 
-3. Eseguire il comando seguente, usando il parametro `-e` per impostare il percorso per il file azuredeploy.parameters.json. Questo comando distribuisce il cluster in un gruppo di risorse esistente denominato `myResourceGroup`.
+3. Eseguire il comando seguente, usando `--parameters` per impostare il percorso per il file azuredeploy.parameters.json. Questo comando distribuisce il cluster in un gruppo di risorse creato dall'utente e denominato `myResourceGroup` nell'area Stati Uniti occidentali.
 
-    ```CLI
-    azure group deployment create -n myClusterName -g myResourceGroup --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.json" -e azuredeploy.parameters.json
+    ```azurecli
+    az login
+
+    az account set --subscription "mySubscriptionID"
+
+    az group create --name "myResourceGroup" --location "westus" 
+    
+    az group deployment create -g "myResourceGroup" --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.json" --parameters @azuredeploy.parameters.json
     ```
 
 
-### <a name="option-2-generate-the-service-principal-when-creating-the-cluster-with-the-azure-cli-20-preview"></a>Opzione 2: generare l'entità servizio durante la creazione del cluster con l'interfaccia della riga di comando di Azure 2.0 (anteprima)
+### <a name="option-2-generate-the-service-principal-when-creating-the-cluster-with-the-azure-cli-20"></a>Opzione 2: generare l'entità servizio durante la creazione del cluster con l'interfaccia della riga di comando di Azure 2.0
 
-Se l'[interfaccia della riga di comando Azure 2.0 (anteprima)](https://docs.microsoft.com/cli/azure/install-az-cli2) è già stata installata e configurata, è possibile eseguire il comando [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) per [creare il cluster](./container-service-create-acs-cluster-cli.md).
+Se l'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) è già stata installata e configurata, è possibile eseguire il comando [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) per [creare il cluster](./container-service-create-acs-cluster-cli.md).
 
 Analogamente alle altre opzioni di creazione del cluster Kubernetes, è possibile specificare i parametri per un'entità servizio esistente quando si esegue `az acs create`. Quando tuttavia si omettono questi parametri, il servizio contenitore di Azure crea automaticamente un'entità servizio. Questa operazione viene eseguita in modo trasparente durante la distribuzione. 
 
@@ -93,16 +98,16 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 Se si vuole creare un'entità servizio in Azure Active Directory per l'uso nel cluster Kubernetes, in Azure sono disponibili diversi metodi. 
 
-I comandi di esempio seguenti illustrano come eseguire questa operazione con l'[interfaccia della riga di comando Azure 2.0 (anteprima)](https://docs.microsoft.com/cli/azure/install-az-cli2). In alternativa, è possibile creare un'entità servizio usando l'[interfaccia della riga di comando di Azure](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md), [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md) o il [portale classico](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+I comandi di esempio seguenti illustrano come eseguire questa operazione con l'[interfaccia della riga di comando Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2). In alternativa, è possibile creare un'entità servizio usando [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md), il [portale classico](../azure-resource-manager/resource-group-create-service-principal-portal.md) o altri metodi.
 
 > [!IMPORTANT]
 > Assicurarsi di esaminare i requisiti per l'entità servizio illustrati in precedenza in questo articolo.
 >
 
-```console
+```azurecli
 az login
 
-az account set --subscription="mySubscriptionID"
+az account set --subscription "mySubscriptionID"
 
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
 ```
@@ -116,7 +121,7 @@ Sono evidenziati l'**ID client** (`appId`) e il **segreto client** (`password`) 
 
 Confermare l'entità servizio aprendo una nuova shell ed eseguire i comandi seguenti, sostituendo i valori per `appId`, `password` e `tenant`:
 
-```console 
+```azurecli 
 az login --service-principal -u yourClientID -p yourClientSecret --tenant yourTenant
 
 az vm list-sizes --location westus
@@ -134,9 +139,4 @@ az vm list-sizes --location westus
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Introduzione a Kubernetes](container-service-kubernetes-walkthrough.md) nel cluster del servizio contenitore.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

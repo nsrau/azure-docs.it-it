@@ -1,5 +1,5 @@
 ---
-title: Failover regionali in Azure DocumentDB | Documentazione Microsoft
+title: Failover regionali in Azure DocumentDB | Microsoft Docs
 description: "Informazioni sulla modalità di funzionamento di failover manuali e automatici con Azure DocumentDB."
 services: documentdb
 documentationcenter: 
@@ -12,15 +12,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 02/09/2017
 ms.author: arramac
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 888e88c3e8ede6b67b9cf26b426d73b86b2aff62
-ms.openlocfilehash: 17e9d5d8afe3b11ca5d3944158dcd6c9126ceeda
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 4af4d30a3378e1aea66309a1d757be1c1da2ea0d
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="regional-failovers-in-azure-documentdb"></a>Failover regionali in Azure DocumentDB
+# <a name="automatic-regional-failovers-for-business-continuity-in-documentdb"></a>Failover regionali automatici per la continuità aziendale in DocumentDB
 Azure DocumentDB semplifica la distribuzione globale dei dati, offrendo [account di database con più aree](documentdb-distribute-data-globally.md) e completamente gestiti, che forniscono compromessi espliciti tra coerenza, disponibilità e prestazioni, il tutto con le relative garanzie. Gli account DocumentDB offrono disponibilità elevata, latenze di pochi millisecondi, più [livelli di coerenza ben definiti](documentdb-consistency-levels.md), failover regionale trasparente con API multihosting e la possibilità di ridimensionare in modo flessibile la velocità effettiva e le risorse di archiviazione in tutto il mondo. 
 
 Azure DocumentDB supporta sia failover espliciti sia failover basati su criteri che consentono di controllare il comportamento del sistema end-to-end in caso di errori. Questo articolo analizza i seguenti aspetti:
@@ -29,7 +31,11 @@ Azure DocumentDB supporta sia failover espliciti sia failover basati su criteri 
 * Come funzionano i failover automatici in DocumentDB?
 * In che modo è possibile usare i failover manuali in architetture applicative?
 
-## <a name="a-idconfiguremultiregionapplicationsaconfiguring-multi-region-applications"></a><a id="ConfigureMultiRegionApplications"></a>Configurazione di applicazioni in più aree
+In questo video di Azure Friday, con Scott Hanselman e Karthik Raman, Principal Engineering Manager, sono disponibili altre informazioni sui failover regionali.
+
+>[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
+
+## <a id="ConfigureMultiRegionApplications"></a>Configurazione di applicazioni in più aree
 Prima di approfondire le modalità di failover, esaminiamo in che modo è possibile configurare un'applicazione per sfruttare i vantaggi della disponibilità di più aree e assicurare la resilienza in caso di failover regionali.
 
 * In primo luogo, distribuire l'applicazione in più aree
@@ -65,7 +71,7 @@ Il diagramma dell'architettura seguente illustra la distribuzione di un'applicaz
 
 Ora esaminiamo in che modo il servizio DocumentDB gestisce errori a livello di area tramite i failover automatici. 
 
-## <a name="a-idautomaticfailoversaautomatic-failovers"></a><a id="AutomaticFailovers"></a>Failover automatici
+## <a id="AutomaticFailovers"></a>Failover automatici
 Nel raro caso di un'interruzione del servizio di Azure a livello di area, DocumentDB attiva automaticamente i failover di tutti gli account DocumentDB presenti nell'area interessata. 
 
 **Cosa accade se si verifica un'interruzione del servizio in un'area di lettura?**
@@ -92,7 +98,7 @@ Dopo il ripristino dell'area interessata da un'interruzione del servizio, tutti 
 * È possibile eseguire una query su questa area per calcolare eventuali scritture non replicate durante l'interruzione del servizio tramite il confronto con i dati disponibili nell'area di scrittura corrente. In base alle esigenze dell'applicazione, è possibile completare l'unione e/o la risoluzione dei conflitti ed eseguire il writeback del set finale di modifiche nell'area di scrittura corrente. 
 * Dopo aver completato l'unione delle modifiche, è possibile ripristinare la modalità online dell'area interessata rimuovendola e aggiungendola nuovamente all'account DocumentDB. Dopo aver aggiunto di nuovo l'area, è possibile riconfigurarla come l'area di scrittura eseguendo un failover manuale tramite il portale di Azure o [a livello di codice](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
 
-## <a name="a-idmanualfailoversamanual-failovers"></a><a id="ManualFailovers"></a>Failover manuali
+## <a id="ManualFailovers"></a>Failover manuali
 
 Oltre ai failover automatici, è possibile modificare manualmente l'area di scrittura corrente di un determinato account DocumentDB in modo dinamico in una delle aree di lettura esistenti. I failover manuali possono essere avviati tramite il portale di Azure o [a livello di codice](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate). 
 
@@ -110,15 +116,10 @@ Alcuni degli scenari comuni in cui il failover manuale può essere utile sono:
 
 In questo articolo abbiamo esaminato la modalità di funzionamento di failover manuali e automatici in Azure DocumentDB e analizzato in che modo è necessario configurare l'account DocumentDB e le applicazioni affinché siano disponibili a livello globale. Tramite l'uso del supporto per replica globale di Azure DocumentDB, è possibile migliorare la latenza end-to-end e assicurare la disponibilità elevata anche in caso di errori di un'area. 
 
-## <a name="a-idnextstepsanext-steps"></a><a id="NextSteps"></a>Passaggi successivi
+## <a id="NextSteps"></a>Passaggi successivi
 * Altre informazioni sul modo in cui DocumentDB supporta la [distribuzione globale](documentdb-distribute-data-globally.md)
 * Altre informazioni sulla [coerenza globale con DocumentDB](documentdb-consistency-levels.md)
 * Sviluppare in più aree usando [Azure DocumentDB SDK](documentdb-developing-with-multiple-regions.md)
 * Altre informazioni su come compilare [architetture di scrittura in più aree](documentdb-multi-region-writers.md) con Azure DocumentDB
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

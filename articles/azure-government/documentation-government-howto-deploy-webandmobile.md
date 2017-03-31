@@ -15,8 +15,9 @@ ms.workload: azure-government
 ms.date: 01/03/2016
 ms.author: sdubeymsft
 translationtype: Human Translation
-ms.sourcegitcommit: 40e2eea5c1a11dadb232c6ac7c224ca5fc847c02
-ms.openlocfilehash: 9a5efdd4c94c7cfc7a63c478f1f5b8124a8cb5c6
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 159c891dedb66dfaa238981b395b4bba074c5716
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -25,7 +26,7 @@ Questo articolo descrive come distribuire un'app del Servizio app di Azure (app 
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Vedere la sezione [prerequisiti di Visual Studio] (... / app-service-api/app-service-api-dotnet-get-started.md#prerequisites) per installare e configurare Visual Studio 2015 e Azure SDK.
-* Seguire [queste istruzioni] (documentation-government-manage-subscriptions.md#connecting-via-visual-studio) per configurare Visual Studio per la connessione all'account di Azure per enti pubblici.
+* Seguire [queste istruzioni] (documentation-government-manage-subscriptions.md) per configurare Visual Studio per la connessione all'account di Azure per enti pubblici.
 
 ## <a name="open-app-project-in-visual-studio"></a>Aprire il progetto dell'app in Visual Studio
 * Aprire la soluzione/il progetto dell'app in Visual Studio, creare un progetto seguendo [queste istruzioni] (../app-service-web/web-sites-dotnet-get-started.md#create-a-web-application) oppure scaricare l'app di esempio seguendo [questa procedura] (../app-service-api/app-service-api-dotnet-get-started.md#download-the-sample-application).
@@ -42,9 +43,4 @@ Questo articolo descrive come distribuire un'app del Servizio app di Azure (app 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per maggiori informazioni e aggiornamenti, iscriversi al [blog di Microsoft Azure per enti pubblici](https://blogs.msdn.microsoft.com/azuregov/).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

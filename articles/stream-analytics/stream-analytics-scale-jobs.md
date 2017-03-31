@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2c437f00aaa600777aebc2ba7c05a085e0557f4e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c0a0959a5484111ee5426204e15434300cb6a438
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -345,10 +346,5 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

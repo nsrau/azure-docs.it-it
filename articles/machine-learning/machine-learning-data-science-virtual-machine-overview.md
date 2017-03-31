@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 02/01/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9d4df15fb4514817d9233ab4e5bd0eb65e5a95dc
+ms.sourcegitcommit: 6c664a055e577881d4fcccd5b0ba4047d88aa9ef
+ms.openlocfilehash: 64b413451c6ce47cc3aa14322b2aa0342e1e3ffe
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -50,18 +51,23 @@ La VM per l'analisi scientifica dei dati può essere usata per valutare o impara
 La macchina virtuale per l'analisi scientifica dei dati ha già installati e configurati diversi strumenti comuni per l'analisi scientifica dei dati. Include inoltre strumenti che semplificano l'uso di vari prodotti di Azure per l'analisi e per i dati. È possibile esplorare e creare modelli predittivi in set di dati su larga scala usando Microsoft R Server o SQL Server 2016. Sono inclusi anche una serie di altri strumenti della community open source e di Microsoft, nonché esempi di codice e blocchi appunti. La tabella seguente indica in modo dettagliato e confronta i componenti principali inclusi nelle edizioni per Windows e Linux della macchina virtuale per l'analisi scientifica dei dati.
 
 | **Edizione per Windows** | **Edizione per Linux** |
-| --- | --- |
-| Microsoft R Server Developer Edition |Microsoft R Server Developer Edition |
-| Anaconda Python 2.7, 3.5 |Anaconda Python 2.7, 3.5 |
-| Server Jupyter Notebook (R, Python) |JupyterHub: notebook Jupyter multiutente (R, Python, Julia) |
-| SQL Server 2016 Developer Edition: analisi database scalabile con R Services |Postgres, SQuirreL SQL (strumento di database), driver di SQL Server e riga di comando (bcp, sqlcmd) |
-| Visual Studio Community Edition 2015 (IDE) </br> - Azure HDInsight (Hadoop), Data Lake, SQL Server Data Tools </br> - Strumenti di Node.js, Python e R per Visual Studio |IDE ed editor </br> - Eclipse con plug-in di Azure Toolkit </br> - Emacs (con ESS, auctex) gedit |
+| -- | --|
+| Microsoft R Open con i pacchetti più diffusi pre-installati | Microsoft R Open con i pacchetti più diffusi pre-installati |
+| Microsoft R Server Developer Edition con gli algoritmi di MicrosoftML e la messa in funzione di Microsoft R  |Microsoft R Server Developer Edition |
+| Anaconda Python 2.7, 3.5 |Anaconda Python 2.7, 3.5 con i pacchetti più diffusi pre-installati|
+| JuliaPro con i pacchetti più diffusi pre-installati | JuliaPro con i pacchetti più diffusi pre-installati |
+| Server Notebook Jupyter (R, Python, Julia) |JupyterHub: notebook Jupyter multiutente (R, Python, Julia, PySpark) |
+| SQL Server 2016 SP1 Developer Edition: analisi database scalabile con R Services |PostgreSQL, SQuirreL SQL (strumento di database), driver di SQL Server e riga di comando (bcp, sqlcmd) |
+|- Visual Studio Community Edition 2015 (IDE) </br> - Azure HDInsight (Hadoop), Data Lake, SQL Server Data Tools </br> - Strumenti di Node.js, Python e R per Visual Studio (RTVS 0.5) </br>- R Studio Desktop|IDE ed editor </br> - Eclipse con plug-in di Azure Toolkit </br> - Emacs (con ESS, auctex) gedit </br> - IntelliJ IDEA</br> - PyCharm</br> - Atom</br> - Visual Studio Code|
 | Power BI Desktop |-- |
-| Strumenti di Machine Learning </br> - Integrazione con Azure Machine Learning </br> - CNTK (deep learning/AI) </br> - Xgboost (strumento ML comune nei concorsi di analisi scientifica dei dati) </br> - Vowpal Wabbit (apprendimento rapido online) </br> - Rattle (strumento visivo di analisi e dati di avvio rapido) </br> - Mxnet (deep learning/AI) |Strumenti di Machine Learning </br> - Integrazioni con Azure Machine Learning </br> - CNTK (deep learning/AI) </br> - Xgboost (strumento ML comune nei concorsi di analisi scientifica dei dati) </br> - Vowpal Wabbit (apprendimento rapido online) </br> - Rattle (strumento visivo di analisi e dati di avvio rapido) |
+| Strumenti di Machine Learning </br> - Integrazione con Azure Machine Learning </br> - Deep learning/AI di Microsoft Cognitive Toolkit (CNTK 2.0) </br> - Xgboost (strumento ML comune nei concorsi di analisi scientifica dei dati) </br> - Vowpal Wabbit (apprendimento rapido online) </br> - Rattle (strumento visivo di analisi e dati di avvio rapido) </br> - Mxnet (deep learning/AI) </br> - TensorFlow  |Strumenti di Machine Learning </br> - Integrazioni con Azure Machine Learning </br> - CNTK (deep learning/AI) </br> - Xgboost (strumento ML comune nei concorsi di analisi scientifica dei dati) </br> - Vowpal Wabbit (apprendimento rapido online) </br> - Rattle (strumento visivo di analisi e dati di avvio rapido) </br> - Mxnet (deep learning/AI)|
 | SDK per accedere alla suite di servizi di Cortana Intelligence e di Azure |SDK per accedere alla suite di servizi di Cortana Intelligence e di Azure |
 | Strumenti per lo spostamento dei dati e la gestione delle risorse di Azure e Big Data: Azure Storage Explorer, interfaccia della riga di comando, PowerShell, AdlCopy (Azure Data Lake), AzCopy, dtui (per DocumentDB), Gateway di gestione dati di Microsoft |Strumenti per lo spostamento dei dati e la gestione delle risorse di Azure e Big Data: Azure Storage Explorer, interfaccia della riga di comando |
 | Git, plug-in di Visual Studio Team Services |Git |
 | Porta Windows delle più comuni utilità della riga di comando Linux/Unix accessibile mediante il prompt dei comandi o GitBash |-- |
+| Weka | Weka |
+| Drill | Drill |
+| --| Spark locale |
 
 ## <a name="how-to-get-started-with-the-windows-data-science-vm"></a>Introduzione alla VM Windows per l'analisi scientifica dei dati
 * Creare un'istanza della VM in Windows, passando a [questa pagina](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) e selezionando il pulsante verde **Crea macchina virtuale**.
@@ -82,10 +88,5 @@ La macchina virtuale per l'analisi scientifica dei dati ha già installati e con
 ### <a name="for-the-linux-data-science-vm"></a>Per la VM Linux per l'analisi scientifica dei dati
 * Per altre informazioni sull'esecuzione degli strumenti specifici disponibili nella versione per Linux, vedere [Effettuare il provisioning di una macchina virtuale Linux per l'analisi scientifica dei dati](machine-learning-data-science-linux-dsvm-intro.md).
 * Per una procedura dettagliata che illustra come eseguire diverse attività comuni di analisi scientifica dei dati con la VM Linux, vedere [Analisi scientifica dei dati in una macchina virtuale Linux per l'analisi scientifica dei dati](machine-learning-data-science-linux-dsvm-walkthrough.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

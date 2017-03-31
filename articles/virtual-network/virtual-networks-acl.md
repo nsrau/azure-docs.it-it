@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 891d950c7d4984b39f2e03af3d0f66af5594a348
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 66ddcea180395b830cdb5310446e1dbc02e7d784
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -28,7 +29,7 @@ Un elenco di controllo di accesso (ACL) di endpoint è un miglioramento della si
 > 
 > 
 
-Gli elenchi di controllo di accesso possono essere configurati tramite PowerShell o il portale di gestione. Per la configurazione di un elenco di controllo di accesso di rete tramite PowerShell, vedere [Gestione degli elenchi di controllo di accesso (ACL) per gli endpoint tramite PowerShell](virtual-networks-acl-powershell.md). Per configurare un elenco di controllo di accesso di rete tramite il portale di gestione, vedere [Come configurare gli endpoint in una macchina virtuale Windows classica in Azure](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Gli elenchi di controllo di accesso possono essere configurati tramite PowerShell o il portale di gestione. Per la configurazione di un elenco di controllo di accesso di rete tramite PowerShell, vedere [Gestione degli elenchi di controllo di accesso (ACL) per gli endpoint tramite PowerShell](virtual-networks-acl-powershell.md). Per configurare un elenco di controllo di accesso di rete tramite il portale di gestione, vedere [Come configurare gli endpoint in una macchina virtuale Windows classica in Azure](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 Con gli elenchi di controllo di accesso di rete, è possibile effettuare le operazioni seguenti:
 
@@ -90,10 +91,5 @@ Poiché è possibile specificare più regole per un endpoint, è necessario trov
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Come gestire gli elenchi di controllo di accesso per gli endpoint tramite PowerShell](virtual-networks-acl-powershell.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

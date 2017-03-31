@@ -9,9 +9,9 @@ I dispositivi gemelli sono documenti JSON nei quali vengono archiviate informazi
 
 Usare i dispositivi gemelli per:
 
-* Archiviare i metadati dei dispositivi dal back-end.
+* Archiviare i metadati dei dispositivi dal back-end della soluzione.
 * Segnalare informazioni sullo stato corrente, come funzionalità disponibili e condizioni (ad esempio, il metodo di connettività usato) dall'app per dispositivi.
-* Sincronizzare lo stato dei flussi di lavoro a esecuzione prolungata (come gli aggiornamenti del firmware e della configurazione) tra l'app per dispositivi e il back-end.
+* Sincronizzare lo stato dei flussi di lavoro a esecuzione prolungata (come gli aggiornamenti del firmware e della configurazione) tra un'app per dispositivi e un'app di back-end.
 * Eseguire query sui metadati, la configurazione o lo stato dei dispositivi.
 
 > [!NOTE]
@@ -21,13 +21,13 @@ Usare i dispositivi gemelli per:
 
 I dispositivi gemelli vengono archiviati in un hub IoT e contengono gli elementi seguenti.
 
-* *Tag*: metadati dei dispositivi accessibili solo dal back-end
-* *Proprietà desiderate*: oggetti JSON modificabili dal back-end e osservabili dall'app per dispositivi
-* *Proprietà segnalate*: oggetti JSON modificabili dall'app per dispositivi e leggibili dal back-end I tag e le proprietà non possono contenere matrici, ma gli oggetti possono essere annidati.
+* *Tag*: metadati dei dispositivi accessibili solo dal back-end della soluzione
+* *Proprietà desiderate*: oggetti JSON modificabili dal back-end della soluzione e osservabili dall'app per dispositivi
+* *Proprietà segnalate*: oggetti JSON modificabili dall'app per dispositivi e leggibili dal back-end della soluzione I tag e le proprietà non possono contenere matrici, ma gli oggetti possono essere annidati.
 
 ![][img-twin]
 
-Il back-end dell'app può anche eseguire query sui dispositivi gemelli in base a tutti i dati sopra indicati.
+Il back-end della soluzione può anche eseguire query sui dispositivi gemelli in base a tutti i dati sopra indicati.
 Vedere [Informazioni sui dispositivi gemelli][lnk-twins] per altre informazioni sui dispositivi gemelli e [Linguaggio di query per hub IoT][lnk-query] per informazioni sull'esecuzione di query.
 
 > [!NOTE]
@@ -50,6 +50,6 @@ Questa esercitazione illustra come:
 [lnk-methods]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-devguide-mqtt]: ../articles/iot-hub/iot-hub-mqtt-support.md
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

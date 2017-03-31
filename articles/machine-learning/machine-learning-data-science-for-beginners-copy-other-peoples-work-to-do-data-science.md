@@ -1,6 +1,6 @@
 ---
-title: Copiare il lavoro di altre persone per l&quot;analisi scientifica dei dati - esempio di Machine Learning | Microsoft Docs
-description: "Il segreto commerciale dell&quot;analisi scientifica dei dati: far svolgere il proprio lavoro ad altre persone. È possibile visualizzare degli esempi nella raccolta di Cortana Analytics, come un esempio di algoritmo di clustering."
+title: Copiare gli esempi di altre persone per l&quot;analisi scientifica dei dati - Machine Learning | Documentazione Microsoft
+description: 'Il segreto commerciale dell&quot;analisi scientifica dei dati: far svolgere il proprio lavoro ad altre persone. Esempi di Machine Learning dalla raccolta Cortana Analytics.'
 keywords: esempi di analisi scientifica dei dati, esempio di Machine Learning, algoritmo di clustering
 services: machine-learning
 documentationcenter: na
@@ -13,23 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d97427b0f20d15a48ebcef47cbf4e4d100c983c3
+ms.sourcegitcommit: 1e941778c194462b311e6347c56670d3e0193e90
+ms.openlocfilehash: ebc44a4190bac697697e0b651039a0e8ee8e4a95
+ms.lasthandoff: 02/10/2017
 
 
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copiare il lavoro di altre persone per l'analisi scientifica dei dati
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Analisi scientifica dei dati per principianti
-Uno dei segreti commerciali di analisi scientifica dei dati è quello di far svolgere il proprio lavoro ad altre persone. È necessario individuare un esempio di algoritmo di clustering da usare per l'esperimento di machine learning.
+Uno dei segreti commerciali di analisi scientifica dei dati è quello di far svolgere il proprio lavoro ad altre persone. È necessario individuare un esempio di algoritmo di clustering nella raccolta Cortana Analytics da usare per l'esperimento di Machine Learning.
 
 Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'elenco dei video è disponibile qui](#other-videos-in-this-series)
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/player]
-> 
-> 
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/player]
+>
+>
 
 ## <a name="other-videos-in-this-series"></a>Altri video della serie
 *Analisi scientifica dei dati per principianti* è una rapida introduzione all'analisi scientifica dei dati in cinque brevi video.
@@ -84,7 +85,7 @@ Ora è disponibile un punto di partenza. Si possono sostituire i dati esistenti 
 ## <a name="find-experiments-that-demonstrate-machine-learning-techniques"></a>Trovare esperimenti che illustrano le tecniche di Machine Learning
 Esistono altri esperimenti in [Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery) messi a disposizione appositamente per fornire esempi di procedure per gli utenti che non hanno familiarità con l'analisi scientifica dei dati. Ad esempio, nella raccolta è disponibile un esperimento che illustra come gestire i valori mancanti ([Methods for handling missing values](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)(Metodi per la gestione dei valori mancanti). Descrive 15 diversi modi per sostituire i valori vuoti e illustra i vantaggi di ogni metodo e quando usarlo.
 
-![Esperimento della raccolta aperto in Machine Learning Studio - metodi per i valori mancanti](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
+![Esperimenti della raccolta aperti in Machine Learning Studio - Metodi per i valori mancanti](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
 [Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery) è possibile trovare esperimenti funzionanti che si possono usare come punto di partenza per le proprie soluzioni.
 
@@ -93,10 +94,4 @@ Assicurarsi di guardare gli altri video della serie "Analisi scientifica dei dat
 ## <a name="next-steps"></a>Passaggi successivi
 * [È possibile effettuare il primo esperimento di analisi scientifica dei dati con Azure Machine Learning](machine-learning-create-experiment.md)
 * [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](machine-learning-what-is-machine-learning.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

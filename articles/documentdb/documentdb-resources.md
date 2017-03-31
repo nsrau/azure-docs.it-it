@@ -1,5 +1,5 @@
 ---
-title: Modello di risorse gerarchico e concetti relativi a DocumentDB | Documentazione Microsoft
+title: Modello di risorse e concetti relativi a Azure DocumentDB | Microsoft Docs
 description: Informazioni sul modello gerarchico di DocumentDB di database, raccolte, funzione definita dall&quot;utente (UDF), documenti, autorizzazioni per gestire le risorse e altro ancora.
 keywords: Modello gerarchico, documentdb, azure, Microsoft azure
 services: documentdb
@@ -13,15 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/14/2017
 ms.author: anhoh
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 51c5694379d3f35ed2595f0cafeb00c6cc527854
-ms.openlocfilehash: 94549905816707fa3dcce3c3e443122162a2c4e8
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 0c62fc01947e0f2e4b0e45d176d5af04c6250fa8
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="documentdb-hierarchical-resource-model-and-concepts"></a>Modello di risorse gerarchico e concetti relativi a DocumentDB
+# <a name="documentdb-hierarchical-resource-model-and-core-concepts"></a>Modello di risorse gerarchico e concetti di base relativi a DocumentDB
 Le entità del database gestite da DocumentDB vengono chiamate **risorse**. Ogni risorsa viene identificata in modo univoco da un URI logico. È possibile interagire con le risorse usando verbi HTTP, intestazioni di richiesta/risposta e codici di stato standard. 
 
 Dopo aver letto questo articolo, si riuscirà a rispondere alle domande seguenti:
@@ -43,7 +45,7 @@ Come illustrato nel diagramma seguente, il **modello di risorse** gerarchico di 
 ![Modello di risorse gerarchico di DocumentDB][1]  
 **Modello di risorse gerarchico**   
 
-Per iniziare a usare le risorse è necessario [creare un account di database DocumentDB](documentdb-create-account.md) usando la sottoscrizione di Azure. Un account di database può essere costituito da un set di **database**, ognuno contenente più **raccolte**. Ogni raccolta include a propria volta **stored procedure, trigger, funzioni definite dall'utente, documenti** e **allegati** correlati. Un database include anche gli **utenti** associati, ognuno dei quali possiede un set di **autorizzazioni** per accedere a raccolte, stored procedure, trigger, UDF, documenti o allegati. Mentre i database, gli utenti, le autorizzazioni e le raccolte sono ricorse definite dal sistema con schemi noti, i documenti e gli allegati includono contenuto JSON arbitrario definito dagli utenti.  
+Per iniziare a usare le risorse è necessario [creare un account di database](documentdb-create-account.md) usando la sottoscrizione di Azure. Un account di database può essere costituito da un set di **database**, ognuno contenente più **raccolte**. Ogni raccolta include a propria volta **stored procedure, trigger, funzioni definite dall'utente, documenti** e **allegati** correlati. Un database include anche gli **utenti** associati, ognuno dei quali possiede un set di **autorizzazioni** per accedere a raccolte, stored procedure, trigger, UDF, documenti o allegati. Mentre i database, gli utenti, le autorizzazioni e le raccolte sono ricorse definite dal sistema con schemi noti, i documenti e gli allegati includono contenuto JSON arbitrario definito dagli utenti.  
 
 | Risorsa | Descrizione |
 | --- | --- |
@@ -70,7 +72,7 @@ Tutte le risorse quali account di database, database, raccolte, utenti, autorizz
     <tbody>
         <tr>
             <td valign="top"><p><strong>Proprietà</strong></p></td>
-            <td valign="top"><p><strong>Impostabile dall'utente o generata dal sistema?</strong></p></td>
+            <td valign="top"><p><strong>Impostabile dall'utente o generata dal sistema</strong></p></td>
             <td valign="top"><p><strong>Scopo</strong></p></td>
         </tr>
         <tr>
@@ -138,7 +140,7 @@ Come parte del provisioning e della gestione di un account di database, è possi
     <tbody>
         <tr>
             <td valign="top"><p><strong>Nome proprietà</strong></p></td>
-            <td valign="top"><p><strong>Description</strong></p></td>
+            <td valign="top"><p><strong>Descrizione</strong></p></td>
         </tr>
         <tr>
             <td valign="top"><p>Criterio di coerenza</p></td>
@@ -159,7 +161,7 @@ Un database di DocumentDB è un contenitore logico di uno o più utenti e raccol
 ![Modello gerarchico di account di database e raccolte][2]  
 **Un database è un contenitore logico di utenti e raccolte**
 
-Un database può includere una quantità praticamente illimitata di archiviazione documenti, partizionata in base a raccolte, che costituiscono i domini di transazione per i documenti inclusi nelle raccolte stesse. 
+Un database può contenere risorse di archiviazione di documenti praticamente illimitate partizionate all'interno delle raccolte.
 
 ### <a name="elastic-scale-of-a-documentdb-database"></a>Scalabilità elastica di un database di DocumentDB
 Un database di DocumentDB è flessibile per impostazione predefinita e può includere da pochi GB a petabyte di archiviazione documenti e velocità effettiva con provisioning basate su SSD. 
@@ -173,7 +175,7 @@ Un database di DocumentDB è anche un contenitore di utenti. Un utente, a sua vo
 Come per le altre risorse nel modello di risorse di DocumentDB, i database possono essere creati, sostituiti, eliminati, letti o enumerati facilmente mediante le [API REST di Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno degli [SDK dei client](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB assicura una coerenza assoluta per la lettura o l'esecuzione di query sui metadati di una risorsa del database. Se si elimina un database, non sarà automaticamente più possibile accedere alle raccolte o agli utenti inclusi nel database.   
 
 ## <a name="collections"></a>Raccolte
-Una raccolta di DocumentDB è un contenitore per i documenti JSON. Una raccolta è anche un'unità di scala per transazioni e query. 
+Una raccolta di DocumentDB è un contenitore per i documenti JSON. 
 
 ### <a name="elastic-ssd-backed-document-storage"></a>Archiviazione flessibile di documenti basata su unità SSD
 Una raccolta è intrinsecamente flessibile, poiché le dimensioni della raccolta aumentano o si riducono in seguito all'aggiunta o alla rimozione di documenti. Le raccolte sono risorse logiche e possono comprendere una o più partizioni fisiche o server. Il numero di partizioni in una raccolta è determinato da DocumentDB in base allo spazio di archiviazione e alla velocità effettiva con provisioning della raccolta. Ogni partizione in DocumentDB dispone di una quantità fissa di archiviazione supportata da unità SSD associata a essa e viene replicata per la disponibilità elevata. Le partizioni vengono completamente gestite da Azure DocumentDB e non è necessario scrivere script di codice complessi o gestire le partizioni. Le raccolte di DocumentDB sono **praticamente illimitate** in termini di spazio di archiviazione e velocità effettiva. 
@@ -204,7 +206,7 @@ Il modello di query di DocumentDB tenta di ottenere un equilibrio tra funzionali
 > 
 > 
 
-### <a name="multi-document-transactions"></a>Transazioni in più documenti
+## <a name="multi-document-transactions"></a>Transazioni in più documenti
 Le transazioni di database offrono un modello di programmazione sicuro e prevedibile per la gestione delle modifiche simultanee ai dati. In RDBMS la logica di business è tradizionalmente scritta tramite la scrittura di **stored procedure** e/o **trigger** ed è inviata al server database per l'esecuzione transazionale. In RDBMS il programmatore di applicazioni deve gestire due linguaggi di programmazione diversi: 
 
 * Linguaggio di programmazione delle applicazioni (non transazionale), ad esempio JavaScript, Python, C#, Java e così via.
@@ -406,14 +408,14 @@ L'annullamento della registrazione di una funzione definita dall'utente avviene 
 Anche se i frammenti di codice precedenti illustrano la registrazione (POST), l'annullamento della registrazione (PUT), la lettura/creazione di un elenco (GET) e l'esecuzione (POST) tramite [JavaScript SDK di DocumentDB](https://github.com/Azure/azure-documentdb-js), è anche possibile usare le [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o altri [SDK del client](https://msdn.microsoft.com/library/azure/dn781482.aspx). 
 
 ## <a name="documents"></a>Documenti
-È possibile inserire, sostituire, eliminare, leggere, enumerare ed eseguire query in documenti JSON arbitrari in una raccolta. DocumentDB non rende obbligatorio alcuno schema e non richiede indici secondari per il supporto delle query in documenti di una raccolta.   
+È possibile inserire, sostituire, eliminare, leggere, enumerare ed eseguire query in documenti JSON arbitrari in una raccolta. DocumentDB non rende obbligatorio alcuno schema e non richiede indici secondari per il supporto delle query in documenti di una raccolta. Per impostazione predefinita, la dimensione massima per un documento è pari a 2 MB.   
 
 Essendo un servizio database effettivamente aperto, DocumentDB non propone tipo di dati specializzati (ad esempio data e ora) o codifica specifica per i documenti JSON. Tenere presente che DocumentDB non richiede alcuna convenzione JSON specifica per codificare le relazioni tra i diversi documenti. La sintassi SQL di DocumentDB offre operatori di query avanzati gerarchici e relazionali per eseguire query e proiezioni sui documenti senza annotazioni speciali o senza dovere codificare le relazioni tra i documenti tramite proprietà distinte.  
 
 Analogamente a tutte le altre risorse, i documenti possono essere creati, sostituiti, eliminati, letti, enumerati e sottoposti a query con facilità tramite le API REST o uno degli [SDK dei client](https://msdn.microsoft.com/library/azure/dn781482.aspx). Se si elimina un documento, la quota corrispondente a tutti gli allegati annidati sarà resa immediatamente disponibile. Il livello di coerenza di lettura dei documenti segue i criteri di coerenza applicati all'account di database. È possibile eseguire l'override di questo criterio per le singole richieste, in base ai requisiti di coerenza dei dati specifici dell'applicazione. Durante l'esecuzione di query nei documenti, la coerenza di lettura si basa sulla modalità di indicizzazione impostata per la raccolta. Ai fini della coerenza, si basa sui criteri di coerenza dell'account. 
 
 ## <a name="attachments-and-media"></a>Allegati e file multimediali
-DocumentDB permette di archiviare BLOB/file multimediali binari tramite DocumentDB o in un archivio remoto specifico per i file multimediali. Permette anche di rappresentare i metadati dei file multimediali sotto forma di un documento speciale definito allegato. Un allegato in DocumentDB è un documento speciale (JSON) che fa riferimento a file multimediali/BLOB archiviati altrove. Un allegato è semplicemente un documento speciale che acquisisce i metadati, come percorso, autore e così via, di un file multimediale archiviato in una risorsa di archiviazione multimediale remota. 
+DocumentDB permette di archiviare BLOB/file multimediali binari tramite DocumentDB (massimo 2 GB per account) o in un archivio remoto specifico per i file multimediali. Permette anche di rappresentare i metadati dei file multimediali sotto forma di un documento speciale definito allegato. Un allegato in DocumentDB è un documento speciale (JSON) che fa riferimento a file multimediali/BLOB archiviati altrove. Un allegato è semplicemente un documento speciale che acquisisce i metadati, come percorso, autore e così via, di un file multimediale archiviato in una risorsa di archiviazione multimediale remota. 
 
 Si prenda in considerazione un'applicazione di lettura di social media che usa DocumentDB per archiviare annotazioni a penna e metadati, inclusi commenti, evidenziazioni, segnalibri, valutazioni, commenti di tipo mi piace/non mi piace e così via, associati a un e-book di un utente specifico.   
 
@@ -460,10 +462,5 @@ Per altre informazioni sull'utilizzo di risorse tramite comandi HTTP, vedere [In
 [1]: media/documentdb-resources/resources1.png
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

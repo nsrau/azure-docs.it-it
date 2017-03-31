@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/24/2016
+ms.date: 12/09/2016
 ms.author: bradsev;hangzh;weig
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3307418f3bcbf1e13b47ffb4d37024f90bdd2c2e
+ms.sourcegitcommit: 29c718d0c34d1e2f9d17b285a7270541a9ff15cf
+ms.openlocfilehash: f12bf7ef4f608e01115a7e7d12b734d65ccc40e5
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -25,7 +26,7 @@ In questa esercitazione verranno esaminate la compilazione e la distribuzione di
 
 La procedura segue il flusso di lavoro del [Processo di analisi scientifica dei dati per i team (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) . Viene illustrato come configurare un ambiente di scienza dei dati, come caricare i dati in SQL DW e come usare SQL DW o IPython Notebook per esplorare i dati e progettare le funzionalità da modellare. Viene quindi illustrato come compilare e distribuire un modello con Azure Machine Learning.
 
-## <a name="a-namedatasetathe-nyc-taxi-trips-dataset"></a><a name="dataset"></a>Set di dati NYC Taxi Trips
+## <a name="dataset"></a>Set di dati NYC Taxi Trips
 I dati di NYC Taxi Trip sono costituiti da circa 20 GB di file CSV compressi (circa 48 GB non compressi) e registrano oltre 173 milioni di corse singole nonché le tariffe pagate per ogni corsa. Il record di ogni corsa include le località e gli orari di partenza e di arrivo, il numero di patente anonimo (del tassista) e il numero di licenza (ID univoco del taxi). I dati sono relativi a tutte le corse per l'anno 2013 e vengono forniti nei due set di dati seguenti per ciascun mese:
 
 1. Il file **trip_data.csv** contiene i dettagli delle corse, ad esempio il numero dei passeggeri, i punti di partenza e arrivo, la durata e la lunghezza della corsa. Di seguito vengono forniti alcuni record di esempio:
@@ -51,10 +52,10 @@ La **chiave univoca** usata per unire trip\_data e trip\_fare è costituita dai 
 * hack\_license e
 * pickup\_datetime.
 
-## <a name="a-namemltasksaaddress-three-types-of-prediction-tasks"></a><a name="mltasks"></a>Risolvere tre tipi di attività di stima
+## <a name="mltasks"></a>Risolvere tre tipi di attività di stima
 Sono stati formulati tre problemi di stima basati sul valore di *tip\_amount* per illustrare tre tipi di attività di modellazione:
 
-1. **Classificazione binaria**: consente di prevedere se sia stata lasciata o meno una mancia per la corsa. In questo caso, un valore di *tip\_amount* superiore a $ 0 rappresenta un esempio positivo, mentre un valore di *tip\_amount* pari a $ 0 rappresenta un esempio negativo.
+1. **Classificazione binaria**: consente di prevedere se sia stata lasciata o meno una mancia per la corsa. In questo caso, un valore di *tip\_amount* superiore a $&0; rappresenta un esempio positivo, mentre un valore di *tip\_amount* pari a $&0; rappresenta un esempio negativo.
 2. **Classificazione multiclasse**: consente di prevedere l'intervallo in cui rientra la mancia lasciata per la corsa. Il valore *tip\_amount* viene suddiviso in cinque bin o classi:
    
         Class 0 : tip_amount = $0
@@ -64,7 +65,7 @@ Sono stati formulati tre problemi di stima basati sul valore di *tip\_amount* pe
         Class 4 : tip_amount > $20
 3. **Attività di regressione**: consente di prevedere l'importo della mancia lasciata per una corsa.  
 
-## <a name="a-namesetupaset-up-the-azure-data-science-environment-for-advanced-analytics"></a><a name="setup"></a>Configurare l'ambiente di scienza dei dati di Azure per l'analisi avanzata
+## <a name="setup"></a>Configurare l'ambiente di scienza dei dati di Azure per l'analisi avanzata
 Per configurare l'ambiente di analisi scientifica dei dati di Azure, seguire questi passaggi.
 
 **Creare l'account di archiviazione BLOB di Azure**
@@ -84,7 +85,7 @@ Per effettuare il provisioning di un'istanza di SQL Data Warehouse seguire la do
 * **Nome utente**
 * **Password**
 
-**Installare Visual Studio 2015 e SQL Server Data Tools.** Per istruzioni, vedere [Installare Visual Studio 2015 e SSDT per SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
+**Installare Visual Studio e SQL Server Data Tools.** Per istruzioni, vedere [Installare Visual Studio 2015 e SSDT per SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
 **Connettersi ad Azure SQL DW con Visual Studio.** Per istruzioni, vedere i passaggi 1 e 2 in [Connettersi ad Azure SQL Data Warehouse con Visual Studio](../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
 
@@ -103,7 +104,7 @@ Per effettuare il provisioning di un'istanza di SQL Data Warehouse seguire la do
 
 **Creare un'area di lavoro di Azure Machine Learning nella sottoscrizione di Azure.** Per istruzioni, vedere [Creare un'area di lavoro di Machine Learning di Azure](machine-learning-create-workspace.md).
 
-## <a name="a-namegetdataaload-the-data-into-sql-data-warehouse"></a><a name="getdata"></a>Caricare i dati in SQL Data Warehouse
+## <a name="getdata"></a>Caricare i dati in SQL Data Warehouse
 Aprire una console dei comandi di Windows PowerShell. Eseguire i comandi di PowerShell seguenti per scaricare i file script SQL di esempio disponibili in GitHub in una directory locale specificata con il parametro *-DestDir*. È possibile sostituire il valore del parametro *-DestDir* con quello di qualsiasi directory locale. Se *-DestDir* non esiste, verrà creata dallo script di PowerShell.
 
 > [!NOTE]
@@ -338,7 +339,7 @@ Al termine dell'esecuzione, verrà visualizzata una schermata simile alla seguen
 
 ![][20]
 
-## <a name="a-namedbexploreadata-exploration-and-feature-engineering-in-azure-sql-data-warehouse"></a><a name="dbexplore"></a>Esplorazione dei dati e progettazione di funzionalità in Azure SQL Data Warehouse
+## <a name="dbexplore"></a>Esplorazione dei dati e progettazione di funzionalità in Azure SQL Data Warehouse
 In questa sezione vengono effettuate l'esplorazione dei dati e la generazione di funzionalità eseguendo query SQL direttamente su Azure SQL DW usando **Visual Studio Data Tools**. Tutte le query SQL usate in questa sezione sono disponibili nello script di esempio *SQLDW_Explorations.sql*. Questo file è già stato scaricato nella directory locale dallo script di PowerShell. È anche possibile recuperarlo da [Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql), ma al file in Github non sono collegate le informazioni di Azure SQL DW.
 
 Connettersi ad Azure SQL DW usando Visual Studio con il nome di accesso e la password di SQL DW e aprire **Esplora oggetti di SQL** per confermare che le tabelle e il database sono stati importati. Recuperare il file *SQLDW_Explorations.sql*.
@@ -542,7 +543,7 @@ Ecco un esempio per chiamare questa funzione per generare le funzionalità nella
 | 3 |40.761456 |-73.999886 |40.766544 |-73.988228 |0.7037227967 |
 
 ### <a name="prepare-data-for-model-building"></a>Preparazione dei dati per la creazione del modello
-Le query riportate di seguito consentono di unire le tabelle **nyctaxi\_trip** e **nyctaxi\_fare**, generare un'etichetta di classificazione binaria **tipped**, un'etichetta di classificazione multiclasse **tip\_class** e di estrarre un campione dall'intero set di dati unito. Il campionamento viene eseguito recuperando un subset delle corse in base all'orario di partenza.  La query può essere copiata e incollata direttamente nel modulo [Import Data](https://studio.azureml.net)[import-data] (Importazione dati) di [Azure Machine Learning Studio] per l'inserimento diretto dei dati dall'istanza del database SQL in Azure. La query esclude i record con le coordinate errate (0, 0).
+Le query riportate di seguito consentono di unire le tabelle **nyctaxi\_trip** e **nyctaxi\_fare**, generare un'etichetta di classificazione binaria **tipped**, un'etichetta di classificazione multiclasse **tip\_class** e di estrarre un campione dall'intero set di dati unito. Il campionamento viene eseguito recuperando un subset delle corse in base all'orario di partenza.  La query può essere copiata e incollata direttamente nel modulo [Import Data][import-data] (Importa dati) di [Azure Machine Learning Studio](https://studio.azureml.net) per l'inserimento diretto dei dati dall'istanza del database SQL in Azure. La query esclude i record con le coordinate errate (0, 0).
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -561,10 +562,10 @@ Le query riportate di seguito consentono di unire le tabelle **nyctaxi\_trip** e
 
 Una volta pronti a proseguire con Azure Machine Learning, è possibile effettuare una delle seguenti operazioni:  
 
-1. Salvare la query SQL per estrarre e campionare i dati e copiare e incollare la query direttamente in un modulo [Import Data][import-data] in Azure Machine Learning, oppure
-2. Salvare in modo definitivo i dati campionati e progettati che si prevede di usare per la compilazione di modelli in una nuova tabella di SQL DW e usare la nuova tabella nel modulo [Import Data][import-data] in Azure Machine Learning. Questa operazione è stata eseguita dallo script di PowerShell nel passaggio precedente. È possibile leggere direttamente in questa tabella nel modulo Import Data.
+1. Salvare la query SQL finale per estrarre e campionare i dati e copiare e incollare la query direttamente in un modulo [Import Data][import-data] (Importa dati) in Azure Machine Learning, oppure
+2. Salvare in modo definitivo i dati campionati e progettati che si prevede di usare per la compilazione di modelli in una nuova tabella di SQL DW e usare la nuova tabella nel modulo [Import Data][import-data] (Importa dati) in Azure Machine Learning. Questa operazione è stata eseguita dallo script di PowerShell nel passaggio precedente. È possibile leggere direttamente in questa tabella nel modulo Import Data.
 
-## <a name="a-nameipnbadata-exploration-and-feature-engineering-in-ipython-notebook"></a><a name="ipnb"></a>Esplorazione dei dati e progettazione di funzionalità in IPython Notebook
+## <a name="ipnb"></a>Esplorazione dei dati e progettazione di funzionalità in IPython Notebook
 In questa sezione verranno eseguite l'esplorazione dei dati e la generazione di funzionalità usando query sia Python che SQL sull'istanza di SQL DW creata in precedenza. Un IPython Notebook di esempio denominato **SQLDW_Explorations.ipynb** e un file di script di Python **SQLDW_Explorations_Scripts.py** sono stati scaricati nella directory locale. Sono disponibili anche in [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW). Questi due file sono identici negli script di Python. Il file di script di Python viene fornito nel caso in cui non sia presente un server IPython Notebook. Questi due file di Python di esempio sono stati progettati in **Python 2.7**.
 
 Le informazioni di Azure SQL DW necessarie nell'esempio di IPython Notebook e il file di script di Python scaricati nel computer locale sono stati collegati prima dallo script di PowerShell. Possono essere eseguiti senza alcuna modifica.
@@ -804,7 +805,7 @@ In questa sezione verranno esplorate le distribuzioni di dati usando i dati camp
     query = '''SELECT TOP 100 * FROM <schemaname>.<nyctaxi_sample>'''
     pd.read_sql(query,conn)
 
-## <a name="a-namemlmodelabuild-models-in-azure-machine-learning"></a><a name="mlmodel"></a>Creare modelli in Azure Machine Learning
+## <a name="mlmodel"></a>Creare modelli in Azure Machine Learning
 A questo punto è possibile procedere con la creazione e la distribuzione di modelli in [Azure Machine Learning](https://studio.azureml.net). I dati sono pronti per essere usati nei problemi di stima identificati in precedenza, in modo specifico:
 
 1. **Classificazione binaria**: consente di prevedere se per la corsa è stata lasciata o meno una mancia.
@@ -832,7 +833,7 @@ Un tipico esperimento di training comprende i passaggi seguenti:
 
 In questo esercizio i dati sono già stati esplorati e compilati in SQL Data Warehouse ed è stata decisa la dimensione del campione da inserire in Azure ML. Ecco la procedura per compilare uno o più modelli di stima:
 
-1. Inserire i dati in Azure ML tramite il modulo [Import Data][import-data], disponibile nella sezione **Data Input and Output** (Input e output dei dati). Per altre informazioni, vedere la pagina di riferimento sul modulo [Import Data][import-data].
+1. Inserire i dati in Azure ML tramite il modulo [Import Data][import-data] (Importa dati) , disponibile nella sezione **Data Input and Output** (Input e output dei dati). Per altre informazioni, vedere la pagina di riferimento sul modulo [Import Data][import-data] (Importa Dati).
    
     ![Import Data di Azure ML][17]
 2. Selezionare **Azure SQL Database** (Database SQL Azure) come **Data source** (Origine dati) nel riquadro **Properties** (Proprietà).
@@ -849,11 +850,11 @@ Nella figura seguente è illustrato un esempio di esperimento di classificazione
 > [!IMPORTANT]
 > Negli esempi di estrazione dei dati di modellazione e di query di campionamento forniti nelle sezioni precedenti, **tutte le etichette per i tre esercizi sulla creazione dei modelli sono incluse nella query**. Un passaggio importante (richiesto) in ciascun esercizio sulla modellazione consiste nell'**escludere** le etichette non necessarie per gli altri due problemi ed eventuali **perdite di destinazione**. Ad esempio, con la classificazione binaria, usare l'etichetta **tipped** ed escludere i campi **tip\_class**, **tip\_amount** e **total\_amount**. Questi ultimi sono perdite di destinazione in quanto implicano la mancia pagata.
 > 
-> Per escludere eventuali colonne non necessarie o le perdite di destinazione, è possibile usare il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) o [Edit Metadata][edit-metadata] (Modifica metadati). Per altre informazioni, vedere le pagine di riferimento per [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) e [Edit Metadata][edit-metadata] (Modifica metadati).
+> Per escludere eventuali colonne non necessarie o le perdite di destinazione, è possibile usare il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) o [Edit Metadata][edit-metadata] (Modifica metadati). Per altre informazioni, vedere le pagine di riferimento per [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) ed [Edit Metadata][edit-metadata] (Modifica metadati).
 > 
 > 
 
-## <a name="a-namemldeployadeploy-models-in-azure-machine-learning"></a><a name="mldeploy"></a>Distribuire modelli in Azure Machine Learning
+## <a name="mldeploy"></a>Distribuire modelli in Azure Machine Learning
 Quando il modello è pronto, è possibile distribuirlo in modo semplice come servizio Web direttamente dall'esperimento. Per ulteriori informazioni sulla distribuzione di servizi Web Azure ML, vedere [Distribuzione di un servizio Web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
 Per distribuire un nuovo servizio Web, è necessario effettuare le seguenti operazioni:
@@ -871,7 +872,7 @@ Azure Machine Learning tenterà di creare un esperimento di assegnazione di punt
 2. Identificazione di una **porta di input** logica per rappresentare lo schema di dati di input previsto.
 3. Identificazione di una **porta di output** logica per rappresentare lo schema di output del servizio Web previsto.
 
-Una volta creato l'esperimento di punteggio, esaminarlo e apportare le dovute modifiche. Una regolazione tipica consiste nel sostituire il set di dati di input e/o la query con uno che escluda i campi etichetta, in quanto questi non saranno disponibili quando si chiama il servizio. È inoltre buona norma ridurre la dimensione del set di dati di input e/o della query a pochi record, sufficienti a indicare lo schema di input. Per la porta di output, di solito vengono esclusi tutti i campi di input e inclusi soltanto **Scored Labels** (Etichette con punteggio) e **Scored Probabilities** (Probabilità con punteggio) nell'output, tramite il modulo [Select Columns in Dataset][select-columns].
+Una volta creato l'esperimento di punteggio, esaminarlo e apportare le dovute modifiche. Una regolazione tipica consiste nel sostituire il set di dati di input e/o la query con uno che escluda i campi etichetta, in quanto questi non saranno disponibili quando si chiama il servizio. È inoltre buona norma ridurre la dimensione del set di dati di input e/o della query a pochi record, sufficienti a indicare lo schema di input. Per la porta di output, di solito vengono esclusi tutti i campi di input e inclusi soltanto **Scored Labels** (Etichette con punteggio) e **Scored Probabilities** (Probabilità con punteggio) nell'output, tramite il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati).
 
 Nella figura di seguito viene fornito un esperimento di assegnazione dei punteggi di esempio. Quando si è pronti per la distribuzione, fare clic sul pulsante **PUBBLICA SERVIZIO WEB** nella barra delle azioni inferiore.
 
@@ -920,9 +921,4 @@ Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPyt
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 03/08/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: e4343cfece7286e0a4035239967ab2e0a928b188
-ms.openlocfilehash: cc284c0cd445bbfe2f4424d3251ca07da0538192
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: c9ff71b3b4f1d2190f112b81835cdd98ceb3357e
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -33,7 +34,7 @@ ms.openlocfilehash: cc284c0cd445bbfe2f4424d3251ca07da0538192
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Microsoft Visual Studio 2015
+* Visual Studio 2015 o Visual Studio 2017.
 * Un account Azure attivo. <br/>Se non si ha un account, è possibile crearne uno [gratuito][lnk-free-trial] in pochi minuti.
 * Un [account di archiviazione di Azure][lnk-storage-account] in cui è possibile archiviare i file del modello di Azure Resource Manager.
 * [Azure PowerShell 1.0][lnk-powershell-install] o versione successiva.
@@ -41,11 +42,11 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
 ## <a name="prepare-your-visual-studio-project"></a>Preparare il progetto di Visual Studio
-1. In Visual Studio creare un nuovo progetto Windows Visual C# usando il modello di progetto **Applicazione console** . Denominare il progetto **CreateIoTHub**.
+1. In Visual Studio creare un progetto desktop classico di Windows Visual C# usando il modello di progetto **App console (.NET Framework)**. Denominare il progetto **CreateIoTHub**.
 2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Gestisci pacchetti NuGet**.
-3. In Gestione pacchetti NuGet selezionare **Includi versione preliminare** e cercare **Microsoft.Azure.Management.ResourceManager**. Fare clic su **Installa**, in **Rivedi modifiche** fare clic su **OK**, quindi fare clic su **I Accept** (Accetto) per accettare le licenze.
+3. In Gestione pacchetti NuGet selezionare **Includi versione preliminare** e nella pagina **Sfoglia** cercare **Microsoft.Azure.Management.ResourceManager**. Selezionare il pacchetto, fare clic su **Installa**, in **Rivedi modifiche** fare clic su **OK**, quindi fare clic su **I Accept** (Accetto) per accettare le licenze.
 4. In Gestione pacchetti NuGet cercare **Microsoft.IdentityModel.Clients.ActiveDirectory**.  Fare clic su **Installa**, in **Rivedi modifiche** fare clic su **OK**, quindi fare clic su **I Accept** (Accetto) per accettare la licenza.
-5. In Program.cs sostituire il codice esistente **usando** le dichiarazioni con quanto segue:
+5. In Program.cs sostituire le istruzioni **using** esistenti con il codice seguente:
    
     ```
     using System;
@@ -193,7 +194,7 @@ Dopo avere distribuito un hub IoT usando un modello di Azure Resource Manager co
 * Informazioni sulle funzionalità dell'[API REST del provider di risorse dell'hub IoT][lnk-rest-api].
 * Per altre informazioni sulle funzionalità di Azure Resource Manager, vedere la [Panoramica di Azure Resource Manager][lnk-azure-rm-overview].
 
-Per altre informazioni sulle attività di sviluppo per l'hub IoT, vedere quanto segue:
+Per altre informazioni sulle attività di sviluppo per l'hub IoT, vedere gli articoli seguenti:
 
 * [Introduzione a C SDK][lnk-c-sdk]
 * [Azure IoT SDKs][lnk-sdks] (SDK di IoT di Azure)
@@ -215,9 +216,4 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

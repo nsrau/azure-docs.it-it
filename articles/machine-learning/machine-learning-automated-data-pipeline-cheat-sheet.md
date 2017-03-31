@@ -1,5 +1,5 @@
 ---
-title: Foglio informativo sulla pipeline di dati automatizzati per le stime di Azure Machine Learning | Documentazione Microsoft
+title: Foglio informativo sulla pipeline di dati automatizzati di Azure Machine Learning | Microsoft Docs
 description: Un foglio informativo stampabile che illustra come configurare una pipeline di dati automatizzati per il servizio web Azure Machine Learning, sia che i dati siano locali, in streaming, in Azure o in un servizio cloud di terze parti.
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 03/14/2017
 ms.author: mithal;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
-ms.openlocfilehash: 68a3a313831a4d424de26812a58a0f82c1ebad74
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: d109c50be94a227efd39f151c01070a8e30b237d
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -42,10 +43,5 @@ Scaricare il foglio informativo qui: **[foglio informativo sulla pipeline di dat
 * Per altri forum su come utilizzare un servizio Web di classificazione, vedere [Come usare un servizio Web di Azure Machine Learning distribuito da un esperimento di Machine Learning](machine-learning-consume-web-services.md).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

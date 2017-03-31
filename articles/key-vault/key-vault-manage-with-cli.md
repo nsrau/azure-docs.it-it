@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: bruceper
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c52d41bbac22c6a20b1632b529b061ed7e640ea1
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: eec68b1cbfbddf0b72b55376ee11451b25898b68
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -41,7 +42,7 @@ Per informazioni generali sull'insieme di credenziali di Azure, vedere [Cos'è l
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione a Microsoft Azure. Se non si dispone di una sottoscrizione, è possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial).
-* Interfaccia della riga di comando multipiattaforma versione 0.9.1 o successiva. Per installare l'ultima versione e associarla alla sottoscrizione di Azure, vedere [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure](../xplat-cli-install.md).
+* Interfaccia della riga di comando multipiattaforma versione 0.9.1 o successiva. Per installare l'ultima versione e associarla alla sottoscrizione di Azure, vedere [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure](../cli-install-nodejs.md).
 * Un'applicazione che verrà configurata per usare la chiave o la password creata in questa esercitazione. Un'applicazione di esempio è disponibile nell'[Area download Microsoft](http://www.microsoft.com/download/details.aspx?id=45343). Per istruzioni, vedere il file Readme associato.
 
 ## <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Risorse della Guida per l'interfaccia della riga di comando multipiattaforma di Microsoft Azure
@@ -59,7 +60,7 @@ In caso di dubbi sui parametri necessari per un comando, fare riferimento alla G
 
 È consigliabile di leggere anche le seguenti esercitazioni per acquisire familiarità con Gestione risorse di Azure nell'interfaccia della riga di comando multipiattaforma di Azure:
 
-* [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure.](../xplat-cli-install.md)
+* [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure.](../cli-install-nodejs.md)
 * [Uso dell'interfaccia della riga di comando multipiattaforma di Azure con Gestione risorse di Azure](../xplat-cli-azure-resource-manager.md)
 
 ## <a name="connect-to-your-subscriptions"></a>Connettersi alle sottoscrizioni
@@ -94,7 +95,7 @@ Quindi, per specificare la sottoscrizione da usare, digitare.
 
     azure account set <subscription name>
 
-Per altre informazioni sulla configurazione dell'interfaccia della riga di comando multipiattaforma di Azure, vedere [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure](../xplat-cli-install.md).
+Per altre informazioni sulla configurazione dell'interfaccia della riga di comando multipiattaforma di Azure, vedere [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure](../cli-install-nodejs.md).
 
 ## <a name="switch-to-using-azure-resource-manager"></a>Passare all'uso di Gestione risorse di Azure
 Poiché per l'insieme di credenziali delle chiavi è necessario Gestione risorse di Azure, digitare quanto segue per passare alla modalità Gestione risorse di Azure:
@@ -166,7 +167,7 @@ Le applicazioni che usano un insieme di credenziali delle chiavi devono eseguire
 Per registrare l'applicazione in Azure Active Directory:
 
 1. Accedere al portale di Azure.
-2. A sinistra fare clic su **Active Directory**e quindi selezionare la directory in cui si registrerà l'applicazione. <br> <br>  Nota: è necessario selezionare la stessa directory che contiene la sottoscrizione di Azure con cui si è creato l'insieme di credenziali chiave. Se non si sa quale directory selezionare, fare clic su **Impostazioni**, identificare la sottoscrizione con cui si è creato l'insieme di credenziali chiave e prendere nota del nome della directory visualizzata nell'ultima colonna.
+2. A sinistra fare clic su **Active Directory**e quindi selezionare la directory in cui si registrerà l'applicazione. <br> <br> Nota: è necessario selezionare la stessa directory che contiene la sottoscrizione di Azure con cui si è creato l'insieme di credenziali chiave. Se non si sa quale directory selezionare, fare clic su **Impostazioni**, identificare la sottoscrizione con cui si è creato l'insieme di credenziali chiave e prendere nota del nome della directory visualizzata nell'ultima colonna.
 3. Fare clic su **APPLICAZIONI**. Se nessuna app è stata aggiunta alla directory, in questa pagina sarà visualizzato solo il collegamento **Aggiungi un'app**. Fare clic sul collegamento. In alternativa, è possibile fare clic su **AGGIUNGI** sulla barra dei comandi.
 4. Nella pagina **Come procedere** della procedura guidata **AGGIUNGI APPLICAZIONE** fare clic su **Aggiungi un'applicazione che l'organizzazione sta sviluppando**.
 5. Nella pagina **Informazioni sull'applicazione** specificare un nome per l'applicazione e selezionare **APPLICAZIONE WEB E/O API WEB** (opzione predefinita). Fare clic sull'icona Avanti.
@@ -251,10 +252,5 @@ Ecco un esempio di come rimuovere un segreto specifico:
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell’insieme di credenziali chiave Azure](key-vault-developers-guide.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

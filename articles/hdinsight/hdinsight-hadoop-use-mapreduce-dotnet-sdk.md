@@ -9,15 +9,17 @@ tags: azure-portal
 author: mumian
 ms.assetid: c85e44b0-85fd-4185-ad1c-c34a9fe5ef44
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 03/03/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: dd507b6be4aa9853940adbf80baa3ec4997ce3c7
-ms.openlocfilehash: 05c5def02a5bee18f26bc8b96b9aa1c8f3fdff70
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 03f3898182d405bced8ad41b281e2ce2037b8343
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -35,7 +37,7 @@ Informazioni su come inviare processi MapReduce con HDInsight .NET SDK. I cluste
 Per eseguire le procedure descritte nell'articolo è necessario:
 
 * **Un cluster Hadoop in HDInsight**. Vedere [Introduzione all'uso di Hadoop basato su Linux in HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
-* **Visual Studio 2012/2013/2015**.
+* **Visual Studio 2013/2015/2017**.
 
 ## <a name="submit-mapreduce-jobs-using-hdinsight-net-sdk"></a>Inviare processi MapReduce mediante HDInsight .NET SDK
 HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei cluster HDInsight da .NET. 
@@ -67,7 +69,7 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei clus
                 private const string ExistingClusterUsername = "<Cluster Username>";
                 private const string ExistingClusterPassword = "<Cluster User Password>";
    
-                private const string DefaultStorageAccountName = "<Default Storage Account Name>";
+                private const string DefaultStorageAccountName = "<Default Storage Account Name>"; //<StorageAccountName>.blob.core.windows.net
                 private const string DefaultStorageAccountKey = "<Default Storage Account Key>";
                 private const string DefaultStorageContainerName = "<Default Blob Container Name>";
    
@@ -96,7 +98,7 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei clus
                     };
    
                     System.Console.WriteLine("Submitting the MR job to the cluster...");
-                    var jobResponse = _hdiJobManagementClient.JobManagement.SubmitHiveJob(parameters);
+                    var jobResponse = _hdiJobManagementClient.JobManagement.SubmitMapReduceJob(paras);
                     var jobId = jobResponse.JobSubmissionJsonResponse.Id;
                     System.Console.WriteLine("Response status code is " + jobResponse.StatusCode);
                     System.Console.WriteLine("JobId is " + jobId);
@@ -130,18 +132,17 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei clus
         }
 4. Premere **F5** per eseguire l'applicazione.
 
+Per eseguire nuovamente il processo, è necessario cambiare il nome della cartella di output del processo, che nell'esempio è: "/example/data/davinciwordcount".
+
+Una volta completato correttamente il processo, l'output risulta vuoto. Per visualizzare il risultato del processo MapReduce, usare il portale di Azure per esplorare il contenitore di archiviazione predefinito nell'archiviazione BLOB.  Il nome del file è "part-r-00000".
+
 ## <a name="next-steps"></a>Passaggi successivi
 Questo articolo ha spiegato vari modi per creare un cluster HDInsight. Per altre informazioni, vedere gli articoli seguenti:
 
-* Per creare un cluster e inviare un processo Hive, vedere [Introduzione ad Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+* Per l'invio di un processo Hive, vedere [Eseguire query Hive con HDInsight .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md).
 * Per creare cluster HDInsight, vedere [Creare cluster Hadoop basati su Linux in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
-* Per gestire cluster HDInsight, vedere [Gestire cluster Hadoop in HDInsight](hdinsight-administer-use-management-portal.md).
+* Per gestire cluster HDInsight, vedere [Gestire cluster Hadoop in HDInsight](hdinsight-administer-use-portal-linux.md).
 * Per informazioni su HDInsight .NET SDK, vedere [HDInsight .NET SDK reference](https://msdn.microsoft.com/library/mt271028.aspx) (Informazioni di riferimento su HDInsight .NET SDK).
 * Per usare l'autenticazione non interattiva in Azure, vedere [Creare applicazioni .NET HDInsight di autenticazione non interattive](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

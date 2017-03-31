@@ -1,5 +1,5 @@
 ---
-title: Registrazione di app di Azure Active Directory | Documentazione Microsoft
+title: Registrazione di app di Azure Active Directory | Microsoft Docs
 description: Questo articolo illustra come usare il portale di Azure per registrare un&quot;applicazione in Azure Active Directory
 services: active-directory
 documentationcenter: .net
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/30/2016
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: bf1b8783ccbc3b3e3185eb10c7f772b58352aab7
-ms.openlocfilehash: 073940bb607b953af324d784a45958977e1af3a2
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 006ebbbc3f6f745f60c5fc6646649097e144beaf
+ms.lasthandoff: 03/17/2017
 
 ---
 
@@ -44,7 +45,7 @@ ms.openlocfilehash: 073940bb607b953af324d784a45958977e1af3a2
   * La pagina **Proprietà** consente di modificare le informazioni generali per l'applicazione, inclusi il nome dell'applicazione, l'URL di accesso e l'URL di disconnessione.
   * La pagina **URL di risposta** consente di aggiungere un URL di risposta, a cui Azure AD invia le risposte dei token.
   * La pagina **Proprietari** consente di aggiungere proprietari dell'applicazione.
-  * La pagina **Autorizzazioni** consente di configurare le autorizzazioni per l'app. Ad esempio, per accedere all'API Graph Microsoft, fare clic su **Aggiungi**, quindi selezionare **Microsoft Graph** nel selettore di API e infine scegliere l'autorizzazione necessaria, ad esempio **Lettura dati directory**.
+  * La pagina **Autorizzazioni** consente di configurare le autorizzazioni per l'app. Per accedere all'API Graph Microsoft, ad esempio, fare clic su **Aggiungi**, selezionare **Microsoft Graph** nel selettore di API e quindi scegliere l'autorizzazione necessaria, ad esempio **Lettura dati directory**.
   * La pagina **Chiavi** consente di aggiungere segreti dell'applicazione. Il segreto verrà visualizzato solo immediatamente dopo la creazione, quindi assicurarsi di copiarlo per un uso futuro.
 
 ## <a name="use-the-inline-manifest-editor"></a>Usare l'editor manifesto incorporato
@@ -61,9 +62,4 @@ ms.openlocfilehash: 073940bb607b953af324d784a45958977e1af3a2
 
 1. Per procedure dettagliate relative all'autenticazione delle applicazioni tramite Azure AD, vedere le [Guide introduttive](active-directory-developers-guide.md).
 2. Per un elenco completo di esempi di codice, vedere [Github](https://github.com/azure-samples).
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

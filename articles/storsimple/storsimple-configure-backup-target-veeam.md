@@ -1,9 +1,9 @@
 ---
-title: Configurare Microsoft Azure StorSimple con Veeam | Microsoft Docs
+title: StorSimple 8000 come destinazione di backup con Veeam | Microsoft Docs
 description: Descrive la configurazione della destinazione di backup StorSimple con Veeam.
 services: storsimple
 documentationcenter: 
-author: hkanna
+author: harshakirank
 manager: matd
 editor: 
 ms.assetid: 
@@ -15,179 +15,160 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
 translationtype: Human Translation
-ms.sourcegitcommit: dfecc291c441b862499d7eaaab421c7b72f929b2
-ms.openlocfilehash: 2f71afc6c60cc22ef73a902ee67466313221def2
+ms.sourcegitcommit: 83dc91972ad5fec85e562e45227747568b1fea75
+ms.openlocfilehash: 3d9ca83e2672d9022e4f887b84555f0bf95f6da9
+ms.lasthandoff: 01/26/2017
 
 ---
 
-# <a name="configure-storsimple-with-veeam"></a>Configurare StorSimple con Veeam
+# <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple come destinazione di backup con Veeam
 
 ## <a name="overview"></a>Panoramica
 
-Microsoft Azure StorSimple è una soluzione di archiviazione cloud ibrida che risolve le complessità date dalla crescita esponenziale dei dati. Questa soluzione usa un account di archiviazione Azure come un'estensione della soluzione locale e organizza automaticamente i dati in livelli tra archiviazione locale e archiviazione cloud.
+Azure StorSimple è una soluzione di archiviazione cloud ibrida di Microsoft. StorSimple consente di risolvere le complessità della crescita esponenziale dei dati usando un account di Archiviazione di Azure come estensione della soluzione locale e suddividendo automaticamente i dati in livelli tra l'archiviazione locale e l'archiviazione cloud.
 
-Questo articolo illustra l'integrazione di StorSimple con Veeam e le procedure consigliate per l'integrazione di entrambe le soluzioni. Vengono inoltre illustrate indicazioni su come configurare Veeam per integrarsi al meglio con StorSimple. Rinviamo alle procedure consigliate di Veeam, ai progettisti e agli amministratori di backup per informazioni su come configurare al meglio Veeam per soddisfare le esigenze di backup e i contratti di servizio.
+Questo articolo illustra l'integrazione di StorSimple con Veeam e le procedure consigliate per l'integrazione di entrambe le soluzioni. Vengono anche presentate alcune indicazioni su come configurare Veeam per un'integrazione ottimale con StorSimple. Per la configurazione migliore di Veeam al fine di soddisfare i requisiti di backup individuali e i Contratti di servizio, si rimanda alle procedure consigliate di Veeam, ai progettisti e agli amministratori di backup.
 
-Questo articolo illustra i concetti chiave e passaggi di configurazione, ma non costituisce una guida dettagliata di configurazione o installazione. Nell'articolo si presuppone che l'infrastruttura e i componenti di base funzionino correttamente e siano pronti per supportare i concetti descritti.
+Anche se illustra i concetti chiave e i passaggi di configurazione, questo articolo non costituisce in alcun modo una guida dettagliata per la configurazione o l'installazione. L'articolo presuppone che l'infrastruttura e i componenti di base funzionino correttamente e siano pronti per supportare i concetti descritti.
+
+### <a name="who-should-read-this"></a>A chi è rivolto questo articolo?
+
+Le informazioni di questo articolo sono particolarmente utili per gli amministratori di backup, gli amministratori e i progettisti di archiviazione che conoscono l'archiviazione, Windows Server 2012 R2, Ethernet, i servizi cloud e Veeam.
+
+### <a name="supported-versions"></a>Versioni supportate
+
+-   Veeam 9 e versioni successive
+-   [StorSimple Update 3 e versioni successive](storsimple-overview.md#storsimple-workload-summary)
+
 
 ## <a name="why-storsimple-as-a-backup-target"></a>Perché usare StorSimple come destinazione di backup?
 
-StorSimple è una destinazione di backup ideale per i motivi seguenti:
+StorSimple è un'ottima scelta come destinazione di backup perché:
 
--   Offre archiviazione locale standard per le applicazioni di backup da usare senza apportare modifiche per garantire una rapida destinazione di backup. StorSimple è inoltre disponibile per il ripristino rapido dei backup recenti.
-
--   La suddivisione in livelli del cloud è perfettamente integrata con un account di archiviazione cloud per l'uso dell'archiviazione economica di Microsoft Azure.
-
+-   Offre archiviazione locale standard per le applicazioni di backup da usare come rapida destinazione di backup senza modifiche. È possibile usare StorSimple anche per il ripristino rapido dei backup recenti.
+-   La suddivisione in livelli nel cloud è perfettamente integrata con un account di archiviazione cloud di Azure per l'uso dell'economica soluzione di Archiviazione di Azure.
 -   Offre automaticamente archiviazione esterna per il ripristino di emergenza.
-
-
-## <a name="target-audience"></a>Destinatari
-
-I destinatari di questo documento includono gli amministratori di backup, gli amministratori e i progettisti di archiviazione con conoscenza di archiviazione, Windows Server 2012 R2, Ethernet, servizi cloud e Veeam.
-
-## <a name="supported-versions"></a>Versioni supportate
-
--   Veeam 9 e versioni successive.
-
--   [StorSimple Update 3 e versioni successive](/storsimple-overview#storsimple-workload-summary).
-
 
 
 ## <a name="key-concepts"></a>Concetti chiave
 
-Come con qualsiasi altra soluzione di archiviazione, un'attenta valutazione delle prestazioni di archiviazione della soluzione, dei contratti di servizio, della frequenza di modifica e delle esigenze di crescita della capacità è fondamentale per ottenere un esito positivo. L'idea principale è che l'introduzione di un livello cloud, i tempi e le velocità effettive di accesso al cloud svolgono un ruolo fondamentale nella capacità di StorSimple di eseguire le rispettive attività.
+Come con qualsiasi soluzione di archiviazione, per ottenere un esito positivo è fondamentale un'attenta valutazione delle esigenze relative alle prestazioni di archiviazione, ai Contratti di servizio, alla frequenza di modifica e alla crescita di capacità della soluzione. L'idea principale è che con l'introduzione di un livello cloud, i tempi e le velocità effettive di accesso al cloud hanno un ruolo fondamentale nella capacità di StorSimple di soddisfare le esigenze dell'utente.
 
-StorSimple è progettato per garantire l'archiviazione per le applicazioni che usano un working set di dati ben definito (dati attivi). In questo modello viene archiviato il working set di dati nei livelli locali e il rimanente set di dati non in funzione, poco attivi o archiviati viene suddiviso in livelli nel cloud. Questo modello è illustrato nella figura seguente. La linea verde quasi piatta rappresenta i dati archiviati nei livelli locali del dispositivo StorSimple. La linea rossa rappresenta la quantità totale di dati archiviati nella soluzione StorSimple in tutti i livelli. Lo spazio tra la linea verde piatta e la curva esponenziale rossa rappresenta la quantità totale di dati archiviati nel cloud.
+StorSimple è progettato per garantire l'archiviazione per le applicazioni che usano un working set di dati ben definito (dati attivi). In questo modello, il working set di dati viene archiviato nei livelli locali e il rimanente set di dati non in funzione, poco attivi o archiviati viene suddiviso in livelli nel cloud. Questo modello è illustrato nella figura seguente. La linea verde quasi piatta rappresenta i dati archiviati nei livelli locali del dispositivo StorSimple. La linea rossa rappresenta la quantità totale di dati archiviati nella soluzione StorSimple in tutti i livelli. Lo spazio tra la linea verde piatta e la curva esponenziale rossa rappresenta la quantità totale di dati archiviati nel cloud.
 
 **Suddivisione in livelli di StorSimple**
-![Diagramma di suddivisione in livelli di StorSimple](./media/storsimple-configure-backup-target-using-veeam/image1.jpg)
+![Diagramma della suddivisione in livelli di StorSimple](./media/storsimple-configure-backup-target-using-veeam/image1.jpg)
 
-Tenendo presente questa architettura, si noterà che StorSimple è ideale per fungere da destinazione di backup. StorSimple consente di eseguire le operazioni seguenti:
+Tenendo presente questa architettura, si noterà che StorSimple è particolarmente adatto a essere usato come destinazione di backup. È possibile usare StorSimple per:
 
 -   Eseguire le operazioni di ripristino più frequenti dal working set di dati locale.
-
--   Usare il cloud per il ripristino di emergenza esterno e per i dati meno recenti in cui i ripristini sono meno frequenti.
+-   Usare il cloud per il ripristino di emergenza esterno e per i dati meno recenti per i quali i ripristini sono meno frequenti.
 
 ## <a name="storsimple-benefits"></a>Vantaggi di StorSimple
 
 StorSimple offre una soluzione locale che si integra facilmente con Microsoft Azure, sfruttando l'accesso automatico all'archiviazione locale e cloud.
 
-StorSimple Usa la suddivisione automatica in livelli tra il dispositivo locale, che contiene l'archiviazione a stato solido (Solid State Drive, SSD), SAS (Serial-attached SCSI) e Archiviazione di Azure. La suddivisione automatica in livelli mantiene i dati a cui si accede di frequente in locale, nei livelli SSD e SAS, e sposta in Archiviazione di Azure i dati a cui si accede raramente.
+StorSimple usa la suddivisione automatica in livelli tra il dispositivo locale, provvisto di archiviazione SSD (dispositivo a stato solido) e archiviazione SAS (Serial-attached SCSI), e Archiviazione di Azure. La suddivisione automatica in livelli mantiene i dati utilizzati di frequente in locale, sui livelli SSD e SAS. Sposta i dati a cui si accede di rado in Archiviazione di Azure.
 
-StorSimple offre i seguenti vantaggi:
+StorSimple offre i vantaggi seguenti:
 
--   Algoritmi di deduplicazione e compressione univoci che usano il cloud per ottenere livelli di deduplicazione senza precedenti
-
+-   Algoritmi di deduplicazione e compressione univoci che usano il cloud per ottenere livelli avanzati di deduplicazione
 -   Disponibilità elevata
-
 -   Replica geografica usando la replica geografica di Azure
-
 -   Integrazione di Azure
-
 -   Crittografia dei dati nel cloud
-
 -   Miglioramento del ripristino di emergenza e della conformità
 
-Sebbene StorSimple presenti due scenari di distribuzione principali (destinazione di backup primaria e secondaria), tenere presente che fondamentalmente si tratta di un normale dispositivo di archiviazione a blocchi. StorSimple esegue tutte le operazioni di compressione e deduplicazione e invia e recupera facilmente i dati dal cloud all'applicazione e al file system.
+Sebbene StorSimple presenti due scenari di distribuzione principali (destinazione di backup primaria e secondaria), fondamentalmente si tratta di un normale dispositivo di archiviazione a blocchi. StorSimple esegue tutta la compressione e la deduplicazione necessarie. Invia e recupera senza problemi i dati tra il cloud e l'applicazione e il file system.
 
-Per altre informazioni su StorSimple, vedere [Serie 8000 StorSimple: una soluzione di archiviazione cloud ibrida](storsimple-overview.md) e rivedere le [Specifiche e conformità tecniche per il dispositivo StorSimple](storsimple-technical-specifications-and-compliance.md).
+Per altre informazioni su StorSimple, vedere [Serie 8000 StorSimple: una soluzione di archiviazione cloud ibrida](storsimple-overview.md). È possibile vedere anche le [specifiche tecniche di StorSimple serie 8000](storsimple-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
-> Il dispositivo StorSimple come destinazione di backup è supportato solo con StorSimple 8000 Update 3 o versione successiva.
+> L'uso di un dispositivo StorSimple come destinazione di backup è supportato solo per StorSimple 8000 Update 3 e versioni successive.
 
 ## <a name="architecture-overview"></a>Panoramica dell'architettura
 
-Le tabelle seguenti contengono le indicazioni iniziali da modello ad architettura per il dispositivo.
+Le tabelle seguenti riportano le indicazioni iniziali da modello ad architettura per il dispositivo.
 
-#### <a name="storsimple-capacities-for-local-and-cloud-storage"></a>Capacità di StorSimple per l'archiviazione locale e cloud
+**Capacità di StorSimple per l'archiviazione locale e cloud**
 
-
-| Capacità di archiviazione       | 8100       | 8600       |
-|------------------------|---------------|-----------------|
+| Capacità di archiviazione | 8100 | 8600 |
+|---|---|---|
 | Capacità di archiviazione locale | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
 | Capacità di archiviazione cloud | &gt; 200 TiB\* | &gt; 500 TiB\* |
 
 \* Le dimensioni di archiviazione si intendono senza alcuna deduplicazione o compressione.
 
-#### <a name="storsimple-capacities-for-primary-and-secondary-backups"></a>Capacità di StorSimple per il backup primario e secondario
+**Capacità di StorSimple per il backup primario e secondario**
 
-
-| Scenario di backup  | Capacità di archiviazione locale                                         | Capacità di archiviazione cloud                      |
-|------------------|----------------------------------------------------------------|---------------------------------------------|
-| Backup primario   | Backup recenti archiviati nell'archivio locale per il ripristino rapido (RPO) | La cronologia dei backup (RPO) rientra nella capacità del cloud |
-| Backup secondario | La copia secondaria dei dati di backup può essere archiviata nella capacità del cloud  |
+| Scenario di backup  | Capacità di archiviazione locale  | Capacità di archiviazione cloud  |
+|---|---|---|
+| Backup primario  | Backup recenti archiviati nell'archivio locale per il ripristino rapido per soddisfare l'obiettivo punto di ripristino (RPO) | La cronologia dei backup (RPO) rientra nella capacità del cloud |
+| Backup secondario | La copia secondaria dei dati di backup può essere archiviata nella capacità del cloud  | N/D  |
 
 ## <a name="storsimple-as-a-primary-backup-target"></a>StorSimple come destinazione di backup primaria
 
-In questo scenario i volumi StorSimple vengono presentati all'applicazione di backup come unico repository per i backup. La figura seguente illustra l'architettura della soluzione in cui tutti i backup usano volumi a più livelli StorSimple per i backup e i ripristini.
+In questo scenario i volumi StorSimple vengono presentati all'applicazione di backup come unico archivio per i backup. La figura seguente mostra l'architettura della soluzione in cui tutti i backup usano i volumi StorSimple a livelli per i backup e i ripristini.
 
-![Diagramma logico con StorSimple come destinazione di backup primaria](./media/storsimple-configure-backup-target-using-veeam/primarybackuptargetlogicaldiagram.png)
+![Diagramma logico con StorSimple come destinazione primaria di backup](./media/storsimple-configure-backup-target-using-veeam/primarybackuptargetlogicaldiagram.png)
 
 ### <a name="primary-target-backup-logical-steps"></a>Passaggi logici per il backup nella destinazione primaria
 
 1.  Il server di backup contatta l'agente di backup di destinazione e l'agente di backup trasmette i dati al server di backup.
-
-2.  Il server di backup scrive i dati nei volumi a più livelli StorSimple.
-
-3.  Il server di backup aggiorna il database del catalogo e completa il processo di backup.
-
-4.  Lo script di snapshot attiva la gestione di snapshot cloud di StorSimple.
-
-5.  A seconda dei criteri di conservazione, il server di backup elimina i backup scaduti.
+2.  Il server di backup scrive i dati nei volumi StorSimple a livelli.
+3.  Il server di backup aggiorna il database del catalogo e quindi completa il processo di backup.
+4.  Uno script snapshot attiva la gestione di snapshot cloud di StorSimple (start o delete).
+5.  Il server di backup elimina i backup scaduti in base ai criteri di conservazione.
 
 ### <a name="primary-target-restore-logical-steps"></a>Passaggi logici per il ripristino dalla destinazione primaria
 
-1.  Il server di backup avvia il ripristino dei dati appropriati dal repository di archiviazione.
-
+1.  Il server di backup avvia il ripristino dei dati appropriati dall'archivio.
 2.  L'agente di backup riceve i dati dal server di backup.
-
 3.  Il server di backup completa il processo di ripristino.
 
-## <a name="storsimple-as-a-secondary-backup-target"></a>StorSimple come destinazione di backup secondaria
+## <a name="storsimple-as-a-secondary-backup-target"></a>StorSimple come destinazione secondaria di backup
 
 In questo scenario i volumi StorSimple vengono usati principalmente per la conservazione o l'archiviazione a lungo termine.
 
-La figura seguente illustra l'architettura in cui i backup e i ripristini iniziali scelgono come destinazione un volume a prestazioni elevate. Questi backup vengono copiati e archiviati in un volume StorSimple a più livelli in una determinata pianificazione.
+La figura seguente mostra un'architettura in cui i backup e i ripristini iniziali hanno come destinazione un volume a prestazioni elevate. Questi backup vengono copiati e archiviati in un volume StorSimple a livelli in una determinata pianificazione.
 
-È importante impostare le dimensioni del volume a prestazioni elevate con spazio e prestazioni sufficienti a gestire i requisiti delle prestazioni e della capacità dei criteri di conservazione.
+È importante impostare la dimensione del volume a prestazioni elevate in modo tale che possa gestire i requisiti di capacità e prestazioni dei criteri di conservazione.
 
-![Diagramma logico con StorSimple come destinazione di backup secondaria](./media/storsimple-configure-backup-target-using-veeam/secondarybackuptargetlogicaldiagram.png)
+![Diagramma logico con StorSimple come destinazione secondaria di backup](./media/storsimple-configure-backup-target-using-veeam/secondarybackuptargetlogicaldiagram.png)
 
 ### <a name="secondary-target-backup-logical-steps"></a>Passaggi logici per il backup nella destinazione secondaria
 
 1.  Il server di backup contatta l'agente di backup di destinazione e l'agente di backup trasmette i dati al server di backup.
-
 2.  Il server di backup scrive i dati nell'archiviazione a prestazioni elevate.
-
-3.  Il server di backup aggiorna il database del catalogo e completa il processo di backup.
-
-4.  A seconda dei criteri di conservazione, il server di backup copia i backup in StorSimple.
-
-5.  Lo script di snapshot attiva la gestione di snapshot cloud di StorSimple.
-
-6.  A seconda dei criteri di conservazione, il server di backup elimina i backup scaduti.
+3.  Il server di backup aggiorna il database del catalogo e quindi completa il processo di backup.
+4.  Il server di backup copia i backup in StorSimple in base ai criteri di conservazione.
+5.  Uno script snapshot attiva la gestione di snapshot cloud di StorSimple (start o delete).
+6.  Il server di backup elimina i backup scaduti in base ai criteri di conservazione.
 
 ### <a name="secondary-target-restore-logical-steps"></a>Passaggi logici per il ripristino dalla destinazione secondaria
 
-1.  Il server di backup avvia il ripristino dei dati appropriati dal repository di archiviazione.
-
+1.  Il server di backup avvia il ripristino dei dati appropriati dall'archivio.
 2.  L'agente di backup riceve i dati dal server di backup.
-
 3.  Il server di backup completa il processo di ripristino.
 
 ## <a name="deploy-the-solution"></a>Distribuire la soluzione
 
-La distribuzione di questa soluzione è costituita da tre passaggi: preparazione dell'infrastruttura di rete, distribuzione del dispositivo StorSimple come destinazione di backup e distribuzione del software Veeam. Ognuno dei passaggi precedenti viene illustrato nel dettaglio nelle sezioni seguenti.
+La distribuzione della soluzione richiede tre passaggi:
 
-### <a name="configure-the-network"></a>Configurare la rete
+1. Preparare l'infrastruttura di rete.
+2. Distribuire il dispositivo StorSimple come destinazione dei backup.
+3. Distribuire Veeam.
 
-StorSimple come soluzione integrata con il cloud di Azure richiede una connessione al cloud di Azure attiva e funzionante. Questa connessione viene usata per operazioni quali gli snapshot cloud, la gestione e il trasferimento di metadati, nonché per la suddivisione in livelli di dati meno recenti e a cui si accede con minore frequenza nell'archiviazione cloud di Azure.
+I singoli passaggi sono descritti dettagliatamente nelle sezioni seguenti.
 
-Per ottenere prestazioni ottimali della soluzione, è consigliabile rispettare le procedure consigliate di rete seguenti:
+### <a name="set-up-the-network"></a>Configurare la rete
 
--   il collegamento che connette la suddivisione in livelli di StorSimple ad Azure deve soddisfare i requisiti di larghezza di banda, tramite l'applicazione della Qualità del servizio (QoS) corretta alle opzioni dell'infrastruttura in modo che corrispondano ai contratti di servizio RPO/RTO.
+Poiché StorSimple è una soluzione integrata con il cloud di Azure, richiede una connessione al cloud di Azure attiva e funzionante. Questa connessione viene usata per operazioni quali gli snapshot cloud, la gestione dei dati e il trasferimento di metadati, nonché per la suddivisione in livelli di dati meno recenti e a cui si accede con minore frequenza nell'archiviazione cloud di Azure.
 
--   Le latenze massime di accesso all'archivio BLOB di Azure devono essere comprese nell'intervallo di 80 ms.
+Per garantire prestazioni ottimali della soluzione, è consigliabile rispettare le seguenti procedure consigliate di rete:
+
+-   Il collegamento fra i livelli di StorSimple e Azure deve soddisfare i requisiti di larghezza di banda. A tale scopo, applicare il livello di qualità del servizio (QoS) necessario alle opzioni dell'infrastruttura per soddisfare i Contratti di servizio relativi a RPO e all'obiettivo tempo di ripristino (RTO).
+-   Le latenze massime di accesso all'archiviazione BLOB di Azure devono essere di circa 80 ms.
 
 ### <a name="deploy-storsimple"></a>Distribuire StorSimple
 
@@ -195,350 +176,307 @@ Per una guida dettagliata alla distribuzione di StorSimple, vedere [Distribuire 
 
 ### <a name="deploy-veeam"></a>Distribuire Veeam
 
-Per le procedure consigliate sull'installazione di Veeam, vedere [Procedure consigliate per Veeam9](https://bp.veeam.expert/) e il manuale dell'utente alla pagina [Veeam Help Center (Technical Documentation)](https://www.veeam.com/documentation-guides-datasheets.html) (Help Center Veeam (documentazione tecnica))
+Per le procedure consigliate sull'installazione di Veeam, vedere [Veeam Backup & Replication Best Practices](https://bp.veeam.expert/) (Procedure consigliate per il backup e la replica con Veeam) e il manuale dell'utente alla pagina [Veeam Help Center (Technical Documentation)](https://www.veeam.com/documentation-guides-datasheets.html) (Help Center Veeam (documentazione tecnica)).
 
-## <a name="configure-the-solution"></a>Configurare la soluzione
+## <a name="set-up-the-solution"></a>Configurare la soluzione
 
-In questa sezione vengono descritti alcuni esempi di configurazione. Gli esempi e i suggerimenti seguenti illustrano l'implementazione più semplice ed essenziale. Questa implementazione potrebbe non essere applicabile direttamente ai propri requisiti specifici di backup.
+In questa sezione vengono descritti alcuni esempi di configurazione. Gli esempi e i suggerimenti seguenti illustrano l'implementazione più semplice ed essenziale. Questa implementazione potrebbe non essere applicabile direttamente ai requisiti specifici di backup dell'utente.
 
-### <a name="configure-storsimple"></a>Configurare StorSimple
+### <a name="set-up-storsimple"></a>Configurare StorSimple
 
-| Attività di distribuzione di StorSimple                                                                                                                 | Commenti aggiuntivi                                                                                                                                                                                                                                                                                      |
-|---------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Distribuire un dispositivo StorSimple locale.                                                                                    | Versione supportata: Update 3 e versioni successive.                                                                                                                                                                                                                                                                 |
-| Abilitare la modalità di destinazione di backup.                                                                                                                | Usare i comandi seguenti per abilitare o disabilitare la modalità e ottenere lo stato. Per altre informazioni, vedere [Connettersi in remoto al dispositivo StorSimple](storsimple-remote-connect.md).</br> Abilitare la modalità di backup:`Set-HCSBackupApplianceMode -enable`</br>  Disabilitare la modalità di backup:`Set-HCSBackupApplianceMode -disable`</br> Stato corrente delle impostazioni di modalità di backup`Get-HCSBackupApplianceMode` |
-| Creare un contenitore comune per il volume che archivia i dati di backup. Vengono deduplicati tutti i dati in un contenitore del volume. | I contenitori di volume StorSimple definiscono i domini di deduplicazione.                                                                                                                                                                                                                                             |
-| Creazione dei volumi StorSimple.                                                                                                                 | Creare volumi con dimensioni il più possibile simili all'uso previsto in quanto le dimensioni del volume possono influire sulla durata dello snapshot cloud. Per altre informazioni su come impostare le dimensioni di un volume, passare a [Criteri di conservazione](#retention-policies).</br> </br> Usare i volumi a più livelli StorSimple e selezionare **Usare questo volume per i dati di archivio a cui si accede non di frequente**. </br> I volumi aggiunti solo in locale non sono supportati.        |
-| Creare un criterio di backup di StorSimple univoco per tutti i volumi della destinazione di backup.                                                               | Un criterio di backup di StorSimple definisce il gruppo di coerenza del volume.                                                                                                                                                                                                                                       |
-| Disabilitare la pianificazione come snapshot.                                                                                                    | Gli snapshot vengono attivati come operazione di post-elaborazione.                                                                                                                                                                                                                                                         |
-|                                                                                                     |                                             |
+| Attività di distribuzione di StorSimple  | Commenti aggiuntivi |
+|---|---|
+| Distribuire un dispositivo StorSimple locale. | Versioni supportate: Update 3 e versioni successive. |
+| Attivare la destinazione di backup. | Usare i comandi seguenti per attivare o disattivare la modalità di destinazione di backup e ottenere lo stato. Per altre informazioni, vedere [Connettersi in remoto a un dispositivo StorSimple](storsimple-remote-connect.md).</br> Per attivare la modalità di backup: `Set-HCSBackupApplianceMode -enable`. </br> Per disattivare la modalità di backup: `Set-HCSBackupApplianceMode -disable`. </br> Per ottenere lo stato corrente delle impostazioni della modalità di backup: `Get-HCSBackupApplianceMode`. |
+| Creare un contenitore comune per il volume che archivia i dati di backup. Tutti i dati contenuti in un contenitore di volumi vengono deduplicati. | I contenitori di volumi StorSimple definiscono i domini di deduplicazione.  |
+| Creare i volumi di StorSimple. | Creare volumi con dimensioni il più possibile simili all'uso previsto in quanto le dimensioni del volume possono influire sulla durata dello snapshot cloud. Per vedere come dimensionare un volume, leggere le informazioni sui [criteri di conservazione](#retention-policies).</br> </br> Usare i volumi StorSimple a livelli e selezionare la casella di controllo **Usare questo volume per i dati di archivio a cui si accede non di frequente**. </br> L'uso di soli volumi aggiunti in locale non è supportato. |
+| Creare un criterio di backup di StorSimple univoco per tutti i volumi della destinazione di backup. | Un criterio di backup di StorSimple definisce il gruppo di coerenza del volume. |
+| Disabilitare la pianificazione alla scadenza degli snapshot. | Gli snapshot vengono attivati come operazione di post-elaborazione. |
 
+### <a name="set-up-the-host-backup-server-storage"></a>Configurare l'archiviazione del server di backup host
 
-### <a name="configure-host-backup-server-storage"></a>Configurare l'archiviazione del server di backup host
+Configurare l'archiviazione del server di backup host in base alle seguenti linee guida:  
 
-Assicurarsi che l'archiviazione del server di backup host sia configurata in base alle linee guida seguenti:  
-
-- Non usare volumi con spanning, creati mediante il servizio di gestione dischi di Windows, in quanto non sono supportati.
+- Non usare i volumi con spanning, creati tramite il servizio di gestione dischi di Windows. I volumi con spanning non sono supportati.
 - Formattare i volumi tramite NTFS con una dimensione dell'unità di allocazione di 64 KB.
-- Mappare i volumi StorSimple direttamente al server Veeam. 
+- Mappare i volumi StorSimple direttamente al server Veeam.
     - Usare iSCSI per server fisici.
 
 
 ## <a name="best-practices-for-storsimple-and-veeam"></a>Procedure consigliate per StorSimple e Veeam
 
-Configurare la soluzione in base alle linee guida seguenti.
+Configurare la soluzione in base alle linee guida riportate nelle sezioni seguenti.
 
-### <a name="operating-system"></a>Sistema operativo
+### <a name="operating-system-best-practices"></a>Procedure consigliate per il sistema operativo
 
 -   Disabilitare la crittografia di Windows Server e la deduplicazione per il file system NTFS.
-
 -   Disabilitare la deframmentazione di Windows Server sui volumi StorSimple.
-
 -   Disabilitare l'indicizzazione di Windows Server sui volumi StorSimple.
-
 -   Eseguire una scansione antivirus dell'host di origine (non nei volumi StorSimple).
+-   Disabilitare la [manutenzione di Windows Server](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) predefinita in Gestione attività. Eseguire questa operazione in uno dei modi seguenti:
+    - Disattivare lo strumento di configurazione della manutenzione nell'Utilità di pianificazione attività di Windows.
+    - Scaricare [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) di Windows Sysinternals. Dopo aver scaricato PsExec, eseguire Windows PowerShell come amministratore e digitare:
+      ```powershell
+      psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
+      ```
 
--   Disabilitare il valore predefinito [manutenzione di Windows Server](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) in Gestione attività.
+### <a name="storsimple-best-practices"></a>Procedure consigliate di StorSimple
 
-    - Disabilitare il configuratore di manutenzione nell'Utilità di pianificazione attività di Windows.
-
-        oppure
-
-    - Scaricare: [PSEXEC – Microsoft Sysinternals](https://technet.microsoft.com/sysinternals/bb897553.aspx)
-
-      - Dopo aver scaricato PSEXEC, eseguire Windows PowerShell come amministratore e digitare:
-
-            `psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable`
-
-### <a name="storsimple"></a>StorSimple
-
--   Assicurarsi che il dispositivo StorSimple sia aggiornato alla versione [Update 3 o successive](storsimple-install-update-3.md).
-
+-   Assicurarsi che il dispositivo StorSimple sia aggiornato alla versione [Update 3 o successiva](storsimple-install-update-3.md).
 -   Isolare il traffico iSCSI e cloud. Usare connessioni iSCSI dedicate per il traffico tra StorSimple e il server di backup.
+-   Assicurarsi che il dispositivo StorSimple sia una destinazione di backup dedicata. I carichi di lavoro misti non sono supportati in quanto influenzano RTO e RPO.
 
--   Assicurarsi che il dispositivo StorSimple sia una destinazione di backup dedicata. I carichi di lavoro misti non sono supportati in quanto influiscono su RTO/RPO.
-
-### <a name="veeam"></a>Veeam
+### <a name="veeam-best-practices"></a>Procedure consigliate di Veeam
 
 -   Il database Veeam deve essere locale nel server e non deve trovarsi in un volume StorSimple.
-
--   Per il ripristino di emergenza eseguire il backup del database Veeam in un volume StorSimple.
-
+-   Per il ripristino di emergenza, eseguire il backup del database di Veeam in un volume StorSimple.
 -   Per questa soluzione sono supportati i backup Veeam completi e incrementali. Si consiglia di non usare backup sintetici e differenziali.
-
--   I file dei dati di backup devono contenere solo dati per un processo specifico. Non è ad esempio consentito alcun supporto di aggiunta tra diversi processi.
-
--   Disabilitare la verifica dei processi. Se necessario, pianificare la verifica dopo l'ultimo processo di backup. È importante tenere presente che questo processo influisce sulla finestra di backup.
-
--   Disabilitare la preallocazione dei supporti.
-
--   Assicurarsi che l'elaborazione parallela sia abilitata.
-
--   Disabilitare la compressione.
-
--   Disabilitare la deduplicazione nel processo di backup.
-
+-   I file dei dati di backup devono contenere solo i dati per un processo specifico. Non è ad esempio consentito alcun supporto di aggiunta tra diversi processi.
+-   Disattivare la verifica dei processi. Se necessario, pianificare la verifica dopo l'ultimo processo di backup. È importante tenere presente che questo processo influisce sulla finestra di backup.
+-   Disattivare la preallocazione dei supporti di memorizzazione.
+-   Assicurarsi che l'elaborazione parallela sia attivata.
+-   Disattivare la compressione.
+-   Disattivare la deduplicazione nel processo di backup.
 -   Impostare ottimizzazione su **LAN Target** (Destinazione LAN).
-
--   Abilitare **Create active full backup** (Crea backup completo attivo) ogni 2 settimane.
-
--   Nel repository di backup, configurare **Use per-VM backup file** (Usa file di backup per ciascuna macchina virtuale).
-
--   Impostare **Use multiple upload streams per job** (Usa più flussi di caricamento per processo) su 8 (massimo 16 consentiti). Aumentare o diminuire in base all'uso della CPU sul dispositivo StorSimple.
+-   Attivare **Create active full backup** (Crea backup completo attivo) ogni 2 settimane.
+-   Nell'archivio di backup impostare **Use per-VM backup file** (Usa file di backup per ciascuna macchina virtuale).
+-   Impostare **Use multiple upload streams per job** (Usa più flussi di caricamento per processo) su **8** (massimo 16 consentiti). Aumentare o diminuire questo numero in base all'uso della CPU sul dispositivo StorSimple.
 
 ## <a name="retention-policies"></a>Criteri di conservazione
 
-Uno dei criteri di conservazione di backup più usati è GFS (Grandfather, Father and Son). In questo criterio viene eseguito ogni giorno un backup incrementale. I backup completi vengono eseguiti con frequenza settimanale e mensile. Questo criterio genera 6 volumi StorSimple a più livelli.
-
--   Un volume contiene i criteri di conservazione settimanali, mensili e annuali completi.
-
--   Gli altri 5 volumi archiviano i backup incrementali giornalieri.
+Uno dei tipi di criteri di conservazione dei backup più comuni è GFS (Grandfather, Father e Son). In un criterio GFS viene eseguito un backup incrementale ogni giorno e vengono eseguiti backup completi ogni settimana e ogni mese. Questo criterio dà come risultato sei volumi StorSimple a livelli: un volume contiene i backup completi settimanali, mensili e annuali; gli altri cinque volumi contengono i backup incrementali giornalieri.
 
 Nell'esempio seguente si usa una rotazione GFS. Nell'esempio si presuppone quanto segue:
 
--   Vengono usati dati compressi o non duplicati.
-
+-   Vengono usati dati compressi o non deduplicati.
 -   I backup completi hanno dimensione di 1 TiB ciascuno.
-
 -   I backup incrementali giornalieri hanno dimensione di 500 GiB ciascuno.
+-   Quattro backup settimanali sono conservati per un mese.
+-   Dodici backup mensili sono conservati per un anno.
+-   Un backup annuale è conservato per 10 anni.
 
--   4 backup settimanali conservati per un mese.
+In base ai presupposti precedenti creare un volume a più livelli StorSimple a 26 TiB per i backup mensili e annuali completi. Creare un volume StorSimple a livelli da 5 TiB per ciascuno dei backup incrementali giornalieri.
 
--   12 backup mensili conservati per un anno.
+| Conservazione per tipo di backup | Dimensioni (TiB) | Moltiplicatore GFS\* | Capacità totale (TiB)  |
+|---|---|---|---|
+| Completo settimanale | 1 | 4  | 4 |
+| Incrementale giornaliero | 0,5 | 20 (il numero dei cicli è uguale al numero di settimane al mese) | 12 (2 per quota aggiuntiva) |
+| Completo mensile | 1 | 12 | 12 |
+| Completo annuale | 1  | 10 | 10 |
+| Requisito GFS |   | 38 |   |
+| Quota aggiuntiva  | 4  |   | 42 (requisito GFS totale)  |
+\*Il moltiplicatore GFS è il numero di copie che è necessario proteggere e mantenere per soddisfare i requisiti di backup.
 
--   1 backup annuale conservato per 10 anni.
+## <a name="set-up-veeam-storage"></a>Configurare l'archiviazione Veeam
 
-In base ai presupposti precedenti creare un volume a più livelli StorSimple a 26 TiB per i backup mensili e annuali completi. Creare un volume a più livelli StorSimple a 5 TiB per ciascuno dei backup incrementali giornalieri.
+### <a name="to-set-up-veeam-storage"></a>Per configurare l'archiviazione Veeam
 
-| Conservazione per tipo di backup | Dimensioni TiB | Moltiplicatore GFS\*                                       | Capacità totale TiB          |
-|-----------------------|----------|--------------------------------------------------------|-----------------------------|
-| Settimanale completo           | 1        | 4                                                      | 4                           |
-| Incrementale giornaliero     | 0,5      | 20 (il numero dei cicli è uguale al numero di settimane al mese) | 12 (2 per quota aggiuntiva) |
-| Mensile completo          | 1        | 12                                                     | 12                          |
-| Annuale completo           | 1        | 10                                                     | 10                          |
-| Requisito GFS       |          |                                                        | 38                          |
-| Quota aggiuntiva      | 4        |                                                        | 42 requisito GFS totale.   |
+1.  Nella console di backup e replica di Veeam, in **Repository Tools** (Strumenti di archivio), passare a **Backup Infrastructure** (Infrastruttura di backup). Fare clic con il pulsante destro del mouse su **Backup Repositories** (Archivi di backup) e selezionare **Add Backup Repository** (Aggiungi archivio di backup).
 
-\*Il moltiplicatore GFS è il numero di copie che è necessario proteggere e mantenere per soddisfare i criteri di backup.
+    ![Console di gestione di Veeam, pagina dell'archivio di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
-## <a name="configuring-veeam-storage"></a>Configurazione dell'archiviazione Veeam
+2.  Nella finestra di dialogo **New Backup Repository** (Nuovo archivio di backup) immettere un nome e una descrizione per l'archivio. Selezionare **Avanti**.
 
-1.  Passare alle impostazioni **Backup Infrastructure** (Infrastruttura di backup). Selezionare **Repository di backup**, fare clic con il tasto destro del mouse e selezionare **Add Backup Repository** (Aggiungi repository di backup).
+    ![Console di gestione di Veeam, pagina di nome e descrizione](./media/storsimple-configure-backup-target-using-veeam/veeamimage2.png)
 
-
-    ![Console di gestione Veeam, schermata del repository di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
-
-1.  Specificare un **Nome** e una **Descrizione** per il repository. Fare clic su **Avanti >**.
-
-    ![Console di gestione Veeam, schermata con nome e descrizione](./media/storsimple-configure-backup-target-using-veeam/veeamimage2.png)
-
-1.  Selezionare **Microsoft Windows Server** come repository di backup. Scegliere il server Veeam. Fare clic su **Avanti >**.
+3.  Come tipo selezionare **Microsoft Windows server** (Serve Microsoft Windows). Selezionare il server Veeam. Selezionare **Avanti**.
 
     ![Console di gestione Veeam, selezionare il tipo di repository di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage3.png)
 
-1.  Per specificare la **posizione**, individuare e selezionare il volume necessario. Impostare **Limit maximum concurrent tasks to:** (Limita numero massimo attività simultanee a:) su 4. In questo modo si garantisce che vengano elaborati contemporaneamente solo 4 dischi virtuali durante l'elaborazione di ciascuna macchina virtuale.
-Fare clic su **Advanced**.
+4.  Per specificare la **posizione**, individuare e selezionare il volume necessario. Selezionare la casella di controllo **Limit maximum concurrent tasks to:** (Limita numero massimo attività simultanee a:) e impostare il valore su **4**. In questo modo si garantisce che vengano elaborati contemporaneamente solo quattro dischi virtuali durante l'elaborazione di ciascuna macchina virtuale (VM). Selezionare il pulsante **Advanced** (Avanzate).
 
     ![Console di gestione Veeam, selezionare il volume](./media/storsimple-configure-backup-target-using-veeam/veeamimage4.png)
 
 
-1.  Scegliere **Use per-VM backup files** (Usa file di backup per ciascuna macchina virtuale).
-
+5.  Nella finestra di dialogo **Storage Compatibility Settings** (Impostazioni di compatibilità di archiviazione) selezionare la casella di controllo **Use per-VM backup files** (Usa file di backup per ciascuna macchina virtuale).
 
     ![Console di gestione Veeam, impostazioni di compatibilità di archiviazione](./media/storsimple-configure-backup-target-using-veeam/veeamimage5.png)
 
-1.  Abilitare **vPower NFS service on the mount server (recommended)** (Servizio vPower NFS nel server di montaggio (scelta consigliata)).
+6.  Nella finestra di dialogo **New Backup Repository** (Nuovo archivio di backup) selezionare la casella di controllo **Enable vPower NFS service on the mount server (recommended)** (Abilita servizio NFS vPower nel server di montaggio (scelta consigliata)). Selezionare **Avanti**.
 
-    ![Console di gestione Veeam, schermata del repository di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
+    ![Console di gestione di Veeam, pagina dell'archivio di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
 
-1.  Rivedere le impostazioni e procedere alla pagina successiva.
+7.  Rivedere le impostazioni e selezionare **Next** (Avanti).
 
-    ![Console di gestione Veeam, schermata del repository di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage7.png)
+    ![Console di gestione di Veeam, pagina dell'archivio di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage7.png)
 
     Viene aggiunto un repository al server Veeam.
 
-## <a name="storsimple-as-a-primary-backup-target"></a>StorSimple come destinazione di backup primaria
+## <a name="set-up-storsimple-as-a-primary-backup-target"></a>Configurare StorSimple come destinazione di backup primaria
 
 > [!IMPORTANT]
-> Se è necessario ripristinare i dati da un backup suddiviso in livelli nel cloud, il ripristino viene eseguito alle velocità del cloud.
+> Il ripristino dei dati da un backup suddiviso in livelli nel cloud viene eseguito alle velocità del cloud.
 
-Nella figura seguente viene illustrato il mapping di un volume tipico per un processo di backup. In questo caso tutti i backup settimanali vengono mappati nel disco completo di sabato e i backup incrementali vengono mappati in dischi incrementali dal lunedì al venerdì. Tutti i backup e i ripristini vengono eseguiti da un volume a più livelli StorSimple.
+La figura seguente illustra il mapping di un volume tipico a un processo di backup. In questo caso, tutti i backup settimanali vengono mappati al disco Saturday full e i backup incrementali vengono mappati ai dischi incrementali dei giorni da lunedì a venerdì. Tutti i backup e i ripristini vengono eseguiti da un volume a più livelli StorSimple.
 
-![Diagramma logico di configurazione della destinazione di backup primaria ](./media/storsimple-configure-backup-target-using-veeam/primarybackuptargetdiagram.png)
+![Diagramma logico di configurazione della destinazione primaria di backup](./media/storsimple-configure-backup-target-using-veeam/primarybackuptargetdiagram.png)
 
-#### <a name="storsimple-as-a-primary-backup-target-grandfather-father-and-son-gfs-schedule-example"></a>Esempio di pianificazione GFS con StorSimple come destinazione di backup primaria
+### <a name="storsimple-as-a-primary-backup-target-gfs-schedule-example"></a>Esempio di pianificazione GFS con StorSimple come destinazione primaria di backup
 
-| Pianificazione di rotazione GFS per 4 settimane, mensile e annuale |               |             |
-|--------------------------------------------------------------------------|---------------|-------------|
-| Tipo di backup o frequenza   | Completa          | Incrementale (giorno 1-5)  |
-| Settimanale (settimana 1-4)    | Sabato | Da lunedì a venerdì |
-| Mensile     | Sabato  |             |
-| Annuale      | Sabato  |             |
+Di seguito è riportato un esempio di una pianificazione a rotazione GFS per quattro settimane, mensile e annuale:
+
+| Frequenza/Tipo di backup | Completa | Incrementale (giorni 1-5)  |   
+|---|---|---|
+| Settimanale (settimane 1-4) | Sabato | Lunedì-venerdì |
+| Mensile  | Sabato  |   |
+| Annuale | Sabato  |   |   |
 
 
-### <a name="assigning-storsimple-volumes-to-a-veeam-backup-job"></a>Assegnazione di volumi StorSimple a un processo di backup Veeam
+### <a name="assign-storsimple-volumes-to-a-veeam-backup-job"></a>Assegnare volumi StorSimple a un processo di backup Veeam
 
-1.  Creare un processo giornaliero con Veeam StorSimplein in caso di uno scenario di destinazione di backup primaria o DAS/NAS/JBOD in caso di uno scenario di destinazione di backup secondaria come destinazione di backup. Passare a **Backup e replica &gt; Backup**. Fare clic con il tasto destro del mouse e selezionare VMware o Hyper-V in base all'ambiente.
+Per lo scenario di destinazione del backup primario, creare un processo giornaliero con il volume StorSimple primario di Veeam. Per uno scenario di destinazione del backup secondario, creare un processo giornaliero mediante archiviazione DAS (Direct Attached Storage), NAS (Network Attached Storage) o JBOD (Just a Bunch of Disks).
+
+#### <a name="to-assign-storsimple-volumes-to-a-veeam-backup-job"></a>Per assegnare volumi StorSimple a un processo di backup Veeam
+
+1.  Nella console di backup e replica di Veeam selezionare **Backup & Replication** (Backup e replica). Fare clic con il pulsante destro del mouse su **Backup** e selezionare **VMware** o **Hyper-V** in base all'ambiente.
 
     ![Console di gestione Veeam, nuovo processo di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage8.png)
 
-1.  Specificare un **Nome** e una **Descrizione** per il processo di backup giornaliero.
+2.  Nella finestra di dialogo **New Backup Job** (Nuovo processo di backup) immettere un nome e una descrizione per il processo di backup giornaliero.
 
-    ![Console di gestione Veeam, schermata nuovo processo di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage9.png)
+    ![Console di gestione di Veeam, pagina del nuovo processo di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage9.png)
 
-1.  Selezionare una macchina virtuale su cui eseguire il backup.
+3.  Selezionare una macchina virtuale su cui eseguire il backup.
 
-    ![Console di gestione Veeam, schermata nuovo processo di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
+    ![Console di gestione di Veeam, pagina del nuovo processo di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
 
-1.  Indicare in maniera appropriata le voci **Backup proxy** (Proxy di backup) e **Backup repository** (Repository di backup). Impostare **Restore points to keep on disk** (Punti di ripristino da mantenere su disco) in base alle definizioni RPO/RTO dell'ambiente sull'archivio collegato locale. Fare clic su Avanzate.
+4.  Selezionare i valori desiderati per **Backup proxy** (Proxy di backup) e **Backup repository** (Repository di backup). Selezionare un valore per **Restore points to keep on disk** (Punti di ripristino da mantenere su disco) in base alle definizioni RPO e RTO dell'ambiente per l'archivio collegato locale. Selezionare **Advanced** (Avanzate).
 
-    ![Console di gestione Veeam, schermata nuovo processo di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage11.png)
+    ![Console di gestione di Veeam, pagina del nuovo processo di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage11.png)
 
-    Nella scehda **Backup** scegliere **Incrementale**. Accertarsi che l'opzione **Create synthetic full backups periodically** (Crea periodicamente backup completi sintetici) non sia selezionata.
- Abilitare **Create active full backups periodically** (Crea periodicamente backup completi attivi) e selezionare Settimanale sugli **Active full backups** (Backup completi attivi) abilitati ogni sabato.
+5. Nella finestra di dialogo **Advanced Settings** (Impostazioni avanzate), nella scheda **Backup**, selezionare **Incremental** (Incrementale). Assicurarsi che sia selezionata la casella di controllo **Create synthetic full backups periodically** (Crea periodicamente backup completi sintetici). Selezionare la casella di controllo **Create active full backups periodically** (Crea periodicamente backup completi attivi). Per **Active full backup** (Backup completo attivo) selezionare la casella di controllo **Weekly on selected days** (Settimanale nei giorni selezionati) per Saturday (Sabato).
 
+    ![Console di gestione di Veeam, pagina delle impostazioni avanzate nuovo processo di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
 
-    ![Console di gestione Veeam, schermata impostazioni avanzate nuovo processo di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
+6. Sulla scheda **Storage** (Archiviazione) assicurasi che la casella di controllo **Enable inline data deduplication** (Abilita deduplicazione dei dati in linea) sia deselezionata. Selezionare la casella di controllo **Exclude swap file blocks** (Escludi blocchi di file di scambio) e selezionare la casella di controllo **Exclude deleted file blocks** (Escludi blocchi di file eliminati). Impostare **Compression level** (Livello di compressione) su **None** (Nessuno). Per avere prestazioni e deduplicazioni equilibrate impostare **Storage optimization** (Ottimizzazione archiviazione) su **LAN Target** (Destinazione LAN). Selezionare **OK**.
 
-    Nella scheda Archiviazione, accertarsi che deduplicazione e compressione siano disabilitate e che lo scambio e l'eliminazione dei blocchi di file siano abilitati. Impostare **Storage optimization** (Ottimizzazione archiviazione) e **LAN Target** (Destinazione LAN) per avere prestazioni e deduplicazioni equilibrate.
+    ![Console di gestione di Veeam, pagina delle impostazioni avanzate nuovo processo di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage13.png)
 
-    ![Console di gestione Veeam, schermata impostazioni avanzate nuovo processo di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage13.png)
+    Per informazioni sulle impostazioni di deduplicazione e compressione di Veeam, vedere [Deduplicazione e compressione dei dati](https://helpcenter.veeam.com/backup/vsphere/compression_deduplication.html).
 
-    Per informazioni dettagliate sulle impostazioni di deduplicazione e compressione, vedere [Deduplicazione e compressione dei dati](https://helpcenter.veeam.com/backup/vsphere/compression_deduplication.html)
+7.  Nella finestra di dialogo **Edit Backup Job** (Modifica processo di backup) è possibile selezionare la casella di controllo **Enable application-aware processing** (Abilita elaborazione compatibile con le applicazioni), opzione facoltativa.
 
-1.  È possibile scegliere l'opzione **Enable Application Aware Processing** (Abilita elaborazione con riconoscimento dell'applicazione).
+    ![Console di gestione di Veeam, pagina dell'elaborazione guest di un nuovo processo di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage14.png)
 
+8.  Impostare la pianificazione in modo che venga eseguita una volta al giorno a un orario che è possibile specificare.
 
-    ![Console di gestione Veeam, schermata elaborazione guest di un nuovo processo di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage14.png)
+    ![Console di gestione di Veeam, pagina di pianificazione nuovo processo di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage15.png)
 
-1.  Impostare la pianificazione in modo che venga eseguita una volta al giorno a un orario specificato di propria scelta.
-
-    ![Console di gestione Veeam, schermata Pianificazione nuovo processo di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage15.png)
-
-## <a name="storsimple-as-a-secondary-backup-target"></a>StorSimple come destinazione di backup secondaria
+## <a name="set-up-storsimple-as-a-secondary-backup-target"></a>Configurare StorSimple come destinazione secondaria di backup
 
 > [!NOTE]
-> Per i dati da un backup suddiviso in livelli nel cloud, il ripristino viene eseguito alle velocità del cloud.
+> I ripristini dei dati da un backup suddiviso in livelli nel cloud vengono eseguiti alle velocità del cloud.
 
-In questo modello è necessario un supporto di archiviazione diverso da StorSimple che funga da cache temporanea. È ad esempio possibile usare un volume RAID per contenere spazi, I/O e larghezza di banda. È consigliabile usare RAID 5, 50 e 10.
+In questo modello è necessario un supporto di archiviazione diverso da StorSimple che funga da cache temporanea. Ad esempio, è possibile usare un volume RAID (Redundant Array of Independent Disks, array ridondante di dischi indipendenti) per ottenere spazio, input/output (I/O) e larghezza di banda. È consigliabile usare RAID 5, 50 e 10.
 
-Nella figura seguente viene illustrato tipici volumi locali (per il server) con conservazione a breve termine e volumi di archiviazione con conservazione a lungo termine. In questo caso tutti i backup vengono eseguiti nel volume RAID locale (per il server). Questi backup vengono periodicamente duplicati e archiviati in un volume di archiviazione. È importante impostare le dimensioni del volume RAID locale (per il server) in modo da gestire i requisiti delle prestazioni e della capacità di conservazione a breve termine.
+La figura seguente illustra tipici volumi locali (per il server) con conservazione a breve termine e volumi di archiviazione con conservazione a lungo termine. In questo scenario tutti i backup vengono eseguiti nel volume RAID locale (per il server). Questi backup vengono periodicamente duplicati e archiviati in un volume di archiviazione. È importante impostare le dimensioni del volume RAID locale (per il server) in modo che possa gestire i requisiti delle prestazioni e della capacità di conservazione a breve termine.
 
+![Diagramma logico con StorSimple come destinazione secondaria di backup](./media/storsimple-configure-backup-target-using-veeam/secondarybackuptargetdiagram.png)
 
+### <a name="storsimple-as-a-secondary-backup-target-gfs-example"></a>Esempio GFS con StorSimple come destinazione secondaria di backup
 
-| Tipo di backup e conservazione                    |Archiviazione configurata| Dimensioni (TiB) | Moltiplicatore GFS | Capacità totale (TiB)        |
-|----------------------------------------------|-----|----------|----------------|------------------------|
-| Settimana 1 (completo e incrementale) |Disco locale (breve termine)| 1        | 1              | 1           |
-| StorSimple Settimana 2-4           |Disco StorSimple (lungo termine) | 1        | 4              | 4                   |
-| Mensile completo                                 |Disco StorSimple (lungo termine) | 1        | 12             | 12                   |
-| Annuale completo                               |Disco StorSimple (lungo termine) | 1        | 1              | 1                   |
-|Requisiti di dimensione dei volumi GFS | |          |                | 18*|
+La tabella seguente indica come configurare il backup per l'esecuzione su dischi locali e dischi StorSimple. Include i requisiti di capacità totale e individuali.
 
-\* La capacità totale include i 17 TiB dei dischi StorSimple e 1 TiB del volume RAID locale.
-
-![Diagramma logico con StorSimple come destinazione di backup secondaria ](./media/storsimple-configure-backup-target-using-veeam/secondarybackuptargetdiagram.png)
-
-#### <a name="gfs-example-schedule"></a>Pianificazione di esempio GFS
-
-| Pianificazione della rotazione GFS settimanale, mensile e annuale|                    |                   |                   |                   |                   |                   |
-|--------------------------------------------------------------------------|--------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
-| Settimana                                                                     | Completa               | Incrementale Giorno 1        | Incrementale Giorno 2        | Incrementale Giorno 3        | Incrementale Giorno 4        | Incrementale Giorno 5        |
-| Settimana 1                                                                   | Volume RAID locale  | Volume RAID locale | Volume RAID locale | Volume RAID locale | Volume RAID locale | Volume RAID locale |
-| Settimana 2                                                                   | StorSimple Settimana 2-4 |                   |                   |                   |                   |                   |
-| Settimana 3                                                                   | StorSimple Settimana 2-4 |                   |                   |                   |                   |                   |
-| Settimana 4                                                                   | StorSimple Settimana 2-4 |                   |                   |                   |                   |                   |
-| Mensile                                                                  | StorSimple Mensile |                   |                   |                   |                   |                   |
-| Annuale                                                                   | StorSimple Annuale  |                   |                   |                   |                   |                   |
+| Tipo di backup e conservazione | Archiviazione configurata | Dimensioni (TiB) | Moltiplicatore GFS | Capacità totale\* (TiB) |
+|---|---|---|---|---|
+| Settimana 1 (completo e incrementale) |Disco locale (breve termine)| 1 | 1 | 1 |
+| StorSimple settimane 2-4 |Disco StorSimple (lungo termine) | 1 | 4 | 4 |
+| Completo mensile |Disco StorSimple (lungo termine) | 1 | 12 | 12 |
+| Completo annuale |Disco StorSimple (lungo termine) | 1 | 1 | 1 |
+|Requisiti di dimensione dei volumi GFS |  |  |  | 18*|
+\* La capacità totale include 17 TiB dei dischi StorSimple e 1 TiB del volume RAID locale.
 
 
-### <a name="assigning-storsimple-volumes-to-a-veeam-copy-job"></a>Assegnazione di volumi StorSimple a un processo di copia Veeam
+### <a name="gfs-example-schedule"></a>Pianificazione di esempio GFS
 
-1.  Avviare la procedura guidata per un nuovo processo di copia di backup. Passare a **Processi > Copia di backup**. Selezionare VMware o Hyper-V in base al proprio ambiente.
+Pianificazione della rotazione GFS settimanale, mensile e annuale
 
-    ![Console di gestione Veeam, schermata nuovo processo di copia di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage16.png)
+| Settimana | Completa | Incrementale Giorno 1 | Incrementale Giorno 2 | Incrementale Giorno 3 | Incrementale Giorno 4 | Incrementale Giorno 5 |
+|---|---|---|---|---|---|---|
+| Settimana 1 | Volume RAID locale  | Volume RAID locale | Volume RAID locale | Volume RAID locale | Volume RAID locale | Volume RAID locale |
+| Settimana 2 | StorSimple settimane 2-4 |   |   |   |   |   |
+| Settimana 3 | StorSimple settimane 2-4 |   |   |   |   |   |
+| Settimana 4 | StorSimple settimane 2-4 |   |   |   |   |   |
+| Mensile | StorSimple Mensile |   |   |   |   |   |
+| Annuale | StorSimple Annuale  |   |   |   |   |   |   |
 
-1.  Specificare il nome e la descrizione del processo.
+### <a name="assign-storsimple-volumes-to-a-veeam-copy-job"></a>Assegnare volumi StorSimple a un processo di copia Veeam
 
-    ![Console di gestione Veeam, schermata nuovo processo di copia di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage17.png)
+#### <a name="to-assign-storsimple-volumes-to-a-veeam-copy-job"></a>Per assegnare volumi StorSimple a un processo di copia Veeam
 
-1.  Selezionare le macchine virtuali da elaborare e scegliere tra i backup quello giornaliero creato in precedenza.
+1.  Nella console di backup e replica di Veeam selezionare **Backup & Replication** (Backup e replica). Fare clic con il pulsante destro del mouse su **Backup** e selezionare **VMware** o **Hyper-V** in base all'ambiente.
 
-    ![Console di gestione Veeam, schermata nuovo processo di copia di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage18.png)
+    ![Console di gestione di Veeam, pagina del processo di copia di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage16.png)
 
-1.  Se necessario, escludere gli oggetti dal processo di copia di backup.
+2.  Nella finestra di dialogo **New Backup Copy Job** (Nuovo processo di copia di backup) immettere un nome e una descrizione per il processo.
 
-1.  Selezionare **Backup repository** (Repository di backup), indicare un valore per il parametro **Restore points to keep** (Punti di ripristino da mantenere) e abilitare l'opzione **Keep the following restore points for archival purposes** (Mantieni i seguenti punti di ripristino per motivi di archiviazione).
-    
- Definire la frequenza di backup e quindi fare clic su **Avanzate**.
+    ![Console di gestione di Veeam, pagina del processo di copia di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage17.png)
 
-    ![Console di gestione Veeam, schermata nuovo processo di copia di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage19.png)
+3.  Selezionare le VM da elaborare. Selezionare From backups (Dai backup) e quindi selezionare il backup giornaliero creato in precedenza.
 
-1.  Specificare le impostazioni avanzate seguenti:
+    ![Console di gestione di Veeam, pagina del processo di copia di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage18.png)
 
-    -   Nella scheda **Manutenzione** disabilitare la protezione dal danneggiamento a livello di archiviazione.
+4.  Se necessario, escludere gli oggetti dal processo di copia di backup.
 
-    -   Nella scheda **Archiviazione** assicurarsi che deduplicazione e compressione siano disabilitate.
+5.  Selezionare l'archivio di backup e impostare un valore per **Restore points to keep** (Punti di ripristino da mantenere). Assicurarsi di selezionare la casella di controllo **Keep the following restore points for archival purposes** (Mantieni i seguenti punti di ripristino per motivi di archiviazione). Definire la frequenza di backup e quindi fare clic su **Advanced** (Avanzate).
 
-    ![Console di gestione Veeam, schermata impostazioni avanzate nuovo processo di copia di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage20.png)
+    ![Console di gestione di Veeam, pagina del processo di copia di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage19.png)
 
-    ![Console di gestione Veeam, schermata impostazioni avanzate nuovo processo di copia di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage21.png)
+6.  Specificare le impostazioni avanzate seguenti:
 
-1.  Specificare come diretto il trasferimento dati.
+    * Nella scheda **Maintenance** (Manutenzione) disattivare la protezione dal danneggiamento a livello di archiviazione.
 
-1.  Definire la pianificazione della finestra di copia di backup in base alle proprie esigenze e terminare.
+    ![Console di gestione di Veeam, pagina delle impostazioni avanzate nuovo processo di copia di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage20.png)
 
+    * Nella scheda **Archiviazione** assicurarsi che la deduplicazione e compressione siano disattivate.
+
+    ![Console di gestione di Veeam, pagina delle impostazioni avanzate nuovo processo di copia di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage21.png)
+
+7.  Specificare che il trasferimento dei dati è diretto.
+
+8.  Definire la pianificazione della finestra di copia del backup in base alle esigenze e quindi completare la procedura guidata.
 
 Per altre informazioni, vedere [Creare processi di copia di backup](https://helpcenter.veeam.com/backup/hyperv/backup_copy_create.html).
 
 ## <a name="storsimple-cloud-snapshots"></a>Snapshot cloud StorSimple
 
-Gli snapshot cloud StorSimple proteggono i dati che si trovano nel dispositivo StorSimple. Ciò equivale alla spedizione di nastri a una struttura esterna e, se si usa l'archiviazione con ridondanza geografica di Azure (GRS), equivale alla spedizione di nastri a più siti. Se è necessario un ripristino del dispositivo in una situazione di emergenza, è possibile portare online un altro dispositivo StorSimple ed eseguire un failover. Dopo il failover sarà possibile accedere ai dati alle velocità del cloud dallo snapshot cloud più recente.
+Gli snapshot cloud StorSimple proteggono i dati che si trovano nel dispositivo StorSimple. Creare uno snapshot cloud equivale a spedire i nastri di backup locali a una struttura esterna. Se si usa l'archiviazione con ridondanza geografica di Azure, la creazione di uno snapshot cloud equivale a spedire i nastri di backup a più siti. Se è necessario ripristinare un dispositivo dopo un'emergenza, è possibile portare online un altro dispositivo StorSimple ed eseguire un failover. Dopo il failover sarà possibile accedere ai dati alle velocità del cloud dallo snapshot cloud più recente.
 
+La sezione seguente descrive come creare un breve script per avviare ed eliminare gli snapshot cloud StorSimple durante la post-elaborazione dei backup.
 
-La sezione seguente illustra come creare un breve script per attivare ed eliminare gli snapshot cloud StorSimple durante la post-elaborazione dei backup. 
-
-> [!NOTE] 
+> [!NOTE]
 > Gli snapshot creati manualmente o a livello di codice non seguono i criteri di scadenza degli snapshot StorSimple. Devono essere eliminati manualmente o a livello di codice.
 
-### <a name="start-and-delete-cloud-snapshots-with-a-script"></a>Avviare ed eliminare gli snapshot cloud con uno script
+### <a name="start-and-delete-cloud-snapshots-by-using-a-script"></a>Avviare ed eliminare gli snapshot cloud mediante uno script
 
-> [!NOTE] 
-> Valutare attentamente la conformità e le ripercussioni della conservazione dei dati prima di eliminare uno snapshot StorSimple. Per altre informazioni su come eseguire uno script di post-backup, fare riferimento alla documentazione di Veeam.
+> [!NOTE]
+> Valutare attentamente la conformità e le ripercussioni della conservazione dei dati prima di eliminare uno snapshot StorSimple. Per altre informazioni su come eseguire uno script di post-backup, vedere la documentazione di Veeam.
 
 
-#### <a name="backup-lifecycle"></a>Ciclo di vita del backup
-
+### <a name="backup-lifecycle"></a>Ciclo di vita del backup
 
 ![Diagramma del ciclo di vita del backup](./media/storsimple-configure-backup-target-using-veeam/backuplifecycle.png)
 
-#### <a name="requirements"></a>Requirements:
+### <a name="requirements"></a>Requisiti
 
--   Il server che esegue lo script deve avere accesso al cloud Azure.
+-   Il server che esegue lo script deve avere accesso alle risorse del cloud Azure.
+-   L'account utente deve avere le autorizzazioni necessarie.
+-   Deve essere configurato ma non attivato un criterio di backup StorSimple con i volumi StorSimple associati.
+-   Saranno necessari il nome della risorsa StorSimple, la chiave di registrazione, il nome del dispositivo e l'ID dei criteri di backup.
 
--   L'account utente deve disporre delle autorizzazioni necessarie.
+### <a name="to-start-or-delete-a-cloud-snapshot"></a>Per avviare o eliminare uno snapshot cloud
 
--   Un criterio di Backup StorSimple con i volumi StorSimple associati configurato ma non abilitato.
+1. [Installare Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/).
+2. [Scaricare e importare le impostazioni di pubblicazione e le informazioni sulla sottoscrizione](https://msdn.microsoft.com/library/dn385850.aspx).
+3. Nel portale di Azure classico ottenere il nome della risorsa e la [chiave di registrazione per il servizio StorSimple Manager](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
+4. Nel server che esegue lo script eseguire PowerShell come amministratore. Digitare il comando seguente:
 
--   Nome della risorsa StorSimple, chiave di registrazione, nome del dispositivo e ID dei criteri di backup.
+    `Get-AzureStorSimpleDeviceBackupPolicy –DeviceName <device name>`
 
-#### <a name="steps"></a>Passaggi:
+    Annotare l'ID del criterio di backup.
+5. Nel Blocco note creare un nuovo script di PowerShell mediante il codice seguente.
 
-1.  [Installare Azure PowerShell](/powershell-install-configure/).
-
-2.  [Scaricare e importare le impostazioni di pubblicazione e le informazioni sulla sottoscrizione.](https://msdn.microsoft.com/library/dn385850.aspx)
-
-3.  Nel portale di Azure classico ottenere il nome della risorsa e la [chiave di registrazione per il servizio StorSimple Manager](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
-
-4.  Nel server che esegue lo script eseguire Windows PowerShell come amministratore. Digitare:
-
-    -   `Get-AzureStorSimpleDeviceBackupPolicy –DeviceName <device name>`
-
-    Prendere nota dell'ID dei criteri di backup.
-
-5.  Nel blocco note creare un nuovo Script di Windows PowerShell e salvarlo nella stessa posizione in cui sono state salvate le impostazioni di pubblicazione di Azure. Ad esempio: `C:\\CloudSnapshot\\StorSimpleCloudSnapshot.ps1`.
-
-    Copiare e incollare il frammento di codice seguente:
-
+    Copiare e incollare questo frammento di codice:
     ```powershell
     Import-AzurePublishSettingsFile "c:\\CloudSnapshot Snapshot\\myAzureSettings.publishsettings"
     Disable-AzureDataCollection
@@ -569,30 +507,23 @@ La sezione seguente illustra come creare un breve script per attivare ed elimina
         }
     }
     ```
+6. Per aggiungere lo script al processo di backup, modificare le opzioni avanzate del processo Veeam.
 
-6.  Per aggiungere lo script al processo di backup, modificare le opzioni avanzate del processo Veeam. 
+    ![Scheda script di impostazioni avanzate per il backup Veeam](./media/storsimple-configure-backup-target-using-veeam/veeamimage22.png)
 
-![Scheda script di impostazioni avanzate per il backup Veeam](./media/storsimple-configure-backup-target-using-veeam/veeamimage22.png)
-
-È consigliabile eseguire i criteri di backup degli snapshot cloud StorSimple alla fine del processo di backup giornaliero come script di post-elaborazione. Per altre informazioni su come eseguire il backup e il ripristino dell'ambiente dell'applicazione di backup per soddisfare gli obiettivi RPO/RTO, consultare il progettista del backup.
+È consigliabile eseguire i criteri di backup degli snapshot cloud StorSimple come script di post-elaborazione alla fine del processo di backup giornaliero. Per altre informazioni su come eseguire il backup e il ripristino dell'ambiente dell'applicazione di backup per soddisfare gli obiettivi RPO e RTO, consultare il progettista di backup.
 
 ## <a name="storsimple-as-a-restore-source"></a>StorSimple come origine di ripristino
-==============================
 
-I ripristini da StorSimple funzionano in modo analogo ai ripristini da qualsiasi dispositivo di archiviazione a blocchi. Quando si ripristinano i dati suddivisi in più livelli nel cloud, ripristini vengono eseguiti alle velocità del cloud. Per i dati locali, i ripristini si verificano alla velocità del disco locale del dispositivo.
+I ripristini da StorSimple funzionano in modo analogo ai ripristini da qualsiasi dispositivo di archiviazione a blocchi. I ripristini dei dati suddivisi in livelli nel cloud vengono eseguiti alle velocità del cloud. Per i dati locali, i ripristini si verificano alla velocità del disco locale del dispositivo.
 
-Veeam consente un ripristino rapido e granulare a livello di file tramite StorSimple, usando gli Explorer integrati nella console Veeam. Usare gli Explorer di Veeam per ripristinare elementi individuali come messaggi e-mail, oggetti di Active Directory o elementi SharePoint dai backup. Il ripristino può essere eseguito senza interruzioni alle macchine virtuali locali. È inoltre possibile eseguire il ripristino temporizzato per Microsoft SQL e Oracle Database. Veeam e StorSimple semplificano e rendono più veloce il processo di ripristino a livello di elemento da Azure. Per informazioni su come eseguire un ripristino, fare riferimento alla documentazione di Veeam.
+Veeam consente un ripristino rapido e granulare a livello di file tramite StorSimple, usando le visualizzazioni di esplorazione integrate nella console di Veeam. Usare gli Explorer di Veeam per ripristinare elementi individuali come messaggi e-mail, oggetti di Active Directory ed elementi SharePoint dai backup. Il ripristino può essere eseguito senza interruzioni alle macchine virtuali locali. È inoltre possibile eseguire il ripristino temporizzato per il database SQL di Azure e i database Oracle. Veeam e StorSimple semplificano e rendono più veloce il processo di ripristino a livello di elemento da Azure. Per informazioni su come eseguire un ripristino, vedere la documentazione di Veeam:
 
-
-- [https://www.veeam.com/microsoft-exchange-recovery.html](https://www.veeam.com/microsoft-exchange-recovery.html)
-
-- [https://www.veeam.com/microsoft-active-directory-explorer.html](https://www.veeam.com/microsoft-active-directory-explorer.html)
-
-- [https://www.veeam.com/microsoft-sql-server-explorer.html](https://www.veeam.com/microsoft-sql-server-explorer.html)
-
-- [https://www.veeam.com/microsoft-sharepoint-recovery-explorer.html](https://www.veeam.com/microsoft-sharepoint-recovery-explorer.html)
-
-- [https://www.veeam.com/oracle-backup-recovery-explorer.html](https://www.veeam.com/oracle-backup-recovery-explorer.html)
+- Per [Exchange Server](https://www.veeam.com/microsoft-exchange-recovery.html)
+- Per [Active Directory](https://www.veeam.com/microsoft-active-directory-explorer.html)
+- Per [SQL Server](https://www.veeam.com/microsoft-sql-server-explorer.html)
+- Per [SharePoint](https://www.veeam.com/microsoft-sharepoint-recovery-explorer.html)
+- Per [Oracle](https://www.veeam.com/oracle-backup-recovery-explorer.html)
 
 
 ## <a name="storsimple-failover-and-disaster-recovery"></a>Failover e ripristino di emergenza per StorSimple
@@ -600,31 +531,26 @@ Veeam consente un ripristino rapido e granulare a livello di file tramite StorSi
 > [!NOTE]
 > Per scenari di destinazione di backup, StorSimple Cloud Appliance non è supportato come destinazione di ripristino.
 
-Una situazione di emergenza può essere causata da vari fattori. La tabella seguente elenca gli scenari di ripristino di emergenza più comuni.
+Una situazione di emergenza può essere causata da numerosi fattori. La tabella seguente elenca gli scenari di ripristino di emergenza più comuni.
 
-
-| Scenario                                                                    | Impatto                                             | Come ripristinare                                                                                                                                                                               | Note                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-|-----------------------------------------------------------------------------|----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Errore del dispositivo StorSimple.                                               | Le operazioni di backup e ripristino vengono interrotte. | Sostituire il dispositivo con errore ed eseguire [failover e ripristino di emergenza per StorSimple](storsimple-device-failover-disaster-recovery.md) | Se viene eseguito un ripristino dopo il recupero del dispositivo, i working set di dati completi vengono recuperati dal cloud nel nuovo dispositivo. Tutte le operazioni avverranno pertanto alle velocità del cloud. Inoltre, la ripetizione dell'indicizzazione e della catalogazione può fare in modo che tutti i set di backup vengano analizzati ed estratti dal livello cloud al livello del dispositivo locale. In questo modo il tempo sarà un fattore ancora più importante.                                 |
-| Errore del server Veeam.                                                     | Le operazioni di backup e ripristino vengono interrotte. | Ricompilare il server di backup ed eseguire il ripristino del database come illustrato in [Veeam Help Center (Technical Documentation)](https://www.veeam.com/documentation-guides-datasheets.html) (Help Center Veeam (documentazione tecnica))
-     | Il server Veeam deve essere ricompilato o ripristinato nel sito del ripristino di emergenza. Ripristinare il database al punto più recente. Se il database Veeam ripristinato non è sincronizzato con i processi di backup più recenti, è necessario eseguire l'indicizzazione e la catalogazione. La ripetizione dell'indicizzazione e della catalogazione può fare in modo che tutti i set di backup vengano analizzati ed estratti dal livello cloud al livello del dispositivo locale. In questo modo il tempo sarà un fattore ancora più importante. |
-| Errore del sito che comporta la perdita del server di backup e di StorSimple. | Le operazioni di backup e ripristino vengono interrotte. | Ripristinare innanzitutto StorSimple e quindi Veeam.                                                                                                                                                  | Ripristinare innanzitutto StorSimple e quindi Veeam. Se è necessario eseguire un ripristino dopo il recupero del dispositivo, i working set di dati completi vengono recuperati dal cloud nel nuovo dispositivo. Tutte le operazioni avverranno pertanto alle velocità del cloud.                                                                                                                                                                            |
+| Scenario | Impatto | Come ripristinare | Note |
+|---|---|---|---|
+| Errore del dispositivo StorSimple | Le operazioni di backup e ripristino vengono interrotte. | Sostituire il dispositivo con errore ed eseguire [failover e ripristino di emergenza per StorSimple](storsimple-device-failover-disaster-recovery.md). | Se è necessario eseguire un ripristino dopo il recupero del dispositivo, i working set di dati completi vengono recuperati dal cloud al nuovo dispositivo. Tutte le operazioni saranno eseguite alle velocità del cloud. Il processo di ripetizione dell'indicizzazione e della catalogazione può causare l'analisi e l'estrazione di tutti i set di backup dal livello cloud al livello del dispositivo locale e questo processo può richiedere molto tempo. |
+| Errore del server di Veeam | Le operazioni di backup e ripristino vengono interrotte. | Ricompilare il server di backup ed eseguire il ripristino del database come illustrato in [Veeam Help Center (Technical Documentation)](https://www.veeam.com/documentation-guides-datasheets.html) (Help Center Veeam (documentazione tecnica)).  | È necessario ricompilare o ripristinare il server di Veeam nel sito di ripristino di emergenza. Ripristinare il database al punto più recente. Se il database Veeam ripristinato non è sincronizzato con i processi di backup più recenti, è necessario eseguire l'indicizzazione e la catalogazione. Il processo di ripetizione dell'indicizzazione e della catalogazione può causare l'analisi e l'estrazione di tutti i set di backup dal livello cloud al livello del dispositivo locale. In questo modo il tempo sarà un fattore ancora più importante. |
+| Errore del sito che comporta la perdita sia del server di backup che di StorSimple | Le operazioni di backup e ripristino vengono interrotte. | Ripristinare innanzitutto StorSimple e quindi Veeam. | Ripristinare innanzitutto StorSimple e quindi Veeam. Se è necessario eseguire un ripristino dopo il recupero del dispositivo, i working set di dati completi vengono recuperati dal cloud al nuovo dispositivo. Tutte le operazioni saranno eseguite alle velocità del cloud. |
 
 
 ## <a name="references"></a>Riferimenti
 
-In questo articolo si è fatto riferimento ai documenti seguenti:
+Questo articolo fa riferimento ai documenti seguenti:
 
-- [Installazione MPIO per StorSimple](storsimple-configure-mpio-windows-server.md)
-
+- [Configurazione di Multipath I/O per StorSimple](storsimple-configure-mpio-windows-server.md)
 - [Scenari di archiviazione: thin provisioning](http://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
-
 - [Uso di unità GPT](http://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
+- [Configurare le copie shadow di cartelle condivise](http://technet.microsoft.com/library/cc771893.aspx)
 
-- [Abilitare e configurare le copie shadow di cartelle condivise](http://technet.microsoft.com/library/cc771893.aspx)
+## <a name="next-steps"></a>Passaggi successivi
 
-
-
-<!--HONumber=Dec16_HO2-->
-
+- Informazioni su come [eseguire il ripristino da un set di backup](storsimple-restore-from-backup-set-u2.md).
+- Informazioni su come eseguire le procedure di [failover e ripristino di emergenza di un dispositivo](storsimple-device-failover-disaster-recovery.md).
 

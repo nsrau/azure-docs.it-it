@@ -1,6 +1,6 @@
 ---
-title: Monitoraggio delle operazioni dell&quot;hub IoT
-description: Panoramica del monitoraggio delle operazioni dell&quot;hub IoT di Azure che consente di monitorare lo stato delle operazioni nel proprio hub IoT in tempo reale.
+title: Monitoraggio delle operazioni dell&quot;hub IoT di Azure | Documentazione Microsoft
+description: Come usare il monitoraggio delle operazioni dell&quot;hub IoT di Azure per monitorare lo stato delle operazioni nell&quot;hub IoT in tempo reale.
 services: iot-hub
 documentationcenter: 
 author: nberdy
@@ -12,24 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 12/13/2016
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: ce514e19370d2b42fb16b4e96b66f212d5fa999c
-ms.openlocfilehash: 3c1ae13409c11ec49810209dd155e934b34c3a9b
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 796bf9b1219b7f0e2c68688c5f5b51163ef4b49b
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="introduction-to-operations-monitoring"></a>Introduzione al monitoraggio delle operazioni
+# <a name="iot-hub-operations-monitoring"></a>Monitoraggio delle operazioni dell'hub IoT
 Il monitoraggio delle operazioni dell'hub IoT consente di monitorare lo stato delle operazioni nel proprio hub IoT in tempo reale. L'hub IoT tiene traccia degli eventi nelle diverse categorie di operazioni. È possibile scegliere di impostare l'invio di eventi da una o più categorie a un endpoint del proprio hub IoT per l'elaborazione. È possibile monitorare i dati per individuare gli errori o configurare un'elaborazione più complessa in base ai modelli di dati.
 
-L'hub IoT monitora cinque categorie di eventi:
+L'hub IoT monitora sei categorie di eventi:
 
 * Operazioni relative alle identità dei dispositivi
 * Telemetria dei dispositivi
-* Comandi da cloud a dispositivo
+* Messaggi da cloud a dispositivo
 * Connessioni
 * Caricamenti di file
+* Routing dei messaggi
 
 ## <a name="how-to-enable-operations-monitoring"></a>Come abilitare il monitoraggio delle operazioni
 1. Creare un hub IoT. Le istruzioni sulla creazione di un hub IoT sono disponibili nella [Guida introduttiva][lnk-get-started].
@@ -39,6 +41,9 @@ L'hub IoT monitora cinque categorie di eventi:
 3. Selezionare le categorie di monitoraggio da controllare e fare clic su **Salva**. Gli eventi sono disponibili per la lettura nell'endpoint compatibile con l'hub eventi elencato in **Impostazioni di monitoraggio**. L'endpoint dell'hub IoT è chiamato `messages/operationsmonitoringevents`.
    
     ![][2]
+
+> [!NOTE]
+> La selezione del monitoraggio **Dettagliato** per la categoria **Connessioni** consente all'hub IoT di generare messaggi di diagnostica aggiuntivi. Per tutte le altre categorie, l'impostazione **Dettagliato** modifica la quantità di informazioni che l'hub IoT include in ogni messaggio di errore.
 
 ## <a name="event-categories-and-how-to-use-them"></a>Categorie di eventi e modalità d'uso
 Ogni categoria di monitoraggio delle operazioni tiene traccia di un diverso tipo di interazione con l'hub IoT e ogni categoria di monitoraggio ha uno schema che definisce come sono strutturati gli eventi nella categoria stessa.
@@ -81,7 +86,7 @@ La categoria di telemetria dei dispositivi tiene traccia degli errori che si ver
     }
 
 ### <a name="cloud-to-device-commands"></a>Comandi da cloud a dispositivo
-La categoria di comandi da cloud a dispositivo tiene traccia degli errori che si verificano nell'hub IoT e sono correlati alla pipeline di comandi dei dispositivi. Questa categoria include gli errori che si verificano durante l'invio di comandi, ad esempio un mittente non autorizzato, la ricezione di comandi, ad esempio il superamento del numero di recapiti, e la ricezione di commenti sui comandi, ad esempio commenti scaduti. Questa categoria non intercetta gli errori da un dispositivo che gestisce in modo non corretto un comando, se questo è stato recapitato correttamente.
+La categoria di comandi da cloud a dispositivo tiene traccia degli errori che si verificano nell'hub IoT e sono correlati alla pipeline di messaggi da cloud a dispositivo. Questa categoria include gli errori che si verificano durante l'invio di messaggi da cloud a dispositivo, ad esempio un mittente non autorizzato, la ricezione di messaggi da cloud a dispositivo, ad esempio il superamento del numero di recapiti, e la ricezione di commenti sui messaggi da cloud a dispositivo, ad esempio commenti scaduti. Questa categoria non intercetta gli errori da un dispositivo che gestisce in modo non corretto un messaggio da cloud a dispositivo, se questo è stato recapitato correttamente.
 
     {
          "messageSizeInBytes": 1234,
@@ -144,10 +149,46 @@ Questa categoria non può intercettare errori che si verificano direttamente men
          "durationMs": 1234
     }
 
+### <a name="message-routing"></a>Routing dei messaggi
+La categoria del routing dei messaggi tiene traccia degli errori che si verificano durante la valutazione del routing dei messaggi e dell'integrità dell'endpoint percepiti dall'hub IoT. Questa categoria include eventi come ad esempio quando una regola viene valutata come "non definita", quando l'hub IoT contrassegna un endpoint come inattivo ed eventuali altri errori ricevuti da un endpoint. Si noti che questa categoria non include errori specifici sugli stessi messaggi, ad esempio gli errori di limitazione sui dispositivi, che vengono segnalati nella categoria dei "dati di telemetria del dispositivo".
+        
+    {
+        "messageSizeInBytes": 1234,
+        "time": "UTC timestamp",
+        "operationName": "ingress",
+        "category": "routes",
+        "level": "Error",
+        "deviceId": "device-ID",
+        "messageId": "ID of message",
+        "routeName": "myroute",
+        "endpointName": "myendpoint",
+        "details": "ExternalEndpointDisabled"
+    }
+
+## <a name="view-events"></a>Visualizzare eventi
+
+È possibile usare lo strumento *iothub-explorer* per verificare rapidamente che l'hub IoT stia generando eventi di monitoraggio. Per installare lo strumento, vedere le istruzioni disponibili nel repository GitHub [iothub-explorer][lnk-iothub-explorer].
+
+1. Assicurarsi che la categoria di monitoraggio **Connessioni** sia impostata su **Dettagliato** nel portale.
+
+1. Al prompt dei comandi eseguire il comando seguente per consentire la lettura dell'endpoint di monitoraggio:
+
+    ```
+    iothub-explorer monitor-ops --login {your iothubowner connection string}
+    ```
+
+1. A un altro prompt dei comandi eseguire il comando seguente per simulare un dispositivo che invia messaggi da dispositivo a cloud:
+
+    ```
+    iothub-explorer simulate-device {your device name} --send "My test message" --login {your iothubowner connection string}
+    ```
+
+1. Il primo prompt dei comandi visualizza gli eventi di monitoraggio nel momento in cui il dispositivo simulato si connette all'hub IoT.
+
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
-* [Guida per sviluppatori][lnk-devguide]
+* [Guida per gli sviluppatori dell'hub IoT][lnk-devguide]
 * [Simulazione di un dispositivo con IoT Gateway SDK][lnk-gateway]
 
 <!-- Links and images -->
@@ -161,9 +202,5 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
-
-
-<!--HONumber=Nov16_HO5-->
-
+[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 

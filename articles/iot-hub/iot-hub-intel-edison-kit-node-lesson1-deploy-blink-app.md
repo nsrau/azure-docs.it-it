@@ -1,5 +1,5 @@
 ---
-title: Distribuire l&quot;applicazione per il lampeggiamento nello starter kit di Azure IoT | Documentazione Microsoft
+title: 'Connettere Intel Edison (Node) ad Azure IoT: lezione 1: Distribuire l&quot;app | Documentazione Microsoft'
 description: Clonare l&quot;applicazione C di esempio da GitHub ed eseguire gulp per distribuirla nella scheda Intel Edison. Questa applicazione di esempio fa lampeggiare il LED connesso alla scheda ogni due secondi.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 4184a56cc1dacb1868a5cc74d291341c07a0bb5c
-ms.openlocfilehash: 532ccc6f602b0bd66308af184b3e972edf4b735a
+ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
+ms.openlocfilehash: 182e63d40986b61a12885799b1b33bb570437a3c
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -116,9 +117,4 @@ Sono stati installati gli strumenti necessari per usare Edison ed è stata distr
 [repo-structure]: media/iot-hub-intel-edison-lessons/lesson1/repo_structure.png
 [led-blinking]: media/iot-hub-intel-edison-lessons/lesson1/led_blinking.png
 [get-the-azure-tools]: iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-win32.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

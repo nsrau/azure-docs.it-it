@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/05/2017
+ms.date: 3/02/2017
 ms.author: ryanwi
 translationtype: Human Translation
 ms.sourcegitcommit: 62374d57829067b27bb5876e6bbd9f869cff9187
 ms.openlocfilehash: 4991992f15b941ab9250705e20ff5f37defc30d0
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -94,7 +95,7 @@ Il manifesto del servizio definisce in modo dichiarativo il tipo di servizio e l
 
 ```xml
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
-  <Section Name="MyConfigurationSecion">
+  <Section Name="MyConfigurationSection">
     <Parameter Name="MySettingA" Value="Example1" />
     <Parameter Name="MySettingB" Value="Example2" />
   </Section>
@@ -271,9 +272,4 @@ Dopo aver inserito correttamente l'applicazione nel pacchetto e aver superato la
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

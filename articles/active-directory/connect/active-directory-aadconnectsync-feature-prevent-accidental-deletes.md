@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/04/2017
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: aa20b20c86763791eb579883b5273ea79cc714b5
-ms.openlocfilehash: 449cfa39e17a3b753cf3e267aed2d6a439fc5f36
+ms.sourcegitcommit: 2048c2786cbe7e237f7a72f5a73a4b135ed60088
+ms.openlocfilehash: cf4ee6d18d5ab3b0f53ec5e8ab80d6e91864a103
 
 
 ---
@@ -25,6 +25,7 @@ Questo argomento descrive la funzionalità per impedire le eliminazioni accident
 
 Quando si installa Azure AD Connect, la funzionalità per impedire le eliminazioni accidentali viene abilitata per impostazione predefinita e configurata in modo da non consentire un'esportazione con più di 500 eliminazioni. Questa funzionalità è progettata per la protezione da modifiche accidentali della configurazione e della directory locale che possono interessare un numero elevato di utenti e altri oggetti.
 
+## <a name="what-is-prevent-accidental-deletes"></a>Informazioni sulla prevenzione di eliminazioni accidentali
 Gli scenari comuni in cui si verificano molte eliminazioni includono:
 
 * Modifiche ai [filtri](active-directory-aadconnectsync-configure-filtering.md) in cui è deselezionata un'intera [unità organizzativa](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) o un [dominio](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering).
@@ -38,7 +39,7 @@ Se il numero di eliminazioni da esportare in Azure AD è troppo elevato, l'espor
 ![Messaggio di posta elettronica per evitare eliminazioni accidentali](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
 
 > *Gentile (contatto tecnico), Sincronizzazione delle identità: il giorno (data) è stato rilevato che il numero di eliminazioni ha superato la soglia di eliminazione per (nome dell'organizzazione). È stato inviato un totale di (numero) oggetti per l'eliminazione in questa esecuzione di sincronizzazione delle identità. È stato quindi raggiunto o superato il valore della soglia di eliminazione configurato di (numero) oggetti. Prima di continuare, è necessario confermare di voler procedere con l'elaborazione di queste eliminazioni. Per altre informazioni sull'errore indicato in questo messaggio di posta elettronica, vedere l'articolo che illustra come evitare eliminazioni accidentali.*
-> 
+>
 > 
 
 È anche possibile visualizzare lo stato `stopped-deletion-threshold-exceeded` nell'interfaccia utente di **Synchronization Service Manager** per il profilo di esportazione.
@@ -69,7 +70,6 @@ Se si desidera tutte le eliminazioni, eseguire le operazioni seguenti:
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

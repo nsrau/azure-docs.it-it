@@ -1,5 +1,5 @@
 ---
-title: Introduzione a Reliable Actors di Service Fabric | Documentazione Microsoft
+title: Creare il primo microservizio di Azure basato su attori in C# | Documentazione Microsoft
 description: Questa esercitazione illustra la procedura per la creazione, il debug e la distribuzione di un semplice servizio basato su attore usando Service Fabric Reliable Actors.
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/04/2017
+ms.date: 03/06/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 2304a9433bb382c0c7ddcf36733838ac769b9584
-ms.openlocfilehash: 98e519df244e9ae934b8100ea9820a7f765b1ee3
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 41f9742befcc034f46f166b1f3f3d81ef67f83e7
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -51,7 +52,7 @@ Per iniziare a usare Reliable Actors, è sufficiente comprendere solo alcuni con
 * Non sono supportate interfacce generiche.
 
 ## <a name="create-a-new-project-in-visual-studio"></a>Creare un nuovo progetto in Visual Studio
-Dopo aver installato gli strumenti di Service Fabric per Visual Studio, è possibile creare nuovi tipi di progetto. Questi tipi sono inclusi nella categoria **Cloud** della finestra di dialogo **Nuovo progetto**.
+Avviare Visual Studio 2015 o Visual Studio 2017 come amministratore e creare un nuovo progetto di applicazione di Service Fabric:
 
 ![Strumenti di Service Fabric per Visual Studio - nuovo progetto][1]
 
@@ -152,9 +153,4 @@ Durante il processo di distribuzione è possibile visualizzare lo stato di avanz
 [3]: ./media/service-fabric-reliable-actors-get-started/debugging-output.PNG
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

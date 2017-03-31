@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/08/2017
+ms.date: 03/14/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 251d7b973426afb50206c428873021144b8bffdf
-ms.openlocfilehash: 63e2509b92b4d97bfdc98629cc356816839b03b5
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 9ce257eac44e51b7303016d993bc8d71e270629e
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -35,12 +36,55 @@ Per distribuire l'estensione agente OMS per Windows, è necessario che la macchi
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 
-Il codice JSON riportato di seguito mostra lo schema dell'estensione OMS Agent. L'estensione richiede che siano indicati l'ID e la chiave dell'area di lavoro presenti nell'area di lavoro OMS di destinazione. Questi valori sono disponibili nel portale OMS. Poiché la chiave dell'area di lavoro deve essere tratta come i dati sensibili, deve essere memorizzata in una configurazione protetta. I dati della configurazione protetta dell'estensione macchina virtuale di Azure sono crittografati e vengono decrittografati solo nella macchina virtuale di destinazione.
+Il codice JSON riportato di seguito mostra lo schema dell'estensione OMS Agent. L'estensione richiede che siano indicati l'ID e la chiave dell'area di lavoro presenti nell'area di lavoro OMS di destinazione. Questi valori sono disponibili nel portale OMS. Poiché la chiave dell'area di lavoro deve essere tratta come i dati sensibili, deve essere memorizzata in una configurazione protetta. I dati della configurazione protetta dell'estensione macchina virtuale di Azure sono crittografati e vengono decrittografati solo nella macchina virtuale di destinazione. Tenere presente che **workspaceId** e **workspaceKey** distinguono tra maiuscole e minuscole.
 
 ```json
 {
     "type": "extensions",
-    "name": "Microsoft.EnterpriseCloud.Monitoring",
+    "name": "OMSExtension",
+    "apiVersion": "[variables('apiVersion')]",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+        "type": "MicrosoftMonitoringAgent",
+        "typeHandlerVersion": "1.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "workspaceId": "myWorkSpaceId"
+        },
+        "protectedSettings": {
+            "workspaceKey": "myWorkspaceKey"
+        }
+    }
+}
+```
+### <a name="property-values"></a>Valori delle proprietà
+
+| Nome | Valore/Esempio |
+| ---- | ---- |
+| apiVersion | 2015-06-15 |
+| publisher | Microsoft.EnterpriseCloud.Monitoring |
+| type | MicrosoftMonitoringAgent |
+| typeHandlerVersion | 1.0 |
+| workspaceId (esempio) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
+| workspaceKey (esempio) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
+
+## <a name="template-deployment"></a>Distribuzione del modello
+
+Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. Lo schema JSON indicato nella sezione precedente può essere usato in un modello di Azure Resource Manager per eseguire l'estensione agente OMS durante la distribuzione di un modello di Azure Resource Manager. Un esempio di modello che include l'estensione macchina virtuale Agente OMS è disponibile nella [raccolta di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+
+Il codice JSON per un'estensione della macchina virtuale può essere nidificato nella risorsa della macchina virtuale o posizionato nel livello radice o nel livello superiore di un modello JSON di Resource Manager. Il posizionamento di JSON influisce sul valore del nome e tipo di risorsa. Per altre informazioni, vedere [Set name and type for child resources](../azure-resource-manager/resource-manager-template-child-resource.md) (Impostare il nome e il tipo per le risorse figlio). 
+
+L'esempio seguente presuppone che l'estensione OMS sia annidata all'interno della risorsa della macchina virtuale. Quando la risorsa di estensione viene nidificata, JSON viene inserito nell'oggetto `"resources": []` della macchina virtuale.
+
+
+```json
+{
+    "type": "extensions",
+    "name": "OMSExtension",
     "apiVersion": "[variables('apiVersion')]",
     "location": "[resourceGroup().location]",
     "dependsOn": [
@@ -61,20 +105,31 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione OMS Agent. 
 }
 ```
 
-### <a name="property-values"></a>Valori delle proprietà
+Quando si posiziona l'estensione JSON nella radice del modello, il nome della risorsa include un riferimento alla macchina virtuale padre e il tipo riflette la configurazione annidata. 
 
-| Nome | Valore/Esempio |
-| ---- | ---- |
-| apiVersion | 2015-06-15 |
-| publisher | Microsoft.EnterpriseCloud.Monitoring |
-| type | MicrosoftMonitoringAgent |
-| typeHandlerVersion | 1.0 |
-| workspaceId (esempio) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
-| workspaceKey (esempio) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
-
-## <a name="template-deployment"></a>Distribuzione del modello
-
-Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. Lo schema JSON indicato nella sezione precedente può essere usato in un modello di Azure Resource Manager per eseguire l'estensione agente OMS durante la distribuzione di un modello di Azure Resource Manager. Un esempio di modello che include l'estensione macchina virtuale Agente OMS è disponibile nella [raccolta di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+```json
+{
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "name": "<parentVmResource>/OMSExtension",
+    "apiVersion": "[variables('apiVersion')]",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+        "type": "MicrosoftMonitoringAgent",
+        "typeHandlerVersion": "1.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "workspaceId": "myWorkSpaceId"
+        },
+        "protectedSettings": {
+            "workspaceKey": "myWorkspaceKey"
+        }
+    }
+}
+```
 
 ## <a name="powershell-deployment"></a>Distribuzione PowerShell
 
@@ -114,9 +169,4 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonit
 ### <a name="support"></a>Supporto
 
 Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/en-us/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/en-us/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/en-us/support/faq/).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

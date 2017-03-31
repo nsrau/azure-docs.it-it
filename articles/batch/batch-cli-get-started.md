@@ -14,19 +14,22 @@ ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 01/23/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: a2efffa5e250e02fec1a1834c9256ffef79b9be3
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 698c481e2eff5e0a3b893a0377d9f4cd2f052eb4
+ms.lasthandoff: 03/21/2017
 
 
 ---
-# <a name="get-started-with-azure-batch-cli"></a>Introduzione all'interfaccia della riga di comando di Azure Batch
+# <a name="manage-batch-resources-with-azure-cli"></a>Gestire le risorse di Batch con l'interfaccia della riga di comando di Azure
+
 L'interfaccia della riga di comando multipiattaforma di Azure consente di gestire gli account Batch e risorse come pool, processi e attività in shell dei comandi Linux, Mac e Windows. Con l'interfaccia della riga di comando di Azure è possibile eseguire molte delle attività eseguite con le API Batch, il portale di Azure e i cmdlet di PowerShell per Batch e creare i relativi script.
 
 Questo articolo si basa sulla versione 0.10.5 dell'interfaccia della riga di comando di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* [Installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md)
+* [Installare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md)
 * [Connettere l'interfaccia della riga di comando di Azure alla sottoscrizione di Azure](../xplat-cli-connect.md)
 * Passare alla **modalità Resource Manager**: `azure config mode arm`
 
@@ -270,9 +273,4 @@ Questa sezione ha lo scopo di indicare le risorse da usare per risolvere i probl
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

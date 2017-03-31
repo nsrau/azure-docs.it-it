@@ -67,7 +67,7 @@ Per autenticare richieste API, è necessario aggiungere un'intestazione di autor
     b. Eseguire il comando seguente specificando il SubscriptionId per configurare la sottoscrizione da usare.
    
         Select-AzureRmSubscription –SubscriptionId <subscriptionId>
-5. Copiare il testo per lo script [New-AzureRmServicePrincipalOwner.ps1`.\APIAuth.ps1` nel computer locale, salvarlo come cmdlet PowerShell (ad esempio ](https://raw.githubusercontent.com/matt-gibbs/azbits/master/src/New-AzureRmServicePrincipalOwner.ps1)) ed eseguirlo `APIAuth.ps1`. 
+5. Copiare il testo per lo script [New-AzureRmServicePrincipalOwner.ps1](https://raw.githubusercontent.com/matt-gibbs/azbits/master/src/New-AzureRmServicePrincipalOwner.ps1) nel computer locale, salvarlo come cmdlet PowerShell (ad esempio `APIAuth.ps1`) ed eseguirlo `.\APIAuth.ps1`. 
 6. Lo script richiederà di immettere un **principalName**. Fornire un nome adeguato da utilizzare per creare l'applicazione Active Directory (ad esempio APIAuth). 
 7. Dopo il completamento dello script, accertarsi di copiare i quattro valori seguenti che verranno visualizzati, necessari per un'autenticazione a livello di codice con AD  
    
@@ -154,6 +154,6 @@ Ora che si dispone di un token valido, è possibile eseguire chiamate API.
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

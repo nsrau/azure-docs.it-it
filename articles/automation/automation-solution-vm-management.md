@@ -4,7 +4,7 @@ description: La soluzione Virtual Machine Management permette di avviare e arres
 services: automation
 documentationCenter: 
 authors: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
 ms.service: automation
@@ -12,17 +12,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 02/14/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: adb787b4ff1b4164bcf7ac08e7b6a227acfce423
-ms.openlocfilehash: 1f29554cce2ba5fe7b02c546c705cce3d9e13019
+ms.sourcegitcommit: 5ae60cb8ba3d391d3babd1ab575b4f32e139a185
+ms.openlocfilehash: f2c9a5ef2a8f517b9b2072be57f4d8c51b7694c6
+ms.lasthandoff: 02/15/2017
 
 ---
 
 # <a name="startstop-vms-during-off-hours-preview-solution-in-automation"></a>Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività (anteprima) in Automazione di Azure
 
-La soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività (anteprima) permette di avviare e arrestare le macchine virtuali di Azure Resource Manager e classiche in base a una pianificazione definita dall'utente e, tramite OMS Log Analytics, fornisce informazioni approfondite sui processi di Automazione completati che avviano e arrestano le macchine virtuali.  
+La soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività (anteprima) permette di avviare e arrestare le macchine virtuali di Azure Resource Manager in base a una pianificazione definita dall'utente e, tramite OMS Log Analytics, fornisce informazioni approfondite sui processi di Automazione completati che avviano e arrestano le macchine virtuali.  
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -79,8 +80,8 @@ StopByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Specifica la sottoscrizion
 
 Pianificazione | Descrizione|
 ---------|------------|
-StartByResourceGroup-Schedule-MS-Mgmt | Permette di pianificare il runbook StartByResourceGroup, che esegue l'avvio delle macchine virtuali gestite dalla soluzione.|
-StopByResourceGroup-Schedule-MS-Mgmt | Permette di pianificare il runbook StopByResourceGroup, che esegue l'arresto delle macchine virtuali gestite dalla soluzione.|
+StartByResourceGroup-Schedule-MS-Mgmt | Permette di pianificare il runbook StartByResourceGroup, che esegue l'avvio delle macchine virtuali gestite dalla soluzione. L'impostazione predefinita al momento della creazione è il fuso orario UTC.|
+StopByResourceGroup-Schedule-MS-Mgmt | Permette di pianificare il runbook StopByResourceGroup, che esegue l'arresto delle macchine virtuali gestite dalla soluzione. L'impostazione predefinita al momento della creazione è il fuso orario UTC.|
 
 ### <a name="credentials"></a>Credenziali
 
@@ -116,7 +117,7 @@ Seguire questa procedura per aggiungere la soluzione Avvio/Arresto di macchine v
 
 8. Infine, nel pannello **Aggiungi soluzione** selezionare **Configurazione**. Verrà visualizzato il pannello **Parametri**.  Nel pannello **Parametri** viene richiesto di:  
    - Specificare i **nomi dei gruppi di risorse di destinazione** contenenti le macchine virtuali che devono essere gestite dalla soluzione.  È possibile immettere più nomi, separati da un punto e virgola. I valori fanno distinzione tra maiuscole e minuscole.  Per specificare come destinazione le macchine virtuali in tutti i gruppi di risorse della sottoscrizione, è possibile usare un carattere jolly.
-   - Selezionare una **pianificazione**, ovvero una data e un'ora ricorrenti per l'avvio e l'arresto delle macchine virtuali nei gruppi di risorse di destinazione.  
+   - Selezionare una **pianificazione**, ovvero una data e un'ora ricorrenti per l'avvio e l'arresto delle macchine virtuali nei gruppi di risorse di destinazione.  Per impostazione predefinita, la pianificazione è configurata per il fuso orario UTC e non è prevista la selezione di un'area diversa.  Se si desidera configurare la pianificazione per il fuso orario specifico dopo aver configurato la soluzione, vedere la sezione seguente [Modifica della pianificazione di avvio e arresto](#modifying-the-startup-and-shutdown-schedule).    
 
 10. Dopo aver configurato le impostazioni iniziali necessarie per la soluzione, selezionare **Crea**.  Tutte le impostazioni verranno convalidate e verrà eseguito un tentativo di distribuzione della soluzione nella sottoscrizione.  Questo processo può richiedere alcuni secondi. Per tenere traccia dello stato di avanzamento, è possibile usare la voce **Notifiche** nel menu. 
 
@@ -159,7 +160,7 @@ Per configurare le variabili evidenziate in precedenza, seguire questa procedura
 
 ### <a name="modifying-the-startup-and-shutdown-schedule"></a>Modifica della pianificazione di avvio e arresto
 
-Per gestire la pianificazione relativa all'avvio e all'arresto in questa soluzione viene seguita la stessa procedura illustrata in [Pianificazione di un runbook in Automazione di Azure](automation-scheduling-a-runbook.md).  Tenere presente che non è possibile modificare la configurazione della pianificazione.  È necessario disabilitare la pianificazione esistente e crearne una nuova e quindi eseguire il collegamento al runbook **StartByResourceGroup-MS-Mgmt-VM** o **StopByResourceGroup-MS-Mgmt-VM** a cui si vuole applicare la pianificazione.   
+Per gestire la pianificazione relativa all'avvio e all'arresto in questa soluzione viene seguita la stessa procedura illustrata in [Pianificazione di un runbook in Automazione di Azure](automation-schedules.md).  Tenere presente che non è possibile modificare la configurazione della pianificazione.  È necessario disabilitare la pianificazione esistente e crearne una nuova e quindi eseguire il collegamento al runbook **StartByResourceGroup-MS-Mgmt-VM** o **StopByResourceGroup-MS-Mgmt-VM** a cui si vuole applicare la pianificazione.   
 
 ## <a name="log-analytics-records"></a>Record di Log Analytics
 
@@ -243,10 +244,5 @@ L'account di Automazione e l'area di lavoro OMS non vengono eliminati.  Se non s
 
 
    
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

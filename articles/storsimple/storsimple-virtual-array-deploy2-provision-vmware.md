@@ -1,10 +1,10 @@
 ---
-title: Eseguire il provisioning di un array virtuale StorSimple in VMware | Documentazione Microsoft
+title: Eseguire il provisioning di un array virtuale StorSimple in VMware | Microsoft Docs
 description: Questa seconda esercitazione sulla serie di distribuzione di StorSimple Virtual Array implica il provisioning di un dispositivo virtuale in VMware.
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
@@ -12,14 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/12/2017
+ms.date: 03/15/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: 2c9411312f561d03ab6bd29e8e007db309cb5f00
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 118521a127b2e4b765efabdbdde71605440d81c7
+ms.lasthandoff: 03/16/2017
 
 ---
-# <a name="deploy-storsimple-virtual-array---provision-a-virtual-array-in-vmware"></a>Distribuire StorSimple Virtual Array: eseguire il provisioning di un array virtuale in VMware
+# <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Distribuire StorSimple Virtual Array: eseguire il provisioning in VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## <a name="overview"></a>Panoramica
@@ -43,7 +45,7 @@ Prima di distribuire un dispositivo virtuale, è necessario:
 * Il sistema host è in grado di dedicare le risorse seguenti per eseguire il provisioning del dispositivo virtuale:
 
   * Un minimo di 4 memorie centrali.
-  * Almeno 8 GB di RAM.
+  * Almeno 8 GB di RAM. Se si prevede di configurare la matrice virtuale come file server, 8 GB supportano poco meno di 2 milioni di file. Sono necessari 16 GB di RAM per supportare 2-4 milioni di file.
   * Un'interfaccia di rete.
   * Un disco virtuale da 500 GB per i dati di sistema.
 
@@ -66,7 +68,7 @@ Per creare un dispositivo virtuale, è necessario:
 * Client VMware vSphere nel sistema per gestire l'host ESXi.
 
   * Un minimo di 4 memorie centrali.
-  * Almeno 8 GB di RAM.
+  * Almeno 8 GB di RAM. Se si prevede di configurare la matrice virtuale come file server, 8 GB supportano poco meno di 2 milioni di file. Sono necessari 16 GB di RAM per supportare 2-4 milioni di file.
   * Un'interfaccia di rete connessa alla rete in grado di indirizzare il traffico a Internet. La larghezza di banda minima di Internet deve essere di 5 Mbps e consentire un funzionamento ottimale del dispositivo.
   * Un disco virtuale da 500 GB per i dati.
 
@@ -77,6 +79,7 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 
    1. Assicurarsi che il file di immagine scaricato sia il più recente. Se l'immagine è stata scaricata prima, scaricarla di nuovo per essere certi di avere quella più recente. L'immagine più recente ha due file (invece di uno).
    2. Prendere nota della posizione in cui è stata copiata l'immagine da usare più avanti nella procedura.
+
 2. Accedere al server ESXi tramite il client di vSphere. È necessario disporre dei privilegi di amministratore per creare una macchina virtuale.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image1.png)
@@ -163,7 +166,7 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 30. Nella pagina **Select a Disk** (Selezionare un disco) scegliere **Create a new virtual disk** (Crea un nuovo disco virtuale). Fare clic su **Avanti**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image31.png)
-31. Nella pagina **Create a Disk** (Creare un disco) impostare **Disk Size** (Dimensione disco) su almeno 500 GB. In **Disk Provisioning** (Provisioning disco) selezionare **Thin Provision** (Provisioning leggero). Fare clic su **Avanti**.
+31. Nella pagina **Create a Disk** (Creare un disco) impostare **Disk Size** (Dimensione disco) su almeno 500 GB. 500 GB è il requisito minimo, ma è sempre possibile eseguire il provisioning di un disco più grande. Si noti che, una volta eseguito il provisioning del disco, non è possibile espanderlo o ridurlo. Per altre informazioni sulle dimensioni del disco di cui eseguire il provisioning, vedere la sezione sul ridimensionamento nel documento sulle [procedure consigliate](storsimple-ova-best-practices.md). In **Disk Provisioning** (Provisioning disco) selezionare **Thin Provision** (Provisioning leggero). Fare clic su **Avanti**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image32.png)
 32. Nella pagina **Advanced Options** , accettare il valore predefinito.
@@ -240,9 +243,4 @@ In presenza di altri errori durante la configurazione iniziale con l'interfaccia
 ## <a name="next-steps"></a>Passaggi successivi
 * [Configurare StorSimple Virtual Array come file server](storsimple-virtual-array-deploy3-fs-setup.md)
 * [Configurare StorSimple Virtual Array come server iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

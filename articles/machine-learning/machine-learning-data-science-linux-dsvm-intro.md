@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3d5c5d6ae177b6f662df261f3254816b20bac764
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: ba0fc8849a7131a2dee8c9e7db546ca1a22e05df
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -25,7 +26,9 @@ La macchina virtuale Linux per l'analisi scientifica dei dati è una macchina vi
 
 * Microsoft R Server Developer Edition
 * Distribuzione di Anaconda Python, versioni 2.7 e 3.5, incluse le più comuni librerie di analisi dei dati
-* JupyterHub: un server notebook Jupyter multiutente che supporta kernel R, Python e Julia
+* JuliaPro: un'accurata distribuzione di linguaggio Julia con librerie scientifiche e dati di analitica diffuse
+* Istanza Spark univoca e un solo nodo Hadoop (HDFS, Yarn)
+* JupyterHub: un server notebook Jupyter multiutente che supporta kernel R, Python, PySpark e Julia
 * Azure Storage Explorer
 * Interfaccia della riga di comando di Azure per la gestione delle risorse di Azure
 * Database PostgresSQL
@@ -36,7 +39,8 @@ La macchina virtuale Linux per l'analisi scientifica dei dati è una macchina vi
   * [Rattle](http://rattle.togaware.com/) (R Analytical Tool To Learn Easily): strumento che rende semplice la fase introduttiva all'analisi dei dati e al Machine Learning in R, grazie a funzionalità di esplorazione e modellazione dei dati basate su GUI con generazione automatica di codice R.
 * Azure SDK in Java, Python, Node.js, Ruby, PHP
 * Librerie in R e Python da usare in Azure Machine Learning e altri servizi di Azure
-* Editor e strumenti di sviluppo, ad esempio Eclipse, Emacs, gedit, vi
+* Editor e strumenti di sviluppo (RStudio, PyCharm, IntelliJ, Emacs, gedit, VI)
+
 
 L'esecuzione dell'analisi scientifica dei dati comporta l'iterazione di una sequenza di attività quali:
 
@@ -116,32 +120,38 @@ Nella VM Linux è già stato effettuato il provisioning del server X2Go ed è pr
 Dopo aver eseguito l'accesso alla VM con il client SSH o il desktop con interfaccia grafica XFCE tramite il client X2Go, è possibile iniziare a usare gli strumenti installati e configurati nella VM. In XFCE è possibile visualizzare i collegamenti di menu delle applicazioni e le icone del desktop per molti di questi strumenti.
 
 ## <a name="tools-installed-on-the-linux-data-science-virtual-machine"></a>Strumenti installati nella macchina virtuale LInux per l'analisi scientifica dei dati
-### <a name="microsoft-r-open"></a>Microsoft R Open
-R è uno dei linguaggi più diffusi per l'analisi dei dati e il Machine Learning. Se si vuole usare R per l'esecuzione di analisi, è necessario che nella VM sia installato Microsoft R Open (MRO) con Math Kernel Library (MKL). La libreria MKL ottimizza le operazioni matematiche comuni negli algoritmi di analisi. MRO è totalmente compatibile con CRAN-R e tutte le librerie R pubblicate in CRAN possono essere installate in MRO. È possibile modificare i programmi R in uno degli editor predefiniti, ad esempio vi, Emacs o gedit. È anche possibile scaricare e usare altri IDE, ad esempio [RStudio](http://www.rstudio.com). Per praticità, nella directory **/dsvm/tools** viene fornito un semplice script (installRStudio.sh) che installa RStudio. Se si usa l'editor Emacs, si noti che il relativo pacchetto ESS (Emacs Speaks Statistics), che semplifica l'uso dei file R all'interno dell'editor Emacs, è preinstallato.
+### <a name="microsoft-r-server"></a>Microsoft R Server
+R è uno dei linguaggi più diffusi per l'analisi dei dati e il Machine Learning. Se si vuole usare R per l'esecuzione di analisi, è necessario che nella macchina virtuale sia installato Microsoft R Server (MRS) con Microsoft R Open (MRO) con Math Kernel Library (MKL). La libreria MKL ottimizza le operazioni matematiche comuni negli algoritmi di analisi. MRO è totalmente compatibile con CRAN-R e tutte le librerie R pubblicate in CRAN possono essere installate in MRO. MRS garantisce scalabilità e messa in funzione dei modelli R nei servizi Web. È possibile modificare i programmi R in uno degli editor predefiniti, ad esempio RStudio, VI, Emacs o gedit. Se si usa l'editor Emacs, si noti che il relativo pacchetto ESS (Emacs Speaks Statistics), che semplifica l'uso dei file R all'interno dell'editor Emacs, è preinstallato.
 
-Per avviare R è sufficiente digitare **R** nella shell. Verrà visualizzato un ambiente interattivo. Per sviluppare il programma R, si usa in genere un editor come Emacs o vi oppure gedit e quindi si eseguono gli script all'interno di R. Se si installa RStudio, si ottiene un ambiente IDE con interfaccia grafica completo per sviluppare il programma R.
+Per avviare la console R è sufficiente digitare **R** nella shell. Verrà visualizzato un ambiente interattivo. Per sviluppare il programma R, si usa in genere un editor come Emacs o VI oppure gedit e quindi si eseguono gli script all'interno di R. Con RStudio, si ottiene un ambiente IDE con interfaccia grafica completo per sviluppare il programma R.
 
 È anche disponibile uno script R per installare i [20 pacchetti R più popolari](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) , se necessario. Questo script può essere eseguito una volta nell'interfaccia interattiva R, a cui è possibile accedere digitando **R** nella shell, come indicato sopra.  
 
 ### <a name="python"></a>Python
 Per lo sviluppo tramite Python, è installata la distribuzione Anaconda Python 2.7 e 3.5. Questa distribuzione contiene il linguaggio Python di base con circa 300 dei più diffusi pacchetti di matematica, ingegneria e analisi dei dati. È possibile usare gli editor di testo predefiniti. Si può anche usare Spyder, un IDE Python incluso nelle distribuzioni di Anaconda Python. Spyder richiede un desktop con interfaccia grafica o X11 Forwarding. Nel desktop con interfaccia grafica è disponibile un collegamento a Spyder.
 
-Poiché sono presenti sia Python 2.7 che 3.5, è necessario attivare in modo specifico la versione di Python che si vuole usare nella sessione corrente. Il processo di attivazione imposta la variabile PATH sulla versione di Python desiderata.
+Poiché sono presenti sia Python 2.7 che 3.5, è necessario attivare in modo specifico la versione di Python (ambiente conda) che si vuole usare nella sessione corrente. Il processo di attivazione imposta la variabile PATH sulla versione di Python desiderata.
 
-Per attivare Python 2.7, eseguire il comando seguente dalla shell:
+Per attivare l'ambiente conda di Python 2.7, eseguire il comando seguente dalla shell:
 
     source /anaconda/bin/activate root
 
 Python 2.7 viene installato in */anaconda/bin*.
 
-Per attivare Python 3.5, eseguire il comando seguente dalla shell:
+Per attivare l'ambiente conda di Python 3.5, eseguire il comando seguente dalla shell:
 
     source /anaconda/bin/activate py35
 
 
 Python 3.5 viene installato in */anaconda/envs/py35/bin*.
 
-Per richiamare la sessione interattiva di Python, è sufficiente digitare **python** nella shell. Se si usa un'interfaccia grafica o è installato X11 Forwarding, è possibile digitare il comando **spyder** per avviare l'IDE di Python.
+Per richiamare la sessione interattiva di Python, è sufficiente digitare **python** nella shell. Se si usa un'interfaccia grafica o è installato l'inoltro X11, è possibile digitare il comando **pycharm** per avviare l'IDE di PyCharm Python.
+
+Per installare le librerie di Python aggiuntive, è necessario eseguire il comando ```conda``` o ````pip```` in sudo e specificare il percorso completo della gestione del pacchetto Python (conda o pip) per eseguire l'installazione nell'ambiente Python corretto. ad esempio:
+
+    sudo /anaconda/bin/pip install <package> #for Python 2.7 environment
+    sudo /anaconda/envs/py35/bin/pip install <package> # for Python 3.5 environment
+
 
 ### <a name="jupyter-notebook"></a>Notebook di Jupyter
 La distribuzione Anaconda include anche Jupyter Notebook, un ambiente per condividere codice e analisi. Notebook di Jupyter è accessibile tramite JupyterHub. Per eseguire l'accesso, usare il nome utente e la password locali di Linux.
@@ -162,12 +172,31 @@ Il server Notebook di Jupyter è stato preconfigurato con Python 2, Python 3 e i
 
 Nel pacchetto sono inclusi alcuni notebook di esempio: uno in Python e uno in R. È possibile visualizzare il collegamento agli esempi nella home page del notebook dopo l'autenticazione a Notebook di Jupyter con il nome utente e la password locali di Linux. È possibile creare un nuovo notebook selezionando **Nuovo** e quindi il kernel del linguaggio adatto. Se il pulsante **Nuovo** non è visualizzato, fare clic sull'icona **Jupyter** in alto a sinistra per passare alla home page del server notebook.
 
+### <a name="apache-spark-standalone"></a>Apache Spark autonomo 
+Un'istanza autonoma di Apache Spark è preinstallata in DSVM di Linux per contribuire allo sviluppo delle applicazioni Spark inizialmente in locale, prima di eseguire i test e la distribuzione in cluster di grandi dimensioni. È possibile eseguire programmi PySpark attraverso il kernel Jupyter. Quando si apre Jupyter e si fa clic sul pulsante "Nuovo" verrà visualizzato un elenco di kernel disponibili. "Spark – Python" è il kernel PySpark che consentirà di creare applicazioni Spark usando il linguaggio Python. È anche possibile usare un IDE Python come PyCharm o Spyder per creare un programma Spark. Poiché si tratta di un'istanza autonoma, lo stack di Spark viene eseguito all'interno del programma client che esegue la chiamata. Questo rende più veloce e semplice la risoluzione dei problemi rispetto allo sviluppo in un cluster Spark. 
+
+Su Jupyter viene assicurato un blocco di appunti di esempio PySpark che è possibile trovare nella directory "SparkML" nella home directory di Jupyter ($HOME/notebooks/SparkML/pySpark). 
+
+Se si programma in R per Spark, è possibile usare Microsoft R Server, SparkR o sparklyr. 
+
+Prima di eseguire nel contesto Spark in Microsoft R Server, è necessario eseguire un unico passaggio di configurazione per abilitare un solo nodo locale Hadoop HDFS e un'istanza Yarn. Per impostazione predefinita, i servizi Hadoop sono installati ma disabilitati su DSVM. Per attivarli, è necessario eseguire i comandi seguenti come radice la prima volta:
+
+    echo -e 'y\n' | ssh-keygen -t rsa -P '' -f ~hadoop/.ssh/id_rsa
+    cat ~hadoop/.ssh/id_rsa.pub >> ~hadoop/.ssh/authorized_keys
+    chmod 0600 ~hadoop/.ssh/authorized_keys
+    chown hadoop:hadoop ~hadoop/.ssh/id_rsa
+    chown hadoop:hadoop ~hadoop/.ssh/id_rsa.pub
+    chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
+    systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
+
+È possibile arrestare i servizi relativi a Hadoop quando non servono eseguendo ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn````. un esempio che illustra come sviluppare e verificare che MRS nel contesto di Spark remoto, ovvero l'istanza di Spark autonoma nel DSVM, sia implementato e disponibile nella directory `/dsvm/samples/MRS`. 
+
 ### <a name="ides-and-editors"></a>IDE ed editor
-È possibile scegliere tra diversi editor di codice. Ad esempio vi/VIM, Emacs, gEdit ed Eclipse. gEdit ed Eclipse sono editor grafici e per usarli è necessario essere connessi a un desktop con interfaccia grafica. Per avviare questi editor sono disponibili collegamenti di menu delle applicazioni e sul desktop.
+È possibile scegliere tra diversi editor di codice. Ciò include VI/VIM, Emacs, gEdit, PyCharm, RStudio, Eclipse e IntelliJ. gEdit, Eclipse, IntelliJ, RStudio e PyCharm sono editor grafici e per usarli è necessario essere connessi a un desktop con interfaccia grafica. Per avviare questi editor sono disponibili collegamenti di menu delle applicazioni e sul desktop.
 
 **VIM** e **Emacs** sono editor basati su testo. In Emacs è installato un pacchetto di componenti aggiuntivi denominato Emacs Speaks Statistics (ESS) che facilita l'utilizzo di R nell'editor Emacs. Altre informazioni sono disponibili nella pagina relativa a [ESS](http://ess.r-project.org/).
 
-**Eclipse** è un IDE open source estendibile che supporta più linguaggi. L'edizione per sviluppatori Java è l'istanza installata nella VM. Sono disponibili plug-in per diversi linguaggi comuni che possono essere installati per estendere l'ambiente Eclipse. È anche disponibile un plug-in installato in Eclipse, **Toolkit di Azure per Eclipse**. Il plug-in consente di creare, sviluppare, testare e distribuire applicazioni Azure tramite l'ambiente di sviluppo Eclipse che supporta linguaggi come Java. È disponibile anche **Azure SDK per Java** che consente l'accesso a diversi servizi di Azure da un ambiente Java. Altre informazioni su Azure Toolkit for Eclipse sono disponibili nella pagina [Azure Toolkit for Eclipse](../azure-toolkit-for-eclipse.md).
+**Eclipse** è un IDE open source estendibile che supporta più linguaggi. L'edizione per sviluppatori Java è l'istanza installata nella VM. Sono disponibili plug-in per diversi linguaggi comuni che possono essere installati per estendere l'ambiente. È anche disponibile un plug-in installato in Eclipse, **Toolkit di Azure per Eclipse**. Il plug-in consente di creare, sviluppare, testare e distribuire applicazioni Azure tramite l'ambiente di sviluppo Eclipse che supporta linguaggi come Java. È disponibile anche **Azure SDK per Java** che consente l'accesso a diversi servizi di Azure da un ambiente Java. Altre informazioni su Azure Toolkit for Eclipse sono disponibili nella pagina [Azure Toolkit for Eclipse](../azure-toolkit-for-eclipse.md).
 
 **LaTex** viene installato tramite il pacchetto texlive insieme a un pacchetto di componenti aggiuntivi di Emacs, [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) , che semplifica la creazione di documenti LaTex in Emacs.  
 
@@ -216,7 +245,7 @@ Per accedere a **Postgres**:
 ### <a name="azure-tools"></a>Strumenti di Azure
 Nella VM sono installati gli strumenti di Azure seguenti:
 
-* **Interfaccia della riga di comando di Azure**: consente di creare e gestire risorse di Azure tramite i comandi della shell. Per richiamare gli strumenti di Azure, digitare semplicemente **azure help**. Per altre informazioni, vedere la [pagina di documentazione sull'interfaccia della riga di comando di Azure](../virtual-machines-command-line-tools.md).
+* **Interfaccia della riga di comando di Azure**: consente di creare e gestire risorse di Azure tramite i comandi della shell. Per richiamare gli strumenti di Azure, digitare semplicemente **azure help**. Per altre informazioni, vedere la [pagina di documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 * **Microsoft Azure Storage Explorer**(Esplora archivi di Microsoft Azure): è uno strumento grafico usato per esplorare gli oggetti archiviati nell'account di archiviazione di Azure e per caricare o scaricare dati nei BLOB e dai BLOB di Azure. È possibile accedere a Esplora archivi dall'icona del collegamento sul desktop. Questo strumento può essere richiamato da un prompt della shell digitando **StorageExplorer**. È necessario essere connessi da un client X2Go o avere installato X11 Forwarding.
 * **Librerie di Azure**: di seguito vengono illustrate alcune delle librerie preinstallate.
   
@@ -258,12 +287,8 @@ Ecco alcune informazioni aggiuntive sui primi tre strumenti di Machine Learning 
 
 Per un esempio di base, eseguire i comandi seguenti nella shell:
 
-    # Copy samples to your home directory and execute cntk
-    cp -r /dsvm/tools/CNTK-2016-02-08-Linux-64bit-CPU-Only/Examples/Other/Simple2d cntkdemo
-    cd cntkdemo/Data
-    cntk configFile=../Config/Simple.cntk
-
-L'output del modello si trova in *~/cntkdemo/Output/Models*.
+    cd /home/[USERNAME]/notebooks/CNTK/HelloWorld-LogisticRegression
+    cntk configFile=lr_bs.cntk makeMode=false command=Train
 
 Per altre informazioni, vedere la sezione CNTK di [GitHub](https://github.com/Microsoft/CNTK) e la [wiki di CNTK](https://github.com/Microsoft/CNTK/wiki).
 
@@ -344,10 +369,5 @@ Ecco come è possibile continuare l'apprendimento e l'esplorazione:
 * Esaminare e provare i vari strumenti di analisi scientifica dei dati descritti in questo articolo nella VM di analisi scientifica dei dati. È anche possibile eseguire *dsvm-more-info* nella shell della macchina virtuale per un'introduzione di base e per visualizzare collegamenti ad altre informazioni sugli strumenti installati nella VM.  
 * Informazioni su come creare sistematicamente soluzioni analitiche end-to-end usando il [Processo di analisi scientifica dei dati per i team](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 * Visitare la pagina relativa a [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) per esempi di Machine Learning e di analisi dei dati tramite Cortana Analytics Suite.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

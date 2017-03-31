@@ -1,6 +1,6 @@
 ---
-title: Aprire porte ed endpoint per una macchina virtuale (VM) Linux in Azure | Documentazione Microsoft
-description: Informazioni su come aprire una porta o creare un endpoint per la VM Linux tramite il modello di distribuzione Azure Resource Manager e l&quot;interfaccia della riga di comando di Azure versione 2.0 (anteprima)
+title: Aprire le porte per una VM Linux con l&quot;interfaccia della riga di comando di Azure 2.0 | Documentazione Microsoft
+description: Informazioni su come aprire una porta o creare un endpoint per la VM Linux tramite il modello di distribuzione Azure Resource Manager e l&quot;interfaccia della riga di comando di Azure 2.0
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -12,29 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/8/2016
+ms.date: 03/07/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: e4512dd4d818b1c7bea7e858a397728ce48a5362
-ms.openlocfilehash: 40f399c339e31d9d008230449d7f559ae01afba3
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 2e086311a509432454a7b5e188591605d27c6999
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="opening-ports-and-endpoints-to-a-linux-vm-in-azure"></a>Apertura di porte ed endpoint per una VM Linux in Azure
-Aprire una porta o creare un endpoint in una macchina virtuale (VM) di Azure tramite la creazione di un filtro di rete su una subnet o un'interfaccia di rete di VM. Questi filtri, che consentono di controllare il traffico in ingresso e in uscita, vengono inseriti in un gruppo di sicurezza di rete e collegati alla risorsa che riceve il traffico. Si userà un esempio comune di traffico Web sulla porta 80. Questo articolo illustra come aprire una porta per una VM usando l'interfaccia della riga di comando di Azure versione 2.0 (anteprima).
-
-
-## <a name="cli-versions-to-complete-the-task"></a>Versioni dell'interfaccia della riga di comando per completare l'attività
-È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
-
-- [Interfaccia della riga di comando di Azure 1.0](virtual-machines-linux-nsg-quickstart-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): l'interfaccia della riga di comando per i modelli di distribuzione classici e di gestione delle risorse
-- [Interfaccia della riga di comando di Azure 2.0 (anteprima)](#quick-commands): interfaccia di prossima generazione per il modello di distribuzione di gestione delle risorse (questo articolo)
+# <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Aprire porte ed endpoint per una VM Linux con l'interfaccia della riga di comando di Azure
+Aprire una porta o creare un endpoint in una macchina virtuale (VM) di Azure tramite la creazione di un filtro di rete su una subnet o un'interfaccia di rete di VM. Questi filtri, che consentono di controllare il traffico in ingresso e in uscita, vengono inseriti in un gruppo di sicurezza di rete e collegati alla risorsa che riceve il traffico. Si userà un esempio comune di traffico Web sulla porta 80. Questo articolo illustra come aprire una porta in una VM con l'interfaccia della riga di comando di Azure 2.0. È possibile anche eseguire questi passaggi tramite l'[interfaccia della riga di comando di Azure 1.0](virtual-machines-linux-nsg-quickstart-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## <a name="quick-commands"></a>Comandi rapidi
-Per creare un gruppo di sicurezza di rete e le regole è necessario installare la versione più recente dell'[interfaccia della riga di comando di Azure versione 2.0 (anteprima)](/cli/azure/install-az-cli2) e connetterla a un account Azure utilizzando [az login](/cli/azure/#login).
+Per creare un gruppo di sicurezza di rete e le regole è necessario aver installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e aver eseguito l'accesso a un account Azure usando [az login](/cli/azure/#login).
 
-L'esempio seguente sostituisce i nomi dei parametri di esempio con i valori desiderati. Alcuni esempi di nomi dei parametri sono `myResourceGroup`, `myNetworkSecurityGroup` e `myVnet`.
+Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. Alcuni esempi di nomi dei parametri sono `myResourceGroup`, `myNetworkSecurityGroup` e `myVnet`.
 
 Creare il gruppo di sicurezza di rete con [az network nsg create](/cli/azure/network/nsg#create). L'esempio seguente crea un gruppo di sicurezza di rete denominato `myNetworkSecurityGroup` nella posizione `westus`:
 
@@ -80,10 +74,5 @@ In questo esempio viene creata una regola semplice per consentire il traffico HT
 * [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 * [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md)
 * [Panoramica di Azure Resource Manager per i servizi di bilanciamento del carico](../load-balancer/load-balancer-arm.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

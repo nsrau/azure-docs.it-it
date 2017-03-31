@@ -1,6 +1,6 @@
 ---
-title: Monitorare le app per la logica in Azure | Documentazione Microsoft
-description: Come verificare il funzionamento delle app per la logica
+title: Abilitare la registrazione e gli avvisi, controllare la cronologia di esecuzione, rilevare input e output - App per la logica di Azure | Documentazione Microsoft
+description: Monitorare lo stato dei flussi di lavoro di app per la logica usando registrazione, rilevamento e visualizzazione di cronologia e diagnostica
 author: jeffhollan
 manager: anneta
 editor: 
@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: jehollan
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
-ms.openlocfilehash: db3684fc5cc4ae7933454a02d8440d1eb4948828
+ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
+ms.openlocfilehash: d6840be7afc05d8d563215e370c59cf41a206e4f
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="monitor-your-logic-apps"></a>Monitorare le app per la logica
+# <a name="check-the-performance-and-start-diagnostic-logging-and-alerts-of-your-workflows-in-logic-apps"></a>Controllare le prestazioni e avviare la registrazione diagnostica e gli avvisi per i flussi di lavoro in app per la logica
 Dopo aver [creato un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md), è possibile visualizzare l'intera cronologia della relativa esecuzione nel portale di Azure.  È anche possibile configurare servizi come Diagnostica di Azure e gli avvisi di Azure per monitorare gli eventi in tempo reale e ricevere avvisi per eventi come, ad esempio, 5 esecuzioni non riuscite in un'ora.
 
 ## <a name="monitor-in-the-azure-portal"></a>Eseguire il monitoraggio nel portale di Azure
@@ -137,10 +139,5 @@ I dati di telemetria di Hub eventi o Archiviazione possono essere sfruttati in a
 * [Esempi e scenari comuni per le app per la logica](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Creazione di un modello di distribuzione di app per la logica](../logic-apps/logic-apps-create-deploy-template.md)
 * [Funzionalità di Enterprise Integration](../logic-apps/logic-apps-enterprise-integration-overview.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

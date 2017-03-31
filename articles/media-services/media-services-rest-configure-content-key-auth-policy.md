@@ -1,5 +1,5 @@
 ---
-title: Configurare i criteri di autorizzazione della chiave simmetrica mediante l&quot;API REST di Servizi multimediali | Microsoft Docs
+title: Configurare i criteri di autorizzazione della chiave dei contenuti con REST - Azure | Documentazione Microsoft
 description: Informazioni su come configurare i criteri di autorizzazione per una chiave simmetrica utilizzando API REST di Servizi multimediali.
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: e00c18be79eb5f7ee4d1dcb8f5e9a5b084afe60f
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: 171a971411546d1421a48f3dceab98fb2b54b25f
 
 
 ---
@@ -36,14 +36,14 @@ Servizi multimediali non fornisce servizi token di sicurezza. Per il rilascio di
 
 Per altre informazioni, vedere
 
-[Autenticazione dei token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
+[Autenticazione tramite token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 
 [Integrare l'app basata su OWIN MVC di Servizi multimediali di Azure con Azure Active Directory e limitare la distribuzione di chiavi simmetriche in base ad attestazioni JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
 [Usare il Servizio di controllo di accesso di Azure per il rilascio di token](http://mingfeiy.com/acs-with-key-services).
 
 ### <a name="some-considerations-apply"></a>Considerazioni applicabili:
-* Per usare la funzionalità di creazione dinamica dei pacchetti e la crittografia dinamica, è necessario assicurarsi di avere almeno un'unità riservata di streaming. Per altre informazioni, vedere la sezione relativa al [ridimensionamento di un servizio multimediale](media-services-portal-manage-streaming-endpoints.md).
+* Per usare la creazione dinamica dei pacchetti e la crittografia dinamica, verificare che l'endpoint di streaming da cui si intende trasmettere i contenuti si trovi nello stato **In esecuzione**.
 * L'asset deve contenere un set di file MP4 o Smooth Streaming a velocità in bit adattiva. Per altre informazioni, vedere l'articolo relativo alla [codifica di un asset](media-services-encode-asset.md).
 * Caricare e codificare gli asset mediante l'opzione **AssetCreationOptions.StorageEncrypted** .
 * Se si prevede di avere più chiavi simmetriche che richiedono una stessa configurazione di criteri, è consigliabile creare un singolo criterio di autorizzazione e applicarlo a più chiavi simmetriche.
@@ -285,7 +285,7 @@ Aggiungere criteri di autorizzazione alla chiave simmetrica, come mostrato [qui]
 ## <a name="playready-dynamic-encryption"></a>Crittografia dinamica PlayReady
 Servizi multimediali consente di configurare i diritti e le restrizioni che il runtime di PlayReady DRM deve applicare quando l'utente prova a riprodurre contenuti protetti. 
 
-Quando si protegge il contenuto con PlayReady, è necessario includere nei criteri di autorizzazione una stringa XML che definisce il [modello di licenza PlayReady](https://msdn.microsoft.com/library/azure/dn783459.aspx). 
+Quando si protegge il contenuto con PlayReady, è necessario includere nei criteri di autorizzazione una stringa XML che definisce il [modello di licenza PlayReady](media-services-playready-license-template-overview.md). 
 
 ### <a name="open-restriction"></a>Restrizione Open
 Se si applica una restrizione Open, il sistema distribuirà la chiave a chiunque ne faccia richiesta. Questa restrizione può essere utile a scopo di test.
@@ -450,6 +450,6 @@ Dopo aver configurato i criteri di autorizzazione della chiave simmetrica, passa
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

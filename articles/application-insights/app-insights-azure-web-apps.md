@@ -4,18 +4,19 @@ description: Monitoraggio delle prestazioni applicative per le app Web di Azure.
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 0b2deb30-6ea8-4bc4-8ed0-26765b85149f
 ms.service: azure-portal
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: c5869c2f4f593d8ffd1992ec2a7dbc473898f3ad
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: d7a8d669e75991f6707641e4ce53c9b63d04853c
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -50,22 +51,22 @@ In un secondo momento, se si desidera è possibile compilare e ridistribuire l'a
 ## <a name="build-the-app-with-application-insights"></a>Compilare l'app con Application Insights
 Application Insights può fornire ulteriori dati di telemetria installando un SDK nell'applicazione. In particolare, è possibile raccogliere i log di traccia, [scrivere dati di telemetria personalizzati](app-insights-api-custom-events-metrics.md) e ottenere report di eccezione più dettagliati.
 
-1. **In Visual Studio** 2013 Update 2 o versione successiva aggiungere Application Insights SDK al progetto.
+1. **In Visual Studio** 2013 Update 2 o versione successiva configurare Application Insights per il progetto.
    
-    ![Fare clic con il pulsante destro del mouse sul progetto Web e scegliere Aggiungi Application Insights](./media/app-insights-azure-web-apps/03-add.png)
+    ![Fare clic con il pulsante destro del mouse sul progetto Web e scegliere Aggiungi o Configura Application Insights](./media/app-insights-azure-web-apps/03-add.png)
    
     Se viene chiesto di effettuare l'accesso, usare le credenziali dell'account Azure.
    
     L'operazione ha due effetti:
    
    1. Crea una risorsa di Application Insights in Azure, in cui vengono archiviati, analizzati e visualizzati i dati di telemetria.
-   2. Aggiunge il pacchetto NuGet di Application Insights al codice e lo configura per l'invio di dati di telemetria alla risorsa di Azure.
+   2. Se non è già presente, aggiunge il pacchetto NuGet di Application Insights al codice e lo configura per l'invio della telemetria alla risorsa di Azure.
 2. **Testare i dati di telemetria** eseguendo l'app nel computer di sviluppo (F5).
 3. **Pubblicare l'app** in Azure nel modo consueto. 
 
 *Come è possibile passare all'invio a un'altra risorsa di Application Insights?*
 
-* In Visual Studio fare clic con il pulsante destro del mouse sul progetto, scegliere **Application Insights > Configura** e quindi scegliere la risorsa desiderata. Sarà possibile creare una nuova risorsa. Ricompilare e ridistribuire.
+* In Visual Studio fare clic con il pulsante destro del mouse sul progetto, scegliere **Configura Application Insights** e scegliere la risorsa desiderata. Sarà possibile creare una nuova risorsa. Ricompilare e ridistribuire.
 
 ## <a name="explore-the-data"></a>Esplorare i dati
 1. In Application Insights, nel pannello di controllo dell'App Web, vengono visualizzate le metriche in tempo reale: ciò significa che le richieste e gli errori vengono mostrati uno o due secondi dopo che si verificano. È molto utile visualizzare questi dati quando si esegue di nuovo la pubblicazione di un'app, perché eventuali problemi sono immediatamente visibili.
@@ -90,16 +91,15 @@ Application Insights può fornire ulteriori dati di telemetria installando un SD
 
 Per le ricerche più avanzate nei dati di telemetria, usare il [linguaggio di query di Analisi](app-insights-analytics-tour.md).
 
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
 ## <a name="next-steps"></a>Passaggi successivi
 * [Abilitare l'invio dei dati di diagnostica di Azure](app-insights-azure-diagnostics.md) ad Application Insights.
 * [Monitorare le metriche di integrità del servizio](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) per assicurarsi che il servizio sia disponibile e reattivo.
 * [Ricevere notifiche di avviso](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) ogni volta che si verificano eventi operativi o le metriche superano una soglia.
 * Usare [Analisi dell'utilizzo per applicazioni Web con Application Insights](app-insights-web-track-usage.md) per ottenere i dati di telemetria dei client dai browser che visitano una pagina Web.
 * [Monitorare la disponibilità e la velocità di risposta dei siti Web](app-insights-monitor-web-app-availability.md) per ricevere un avviso se il sito è inattivo.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

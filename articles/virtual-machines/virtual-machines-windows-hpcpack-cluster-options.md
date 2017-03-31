@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 11/17/2016
+ms.date: 02/06/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 08499c4242fdc59ef932d6b8f2e8442e5cdc55b2
-ms.openlocfilehash: ca27dadb7b6e18dd5d81e89564059928ffe7dac6
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: b008f11070077372487f8aede604017033ae21e4
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -36,12 +37,16 @@ Questo articolo descrive le opzioni per la creazione di cluster HPC Pack per ese
 * (Guida introduttiva) [Creare un cluster HPC con un'immagine di nodo di calcolo personalizzata](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster-custom-image)
 
 ### <a name="azure-vm-images"></a>Immagini di macchina virtuale di Azure
-* [HPC Pack su Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)
-* [Nodo di calcolo HPC Pack su Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodeonwindowsserver2012r2/)
+* [Nodo head HPC Pack 2016 in Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.HPCPack2016HeadNodeonWindowsServer2016?tab=Overview)
+* [Nodo di calcolo HPC Pack 2016 in Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.HPCPack2016ComputeNodeonWindowsServer2016?tab=Overview)
+* [Nodo head HPC Pack 2016 in Windows Server 2012 R2](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.HPCPack2016HeadNodeonWindowsServer2012R2?tab=Overview)
+* [Nodo di calcolo HPC Pack 2016 in Windows Server 2012 R2](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.HPCPack2016ComputeNodeonWindowsServer2012R2?tab=Overview)
+* [Nodo head HPC Pack 2012 R2 in Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)
+* [Nodo di calcolo HPC Pack 2012 R2 in Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodeonwindowsserver2012r2/)
 * [Nodo di calcolo HPC Pack con Excel su Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodewithexcelonwindowsserver2012r2/)
 
 ### <a name="powershell-deployment-script"></a>Script di distribuzione di PowerShell
-* [Creare un cluster HPC con lo script di distribuzione IaaS di HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Creare un cluster HPC con lo script di distribuzione IaaS di HPC Pack](windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ### <a name="tutorials"></a>Esercitazioni
 * [Esercitazione: Distribuire un cluster HPC Pack 2016 in Azure](virtual-machines-windows-hpcpack-2016-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -51,8 +56,8 @@ Questo articolo descrive le opzioni per la creazione di cluster HPC Pack per ese
 * [Configurare il nodo head di un cluster HPC Pack in una VM di Azure](virtual-machines-windows-hpcpack-cluster-headnode.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### <a name="cluster-management"></a>Gestione dei cluster
-* [Gestire i nodi di calcolo in un cluster HPC Pack in Azure](virtual-machines-windows-classic-hpcpack-cluster-node-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* [Aumentare e ridurre le risorse di calcolo di Azure in un cluster HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Gestire i nodi di calcolo in un cluster HPC Pack in Azure](windows/classic/hpcpack-cluster-node-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Aumentare e ridurre le risorse di calcolo di Azure in un cluster HPC Pack](windows/classic/hpcpack-cluster-node-autogrowshrink.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [Inviare i processi a un cluster HPC Pack in Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Job management in HPC Pack](https://technet.microsoft.com/library/jj899585.aspx)
 * [Gestire un cluster HPC Pack in Azure con Azure Active Directory](virtual-machines-windows-hpcpack-cluster-active-directory.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
@@ -60,17 +65,12 @@ Questo articolo descrive le opzioni per la creazione di cluster HPC Pack per ese
 ## <a name="add-worker-role-nodes-to-an-hpc-pack-cluster"></a>Aggiungere nodi di ruolo di lavoro a un cluster HPC Pack
 * [Potenziare le istanze del ruolo di lavoro di Azure con HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 * [Esercitazione: Configurare un cluster ibrido con HPC Pack in Azure](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
-* [Aggiungere nodi di "potenziamento" di Azure a un nodo head HPC Pack in Azure](virtual-machines-windows-classic-hpcpack-cluster-node-burst.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Aggiungere nodi di "potenziamento" di Azure a un nodo head HPC Pack in Azure](windows/classic/hpcpack-cluster-node-burst.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="integrate-with-azure-batch"></a>Integrazione con Azure Batch
 * [Potenziare Azure Batch con HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)
 
 ## <a name="create-rdma-clusters-for-mpi-workloads"></a>Creare cluster RDMA per carichi di lavoro MPI
-* [Configurare un cluster RDMA di Windows con HPC Pack per eseguire applicazioni MPI](virtual-machines-windows-classic-hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
+* [Configurare un cluster RDMA di Windows con HPC Pack per eseguire applicazioni MPI](windows/classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 

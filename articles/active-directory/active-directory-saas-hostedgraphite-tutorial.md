@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 02/20/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dc96c4350af865014d06ae8d8a6e7d2db47d60d0
+ms.sourcegitcommit: cc0992476d89b86b5848e9ae0bacb36b20f510fa
+ms.openlocfilehash: be29ac00d9f6e9dcdfd2ca3df5c2c29a293a7ee6
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -26,7 +27,7 @@ Questa esercitazione ha l'obiettivo di mostrare come integrare Hosted Graphite i
 L'integrazione di Hosted Graphite in Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD gli utenti che possono accedere a Hosted Graphite
-* È possibile abilitare gli utenti per l'accesso automatico a Hosted Graphite (Single Sign-On) con il proprio account Azure AD
+* È possibile abilitare gli utenti per l'accesso Single Sign-On automatico a Hosted Graphite (SSO) con il proprio account Azure AD
 * È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -35,17 +36,16 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 Per configurare l'integrazione di Azure AD in Hosted Graphite, è necessario quanto segue:
 
 * Sottoscrizione di Azure AD.
-* Sottoscrizione Hosted Graphite Single Sign-On attiva
+* Sottoscrizione Hosted Graphite SSO attiva
 
-> [!NOTE]
-> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
-> 
+>[!NOTE]
+>Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione. 
 > 
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 * Non usare l'ambiente di produzione, a meno che non sia necessario.
-* Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+* Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure AD in un ambiente di test.
@@ -53,9 +53,9 @@ L'obiettivo di questa esercitazione è testare l'accesso Single Sign-On di Azure
 Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
 1. Aggiunta di Hosted Graphite dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+2. Configurazione e test dell'accesso Single Sign-On (SSO) di Microsoft Azure AD
 
-## <a name="adding-hosted-graphite-from-the-gallery"></a>Aggiunta di Hosted Graphite dalla raccolta
+## <a name="add-hosted-graphite-from-the-gallery"></a>Aggiungere Hosted Graphite dalla raccolta
 Per configurare l'integrazione di Hosted Graphite in Azure AD, è necessario aggiungere Hosted Graphite dalla raccolta all'elenco delle app SaaS gestite.
 
 **Per aggiungere Hosted Graphite dalla raccolta, eseguire i passaggi seguenti:**
@@ -80,25 +80,25 @@ Per configurare l'integrazione di Hosted Graphite in Azure AD, è necessario agg
    
     ![Selezione dell'app nella raccolta](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_0001.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
-L'obiettivo di questa sezione è mostrare come configurare e testare l'accesso Single Sign-On di AD Azure con Hosted Graphite in base a un utente test di nome "Britta Simon".
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
+L'obiettivo di questa sezione è mostrare come configurare e testare l'accesso SSO di AD Azure con Hosted Graphite in base a un utente test di nome "Britta Simon".
 
-Affinché Single Sign-On funzioni, Azure AD deve sapere qual è l'utente di Hosted Graphite che fa da controparte all'utente di Azure AD. In altre parole, è necessario stabilire una relazione di collegamento fra un utente di AD Azure e l'utente correlato di Hosted Graphite.
+Affinché SSO funzioni, Azure AD deve sapere qual è l'utente di Hosted Graphite che fa da controparte all'utente di Azure AD. In altre parole, è necessario stabilire una relazione di collegamento fra un utente di AD Azure e l'utente correlato di Hosted Graphite.
 
 La relazione di collegamento viene stabilita nel momento in cui il valore di **Nome utente** in Azure AD corrisponde al valore **Username** (Nome utente) in Hosted Graphite.
 
 Per configurare e testare l'accesso Single Sign-On in AD Azure con Hosted Graphite, è necessario completare le operazioni seguenti:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente test di Hosted Graphite](#creating-a-hosted-graphite-test-user)** : per avere una controparte di Britta Simon in Hosted Graphite collegata alla rappresentazione di Azure AD di quest'ultima.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
-In questa sezione nel portale classico viene abilitato l'accesso Single Sign-On di Azure AD, che viene configurato nell'applicazione Hosted Graphite.
+### <a name="configuring-azure-ad-sso"></a>Configurazione dell'accesso Single Sign-On (SSO) di Microsoft Azure AD
+In questa sezione viene abilitato l'accesso SSO di Azure AD nel portale di Azure classico e viene configurato l'accesso SSO nell'applicazione Hosted Graphite.
 
-**Per configurare l'accesso Single Sign-On in Azure AD con Hosted Graphite, procedere come segue:**
+**Per configurare l'accesso SSO in Azure AD con Hosted Graphite, procedere come segue:**
 
 1. Nella pagina di integrazione dell'applicazione **Hosted Graphite** del portale classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
    
@@ -109,58 +109,50 @@ In questa sezione nel portale classico viene abilitato l'accesso Single Sign-On 
 3. Nella pagina della finestra di dialogo **Configurare le impostazioni dell'app**, se si desidera configurare l'applicazione in **modalità iniziata da IDP**,seguire la procedura seguente e fare clic su **Avanti**:
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_04.png)
-   
-    a. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://www.hostedgraphite.com/metadata/<user id>`.
-   
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://www.hostedgraphite.com/complete/saml/<user id>`
-   
-    c. Fare clic su **Avanti**
+  1. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://www.hostedgraphite.com/metadata/<user id>`
+  2. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://www.hostedgraphite.com/complete/saml/<user id>`
+  3. Fare clic su **Avanti**.
 4. Se si desidera configurare l'applicazione in **SP initiated mode** (Modalità iniziata dal provider di servizi) nella finestra di dialogo **Configurare le impostazioni dell'app** fare clic su **"Mostra opzioni avanzate (facoltativo)"**, quindi digitare l'**URL di accesso** e fare clic su **Avanti**.
    
     ![Configura accesso Single Sign-On](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_10.png)
+  1. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://www.hostedgraphite.com/login/saml/<user id>/`
+  2. Fare clic su **Avanti**.
    
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://www.hostedgraphite.com/login/saml/<user id>/`
-   
-    b. Fare clic su **Avanti**
-   
-   > [!NOTE]
-   > Si noti che questi non sono i valori reali. È necessario aggiornare questi valori con l'URL di accesso, l'ID e l'URL di risposta effettivo. Per ottenere questi valori, è possibile passare a Access->SAML setup (Accesso -> Configurazione SAML) nell'applicazione oppure contattare Hosted Graphite.
-   > 
-   > 
+   >[!NOTE]
+   >Si noti che questi non sono i valori reali. È necessario aggiornare questi valori con l'URL di accesso, l'ID e l'URL di risposta effettivo. Per ottenere questi valori, è possibile passare a Access->SAML setup (Accesso -> Configurazione SAML) nell'applicazione oppure contattare Hosted Graphite.
+   >  
 5. Nella pagina **Configura accesso Single Sign-On in Hosted Graphite** seguire questa procedura e fare clic su **Avanti**:
    
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_05.png)
-   
-    a. Fare clic su **Scarica certificato**e quindi salvare il file nel computer.
-   
-    b. Fare clic su **Next**.
+ ![Configura accesso Single Sign-On](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_05.png)   
+ 1. Fare clic su **Scarica certificato**e quindi salvare il file nel computer.
+ 2. Fare clic su **Avanti**.
 6. Accedere al tenant di Hosted Graphite come amministratore.
 7. Accedere alla **pagina SAML Setup** (Configurazione SAML) dalla barra laterale, facendo clic su **Accesso -> SAML Setup (Configurazione SAML)**.
    
-    ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_000.png)
+ ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_000.png)
 8. Verificare che gli URI corrispondano alla configurazione nel Passaggio 3.
    
-    ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_001.png)
+ ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_001.png)
 9. Copiare l'**URL dell'autorità di certificazione** e l'**URL SSO SAML** da Azure AD in **Entity or Issuer ID** (ID entità o ID autorità emittente) e **SSO Login URL** (URL di accesso SSO) in Hosted Graphite.
    
-    ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_002.png)
+ ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_002.png)
    
-    ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_003.png)
+ ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_003.png)
 10. Selezionare "**Sola lettura**" come **ruolo utente predefinito**.
     
-     ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_004.png)
+ ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_004.png)
 11. Copiare il contenuto del certificato scaricato, copiarlo e incollarlo nella casella di testo **Certificato X.509** .
     
-     ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_005.png)
+ ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_005.png)
 12. Fare clic sul pulsante **Salva** .
 13. Nel portale di Azure classico selezionare la conferma della configurazione e fare clic su **Avanti**.
     
-    ![Single Sign-On di Microsoft Azure AD][10]
+ ![Single Sign-On di Microsoft Azure AD][10]
 14. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.  
     
-    ![Single Sign-On di Microsoft Azure AD][11]
+ ![Single Sign-On di Microsoft Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 Questa sezione descrive come creare un utente di test chiamato Britta Simon nel portale classico.
 
 ![Creare un utente di Azure AD][20]
@@ -180,48 +172,37 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
 5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-hostedgraphite-tutorial/create_aaduser_05.png)
-   
-    a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
-   
-    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
-   
-    c. Fare clic su **Avanti**.
+ 1. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
+ 2. Nella casella di testo **Nome utente** digitare **BrittaSimon**.  
+ 3. Fare clic su **Avanti**.
 6. Nella pagina **Profilo utente** seguire questa procedura:
    
-   ![Creazione di un utente test di Azure AD](./media/active-directory-saas-hostedgraphite-tutorial/create_aaduser_06.png)
-   
-   a. Nella casella di testo **Nome** digitare **Britta**.  
-   
-   b. Nella casella di testo **Cognome** digitare **Simon**.
-   
-   c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
-   
-   d. Nell'elenco **Ruolo** selezionare **Utente**.
-   
-   e. Fare clic su **Avanti**.
+   ![Creazione di un utente test di Azure AD](./media/active-directory-saas-hostedgraphite-tutorial/create_aaduser_06.png) 
+ 1. Nella casella di testo **Nome** digitare **Britta**.   
+ 2. Nella casella di testo **Cognome** digitare **Simon**. 
+ 3. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**. 
+ 4. Nell'elenco **Ruolo** selezionare **Utente**. 
+ 5. Fare clic su **Avanti**.
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
    
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-hostedgraphite-tutorial/create_aaduser_07.png)
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
    
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-hostedgraphite-tutorial/create_aaduser_08.png)
-   
-    a. Prendere nota del valore visualizzato in **Nuova password**.
-   
-    b. Fare clic su **Complete**.   
-
-### <a name="creating-a-hosted-graphite-test-user"></a>Creazione di un utente test di Hosted Graphite
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-hostedgraphite-tutorial/create_aaduser_08.png) 
+ 1. Prendere nota del valore visualizzato in **Nuova password**.  
+ 2. Fare clic su **Completa**.   
+ 
+### <a name="create-a-hosted-graphite-test-user"></a>Creare un utente test di Hosted Graphite
 Questa sezione descrive come creare un utente chiamato Britta Simon in Hosted Graphite. Hosted Graphite supporta il provisioning JIT, che è abilitato per impostazione predefinita.
 
 Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a Hosted Graphite verrà creato un nuovo utente, se questo non esiste già.
 
-> [!NOTE]
-> Per creare un utente manualmente, è necessario contattare il team di supporto di Hosted Graphite all'indirizzo <mailto:help@hostedgraphite.com>.
-> 
+>[!NOTE]
+>Per creare un utente manualmente, è necessario contattare il team di supporto di Hosted Graphite all'indirizzo <mailto:help@hostedgraphite.com>. 
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
-Questa sezione descrive come abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Hosted Graphite.
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+Questa sezione descrive come abilitare Britta Simon a usare l'accesso Single Sign-On di Azure concedendole l'accesso a Hosted Graphite.
 
 ![Assegna utente][200]
 
@@ -241,7 +222,7 @@ Questa sezione descrive come abilitare Britta Simon all'uso dell'accesso Single 
    
     ![Assegna utente][205]
 
-### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Hosted Graphite nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Hosted Graphite.
@@ -267,9 +248,4 @@ Quando si fa clic sul riquadro Hosted Graphite nel pannello di accesso, si dovre
 [203]: ./media/active-directory-saas-hostedgraphite-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-hostedgraphite-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-hostedgraphite-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

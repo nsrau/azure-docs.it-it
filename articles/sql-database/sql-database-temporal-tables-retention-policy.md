@@ -16,8 +16,9 @@ ms.workload: sql-database
 ms.date: 10/12/2016
 ms.author: bonova
 translationtype: Human Translation
-ms.sourcegitcommit: 239d009a1fc7273a50d335a0d55d61f414d99b11
-ms.openlocfilehash: dac4a96f9b62f390aeb84fe237788350c70ea5cd
+ms.sourcegitcommit: dd09cf5f9ad4bc82d9685b656eb40d31ac13fbd2
+ms.openlocfilehash: a0f5ef966bf4de86d337a561a4b9e2ded8b55488
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -42,7 +43,7 @@ SELECT is_temporal_history_retention_enabled, name
 FROM sys.databases
 ````
 
-Il flag del database **is_temporal_history_retention_enabled** è impostato su ON per impostazione predefinita, tuttavia gli utenti possono sostituirlo con l'istruzione ALTER DATABASE. Inoltre, viene impostato automaticamente su OFF dopo l'operazione di [ripristino temporizzato](sql-database-point-in-time-restore.md). Per abilitare la pulizia della conservazione della cronologia temporale per il database, eseguire l'istruzione seguente:
+Il flag del database **is_temporal_history_retention_enabled** è impostato su ON per impostazione predefinita, tuttavia gli utenti possono sostituirlo con l'istruzione ALTER DATABASE. Inoltre, viene impostato automaticamente su OFF dopo l'operazione di [ripristino temporizzato](sql-database-recovery-using-backups.md). Per abilitare la pulizia della conservazione della cronologia temporale per il database, eseguire l'istruzione seguente:
 
 ````
 ALTER DATABASE <myDB>
@@ -158,7 +159,7 @@ Nell'immagine seguente viene illustrato il piano di query per una query semplice
 SELECT * FROM dbo.WebsiteUserInfo FROM SYSTEM_TIME ALL;
 ````
 
-Il piano di query include un altro filtro applicato alla fine della colonna del periodo (ValidTo) nell'operatore �Clustered Index Scan� nella tabella di cronologia (evidenziata). Questo esempio presuppone che il periodo di conservazione di un MONTH sia stato impostato nella tabella WebsiteUserInfo.
+Il piano di query include un altro filtro applicato alla fine della colonna del periodo (ValidTo) nell'operatore Clustered Index Scan nella tabella di cronologia (evidenziata). Questo esempio presuppone che il periodo di conservazione di un MONTH sia stato impostato nella tabella WebsiteUserInfo.
 
 ![Filtro di query di conservazione](./media/sql-database-temporal-tables-retention-policy/queryexecplanwithretention.png)
 
@@ -169,7 +170,7 @@ Tuttavia, se si esegue una query direttamente in una tabella di cronologia, è p
 Non affidare la logica di business alla lettura della tabella di cronologia oltre il periodo di conservazione, perché si potrebbero ottenere risultati incoerenti o imprevisti. È consigliabile usare query temporali con la clausola FOR SYSTEM_TIME per l'analisi dei dati nelle tabelle temporali.
 
 ## <a name="point-in-time-restore-considerations"></a>Considerazioni sul ripristino temporizzato
-Quando si crea un nuovo database attraverso il [ripristino di un database esistente in un punto specifico nel tempo](sql-database-point-in-time-restore.md), la conservazione temporale è disabilitata a livello di database. (Il flag **is_temporal_history_retention_enabled** è impostato su OFF). Questa funzionalità consente di esaminare tutte le righe di cronologia al momento del ripristino, senza doversi preoccupare che le righe obsolete vengano rimosse prima di procedere con l'esecuzione di query. È possibile usarla per *esaminare i dati cronologici oltre il periodo di conservazione configurato*.
+Quando si crea un nuovo database attraverso il [ripristino di un database esistente in un punto specifico nel tempo](sql-database-point-in-time-restore-portal.md), la conservazione temporale è disabilitata a livello di database. (Il flag **is_temporal_history_retention_enabled** è impostato su OFF). Questa funzionalità consente di esaminare tutte le righe di cronologia al momento del ripristino, senza doversi preoccupare che le righe obsolete vengano rimosse prima di procedere con l'esecuzione di query. È possibile usarla per *esaminare i dati cronologici oltre il periodo di conservazione configurato*.
 
 Si supponga che per una tabella temporale sia specificato il periodo di conservazione MONTH. Se il database è stato creato al livello di servizio Premium, è possibile creare una copia del database con lo stato del database risalendo fino a 35 giorni prima. Una tale efficacia consentirebbe di analizzare le righe cronologiche risalenti anche a 65 giorni prima eseguendo una query direttamente nella tabella di cronologia.
 
@@ -186,10 +187,5 @@ Per informazioni su come usare le tabelle temporali nelle applicazioni, consulta
 Andare su Channel 9 per ascoltare una [storia di successo reale relativa all'implementazione temporale di un cliente](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) e guardare una [dimostrazione temporale in tempo reale](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 
 Per informazioni dettagliate sulle tabelle temporali, esaminare la [documentazione su MSDN](https://msdn.microsoft.com/library/dn935015.aspx).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

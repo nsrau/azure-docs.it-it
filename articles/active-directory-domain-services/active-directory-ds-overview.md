@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: c70e80c413d0637f956c43686df29b8073daaa3b
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -61,8 +62,8 @@ Litware Corporation ha distribuito [Azure AD Connect](../active-directory/active
 
 > [!NOTE]
 > **La sincronizzazione delle password è un requisito obbligatorio per le organizzazioni ibride per poter usare Servizi di dominio Azure Active Directory**. Questo perché nel dominio gestito fornito da Servizi di dominio Azure AD le credenziali degli utenti sono necessarie per autenticare gli utenti tramite i metodi di autenticazione NTLM o Kerberos.
-> 
-> 
+>
+>
 
 ![Servizi di dominio Azure AD per Litware Corporation](./media/active-directory-domain-services-overview/aadds-overview-synced-tenant.png)
 
@@ -82,10 +83,4 @@ Servizi di dominio Azure AD offre i vantaggi seguenti:
 * **Integrazione** : Servizi di dominio Azure AD è strettamente integrato con il tenant Azure AD. Ora è possibile utilizzare Azure AD come una directory aziendale basata sul cloud integrata che soddisfa le esigenze delle applicazioni moderne e di quelle tradizionali compatibili con le directory.
 * **Compatibile** : Servizi di dominio Azure Active Directory è realizzata sull'infrastruttura di livello aziendale collaudata di Windows Server Active Directory. Di conseguenza, le applicazioni possono dipendere da un più alto livello di compatibilità con le funzionalità di Windows Server Active Directory. Non tutte le funzionalità disponibili in Windows Server Active Directory sono attualmente disponibili in Servizi di dominio Azure AD. Le funzionalità disponibili sono tuttavia compatibili con le funzionalità di Windows Server Active Directory corrispondenti usate nell'infrastruttura locale. Le funzionalità LDAP, Kerberos, NTLM, Criteri di gruppo e di aggiunta a un dominio costituiscono un'offerta matura testata e perfezionata nel corso di diverse versioni di Windows Server.
 * **Conveniente** : Servizi di dominio Azure AD consente di evitare i costi di gestione e di infrastruttura associati alla gestione dell'infrastruttura di identità per il supporto delle applicazioni compatibili con le directory tradizionali. È possibile spostare queste applicazioni nei servizi di infrastruttura di Azure e ottenere maggiori risparmi sulle spese operative.
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

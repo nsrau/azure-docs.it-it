@@ -5,7 +5,7 @@ keywords: notifica push,notifiche push,push node.js,push ios
 services: notification-hubs
 documentationcenter: nodejs
 author: ysxu
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: ded4749c-6c39-4ff8-b2cf-1927b3e92f93
 ms.service: notification-hubs
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/25/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 88e8ead2b22bf53510c9c6008e34647272326690
-ms.openlocfilehash: 32d93f1ff6cf4ae78051b7208e38b6915509210f
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: dc4987b16b2e930641c6c90eff8b65c1bf8d573c
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -80,7 +81,7 @@ Il valore **connectionstring** della connessione può essere recuperato dal [por
 ![Portale di Azure - Hub di notifica](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
 > [!NOTE]
-> La stringa di connessione può essere recuperata anche usando il cmdlet **Get-AzureSbNamespace** specificato da [Azure PowerShell](/powershell/azureps-cmdlets-docs) o il comando **azure sb namespace show** con l'[interfaccia della riga di comando di Azure](../xplat-cli-install.md).
+> La stringa di connessione può essere recuperata anche usando il cmdlet **Get-AzureSbNamespace** specificato da [Azure PowerShell](/powershell/azureps-cmdlets-docs) o il comando **azure sb namespace show** con l'[interfaccia della riga di comando di Azure](../cli-install-nodejs.md).
 > 
 > 
 
@@ -212,9 +213,4 @@ I frammenti di codice di esempio riportati sopra consentono di creare facilmente
 [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
 [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
 [portale di Azure]: https://portal.azure.com
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: Linee guida sull&quot;infrastruttura di rete di Azure | Documentazione Microsoft
+title: 'Linee guida sull&quot;infrastruttura di rete di Azure: Windows | Documentazione Microsoft'
 description: Informazioni sulle principali linee guida di progettazione e implementazione per la distribuzione di una rete virtuale nei servizi di infrastruttura di Azure.
 documentationcenter: 
 services: virtual-machines-windows
@@ -13,15 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/17/2017
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1e52ae69951b6b1feee6207033a85a583d13bcc2
-ms.openlocfilehash: 5db3100d94af1461d538eb1bb9b16b7bf387517a
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 9e0a007a910b6ba887800184fb66bf9198b13adc
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="azure-networking-infrastructure-guidelines"></a>Linee guida sull'infrastruttura di rete di Azure
+# <a name="azure-networking-infrastructure-guidelines-for-windows-vms"></a>Linee guida sull'infrastruttura di rete di Azure per macchine virtuali Windows 
+
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Questo articolo è incentrato sulla comprensione dei passaggi necessari per la pianificazione della rete virtuale in Azure e sulla connettività tra ambienti locali esistenti.
@@ -102,10 +105,5 @@ Come accade in un'infrastruttura di rete locale fisica, la rete virtuale di Azur
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

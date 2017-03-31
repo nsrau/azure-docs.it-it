@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2016
+ms.date: 03/09/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 3d24c0c29da8c97e5fcff524dc88746982fda77c
-ms.openlocfilehash: a34a30a301e213ad227c21196a0b6299dbc4d357
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 900f0b4c38f08d1e3017954db01cf32362765578
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: a34a30a301e213ad227c21196a0b6299dbc4d357
 
 ## <a name="introduction"></a>Introduzione
 
-Nelle soluzioni preconfigurate è possibile configurare [regole che si attivano quando un valore di telemetria per un dispositivo raggiunge una soglia specifica][lnk-builtin-rule]. [Usare i dati di telemetria dinamica con la soluzione di monitoraggio remoto preconfigurata] [ lnk-dynamic-telemetry] descrive come aggiungere alla soluzione valori di telemetria personalizzati, ad esempio *ExternalTemperature*. Questo articolo illustra come creare regole personalizzate per tipi di dati di telemetria dinamica nella soluzione.
+Nelle soluzioni preconfigurate è possibile configurare [regole che si attivano quando un valore di telemetria per un dispositivo raggiunge una soglia specifica][lnk-builtin-rule]. [Usare i dati di telemetria dinamica con la soluzione di monitoraggio remoto preconfigurata][lnk-dynamic-telemetry] descrive come aggiungere alla soluzione valori di telemetria personalizzati, ad esempio *ExternalTemperature*. Questo articolo illustra come creare regole personalizzate per tipi di dati di telemetria dinamica nella soluzione.
 
 Questa esercitazione usa un semplice dispositivo simulato Node.js per generare dati di telemetria dinamica da inviare al back-end della soluzione preconfigurata. Si aggiungeranno quindi regole personalizzate nella soluzione **RemoteMonitoring** di Visual Studio e si distribuirà questo back-end personalizzato alla sottoscrizione di Azure.
 
@@ -33,7 +34,7 @@ Per completare questa esercitazione, sono necessari:
 
 * Una sottoscrizione di Azure attiva. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][lnk_free_trial].
 * [Node.js][lnk-node] versione 0.12.x o successiva per creare un dispositivo simulato.
-* Microsoft Visual Studio 2015 per modificare nuovamente il back-end della soluzione preconfigurata con le nuove regole.
+* Visual Studio 2015 o Visual Studio 2017 per modificare nuovamente il back-end della soluzione preconfigurata con le nuove regole.
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
@@ -216,7 +217,7 @@ Dopo aver completato la distribuzione, è possibile aggiornare il processo di an
  
 ## <a name="additional-information"></a>Informazioni aggiuntive
 
-Modificare l'operatore ** > ** è più complesso ed esula dalla procedura descritta in questa esercitazione. Mentre è possibile modificare il processo di analisi di flusso perché usi qualsiasi operatore desiderato, riflettere tale operatore nel portale della soluzione è un'attività più complessa. 
+Modificare l'operatore **>** è più complesso ed esula dalla procedura descritta in questa esercitazione. Mentre è possibile modificare il processo di analisi di flusso perché usi qualsiasi operatore desiderato, riflettere tale operatore nel portale della soluzione è un'attività più complessa. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Ora che si è appreso come creare regole personalizzate, è possibile vedere altre informazioni sulle soluzioni preconfigurate:
@@ -228,11 +229,6 @@ Ora che si è appreso come creare regole personalizzate, è possibile vedere alt
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-node]: http://nodejs.org
-[lnk-builtin-rule]: iot-suite-getstarted-preconfigured-solutions.md#add-a-rule-for-the-new-device
+[lnk-builtin-rule]: iot-suite-getstarted-preconfigured-solutions.md#view-alarms
 [lnk-dynamic-telemetry]: iot-suite-dynamic-telemetry.md
 [lnk-logic-app]: iot-suite-logic-apps-tutorial.md
-
-
-<!--HONumber=Dec16_HO3-->
-
-

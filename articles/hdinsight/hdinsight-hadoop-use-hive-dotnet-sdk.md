@@ -9,15 +9,17 @@ tags: azure-portal
 author: mumian
 ms.assetid: 4e291890-f8b4-426c-b5e8-d4fd512ff042
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 03/03/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 4ef2546b34461a8303c5ced22adec0d1e36dfa96
-ms.openlocfilehash: 47849e2700d5da391a5cc3b3f1dbf00dd8c8deea
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 6e9626cf8da4e4106dfedc164af0f0ba52bf2f06
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -35,7 +37,7 @@ Informazioni su come inviare query Hive tramite HDInsight .NET SDK.
 Per eseguire le procedure descritte nell'articolo sono necessari gli elementi seguenti:
 
 * **Un cluster Hadoop in HDInsight**. Vedere [Introduzione all'uso di Hadoop basato su Linux in HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
-* **Visual Studio 2012/2013/2015**.
+* **Visual Studio 2013/2015/2017**.
 
 ## <a name="submit-hive-queries-using-hdinsight-net-sdk"></a>Inviare query Hive con HDInsight .NET SDK
 HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei cluster HDInsight da .NET. 
@@ -150,10 +152,5 @@ Questo articolo ha spiegato vari modi per creare un cluster HDInsight. Per altre
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

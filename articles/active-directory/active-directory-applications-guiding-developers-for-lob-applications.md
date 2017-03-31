@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD e applicazioni: guida per gli sviluppatori | Documentazione Microsoft'
+title: Sviluppare app per Azure AD | Documentazione Microsoft
 description: Scritto per i professionisti IT, questo articolo include linee guida per l&quot;integrazione delle applicazioni di Azure in Active Directory.
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 02/27/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
-ms.openlocfilehash: fe295cb9b79593f7fd4635d142ec86d1c6897192
-
+ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
+ms.openlocfilehash: aa3c83f82d1a60253f70350e88aa96fb285ef3d9
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="azure-ad-and-applications-develop-line-of-business-apps"></a>Azure AD e applicazioni: sviluppare app line-of-business
+# <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Sviluppare app line-of-business per Azure Active Directory
 Questa guida offre una panoramica dello sviluppo di applicazioni line-of-business (LoB) per Azure Active Directory (AD) ed è rivolta agli amministratori globali di Active Directory/Office 365.
 
 ## <a name="overview"></a>Overview
@@ -36,18 +37,18 @@ La registrazione di un'applicazione consente a qualsiasi utente di eseguire le o
 * Ottenere uno o più segreti/chiavi utilizzabili dall'applicazione per l'autenticazione in AD
 * Personalizzare l'applicazione con nome, logo e altri elementi nel portale di Azure
 * Applicare le funzionalità di autorizzazione di Azure AD per la propria app, tra cui:
-  
+
   * Controllo degli accessi in base al ruolo
   * Azure Active Directory come server di autorizzazione oAuth (proteggere un'API esposta dall'applicazione)
 * Dichiarare le autorizzazioni necessarie per il funzionamento dell'applicazione nel modo previsto, tra cui:
-  
+
       - Autorizzazioni per l'app (solo amministratori globali). Ad esempio: appartenenza ai ruoli in un'altra appartenenza di ruolo o applicazione Azure AD relativa a una risorsa, un gruppo di risorse o una sottoscrizione di Azure
       - Autorizzazioni delegate (qualsiasi utente). Ad esempio: Azure AD, Profilo di accesso e lettura
 
 > [!NOTE]
 > Per impostazione predefinita, qualsiasi membro può registrare un'applicazione. Per informazioni su come limitare le autorizzazioni per la registrazione delle applicazioni per membri specifici, vedere [Procedura per l'aggiunta delle applicazioni ad Azure AD](develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
-> 
-> 
+>
+>
 
 Ecco cosa deve fare l'amministratore globale per aiutare gli sviluppatori a rendere le loro applicazioni pronte per la produzione:
 
@@ -80,10 +81,4 @@ Per altre informazioni sul consenso dell'utente e l'esperienza di consenso in Az
 * [Anteprima dell'accesso condizionale di Azure per app SaaS](active-directory-conditional-access-azuread-connected-apps.md)
 * [Gestione dell'accesso alle app tramite Azure AD](active-directory-managing-access-to-apps.md)
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

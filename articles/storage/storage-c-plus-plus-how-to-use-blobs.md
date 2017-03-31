@@ -3,7 +3,7 @@ title: Come usare l&quot;archiviazione BLOB (archiviazione di oggetti) da C++ | 
 description: Archiviare i dati non strutturati nel cloud con l&quot;archivio BLOB (archivio di oggetti) di Azure.
 services: storage
 documentationcenter: .net
-author: dineshmurthy
+author: seguler
 manager: jahogg
 editor: tysonn
 ms.assetid: 53844120-1c48-4e2f-8f77-5359ed0147a4
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: dineshm
+ms.date: 02/28/2017
+ms.author: seguler
 translationtype: Human Translation
 ms.sourcegitcommit: 1f87e40edc8b6ad8567f2409e6df435ed66f2bbc
 ms.openlocfilehash: 8571011cac1182a5bfdfe722c194fcd681712a02
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -55,8 +56,8 @@ Per installare la libreria client di Archiviazione di Azure per C++, è possibil
 Aggiungere le istruzioni include seguenti all'inizio del file C++ in cui si desidera utilizzare le API di archiviazione di Azure per accedere ai BLOB:  
 
 ```cpp
-#include "was/storage_account.h"
-#include "was/blob.h"
+include <was/storage_account.h>
+include <was/blob.h>
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>Configurare una stringa di connessione di archiviazione di Azure
@@ -272,10 +273,5 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 * [Informazioni di riferimento sulla libreria client di archiviazione per C++](http://azure.github.io/azure-storage-cpp)
 * [Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

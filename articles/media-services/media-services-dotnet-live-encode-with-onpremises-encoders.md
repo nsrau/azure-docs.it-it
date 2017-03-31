@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: cenkdin;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: b00dcddf38885b002822b9e92010bdf2c5938cc4
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 67d446263c7a884cd8d22e88e6fb607b1399d9aa
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -61,6 +62,10 @@ Il seguente esempio di codice illustra come ottenere le attività seguenti:
 >[!NOTE]
 >Verificare che l'endpoint di streaming da cui si vuole trasmettere il contenuto sia nello stato **In esecuzione**. 
     
+    
+>[!NOTE]
+>È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Usare lo stesso ID criterio se si usano sempre gli stessi giorni/autorizzazioni di accesso, come nel cado di criteri per i localizzatori che devono rimanere attivi per molto tempo (criteri di non caricamento). Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) argomento.
+
 Per informazioni su come configurare un codificatore live, vedere [Codificatori live e supporto RTMP di Servizi multimediali di Azure](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
     using System;
@@ -396,10 +401,5 @@ Analizzare i percorsi di apprendimento dei Servizi multimediali
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

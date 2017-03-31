@@ -1,6 +1,6 @@
 ---
-title: "Creare e gestire database SQL di Azure con scalabilità orizzontale tramite processi elastici | Documentazione Microsoft"
-description: Informazioni sulla gestione e la creazione di un processo elastico di database.
+title: Gestire gruppi di database SQL di Azure | Documentazione Microsoft
+description: Informazioni sulla creazione e la gestione di un processo elastico.
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -8,7 +8,7 @@ author: ddove
 editor: 
 ms.assetid: f858344d-085b-4022-935e-1b5fa20adbac
 ms.service: sql-database
-ms.custom: jobs
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,23 +16,20 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 7b3c6d29ad7ded2ea65f378a1f807235c688d738
-ms.openlocfilehash: 2e652979d56e8f14179102a946761874553219df
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: 7058139814a0a20d6fb6305e1e469946bb6b7d77
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>Creare e gestire database SQL di Azure con scalabilità orizzontale tramite processi elastici (anteprima)
-> [!div class="op_single_selector"]
-> * [Portale di Azure](sql-database-elastic-jobs-create-and-manage.md)
-> * [PowerShell](sql-database-elastic-jobs-powershell.md)
-> 
-> 
 
-**processi di database elastico** semplificano la gestione dei gruppi di database con l'esecuzione di operazioni amministrative, come le modifiche dello schema, la gestione delle credenziali, gli aggiornamenti dei dati di riferimento, la raccolta dei dati sulle prestazioni o la raccolta dei dati di telemetria dei tenant (clienti). L'opzione relativa ai processi di database elastici è attualmente disponibile tramite il portale di Azure e i cmdlet di PowerShell. Tuttavia, l'area del portale di Azure presenta funzionalità limitate all'esecuzione in tutti i database in un [pool di database elastici (anteprima)](sql-database-elastic-pool.md). Per accedere a funzionalità aggiuntive e all'esecuzione di script in un gruppo di database, compreso un insieme personalizzato o un insieme di partizioni (creato usando la [libreria client dei database elastici](sql-database-elastic-scale-introduction.md)), vedere [Creare e gestire processi di database elastici del database SQL tramite PowerShell](sql-database-elastic-jobs-powershell.md). Per ulteriori informazioni sui processi, vedere [Panoramica dei processi di database elastici](sql-database-elastic-jobs-overview.md). 
+
+**processi di database elastico** semplificano la gestione dei gruppi di database con l'esecuzione di operazioni amministrative, come le modifiche dello schema, la gestione delle credenziali, gli aggiornamenti dei dati di riferimento, la raccolta dei dati sulle prestazioni o la raccolta dei dati di telemetria dei tenant (clienti). L'opzione relativa ai processi di database elastici è attualmente disponibile tramite il portale di Azure e i cmdlet di PowerShell. Il portale di Azure presenta tuttavia funzionalità ridotte, limitate all'esecuzione in tutti i database di un [pool elastico (anteprima)](sql-database-elastic-pool.md). Per accedere a funzionalità aggiuntive e all'esecuzione di script in un gruppo di database, compreso un insieme personalizzato o un insieme di partizioni (creato usando la [libreria client dei database elastici](sql-database-elastic-scale-introduction.md)), vedere [Creare e gestire processi di database elastici del database SQL tramite PowerShell](sql-database-elastic-jobs-powershell.md). Per ulteriori informazioni sui processi, vedere [Panoramica dei processi di database elastici](sql-database-elastic-jobs-overview.md). 
 
 ## <a name="prerequisites"></a>Prerequisiti
-* Una sottoscrizione di Azure. Per una versione di valutazione gratuita, vedere [Versione di valutazione gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/).
-* Un pool elastico di database. Vedere l'articolo relativo ai [pool elastici di database](sql-database-elastic-pool.md)
+* Una sottoscrizione di Azure. Per una versione di valutazione gratuita, vedere [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Un pool elastico. Vedere l'articolo sui [pool elastici](sql-database-elastic-pool.md).
 * Installazione dei componenti del servizio relativo ai processi elastici di database. Vedere l'articolo sull' [installazione del servizio relativo ai processi elastici di database](sql-database-elastic-jobs-service-installation.md).
 
 ## <a name="creating-jobs"></a>Creazione di processi
@@ -89,7 +86,7 @@ Questo script aggiorna quindi la tabella creata in precedenza.
 ## <a name="checking-job-status"></a>Verifica dello stato del processo
 Dopo aver iniziato un processo, è possibile controllarne lo stato di avanzamento.
 
-1. Nella pagina del pool elastico di database fare clic su **Gestione processi**.
+1. Nella pagina del pool elastico fare clic su **Gestione processi**.
    
     ![Fare clic su "Gestione processi"][2]
 2. Fare clic sul nome (a) di un processo. Lo **STATO** può essere "Completato" o "Non riuscito". I dettagli del processo vengono visualizzati (b) insieme alla data e all'ora di creazione ed esecuzione. L'elenco (c) sottostante mostra lo stato di avanzamento dello script su ogni database del pool, fornendo dettagli relativi alla data e all'ora.
@@ -110,10 +107,5 @@ Se un processo ha esito negativo, è disponibile un log dell'esecuzione. Fare cl
 [4]: ./media/sql-database-elastic-jobs-create-and-manage/failed.png
 [5]: ./media/sql-database-elastic-jobs-create-and-manage/screen-2.png
 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

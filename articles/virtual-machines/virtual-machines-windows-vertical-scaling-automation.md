@@ -1,6 +1,6 @@
 ---
-title: "Scalabilità verticale di macchine virtuali di Azure tramite Automazione di Azure | Documentazione Microsoft"
-description: "Come eseguire la scalabilità verticale di una macchina virtuale Windows in risposta agli avvisi di monitoraggio tramite Automazione di Azure"
+title: "Usare Automazione di Azure per applicare la scalabilità verticale alle macchine virtuali di Windows | Microsoft Docs"
+description: "Applicare la scalabilità verticale a una macchina virtuale Windows in risposta agli avvisi di monitoraggio con Automazione di Azure"
 services: virtual-machines-windows
 documentationcenter: 
 author: singhkays
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2016
-ms.author: singhkay
+ms.author: kasing
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 915320ed4a7d9e86a7a9b29dff5c0addfb95f4c0
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 861552da68c2268c42122b0da6633c7935bb3502
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="vertically-scale-azure-virtual-machines-with-azure-automation"></a>Scalabilità verticale di macchine virtuali di Azure tramite Automazione di Azure
+
+# <a name="vertically-scale-windows-vms-with-azure-automation"></a>Applicare la scalabilità verticale a macchine virtuali di Windows con Automazione di Azure
+
 La scalabilità verticale è il processo di aumento o riduzione delle risorse di una macchina in risposta al carico di lavoro. In Azure tale operazione può essere eseguita modificando le dimensioni della macchina virtuale. Può essere utile negli scenari seguenti:
 
 * Se la macchina virtuale non viene usata di frequente, è possibile diminuirne le dimensioni per ridurre i costi mensili
@@ -89,10 +93,5 @@ Assicurarsi di copiare il webhook prima di chiudere la finestra di dialogo del w
 ![Aggiunta di un avviso alla macchina virtuale 1](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-1.png)
 
 ![Aggiunta di un avviso alla macchina virtuale 2](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

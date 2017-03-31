@@ -1,5 +1,5 @@
 ---
-title: Autenticare l&quot;accesso client a un cluster | Documentazione Microsoft
+title: Connettersi a un cluster sicuro di Azure Service Fabric | Documentazione Microsoft
 description: Descrive come autenticare l&quot;accesso client a un cluster di Service Fabric e come proteggere la comunicazione tra i client e un cluster.
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 02/03/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 65775053918e12ef8881f417dacc0a63f080d093
-ms.openlocfilehash: 6de98012e768abc7f8450e97648444a74474b5e9
+ms.sourcegitcommit: 52f9a3146852ef83c31bd93e1c538e12f0d953eb
+ms.openlocfilehash: e44ecf5860becffb39d199e36d36d96f50bf7cf3
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -60,7 +61,7 @@ Dopo la connessione, sarà possibile [eseguire altri comandi dell'interfaccia de
 
 <a id="connectsecurecluster"></a>
 
-## <a name="connect-to-a-secure-cluster-using-powershell"></a>Connettersi a un cluster sicuro mediante PowerShell
+## <a name="connect-to-a-cluster-using-powershell"></a>Connessione a un cluster mediante PowerShell
 Prima di eseguire operazioni su un cluster tramite PowerShell, stabilire una connessione al cluster. La connessione al cluster verrà usata per tutti i successivi comandi nella specifica sessione di PowerShell.
 
 ### <a name="connect-to-an-unsecure-cluster"></a>Connettersi a un cluster non sicuro
@@ -82,7 +83,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 ```
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Connettersi a un cluster sicuro con un certificato client
-Per connettersi a un cluster sicuro che usa certificati client per autorizzare l'accesso di amministratore, eseguire il comando di PowerShell seguente. Specificare l'identificazione personale del certificato del cluster nonché l'identificazione personale del certificato client a cui sono state concesse le autorizzazioni per la gestione del cluster. I dettagli del certificato devono corrispondere a un certificato sui nodi del cluster.
+Per connettersi a un cluster sicuro che usa certificati client per autorizzare l'accesso di amministratore, eseguire il comando di PowerShell seguente. Specificare l'identificazione personale del certificato del cluster e l'identificazione personale del certificato client a cui sono state concesse le autorizzazioni per la gestione del cluster. I dettagli del certificato devono corrispondere a un certificato sui nodi del cluster.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
@@ -103,11 +104,18 @@ Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azu
           -StoreLocation CurrentUser -StoreName My
 ```
 
+### <a name="connect-to-a-secure-cluster-using-windows-active-directory"></a>Connettersi a un cluster sicuro con Windows Active Directory
+Se il cluster autonomo viene distribuito usando la protezione di Active Directory, connettersi al cluster aggiungendo l'opzione "WindowsCredential".
+
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+          -WindowsCredential
+```
 
 <a id="connectsecureclusterfabricclient"></a>
 
-## <a name="connect-to-a-secure-cluster-using-the-fabricclient-apis"></a>Connettersi a un cluster sicuro mediante le API FabricClient
-Service Fabric SDK fornisce la classe [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) per la gestione del cluster. 
+## <a name="connect-to-a-cluster-using-the-fabricclient-apis"></a>Connettersi a un cluster mediante le API FabricClient
+Service Fabric SDK fornisce la classe [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) per la gestione del cluster. Per usare le API di FabricClient, è necessario disporre del pacchetto NuGet Microsoft.ServiceFabric.
 
 ### <a name="connect-to-an-unsecure-cluster"></a>Connettersi a un cluster non sicuro
 
@@ -125,77 +133,63 @@ FabricClient fabricClient = new FabricClient();
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Connettersi a un cluster sicuro con un certificato client
 
-I nodi del cluster devono avere certificati validi il cui nome comune o nome DNS nella rete SAN è contenuto nella [proprietà RemoteCommonNames](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx) impostata in [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). Questo processo consente l'autenticazione reciproca tra il client e i nodi del cluster.
+I nodi del cluster devono avere certificati validi il cui nome comune o nome DNS nella rete SAN è contenuto nella [proprietà RemoteCommonNames](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials#System_Fabric_X509Credentials_RemoteCommonNames) impostata in [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Questo processo consente l'autenticazione reciproca tra il client e i nodi del cluster.
 
 ```csharp
+using System.Fabric;
+using System.Security.Cryptography.X509Certificates;
+
 string clientCertThumb = "71DE04467C9ED0544D021098BCD44C71E183414E";
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
 string CommonName = "www.clustername.westus.azure.com";
 string connection = "clustername.westus.cloudapp.azure.com:19000";
 
-X509Credentials xc = GetCredentials(clientCertThumb, serverCertThumb, CommonName);
-FabricClient fc = new FabricClient(xc, connection);
-Task<bool> t = fc.PropertyManager.NameExistsAsync(new Uri("fabric:/any"));
-try
-{
-    bool result = t.Result;
-    Console.WriteLine("Cluster is connected");
-}
-catch (AggregateException ae)
-{
-    Console.WriteLine("Connect failed: {0}", ae.InnerException.Message);
-}
-catch (Exception e)
-{
-    Console.WriteLine("Connect failed: {0}", e.Message);
-}
-
-...
-
-static X509Credentials GetCredentials(string clientCertThumb, string serverCertThumb, string name)
-{
-    X509Credentials xc = new X509Credentials();
-
-    // Client certificate
-    xc.StoreLocation = StoreLocation.CurrentUser;
-    xc.StoreName = "MY";
-    xc.FindType = X509FindType.FindByThumbprint;
-    xc.FindValue = thumb;
-
-    // Server certificate
-    xc.RemoteCertThumbprints.Add(thumb);
-    xc.RemoteCommonNames.Add(name);
-
-    xc.ProtectionLevel = ProtectionLevel.EncryptAndSign;
-    return xc;
-}
-```
-
-### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Connettersi a un cluster sicuro con Azure Active Directory
-
-Questo processo abilita Azure Active Directory per l'identità del client e il certificato del server per l'identità del server.
-
-Per usare la modalità interattiva, con visualizzazione di una finestra di dialogo di accesso interattiva di AAD:
-
-```csharp
-string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
-string connection = "clustername.westus.cloudapp.azure.com:19000";
-
-ClaimsCredentials claimsCredentials = new ClaimsCredentials();
-claimsCredentials.ServerThumbprints.Add(serverCertThumb);
-
-FabricClient fc = new FabricClient(
-    claimsCredentials,
-    connection);
+var xc = GetCredentials(clientCertThumb, serverCertThumb, CommonName);
+var fc = new FabricClient(xc, connection);
 
 try
 {
     var ret = fc.ClusterManager.GetClusterManifestAsync().Result;
     Console.WriteLine(ret.ToString());
 }
-catch (AggregateException ae)
+catch (Exception e)
 {
-    Console.WriteLine("Connect failed: {0}", ae.InnerException.Message);
+    Console.WriteLine("Connect failed: {0}", e.Message);
+}
+
+static X509Credentials GetCredentials(string clientCertThumb, string serverCertThumb, string name)
+{
+    X509Credentials xc = new X509Credentials();
+    xc.StoreLocation = StoreLocation.CurrentUser;
+    xc.StoreName = "My";
+    xc.FindType = X509FindType.FindByThumbprint;
+    xc.FindValue = clientCertThumb;
+    xc.RemoteCommonNames.Add(name);
+    xc.RemoteCertThumbprints.Add(serverCertThumb);
+    xc.ProtectionLevel = ProtectionLevel.EncryptAndSign;
+    return xc;
+}
+```
+
+### <a name="connect-to-a-secure-cluster-interactively-using-azure-active-directory"></a>Connessione interattiva a un cluster protetto con Azure Active Directory
+
+Nell'esempio seguente viene utilizzata Azure Active Directory per l'identità del client e il certificato del server per l'identità del server.
+
+Al momento della connessione al cluster viene visualizzata automaticamente una finestra di dialogo per l'accesso interattivo.
+
+```csharp
+string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
+string connection = "clustername.westus.cloudapp.azure.com:19000";
+
+var claimsCredentials = new ClaimsCredentials();
+claimsCredentials.ServerThumbprints.Add(serverCertThumb);
+
+var fc = new FabricClient(claimsCredentials, connection);
+
+try
+{
+    var ret = fc.ClusterManager.GetClusterManifestAsync().Result;
+    Console.WriteLine(ret.ToString());
 }
 catch (Exception e)
 {
@@ -203,42 +197,36 @@ catch (Exception e)
 }
 ```
 
-Per usare la modalità non interattiva, senza intervento dell'utente, usare il codice seguente.
+### <a name="connect-to-a-secure-cluster-non-interactively-using-azure-active-directory"></a>Connessione non interattiva a un cluster protetto con Azure Active Directory
 
-L'esempio è basato su Microsoft.IdentityModel.Clients.ActiveDirectory versione 2.19.208020213.
+L'esempio è basato su Microsoft.IdentityModel.Clients.ActiveDirectory, Versione: 2.19.208020213.
 
-Per altre informazioni, ad esempio su come acquisire il token, vedere lo [spazio dei nomi Microsoft.IdentityModel.Clients.ActiveDirectory](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx).
+Per ulteriori informazioni sull'acquisizione di token di AAD, vedere [Microsoft.IdentityModel.Clients.ActiveDirectory](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx).
 
 ```csharp
-string tenantId = "c15cfcea-02c1-40dc-8466-fbd0ee0b05d2";
-string clientApplicationId = "118473c2-7619-46e3-a8e4-6da8d5f56e12";
+string tenantId = "C15CFCEA-02C1-40DC-8466-FBD0EE0B05D2";
+string clientApplicationId = "118473C2-7619-46E3-A8E4-6DA8D5F56E12";
 string webApplicationId = "53E6948C-0897-4DA6-B26A-EE2A38A690B4";
 
 string token = GetAccessToken(
     tenantId,
     webApplicationId,
     clientApplicationId,
-    "urn:ietf:wg:oauth:2.0:oob"
-    );
+    "urn:ietf:wg:oauth:2.0:oob");
 
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
 string connection = "clustername.westus.cloudapp.azure.com:19000";
-ClaimsCredentials claimsCredentials = new ClaimsCredentials();
+
+var claimsCredentials = new ClaimsCredentials();
 claimsCredentials.ServerThumbprints.Add(serverCertThumb);
 claimsCredentials.LocalClaims = token;
 
-FabricClient fc = new FabricClient(
-   claimsCredentials,
-   connection);
+var fc = new FabricClient(claimsCredentials, connection);
 
 try
 {
     var ret = fc.ClusterManager.GetClusterManifestAsync().Result;
     Console.WriteLine(ret.ToString());
-}
-catch (AggregateException ae)
-{
-    Console.WriteLine("Connect failed: {0}", ae.InnerException.Message);
 }
 catch (Exception e)
 {
@@ -255,23 +243,56 @@ static string GetAccessToken(
 {
     string authorityFormat = @"https://login.microsoftonline.com/{0}";
     string authority = string.Format(CultureInfo.InvariantCulture, authorityFormat, tenantId);
-    AuthenticationContext authContext = new AuthenticationContext(authority);
+    var authContext = new AuthenticationContext(authority);
 
-    string token = "";
-    try
-    {
-        var authResult = authContext.AcquireToken(
-            resource,
-            clientId,
-            new UserCredential("TestAdmin@clustenametenant.onmicrosoft.com", "TestPassword"));
-        token = authResult.AccessToken;
-    }
-    catch (AdalException ex)
-    {
-        Console.WriteLine("Get AccessToken failed: {0}", ex.Message);
-    }
+    var authResult = authContext.AcquireToken(
+        resource,
+        clientId,
+        new UserCredential("TestAdmin@clustenametenant.onmicrosoft.com", "TestPassword"));
+    return authResult.AccessToken;
+}
 
-    return token;
+```
+
+### <a name="connect-to-a-secure-cluster-without-prior-metadata-knowledge-using-azure-active-directory"></a>Connessione a un cluster protetto senza conoscere a priori i metadati tramite Azure Active Directory
+
+L'esempio seguente usa l'acquisizione dei token non interattiva, ma lo stesso approccio consente di creare un'esperienza di acquisizione dei token interattiva personalizzata. I metadati di Azure Active Directory necessari per l'acquisizione dei token vengono letti dalla configurazione del cluster.
+
+```csharp
+string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
+string connection = "clustername.westus.cloudapp.azure.com:19000";
+
+var claimsCredentials = new ClaimsCredentials();
+claimsCredentials.ServerThumbprints.Add(serverCertThumb);
+
+var fc = new FabricClient(claimsCredentials, connection);
+
+fc.ClaimsRetrieval += (o, e) =>
+{
+    return GetAccessToken(e.AzureActiveDirectoryMetadata);
+};
+
+try
+{
+    var ret = fc.ClusterManager.GetClusterManifestAsync().Result;
+    Console.WriteLine(ret.ToString());
+}
+catch (Exception e)
+{
+    Console.WriteLine("Connect failed: {0}", e.Message);
+}
+
+...
+
+static string GetAccessToken(AzureActiveDirectoryMetadata aad)
+{
+    var authContext = new AuthenticationContext(aad.Authority);
+
+    var authResult = authContext.AcquireToken(
+        aad.ClusterApplication,
+        aad.ClientApplication,
+        new UserCredential("TestAdmin@clustenametenant.onmicrosoft.com", "TestPassword"));
+    return authResult.AccessToken;
 }
 
 ```
@@ -326,10 +347,5 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 * [Gestione delle applicazioni di Infrastruttura di servizi in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 * [Introduzione al modello di integrità di Infrastruttura di servizi](service-fabric-health-introduction.md)
 * [Sicurezza delle applicazioni e RunAs](service-fabric-application-runas-security.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

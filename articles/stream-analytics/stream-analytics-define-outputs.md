@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 12/05/2016
+ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3a42093a67fe1ded29e97343affa5df89ea5fd1a
+ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
+ms.openlocfilehash: 9eb581e6180a7ae6a5f24b3a991376264b0ecef9
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -43,8 +44,8 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione nec
 <table>
 <tbody>
 <tr>
-<td><B>Nome proprietà</B></td>
-<td><B>Descrizione</B></td>
+<td><B>NOME PROPRIETÀ</B></td>
+<td><B>DESCRIZIONE</B></td>
 </tr>
 <tr>
 <td>Alias di output</td>
@@ -239,7 +240,7 @@ Precedente/Corrente | Int64 | string | DateTime | Double
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | String | String | Double
 Double | Double | string | String | Double
-String | String | String | String |  | string | 
+string | String | String | String |  | string | 
 DateTime | string | string |  DateTime | String
 
 
@@ -303,40 +304,17 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 ## <a name="documentdb"></a>DocumentDB
 [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) è un servizio di database di documenti NoSQL completamente gestito che offre query e transazioni su dati senza schema, prestazioni prevedibili e affidabili e sviluppo rapido.
 
-La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per la creazione di un output DocumentDB.
+L'elenco seguente illustra i nomi delle proprietà e la relativa descrizione per la creazione di un output DocumentDB.
 
-<table>
-<tbody>
-<tr>
-<td>Nome proprietà</td>
-<td>DESCRIZIONE</td>
-</tr>
-<tr>
-<td>Nome account</td>
-<td>Nome dell'account DocumentDB.  Può essere anche l'endpoint per l'account.</td>
-</tr>
-<tr>
-<td>Chiave account</td>
-<td>La chiave di accesso condiviso per l'account DocumentDB.</td>
-</tr>
-<tr>
-<td>Database</td>
-<td>Il nome del database DocumentDB.</td>
-</tr>
-<tr>
-<td>Modello del nome di raccolta</td>
-<td>Il modello del nome di raccolta per le raccolte da utilizzare. Il formato del nome di raccolta può essere costruito utilizzando il token {partizione} facoltativo, dove le partizioni iniziano da 0.<BR>ad esempio Di seguito sono gli input validi:<BR>MyCollection{partition}<BR>MyCollection<BR>Si noti che le raccolte devono esistere prima che il processo di analisi di flusso sia avviato e non verranno create automaticamente.</td>
-</tr>
-<tr>
-<td>Chiave di partizione</td>
-<td>Il nome del campo negli eventi di output utilizzato per specificare la chiave per il partizionamento di output nelle raccolte.</td>
-</tr>
-<tr>
-<td>Document ID</td>
-<td>Il nome del campo negli eventi di output utilizzato per specificare la chiave primaria su cui si basano le operazioni di inserimento o aggiornamento.</td>
-</tr>
-</tbody>
-</table>
+* **Alias di output** : alias per fare riferimento a questo output nella query ASA.  
+* **Nome account** : nome o URI endpoint dell'account DocumentDB.  
+* **Chiave account** : chiave di accesso condiviso per l'account DocumentDB.  
+* **Database** : nome del database DocumentDB.  
+* **Modello del nome di raccolta**: nome della raccolta o modello per le raccolte da usare. Il formato del nome di raccolta può essere costruito utilizzando il token {partizione} facoltativo, dove le partizioni iniziano da 0. Di seguito sono riportati input di esempio validi:  
+  1\) MyCollection: deve essere presente una raccolta denominata "MyCollection".  
+  2\) MyCollection{partizione}: devono essere presenti le raccolte "MyCollection0", "MyCollection1", "MyCollection2" e così via.  
+* **Chiave di partizione**: valore facoltativo. È necessario solo se si usa un token {partition} nel modello del nome di raccolta. Il nome del campo negli eventi di output utilizzato per specificare la chiave per il partizionamento di output nelle raccolte. Per l'output di una singola raccolta si può usare qualsiasi colonna di output arbitraria, ad esempio PartitionId.  
+* **ID documento** : valore facoltativo. Il nome del campo negli eventi di output usato per specificare la chiave primaria su cui si basano le operazioni di inserimento o aggiornamento.  
 
 
 ## <a name="get-help"></a>Ottenere aiuto
@@ -357,9 +335,4 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

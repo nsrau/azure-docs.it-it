@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: markvi;andkjell
+ms.date: 02/08/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: 14b6b817c071ba833d2f49ca289151520e1e32f0
+ms.sourcegitcommit: 08ec09275bbcaffaf25cf45a0f2f466fdeb60dc5
+ms.openlocfilehash: 954923e699ef2160b0a16cb369f8a86b3beacd39
 
 
 ---
@@ -44,8 +44,6 @@ L'installazione guidata fornisce una configurazione valida per gli scenari più 
 
 > [!WARNING]
 > Le regole di sincronizzazione predefinite hanno un'identificazione personale associata. Se si apporta una modifica a queste regole, l'identificazione personale non sarà più corrispondente. È possibile che si verifichino problemi quando in futuro si proverà ad applicare una nuova versione di Azure AD Connect. Apportare modifiche solo nel modo descritto in questo articolo.
-> 
-> 
 
 ### <a name="disable-an-unwanted-sync-rule"></a>Disabilitare una regola di sincronizzazione indesiderata
 Non eliminare una regola di sincronizzazione predefinita. Verrà ricreata durante l'aggiornamento successivo.
@@ -57,6 +55,8 @@ In alcuni casi l'installazione guidata ha generato una configurazione che non fu
 Nella figura precedente l'installazione guidata ha rilevato un vecchio schema di Exchange 2003 nella foresta di account. Questa estensione dello schema è stata aggiunta prima dell'introduzione della foresta di risorse nell'ambiente di Fabrikam. Per assicurarsi che non vengano sincronizzati gli attributi dall'implementazione di Exchange precedente, la regola di sincronizzazione deve essere disabilitata come illustrato.
 
 ### <a name="change-an-out-of-box-rule"></a>modificare una regola predefinita
+È necessario modificare una regola predefinita solo se è necessario modificare la regola join. Se si vuole modificare un flusso di attributi, creare una regola di sincronizzazione con una precedenza superiore rispetto alle regole predefinite. L'unica regola che è in pratica necessario clonare è la regola **In from AD – User Join**. È possibile eseguire l'override di tutte le altre regole con una regola di precedenza superiore.
+
 Se è necessario apportare modifiche a una regola predefinita, effettuarne una copia e disabilitare la regola originale. Quindi apportare le modifiche alla regola clonata. L'editor delle regole di sincronizzazione facilita l'esecuzione di questa procedura. Quando si apre una regola predefinita, viene visualizzata questa finestra di dialogo:   
 ![Avviso regola predefinita](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/warningoutofboxrule.png)
 
@@ -73,7 +73,6 @@ In questa regola clonata, apportare le modifiche necessarie all'ambito, al join 
 
 
 
-
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

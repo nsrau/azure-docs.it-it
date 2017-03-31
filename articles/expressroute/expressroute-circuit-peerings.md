@@ -1,10 +1,10 @@
 ---
-title: Circuiti e domini di routing ExpressRoute | Documentazione Microsoft
+title: Circuiti e domini di routing ExpressRoute di Azure| Microsoft Docs
 description: Questa pagina fornisce una panoramica dei circuiti e domini di routing ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 6f0c5d8e-cc60-4a04-8641-2c211bda93d9
 ms.service: expressroute
@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bd3b8761c0390d9b1f55423ec3fde0301cf8a20b
+ms.sourcegitcommit: 729c89e26e0c2da3ec88b554645091997dea4552
+ms.openlocfilehash: 1f0406b131957500c303172409cafa6be8fb3228
 
 
 ---
@@ -43,7 +43,7 @@ A un circuito ExpressRoute sono associati più domini di routing, ovvero pubblic
 ![](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 
 ### <a name="private-peering"></a>Peering privato
-I servizi di calcolo di Azure, ovvero le macchine virtuali (IaaS) e i servizi cloud (PaaS), che sono distribuiti all'interno di una rete virtuale possono essere connessi tramite il dominio di peering privato. Il dominio di peering privato viene considerato un'estensione attendibile della rete di base in Microsoft Azure. È possibile configurare la connettività bidirezionale tra la rete di base e le reti virtuali (VNet) di Azure. Questo peering permette la connessione diretta a macchine virtuali e servizi cloud attraverso i rispettivi indirizzi IP privati.  
+I servizi di calcolo di Azure, ovvero le macchine virtuali (IaaS) e i servizi cloud (PaaS), che sono distribuiti all'interno di una rete virtuale possono essere connessi tramite il dominio di peering privato. Il dominio di peering privato viene considerato un'estensione attendibile della rete di base in Microsoft Azure. È possibile configurare la connettività bidirezionale tra la rete di base e le reti virtuali (VNet) di Azure. Questo peering permette la connessione diretta a macchine virtuali e servizi cloud nei rispettivi indirizzi IP privati.  
 
 È possibile connettere più di una rete virtuale al dominio di peering privato. Per informazioni su limiti e limitazioni, vedere la [pagina relativa alle domande frequenti](expressroute-faqs.md) . Per informazioni aggiornate sui limiti, visitare la pagina [Sottoscrizione di Azure e limiti dei servizi, quote e vincoli](../azure-subscription-service-limits.md) .  Per informazioni sulla configurazione del routing, vedere la pagina relativa al [routing](expressroute-routing.md) .
 
@@ -52,7 +52,7 @@ I servizi quali Archiviazione, database SQL e Siti Web di Azure vengono offerti 
 
 La connettività viene sempre attivata dalla rete WAN verso i servizi di Microsoft Azure. I servizi di Microsoft Azure non potranno attivare connessioni alla rete dell'utente tramite questo dominio di routing. Dopo l'abilitazione del peering pubblico, sarà possibile connettersi a tutti i servizi di Azure. Non è consentito scegliere in modo selettivo i servizi per cui vengono annunciate route. Per verificare l'elenco dei prefissi pubblicati tramite questo peering, vedere la pagina relativa agli [intervalli IP per i data center di Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=41653) . La pagina viene aggiornata ogni settimana.
 
-È possibile definire filtri di route personalizzati nella propria rete per usare solo le route necessarie. Per informazioni sulla configurazione del routing, vedere la pagina relativa al [routing](expressroute-routing.md) . È possibile definire filtri di route personalizzati nella propria rete per usare solo le route necessarie. 
+È possibile definire filtri di route personalizzati nella propria rete per usare solo le route necessarie. Per informazioni sulla configurazione del routing, vedere la pagina relativa al [routing](expressroute-routing.md) . 
 
 Per altre informazioni sui servizi supportati tramite il dominio di routing di peering pubblico, vedere la [pagina relativa alle domande frequenti](expressroute-faqs.md) . 
 
@@ -72,7 +72,7 @@ La tabella seguente confronta i tre domini di routing.
 | **Intervalli di indirizzi IP supportati** |Qualsiasi indirizzo IPv4 valido entro la rete WAN. |Indirizzi IPv4 pubblici di proprietà dell'utente o del provider di connettività. |Indirizzi IPv4 pubblici di proprietà dell'utente o del provider di connettività. |
 | **Requisiti del numero AS** |Numeri AS pubblici e privati. È necessario possedere un numero AS pubblico se si sceglie di usarne uno. |Numeri AS pubblici e privati. È tuttavia necessario dimostrare la proprietà degli indirizzi IP pubblici. |Numeri AS pubblici e privati. È tuttavia necessario dimostrare la proprietà degli indirizzi IP pubblici. |
 | **Indirizzi IP per l'interfaccia di routing** |Indirizzi IP pubblici e RFC1918 |Indirizzi IP pubblici registrati a nome dell'utente nei registri di routing. |Indirizzi IP pubblici registrati a nome dell'utente nei registri di routing. |
-| **Supporto per Hash MD5** |Sì |sì |Sì |
+| **Supporto per Hash MD5** |Sì |Sì |Sì |
 
 È possibile scegliere di abilitare uno o più domini di routing come parte del rispettivo circuito ExpressRoute. È possibile scegliere di posizionare tutti i domini di routing nella stessa rete VPN se si vuole combinarli in un singolo dominio di routing. È anche possibile posizionarli in domini di routing diversi, in modo analogo a quanto illustrato nel diagramma. La configurazione consigliata consiste nel connettere il peering privato direttamente alla rete di base e i collegamenti del peering pubblico e Microsoft al DMZ.
 
@@ -89,6 +89,6 @@ Se si sceglie di usare tutte e tre le sessioni di peering, saranno necessarie tr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

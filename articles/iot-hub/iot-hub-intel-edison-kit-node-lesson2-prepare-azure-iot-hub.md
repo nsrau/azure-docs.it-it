@@ -1,5 +1,5 @@
 ---
-title: Creare l&quot;hub IoT di Azure e registrare Intel Edison | Documentazione Microsoft
+title: 'Connettere Intel Edison (Node) ad Azure IoT: lezione 2: Registrare il dispositivo | Documentazione Microsoft'
 description: Creare un gruppo di risorse, creare un hub IoT di Azure e registrare Edison nell&quot;hub IoT di Azure tramite l&quot;interfaccia della riga di comando di Azure.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: f45b3bf00d619376ac07418f0c02eca5f3241939
-ms.openlocfilehash: cc3b0295e73b3cf85eb8c5468d56f175a873bddc
+ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
+ms.openlocfilehash: 384724ccf78dc08b215ef602ff4366dd54801ab5
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -103,8 +104,3 @@ az iot device create --device-id myinteledison --hub-name {my hub name}
 
 [troubleshooting]: iot-hub-intel-edison-kit-node-troubleshooting.md
 [process-and-store-iot-hub-messages]: iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md
-
-
-<!--HONumber=Dec16_HO2-->
-
-

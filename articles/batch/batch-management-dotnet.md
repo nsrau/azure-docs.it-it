@@ -1,5 +1,5 @@
 ---
-title: Gestione delle risorse degli account con la gestione .NET per Batch | Documentazione Microsoft
+title: 'Gestire risorse di account Batch con la libreria client per .NET: Azure | Documentazione Microsoft'
 description: Creare, eliminare e modificare le risorse dell&quot;account Batch tramite la libreria Batch Management .NET.
 services: batch
 documentationcenter: .net
@@ -13,15 +13,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 10/19/2016
+ms.date: 03/15/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 0eff62c62bb256fead360423c20b98fd7f720a51
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f635bbd8652b97c1067473e56565bf7c6520a2ba
+ms.lasthandoff: 03/18/2017
 
 
 ---
-# <a name="manage-azure-batch-accounts-and-quotas-with-batch-management-net"></a>Gestire quote e account Batch di Azure con la gestione .NET per Batch
+# <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Gestire le quote e gli account Batch con la libreria client di gestione Batch per .NET
+
 > [!div class="op_single_selector"]
 > * [Portale di Azure](batch-account-create-portal.md)
 > * [.NET per la gestione di Batch](batch-management-dotnet.md)
@@ -144,41 +147,18 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 > 
 > 
 
-## <a name="batch-management-net-azure-ad-and-resource-manager"></a>Gestione .NET per Batch, Azure AD e Gestione risorse
-Quando si usa la libreria Batch Management .NET, in genere è possibile sfruttare le funzionalità sia di [Azure Active Directory][aad_about] (Azure AD) che di [Azure Resource Manager][resman_overview]. Il progetto di esempio illustrato di seguito usa l'API di Batch Management .NET usando sia Azure Active Directory che Resource Manager.
+## <a name="use-azure-ad-with-batch-management-net"></a>Usare Azure AD con la gestione .NET per Batch
 
-### <a name="azure-active-directory"></a>Azure Active Directory
-Azure stesso usa Azure AD per l'autenticazione dei relativi clienti, amministratori del servizio e utenti dell'organizzazione. Nel contesto di Batch Management .NET Azure AD viene usato per autenticare un amministratore o coamministratore della sottoscrizione. Ciò consente quindi alla libreria di gestione di inviare una query al servizio Batch e di eseguire le operazioni descritte in questo articolo.
-
-Nel progetto di esempio illustrato di seguito si usa Azure [Active Directory Authentication Library][aad_adal] (ADAL) per chiedere all'utente le credenziali Microsoft. Quando vengono fornite le credenziali di amministratore o coamministratore del servizio, l'applicazione può richiedere ad Azure un elenco di sottoscrizioni e creare ed eliminare gruppi di risorse e account Batch.
-
-### <a name="resource-manager"></a>Gestione risorse
-Quando si usa la libreria Batch Management .NET per creare gli account Batch, gli account vengono in genere creati all'interno di un [gruppo di risorse][resman_overview]. È possibile creare il gruppo di risorse a livello di codice usando la classe [ResourceManagementClient][resman_client] nella libreria [Resource Manager .NET][resman_api]. In alternativa è possibile aggiungere un account a un gruppo di risorse esistente creato in precedenza con il [portale di Azure][azure_portal].
+La libreria della gestione .NET per Batch è un client del provider di risorse di Azure e viene usata in combinazione con [Azure Resource Manager][resman_overview] per gestire le risorse dell'account a livello di programmazione. Azure AD deve autenticare le richieste effettuate tramite un client del provider di risorse di Azure, inclusa la libreria della gestione .NET per Batch e con [Azure Resource Manager][resman_overview]. Per informazioni sull'uso di Azure AD con la libreria della gestione .NET per Batch, vedere [Usare Azure Active Directory per autenticare le soluzioni Batch](batch-aad-auth.md). 
 
 ## <a name="sample-project-on-github"></a>Progetto di esempio su GitHub
-Il progetto di esempio [AccountManagment][acct_mgmt_sample] su GitHub permette di vedere Batch Management .NET in azione. Questa applicazione console illustra la creazione e l'uso di [BatchManagementClient][net_mgmt_client] e [ResourceManagementClient][resman_client]. Illustra anche l'uso di Azure [Active Directory Authentication Library][aad_adal] (ADAL), necessaria per entrambi i client.
 
-Per eseguire correttamente l'applicazione di esempio, è necessario prima registrarla con Azure AD tramite il portale di Azure. Seguire la procedura descritta nella sezione [Aggiunta di un'applicazione](../active-directory/active-directory-integrating-applications.md#adding-an-application) nella pagina [Integrazione di applicazioni con Azure Active Directory][aad_integrate] per registrare l'applicazione di esempio all'interno della directory predefinita dell'account. Assicurarsi di selezionare **Applicazione client nativa** come tipo di applicazione. È anche possibile specificare un URI valido, ad esempio `http://myaccountmanagementsample`, come **URI di reindirizzamento** che non deve necessariamente essere un endpoint effettivo.
-
-Dopo avere aggiunto l'applicazione, delegare l'autorizzazione ad **accedere alla gestione del servizio Azure come organizzazione** all'applicazione *API di gestione del servizio Windows Azure* nelle impostazioni dell'applicazione nel portale:
-
-![Autorizzazioni applicazione nel portale di Azure][2]
-
-> [!TIP]
-> Se l'**API di gestione del servizio Windows Azure** non è disponibile in *autorizzazioni per altre applicazioni*, fare clic su **Aggiungi applicazione**, selezionare **API di gestione del servizio Windows Azure** e quindi selezionare la casella di spunta. A questo punto è possibile delegare le autorizzazioni come specificato in precedenza.
-> 
-> 
-
-Una volta aggiunta l'applicazione come descritto sopra, aggiornare `Program.cs` nel progetto di esempio [AccountManagment][acct_mgmt_sample] con l'URI di reindirizzamento e l'ID client dell'applicazione. È possibile trovare questi valori nella scheda **Configura** dell'applicazione:
-
-![Configurazione applicazione nel portale di Azure][3]
-
-L'applicazione di esempio [AccountManagment][acct_mgmt_sample] illustra le operazioni seguenti:
+Il progetto di esempio [AccountManagment][acct_mgmt_sample] su GitHub permette di vedere Batch Management .NET in azione. L'applicazione di esempio AccountManagment illustra le operazioni seguenti:
 
 1. Acquisire un token di sicurezza da Azure AD con [ADAL][aad_adal]. Se l'utente non ha già eseguito l'accesso, gli viene richiesto di fornire le credenziali di Azure.
-2. Usando il token di sicurezza ottenuto da Azure AD, creare un oggetto [SubscriptionClient][resman_subclient] per richiedere ad Azure un elenco di sottoscrizioni associate all'account. Ciò consente di selezionarne una, se sono presenti più sottoscrizioni.
-3. Creare un nuovo oggetto credenziali associato alla sottoscrizione selezionata.
-4. Creare un oggetto [ResourceManagementClient][resman_client] usando le nuove credenziali.
+2. Usando il token di sicurezza ottenuto da Azure AD, creare un oggetto [SubscriptionClient][resman_subclient] per richiedere ad Azure un elenco di sottoscrizioni associate all'account. L'utente può selezionare una sottoscrizione dall'elenco se contiene più di una sottoscrizione.
+3. Ottenere le credenziali associate alla sottoscrizione selezionata.
+4. Creare un oggetto [ResourceManagementClient][resman_client] usando le credenziali.
 5. Usare l'oggetto [ResourceManagementClient][resman_client] per creare un gruppo di risorse.
 6. Usare l'oggetto [BatchManagementClient][net_mgmt_client] per eseguire una serie di operazioni sull'account Batch:
    * Creare un account Batch nel nuovo gruppo di risorse.
@@ -193,9 +173,8 @@ L'applicazione di esempio [AccountManagment][acct_mgmt_sample] illustra le opera
 
 Prima di eliminare l'account Batch e il gruppo di risorse appena creati, è possibile esaminarli entrambi nel [portale di Azure][azure_portal]:
 
-![Portale di Azure con il gruppo di risorse e l'account Batch][1]
-<br />
-*Portale di Azure con il nuovo gruppo di risorse e il nuovo account Batch*
+Per eseguire correttamente l'applicazione di esempio, è innanzitutto necessario registrarla con il tenant di Azure AD nel portale di Azure e concedere le autorizzazioni all'API di Azure Resource Manager. Seguire le istruzioni riportate in [Autenticare le applicazioni di gestione Batch con Azure AD](batch-aad-auth.md#use-azure-ad-with-batch-service-solutions).
+
 
 [aad_about]: ../active-directory/active-directory-whatis.md "Informazioni su Azure Active Directory"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
@@ -218,16 +197,11 @@ Prima di eliminare l'account Batch e il gruppo di risorse appena creati, è poss
 [net_mgmt_subscriptions]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.batchmanagementclient.subscriptions.aspx
 [net_mgmt_listaccounts]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.iaccountoperations.listasync.aspx
 [resman_api]: https://msdn.microsoft.com/library/azure/mt418626.aspx
-[resman_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspxs
+[resman_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx
 [resman_subclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.subscriptions.subscriptionclient.aspx
 [resman_overview]: ../azure-resource-manager/resource-group-overview.md
 
 [1]: ./media/batch-management-dotnet/portal-01.png
 [2]: ./media/batch-management-dotnet/portal-02.png
 [3]: ./media/batch-management-dotnet/portal-03.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

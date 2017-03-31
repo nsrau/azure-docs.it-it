@@ -38,15 +38,10 @@
     ![località del server](./media/sql-data-warehouse-create-logical-server/server-location.png)
     
     > [!TIP]
-    > La casella di controllo **Consenti ai servizi di Azure di accedere al server** non può essere modificata in questo pannello. È possibile modificare questa impostazione nel pannello firewall del server. Per altre informazioni, vedere [Get started with security](../articles/sql-database/sql-database-get-started-security.md) (Introduzione alla sicurezza).
+    > La casella di controllo **Consenti ai servizi di Azure di accedere al server** non può essere modificata in questo pannello. È possibile modificare questa impostazione nel pannello firewall del server. Per altre informazioni, vedere [Get started with security](../articles/sql-database/sql-database-manage-servers-portal.md) (Introduzione alla sicurezza).
     >
     
 9. Fare clic su **Create**.
 
     ![Pulsante Crea](./media/sql-data-warehouse-create-logical-server/create.png)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 12/19/2016
 ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: ad4878dd2684c44f8458a9eb8288730e8fd45308
-ms.openlocfilehash: dbb39aad69f63765bf7f72129dbdcde36ed40ec7
+ms.sourcegitcommit: 89e5486f3302098f3a1d49e4390ec5b21617d778
+ms.openlocfilehash: fd1737a420c132dace9307436bfea98a9bde94a0
 
 ---
 
@@ -34,7 +34,7 @@ I cmdlet della tabella seguente vengono usati per creare e gestire asset di cert
 
 |Cmdlet|Descrizione|
 |:---|:---|
-|[Get-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603765.aspx)|Recupera le informazioni su un certificato da usare in un runbook o in una configurazione DSC. È possibile recuperare solo il certificato stesso dall'attività Get-AzureRmAutomationCertificate.|
+|[Get-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603765.aspx)|Recupera le informazioni su un certificato da usare in un runbook o in una configurazione DSC. È possibile recuperare solo il certificato stesso dall'attività Get-AutomationCertificate.|
 |[New-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603604.aspx)|Crea un nuovo certificato in Automazione di Azure.|
 [Remove-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603529.aspx)|Rimuove un certificato da Automazione di Azure.|Crea un nuovo certificato in Automazione di Azure.
 |[Set-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603760.aspx)|Imposta le proprietà per un certificato esistente, inclusi il caricamento del file del certificato e l'impostazione della password per un file con estensione pfx.|
@@ -98,6 +98,6 @@ La figura seguente mostra un esempio dell'uso di un certificato in un runbook gr
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

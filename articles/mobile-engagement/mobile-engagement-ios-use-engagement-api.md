@@ -4,7 +4,7 @@ description: "iOS SDK più recente: come usare l&quot;API di Engagement in iOS"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 1fb4509e-3804-46c1-949f-1cf727f91f9f
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: bf672384407588ddc2c4998f42f6893e2638c592
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -267,9 +268,4 @@ Le informazioni sull'applicazione sono limitate a **1024** caratteri per chiamat
 Nell'esempio precedente il codice JSON inviato al server è lungo 44 caratteri:
 
     {"birthdate":"1983-12-07","gender":"female"}
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

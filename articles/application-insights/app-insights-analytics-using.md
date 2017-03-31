@@ -1,21 +1,22 @@
 ---
-title: 'Usare Analytics: il potente strumento di ricerca di Application Insights | Microsoft Docs'
+title: 'Uso di Analytics: il potente strumento di ricerca di Azure Application Insights | Microsoft Docs'
 description: 'Utilizzare Analytics: lo strumento di ricerca diagnostica incluso in Application Insights '
 services: application-insights
 documentationcenter: 
 author: danhadari
-manager: douge
+manager: carmonm
 ms.assetid: c3b34430-f592-4c32-b900-e9f50ca096b3
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2389f1d785abc750dd165303f737a883b3f788d0
-ms.openlocfilehash: 6232a80417cf4581f6c6cbe6c11418dc8d0c3407
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: d7f6f9582a3d15563c19d69845836a92a35ee95e
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -171,7 +172,7 @@ Con Power BI, è possibile creare i dashboard per raggruppare i dati da un'ampia
 
 Ottenere un collegamento in **Esporta, Condividi collegamento** che è possibile inviare a un altro utente. Purché l'utente abbia [accesso al gruppo di risorse](app-insights-resources-roles-access-control.md), la query verrà aperta nell'interfaccia utente di Analytics.
 
-Nel collegamento, il testo della query appare dopo "?q=", con compressione gzip e codifica in base&64;. È possibile scrivere codice per generare collegamenti diretti da fornire agli utenti. Tuttavia il modo consigliato per eseguire Analytics dal codice è tramite l'uso dell'[API REST](https://dev.applicationinsights.io/).
+Nel collegamento, il testo della query appare dopo "?q=", con compressione gzip e codifica in base 64. È possibile scrivere codice per generare collegamenti diretti da fornire agli utenti. Tuttavia il modo consigliato per eseguire Analytics dal codice è tramite l'uso dell'[API REST](https://dev.applicationinsights.io/).
 
 
 ## <a name="automation"></a>Automazione
@@ -222,13 +223,10 @@ La tabella di richieste risultante ha una colonna aggiuntiva, `realName`.
 
 Se si usa [LogStash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html), è possibile usare Analytics per eseguire query nei log. Usare il [plug-in che invia pipe dei dati in Analytics](https://github.com/Microsoft/logstash-output-application-insights). 
 
+## <a name="video"></a>Video
 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

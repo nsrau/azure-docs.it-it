@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: trinadhk; jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: 5e22f3b395a2c8d62caa6ae0abf5f81833b00780
-ms.openlocfilehash: 2018f37b3b3426ba6a066310ddfd65fc31b7eb25
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 64557a71f30762befe07616c3d274a621f22e235
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -91,16 +92,16 @@ Al termine dell'operazione di ripristino, l'operazione verrà contrassegnata com
 
 ![Processo di ripristino completato](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-Dopo aver ripristinato la macchina virtuale, può essere necessario reinstallare le estensioni esistenti nella macchina virtuale originale e [modificare gli endpoint](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) per la macchina virtuale nel portale di Azure.
+Dopo aver ripristinato la macchina virtuale, può essere necessario reinstallare le estensioni esistenti nella macchina virtuale originale e [modificare gli endpoint](../virtual-machines/windows/classic/setup-endpoints.md) per la macchina virtuale nel portale di Azure.
 
 ## <a name="post-restore-steps"></a>Operazioni successive al ripristino
-Se si usa una distribuzione Linux basata su cloud-init, ad esempio Ubuntu, per motivi di sicurezza, la password verrà bloccata dopo il ripristino. Per [reimpostare la password](../virtual-machines/virtual-machines-linux-classic-reset-access.md)nella macchina virtuale ripristinata usare l'estensione VMAccess. È consigliabile usare chiavi SSH in queste distribuzioni per evitare la reimpostazione della password dopo il ripristino. 
+Se si usa una distribuzione Linux basata su cloud-init, ad esempio Ubuntu, per motivi di sicurezza, la password verrà bloccata dopo il ripristino. Per [reimpostare la password](../virtual-machines/linux/classic/reset-access.md)nella macchina virtuale ripristinata usare l'estensione VMAccess. È consigliabile usare chiavi SSH in queste distribuzioni per evitare la reimpostazione della password dopo il ripristino. 
 
 ## <a name="backup-for-restored-vms"></a>Backup per le macchine virtuali ripristinate
 Se è stata ripristinata una macchina virtuale nello stesso servizio cloud con lo stesso nome usato originariamente per eseguire il backup della VM, il backup continuerà nel post-ripristino della VM. Se è stata ripristinata una macchina virtuale in un servizio cloud diverso o è stato specificato un nome diverso per la VM ripristinata, la VM verrà considerata come nuova ed è necessario configurare il backup per la VM ripristinata.
 
 ## <a name="restoring-a-vm-during-azure-datacenter-disaster"></a>Ripristino di una macchina virtuale durante un'emergenza del data center di Azure
-Backup di Azure consente di ripristinare le macchine virtuali di cui è stato eseguito il backup nel data center associato nel caso in cui nel data center primario in cui le macchine virtuali sono in esecuzione si verifichi un'emergenza e sia stato configurato l'insieme di credenziali di Backup con ridondanza geografica. In tali situazioni, è necessario selezionare un account di archiviazione presente nel data center associato; il resto del processo di ripristino rimane lo stesso. Backup di Azure usa un servizio di calcolo di un'area geografica per creare la macchina virtuale ripristinata. 
+Backup di Azure consente di ripristinare le macchine virtuali di cui è stato eseguito il backup nel data center associato nel caso in cui nel data center primario in cui le macchine virtuali sono in esecuzione si verifichi un'emergenza e sia stato configurato l'insieme di credenziali di Backup con ridondanza geografica. In tali situazioni, è necessario selezionare un account di archiviazione presente nel data center associato; il resto del processo di ripristino rimane lo stesso. Backup di Azure usa un servizio di calcolo di un'area geografica per creare la macchina virtuale ripristinata. Altre informazioni sulla [resilienza dei centri dati di Azure](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md)
 
 ## <a name="restoring-domain-controller-vms"></a>Ripristino delle macchine virtuali del controller di dominio
 L'esecuzione del backup delle macchine virtuali del controller di dominio (DC) è uno scenario supportato da Backup di Azure. Tuttavia è necessario prestare attenzione ad alcuni aspetti durante il processo di ripristino. L'esperienza di ripristino è notevolmente diversa per le macchine virtuali del controller di dominio in una configurazione con un singolo controller di dominio rispetto a quella per le macchine virtuali in una configurazione con più controller di dominio.
@@ -153,10 +154,5 @@ Per poter ricreare completamente i dischi della macchina virtuale dopo il ripris
 ## <a name="next-steps"></a>Passaggi successivi
 * [Risoluzione dei problemi](backup-azure-vms-troubleshoot.md#restore)
 * [Gestire le macchine virtuali](backup-azure-manage-vms.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

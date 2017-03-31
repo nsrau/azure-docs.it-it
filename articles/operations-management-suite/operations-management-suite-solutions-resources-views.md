@@ -15,29 +15,30 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ae4e75c7ac318a414672cf791bb35d1615f45dea
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: deed3fbd7cd27f54767ae9b26c27c1e1a0106208
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>Viste nelle soluzioni di gestione di Operations Management Suite (OMS) (anteprima)
 > [!NOTE]
 > Questa è una documentazione preliminare per la creazione di soluzioni di gestione in OMS attualmente disponibili in versione di anteprima. Qualsiasi schema descritto di seguito è soggetto a modifiche.    
-> 
-> 
+>
+>
 
 Le [soluzioni di gestione in Operations Management Suite (OMS)](operations-management-suite-solutions.md) includono in genere una o più viste per visualizzare i dati.  Questo articolo descrive come esportare una vista creata da [Progettazione viste](../log-analytics/log-analytics-view-designer.md) e includerla in una soluzione di gestione.  
 
 > [!NOTE]
-> Gli esempi in questo articolo usano parametri e variabili che sono richiesti o comuni nelle soluzioni di gestione e che sono descritti in [Creazione di soluzioni di gestione in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md) 
-> 
-> 
+> Gli esempi in questo articolo usano parametri e variabili che sono richiesti o comuni nelle soluzioni di gestione e che sono descritti in [Creazione di soluzioni di gestione in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md)
+>
+>
 
 ## <a name="prerequisites"></a>Prerequisiti
 Questo articolo presuppone che si abbia già familiarità con le modalità di [creazione di una soluzione di gestione](operations-management-suite-solutions-creating.md) e la struttura di un file di soluzione.
 
 ## <a name="overview"></a>Panoramica
-Per includere una vista in una soluzione di gestione, si crea una **risorsa** per la vista nel [file di soluzione](operations-management-suite-solutions-creating.md).  In genere, tuttavia, il codice JSON che descrive la configurazione dettagliata della vista è complesso e l'autore tipico di una soluzione probabilmente non è in grado di crearlo manualmente.  Il metodo più comune consiste nel creare la vista usando [Progettazione viste](../log-analytics/log-analytics-view-designer.md), esportarla e quindi aggiungere la sua configurazione dettagliata alla soluzione. 
+Per includere una vista in una soluzione di gestione, si crea una **risorsa** per la vista nel [file di soluzione](operations-management-suite-solutions-creating.md).  In genere, tuttavia, il codice JSON che descrive la configurazione dettagliata della vista è complesso e l'autore tipico di una soluzione probabilmente non è in grado di crearlo manualmente.  Il metodo più comune consiste nel creare la vista usando [Progettazione viste](../log-analytics/log-analytics-view-designer.md), esportarla e quindi aggiungere la sua configurazione dettagliata alla soluzione.
 
 I passaggi di base per aggiungere una vista a una soluzione sono i seguenti.  Ogni passaggio viene descritto in modo più dettagliato nelle sezioni successive.
 
@@ -46,7 +47,7 @@ I passaggi di base per aggiungere una vista a una soluzione sono i seguenti.  Og
 3. Aggiungere i dettagli della vista.
 
 ## <a name="export-the-view-to-a-file"></a>Esportare la vista in un file
-Seguire le istruzioni in [Progettazione viste di Log Analytics](../log-analytics/log-analytics-view-designer.md) per esportare una vista in un file.  Il file esportato sarà nel formato JSON con gli stessi [elementi del file di soluzione](operations-management-suite-solutions-creating.md#management-solution-files).  
+Seguire le istruzioni in [Progettazione viste di Log Analytics](../log-analytics/log-analytics-view-designer.md) per esportare una vista in un file.  Il file esportato sarà nel formato JSON con gli stessi [elementi del file di soluzione](operations-management-suite-solutions-solution-file.md).  
 
 L'elemento **resources** del file della vista avrà una risorsa di tipo **Microsoft.OperationalInsights/workspaces** che rappresenta l'area di lavoro OMS.  Questo elemento avrà un sottoelemento di tipo **views** che rappresenta la vista e contiene la configurazione dettagliata.  Sarà necessario copiare i dettagli di questo elemento e incollarli nella soluzione.
 
@@ -69,11 +70,11 @@ Aggiungere la risorsa vista seguente nell'elemento **resources** del file di sol
             "Author": "[variables('ViewAuthor')]",
             "Source": "Local",
             "Dashboard": ,
-            "OverviewTile": 
+            "OverviewTile":
         }
     }
 
-Aggiungere le variabili seguenti all'elemento [variables](operations-management-suite-solutions-creating.md#variables) del file di soluzione e sostituire i valori con quelli della soluzione.
+Aggiungere le variabili seguenti all'elemento variables del file di soluzione e sostituire i valori con quelli della soluzione.
 
     "LogAnalyticsApiVersion": "2015-11-01-preview",
     "ViewAuthor": "Your name."
@@ -91,7 +92,7 @@ Si noti che è possibile copiare l'intera risorsa vista dal file della vista esp
 * Le variabili devono essere definite nella soluzione e usate nelle proprietà appropriate.
 
 ## <a name="add-the-view-details"></a>Aggiungere i dettagli della vista
-La risorsa vista nel file della vista esportato conterrà due elementi nell'elemento **properties** denominati **Dashboard** e **OverviewTile** che contengono la configurazione dettagliata della vista.  Copiare questi due elementi e il relativo contenuto nell'elemento **properties** della risorsa vista nel file di soluzione. 
+La risorsa vista nel file della vista esportato conterrà due elementi nell'elemento **properties** denominati **Dashboard** e **OverviewTile** che contengono la configurazione dettagliata della vista.  Copiare questi due elementi e il relativo contenuto nell'elemento **properties** della risorsa vista nel file di soluzione.
 
 ## <a name="example"></a>Esempio
 L'esempio seguente mostra un file di soluzione semplice con una vista.  Al posto del contenuto di **Dashboard** e **OverviewTile** sono visualizzati i puntini di sospensione (...) per motivi di spazio.
@@ -179,10 +180,4 @@ L'esempio seguente mostra un file di soluzione semplice con una vista.  Al posto
 ## <a name="next-steps"></a>Passaggi successivi
 * Leggere le informazioni complete sulla creazione di [soluzioni di gestione](operations-management-suite-solutions-creating.md).
 * Includere [runbook di Automazione nella soluzione di gestione](operations-management-suite-solutions-resources-automation.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

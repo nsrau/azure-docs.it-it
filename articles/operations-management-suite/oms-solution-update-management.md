@@ -4,7 +4,7 @@ description: Questo articolo illustra l&quot;uso di questa soluzione per gestire
 services: operations-management-suite
 documentationcenter: 
 author: MGoedtel
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
 ms.service: operations-management-suite
@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 03/06/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 705bbd78970c6e3c20ef7214704194f722da09a6
-ms.openlocfilehash: 0f00d5a3b8116864d9e66c18d535f319b31b9f9c
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: f709fe00cce61f6766a0a56ea31b023e00c91fce
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -24,6 +25,8 @@ ms.openlocfilehash: 0f00d5a3b8116864d9e66c18d535f319b31b9f9c
 La soluzione Gestione aggiornamenti in OMS consente di gestire gli aggiornamenti per i computer Windows e Linux.  È possibile valutare rapidamente lo stato degli aggiornamenti disponibili in tutti i computer agente e avviare il processo di installazione degli aggiornamenti necessari per i server. 
 
 ## <a name="prerequisites"></a>Prerequisiti
+* La soluzione supporta solo l'esecuzione delle valutazioni di aggiornamento in Windows Server 2008 e versioni successive e le distribuzioni degli aggiornamenti in Windows Server 2012 e versioni successive.  Le opzioni di installazione Server Core e Nano Server non sono supportate.
+* I sistemi operativi client di Windows non sono supportati.  
 * Gli agenti Windows devono essere configurati per comunicare con un server Windows Server Update Services (WSUS) o avere accesso a Microsoft Update.  
   
   > [!NOTE]
@@ -36,7 +39,7 @@ La soluzione Gestione aggiornamenti in OMS consente di gestire gli aggiornamenti
 Eseguire questa procedura per aggiungere la soluzione Gestione aggiornamenti nell'area di lavoro di OMS e aggiungere gli agenti Linux. Gli agenti Windows vengono aggiunti automaticamente senza alcuna configurazione aggiuntiva.
 
 > [!NOTE]
-> Attualmente se si abilita questa soluzione, qualsiasi computer Windows connesso all'area di lavoro OMS verrà automaticamente configurato come ruolo di lavoro ibrido per runbook per supportare i runbook che fanno parte di questa soluzione.  Tuttavia, la soluzione non è registrata con tutti i gruppi del ruolo di lavoro ibrido creati nell'account di Automazione e non è possibile aggiungerla a un gruppo di lavoro ibrido per l'esecuzione dei runbook personalizzati.  Se un computer Windows è già definito come ruolo di lavoro ibrido per runbook e connesso all'area di lavoro OMS, è necessario rimuoverlo dall'area di lavoro OMS prima di aggiungere la soluzione per evitare che i runbook non funzionino come previsto.  
+> Se si abilita questa soluzione, qualsiasi computer Windows connesso all'area di lavoro OMS verrà automaticamente configurato come ruolo di lavoro ibrido per runbook per supportare i runbook che fanno parte di questa soluzione.  Tuttavia, essa non è registrata nei gruppi ruolo di lavoro ibrido già definiti nell'account di Automazione.  È possibile aggiungerla a un gruppo ruolo di lavoro ibrido per runbook nell'account di Automazione per supportare i runbook di Automazione, purché si usi lo stesso account sia per la soluzione che per l'appartenenza al gruppo ruolo di lavoro ibrido per runbook.  Questa funzionalità è stata aggiunta alla versione 7.2.12024.0 del ruolo di lavoro ibrido per runbook.   
 
 1. Aggiungere la soluzione Gestione aggiornamenti all'area di lavoro di OMS usando la procedura descritta in [Aggiungere soluzioni OMS](../log-analytics/log-analytics-add-solutions.md) nella raccolta soluzioni.  
 2. Nel portale OMS selezionare **Impostazioni** e quindi **Origini connesse**.  Prendere nota del valore di **ID area di lavoro** e di **Chiave primaria** o **Chiave secondaria**.
@@ -45,12 +48,9 @@ Eseguire questa procedura per aggiungere la soluzione Gestione aggiornamenti nel
    a.    Installare la versione più recente dell'agente OMS per Linux usando i comandi seguenti.  Sostituire <Workspace ID> con l'ID area di lavoro e <Key> con la chiave primaria o secondaria.
    
         cd ~
-        wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh  
-        sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
+        wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID>  -s <PrimaryKey> -d opinsights.azure.com 
 
-   b. Per rimuovere l'agente, usare il comando seguente.
-   
-        sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
+   b. Per rimuovere l'agente, usare il processo descritto nella sezione [Uninstalling the OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#uninstalling-the-oms-agent-for-linux) (Disinstallazione dell'agente OMS per Linux).  
 
 ## <a name="management-packs"></a>Management Pack
 Se il gruppo di gestione di System Center Operations Manager è connesso all'area di lavoro di OMS, in Operations Manager verranno installati i Management Pack seguenti quando si aggiunge questa soluzione. Per questi Management Pack non è richiesta alcuna configurazione o manutenzione. 
@@ -104,7 +104,9 @@ Fare clic sul riquadro **Gestione aggiornamenti** per aprire il dashboard **Gest
 ## <a name="installing-updates"></a>Installazione degli aggiornamenti
 Dopo aver valutato gli aggiornamenti per tutti i computer Windows nell'ambiente, è possibile installare gli aggiornamenti necessari creando una *distribuzione degli aggiornamenti*.  Una distribuzione degli aggiornamenti è un'installazione pianificata di aggiornamenti necessari per uno o più computer Windows.  Specificare la data e l'ora della distribuzione, oltre a un computer o gruppo di computer da includere.  
 
-Gli aggiornamenti vengono installati da runbook in Automazione di Azure.  Questi runbook non richiedono alcuna configurazione e non possono essere attualmente visualizzati.  Quando si crea una distribuzione degli aggiornamenti, viene creata una pianificazione che avvia un runbook di aggiornamento master alla data e ora specificata per i computer inclusi.  Questo runbook master avvia un runbook figlio in ogni agente Windows che esegue l'installazione degli aggiornamenti necessari.  
+Gli aggiornamenti vengono installati da runbook in Automazione di Azure.  Questi runbook non richiedono alcuna configurazione e non possono essere visualizzati.  Quando si crea una distribuzione degli aggiornamenti, viene creata una pianificazione che avvia un runbook di aggiornamento master alla data e ora specificata per i computer inclusi.  Questo runbook master avvia un runbook figlio in ogni agente Windows che esegue l'installazione degli aggiornamenti necessari.  
+
+Le macchine virtuali create dalle immagini di Red Hat Enterprise Linux (RHEL) su richiesta disponibili in Azure Marketplace vengono registrate per accedere al servizio [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) distribuito in Azure.  Altre distribuzioni di Linux devono essere aggiornate dal repository di file online per le distribuzioni seguendo i metodi supportati.  
 
 ### <a name="viewing-update-deployments"></a>Visualizzazione delle distribuzioni degli aggiornamenti
 Fare clic sul riquadro **Distribuzione aggiornamento** per visualizzare l'elenco delle distribuzioni degli aggiornamenti esistenti.  Le distribuzioni sono raggruppate per stato, ovvero **Pianificato**, **In esecuzione** e **Completato**.<br><br> ![Pagina di pianificazione delle distribuzioni degli aggiornamenti](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  
@@ -243,10 +245,5 @@ La tabella seguente contiene esempi di ricerche log per i record di aggiornament
 * Usare le ricerche log in [Log Analytics](../log-analytics/log-analytics-log-searches.md) per visualizzare dati dettagliati sugli aggiornamenti.
 * [Creare dashboard personalizzati](../log-analytics/log-analytics-dashboards.md) che indicano la conformità degli aggiornamenti per i computer gestiti.
 * [Creare avvisi](../log-analytics/log-analytics-alerts.md) quando aggiornamenti critici vengono rilevati come mancanti nei computer oppure quando gli aggiornamenti automatici sono disabilitati per un computer.  
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

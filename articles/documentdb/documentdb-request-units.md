@@ -1,5 +1,5 @@
 ---
-title: "Unità richiesta in DocumentDB | Documentazione Microsoft"
+title: "Unità richiesta e stima della velocità effettiva - Azure DocumentDB | Documentazione Microsoft"
 description: "Informazioni su come comprendere, specificare e stimare i requisiti relativi alle unità richiesta in DocumentDB."
 services: documentdb
 author: syamkmsft
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 03/08/2017
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
-ms.openlocfilehash: 8b2d13dd16f629fbb2108856cd1e1b2954ece8bf
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: b098e3087cb08528c5fbdc2d0d768ce40e7ffe0d
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -26,7 +27,11 @@ Ora disponibile: [calcolatore di unità richiesta](https://www.documentdb.com/ca
 ![Calcolatore della velocità effettiva][5]
 
 ## <a name="introduction"></a>Introduzione
-Questo articolo fornisce una panoramica delle unità richiesta in [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). 
+[Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) è un servizio database NoSQL completamente gestito e scalabile per documenti JSON. Grazie a DocumentDB, non sarà necessario affittare macchine virtuali, distribuire software o monitorare database. DocumentDB è gestito e monitorato costantemente da tecnici Microsoft, in modo da offrire disponibilità, prestazioni e protezione dei dati di elevata qualità. I dati in DocumentDB vengono archiviati nelle raccolte, ovvero contenitori elastici a disponibilità elevata. Invece di occuparsi della gestione di risorse hardware come CPU, memoria e operazioni di I/O al secondo per una raccolta, è possibile riservare la velocità effettiva in termini di richieste al secondo. DocumentDB gestirà automaticamente il provisioning, il partizionamento trasparente e il ridimensionamento della raccolta per fornire il numero di richieste con provisioning. 
+
+DocumentDB supporta alcune API per operazioni di lettura e scrittura, per query e per esecuzioni di stored procedure. Poiché non tutte le richieste sono uguali, viene loro assegnata una quantità normalizzata di **unità richiesta** in base alla quantità di calcolo necessaria per servire la richiesta. Il numero di unità richiesta per un'operazione è deterministico ed è possibile tenere traccia del numero di unità richiesta utilizzate da qualsiasi operazione in DocumentDB tramite un'intestazione di richiesta.
+
+Ogni raccolta in DocumentDB può essere riservata con velocità effettiva, indicata anche in termini di unità richiesta. Questo valore viene espresso in blocchi di 100 unità richiesta al secondo ed è compreso tra centinaia e milioni di unità richiesta al secondo. È possibile regolare la velocità effettiva con provisioning per tutta la durata di una raccolta, per adattarla alle diverse esigenze di elaborazione e ai modelli di accesso dell'applicazione. 
 
 Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:  
 
@@ -36,7 +41,7 @@ Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 * Cosa accade se si supera la capacità delle unità richiesta per una raccolta?
 
 ## <a name="request-units-and-request-charges"></a>Unità richiesta e addebiti richiesta
-DocumentDB offre prestazioni veloci e prevedibili, *riservando* risorse per soddisfare le esigenze a livello di velocità effettiva dell'applicazione.  Poiché i modelli di carico e accesso dell'applicazione cambiano nel tempo, DocumentDB consente di aumentare o diminuire facilmente la quantità di velocità effettiva riservata disponibile per l'applicazione.
+DocumentDB e l'API per MongoDB offrono prestazioni rapide e prevedibili *riservando* risorse per soddisfare le esigenze di velocità effettiva dell'applicazione.  Poiché i modelli di carico e accesso dell'applicazione cambiano nel tempo, DocumentDB consente di aumentare o diminuire facilmente la quantità di velocità effettiva riservata disponibile per l'applicazione.
 
 Con DocumentDB la velocità effettiva riservata è specificata in termini di elaborazione di unità richiesta al secondo.  Si possono considerare le unità richiesta come una specie di valuta della velocità effettiva, secondo cui si *riserva* una quantità garantita di unità richiesta disponibili al secondo per l'applicazione.  Ogni operazione in DocumentDB, ovvero scrittura di un documento, esecuzione di una query, aggiornamento di un documento, utilizza CPU, memoria e operazioni di I/O al secondo.  In altre parole, ogni operazione comporta un *addebito richiesta* espresso in *unità richiesta*.  La conoscenza dei fattori che influiscono sugli addebiti delle unità richiesta, insieme ai requisiti di velocità effettiva dell'applicazione, consente di eseguire l'applicazione nel modo più economicamente conveniente possibile. 
 
@@ -46,10 +51,53 @@ Si consiglia di iniziare guardando il video seguente, in cui Aravind Ramachandra
 > 
 > 
 
-## <a name="specifying-request-unit-capacity"></a>Specifica della capacità delle unità richiesta
-Quando si crea una raccolta di DocumentDB, si specifica il numero di unità richiesta al secondo da riservare per la raccolta.  Dopo aver creato la raccolta, l'intera allocazione di unità richiesta specificata viene riservata all'uso da parte della raccolta.  A ogni raccolta è garantita la disponibilità di caratteristiche di velocità effettiva dedicate e isolate.  
+## <a name="specifying-request-unit-capacity-in-documentdb"></a>Specifica della capacità delle unità richiesta in DocumentDB
+Quando si crea una raccolta di DocumentDB, si specifica il numero di unità richiesta al secondo da riservare per la raccolta. In base alla velocità effettiva con provisioning, DocumentDB alloca partizioni fisiche per ospitare la raccolta e suddivide/ribilancia i dati in continua crescita nelle partizioni.
 
-È importante notare che DocumentDB opera sulla base di un modello di prenotazione. Vale a dire che viene fatturata la quantità di velocità effettiva *riservata* per la raccolta, indipendentemente dalla quantità di tale velocità effettiva *usata* attivamente.  Tenere tuttavia presente che a mano a mano che i modelli di carico, dati e utilizzo dell'applicazione cambiano, è possibile aumentare e ridurre facilmente la quantità di unità richiesta riservate usando gli SDK di DocumentDB o il [portale di Azure](https://portal.azure.com).  Per altre informazioni sull'aumento o sulla riduzione della velocità effettiva, vedere [Livelli di prestazioni in DocumentDB](documentdb-performance-levels.md).
+In DocumentDB è necessario specificare una chiave di partizione quando viene eseguito il provisioning di una raccolta con almeno 10.000 unità richiesta. Una chiave di partizione è necessaria anche per ridimensionare la velocità effettiva della raccolta oltre le 10.000 unità richiesta in futuro. È quindi consigliabile configurare una [chiave di partizione](documentdb-partition-data.md) durante la creazione di una raccolta indipendentemente dalla velocità effettiva iniziale. Poiché potrebbe essere necessario suddividere i dati in più partizioni, occorre scegliere una chiave di partizione con una cardinalità elevata (da centinaia a milioni di valori distinti), in modo che DocumentDB possa ridimensionare la raccolta e le richieste in modo uniforme. 
+
+> [!NOTE]
+> Una chiave di partizione è un limite logico, non un limite fisico. Non è quindi necessario limitare il numero di valori distinti per le chiavi di partizioni. È in effetti consigliabile avere un numero maggiore di valori distinti per le chiavi di partizione, perché DocumentDB offre un numero maggiore di opzioni per il bilanciamento del carico.
+
+Ecco un frammento di codice per la creazione di una raccolta con 3.000 unità richiesta al secondo usando .NET SDK:
+
+```csharp
+DocumentCollection myCollection = new DocumentCollection();
+myCollection.Id = "coll";
+myCollection.PartitionKey.Paths.Add("/deviceId");
+
+await client.CreateDocumentCollectionAsync(
+    UriFactory.CreateDatabaseUri("db"),
+    myCollection,
+    new RequestOptions { OfferThroughput = 3000 });
+```
+
+DocumentDB usa un modello di prenotazione per la velocità effettiva, ovvero viene fatturata la quantità di velocità effettiva *riservata* per la raccolta, indipendentemente dalla quantità di tale velocità effettiva *usata* attivamente. A mano a mano che i modelli di carico, dati e utilizzo dell'applicazione cambiano, è possibile aumentare e ridurre facilmente la quantità di unità richiesta riservate usando gli SDK di DocumentDB o il [portale di Azure](https://portal.azure.com).
+
+Viene eseguito il mapping di ogni raccolta a una risorsa `Offer` in DocumentDB, che include metadati sulla velocità effettiva con provisioning della raccolta. È possibile modificare la velocità effettiva allocata esaminando l'offerta corrispondente relativa alla risorsa per una raccolta, quindi aggiornarla con il nuovo valore per la velocità effettiva. Ecco un frammento di codice per la modifica della velocità effettiva di una raccolta fino a 5.000 unità richiesta al secondo usando .NET SDK:
+
+```csharp
+// Fetch the resource to be updated
+Offer offer = client.CreateOfferQuery()
+                .Where(r => r.ResourceLink == collection.SelfLink)    
+                .AsEnumerable()
+                .SingleOrDefault();
+
+// Set the throughput to 5000 request units per second
+offer = new OfferV2(offer, 5000);
+
+// Now persist these changes to the database by replacing the original resource
+await client.ReplaceOfferAsync(offer);
+```
+
+La modifica della velocità effettiva non influisce sulla disponibilità della raccolta. La nuova velocità effettiva riservata viene in genere applicata entro pochi secondi, in corrispondenza dell'applicazione della nuova velocità effettiva.
+
+## <a name="specifying-request-unit-capacity-in-api-for-mongodb"></a>Specifica della capacità delle unità richiesta nell'API per MongoDB
+L'API per MongoDB consente di specificare il numero di unità richiesta al secondo da riservare per la raccolta.
+
+L'API per MongoDB usa lo stesso modello di prenotazione basato sulla velocità effettiva usato da DocumentDB. ovvero viene fatturata la quantità di velocità effettiva *riservata* per la raccolta, indipendentemente dalla quantità di tale velocità effettiva *usata* attivamente. A mano a mano che i modelli di carico, dati e utilizzo dell'applicazione cambiano, è possibile aumentare e ridurre facilmente la quantità di unità richiesta riservate usando il [portale di Azure](https://portal.azure.com).
+
+La modifica della velocità effettiva non influisce sulla disponibilità della raccolta. La nuova velocità effettiva riservata viene in genere applicata entro pochi secondi, in corrispondenza dell'applicazione della nuova velocità effettiva.
 
 ## <a name="request-unit-considerations"></a>Considerazioni sulle unità richiesta
 Quando si stima il numero di unità richiesta da riservare per la raccolta di DocumentDB, è importante considerare le variabili seguenti:
@@ -69,6 +117,55 @@ Un'unità di richiesta è una misura normalizzata del costo di elaborazione dell
 > La base di 1 unità richiesta per un documento da 1 KB corrisponde a una semplice operazione GET tramite collegamento automatico o ID del documento.
 > 
 > 
+
+La tabella riportata di seguito mostra il numero di unità richiesta di cui effettuare il provisioning per tre dimensioni di documento diverse, ovvero 1 KB, 4 KB e 64 KB, e due livelli di prestazioni diversi, ovvero 500 letture al secondo + 100 scritture al secondo e 500 letture al secondo + 500 scritture al secondo. La coerenza dei dati è stata configurata come Sessione e i criteri di indicizzazione sono stati impostati su Nessuno.
+
+<table border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td valign="top"><p><strong>Dimensioni del documento</strong></p></td>
+            <td valign="top"><p><strong>Letture al secondo</strong></p></td>
+            <td valign="top"><p><strong>Scritture al secondo</strong></p></td>
+            <td valign="top"><p><strong>Unità richiesta</strong></p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>1 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>100</p></td>
+            <td valign="top"><p>(500 *1) + (100* 5) = 1.000 UR/sec</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>1 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>(500 *5) + (100* 5) = 3.000 UR/sec</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>4 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>100</p></td>
+            <td valign="top"><p>(500 *1,3) + (100* 7) = 1.350 UR/sec</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>4 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>(500 *1,3) + (500* 7) = 4.150 UR/sec</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>64 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>100</p></td>
+            <td valign="top"><p>(500 *10) + (100* 48) = 9.800 UR/sec</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>64 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>(500 *10) + (500* 48) = 29.000 UR/sec</p></td>
+        </tr>
+    </tbody>
+</table>
 
 ### <a name="use-the-request-unit-calculator"></a>Usare il calcolatore di unità richiesta
 Per semplificare l'ottimizzazione delle stime di velocità effettiva da parte dei clienti, è disponibile un [calcolatore di unità richiesta](https://www.documentdb.com/capacityplanner) , che consente di stimare i requisiti relativi alle unità richiesta per operazioni tipiche, incluse le seguenti:
@@ -99,7 +196,7 @@ L'uso dello strumento è molto semplice:
 > 
 
 ### <a name="use-the-documentdb-request-charge-response-header"></a>Usare l'intestazione della risposta di addebito della richiesta di DocumentDB
-Ogni risposta dal servizio DocumentDB include un'intestazione personalizzata (x-ms-request-charge) che contiene le unità richiesta utilizzate per la richiesta. Questa intestazione è accessibile anche tramite gli SDK di DocumentDB. In .NET SDK, RequestCharge è una proprietà dell'oggetto ResourceResponse.  Per quanto riguarda le query, Esplora Query di DocumentDB nel portale di Azure fornisce informazioni sull'addebito richiesta per le query eseguite.
+Ogni risposta dal servizio DocumentDB include un'intestazione personalizzata (`x-ms-request-charge`) che contiene le unità richiesta utilizzate per la richiesta. Questa intestazione è accessibile anche tramite gli SDK di DocumentDB. In .NET SDK, RequestCharge è una proprietà dell'oggetto ResourceResponse.  Per quanto riguarda le query, Esplora Query di DocumentDB nel portale di Azure fornisce informazioni sull'addebito richiesta per le query eseguite.
 
 ![Analisi degli addebiti delle unità richiesta in Esplora Query][1]
 
@@ -119,56 +216,90 @@ Ad esempio:
 5. Registrare l'addebito delle unità richiesta di tutti gli script personalizzati (stored procedure, trigger, funzioni definite dall'utente) utilizzati dall'applicazione.
 6. Calcolare le unità richiesta necessarie in base al numero stimato di operazioni che si prevede di eseguire al secondo.
 
+### <a id="GetLastRequestStatistics"></a>Usare il comando dell'API per MongoDB
+L'API per MongoDB supporta un comando personalizzato, *getLastRequestStatistics*, per il recupero degli addebiti per le richieste per operazioni specificate.
+
+Ad esempio, in Mongo Shell eseguire l'operazione di cui si vuole verificare l'addebito per le richieste.
+```
+> db.sample.find()
+```
+
+Eseguire quindi il comando *getLastRequestStatistics*.
+```
+> db.runCommand({getLastRequestStatistics: 1})
+{
+    "_t": "GetRequestStatisticsResponse",
+    "ok": 1,
+    "CommandName": "OP_QUERY",
+    "RequestCharge": 2.48,
+    "RequestDurationInMilliSeconds" : 4.0048
+}
+```
+
+Con questa premessa, un metodo per stimare la quantità di velocità effettiva riservata richiesta dall'applicazione consiste nel registrare l'addebito delle unità richiesta associato all'esecuzione di operazioni tipiche rispetto a un documento rappresentativo usato dall'applicazione e quindi nello stimare il numero di operazioni che si prevede di eseguire al secondo.
+
+> [!NOTE]
+> Se sono presenti tipi di documenti che variano notevolmente in termini di dimensioni e numero di proprietà indicizzate, registrare l'addebito delle unità richiesta per le operazioni applicabili associato a ogni *tipo* di documento tipico.
+> 
+> 
+
+## <a name="use-api-for-mongodbs-portal-metrics"></a>Usare le metriche del portale dell'API per MongoDB
+Il modo più semplice per ottenere una stima valida degli addebiti per le unità richiesta per il database dell'API per MongoDB consiste nell'usare le metriche del [portale di Azure](https://portal.azure.com). I grafici *Numero di richieste* e *Richiedi addebito* consentono di ottenere una stima del numero di unità richiesta utilizzate da ogni operazione e dal numero di unità richiesta utilizzate una rispetto all'altra.
+
+![Metriche del portale dell'API per MongoDB][6]
+
 ## <a name="a-request-unit-estimation-example"></a>Esempio di stima delle unità richiesta
 Considerare il documento da ~1 KB seguente:
 
+```json
+{
+ "id": "08259",
+  "description": "Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX",
+  "tags": [
     {
-     "id": "08259",
-      "description": "Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX",
-      "tags": [
-        {
-          "name": "cereals ready-to-eat"
-        },
-        {
-          "name": "kellogg"
-        },
-        {
-          "name": "kellogg's crispix"
-        }
-    ],
-      "version": 1,
-      "commonName": "Includes USDA Commodity B855",
-      "manufacturerName": "Kellogg, Co.",
-      "isFromSurvey": false,
-      "foodGroup": "Breakfast Cereals",
-      "nutrients": [
-        {
-          "id": "262",
-          "description": "Caffeine",
-          "nutritionValue": 0,
-          "units": "mg"
-        },
-        {
-          "id": "307",
-          "description": "Sodium, Na",
-          "nutritionValue": 611,
-          "units": "mg"
-        },
-        {
-          "id": "309",
-          "description": "Zinc, Zn",
-          "nutritionValue": 5.2,
-          "units": "mg"
-        }
-      ],
-      "servings": [
-        {
-          "amount": 1,
-          "description": "cup (1 NLEA serving)",
-          "weightInGrams": 29
-        }
-      ]
+      "name": "cereals ready-to-eat"
+    },
+    {
+      "name": "kellogg"
+    },
+    {
+      "name": "kellogg's crispix"
     }
+  ],
+  "version": 1,
+  "commonName": "Includes USDA Commodity B855",
+  "manufacturerName": "Kellogg, Co.",
+  "isFromSurvey": false,
+  "foodGroup": "Breakfast Cereals",
+  "nutrients": [
+    {
+      "id": "262",
+      "description": "Caffeine",
+      "nutritionValue": 0,
+      "units": "mg"
+    },
+    {
+      "id": "307",
+      "description": "Sodium, Na",
+      "nutritionValue": 611,
+      "units": "mg"
+    },
+    {
+      "id": "309",
+      "description": "Zinc, Zn",
+      "nutritionValue": 5.2,
+      "units": "mg"
+    }
+  ],
+  "servings": [
+    {
+      "amount": 1,
+      "description": "cup (1 NLEA serving)",
+      "weightInGrams": 29
+    }
+  ]
+}
+```
 
 > [!NOTE]
 > I documenti sono minimizzati in DocumentDB, quindi le dimensioni del documento precedente calcolate dal sistema sono leggermente inferiori a 1 KB.
@@ -205,11 +336,11 @@ Con queste informazioni è possibile stimare i requisiti relativi alle unità ri
 | Leggere un documento |100 |100 |
 | Selezionare alimenti in base al produttore |25 |175 |
 | Selezionare per gruppo di alimenti |10 |700 |
-| Selezionare i primi 10 |15 |Totale 150 |
+| Selezionare i primi 10 |15 |Totale&150; |
 
 In questo caso, è previsto un requisito di velocità effettiva medio di 1.275 unità richiesta/secondo.  Arrotondando alle 100 più vicine, si dovrà effettuare il provisioning di 1.300 unità richiesta/secondo per la raccolta dell'applicazione.
 
-## <a name="a-idrequestratetoolargea-exceeding-reserved-throughput-limits"></a><a id="RequestRateTooLarge"></a> Superamento dei limiti della velocità effettiva riservata
+## <a id="RequestRateTooLarge"></a> Superamento dei limiti della velocità effettiva riservata in DocumentDB
 Tenere presente che il consumo delle unità richiesta è valutato in base a una frequenza al secondo. Per le applicazioni che superano il livello di unità di richiesta con provisioning per una raccolta, le richieste a tale raccolta saranno limitate fino al ritorno del livello sotto il valore riservato. Nel caso di una limitazione, il server termina preventivamente la richiesta con RequestRateTooLargeException (codice di stato HTTP 429) e restituisce l'intestazione x-ms-retry-after-ms, che indica la quantità di tempo, in millisecondi, che l'utente deve attendere prima di eseguire di nuovo la richiesta.
 
     HTTP Status 429
@@ -219,6 +350,9 @@ Tenere presente che il consumo delle unità richiesta è valutato in base a una 
 Se si usano le query LINQ e .NET SDK per client, non è quasi mai necessario gestire questa eccezione, perché la versione corrente di .NET SDK per client rileva la risposta in modo implicito, rispetta l'intestazione retry-after specificata dal server e ripete la richiesta. A meno che all'account non accedano contemporaneamente più client, il tentativo successivo riuscirà.
 
 Se più client operano collettivamente al di sopra della frequenza delle richieste, il comportamento di ripetizione dei tentativi predefinito potrebbe non essere sufficiente e il client genererà una DocumentClientException con codice di stato 429 per l'applicazione. In casi come questo, ai può valutare la possibilità di gestire la logica e il comportamento di ripetizione dei tentativi nelle routine di gestione degli errori dell'applicazione o di aumentare la velocità effettiva riservata per la raccolta.
+
+## <a id="RequestRateTooLargeAPIforMongoDB"></a> Superamento dei limiti della velocità effettiva riservata nell'API per MongoDB
+Le applicazioni che superano il livello di unità di richiesta con provisioning per una raccolta saranno limitate fino al ritorno del livello sotto il valore riservato. In caso di limitazione, il back-end terminerà preventivamente la richiesta con un codice errore *16500*, ovvero *Troppe richieste*. Per impostazione predefinita, l'API per MongoDB ripeterà automaticamente i tentativi fino a 10 volte prima di restituire un codice errore di tipo *Troppe richieste*. Se si riceve un numero eccessivo di codici errore di tipo *Troppe richieste*, è possibile prendere in considerazione l'aggiunta del comportamento di ripetizione dei tentativi nelle routine di gestione degli errori dell'applicazione oppure l'[aumento della velocità effettiva riservata per la raccolta](documentdb-set-throughput.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla velocità effettiva riservata con i database Azure DocumentDB, vedere queste risorse:
@@ -236,9 +370,5 @@ Per informazioni sulle attività iniziali relative al test delle prestazioni e d
 [3]: ./media/documentdb-request-units/RUEstimatorDocuments.png
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
 [5]: ./media/documentdb-request-units/RUCalculator2.png
-
-
-
-<!--HONumber=Jan17_HO2-->
-
+[6]: ./media/documentdb-request-units/api-for-mongodb-metrics.png
 

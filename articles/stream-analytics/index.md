@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: Documentazione di Analisi di flusso di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come eseguire analisi IoT nel cloud con un&quot;elaborazione degli eventi completamente gestita. Analisi in tempo reale da applicazioni, sensori, dispositivi e altro ancora.
+services: stream-analytics
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: stream-analytics
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 7095a55d9ea79bfd11b429d4fa53e04c482fbbea
+ms.sourcegitcommit: 4835208ce6dcff978cb7b4d722763f705dc6dd33
+ms.openlocfilehash: 8cfa25410edc7c54e9139a596ab39d8d580f44a5
 
 ---
 
@@ -124,13 +135,14 @@ Informazioni su come eseguire analisi Internet delle cose (IoT) nel cloud con an
 
 ---
 
-<h2>riferimento</h2>
+<h2>Riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="Command-Line</h3>
+                    <div class="cardText">
+                        <h3>Riga di comando</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics">PowerShell</a></p>
                     </div>
                 </div>
@@ -141,7 +153,8 @@ Informazioni su come eseguire analisi Internet delle cose (IoT) nel cloud con an
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="Languages</h3>
+                    <div class="cardText">
+                        <h3>Lingue</h3>
                         <p><a href="/dotnet/api/streamanalytics.tests.operationtests">.NET</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/dn834998">Linguaggio di query</a></p>
                     </div>
@@ -153,7 +166,8 @@ Informazioni su come eseguire analisi Internet delle cose (IoT) nel cloud con an
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="REST</h3>
+                    <div class="cardText">
+                        <h3>REST</h3>
                         <p><a href="/rest/api/streamanalytics">Informazioni di riferimento sulle API REST</a></p>
                     </div>
                 </div>
@@ -166,6 +180,6 @@ Informazioni su come eseguire analisi Internet delle cose (IoT) nel cloud con an
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

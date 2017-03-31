@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: c78ec37c-9a8c-4bb6-9e38-0bdb9e89fbd7
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,8 +17,9 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0d5b68d26d708a28edee13ff3d9a57588ce83e12
-ms.openlocfilehash: be8146ae3dd34f4c8d5e02b06fd1b1f8d5d63dc1
+ms.sourcegitcommit: 110f3aa9ce4848c9350ea2e560205aa762decf7a
+ms.openlocfilehash: 163bf5b8d2884f678f7fea2207055eeb78b4e8ba
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -40,11 +42,11 @@ Mahout è una libreria di [apprendimento automatico][ml] per Apache Hadoop. Maho
 
 Per altre informazioni sulla versione di Mahout in HDInsight, vedere l'articolo relativo a [versioni di HDInsight e componenti di Hadoop](hdinsight-component-versioning.md).
 
-## <a name="a-namerecommendationsaunderstanding-recommendations"></a><a name="recommendations"></a>Informazioni sulle raccomandazioni
+## <a name="recommendations"></a>Informazioni sulle raccomandazioni
 
-Una delle funzioni fornite da Mahout è un motore di raccomandazione. Questo motore accetta i dati nei formati `userID`, `itemId` e `prefValue` (la preferenza degli utenti per l'elemento). Mahout può quindi eseguire l'analisi delle co-occorrenze per determinare che gli *utenti con una preferenza per un elemento hanno anche una preferenza per altri elementi*. Mahout determina quindi gli utenti con preferenze di elementi simili, che possono essere usate per le raccomandazioni.
+Una delle funzioni fornite da Mahout è un motore di raccomandazione. Questo motore accetta i dati nei formati `userID`, `itemId` e `prefValue` (la preferenza per l'elemento). Mahout può quindi eseguire l'analisi delle co-occorrenze per determinare che gli *utenti con una preferenza per un elemento hanno anche una preferenza per altri elementi*. Mahout determina quindi gli utenti con preferenze di elementi simili, che possono essere usate per le raccomandazioni.
 
-Il flusso di lavoro seguente costituisce un esempio molto semplice di uso dei dati relativi ai film.
+Il flusso di lavoro seguente costituisce un esempio semplificato che usa dati relativi ai film:
 
 * **Co-occorrenza**: a Joe, Alice e Bob piacciono *Guerre stellari*, *L'Impero colpisce ancora* e *Il ritorno dello Jedi*. Mahout determina che agli utenti a cui piace uno di questi film piacciono anche gli altri due.
 
@@ -56,7 +58,7 @@ Il flusso di lavoro seguente costituisce un esempio molto semplice di uso dei da
 
 [GroupLens Research][movielens] fornisce i dati di classificazione dei film in un formato compatibile con Mahout. Questi dati sono disponibili nello spazio di archiviazione predefinito del cluster in `/HdiSamples/HdiSamples/MahoutMovieData`.
 
-Sono disponibili due file, `moviedb.txt` (informazioni sui film) e `user-ratings.txt`. Il file user-ratings.txt viene usato durante l'analisi, mentre moviedb.txt viene usato per offrire informazioni di testo descrittive quando si visualizzano i risultati dell'analisi.
+Sono disponibili due file: `moviedb.txt` e `user-ratings.txt`. Il file user-ratings.txt viene usato durante l'analisi, mentre moviedb.txt viene usato per offrire informazioni di testo descrittive quando si visualizzano i risultati dell'analisi.
 
 I dati contenuti in user-ratings.txt presentano una struttura `userID`, `movieID`, `userRating` e `timestamp` che indica come ogni utente ha classificato un film. Di seguito è riportato un esempio dei dati:
 
@@ -94,92 +96,92 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
    
     La prima colonna rappresenta il valore `userID`. I valori racchiusi tra "[" e "]" sono `movieId`:`recommendationScore`.
 
-2. È possibile usare l'output, insieme a moviedb.txt, per visualizzare altre informazioni descrittive. È necessario innanzitutto copiare i file localmente usando i comandi seguenti:
-    
-    ```bash
-    hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
-    hdfs dfs -get /HdiSamples/HdiSamples/MahoutMovieData/* .
-    ```
+2. È possibile usare l'output, insieme a moviedb.txt, per fornire altre informazioni sulle raccomandazioni. È necessario innanzitutto copiare i file localmente usando i comandi seguenti:
 
-    I dati di output vengono copiati in un file denominato **recommendations.txt** nella directory corrente insieme ai file dei dati relativi ai film.
+   ```bash
+   hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
+   hdfs dfs -get /HdiSamples/HdiSamples/MahoutMovieData/* .
+   ```
 
-3. Usare il comando seguente per creare un nuovo script Python che cerca i nomi dei film per i dati presenti nell'output delle raccomandazioni:
-   
-    ```bash
-    nano show_recommendations.py
-    ```
+    I dati di output vengono copiati da questo comando in un file denominato **recommendations.txt** nella directory corrente insieme ai file dei dati relativi ai film.
+
+3. Usare il comando seguente per creare uno script Python che cerca i nomi dei film per i dati presenti nell'output delle raccomandazioni:
+
+   ```bash
+   nano show_recommendations.py
+   ```
 
     All'apertura dell'editor usare il testo seguente come contenuto del file:
-    
-    ```python
-    #!/usr/bin/env python
 
-    import sys
+   ```python
+   #!/usr/bin/env python
 
-    if len(sys.argv) != 5:
-            print "Arguments: userId userDataFilename movieFilename recommendationFilename"
-            sys.exit(1)
+   import sys
 
-    userId, userDataFilename, movieFilename, recommendationFilename = sys.argv[1:]
+   if len(sys.argv) != 5:
+        print "Arguments: userId userDataFilename movieFilename recommendationFilename"
+        sys.exit(1)
 
-    print "Reading Movies Descriptions"
-    movieFile = open(movieFilename)
-    movieById = {}
-    for line in movieFile:
-            tokens = line.split("|")
-            movieById[tokens[0]] = tokens[1:]
-    movieFile.close()
+   userId, userDataFilename, movieFilename, recommendationFilename = sys.argv[1:]
 
-    print "Reading Rated Movies"
-    userDataFile = open(userDataFilename)
-    ratedMovieIds = []
-    for line in userDataFile:
-            tokens = line.split("\t")
-            if tokens[0] == userId:
-                    ratedMovieIds.append((tokens[1],tokens[2]))
-    userDataFile.close()
+   print "Reading Movies Descriptions"
+   movieFile = open(movieFilename)
+   movieById = {}
+   for line in movieFile:
+       tokens = line.split("|")
+       movieById[tokens[0]] = tokens[1:]
+   movieFile.close()
 
-    print "Reading Recommendations"
-    recommendationFile = open(recommendationFilename)
-    recommendations = []
-    for line in recommendationFile:
-            tokens = line.split("\t")
-            if tokens[0] == userId:
-                    movieIdAndScores = tokens[1].strip("[]\n").split(",")
-                    recommendations = [ movieIdAndScore.split(":") for movieIdAndScore in movieIdAndScores ]
-                    break
-    recommendationFile.close()
+   print "Reading Rated Movies"
+   userDataFile = open(userDataFilename)
+   ratedMovieIds = []
+   for line in userDataFile:
+       tokens = line.split("\t")
+       if tokens[0] == userId:
+           ratedMovieIds.append((tokens[1],tokens[2]))
+   userDataFile.close()
 
-    print "Rated Movies"
-    print "------------------------"
-    for movieId, rating in ratedMovieIds:
-            print "%s, rating=%s" % (movieById[movieId][0], rating)
-    print "------------------------"
+   print "Reading Recommendations"
+   recommendationFile = open(recommendationFilename)
+   recommendations = []
+   for line in recommendationFile:
+       tokens = line.split("\t")
+       if tokens[0] == userId:
+           movieIdAndScores = tokens[1].strip("[]\n").split(",")
+           recommendations = [ movieIdAndScore.split(":") for movieIdAndScore in movieIdAndScores ]
+           break
+   recommendationFile.close()
 
-    print "Recommended Movies"
-    print "------------------------"
-    for movieId, score in recommendations:
-            print "%s, score=%s" % (movieById[movieId][0], score)
-    print "------------------------"
-    ```
+   print "Rated Movies"
+   print "------------------------"
+   for movieId, rating in ratedMovieIds:
+       print "%s, rating=%s" % (movieById[movieId][0], rating)
+   print "------------------------"
+
+   print "Recommended Movies"
+   print "------------------------"
+   for movieId, score in recommendations:
+       print "%s, score=%s" % (movieById[movieId][0], score)
+   print "------------------------"
+   ```
    
     Premere **CTRL-X**, **Y** e infine **INVIO** per salvare i dati.
-    
+
 4. Usare il comando seguente per rendere il file eseguibile:
    
-    ```bash
-    chmod +x show_recommendations.py
-    ```
+   ```bash
+   chmod +x show_recommendations.py
+   ```
 
 5. Eseguire lo script Python. Il comando seguente presuppone che l'utente si trovi nella directory in cui sono stati scaricati tutti i file:
    
-    ```bash
-    ./show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
-    ```
+   ```bash
+   ./show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
+   ```
     
     Questo comando esamina le raccomandazioni generate per l'ID utente 4.
    
-   * Il file **user-ratings.txt** viene usato per recuperare i film classificati dall'utente.
+   * Il file **user-ratings.txt** viene usato per recuperare i film che sono stati classificati.
 
    * Il file **moviedb.txt** viene usato per recuperare i nomi dei film.
 
@@ -266,10 +268,5 @@ A questo punto, dopo aver appreso come usare Mahout, trovare altri modi per usar
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
 [tools]: https://github.com/Blackmist/hdinsight-tools
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

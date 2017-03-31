@@ -1,5 +1,5 @@
 ---
-title: Linee guida sulle convenzioni di denominazione dell&quot;infrastruttura di Azure | Documentazione Microsoft
+title: 'Linee guida per la denominazione dell&quot;infrastruttura di Azure: Windows | Microsoft Docs'
 description: Informazioni sulle principali linee guida di progettazione e implementazione per la denominazione nei servizi di infrastruttura di Azure.
 documentationcenter: 
 services: virtual-machines-windows
@@ -13,15 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/17/2017
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 310dc34634f7104ddfc7dfab13f09ab945b53cf4
-ms.openlocfilehash: 1f456fc982f185e1c68aca91650f73e2d1bb5947
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: e335ecafdd6347bf8b839f50bf36e3d5e2cd42fa
+ms.lasthandoff: 03/18/2017
 
 
 ---
-# <a name="azure-infrastructure-naming-guidelines"></a>Linee guida sulle convenzioni di denominazione dell'infrastruttura di Azure
+# <a name="azure-infrastructure-naming-guidelines-for-windows-vms"></a>Linee guida sulle convenzioni di denominazione dell'infrastruttura di Azure per macchine virtuali Windows
+
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Questo articolo è incentrato sulla comprensione dell'approccio alle convenzioni di denominazione delle varie risorse di Azure per la creazione di un set di risorse logico e facilmente identificabile all'interno dell'ambiente.
@@ -95,7 +98,7 @@ Nel caso in cui viene creata una macchina virtuale da un file immagine con esten
 È consigliabile che il nome della VM di Azure e del computer del sistema operativo sottostante coincidano.
 
 ## <a name="storage-account-names"></a>Nomi account di archiviazione
-Gli account di archiviazione hanno regole speciali che ne controllano i nomi. È possibile usare solo lettere minuscole e numeri. Per altre informazioni, vedere [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account). Inoltre, il nome dell'account di archiviazione, insieme a core.windows.net, deve essere un nome DNS a livello globale valido e univoco. Ad esempio, se il nome dell'account di archiviazione è mystorageaccount, i seguenti nomi DNS risultanti devono essere univoci:
+Questa sezione non si applica a [Managed Disks di Azure](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), in quanto non si crea un account di archiviazione separato. Per i dischi non gestiti, gli account di archiviazione hanno regole speciali che ne controllano i nomi. È possibile usare solo lettere minuscole e numeri. Per altre informazioni, vedere [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account). Inoltre, il nome dell'account di archiviazione, insieme a core.windows.net, deve essere un nome DNS a livello globale valido e univoco. Ad esempio, se il nome dell'account di archiviazione è mystorageaccount, i seguenti nomi DNS risultanti devono essere univoci:
 
 * mystorageaccount.blob.core.windows.net
 * mystorageaccount.table.core.windows.net
@@ -103,10 +106,5 @@ Gli account di archiviazione hanno regole speciali che ne controllano i nomi. È
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

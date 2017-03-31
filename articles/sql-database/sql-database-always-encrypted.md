@@ -14,20 +14,16 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2016
+ms.date: 03/02/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: cffa8955cf044398e526b1ad6158eefebbf91b3b
-ms.openlocfilehash: 9cd3d1b2da7f941673003b566cd92b0eb9acf6f4
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: 02ea369d76c1fe7266e9dc0cad2c75e4b5eada6a
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Crittografia sempre attiva: Proteggere i dati sensibili nel database SQL e archiviare le chiavi di crittografia nell'archivio certificati di Windows
-> [!div class="op_single_selector"]
-> * [Insieme di credenziali chiave Azure](sql-database-always-encrypted-azure-key-vault.md)
-> * [Archivio certificati di Windows](sql-database-always-encrypted.md)
-> 
-> 
 
 Questo articolo illustra come proteggere i dati sensibili in un database SQL con la crittografia del database tramite la [procedura guidata Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx) di [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Descrive anche l'archiviazione delle chiavi di crittografia nell'archivio certificati di Windows.
 
@@ -54,7 +50,7 @@ Per questa esercitazione occorrono:
 ## <a name="create-a-blank-sql-database"></a>Creare un database SQL vuoto
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Fare clic su **Nuovo** > **Dati e archiviazione** > **Database SQL**.
-3. Creare un database **vuoto** denominato **Clinic** in un server nuovo o esistente. Per istruzioni dettagliate sulla creazione di un database nel portale di Azure, vedere [Creare un database SQL in pochi minuti](sql-database-get-started.md).
+3. Creare un database **vuoto** denominato **Clinic** in un server nuovo o esistente. Per istruzioni dettagliate sulla creazione di un database nel portale di Azure, vedere [Primo database SQL di Azure](sql-database-get-started.md).
    
     ![Creazione di un database vuoto](./media/sql-database-always-encrypted/create-database.png)
 
@@ -522,10 +518,5 @@ Dopo avere creato un database che usa la crittografia sempre attiva, è possibil
 * [Crittografia di SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Procedura guidata della crittografia sempre attiva](https://msdn.microsoft.com/library/mt459280.aspx)
 * [Blog della crittografia sempre attiva](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Aprire porte a una VM di Azure tramite PowerShell | Microsoft Docs
+title: Aprire porte a una VM tramite Azure PowerShell | Documentazione Microsoft
 description: Informazioni su come aprire una porta o creare un endpoint alla VM Windows tramite il modello di distribuzione di Azure Resource Manager e Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 78336671467db146ca4a2c54c2b422cd1dce2865
+ms.sourcegitcommit: 91c2e6f53f8ba490d2943a60c7ad519d856707b9
+ms.openlocfilehash: 0d57a27c0862b09e2628520a1e50a0cc56a55881
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -87,10 +88,5 @@ In questo esempio viene creata una regola semplice per consentire il traffico HT
 * [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 * [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md)
 * [Panoramica di Azure Resource Manager per i servizi di bilanciamento del carico](../load-balancer/load-balancer-arm.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

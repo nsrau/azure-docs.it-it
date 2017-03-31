@@ -1,6 +1,6 @@
 ---
-title: Ridimensionare i livelli di risorse per i carichi di lavoro di indicizzazione e query in Ricerca di Azure | Documentazione Microsoft
-description: "La pianificazione della capacità in Ricerca di Azure si basa su combinazioni di risorse di calcolo costituite da partizioni e repliche, in cui ogni risorsa è quotata in unità di ricerca fatturabili."
+title: "Pianificazione della capacità per Ricerca di Azure | Documentazione Microsoft"
+description: "Regolare le risorse di calcolo, ovvero partizioni e repliche, dove il prezzo di ogni risorsa è definito in unità di ricerca fatturabili, in Ricerca di Azure."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,29 +13,35 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/24/2016
+ms.date: 02/08/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 7fc643a4c852b723d030212f01e6ff475c76e1a4
-ms.openlocfilehash: 8fb3011d755dd0330e71005de4df52f59e1f7b95
+ms.sourcegitcommit: 08682b7986cc2210ed21f254e2a9a63b5355e583
+ms.openlocfilehash: bfed40417d800e86de7ef437c42162b1e1a0d886
+ms.lasthandoff: 02/24/2017
 
 ---
 
 # <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Ridimensionare i livelli di risorse per i carichi di lavoro di indicizzazione e query in Ricerca di Azure
 Dopo aver [scelto un piano tariffario](search-sku-tier.md) ed [eseguito il provisioning di un servizio di ricerca](search-create-service-portal.md), il passaggio successivo consente di aumentare il numero di repliche o partizioni usate dal servizio. Ogni livello offre un numero fisso di unità di fatturazione. Questo articolo illustra come assegnare le unità per ottenere una configurazione ottimale che bilanci i requisiti per l'esecuzione di query, indicizzazione e archiviazione.
 
-La configurazione delle risorse è disponibile se si imposta un servizio al [livello Basic](http://aka.ms/azuresearchbasic) o a uno dei [livelli Standard](search-limits-quotas-capacity.md). Per tutti i servizi fatturabili di questi livelli è possibile acquistare capacità a incrementi di *unità di ricerca* (SU). Le singole partizioni e repliche vengono considerate come una unità di ricerca. Usando un numero minore di risultati SU in una fattura proporzionalmente inferiore. La fatturazione è attiva per l'intera durata impostata per il servizio. Se temporaneamente non si usa un servizio, l'unico modo per evitare la fatturazione è eliminare il servizio e quindi ricrearlo quando sarà necessario.
+La configurazione delle risorse è disponibile se si imposta un servizio al [livello Basic](http://aka.ms/azuresearchbasic) o a uno dei [livelli Standard](search-limits-quotas-capacity.md). Per tutti i servizi fatturabili di questi livelli è possibile acquistare capacità a incrementi di *unità di ricerca* (SU). Le singole partizioni e repliche vengono considerate come una unità di ricerca. 
+
+Usando un numero minore di risultati SU in una fattura proporzionalmente inferiore. La fatturazione è attiva per l'intera durata impostata per il servizio. Se temporaneamente non si usa un servizio, l'unico modo per evitare la fatturazione è eliminare il servizio e quindi ricrearlo quando sarà necessario.
+
+> [!Note]
+> Eliminando un servizio si elimina tutto il suo contenuto. Non sono disponibili funzionalità all'interno di Ricerca di Azure per eseguire il backup e il ripristino dei dati di ricerca permanenti. Per ridistribuire un indice esistente in un nuovo servizio è necessario eseguire il programma utilizzato in origine per crearlo e caricarlo. 
 
 ## <a name="terminology-partitions-and-replicas"></a>Terminologia: partizioni e repliche
 Partizioni e repliche sono le risorse primarie alla base di un servizio di ricerca.
 
-Le *partizioni* offrono l'archiviazione degli indici e l'I/O per le operazioni di lettura e scrittura, ad esempio durante la compilazione o l'aggiornamento di un indice.
-
-*repliche* sono istanze del servizio di ricerca, usate principalmente per il bilanciamento di carico delle operazioni di query. Ogni replica ospita sempre una copia di un indice. Se si dispone di 12 repliche, si disporrà di 12 copie di ogni indice caricate nel servizio.
+| Risorsa | Definizione |
+|----------|------------|
+|*Partizioni* | Offre l'archiviazione degli indici e l'I/O per le operazioni di lettura e scrittura, ad esempio durante la compilazione o l'aggiornamento di un indice.|
+|*Repliche* | Istanze del servizio di ricerca, utilizzate principalmente per il bilanciamento di carico delle operazioni di query. Ogni replica ospita sempre una copia di un indice. Se si dispone di 12 repliche, si disporrà di 12 copie di ogni indice caricate nel servizio.|
 
 > [!NOTE]
 > Non è possibile manipolare o scegliere direttamente quali indici devono essere eseguiti su una replica. L'architettura del servizio include una copia di ogni indice in ogni replica.
->
 >
 
 ## <a name="how-to-allocate-partitions-and-replicas"></a>Modalità di allocazione di partizioni e repliche
@@ -71,7 +77,10 @@ I contratti di servizio per Ricerca di Azure sono associati a operazioni di quer
 
 ### <a name="index-availability-during-a-rebuild"></a>Disponibilità degli indici durante la ricompilazione###
 
-La disponibilità elevata per Ricerca di Azure riguarda gli aggiornamenti di query e indici che non comportano la ricompilazione di un indice. Se si aggiunge, elimina o rinomina un campo oppure si modifica il tipo di dati, sarà necessario ricompilare l'indice. A tale scopo, è necessario eliminare l'indice, ricrearlo e ricaricare i dati.
+La disponibilità elevata per Ricerca di Azure riguarda gli aggiornamenti di query e indici che non comportano la ricompilazione di un indice. Se si elimina o si rinomina un campo oppure si modifica il tipo di dati, sarà necessario ricompilare l'indice. A tale scopo, è necessario eliminare l'indice, ricrearlo e ricaricare i dati.
+
+> [!NOTE]
+> È possibile aggiungere nuovi campi a un indice di Ricerca di Azure senza ricompilare l'indice. Il valore del nuovo campo sarà null per tutti i documenti già presenti nell'indice.
 
 Per mantenere la disponibilità degli indici durante la ricompilazione, è necessario avere una copia dell'indice con un nome diverso nelle stesso servizio oppure una copia dell'indice con lo stesso nome in un servizio diverso e quindi specificare la logica di reindirizzamento o di failover nel codice.
 
@@ -119,9 +128,4 @@ Le unità di ricerca, i prezzi e le capacità sono illustrati in dettaglio nel s
 La formula per il calcolo del numero di unità di ricerca usate per combinazioni specifiche è il prodotto delle repliche e delle partizioni, vale a dire (R X P = SU). Ad esempio, tre repliche moltiplicate per tre partizioni vengono fatturate come nove unità di ricerca.
 
 Il costo per SU è determinato dal livello, con una tariffa di fatturazione per unità inferiore per il livello Basic rispetto al livello Standard. Le tariffe per ogni livello sono disponibili in [Prezzi di Ricerca](https://azure.microsoft.com/pricing/details/search/).
-
-
-
-<!--HONumber=Nov16_HO5-->
-
 

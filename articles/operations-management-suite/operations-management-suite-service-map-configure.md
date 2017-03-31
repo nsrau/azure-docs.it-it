@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: 496e00c2b9a0b374450f9a6f9dff5d41c805261c
-ms.openlocfilehash: 591f3440977b1c952b1b360f6d3f221cdbc5a7a7
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 8c9de9aa50cbc26252515d46d0d8d3a603c4e857
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -27,14 +28,14 @@ Questo articolo descrive in dettaglio come configurare l'elenco dei servizi e il
 
 
 ## <a name="connected-sources"></a>Origini connesse
-La tabella seguente descrive le origini connesse che sono supportate dalla soluzione di elenco dei servizi.
+Elenco dei servizi ottiene i dati da Microsoft Dependency Agent,  che dipende da OMS Agent per le connessioni a OMS.  È quindi necessario che OMS Agent venga installato e configurato nel server prima di Microsoft Dependency Agent.  La tabella seguente descrive le origini connesse che sono supportate dalla soluzione di elenco dei servizi.
 
 | Origine connessa | Supportato | Descrizione |
 |:--|:--|:--|
-| [Agenti Windows](../log-analytics/log-analytics-windows-agents.md) | Sì | L'elenco dei servizi analizza e raccoglie i dati dai computer agente Windows.  <br><br>Oltre all'agente OMS, gli agenti Windows richiedono Microsoft Dependency Agent.  Per un elenco completo delle versioni del sistema operativo, vedere la sezione sui [sistemi operativi supportati](#supported-operating-systems). |
-| [Agenti Linux](../log-analytics/log-analytics-linux-agents.md) | Sì | L'elenco dei servizi analizza e raccoglie i dati dai computer agente Linux.  <br><br>Oltre all'agente OMS, gli agenti Linux richiedono Microsoft Dependency Agent.  Per un elenco completo delle versioni del sistema operativo, vedere la sezione sui [sistemi operativi supportati](#supported-operating-systems). |
-| [Gruppo di gestione SCOM](../log-analytics/log-analytics-om-agents.md) | Sì | L'elenco dei servizi analizza e raccoglie i dati dagli agenti Windows e Linux in un gruppo di gestione System Center Operations Manager (SCOM) connesso. <br><br>È necessaria una connessione diretta dal computer agente SCOM a OMS. I dati vengono inviati direttamente dal gruppo di gestione al repository OMS.|
-| [Account di archiviazione di Azure](../log-analytics/log-analytics-azure-storage.md) | No | L'elenco dei servizi raccoglie i dati dai computer agente, pertanto non presenta dati che possano essere raccolti dall'archiviazione di Azure. |
+| Agenti di Windows | Sì | L'elenco dei servizi analizza e raccoglie i dati dai computer agente Windows.  <br><br>Oltre a [OMS Agent](../log-analytics/log-analytics-windows-agents.md), gli agenti Windows richiedono Microsoft Dependency Agent.  Per un elenco completo delle versioni del sistema operativo, vedere la sezione sui [sistemi operativi supportati](#supported-operating-systems). |
+| Agenti Linux | Sì | L'elenco dei servizi analizza e raccoglie i dati dai computer agente Linux.  <br><br>Oltre a [OMS Agent](../log-analytics/log-analytics-linux-agents.md), gli agenti Linux richiedono Microsoft Dependency Agent.  Per un elenco completo delle versioni del sistema operativo, vedere la sezione sui [sistemi operativi supportati](#supported-operating-systems). |
+| Gruppo di gestione SCOM | Sì | L'elenco dei servizi analizza e raccoglie i dati dagli agenti Windows e Linux in un [gruppo di gestione System Center Operations Manager (SCOM)](../log-analytics/log-analytics-om-agents.md) connesso. <br><br>È necessaria una connessione diretta dal computer agente SCOM a OMS. I dati vengono inviati direttamente dal gruppo di gestione al repository OMS.|
+| Account di archiviazione di Azure | No | L'elenco dei servizi raccoglie i dati dai computer agente, pertanto non presenta dati che possano essere raccolti dall'archiviazione di Azure. |
 
 L'elenco dei servizi supporta solo piattaforme a 64 bit.
 
@@ -49,7 +50,7 @@ Per i clienti SCOM con un gruppo di gestione connesso a OMS:
 - Se gli agenti SCOM possono accedere a Internet per connettersi al servizio OMS, non è necessaria alcuna configurazione aggiuntiva.  
 - Se gli agenti SCOM non possono accedere a OMS tramite Internet, è necessario configurare il gateway OMS per l'uso di SCOM.
   
-Se si usa l'agente diretto OMS, è necessario configurare l'agente OMS in modo che si connetta a OMS o al gateway OMS.  Il gateway OMS può essere scaricato dall'indirizzo [https://www.microsoft.com/en-us/download/details.aspx?id=52666](https://www.microsoft.com/en-us/download/details.aspx?id=52666)
+Se si usa l'agente diretto OMS, è necessario configurare l'agente OMS in modo che si connetta a OMS o al gateway OMS.  Il gateway OMS può essere scaricato dall'indirizzo [https://www.microsoft.com/download/details.aspx?id=52666](https://www.microsoft.com/download/details.aspx?id=52666)
 
 
 ### <a name="avoiding-duplicate-data"></a>Evitare dati duplicati
@@ -70,7 +71,7 @@ Anche se il computer non è specificato nella configurazione OMS della console S
 ## <a name="management-packs"></a>Management Pack
 Quando viene attivato un elenco dei servizi in un'area di lavoro OMS, un management pack da 300 KB viene inviato a tutti i Microsoft Monitoring Agent nell'area di lavoro.  Se si usano gli agenti di SCOM in un [gruppo di gestione connesso](../log-analytics/log-analytics-om-agents.md), il management pack dell'elenco dei servizi verrà distribuito da SCOM.  Se gli agenti sono connessi direttamente, il management pack verrà consegnato da OMS.
 
-Il management pack è denominato Microsoft.IntelligencePacks.ApplicationDependencyMonitor*.  Viene scritto in *%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\*.  L'origine dati utilizzata dal management pack è *%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll*.
+Il management pack è denominato Microsoft.IntelligencePacks.ApplicationDependencyMonitor*.  Viene scritto in*%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\*.  L'origine dati utilizzata dal management pack è *%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll*.
 
 
 
@@ -97,10 +98,10 @@ Dependency Agent viene installato nei computer Windows con InstallDependencyAgen
 
 Per installare Dependency Agent in ogni computer Windows, seguire questa procedura:
 
-1.  Installare l'agente OMS seguendo le istruzioni per connettere i computer direttamente a OMS.
-2.  Scaricare l'agente Windows ed eseguirlo con il comando seguente: <br>*InstallDependencyAgent-Windows.exe*
-3.  Seguire la procedura guidata per installare l'agente.
-4.  Se l'agente di dipendenza non si avvia, controllare i registri per vedere le informazioni dettagliate sull'errore. Per gli agenti Windows la directory di log è *C:\Program Files\Microsoft Dependency Agent\logs*. 
+1.    Installare l'agente OMS seguendo le istruzioni per connettere i computer direttamente a OMS.
+2.    Scaricare l'agente Windows ed eseguirlo con il comando seguente: <br>*InstallDependencyAgent-Windows.exe*
+3.    Seguire la procedura guidata per installare l'agente.
+4.    Se l'agente di dipendenza non si avvia, controllare i registri per vedere le informazioni dettagliate sull'errore. Per gli agenti Windows la directory di log è *C:\Program Files\Microsoft Dependency Agent\logs*. 
 
 L'agente di dipendenza per Windows può essere installato da un amministratore tramite il Pannello di controllo.
 
@@ -112,9 +113,9 @@ Dependency Agent viene installato nei computer Linux con InstallDependencyAgent-
  
 Per installare Dependency Agent in ogni computer Linux, seguire questa procedura:
 
-1.  Installare l'agente OMS seguendo le istruzioni per [raccogliere e gestire i dati da computer Linux.  L'agente OMS deve essere installato prima di Linux Dependency Agent](https://technet.microsoft.com/library/mt622052.aspx).
-2.  Installare Linux Dependency Agent come utente ROOT usando il comando seguente:<br>*sh InstallDependencyAgent-Linux64.bin*.
-3.  Se l'agente di dipendenza non si avvia, controllare i registri per vedere le informazioni dettagliate sull'errore. Per gli agenti Linux la directory di log è */var/opt/microsoft/dependency-agent/log*.
+1.    Installare l'agente OMS seguendo le istruzioni per [raccogliere e gestire i dati da computer Linux.  L'agente OMS deve essere installato prima di Linux Dependency Agent](https://technet.microsoft.com/library/mt622052.aspx).
+2.    Installare Linux Dependency Agent come utente ROOT usando il comando seguente:<br>*sh InstallDependencyAgent-Linux64.bin*.
+3.    Se l'agente di dipendenza non si avvia, controllare i registri per vedere le informazioni dettagliate sull'errore. Per gli agenti Linux la directory di log è */var/opt/microsoft/dependency-agent/log*.
 
 ### <a name="uninstalling-the-dependency-agent-on-linux"></a>Disinstallazione dell'agente di dipendenza in Linux
 Per disinstallare completamente Dependency Agent da Linux, è necessario rimuovere l'agente stesso e il connettore che viene installato automaticamente con l'agente.  È possibile disinstallare entrambi con il seguente comando singolo:
@@ -142,7 +143,7 @@ Eseguire l'installazione usando le opzioni della tabella seguente. Per vedere un
 
     InstallDependencyAgent-Linux64.bin -help
 
-| Descrizione del flag
+| Flag | Descrizione |
 |:--|:--|
 | -s | Eseguire un'installazione invisibile all'utente senza prompt per l'utente. |
 | --check | Controlla le autorizzazioni e il sistema operativo ma non installa l'agente. |
@@ -160,65 +161,45 @@ I file relativi a Dependency Agent sono memorizzati nelle directory seguenti.
 
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
-In caso di problemi con l'elenco dei servizi, è possibile usare le informazioni seguenti per raccogliere le informazioni sulla risoluzione da più componenti.
+Se si verificano problemi di installazione o esecuzione di Elenco dei servizi, questa sezione consente di risolvere i problemi e proseguire con l'esecuzione.  Se si non riesce a risolvere il problema, contattare il supporto tecnico Microsoft.
 
-### <a name="windows-agents"></a>Agenti di Windows
+### <a name="dependency-agent-installation-issues"></a>Problemi di installazione di Dependency Agent
+#### <a name="installer-asks-for-a-reboot"></a>Il programma di installazione richiede il riavvio
+Dependency Agent *in genere* non richiede un riavvio dopo l'installazione o la disinstallazione.  Tuttavia, in alcuni casi rari, il Server Windows può richiedere di riavviare il computer per continuare con l'installazione.  Ciò si verifica quando una dipendenza, in genere i componenti ridistribuibili di Microsoft VC++, richiede un riavvio a causa di un file bloccato.
 
-#### <a name="microsoft-dependency-agent"></a>Microsoft Dependency Agent
-Per generare dati di risoluzione dei problemi di Dependency Agent, aprire un prompt dei comandi come amministratore ed eseguire lo script CollectDependencyAgentData.vbs mediante il seguente comando.  È possibile aggiungere il flag --help per mostrare opzioni aggiuntive.
+#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--codenumber"></a>Messaggio "Unable to install Dependency Agent: Visual Studio Runtime libraries failed to install (code = [code_number])." (Impossibile installare Dependency Agent: impossibile installare le librerie del runtime di Visual Studio (codice = [code_number]).)
 
-    cd C:\Program Files\Microsoft Dependency Agent\scripts
-    cscript CollectDependencyData.vbs
+Microsoft Dependency Agent si basa sulle librerie di runtime di Microsoft Visual Studio. Si è verificato un problema durante il tentativo di installazione delle librerie. I programmi di installazione della libreria di runtime creano log nella cartella %LOCALAPPDATA%\temp. Il file sarà dd_vcredist_arch_yyyymmddhhmmss.log, in cui arch sarà "x86" oppure "amd64" e yyyymmddhhmmss sarà la data e l'ora (formato 24 ore) in cui il log è stato creato. Il log fornisce informazioni dettagliate sul problema che blocca l'installazione.
 
-Il pacchetto dei dati di supporto viene salvato nella directory %USERPROFILE% per l'utente corrente.  È possibile usare l'opzione --file <filename> per salvarlo in un'altra posizione.
+Potrebbe essere utile installare manualmente prima [la versione più recente delle librerie di runtime](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
 
-#### <a name="microsoft-dependency-agent-management-pack-for-mma"></a>Microsoft Dependency Agent Management Pack per MMA
-Microsoft Dependency Agent Management Pack si esegue all'interno di Microsoft Management Agent.  Riceve i dati da Dependency Agent e li inoltra al servizio cloud di elenco dei servizi.
-  
-Verificare che il management pack venga scaricato eseguendo la procedura seguente:
+Di seguito sono elencati alcuni code_numbers e le risoluzioni consigliate.
 
-1.  Cercare un file denominato Microsoft.IntelligencePacks.ApplicationDependencyMonitor.mp in C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs.  
-2.  Se il file non è presente e l'agente è connesso a un gruppo di gestione di SCOM, verificare che sia stato importato in SCOM controllando Management Packs nell'area di lavoro di amministrazione della Console operatore.
+| Codice | Descrizione | Risoluzione |
+|:--|:--|:--|
+| 0x17 | Il programma di installazione della libreria richiede un aggiornamento di Windows che non è stato installato. | Cercare nel log del programma di installazione della libreria più recente (vedere sopra).<br><br>Se il riferimento a "Windows8.1-KB2999226-x64.msu" è seguito da una riga "Error 0x80240017: Failed to execute MSU package." ("Errore 0x80240017: impossibile eseguire il pacchetto MSU."), consultare l'articolo della knowledge base https://support.microsoft.com/kb/2919355.<br><br>Eseguire nuovamente il programma di installazione di Microsoft Dependency Agent. |
 
-Il management pack dell'elenco dei servizi scrive gli eventi nel log eventi di Windows per Operations Manager.  Il log può essere [ricercato in OMS](../log-analytics/log-analytics-log-searches.md) mediante la soluzione del log di sistema, dove è possibile configurare quali file log caricare.  Se sono abilitati gli eventi di debug, verranno scritti nel log eventi dell'applicazione con l'origine evento *ADMConnector*.
+### <a name="post-installation-issues"></a>Problemi successivi all'installazione
+#### <a name="server-doesnt-show-in-service-map"></a>Il server non viene visualizzato nell'Elenco dei servizi
+Se l'installazione di Dependency Agent è stata completata correttamente, ma nella soluzione dell'Elenco dei servizi non viene visualizzato il server:
+1. Dependency Agent è stato installato correttamente?  È possibile verificarlo controllando se il servizio è installato ed è in esecuzione.<br><br>
+**Windows**: cercare il servizio denominato "Microsoft Dependency Agent"<br>
+**Linux**: cercare il processo in esecuzione "microsoft-dependency-agent"
 
-#### <a name="microsoft-monitoring-agent"></a>Microsoft Monitoring Agent
-Per raccogliere tracce diagnostiche, aprire un prompt dei comandi come amministratore ed eseguire i seguenti comandi: 
+2. L'utente è nel [Piano tariffario gratuito di OMS/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)?  Il piano gratuito consente di avere fino a cinque server univoci dell'Elenco dei servizi.  Tutti i server successivi non verranno visualizzati nell'Elenco dei servizi, anche se i primi cinque non inviano più dati.
 
-    cd \Program Files\Microsoft Monitoring Agent\Agent\Tools
-    net stop healthservice 
-    StartTracing.cmd ERR
-    net start healthservice
+3. Il server invia il log e i dati delle prestazioni a OMS?  Passare a Ricerca log ed eseguire la query seguente per il computer: 
 
-Le tracce vengono scritte in C:\Windows\Logs\OpsMgrTrace.  È possibile arrestare la traccia con StopTracing.cmd.
+        * Computer="<your computer name here>" | measure count() by Type
+        
+I risultati mostrano eventi diversi?  I dati sono aggiornati?  In questo caso, l'agente OMS funziona correttamente e comunica con il servizio OMS. In caso contrario, controllare l'agente OMS sul server: [Risoluzione dei problemi dell'agente OMS per Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).  [Risoluzione dei problemi dell'agente OMS per Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
 
+#### <a name="server-shows-in-service-map-but-has-no-processes"></a>Il server viene visualizzato nell'Elenco dei servizi, ma non dispone di alcun processo
+Se il server viene visualizzato nell'Elenco dei servizi, ma non presenta processi o dati di connessione, vuol dire che Dependency Agent è installato ed è in esecuzione, ma non è stato caricato il driver del kernel.  Per scoprire il motivo per cui il driver non è stato caricato, controllare il file wrapper.log (Windows) o il file service.log (Linux).  Le ultime righe del file devono indicare il motivo (ad esempio il kernel non è supportato, un problema che si verifica in Linux se il kernel è stato aggiornato) per cui il kernel non è stato caricato.
 
-### <a name="linux-agents"></a>Agenti Linux
+Windows: C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log
 
-#### <a name="microsoft-dependency-agent"></a>Microsoft Dependency Agent
-Per generare dati di risoluzione dei problemi dall'agente di dipendenza, accedere con un account dotato di privilegi sudo o root ed eseguire il comando seguente.  È possibile aggiungere il flag --help per mostrare opzioni aggiuntive.
-
-    /opt/microsoft/dependency-agent/scripts/collect-dependency-agent-data.sh
-
-Il pacchetto dei dati di supporto viene salvato in /var/opt/microsoft/dependency-agent/log (utente root) sotto la directory di installazione dell'agente o nella home directory dell'utente che esegue lo script (utente non root).  È possibile usare l'opzione --file <filename> per salvarlo in un'altra posizione.
-
-#### <a name="microsoft-dependency-agent-fluentd-plug-in-for-linux"></a>Plug-in Microsoft Dependency Agent Fluentd per Linux
-Il plug-in Dependency Agent Fluentd si esegue all'interno dell'agente OMS Linux.  Riceve i dati da Dependency Agent e li inoltra al servizio cloud di elenco dei servizi.  
-
-I log vengono scritti nei due file seguenti.
-
-- /var/opt/microsoft/omsagent/log/omsagent.log
-- /var/log/messages
-
-#### <a name="oms-agent-for-linux"></a>Agente OMS per Linux
-Una risorsa di risoluzione dei problemi per la connessione di server Linux a OMS è disponibile qui: [https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md) 
-
-I log per l'agente OMS per Linux si trovano in */var/opt/microsoft/omsagent/log/*.  
-
-I log per omsconfig (configurazione dell'agente) si trovano in */var/opt/microsoft/omsconfig/log/*.
- 
-Il log per i componenti OMI e SCX che forniscono dati relativi alle metriche di prestazioni si trovano in */var/opt/omi/log/* e */var/opt/microsoft/scx/log*.
-
+Linux: /var/opt/microsoft/dependency-agent/log/service.log
 
 ## <a name="data-collection"></a>Raccolta dei dati
 È possibile aspettarsi che ogni agente trasmetta circa 25 MB al giorno, in base alla complessità delle dipendenze del sistema.  I dati sulle dipendenze dell'elenco dei servizi vengono inviati da ogni agente ogni 15 secondi.  
@@ -227,7 +208,7 @@ Dependency Agent usa in genere lo 0,1% della memoria di sistema e lo 0,1% della 
 
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
-Le sezioni seguenti elencano i sistemi operativi supportati per l'agente di dipendenza.   Le architetture a&32; bit non sono supportate per nessun sistema operativo.
+Le sezioni seguenti elencano i sistemi operativi supportati per l'agente di dipendenza.   Le architetture a 32 bit non sono supportate per nessun sistema operativo.
 
 ### <a name="windows-server"></a>Windows Server
 - Windows Server 2016
@@ -255,6 +236,7 @@ Le sezioni seguenti elencano i sistemi operativi supportati per l'agente di dipe
 | 7.0 | 3.10.0-123 |
 | 7.1 | 3.10.0-229 |
 | 7,2 | 3.10.0-327 |
+| 7.3 | 3.10.0-514 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 | Versione sistema operativo | Versione del kernel |
@@ -275,7 +257,7 @@ Le sezioni seguenti elencano i sistemi operativi supportati per l'agente di dipe
 | 5.8 | 2.6.18-308 |
 | 5.9 | 2.6.18-348 |
 | 5.10 | 2.6.18-371 |
-| 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416 |
+| 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417<br>2.6.18-419 |
 
 #### <a name="oracle-enterprise-linux-w-unbreakable-kernel-uek"></a>Oracle Enterprise Linux con Unbreakable Kernel (UEK)
 
@@ -322,9 +304,4 @@ Per altre informazioni sulla raccolta dei dati e sull'utilizzo, vedere l'[Inform
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su come [usare l'elenco dei servizi](operations-management-suite-service-map.md) una volta distribuito e configurato.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

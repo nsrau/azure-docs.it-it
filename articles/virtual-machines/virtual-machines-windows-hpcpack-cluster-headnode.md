@@ -16,8 +16,9 @@ ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 3d8300bbb54bd88e6ff3844208ec5d5fa25c5e8d
-ms.openlocfilehash: d935f45f87558dd7f9838ad3b370de0d9a7870a1
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 84d909b3eaa17cb4a1b8a4465615001896000dca
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: d935f45f87558dd7f9838ad3b370de0d9a7870a1
 Usare un'[immagine di macchina virtuale Microsoft HPC Pack 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) in Azure Marketplace e nel portale di Azure per creare il nodo head di un cluster HPC. L'immagine di macchina virtuale HPC Pack è basata su Windows Server 2012 R2 Datacenter con HPC Pack 2012 R2 Update 3 preinstallato. Usare questo nodo head per una distribuzione basata sul modello di verifica di HPC Pack in Azure. Sarà quindi possibile aggiungere nodi di calcolo al cluster per eseguire carichi di lavoro HPC.
 
 > [!TIP]
-> Per distribuire un cluster HPC Pack 2012 R2 completo in Azure che include il nodo head e nodi di calcolo, si consiglia di usare un metodo automatizzato. Le opzioni includono lo [script di distribuzione di HPC Pack IaaS](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) e i modelli di Resource Manager, ad esempio il [cluster HPC Pack per i carichi di lavoro di Windows](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/). I modelli di Resource Manager sono disponibili anche per i [cluster Microsoft HPC Pack 2016](https://github.com/MsHpcPack/HPCPack2016/tree/master/newcluster-templates). 
+> Per distribuire un cluster HPC Pack 2012 R2 completo in Azure che include il nodo head e nodi di calcolo, si consiglia di usare un metodo automatizzato. Le opzioni includono lo [script di distribuzione di HPC Pack IaaS](windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) e i modelli di Resource Manager, ad esempio il [cluster HPC Pack per i carichi di lavoro di Windows](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/). I modelli di Resource Manager sono disponibili anche per i [cluster Microsoft HPC Pack 2016](https://github.com/MsHpcPack/HPCPack2016/tree/master/newcluster-templates). 
 > 
 > 
 
@@ -75,15 +76,10 @@ Di seguito sono indicati i principali passaggi per usare il portale di Azure per
 
 ## <a name="next-steps"></a>Passaggi successivi
 * È ora possibile interagire con il nodo head del cluster HPC Pack. Ad esempio, avviare Gestione cluster HPC e completare l' [elenco delle attività di distribuzione](https://technet.microsoft.com/library/jj884141.aspx).
-* Se si desidera aumentare la capacità di calcolo del cluster su richiesta, aggiungere [nodi "burst" di Azure](virtual-machines-windows-classic-hpcpack-cluster-node-burst.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) in un servizio cloud. 
+* Se si desidera aumentare la capacità di calcolo del cluster su richiesta, aggiungere [nodi "burst" di Azure](windows/classic/hpcpack-cluster-node-burst.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) in un servizio cloud. 
 * Provare a eseguire un carico di lavoro di test nel cluster. Per un esempio vedere la [guida introduttiva](https://technet.microsoft.com/library/jj884144)a HPC Pack.
 
 <!--Image references-->
 [headnode]: ./media/virtual-machines-windows-hpcpack-cluster-headnode/headnode.png
 [marketplace]: ./media/virtual-machines-windows-hpcpack-cluster-headnode/marketplace.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

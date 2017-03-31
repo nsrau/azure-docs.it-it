@@ -1,35 +1,10 @@
 ---
-title: Domande frequenti sulle macchine virtuali classiche | Microsoft Docs
-description: Risposte ad alcune delle domande comuni sulle macchine virtuali Linux di Azure create con un modello di distribuzione classica.
-services: virtual-machines-linux
-documentationcenter: 
-author: cynthn
-manager: timlt
-editor: 
-tags: azure-service-management
-ms.assetid: b3f281a1-4abe-4e41-82e8-b2b854dd8c7a
-ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: na
-ms.topic: article
-ms.date: 07/28/2016
-ms.author: cynthn
+redirect_url: /azure/virtual-machines/linux/classic/faq
+redirect_document_id: true
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 1941fae336bac00edec9cd43d3a40167dfc6834d
-
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 377530fbfb2391cd10f8799df62a504ba5e0a961
+ms.lasthandoff: 03/27/2017
 
 ---
-# <a name="frequently-asked-question-about-azure-linux-virtual-machines-created-with-the-classic-deployment-model"></a>Domande frequenti sulle macchine virtuali Linux di Azure create con il modello di distribuzione classica
-> [!IMPORTANT] 
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Per le domande frequenti quando si usa il modello di Gestione risorse, vedere [qui](virtual-machines-linux-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-[!INCLUDE [virtual-machines-common-classic-faq](../../includes/virtual-machines-common-classic-faq.md)]
-
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

@@ -1,6 +1,6 @@
 ---
-title: Creare una funzione di Azure associata a un servizio di Azure | Documentazione Microsoft
-description: Compilare una funzione di Azure, un&quot;applicazione senza server, che interagisce con altri servizi di Azure.
+title: Creare una funzione che connette ai servizi di Azure | Documentazione Microsoft
+description: Usare Funzioni di Azure per creare un&quot;applicazione senza server che connette ad altri servizi di Azure.
 services: functions
 documentationcenter: dev-center-name
 author: yochay
@@ -14,28 +14,26 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/06/2016
-ms.author: rachelap@microsoft.com
+ms.date: 03/01/2017
+ms.author: rachelap; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: f46a67f2591ef98eeda03f5c3bc556d5b8bcc096
-ms.openlocfilehash: 4e0dd8b922107b232a120c25d1f656c5d667748b
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 4bea7f73871f8bfc755f30b9ef41a1960893152e
+ms.lasthandoff: 03/06/2017
 
 
 ---
-# <a name="create-an-azure-function-connected-to-an-azure-service"></a>Creare una funzione di Azure connessa a un servizio di Azure
+# <a name="use-azure-functions-to-create-a-function-that-connects-to-other-azure-services"></a>Usare Funzioni di Azure per creare una funzione che connette ad altri servizi di Azure
 
-Questo argomento illustra come creare una funzione di Azure che ascolta i messaggi in una coda di Azure e li copia nelle righe di una tabella di Archiviazione di Azure. Per caricare i messaggi nella coda viene usata una funzione attivata da un timer. Una seconda funzione legge i messaggi dalla coda e li scrive nella tabella. Sia la coda che la tabella vengono create da funzioni di Azure sulla base delle definizioni di associazione. 
+Questo argomento illustra come creare una funzione in Funzioni di Azure che ascolta i messaggi in una coda di Azure e li copia nelle righe di una tabella di Archiviazione di Azure. Per caricare i messaggi nella coda viene usata una funzione attivata da un timer. Una seconda funzione legge i messaggi dalla coda e li scrive nella tabella. Sia la coda che la tabella vengono create da funzioni di Azure sulla base delle definizioni di associazione. 
 
-Per rendere le cose più interessanti, una funzione è scritta in JavaScript e l'altra in C#. Questo dimostra che un'app per le funzioni può avere funzioni scritte in linguaggi diversi.
+Per rendere le cose più interessanti, una funzione è scritta in JavaScript e l'altra in C#. Questo dimostra che un'app per le funzioni può avere funzioni scritte in linguaggi diversi. 
 
-## <a name="watch-the-video"></a>Video
->[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player]
->
->
+È possibile vedere la dimostrazione di questo scenario in un [video di Channel 9](https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player).
 
 ## <a name="create-a-function-that-writes-to-the-queue"></a>Creare una funzione che scrive nella coda
 
-Prima di connettersi a una coda di archiviazione, è necessario creare una funzione che carica la coda di messaggi. La funzione JavaScript usa un trigger basato su timer che scrive un messaggio nella coda ogni 10 secondi. Se non si dispone già di un account Azure, consultare [Prova Funzioni di Azure](https://functions.azure.com/try) oppure [creare un account Azure gratuito](https://azure.microsoft.com/free/).
+Prima di connettersi a una coda di archiviazione, è necessario creare una funzione che carica la coda di messaggi. La funzione JavaScript usa un trigger basato su timer che scrive un messaggio nella coda ogni 10 secondi. Se non si dispone già di un account Azure, vedere [Prova Funzioni di Azure](https://functions.azure.com/try) oppure [creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
 1. Passare al portale di Azure e trovare l'app per le funzioni.
 
@@ -128,7 +126,7 @@ Dopo aver aggiunto i messaggi alla coda, è possibile creare un'altra funzione c
 
     ![Aggiungere un'associazione a una tabella di Archiviazione di Azure](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png) 
 
-2. Immettere `TableItem` per **Nome tabella** e `functionbindings` per **Nome del parametro della tabella**, scegliere una **Connessione dell'account di archiviazione** o crearne una nuova e quindi fare clic su **Salva**.
+2. Immettere `functionbindings` per **Nome tabella** e `myTable` per **Nome del parametro della tabella**, scegliere una **Connessione dell'account di archiviazione** o crearne una nuova e quindi fare clic su **Salva**.
 
     ![Configurare l'associazione della tabella di archiviazione](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab2.png)
    
@@ -183,20 +181,15 @@ Dopo aver aggiunto i messaggi alla coda, è possibile creare un'altra funzione c
 [!INCLUDE [More binding information](../../includes/functions-bindings-next-steps.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere gli argomenti seguenti per altre informazioni su Funzioni di Azure.
+Per altre informazioni su Funzioni di Azure, vedere gli argomenti seguenti:
 
 * [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)  
-   Informazioni di riferimento per programmatori in merito alla codifica delle funzioni e alla definizione di trigger e associazioni.
+  Informazioni di riferimento per programmatori in merito alla codifica delle funzioni e alla definizione di trigger e associazioni.
 * [Test di Funzioni di Azure](functions-test-a-function.md)  
-   Descrive diversi strumenti e tecniche per il test delle funzioni.
+  Descrive diversi strumenti e tecniche per il test delle funzioni.
 * [Come aumentare le prestazioni di Funzioni di Azure](functions-scale.md)  
   Presenta i piani di servizio disponibili con Funzioni di Azure, tra cui il piano di hosting A consumo, e spiega come scegliere quello più appropriato. 
 
 [!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

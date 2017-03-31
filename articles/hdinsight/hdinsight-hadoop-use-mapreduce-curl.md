@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: bc6daf37-fcdc-467a-a8a8-6fb2f0f773d1
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,8 +17,9 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
-ms.openlocfilehash: ae39e06022a8bf53832283173dc97ef8c0e0b9ef
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 41733f76e5f0c82c5321158d6a919f35f6faee3a
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -32,14 +34,14 @@ Curl viene usato per illustrare come sia possibile interagire con HDInsight usan
 > Se si ha già familiarità con l'uso di server Hadoop basati su Linux, ma non si ha esperienza con HDInsight, vedere [Informazioni utili su Hadoop basato su Linux in HDInsight](hdinsight-hadoop-linux-information.md).
 
 
-## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Prerequisiti
+## <a id="prereq"></a>Prerequisiti
 Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
 
 * Un cluster Hadoop in HDInsight
 * [Curl](http://curl.haxx.se/)
 * [jq](http://stedolan.github.io/jq/)
 
-## <a name="a-idcurlarun-mapreduce-jobs-using-curl"></a><a id="curl"></a>Eseguire processi MapReduce mediante Curl
+## <a id="curl"></a>Eseguire processi MapReduce mediante Curl
 > [!NOTE]
 > Quando si usa Curl o qualsiasi altra forma di comunicazione REST con WebHCat, è necessario autenticare le richieste fornendo il nome utente e la password da amministratore del cluster HDInsight. È inoltre necessario specificare il nome del cluster come parte dell'URI usato per inviare le richieste al server.
 > 
@@ -91,7 +93,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
    > 
 4. Dopo che lo stato del processo risulta essere **SUCCEEDED**, è possibile recuperare i risultati del processo dall'archivio BLOB di Azure. Il parametro `statusdir` passato con la query contiene il percorso del file di output, in questo caso **wasbs:///example/curl**. Questo indirizzo consente di archiviare l'output del processo nella directory **example/curl** del contenitore di archiviazione predefinito usato dal cluster HDInsight.
 
-È possibile elencare e scaricare questi file usando l' [Interfaccia della riga di comando di Azure](../xplat-cli-install.md). Ad esempio, per elencare i file contenuti in **example/curl**, usare il seguente comando:
+È possibile elencare e scaricare questi file usando l' [Interfaccia della riga di comando di Azure](../cli-install-nodejs.md). Ad esempio, per elencare i file contenuti in **example/curl**, usare il seguente comando:
 
     azure storage blob list <container-name> example/curl
 
@@ -104,12 +106,12 @@ Per scaricare un file, usare il comando seguente:
 > 
 > 
 
-## <a name="a-idsummaryasummary"></a><a id="summary"></a>Riepilogo
+## <a id="summary"></a>Riepilogo
 Come illustrato in questo documento, è possibile usare una richiesta HTTP non elaborata per eseguire, monitorare e visualizzare i risultati dei processi Hive nel cluster HDInsight.
 
 Per altre informazioni sull'interfaccia REST usata in questo articolo, vedere le [informazioni di riferimento su WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Passaggi successivi
+## <a id="nextsteps"></a>Passaggi successivi
 Per informazioni generali sui processi MapReduce in HDInsight:
 
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
@@ -118,10 +120,5 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
 * [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

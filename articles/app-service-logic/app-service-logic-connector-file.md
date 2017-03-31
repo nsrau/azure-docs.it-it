@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/01/2016
 ms.author: rajram
 translationtype: Human Translation
-ms.sourcegitcommit: 7ff7874538f23c8dd8c4aaa789018c77dfe2ab9a
-ms.openlocfilehash: 61410d8b3c4a2a800d8fc9804fc9e7c72bd8abe4
+ms.sourcegitcommit: 5b1b65e3d1066bea6958fa6461a157ee39fbe7dc
+ms.openlocfilehash: 35bd4561f6e8f4482cb084eb293b506eb9269cf7
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -59,7 +60,7 @@ Per altre informazioni su come configurare e risolvere i problemi relativi a Ges
 Dopo aver creato l'app per le API, è possibile usare il connettore File come azione per l'app per la logica. A questo scopo, è necessario:
 
 1. Creare una nuova app per la logica e scegliere lo stesso gruppo di risorse del connettore File. Seguire le istruzioni per [creare una nuova app per la logica].
-2. Aprire "Trigger e azioni" all'interno dell'app per la logica appena creata per visualizzare la finestra di progettazione delle app per la logica e configurare il flusso.
+2. Aprire "Trigger e azioni" all'interno dell'app per la logica appena creata per visualizzare la finestra di progettazione dell'app per la logica e configurare il flusso.
 3. Il connettore File viene visualizzato nella sezione relativa alle app per le API nel gruppo di risorse nella raccolta a destra.
 4. È possibile trascinare l'app per le API del connettore file nell'editor facendo clic su "File Connector" (Connettore file). Il connettore file espone un trigger e 4 azioni:   
    ![][5]
@@ -98,11 +99,6 @@ Per informazioni di riferimento sull'API REST Swagger, vedere [Informazioni di r
 
 <!-- Links -->
 [creare una nuova app per la logica]: app-service-logic-create-a-logic-app.md
-[File connector API definition]: https://msdn.microsoft.com/library/dn936296.aspx
+[definizione delle API del connettore file]: https://msdn.microsoft.com/library/dn936296.aspx
 [uso di Gestione connessione ibrida]: ../app-service-web/web-sites-hybrid-connection-get-started.md
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

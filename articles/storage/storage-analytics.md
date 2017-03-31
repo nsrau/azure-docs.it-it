@@ -1,5 +1,5 @@
 ---
-title: Usare Analisi archiviazione per raccogliere dati di metriche e log | Microsoft Docs
+title: Usare Analisi archiviazione di Azure per raccogliere dati di metriche e log | Microsoft Docs
 description: Analisi archiviazione consente di tenere traccia dei dati delle metriche per tutti i servizi di archiviazione e di raccogliere i log per l&quot;archiviazione di BLOB, code e tabelle.
 services: storage
 documentationcenter: 
@@ -12,16 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 03/03/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: af5fae5c5153c91fe78bdfb310c407a2c4462e04
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 4680985e5c66444ca8a356cc92d45dc0f1838f55
+ms.lasthandoff: 03/06/2017
 
 
 ---
-# <a name="storage-analytics"></a>Analisi archiviazione
-## <a name="overview"></a>Overview
+# <a name="storage-analytics"></a>di Analisi archiviazione
+
 Analisi archiviazione di Azure esegue la registrazione e fornisce le metriche dei dati per un account di archiviazione. È possibile utilizzare questi dati per tenere traccia delle richieste, analizzare le tendenze d'uso e diagnosticare i problemi relativi al proprio account di archiviazione.
 
 Per utilizzare Analisi archiviazione, è necessario abilitarla singolarmente per ciascun servizio che si desidera monitorare. È possibile abilitarlo dal [portale di Azure](https://portal.azure.com). Per informazioni dettagliate, vedere [Monitorare un account di archiviazione nel portale di Azure](storage-monitor-storage-account.md). È inoltre possibile abilitare Analisi archiviazione a livello di codice tramite l'API REST o la libreria client. Usare le operazioni [Get Blob Service Properties](https://msdn.microsoft.com/library/hh452239.aspx), [Get Queue Service Properties](https://msdn.microsoft.com/library/hh452243.aspx), [Get Table Service Properties](https://msdn.microsoft.com/library/hh452238.aspx) e [Get File Service Properties](https://msdn.microsoft.com/library/mt427369.aspx) per abilitare Analisi archiviazione per ciascun servizio.
@@ -150,7 +151,7 @@ Tutti i dati delle metriche per ciascun servizio di archiviazione vengono archiv
 
 | Livello metrica | Nomi tabella | Versioni supportate |
 | --- | --- | --- |
-| Metriche orarie, posizione principale |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/>  $MetricsTransactionsQueue |Solo le versioni precedenti al 15-08-2013. Sebbene tali nomi siano supportati, è consigliabile passare all'utilizzo delle tabelle elencate di seguito. |
+| Metriche orarie, posizione principale |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue |Solo le versioni precedenti al 15-08-2013. Sebbene tali nomi siano supportati, è consigliabile passare all'utilizzo delle tabelle elencate di seguito. |
 | Metriche orarie, posizione principale |$MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue |Tutte le versioni, inclusa quella del 15-08-2013. |
 | Metriche per minuto, posizione principale |$MetricsMinutePrimaryTransactionsBlob <br/>$MetricsMinutePrimaryTransactionsTable <br/>$MetricsMinutePrimaryTransactionsQueue |Tutte le versioni, inclusa quella del 15-08-2013. |
 | Metriche orarie, posizione secondaria |$MetricsHourSecondaryTransactionsBlob  <br/>$MetricsHourSecondaryTransactionsTable <br/>$MetricsHourSecondaryTransactionsQueue |Tutte le versioni, inclusa quella del 15-08-2013. Deve essere abilitata la replica con accesso in lettura con ridondanza geografica. |
@@ -163,7 +164,7 @@ Tali tabelle vengono create automaticamente quando viene abilitato Analisi archi
 Tutti i dati delle tabelle delle metriche sono accessibili mediante le API del servizio di tabelle, incluse le API .NET fornite dalla libreria gestita di Azure. L'amministratore dell'account di archiviazione può leggere ed eliminare le entità di tabella, ma non può crearle né aggiornarle.
 
 ## <a name="billing-for-storage-analytics"></a>Fatturazione per Analisi archiviazione
-Analisi archiviazione viene abilitata dal proprietario di un account di archiviazione; non viene abilitato per impostazione predefinita. Tutti i dati delle metriche vengono scritti dai servizi di un account di archiviazione. Di conseguenza, ogni operazione di scrittura eseguita da Analisi archiviazione è fatturabile. Inoltre, anche la quantità di archiviazione utilizzata dai dati delle metriche è fatturabile.
+Tutti i dati delle metriche vengono scritti dai servizi di un account di archiviazione. Di conseguenza, ogni operazione di scrittura eseguita da Analisi archiviazione è fatturabile. Inoltre, anche la quantità di archiviazione utilizzata dai dati delle metriche è fatturabile.
 
 Le seguenti azioni eseguite da Analisi archiviazione sono fatturabili:
 
@@ -191,10 +192,5 @@ Quando si osservano i dati di Analisi archiviazione, è possibile utilizzare le 
 * [Informazioni sulle metriche di Analisi archiviazione](https://msdn.microsoft.com/library/hh343258.aspx)
 * [Schema di tabella della metrica di Analisi di archiviazione](https://msdn.microsoft.com/library/hh343264.aspx)
 * [Operazioni registrate di Analisi archiviazione e messaggi di stato](https://msdn.microsoft.com/library/hh343260.aspx)  
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -366,6 +366,6 @@ In questa esercitazione sono state analizzate le funzionalità di base di Azure 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

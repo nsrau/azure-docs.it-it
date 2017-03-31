@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 3/1/2017
 ms.author: mcoskun
 translationtype: Human Translation
 ms.sourcegitcommit: 615e7ea84aae45f384edb671a28e4ff98b4ade3a
 ms.openlocfilehash: 9cb940a07bf9a5d624669816161450b33e862626
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -102,7 +103,7 @@ Nell'esempio precedente **ExternalBackupStore** corrisponde alla classe di esemp
 
 Si noti che:
 
-* In un dato momento può essere in corso una sola operazione di backup per replica. Più chiamate** BackupAsync** contemporanee provocheranno l'eccezione **FabricBackupInProgressException** che richiede di limitare a una le esecuzioni dei backup.
+* In un dato momento può essere in corso una sola operazione di backup per replica. Più chiamate**BackupAsync** contemporanee provocheranno l'eccezione **FabricBackupInProgressException** che richiede di limitare a una le esecuzioni dei backup.
 * In caso di failover di una replica durante l'esecuzione di un backup, è possibile che il backup non venga completato. Al termine del failover, il servizio dovrà quindi riavviare il backup richiamando **BackupAsync** , se necessario.
 
 ## <a name="restore-reliable-services"></a>Ripristinare Reliable Services
@@ -273,10 +274,5 @@ Questo passaggio assicura che lo stato ripristinato sia coerente.
 * [Notifiche di Reliable Services](service-fabric-reliable-services-notifications.md)
 * [Configurazione di Reliable Services](service-fabric-reliable-services-configuration.md)
 * [Guida di riferimento per gli sviluppatori per Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

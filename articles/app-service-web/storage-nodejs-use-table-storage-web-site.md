@@ -13,11 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 01867f283678171eda8fb9798ea996cae605665a
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 3f0183c2c88819dfc67886676fd8c69b246537b6
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -38,7 +39,7 @@ Di seguito è riportata l'applicazione completata:
 ![Pagina Web con un elenco di attività vuoto][node-table-finished]
 
 > [!NOTE]
-> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 
@@ -462,7 +463,7 @@ In questo passaggio verrà scaricato un file contenente informazioni sulla sotto
 
 1. Immettere il comando seguente:
    
-        azure account download
+        azure login
    
     Questo comando consente di avviare un browser e di passare alla pagina per il download. Se richiesto, accedere con l'account associato alla sottoscrizione di Azure.
    
@@ -567,7 +568,7 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
 [for free]: http://windowsazure.com
 [GIT remoto]: http://git-scm.com/docs/git-remote
 
-[Interfaccia della riga di comando di Azure]: ../xplat-cli-install.md
+[Interfaccia della riga di comando di Azure]:../cli-install-nodejs.md
 
 [azure]: https://github.com/Azure/azure-sdk-for-node
 [node-uuid]: https://www.npmjs.com/package/node-uuid
@@ -591,9 +592,4 @@ Nei passaggi di questo articolo viene descritto come archiviare informazioni tra
 [web-configure]: ./media/storage-nodejs-use-table-storage-web-site/sql-task-configure.png
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -1,10 +1,10 @@
 ---
-title: Distribuire un array virtuale di Microsoft Azure StorSimple 1 - Preparazione del portale| Documentazione Microsoft
+title: Preparazione del portale per l&quot;array virtuale StorSimple | Documentazione Microsoft
 description: La prima esercitazione per la distribuzione dell&quot;array virtuale StorSimple include la preparazione del portale di Azure
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
 ms.service: storsimple
@@ -12,19 +12,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 97e29de986ab43ee51a311dee8d2cbf66f7408e4
+ms.sourcegitcommit: d8acfd6e0206e8e97b7d49e280a7e72e0acadb6d
+ms.openlocfilehash: 9ce5278e66afb81c5cbfe3662c6654d39bbc9a54
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="deploy-storsimple-virtual-array---prepare-the-portal"></a>Distribuire StorSimple Virtual Array: preparare il portale
+# <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Distribuire l'array virtuale StorSimple: preparare il portale di Azure
 
 ![](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
-Questo è il primo articolo della serie di esercitazioni necessarie per la distribuzione completa dell'array virtuale come file server o server iSCSI tramite il modello di Resource Manager. Questo articolo illustra la preparazione necessaria per creare e configurare il servizio StorSimple Manager prima di eseguire il provisioning di un array virtuale. Questo articolo contiene anche i collegamenti a un elenco di controllo configurazione della distribuzione e i prerequisiti di configurazione.
+Questo è il primo articolo della serie di esercitazioni necessarie per la distribuzione completa dell'array virtuale come file server o server iSCSI tramite il modello di Resource Manager. Questo articolo illustra la preparazione necessaria per creare e configurare il servizio Gestione dispositivi StorSimple prima di eseguire il provisioning di un array virtuale. Questo articolo contiene anche i collegamenti a un elenco di controllo configurazione della distribuzione e i prerequisiti di configurazione.
 
 Per completare il processo di installazione e configurazione sono necessari privilegi di amministratore. Si consiglia di consultare l'elenco di controllo configurazione della distribuzione prima di iniziare. La preparazione del portale richiede meno di 10 minuti.
 
@@ -72,7 +74,7 @@ Prima di distribuire un array virtuale, è necessario:
 * Il sistema host è in grado di dedicare le risorse seguenti per eseguire il provisioning dell'array virtuale:
   
   * Un minimo di 4 memorie centrali.
-  * Almeno 8 GB di RAM.
+  * Almeno 8 GB di RAM. Se si prevede di configurare la matrice virtuale come file server, 8 GB supportano 2 milioni di file. Sono necessari 16 GB di RAM per supportare un piano da 2-4 milioni di file.
   * Un'interfaccia di rete.
   * Un disco virtuale da 500 GB per i dati di sistema.
 
@@ -168,10 +170,5 @@ Il passaggio successivo riguarda il provisioning di una macchina virtuale per l'
 
 * [Eseguire il provisioning di un array virtuale StorSimple in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
 * [Eseguire il provisioning di un array virtuale StorSimple in VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

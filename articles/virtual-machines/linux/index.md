@@ -1,25 +1,36 @@
 ---
-layout: LandingPage
+title: Documentazione di Macchine virtuali di Azure per Linux - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come creare una macchina virtuale con la distribuzione Linux di propria scelta. I documenti mostrano modi diversi per creare modelli di macchine virtuali.
-title: 'Documentazione di Macchine virtuali di Azure per Linux: esercitazioni e riferimento per le API | Documentazione Microsoft'
-services: virtual-machines-linux
+services: virtual-machines\linux
 author: carolz
 manager: carolz
+layout: LandingPage
 ms.assetid: 
-ms.service: virtual-machines-linux
+ms.service: virtual-machines\linux
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 9bb4fb611c4f936317460040c4fbeff1a01f2c5c
-ms.openlocfilehash: 2728b18011e712d9f23f7645f8c83b053b3cf381
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: a83884a61475d6bc06e405bc7c72d4ac2435c398
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="linux-virtual-machine-documentation"></a>Documentazione delle macchine virtuali Linux
 
+<div class="introHolder">
+    <div class="intro">
 Informazioni su come eseguire macchine virtuali in Azure con la distribuzione Linux di propria scelta. Documenti, informazioni di riferimento sulle API e campioni mostrano i diversi modi per creare e distribuire i modelli di macchine virtuali.
+    </div>
+    <div class="calloutHolder">
+        <div class="callout">
+            <a href="https://azure.microsoft.com/community/training/courses/managing-infrastructure-microsoft-azure-getting-started/">
+                <img src="media/index/pluralsight.svg" /> Training video gratuito PluralSight: Gestione dell'infrastruttura con Microsoft Azure </a>
+        </div>
+    </div>
+</div>
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -33,7 +44,7 @@ Informazioni su come eseguire macchine virtuali in Azure con la distribuzione Li
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Creare una VM Linux usando l'interfaccia della riga di comando di Azure 2.0 (anteprima)</h3>
+                        <h3>Creare una VM Linux usando l'interfaccia della riga di comando di Azure 2.0</h3>
                     </div>
                 </div>
             </div>
@@ -106,8 +117,8 @@ Informazioni su come eseguire macchine virtuali in Azure con la distribuzione Li
                 <div class="card">
                     <div class="cardText">
                         <h3>Riga di comando</h3>
-                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
                         <p><a href="/cli/azure/vm">Interfaccia della riga di comando di Azure</a></p>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -142,10 +153,5 @@ Informazioni su come eseguire macchine virtuali in Azure con la distribuzione Li
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -4,6 +4,7 @@ ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
 ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
 ms.openlocfilehash: 4c7b8965b7fe5de7a8ff839be2b9e555bd8d502c
+ms.lasthandoff: 01/21/2017
 
 
 
@@ -56,10 +57,5 @@ L'indicizzazione di DocumentDB è progettata per l'efficienza di archiviazione e
 * Scaricare ["Indicizzazione senza schema con Azure DocumentDB"](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)che verrà presentato alla 41a Conferenza Internazionale VLDB, 31 agosto - 4 settembre 2015.
 * [Eseguire query con DocumentDB SQL](documentdb-sql-query.md)
 * Informazioni su come personalizzare l'indice di DocumentDB [qui](documentdb-indexing-policies.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

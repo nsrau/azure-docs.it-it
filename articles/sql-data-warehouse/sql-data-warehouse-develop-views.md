@@ -1,5 +1,5 @@
 ---
-title: Viste in SQL Data Warehouse | Documentazione Microsoft
+title: Uso di viste T-SQL in Azure SQL Data Warehouse | Documentazione Microsoft
 description: Suggerimenti per l&quot;uso di viste Transact-SQL in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eada95920b3f539c70776964eb62ff9e4d219ddd
+ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
+ms.openlocfilehash: 902929fba9e2486d97323ab52505ba6db3fe0aab
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: eada95920b3f539c70776964eb62ff9e4d219ddd
 Le viste sono particolarmente utili in SQL Data Warehouse. Risultano utili in molti modi diversi per migliorare la qualità della soluzione.  Questo articolo contiene alcuni esempi che illustrano come migliorare la soluzione con le viste e le limitazioni da prendere in considerazione.
 
 > [!NOTE]
-> La sintassi per `CREATE VIEW` non viene illustrata in questo articolo. Per informazioni di riferimento, vedere l'articolo relativo a [CREATE VIEW][CREATE VIEW] in MSDN.
+> La sintassi per `CREATE VIEW` non viene illustrata in questo articolo. Per informazioni di riferimento, vedere l'articolo su [CREATE VIEW][CREATE VIEW] in MSDN.
 > 
 > 
 
@@ -66,13 +66,13 @@ Le viste in SQL Data Warehouse sono solo metadati.  Di conseguenza, le opzioni s
 * Non sono disponibili viste indicizzate in SQL Data Warehouse
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][Panoramica sullo sviluppo per SQL Data Warehouse].
-Per la sintassi di `CREATE VIEW`, vedere l'articolo relativo a [CREATE VIEW][CREATE VIEW].
+Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][SQL Data Warehouse development overview].
+Per la sintassi di `CREATE VIEW`, vedere [CREATE VIEW][CREATE VIEW].
 
 <!--Image references-->
 
 <!--Article references-->
-[Panoramica sullo sviluppo per SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [CREATE VIEW]: https://msdn.microsoft.com/en-us/library/ms187956.aspx
@@ -81,6 +81,6 @@ Per la sintassi di `CREATE VIEW`, vedere l'articolo relativo a [CREATE VIEW][CRE
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

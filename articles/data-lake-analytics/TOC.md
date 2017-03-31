@@ -53,8 +53,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [Commenti e suggerimenti su UserVoice](https://feedback.azure.com/forums/327234-data-lake)
 ## [Blog di Azure Data Lake](https://blogs.msdn.microsoft.com/azuredatalake/)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -1,5 +1,5 @@
 ---
-title: "Impostazione di proprietà e metadati durante il processo di Importazione/Esportazione di Azure | Documentazione Microsoft"
+title: "Impostazione delle proprietà e dei metadati usando Importazione/Esportazione di Azure | Documentazione Microsoft"
 description: "Informazioni su come specificare le proprietà e i metadati da impostare nei BLOB di destinazione quando si esegue lo strumento Importazione/Esportazione di Azure per preparare le unità."
 author: muralikk
 manager: syadav
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 41bc5585f3d9dea2a08dc8a6bc1e4fdf9f0c8fc4
-ms.openlocfilehash: 2f597da2c056a2b4ea2af751e955fafdd7016744
+ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
+ms.openlocfilehash: 26fb4d030341001238e7206c3856597c95d84719
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -75,9 +76,4 @@ K:\Temp\FavoriteVideo.ISO,https://mystorageaccount.blob.core.windows.net/favorit
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Import-Export Service Metadata and Properties File format](storage-import-export-file-format-metadata-and-properties.md) (Formato dei file di proprietà e metadati del servizio Importazione/Esportazione)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

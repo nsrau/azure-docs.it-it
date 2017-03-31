@@ -1,5 +1,5 @@
 ---
-title: Nodi Linux nei pool di Azure Batch | Documentazione Microsoft
+title: Eseguire Linux nei nodi di calcolo della macchina virtuale | Documentazione Microsoft
 description: Informazioni su come elaborare i carichi di lavoro di calcolo paralleli nei pool di macchine virtuali Linux in Azure Batch.
 services: batch
 documentationcenter: python
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eb041d3ee7e097a05bcaeb57f170e26652fa5551
-ms.openlocfilehash: 251c454b0502746817ad5c97f1b3367eba98ac92
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 4e0194f98ebcaffba2c5a89833a969112294e83a
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="provision-linux-compute-nodes-in-azure-batch-pools"></a>Effettuare il provisioning di nodi di calcolo Linux nei pool di Azure Batch
+# <a name="provision-linux-compute-nodes-in-batch-pools"></a>Eseguire il provisioning di nodi di calcolo Linux nei pool di Batch
+
 È possibile usare Azure Batch per eseguire carichi di lavoro di calcolo paralleli in macchine virtuali Linux e Windows. Questo articolo illustra in dettaglio come creare pool di nodi di calcolo Linux nel servizio Batch usando le librerie client [Batch Python][py_batch_package] e [Batch .NET][api_net].
 
 > [!NOTE]
@@ -348,9 +351,4 @@ Il [forum di Azure Batch][forum] su MSDN consente di seguire discussioni su Batc
 [py_list_skus]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations.list_node_agent_skus
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 [vm_pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

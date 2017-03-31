@@ -3,7 +3,7 @@ title: Informazioni generali sul benchmark del database SQL di Azure
 description: Questo argomento illustra il benchmark ASDB (Azure SQL Database Benchmark) usato per la misurazione delle prestazioni del database SQL di Azure.
 services: sql-database
 documentationcenter: na
-author: CarlRabeler
+author: jan-eng
 manager: jhubbard
 editor: monicar
 ms.assetid: e26f8a66-2c12-49d7-8297-45b4d48a5c01
@@ -14,10 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 06/21/2016
-ms.author: carlrab
+ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: cbe53ce7f259432085a828ef8c1fe3ae2da42074
+ms.sourcegitcommit: 2681dd3792a351fecc0c72eb7fe546113a451d24
+ms.openlocfilehash: 7b9b222be1a131d2a80d37404cbdd309b61785f3
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -42,7 +43,7 @@ Il benchmark ASDB misura le prestazioni di una combinazione di operazioni di dat
 ## <a name="schema"></a>Schema
 Lo schema è progettato in modo da prevedere una varietà e una complessità sufficienti per supportare una vasta gamma di operazioni. Il benchmark viene eseguito a fronte di un database costituito da sei tabelle. Le tabelle rientrano in tre categorie, ovvero a dimensione fissa, ridimensionabili ed espandibili. Sono presenti due tabelle a dimensione fissa, tre tabelle ridimensionabili e una tabella espandibile. Le tabelle a dimensione fissa includono un numero costante di righe. Le tabelle ridimensionabili prevedono una cardinalità proporzionale alle prestazioni del database che però non cambia durante l'esecuzione del benchmark. La tabella espandibile ha le dimensioni di una tabella ridimensionabile con carico iniziale, ma successivamente la cardinalità cambia nel corso dell'esecuzione del benchmark con l'inserimento e l'eliminazione di righe.
 
-Lo schema include una combinazione di tipi di dati, tra cui valori integer, valori numerici, caratteri e valori di data/ora. Include chiavi primarie e secondarie, ma non chiavi esterne. Non esistono pertanto vincoli di integrità referenziale tra le tabelle.
+Lo schema include una combinazione di tipi di dati, tra cui valori integer, valori numerici, caratteri e valori di data/ora. Sono incluse chiavi primarie e secondarie, ma non chiavi esterne e non esistono pertanto vincoli di integrità referenziale tra le tabelle.
 
 Un programma di generazione di dati genera i dati per il database iniziale. I dati integer e numeric vengono generati con diverse strategie. In alcuni casi, i valori vengono distribuiti in modo casuale su un intervallo. In altri casi, un insieme di valori viene permutato in modo casuale per garantire che venga mantenuta una distribuzione specifica. I campi di testo vengono generati da un elenco ponderato di parole per produrre dati realistici.
 
@@ -131,10 +132,5 @@ Il benchmark ASDB misura le prestazioni relative del database SQL di Azure in es
 
 [Livelli di servizio e livelli di prestazioni](sql-database-service-tiers.md)
 
-[Indicazioni sulle prestazioni per database autonomi](sql-database-performance-guidance.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
+[Indicazioni sulle prestazioni per database singoli](sql-database-performance-guidance.md)
 

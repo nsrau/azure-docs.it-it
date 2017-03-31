@@ -1,6 +1,6 @@
 ---
-title: Assegnare licenze per Azure MFA | Microsoft Docs
-description: Informazioni su come assegnare licenze utente per Microsoft Azure Multi-Factor Authentication.
+title: Assegnare licenze per Azure MFA | Documentazione Microsoft
+description: Informazioni su come assegnare licenze agli utenti per Microsoft Azure multi-Factor Authentication.
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/17/2016
+ms.date: 02/13/2017
 ms.author: kgremban
+ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c93db18866478556e91da8acbc9f0c749b65dc62
-
+ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
+ms.openlocfilehash: 536968a803e14019c42e7beed4c948ab760cf020
+ms.lasthandoff: 02/15/2017
 
 ---
 # <a name="assigning-an-azure-mfa-azure-ad-premium-or-enterprise-mobility-license-to-users"></a>Assegnazione di una licenza di Azure MFA, Azure AD Premium o Enterprise Mobility Suite agli utenti
@@ -38,9 +39,6 @@ Se sono state acquistate licenze di Azure MFA, Azure AD Premium o Enterprise Mob
 9. Verrà visualizzato un messaggio che indica quante licenze sono state assegnate e quante non sono riuscite.  Fare clic su **OK**.
    ![Assegnare licenze](./media/multi-factor-authentication-get-started-assign-licenses/assign5.png)
 
+## <a name="next-steps"></a>Passaggi successivi
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-
+- Per altre informazioni, vedere [Che cosa sono le licenze di Microsoft Azure Active Directory?](../active-directory/active-directory-licensing-what-is.md)

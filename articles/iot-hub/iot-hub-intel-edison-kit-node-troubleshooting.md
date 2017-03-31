@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi dello starter kit di Azure IoT per Intel Edison | Documentazione Microsoft
+title: 'Connettere Intel Edison (Node) ad Azure IoT: lezione 4: Risoluzione dei problemi | Documentazione Microsoft'
 description: Pagina sulla risoluzione dei problemi per Node.js in Intel Edison
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: f45b3bf00d619376ac07418f0c02eca5f3241939
-ms.openlocfilehash: e37d21e22b63c552e3de99c08862f3acaabd3598
+ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
+ms.openlocfilehash: d77ee0be35a3f4b38c50cf9322124e4dfbba6ddc
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -153,8 +154,3 @@ Tornare a [Introduzione a Intel Edison (Node.js)](iot-hub-intel-edison-kit-node-
 <!-- Images and links -->
 
 [sample-repository]: https://github.com/Azure-Samples/iot-hub-node-edison-getting-started
-
-
-<!--HONumber=Dec16_HO2-->
-
-

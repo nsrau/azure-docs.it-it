@@ -1,5 +1,5 @@
 ---
-title: Ottenere gli strumenti (macOS 10.10) | Documentazione Microsoft
+title: 'Connettere Raspberry Pi (C) ad Azure IoT: lezione 1: Ottenere gli strumenti (macOS) | Documentazione Microsoft'
 description: Scaricare e installare il software e gli strumenti necessari per la prima applicazione di esempio per Pi in macOS.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 155e5d6280d86b06b1718fc3032c2c224539183d
-ms.openlocfilehash: bcb0b09468364cf13aff3987aeb7dd74e551cf9d
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 20cf1fd57f37c84342ba08954a913c0eceba415f
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -85,10 +86,5 @@ Sono stati installati gli strumenti di sviluppo e il software necessari per la p
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Creare e distribuire l'applicazione per il lampeggiamento](iot-hub-raspberry-pi-kit-c-lesson1-deploy-blink-app.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

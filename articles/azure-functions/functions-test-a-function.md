@@ -14,125 +14,112 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/10/2016
+ms.date: 02/02/2017
 ms.author: wesmc
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 7e9534afa8ecd224b4e3c1df2f4465b70d961d2c
-ms.openlocfilehash: b3b0251436497cfdfb36369a05e01519c631e351
+ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
+ms.openlocfilehash: a58bf41ec11b5826b60c1fc999240ea655be6d9d
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="testing-azure-functions"></a>Test di Funzioni di Azure
-## <a name="overview"></a>Overview
-In questa esercitazione si apprenderanno diversi approcci ai test delle funzioni. Verrà definita una funzione trigger HTTP che accetta l'input tramite un parametro della stringa di query o il corpo della richiesta. Il codice del modello predefinito di **funzione HttpTrigger Node.js** supporta il parametro della stringa di query `name`. Verrà anche aggiunto il codice per supportare tale parametro insieme a informazioni relative al parametro `address` per l'utente nel corpo della richiesta.
+# <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategie per il test del codice in Funzioni di Azure
+
+Questo argomento illustra i vari modi per eseguire il test delle funzioni e include gli approcci generali seguenti:
+
++ Strumenti basati su HTTP, ad esempio cURL, Postman e persino un browser Web per i trigger basati sul Web
++ Esplora archivi di Azure per testare i trigger basati sull'Archiviazione di Azure
++ Scheda test nel portale Funzioni di Azure
++ Funzione attivata tramite timer
++ Test dell'applicazione o del framework
+
+Tutti questi metodi di test usano una funzione trigger HTTP che accetta l'input tramite un parametro della stringa di query o il corpo della richiesta. Questa funzione verrà creata nella prima sezione.
 
 ## <a name="create-a-function-for-testing"></a>Creare una funzione per i test
-Per la maggior parte di questa esercitazione si userà una versione leggermente modificata del modello di **funzione HttpTrigger Nodejs** disponibile quando si crea una nuova funzione.  Se occorrono suggerimenti per la creazione di una nuova funzione, è possibile vedere l'esercitazione [Creare la prima funzione di Azure](functions-create-first-azure-function.md) .  Scegliere semplicemente il modello di **funzione HttpTrigger Nodejs** quando si crea la funzione di test nel [portale di Azure].
+Per la maggior parte di questa esercitazione si userà una versione leggermente modificata del modello di funzione HttpTrigger JavaScript disponibile quando si crea una funzione. Se occorre assistenza nella creazione di una funzione, rivedere questa [esercitazione](functions-create-first-azure-function.md). Scegliere il modello **HttpTrigger- JavaScript** quando si crea la funzione di test nel [Portale di Azure].
 
 Il modello di funzione predefinito è fondamentalmente una funzione Hello World che restituisce il nome dal parametro della stringa query o del corpo della richiesta, `name=<your name>`.  Il codice verrà aggiornato per consentire all'utente di fornire anche il nome e un indirizzo come contenuto JSON nel corpo della richiesta. La funzione restituirà quindi queste informazioni al client, se disponibile.   
 
 Aggiornare la funzione con il codice seguente che verrà usato per il test:
 
 ```javascript
-module.exports = function(context, req) {
-    context.log("Node.js HTTP trigger function processed a request. RequestUri=%s", req.originalUrl);
-    context.log("Request Headers = " + JSON.stringify(req.headers));    
+module.exports = function (context, req) {
+    context.log("HTTP trigger function processed a request. RequestUri=%s", req.originalUrl);
+    context.log("Request Headers = " + JSON.stringify(req.headers));
+    var res;
 
     if (req.query.name || (req.body && req.body.name)) {
         if (typeof req.query.name != "undefined") {
             context.log("Name was provided as a query string param...");
-            ProcessNewUserInformation(context, req.query.name);
+            res = ProcessNewUserInformation(context, req.query.name);
         }
         else {
             context.log("Processing user info from request body...");
-            ProcessNewUserInformation(context, req.body.name, req.body.address);
+            res = ProcessNewUserInformation(context, req.body.name, req.body.address);
         }
     }
     else {
-        context.res = {
+        res = {
             status: 400,
             body: "Please pass a name on the query string or in the request body"
         };
     }
-    context.done();
+    context.done(null, res);
 };
+function ProcessNewUserInformation(context, name, address) {
+    context.log("Processing user information...");
+    context.log("name = " + name);
+    var echoString = "Hello " + name;
+    var res;
 
-function ProcessNewUserInformation(context, name, address)
-{    
-    context.log("Processing User Information...");            
-    context.log("name = " + name);            
-    echoString = "Hello " + name;
-
-    if (typeof address != "undefined")
-    {
+    if (typeof address != "undefined") {
         echoString += "\n" + "The address you provided is " + address;
-        context.log("address = " + address);            
+        context.log("address = " + address);
     }
-
-    context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: echoString
-        };
+    res = {
+        // status: 200, /* Defaults to 200 */
+        body: echoString
+    };
+    return res;
 }
 ```
 
 ## <a name="test-a-function-with-tools"></a>Eseguire il test di una funzione con gli strumenti
-### <a name="test-with-curl"></a>Eseguire il test con cURL
-Spesso, quando si eseguono test del software, non è necessario eseguire ricerche particolari al di là della riga di comando per eseguire il debug dell'applicazione. L'approccio è analogo per le funzioni.
-
-Per testare la funzione precedente, copiare l' **URL funzione** dal portale. Avrà il formato seguente:
-
-    https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
-
-Questo è l'URL per attivare la funzione. È possibile testarlo con il comando cURL dalla riga di comando per eseguire una richiesta Get (`-G` o `--get`) sulla funzione:
-
-    curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
-
-L'esempio particolare precedente richiede un parametro della stringa di query che può essere passato come dati (`-d`) nel comando cURL:
-
-    curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code> -d name=<Enter a name here>
-
-Premere INVIO per visualizzare l'output della funzione nella riga di comando.
-
-![](./media/functions-test-a-function/curl-test.png)
-
-Nella finestra **Log** del portale viene registrato un output simile al seguente durante l'esecuzione della funzione:
-
-    2016-04-05T21:55:09  Welcome, you are now connected to log-streaming service.
-    2016-04-05T21:55:30.738 Function started (Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
-    2016-04-05T21:55:30.738 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/HttpTriggerNodeJS1?code=XXXXXXX&name=Azure Functions
-    2016-04-05T21:55:30.738 Function completed (Success, Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
+All'esterno del Portale di Azure, sono disponibili vari strumenti che è possibile usare per attivare le funzioni di test. Questi includono gli strumenti di test HTTP (sia basati su interfaccia utente sia sulla riga di comando), strumenti di accesso all'Archiviazione di Azure e un semplice browser Web.
 
 ### <a name="test-with-a-browser"></a>Eseguire il test con un browser
-Le funzioni che non richiedono parametri o richiedono solo parametri della stringa di query possono essere testate con un browser.
+Il browser web è un modo semplice per attivare le funzioni tramite HTTP. È possibile usare un browser per le richieste GET per cui non è necessario un payload del corpo e che usi solo i parametri di stringa della query.
 
-Per testare la funzione definita sopra, copiare l' **URL funzione** dal portale. Avrà il formato seguente:
+Per testare la funzione definita in precedenza, copiare l'**URL funzione** dal portale, che si presenta nel formato seguente:
 
     https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
 
-Aggiungere il parametro della stringa di query `name` come indicato di seguito, usando un nome effettivo per il segnaposto `<Enter a name here>`.
+Aggiungere il parametro `name` alla stringa di query. Usare un nome effettivo per il segnaposto `<Enter a name here>`.
 
     https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>&name=<Enter a name here>
 
 Incollare l'URL nel browser. Verrà restituita una risposta simile alla seguente.
 
-![](./media/functions-test-a-function/browser-test.png)
+![Schermata della scheda del browser Chrome con risposta del test](./media/functions-test-a-function/browser-test.png)
+
+Questo esempio è relativo al browser Chrome, che ha restituito la stringa in XML. Altri browser mostrano solo il valore della stringa.
 
 Nella finestra **Log** del portale viene registrato un output simile al seguente durante l'esecuzione della funzione:
 
     2016-03-23T07:34:59  Welcome, you are now connected to log-streaming service.
     2016-03-23T07:35:09.195 Function started (Id=61a8c5a9-5e44-4da0-909d-91d293f20445)
-    2016-03-23T07:35:10.338 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==&name=Wes from a browser
+    2016-03-23T07:35:10.338 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==&name=Glenn from a browser
     2016-03-23T07:35:10.338 Request Headers = {"cache-control":"max-age=0","connection":"Keep-Alive","accept":"text/html","accept-encoding":"gzip","accept-language":"en-US"}
     2016-03-23T07:35:10.338 Name was provided as a query string param.
     2016-03-23T07:35:10.338 Processing User Information...
     2016-03-23T07:35:10.369 Function completed (Success, Id=61a8c5a9-5e44-4da0-909d-91d293f20445)
 
 ### <a name="test-with-postman"></a>Eseguire il test con Postman
-Postman è lo strumento consigliato per testare la maggior parte delle funzioni. Per installare Postman, vedere la pagina dalla quale è possibile [ottenere Postman](https://www.getpostman.com/). Postman consente di controllare molti più attributi di una richiesta HTTP.
+Postman, che si integra on il browser Chrome, è lo strumento consigliato per testare la maggior parte delle funzioni. Per installare Postman, vedere la pagina dalla quale è possibile [ottenere Postman](https://www.getpostman.com/). Postman consente di controllare molti più attributi di una richiesta HTTP.
 
 > [!TIP]
-> Usare il client REST preferito. Ecco alcune alternative a Postman:  
+> Usare lo strumento di test HTTP con cui si ha maggiore familiarità. Ecco alcune alternative a Postman:  
 >
 > * [Fiddler](http://www.telerik.com/fiddler)  
 > * [Paw](https://luckymarmot.com/paw)  
@@ -142,27 +129,27 @@ Postman è lo strumento consigliato per testare la maggior parte delle funzioni.
 Per testare la funzione con un corpo della richiesta in Postman:
 
 1. Avviare Postman dal pulsante **App** nell'angolo in alto a sinistra di una finestra del browser Chrome.
-2. Copiare l' **URL funzione** e incollarlo in Postman. Include il parametro della stringa di query del codice di accesso.
+2. Copiare l'**URL funzione** e incollarlo in Postman. Include il parametro della stringa di query del codice di accesso.
 3. Modificare il metodo HTTP in **POST**.
 4. Fare clic su **Body** > **raw** e aggiungere il corpo della richiesta JSON simile al seguente:
-    
+
     ```json
     {
         "name" : "Wes testing with Postman",
-        "address" : "Seattle, W.A. 98101"
+        "address" : "Seattle, WA 98101"
     }
     ```
-5. Fare clic su **Invia**.
+5. Fare clic su **Send**.
 
 L'immagine seguente mostra il test della semplice funzione echo di esempio in questa esercitazione.
 
-![](./media/functions-test-a-function/postman-test.png)
+![Schermata dell'interfaccia utente di Postman](./media/functions-test-a-function/postman-test.png)
 
 Nella finestra **Log** del portale viene registrato un output simile al seguente durante l'esecuzione della funzione:
 
     2016-03-23T08:04:51  Welcome, you are now connected to log-streaming service.
     2016-03-23T08:04:57.107 Function started (Id=dc5db8b1-6f1c-4117-b5c4-f6b602d538f7)
-    2016-03-23T08:04:57.763 Node.js HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==
+    2016-03-23T08:04:57.763 HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==
     2016-03-23T08:04:57.763 Request Headers = {"cache-control":"no-cache","connection":"Keep-Alive","accept":"*/*","accept-encoding":"gzip","accept-language":"en-US"}
     2016-03-23T08:04:57.763 Processing user info from request body...
     2016-03-23T08:04:57.763 Processing User Information...
@@ -170,33 +157,61 @@ Nella finestra **Log** del portale viene registrato un output simile al seguente
     2016-03-23T08:04:57.763 address = Seattle, W.A. 98101
     2016-03-23T08:04:57.795 Function completed (Success, Id=dc5db8b1-6f1c-4117-b5c4-f6b602d538f7)
 
-### <a name="test-a-blob-trigger-using-storage-explorer"></a>Eseguire il test di un trigger del BLOB con Storage Explorer
-È possibile testare una funzione trigger del BLOB con [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
+### <a name="test-with-curl-from-the-command-line"></a>Eseguire il test con cURL dalla riga di comando
+Spesso, quando si eseguono test del software, non è necessario eseguire ricerche particolari al di là della riga di comando per eseguire il debug dell'applicazione. L'approccio è analogo per le funzioni. Si noti che cURL è disponibile per impostazione predefinita nei sistemi basati su Linux. In Windows è necessario prima scaricare e installare lo [strumento cURL](https://curl.haxx.se/).
 
-1. Nel [portale di Azure] creare una nuova funzione trigger del BLOB in C#, F# o Node per l'app Funzioni. Impostare il percorso da monitorare sul nome del contenitore BLOB. ad esempio:
+Per testare la funzione definita in precedenza, copiare l'**URL funzione** dal portale, che si presenta nel formato seguente:
+
+    https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
+
+Si tratta dell'URL per l'attivazione di una funzione. È possibile testarlo con il comando cURL dalla riga di comando per eseguire una richiesta GET (`-G` o `--get`) sulla funzione:
+
+    curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
+
+Questo esempio in particolare richiede un parametro della stringa di query che può essere passato come dati (`-d`) nel comando cURL:
+
+    curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code> -d name=<Enter a name here>
+
+Eseguire il comando per visualizzare l'output seguente della funzione nella riga di comando:
+
+![Schermata dell'output del prompt dei comandi](./media/functions-test-a-function/curl-test.png)
+
+Nella finestra **Log** del portale viene registrato un output simile al seguente durante l'esecuzione della funzione:
+
+    2016-04-05T21:55:09  Welcome, you are now connected to log-streaming service.
+    2016-04-05T21:55:30.738 Function started (Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
+    2016-04-05T21:55:30.738 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/HttpTriggerNodeJS1?code=XXXXXXX&name=Azure Functions
+    2016-04-05T21:55:30.738 Function completed (Success, Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
+
+### <a name="test-a-blob-trigger-by-using-storage-explorer"></a>Eseguire il test di un trigger del BLOB con Storage Explorer
+È possibile testare una funzione trigger del BLOB con [Esplora archivi di Azure](http://storageexplorer.com/).
+
+1. Nel [Portale di Azure] creare una funzione trigger del BLOB in C#, F# o JavaScript per l'app Funzioni. Impostare il percorso da monitorare sul nome del contenitore BLOB. ad esempio:
 
         files
 2. Fare clic sul pulsante **+** per selezionare o creare l'account di archiviazione da usare. Fare quindi clic su **Crea**.
 3. Creare un file di testo con il contenuto seguente e salvarlo:
 
         A text file for blob trigger function testing.
-4. Eseguire [Microsoft Azure Storage Explorer](http://storageexplorer.com/) e connettersi al contenitore BLOB nell'account di archiviazione monitorato.
-5. Fare clic sul pulsante **Carica** e caricare il file di testo.
+4. Eseguire [Azure Storage Explorer](http://storageexplorer.com/) e connettersi al contenitore BLOB nell'account di archiviazione monitorato.
+5. Fare clic su **Carica** per caricare il file di testo.
 
-    ![](./media/functions-test-a-function/azure-storage-explorer-test.png)
+    ![Screenshot di Esplora archivi](./media/functions-test-a-function/azure-storage-explorer-test.png)
 
-    Il codice della funzione trigger del BLOB predefinita segnalerà l'elaborazione del BLOB nei log:
+Il codice della funzione trigger del BLOB predefinita segnala l'elaborazione del BLOB nei log:
 
-        2016-03-24T11:30:10  Welcome, you are now connected to log-streaming service.
-        2016-03-24T11:30:34.472 Function started (Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
-        2016-03-24T11:30:34.472 C# Blob trigger function processed: A text file for blob trigger function testing.
-        2016-03-24T11:30:34.472 Function completed (Success, Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
+    2016-03-24T11:30:10  Welcome, you are now connected to log-streaming service.
+    2016-03-24T11:30:34.472 Function started (Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
+    2016-03-24T11:30:34.472 C# Blob trigger function processed: A text file for blob trigger function testing.
+    2016-03-24T11:30:34.472 Function completed (Success, Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
 
 ## <a name="test-a-function-within-functions"></a>Eseguire il test di una funzione all'interno di Funzioni
-### <a name="test-with-the-functions-portal-run-button"></a>Eseguire il test con il pulsante Esegui nel portale di Funzioni
-Il portale fornisce un pulsante **Esegui** che consente di eseguire alcuni test limitati. È possibile specificare un corpo della richiesta con il pulsante Esegui, tuttavia non si possono specificare i parametri della stringa di query o aggiornare le intestazioni della richiesta.
+Il portale Funzioni di Azure è progettato per consentire di testare l'HTTP e le funzioni attivate da timer. È inoltre possibile creare funzioni per attivare altre funzioni su cui si esegue il test.
 
-Eseguire il test della funzione trigger HTTP creata in precedenza aggiungendo una stringa JSON simile alla seguente nel campo **Corpo della richiesta** e quindi fare clic sul pulsante **Esegui**.
+### <a name="test-with-the-functions-portal-run-button"></a>Eseguire il test con il pulsante Esegui nel portale Funzioni
+Il portale presenta un pulsante **Esegui** che consente di eseguire alcuni test limitati. Con questo pulsante, è possibile specificare un corpo della richiesta, tuttavia non si possono specificare i parametri della stringa di query o aggiornare le intestazioni della richiesta.
+
+Eseguire il test della funzione trigger HTTP creata in precedenza aggiungendo una stringa JSON simile alla seguente nel campo **Corpo della richiesta**. Quindi, fare clic sul pulsante **Esegui**.
 
 ```json
 {
@@ -209,7 +224,7 @@ Nella finestra **Log** del portale viene registrato un output simile al seguente
 
     2016-03-23T08:03:12  Welcome, you are now connected to log-streaming service.
     2016-03-23T08:03:17.357 Function started (Id=753a01b0-45a8-4125-a030-3ad543a89409)
-    2016-03-23T08:03:18.697 Node.js HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/wesmchttptriggernodejs1
+    2016-03-23T08:03:18.697 HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/wesmchttptriggernodejs1
     2016-03-23T08:03:18.697 Request Headers = {"connection":"Keep-Alive","accept":"*/*","accept-encoding":"gzip","accept-language":"en-US"}
     2016-03-23T08:03:18.697 Processing user info from request body...
     2016-03-23T08:03:18.697 Processing User Information...
@@ -219,43 +234,43 @@ Nella finestra **Log** del portale viene registrato un output simile al seguente
 
 
 ### <a name="test-with-a-timer-trigger"></a>Eseguire il test con un trigger del timer
-Alcune funzioni non possono essere realmente testate con gli strumenti citati in precedenza. Ad esempio, una funzione trigger della coda eseguita quando un messaggio viene inserito in [Archiviazione code di Azure](../storage/storage-dotnet-how-to-use-queues.md). È sempre possibile scrivere codice per inserire un messaggio nella coda. Di seguito ne viene fornito un esempio in un progetto console. Esiste tuttavia un altro approccio che può essere usato per eseguire il test direttamente con le funzioni.  
+Alcune funzioni non possono essere testate adeguatamente con gli strumenti citati in precedenza. Prendiamo ad esempio una funzione trigger della coda eseguita quando un messaggio viene inserito in [Archiviazione code di Azure](../storage/storage-dotnet-how-to-use-queues.md). È sempre possibile scrivere codice per inserire un messaggio nella coda. Di seguito ne viene fornito un esempio in un progetto console. Esiste tuttavia un altro approccio che può essere usato per eseguire direttamente il test delle funzioni.  
 
-È possibile usare un trigger del timer configurato con un'associazione di output della coda. Il codice del trigger del timer può quindi scrivere i messaggi di prova nella coda. Questa sezione illustra in dettaglio un esempio.
+È possibile usare un trigger del timer configurato con un'associazione di output della coda. Il codice del trigger del timer può quindi scrivere i messaggi di prova nella coda. In questa sezione ne viene presentato un esempio.
 
 Per informazioni più dettagliate sull'uso di associazioni con Funzioni di Azure, vedere la [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md).
 
-#### <a name="create-queue-trigger-for-testing"></a>Creare trigger della coda per il test
-Per illustrare questo approccio, si creerà prima di tutto una funzione trigger della coda che si vuole testare per una coda denominata `queue-newusers`. Questa funzione elaborerà le informazioni relative a nome e indirizzo per un nuovo utente inserito nell'archiviazione code di Azure.
+#### <a name="create-a-queue-trigger-for-testing"></a>Creare trigger della coda per il test
+Per illustrare questo approccio, si creerà prima di tutto una funzione trigger della coda che si vuole testare per una coda denominata `queue-newusers`. Questa funzione elabora le informazioni relative a nome e indirizzo per un nuovo utente inserito nell'archiviazione code di Azure.
 
 > [!NOTE]
-> Se si usa un nome di coda diverso, assicurarsi che il nome usato sia conforme alle regole descritte in [Denominazione di code e metadati](https://msdn.microsoft.com/library/dd179349.aspx) .  In caso contrario, si otterrà un codice di stato HTTP 400: Richiesta non valida.
+> Se si usa un nome di coda diverso, assicurarsi che il nome usato sia conforme alle regole descritte in [Denominazione di code e metadati](https://msdn.microsoft.com/library/dd179349.aspx) . In caso contrario, viene visualizzato un errore.
 >
 >
 
-1. Nel [portale di Azure] fare clic su **Nuova funzione** > **QueueTrigger - C#** per l'app per le funzioni.
-2. Immettere il nome della coda da monitorare tramite la funzione queue
+1. Nel [Portale di Azure] fare clic su **Nuova funzione** > **QueueTrigger - C#** per l'app per le funzioni.
+2. Immettere il nome della coda da monitorare tramite la funzione coda:
 
         queue-newusers
-3. Fare clic sul pulsante **+** (aggiunta) per selezionare o creare l'account di archiviazione da usare. Fare quindi clic su **Crea**.
+3. Fare clic sul pulsante **+** per selezionare o creare l'account di archiviazione da usare. Fare quindi clic su **Crea**.
 4. Lasciare aperta la finestra del browser nel portale per monitorare le voci di log per il codice del modello di funzione coda predefinito.
 
 #### <a name="create-a-timer-trigger-to-drop-a-message-in-the-queue"></a>Creare un trigger del timer per inserire un messaggio nella coda
-1. Aprire il [portale di Azure] in una nuova finestra del browser e passare all'app per le funzioni.
-2. Fare clic su **Nuova funzione** > **TimerTrigger - C#**. Immettere un'espressione CRON per impostare la frequenza con cui il codice del timer eseguirà il test della funzione coda. Fare quindi clic su **Crea**. Se si vuole che il test venga eseguito ogni 30 secondi, è possibile usare l' [espressione CRON](https://wikipedia.org/wiki/Cron#CRON_expression)seguente:
+1. Aprire il [Portale di Azure] in una nuova finestra del browser e passare all'app per le funzioni.
+2. Fare clic su **Nuova funzione** > **TimerTrigger - C#**. Immettere un'espressione CRON per impostare la frequenza con cui il codice del timer eseguirà il test della funzione coda. Fare quindi clic su **Crea**. Se si vuole che il test venga eseguito ogni 30 secondi, è possibile usare l'[espressione CRON](https://wikipedia.org/wiki/Cron#CRON_expression)seguente:
 
         */30 * * * * *
 3. Fare clic sulla scheda **Integra** per il nuovo trigger del timer.
-4. In **Output** fare clic sul pulsante **+ Nuovo output**. Fare clic su **coda** e quindi sul pulsante **Seleziona**.
-5. Prendere nota del nome che si usa per l' **oggetto messaggio della coda** che verrà usato nel codice della funzione timer.
+4. In **Output** fare clic sul pulsante **+ Nuovo output**. Fare clic su **coda** e quindi su **Seleziona**.
+5. Prendere nota del nome usato per l'**oggetto messaggio di coda**. Usare il codice di funzione timer.
 
         myQueue
 6. Immettere il nome della coda a cui verrà inviato il messaggio:
 
         queue-newusers
-7. Fare clic sul pulsante **+** (aggiunta) per selezionare l'account di archiviazione usato in precedenza con il trigger della coda. Fare quindi clic su **Salva**.
+7. Fare clic sul pulsante **+** per selezionare l'account di archiviazione usato in precedenza con il trigger della coda. Fare quindi clic su **Salva**.
 8. Fare clic sulla scheda **Sviluppo** per il trigger del timer.
-9. È possibile usare il codice seguente per la funzione timer C#, a condizione di avere usato lo stesso nome di oggetto messaggio della coda indicato sopra. Fare quindi clic su **Salva**
+9. È possibile usare il codice seguente per la funzione timer C#, a condizione di avere usato lo stesso nome di oggetto messaggio della coda indicato in precedenza. Fare quindi clic su **Salva**.
 
     ```cs
     using System;
@@ -272,7 +287,7 @@ Per illustrare questo approccio, si creerà prima di tutto una funzione trigger 
     }
     ```
 
-A questo punto, se è stata usata l'espressione CRON di esempio, la funzione timer C# verrà eseguita ogni 30 secondi. I log per la funzione timer segnaleranno ogni esecuzione:
+A questo punto, se è stata usata l'espressione CRON di esempio, la funzione timer C# verrà eseguita ogni 30 secondi. I log per la funzione timer segnalano ogni esecuzione:
 
     2016-03-24T10:27:02  Welcome, you are now connected to log-streaming service.
     2016-03-24T10:27:30.004 Function started (Id=04061790-974f-4043-b851-48bd4ac424d1)
@@ -288,16 +303,17 @@ Nella finestra del browser per la funzione coda viene visualizzato ogni messaggi
     2016-03-24T10:27:30.607 Function completed (Success, Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
 
 ## <a name="test-a-function-with-code"></a>Eseguire il test di una funzione con il codice
-### <a name="test-a-http-trigger-function-with-code-nodejs"></a>Eseguire il test di una funzione trigger HTTP con il codice Node.js
-È possibile usare il codice Node.js per eseguire una richiesta HTTP per testare la funzione di Azure.
+Potrebbe essere necessario creare un'applicazione esterna o un framework per testare le funzioni.
 
+### <a name="test-an-http-trigger-function-with-code-nodejs"></a>Eseguire il test di una funzione trigger HTTP con il codice Node.js
+È possibile usare il codice Node.js per eseguire una richiesta HTTP e testare la funzione.
 Assicurarsi di impostare:
 
 * `host` nelle opzioni di richiesta per l'host dell'app per le funzioni.
 * Il nome della funzione in `path`.
 * Il codice di accesso (`<your code>`) in `path`.
 
-Esempio di codice
+Esempio di codice:
 
 ```javascript
 var http = require("http");
@@ -352,7 +368,7 @@ Nella finestra **Log** del portale viene registrato un output simile al seguente
 
     2016-03-23T08:08:55  Welcome, you are now connected to log-streaming service.
     2016-03-23T08:08:59.736 Function started (Id=607b891c-08a1-427f-910c-af64ae4f7f9c)
-    2016-03-23T08:09:01.153 Node.js HTTP trigger function processed a request. RequestUri=http://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1/?code=XXXXXXXXXX==
+    2016-03-23T08:09:01.153 HTTP trigger function processed a request. RequestUri=http://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1/?code=XXXXXXXXXX==
     2016-03-23T08:09:01.153 Request Headers = {"connection":"Keep-Alive","host":"functionsExample.azurewebsites.net"}
     2016-03-23T08:09:01.153 Name not provided as query string param. Checking body...
     2016-03-23T08:09:01.153 Request Body Type = object
@@ -362,12 +378,12 @@ Nella finestra **Log** del portale viene registrato un output simile al seguente
 
 
 ### <a name="test-a-queue-trigger-function-with-code-c"></a>Eseguire il test di una funzione trigger della coda con il codice C# #
-Si è accennato in precedenza che è possibile testare un trigger della coda tramite codice per inserire un messaggio nella coda. L'esempio di codice seguente si basa sul codice C# illustrato nell'esercitazione [Introduzione all'archiviazione code di Azure con .NET](../storage/storage-dotnet-how-to-use-queues.md) . Da questo collegamento è disponibile il codice anche per altri linguaggi.
+Si è accennato in precedenza che è possibile testare un trigger della coda tramite codice per inserire un messaggio nella coda. L'esempio di codice seguente si basa sul codice C# illustrato nell'esercitazione [Introduzione all'archiviazione code di Azure](../storage/storage-dotnet-how-to-use-queues.md) . Da questo collegamento è disponibile il codice anche per altri linguaggi.
 
 Per testare il codice in un'app console è necessario:
 
 * [Configurare la stringa di connessione di archiviazione nel file app.config](../storage/storage-dotnet-how-to-use-queues.md).
-* Questo codice accetta il nome e l'indirizzo per un nuovo utente come argomenti della riga di comando in fase di esecuzione. Passare `name` e `address` come parametri per l'app. Ad esempio, `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`
+* Passare `name` e `address` come parametri per l'app. Ad esempio, `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`. Questo codice accetta il nome e l'indirizzo per un nuovo utente come argomenti della riga di comando in fase di esecuzione.
 
 Codice C# di esempio:
 
@@ -427,10 +443,5 @@ Nella finestra del browser per la funzione coda viene visualizzato ogni messaggi
 
 <!-- URLs. -->
 
-[portale di Azure]: https://portal.azure.com
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Portale di Azure]: https://portal.azure.com
 

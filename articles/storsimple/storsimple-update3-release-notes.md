@@ -4,7 +4,7 @@ description: "Vengono descritte le nuove funzionalità, i problemi e le soluzion
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 2158aa7a-4ac3-42ba-8796-610d1adb984d
 ms.service: storsimple
@@ -12,16 +12,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/14/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3a2795fd08b838edcf255e518f705683cc2df15e
+ms.sourcegitcommit: 0e31079494eb709a3333d6c8735f47f8406fea05
+ms.openlocfilehash: 846ff5124be258580c060bfe64bab1a4ccd31202
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="storsimple-8000-series-update-3-release-notes"></a>Note sulla versione dell'aggiornamento 3 di StorSimple serie 8000
-## <a name="overview"></a>Overview
+# <a name="update-3-release-notes-for-your-storsimple-8000-series-device"></a>Note sulla versione dell'aggiornamento 3 del dispositivo StorSimple serie 8000
+
+## <a name="overview"></a>Panoramica
 Nelle note sulla versione seguenti vengono descritte le nuove funzionalità e sono indicati i problemi critici non risolti relativi all'aggiornamento 3 di StorSimple serie 8000. Contengono inoltre un elenco degli aggiornamenti software di StorSimple inclusi in questa versione. 
 
 L'aggiornamento 3 può essere applicato a qualsiasi dispositivo StorSimple che esegue la versione in disponibilità generale del software o una versione di aggiornamento compresa tra 0.1 e 2.2. La versione del dispositivo associata all'aggiornamento 3 è 6.3.9600.17759.
@@ -39,7 +42,7 @@ L'aggiornamento 3 include gli importanti aggiornamenti e correzioni di bug descr
 
 * **Modifiche al recupero dello spazio automatico** : a partire dall'aggiornamento 3, gli algoritmi di recupero dello spazio vengono eseguiti nel controller in standby del sistema, con il risultato di un'esecuzione più rapida. Per ulteriori informazioni sulle porte necessarie per il recupero dello spazio, vedere i [requisiti di rete di StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 * **Miglioramenti delle prestazioni** : l'aggiornamento 3 ha migliorato le prestazioni di lettura e scrittura nel cloud.
-* **Miglioramenti relativi alla migrazione** : in questa versione sono stati corretti svariati bug e introdotti diversi miglioramenti nella funzionalità di migrazione da dispositivi della serie 5000/7000 a dispositivi della serie 8000. Per altre informazioni su come usare la funzionalità di migrazione, vedere l'articolo [Migration from 5000/7000 series device to 8000 series device](https://www.microsoft.com/en-us/download/details.aspx?id=47322) (Migrazione da dispositivi della serie 5000/7000 a dispositivi della serie 8000). 
+* **Miglioramenti relativi alla migrazione** : in questa versione sono stati corretti svariati bug e introdotti diversi miglioramenti nella funzionalità di migrazione da dispositivi della serie 5000/7000 a dispositivi della serie 8000. Per altre informazioni su come usare la funzionalità di migrazione, vedere l'articolo [Migration from 5000/7000 series device to 8000 series device](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b) (Migrazione da dispositivi della serie 5000/7000 a dispositivi della serie 8000). 
 * **Correzioni relative al monitoraggio** : in questa versione sono stati risolti i bug correlati a grafici di monitoraggio, dashboard del servizio e dashboard del dispositivo.
 
 ## <a name="issues-fixed-in-update-3"></a>Problemi risolti nell'aggiornamento 3
@@ -90,10 +93,5 @@ Questo aggiornamento non può essere applicato all'appliance cloud StorSimple (o
 
 ## <a name="next-step"></a>Passaggio successivo
 Informazioni su come [installare l'aggiornamento 3](storsimple-install-update-3.md) nel dispositivo StorSimple.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

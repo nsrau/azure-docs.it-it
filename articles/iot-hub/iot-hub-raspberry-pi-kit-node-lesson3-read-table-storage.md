@@ -1,5 +1,7 @@
 ---
-title: Leggere i messaggi con salvataggio permanente in Archiviazione di Azure | Documentazione Microsoft
+featureFlags:
+- usabilla
+title: 'Connettere Raspberry Pi (Node) ad Azure IoT: lezione 3: Archivio tabelle | Documentazione Microsoft'
 description: Monitorare i messaggi da dispositivo a cloud mentre vengono scritti nell&quot;archiviazione tabelle di Azure.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +15,12 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: d741d9be27c17171a9161b7e0ea335a9f5fbafc0
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 0e35ffda2d5f6698c4e9d96f1991998b36a7f230
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -70,10 +73,5 @@ Per leggere i messaggi nell'archiviazione tabelle di Azure, seguire questi passa
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Eseguire l'applicazione di esempio per ricevere messaggi da cloud a dispositivo](iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md)
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

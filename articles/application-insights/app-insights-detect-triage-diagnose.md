@@ -1,21 +1,22 @@
 ---
-title: Rilevare, valutare e diagnosticare
+title: 'Rilevare e diagnosticare i problemi delle app Web: Azure Application Insights | Documentazione Microsoft'
 description: Analizzare gli arresti anomali per rilevare e diagnosticare problemi di prestazioni nelle applicazioni
 author: alancameronwills
 services: application-insights
 documentationcenter: 
-manager: douge
+manager: carmonm
 ms.assetid: 6ccab5d4-34c4-4303-9d3b-a0f1b11e6651
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 63c901529b81c75f46f1b21219054817c148063a
-ms.openlocfilehash: 9589adad2f8f227043b2c8f864a48d1c9ba43732
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 05fe4996a8a9c886f2f1b61471dc80550633ecf6
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -60,7 +61,7 @@ Gli errori vengono visualizzati come punti rossi nel grafico del test Web:
 
 ![Visualizzazione dei test Web eseguiti nel periodo precedente](./media/app-insights-detect-triage-diagnose/04-webtests.png)
 
-Ma soprattutto viene inviato al team di sviluppo un avviso su eventuali errori mediante posta elettronica. In questo modo ne verranno a conoscenza prima di quasi tutti i clienti.
+Ma soprattutto viene inviato al team di sviluppo un avviso su eventuali errori mediante posta elettronica. In questo modo ne verranno a conoscenza prima quasi tutti i clienti.
 
 ## <a name="monitor-performance-metrics"></a>Monitorare le metriche delle prestazioni
 Nella pagina Panoramica in Application Insights è presente un grafico che mostra una serie di [metriche chiave](app-insights-web-monitor-performance.md).
@@ -69,7 +70,7 @@ Nella pagina Panoramica in Application Insights è presente un grafico che mostr
 
 Il tempo di caricamento della pagina del browser deriva dai dati di telemetria inviati direttamente dalle pagine Web. Il tempo di risposta del server, il numero di richieste al server e il numero di richieste non riuscite sono tutti misurati nel server Web e inviati direttamente ad Application Insights.
 
-Marcela è un po' in apprensione riguardo al grafico di risposta del server, che mostra il tempo medio che intercorre tra il momento in cui il server riceve una richiesta HTTP dal browser di un utente al momento in cui viene inviata la risposta. Non è raro vedere una variazione all'interno del grafico, in ragione della variazione del carico sul sistema. Tuttavia, nel caso specifico sembra che vi sia una correlazione tra gli incrementi minimi nel conteggio delle risposte e quelli rilevanti nel tempo di risposta. Questa correlazione potrebbe indicare che il funzionamento del sistema è al limite. 
+Marcela è un po' in apprensione riguardo al grafico di risposta del server, che mostra il tempo medio che intercorre tra il momento in cui il server riceve una richiesta HTTP dal browser di un utente al momento in cui viene inviata la risposta. Non è raro vedere una variazione all'interno del grafico, in ragione della variazione del carico sul sistema. Tuttavia, nel caso specifico sembra che vi sia una correlazione tra gli incrementi minimi nel conteggio delle risposte e quelli rilevanti nel tempo di risposta. Questa correlazione potrebbe indicare che il funzionamento del sistema è al limite.
 
 Apre i grafici dei server:
 
@@ -89,9 +90,9 @@ Quindi imposta un [avviso](app-insights-metrics-explorer.md) se i tempi di rispo
 ## <a name="smart-detection-alerts"></a>Avvisi del rilevamento intelligente
 Il giorno successivo arriva un avviso in posta elettronica da Application Insights. Quando lo apre, si accorge però che non è l'avviso sui tempi di risposta che aveva impostato. Al contrario, indica che c'è stato un aumento improvviso delle richieste non riuscite, ovvero, delle richieste che hanno restituito 500 o più codici di errore.
 
-Le richieste non riuscite sono quelle richieste in cui gli utenti hanno individuato un errore, in genere dopo un'eccezione generata nel codice. Forse viene visualizzato un messaggio che indica che non è possibile aggiornare i dettagli al momento o, addirittura peggio, un dump dello stack sullo schermo dell'utente dovuto al server Web.
+Le richieste non riuscite sono quelle richieste in cui gli utenti hanno individuato un errore, in genere dopo un'eccezione generata nel codice. Forse viene visualizzato il messaggio "Sorry we couldn't update your details right now" (Non è possibile aggiornare i dettagli adesso). Oppure, nella peggiore delle ipotesi, viene visualizzato un dump dello stack sullo schermo dell'utente concesso dal server web.
 
-L'avviso la lascia stupita perché l'ultima volta il numero delle richieste non riuscite era particolarmente basso. In un server occupato, un numero esiguo di errori è un evento prevedibile. 
+L'avviso la lascia stupita perché l'ultima volta il numero delle richieste non riuscite era particolarmente basso. In un server occupato, un numero esiguo di errori è un evento prevedibile.
 
 Lo stupore nasceva anche dal fatto che non era necessario configurare l'avviso. In effetti, Rilevamento intelligente è incluso automaticamente in Application Insights. Si adatta automaticamente al consueto modello di errore dell'app "abituandosi" agli errori di una particolare pagina o un carico elevato, o collegato ad altre metriche. Genera l'avviso solo in caso di un aumento prevedibile.
 
@@ -101,16 +102,16 @@ Si tratta di un messaggio di posta elettronica molto utile. Non si limita a gene
 
 Mostra il numero di clienti coinvolti e le pagine Web o le operazioni. Marcela può decidere se è necessario ottenere l'impegno dell'intero team come esercitazione, o se può essere ignorato fino alla settimana successiva.
 
-Il messaggio di posta elettronica mostra inoltre il verificarsi di una particolare eccezione e, cosa ancora più interessante, che l'errore è associato a chiamate non riuscite a un particolare database. Questo spiega come mai si è generato improvvisamente l'errore anche se il team di Marcela non ha distribuito aggiornamenti di recente. 
+Il messaggio di posta elettronica mostra inoltre il verificarsi di una particolare eccezione e, cosa ancora più interessante, che l'errore è associato a chiamate non riuscite a un particolare database. Questo spiega come mai si è generato improvvisamente l'errore anche se il team di Marcela non ha distribuito aggiornamenti di recente.
 
 Contatta il responsabile del team di database. In effetti, hanno rilasciato un aggiornamento rapido nell'ultima mezz'ora, ma forse c'è stata una piccola modifica dello schema.
 
-In definitiva, il problema sta per essere risolto anche prima di esaminare i log, e dopo soli 15 minuti dal momento in cui si è generato l'errore. Tuttavia, Marcela seleziona il collegamento per aprire Application Insights. Si apre direttamente su una richiesta non riuscita in cui è possibile visualizzare la chiamata al database non riuscita nell'elenco delle chiamate di dipendenza associato. 
+In definitiva, il problema sta per essere risolto anche prima di esaminare i log, e dopo soli 15 minuti dal momento in cui si è generato l'errore. Tuttavia, Marcela seleziona il collegamento per aprire Application Insights. Si apre direttamente su una richiesta non riuscita in cui è possibile visualizzare la chiamata al database non riuscita nell'elenco delle chiamate di dipendenza associato.
 
 ![richiesta non riuscita](./media/app-insights-detect-triage-diagnose/23.png)
 
 ## <a name="detecting-exceptions"></a>Rilevamento di eccezioni
-Con una configurazione minima, le [eccezioni](app-insights-asp-net-exceptions.md) vengono segnalate automaticamente ad Application Insights. Possono anche essere acquisite in modo esplicito con l'inserimento di chiamate a [TrackException()](app-insights-api-custom-events-metrics.md#track-exception) nel codice:  
+Con una configurazione minima, le [eccezioni](app-insights-asp-net-exceptions.md) vengono segnalate automaticamente ad Application Insights. Possono anche essere acquisite in modo esplicito con l'inserimento di chiamate a [TrackException()](app-insights-api-custom-events-metrics.md#trackexception) nel codice:  
 
     var telemetry = new TelemetryClient();
     ...
@@ -152,9 +153,9 @@ Eccezioni ed eventi vengono visualizzati nel pannello [Ricerca diagnostica](app-
 ![In Ricerca diagnostica usare i filtri per visualizzare determinati tipi di dati](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
 ## <a name="monitoring-user-activity"></a>Monitoraggio dell'attività dell'utente
-Quando il tempo di risposta è coerentemente buono e sono presenti poche eccezioni, il team di sviluppo può pensare a migliorare l'esperienza degli utenti e a incoraggiare più utenti perché raggiungano gli obiettivi previsti.
+Quando il tempo di risposta è coerentemente adeguato e sono presenti poche eccezioni, il team di sviluppo può passare all'usabilità. Si può pensare a come migliorare l'esperienza degli utenti e a incoraggiare più utenti affinché raggiungano gli obiettivi desiderati.
 
-Ad esempio, per un tipico percorso utente nel sito Web è disponibile un grafico chiaro. Molti clienti esaminano diversi tipi di prestito; alcuni compilano il modulo di offerta e, tra quelli che ricevono un'offerta, alcuni procedono con il prestito.
+Ad esempio, un tipico percorso utente nel sito Web presenta chiaramente un "imbuto." Molti clienti esaminano le frequenze dei diversi tipi di prestito. Un numero inferiore compila il modulo delle offerte. Tra quelli che ricevono un'offerta, alcuni proseguono per avere il prestito.
 
 ![Numero di visualizzazioni della pagina](./media/app-insights-detect-triage-diagnose/12-funnel.png)
 
@@ -193,15 +194,15 @@ La diagnosi non è proprio uguale al debug. Prima di iniziare l'analisi del codi
 
 **Quando si verifica?** La visualizzazione cronologica fornita dai grafici di eventi e di metriche consente di correlare gli effetti alle possibili cause. Se sono presenti picchi intermittenti nel tempo di risposta e nella frequenza delle eccezioni, esaminare il numero di richieste: se i picchi si presentano contemporaneamente, sembrerebbe un problema di risorse. È necessario assegnare più CPU o memoria oppure è una dipendenza che non riesce a gestire il carico?
 
-**Dipende da chi?**   Se si verifica una riduzione improvvisa delle prestazioni di un particolare tipo di richiesta, ad esempio quando il cliente desidera un estratto conto, potrebbe essere dovuto a un sottosistema esterno invece che all'applicazione Web. In Esplora metriche, selezionare la percentuale di errori di dipendenza e la frequenza della durata delle dipendenze e confrontare le cronologie delle ultime ore o giorni con il problema rilevato. Se vi sono variazioni di correlazione, il problema potrebbe essere dovuto a un sottosistema esterno.  
+**Dipende da chi?**  Se si verifica una riduzione improvvisa delle prestazioni di un particolare tipo di richiesta, ad esempio quando il cliente desidera un estratto conto, potrebbe essere dovuto a un sottosistema esterno invece che all'applicazione Web. In Esplora metriche, selezionare la percentuale di errori di dipendenza e la frequenza della durata delle dipendenze e confrontare le cronologie delle ultime ore o giorni con il problema rilevato. Se vi sono variazioni di correlazione, il problema potrebbe essere dovuto a un sottosistema esterno.  
 
 ![Grafici degli errori di dipendenza e delle chiamate di durata alle dipendenze](./media/app-insights-detect-triage-diagnose/11-dependencies.png)
 
 Alcuni problemi di dipendenza lenta sono problemi di georilevazione. La banca Fabrikam usa macchine virtuali di Azure e ha scoperto che aveva inavvertitamente posizionato i server Web e di account in paesi diversi. Si è avuto un notevole miglioramento con la migrazione di uno dei server.
 
-**Che cosa è successo?**  Se il problema non sembra essere una dipendenza e se non è sempre presente, è probabilmente causato da una modifica recente. La prospettiva storica offerta dai grafici di metriche e di eventi semplifica la correlazione di eventuali modifiche improvvise con le distribuzioni. Ciò consente di limitare l'ambito della ricerca del problema.
+**Che cosa è successo?** Se il problema non sembra essere una dipendenza e se non è sempre presente, è probabilmente causato da una modifica recente. La prospettiva storica offerta dai grafici di metriche e di eventi semplifica la correlazione di eventuali modifiche improvvise con le distribuzioni. Ciò consente di limitare l'ambito della ricerca del problema.
 
-**Cosa sta succedendo?**  Alcuni problemi si verificano solo raramente e possono essere difficili da rilevare mediante il test offline. È possibile solo tentare di acquisire il bug quando si verifica in tempo reale. È possibile esaminare i dump dello stack nei report di eccezione. Inoltre, è possibile scrivere le chiamate di traccia, con il framework di registrazione preferito o con TrackTrace() o TrackEvent().  
+**Cosa sta succedendo?** Alcuni problemi si verificano solo raramente e possono essere difficili da rilevare mediante il test offline. È possibile solo tentare di acquisire il bug quando si verifica in tempo reale. È possibile esaminare i dump dello stack nei report di eccezione. Inoltre, è possibile scrivere le chiamate di traccia, con il framework di registrazione preferito o con TrackTrace() o TrackEvent().  
 
 Fabrikam ha un problema intermittente con i trasferimenti tra conti, ma solo con determinati tipi di conti. Per comprendere meglio la situazione, sono state inserite chiamate TrackTrace() in punti chiave nel codice, associando il tipo di conto come una proprietà a ogni chiamata. In tal modo è facile filtrare solo quelle tracce in Ricerca diagnostica. Sono stati associati anche i valori dei parametri come proprietà e misure alle chiamate di traccia.
 
@@ -219,6 +220,10 @@ Application Insights consente anche di essere usato per informazioni sulle opera
 ## <a name="your-applications"></a>Applicazioni
 Ecco come un solo team usa Application Insights non solo per risolvere singoli problemi, ma per migliorare il ciclo di vita dello sviluppo. Si tratta di suggerimenti e idee su come Application Insights può aiutare a gestire le prestazioni delle proprie applicazioni.
 
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
 ## <a name="next-steps"></a>Passaggi successivi
 È possibile iniziare in diversi modi, a seconda delle caratteristiche dell'applicazione. Scegliere l'opzione più adatta:
 
@@ -228,13 +233,4 @@ Ecco come un solo team usa Application Insights non solo per risolvere singoli p
 * App già distribuite, ospitate in [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md) o [Azure](app-insights-azure.md).
 * [Pagine Web](app-insights-javascript.md): app a singola pagina o pagina Web ordinaria da usare autonomamente o in combinazione con una delle opzioni del server.
 * [Test di disponibilità](app-insights-monitor-web-app-availability.md) per testare l'applicazione dalla rete internet pubblica.
-
-
-
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

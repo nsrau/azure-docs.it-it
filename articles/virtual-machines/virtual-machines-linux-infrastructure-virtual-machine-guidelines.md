@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/17/2017
 ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: a99ab839ec9ade0049e1cc59054e333048e0208c
 ms.openlocfilehash: 80044c0b16a16a214b4d8879a2d7f38012608ba0
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -55,10 +56,5 @@ Per creare le macchine virtuali, è possibile creare modelli definiti tramite fi
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

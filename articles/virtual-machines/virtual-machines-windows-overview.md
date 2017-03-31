@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/20/2016
+ms.date: 03/01/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 8b2ffd922df97ea3873f0c8559a6e3db97e8632c
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: f86b47f3886571b0795bc858a1a2c0757c6fb7b6
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -58,8 +59,8 @@ Questa tabella illustra alcuni dei metodi con cui è possibile ottenere un elenc
 | Metodo | Description |
 | --- | --- |
 | Portale di Azure |Quando si crea una VM, selezionare una località nell'elenco. |
-| Azure PowerShell |Usare il comando [Get-AzureRmLocation](https://msdn.microsoft.com/library/mt619449.aspx). |
-| API REST |Usare l'operazione [List locations](https://msdn.microsoft.com/library/dn790540.aspx). |
+| Azure PowerShell |Usare il comando [Get-AzureRmLocation](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/get-azurermlocation). |
+| API REST |Usare l'operazione [List locations](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations). |
 
 ### <a name="vm-size"></a>Dimensioni macchina virtuale
 Le [dimensioni](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) della VM usata sono determinate dal carico di lavoro che si desidera eseguire. Le dimensioni scelte determinano quindi fattori quali potenza di elaborazione, memoria e capacità di archiviazione. Azure offre una vasta gamma di dimensioni per supportare molti tipi di uso.
@@ -70,7 +71,7 @@ Azure addebita un [costo orario](https://azure.microsoft.com/pricing/details/vir
 Ogni sottoscrizione di Azure ha [limiti di quota](../azure-subscription-service-limits.md) predefiniti che possono influire sulla distribuzione di molte VM per un progetto. Il limite corrente per ogni sottoscrizione è di 20 macchine virtuali per area. I limiti possono essere aumentati creando un ticket di supporto in cui si richiede tale incremento.
 
 ### <a name="operating-system-disks-and-images"></a>Immagini e dischi del sistema operativo
-Le macchine virtuali usano [dischi rigidi virtuali (VHD)](virtual-machines-windows-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per archiviare il sistema operativo e i dati. Tali dischi vengono usati anche per le immagini che è possibile scegliere per installare un sistema operativo. 
+Le macchine virtuali usano [dischi rigidi virtuali (VHD)](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per archiviare il sistema operativo e i dati. Tali dischi vengono usati anche per le immagini che è possibile scegliere per installare un sistema operativo. 
 
 Azure fornisce molte [immagini Marketplace](https://azure.microsoft.com/marketplace/virtual-machines/) da usare con diverse versioni e differenti tipi di sistemi operativi Windows Server. Le immagini Marketplace sono identificate dall'editore di immagini, dall'offerta, dalla SKU e dalla versione (in genere la versione viene specificata alla fine). 
 
@@ -79,8 +80,8 @@ Questa tabella illustra alcuni metodi per ottenere informazioni relative a un'im
 | Metodo | Description |
 | --- | --- |
 | Portale di Azure |I valori vengono specificati automaticamente quando si seleziona un'immagine da usare. |
-| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://msdn.microsoft.com/library/mt603484.aspx) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://msdn.microsoft.com/library/mt603824.aspx) -Location "location" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](https://msdn.microsoft.com/library/mt619458.aspx) -Location "location" -Publisher "publisherName" -Offer "offerName" |
-| API REST |[List image publishers](https://msdn.microsoft.com/library/mt743702.aspx)<BR>[List image offers](https://msdn.microsoft.com/library/mt743700.aspx)<BR>[List image skus](https://msdn.microsoft.com/library/mt743701.aspx) |
+| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "location" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
+| API REST |[List image publishers](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[List image offers](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[List image skus](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 
 È possibile scegliere di [caricare e usare la propria immagine](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). In questo caso, il nome dell'editore, l'offerta e la SKU non vengono usati.
 
@@ -91,7 +92,7 @@ Le [estensioni](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fv
 
 * **Eseguire script personalizzati**: l'[estensione script personalizzata](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) consente di configurare i carichi di lavoro della VM eseguendo lo script quando viene eseguito il provisioning della VM.
 * **Distribuire e gestire le configurazioni**: l'[estensione PowerShell DSC (Desired State Configuration)](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) consente di impostare DSC in una VM per gestire configurazioni e ambienti.
-* **Raccogliere i dati di diagnostica**: l'[estensione di Diagnostica di Microsoft Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) consente di configurare la VM per raccogliere dati di diagnostica che consentono di monitorare l'integrità dell'applicazione.
+* **Raccogliere i dati di diagnostica**: l'[estensione di Diagnostica di Microsoft Azure](virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) consente di configurare la VM per raccogliere dati di diagnostica che consentono di monitorare l'integrità dell'applicazione.
 
 ### <a name="related-resources"></a>Risorse correlate
 Le risorse in questa tabella vengono usate dalla VM e devono essere presenti o essere create quando si crea la VM.
@@ -102,7 +103,7 @@ Le risorse in questa tabella vengono usate dalla VM e devono essere presenti o e
 | [Account di archiviazione](../storage/storage-create-storage-account.md) |Sì |La VM richiede l'account di archiviazione per archiviare i dischi rigidi virtuali. |
 | [Rete virtuale](../virtual-network/virtual-networks-overview.md) |Sì |La VM deve appartenere a una rete virtuale. |
 | [Indirizzo IP pubblico](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |No |È possibile che la VM disponga di un indirizzo IP pubblico assegnato per accedervi in modalità remota. |
-| [Interfaccia di rete](../virtual-network/virtual-network-network-interface-overview.md) |Sì |La VM richiede l'interfaccia di rete per comunicare in rete. |
+| [Interfaccia di rete](../virtual-network/virtual-network-network-interface.md) |Sì |La VM richiede l'interfaccia di rete per comunicare in rete. |
 | [Dischi dati](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |No |La VM può includere dischi dati per espandere le funzionalità di archiviazione. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>Come creare la prima VM
@@ -116,7 +117,7 @@ Questa tabella include le informazioni necessarie per la creazione di una VM.
 | Modelli |[Creare una macchina virtuale Windows con un modello di Gestione risorse](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure PowerShell |[Creare una VM Windows tramite PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Client SDK |[Distribuire le risorse di Azure tramite C#](virtual-machines-windows-csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| API REST |[Create or update a VM](https://msdn.microsoft.com/library/mt163591.aspx) (Creare o aggiornare una VM) |
+| API REST |[Create or update a VM](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) (Creare o aggiornare una VM) |
 
 Sebbene ci si auguri che non accada mai nulla, talvolta potrebbero verificarsi dei problemi. In tal caso esaminare le informazioni contenute nell'articolo [Risolvere i problemi della distribuzione Resource Manager con la creazione di una nuova macchina virtuale Windows in Azure](virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -130,7 +131,7 @@ Questa tabella illustra alcuni dei metodi attraverso i quali è possibile ottene
 | --- | --- |
 | Portale di Azure |Nel menu Hub fare clic su **Macchine virtuali** e quindi selezionare una VM dall'elenco. Nel pannello della VM è possibile accedere alle informazioni generali, ai valori di impostazione e alle metriche di monitoraggio. |
 | Azure PowerShell |Per informazioni sull'uso di PowerShell per gestire le VM, vedere [Gestire macchine virtuali di Azure con Resource Manager di Azure e PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
-| API REST |Usare l'operazione [Get VM information](https://msdn.microsoft.com/library/mt163682.aspx) per ottenere le informazioni su una VM. |
+| API REST |Usare l'operazione [Get VM information](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) per ottenere le informazioni su una VM. |
 | Client SDK |Per informazioni sull'uso di C# per gestire le VM, vedere [Gestire le macchine virtuali di Azure con Azure Resource Manager e C#](virtual-machines-windows-csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 
 ### <a name="log-on-to-the-vm"></a>Accedere alla VM
@@ -148,10 +149,5 @@ Un [ insieme di credenziali di Servizi di ripristino](../backup/backup-introduct
 * Se si desidera lavorare con VM Linux, vedere [Azure e Linux](virtual-machines-linux-azure-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Per altre informazioni sulle linee guida per la configurazione dell'infrastruttura vedere [Procedura dettagliata per un'infrastruttura di esempio di Azure](virtual-machines-windows-infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Accertarsi di seguire le [Procedure consigliate per l'esecuzione di una VM Windows in Azure](virtual-machines-windows-guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

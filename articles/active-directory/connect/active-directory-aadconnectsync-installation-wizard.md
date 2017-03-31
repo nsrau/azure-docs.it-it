@@ -1,5 +1,5 @@
 ---
-title: 'Servizio di sincronizzazione Azure AD Connect: eseguire l&quot;installazione guidata una seconda volta | Documentazione Microsoft'
+title: Eseguire di nuovo l&quot;installazione guidata di Azure AD Connect | Documentazione Microsoft
 description: Spiega come funziona la procedura di installazione guidata la seconda volta che viene eseguita.
 keywords: L&quot;installazione guidata di Azure AD Connect consente di configurare le impostazioni di manutenzione quando viene eseguita la seconda volta
 services: active-directory
@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: 4fb05d21d1a7ac7d9b2f13adfbe1bed8456393c2
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: f18e11ac7482b78925d1885ceb20696146603ad2
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -32,14 +33,14 @@ Quando si avvia l'installazione guidata viene visualizzata una pagina con le opz
 
 ![Pagina con un elenco di attività aggiuntive](./media/active-directory-aadconnectsync-installation-wizard/additionaltasks.png)
 
-Se con Azure AD Connect è stato installato AD FS saranno disponibili ancora più opzioni. Le opzioni aggiuntive per AD FS sono descritte in [Gestione di AD FS](active-directory-aadconnect-federation-management.md#ad-fs-management).
+Se con Azure AD Connect è stato installato AD FS saranno disponibili ancora più opzioni. Le opzioni aggiuntive per AD FS sono descritte in [Gestione di AD FS](active-directory-aadconnect-federation-management.md#manage-ad-fs).
 
 Selezionare una delle attività e fare clic su **Avanti** per continuare.
 
 > [!IMPORTANT]
 > Mentre l'installazione guidata è aperta, tutte le operazioni nel motore di sincronizzazione vengono sospese. Assicurarsi di chiudere l'installazione guidata subito dopo aver completato le modifiche della configurazione.
-> 
-> 
+>
+>
 
 ## <a name="view-current-configuration"></a>Visualizzazione della configurazione corrente
 Questa opzione consente di visualizzare rapidamente le opzioni attualmente configurate.
@@ -81,7 +82,7 @@ Per modificare lo stato, selezionare questa opzione e selezionare o deselezionar
 ## <a name="change-user-sign-in"></a>Cambia l'accesso utente
 Questa opzione consente di passare dalla sincronizzazione password alla federazione e viceversa. Non è possibile passare a **Non configurare**.
 
-Per altre informazioni su questa opzione, vedere [Accesso utente](active-directory-aadconnect-user-signin.md#changing-user-sign-in-method).
+Per altre informazioni su questa opzione, vedere [Accesso utente](active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sul modello di configurazione usato dal servizio di sincronizzazione Azure AD Connect, vedere [Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
@@ -90,10 +91,4 @@ Per altre informazioni su questa opzione, vedere [Accesso utente](active-directo
 
 * [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](active-directory-aadconnectsync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

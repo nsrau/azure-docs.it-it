@@ -4,7 +4,7 @@ description: "Descrive gli scenari dove è possibile spostare le app Web e servi
 services: app-service
 documentationcenter: 
 author: ZainRizvi
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 22f97607-072e-4d1f-a46f-8d500420c33c
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: zarizvi
 translationtype: Human Translation
 ms.sourcegitcommit: 078833a21cd309087b842e21e3fc730695c254dd
 ms.openlocfilehash: 89fdeca4ffc1a36e8aff829b00483f208fa03e0f
+ms.lasthandoff: 12/21/2016
 
 
 ---
@@ -31,10 +32,5 @@ App Web di Microsoft Azure supporta attualmente i seguenti scenari di spostament
 
 * Spostamento di singole app Web in un altro gruppo di risorse. Le app Web rimangono tuttavia ospitate nel relativo piano di servizio app (il piano di servizio app rimane nel gruppo di risorse precedente).
 
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Configurare gruppi di disponibilità AlwaysOn in macchine virtuali di Azure con PowerShell"
+title: "Configurare gruppi di disponibilità AlwaysOn in macchine virtuali di Azure con PowerShell | Microsoft Docs"
 description: "Questa esercitazione usa le risorse create con il modello di distribuzione classica e usa PowerShell per creare un gruppo di disponibilità AlwaysOn in Azure."
 services: virtual-machines-windows
 documentationcenter: na
@@ -13,35 +13,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/22/2016
+ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 9504b2f74fa0161b6c4dfb6a510913256b99629a
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 261e90106e8aac520d2360de2c02d5d33d478d5d
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-with-powershell"></a>Configurare gruppi di disponibilità AlwaysOn in macchine virtuali di Azure con PowerShell
 > [!div class="op_single_selector"]
-> * [Resource Manager: modello](../sql/virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-> * [Resource Manager: manuale](../sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
-> * [Classica: interfaccia utente](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-> * [Classica: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
-> 
-> 
+> * [Classica: interfaccia utente](../classic/portal-sql-alwayson-availability-groups.md)
+> * [Classica: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
+<br/>
 
 > [!IMPORTANT] 
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
+> Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. 
+
+Per completare questa attività con il modello Azure Resource Manager, vedere [Panoramica sui gruppi di disponibilità AlwaysOn di SQL Server in macchine virtuali di Azure](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
 
 Le macchine virtuali di Azure possono consentire agli amministratori di database di implementare un sistema di SQL Server a disponibilità elevata con costi inferiori. Questa esercitazione illustra come implementare un gruppo di disponibilità end-to-end basato su SQL Server AlwaysOn in un ambiente Azure. Al termine dell'esercitazione la soluzione SQL Server AlwaysOn in Azure sarà composta dagli elementi seguenti:
 
 * Una rete virtuale contenente più subnet, tra cui una subnet front-end e una back-end
 * Un controller di dominio con un dominio di Active Directory (AD)
 * Due macchine virtuali di SQL Server distribuite nella subnet di back-end e aggiunte al dominio AD
-* Un cluster WSFC a 3 nodi con il modello di quorum Maggioranza dei nodi
+* Un cluster di failover di Windows a 3 nodi con il modello di quorum Maggioranza dei nodi
 * Un gruppo di disponibilità con due repliche con commit sincrono di un database di disponibilità
 
-Questo scenario viene scelto per la semplicità, non per la convenienza o altri fattori di Azure. È possibile, ad esempio, ridurre il numero di macchine virtuali per un gruppo di disponibilità con due repliche per risparmiare ore di calcolo in Azure, usando il controller di dominio come condivisione file di controllo del quorum in un cluster WSFC a 2 nodi. Questo metodo consente di ridurre di un'unità il numero di macchine virtuali rispetto alla configurazione precedente.
+Questo scenario viene scelto per la semplicità, non per la convenienza o altri fattori di Azure. È possibile, ad esempio, ridurre il numero di macchine virtuali per un gruppo di disponibilità con due repliche per risparmiare ore di calcolo in Azure, usando il controller di dominio come condivisione file di controllo del quorum in un cluster di failover a 2 nodi. Questo metodo consente di ridurre di un'unità il numero di macchine virtuali rispetto alla configurazione precedente.
 
 Questa esercitazione ha lo scopo di illustrare la procedura necessaria per configurare la soluzione descritta in precedenza senza approfondire i dettagli di ogni passaggio. Pertanto, anziché illustrare i passaggi di configurazione a livello di interfaccia utente grafica, vengono usati gli script di PowerShell per eseguire rapidamente ogni passaggio. Si presuppone quanto segue:
 
@@ -221,7 +221,7 @@ A questo punto, il provisioning del server del controller di dominio è completa
             -ChangePasswordAtLogon $false `
             -Enabled $true
    
-    **CORP\Install** viene usato per configurare tutti gli elementi correlati alle istanze del servizio SQL Server, al cluster WSFC e al gruppo di disponibilità. **CORP\SQLSvc1** e **CORP\SQLSvc2** vengono usati come account del servizio SQL Server per le due macchine virtuali di SQL Server.
+    **CORP\Install** viene usato per configurare tutti gli elementi correlati alle istanze del servizio SQL Server, al cluster di failover e al gruppo di disponibilità. **CORP\SQLSvc1** e **CORP\SQLSvc2** vengono usati come account del servizio SQL Server per le due macchine virtuali di SQL Server.
 7. Eseguire quindi i comandi indicati di seguito per concedere a **CORP\Install** le autorizzazioni per creare oggetti computer nel dominio.
    
         Cd ad:
@@ -233,7 +233,7 @@ A questo punto, il provisioning del server del controller di dominio è completa
         $acl.AddAccessRule($ace1)
         Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl
    
-    Il GUID specificato in precedenza è il GUID per il tipo di oggetto computer. L'account **CORP\Install** deve disporre delle autorizzazioni **Leggi tutte le proprietà** e **Crea oggetti Computer** per creare gli oggetti Active Directory per il cluster WSFC. L'autorizzazione **Leggi tutte le proprietà** è già assegnata a CORP\Install per impostazione predefinita, quindi non è necessario concederla in modo esplicito. Per altre informazioni sulle autorizzazioni necessarie per creare il cluster WSFC, vedere la [guida dettagliata del cluster di failover relativa alla configurazione di account in Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
+    Il GUID specificato in precedenza è il GUID per il tipo di oggetto computer. L'account **CORP\Install** deve disporre delle autorizzazioni **Leggi tutte le proprietà** e **Crea oggetti Computer** per creare gli oggetti Active Directory per il cluster di failover. L'autorizzazione **Leggi tutte le proprietà** è già assegnata a CORP\Install per impostazione predefinita, quindi non è necessario concederla in modo esplicito. Per altre informazioni sulle autorizzazioni necessarie per creare il cluster di failover, vedere la [guida dettagliata del cluster di failover relativa alla configurazione di account in Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
    
     Dopo aver completato la configurazione di Active Directory e degli oggetti utente, si procederà alla creazione di due macchine virtuali di SQL Server che verranno aggiunte al dominio.
 
@@ -252,7 +252,7 @@ A questo punto, il provisioning del server del controller di dominio è completa
         $dnsSettings = New-AzureDns -Name "ContosoBackDNS" -IPAddress "10.10.0.4"
    
     L'indirizzo IP **10.10.0.4** viene in genere assegnato alla prima macchina virtuale creata nella subnet **10.10.0.0/16** della rete virtuale di Azure. È necessario verificare che corrisponda all'indirizzo del server del controller di dominio eseguendo **IPCONFIG**.
-2. Eseguire i comandi seguenti inoltrati tramite pipe per creare la prima macchina virtuale nel cluster WSFC, denominata **ContosoQuorum**:
+2. Eseguire i comandi seguenti inoltrati tramite pipe per creare la prima VM nel cluster di failover, denominata **ContosoQuorum**:
    
         New-AzureVMConfig `
             -Name $quorumServerName `
@@ -371,8 +371,8 @@ A questo punto, il provisioning del server del controller di dominio è completa
    
     Completato il provisioning, le macchine virtuali di SQL Server sono in esecuzione, ma vengono installate con SQL Server usando le opzioni predefinite.
 
-## <a name="initialize-the-wsfc-cluster-vms"></a>Inizializzare le macchine virtuali del cluster WSFC
-In questa sezione è necessario modificare i tre server da usare nel cluster WSFC e nell'installazione di SQL Server. In particolare:
+## <a name="initialize-the-failover-cluster-vms"></a>Inizializzare le macchine virtuali del cluster di failover
+In questa sezione è necessario modificare i tre server da usare nel cluster di failover e nell'installazione di SQL Server. In particolare:
 
 * (Tutti i server) È necessario installare la funzionalità **Clustering di failover** .
 * (Tutti i server) È necessario aggiungere **CORP\Install** come **amministratore** del computer.
@@ -476,8 +476,8 @@ A questo punto, è possibile procedere con la configurazione del gruppo di dispo
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-7. Scaricare **CreateAzureFailoverCluster.ps1** dalla pagina [Create WSFC Cluster for AlwaysOn Availability Groups in Windows Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) (Creare il cluster WSFC per i gruppi di disponibilità AlwaysOn in una VM di Azure) nella directory di lavoro locale. Usare lo script per creare un cluster WSFC funzionale. Per informazioni importanti sull'interazione di WSFC con la rete di Azure, vedere [Disponibilità elevata e ripristino di emergenza di SQL Server in Macchine virtuali di Azure](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
-8. Passare alla directory di lavoro e creare il cluster WSFC con lo script scaricato.
+7. Scaricare **CreateAzureFailoverCluster.ps1** dalla pagina [Create Failover Cluster for Always On Availability Groups in Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) (Creare il cluster di failover per i gruppi di disponibilità AlwaysOn in una VM di Azure) nella directory di lavoro locale. Usare lo script per creare un cluster di failover funzionale. Per informazioni importanti sull'interazione del clustering di Windows con la rete di Azure, vedere [Disponibilità elevata e ripristino di emergenza di SQL Server in Macchine virtuali di Azure](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
+8. Passare alla directory di lavoro e creare il cluster di failover con lo script scaricato.
    
         Set-ExecutionPolicy Unrestricted -Force
         .\CreateAzureFailoverCluster.ps1 -ClusterName "$clusterName" -ClusterNode "$server1","$server2","$serverQuorum"
@@ -560,13 +560,8 @@ A questo punto, è possibile procedere con la configurazione del gruppo di dispo
              -Database $db
 
 ## <a name="next-steps"></a>Passaggi successivi
-SQL Server AlwaysOn è stato correttamente implementato mediante la creazione di un gruppo di disponibilità in Azure. Per configurare un listener per questo gruppo di disponibilità, vedere [Configurare un listener ILB per gruppi di disponibilità AlwaysOn in Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
+SQL Server AlwaysOn è stato correttamente implementato mediante la creazione di un gruppo di disponibilità in Azure. Per configurare un listener per questo gruppo di disponibilità, vedere [Configurare un listener ILB per gruppi di disponibilità AlwaysOn in Azure](../classic/ps-sql-int-listener.md).
 
 Per altre informazioni sull'uso di SQL Server in Azure, vedere [SQL Server in Macchine virtuali di Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

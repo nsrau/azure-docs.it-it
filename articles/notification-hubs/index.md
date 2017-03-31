@@ -1,11 +1,24 @@
 ---
-layout: LandingPage
+title: Documentazione di Hub di notifica di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come inviare notifiche push da qualsiasi back-end per tutti i dispositivi mobili con hub di notifica. Esercitazioni, informazioni di riferimento sulle API e altri documenti.
+services: notification-hubs
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: notification-hubs
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: c99636cdb412f1144f2dbe078379b89b6841bd9b
+ms.sourcegitcommit: a5d4401d74c8aebbe618cd1fac9bc8247b8da90b
+ms.openlocfilehash: 418e985335b582957637430cdde71024302f3fc2
+ms.lasthandoff: 02/17/2017
 
 ---
+
 #<a name="notification-hubs-documentation"></a>Documentazione su Hub di notifica
 
 Informazioni su come usare Hub di notifica, un motore di notifica push multipiattaforma e scalabile per inviare rapidamente milioni di messaggi. Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come impostare e inviare notifiche push da qualsiasi back-end a qualsiasi dispositivo mobile. 
@@ -198,13 +211,5 @@ Informazioni su come usare Hub di notifica, un motore di notifica push multipiat
         </div>
     </li>
 </ul>
-
----
-
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

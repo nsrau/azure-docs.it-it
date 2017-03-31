@@ -5,7 +5,7 @@ services: app-service\web
 tags: python
 documentationcenter: python
 author: huguesv
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: d8e70a29-aca1-4010-95f5-cfe769e3be06
 ms.service: app-service-web
@@ -18,6 +18,7 @@ ms.author: huvalo
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 96b27bdd528b0f57b9e0a9959ead23b8f820a82d
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -66,7 +67,7 @@ In questa sezione verrà creato un progetto di Visual Studio usando un modello d
 Per effettuare operazioni di archiviazione, è necessario un account di archiviazione di Azure. Per creare un account di archiviazione, attenersi alla procedura riportata di seguito
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Fare clic sull'icona **Nuovo** nella parte inferiore sinistra del portale, quindi fare clic su **Dati e archiviazione** > ** Account di archiviazione**. Fare clic su **Crea**quindi assegnare un nome univoco all'account di archiviazione e creare un nuovo [gruppo di risorse](../azure-resource-manager/resource-group-overview.md) correlato.
+2. Fare clic sull'icona **Nuovo** nella parte inferiore sinistra del portale, quindi fare clic su **Dati e archiviazione** > **Account di archiviazione**. Fare clic su **Crea**quindi assegnare un nome univoco all'account di archiviazione e creare un nuovo [gruppo di risorse](../azure-resource-manager/resource-group-overview.md) correlato.
    
       ![Quick Create](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzureStorageCreate.png)
    
@@ -190,9 +191,4 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 [Progetti servizio cloud]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Archiviazione di Azure]: http://azure.microsoft.com/documentation/services/storage/
 [Azure SDK per Python]: https://github.com/Azure/azure-sdk-for-python
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

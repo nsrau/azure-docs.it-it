@@ -1,5 +1,5 @@
 ---
-title: Utilizzo dell&quot;archiviazione BLOB per IIS e dell&quot;archiviazione tabelle per gli eventi | Documentazione Microsoft
+title: Usare l&quot;archiviazione BLOB per IIS e l&quot;archiviazione tabelle per gli eventi in Log Analytics di Azure| Documentazione Microsoft
 description: "Log Analytics è in grado di leggere i log per i servizi di Azure che scrivono dati di diagnostica nell&quot;archivio tabelle o log di IIS nell&quot;archivio BLOB."
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 950b6de5b579cac1a2b10db299e6f7bcfd8c7b04
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: b40d7c0acd8cc6a672f25489b745561c24501482
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="using-blob-storage-for-iis-and-table-storage-for-events"></a>Uso dell'archivio BLOB per IIS e dell'archivio tabelle per gli eventi
+# <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Usare l'archiviazione BLOB di Azure per IIS e l'archiviazione tabelle di Azure per gli eventi con Log Analytics
+
 Log Analytics è in grado di leggere i log per i servizi seguenti che scrivono dati di diagnostica nell'archivio tabelle o log di IIS nell'archivio BLOB:
 
 * Cluster di Service Fabric (Anteprima)
@@ -69,8 +72,6 @@ Usare la procedura seguente per abilitare la Diagnostica di Azure in una macchin
    4. Impostare lo **Stato** su **SÌ**.
    5. Selezionare ogni log di diagnostica da raccogliere.
    6. Fare clic su **OK**.
-
-Con Azure PowerShell è possibile specificare in modo più preciso gli eventi che vengono scritti nell'Archiviazione di Azure. Vedere [Collect data using Azure diagnostics written to table storage or IIS Logs written to blob](log-analytics-azure-storage-json.md) (Raccogliere dati usando i log di diagnostica di Azure scritti nell'archivio tabelle o i log di IIS scritti nell'archivio BLOB).
 
 ## <a name="enable-azure-diagnostics-in-a-web-role-for-iis-log-and-event-collection"></a>Abilitare Diagnostica di Azure in un ruolo Web per la raccolta di eventi e log IIS
 Consultare l'argomento su [come abilitare la diagnostica in un servizio cloud](../cloud-services/cloud-services-dotnet-diagnostics.md) per una procedura generale di abilitazione della Diagnostica di Azure. Le istruzioni seguenti usano queste informazioni, personalizzandole per l'uso con Log Analytics.
@@ -192,12 +193,7 @@ Esaminare il seguente script di esempio, copiarlo, modificarlo se necessario, sa
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Usare i file JSON nell'archivio BLOB](log-analytics-azure-storage-json.md) per leggere i log dai servizi di Azure che scrivono dati di diagnostica nell'archivio BLOB in formato JSON.
+* [Raccogliere i log e le metriche per i servizi di Azure](log-analytics-azure-storage.md) per i servizi supportati di Azure.
 * [Abilitare soluzioni](log-analytics-add-solutions.md) per fornire informazioni dettagliate sui dati.
 * [Usare query di ricerca](log-analytics-log-searches.md) per analizzare i dati.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

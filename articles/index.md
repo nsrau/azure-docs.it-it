@@ -4,8 +4,9 @@ hide_bc: true
 title: Documentazione di Microsoft Azure | Documentazione Microsoft
 description: Informazioni su come compilare e gestire applicazioni avanzate usando i servizi cloud di Microsoft Azure. Ottenere la documentazione, il codice di esempio, le esercitazioni e altro.
 translationtype: Human Translation
-ms.sourcegitcommit: 87041c127fb3381480b162c3a3648bfd46dbaaf7
-ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 1dc4b5b0613a76a90c566dedf3ff41be1f68f744
+ms.lasthandoff: 03/22/2017
 
 ---
 <div id="main" class="v2">
@@ -48,17 +49,17 @@ ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
                 </a>
             </li>
             <li>
-                <a href="https://azure.microsoft.com/get-started/">
+                <a href="https://azure.microsoft.com/en-us/community/training/">
                     <div class="cardSize">
                         <div class="cardPadding">
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="media/index/video.svg" src="media/index/video.png" alt="" />
+                                        <img data-hoverimage="media/index/getstarted_pluralsight.svg" src="media/index/getstarted_pluralsight.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <h3>Video introduttivi di 5 minuti</h3>
+                                    <h3>Training video gratuito PluralSight per Azure</h3>
                                 </div>
                             </div>
                         </div>
@@ -99,8 +100,8 @@ ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
                                         </li>
                                         <li>
                                             <a href="/azure/app-service/">
-                                                <img src="media/index/AppService.svg" alt="" />
-                                                <p>Servizio app</p>
+                                                <img src="media/index/app-service-web.svg" alt="" />
+                                                <p>App Web</p>
                                             </a>
                                         </li>
                                         <li>
@@ -274,6 +275,12 @@ ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
                                             <a href="/azure/expressroute/">
                                                 <img src="media/index/ExpressRoute.svg" alt="" />
                                                 <p>ExpressRoute</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/network-watcher/">
+                                                <img src="media/index/network-watcher.svg" alt="" />
+                                                <p>Network Watcher</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -598,12 +605,6 @@ ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/biztalk-services/">
-                                                <img src="media/index/BizTalkServices.svg" alt="" />
-                                                <p>Servizi BizTalk</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/service-bus/">
                                                 <img src="media/index/ServiceBus.svg" alt="" />
                                                 <p>Bus di servizio</p>
@@ -631,6 +632,12 @@ ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
                                             <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
                                                 <p>Data factory</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/biztalk-services/">
+                                                <img src="media/index/BizTalkServices.svg" alt="" />
+                                                <p>Servizi BizTalk</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -714,18 +721,18 @@ ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/app-service/">
+                                <a href="/azure/app-service-web">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AppService.svg" alt="" />
+                                                        <img src="media/index/app-service-web.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Servizio app</h3>
-                                                    <p>Creare app Web e per dispositivi mobili per qualsiasi piattaforma e dispositivo</p>
+                                                    <h3>App Web</h3>
+                                                    <p>Creare e distribuire rapidamente app Web di importanza strategica su vasta scala</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -997,6 +1004,25 @@ ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
                                                 <div class="cardText">
                                                     <h3>ExpressRoute</h3>
                                                     <p>Connessioni ad Azure tramite fibra su rete privata dedicata</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/network-watcher/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/network-watcher.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Network Watcher</h3>
+                                                    <p>Monitorare e diagnosticare le condizioni a livello di scenario di rete</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1794,25 +1820,6 @@ ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/biztalk-services/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/BizTalkServices.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Servizi BizTalk</h3>
-                                                    <p>Integrazione senza problemi di azienda e cloud</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/service-bus/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1901,6 +1908,25 @@ ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
                                                 <div class="cardText">
                                                     <h3>Data factory</h3>
                                                     <p>Orchestrazione e gestione della trasformazione e dello spostamento dei dati</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/biztalk-services/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/BizTalkServices.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Servizi BizTalk</h3>
+                                                    <p>Integrazione senza problemi di azienda e cloud</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2409,10 +2435,10 @@ ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent">Ottenere .NET SDK</a>
+                                                    <a href="/dotnet/api">Ottenere .NET SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/dotnet/api/">Introduzione</a>
+                                                    <a href="/azure/app-service-web/app-service-web-get-started-dotnet">Introduzione</a>
                                                 </p>
                                                 <p>
                                                     <a href="/dotnet/api">Informazioni di riferimento sulle API</a>
@@ -2587,12 +2613,12 @@ ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI 2.0 Preview </h3>
+                                                <h3>Interfaccia della riga di comando di Azure 2.0 </h3>
                                                 <p>
-                                                    <a href="/cli/azure/get-started/">Introduzione</a>
+                                                    <a href="/cli/azure/overview">Introduzione</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure/azure-cli">Scaricare Azure CLI 2.0</a>
+                                                    <a href="/cli/azure/install-azure-cli">Scaricare Azure CLI 2.0</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure">Informazioni di riferimento</a>
@@ -2698,7 +2724,7 @@ ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
                                                     <a href="https://github.com/Microsoft/DockerToolsDocs">Strumenti di Docker</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/en-us/dotnet/articles/core/docker/visual-studio-tools-for-docker">Introduzione</a>
+                                                    <a href="/dotnet/articles/core/docker/visual-studio-tools-for-docker">Introduzione</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780680">Download per Visual Studio</a>
@@ -2906,9 +2932,4 @@ ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
         </ul>
     </div>
 </div>
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

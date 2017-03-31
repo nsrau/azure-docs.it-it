@@ -4,7 +4,7 @@ description: Informazioni su come eseguire il mapping di un nome di dominio pers
 services: app-service
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 tags: top-support-issue
 ms.assetid: 48644a39-107c-45fb-9cd3-c741974ff590
@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2016
+ms.date: 01/30/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ebd86b236e5f49d9139732f8922f9929081677cc
+ms.sourcegitcommit: 59565c22ecd42985e8a6b81c4983fc2e87637e36
+ms.openlocfilehash: 589701270770494e4ec4d127a252712249da9f3a
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -26,22 +27,12 @@ ms.openlocfilehash: ebd86b236e5f49d9139732f8922f9929081677cc
 
 Questo articolo illustra come eseguire manualmente il mapping di un nome dominio personalizzato nell'app Web, nel back-end dell'app per dispositivi mobili o nell'app per le API nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md). 
 
-L'app è già dotata di un sottodominio univoco di azurewebsites.net. Se ad esempio l'app è denominata **contoso**, il nome di dominio sarà **contoso.azurewebsites.net**. È tuttavia possibile eseguire il mapping di un nome dominio personalizzato all'app in modo che il relativo URL, ad esempio `www.contoso.com`, rifletta il proprio marchio.
+> [!NOTE] 
+> Basta [acquistare un nome di dominio personalizzato direttamente da Azure](custom-dns-web-site-buydomains-web-app.md).
+>
+>
 
-> [!NOTE]
-> Ottenere assistenza dagli esperti di Azure nei [forum di Azure](https://azure.microsoft.com/support/forums/). Per un livello di supporto ancora più elevato, passare al [sito del Supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**.
-> 
-> 
-
-[!INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
-
-## <a name="buy-a-new-custom-domain-in-azure-portal"></a>Acquistare un nuovo dominio personalizzato nel portale di Azure
-Se non è già stato acquistato un nome di dominio personalizzato, è possibile acquistarne uno e gestirlo direttamente nelle impostazioni dell'app nel [portale di Azure](https://portal.azure.com). Questa opzione semplifica l'esecuzione del mapping di un dominio personalizzato all'app, a prescindere che l'app usi [Gestione traffico di Azure](web-sites-traffic-manager-custom-domain-name.md) o meno. 
-
-Per istruzioni, vedere [Acquistare e configurare un nome di dominio personalizzato in Servizio app di Azure](custom-dns-web-site-buydomains-web-app.md).
-
-## <a name="map-a-custom-domain-you-purchased-externally"></a>Eseguire il mapping di un dominio personalizzato acquistato esternamente
-Se è già stato acquistato un dominio personalizzato dal [Servizio DNS di Azure](https://azure.microsoft.com/services/dns/) o da un provider di terze parti, il mapping del dominio personalizzato all'app prevede tre passaggi:
+Esistono tre passaggi principali da compiere per eseguire il mapping del dominio personalizzato all'app:
 
 1. [*(Solo record A)* Ottenere l'indirizzo IP dell'app](#vip).
 2. [Creare i record DNS per il mapping del dominio all'app](#createdns). 
@@ -52,7 +43,7 @@ Se è già stato acquistato un dominio personalizzato dal [Servizio DNS di Azure
    * **Perché**: in modo che l'app possa rispondere alle richieste inviate al nome di dominio personalizzato.
 4. [Verificare la propagazione di DNS](#verify).
 
-### <a name="types-of-domains-you-can-map"></a>Tipi di domini per i quali è possibile eseguire il mapping
+## <a name="types-of-domains-you-can-map"></a>Tipi di domini per i quali è possibile eseguire il mapping
 Il servizio app di Azure consente di eseguire il mapping delle categorie di domini personalizzati seguenti all'app.
 
 * **Dominio radice**: è il dominio riservato con il registrar, rappresentato di solito dal record host `@`, 
@@ -60,7 +51,7 @@ Il servizio app di Azure consente di eseguire il mapping delle categorie di domi
 * **Sottodominio** : qualsiasi dominio che si trova sotto il dominio radice. Ad esempio **www.contoso.com**, rappresentato dal record host `www`.  È possibile eseguire il mapping di più sottodomini dello stesso dominio radice ad app differenti in Azure.
 * **Dominio con caratteri jolly** - [qualsiasi sottodominio la cui etichetta DNS più a sinistra è `*`](https://en.wikipedia.org/wiki/Wildcard_DNS_record), ad esempio i record host `*` e `*.blogs`, ad esempio **\*contoso.com**.
 
-### <a name="types-of-dns-records-you-can-use"></a>Tipi di record DNS utilizzabili
+## <a name="types-of-dns-records-you-can-use"></a>Tipi di record DNS utilizzabili
 A seconda delle esigenze, è possibile usare due diversi tipi di record DNS standard per eseguire il mapping del dominio personalizzato: 
 
 * [A](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A) : esegue il mapping del nome dominio personalizzato direttamente all'indirizzo IP virtuale dell'app Azure. 
@@ -124,8 +115,8 @@ Configurare il record A come indicato di seguito. (@ rappresenta in genere il do
     <td>Indirizzo IP del <a href="#vip">passaggio 1</a></td>
   </tr>
   <tr>
-    <td>*.contoso.com (carattere jolly)</td>
-    <td>*</td>
+    <td>\*.contoso.com (carattere jolly)</td>
+    <td>\*</td>
     <td>Indirizzo IP del <a href="#vip">passaggio 1</a></td>
   </tr>
 </table>
@@ -149,8 +140,8 @@ Il record TXT aggiuntivo segue la convenzione che esegue il mapping da &lt;*sott
     <td>&lt;<i>nomeapp</i>>.azurewebsites.net</td>
   </tr>
   <tr>
-    <td>*.contoso.com (carattere jolly)</td>
-    <td>*</td>
+    <td>\*.contoso.com (carattere jolly)</td>
+    <td>\*</td>
     <td>&lt;<i>nomeapp</i>>.azurewebsites.net</td>
   </tr>
 </table>
@@ -180,8 +171,8 @@ Configurare il record CNAME come indicato di seguito. (@ rappresenta in genere i
     <td>&lt;<i>nomeapp</i>>.azurewebsites.net</td>
   </tr>
   <tr>
-    <td>*.contoso.com (carattere jolly)</td>
-    <td>*</td>
+    <td>\*.contoso.com (carattere jolly)</td>
+    <td>\*</td>
     <td>&lt;<i>nomeapp</i>>.azurewebsites.net</td>
   </tr>
 </table>
@@ -207,50 +198,9 @@ Nel pannello **Domini personalizzati** del portale di Azure (vedere il [passaggi
 7. Se la convalida avrà esito positivo, il pulsante **Aggiungi il nome host** diventerà attivo e sarà possibile assegnare il nome host. 
 8. Al termine della configurazione del nuovo nome di dominio personalizzato, passare al nome di dominio personalizzato in un browser. Se l'app Azure viene aperta dal browser, il nome di dominio personalizzato è configurato correttamente.
 
-> [!NOTE]
-> Se il record DNS è già in uso, in uno scenario di dominio attivo che gestisce il traffico, ed è necessario associarvi preventivamente l'app Web per la verifica del dominio, creare semplicemente un record TXT come negli esempi illustrati nella tabella seguente. Il record TXT aggiuntivo segue la convenzione che esegue il mapping da &lt;*sottodominio*>.&lt;*dominioradice*> a &lt;*nomeapp*>.azurewebsites.net. 
-> 
-> <table cellspacing="0" border="1">
-> 
-> <tr>
-> 
-> <th>Esempio di FQDN</th>
-> 
-> <th>Host TXT</th>
-> 
-> <th>Valore TXT</th>
-> </tr>
-> 
-> <tr>
-> 
-> <td>contoso.com (radice)</td>
-> 
-> <td>awverify.contoso.com</td>
-> 
-> <td>&lt;<i>nomeapp</i>>.azurewebsites.net</td>
-> </tr>
-> 
-> <tr>
-> 
-> <td>www.contoso.com (sottodominio)</td>
-> 
-> <td>awverify.www.contoso.com</td>
-> 
-> <td>&lt;<i>nomeapp</i>>.azurewebsites.net</td>
-> </tr>
-> 
-> <tr>
-> 
-> <td>*.contoso.com (sottodominio)</td>
-> 
-> <td>awverify.*.contoso.com</td>
-> 
-> <td>&lt;<i>nomeapp</i>>.azurewebsites.net</td>
-> </tr>
-> </table>
-> Dopo aver creato il record DNS, tornare al portale di Azure e aggiungere il nome di dominio personalizzato all'app Web.
-> 
-> 
+## <a name="migrate-an-active-domain-name"></a>Eseguire la migrazione di un dominio attivo
+
+Se il nome di dominio di cui si desidera eseguire il mapping è già in uso da parte di un sito Web esistente e si desidera evitare tempi di inattività, vedere [Migrate an active custom domain to App Service](app-service-custom-domain-name-migrate.md) (Migrare un dominio personalizzato attivo al servizio app).
 
 <a name="verify"></a>
 
@@ -268,7 +218,7 @@ Dopo aver completato i passaggi di configurazione, la propagazione delle modific
 Informazioni su come proteggere il nome di dominio personalizzato tramite HTTPS [acquistando un certificato SSL in Azure](web-sites-purchase-ssl-web-site.md) o [usando un certificato SSL per un dominio personalizzato](web-sites-configure-ssl-certificate.md).
 
 > [!NOTE]
-> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 
@@ -278,9 +228,4 @@ Informazioni su come proteggere il nome di dominio personalizzato tramite HTTPS 
 
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

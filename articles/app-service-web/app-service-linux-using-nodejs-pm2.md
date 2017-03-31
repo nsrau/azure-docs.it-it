@@ -5,7 +5,7 @@ keywords: Servizio app di Azure, app Web, nodejs, PM2, Linux, OSS
 services: app-service
 documentationcenter: 
 author: naziml
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: fb420f32-6d74-49c7-992f-0ed5616e66e7
 ms.service: app-service
@@ -13,20 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: naziml
+ms.date: 02/16/2017
+ms.author: naziml;wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a46f52198e956406c2384c45ed4323aff27259a0
+ms.sourcegitcommit: bb4c7ea7adfe1326ae8259782b5de2762c8c2bf5
+ms.openlocfilehash: c4af07e79ae066f916c15aa239cb5dfdd3fef2a8
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="use-pm2-configuration-for-nodejs-in-web-apps-on-linux"></a>Usare la configurazione PM2 per Node.js nelle app Web in Linux
-Se si imposta lo stack di applicazioni su Node.js per le app Web in Linux, è possibile impostare un file di avvio in Node.js, come illustrato nell'immagine seguente.
+Se si imposta lo stack di applicazioni su Node.js per le app Web in Linux, è possibile impostare un file di avvio in Node.js, come illustrato nell'immagine seguente:
 
 ![Impostare un file di avvio Node.js][1]
 
-È possibile usare questo file per una delle attività seguenti:
+È possibile usare questa opzione per una delle attività seguenti:
 
 * Specificare lo script di avvio per l'app Node.js (ad esempio: /bin/server.js).
 * Specificare il file di configurazione PM2 da usare per l'app Node.js (ad esempio: /foo/process.json).
@@ -61,12 +62,8 @@ In questa configurazione è importante notare quanto segue:
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [What is App Service on Linux?](app-service-linux-intro.md) (Che cos'è Servizio app in Linux?)
+* [Azure App Service Web Apps on Linux FAQ](app-service-linux-faq.md) (App Web del Servizio app di Azure nelle domande frequenti su Linux)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-using-nodejs-pm2/nodejs-startup-file.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

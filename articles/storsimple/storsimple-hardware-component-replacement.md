@@ -4,7 +4,7 @@ description: "Viene descritto come sostituire in modo sicuro i PCM, la batteria,
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: e8087ba7-0b66-4f59-8988-e53aad52ee21
 ms.service: storsimple
@@ -12,16 +12,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/11/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 50df20f1f84f570cec1261e14028f3a700871dac
+ms.sourcegitcommit: f2d197264f066a23468db80686444bd24f6d796f
+ms.openlocfilehash: ae37f49916445a9486457af61aa9bf8bc1d7eb87
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="storsimple-hardware-component-replacement"></a>Sostituzione di componenti hardware di StorSimple
-## <a name="overview"></a>Overview
+# <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Sostituire un componente hardware sul dispositivo StorSimple serie 8000
+
+## <a name="overview"></a>Panoramica
 Le esercitazioni di sostituzione dei componenti hardware descrivono i componenti hardware del dispositivo Microsoft Azure StorSimple serie 8000 e i passaggi necessari per rimuovere e sostituire i componenti. In questo articolo vengono descritte le icone di sicurezza, vengono forniti dei collegamenti alle esercitazioni dettagliate e vengono elencati i componenti che possono essere sostituiti.
 
 > [!IMPORTANT]
@@ -67,7 +70,7 @@ Nelle tabelle seguenti vengono riepilogati i componenti hardware principali nel 
 |:--- |:--- |:--- |:--- |
 | Chassis |1 |No |[Sostituire lo chassis sul dispositivo StorSimple](storsimple-chassis-replacement.md) |
 | Controller primari |2 |Sì |[Sostituire un modulo controller nel dispositivo StorSimple](storsimple-controller-replacement.md) |
-| Power and Cooling Modules (PCM) da 764W |2 |Sì |[Sostituire un PCM sul dispositivo StorSimple](storsimple-power-cooling-module-replacement.md) |
+| Power and Cooling Modules (PCM) da&764;W |2 |Sì |[Sostituire un PCM sul dispositivo StorSimple](storsimple-power-cooling-module-replacement.md) |
 | Batteria di backup |2 |Sì |[Sostituire il modulo batteria di backup nel dispositivo StorSimple](storsimple-battery-replacement.md) |
 | Unità disco |12 |Sì |[Sostituire un'unità disco del dispositivo StorSimple](storsimple-disk-drive-replacement.md) |
 
@@ -79,7 +82,7 @@ Lo chassis principale e lo chassis EBOD sono diversi nei moduli I/O. Inoltre, i 
 |:--- |:--- |:--- |:--- |
 | Chassis |1 |No |[Sostituire lo chassis sul dispositivo StorSimple](storsimple-chassis-replacement.md) |
 | Controller EBOD |2 |Sì |[Sostituire un controller EBOD sul dispositivo StorSimple](storsimple-ebod-controller-replacement.md) |
-| Power and Cooling Modules (PCM) da 580W |2 |Sì |[Sostituire un PCM sul dispositivo StorSimple](storsimple-power-cooling-module-replacement.md) |
+| Power and Cooling Modules (PCM) da&580;W |2 |Sì |[Sostituire un PCM sul dispositivo StorSimple](storsimple-power-cooling-module-replacement.md) |
 | Unità disco |12 |Sì |[Sostituire un'unità disco del dispositivo StorSimple](storsimple-disk-drive-replacement.md) |
 
 **Tabella 2** componenti Hardware nell'enclosure EBOD
@@ -122,8 +125,8 @@ Sia lo chassis principale sia quello EBOD hanno moduli unità carrier. Lo chassi
 Le seguenti unità sostituibili sul campo (FRU) sono disponibili per il dispositivo StorSimple:
 
 * Chassis (incluso il pannello operativo integrato)
-* PCM con AC da 764 W
-* PCM con AC da 580 W
+* PCM con AC da&764; W
+* PCM con AC da&580; W
 * Unità disco rigido con modulo unità carrier
 * Modulo controller
 * Modulo controller EBOD
@@ -134,10 +137,5 @@ Le seguenti unità sostituibili sul campo (FRU) sono disponibili per il disposit
 
 ## <a name="next-steps"></a>Passaggi successivi
 Rivedere tutte le [informazioni sulla sicurezza](storsimple-safety.md) prima di tentare di sostituire un componente hardware StorSimple.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

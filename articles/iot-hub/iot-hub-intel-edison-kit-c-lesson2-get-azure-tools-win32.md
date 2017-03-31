@@ -1,5 +1,5 @@
 ---
-title: Ottenere gli strumenti di Azure per lo starter kit di Azure IoT per Windows 7 e versioni successive | Documentazione Microsoft
+title: 'Connettere Intel Edison (C) ad Azure IoT: lezione 2: Strumenti di Azure (Windows) | Documentazione Microsoft'
 description: Installare Python e l&quot;interfaccia della riga di comando di Azure in Windows 7 e versioni successive.
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: f45b3bf00d619376ac07418f0c02eca5f3241939
-ms.openlocfilehash: dbb40d01aaaa94b3b579543449563dfe23390383
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: c31847b0a4b630f999f64c139f6b9b44623d847e
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -78,9 +79,4 @@ Se l'installazione ha esito positivo, verrà visualizzato l'output seguente.
 [windows]: iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-win32.md
 [ubuntu]: iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-ubuntu.md
 [macos]: iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-mac.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

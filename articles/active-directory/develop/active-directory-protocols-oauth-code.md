@@ -1,5 +1,5 @@
 ---
-title: Panoramica del protocollo .NET per Azure AD | Documentazione Microsoft
+title: Informazioni sul flusso del codice di autorizzazione OAuth 2.0 in Azure AD | Documentazione Microsoft
 description: Questo articolo descrive come usare messaggi HTTP per autorizzare l&quot;accesso ad applicazioni Web e API Web nel proprio tenant con Azure Active Directory e OAuth 2.0.
 services: active-directory
 documentationcenter: .net
@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 02/08/2017
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 080fec35d0e303ad652d90f6bbb6da5350495cc7
+ms.sourcegitcommit: 06d8cb3ce2fe4419a79a63b76d67cc476d205e08
+ms.openlocfilehash: a3e21d5af43562afde927bb623b910c96ad48158
 
 
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Autorizzare l'accesso ad applicazioni Web con OAuth 2.0 e Azure Active Directory
 Azure Active Directory (Azure AD) usa OAuth 2.0 per consentire di autorizzare l'accesso ad applicazioni Web e API Web nel proprio tenant di Azure AD. Questa guida, indipendente dal linguaggio, descrive come inviare e ricevere messaggi HTTP senza usare una delle librerie open source di Microsoft.
 
-Il flusso del codice di autorizzazione di OAuth 2.0 è descritto nella [sezione 4.1 della specifica di OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.1) . Viene usato per eseguire l'autenticazione e l'autorizzazione nella maggior parte dei tipi di app, tra cui app Web e app native.
+Il flusso del codice di autorizzazione di OAuth 2.0 è descritto nella [sezione 4.1 della specifica di OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.1). Viene usato per eseguire l'autenticazione e l'autorizzazione nella maggior parte dei tipi di app, tra cui app Web e app native.
 
 [!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]
 
@@ -50,22 +50,22 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parametro |  | Descrizione |
 | --- | --- | --- |
 | tenant |Obbligatoria |Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione.  I valori consentiti sono gli identificatori dei tenant, ad esempio `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` o `common` per i token indipendenti dai tenant |
-| client_id |Obbligatoria |ID applicazione assegnato all'app quando è stata registrata in Azure AD. È disponibile nel portale di gestione di Azure. Fare clic su **Active Directory** e quindi sulla directory, sull'applicazione e infine su **Configura** |
+| client_id |Obbligatoria |ID applicazione assegnato all'app quando è stata registrata in Azure AD. ed è reperibile nel portale di Azure. Fare clic su **Active Directory** e quindi sulla directory, sull'applicazione e infine su **Configura** |
 | response_type |Obbligatoria |Deve includere `code` per il flusso del codice di autorizzazione. |
 | redirect_uri |consigliato |URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app.  Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL.  Per le app native e le app per dispositivi mobili è necessario usare il valore predefinito `urn:ietf:wg:oauth:2.0:oob`. |
 | response_mode |Consigliato |Specifica il metodo da usare per restituire il token risultante all'app.  Può essere `query` o `form_post`. |
-| state |Consigliato |Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Per [evitare gli attacchi di richiesta intersito falsa](http://tools.ietf.org/html/rfc6749#section-10.12), viene in genere usato un valore univoco generato casualmente.  Lo stato viene inoltre usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
-| resource |Facoltativa |L'URI ID app dell'API Web (risorsa protetta). Per trovare l'URI ID app dell'API Web, nel portale di gestione di Azure fare clic su **Active Directory**, fare clic sulla directory e sull'applicazione e quindi su **Configura**. |
+| state |consigliato |Valore incluso nella richiesta che viene restituito nella risposta del token. Per [evitare gli attacchi di richiesta intersito falsa](http://tools.ietf.org/html/rfc6749#section-10.12), viene in genere usato un valore univoco generato casualmente.  Lo stato viene inoltre usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
+| resource |Facoltativa |L'URI ID app dell'API Web (risorsa protetta). Per trovare l'URI ID app dell'API Web, nel portale di Azure fare clic su **Active Directory**, fare clic sulla directory e sull'applicazione e quindi su **Configura**. |
 | prompt |Facoltativa |Indica il tipo di interazione obbligatoria dell'utente.<p> I valori validi sono: <p> *login*: all'utente deve essere chiesto di ripetere l'autenticazione. <p> *consent*: il consenso dell'utente è stato concesso, ma deve essere aggiornato. All'utente deve essere chiesto di indicare il consenso. <p> *admin_consent*: a un amministratore deve essere chiesto di indicare il consenso per conto di tutti gli utenti dell'organizzazione |
-| login_hint |Facoltativo |Consente di pre-compilare il campo nome utente/indirizzo di posta elettronica dell'utente nella pagina di accesso, se già si conosce il nome utente.  Le app usano spesso questo parametro durante la riautenticazione, dopo aver estratto il nome utente da un accesso precedente tramite l'attestazione `preferred_username`. |
+| login_hint |Facoltativa |Consente di pre-compilare il campo nome utente/indirizzo di posta elettronica dell'utente nella pagina di accesso, se già si conosce il nome utente.  Le app usano spesso questo parametro durante la riautenticazione, dopo aver estratto il nome utente da un accesso precedente tramite l'attestazione `preferred_username`. |
 | domain_hint |Facoltativa |Offre un suggerimento relativo al tenant o al dominio che l'utente deve usare per accedere. Il valore di domain_hint è un dominio registrato per il tenant. Se il tenant è federato a una directory locale, AAD reindirizza al server federativo tenant specificato. |
 
 > [!NOTE]
 > Se l'utente fa parte di un'organizzazione, un amministratore dell'organizzazione può acconsentire o rifiutare per conto dell'utente oppure permettere all'utente di dare il consenso. L'utente ha la possibilità di dare il consenso solo se l'amministratore lo permette.
-> 
-> 
+>
+>
 
-A questo punto, all'utente verrà chiesto di immettere le credenziali e dare il consenso per le autorizzazioni indicate nel parametro di query `scope` . Dopo che l'utente ha eseguito l'autenticazione e concesso il consenso, Azure AD invia una risposta all'app all'indirizzo `redirect_uri` della richiesta.
+A questo punto all'utente verrà chiesto di immettere le credenziali e dare il consenso per le autorizzazioni indicate nel parametro di query `scope` . Dopo che l'utente ha eseguito l'autenticazione e concesso il consenso, Azure AD invia una risposta all'app all'indirizzo `redirect_uri` della richiesta.
 
 ### <a name="successful-response"></a>Risposta con esito positivo
 Una risposta con esito positivo può avere un aspetto simile al seguente:
@@ -106,8 +106,8 @@ La tabella seguente descrive i diversi codici errore che possono essere restitui
 | unauthorized_client |All'applicazione client non è consentito richiedere un codice di autorizzazione. |Si verifica in genere quando l'applicazione client non è registrata in Azure AD o non è stata aggiunta al tenant di Azure AD dell'utente. L'applicazione può chiedere all'utente di installare l'applicazione e di aggiungerla ad Azure AD. |
 | access_denied |Consenso negato dal proprietario della risorsa |L'applicazione client può notificare all'utente che non può proseguire a meno che l'utente non acconsenta. |
 | unsupported_response_type |Il server di autorizzazione non supporta il tipo di risposta nella richiesta. |Correggere e inviare di nuovo la richiesta. Si tratta di un errore di sviluppo rilevato in genere durante il test iniziale. |
-| server_error |Errore imprevisto rilevato dal server. |ripetere la richiesta. Questi errori possono dipendere da condizioni temporanee. L'applicazione client sta comunicando all'utente che la risposta è stata ritardata a causa di un errore temporaneo. |
-| temporarily_unavailable |Il server è temporaneamente troppo occupato per gestire la richiesta. |ripetere la richiesta. L'applicazione client sta comunicando all'utente che la risposta è stata ritardata a causa di una condizione temporanea. |
+| server_error |Errore imprevisto rilevato dal server. |ripetere la richiesta. Questi errori possono dipendere da condizioni temporanee. L'applicazione client può comunicare all'utente che la risposta è stata ritardata a causa di un errore temporaneo. |
+| temporarily_unavailable |Il server è temporaneamente troppo occupato per gestire la richiesta. |ripetere la richiesta. L'applicazione client può comunicare all'utente che la risposta è stata ritardata a causa di una condizione temporanea. |
 | invalid_resource |La risorsa di destinazione non è valida perché non esiste, Azure AD non riesce a trovarla o non è attualmente configurata. |Indica che la risorsa, se presente, non è stata configurata nel tenant. L'applicazione può chiedere all'utente di installare l'applicazione e di aggiungerla ad Azure AD. |
 
 ## <a name="use-the-authorization-code-to-request-an-access-token"></a>Usare un codice di autorizzazione per richiedere un token di accesso
@@ -198,7 +198,9 @@ Il token JWT nel valore del parametro `id_token` può essere decodificato nelle 
 }.
 ```
 
-Il parametro `id_token` include i tipi di attestazione seguenti. Per altre informazioni sui token Web JSON, vedere la [bozza di specifica di JWT di IETF](http://go.microsoft.com/fwlink/?LinkId=392344). Per altre informazioni sui tipi di token e sulle attestazioni, vedere [Token e tipi di attestazioni supportati](active-directory-token-and-claims.md)
+Per altre informazioni sui token Web JSON, vedere la [bozza della specifica di JWT di IETF](http://go.microsoft.com/fwlink/?LinkId=392344). Per altre informazioni sui tipi di token e sulle attestazioni, vedere [Token e tipi di attestazioni supportati](active-directory-token-and-claims.md)
+
+Il parametro `id_token` include i tipi di attestazione seguenti:
 
 | Tipo di attestazione | Descrizione |
 | --- | --- |
@@ -244,7 +246,7 @@ Una risposta di errore di esempio può avere un aspetto simile al seguente:
 | correlation_id |Identificatore univoco per la richiesta utile per la diagnostica tra i componenti. |
 
 #### <a name="http-status-codes"></a>Codici di stato HTTP
-La tabella seguente elenca i codici di stato HTTP restituiti dall'endpoint di rilascio dei token. In alcuni casi, il codice errore è sufficiente a descrivere la risposta, ma in caso di errori, sarà necessario analizzare il documento JSON associato ed esaminare il codice errore.
+La tabella seguente elenca i codici di stato HTTP restituiti dall'endpoint di rilascio dei token. In alcuni casi il codice di errore è sufficiente a descrivere la risposta, ma in caso di errori sarà necessario analizzare il documento JSON associato ed esaminare il codice errore.
 
 | Codice HTTP | Descrizione |
 | --- | --- |
@@ -263,7 +265,7 @@ La tabella seguente elenca i codici di stato HTTP restituiti dall'endpoint di ri
 | unsupported_grant_type |Il server di autorizzazione non supporta il tipo di concessione dell'autorizzazione. |Modificare il tipo di concessione nella richiesta. Questo tipo di errore dovrebbe verificarsi solo durante lo sviluppo ed essere rilevato durante il test iniziale. |
 | invalid_resource |La risorsa di destinazione non è valida perché non esiste, Azure AD non riesce a trovarla o non è attualmente configurata. |Indica che la risorsa, se presente, non è stata configurata nel tenant. L'applicazione può chiedere all'utente di installare l'applicazione e di aggiungerla ad Azure AD. |
 | interaction_required |La richiesta richiede l'interazione dell'utente. Ad esempio, è necessario un passaggio di autenticazione aggiuntivo. |Ripetere la richiesta con la stessa risorsa. |
-| temporarily_unavailable |Il server è temporaneamente troppo occupato per gestire la richiesta. |ripetere la richiesta. L'applicazione client sta comunicando all'utente che la risposta è stata ritardata a causa di una condizione temporanea. |
+| temporarily_unavailable |Il server è temporaneamente troppo occupato per gestire la richiesta. |ripetere la richiesta. L'applicazione client può comunicare all'utente che la risposta è stata ritardata a causa di una condizione temporanea. |
 
 ## <a name="use-the-access-token-to-access-the-resource"></a>Usare il token di accesso per accedere alla risorsa
 Dopo aver ottenuto un `access_token` è possibile usarlo in richieste alle API Web includendolo nell'intestazione `Authorization`. La specifica [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) illustra come usare i token di connessione nelle richieste HTTP per accedere a risorse protette.
@@ -276,7 +278,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ### <a name="error-response"></a>Risposta di errore
-Le risorse protette che implementano RFC 6750 rilasciano codici di stato HTTP. Se la richiesta non include le credenziali di autenticazione o è priva del token, la risposta include un'intestazione `WWW-Authenticate` . Quando una richiesta non riesce, il server delle risorse risponde con un codice di stato HTTP e un codice errore.
+Le risorse protette che implementano RFC 6750 rilasciano codici di stato HTTP. Se la richiesta non include le credenziali di autenticazione o è priva del token, la risposta include un'intestazione `WWW-Authenticate` . Quando una richiesta non riesce, il server delle risorse risponde con un codice di stato HTTP e un codice di errore.
 
 L'esempio seguente illustra una risposta non riuscita quando la richiesta del client non include il token di connessione:
 
@@ -291,7 +293,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.window.net/contoso.com
 | authorization_uri |URI (endpoint fisico) del server di autorizzazione. Questo valore viene usato anche come chiave di ricerca per ottenere altre informazioni sul server da un endpoint di individuazione. <p><p> Il client deve convalidare l'attendibilità del server di autorizzazione. Quando la risorsa è protetta da Azure AD, è sufficiente verificare che l'URL inizi con https://login.windows.net o un altro nome host supportato da Azure AD. Una risorsa specifica del tenant deve sempre restituire un URI di autorizzazione specifico del tenant. |
 | error |Valore del codice di errore definito nella sezione 5.2 del [framework di autorizzazione di OAuth 2.0](http://tools.ietf.org/html/rfc6749). |
 | error_description |Descrizione più dettagliata dell'errore. Questo messaggio non vuole essere semplice da usare. |
-| resource_id |Restituisce l'identificatore univoco della risorsa. L'applicazione client può usare questo identificatore come valore del parametro `resource` quando richiede un token per la risorsa. <p><p> È molto importante per l'applicazione client verificare questo valore, in caso contrario un servizio dannoso potrebbe riuscire ad attuare un attacco di tipo **elevazione dei privilegi** <p><p> La strategia consigliata per prevenire un attacco consiste nel verificare che `resource_id` corrisponda alla base dell'URL dell'API Web a cui si accede. Ad esempio, se si accede ad https://service.contoso.com/data, `resource_id` può essere htttps://service.contoso.com/. L'applicazione client deve rifiutare un `resource_id` che non inizia con l'URL di base a meno che non esista un modo alternativo affidabile per verificare l'ID. |
+| resource_id |Restituisce l'identificatore univoco della risorsa. L'applicazione client può usare questo identificatore come valore del parametro `resource` quando richiede un token per la risorsa. <p><p> È importante per l'applicazione client verificare questo valore, in caso contrario un servizio dannoso potrebbe riuscire ad attuare un attacco di tipo **elevazione dei privilegi** <p><p> La strategia consigliata per prevenire un attacco consiste nel verificare che `resource_id` corrisponda alla base dell'URL dell'API Web a cui si accede. Ad esempio, se si accede ad https://service.contoso.com/data, `resource_id` può essere htttps://service.contoso.com/. L'applicazione client deve rifiutare un `resource_id` che non inizia con l'URL di base a meno che non esista un modo alternativo affidabile per verificare l'ID. |
 
 #### <a name="bearer-scheme-error-codes"></a>Codici errore dello schema di connessione
 La specifica RFC 6750 definisce gli errori seguenti per le risorse che usano l'intestazione WWW-Authenticate e lo schema di connessione nella risposta.
@@ -377,8 +379,6 @@ Una risposta di errore di esempio può avere un aspetto simile al seguente:
 Per una descrizione dei codici di errore e l'azione consigliata per il client, vedere [Codici per gli errori degli endpoint di token](#error-codes-for-token-endpoint-errors).
 
 
-
-
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/24/2017
+ms.date: 03/06/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
-ms.openlocfilehash: 55fc17009a31c84f7ef23140b31bf53858e56ec7
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: b2729dfdb6bf85e6d254b08669eeb259f4ab59d5
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -31,7 +32,7 @@ Analisi dei flussi di Azure è un servizio completamente gestito che consente l'
 ## <a name="prerequisites"></a>Prerequisiti
 Per eseguire le procedure descritte nell'articolo è necessario:
 
-* Installare Visual Studio 2012 o 2013.
+* Installare Visual Studio 2017 o 2015.
 * Scaricare e installare [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 * Creare un gruppo di risorse di Azure nella sottoscrizione. Di seguito è riportato un esempio di script di Azure PowerShell: Per informazioni su Azure PowerShell , vedere [Installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs);  
 
@@ -79,7 +80,8 @@ Per creare un processo di analisi usando l'API di Analisi di flusso per .NET, co
    
         using System;
         using System.Configuration;
-        using System.Threading;
+        using System.Threading.Tasks;
+        
         using Microsoft.Azure;
         using Microsoft.Azure.Management.StreamAnalytics;
         using Microsoft.Azure.Management.StreamAnalytics.Models;
@@ -87,40 +89,21 @@ Per creare un processo di analisi usando l'API di Analisi di flusso per .NET, co
 2. Aggiungere un metodo helper di autenticazione:
 
    ```   
-   public static string GetAuthorizationHeader()
+   private static async Task<string> GetAuthorizationHeader()
    {
-   
-       AuthenticationResult result = null;
-       var thread = new Thread(() =>
-       {
-           try
-           {
-               var context = new AuthenticationContext(
-                   ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] +
-                   ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
-   
-               result = context.AcquireToken(
-                   resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
-                   clientId: ConfigurationManager.AppSettings["AsaClientId"],
-                   redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
-                   promptBehavior: PromptBehavior.Always);
-           }
-           catch (Exception threadEx)
-           {
-               Console.WriteLine(threadEx.Message);
-           }
-       });
-   
-       thread.SetApartmentState(ApartmentState.STA);
-       thread.Name = "AcquireTokenThread";
-       thread.Start();
-       thread.Join();
-   
-       if (result != null)
-       {
-           return result.AccessToken;
-       }
-   
+       var context = new AuthenticationContext(
+           ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] +
+           ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+
+        AuthenticationResult result = await context.AcquireTokenASync(
+           resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
+           clientId: ConfigurationManager.AppSettings["AsaClientId"],
+           redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
+           promptBehavior: PromptBehavior.Always);
+
+        if (result != null)
+            return result.AccessToken;
+
        throw new InvalidOperationException("Failed to acquire token");
    }
    ```  
@@ -137,10 +120,9 @@ Aggiungere il codice seguente all'inizio del metodo **Main** .
     string streamAnalyticsTransformationName = "<YOUR JOB TRANSFORMATION NAME>";
 
     // Get authentication token
-    TokenCloudCredentials aadTokenCredentials =
-        new TokenCloudCredentials(
-            ConfigurationManager.AppSettings["SubscriptionId"],
-            GetAuthorizationHeader());
+    TokenCloudCredentials aadTokenCredentials = new TokenCloudCredentials(
+        ConfigurationManager.AppSettings["SubscriptionId"],
+        GetAuthorizationHeader().Result);
 
     // Create Stream Analytics management client
     StreamAnalyticsManagementClient client = new StreamAnalyticsManagementClient(aadTokenCredentials);
@@ -300,8 +282,6 @@ Il codice di esempio seguente avvia un processo di Analisi di flusso con un'ora 
 
     LongRunningOperationResponse jobStartResponse = client.StreamingJobs.Start(resourceGroupName, streamAnalyticsJobName, jobStartParameters);
 
-
-
 ## <a name="stop-a-stream-analytics-job"></a>Arresto di un processo di Analisi di flusso
 È possibile arrestare un processo di Analisi di flusso in esecuzione chiamando il metodo **Stop** .
 
@@ -313,7 +293,6 @@ Il metodo **Delete** consente di eliminare il processo, nonché le risorse secon
 
     // Delete a Stream Analytics job
     LongRunningOperationResponse jobDeleteResponse = client.StreamingJobs.Delete(resourceGroupName, streamAnalyticsJobName);
-
 
 ## <a name="get-support"></a>Supporto
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
@@ -350,9 +329,4 @@ Sono state fornite le nozioni di base dell'utilizzo di .NET SDK per creare ed es
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

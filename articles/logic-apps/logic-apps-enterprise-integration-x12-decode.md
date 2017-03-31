@@ -1,6 +1,6 @@
 ---
-title: Messaggi Decode X12 nelle app per la logica di Azure | Documentazione Microsoft
-description: Utilizzo del decodificatore X12 in Enterprise Integration Pack nelle app per la logica
+title: Messaggi Decode X12 - App per la logica di Azure | Documentazione Microsoft
+description: "Convalidare le proprietà EDI e generare codice XML per set di transazioni con il decodificatore di messaggi X12 in Enterprise Integration Pack in App per la logica di Azure"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -15,48 +15,61 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: 2f407a428aa176cc5c2a3b6bb236b522bda5ab64
-ms.openlocfilehash: 2fa435d5a52ee7a9c18926912a7212ee862b3832
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 717069dbe211ea9cc04925875e0f28c85ef25ac2
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="get-started-with-decode-x12-messages"></a>Introduzione ai messaggi Decode X12
-Convalida le proprietà EDI e specifiche del partner, genera un documento XML per ogni set di transazioni e un riconoscimento per ogni transazione elaborata.
+# <a name="decode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Messaggi Decode X12 in App per la logica di Azure con Enterprise Integration Pack
 
-## <a name="prereqs"></a>Prerequisiti
+Il connettore di messaggi Decode X12 convalida le proprietà EDI e specifiche del partner e genera un documento XML per ogni set di transazioni e un riconoscimento per le transazioni elaborate. Per usare questo connettore, è necessario aggiungerlo a un trigger esistente nell'app per la logica.
+
+## <a name="before-you-start"></a>Prima di iniziare
+
+Sono necessari gli elementi seguenti:
+
 * Un account Azure, che è possibile [creare gratuitamente](https://azure.microsoft.com/free)
-* Per usare il connettore Decode X12 Message, è necessario un account di integrazione. Vedere i dettagli su come creare un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), [partner](../logic-apps/logic-apps-enterprise-integration-partners.md) e un [contratto X12](../logic-apps/logic-apps-enterprise-integration-x12.md)
+* Un [account di integrazione](logic-apps-enterprise-integration-create-integration-account.md) già definito e associato alla sottoscrizione di Azure. Per usare il connettore di messaggi Decode X12 è necessario un account di integrazione.
+* Almeno due [partner](logic-apps-enterprise-integration-partners.md) già definiti nell'account di integrazione.
+* Un [contratto X12](logic-apps-enterprise-integration-x12.md) già definito nell'account di integrazione.
 
 ## <a name="decode-x12-messages"></a>Messaggi Decode X12
 
-1. [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md) illustra un esempio
-2. Questo connettore non include trigger. Usare altri trigger per avviare l'app per la logica, ad esempio un trigger di richiesta.  Nella finestra di progettazione dell'app per la logica aggiungere un trigger e un'azione.  Selezionare Mostra API gestite da Microsoft nell'elenco a discesa, quindi immettere "x12" nella casella di ricerca.  Selezionare X12 - Decode X12 Message:
+1. [Creare un'app per la logica](logic-apps-create-a-logic-app.md).
+
+2. Il connettore di messaggi Decode X12 non dispone di trigger, pertanto è necessario aggiungerne uno per avviare l'app per la logica, ad esempio un trigger di richiesta. In Progettazione app per la logica aggiungere un trigger e un'azione all'app per la logica.
+
+3.    Nella casella di ricerca, immettere "x12" come filtro. Selezionare **X12 - Decodifica il messaggio X12**.
    
-    ![ricerca x12](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage1.png)  
-3. Se in precedenza non sono state create connessioni all'account di archiviazione, vengono richiesti i dettagli della connessione:
+    ![Cercare "X12"](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage1.png)  
+
+3. Se non sono state create in precedenza le connessioni all'account di integrazione, a questo punto viene richiesto di creare la connessione. Denominare la connessione e selezionare l'account di integrazione al quale connettersi. 
+
+    ![Fornire i dettagli della connessione all'account di integrazione](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage4.png)
+
+    Le proprietà con l'asterisco sono obbligatorie.
+
+    | Proprietà | Dettagli |
+    | --- | --- |
+    | Nome connessione * |Immettere un nome per la connessione. |
+    | Account di integrazione * |Immettere un nome per l'account di integrazione. Verificare che l'account di integrazione e l'app per la logica si trovino nella stessa località di Azure. |
+
+5.    Al termine, i dettagli della connessione dovrebbero essere simili a quelli dell'esempio seguente. Per completare la creazione della connessione, scegliere **Crea**.
    
-    ![connessione all'account di integrazione](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage4.png)     
-4. Immettere i dettagli dell'account di integrazione.  Le proprietà con l'asterisco sono obbligatorie:
-   
-   | Proprietà | Dettagli |
-   | --- | --- |
-   | Nome connessione* |Immettere un nome per la connessione. |
-   | Account di integrazione * |Immettere il nome dell'account di integrazione. Assicurarsi che l'account di integrazione e l'app per la logica si trovino nella stessa località di Azure. |
-   
-    Al termine i dettagli della connessione saranno simili ai seguenti:
-   
-    ![connessione all'account di integrazione creata](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage5.png) 
-5. Selezionare **Crea**.
-6. La connessione è stata creata:
-   
-    ![dettagli della connessione all'account di integrazione](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage6.png) 
-7. Selezionare il messaggio con il file flat X12 da decodificare:
-   
-    ![specificare i campi obbligatori](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
+    ![dettagli della connessione all'account di integrazione](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage5.png) 
+
+6. Dopo aver creato la connessione, come illustrato in questo esempio, selezionare il messaggio con file flat X12 da decodificare.
+
+    ![connessione all'account di integrazione creata](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage6.png) 
+
+    Ad esempio:
+
+    ![Selezionare il messaggio con il file flat X12 da decodificare](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
 
 ## <a name="x12-decode-details"></a>Dettagli Decode X12
 
-Il connettore Decode X12 effettua le seguenti operazioni:
+Il connettore Decode X12 esegue queste attività:
 
 * Convalida la busta in base all'accordo tra partner commerciali.
 * Genera un documento XML per ogni set di transazioni.
@@ -81,10 +94,5 @@ Il connettore Decode X12 effettua le seguenti operazioni:
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Altre informazioni su Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack") 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

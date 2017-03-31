@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: d83372fbce5f49d7cd038a15bd271e9d8a463b7b
-ms.openlocfilehash: f1cff67f31da87d6361603f0216a68c55686db0e
+ms.sourcegitcommit: 4bab9f44d1c91f05618ea510b83beb06540429f2
+ms.openlocfilehash: 00424292fbc5321a77a4e924530ade97739208d4
 
 
 ---
@@ -27,12 +27,12 @@ Quando gli attributi di un utente cambiano, il sistema valuta tutte le regole di
 
 > [!NOTE]
 > È possibile configurare una regola per l'appartenenza dinamica nei gruppi di sicurezza o nei gruppi di Office 365. Le appartenenze a gruppi annidati non sono attualmente supportate per l'assegnazione alle applicazioni in base al gruppo.
-> 
+>
 > Le appartenenze dinamiche ai gruppi richiedono che venga assegnata una licenza Azure AD Premium a:
-> 
+>
 > * L'amministratore che gestisce la regola in un gruppo
 > * Tutti i membri del gruppo
-> 
+>
 
 ## <a name="to-create-the-advanced-rule"></a>Per creare la regola avanzata
 1. Nel [portale di Azure classico](https://manage.windowsazure.com)selezionare **Active Directory**e aprire la directory dell'organizzazione.
@@ -57,17 +57,18 @@ Per l'elenco completo dei parametri supportati e degli operatori delle regole di
 Si noti che la proprietà deve avere come prefisso il tipo di oggetto corretto, ovvero user o device.
 La convalida della regola seguente avrà esito negativo: mail –ne null
 
-Ecco la regola corretta: 
+Ecco la regola corretta:
 
 user.mail –ne null
 
 La lunghezza totale del corpo della regola avanzata non può superare i 2048 caratteri.
 
 > [!NOTE]
-> Le operazioni di stringa ed espressione regolare non fanno distinzione tra maiuscole e minuscole. Le stringhe contenenti virgolette (") devono essere precedute dal carattere di escape ', ad esempio user.department -eq \`"Sales".
+> Le operazioni di stringa ed espressione regolare non fanno distinzione tra maiuscole e minuscole.
+> Le stringhe contenenti virgolette (") devono essere precedute dal carattere di escape ', ad esempio user.department -eq \`"Sales".
 > Usare le virgolette solo per i valori di tipo stringa e usare solo le virgolette singole.
-> 
-> 
+>
+>
 
 ## <a name="supported-expression-rule-operators"></a>Operatori delle regole di espressione supportati
 Nella tabella seguente sono elencati tutti gli operatori delle regole di espressione supportati e la relativa sintassi da usare nel corpo della regola avanzata:
@@ -86,14 +87,14 @@ Nella tabella seguente sono elencati tutti gli operatori delle regole di espress
 ## <a name="operator-precedence"></a>Precedenza degli operatori
 
 Tutti gli operatori sono elencati in seguito in base alla precedenza, dal minore al maggiore. Gli operatori sulla stessa riga hanno la stessa precedenza. -any -all -or -and -not -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch
- 
+
 Tutti gli operatori possono essere usati con o senza trattino come prefisso.
 
 Si noti che le parentesi non sono sempre necessarie. Le parentesi devono essere aggiunte solo quando la precedenza non rispetta i requisiti specifici, ad esempio:
 
-   user.department –eq "Marketing" –and user.country –eq "US" 
-   
-Equivale a: 
+   user.department –eq "Marketing" –and user.country –eq "US"
+
+Equivale a:
 
    (user.department –eq "Marketing") –and (user.country –eq "US")
 
@@ -173,7 +174,7 @@ Operatori consentiti
 
 ## <a name="use-of-null-values"></a>Uso dei valori Null
 
-Per specificare un valore Null in una regola, è possibile usare "null" o $null. Esempio: 
+Per specificare un valore Null in una regola, è possibile usare "null" o $null. Esempio:
 
    user.mail –ne null equivale a user.mail –ne $null
 
@@ -197,7 +198,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 Per includere una proprietà multivalore in una regola, usare l'operatore "-any", ad esempio:
 
   user.assignedPlans -any assignedPlan.service -startsWith "SCO"
-  
+
 ## <a name="direct-reports-rule"></a>Regola per i dipendenti diretti
 È possibile popolare i membri di un gruppo in base all'attributo manager di un utente.
 
@@ -207,11 +208,11 @@ Per includere una proprietà multivalore in una regola, usare l'operatore "-any"
 2. Selezionare la scheda **Gruppi** e aprire il gruppo da modificare.
 3. Selezionare la scheda **Configura** e quindi selezionare **REGOLA AVANZATA**.
 4. Digitare la regola con la sintassi seguente:
-   
+
     Dipendenti diretti per *Dipendenti diretti per {obectID_of_manager}*. Ecco un esempio di regola valida per dipendenti diretti:
-   
+
                     Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
-   
+
     dove "62e19b97-8b3d-4d4a-a106-4ce66896a863" è il parametro objectID del manager. L'ID oggetto è disponibile in Azure AD nella **scheda Profilo** della pagina utente dell'utente che rappresenta il manager.
 5. Quando si salva questa regola, tutti gli utenti che soddisfano la regola verranno aggiunta come membri del gruppo. Possono essere necessari alcuni minuti per il popolamento iniziale del gruppo.
 
@@ -239,10 +240,10 @@ Per includere una proprietà multivalore in una regola, usare l'operatore "-any"
 
 > [!NOTE]
 > Impossibile creare le regole di dispositivo usando l'elenco a discesa "regola semplice" nel portale di Azure classico.
-> 
-> 
+>
+>
 
-## <a name="additional-information"></a>Informazioni aggiuntive
+## <a name="next-steps"></a>Passaggi successivi
 Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 * [Risoluzione dei problemi di appartenenza dinamica per i gruppi](active-directory-accessmanagement-troubleshooting.md)
@@ -253,7 +254,6 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 
 
-
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

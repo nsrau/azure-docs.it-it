@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2016
+ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: e1c99bbe9d6317d83cc5e71ca4f79d862223aa0a
-ms.openlocfilehash: 6110432cba7703b95342c9e8bf3b71cb0a377ad0
+ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
+ms.openlocfilehash: 1527896e4f512cdfa6a4e925bbdca88a1e6a8fe7
+ms.lasthandoff: 02/14/2017
 
 ---
 # <a name="use-mirrormaker-to-create-a-replica-of-a-kafka-on-hdinsight-cluster-preview"></a>Usare MirrorMaker per creare una replica di un cluster Kafka in HDInsight (anteprima)
@@ -119,26 +120,32 @@ Dopo aver creato le risorse, si viene reindirizzati a un pannello del gruppo di 
    
     Per altre informazioni sull'uso di SSH con HDInsight, vedere i documenti seguenti:
    
-    * [Usare SSH con HDInsight da un client Linux, Mac OS o Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Usare SSH con HDInsight da un client Linux, Mac OS, Unix e Bash in Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md).
    
-    * [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Usare SSH (PuTTY) con HDInsight da un client Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
 2. Usare il comando seguente per trovare gli host Zookeeper, impostare la variabile `SOURCE_ZKHOSTS` e quindi creare nuovi argomenti denominati `testtopic`:
    
-        # Get a list of zookeeper hosts for the source cluster
-        SOURCE_ZKHOSTS=`grep -R zk /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`
-        # Create a topic on the source cluster
-        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $SOURCE_ZKHOSTS
+    ```bash
+    # Get a list of zookeeper hosts for the source cluster
+    SOURCE_ZKHOSTS=`grep -R zk /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`
+    # Create a topic on the source cluster
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $SOURCE_ZKHOSTS
+    ```
 
 3. Usare il comando seguente per verificare che l'argomento sia stato creato:
    
-        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $SOURCE_ZKHOSTS
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $SOURCE_ZKHOSTS
+    ```
    
     La risposta contiene `testtopic`.
 
 4. Usare il comando seguente per visualizzare le informazioni degli host Zookeeper per questo cluster, ovvero il cluster di **origine**:
    
-        echo $SOURCE_ZKHOSTS
+    ```bash
+    echo $SOURCE_ZKHOSTS
+    ```
    
     Verranno restituite informazioni simili al testo seguente:
    
@@ -148,7 +155,7 @@ Dopo aver creato le risorse, si viene reindirizzati a un pannello del gruppo di 
 
 ## <a name="configure-mirroring"></a>Configurare il mirroring
 
-1. Connettersi al cluster di **destinazione** tramite SSH:
+1. Connettersi al cluster di **destinazione** con un'altra sessione SSH:
    
         ssh sshuser@dest-BASENAME-ssh.azurehdinsight.net
    
@@ -156,15 +163,17 @@ Dopo aver creato le risorse, si viene reindirizzati a un pannello del gruppo di 
    
     Per altre informazioni sull'uso di SSH con HDInsight, vedere i documenti seguenti:
    
-    * [Usare SSH con HDInsight da un client Linux, Mac OS o Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Usare SSH con HDInsight da un client Linux, Mac OS, Unix e Bash in Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
     
-    * [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Usare SSH (PuTTY) con HDInsight da un client Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-2. Usare il comando seguente per creare un file `consumer.config` che descrive come comunicare con il cluster di **origine**:
+2. Usare il comando seguente per creare un file `consumer.properties` che descrive come comunicare con il cluster di **origine**:
    
-        nano consumer.config
+    ```bash
+    nano consumer.properties
+    ```
    
-    Usare il testo seguente come contenuto del file `consumer.config`:
+    Usare il testo seguente come contenuto del file `consumer.properties`:
    
         zookeeper.connect=SOURCE_ZKHOSTS
         group.id=mirrorgroup
@@ -177,18 +186,26 @@ Dopo aver creato le risorse, si viene reindirizzati a un pannello del gruppo di 
 
 3. Prima di configurare il producer che comunica con il cluster di destinazione è necessario trovare gli host broker per il cluster di **destinazione** stesso. Usare i comandi seguenti per recuperare queste informazioni:
    
-        # Install JQ for parsing JSON documents
-        sudo apt -y install jq
-        # Get the broker information for the destination cluster
-        DEST_BROKERHOSTS=`sudo bash -c 'ls /var/lib/ambari-agent/data/command-[0-9]*.json' | tail -n 1 | xargs sudo cat | jq -r '["\(.clusterHostInfo.kafka_broker_hosts[]):9092"] | join(",")'`
-        # Display the information
-        echo $DEST_BROKERHOSTS
+    ```bash
+    # Install JQ for parsing JSON documents
+    sudo apt -y install jq
+    # Get the broker information for the destination cluster
+    DEST_BROKERHOSTS=`sudo bash -c 'ls /var/lib/ambari-agent/data/command-[0-9]*.json' | tail -n 1 | xargs sudo cat | jq -r '["\(.clusterHostInfo.kafka_broker_hosts[]):9092"] | join(",")'`
+    # Display the information
+    echo $DEST_BROKERHOSTS
+    ```
    
     Questi comandi restituiscono informazioni simili alle seguenti:
    
         wn0-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn1-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092
 
-4. Usare il comando seguente per creare un file `producer.config` che descrive come comunicare con il cluster di **destinazione**:
+4. Usare il comando seguente per creare un file `producer.properties` che descrive come comunicare con il cluster di **destinazione**:
+
+    ```bash
+    nano producer.properties
+    ```
+
+    Usare il testo seguente come contenuto del file `producer.properties`:
    
         bootstrap.servers=DEST_BROKERS
         compression.type=none
@@ -201,7 +218,9 @@ Dopo aver creato le risorse, si viene reindirizzati a un pannello del gruppo di 
 
 1. Dalla connessione SSH al cluster di **destinazione** usare il comando seguente per avviare il processo MirrorMaker:
    
-        /usr/hdp/current/kafka-broker/bin/kafka-run-class.sh kafka.tools.MirrorMaker --consumer.config consumer.properties --producer.config producer.properties --whitelist testtopic --num.streams 4
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-run-class.sh kafka.tools.MirrorMaker --consumer.config consumer.properties --producer.config producer.properties --whitelist testtopic --num.streams 4
+    ```
    
     I parametri usati in questo esempio sono i seguenti:
    
@@ -219,45 +238,44 @@ Dopo aver creato le risorse, si viene reindirizzati a un pannello del gruppo di 
     ```
 
 2. From the SSH connection to the **source** cluster, use the following command to start a producer and send messages to the topic:
-   
-        # Install JQ for working with JSON
-        sudo apt -y install jq
-        # Retrieve the Kafka brokers
-        SOURCE_BROKERHOSTS=`sudo bash -c 'ls /var/lib/ambari-agent/data/command-[0-9]*.json' | tail -n 1 | xargs sudo cat | jq -r '["\(.clusterHostInfo.kafka_broker_hosts[]):9092"] | join(",")'`
-        # Start a producer
-        /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
-   
-    When you arrive at a blank line with a cursor, type in a few text messages. These are sent to the topic on the **source** cluster. When done, use **Ctrl + C** to end the producer process.
+    
+    ```bash
+    # Install JQ for working with JSON
+    sudo apt -y install jq
+    # Retrieve the Kafka brokers
+    SOURCE_BROKERHOSTS=`sudo bash -c 'ls /var/lib/ambari-agent/data/command-[0-9]*.json' | tail -n 1 | xargs sudo cat | jq -r '["\(.clusterHostInfo.kafka_broker_hosts[]):9092"] | join(",")'`
+    # Start a producer
+    /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
+    ```
 
-3. From the SSH connection to the **destination** cluster, use **Ctrl + C** to end the MirrorMaker process. Then use the following commands to verify that the `testtopic` topic was created, and that data in the topic was replicated to this mirror:
-   
-        # Get a list of zookeeper hosts for the destination cluster
-        DEST_ZKHOSTS=`grep -R zk /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`
-        # List topics on destination
-        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $DEST_ZKHOSTS
-        # Retrieve messages from the `testtopic`
-        /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
-   
-    The list of topics will now include `testtopic`, which is created when MirrorMaster mirrors the topic from the source cluster to the destination. The messages retrieved from the topic are the same as entered on the source cluster.
+    Quando si arriva a una riga vuota con un cursore, digitare alcuni messaggi di testo. Questi vengono inviati all'argomento nel cluster di **origine**. Al termine, usare **Ctrl + C** per chiudere il processo del producer.
 
-## Delete the cluster
+3. Dalla connessione SSH al cluster di **destinazione**, usare **Ctrl + C** per chiudere il processo MirrorMaker. Usare quindi i comandi seguenti per verificare che l'argomento `testtopic` sia stato creato e che i dati nell'argomento siano stati replicati al mirror:
+    
+    ```bash
+    # Get a list of zookeeper hosts for the destination cluster
+    DEST_ZKHOSTS=`grep -R zk /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`
+    # List topics on destination
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $DEST_ZKHOSTS
+    # Retrieve messages from the `testtopic`
+    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
+    ```
+    
+    L'elenco degli argomenti include ora `testtopic`, che viene creato quando MirrorMaster esegue il mirroring dell'argomento dal cluster di origine a quello di destinazione. I messaggi recuperati dall'argomento sono gli stessi immessi nel cluster di origine.
+
+## <a name="delete-the-cluster"></a>Eliminazione del cluster
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Since the steps in this document create both clusters in the same Azure resource group, you can delete the resource group in the Azure portal. Deleting the resource group removes all resources created by following this document, the Azure Virtual Network, and storage account used by the clusters.
+Le procedure illustrate in questo documento creano entrambi i cluster nello stesso gruppo di risorse di Azure. È quindi possibile eliminare il gruppo di risorse dal portale di Azure. In questo modo vengono rimosse tutte le risorse create seguendo le istruzioni di questo documento, la rete virtuale di Azure e l'account di archiviazione usato dai cluster.
 
-## Next Steps
+## <a name="next-steps"></a>Passaggi successivi
 
-In this document, you learned how to use MirrorMaker to create a replica of a Kafka cluster. Use the following links to discover other ways to work with Kafka:
+In questo documento è stato descritto come usare MirrorMaker per creare la replica di un cluster Kafka. Per trovare altri modi per lavorare con Kafka, vedere i collegamenti seguenti:
 
-* [Apache Kafka MirrorMaker documentation](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) at cwiki.apache.org.
-* [Get started with Apache Kafka on HDInsight](hdinsight-apache-kafka-get-started.md)
-* [Use Apache Spark with Kafka on HDInsight](hdinsight-apache-spark-with-kafka.md)
-* [Use Apache Storm with Kafka on HDInsight](hdinsight-apache-storm-with-kafka.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+* [Documentazione su Apache Kafka MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) in cwiki.apache.org.
+* [Introduzione ad Apache Kafka (anteprima) in HDInsight](hdinsight-apache-kafka-get-started.md)
+* [Use Apache Spark with Kafka on HDInsight](hdinsight-apache-spark-with-kafka.md) (Usare Apache Spark con Kafka in HDInsight)
+* [Usare Apache Storm (anteprima) con Kafka in HDInsight](hdinsight-apache-storm-with-kafka.md)
 
 

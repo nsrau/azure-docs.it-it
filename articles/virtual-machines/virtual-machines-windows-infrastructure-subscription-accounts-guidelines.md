@@ -1,5 +1,5 @@
 ---
-title: Linee guida per le sottoscrizioni e gli account Azure | Documentazione Microsoft
+title: Sottoscrizione e account per le macchine virtuali Windows in Azure | Documentazione Microsoft
 description: Informazioni sulle principali linee guida di progettazione e implementazione per le sottoscrizioni e gli account in Azure.
 documentationcenter: 
 services: virtual-machines-windows
@@ -13,15 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/17/2017
 ms.author: iainfou
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 310dc34634f7104ddfc7dfab13f09ab945b53cf4
-ms.openlocfilehash: bfa4f4938a52a7a1b9ebe5ee9efd37198468a0a6
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 5b4b039c8f706a4b113cbe76c01e8330f5cebf3a
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="azure-subscription-and-accounts-guidelines"></a>Linee guida per le sottoscrizioni e gli account Azure
+# <a name="azure-subscription-and-accounts-guidelines-for-windows-vms"></a>Linee guida per le sottoscrizioni e gli account Azure per macchine virtuali Windows
+
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Questo articolo è incentrato sulla comprensione delle modalità di gestione delle sottoscrizioni e degli account mano a mano che si amplia l'ambiente e la base utenti.
@@ -65,10 +68,5 @@ Viene fornita la fatturazione dettagliata tramite un file scaricabile, per un si
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

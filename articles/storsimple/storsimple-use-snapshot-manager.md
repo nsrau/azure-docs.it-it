@@ -4,7 +4,7 @@ description: Viene descritta l&quot;interfaccia utente di StorSimple Snapshot Ma
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: c7d91892-2881-41a2-a7a2-908dc3646493
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/25/2016
+ms.date: 02/27/2017
 ms.author: v-sharos
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 88abde99af417f325c12aa2f8790d711fd7fd533
+ms.sourcegitcommit: 7651a2ba6c206bb39d7cf8839f6f0f828fb3bc16
+ms.openlocfilehash: 25265349cb8cb47e93b7bea7103f1d06878a6158
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="storsimple-snapshot-manager-user-interface"></a>Interfaccia utente di StorSimple Snapshot Manager
+# <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Usare l'interfaccia utente di StorSimple Snapshot Manager per gestire i processi di backup e il catalogo di backup
+
 ## <a name="overview"></a>Panoramica
 StorSimple Snapshot Manager ha un'interfaccia utente intuitiva che è possibile usare per acquisire e gestire i backup. Questa esercitazione fornisce un'introduzione all'interfaccia utente e illustra come usare ogni componente. Per una descrizione dettagliata di StorSimple Snapshot Manager, vedere [Che cos'è StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
@@ -448,10 +451,5 @@ Nelle tabelle seguenti vengono illustrate le combinazioni dei tasti di scelta ra
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [usare StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
 * Leggere le informazioni su come [usare StorSimple Snapshot Manager per connettere e gestire i dispositivi](storsimple-snapshot-manager-manage-devices.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

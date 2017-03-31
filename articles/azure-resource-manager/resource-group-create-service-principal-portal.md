@@ -1,5 +1,5 @@
 ---
-title: "Creare un&quot;entità servizio nel portale | Microsoft Docs"
+title: "Creare un&quot;identità per un&quot;app Azure nel portale | Documentazione Microsoft"
 description: "Descrive come creare una nuova applicazione ed entità servizio di Active Directory da usare con il controllo degli accessi in base al ruolo in Gestione risorse di Azure per gestire l&quot;accesso alle risorse."
 services: azure-resource-manager
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 01/17/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4312002b311ec17f175f6eb6bc45fbe1ce7c7a01
-ms.openlocfilehash: 3232aa0356353e3856286c38d931543a254fd9fd
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 3b132bbc89f64928f971f92365691d40c1aab420
 
 
 ---
@@ -28,7 +28,13 @@ ms.openlocfilehash: 3232aa0356353e3856286c38d931543a254fd9fd
 >
 >
 
-Quando un'applicazione deve accedere alle risorse o modificarle, è necessario configurare un'applicazione Active Directory (AD) a cui assegnare le autorizzazioni richieste. Questo argomento illustra come eseguire questa procedura tramite il portale. È incentrato su un'applicazione con un tenant singolo dove si prevede che l'applicazione venga eseguita all'interno di una sola organizzazione. Le applicazioni con un tenant singolo si usano in genere per applicazioni line-of-business eseguite all'interno dell'organizzazione.
+Quando un'applicazione deve accedere alle risorse o modificarle, è necessario configurare un'applicazione Active Directory (AD) a cui assegnare le autorizzazioni richieste. Questo approccio è preferibile all'esecuzione dell'app con le credenziali dell'utente per i motivi seguenti:
+
+* È possibile assegnare all'identità dell'app autorizzazioni diverse rispetto a quelle dell'utente. Tali autorizzazioni sono in genere limitate alle specifiche operazioni che devono essere eseguite dall'app.
+* Non è necessario modificare le credenziali dell'app in caso di cambiamento delle responsabilità dell'utente. 
+* È possibile usare un certificato per automatizzare l'autenticazione in caso di esecuzione di uno script automatico.
+
+Questo argomento illustra come eseguire questa procedura tramite il portale. È incentrato su un'applicazione con un tenant singolo dove si prevede che l'applicazione venga eseguita all'interno di una sola organizzazione. Le applicazioni con un tenant singolo si usano in genere per applicazioni line-of-business eseguite all'interno dell'organizzazione.
  
 ## <a name="required-permissions"></a>Autorizzazioni necessarie
 Per completare questo argomento è necessario disporre di autorizzazioni sufficienti per registrare un'applicazione con Active Directory e assegnare l'applicazione a un ruolo nella sottoscrizione di Azure. Assicurarsi di avere le autorizzazioni appropriate per eseguire questi passaggi.
@@ -157,9 +163,19 @@ Per accedere alle risorse della propria sottoscrizione è necessario assegnare l
      ![Cercare l'app](./media/resource-group-create-service-principal-portal/search-app.png)
 9. Selezionare **OK** per completare l'assegnazione del ruolo. L'applicazione ora compare nell'elenco degli utenti assegnati a un ruolo per quell'ambito.
 
-L'applicazione è ora configurata in Active Directory. Si dispone di un ID e una chiave da usare per eseguire l'accesso come applicazione. L'applicazione viene assegnata a un ruolo il quale le fornisce alcune azioni che possono essere eseguite. È possibile esaminare le applicazioni di esempio per ulteriori informazioni su come eseguire attività nel codice dell'applicazione.
+## <a name="log-in-as-the-application"></a>Eseguire l'accesso come applicazione
 
-## <a name="sample-applications"></a>Applicazioni di esempio
+L'applicazione è ora configurata in Active Directory. Si dispone di un ID e una chiave da usare per eseguire l'accesso come applicazione. L'applicazione viene assegnata a un ruolo che le consente di eseguire alcune azioni. 
+
+Per eseguire l'accesso con PowerShell, vedere [Fornire le credenziali tramite PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell).
+
+Per eseguire l'accesso con l'interfaccia della riga di comando di Azure, vedere [Fornire le credenziali tramite l'interfaccia della riga di comando di Azure](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli).
+
+Per ottenere il token di accesso per operazioni REST, vedere [Create the request](/rest/api/#create-the-request) (Creare la richiesta).
+
+Per informazioni su come eseguire l'accesso tramite il codice dell'applicazione, vedere le applicazioni di esempio riportate di seguito.
+
+### <a name="sample-applications"></a>Applicazioni di esempio
 Le seguenti applicazioni di esempio illustrano come eseguire l'accesso come applicazione AD.
 
 **.NET**
@@ -194,6 +210,6 @@ Le seguenti applicazioni di esempio illustrano come eseguire l'accesso come appl
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

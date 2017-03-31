@@ -17,6 +17,7 @@ ms.author: yanacai
 translationtype: Human Translation
 ms.sourcegitcommit: a5bb452582f05981a17c2514e0e40db0571bf61d
 ms.openlocfilehash: f9b485bfbfbeb8a95ae1908ef6b1733b9cc6999a
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -81,8 +82,7 @@ Se si usano assembly registrati nello script U-SQL, il sistema non sarà in grad
 
 1. Fare clic con il tasto destro del mouse su **Solution 'VertexDebug' (Soluzione "VertexDebug")** > **Aggiungi** > **Progetto esistente...** per individuare il codice sorgente degli assembly e aggiungere il progetto alla soluzione di debug.
 
-
-    ![Aggiunta progetto di debug U-SQL in Azure Data Lake Analytics](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-add-project-to-debug-solution.png)
+    ![Azure Data Lake Analytics U-SQL debug add project](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-add-project-to-debug-solution.png)
 
 2. Fare clic con il tasto destro del mouse su **LocalVertexHost** > **Proprietà** nella soluzione, quindi copiare il percorso copiare **Directory di lavoro**.
 
@@ -131,10 +131,5 @@ Dopo aver completato il debug è possibile inviare nuovamente il processo non ri
 * [Esercitazione: Introduzione al linguaggio U-SQL di Analisi Data Lake di Azure](data-lake-analytics-u-sql-get-started.md)
 * [Esercitazione: Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

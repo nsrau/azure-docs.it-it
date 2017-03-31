@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/16/2017
 ms.author: milanga;juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0c6f4a020430f464a97b0716dea2a40719c0b064
+ms.sourcegitcommit: 343658944394e7b620bc70aa0d92affada07e91d
+ms.openlocfilehash: 7510c8ab4adadbd7d738ba0b8e2bbdddba8d1048
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -26,7 +27,11 @@ Il processore multimediale delle **anteprime video multimediali di Azure** proce
 
 Al momento, il processore multimediale di **anteprime video multimediali di Azure** è disponibile in Anteprima.
 
-Questo argomento contiene informazioni dettagliate su **Azure Media Video Thumbnails** e illustra come usare questa funzionalità con Media Services .NET SDK
+Questo argomento contiene informazioni dettagliate su **Azure Media Video Thumbnails** e illustra come usare questa funzionalità con Media Services .NET SDK.
+
+## <a name="limitations"></a>Limitazioni
+
+In alcuni casi, se il video non è costituito da scene differenti, l'output sarà rappresentato da un'unica immagine.
 
 ## <a name="video-summary-example"></a>Esempio di riepilogo video
 Di seguito sono riportati alcuni esempi delle attività che il processore multimediale delle anteprime video multimediali di Azure può eseguire:
@@ -262,10 +267,5 @@ Il programma seguente illustra come:
 [Panoramica di Analisi servizi multimediali di Azure](media-services-analytics-overview.md)
 
 [Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

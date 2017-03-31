@@ -1,6 +1,6 @@
 ---
-title: Gestire cluster Hadoop basati su Linux in HDInsight tramite il Portale di Azure | Microsoft Docs
-description: Informazioni su come creare e gestire cluster basati su Linux HDInsight tramite il portale di Azure.
+title: Gestire cluster Hadoop in HDInsight tramite il portale di Azure | Documentazione Microsoft
+description: Informazioni su come creare e gestire cluster HDInsight tramite il portale di Azure.
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -9,22 +9,24 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 7bfa0d73f870202e4caeb893830952ca39a35c26
-ms.openlocfilehash: 27ee26b38b9881ed7f0cd7b0253be123af27955f
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 82c12f4a2a24e190babfd88ff667e24d6c45ebac
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestire cluster Hadoop in HDInsight tramite il portale di Azure
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Il [portale di Azure][azure-portal] consente di gestire cluster basati su Linux in Azure HDInsight. Usare il selettore di schede per informazioni sulla gestione di cluster Hadoop in HDInsight con altri strumenti. 
+Il [portale di Azure][azure-portal] consente di gestire cluster Hadoop in Azure HDInsight. Usare il selettore di schede per informazioni sulla gestione di cluster Hadoop in HDInsight con altri strumenti. 
 
 **Prerequisiti**
 
@@ -43,6 +45,8 @@ Per eseguire le procedure descritte nell'articolo è necessario:
      
        ![Pulsante Cluster HDInsight del portale di Azure](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
 
+       Se non viene visualizzato il cluster HDInsight, fare clic su **More services** (Altri servizi) in fondo all'elenco, quindi fare clic su **cluster HDInsight** nella sezione **Intelligence e analisi**.
+
 ## <a name="create-clusters"></a>Creare i cluster
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -56,14 +60,14 @@ HDInsight è compatibile con una vasta gamma di componenti Hadoop. Per l'elenco 
    
     ![Informazioni di base sul cluster HDInsight del Portale di Azure](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png)
    
-    **Menu Panoramica**:
+    **Menu della panoramica:**
 
-   * **Dashboard**, **Dashboard cluster** e **URL: sono modi per accedere al dashboard del cluster, che per i cluster basati su Linux è Ambari Web.
+   * **Dashboard**: consente di aprire il dashboard del cluster, ovvero Ambari Web per i cluster basati su Linux.
    * **Secure Shell**: mostra le istruzioni per la connessione al cluster tramite connessione Secure Shell (SSH).
    * **Scala Cluster**: consente di modificare il numero di nodi del ruolo di lavoro per questo cluster.
    * **Elimina**: elimina il cluster.
 
-    **Menu a sinistra**
+    **Menu a sinistra:**
    
    * **Log attività**: visualizza ed effettua una query dei log attività.
    * **Controllo di accesso (IAM)**: usa le assegnazioni di ruolo.  Vedere [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](../active-directory/role-based-access-control-configure.md).
@@ -76,7 +80,7 @@ HDInsight è compatibile con una vasta gamma di componenti Hadoop. Per l'elenco 
    * **Account di accesso del cluster**: visualizza le informazioni di accesso del cluster.
    * **Utilizzo di core della sottoscrizione**: visualizza i core usati e disponibili per la sottoscrizione. 
    * **Ridimensiona cluster**: aumenta e diminuisce il numero di nodi di lavoro del cluster. Vedere [Ridimensionare i cluster](hdinsight-administer-use-management-portal.md#scale-clusters).
-   * **Secure Shell**: mostra le istruzioni per la connessione al cluster tramite connessione Secure Shell (SSH). Vedere [Usare SSH con Hadoop basato su Linux in HDInsight da Windows con PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md) e [Usare SSH con Hadoop basato su Linux in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+   * **Secure Shell**: mostra le istruzioni per la connessione al cluster tramite connessione Secure Shell (SSH). Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
    * **Partner HDInsight**: aggiunge/rimuove il Partner HDInsight corrente.
    * **Metastore esterni**: visualizza i metastore Hive e Oozie. I metastore possono essere configurati solo durante il processo di creazione dei cluster. Vedere [Usare metastore Hive/Oozie](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
    * **Azioni script**: esegue script Bash nel cluster. Vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md).
@@ -312,9 +316,4 @@ In questo articolo è stato illustrato come creare un cluster HDInsight tramite 
 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-command-line.png "Riga di comando di Hadoop"
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

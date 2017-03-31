@@ -1,21 +1,22 @@
 ---
-title: Mappa delle applicazioni in Application Insights | Microsoft Docs
+title: Mappa delle applicazioni in Azure Application Insights | Microsoft Docs
 description: Una rappresentazione visiva delle dipendenze tra i componenti di app, contrassegnati con avvisi e indicatori KPI.
 services: application-insights
 documentationcenter: 
 author: SoubhagyaDash
-manager: douge
+manager: carmonm
 ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fc2d3c3fee5abbab0eab16c106c88c8753e703cc
-ms.openlocfilehash: f7ee8a43c83b1bad53acdb71de7a66d8afaa09b2
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 9fc7a41dcca3d9e51b8c67b86ef61443945b6bad
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -49,7 +50,7 @@ Se si dispone di numerose dipendenze di un tipo (SQL, HTTP e così via), possono
 ## <a name="spot-problems"></a>Individuazione di problemi
 Ogni nodo dispone di indicatori di prestazioni rilevanti, ad esempio tassi di carico, prestazioni ed errori per il componente. 
 
-Le icone di avviso evidenziano possibili problemi. Un avviso di colore arancione indica che si verificano errori nelle richieste, visualizzazioni di pagina o chiamate di dipendenza. Il rosso indica una percentuale di errore superiore al 5%.
+Le icone di avviso evidenziano possibili problemi. Un avviso di colore arancione indica che si verificano errori nelle richieste, visualizzazioni di pagina o chiamate di dipendenza. Il rosso indica una percentuale di errore superiore al 5%. Se si vuole modificare queste soglie, aprire Opzioni.
 
 ![icone di errore](./media/app-insights-app-map/04.png)
 
@@ -99,6 +100,9 @@ La mappa delle app consente di trovare i nodi del server mediante la ricerca di 
 > [!NOTE] 
 > La mappa delle app del sistema end-to-end è in versione di anteprima. È necessario instrumentare i componenti con una versione speciale dell'SDK, inoltre è necessario usare un URL speciale per visualizzare la mappa delle app. [Informazioni su come configurare le mappe delle app del sistema end-to-end](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-app-map-preview.md).
 
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
 
 ## <a name="feedback"></a>Commenti e suggerimenti
 [Fornire un feedback tramite l'opzione di feedback del portale](app-insights-get-dev-support.md).
@@ -106,8 +110,6 @@ La mappa delle app consente di trovare i nodi del server mediante la ricerca di 
 ![Immagine MapLink-1](./media/app-insights-app-map/13.png)
 
 
+## <a name="next-steps"></a>Passaggi successivi
 
-
-<!--HONumber=Nov16_HO4-->
-
-
+* [Portale di Azure](https://portal.azure.com)

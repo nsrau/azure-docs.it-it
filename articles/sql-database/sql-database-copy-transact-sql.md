@@ -3,34 +3,32 @@ title: Copiare un database SQL di Azure con Transact-SQL | Documentazione Micros
 description: Creare una copia di un database SQL di Azure tramite Transact-SQL
 services: sql-database
 documentationcenter: 
-author: stevestein
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: 40ea3718-33f8-41af-90cb-3aa15059365e
 ms.service: sql-database
 ms.custom: migrate and move
 ms.devlang: NA
-ms.date: 09/19/2016
-ms.author: sstein
+ms.date: 02/07/2017
+ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: da730116fcc83d53b3665f953332a30c7fc6239d
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: e8d71d7b6b4302f177732381ad19e6a645bc5474
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="copy-an-azure-sql-database-using-transact-sql"></a>Copiare un database SQL di Azure con Transact-SQL
-> [!div class="op_single_selector"]
-> * [Panoramica](sql-database-copy.md)
-> * [Portale di Azure](sql-database-copy-portal.md)
-> * [PowerShell](sql-database-copy-powershell.md)
-> * [T-SQL](sql-database-copy-transact-sql.md)
-> 
-> 
 
-La procedura seguente illustra come copiare un database SQL con Transact-SQL nello stesso server o in un server diverso. L'operazione di copia di database usa l'istruzione [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) .
+La procedura seguente illustra come copiare un database SQL con Transact-SQL nello stesso server o in un server diverso. L'operazione di copia di database usa l'istruzione [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) . 
+
+> [!NOTE]
+> È possibile anche copiare un database SQL usando il [portale Azure](sql-database-copy-portal.md) o [PowerShell](scripts/sql-database-copy-database-to-new-server-powershell.md).
+>
 
 Per seguire la procedura descritta in questo articolo, sono necessari gli elementi seguenti:
 
@@ -79,21 +77,7 @@ Dopo che il nuovo database è online nel server di destinazione, usare l'istruzi
 Tutti gli utenti nel nuovo database gestiscono le autorizzazioni di cui disponevano nel database di origine. L'utente che ha avviato la copia del database diventa il proprietario del nuovo database e gli viene assegnato un nuovo ID di sicurezza (SID). Dopo il completamento della copia e prima che venga modificato il mapping di altri utenti, solo l'account di accesso che ha avviato la copia, il proprietario del database (DBO), può accedere al nuovo database.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Vedere [Copiare un database SQL di Azure](sql-database-copy.md) per una panoramica su come copiare un database SQL di Azure.
-* Per copiare un database tramite il portale di Azure, vedere [Copiare un database SQL di Azure tramite il portale di Azure](sql-database-copy-portal.md) .
-* Vedere [Copiare un database SQL di Azure con PowerShell](sql-database-copy-powershell.md) per copiare un database tramite PowerShell.
-* Vedere [Come gestire la sicurezza dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md) per informazioni sulla gestione di utenti e account di accesso durante la copia di un database in un server logico diverso.
-
-## <a name="additional-resources"></a>Risorse aggiuntive
-* [Gestire gli accessi](sql-database-manage-logins.md)
-* [Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio](sql-database-connect-query-ssms.md)
-* [Esportare il database in un BACPAC](sql-database-export.md)
+* Per informazioni sulla gestione di utenti e account di accesso durante la copia di un database in un server logico diverso, vedere [Come gestire la sicurezza dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md).
 * [Panoramica sulla continuità aziendale](sql-database-business-continuity.md)
 * [Documentazione relativa al database SQL](https://azure.microsoft.com/documentation/services/sql-database/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

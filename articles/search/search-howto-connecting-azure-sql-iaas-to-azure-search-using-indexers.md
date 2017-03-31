@@ -1,9 +1,9 @@
 ---
-title: Configurare una connessione da un indicizzatore di Ricerca di Azure in SQL Server in una macchina virtuale di Azure | Microsoft Docs
+title: Connessione di una macchina virtuale SQL a Ricerca di Azure | Documentazione Microsoft
 description: Abilitare connessioni crittografate e configurare il firewall per consentire connessioni a SQL Server in una macchina virtuale (VM) Azure da un indicizzatore in Ricerca di Azure.
 services: search
 documentationcenter: 
-author: jack4it
+author: HeidiSteen
 manager: pablocas
 editor: 
 ms.assetid: 46e42e0e-c8de-4fec-b11a-ed132db7e7bc
@@ -12,11 +12,12 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 09/26/2016
-ms.author: jackma
+ms.date: 01/23/2017
+ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 2150735fbf1e1438feeef70f0ea92ed041d0cd24
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: be73e3d009cfcbdd585d81512afaed752ae07364
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -51,7 +52,7 @@ Ricerca di Azure richiede un canale crittografato per tutte le richieste di indi
 Dopo avere configurato la connessione crittografata da Ricerca di Azure, è necessario eseguire altri passaggi di configurazione intrinseci di SQL Server nelle VM di Azure. Se non è già stato fatto, il passaggio successivo prevede di completare la configurazione seguendo le istruzioni contenute in uno di questi articoli:
 
 * Per una VM di **Resource Manager** , vedere [Connettersi a una macchina virtuale di SQL Server in Azure (Gestione risorse)](../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md). 
-* Per una VM **classica** , vedere [Connettersi a una macchina virtuale di SQL Server in Azure (distribuzione classica)](../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md).
+* Per una VM **classica** , vedere [Connettersi a una macchina virtuale di SQL Server in Azure (distribuzione classica)](../virtual-machines/windows/classic/sql-connect.md).
 
 In particolare, vedere in ogni articolo la sezione relativa alla "connessione via Internet".
 
@@ -87,10 +88,5 @@ Se si usa il portale di Azure per creare un indicizzatore, anche la logica del p
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo avere eseguito la configurazione, è possibile specificare un'istanza di SQL Server nella VM di Azure come origine dati per un indicizzatore di Ricerca di Azure. Per altre informazioni, vedere [Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) .
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Nuova versione dello schema 2016-06-01 | Documentazione Microsoft
-description: Informazioni su come scrivere la definizione JSON per l&quot;ultima versione di App per la logica
+title: "Aggiornamenti dello schema del&1;° giugno&2016; - App per la logica di Azure | Microsoft Docs"
+description: Creare definizioni JSON per App per la logica di Azure con la versione dello schema 2016-06-01
 author: jeffhollan
 manager: anneta
 editor: 
@@ -12,25 +12,30 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: aaacb76fe845ca8892e4fe3979be5ea6ac5e902b
+ms.sourcegitcommit: dab219386a32f519e50f76e18013f8f94a2266ff
+ms.openlocfilehash: 9d8f0be3d5c8e2c2e5f169dc1d0851c95a641d0c
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="new-schema-version-2016-06-01"></a>Nuova versione dello schema 2016-06-01
-La nuova versione dello schema e dell'API per App per la logica include una serie di miglioramenti relativi in particolare all'affidabilità e alla semplicità d'uso di App per la logica. Le differenze principali sono tre:
+# <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Aggiornamenti dello schema per App per la logica di Azure: 1° giugno 2016
 
-1. Sono stati aggiunti ambiti che sono azioni contenenti una raccolta di azioni.
-2. Le condizioni e i cicli sono azioni di prima classe
-3. L'ordinamento di esecuzione è più dettagliato tramite la proprietà `runAfter` (che sostituisce `dependsOn`)
+La nuova versione dello schema e dell'API per App per la logica di Azure include importanti miglioramenti che rendono le app per la logica più affidabili e facili da usare:
 
-Per informazioni sull'aggiornamento delle app per la logica dallo schema 2015-08-01-preview allo schema 2016-06-01, [vedere la sezione relativa all'aggiornamento riportata di seguito](#upgrading-to-2016-06-01-schema)
+* Gli [ambiti](#scopes) consentono di raggruppare o annidare le azioni come una raccolta di azioni.
+* [Condizioni e cicli](#conditions-loops) sono ora azioni di prima classe.
+* La proprietà `runAfter`, che sostituisce `dependsOn`, consente di ordinare con maggiore precisione l'esecuzione delle azioni.
 
-## <a name="1-scopes"></a>1. Ambiti
-L'aggiunta di ambiti e la possibilità di annidare le azioni in altre azioni è una delle modifiche principali di questo schema.  Questa modifica è utile quando si raggruppa un set di azioni o quando è necessario annidare azioni in altre azioni, ad esempio una condizione può contenere un'altra condizione.  Altre informazioni sulla sintassi dell'ambito sono disponibili [qui](../logic-apps/logic-apps-loops-and-scopes.md), ma un esempio semplice è illustrato di seguito:
+Per aggiornare le app per la logica dallo schema di anteprima del 1° agosto 2015 allo schema del 1° giugno 2016, [vedere la sezione relativa all'aggiornamento](#upgrading-to-2016-06-01-schema).
+
+<a name="scopes"></a>
+## <a name="scopes"></a>Ambiti
+
+Questo schema include gli ambiti, che consentono di raggruppare le azioni o annidarle all'interno di altre. Una condizione, ad esempio, può contenere un'altra condizione. Vedere altre informazioni sulla [sintassi degli ambiti](../logic-apps/logic-apps-loops-and-scopes.md) oppure esaminare questo esempio di ambito di base:
 
 ```
 {
@@ -52,14 +57,16 @@ L'aggiunta di ambiti e la possibilità di annidare le azioni in altre azioni è 
 }
 ```
 
-## <a name="2-conditions-and-loops-changes"></a>2. Modifiche di condizioni e cicli
-Nelle versioni precedenti dello schema le condizioni e i cicli sono parametri associati a una singola azione.  Questa limitazione è stata eliminata in questo schema e attualmente le condizioni e i cicli vengono visualizzati come tipo di azione.  Altre informazioni sono reperibili [in questo articolo](../logic-apps/logic-apps-loops-and-scopes.md)e un esempio semplice di una condizione di azione è illustrato di seguito:
+<a name="conditions-loops"></a>
+## <a name="conditions-and-loops-changes"></a>Modifiche di condizioni e cicli
+
+Nelle versioni precedenti dello schema, le condizioni e i cicli sono parametri associati a una singola azione. In questo schema è stata rimossa questa limitazione e le condizioni e i cicli sono disponibili come tipi di azione. Vedere altre informazioni su [cicli e ambiti](../logic-apps/logic-apps-loops-and-scopes.md) oppure esaminare questo esempio di base di un'azione condizione:
 
 ```
 {
-    "If_trigger_is_foo": {
+    "If_trigger_is_some-trigger": {
         "type": "If",
-        "expression": "@equals(triggerBody(), 'foo')",
+        "expression": "@equals(triggerBody(), 'some-trigger')",
         "runAfter": { },
         "actions": {
             "Http_2": {
@@ -73,14 +80,18 @@ Nelle versioni precedenti dello schema le condizioni e i cicli sono parametri as
         },
         "else": 
         {
-            "if_trigger_is_bar": "..."
+            "if_trigger_is_another-trigger": "..."
         }      
     }
 }
 ```
 
-## <a name="3-runafter-property"></a>3. Proprietà RunAfter
-La nuova proprietà `runAfter` sostituisce `dependsOn` per consentire maggiore precisione nell'ordinamento dell'esecuzione.  `dependsOn` indica che l'azione è stata eseguita con esito positivo; spesso è tuttavia necessario eseguire un'azione se l'azione precedente ha avuto esito positivo, non è riuscita o è stata ignorata.  `runAfter` consente questo livello di flessibilità.  Questo oggetto specifica i nomi di tutte le azioni che verranno eseguite dopo e definisce una matrice di stati accettabili da cui eseguire il trigger.  Per definire l'esecuzione dopo che il passaggio A è stato completato o che il passaggio B è stato completato o non è riuscito, è possibile usare la proprietà `runAfter` seguente:
+<a name="run-after"></a>
+## <a name="runafter-property"></a>Proprietà "runAfter"
+
+La proprietà `runAfter` sostituisce `dependsOn`, offrendo maggiore precisione quando si specifica l'ordine di esecuzione delle azioni in base allo stato di azioni precedenti.
+
+La proprietà `dependsOn` indica l'esecuzione riuscita dell'azione, indipendentemente dal numero di volte che si vuole eseguire un'azione a seconda che la precedente sia riuscita, abbia avuto esito negativo o sia stata ignorata. La proprietà `runAfter` offre tale flessibilità in quanto oggetto che specifica tutti nomi delle azioni dopo cui viene eseguito. Questa proprietà definisce anche una matrice degli stati accettabili come trigger. Per impostare l'esecuzione dopo l'esito positivo del passaggio A e dopo l'esito positivo o negativo del passaggio B, ad esempio, si costruisce questa proprietà `runAfter`:
 
 ```
 {
@@ -92,47 +103,62 @@ La nuova proprietà `runAfter` sostituisce `dependsOn` per consentire maggiore p
 }
 ```
 
-## <a name="upgrading-to-2016-06-01-schema"></a>Aggiornamento allo schema 2016-06-01
-L'aggiornamento al nuovo schema 2016-06-01 richiede pochi passaggi.  Sono disponibili informazioni dettagliate sulle modifiche dello schema [in questo articolo](../logic-apps/logic-apps-schema-2016-04-01.md).  Il processo di aggiornamento include l'esecuzione di script di aggiornamento, il salvataggio come nuova app per la logica e potenzialmente la sovrascrittura della app per la logica precedente, se necessario.
+## <a name="upgrade-your-schema"></a>Aggiornare lo schema
 
-1. Aprire la app per la logica corrente.
-2. Fare clic sul pulsante **Aggiorna schema** sulla barra degli strumenti
+L'aggiornamento al nuovo schema richiede pochi passaggi. Il processo di aggiornamento include l'esecuzione dello script di aggiornamento, il salvataggio come nuova app per la logica ed eventualmente, se necessario, la sovrascrittura dell'app per la logica precedente.
+
+1. Nel portale di Azure aprire l'app per la logica.
+
+2. Passare a **Panoramica**. Sulla barra degli strumenti dell'app per la logica scegliere **Aggiorna schema**.
    
-    ![][1]
+    ![Scegliere Aggiorna schema][1]
    
-    Verrà restituita la definizione aggiornata.  È possibile copiare e incollare questa definizione in una definizione di risorsa, se necessario, ma **è consigliabile** usare il pulsante **Salva con nome** per assicurarsi che tutti i riferimenti alla connessione siano validi nell'app per la logica aggiornata.
-3. Fare clic su di **Salva con nome** pulsante sulla barra degli strumenti del Pannello di aggiornamento.
-4. Immettere il nome e lo stato dell'app per la logica e fare clic su **Crea** per distribuire l'app per la logica di aggiornamento.
-5. Verificare che l'app per la logica aggiornata stia funzionando nel modo previsto.
+    Verrà restituita la definizione aggiornata, che è possibile copiare e incollare in una definizione di risorsa, se necessario. 
+    **È consigliabile**, tuttavia, scegliere **Salva con nome** 
+    per assicurarsi che tutti i riferimenti alla connessione siano validi nell'app per la logica aggiornata.
+
+3. Sulla barra degli strumenti del pannello per l'aggiornamento scegliere **Salva con nome**.
+
+4. Immettere il nome logico e lo stato. Per distribuire l'app per la logica aggiornata, scegliere **Crea**.
+
+5. Verificare che l'app per la logica aggiornata funzioni come previsto.
    
    > [!NOTE]
-   > Se si usa un trigger manuale o di richiesta, l'URL di callback sarà cambiato nella nuova app per la logica.  Usare il nuovo URL per verificare il funzionamento end-to-end ed è possibile clonare l'app per la logica esistente per mantenere gli URL precedenti.
-   > 
-   > 
-6. *Facoltativo* Usare il pulsante **Clona** sulla barra degli strumenti (accanto all'icona **Aggiorna schema** nell'immagine precedente) per sovrascrivere l'app per la logica precedente con la nuova versione dello schema.  Ciò è necessario solo se si desidera mantenere lo stesso ID di risorsa o URL del trigger di richiesta dell'app per la logica.
+   > Se si usa un trigger manuale o di richiesta, l'URL di callback viene modificato nella nuova app per la logica. Testare il nuovo URL per verificare il funzionamento dell'esperienza end-to-end. Per mantenere gli URL precedenti, è possibile clonare l'app per la logica esistente.
+
+6. *Facoltativo* Per sovrascrivere l'app per la logica precedente con la nuova versione dello schema, sulla barra degli strumenti scegliere **Clona** accanto ad **Aggiorna schema**. Questo passaggio è necessario solo se si vuole mantenere lo stesso ID risorsa o lo stesso URL del trigger di richiesta dell'app per la logica.
 
 ### <a name="upgrade-tool-notes"></a>Note sullo strumento di aggiornamento
-#### <a name="condition-mapping"></a>Mapping delle condizioni
-Lo strumento migliora il raggruppamento di azioni del ramo true e false in un ambito nella definizione aggiornata.  In particolare, il modello di progettazione di `@equals(actions('a').status, 'Skipped')` verrà visualizzato come un'azione `else`.  Tuttavia se lo strumento rileva modelli non riconosce che potenzialmente creerà le condizioni separate sia per il ramo true sia per il ramo false.  Le azioni possono essere rimappate nella fase successiva all'aggiornamento, se necessario.
 
-#### <a name="foreach-with-condition"></a>ForEach con condizione
-Il modello precedente di un ciclo foreach con una condizione per ogni elemento può essere replicato nel nuovo schema con l'azione di filtro.  Questo dovrebbe avvenire automaticamente in fase di aggiornamento.  La condizione diventa un'azione di filtro prima del ciclo foreach (per restituire solo un array di elementi che soddisfano la condizione) e l'array viene passato nell'azione foreach.  È possibile visualizzare un esempio [in questo articolo](../logic-apps/logic-apps-loops-and-scopes.md)
+#### <a name="mapping-conditions"></a>Mapping delle condizioni
+
+Nella definizione aggiornata, lo strumento tenta di raggruppare le azioni dei rami true e false in un ambito. In particolare, il modello di progettazione `@equals(actions('a').status, 'Skipped')` verrà visualizzato come un'azione `else`. Se lo strumento rileva modelli non riconoscibili, tuttavia, potrebbe creare condizioni separate per i rami true e false. Se necessario, è possibile modificare il mapping delle azioni dopo l'aggiornamento.
+
+#### <a name="foreach-loop-with-condition"></a>Ciclo "foreach" con condizione
+
+Nel nuovo schema, è possibile usare l'azione di filtro per replicare il modello di un ciclo `foreach` con una condizione per elemento, ma questa modifica dovrebbe essere eseguita automaticamente durante l'aggiornamento. La condizione diventa un'azione di filtro prima del ciclo foreach per restituire solo una matrice di elementi che soddisfano la condizione e tale matrice viene passata nell'azione foreach. Per un esempio, vedere l'articolo relativo a [cicli e ambiti](../logic-apps/logic-apps-loops-and-scopes.md).
 
 #### <a name="resource-tags"></a>Tag delle risorse
-I tag delle risorse verranno rimossi in seguito all'aggiornamento e sarà necessario impostarli di nuovo per il flusso di lavoro aggiornato.
+
+Dopo l'aggiornamento, i tag delle risorse vengono rimossi. È quindi necessario reimpostarli per il flusso di lavoro aggiornato.
 
 ## <a name="other-changes"></a>Altre modifiche
-### <a name="manual-trigger-renamed-to-request-trigger"></a>Trigger manuale rinominato in trigger di richiesta
-Il tipo `manual` è deprecato ed è stato rinominato in `request` con la tipologia `http`.  È più coerente con il tipo di modello usato dal trigger per la creazione.
+
+### <a name="renamed-manual-trigger-to-request-trigger"></a>Ridenominazione del trigger "manual" in "request"
+
+Il tipo di trigger `manual` è deprecato ed è stato rinominato `request` con tipo `http`. Questa modifica offre maggiore coerenza per la tipologia di modello creata con il trigger.
 
 ### <a name="new-filter-action"></a>Nuova azione "filtro"
-Se si usa un array di grandi dimensioni ed è necessario usare un filtro per un insieme di elementi più piccolo, è possibile usare il nuovo tipo di "filtro".  Accetta un array e una condizione e valuterà la condizione per ogni elemento e restituirà un array di elementi che soddisfano la condizione.
 
-### <a name="foreach-and-until-action-restrictions"></a>Restrizioni delle azioni ForEach e until
-I cicli foreach e until sono limitati a una singola azione.
+Per filtrare una matrice di grandi dimensioni in modo da ottenere un set ridotto di elementi, il nuovo tipo `filter` accetta una matrice e una condizione, valuta la condizione per ogni elemento e restituisce una matrice con gli elementi che soddisfano la condizione.
 
-### <a name="trackedproperties-on-actions"></a>TrackedProperties sulle azioni
-Le azioni possono ora includere una proprietà aggiuntiva (di pari livello rispetto a `runAfter` e `type`) denominata `trackedProperties`.  È un oggetto che consente di specificare alcuni input o output di azione da includere nei dati di telemetria diagnostica di Azure generati come parte di un flusso di lavoro.  ad esempio:
+### <a name="restrictions-for-foreach-and-until-actions"></a>Restrizioni per le azioni "foreach" e "until"
+
+I cicli `foreach` e `until` sono limitati a una singola azione.
+
+### <a name="new-trackedproperties-for-actions"></a>Nuova proprietà "trackedProperties" per le azioni
+
+Le azioni possono ora includere una proprietà aggiuntiva denominata `trackedProperties`, di pari livello rispetto alle proprietà `runAfter` e `type`. Questo oggetto specifica determinati input o output delle azioni da includere nei dati di telemetria di Diagnostica di Azure generati come parte di un flusso di lavoro, ad esempio:
 
 ```
 {                
@@ -152,14 +178,9 @@ Le azioni possono ora includere una proprietà aggiuntiva (di pari livello rispe
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Usare la definizione del flusso della app per la logica](../logic-apps/logic-apps-author-definitions.md)
-* [Creare un modello di distribuzione di app per la logica](../logic-apps/logic-apps-create-deploy-template.md)
+* [Creare definizioni dei flussi di lavoro per le app per la logica](../logic-apps/logic-apps-author-definitions.md)
+* [Creare modelli di distribuzione per le app per la logica](../logic-apps/logic-apps-create-deploy-template.md)
 
 <!-- Image references -->
 [1]: ./media/logic-apps-schema-2016-04-01/upgradeButton.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

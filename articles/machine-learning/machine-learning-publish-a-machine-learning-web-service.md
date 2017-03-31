@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 52153526fb5b127823316b86fa05c0528151e18f
-ms.openlocfilehash: df8aebc78969ac6ceb00ee8b20a60cb153e8891b
+ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
+ms.openlocfilehash: fa62c0883b8230e514f60626b59fa3b3b20a6784
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -62,6 +63,9 @@ Nei passaggi seguenti è descritta la distribuzione di un esperimento predittivo
 Ora che l'esperimento predittivo è stato preparato, è possibile distribuirlo come nuovo servizio Web di Azure. Usando il servizio Web, gli utenti possono inviare dati al modello che poi restituirà le stime.
 
 Per distribuire l'esperimento predittivo, fare clic su **Esegui** nella parte inferiore dell'area di disegno dell'esperimento. Al termine dell'esecuzione dell'esperimento, fare clic su **Deploy Web Service** (Distribuisci servizio Web) e selezionare **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]).  Verrà aperta la pagina di distribuzione del portale dei servizi Web di Machine Learning.
+
+> [!NOTE] 
+> Per distribuire un nuovo servizio Web è necessario disporre delle autorizzazioni sufficienti nella sottoscrizione a cui si sta distribuendo il servizio Web. Per altre informazioni, vedere [Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning](machine-learning-manage-new-webservice.md). 
 
 #### <a name="machine-learning-web-service-portal-deploy-experiment-page"></a>Pagina di distribuzione dell'esperimento del portale dei servizi Web di Machine Learning
 Nella pagina Deploy Experiment (Sperimentazione distribuzione) immettere un nome per il servizio Web.
@@ -116,7 +120,7 @@ La pagina **Consume** (Uso) offre tutte le informazioni necessarie per accedere 
 Per altre informazioni su come accedere a un servizio Web di Machine Learning, vedere [Come usare un servizio Web di Azure Machine Learning distribuito](machine-learning-consume-web-services.md).
 
 #### <a name="manage-your-new-web-service"></a>Gestire il nuovo servizio Web
-È possibile gestire il portale dei servizi Web di Machine Learning per i servizi Web classici. Dalla [pagina principale del portale](https://services.azureml-test.net/) fare clic su **Web Services** (Servizi Web). Nella pagina dei servizi Web è possibile eliminare o copiare un servizio. Per monitorare un servizio specifico, fare clic sul servizio e quindi su **Dashboard**. Per monitorare i processi batch associati al servizio Web, fare clic su **Batch Request Log**(Log richieste batch).
+È possibile gestire il portale dei servizi Web di Machine Learning per i nuovi servizi Web. Dalla [pagina principale del portale](https://services.azureml-test.net/) fare clic su **Web Services** (Servizi Web). Nella pagina dei servizi Web è possibile eliminare o copiare un servizio. Per monitorare un servizio specifico, fare clic sul servizio e quindi su **Dashboard**. Per monitorare i processi batch associati al servizio Web, fare clic su **Batch Request Log**(Log richieste batch).
 
 ### <a name="deploy-the-predictive-experiment-as-a-classic-web-service"></a>Distribuire l'esperimento predittivo come servizio Web classico
 
@@ -187,9 +191,4 @@ Un'opzione per l'aggiornamento del servizio Web consiste nel ripetere il trainin
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
 [Update]: #update-the-Web-service
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

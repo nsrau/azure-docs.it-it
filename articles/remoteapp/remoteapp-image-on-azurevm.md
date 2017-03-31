@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 310cb63756806c8fab208c47bce6c7292ea5e5d7
-ms.openlocfilehash: 61e8a49475129486505111bd595f98af955ed809
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: efd70d9843f3d8db0c2396c79eacb230fcdfa467
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -37,9 +38,9 @@ Usare questi passaggi per creare un'immagine basata su una macchina virtuale di 
     Per i dettagli, vedere [Creare una macchina virtuale che esegue Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 2. Connettersi alla macchina virtuale e installare e configurare le app da condividere mediante RemoteApp. Assicurarsi di eseguire tutte le configurazioni aggiuntive di Windows richieste dalle app.
    
-    Per informazioni dettagliate, vedere [How to Log on to a Virtual Machine Running Windows Server](../virtual-machines/virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) (Come accedere a una macchina virtuale che esegue Windows Server).
+    Per informazioni dettagliate, vedere [How to Log on to a Virtual Machine Running Windows Server](../virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) (Come accedere a una macchina virtuale che esegue Windows Server).
 3. Se si usa una delle immagini Host sessione Desktop remoto di Windows Server, viene fornito uno script di valutazione che assicura che la macchina virtuale soddisfi i prerequisiti di RemoteApp. Per eseguire lo script, fare doppio clic su **ValidateRemoteAppImage** nel desktop. Assicurarsi di risolvere tutti gli errori rilevati dallo script prima di procedere al passaggio successivo.
-4. Generalizzare l'immagine con SYSPREP e acquisirla. Per istruzioni, vedere [How to Capture a Windows Virtual Machine to Use as a Template](../virtual-machines/virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) (Come acquisire una macchina virtuale Windows da usare come modello).
+4. Generalizzare l'immagine con SYSPREP e acquisirla. Per istruzioni, vedere [How to Capture a Windows Virtual Machine to Use as a Template](../virtual-machines/windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) (Come acquisire una macchina virtuale Windows da usare come modello).
 
 ## <a name="import-the-image-into-the-azure-remoteapp-image-library"></a>Importare l'immagine nella raccolta immagini di Azure RemoteApp
 Usare questi passaggi per importare la nuova immagine Azure RemoteApp:
@@ -58,10 +59,5 @@ Usare questi passaggi per importare la nuova immagine Azure RemoteApp:
 > 
 
 Ora è possibile creare la nuova raccolta, [cloud](remoteapp-create-cloud-deployment.md) o [ibrida](remoteapp-create-hybrid-deployment.md), in base alle proprie esigenze.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

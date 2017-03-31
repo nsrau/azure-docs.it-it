@@ -4,7 +4,7 @@ description: Illustra come connettere un&quot;app del servizio app di Azure a un
 services: app-service
 documentationcenter: 
 author: ccompy
-manager: wpickett
+manager: erikre
 editor: cephalin
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: ccompy
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 1184277f90dce4215de2add8b48c022e013d191d
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -299,9 +300,4 @@ Oltre a differenze funzionali, vanno considerate le differenze di prezzo.  La fu
 [IntPowershell]: http://azure.microsoft.com/documentation/articles/app-service-vnet-integration-powershell/
 [ASEintro]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [ILBASE]: http://azure.microsoft.com/documentation/articles/app-service-environment-with-internal-load-balancer/
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

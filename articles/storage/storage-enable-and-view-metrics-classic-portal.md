@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 03/03/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: ba615e296c39ccdd15f5867681f7274feb5478b0
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 3c3c7924655f5b932be2a3d947a4df786fc0630d
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: ba615e296c39ccdd15f5867681f7274feb5478b0
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../includes/storage-selector-portal-enable-and-view-metrics.md)]
 
 ## <a name="overview"></a>Panoramica
-Per impostazione predefinita, Metriche di archiviazione non è abilitato per i servizi di archiviazione. È possibile abilitare il monitoraggio usando il [portale di Azure classico](https://manage.windowsazure.com) o Windows PowerShell. In alternativa, è possibile abilitarlo a livello di codice tramite un'API di archiviazione.
+Le metriche di archiviazione vengono abilitate per impostazione predefinita quando si crea un nuovo account di archiviazione. È possibile configurare il monitoraggio usando il [portale di Azure classico](https://manage.windowsazure.com) o Windows PowerShell. In alternativa, è possibile abilitarlo in modo programmatico tramite un'API di archiviazione.
 
 Quando si abilita Metriche di archiviazione, è necessario scegliere un periodo di memorizzazione per i dati: questo periodo determina per quanto tempo il servizio di archiviazione mantiene le metriche e addebita all'utente lo spazio necessario per archiviarle. In genere, è consigliabile usare un periodo di memorizzazione per le metriche al minuto più breve che per le metriche orarie, a causa dello spazio supplementare significativo necessario per le metriche al minuto. È consigliabile scegliere un periodo di memorizzazione tale da avere tempo sufficiente per analizzare i dati e scaricare le metriche da mantenere per l'analisi non in linea o la creazione di report. Tenere presente che verrà addebitato anche il download dei dati di metrica dall'account di archiviazione.
 
@@ -190,8 +191,3 @@ Anche la capacità usata dalle tabelle di metrica è fatturabile: è possibile u
 
 ## <a name="next-steps"></a>Passaggi successivi:
 [Abilitazione della registrazione di Analisi archiviazione e accesso ai dati di log](https://msdn.microsoft.com/library/dn782840.aspx)
-
-
-<!--HONumber=Dec16_HO1-->
-
-
