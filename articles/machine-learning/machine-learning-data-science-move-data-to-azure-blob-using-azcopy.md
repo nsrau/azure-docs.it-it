@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 9b32c0d9c3bc19a187873eebd6ab21036ee06db8
 ms.openlocfilehash: 1acc98f9688ced2e1cf177a881b28ce98c0bff9e
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -88,10 +89,5 @@ Per trasferire i BLOB tra i contenitori di Azure, utilizzare il comando seguente
 > 3. Non è possibile specificare un **file BLOB specifico** da scaricare utilizzando il parametro */Source* . Per scaricare un file specifico, specificare il nome del file BLOB per il download utilizzando il parametro */Pattern* . **/S** può essere utilizzato per fare in modo che AzCopy cerchi il nome del file in modo ricorsivo. Senza il parametro pattern, AzCopy scarica tutti i file nella directory.
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -29,8 +29,6 @@ La verifica del flusso IP esamina l'interfaccia di rete di una macchina virtuale
 
 È necessario creare un'istanza di Network Watcher in tutte le aree in cui è prevista l'esecuzione della verifica del flusso IP. Network Watcher è un servizio a livello di area e può essere eseguito solo su risorse nella stessa area. Non influisce sui risultati della verifica del flusso IP, perché verrà comunque restituita la route associata alla scheda di interfaccia di rete.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ![1][1]
 
 ## <a name="next-steps"></a>Passaggi successivi

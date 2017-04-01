@@ -12,15 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: fashah;garye;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: ba61d00f277af579c87a130336ead9879b82a6de
 ms.openlocfilehash: 0678c47b28cff54986b79b901c7d2a92136610fc
+ms.lasthandoff: 12/13/2016
 
 
 ---
-# <a name="a-nameheadingaprocess-azure-blob-data-with-advanced-analytics"></a><a name="heading"></a>Elaborare i dati BLOB di Azure con analisi avanzate
+# <a name="heading"></a>Elaborare i dati BLOB di Azure con analisi avanzate
 In questo documento vengono descritte l'esplorazione dei dati e la creazione di funzionalità da dati archiviati nell’archivio BLOB di Azure. 
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Caricare i dati in un intervallo di dati Pandas
@@ -50,7 +51,7 @@ Per esplorare e modificare un set di dati, i dati devono essere scaricati dall'o
 
 A questo punto si è pronti per esplorare i dati e generare le funzionalità di questo set di dati.
 
-## <a name="a-nameblob-dataexplorationadata-exploration"></a><a name="blob-dataexploration"></a>Esplorazione dei dati
+## <a name="blob-dataexploration"></a>Esplorazione dei dati
 Di seguito sono riportati alcuni esempi dei modi per esplorare i dati utilizzando Pandas:
 
 1. Controllare il numero di righe e colonne 
@@ -95,10 +96,10 @@ Di seguito sono riportati alcuni esempi dei modi per esplorare i dati utilizzand
         #correlation between column_a and column_b
         dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-## <a name="a-nameblob-featuregenafeature-generation"></a><a name="blob-featuregen"></a>Creazione di funzionalità
+## <a name="blob-featuregen"></a>Creazione di funzionalità
 È quindi possibile generare funzionalità tramite Python come indicato di seguito:
 
-### <a name="a-nameblob-countfeatureaindicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>Valore dell'indicatore basato sulla creazione di funzionalità
+### <a name="blob-countfeature"></a>Valore dell'indicatore basato sulla creazione di funzionalità
 Le funzionalità relative alle categorie possono essere create come indicato di seguito:
 
 1. Controllare la distribuzione della colonna relativa alla categoria:
@@ -117,7 +118,7 @@ Le funzionalità relative alle categorie possono essere create come indicato di 
         #Remove the original column rate_code in df1_with_dummy
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
-### <a name="a-nameblob-binningfeatureabinning-feature-generation"></a><a name="blob-binningfeature"></a>Creazione di contenitori per la creazione di funzionalità
+### <a name="blob-binningfeature"></a>Creazione di contenitori per la creazione di funzionalità
 Per creare funzionalità in contenitori, procedere come indicato di seguito:
 
 1. Aggiungere una sequenza di colonne per suddividere una colonna numerica
@@ -131,7 +132,7 @@ Per creare funzionalità in contenitori, procedere come indicato di seguito:
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
-## <a name="a-namesql-featuregenawriting-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>Scrittura dei dati nel BLOB di Azure e utilizzo in Azure Machine Learning
+## <a name="sql-featuregen"></a>Scrittura dei dati nel BLOB di Azure e utilizzo in Azure Machine Learning
 Dopo avere esaminato i dati e creato le funzionalità necessarie, è possibile caricare i dati (campionati o completi) in un BLOB di Azure e utilizzarli in Azure Machine Learning attenendosi alla procedura seguente. Tenere presente che le funzionalità aggiuntive possono essere create anche in Azure Machine Learning Studio. 
 
 1. Scrivere il frame di dati in file locali
@@ -167,10 +168,5 @@ Dopo avere esaminato i dati e creato le funzionalità necessarie, è possibile c
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1d0136b044f6049e59fa09d824cf244cac703c45
+ms.sourcegitcommit: 95ecd8d4ef3dd7a956206e7c3e07c793db0111f7
 ms.openlocfilehash: 04801ce75a767da2756165f51f49192f89887380
-ms.lasthandoff: 02/23/2017
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -36,8 +36,6 @@ Hop successivo è una funzionalità di Network Watcher che consente di recuperar
 ARMclient viene usato per chiamare l'API REST con PowerShell. ARMClient è reperibile in Chocolatey in [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient)
 
 Questo scenario presuppone il completamento dei passaggi descritti in [Creare un servizio Network Watcher](network-watcher-create.md) per creare un servizio Network Watcher.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>Scenario
 

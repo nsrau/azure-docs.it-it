@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: huvalo;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 045e40bccad59586987c0a18253dafff2f955a93
 ms.openlocfilehash: ea5005e7cff775c798b030748324781ef7dcfe7d
+ms.lasthandoff: 12/06/2016
 
 
 ---
@@ -32,7 +33,7 @@ Questo argomento fornisce istruzioni su come:
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## <a name="a-nameprerequisitesaprerequisites"></a><a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 La libreria client Python è stata testata negli ambienti seguenti:
 
 * Windows, Mac e Linux
@@ -46,7 +47,7 @@ Presenta una dipendenza dai pacchetti seguenti:
 
 È consigliabile usare una distribuzione Python, ad esempio [Anaconda](http://continuum.io/downloads#all) o [Canopy](https://store.enthought.com/downloads/), inclusa in Python, IPython e i tre pacchetti installati ed elencati precedentemente. Sebbene IPython non sia obbligatorio, costituisce un ambiente ottimale per la manipolazione e la visualizzazione dei dati in modo interattivo.
 
-### <a name="a-nameinstallationahow-to-install-the-azure-machine-learning-python-client-library"></a><a name="installation"></a>Come installare la libreria client Python di Azure Machine Learning
+### <a name="installation"></a>Come installare la libreria client Python di Azure Machine Learning
 Per completare le attività descritte in questo argomento, è necessario che sia installata la libreria client Python di Azure Machine Learning. È disponibile nella pagina [Python Package Index](https://pypi.python.org/pypi/azureml). Per installarla nel proprio ambiente Python, eseguire il comando seguente dall'ambiente Python locale:
 
     pip install azureml
@@ -60,12 +61,12 @@ Se nel proprio computer è installato Git, è possibile usare pip per installarl
     pip install git+https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python.git
 
 
-## <a name="a-namedatasetaccessause-studio-code-snippets-to-access-datasets"></a><a name="datasetAccess"></a>Usare frammenti di codice di Studio per accedere a set di dati
+## <a name="datasetAccess"></a>Usare frammenti di codice di Studio per accedere a set di dati
 La libreria client Python consente l'accesso a livello di codice a set di dati esistenti in esperimenti in esecuzione.
 
 Dall'interfaccia Web di Studio è possibile generare frammenti di codice che includono tutte le informazioni necessarie per scaricare e deserializzare set di dati come oggetti Pandas DataFrame nel proprio computer locale.
 
-### <a name="a-namesecurityasecurity-for-data-access"></a><a name="security"></a>Sicurezza per l'accesso ai dati
+### <a name="security"></a>Sicurezza per l'accesso ai dati
 I frammenti di codice forniti da Studio per essere usati con la libreria client Python includono l'ID dell'area di lavoro e il token di autorizzazione, che offrono l'accesso completo all'area di lavoro e pertanto devono essere protetti, come una password.
 
 Per motivi di sicurezza, le funzionalità dei frammenti di codice sono disponibili solo per gli utenti il cui ruolo nell'area di lavoro è impostato su **Owner** . Il ruolo viene visualizzato in Azure Machine Learning Studio nella pagina **USERS** in **Settings**.
@@ -86,7 +87,7 @@ Dopo aver ottenuto l'ID dell'area di lavoro e il token di autorizzazione, gli sv
 
 I token di autorizzazione vengono gestiti nella pagina **AUTHORIZATION TOKENS** in **SETTINGS**. È possibile rigenerarli, ma questa procedura revoca l'accesso al token precedente.
 
-### <a name="a-nameaccessingdatasetsaaccess-datasets-from-a-local-python-application"></a><a name="accessingDatasets"></a>Accedere a set di dati da un'applicazione Python locale
+### <a name="accessingDatasets"></a>Accedere a set di dati da un'applicazione Python locale
 1. In Machine Learning Studio fare clic su **DATASETS** (Set di dati) sulla barra di spostamento a sinistra.
 2. Selezionare il set di dati a cui si desidera accedere. È possibile selezionare qualsiasi set di dati dall'elenco **MY DATASETS** o **SAMPLES**.
 3. Sulla barra degli strumenti inferiore fare clic su **Generate Data Access Code**(Genera codice di accesso ai dati). Se i dati si presentano in un formato non compatibile con la raccolta client di Python, questo pulsante non è attivo.
@@ -99,7 +100,7 @@ I token di autorizzazione vengono gestiti nella pagina **AUTHORIZATION TOKENS** 
    
     ![Blocco appunti][ipython-dataset]
 
-## <a name="a-nameaccessingintermediatedatasetsaaccess-intermediate-datasets-from-machine-learning-experiments"></a><a name="accessingIntermediateDatasets"></a>Accedere a set di dati intermedi da esperimenti di Machine Learning
+## <a name="accessingIntermediateDatasets"></a>Accedere a set di dati intermedi da esperimenti di Machine Learning
 Dopo aver eseguito un esperimento in Machine Learning Studio, è possibile accedere ai set di dati intermedi dai nodi di output dei moduli. I set di dati intermedi sono costituiti da dati creati e usati per i passaggi intermedi quando è in esecuzione uno strumento di modello.
 
 È possibile accedere ai set di dati intermedi sono se si trovano in un formato compatibile con la libreria client Python.
@@ -143,7 +144,7 @@ I passaggi seguenti illustrano un esempio in cui si crea e si esegue un esperime
     
     ![Istogramma][ipython-histogram]
 
-## <a name="a-nameclientapisause-the-machine-learning-python-client-library-to-access-read-create-and-manage-datasets"></a><a name="clientApis"></a>Usare la libreria client Python di Machine Learning per accedere, leggere, creare e gestire set di dati
+## <a name="clientApis"></a>Usare la libreria client Python di Machine Learning per accedere, leggere, creare e gestire set di dati
 ### <a name="workspace"></a>Area di lavoro
 L'area di lavoro è il punto di ingresso della libreria client Python. Per creare un'istanza è necessario specificare nella classe `Workspace` l'ID della propria area di lavoro e il token di autorizzazione:
 
@@ -334,10 +335,5 @@ Se i dati sono già serializzati, usare `update_from_raw_data` anziché `update_
 <!-- Module References -->
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

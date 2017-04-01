@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev;fashah;garye
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 2bcc1410410ed70d9d8a18fd5693bf32cab6fb23
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -38,7 +39,7 @@ Questo articolo presuppone che l'utente abbia:
 * Creato un account di archiviazione di Azure. Per istruzioni, vedere [Creare un account di archiviazione di Azure](../storage/storage-create-storage-account.md#create-a-storage-account)
 * I dati vengono archiviati in SQL Server. In caso contrario, consultare [Spostamento dei dati in un database di SQL Azure per Azure Machine Learning](machine-learning-data-science-move-sql-azure.md) per istruzioni su come spostare i dati disponibili.
 
-## <a name="a-namesql-featuregenafeature-generation-with-sql"></a><a name="sql-featuregen"></a>Creazione di funzionalità con SQL
+## <a name="sql-featuregen"></a>Creazione di funzionalità con SQL
 In questa sezione viene descritto come creare funzionalità tramite SQL:  
 
 1. [Creazione di funzionalità basate sul conteggio](#sql-countfeature)
@@ -50,7 +51,7 @@ In questa sezione viene descritto come creare funzionalità tramite SQL:
 > 
 > 
 
-### <a name="a-namesql-countfeatureacount-based-feature-generation"></a><a name="sql-countfeature"></a>Creazione di funzionalità basate sul conteggio
+### <a name="sql-countfeature"></a>Creazione di funzionalità basate sul conteggio
 In questo documento vengono descritte due modalità per creare funzionalità di conteggio. Nel primo metodo viene utilizzata la somma condizionale, mentre nel secondo la clausola "where". Tali metodi possono essere uniti alla tabella originale (tramite le colonne della chiave primaria) al fine di visualizzare le funzionalità di conteggio insieme ai dati originali.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
@@ -58,13 +59,13 @@ In questo documento vengono descritte due modalità per creare funzionalità di 
     select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename>
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2>
 
-### <a name="a-namesql-binningfeatureabinning-feature-generation"></a><a name="sql-binningfeature"></a>Creazione di contenitori per la creazione di funzionalità
+### <a name="sql-binningfeature"></a>Creazione di contenitori per la creazione di funzionalità
 Nell'esempio seguente viene descritto come creare funzionalità categorizzate, inserendo una colonna numerico (usando 5 contenitori) che può essere utilizzata come funzionalità:
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
-### <a name="a-namesql-featurerolloutarolling-out-the-features-from-a-single-column"></a><a name="sql-featurerollout"></a>Implementazione delle funzionalità da una singola colonna
+### <a name="sql-featurerollout"></a>Implementazione delle funzionalità da una singola colonna
 In questa sezione, viene descritto come implementare una singola colonna di una tabella al fine di creare ulteriori funzionalità. In questo esempio si presuppone che nella tabella dalla quale si tenta di creare la funzionalità sia presente una colonna relativa alla latitudine o alla longitudine.
 
 Di seguito, viene riportata una breve introduzione sui dati di posizione relativi a latitudine e longitudine (risorse assegnate da stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Ciò è utile per acquisire conoscenze prima di creare una funzionalità dal campo sulla posizione:
@@ -101,12 +102,12 @@ Le funzionalità basate su posizione descritte in precedenza possono essere util
 > 
 > 
 
-### <a name="a-namesql-amlaconnecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Connessione ad Azure Machine Learning
+### <a name="sql-aml"></a>Connessione ad Azure Machine Learning
 La funzionalità appena creata può essere aggiunta come una colonna a una tabella esistente oppure archiviata in una nuova tabella e unita a quella originale ai fini dell'apprendimento automatico. È possibile creare o accedere alle funzionalità già create utilizzando il modulo [Import Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) in Azure ML, come descritto di seguito:
 
 ![lettori azureml](./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png)
 
-## <a name="a-namepythonausing-a-programming-language-like-python"></a><a name="python"></a>Utilizzo di un linguaggio di programmazione quale Python
+## <a name="python"></a>Utilizzo di un linguaggio di programmazione quale Python
 L'uso di Python per creare funzionalità quando i dati si trovano in SQL Server funziona in modo analogo all'elaborazione dei dati nei BLOB di Azure usando Python, come descritto in [Elaborare i dati BLOB di Azure nell'ambiente di analisi scientifica dei dati](machine-learning-data-science-process-data-blob.md). I dati devono essere caricati dal database nei frame di dati Panda. A questo punto, è possibile elaborarli ulteriormente. In questa sezione, è stato descritto il processo di connessione al database per caricare dati all'interno di un frame di dati.
 
 Il seguente formato della stringa di connessione può essere utilizzato per connettersi a un database di SQL Server da Pyhton usando pyodbc (sostituire il nome del server, quello del database, il nome utente e la password con i valori personalizzati):
@@ -121,10 +122,5 @@ La [libreria Pandas](http://pandas.pydata.org/) in Python fornisce una vasta gam
     data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
 
 A questo punto è possibile usare il frame di dati di Pandas, come descritto nell'argomento relativo alla [creazione di funzionalità per i dati di archiviazione BLOB di Azure tramite Panda](machine-learning-data-science-create-features-blob.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

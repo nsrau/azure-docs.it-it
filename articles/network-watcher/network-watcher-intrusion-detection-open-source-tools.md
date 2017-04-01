@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: a1199ae3eccc5268006587fa47f2ca4fad362bdc
+ms.sourcegitcommit: d60b1d44844c449e0f66dc0107a25531569d097b
 ms.openlocfilehash: 82d5e525859ebe03b152c63e4debbae469049c12
-ms.lasthandoff: 02/24/2017
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -26,8 +26,6 @@ ms.lasthandoff: 02/24/2017
 Le acquisizioni di pacchetti sono un componente chiave per l'implementazione di sistemi di rilevamento di intrusioni (IDS, Intrusion Detection System) di rete e per l'esecuzione del monitoraggio della sicurezza di rete. Esistono diversi strumenti IDS open source che elaborano le acquisizioni di pacchetti e cercano le firme di possibili intrusioni di rete e di attività dannosa. Usando le acquisizioni di pacchetti fornite da Network Watcher, è possibile analizzare la rete per trovare eventuali intrusioni dannose o vulnerabilità.
 
 Uno strumento open source di questo tipo è Suricata, un motore IDS che usa set di regole per monitorare il traffico di rete e attiva avvisi quando si verificano eventi sospetti. Suricata offre un motore a thread multipli e può quindi eseguire l'analisi del traffico di rete con maggiore velocità ed efficienza. Per altri dettagli su Suricata e sulle relative funzionalità, visitare il sito Web all'indirizzo https://suricata-ids.org/.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>Scenario
 
