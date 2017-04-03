@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: reference
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: c73e24c13f69db893d63e9925116d860dccc1120
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -240,9 +242,4 @@ Per altre informazioni di riferimento, vedere la [panoramica degli argomenti di 
 
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
