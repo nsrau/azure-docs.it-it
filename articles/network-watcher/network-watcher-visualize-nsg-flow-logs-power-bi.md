@@ -27,8 +27,6 @@ I log dei flussi dei gruppi di sicurezza di rete permettono di visualizzare le i
 
 Cercando manualmente nei file di log può essere difficile ottenere informazioni dettagliate sui dati di log dei flussi. Questo articolo offre una soluzione per visualizzare i log dei flussi più recenti e ottenere informazioni sul traffico di rete.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="scenario"></a>Scenario
 
 Nello scenario seguente Power BI Desktop viene connesso all'account di archiviazione configurato come sink per i dati di registrazione dei flussi dei gruppi di sicurezza di rete. Dopo la connessione all'account di archiviazione, Power BI scarica e analizza i log per fornire una rappresentazione visiva del traffico registrato dai gruppi di sicurezza di rete.
