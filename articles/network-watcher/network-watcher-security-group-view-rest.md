@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1d0136b044f6049e59fa09d824cf244cac703c45
+ms.sourcegitcommit: fa79ab0ab80481c8969c6fa653e92b10985cab3b
 ms.openlocfilehash: 80ae80d3243b531c7348a709aa4ad6e6ed401980
-ms.lasthandoff: 02/23/2017
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -29,8 +29,6 @@ ms.lasthandoff: 02/23/2017
 > - [API REST](network-watcher-security-group-view-rest.md)
 
 La visualizzazione di un gruppo di sicurezza consente di recuperare le regole di sicurezza di rete configurate ed effettive applicate a una macchina virtuale. Questa funzionalità è utile per controllare e diagnosticare i gruppi di sicurezza di rete e le regole configurate in una macchina virtuale per verificare che il traffico viene consentito o negato in modo corretto. Questo articolo illustra come recuperare le regole di sicurezza effettive ed applicate a una macchina virtuale tramite l'API REST
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 

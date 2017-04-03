@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 78f367de862e4fa9203cc794549abb935f117848
+ms.sourcegitcommit: d60b1d44844c449e0f66dc0107a25531569d097b
 ms.openlocfilehash: a91da330e677c85f16f6f4e506613576b6507d7c
-ms.lasthandoff: 02/22/2017
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -33,8 +33,6 @@ Se non si ha familiarità con i gruppi di sicurezza di rete, visitare [Controlla
 In questo scenario, si confronta una buona baseline nota con i risultati della visualizzazione del gruppo di sicurezza restituiti per una macchina virtuale.
 
 Questo scenario presuppone il completamento dei passaggi descritti in [Creare un servizio Network Watcher](network-watcher-create.md) per creare un servizio Network Watcher. Lo scenario presuppone inoltre che esista e possa essere usato un gruppo di risorse con una macchina virtuale valida.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>Scenario
 

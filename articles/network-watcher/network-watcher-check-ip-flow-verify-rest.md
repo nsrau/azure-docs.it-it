@@ -37,8 +37,6 @@ ARMclient viene usato per chiamare l'API REST con PowerShell. ARMClient è reper
 
 Questo scenario presuppone il completamento dei passaggi descritti in [Creare un servizio Network Watcher](network-watcher-create.md) per creare un servizio Network Watcher.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="scenario"></a>Scenario
 
 Questo scenario usa la verifica del flusso IP per verificare se una macchina virtuale può comunicare con un altro computer sulla porta 443. Se il traffico viene negato, restituisce la regola di sicurezza che nega il traffico. Per altre informazioni sulla verifica del flusso IP, leggere la [panoramica sulla verifica del flusso IP](network-watcher-ip-flow-verify-overview.md)

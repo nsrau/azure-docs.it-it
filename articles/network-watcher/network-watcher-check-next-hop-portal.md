@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 866d7f77391fb7d23f7a8e651cb4d2fc8f56fba8
+ms.sourcegitcommit: 95ecd8d4ef3dd7a956206e7c3e07c793db0111f7
 ms.openlocfilehash: 5fb85551d3c5fb8d1c63a965d89bae788000afe8
-ms.lasthandoff: 02/23/2017
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -35,8 +35,6 @@ Hop successivo è una funzionalità di Network Watcher che consente di recuperar
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 Questo scenario presuppone il completamento dei passaggi descritti in [Creare un servizio Network Watcher](network-watcher-create.md) per creare un servizio Network Watcher. Lo scenario presuppone inoltre che esista e possa essere usato un gruppo di risorse con una macchina virtuale valida.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>Scenario
 

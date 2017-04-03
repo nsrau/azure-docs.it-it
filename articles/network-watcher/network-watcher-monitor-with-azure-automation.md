@@ -26,8 +26,6 @@ ms.lasthandoff: 03/29/2017
 
 Ottenere informazioni approfondite sulle prestazioni di rete è fondamentale per offrire servizi affidabili ai clienti. È quindi essenziale rilevare rapidamente le interruzioni di rete e adottare misure correttive per mitigare la condizione di interruzione. Automazione di Azure consente di implementare ed eseguire un'attività a livello di codice attraverso i runbook. Con Automazione di Azure è possibile mettere in atto una soluzione continua e attiva di monitoraggio e avviso relativa alla rete.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="scenario"></a>Scenario
 
 Lo scenario nell'immagine seguente è un'applicazione a più livelli, con connettività locale stabilita tramite un gateway VPN e un tunnel. Per prestazioni ottimali delle applicazioni è importante assicurarsi che il Gateway VPN sia in funzione.

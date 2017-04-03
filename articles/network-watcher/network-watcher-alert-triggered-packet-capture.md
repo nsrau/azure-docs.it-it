@@ -34,8 +34,6 @@ Usando Network Watcher, Creazione di avvisi e Funzioni dall'ecosistema di Azure,
 In questo esempio la VM invia più segmenti TCP del solito ed è possibile essere avvisati. Come esempio vengono usati i segmenti TCP, ma è possibile usare qualsiasi condizione di avviso. Quando si viene avvisati, è opportuno avere i dati a livello di pacchetto per sapere perché la comunicazione è aumentata e poter eseguire le procedure che consentono di ripristinare la normale comunicazione del computer.
 Questo scenario presuppone che esista già un'istanza di Network Watcher e un gruppo di risorse con una macchina virtuale valida da usare.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="scenario"></a>Scenario
 
 Per automatizzare questo processo, nella VM vengono creati e connessi un avviso da attivare quando si verifica l'evento imprevisto e una funzione di Azure per chiamare Network Watcher.

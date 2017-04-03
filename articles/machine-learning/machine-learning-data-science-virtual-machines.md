@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/24/2017
 ms.author: xibingao;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
 ms.openlocfilehash: 4de0683f2f58cc598a5c37e74a30b7e17aa7fd0d
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -43,10 +44,5 @@ Dopo il provisioning e la configurazione, queste macchine virtuali possono esser
 > Macchine virtuali di Azure è disponibile con **pagamento a consumo**. Per assicurarsi di non subire addebiti quando non si usa la macchina virtuale, lo stato deve essere impostato su **Arrestato (deallocato)** dal [portale di Azure classico](http://manage.windowsazure.com/). Per istruzioni dettagliate su come deallocare la macchina virtuale, vedere [Arresto e deallocazione della macchina virtuale quando non in uso](machine-learning-data-science-setup-virtual-machine.md#shutdown).
 > 
 > 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

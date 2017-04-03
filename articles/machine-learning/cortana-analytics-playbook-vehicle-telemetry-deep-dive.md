@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
 ms.openlocfilehash: 898b93ad95ab812b8b6a538048a86a8cc8951101
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -705,10 +706,5 @@ Fare clic qui per informazioni dettagliate su come configurare i report e il das
 
 ## <a name="summary"></a>Riepilogo
 Questo documento contiene un'analisi dettagliata e approfondita della soluzione di analisi dei dati di telemetria del veicolo. Questa presenta un modello di architettura lambda per l'analisi batch e in tempo reale completa di stime e azioni. Il modello si applica a una vasta gamma di casi d'uso che richiedono l'analisi del percorso critico (in tempo reale) e di quello non critico (batch). 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -25,8 +25,6 @@ ms.lasthandoff: 03/04/2017
 
 I gateway di rete virtuale forniscono la connettività tra le risorse locali e altre reti virtuali in Azure. Il monitoraggio di questi gateway e delle rispettive connessioni è essenziale per assicurare che le comunicazioni non siano interrotte. Network Watcher consente di risolvere i problemi dei gateway di rete virtuale e delle connessioni. La funzionalità può essere chiamata da PowerShell, dall'interfaccia della riga di comando o dall'API REST. Quando viene chiamato, Network Watcher esegue la diagnostica dell'integrità del gateway di rete virtuale o della connessione e restituisce i risultati appropriati. Questa richiesta è una transazione a esecuzione prolungata e i risultati vengono restituiti al termine della diagnosi.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="results"></a>Risultati
 
 I risultati preliminari restituiti offrono un quadro complessivo dell'integrità della risorsa. È possibile ottenere informazioni più approfondite per le risorse, come illustrato nella sezione seguente:

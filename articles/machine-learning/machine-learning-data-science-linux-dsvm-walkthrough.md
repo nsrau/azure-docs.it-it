@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev;paulsh
 translationtype: Human Translation
 ms.sourcegitcommit: d0075eec26c2131f2019e7aca4c00d2d63cc976b
 ms.openlocfilehash: 80051996b0c39c53da63dc6b7bc75c869f692575
+ms.lasthandoff: 01/06/2017
 
 
 ---
@@ -530,9 +531,4 @@ Eseguire query con sqlcmd:
 Per una panoramica degli argomenti che forniscono informazioni dettagliate sulle attività che costituiscono il processo di analisi scientifica dei dati in Azure, vedere [Processo di analisi scientifica dei dati per i team](http://aka.ms/datascienceprocess).
 
 Per una descrizione di altre procedure dettagliate complete che illustrano i passaggi del processo per scenari specifici, vedere [Procedure dettagliate del Processo di analisi scientifica dei dati per i team](data-science-process-walkthroughs.md). Le procedure dettagliate illustrano anche come combinare strumenti cloud, strumenti locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

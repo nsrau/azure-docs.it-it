@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: zhangya;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 4a2bb073360b372bb66281bceb2292d5d29f5625
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -68,7 +69,7 @@ Il confronto dei risultati delle prestazioni dei quattro modelli è riepilogato 
 
 ![confronto dei risultati](./media/machine-learning-data-science-create-features/result1.png)
 
-## <a name="a-nameexample2a-example-2-creating-features-in-text-mining"></a><a name="example2"></a> Esempio 2: Creazione di funzionalità per il data mining del testo
+## <a name="example2"></a> Esempio 2: Creazione di funzionalità per il data mining del testo
 La progettazione di funzioni viene ampiamente applicata nelle attività correlate al data mining del testo, ad esempio la classificazione di documenti e l'analisi del sentiment. Ad esempio, quando si vogliono classificare documenti in diverse categorie, un tipico presupposto è il fatto che le parole o le frasi incluse in una categoria di documenti sono presenti con minore probabilità in un'altra categoria di documenti. In altre parole, la frequenza di distribuzione di parole/frasi è in grado di caratterizzare diverse categorie di documenti. Poiché in genere nelle applicazioni di data mining del testo singole parti del contenuto di testo vengono usate come dati di input, per creare le funzioni che comportano frequenze di parole/frasi è necessario usare il processo di progettazione delle funzioni.
 
 Per completare questa attività, si applica una tecnica definita **hashing di funzioni** per trasformare in modo efficiente le funzioni di testo arbitrarie in indici. Anziché associare ogni funzioni di testo (parole/frasi) a un indice particolare, questo metodo applica una funzione hash alle funzioni e usa direttamente i relativi valori hash come indici.
@@ -89,10 +90,5 @@ La figura seguente mostra l'aspetto delle nuove funzioni.
 Le funzioni progettate e selezionate migliorano l'efficienza del processo di training che tenta di estrarre le informazioni essenziali contenute nei dati. Migliorano anche le potenzialità di questi modelli per la classificazione accurata dei dati di input e per la stima più affidabile dei risultati di interesse. Progettazione e selezione delle funzioni possono anche combinarsi per rendere l'apprendimento più computazionalmente trattabile. Questa operazione viene eseguita tramite il miglioramento e la successiva riduzione del numero di funzioni richieste per calibrare o eseguire il training di un modello. Da un punto di vista matematico, le funzioni selezionate per eseguire il training di un modello sono costituite da un set minimo di variabili indipendenti che spiegano i modelli nei dati e quindi stimano correttamente i risultati.
 
 Si noti che non sempre è necessario eseguire la progettazione o la selezione delle funzioni. La necessità o meno di questi passaggi dipende dai dati da raccogliere, dagli algoritmi scelti e dall'obiettivo dell'esperimento.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -29,8 +29,6 @@ Un caso d'uso più esteso include la conformità alla sicurezza e il controllo d
 
 Nel portale le regolo sono divise in Valide, Subnet, Interfaccia di rete e Predefinite. Si ottiene così una semplice visualizzazione delle regole applicate a una macchina virtuale. È disponibile un pulsante per il download per scaricare facilmente tutte le regole di sicurezza indipendentemente dalla scheda in un file CSV.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ![Visualizzazione di un gruppo di sicurezza][1]
 
 Le regole possono essere selezionate e si apre un nuovo pannello che visualizza il gruppo di sicurezza di rete e i prefissi di origine e di destinazione. Da questo pannello è possibile passare direttamente alla risorsa del gruppo di sicurezza di rete.

@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: d2a65104743d9497debdc85c134fd1a06114c514
+ms.sourcegitcommit: 82c6bda147befa333ea3fa9cd619f6fd24974149
 ms.openlocfilehash: 19f800dcd676a62c31ac5a79af99b5e0cae8a806
-ms.lasthandoff: 02/23/2017
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -32,8 +32,6 @@ ms.lasthandoff: 02/23/2017
 > - [API REST](network-watcher-nsg-flow-logging-rest.md)
 
 I log di flusso del gruppo di sicurezza di rete sono una funzionalità di Network Watcher che consente di visualizzare le informazioni sul traffico IP in entrata e in uscita tramite un gruppo di sicurezza di rete. Sono scritti in formato JSON e mostrano i flussi in ingresso e in uscita in base a regole, scheda di rete a cui si applica il flusso, informazioni su 5 tuple relative al flusso (IP di origine/destinazione, porta di origine/destinazione, protocollo), e se il traffico è consentito o meno.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="enable-network-security-group-flow-logs"></a>Abilitare i log di flusso dei gruppi di sicurezza di rete
 

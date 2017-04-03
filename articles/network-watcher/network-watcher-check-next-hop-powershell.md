@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1d0136b044f6049e59fa09d824cf244cac703c45
+ms.sourcegitcommit: 95ecd8d4ef3dd7a956206e7c3e07c793db0111f7
 ms.openlocfilehash: 9f53c824b6368dc2a6251fd880f1cabefef884b8
-ms.lasthandoff: 02/23/2017
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -37,8 +37,6 @@ Hop successivo è una funzionalità di Network Watcher che consente di recuperar
 In questo scenario viene usato il portale di Azure per trovare il tipo di hop successivo e l'indirizzo IP.
 
 Questo scenario presuppone il completamento dei passaggi descritti in [Creare un servizio Network Watcher](network-watcher-create.md) per creare un servizio Network Watcher. Lo scenario presuppone inoltre che esista e possa essere usato un gruppo di risorse con una macchina virtuale valida.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>Scenario
 
