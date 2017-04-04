@@ -33,7 +33,7 @@ Elenco di riferimento per la configurazione:
 3. Archiviare l'oggetto rete virtuale come variabile.
    
         $vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
-4. Aggiungere una subnet gateway alla rete virtuale. La subnet gateway deve esistere già e deve essere denominata "GatewaySubnet". È opportuno creare un gateway che sia /27 o più grande (/26, /25, ecc.).
+4. Aggiungere una subnet gateway alla rete virtuale. La subnet gateway deve esistere già e deve essere denominata "GatewaySubnet". È consigliabile creare una subnet gateway che sia /27 o più grande (/26, /25 e così via).
    
         Add-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
 5. Impostare la configurazione.
@@ -72,8 +72,3 @@ Esistono diversi [SKU del gateway](../articles/expressroute/expressroute-about-v
 Usare il comando seguente per rimuovere un gateway
 
     Remove-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG  
-
-
-<!--HONumber=Nov16_HO3-->
-
-

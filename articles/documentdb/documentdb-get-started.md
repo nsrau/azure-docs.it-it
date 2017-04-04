@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 03/19/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 639eb424c31abea4106cf37b14fee99a8fd9d307
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 648aa01beaffccf69250f1028e27bc13ed70837c
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -529,7 +529,7 @@ Verrà visualizzato l'output dell'app introduttiva. L'output visualizzerà i ris
 Congratulazioni. L'esercitazione su NoSQL è stata completata ed è stata creata un'applicazione console C# funzionante.
 
 ## <a id="GetSolution"></a> Ottenere la soluzione completa per l'esercitazione su NoSQL
-Se non si ha tempo per completare le procedure dell'esercitazione o se si vogliono solo scaricare gli esempi di codice, è possibile ottenerli da [Github](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
+Se non si ha tempo per completare le procedure dell'esercitazione o se si vogliono solo scaricare gli esempi di codice, è possibile ottenerli da [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
 
 Per compilare la soluzione GetStarted, sono necessari gli elementi seguenti:
 

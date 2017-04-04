@@ -1,6 +1,6 @@
 ---
-title: Compilazione continua e integrazione per applicazioni Java Linux di Azure Service Fabric tramite Jenkins | Microsoft Docs
-description: Compilazione continua e integrazione per applicazioni Java Linux tramite Jenkins
+title: Compilazione e integrazione continue per un&quot;applicazione Java Linux di Azure Service Fabric tramite Jenkins | Microsoft Docs
+description: Compilazione continua e integrazione per un&quot;applicazione Java Linux tramite Jenkins
 services: service-fabric
 documentationcenter: java
 author: sayantancs
@@ -15,23 +15,25 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: saysa
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 335f41e2e4a40e64e87382ea338673de3ab79c27
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 71e3d130f22515d22dc7f486f3dede936b874049
+ms.lasthandoff: 03/25/2017
 
 
 ---
-# <a name="build-and-deploy-your-linux-java-application-using-jenkins"></a>Creare e distribuire applicazioni Java Linux usando Jenkins
-Jenkins è uno strumento diffuso per l'integrazione e la distribuzione continue. Questo documento illustra in modo dettagliato la creazione e la distribuzione di un'applicazione Service Fabric con Jenkins.
+# <a name="use-jenkins-to-build-and-deploy-your-linux-java-application"></a>Usare Jenkins per compilare e distribuire l'applicazione Java Linux
+Jenkins è uno strumento diffuso per l'integrazione e la distribuzione continue delle app. Ecco come compilare e distribuire l'applicazione di Azure Service Fabric usando Jenkins.
 
 ## <a name="general-prerequisites"></a>Prerequisiti generali
-1. È necessario che Git sia installato in locale. È possibile installare la versione appropriata di git da [qui](https://git-scm.com/downloads) in base al sistema operativo in uso. Se non si conosce Git, è possibile seguire la procedura indicata nella relativa [documentazione](https://git-scm.com/docs) per acquisire maggiore familiarità.
-2. È necessario avere a disposizione il plug-in Jenkins per Service Fabric. È possibile scaricare il plug-in Jenkins per Service Fabric da [qui](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi).
+- È necessario che Git sia installato in locale. È possibile installare la versione di Git appropriata dalla [pagina di download di Git](https://git-scm.com/downloads), in base al sistema operativo specifico. Se non si ha familiarità con Git, per altre informazioni, vedere la [documentazione di Git](https://git-scm.com/docs).
+- È necessario avere a disposizione il plug-in Jenkins per Service Fabric. È possibile scaricarlo dalla pagina di [download di Service Fabric](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi).
 
-## <a name="setting-up-jenkins-inside-a-service-fabric-cluster"></a>Configurazione di Jenkins all'interno di un cluster di Service Fabric
+## <a name="set-up-jenkins-inside-a-service-fabric-cluster"></a>Configurare Jenkins all'interno di un cluster di Service Fabric
+
+È possibile configurare Jenkins all'interno o all'esterno di un cluster di Service Fabric. Le sezioni seguenti illustrano come configurarlo all'interno di un cluster.
 
 ### <a name="prerequisites"></a>Prerequisiti
-1. Un cluster Linux Service Fabric pronto. Docker è già installato nei cluster di Service Fabric creati dal portale di Azure. Se si esegue il cluster in locale, controllare se Docker è installato o meno usando il comando ``docker info``. Se non è installato, installarlo usando i comandi seguenti:
+1. Un cluster Linux Service Fabric pronto. Docker è già installato in un cluster di Service Fabric creato dal portale di Azure. Se si esegue il cluster localmente, verificare se Docker è installato usando il comando ``docker info``. Se non è installato, installarlo usando i comandi seguenti:
 
   ```sh
   sudo apt-get install wget
@@ -45,24 +47,24 @@ cd service-fabric-java-getting-started/Services/JenkinsDocker/
 azure servicefabric cluster connect http://PublicIPorFQDN:19080   # Azure CLI cluster connect command
 bash Scripts/install.sh
 ```
-Il contenitore Jenkins viene installato nel cluster e può essere monitorato tramite Service Fabric Explorer.
+Un contenitore Jenkins viene installato nel cluster e può essere monitorato tramite Service Fabric Explorer.
 
 ### <a name="steps"></a>Passi
-1. Passare all'URL ``http://PublicIPorFQDN:8081`` dal browser. Fornisce il percorso della password amministratore iniziale necessaria per eseguire l'accesso. Dopo aver eseguito l'accesso con l'account amministratore iniziale, è possibile continuare a usare Jenkins come utente amministratore oppure creare e modificare l'utente.
+1. Nel browser passare a ``http://PublicIPorFQDN:8081``. Fornisce il percorso della password amministratore iniziale necessaria per eseguire l'accesso. È possibile continuare a usare Jenkins come utente amministratore. In alternativa, è possibile creare e modificare l'utente dopo l'accesso con l'account amministratore iniziale.
 
-  > [!NOTE]
-  > È necessario verificare che la porta 8081 sia specificata come porta di endpoint dell'applicazione durante la creazione del cluster.
-  >
+   > [!NOTE]
+   > Assicurarsi che sia stata specificata la porta 8081 come porta dell'endpoint dell'applicazione durante la creazione del cluster.
+   >
 
 2. Ottenere l'ID dell'istanza del contenitore con ``docker ps -a``.
-3. Eseguire l'accesso SSH al contenitore e incollare il percorso visualizzato nel portale di Jenkins. Ad esempio, se nel portale viene visualizzato il percorso `PATH_TO_INITIAL_ADMIN_PASSWORD`, è possibile eseguire:
+3. Eseguire l'accesso SSH (Secure Shell) al contenitore e incollare il percorso visualizzato nel portale di Jenkins. Ad esempio, se nel portale viene visualizzato il percorso `PATH_TO_INITIAL_ADMIN_PASSWORD`, eseguire il comando seguente:
 
   ```sh
   docker exec -t -i [first-four-digits-of-container-ID] /bin/bash   # This takes you inside Docker shell
   cat PATH_TO_INITIAL_ADMIN_PASSWORD
   ```
 
-4. Configurare GitHub per il funzionamento con Jenkins seguendo la procedura illustrata in [questo articolo](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
+4. Configurare GitHub per l'interazione con Jenkins seguendo la procedura illustrata in [Generating a new SSH key and adding it to the SSH agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) (Generazione di una nuova chiave SSH e aggiunta della chiave all'agente SSH).
     * Usare le istruzioni fornite da GitHub per generare la chiave SSH e aggiungerla all'account GitHub che ospita il repository.
     * Eseguire i comandi specificati nell'articolo indicato in precedenza nella shell Docker di Jenkins, non nell'host.
     * Per accedere alla shell di Jenkins dall'host, eseguire questo comando:
@@ -71,7 +73,9 @@ Il contenitore Jenkins viene installato nel cluster e può essere monitorato tra
   docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
   ```
 
-## <a name="setting-up-jenkins-outside-a-service-fabric-cluster"></a>Configurazione di Jenkins all'esterno di un cluster di Service Fabric
+## <a name="set-up-jenkins-outside-a-service-fabric-cluster"></a>Configurare Jenkins all'esterno di un cluster di Service Fabric
+
+È possibile configurare Jenkins all'interno o all'esterno di un cluster di Service Fabric. Le sezioni seguenti illustrano come configurarlo all'esterno di un cluster.
 
 ### <a name="prerequisites"></a>Prerequisiti
 È necessario che Docker sia installato. Per installare Docker dal terminale, è possibile usare i comandi seguenti:
@@ -84,8 +88,8 @@ Il contenitore Jenkins viene installato nel cluster e può essere monitorato tra
 A questo punto, quando si esegue ``docker info`` nel terminale, l'output indica che il servizio Docker è in esecuzione.
 
 ### <a name="steps"></a>Passi
-  1. Effettuare il pull dell'immagine del contenitore di Jenkins per Service Fabric: ``docker pull servicefabric-microsoft.azurecr.io/jenkins:v1``
-  2. Eseguire l'immagine del contenitore: ``docker run -itd -p 8080:8080 servicefabric-microsoft.azurecr.io/jenkins:v1``
+  1. Effettuare il pull dell'immagine del contenitore di Jenkins per Service Fabric: ``docker pull raunakpandya/jenkins:v1``
+  2. Eseguire l'immagine del contenitore: ``docker run -itd -p 8080:8080 raunakpandya/jenkins:v1``
   3. Ottenere l'ID istanza dell'immagine del contenitore. È possibile elencare tutti i contenitori Docker con il comando ``docker ps –a``
   4. Accedere al portale di Jenkins seguendo questa procedura:
 
@@ -95,51 +99,58 @@ A questo punto, quando si esegue ``docker info`` nel terminale, l'output indica 
     Se l'ID contenitore è 2d24a73b5964, usare 2d24.
     * Questa password è necessaria per l'accesso al dashboard di Jenkins dal portale ovvero ``http://<HOST-IP>:8080``.
     * Dopo il primo accesso, è possibile creare il proprio account utente e usarlo per le operazioni successive oppure è possibile continuare a usare l'account amministratore. Dopo aver creato un utente, è necessario continuare a usarlo.
-  5. Configurare GitHub per il funzionamento con Jenkins seguendo la procedura illustrata in [questo articolo](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
-      * Usare le istruzioni fornite da GitHub per generare la chiave SSH e aggiungerla all'account GitHub che ospita (dovrebbe ospitare) il repository.
-      * Eseguire i comandi specificati nell'articolo indicato in precedenza nella shell Docker di Jenkins, non nell'host.
-      * Per accedere alla shell di Jenkins dall'host, eseguire questi comandi:
+  5. Configurare GitHub per l'interazione con Jenkins seguendo la procedura illustrata in [Generating a new SSH key and adding it to the SSH agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) (Generazione di una nuova chiave SSH e aggiunta della chiave all'agente SSH).
+        * Usare le istruzioni fornite da GitHub per generare la chiave SSH e aggiungerla all'account GitHub che ospita il repository.
+        * Eseguire i comandi specificati nell'articolo indicato in precedenza nella shell Docker di Jenkins, non nell'host.
+        * Per accedere alla shell di Jenkins dall'host, eseguire questi comandi:
 
       ```sh
       docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
       ```
 
-    > [!NOTE]
-    > Assicurarsi che il cluster o il computer in cui è ospitata l'immagine del contenitore di Jenkins abbia un indirizzo IP esposto al pubblico, in modo che le notifiche da GitHub vengono ricevute dall'istanza di Jenkins.
-    >
+Assicurarsi che il cluster o il computer in cui è ospitata l'immagine del contenitore Jenkins abbia un indirizzo IP pubblico. Ciò consente all'istanza di Jenkins di ricevere notifiche da GitHub.
 
-## <a name="install-the-service-fabric-jenkins-plugin-from-portal"></a>Installare il plug-in Jenkins per Service Fabric dal portale
+## <a name="install-the-service-fabric-jenkins-plug-in-from-the-portal"></a>Installare il plug-in Jenkins per Service Fabric dal portale
 
 1. Passare a ``http://PublicIPorFQDN:8081``.
-2. Dal dashboard di Jenkins selezionare **Manage Jenkins** (Gestione Jenkins) -> **Manage Plugins** (Gestione plug-in) -> **Advanced** (Avanzate).
-In questa schermata è possibile caricare un plug-in. Selezionare l'opzione **Choose file** (Scegli file) e quindi selezionare il file serviceFabric.hpi scaricato nella sezione dei prerequisiti. Dopo aver selezionato l'opzione per il caricamento, Jenkins installa automaticamente il plug-in. Se richiesto, consentire il riavvio.
+2. Dal dashboard di Jenkins selezionare **Manage Jenkins** (Gestione Jenkins) > **Manage Plugins** (Gestione plug-in) > **Advanced** (Avanzate).
+In questa schermata è possibile caricare un plug-in. Selezionare l'opzione **Choose file** (Scegli file) e quindi selezionare il file **serviceFabric.hpi** scaricato nella sezione dei prerequisiti. Dopo aver selezionato l'opzione **Upload** (Carica), Jenkins installa automaticamente il plug-in. Se richiesto, consentire il riavvio.
 
-## <a name="creating-and-configuring-a-jenkins-job"></a>Creazione e configurazione di un processo Jenkins
+## <a name="create-and-configure-a-jenkins-job"></a>Creare e configurare un processo Jenkins
 
 1. Creare un **nuovo elemento** dal dashboard.
-2. Immettere un nuovo nome di elemento, ad esempio **MyJob**, selezionare un progetto libero e fare clic su OK.
-3. Passare quindi alla pagina del processo e fare clic su **Configura** -
-  * Nella sezione generale, in **GitHub project** (Progetto GitHub) specificare l'URL del progetto GitHub che ospita l'applicazione Java di Service Fabric che si vuole integrare nel flusso CI/CD di Jenkins, ad esempio: ``https://github.com/sayantancs/SFJenkins``.
-  * Nella sezione **Source Code Management** (Gestione del codice sorgente) selezionare **Git**. Specificare l'URL del repository che ospita l'applicazione Java di Service Fabric che si vuole integrare nel flusso CI/CD di Jenkins, ad esempio: ``https://github.com/sayantancs/SFJenkins.git``. Qui è anche possibile specificare il ramo da compilare, ad esempio: ***/master**.
-4. Per configurare *GitHub*, che ospita il repository, in modo che possa comunicare con Jenkins, seguire questa procedura:
-  1. Passare alla pagina del repository GitHub. Passare a **Settings** (Impostazioni)  -> **Integrations and Services** (Integrazioni e servizi).
-  2. Selezionare **Add Service** (Aggiungi servizio), digitare Jenkins e selezionare il **plug-in GitHub per Jenkins**.
-  3. Immettere l'URL webhook di Jenkins (per impostazione predefinita, ``http://<PublicIPorFQDN>:8081/github-webhook/``). Fare clic sull'opzione per aggiungere o aggiornare il servizio.
-  4. Verrà inviato un evento di test all'istanza di Jenkins. Accanto al webhook in GitHub verrà visualizzato un segno di spunta verde e il progetto verrà compilato.
-  5. Nella sezione **Build Triggers** (Trigger di compilazione) selezionare l'opzione di compilazione da usare. In questo caso, si intende attivare una compilazione ogni volta che si verifica un push nel repository, quindi l'opzione corrispondente è **GitHub hook trigger for GITScm polling** (Trigger hook GitHub per il polling GITScm). In precedenza questa opzione era denominata "Build when a change is pushed to GitHub" (Compila in seguito al push di una modifica in GitHub).
-  6. Nella sezione **Build** (Compilazione) selezionare l'opzione **Invoke Gradle Script** (Richiama script Gradle) dall'elenco a discesa **Add build step** (Aggiungi passaggio di compilazione). Nel widget visualizzato specificare il percorso per **Root build script** (Script di compilazione radice), per l'applicazione. Viene estratto il file build.gradle dal percorso specificato che opera corrispondentemente. Se si crea un progetto denominato ``MyActor`` usando il plug-in Eclipse o il generatore Yeoman, lo script di compilazione radice deve contenere ``${WORKSPACE}/MyActor``. Ad esempio, questa sezione avrà molto probabilmente un aspetto simile al seguente:
+2. Immettere un nome per l'elemento, ad esempio **MyJob**. Selezionare **free-style project** (progetto libero) e fare clic su **OK**.
+3. Passare quindi alla pagina del processo e fare clic su **Configure** (Configura).
+
+   a. Nella sezione generale in **GitHub project** (Progetto GitHub) specificare l'URL del progetto GitHub. Questo URL ospita l'applicazione Java di Service Fabric da integrare con il flusso di integrazione continua e di distribuzione continua di Jenkins, ad esempio ``https://github.com/sayantancs/SFJenkins``.
+
+   b. Nella sezione **Source Code Management** (Gestione del codice sorgente) selezionare **Git**. Specificare l'URL del repository che ospita l'applicazione Java di Service Fabric che si vuole integrare nel flusso di integrazione continua e di distribuzione continua di Jenkins, ad esempio ``https://github.com/sayantancs/SFJenkins.git``. Qui è anche possibile specificare il ramo da compilare, ad esempio **/master**.
+4. Configurare *GitHub*, che ospita il repository, in modo che possa comunicare con Jenkins. Seguire questa procedura:
+
+   a. Passare alla pagina del repository GitHub. Passare a **Settings** (Impostazioni)  > **Integrations and Services** (Integrazioni e servizi).
+
+   b. Selezionare **Add Service** (Aggiungi servizio), digitare **Jenkins** e selezionare il **plug-in GitHub per Jenkins**.
+
+   c. Immettere l'URL webhook di Jenkins (per impostazione predefinita, ``http://<PublicIPorFQDN>:8081/github-webhook/``). Fare clic su **add/update service** (aggiungi/aggiorna il servizio).
+
+   d. Verrà inviato un evento di test all'istanza di Jenkins. Accanto al webhook in GitHub verrà visualizzato un segno di spunta verde e il progetto verrà compilato.
+
+   e. Nella sezione **Build Triggers** (Trigger compilazione) selezionare l'opzione di compilazione da usare. Per questo esempio è necessario attivare una compilazione a ogni push nel repository. Selezionare quindi l'opzione **GitHub hook trigger for GITScm polling** (Trigger di hook GitHub per polling GITScm). Questa opzione era definita in precedenza **Build when a change is pushed to GitHub** (Compila in caso di push di modifiche in GitHub).
+
+   f. Nella sezione **Build** (Compilazione) selezionare l'opzione **Add build step** (Richiama script Gradle) dall'elenco a discesa **Invoke Gradle Script** (Aggiungi passaggio di compilazione). Nel widget visualizzato specificare il percorso per **Root build script** (Script di compilazione radice) per l'applicazione. Viene estratto il file build.gradle dal percorso specificato che opera in modo corrispondente. Se si crea un progetto denominato ``MyActor`` usando il plug-in Eclipse o il generatore Yeoman, lo script di compilazione radice deve contenere ``${WORKSPACE}/MyActor``. Per un esempio, vedere la schermata seguente:
 
     ![Azione di compilazione di Jenkins per Service Fabric][build-step]
-  7. Nell'elenco a discesa **Post-Build Actions** (Azioni post-compilazione) selezionare **Deploy Service Fabric Project** (Distribuisci progetto di Service Fabric). In questa finestra è necessario specificare i dettagli del cluster in cui verrà distribuita l'applicazione di Service Fabric compilata con Jenkins e i dettagli aggiuntivi per l'applicazione usati per distribuirla. È possibile usare lo screenshot seguente come riferimento:
+
+   g. Nell'elenco a discesa **Post-Build Actions** (Azioni post-compilazione) selezionare **Deploy Service Fabric Project** (Distribuisci progetto di Service Fabric). In questa finestra è necessario specificare i dettagli del cluster in cui verrà distribuita l'applicazione di Service Fabric compilata con Jenkins. È anche possibile specificare dettagli aggiuntivi per l'applicazione usati per distribuirla. Per un esempio, vedere la schermata seguente:
 
     ![Azione di compilazione di Jenkins per Service Fabric][post-build-step]
 
- > [!NOTE]
- > In questo caso il cluster potrebbe essere lo stesso che ospita l'applicazione contenitore Jenkins, nel caso si usi Service Fabric per distribuire l'immagine del contenitore Jenkins.
- >
+   > [!NOTE]
+   > In questo caso il cluster potrebbe essere lo stesso che ospita l'applicazione contenitore Jenkins, nel caso si usi Service Fabric per distribuire l'immagine del contenitore Jenkins.
+   >
 
-### <a name="end-to-end-scenario"></a>Scenario end-to-end
-A questo punto, GitHub e Jenkins sono configurati. Ora è possibile apportare alcune modifiche di esempio al progetto ``MyActor`` nel repository di esempio https://github.com/sayantancs/SFJenkins ed effettuare il push delle modifiche nel ramo ``master`` remoto o in qualsiasi ramo configurato per l'uso. Verrà così attivato il processo Jenkins ``MyJob`` configurato. Le operazioni svolte dal processo sono fondamentalmente il recupero delle modifiche da GitHub, la compilazione delle modifiche e la distribuzione dell'applicazione nell'endpoint del cluster specificato nelle azioni di post-compilazione.  
+## <a name="next-steps"></a>Passaggi successivi
+GitHub e Jenkins sono ora configurati. Prendere in considerazione alcune modifiche di esempio nel progetto ``MyActor`` per l'esempio del repository, https://github.com/sayantancs/SFJenkins. Eseguire il push delle modifiche a un ramo ``master`` remoto o a qualsiasi ramo configurato per l'uso. Viene così attivato il processo Jenkins ``MyJob`` configurato. Vengono eseguite le operazioni di recupero delle modifiche da GitHub, compilazione delle modifiche e distribuzione dell'applicazione nell'endpoint del cluster specificato nelle azioni di post-compilazione.  
 
   <!-- Images -->
   [build-step]: ./media/service-fabric-cicd-your-linux-java-application-with-jenkins/build-step.png

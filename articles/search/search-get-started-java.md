@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6ecc365fd90ba955efb977c4e598eae6746916f0
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -60,7 +61,7 @@ Nell'elenco seguente vengono descritti i file che sono rilevanti per questo esem
 
 <a id="sub-2"></a>
 
-## <a name="find-the-service-name-and-apikey-of-your-azure-search-service"></a>Individuare il nome del servizio e la chiave API del servizio Ricerca di Azure
+## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Individuare il nome del servizio e la chiave API del servizio Ricerca di Azure
 Per tutte le chiamate API REST a Ricerca di Azure è necessario specificare l'URL del servizio e una chiave API. 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
@@ -72,14 +73,14 @@ Per tutte le chiamate API REST a Ricerca di Azure è necessario specificare l'UR
 5. Copiare l'URL del servizio e una chiave di amministrazione. Sarà necessario utilizzarli in seguito, quando vengono aggiunti al file **config.properties** .
 
 ## <a name="download-the-sample-files"></a>Scaricare i file di esempio
-1. Passare a [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) su GitHub.
+1. Passare a [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) in GitHub.
 2. Fare clic su **Scarica ZIP**, salvare il file con estensione zip su disco e quindi estrarre tutti i file in esso contenuti. È consigliabile estrarre i file nell'area di lavoro Java per trovare più facilmente il progetto in un secondo momento.
 3. I file di esempio sono di sola lettura. Fare clic con il pulsante destro del mouse sulle proprietà della cartella e deselezionare l'attributo di sola lettura.
 
 Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate sui file in questa cartella.  
 
 ## <a name="import-project"></a>Importare il progetto
-1. In Eclipse scegliere **File** > **Importa** > **Generale** > ** Progetti esistenti nell'area di lavoro**.
+1. In Eclipse scegliere **File** > **Importa** > **Generale** > **Progetti esistenti nell'area di lavoro**.
    
     ![][4]
 2. In **Select root directory**, passare alla cartella contenente i file di esempio. Selezionare la cartella che contiene la cartella .project. Il progetto verrà visualizzato nell’elenco **Projects** come elemento selezionato.
@@ -88,7 +89,7 @@ Tutte le successive modifiche e le istruzioni di esecuzione verranno effettuate 
 3. Fare clic su **Finish**.
 4. Utilizzare **Project Explorer** per visualizzare e modificare i file. Se non è già aperto, fare clic su **Finestra** > **Mostra visualizzazione** > **Esplora progetti** oppure usare il collegamento per aprirlo.
 
-## <a name="configure-the-service-url-and-apikey"></a>Configurare l'URL del servizio e la chiave API
+## <a name="configure-the-service-url-and-api-key"></a>Configurare l'URL del servizio e la chiave API
 1. In **Esplora progetti** fare doppio clic su **config.properties** per modificare le impostazioni di configurazione contenenti il nome del server e la chiave dell'API.
 2. Vedere i passaggi descritti in precedenza in questo articolo, in cui sono stati trovati l'URL del servizio e la chiave API nel [portale di Azure](https://portal.azure.com), per ottenere i valori da immettere in **config.properties**.
 3. In **config.properties**, sostituire "Api Key" con la chiave dell’api appropriata per il servizio. Successivamente, il nome del servizio (il primo componente dell'URL http://servicename.search.windows.net) sostituisce "service name" nello stesso file.
@@ -179,9 +180,4 @@ Novità in Ricerca di Azure È consigliabile provare altre esercitazioni per acq
 [10]: ./media/search-get-started-java/AzSearch-Java-BuildProject1.PNG
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 
