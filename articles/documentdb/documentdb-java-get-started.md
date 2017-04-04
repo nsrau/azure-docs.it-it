@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 01/05/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 74af5fda495adc726bfa85ad48a407fd61d4dd88
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: da7907ffc515ea2e3040075c93bcd53840cf3ff5
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -64,8 +64,8 @@ Creare un account DocumentDB. Se è già disponibile un account da usare, è pos
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a id="GitClone"></a>Passaggio 2: Clonare il progetto Github
-Per iniziare, è possibile clonare il repository Github per l'[introduzione a DocumentDB e Java](https://github.com/Azure-Samples/documentdb-java-getting-started). Eseguire questo comando da una directory locale per recuperare il progetto di esempio in locale.
+## <a id="GitClone"></a>Passaggio 2: Clonare il progetto GitHub
+Per iniziare, è possibile clonare il repository GitHub per l'[introduzione a DocumentDB e Java](https://github.com/Azure-Samples/documentdb-java-getting-started). Eseguire questo comando da una directory locale per recuperare il progetto di esempio in locale.
 
     git clone git@github.com:Azure-Samples/documentdb-java-getting-started.git
 

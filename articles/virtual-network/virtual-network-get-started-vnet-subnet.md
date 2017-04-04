@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: 071ef9c0784bdb24c7d29f49c36aee2271f4b524
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 81c9313635f382252550a4c0dcc7a707e9f365fb
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -160,7 +160,7 @@ Anche se sono state create una rete virtuale e due VM, il portale di Azure ha cr
 
     ![Contenuto del gruppo di risorse](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-Per altre informazioni, vedere gli articoli introduttivi relativi a [macchine virtuali](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [dischi](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [account di archiviazione](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). È possibile visualizzare i due gruppi di sicurezza di rete creati automaticamente dal portale. È inoltre possibile notare che il portale ha creato due risorse scheda di interfaccia di rete. Una scheda di interfaccia di rete consente a una VM di connettersi ad altre risorse attraverso la rete virtuale. Per altre informazioni, vedere l'articolo [Interfacce di rete](virtual-network-network-interface-overview.md). Il portale ha creato anche una risorsa indirizzo IP pubblico. Un indirizzo IP pubblico consiste in una singola impostazione per una risorsa indirizzo IP pubblico. Per altre informazioni sugli indirizzi IP pubblici, vedere l'articolo [Indirizzi IP](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
+Per altre informazioni, vedere gli articoli introduttivi relativi a [macchine virtuali](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [dischi](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [account di archiviazione](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). È possibile visualizzare i due gruppi di sicurezza di rete creati automaticamente dal portale. È inoltre possibile notare che il portale ha creato due risorse scheda di interfaccia di rete. Una scheda di interfaccia di rete consente a una VM di connettersi ad altre risorse attraverso la rete virtuale. Per altre informazioni, vedere l'articolo [Interfacce di rete](virtual-network-network-interface.md). Il portale ha creato anche una risorsa indirizzo IP pubblico. Un indirizzo IP pubblico consiste in una singola impostazione per una risorsa indirizzo IP pubblico. Per altre informazioni sugli indirizzi IP pubblici, vedere l'articolo [Indirizzi IP](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 
 ## <a name="connect-to-from-vms"></a>Connettersi alle VM
 
@@ -231,7 +231,7 @@ Per connettersi in uscita a Internet dalla VM del server di database, seguire qu
 1. Se non è già disponibile una connessione remota aperta alla VM MyDBServer dalla VM MyWebServer, seguire la procedura descritta nella sezione [Connettersi alla VM del server di database dalla VM del server Web](#webserver-to-dbserver) di questo articolo.
 2. Dal desktop di Windows della VM MyDBServer aprire Internet Explorer e selezionare le opzioni delle finestre di dialogo come indicato ai passaggi 2 e 3 della sezione [Connettersi a Internet dalla VM del server Web](#connect-to-internet) di questo articolo.
 3. Nella barra degli indirizzi immettere [bing.com](http:www.bing.com).
-4. Fare clic su **Aggiungi** nella finestra di Internet Explorer visualizzata, quindi fare clic su **Aggiungi ** e scegliere **Chiudi** nella finestra di dialogo **Siti attendibili**. Seguire questa procedura nelle altre finestre di dialogo eventualmente visualizzate.
+4. Fare clic su **Aggiungi** nella finestra di Internet Explorer visualizzata, quindi fare clic su **Aggiungi** e scegliere **Chiudi** nella finestra di dialogo **Siti attendibili**. Seguire questa procedura nelle altre finestre di dialogo eventualmente visualizzate.
 5. Nella pagina di ricerca di Bing immettere *whatsmyipaddress* e quindi fare clic sul pulsante con la lente di ingrandimento. Bing restituisce l'indirizzo IP pubblico attualmente assegnato alla VM dall'infrastruttura di Azure. 6. Chiudere la connessione remota alla VM MyDBServer dalla VM MyWebServer e quindi chiudere la connessione remota alla VM MyWebServer.
 
 La connessione in uscita a Internet è consentita perché tutto il traffico in uscita è consentito per impostazione predefinita, anche se alla VM MyDBServer non è assegnata una risorsa indirizzo IP pubblico. Tutte le VM sono in grado di connettersi in uscita a Internet per impostazione predefinita, anche se alla VM non è assegnata una risorsa indirizzo IP pubblico. Non è tuttavia possibile connettersi all'indirizzo IP pubblico da Internet, come invece avviene per la VM MyWebServer a cui è assegnata una risorsa indirizzo IP pubblico.
@@ -240,9 +240,9 @@ La connessione in uscita a Internet è consentita perché tutto il traffico in u
 
 Per eliminare tutte le risorse create nell'esecuzione dell'esercizio, seguire questa procedura:
 
-1. Per visualizzare il gruppo di risorse MyRG creato in questo esercizio, completare i passaggi da 1 a 3 della procedura descritta nella sezione [Esaminare le risorse](#review) di questo articolo. Esaminare di nuovo le risorse presenti nel gruppo di risorse. Se è stato creato il gruppo di risorse MyRG, come descritto nei passaggi precedenti, verranno visualizzate le 12 risorse mostrate nella figura relativa al passaggio 3.
+1. Per visualizzare il gruppo di risorse MyRG creato in questo esercizio, completare i passaggi da 1 a 3 della procedura descritta nella sezione [Esaminare le risorse](#review) di questo articolo. Esaminare di nuovo le risorse presenti nel gruppo di risorse. Se è stato creato il gruppo di risorse MyRG, come descritto nei passaggi precedenti, verranno visualizzate le 12 risorse mostrate nella figura relativa al passaggio 4.
 2. Nel pannello MyRG fare clic sul pulsante **Elimina**.
-3. Il portale richiede di digitare il nome del gruppo di risorse per confermare che si desidera effettivamente procedere all'eliminazione. Se sono presenti risorse diverse da quelle mostrate nel passaggio 3 della sezione [Esaminare le risorse](#review) di questo articolo, fare clic su **Annulla**. Se sono visualizzate soltanto le 12 risorse create come parte di questo esercizio, digitare *MyRG* come nome del gruppo di risorse e quindi fare clic su **Elimina**. L'eliminazione di un gruppo di risorse determina l'eliminazione di tutte le risorse in esso contenute. È quindi consigliabile verificare sempre il contenuto di un gruppo prima di eliminarlo. Il portale elimina tutte le risorse contenute nel gruppo di risorse e quindi elimina il gruppo. Questo processo richiede alcuni minuti.
+3. Il portale richiede di digitare il nome del gruppo di risorse per confermare che si desidera effettivamente procedere all'eliminazione. Se sono presenti risorse diverse da quelle mostrate nel passaggio 4 della sezione [Esaminare le risorse](#review) di questo articolo, fare clic su **Annulla**. Se sono visualizzate soltanto le 12 risorse create come parte di questo esercizio, digitare *MyRG* come nome del gruppo di risorse e quindi fare clic su **Elimina**. L'eliminazione di un gruppo di risorse determina l'eliminazione di tutte le risorse in esso contenute. È quindi consigliabile verificare sempre il contenuto di un gruppo prima di eliminarlo. Il portale elimina tutte le risorse contenute nel gruppo di risorse e quindi elimina il gruppo. Questo processo richiede alcuni minuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -250,7 +250,7 @@ In questo esercizio sono state create una rete virtuale e due VM. Durante la cre
 
 - [Reti virtuali](virtual-networks-overview.md)
 - [Indirizzi IP pubblici](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
-- [Interfacce di rete](virtual-network-network-interface-overview.md)
+- [Interfacce di rete](virtual-network-network-interface.md)
 - [Gruppi di sicurezza di rete](virtual-networks-nsg.md)
 - [Macchine virtuali](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 

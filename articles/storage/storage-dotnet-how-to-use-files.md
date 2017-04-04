@@ -1,5 +1,5 @@
 ---
-title: Introduzione ad Archiviazione file di Azure in Windows | Documentazione Microsoft
+title: Introduzione ad Archiviazione file di Azure in Windows | Microsoft Docs
 description: Archiviare i dati dei file nel cloud con Archiviazione file di Azure e montare la condivisione di file nel cloud da una macchina virtuale Azure (VM) o da un&quot;applicazione locale che esegue Windows.
 services: storage
 documentationcenter: .net
@@ -12,12 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-/ms.date: 3/8/2017
+ms.date: 03/27/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 4e81088857c0e9cacaf91342227ae63080fc90c5
-ms.openlocfilehash: 780066b1e71d967c64da0a1c1a284ffd5d1b7481
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: fcdeac53c79551000b48a47a1afc65e082bcc692
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -211,8 +211,8 @@ Quando un client accede al servizio Archiviazione file, la versione di SMB usata
 ### <a name="mount-the-file-share-from-an-azure-virtual-machine-running-windows"></a>Montare la condivisione file da una macchina virtuale di Azure che esegue Windows
 Per illustrare come si monta una condivisione file di Azure, viene creata una macchina virtuale di Azure che esegue Windows e viene eseguito l'accesso remoto per montare la condivisione.
 
-1. Creare prima di tutto una nuova macchina virtuale di Azure seguendo le istruzioni in [Creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-2. Accedere quindi in remoto alla nuova macchina virtuale seguendo le istruzioni in [Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows](../virtual-machines/virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+1. Creare prima di tutto una nuova macchina virtuale di Azure seguendo le istruzioni in [Creare una macchina virtuale di Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+2. Accedere quindi in remoto alla nuova macchina virtuale seguendo le istruzioni in [Accedere a una macchina virtuale di Windows tramite il portale di Azure](../virtual-machines/virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 3. Aprire una finestra di PowerShell nella macchina virtuale.
 
 ### <a name="persist-your-storage-account-credentials-for-the-virtual-machine"></a>Mantenere le credenziali dell'account di archiviazione per la macchina virtuale
@@ -264,17 +264,29 @@ Per montare la condivisione file da un client locale, è prima necessario seguir
 Per scrivere codice che chiama Archiviazione file, è possibile usare le librerie client di archiviazione per .NET e Java o l'API REST di Archiviazione di Azure. L'esempio in questa sezione illustra come usare una condivisione file con la [libreria client di Archiviazione di Azure per .NET](https://msdn.microsoft.com/library/mt347887.aspx) da una semplice applicazione console in esecuzione sul desktop.
 
 ### <a name="create-the-console-application-and-obtain-the-assembly"></a>Creare l'applicazione console e ottenere l'assembly
-Per creare una nuova applicazione console in Visual Studio e installare il pacchetto NuGet contenente la libreria client di archiviazione di Azure:
+In Visual Studio creare una nuova applicazione console di Windows. La procedura seguente illustra come creare un'applicazione console in Visual Studio 2017, ma i passaggi sono simili anche per le altre versioni di Visual Studio.
 
-1. In Visual Studio scegliere **File > Nuovo progetto** e quindi **Windows > Applicazione console** dall'elenco di modelli di Visual C#.
-2. Specificare un nome per l'applicazione console e quindi fare clic su **OK**.
-3. Dopo aver creato il progetto, fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Gestisci pacchetti NuGet**. Cercare online "WindowsAzure.Storage" e fare clic su **Installa** per installare il pacchetto della libreria client di archiviazione di Azure per .NET e le dipendenze.
+1. Selezionare **File** > **Nuovo** > **Progetto**
+2. Selezionare **Installati** > **Modelli** > **Visual C#** > **Desktop classico di Windows**
+3. Selezionare **App console (.NET Framework)**
+4. Immettere un nome per l'applicazione nel campo **Nome**
+5. Selezionare **OK**.
 
-Anche gli esempi di codice in questo articolo usano la [libreria di Gestione configurazione di Microsoft Azure](https://msdn.microsoft.com/library/azure/mt634646.aspx) per recuperare la stringa di connessione di archiviazione da un file app.config nell'applicazione console. Gestione configurazione di Azure permette di recuperare la stringa di connessione in fase di esecuzione indipendentemente dal fatto che l'applicazione sia in esecuzione in Microsoft Azure o in un'applicazione Web, desktop o per dispositivi mobili.
+Tutti gli esempi di codice in questa esercitazione possono essere aggiunti al metodo `Main()` del file `Program.cs` dell'applicazione console.
 
-Per installare il pacchetto di Gestione configurazione di Azure, fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Gestisci pacchetti NuGet**. Cercare online "ConfigurationManager" e fare clic su **Installa** per installare il pacchetto.
+È possibile usare la libreria client di archiviazione di Azure in qualsiasi tipo di applicazione .NET, ad esempio un servizio cloud o un'app Web di Azure e applicazioni desktop e per dispositivi mobili. Per semplicità, in questa guida si usa un'applicazione console.
 
-L'uso di Gestione configurazione di Azure è facoltativo. È anche possibile usare un'API, ad esempio la [classe ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx)di .NET Framework.
+### <a name="use-nuget-to-install-the-required-packages"></a>Usare NuGet per installare i pacchetti necessari
+Per completare questa esercitazione, è necessario fare riferimento a due pacchetti nel progetto:
+
+* [Libreria client di archiviazione di Microsoft Azure per .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): questo pacchetto fornisce l'accesso a livello di codice alle risorse dati nell'account di archiviazione.
+* [Libreria Gestione configurazione di Microsoft Azure per .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): questo pacchetto fornisce una classe per l'analisi di una stringa di connessione in un file di configurazione, indipendentemente dalla posizione in cui viene eseguita l'applicazione.
+
+Per ottenere entrambi i pacchetti, è possibile usare NuGet. A tale scopo, seguire questa procedura:
+
+1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**.
+2. Cercare online "WindowsAzure.Storage" e fare clic su **Installa** per installare il pacchetto della libreria client di archiviazione e le relative dipendenze.
+3. Cercare online "WindowsAzure.ConfigurationManager" e fare clic su **Installa** per installare Gestione configurazione di Azure.
 
 ### <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Salvare le credenziali dell'account di archiviazione nel file app.config
 A questo punto salvare le credenziali nel file app.config del progetto. Modificare il file app.config in modo che assomigli all'esempio seguente, sostituendo `myaccount` con il nome dell'account di archiviazione e `mykey` con la chiave dell'account di archiviazione.
@@ -296,8 +308,8 @@ A questo punto salvare le credenziali nel file app.config del progetto. Modifica
 > 
 > 
 
-### <a name="add-namespace-declarations"></a>Aggiungere le dichiarazioni dello spazio dei nomi
-Aprire il file `program.cs` da Esplora soluzioni e aggiungere le dichiarazioni dello spazio dei nomi seguenti all'inizio del file.
+### <a name="add-using-directives"></a>Aggiungere le direttive using
+Aprire il file `Program.cs` da Esplora soluzioni e aggiungere le direttive using seguenti all'inizio del file.
 
 ```csharp
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
@@ -546,7 +558,7 @@ Analisi di flusso di Azure ora supporta le metriche per Archiviazione file. Graz
 
 L'esempio di codice seguente mostra come usare la libreria client di archiviazione per .NET per abilitare la metrica per l'archiviazione file.
 
-Aggiungere prima le istruzioni `using` seguenti al file program.cs, oltre a quelle aggiunte sopra:
+Aggiungere prima le direttive `using` seguenti al file `Program.cs`, oltre a quelle aggiunte sopra:
 
 ```csharp
 using Microsoft.WindowsAzure.Storage.File.Protocol;
@@ -645,7 +657,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
     Per trasferire grandi quantità di file in Archiviazione file, è consigliabile usare AzCopy, Azure PowerShell (Windows) o l'interfaccia della riga di comando di Azure (Linux/Unix), in quanto questi strumenti sono stati ottimizzati per il trasferimento in rete.
 15. **Patch rilasciata per risolvere il problema di prestazioni lente con file di Azure**
     
-    Il team di Windows ha recentemente rilasciato una patch per risolvere un problema di prestazioni lente quando il cliente accede all'archivio file di Azure da Windows 8.1 o Windows Server 2012 R2. Per altre informazioni, vedere l'articolo della Knowledge Base associato, [Rallentamento delle prestazioni quando si accede all'archiviazione file di Azure da Windows 8.1 o Windows Server 2012 R2](https://support.microsoft.com/en-us/kb/3114025).
+    Il team di Windows ha recentemente rilasciato una patch per risolvere un problema di prestazioni lente quando il cliente accede all'archivio file di Azure da Windows 8.1 o Windows Server 2012 R2. Per altre informazioni, vedere l'articolo della Knowledge Base associato, [Rallentamento delle prestazioni quando si accede all'archiviazione file di Azure da Windows 8.1 o Windows Server 2012 R2](https://support.microsoft.com/kb/3114025).
 16. **Uso dell'archivio file di Azure con IBM MQ**
     
     IBM ha rilasciato un documento per guidare i clienti di IBM MQ nella configurazione dell'archivio file di Azure con il relativo servizio. Per altre informazioni, vedere la pagina relativa alla [How to setup IBM MQ Multi instance queue manager with Microsoft Azure File Service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service)(Configurazione di IBM MQ Multi Instance Queue Manager (MIQM) con il servizio file di Microsoft Azure).
@@ -655,9 +667,10 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 
 18. **Come è possibile abilitare la crittografia lato server per File di Azure?**
 
-    La [crittografia lato server](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) è attualmente in anteprima. Durante l'anteprima, la funzionalità può essere abilitata solo per gli account di archiviazione di Azure Resource Manager appena creati.
-    Questa funzionalità può essere abilitata nell'account di archiviazione di Azure Resource Manager tramite il portale di Azure. Entro la fine di febbraio è prevista la disponibilità di [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx), dell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli-nodejs) o dell'[API del provider di risorse di Archiviazione di Microsoft Azure](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) per l'abilitazione della crittografia per l'archiviazione file. Non sono previsti costi aggiuntivi per questa funzionalità. Quando si abilita Crittografia del servizio di archiviazione per l'archiviazione file di Azure, i dati vengono crittografati automaticamente. 
-    Vedere altre informazioni su Crittografia del servizio di archiviazione. È anche possibile contattare ssediscussions@microsoft.com per altre domande sull'anteprima.
+    La [crittografia lato server](storage-service-encryption.md) per File di Azure è attualmente in anteprima. Durante l'anteprima, è possibile abilitare questa funzionalità solo nei nuovi account di archiviazione di Azure Resource Manager creati con il [portale di Azure](https://portal.azure.com). Non sono previsti costi aggiuntivi per questa funzionalità. Quando si abilita la crittografia del servizio di archiviazione per l'archiviazione file di Azure, i dati vengono crittografati automaticamente. 
+    
+    In futuro è prevista la possibilità di abilitare la crittografia per l'archiviazione file tramite [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), l'[interfaccia della riga di comando di Azure](storage-azure-cli.md) e l'[API REST del provider di risorse di Archiviazione di Azure](/rest/api/storagerp/storageaccounts). 
+    Per altre informazioni sulla crittografia di dati inattivi in Archiviazione di Azure, vedere [Crittografia del servizio Archiviazione](storage-service-encryption.md). Per eventuali domande durante l'anteprima, contattare ssediscussions@microsoft.com.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione file di Azure.
@@ -670,7 +683,7 @@ Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione fil
 * [Uso di Azure PowerShell con Archiviazione di Azure](storage-powershell-guide-full.md)
 * [Come usare AzCopy con Archiviazione di Microsoft Azure](storage-use-azcopy.md)
 * [Utilizzo dell'interfaccia della riga di comando di Azure con archiviazione di Azure](storage-azure-cli.md#create-and-manage-file-shares)
-* [Risoluzione dei problemi di archiviazione file di Azure](https://docs.microsoft.com/en-us/azure/storage/storage-troubleshoot-file-connection-problems)
+* [Risoluzione dei problemi di archiviazione file di Azure](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>Riferimento
 * [Informazioni di riferimento sulla libreria client di archiviazione per .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)

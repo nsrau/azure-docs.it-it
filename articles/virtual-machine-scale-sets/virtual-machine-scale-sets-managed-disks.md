@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 2/21/2017
 ms.author: negat
 translationtype: Human Translation
-ms.sourcegitcommit: 9b2ef23effa32e9b7507ad6e6eb29e97609a2034
-ms.openlocfilehash: e59e95c55beeb2af6c704bcaad11c8d622f4e853
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 4ec20a30f423d4b30e953f873100be90167f987b
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -41,7 +41,7 @@ az group create -l southcentralus -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```
 
-In alternativa, è possibile esaminare il [repository di Modelli di avvio rapido di Azure su GitHub](https://github.com/Azure/azure-quickstart-templates) e consultare le cartelle contenenti `vmss` per vedere esempi preesistenti di modelli di distribuzione di set di scalabilità. Per individuare quali modelli usano già i dischi gestiti, è possibile fare riferimento a [questo elenco](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md).
+In alternativa, è possibile esaminare il [repository di Modelli di avvio rapido di Azure in GitHub](https://github.com/Azure/azure-quickstart-templates) e consultare le cartelle contenenti `vmss` per vedere esempi preesistenti di modelli di distribuzione di set di scalabilità. Per individuare quali modelli usano già i dischi gestiti, è possibile fare riferimento a [questo elenco](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md).
 
 ## <a name="api-versions"></a>Versioni dell'API
 
