@@ -14,7 +14,3 @@ Verificare che sia già stato creato uno spazio dei nomi di inoltro, come illust
 6. Fare clic su **Crea**nella parte inferiore del pannello.
 
 [namespace-how-to]: ../articles/service-bus-relay/relay-create-namespace-portal.md 
-
-<!--HONumber=Feb17_HO1-->
-
-

@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 03/31/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
 ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
 ms.openlocfilehash: ebee9b7d45cae0259968313b0908be148f47d6b3
+ms.lasthandoff: 01/10/2017
 
 
 ---
@@ -49,10 +50,5 @@ In questa pagina è possibile eseguire la ricerca di tutte le risorse presenti n
 **[VAI A GALLERY >>](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/14/2016
+ms.date: 03/20/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: de2c52f8db5445e3e2eee62f673109f6d38cffa0
-ms.openlocfilehash: c58ee1c07e454a711ab0d6365a5cd432b0d939c8
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 0539e9d04c61d35de56a29d350c07654c095c576
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: c58ee1c07e454a711ab0d6365a5cd432b0d939c8
 
 Questa esercitazione è destinata agli utenti che non hanno mai usato **Azure Machine Learning Studio**.
 
-In questa esercitazione verrà illustrato come usare per la prima volta Studio per creare un esperimento di Machine Learning. L'esperimento testerà un modello analitico che stima il prezzo di un'automobile basato su diverse variabili, ad esempio la marca e le specifiche tecniche.
+In questa esercitazione verrà illustrato come usare per la prima volta Studio per creare un esperimento di Machine Learning. L'esperimento testerà un modello analitico che stima il prezzo di un'automobile in base a diverse variabili, ad esempio la marca e le specifiche tecniche.
 
 > [!NOTE]
 > Questa esercitazione offre le nozioni di base su come trascinare moduli nell'esperimento, connetterli, eseguire l'esperimento ed esaminare i risultati. Non verrà invece illustrato l'argomento generale di Machine Learning o come selezionare e usare i numerosi algoritmi predefiniti (più di 100) e i moduli di gestione dei dati inclusi in Studio.
@@ -36,9 +37,9 @@ In questa esercitazione verrà illustrato come usare per la prima volta Studio p
 >Se si ha familiarità con Machine Learning, ma si vuole approfondire la conoscenza su Machine Learning Studio e sugli algoritmi inclusi, vedere:
 >
 - [Cos'è Machine Learning Studio?](machine-learning-what-is-ml-studio.md) : questa è una panoramica generale di Studio.
-- [Nozioni di base di Machine Learning con esempi di algoritmi](machine-learning-basics-infographic-with-algorithm-examples.md): questa infografica è molto utile se si vuole acquisire una maggiore conoscenza sui diversi tipi di algoritmi di Machine Learning inclusi in Machine Learning Studio.
-- [Guida di Machine Learning](https://gallery.cortanaintelligence.com/Tutorial/Machine-Learning-Guide-1): questa guida offre informazioni simili all'infografica, ma in formato interattivo.
-- [Foglio informativo sugli algoritmi di Machine Learning](machine-learning-algorithm-cheat-sheet.md) e [Come scegliere gli algoritmi di Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md): questo poster scaricabile e l'articolo relativo illustra in modo più approfondito gli algoritmi di Studio.
+- [Nozioni fondamentali di Machine Learning con esempi di algoritmi](machine-learning-basics-infographic-with-algorithm-examples.md): questa infografica è molto utile se si vuole acquisire una maggiore conoscenza sui diversi tipi di algoritmi di Machine Learning inclusi in Machine Learning Studio.
+- [Machine Learning Guide](https://gallery.cortanaintelligence.com/Tutorial/Machine-Learning-Guide-1) (Guida di Machine Learning): questa guida offre informazioni simili all'infografica, ma in formato interattivo.
+- [Foglio informativo sugli algoritmi di Machine Learning](machine-learning-algorithm-cheat-sheet.md) e [Come scegliere gli algoritmi di Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md): questo poster scaricabile e l'articolo relativo illustrano in modo più approfondito gli algoritmi di Studio.
 - [Machine Learning Studio: Algorithm and Module Help](https://msdn.microsoft.com/library/azure/dn905974.aspx) (Machine Learning Studio: Guida agli algoritmi e ai moduli): questa è una guida di riferimento completa sui moduli di Studio e include gli algoritmi di Machine Learning.
 
 <!-- -->
@@ -49,14 +50,14 @@ In questa esercitazione verrà illustrato come usare per la prima volta Studio p
 
 Machine Learning Studio semplifica la configurazione di un esperimento grazie a moduli a trascinamento preprogrammati con tecniche di modellazione predittiva.
 
-L'uso di un'area di lavoro interattiva e grafica consente di selezionare e trascinare ***set di dati*** e ***moduli*** di analisi in un'area di disegno. Questi vengono successivamente connessi per creare un ***esperimento*** da eseguire in Machine Learning Studio.
+L'uso di un'area di lavoro interattiva grafica consente di selezionare e trascinare ***set di dati*** e ***moduli*** di analisi in un'area di disegno interattiva. Questi vengono successivamente connessi per creare un ***esperimento*** da eseguire in Machine Learning Studio.
 È possibile ***creare un modello***, ***eseguire il training del modello***, ***assegnare un punteggio e testare il modello***.
 
-È possibile anche eseguire l'iterazione della struttura del modello, modificare l'esperimento ed eseguirlo di nuovo fino a quando non restituisce i risultati appropriati. Quando il modello è pronto, è possibile pubblicarlo come ***servizio Web*** in modo che altri utenti possano inviare nuovi dati e ottenere stime in cambio.
+È possibile anche scorrere la struttura del modello, modificare l'esperimento ed eseguirlo di nuovo fino a quando non restituisce i risultati appropriati. Quando il modello è pronto, è possibile pubblicarlo come ***servizio Web*** in modo che altri utenti possano inviare nuovi dati e ottenere stime in cambio.
 
 ## <a name="open-machine-learning-studio"></a>Aprire Machine Learning Studio
 
-Per avviare Studio, andare a [https://studio.azureml.net](https://studio.azureml.net). Se è già stato effettuato l'accesso a Machine Learning Studio in precedenza, fare clic su **Sign In**(Accedere). In caso contrario fare clic su **Sign up here** (Iscrizione) e scegliere un'opzione gratuita o a pagamento.
+Per avviare Studio, andare a [https://studio.azureml.net](https://studio.azureml.net). Se è già stato effettuato l'accesso a Machine Learning Studio in precedenza, fare clic su **Sign In** (Accedi). In caso contrario fare clic su **Sign up here** (Effettuare l'iscrizione qui) e scegliere un'opzione gratuita o a pagamento.
 
 ![Accedere a Machine Learning Studio][sign-in-to-studio]
 <br/>
@@ -64,7 +65,7 @@ Per avviare Studio, andare a [https://studio.azureml.net](https://studio.azureml
 
 ## <a name="five-steps-to-create-an-experiment"></a>Cinque passaggi per la creazione di un esperimento
 
-In questa esercitazione di Machine Learning, si seguiranno cinque passaggi di base per compilare un esperimento in Machine Learning Studio per creare un modello, eseguire il training e assegnare un punteggio al modello:
+In questa esercitazione di Machine Learning, si seguiranno cinque passaggi di base per compilare un esperimento in Machine Learning Studio per creare un modello, eseguire il training e assegnare un punteggio:
 
 - **Creare un modello**
     - [Passaggio 1: Ottenere i dati]
@@ -82,18 +83,18 @@ In questa esercitazione di Machine Learning, si seguiranno cinque passaggi di ba
 [Passaggio 5: Stimare i prezzi delle nuove automobili]: #step-5-predict-new-automobile-prices
 
 > [!TIP] 
-> Per una copia dell'esperimento seguente, visitare il sito Web [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com). Passare a **[Your first data science experiment - Automobile price prediction](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** (Primo esperimento scientifico sui dati - stima dei prezzi delle automobili) e fare clic su **Open in Studio** (Apri in Studio) per scaricare una copia dell'esperimento nell'area di lavoro di Machine Learning Studio.
+> Per una copia di lavoro dell'esperimento seguente, visitare il sito Web [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com). Passare a **[Your first data science experiment - Automobile price prediction](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** (Primo esperimento scientifico sui dati - stima dei prezzi delle automobili) e fare clic su **Open in Studio** (Apri in Studio) per scaricare una copia dell'esperimento nell'area di lavoro di Machine Learning Studio.
 
 
 ## <a name="step-1-get-data"></a>Passaggio 1: Ottenere i dati
 
-La prima operazione per eseguire un Machine Learning è ottenere i dati.
+La prima operazione per eseguire un esperimento in Machine Learning è ottenere i dati.
 In Machine Learning Studio sono disponibili numerosi set di dati di esempio da usare oppure è possibile importare dati da molte altre origini. Per questo esempio, verrà usato il set di dati di esempio **Automobile price data (Raw)** (Dati non elaborati sui prezzi delle automobili) incluso nell'area di lavoro.
 Questo set di dati include voci per diverse automobili e include informazioni su marca, modello, specifiche tecniche e prezzo.
 
 Di seguito viene illustrato come ottenere il set di dati nell'esperimento.
 
-1. Creare un nuovo esperimento facendo clic su **+NEW** (Nuovo) nella parte inferiore della finestra di Machine Learning Studio, selezionare **EXPERIMENT** (Esperimento) e scegliere **Blank Experiment** (Esperimento vuoto).
+1. Creare un nuovo esperimento facendo clic su **+NEW** (NUOVO) nella parte inferiore della finestra di Machine Learning Studio, selezionare **EXPERIMENT** (ESPERIMENTO) e scegliere **Blank Experiment** (Esperimento vuoto).
 
 2. All'esperimento viene assegnato un nome predefinito visualizzato nella parte superiore dell'area di disegno. Selezionare il testo e rinominarlo in modo significativo, ad esempio **Stima prezzi automobili**. Il nome non deve essere univoco.
 
@@ -152,14 +153,17 @@ Si aggiunge prima un modulo che rimuove completamente la colonna **normalized-lo
     <br/>
     ***Avviare il selettore di colonna ed escludere la colonna "normalized-losses"***
 
-    Il riquadro delle proprietà del modulo **Select Columns in Dataset** indica ora che verranno analizzate tutte le colonne del set di dati, ad eccezione di **normalized-losses**.
+    Il riquadro delle proprietà del modulo **Select Columns in Dataset** indica ora che verranno analizzate tutte le colonne del set di dati, a eccezione di **normalized-losses**.
 
     ![Il riquadro delle proprietà visualizza che la colonna "normalized-losses" è stata esclusa][showing-excluded-column]
     <br/>
     ***Il riquadro delle proprietà visualizza che la colonna "normalized-losses" è stata esclusa***
 
     > [!TIP]
-    > È possibile aggiungere un commento a un modulo facendo doppio clic sul modulo e immettendo del testo. In tal modo sarà possibile individuare subito l'operazione eseguita dal modulo nell'esperimento. In questo caso, fare doppio clic sul modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) e immettere il commento "Escludi perdite normalizzate".
+    È possibile aggiungere un commento a un modulo facendo doppio clic sul modulo e immettendo del testo. In tal modo sarà possibile individuare subito l'operazione eseguita dal modulo nell'esperimento. In questo caso, fare doppio clic sul modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) e immettere il commento "Escludi perdite normalizzate".
+    >
+    >
+
 
     ![Fare doppio clic su un modulo per aggiungere un commento][add-comment]
     <br/>
@@ -192,7 +196,7 @@ In Machine Learning le *caratteristiche* sono singole proprietà misurabili di u
 
 Per cercare un set di caratteristiche adeguato per creare un modello predittivo, è necessario sperimentare e conoscere approfonditamente il problema che si desidera risolvere. Alcune caratteristiche sono infatti migliori di altre per le stime. Alcune caratteristiche sono strettamente correlate ad altre e possono essere rimosse. Ad esempio, city-mpg e highway-mpg sono strettamente correlate ed è possibile rimuoverne una senza influire in modo significativo sulla stima.
 
-Verrà ora creato un modello che usa un sottoinsieme delle caratteristiche del set di dati. È possibile ritornare e selezionare caratteristiche diverse, eseguire di nuovo l'esperimento e verificare se i risultati ottenuti sono migliori. Per iniziare verranno tuttavia provate le funzionalità seguenti:
+Verrà ora creato un modello che usa un sottoinsieme delle caratteristiche del set di dati. È possibile tornare più tardi e selezionare caratteristiche diverse, eseguire di nuovo l'esperimento e verificare se i risultati ottenuti sono migliori. Per iniziare verranno tuttavia provate le funzionalità seguenti:
 
     make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
 
@@ -209,7 +213,7 @@ Verrà ora creato un modello che usa un sottoinsieme delle caratteristiche del s
 
 3. Fare clic su **With rules**(Con regole).
 
-4. In **Begin With** (Inizia con), fare clic su **No columns** (Nessuna colonna). Nella riga del filtro, scegliere **Include** (Includi) e **i nomi delle colonne** e selezionare l'elenco dei nomi delle colonne nella casella di testo. Ciò indica al modulo di non analizzare le colonne (caratteristiche), ad eccezione di quelle specificate.
+4. In **Begin With** (Inizia con), fare clic su **No columns** (Nessuna colonna). Nella riga del filtro, scegliere **Include** (Includi) e **i nomi delle colonne** e selezionare l'elenco dei nomi delle colonne nella casella di testo. Ciò indica al modulo di non analizzare le colonne (caratteristiche), a eccezione di quelle specificate.
 
 5. Fare clic sul pulsante di segno di spunta (OK).
 
@@ -224,12 +228,12 @@ Questa operazione produce un set di dati filtrato contenente solo le caratterist
 I dati sono pronti, di conseguenza la creazione del modello predittivo implica la fase di training e test. Questi dati verranno usati per il training del modello e verrà testata la sua capacità di precisione per stimare i prezzi.
 <!-- For now, don't worry about *why* we need to train and then test a model.-->
 
-*Classificazione* e *regressione* sono due tipi di algoritmi supervisati di Machine Learning. La classificazione stima una risposta da un set di categorie definito, ad esempio un colore (rosso, blu o verde). La regressione viene usata per stimare un numero.
+*Classificazione* e *regressione* sono due tipi di algoritmi di Machine Learning sottoposti a supervisione. La classificazione stima una risposta da un set di categorie definito, ad esempio un colore (rosso, blu o verde). La regressione viene usata per stimare un numero.
 
-Poiché si vuole stimare il prezzo, ovvero un numero, si userà un algoritmo di regressione. Per questo esempio, verrà usato un modello *a regressione lineare*.
+Poiché si vuole stimare il prezzo, ovvero un numero, si userà un algoritmo di regressione. Per questo esempio, verrà usato un modello *a regressione lineare* semplice.
 
 > [!TIP]
-> Per altre informazioni sui diversi tipi di algoritmi di Machine Learning e su quando usarli, è consigliabile vedere il primo video [Le cinque domande a cui risponde l'analisi scientifica dei dati](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) della serie Analisi scientifica dei dati per principianti. È anche possibile esaminare l'infografica [Nozioni di base di Machine Learning con esempi di algoritmi](machine-learning-basics-infographic-with-algorithm-examples.md) oppure scaricare il [Foglio informativo sugli algoritmi di Machine Learning](machine-learning-algorithm-cheat-sheet.md).
+> Per altre informazioni sui diversi tipi di algoritmi di Machine Learning e su quando usarli, è consigliabile vedere il primo video [Le cinque domande a cui risponde l'analisi scientifica dei dati](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) della serie Analisi scientifica dei dati per principianti. È anche possibile esaminare l'infografica [Nozioni fondamentali di Machine Learning con esempi di algoritmi](machine-learning-basics-infographic-with-algorithm-examples.md) oppure scaricare il [Foglio informativo sugli algoritmi di Machine Learning](machine-learning-algorithm-cheat-sheet.md).
 
 Il training del modello viene eseguito tramite l'assegnazione di un set di dati che include i prezzi. Il modello analizza i dati e cerca le correlazioni tra le caratteristiche di un'automobile e il prezzo. Il modello viene quindi testato: viene assegnato un set di caratteristiche per le automobili di cui si ha familiarità e viene visualizzata la precisione con la quale il modello stima il prezzo noto.
 
@@ -377,9 +381,4 @@ Per altre informazioni: Per una procedura più completa e dettagliata del proces
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

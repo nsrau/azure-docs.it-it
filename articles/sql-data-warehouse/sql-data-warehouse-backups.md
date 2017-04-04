@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
+ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
 translationtype: Human Translation
 ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
 ms.openlocfilehash: 94b92f05af30734de727a12fd99271aa9769723a
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -112,10 +114,5 @@ Il principale utilizzo per i backup di SQL Data Warehouse è il ripristino del d
 * Per ripristinare un data warehouse, vedere [Ripristinare un SQL Data Warehouse](sql-data-warehouse-restore-database-overview.md)
 
 <!-- ### Tutorials -->
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

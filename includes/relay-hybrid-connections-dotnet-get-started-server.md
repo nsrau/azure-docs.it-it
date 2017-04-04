@@ -15,10 +15,10 @@
     using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
-2. Aggiungere costanti alla classe `Program` per i dettagli della connessione ibrida. Sostituire i segnaposto tra parentesi con i valori specifici ottenuti durante la creazione della connessione ibrida.
+2. Aggiungere costanti alla classe `Program` per i dettagli della connessione ibrida. Sostituire i segnaposto tra parentesi con i valori specifici ottenuti durante la creazione della connessione ibrida. Usare il nome completo dello spazio dei nomi:
    
     ```csharp
-    private const string RelayNamespace = "{RelayNamespace}";
+    private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
     private const string ConnectionName = "{HybridConnectionName}";
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
@@ -138,7 +138,7 @@
    
         public class Program
         {
-            private const string RelayNamespace = "{RelayNamespace}";
+            private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
             private const string ConnectionName = "{HybridConnectionName}";
             private const string KeyName = "{SASKeyName}";
             private const string Key = "{SASKey}";
@@ -239,9 +239,4 @@
         }
     }
     ```
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

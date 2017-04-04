@@ -26,7 +26,7 @@ Da questa tabella è possibile trovare altre informazioni sui parametri usati ne
 Oltre che in questi modelli, è possibile cercare nei [modelli della raccolta](https://azure.microsoft.com/documentation/templates/).
 
 ## <a name="azure-portal"></a>Portale di Azure
-Distribuire un modello tramite il portale di Azure è semplice: è sufficiente inviare un URL al modello. È necessario il nome del file del modello per distribuirlo. È possibile trovare il nome esaminando le pagine nella raccolta dei modelli o cercando nel repository GitHub. Sostituire {nome del modello} in questo URL con il nome del modello che si vuole distribuire e quindi immetterlo nel browser:
+Distribuire un modello tramite il portale di Azure è semplice: è sufficiente inviare un URL al modello. È necessario il nome del file del modello per distribuirlo. Per trovare il nome, è possibile vedere le pagine nella raccolta dei modelli o cercare nel repository GitHub. Sostituire {nome del modello} in questo URL con il nome del modello che si vuole distribuire e quindi immetterlo nel browser:
 
     https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F{template name}%2Fazuredeploy.json
 

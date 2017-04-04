@@ -1,10 +1,10 @@
 ---
-title: Dispositivo virtuale StorSimple Aggiornamento 2| Documentazione Microsoft
+title: Dispositivo virtuale StorSimple Aggiornamento 2| Microsoft Docs
 description: Informazioni su come creare, distribuire e gestire un dispositivo virtuale StorSimple in una rete virtuale di Microsoft Azure. (Si applica a StorSimple Update 2).
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: f37752a5-cd0c-479b-bef2-ac2c724bcc37
 ms.service: storsimple
@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 03/22/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
-ms.openlocfilehash: c081f31acb7d8767343f41be59d75616fa14b2da
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 48d9d8ae97eb763932dd6a59a7df01ae92c92eff
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -32,34 +33,13 @@ Il dispositivo virtuale StorSimple è disponibile in due modelli, Standard 8010 
 | **Capacità massima** |30 TB |64 TB |
 | **Macchina virtuale di Azure** |Standard_A3 (4 core, 7 GB di memoria) |Standard_DS3 (4 core, 14 GB di memoria) |
 | **Compatibilità tra le versioni** |Versioni con aggiornamenti precedenti a Update 2 o successivi |Versioni con aggiornamenti Update 2 o successivi |
-| **Aree di disponibilità** |Tutte le aree di Azure |Aree di Azure che supportano l'archiviazione Premium<br></br>Per un elenco delle aree, vedere [Aree supportate per il modello 8020](#supported-regions-for-8020) |
+| **Aree di disponibilità** |Tutte le aree di Azure |Tutte le aree di Azure che supportano Archiviazione Premium<br></br> Le aree di archiviazione Premium corrispondono alla riga relativa all'*archiviazione su disco* nell'elenco dei [servizi di Azure in base all'area](https://azure.microsoft.com/en-us/regions/services). |
 | **Tipo di archiviazione** |Usa l'Archiviazione Standard di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Standard](../storage/storage-create-storage-account.md) |Usa l'Archiviazione Standard di Azure<sup>2</sup> <br></br>Informazioni su come [creare un account di archiviazione Premium](../storage/storage-premium-storage.md) |
 | **Indicazioni relative al carico di lavoro** |Recupero a livello di elemento per i file dai backup |Scenari di sviluppo e test cloud, bassa latenza, carichi di lavoro a prestazioni superiori  <br></br>Dispositivo secondario per il ripristino di emergenza |
 
 <sup>1</sup> *precedentemente noto come 1100*.
 
 <sup>2</sup> *Entrambi i modelli 8010 e 8020 usano l'archiviazione di Azure Standard per il livello cloud. La differenza è solo nel livello locale nel dispositivo*.
-
-#### <a name="supported-regions-for-8020"></a>Aree supportate per il modello 8020
-Le aree di archiviazione Premium attualmente supportate per il modello 8020 sono elencate nella tabella seguente. L'elenco verrà aggiornato in base all'aumento delle aree in cui è disponibile l'archiviazione Premium.
-
-| Numero di serie | Attualmente supportato nelle aree |
-| --- | --- |
-| 1 |Stati Uniti centrali |
-| 2 |Stati Uniti orientali |
-| 3 |Stati Uniti orientali 2 |
-| 4 |Stati Uniti occidentali |
-| 5 |Europa settentrionale |
-| 6 |Europa occidentale |
-| 7 |Asia sudorientale |
-| 8 |Giappone orientale |
-| 9 |Giappone occidentale |
-| 10 |Australia orientale |
-| 11 |Australia sud-orientale* |
-| 12 |Asia orientale* |
-| 13 |Stati Uniti centro-meridionali* |
-
-*L'archiviazione Premium è stata lanciata di recente in queste aree geografiche.
 
 Questo articolo illustra il processo dettagliato per la distribuzione di un dispositivo virtuale StorSimple in Azure. Dopo avere letto l'articolo, si sarà in grado di:
 
@@ -89,7 +69,7 @@ Le sezioni seguenti illustrano i prerequisiti di configurazione per il dispositi
 #### <a name="azure-requirements"></a>Requisiti di Azure
 Prima di eseguire il provisioning del dispositivo virtuale, è necessario effettuare le seguenti operazioni preliminari in Azure:
 
-* Nel caso del dispositivo virtuale, [configurare una rete virtuale in Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Se si usa l'archiviazione Premium, sarà necessario creare una rete virtuale in un'area di Azure che supporta l'archiviazione Premium. Altre informazioni sulle [aree attualmente supportate per il modello 8020](#supported-regions-for-8020).
+* Nel caso del dispositivo virtuale, [configurare una rete virtuale in Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Se si usa l'archiviazione Premium, sarà necessario creare una rete virtuale in un'area di Azure che supporta l'archiviazione Premium. Le aree di archiviazione Premium corrispondono alla riga relativa all'*archiviazione su disco* nell'elenco dei [servizi di Azure in base all'area](https://azure.microsoft.com/en-us/regions/services).
 * È consigliabile utilizzare il server DNS predefinito fornito da Azure invece di specificare il nome del proprio server DNS. Se il nome del server DNS non è valido o se il server DNS non riesce a risolvere correttamente l'indirizzo IP, non sarà possibile creare il dispositivo virtuale.
 * Le opzioni point-to-site e da sito a sito non sono obbligatorie, ma facoltative. Se si desidera, è possibile configurarle per scenari più avanzati.
 * È possibile creare [Macchine virtuali di Azure](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (server host) nella rete virtuale che possono usare i volumi esposti dal dispositivo virtuale. Tali server devono soddisfare i seguenti requisiti:                             
@@ -256,9 +236,4 @@ Se durante la creazione di un dispositivo virtuale non è disponibile connettivi
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [Usare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
 * Informazioni su come [Ripristinare un volume StorSimple da un set di backup](storsimple-restore-from-backup-set.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

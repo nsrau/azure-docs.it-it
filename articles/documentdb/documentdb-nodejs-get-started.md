@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: e955366aa6fb8481fc8a76158b298dd927e855a2
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 2b8ac838e9387b04467f03d0608da05b3edfdd26
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -604,7 +604,7 @@ Verrà visualizzato l'output dell'app introduttiva. L'output dovrebbe essere ana
 Congratulazioni. È stata completata l'esercitazione su Node.js ed stata creata la prima applicazione console DocumentDB.
 
 ## <a id="GetSolution"></a>Ottenere la soluzione completa per l'esercitazione su Node.js
-Se non si ha tempo per completare le procedure dell'esercitazione o se si vuole solo scaricare il codice, è possibile ottenerli da [Github](https://github.com/Azure-Samples/documentdb-node-getting-started).
+Se non si ha tempo per completare le procedure dell'esercitazione o se si vogliono solo scaricare gli esempi di codice, è possibile ottenerli da [GitHub](https://github.com/Azure-Samples/documentdb-node-getting-started).
 
 Per eseguire la soluzione GetStarted completa contenente tutti gli esempi riportati in questo articolo, è necessario avere:
 

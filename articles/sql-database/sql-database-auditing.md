@@ -58,7 +58,7 @@ Un criterio di controllo può essere definito per un database specifico o come c
 Nella sezione seguente è descritta la configurazione del controllo mediante il portale di Azure.
 
 ### <a id="subheading-2-1">Controllo BLOB</a>
-1. Avviare il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
+1. Avviare il [portale di Azure](https://portal.azure.com) all'indirizzo https://portal.azure.com.
 2. Passare al pannello di configurazione del database SQL / SQL Server che si vuole controllare. Nel pannello Impostazioni selezionare **Controllo e rilevamento delle minacce**.
 
     <a id="auditing-screenshot"></a>
@@ -84,7 +84,7 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
 > Prima di impostare il **controllo tabelle**, verificare se è in uso un ["client di livello inferiore"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). Inoltre, se le impostazioni del firewall sono restrittive, tenere presente che l'[endpoint IP del database verrà modificato](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) quando si abilita il controllo tabelle.
 
 
-1. Avviare il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
+1. Avviare il [portale di Azure](https://portal.azure.com) all'indirizzo https://portal.azure.com.
 2. Passare al pannello di configurazione del database SQL / SQL Server che si vuole controllare. Nel pannello Impostazioni selezionare **Controllo e rilevamento minacce** (*[vedere la schermata illustrata nella sezione Controllo BLOB](#auditing-screenshot)*).
 3. Nel pannello per la configurazione del controllo del database è possibile selezionare la casella di controllo **Eredita impostazioni di controllo del server** per indicare che il database sarà controllato in base alle impostazioni del relativo server. Se questa opzione è selezionata, viene visualizzato un collegamento per **visualizzare le impostazioni di controllo del server** che consente di visualizzare o modificare le impostazioni di controllo del server da questo contesto.
 
