@@ -15,16 +15,17 @@
 ### [Chiavi protette dal modulo di protezione hardware](key-vault-hsm-protected-keys.md)
 ### [Eseguire la migrazione a .NET 2.0](key-vault-dotnet2api-release-notes.md)
 
-## Gestire
-### [Registrazione dell'insieme di credenziali delle chiavi di Azure](key-vault-logging.md)
+## Gestisci
+### [Registrazione di Azure Key Vault](key-vault-logging.md)
 ### [Accesso protetto da firewall](key-vault-access-behind-firewall.md)
 ### [Modificare l'ID tenant](key-vault-subscription-move-fix.md)
 ### [Disponibilità e ridondanza](key-vault-disaster-recovery-guidance.md)
 ### [Proteggere l'insieme di credenziali delle chiavi](key-vault-secure-your-key-vault.md)
 
-## Automatizzare
+## Automazione
 ### [Automazione di Azure](automation-manage-key-vault.md)
 ### [Creare e gestire con l'interfaccia della riga di comando](key-vault-manage-with-cli.md)
+### [Creare e gestire con l'interfaccia della riga di comando 2.0](key-vault-manage-with-cli2.md)
 
 # Riferimento
 ## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)

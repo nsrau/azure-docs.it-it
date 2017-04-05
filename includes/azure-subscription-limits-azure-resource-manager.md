@@ -6,7 +6,7 @@
 | [Coamministratori](../articles/billing-add-change-azure-subscription-administrator.md) per sottoscrizione |Senza limiti |Senza limiti |
 | [Account di archiviazione](../articles/storage/storage-create-storage-account.md) per sottoscrizione |200 |200<sup>2</sup> |
 | [Gruppi di risorse](../articles/azure-resource-manager/resource-group-overview.md) per sottoscrizione |800 |800 |
-| [Set di disponibilità](../articles/virtual-machines/virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per sottoscrizione |2000 per area |2000 per area |
+| [Set di disponibilità](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per sottoscrizione |2000 per area |2000 per area |
 | Letture API Gestione risorse |15000 all'ora |15000 all'ora |
 | Scritture API Gestione risorse |1200 all'ora |1200 all'ora |
 | Dimensioni delle richieste API di gestione delle risorse |4194304 byte |4194304 byte |
@@ -24,9 +24,4 @@
 > <!-- -->
 > 
 > 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

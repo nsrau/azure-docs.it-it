@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 590d2c39e295e2f855910b00e0302f01d96de8dc
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: c309151e3e3aa6ff235f0dee2ddf975940f34f44
+ms.lasthandoff: 03/24/2017
 
 ---
 
@@ -82,7 +82,7 @@ Le proprietà che possono essere definite in un'acquisizione di pacchetti sono:
 
 **Acquisisci configurazione**
 
-- **Archiviazione**: determina se l'acquisizione di pacchetti viene salvata in un'account di archiviazione.
+- **Account di archiviazione**: determina se l'acquisizione di pacchetti viene salvata in un'account di archiviazione.
 - **File**: determina se un'acquisizione di pacchetti viene salvata in locale nella macchina virtuale.
 - **Account di archiviazione**: account di archiviazione selezionato in cui salvare l'acquisizione di pacchetti. Il percorso predefinito è https://{nome account di archiviazione}.blob.core.windows.net/network-watcher-logs/subscriptions/{ID sottoscrizione}/resourcegroups/{nome gruppo di risorse}/providers/microsoft.compute/virtualmachines/{nome macchina virtuale}/{AA}/{MM}/{GG}/packetcapture_{HH}_{MM}_{SS}_{XXX}.cap. È abilitato solo se viene selezionato **Archiviazione**.
 - **Percorso file locale**: percorso locale in una macchina virtuale in cui salvare l'acquisizione di pacchetti. È abilitato solo se viene selezionato **File**. È necessario specificare un percorso valido

@@ -1,6 +1,6 @@
 ---
-title: Uso dello strumento di importazione/esportazione di Azure - versione 1 | Documentazione Microsoft
-description: Informazioni su come usare lo strumento di importazione/esportazione per preparare i dischi rigidi per un processo di importazione o per ripristinare un processo di importazione o esportazione.
+title: Uso dello strumento Importazione/Esportazione di Azure | Documentazione Microsoft
+description: Informazioni su come usare lo strumento Importazione/Esportazione per preparare i dischi rigidi per un processo di importazione o per ripristinare un processo di importazione o esportazione.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: ca2d4bf2b1e1cb56910fa3ee7af6e45b6b77b450
-ms.openlocfilehash: 7c628022a6de01de50f50256bd2ea0cdba2c2555
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 86073f5d15253d658fcb371e913dd3a543a2b075
+ms.lasthandoff: 03/30/2017
 
 
 ---
 
 # <a name="using-the-azure-importexport-tool"></a>Uso dello strumento di importazione/esportazione di Azure 
 
-Lo strumento di importazione/esportazione di Azure (WAImportExport.exe) consente di creare e gestire i processi per il servizio Importazione/Esportazione di Azure e trasferire così grandi quantità di dati da e verso l'archivio BLOB di Azure.
+Lo strumento Importazione/Esportazione di Azure (WAImportExport.exe) consente di creare e gestire i processi per il servizio Importazione/Esportazione di Azure e trasferire così grandi quantità di dati da e verso l'archiviazione BLOB di Azure.
 
 Questa documentazione riguarda la versione più recente dello strumento di importazione/esportazione di Azure. Per informazioni sull'uso della versione 1, vedere [Uso dello strumento di importazione/esportazione di Azure (v1)](storage-import-export-tool-how-to-v1.md).
 
@@ -36,8 +37,6 @@ Questi articoli illustrano come usare lo strumento per eseguire le operazioni se
 - Ripristinare un processo di esportazione. 
 - Risolvere i problemi relativi allo strumento di importazione/esportazione di Azure, in caso di problemi durante il processo. 
 
+## <a name="next-steps"></a>Passaggi successivi
 
-
-<!--HONumber=Dec16_HO3-->
-
-
+* [Setting up the WAImportExport tool](storage-import-export-tool-setup.md) (Configurazione dello strumento WAImportExport)

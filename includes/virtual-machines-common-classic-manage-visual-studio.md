@@ -129,10 +129,5 @@ Quando si configura la macchina virtuale e vi si installa del software, è consi
 2. Nel menu di scelta rapida scegliere il comando **Arresta** oppure **Configura** per visualizzare la pagina di configurazione della macchina virtuale, quindi fare clic su **Arresta**.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulla creazione di macchine virtuali, vedere [Creare una macchina virtuale che esegue Linux](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e [Creare una macchina virtuale che esegue Windows nel portale di anteprima di Azure](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+Per altre informazioni sulla creazione di macchine virtuali, vedere [Creare una macchina virtuale che esegue Linux](../articles/virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e [Creare una macchina virtuale che esegue Windows nel portale di anteprima di Azure](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

@@ -15,8 +15,9 @@ ms.workload: tbd
 ms.date: 01/05/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: ecb2ab00b56476b4373fa06cb766384cb2fcd514
-ms.openlocfilehash: fceb4254461bd91fd2da8603af4fefa47def72e8
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: f4f3caed8390ba3a80d6cf1282f4d2751c67ae6b
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -523,7 +524,7 @@ Il seguente esempio di codice illustra come inviare e monitorare un processo bat
     }
 
 #### <a name="sample-code-in-java-for-bes"></a>Codice di esempio Java per BES
-Come mostrato nell'esempio di seguito, l'API REST del servizio di esecuzione batch accetta l'elemento JSON costituito da un riferimento a un file con estensione csv di esempio di input e a un file con estensione csv di esempio di output e crea un processo in Azure ML per eseguire le stime batch. È possibile visualizzare il codice completo in [Github](https://github.com/nk773/AzureML_BESApp/tree/master/src/azureml_besapp). Questo esempio Java richiede la [libreria Apache HTTP Client](https://hc.apache.org/downloads.cgi). 
+Come mostrato nell'esempio di seguito, l'API REST del servizio di esecuzione batch accetta l'elemento JSON costituito da un riferimento a un file con estensione csv di esempio di input e a un file con estensione csv di esempio di output e crea un processo in Azure ML per eseguire le stime batch. È possibile visualizzare il codice completo in [GitHub](https://github.com/nk773/AzureML_BESApp/tree/master/src/azureml_besapp). Questo esempio Java richiede la [libreria Apache HTTP Client](https://hc.apache.org/downloads.cgi). 
 
     { "GlobalParameters": {}, 
         "Inputs": { "input1": { "ConnectionString":     "DefaultEndpointsProtocol=https;
@@ -730,9 +731,4 @@ A questo punto è possibile usare uno qualsiasi degli strumenti Swagger. Di segu
 <!-- External Links -->
 [webservicesportal]: https://services.azureml.net/
 [mlstudio]: https://studio.azureml.net
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

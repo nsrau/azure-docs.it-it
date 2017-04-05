@@ -1,6 +1,6 @@
 ---
-title: "Impostazione delle proprietà e dei metadati usando Importazione/Esportazione di Azure | Documentazione Microsoft"
-description: "Informazioni su come specificare le proprietà e i metadati da impostare nei BLOB di destinazione quando si esegue lo strumento Importazione/Esportazione per preparare le unità."
+title: "Impostazione delle proprietà e dei metadati usando Importazione/Esportazione di Azure - versione 1 | Documentazione Microsoft"
+description: "Informazioni su come specificare le proprietà e i metadati da impostare nei BLOB di destinazione quando si esegue lo strumento Importazione/Esportazione di Azure per preparare le unità. Si riferisce alla versione 1 dello strumento Importazione/Esportazione."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
-ms.openlocfilehash: 8e1152a03eee01244dd469586848c396a7f689cc
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 6455ce57572f9ec36d0ebae88c1ddd9f40f237bf
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -54,7 +54,7 @@ Allo stesso modo, per specificare i metadati dei BLOB, creare un file di testo l
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
 <Metadata>  
-    <UploadMethod>Windows Azure Import/Export Service</UploadMethod>  
+    <UploadMethod>Windows Azure Import/Export service</UploadMethod>  
     <DataSetName>SampleData</DataSetName>  
     <CreationDate>10/1/2013</CreationDate>  
 </Metadata>  
@@ -69,6 +69,7 @@ Quando si esegue lo strumento Importazione/Esportazione di Azure per preparare i
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp\BlueRay.ISO /dstblob:favorite/BlueRay.ISO /MetadataFile:c:\WAImportExport\SampleMetadata.txt /PropertyFile:c:\WAImportExport\SampleProperties.txt  
 ```
   
-## <a name="see-also"></a>Vedere anche  
-[Import-Export Service Metadata and Properties File format](storage-import-export-file-format-metadata-and-properties.md) (Formato dei file di proprietà e metadati del servizio Importazione/Esportazione)
+## <a name="next-steps"></a>Passaggi successivi
+
+* [Import/Export service metadata and properties file format](storage-import-export-file-format-metadata-and-properties.md) (Formato dei file di metadati e delle proprietà del servizio Importazione/Esportazione)
 

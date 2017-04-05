@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.date: 01/18/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 19a652f81beacefd4a51f594f045c1f3f7063b59
-ms.openlocfilehash: b7f6c92867e3fabe07312539ec8dfd2d3525f02e
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 66e6fec16aab7764b05b616efc0fccbfb2d0595e
+ms.lasthandoff: 03/30/2017
 
 ---
 
@@ -60,8 +61,8 @@ Per altre informazioni sull'API di creazione dell'origine dati, vedere [Creare u
 Per specificare le credenziali per la tabella, sono disponibili questi modi: 
 
 - **Stringa di connessione dell'account di archiviazione per accesso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. Per ottenere la stringa di connessione dal portale di Azure, passare al pannello dell'account di archiviazione e quindi selezionare Impostazioni > Chiavi (per gli account di archiviazione della versione classica) oppure Impostazioni > Chiavi di accesso (per gli account di archiviazione di Azure Resource Manager).
-- Stringa di connessione della **firma di accesso condiviso dell'account di archiviazione**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`. La firma di accesso condiviso deve avere le autorizzazioni per le operazioni di elenco e lettura per i contenitori (tabelle) e gli oggetti (righe di tabella).
--  **Firma di accesso condiviso per la tabella**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`. La firma di accesso condiviso deve avere le autorizzazioni per le operazioni di elenco e lettura sulla tabella.
+- Stringa di connessione della **firma di accesso condiviso dell'account di archiviazione**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl`. La firma di accesso condiviso deve avere le autorizzazioni per le operazioni di elenco e lettura per i contenitori (tabelle) e gli oggetti (righe di tabella).
+-  **Firma di accesso condiviso per la tabella**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r`. La firma di accesso condiviso deve avere le autorizzazioni per le operazioni di query (lettura) sulla tabella.
 
 Per altre informazioni sulle firme di accesso condiviso per l'archiviazione, vedere [Uso delle firme di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
@@ -134,9 +135,4 @@ Per indicare che alcuni documenti devono essere rimossi dall'indice, è consigli
 
 ## <a name="help-us-make-azure-search-better"></a>Come contribuire al miglioramento di Ricerca di Azure
 Se si hanno domande sulle funzionalità o idee per apportare miglioramenti, contattare Microsoft sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

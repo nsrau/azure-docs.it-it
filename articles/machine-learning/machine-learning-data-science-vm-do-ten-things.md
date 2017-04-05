@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: gokuma;weig;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1072ab3d7c8cc472258925baaa2ef82cdfb17eed
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 3b608f341278ceaef9dd112cea38f138be69ee44
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -30,7 +31,7 @@ Questo articolo illustra come usare DSVM per eseguire diverse attività di anali
 3. Rendere operativi i modelli compilati usando R e Python in Azure Machine Learning in modo che le applicazioni client possano accedere ai modelli con una semplice interfaccia di servizi Web
 4. Amministrare le risorse di Azure usando il portale di Azure o PowerShell
 5. Estendere lo spazio di archiviazione e condividere set di dati o codice su larga scala con l'intero team creando un archivio file di Azure come unità installabile in DSVM
-6. Condividere il codice con il team usando GitHub e accedere al repository con i client Git preinstallati (Git Bash, Git GUI)
+6. Condividere il codice con il team usando GitHub e accedere all'archivio con i client Git preinstallati (Git Bash, Git GUI).
 7. Accedere a diversi servizi dati e analisi di Azure, ad esempio Archiviazione BLOB di Azure, Azure Data Lake, Azure HDInsight (Hadoop), Azure DocumentDB, Azure SQL Data Warehouse e database
 8. Compilare report e dashboard usando Power BI Desktop preinstallato in DSVM e distribuirli nel cloud
 9. Ridimensionare in modo dinamico DSVM per poter soddisfare le esigenze del progetto
@@ -237,11 +238,11 @@ A questo punto, dopo avere creato una condivisione file di Azure, è possibile i
 Ora è possibile accedere a questa unità come a qualsiasi altra unità della VM.
 
 ## <a name="6-share-code-with-your-team-using-github"></a>6. Condividere il codice con il team usando GitHub
-GitHub è un repository di codice dove è possibile trovare numerosi codici di esempio e origini per strumenti diversi usando svariate tecnologie condivise dalla community degli sviluppatori. Usa Git come tecnologia per tenere traccia delle versioni dei file di codice e per archiviarle. GitHub è anche una piattaforma in cui è possibile creare il proprio repository in cui archiviare la documentazione e il codice condiviso del team, implementare il controllo della versione e anche controllare chi ha l'accesso per visualizzare il codice e per contribuirvi. Per altre informazioni sull'uso di Git, visitare le [pagine della guida di GitHub](https://help.github.com/) . È possibile usare GitHub per collaborare con il team, usare il codice sviluppato dalla community e contribuire al codice della community.
+GitHub è un archivio di codice dove è possibile trovare numerosi codici di esempio e origini per strumenti diversi usando svariate tecnologie condivise dalla community degli sviluppatori. Usa Git come tecnologia per tenere traccia delle versioni dei file di codice e per archiviarle. GitHub è anche una piattaforma in cui è possibile creare il proprio archivio in cui archiviare la documentazione e il codice condiviso del team, implementare il controllo della versione e anche controllare chi ha l'accesso per visualizzare il codice e per contribuirvi. Per altre informazioni sull'uso di Git, visitare le [pagine della guida di GitHub](https://help.github.com/). È possibile usare GitHub per collaborare con il team, usare il codice sviluppato dalla community e contribuire al codice della community.
 
-In DSVM sono già caricati gli strumenti client sia nella riga di comando che nella GUI per accedere al repository GitHub. Lo strumento da riga di comando per usare Git e GitHub si chiama Git Bash. Visual Studio installato in DSVM include le estensioni Git. È possibile trovare le icone di avvio per questi strumenti nel menu Start e sul desktop.
+In DSVM sono già caricati gli strumenti client sia nella riga di comando che nella GUI per accedere all'archivio GitHub. Lo strumento da riga di comando per usare Git e GitHub si chiama Git Bash. Visual Studio installato in DSVM include le estensioni Git. È possibile trovare le icone di avvio per questi strumenti nel menu Start e sul desktop.
 
-Per scaricare il codice da un repository GitHub, usare il comando ```git clone``` . Ad esempio, per scaricare il repository di analisi scientifica dei dati pubblicato da Microsoft nella directory corrente, è possibile eseguire il comando seguente in ```git-bash```.
+Per scaricare il codice da un archivio GitHub, usare il comando ```git clone```. Ad esempio, per scaricare il repository di analisi scientifica dei dati pubblicato da Microsoft nella directory corrente, è possibile eseguire il comando seguente in ```git-bash```.
 
     git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
 
@@ -249,7 +250,7 @@ In Visual Studio è possibile eseguire la stessa operazione di clonazione. Per a
 
 ![Git in Visual Studio](./media/machine-learning-data-science-vm-do-ten-things/VSGit.PNG)
 
-In github.com sono disponibili altre informazioni sull'uso di Git per lavorare con il repository GitHub da diverse risorse. Il [foglio informativo](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf) è un riferimento utile.
+In github.com sono disponibili altre informazioni sull'uso di Git per lavorare con l'archivio GitHub da diverse risorse. Il [foglio informativo](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf) è un riferimento utile.
 
 ## <a name="7-access-various-azure-data-and-analytics-services"></a>7. Accedere a diversi servizi dati e analisi di Azure
 ### <a name="azure-blob"></a>BLOB Azure
@@ -865,10 +866,5 @@ Sono stati inclusi in un pacchetto diversi strumenti che permettono di soddisfar
 
 ## <a name="summary"></a>Riepilogo
 Queste sono solo alcune delle attività che è possibile eseguire nella macchina virtuale per l'analisi scientifica dei dati di Microsoft. Ce ne sono molte altre che è possibile eseguire per renderla un ambiente di analisi efficace.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

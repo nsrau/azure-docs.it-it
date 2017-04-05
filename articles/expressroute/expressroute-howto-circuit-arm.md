@@ -13,38 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: ced4347baf7eca4dd8fc9cf1c8c0b451314f0ad2
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 212de47a9cc4f2130b94ac1e622eabe0c0cb781a
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="create-and-modify-an-expressroute-circuit"></a>Creare e modificare un circuito ExpressRoute
+# <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Creare e modificare un circuito ExpressRoute mediante PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portale di Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
-> * [Classica: PowerShell](expressroute-howto-circuit-classic.md)
 > * [Video - Portale di Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > 
 >
 
-Questo articolo illustra i passaggi per creare un circuito ExpressRoute di Azure tramite i cmdlet di Windows PowerShell e il modello di distribuzione di Azure Resource Manager. L'articolo descrive anche le procedure di controllo dello stato, aggiornamento, eliminazione e deprovisioning del circuito.
+Questo articolo illustra i passaggi per creare un circuito ExpressRoute di Azure tramite i cmdlet di Windows PowerShell e il modello di distribuzione di Azure Resource Manager. L'articolo descrive anche le procedure di controllo di stato, aggiornamento, eliminazione e deprovisioning del circuito.
 
-**Informazioni sui modelli di distribuzione di Azure**
+**Informazioni sui modelli di distribuzione di AzureAbout Azure deployment models**
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-* Ottenere la versione più recente dei moduli di Azure PowerShell (almeno la versione 1.0). Per istruzioni dettagliate sulla configurazione del computer per l'uso dei moduli PowerShell, seguire le istruzioni in [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* È necessaria la versione più recente dei cmdlet di PowerShell per Azure Resource Manager. Per altre informazioni, vedere [Introduzione ai cmdlet di Azure PowerShell](/powershell/azureps-cmdlets-docs). 
 * Prima di iniziare la configurazione, verificare i [prerequisiti](expressroute-prerequisites.md) e i [flussi di lavoro](expressroute-workflows.md).
 
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Creare un circuito ExpressRoute ed eseguirne il provisioning
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Accedere al proprio account Azure e selezionare la sottoscrizione
-Per iniziare la configurazione, accedere al proprio account Azure. Per altre informazioni su PowerShell, vedere [Uso di Windows PowerShell con Resource Manager](../powershell-azure-resource-manager.md). Per eseguire la connessione, usare gli esempi che seguono:
+Per iniziare la configurazione, accedere al proprio account Azure. Per eseguire la connessione, usare gli esempi che seguono:
 
     Login-AzureRmAccount
 

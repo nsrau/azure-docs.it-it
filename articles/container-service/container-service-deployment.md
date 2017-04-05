@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2464901d22bb91cbf396ef60f4bda6d979b578b7
-ms.openlocfilehash: 003d975f57d63bcb95d6b0de9dcfaf8816fcdd6f
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 2e8ff5304d4ccc63f92567b22c0508e3fc7b9bcf
+ms.lasthandoff: 04/03/2017
 
 ---
 # <a name="deploy-a-docker-container-hosting-solution-using-the-azure-portal"></a>Distribuire una soluzione di hosting di contenitori Docker usando il portale di Azure
@@ -38,7 +38,7 @@ Per le informazioni di base, vedere [Introduzione al servizio contenitore di Azu
 
 * **Sottoscrizione di Azure**: nel caso in cui non sia disponibile è possibile usare una [versione di prova gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
 
-* **Chiave pubblica SSH RSA**: durante la distribuzione tramite il portale o uno dei modelli di avvio rapido di Azure, è necessario fornire la chiave pubblica per l'autenticazione nelle macchine virtuali del servizio contenitore di Azure. Per creare chiavi SSH (Secure Shell) RSA, vedere le informazioni aggiuntive per [OS X e Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) e [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
+* **Chiave pubblica SSH RSA**: durante la distribuzione tramite il portale o uno dei modelli di avvio rapido di Azure, è necessario fornire la chiave pubblica per l'autenticazione nelle macchine virtuali del servizio contenitore di Azure. Per creare chiavi SSH (Secure Shell) RSA, vedere le informazioni aggiuntive per [OS X e Linux](../virtual-machines/linux/mac-create-ssh-keys.md) e [Windows](../virtual-machines/linux/ssh-from-windows.md). 
 
 * **ID client e segreto dell'entità servizio** (solo Kubernetes): per altre informazioni e istruzioni sulla creazione di un'entità servizio di Azure Active Directory, vedere [Informazioni sull'entità servizio per un cluster Kubernetes](container-service-kubernetes-service-principal.md).
 

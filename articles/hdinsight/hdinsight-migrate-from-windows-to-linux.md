@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 01/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 1a2a08a844f1502d970cb7686d512387263d1d13
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 9a2e9b7809b00ae2b60e152bc240ab2ef775c7bf
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -67,10 +67,7 @@ Usare la procedura seguente per copiare i dati dal cluster di produzione al clus
 2. Per creare un ambiente di test, seguire la procedura riportata nel documento Creare cluster basati su Linux in HDInsight. Prima di creare il cluster, interrompersi e selezionare **Configurazione facoltativa**.
 3. Nel pannello Configurazione facoltativa selezionare **Account di archiviazione collegati**.
 4. Selezionare **Aggiungi una chiave di archiviazione**e, quando richiesto, selezionare l'account di archiviazione restituito dallo script PowerShell nel passaggio 1. Fare clic su **Seleziona** in ogni pannello. Al termine, creare il cluster.
-5. Dopo aver creato il cluster, connettersi tramite **SSH** Se non si ha dimestichezza con l'uso di SSH con HDInsight, vedere uno dei documenti seguenti:
-
-   * [Usare SSH (PuTTY) con HDInsight basato su Linux da client Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-   * [Usare SSH con HDInsight basato su Linux da Linux, Unix, OS X e Bash in Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
+5. Dopo aver creato il cluster, connettersi tramite **SSH** Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 6. Dalla sessione SSH usare il comando seguente per copiare i file dall'account di archiviazione collegato al nuovo account di archiviazione predefinito. Sostituire CONTAINER con le informazioni sul contenitore restituite da PowerShell. Sostituire __ACCOUNT__ con il nome dell'account. Sostituire il percorso dei dati con il percorso di un file di dati.
 
@@ -109,10 +106,7 @@ Durante la creazione del cluster è necessario specificare un utente SSH e una *
 
 È consigliabile usare il certificato di chiave pubblica perché è più sicuro rispetto alla password. L'autenticazione del certificato genera una coppia di chiavi pubblica/privata firmata e fornisce la chiave pubblica durante la creazione del cluster. Durante la connessione al server tramite SSH, la chiave privata del client consente l'autenticazione per la connessione.
 
-Per altre informazioni sull'uso di SSH con HDInsight, vedere gli articoli seguenti:
-
-* [Uso di SSH con HDInsight da client Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-* [Uso di SSH con HDInsight da client Linux, Unix oppure OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ### <a name="cluster-customization"></a>Personalizzazione cluster
 **Azioni script** usate con i cluster basati su Linux devono essere scritte nello script Bash. Sebbene le Azioni script possano essere usate durante la creazione del cluster, per i cluster basati su Linux possono anche essere usate per eseguire la personalizzazione dopo che il cluster entra in funzione. Per altre informazioni vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md) e [Sviluppo di azioni script con HDInsight basati su Linux](hdinsight-hadoop-script-actions-linux.md).
@@ -220,8 +214,8 @@ Se si è certi che gli script non contengono stringhe con caratteri CR incorpora
       hdfs dfs -put -f script.py wasbs:///path/to/script.py
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * [Informazioni su come creare cluster HDInsight basati su Linux](hdinsight-hadoop-provision-linux-clusters.md)
-* [Connettersi a un cluster basato su Linux tramite SSH da un client Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-* [Connettersi a un cluster basato su Linux tramite SSH da un client Linux, Unix o Mac](hdinsight-hadoop-linux-use-ssh-unix.md)
+* [Usare SSHper connettersi a HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Gestire un cluster basato su Linux tramite Ambari](hdinsight-hadoop-manage-ambari.md)
 

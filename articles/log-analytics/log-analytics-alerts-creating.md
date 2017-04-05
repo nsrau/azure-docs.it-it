@@ -1,5 +1,5 @@
 ---
-title: Creazione di regole di avvisi in Log Analytics di OMS | Documentazione Microsoft
+title: Creazione di avvisi in Log Analytics di OMS | Documentazione Microsoft
 description: Gli avvisi in Log Analytics identificano le informazioni importanti nel repository OMS e possono notificare i problemi all&quot;utente in modo proattivo o richiamare le azioni per tentare di correggerle.  Questo articolo descrive come creare una regola di avviso e include i dettagli relativi alle diverse azioni che possono attivare.
 services: log-analytics
 documentationcenter: 
@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/28/2017
+ms.date: 03/23/2017
 ms.author: bwren
-ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fdf22ff85a3a76be5de50632c4948df44c2312df
-ms.openlocfilehash: 9778c79ca887e154ad2796ce5d90d953643b8067
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: eec118430c6262626728c3156634361c977ccb4b
+ms.lasthandoff: 03/29/2017
 
 
 ---
-# <a name="create-and-manage-alert-rules-in-log-analytics-with-the-oms-portal"></a>Creare e gestire regole di avviso in Log Analytics con il portale di OMS
-Gli [avvisi in Log Analytics](log-analytics-alerts.md) vengono creati da regole di avviso che eseguono automaticamente ricerche log a intervalli regolari.  Viene quindi creato un record di avviso se i risultati corrispondono a particolari criteri.  La regola può quindi eseguire automaticamente una o più azioni per notificare l'avviso all'utente in modo proattivo o richiamare un altro processo.   
+# <a name="working-with-alert-rules-in-log-analytics"></a>Utilizzo delle regole di avviso in Log Analytics
+Gli avvisi vengono creati da regole di avviso che eseguono automaticamente ricerche log a intervalli regolari.  Viene quindi creato un record di avviso se i risultati corrispondono a particolari criteri.  La regola può quindi eseguire automaticamente una o più azioni per notificare l'avviso all'utente in modo proattivo o richiamare un altro processo.   
 
 Questo articolo descrive come creare e modificare le regole di avviso tramite il portale di OMS.  Per informazioni dettagliate sulle diverse impostazioni e su come implementare la logica necessaria, vedere [Informazioni sugli avvisi in Log Analytics](log-analytics-alerts.md).
 
@@ -79,23 +78,37 @@ La finestra della query di ricerca e dell'intervallo di tempo che restituisce i 
 
 Quando si specifica l'intervallo di tempo per la regola di avviso, verrà visualizzato il numero di record esistenti che corrispondono ai criteri di ricerca per tale intervallo di tempo.  Ciò consente di determinare la frequenza con cui verrà visualizzato il numero di risultati previsti.
 
-#### <a name="threshold"></a>Soglia
-
-| Proprietà | Descrizione |
-|:--- |:---|
-| Numero di risultati |Viene creato un avviso se il numero di record restituiti dalla query è **superiore** o **inferiore** al valore fornito.  |
-
-### <a name="alert-frequency"></a>Frequenza di avviso
+### <a name="schedule"></a>Pianificazione
 Definisce la frequenza con cui viene eseguita la query di ricerca.
 
 | Proprietà | Descrizione |
 |:--- |:---|
 | Frequenza di avviso | Specifica la frequenza con cui deve essere eseguita la query. Può essere un valore qualsiasi compreso tra 5 minuti e 24 ore. Deve essere uguale o minore dell'intervallo di tempo.  Se il valore è maggiore dell'intervallo di tempo, si rischia di omettere il record.<br><br>Si considerino ad esempio un intervallo di tempo di 30 minuti e una frequenza pari a 60 minuti.  Una query eseguita alle 13:00 restituirà i record compresi tra le 12:30 e le 13:00.  La volta successiva, la query verrà eseguita alle 14:00 e restituirà i record compresi tra le 13:30 e le 14:00.  Qualsiasi record creato tra le 13:00 e 13:30 non verrà mai valutato. |
+
+
+### <a name="generate-alert-based-on"></a>Genera l'avviso in base a
+Definisce i criteri che verranno valutati rispetto ai risultati della query di ricerca per determinare se è necessario creare un avviso.  Questi dettagli saranno diversi a seconda del tipo di regola di avviso selezionato.  È possibile ottenere i dettagli per i differenti tipi di regole di avviso da [Informazioni sugli avvisi in Log Analytics](log-analytics-alerts.md).
+
+| Proprietà | Descrizione |
+|:--- |:---|
 | Elimina avvisi | Quando si attiva l'eliminazione per la regola di avviso, le azioni della regola vengono disabilitate per un periodo di tempo definito dopo la creazione di un nuovo avviso. La regola è ancora in esecuzione e, se i criteri vengono soddisfatti, creerà i record di avviso. In questo modo, l'utente ha il tempo necessario per risolvere il problema senza eseguire azioni duplicate. |
 
+#### <a name="number-of-results-alert-rules"></a>Regole di avviso Numero di risultati
+
+| Proprietà | Descrizione |
+|:--- |:---|
+| Numero di risultati |Viene creato un avviso se il numero di record restituiti dalla query è **superiore** o **inferiore** al valore fornito.  |
+
+#### <a name="metric-measurement-alert-rules"></a>Regole di avviso Unità di misura della metrica
+
+| Proprietà | Descrizione |
+|:--- |:---|
+| Valore di aggregazione | Valore soglia che ogni valore di aggregazione nei risultati deve superare per essere considerato una violazione. |
+| Attiva l'avviso in base a | Il numero di violazioni della sicurezza per creare un avviso.  È possibile specificare le **violazioni totali** per qualsiasi combinazione di violazioni nei set di risultati o le **violazioni consecutive** necessarie che devono verificarsi in campioni consecutivi. |
 
 ### <a name="actions"></a>Azioni
-Le regole di avviso creano sempre un [record di avviso](#alert-records) quando viene raggiunta la soglia.  È anche possibile definire una o più azioni da eseguire, ad esempio l'invio di un messaggio di posta elettronica o l'avvio di un runbook.  Vedere [Adding actions to alert rules in Log Analytics](log-analytics-alerts-actions.md) (Aggiunta di azioni a regole di avviso in Log Analytics) per informazioni dettagliate sulla configurazione delle azioni. 
+Le regole di avviso creano sempre un [record di avviso](#alert-records) quando viene raggiunta la soglia.  È anche possibile definire una o più risposte da eseguire, ad esempio l'invio di un messaggio di posta elettronica o l'avvio di un runbook.
+
 
 
 #### <a name="email-actions"></a>Azioni di posta elettronica
@@ -115,7 +128,7 @@ Le azioni Webhook consentono di richiamare un processo esterno tramite una singo
 | webhook |Specificare **Sì** se si vuole chiamare un webhook quando viene generato l'avviso. |
 | URL webhook |URL del webhook. |
 | Includi payload JSON personalizzato |Selezionare questa opzione se si vuole sostituire il payload predefinito con un payload personalizzato. |
-| Specificare il payload JSON personalizzato |Payload personalizzato da inviare al webhook.  |
+| Specificare il payload JSON personalizzato |Payload personalizzato per il webhook.  Per informazioni dettagliate, vedere la sezione precedente. |
 
 #### <a name="runbook-actions"></a>Azioni runbook
 Le azioni runbook avviano un runbook in Automazione di Azure. 

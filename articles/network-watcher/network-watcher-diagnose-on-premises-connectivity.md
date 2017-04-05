@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: c7576ce3e802e66ebea6ba83927609ed81fe0869
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 8b832916f5b6fe413f9fc7b3fcefcea40d3ce7ef
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -26,8 +26,6 @@ ms.lasthandoff: 03/09/2017
 Il gateway VPN di Azure consente di creare una soluzione ibrida per soddisfare l'esigenza di una connessione sicura tra la rete locale e la rete virtuale di Azure. I requisiti variano a seconda dell'organizzazione, quindi la scelta del dispositivo VPN locale varia di conseguenza. Azure supporta attualmente [diversi dispositivi VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices) costantemente convalidati in collaborazione con i fornitori di dispositivi. Esaminare le impostazioni di configurazione specifiche del dispositivo prima di configurare il dispositivo VPN locale. Analogamente, il gateway VPN di Azure viene configurato con un set di [parametri IPsec supportati](../vpn-gateway/vpn-gateway-about-vpn-devices.md#IPSec) che vengono usati per stabilire le connessioni. Non è attualmente possibile immettere o selezionare una combinazione specifica di parametri IPsec dal gateway VPN di Azure. Per stabilire una connessione tra la rete locale e Azure, le impostazioni del dispositivo VPN locale devono essere conformi ai parametri IPsec prescritti dal gateway VPN di Azure per evitare la perdita della connettività. La risoluzione di questi problemi era sinora complessa ed erano generalmente necessarie ore per identificare e risolvere il problema.
 
 Con la funzionalità di risoluzione dei problemi di Azure Network Watcher è possibile diagnosticare eventuali problemi con il gateway e le connessioni e ottenere in pochi minuti informazioni sufficienti per prendere una decisione informata per risolvere il problema.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>Scenario
 
@@ -53,7 +51,7 @@ Uno dei passaggi critici consiste nella configurazione dei parametri di comunica
 | Algoritmo di hash |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
 | Durata (tempo) associazione di sicurezza (SA) fase 1 |28.800 secondi |10.800 secondi |
  
-L'utente deve configurare il dispositivo Cisco ASA. Un esempio di configurazione è disponibile in [Github](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Cisco/Current/ASA/ASA_9.1_and_above_Show_running-config.txt). Tra le altre configurazioni sarà anche necessario specificare l'algoritmo di hash. Cisco ASA supporta più [algoritmi di hash e crittografia](http://www.cisco.com/c/en/us/about/security-center/next-generation-cryptography.html) rispetto al gateway VPN di Azure. Si supponga che il dispositivo Cisco ASA sia stato inconsapevolmente configurato per l'uso dell'algoritmo di hash SHA-512. Questo algoritmo non è supportato per le connessioni basate su criteri, quindi la connessione VPN non funziona.
+L'utente deve configurare il dispositivo Cisco ASA. Un esempio di configurazione è disponibile in [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Cisco/Current/ASA/ASA_9.1_and_above_Show_running-config.txt). Tra le altre configurazioni sarà anche necessario specificare l'algoritmo di hash. Cisco ASA supporta più [algoritmi di hash e crittografia](http://www.cisco.com/c/en/us/about/security-center/next-generation-cryptography.html) rispetto al gateway VPN di Azure. Si supponga che il dispositivo Cisco ASA sia stato inconsapevolmente configurato per l'uso dell'algoritmo di hash SHA-512. Questo algoritmo non è supportato per le connessioni basate su criteri, quindi la connessione VPN non funziona.
 
 Questi problemi sono difficili da risolvere e le cause principali sono spesso non intuitive. In questo caso è possibile aprire un ticket di supporto per ottenere assistenza nella risoluzione del problema. Con l'API di risoluzione dei problemi di Azure Network Watcher è tuttavia possibile identificare questi problemi autonomamente. 
 

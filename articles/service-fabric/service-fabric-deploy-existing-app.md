@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 02/17/2016
 ms.author: msfussell;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: d1939e316efb00fb4980c57cbec28920a7475a47
-ms.openlocfilehash: bc9a62eb41a4ccb1ffb17b89e3bee9d40f2e7b54
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: e9c53dc601406961ee7aeca2e350ba14e691cb9b
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -266,6 +266,11 @@ Nell'elemento `ServiceManifestImport` è possibile specificare uno o più serviz
 Per gli eseguibili guest è utile poter visualizzare i log di console per determinare la presenza di eventuali errori negli script di configurazione e di applicazione.
 Il reindirizzamento della console può essere configurato nel file `ServiceManifest.xml` tramite l'elemento `ConsoleRedirection`.
 
+> [!WARNING]
+> Non usare mai i criteri di reindirizzamento della console in un'applicazione distribuita nell'ambiente di produzione, perché ciò può incidere sul failover dell'applicazione. Usare questa opzione *solo* a scopo di sviluppo e debug locale.  
+> 
+> 
+
 ```xml
 <EntryPoint>
   <ExeHost>
@@ -286,7 +291,7 @@ L'elemento `ConsoleRedirection` consente di reindirizzare l'output della console
 I file di log vengono salvati in una directory di lavoro del servizio. Per determinare dove si trovano i file, è necessario usare Service Fabric Explorer per stabilire il nodo in cui è in esecuzione il servizio e la directory di lavoro in uso. Più avanti in questo articolo verrà illustrato questo processo.
 
 ## <a name="deployment"></a>Distribuzione
-L'ultimo passaggio consiste nel distribuire l'applicazione. Lo script di PowerShell seguente illustra come distribuire l'applicazione nel cluster di sviluppo locale e avviare un nuovo servizio di Service Fabric.
+L'ultimo passaggio consiste nel [distribuire l'applicazione](service-fabric-deploy-remove-applications.md). Lo script di PowerShell seguente illustra come distribuire l'applicazione nel cluster di sviluppo locale e avviare un nuovo servizio di Service Fabric.
 
 ```PowerShell
 
@@ -303,6 +308,11 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/nodeapp' -ApplicationType
 New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric:/nodeapp/nodeappservice' -ServiceTypeName 'NodeApp' -Stateless -PartitionSchemeSingleton -InstanceCount 1
 
 ```
+
+>[!TIP]
+> [Comprimere il pacchetto](service-fabric-package-apps.md#compress-a-package) prima di copiarlo nell'archivio immagini se il pacchetto è grande o contiene molti file. Per altre informazioni, leggere [qui](service-fabric-deploy-remove-applications.md#upload-the-application-package).
+>
+
 Un servizio Service Fabric può essere distribuito in varie "configurazioni", ad esempio può essere distribuito come istanza singola o come istanze multiple o può essere distribuito in modo tale che sia presente un'istanza del servizio in ogni nodo del cluster di Service Fabric.
 
 Il parametro `InstanceCount` del cmdlet `New-ServiceFabricService` consente di specificare il numero di istanze del servizio da avviare nel cluster Service Fabric. È possibile impostare il valore `InstanceCount` in base al tipo di applicazione da distribuire. I due scenari più comuni sono:

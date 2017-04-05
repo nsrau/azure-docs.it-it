@@ -44,6 +44,6 @@ Per macchina virtuale *personalizzata* si intende una macchina virtuale creata c
 ## <a name="next-steps"></a>Passaggi successivi
 Una volta creata, la macchina virtuale viene avviata automaticamente. Quando dal portale risulta che lo stato è in esecuzione, è possibile eseguire l'accesso alla macchina virtuale. Per istruzioni, vedere gli articoli seguenti:
 
-* [Come accedere a una macchina virtuale che esegue Linux](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Come accedere a una macchina virtuale che esegue Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Come accedere a una macchina virtuale che esegue Windows Server](../articles/virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 

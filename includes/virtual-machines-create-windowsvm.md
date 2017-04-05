@@ -16,7 +16,7 @@ Il pannello delle nozioni di base richiede le informazioni amministrative per la
 
 2. Immettere un **Nome utente** e una **Password** complessa, da usare per creare un account locale nella VM. L'account locale viene usato per accedere alla macchina virtuale e gestirla. In questo esempio _azureuser_ è il nome utente.
 
- La password deve avere una lunghezza compresa tra 8 e 123 caratteri e soddisfare almeno tre dei quattro requisiti di complessità seguenti: una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale. Sono disponibili altre informazioni sui [requisiti relativi a nome utente e password](../articles/virtual-machines/virtual-machines-windows-faq.md).
+ La password deve avere una lunghezza compresa tra 8 e 123 caratteri e soddisfare almeno tre dei quattro requisiti di complessità seguenti: una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale. Sono disponibili altre informazioni sui [requisiti relativi a nome utente e password](../articles/virtual-machines/windows/faq.md).
 
 3. La **sottoscrizione** è facoltativa. Un'impostazione comune è "Uso prepagato".
 

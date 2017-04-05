@@ -46,11 +46,12 @@
 ### [Considerazioni relative alla sicurezza](best-practices-resource-manager-security.md)
 ## Impostare i criteri delle risorse
 ### [Informazioni sui criteri delle risorse](resource-manager-policy.md)
-### [Assegnare e gestire i criteri](resource-manager-policy-create-assign.md)
+### [Assegnazione di un criterio tramite il portale](resource-manager-policy-portal.md)
+### [Assegnazione di un criterio tramite script](resource-manager-policy-create-assign.md)
 ### [Criteri dei tag delle risorse](resource-manager-policy-tags.md)
 ### [Criteri di archiviazione](resource-manager-policy-storage.md)
-### [Criteri delle VM Linux](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Criteri delle VM Windows](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Criteri delle VM Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Criteri delle VM Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Controllare e risolvere i problemi
 ### [Risolvere gli errori comuni relativi alla distribuzione](resource-manager-common-deployment-errors.md)
 ### [Visualizzare log di attività](resource-group-audit.md)

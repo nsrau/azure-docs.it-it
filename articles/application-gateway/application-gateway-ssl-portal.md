@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: b1852b82875c63fa0e252c14b69b281bd501095f
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: a9cb2d921d1be226661311d91367b2b6f44fa0dc
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -69,7 +70,7 @@ Inserire le informazioni necessarie per il listener e caricare il certificato PF
 
 ## <a name="create-a-rule-and-associate-it-to-the-listener"></a>Creare una regola e associarla al listener
 
-Ora che il listener è stato creato, è necessario creare una regola per gestire il traffico dal listener.
+Ora che il listener è stato creato, è necessario creare una regola per gestire il traffico dal listener. Le regole definiscono in che modo il traffico viene indirizzato ai pool back-end sulla base di più impostazioni di configurazione, fra cui se viene usata l'affinità di sessione basata su cookie, nonché il protocollo, la porta e i probe di integrità.
 
 ### <a name="step-1"></a>Passaggio 1
 
@@ -93,9 +94,4 @@ Per informazioni su come configurare un probe di integrità personalizzato con u
 [2]: ./media/application-gateway-ssl-portal/figure2.png
 [3]: ./media/application-gateway-ssl-portal/figure3.png
 [4]: ./media/application-gateway-ssl-portal/figure4.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

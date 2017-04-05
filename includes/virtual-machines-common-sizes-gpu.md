@@ -17,7 +17,7 @@ Le istanze NC sono basate sulla scheda NVIDIA Tesla K80. Gli utenti possono ora 
 
 **Sistemi operativi supportati**
 
-* Windows Server 2016, Windows Server 2012 R2. Vedere [N-series driver setup for Windows](../articles/virtual-machines/virtual-machines-windows-n-series-driver-setup.md) (Configurazione dei driver serie N per Windows)
+* Windows Server 2016, Windows Server 2012 R2. Vedere [N-series driver setup for Windows](../articles/virtual-machines/windows/n-series-driver-setup.md) (Configurazione dei driver serie N per Windows)
 
 ## <a name="nc-instances"></a>Istanze NC
 
@@ -34,8 +34,8 @@ Le istanze NC sono basate sulla scheda NVIDIA Tesla K80. Gli utenti possono ora 
 
 **Sistemi operativi supportati**
 
-* Windows Server 2016, Windows Server 2012 R2. Vedere [N-series driver setup for Windows](../articles/virtual-machines/virtual-machines-windows-n-series-driver-setup.md) (Configurazione dei driver serie N per Windows)
-* Ubuntu 16.04 LTS. Vedere [N-series driver setup for Linux](../articles/virtual-machines/virtual-machines-linux-n-series-driver-setup.md) (Configurazione dei driver serie N per Linux)
+* Windows Server 2016, Windows Server 2012 R2. Vedere [N-series driver setup for Windows](../articles/virtual-machines/windows/n-series-driver-setup.md) (Configurazione dei driver serie N per Windows)
+* Ubuntu 16.04 LTS. Vedere [N-series driver setup for Linux](../articles/virtual-machines/linux/n-series-driver-setup.md) (Configurazione dei driver serie N per Linux)
 
 <br>
 

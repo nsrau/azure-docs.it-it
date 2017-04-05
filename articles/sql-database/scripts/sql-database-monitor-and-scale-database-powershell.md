@@ -27,7 +27,7 @@ ms.lasthandoff: 03/30/2017
 
 Questo esempio di script di PowerShell consente di monitorare le metriche delle prestazioni di un database, ne aumenta le prestazioni a un livello superiore e crea una regola di avviso per una delle metriche delle prestazioni. 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-script"></a>Script di esempio
 

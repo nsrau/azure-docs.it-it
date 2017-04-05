@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 2/25/2017
 ms.author: ronitr;giladm
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: d1350081aa4f70660802c61a77250496e1e7fc2a
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: e20a30a565198c01f213895a87fe8807a37272cb
+ms.lasthandoff: 03/30/2017
 
 
 ---
 
 # <a name="configure-and-manage-sql-database-auditing-in-the-azure-portal"></a>Configurare e gestire il controllo del database SQL nel portale di Azure
 
-La sezione seguente descrive come configurare e gestire il controllo usando il portale di Azure. Per configurare e gestire il controllo tramite PowerShell, vedere [Configurare il controllo con PowerShell](sql-database-auditing-powershell.md). 
+La sezione seguente descrive come configurare e gestire il controllo usando il portale di Azure. Per configurare e gestire il controllo tramite PowerShell, vedere [Configurare il controllo con PowerShell](scripts/sql-database-create-and-configure-database-powershell.md). 
 
 Per una panoramica sul del controllo, vedere [Controllo del database SQL](sql-database-auditing.md).
 
@@ -188,7 +188,7 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per configurare e gestire il controllo tramite PowerShell, vedere [Configurare il controllo del database con PowerShell](sql-database-auditing-powershell.md).
+* Per configurare e gestire il controllo tramite PowerShell, vedere [Configurare il controllo del database con PowerShell](scripts/sql-database-create-and-configure-database-powershell.md).
 * Per una panoramica sul del controllo, vedere [Controllo del database](sql-database-auditing.md).
 
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 03/08/2017
+ms.date: 03/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: d5633ffdaba2fa881c2c42361860048cd478a502
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: fb9d9d06eb746e720a17d87d7ab45c29c6543e8f
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -75,7 +75,7 @@ Le impostazioni di Cache Redis di Azure sono visualizzate e configurate nel pann
 
 ### <a name="activity-log"></a>Log attività
 
-Fare clic su **Log attività** per visualizzare le operazioni eseguite nella cache. È possibile inoltre utilizzare il filtro per espandere la visualizzazione in modo da includere altre risorse. Per altre informazioni sull'uso dei log di controllo, vedere [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) (Visualizzare eventi e log di controllo) e [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md) (Operazioni di controllo con Resource Manager). Per altre informazioni sul monitoraggio degli eventi di Cache Redis di Azure, vedere [Operazioni e avvisi](cache-how-to-monitor.md#operations-and-alerts).
+Fare clic su **Log attività** per visualizzare le operazioni eseguite nella cache. È possibile inoltre utilizzare il filtro per espandere la visualizzazione in modo da includere altre risorse. Per altre informazioni sull'uso dei log di controllo, vedere l'articolo relativo alle [operazioni di controllo con Resource Manager](../azure-resource-manager/resource-group-audit.md). Per altre informazioni sul monitoraggio degli eventi di Cache Redis di Azure, vedere [Operazioni e avvisi](cache-how-to-monitor.md#operations-and-alerts).
 
 ### <a name="access-control-iam"></a>Controllo di accesso (IAM)
 

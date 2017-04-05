@@ -17,9 +17,9 @@ ms.workload: NA
 ms.date: 12/22/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 0cb96f97358378a723d7528e53f5c5a771e2000b
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: 768a630e1652a48fa4478ec2c25173d536ea6c09
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -130,7 +130,7 @@ Per rimuovere i backup con conservazione a lungo termine dall'insieme di credenz
     R. Sì, è possibile. Anche se il database originale non esiste più, è possibile ripristinare il database dall'insieme di credenziali.
 11. D: Cosa succede ai backup nell'insieme di credenziali se la mia sottoscrizione viene sospesa? 
 
-    R. Se la sottoscrizione viene sospesa, vengono mantenuti i database e i backup esistenti, ma i nuovi backup non vengono copiati nell'insieme di credenziali. Dopo la riattivazione della sottoscrizione, il servizio riprende la copia dei backup nell'insieme di credenziali. L'insieme di credenziali diventa inaccessibile per le operazioni di ripristino che usano i backup copiati prima della sospensione della sottoscrizione. 
+    R. Se la sottoscrizione viene sospesa, vengono mantenuti i database e i backup esistenti. I nuovi backup non vengono copiati nell'insieme di credenziali. Dopo la riattivazione della sottoscrizione, il servizio riprende la copia dei backup nell'insieme di credenziali. L'insieme di credenziali diventa inaccessibile per le operazioni di ripristino che usano i backup copiati prima della sospensione della sottoscrizione. 
 12. D: È possibile accedere ai file di backup del database SQL per scaricarli o ripristinarli in SQL Server?
 
     R: No, non attualmente.

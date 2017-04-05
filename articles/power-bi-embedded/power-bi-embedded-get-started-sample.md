@@ -16,9 +16,9 @@ ms.workload: powerbi
 ms.date: 03/02/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 4f60937f9a9dd0e7d9939f85d1a9d442a4b7f266
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: beadcbfa4907d68a687ec5144136132d8b0439e1
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -44,9 +44,8 @@ La procedura dettagliata seguente illustra la configurazione dell'ambiente di sv
 2. Aprire il file **PowerBI embedded.sln** in Visual Studio. Potrebbe essere necessario eseguire il comando **Update-Package** nella Console di gestione pacchetti NuGET per aggiornare i pacchetti utilizzati in questa soluzione.
 3. Compilare la soluzione.
 4. Eseguire l'applicazione console **ProvisionSample** . Nell'applicazione console di esempio, effettuare il provisioning di un'area di lavoro e importare un file PBIX.
-5. Per effettuare il provisioning di una nuova **Area di lavoro**, selezionare l'opzione 5, **Provision a new workspace in an existing workspace collection** (Effettua il provisioning di una nuova area di lavoro in una raccolta di aree di lavoro esistenti).
+5. Per eseguire il provisioning di una nuova **area di lavoro**, selezionare l'opzione 2, **Report management**, e quindi selezionare l'opzione 3, **Import PBIX Desktop file into a workspace**.
 
-    ![](media/powerbi-embedded-get-started-sample/console-option-5.png)
 6. Immettere il **nome della raccolta di aree di lavoro** e la **chiave di accesso**. È possibile ottenere questi dati nel **portale di Azure**. Per altre informazioni su come ottenere la **Chiave di accesso**, vedere [Visualizzare le chiavi di accesso all'API Power BI](power-bi-embedded-get-started.md#view-power-bi-api-access-keys) nell'introduzione a Microsoft Power BI Embedded.
 
     ![](media/powerbi-embedded-get-started-sample/azure-portal.png)

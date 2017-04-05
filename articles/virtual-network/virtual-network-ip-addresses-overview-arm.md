@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 3de0b167d0ad32de17093caf7e66a6d08f5c1c61
-ms.openlocfilehash: 762b048056752abd24328433ceb57de492dbf884
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 0506de98119576aae8f55cc6067f0bee95334c87
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -71,7 +72,7 @@ Gli indirizzi IP pubblici statici sono comunemente usati negli scenari seguenti:
 >
 
 ### <a name="virtual-machines"></a>Macchine virtuali
-È possibile associare un indirizzo IP pubblico a una VM [Windows](../virtual-machines/virtual-machines-windows-about.md) o [Linux](../virtual-machines/virtual-machines-linux-about.md) assegnandola alla relativa **interfaccia di rete**. Nel caso di una VM con più interfacce di rete, è possibile assegnare la VM solo all'interfaccia di rete *primaria*. A una macchina virtuale è possibile assegnare un indirizzo IP pubblico statico o dinamico.
+È possibile associare un indirizzo IP pubblico a una VM [Windows](../virtual-machines/windows/about.md) o [Linux](../virtual-machines/virtual-machines-linux-about.md) assegnandola alla relativa **interfaccia di rete**. Nel caso di una VM con più interfacce di rete, è possibile assegnare la VM solo all'interfaccia di rete *primaria*. A una macchina virtuale è possibile assegnare un indirizzo IP pubblico statico o dinamico.
 
 ### <a name="internet-facing-load-balancers"></a>Servizi di bilanciamento del carico con connessione Internet
 È possibile associare un indirizzo IP pubblico a un [Azure Load Balancer](../load-balancer/load-balancer-overview.md)assegnandolo alla configurazione **front-end** del servizio di bilanciamento del carico. Questo indirizzo IP pubblico viene usato come indirizzo IP virtuale (VIP) di bilanciamento del carico. A un servizio di bilanciamento del carico front-end è possibile assegnare un indirizzo IP pubblico statico o dinamico. È anche possibile assegnare più indirizzi IP pubblici a un front-end del servizio di bilanciamento del carico, consentendo così scenari con [più indirizzi VIP](../load-balancer/load-balancer-multivip.md) , ad esempio un ambiente multi-tenant con siti Web basati su SSL.
@@ -115,7 +116,7 @@ Gli indirizzi IP privati statici vengono comunemente usati per:
 * Risorse accessibili da altre app o risorse tramite un indirizzo IP.
 
 ### <a name="virtual-machines"></a>Macchine virtuali
-Un indirizzo IP privato viene assegnato all'**interfaccia di rete** di una VM [Windows](../virtual-machines/virtual-machines-windows-about.md) o [Linux](../virtual-machines/virtual-machines-linux-about.md). Nel caso di una macchina virtuale con più interfacce di rete, a ogni interfaccia viene assegnato un indirizzo IP privato. Per un'interfaccia di rete è possibile specificare un metodo di allocazione statico o dinamico.
+Un indirizzo IP privato viene assegnato all'**interfaccia di rete** di una VM [Windows](../virtual-machines/windows/about.md) o [Linux](../virtual-machines/virtual-machines-linux-about.md). Nel caso di una macchina virtuale con più interfacce di rete, a ogni interfaccia viene assegnato un indirizzo IP privato. Per un'interfaccia di rete è possibile specificare un metodo di allocazione statico o dinamico.
 
 #### <a name="internal-dns-hostname-resolution-for-vms"></a>Risoluzione del nome host DNS interno per le macchine virtuali
 Tutte le macchine virtuali di Azure sono configurate con [server DNS gestiti da Azure](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) per impostazione predefinita, a meno che non si configurino in modo esplicito server DNS personalizzati. Questi server DNS forniscono la risoluzione dei nomi interna per le macchine virtuali che risiedono nella stessa rete virtuale.
@@ -146,9 +147,4 @@ Per gli indirizzi IP pubblici può essere previsto un addebito nominale. Per alt
 * [Distribuire una VM con un IP pubblico statico tramite il portale di Azure](virtual-network-deploy-static-pip-arm-portal.md)
 * [Distribuire una VM con un IP pubblico statico tramite un modello](virtual-network-deploy-static-pip-arm-template.md)
 * [Come impostare un indirizzo IP statico privato nel portale di Azure](virtual-networks-static-private-ip-arm-pportal.md)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

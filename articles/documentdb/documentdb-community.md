@@ -15,9 +15,9 @@ ms.workload: data-services
 ms.date: 03/07/2017
 ms.author: andrl
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 202684a1ae1106d79b9cee4e4ebf20ffa283f41b
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: a7c366d29cf163c9c30c72751a992a0ebb3462cd
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -37,7 +37,7 @@ Informazioni su [GitHub](https://github.com/lmaccherone/documentdb-lumenize) e [
 
 Visualizzatore/strumento di esplorazione di gestione client per il servizio Microsoft Azure DocumentDB.
 
-Informazioni su [Github](https://github.com/mingaliu/DocumentDBStudio).
+Informazioni su [GitHub](https://github.com/mingaliu/DocumentDBStudio).
 
 ### <a name="doqmentdb"></a>DoQmentDB
 *Di Arial Mashraki*
@@ -58,14 +58,14 @@ Informazioni su [GitHub](https://github.com/jcormont/documentdb-typescript) e [n
 
 Un file Swagger dell'API REST per DocumentDB che può essere facilmente distribuito come App per le API.
 
-Informazioni su [Github](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi).
+Informazioni su [GitHub](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi).
 
 ### <a name="fluent-plugin-documentdb"></a>fluent-plugin-documentdb
 *di Yoichi Kawasaki*
 
 fluent-plugin-documentdb è un plug-in Fluentd per l'output in Azure DocumentDB.
 
-Altre informazioni sono disponibili su [GitHub](https://github.com/yokawasa/fluent-plugin-documentdb) e [rubygems](https://rubygems.org/gems/fluent-plugin-documentdb).
+Informazioni su [GitHub](https://github.com/yokawasa/fluent-plugin-documentdb) e [rubygems](https://rubygems.org/gems/fluent-plugin-documentdb).
 
 <seg>
   *Altri progetti di DocumentDB open source su [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories)*.</seg>
@@ -221,14 +221,14 @@ Per rimanere sempre aggiornati sulle novità e sulle funzionalità più recenti 
 Questi progetti sono attivamente sviluppati dal team di Azure DocumentDB in collaborazione con la community open source.
 
 ### <a name="sdks"></a>SDK
-| Piattaforma | Github | Pacchetto |
+| Piattaforma | GitHub | Pacchetto |
 | --- | --- | --- |
 | Node.js |[azure-documentdb-node](https://github.com/Azure/azure-documentdb-node) |[npm](https://www.npmjs.com/package/documentdb) |
 | Java |[azure-documentdb-java](https://github.com/Azure/azure-documentdb-java) |[Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb%22) |
 | Python |[azure-documentdb-python](https://github.com/Azure/azure-documentdb-python) |[PyPI](https://pypi.python.org/pypi/pydocumentdb) |
 
 ### <a name="other-projects"></a>Altri progetti
-| Nome | Github | Sito Web |
+| Nome | GitHub | Sito Web |
 | --- | --- | --- |
 | Documentazione |[azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb) |[Sito Web di documentazione](https://azure.microsoft.com/documentation/services/documentdb/) |
 | Connettore Hadoop |[azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) |[Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |

@@ -12,12 +12,12 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 03/29/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: cd4de75743ee46bb07aec2cf23fa7687f4f20f43
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 892d24199be5065ee54d46863cca2fd958db3236
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -114,13 +114,9 @@ Di seguito sono elencati i servizi che attualmente abilitano lo spostamento in u
 * Gestione traffico
 * Macchine virtuali: non è supportato lo spostamento in una nuova sottoscrizione se i relativi certificati sono archiviati in un insieme di credenziali delle chiavi
 * Macchine virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
-* Reti virtuali
+* Reti virtuali: attualmente non è possibile spostare una rete virtuale con peering fino a quando non viene disabilitato il peering di rete virtuale. Dopo che il peering è stato disabilitato, è possibile spostare la rete virtuale e abilitare il peering di rete virtuale.
+* Gateway VPN 
 
-> [!NOTE] 
-> Attualmente non è possibile spostare una rete virtuale che contiene un Gateway VPN fino a quando il gateway non sia stato rimosso temporaneamente. Dopo la rimozione, la rete virtuale può essere spostata e il gateway può essere creato.
->
-> Attualmente non è possibile spostare una rete virtuale con peering fino a quando non viene disabilitato il peering di rete virtuale. Dopo che il peering è stato disabilitato, è possibile spostare la rete virtuale e abilitare il peering di rete virtuale.
->
  
 ## <a name="services-that-do-not-enable-move"></a>Servizi che non abilitano lo spostamento
 I servizi che attualmente non abilitano lo spostamento di una risorsa sono:
@@ -137,9 +133,14 @@ I servizi che attualmente non abilitano lo spostamento di una risorsa sono:
 * Sicurezza
 * Macchine virtuali con certificato archiviato in insieme di credenziali delle chiavi
 * Macchine virtuali con Managed Disks
+* Set di disponibilità con macchine virtuali con Managed Disks
+* Set di scalabilità di macchine virtuali con Managed Disks
+* Managed Disks
+* Immagini create da Managed Disks
+* Snapshot creati da Managed Disks
 * Set di scalabilità di macchine virtuali
 * Reti virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
-* Gateway VPN
+* Impossibile spostare le macchine virtuali create da risorse Marketplace fra sottoscrizioni. La risorsa deve essere sottoposta a deprovisioning nella sottoscrizione corrente e distribuita nuovamente nella nuova sottoscrizione
 
 ## <a name="app-service-limitations"></a>Limitazioni del servizio app
 Quando si usano le app del servizio app non è possibile spostare solo un piano di servizio app. Per spostare le app del servizio app, le opzioni disponibili sono:

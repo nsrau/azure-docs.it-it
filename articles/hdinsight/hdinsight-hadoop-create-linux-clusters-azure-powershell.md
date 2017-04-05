@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 4208deca-d64a-45e1-8948-2673d5d7678c
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,8 +17,9 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2dd64398fce3a85f92492b01951008eab31a2c3f
-ms.openlocfilehash: a566fe935da98d303f1260cbc2a2009e5702530a
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 44e418e52fc18dd22820331f7d921e789da62832
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -61,10 +63,7 @@ Prima di iniziare questa procedura è necessario disporre di quanto segue:
 I due parametri più importanti da impostare per la creazione dei cluster Linux sono quelli in cui vengono specificati il tipo di sistema operativo e i dettagli dell'utente SSH:
 
 * Specificare il parametro **-OSType** come **Linux**.
-* Per usare SSH per le sessioni remote nei cluster, è possibile specificare la password utente SSH oppure la chiave pubblica SSH. Se si specificano sia la password utente SSH e la chiave pubblica SSH, la chiave verrà ignorata. Per usare la chiave SSH per le sessioni remote, specificare una password SSH vuota quando viene richiesta. Per altre informazioni sull'uso di SSH con HDInsight, vedere gli articoli seguenti:
-  
-  * [Usare SSH con Hadoop in HDInsight da Linux, Unix o OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-  * [Usare SSH con Hadoop in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* Per usare SSH per le sessioni remote nei cluster, è possibile specificare la password utente SSH oppure la chiave pubblica SSH. Se si specificano sia la password utente SSH e la chiave pubblica SSH, la chiave verrà ignorata. Per usare la chiave SSH per le sessioni remote, specificare una password SSH vuota quando viene richiesta. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Lo script seguente illustra come creare un nuovo cluster:
 
@@ -187,10 +186,5 @@ Dopo aver creato un cluster HDInsight, usare le risorse seguenti per acquisire f
 * [Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark con Machine Learning: utilizzare Spark in HDInsight per stimare i risultati dell'ispezione cibo](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark: usare Spark in HDInsight per la creazione di applicazioni di streaming in tempo reale](hdinsight-apache-spark-eventhub-streaming.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

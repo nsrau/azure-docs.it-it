@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 1276a64d375ff452f3d29a8f7910475256499ac8
-ms.openlocfilehash: 0c16907f306228c4361e55d21dcb0c834ce7de25
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 9601ff3152e62baf95794919fdc5a7fc43204d52
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Connettere una rete virtuale a un circuito ExpressRoute
+# <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Collegare una rete virtuale a un circuito ExpressRoute usando PowerShell (versione classica)
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portale di Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-linkvnet-arm.md)
@@ -32,6 +32,8 @@ ms.lasthandoff: 02/03/2017
 > 
 
 Questo articolo spiega come collegare le reti virtuali ai circuiti di Azure ExpressRoute usando il modello di distribuzione classico e PowerShell. Le reti virtuali possono trovarsi nella stessa sottoscrizione o appartenere a un'altra sottoscrizione.
+
+[!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
 **Informazioni sui modelli di distribuzione di Azure**
 

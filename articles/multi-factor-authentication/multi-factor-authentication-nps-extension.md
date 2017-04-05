@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/13/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 9c587378bc8ffe43f6153c6424748e814c7a1d89
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: 34919221a82a024bd3a1d09c1def6040ff6c55e1
+ms.lasthandoff: 03/23/2017
 
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication---public-preview"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication - Anteprima pubblica
@@ -80,7 +80,7 @@ Dopo aver completato l'installazione, il programma di installazione crea uno scr
 -    Concedere l'accesso alla chiave privata del certificato all'utente di rete.
 -    Riavviare il Server dei criteri di rete.
 
-A meno che non si desideri utilizzare i propri certificati (invece dei certificati autofirmati generati dallo script di PowerShell), eseguire lo script di PowerShell per completare l'installazione.
+A meno che non si desideri utilizzare i propri certificati (invece dei certificati autofirmati generati dallo script di PowerShell), eseguire lo script di PowerShell per completare l'installazione. Se si installa l'estensione su più server, ciascuno di essi deve avere il proprio certificato in modo che non ci siano tempi di inattività al momento del rinnovo dei certificati. 
 
 ## <a name="configure-your-nps-extension"></a>Configurare l'estensione di Server dei criteri di rete
 

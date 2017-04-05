@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 1095267ce0c2a922d4bd9cb95a607ce8993df310
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 9b0936299d506e951e45d54f630657c187ec6820
+ms.lasthandoff: 03/24/2017
 
 
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Soluzioni di monitoraggio di rete di Azure in Log Analytics
 
 Log Analytics offre le seguenti soluzioni per il monitoraggio delle reti:
-* Monitoraggio delle prestazioni di rete
+* Monitoraggio delle prestazioni di rete per
  * Verificare l'integrità della rete
 * Azure Application Gateway Analytics per analizzare
  * Log di gateway applicazione di Azure
@@ -37,8 +37,6 @@ La soluzione di gestione [Monitoraggio delle prestazioni di rete](log-analytics-
 * cloud pubblico e risorse locali 
 * data center e percorsi utente (filiali)
 * subnet che ospita i diversi livelli di un'applicazione a più livelli.
-
- ![immagine di Monitoraggio delle prestazioni di rete](./media/log-analytics-network-performance-monitor/npm-topology.png)
 
 Per altre informazioni, vedere [Monitoraggio delle prestazioni di rete](log-analytics-network-performance-monitor.md).
 
@@ -76,7 +74,7 @@ I log seguenti sono supportati per i gateway applicazione:
 
 Le metriche seguenti sono supportate per i gateway applicazione:
 
-* Velocità effettiva di&5; minuti
+* Velocità effettiva di 5 minuti
 
 ### <a name="install-and-configure-the-solution"></a>Installare e configurare la soluzione
 Usare le istruzioni seguenti per installare e configurare la soluzione di analisi del gateway applicazione di Azure:

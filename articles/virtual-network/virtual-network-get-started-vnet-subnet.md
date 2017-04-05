@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 81c9313635f382252550a4c0dcc7a707e9f365fb
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: c731099cb91512f3bf0ecc2ffa5258788c90cd1b
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -101,7 +101,7 @@ Per creare la VM del server Web, seguire questa procedura:
     |**Gruppo di risorse**|**Usare il gruppo di risorse esistente:** Selezionare *MyRG*|Anche se in questo esercizio viene usato lo stesso gruppo di risorse definito per la rete virtuale, non è necessario che le risorse siano presenti nello stesso gruppo.|
     |**Posizione**|*Stati Uniti occidentali*|La posizione deve essere quella selezionata al passaggio 5 della sezione [Creare una rete virtuale con due subnet](#create-vnet) di questo articolo. Le VM e le reti virtuali a cui queste si connettono devono trovarsi nella stessa posizione.|
 
-4. Nel pannello **Scegli una dimensione** fare clic su *DS1_V2 Standard* e quindi su **Seleziona**. Per un elenco di tutte le dimensioni di VM Windows supportate da Azure, vedere l'articolo [Dimensioni per le macchine virtuali Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+4. Nel pannello **Scegli una dimensione** fare clic su *DS1_V2 Standard* e quindi su **Seleziona**. Per un elenco di tutte le dimensioni di VM Windows supportate da Azure, vedere l'articolo [Dimensioni per le macchine virtuali Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 5. Nel pannello **Impostazioni** immettere o selezionare i valori seguenti e quindi fare clic su **OK**:
 
     |**Impostazione**|**Valore**|**Dettagli**|
@@ -111,7 +111,7 @@ Per creare la VM del server Web, seguire questa procedura:
     |**Subnet**|Selezionare *Front-end*|È possibile selezionare qualsiasi subnet presente all'interno della rete virtuale.|
     |**Indirizzo IP pubblico**|Accettare il valore predefinito|Un indirizzo IP pubblico consente di connettersi alla VM da Internet. Per altre informazioni sugli indirizzi IP pubblici, vedere l'articolo [Indirizzi IP](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).|
     |**Gruppo di sicurezza di rete (firewall)**|Accettare il valore predefinito|Fare clic sul gruppo di sicurezza di rete predefinito **(nuovo) MyWebServer-nsg** creato dal portale per visualizzarne le impostazioni. Nel pannello **Crea gruppo di sicurezza di rete** visualizzato è presente una regola in ingresso che consente il traffico TCP/3389 (RDP) da qualsiasi indirizzo IP di origine.|
-    |**Tutti gli altri valori**|Accettare i valori predefiniti|Per altre informazioni sulle impostazioni rimanenti, vedere l'articolo [Panoramica delle macchine virtuali](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
+    |**Tutti gli altri valori**|Accettare i valori predefiniti|Per altre informazioni sulle impostazioni rimanenti, vedere l'articolo [Panoramica delle macchine virtuali](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
 
     I gruppi di sicurezza di rete consentono di creare regole in ingresso e in uscita per il tipo di traffico di rete in ingresso e in uscita dalla VM. Per impostazione predefinita, tutto il traffico in ingresso alla VM viene rifiutato. È possibile aggiungere altre regole in ingresso per TCP/80 (HTTP) e TCP/443 (HTTPS) per un server Web di produzione. Non sono presenti regole per il traffico in uscita perché tutto il traffico in uscita è consentito per impostazione predefinita. È possibile aggiungere o rimuovere regole per controllare il traffico in base ai propri criteri. Per altre informazioni sui gruppi di sicurezza di rete, vedere l'articolo [Gruppi di sicurezza di rete](virtual-networks-nsg.md).
 
@@ -160,7 +160,7 @@ Anche se sono state create una rete virtuale e due VM, il portale di Azure ha cr
 
     ![Contenuto del gruppo di risorse](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-Per altre informazioni, vedere gli articoli introduttivi relativi a [macchine virtuali](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [dischi](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [account di archiviazione](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). È possibile visualizzare i due gruppi di sicurezza di rete creati automaticamente dal portale. È inoltre possibile notare che il portale ha creato due risorse scheda di interfaccia di rete. Una scheda di interfaccia di rete consente a una VM di connettersi ad altre risorse attraverso la rete virtuale. Per altre informazioni, vedere l'articolo [Interfacce di rete](virtual-network-network-interface.md). Il portale ha creato anche una risorsa indirizzo IP pubblico. Un indirizzo IP pubblico consiste in una singola impostazione per una risorsa indirizzo IP pubblico. Per altre informazioni sugli indirizzi IP pubblici, vedere l'articolo [Indirizzi IP](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
+Per altre informazioni, vedere gli articoli introduttivi relativi a [macchine virtuali](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [dischi](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [account di archiviazione](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). È possibile visualizzare i due gruppi di sicurezza di rete creati automaticamente dal portale. È inoltre possibile notare che il portale ha creato due risorse scheda di interfaccia di rete. Una scheda di interfaccia di rete consente a una VM di connettersi ad altre risorse attraverso la rete virtuale. Per altre informazioni, vedere l'articolo [Interfacce di rete](virtual-network-network-interface.md). Il portale ha creato anche una risorsa indirizzo IP pubblico. Un indirizzo IP pubblico consiste in una singola impostazione per una risorsa indirizzo IP pubblico. Per altre informazioni sugli indirizzi IP pubblici, vedere l'articolo [Indirizzi IP](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 
 ## <a name="connect-to-from-vms"></a>Connettersi alle VM
 
@@ -252,5 +252,5 @@ In questo esercizio sono state create una rete virtuale e due VM. Durante la cre
 - [Indirizzi IP pubblici](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
 - [Interfacce di rete](virtual-network-network-interface.md)
 - [Gruppi di sicurezza di rete](virtual-networks-nsg.md)
-- [Macchine virtuali](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Macchine virtuali](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 

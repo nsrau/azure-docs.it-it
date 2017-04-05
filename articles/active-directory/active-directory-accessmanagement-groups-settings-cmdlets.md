@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 5c30f459d9fed71fede2da71306a9b48892566f3
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 0553c29e12d7cb09c8edd291d3bfb36c4fd2ffcc
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo
 
-Nota: questo contenuto si applica solo ai gruppi unificati, noti anche come gruppi di Office 365.
+Nota: questo contenuto si applica solo ai gruppi unificati, noti anche come gruppi di Office 365. Questi cmdlet sono attualmente in anteprima pubblica.
 
 Le impostazioni dei gruppi di Office365 vengono configurare con un oggetto Settings e un oggetto SettingsTemplate. Inizialmente, nella directory non sarà presente alcun oggetto Settings. Ciò significa che la directory è configurata con le impostazioni predefinite. Per modificare le impostazioni predefinite, sarà necessario creare un nuovo oggetto Settings usando un modello di impostazioni. I modelli di impostazioni sono definiti da Microsoft. Sono disponibili diversi modelli di impostazioni. Per configurare le impostazioni di gruppo per la directory, si userà il modello denominato "Group.Unified". Per configurare le impostazioni di gruppo per un singolo gruppo, si userà il modello denominato "Group.Unified.Guest". Questo modello viene usato per gestire l'accesso guest a un gruppo. 
 
-I cmdlet fanno parte del Modulo PowerShell di Azure Active Directory versione 2. Per altre informazioni su questo modulo e per istruzioni su come scaricare e installare il modulo nel computer in uso, vedere [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/en-us/powershell/azuread/) (PowerShell di Azure Active Directory versione 2).
+I cmdlet fanno parte del Modulo PowerShell di Azure Active Directory versione 2. Per altre informazioni su questo modulo e per istruzioni su come scaricare e installare il modulo nel computer in uso, vedere [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/en-us/powershell/azuread/) (PowerShell di Azure Active Directory versione 2). Si noti che poiché questi cmdlet sono attualmente in anteprima pubblica, è necessario installare la versione di anteprima del modulo disponibile [qui](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.85).
 
 ## <a name="create-settings-at-the-directory-level"></a>Creare le impostazioni a livello di directory
 I passaggi seguenti consentono di creare le impostazioni a livello di directory, applicabili a tutti i gruppi unificati presenti nella directory stessa.

@@ -4,6 +4,7 @@
 # Attività iniziali
 ## [Distribuire un set di scalabilità nel portale](virtual-machine-scale-sets-portal-create.md)
 ## [Distribuire un set di scalabilità con PowerShell o l'interfaccia della riga di comando di Azure](virtual-machine-scale-sets-create.md)
+## [Distribuire un'app di scalabilità automatica usando un modello](virtual-machine-scale-sets-deploy-scaling-app-template.md)
 
 # Procedure
 ## Pianificare e progettare

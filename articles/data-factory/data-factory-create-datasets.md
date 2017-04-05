@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 1/30/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 2ed6b838608f0f2249ef16b62ff2fb0159fc6e7f
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 34148a8fe2fe5b9ebd2ff4a01ff523f7f5a74c67
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -104,7 +105,7 @@ Tenere presente quanto segue:
 
 * type è impostato su AzureSqlTable.
 * La proprietà del tipo tableName, specifica del tipo AzureSqlTable, è impostata su MyTable.
-* linkedServiceName fa riferimento a un servizio collegato di tipo AzureSqlDatabase. Vedere la definizione del servizio collegato di seguito.
+* linkedServiceName fa riferimento a un servizio collegato di tipo AzureSqlDatabase, che è definito nel seguente frammento di codice JSON.
 * availability frequency è impostata su Day e interval è impostato su 1 e significa che la sezione viene generata ogni giorno.  
 
 AzureSqlLinkedService è definito come segue:
@@ -134,11 +135,11 @@ Come si può notare, il servizio collegato definisce come connettersi a un datab
 >
 >
 
-## <a name="a-nametypea-dataset-type"></a><a name="Type"></a> Tipo di set di dati
+## <a name="Type"></a> Tipo di set di dati
 Le origini dati supportate e i tipi di set di dati sono allineati. Per altre informazioni sui tipi e sulla configurazione dei set di dati, vedere gli argomenti citati nell'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md#supported-data-stores-and-formats) . Ad esempio, se si usano dati da un database SQL di Azure, fare clic su Database SQL di Azure nell'elenco di archivi dati supportati per visualizzare informazioni dettagliate.  
 
-## <a name="a-namestructureadataset-structure"></a><a name="Structure"></a>Struttura del set di dati
-La sezione **structure** definisce lo schema del set di dati. Contiene una raccolta di nomi e tipi di dati delle colonne.  Nell'esempio seguente il set di dati ha tre colonne, ovvero slicetimestamp, projectname e pageviews, che sono rispettivamente di tipo String, String e Decimal.
+## <a name="Structure"></a>Struttura del set di dati
+La sezione **structure** è una sezione **opzionale** che definisce lo schema del set di dati. Contiene una raccolta di nomi e tipi di dati delle colonne. Si usa la sezione della struttura per fornire informazioni sul tipo per le **conversioni di tipi** o per eseguire il **mapping di colonne**. Nell'esempio seguente il set di dati ha tre colonne, ovvero `slicetimestamp`, `projectname` e `pageviews`, che sono rispettivamente di tipo String, String e Decimal.
 
 ```json
 structure:  
@@ -149,7 +150,28 @@ structure:
 ]
 ```
 
-## <a name="a-nameavailabilitya-dataset-availability"></a><a name="Availability"></a> Disponibilità dei set di dati
+Ogni colonna contiene le proprietà seguenti:
+
+| Proprietà | Descrizione | Obbligatorio |
+| --- | --- | --- |
+| name |Nome della colonna. |Sì |
+| type |Tipo di dati della colonna.  |No |
+| culture |Impostazioni cultura basate su .NET da usare quando il tipo è specificato ed un tipo .NET `Datetime` o `Datetimeoffset`. Il valore predefinito è "en-us". |No |
+| format |Stringa di formato da usare quando il tipo è specificato ed è un tipo .NET `Datetime` o `Datetimeoffset`. |No |
+
+Attenersi alle linee guida seguenti per decidere il momento in cui includere informazioni su "structure" e gli elementi da inserire nella sezione **structure** .
+
+* **Per le origini dati strutturate** in cui, oltre a informazioni sullo schema e sul tipo di dati, sono archiviati i dati stessi, ovvero origini come tabelle di SQL Server, Oracle, Azure e così via, è necessario specificare la sezione "structure" solo se si vuole eseguire il mapping delle colonne di origine alle colonne del sink e i relativi nomi non sono uguali. 
+  
+    Poiché per le origini dati strutturate le informazioni sul tipo sono già disponibili, non si deve includere le informazioni sul tipo quando si include la sezione "structure".
+* **Per lo schema delle origini dati di lettura, in particolare BLOB di Azure**, è possibile scegliere di archiviare i dati senza aggiungere alcuna informazione sullo schema o sul tipo. Per questi tipi di origini dati, includere "structure" quando si desidera eseguire il mapping delle colonne di origine alle colonne del sink (o) quando il set di dati è un set di dati di input per un'attività di copia e i tipi di dati del set di dati di origine devono essere convertiti nei tipi nativi per il sink. 
+    
+    Data Factory supporta i valori di tipo basati su .NET conformi a CLS per specificare informazioni sul tipo nella sezione "structure" in relazione allo schema su origini dati di lettura come BLOB di Azure: Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset, Timespan.
+
+La data factory esegue automaticamente le conversioni quando si spostano dati da un archivio dati di origine a un archivio dati di sink. 
+  
+
+## <a name="Availability"></a> Disponibilità dei set di dati
 La sezione **availability** in un set di dati definisce la frequenza di elaborazione, vale a dire oraria, giornaliera, settimanale e così via, oppure il modello di sezionamento per il set di dati. Vedere l'articolo [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md) per altre informazioni sul modello di sezionamento e dipendenza di set di dati.
 
 La sezione availability seguente specifica che il set di dati di output viene generato ogni ora oppure che il set di dati di input è disponibile ogni ora:
@@ -166,11 +188,11 @@ La tabella seguente descrive le proprietà che è possibile usare nella sezione 
 
 | Proprietà | Descrizione | Obbligatorio | Default |
 | --- | --- | --- | --- |
-| frequency |Specifica l'unità di tempo per la produzione di sezioni di set di dati.<br/><br/>**Frequenza supportata**: minuto, ora, giorno, settimana, mese |Sì |ND |
-| interval |Specifica un moltiplicatore per la frequenza.<br/><br/>"Intervallo di frequenza x" determina la frequenza con cui viene generata la sezione.<br/><br/>Se è necessario suddividere il set di dati su base oraria, impostare l'opzione **Frequenza** su **Ora** e **Intervallo** su **1**.<br/><br/>**Nota** : se si specifica frequency come Minute, è consigliabile impostare interval su un valore non inferiore a 15. |Sì |ND |
+| frequency |Specifica l'unità di tempo per la produzione di sezioni di set di dati.<br/><br/><b>Frequenza supportata</b>: minuto, ora, giorno, settimana, mese |Sì |ND |
+| interval |Specifica un moltiplicatore per la frequenza.<br/><br/>"Intervallo di frequenza x" determina la frequenza con cui viene generata la sezione.<br/><br/>Se è necessario suddividere il set di dati su base oraria, impostare l'opzione <b>Frequenza</b> su <b>Ora</b> e <b>Intervallo</b> su <b>1</b>.<br/><br/><b>Nota</b> : se si specifica frequency come Minute, è consigliabile impostare interval su un valore non inferiore a 15 |Sì |ND |
 | style |Specifica se la sezione deve essere generata all'inizio o alla fine dell'intervallo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Se frequency è impostato su Month e style è impostato su EndOfInterval, la sezione viene generata l'ultimo giorno del mese. Se style è impostato su StartOfInterval, la sezione viene generata il primo giorno del mese.<br/><br/>Se l'opzione Frequnza è impostata su Mese e l'opzione Stile è impostata su EndOfInterval, la sezione viene generata l'ultima ora del giorno.<br/><br/>Se frequency è impostato su Hour e style è impostato su EndOfInterval, la sezione viene generata alla fine dell'ora. Ad esempio, una sezione per il periodo 13.00 - 14.00 viene generata alle 14.00. |No |EndOfInterval |
-| anchorDateTime |Definisce la posizione assoluta nel tempo usata dall'utilità di pianificazione per calcolare i limiti della sezione del set di dati. <br/><br/>**Nota:** se AnchorDateTime include parti della data più granulari rispetto alla frequenza, le parti più granulari vengono ignorate. <br/><br/>Ad esempio, se l'**intervallo** è **orario** (ovvero frequenza: ora e intervallo: 1) e **AnchorDateTime** contiene **minuti e secondi**, le parti **minuti e secondi** di AnchorDateTime vengono ignorate. |No |01/01/0001 |
-| offset |Intervallo di tempo in base al quale l'inizio e la fine di tutte le sezioni dei set di dati vengono spostate. <br/><br/>**Nota:** se vengono specificati sia anchorDateTime che offset, il risultato sarà lo spostamento combinato. |No |ND |
+| anchorDateTime |Definisce la posizione assoluta nel tempo usata dall'utilità di pianificazione per calcolare i limiti della sezione del set di dati. <br/><br/><b>Nota:</b> se AnchorDateTime include parti della data più granulari rispetto alla frequenza, le parti più granulari vengono ignorate. <br/><br/>Ad esempio, se l'<b>intervallo</b> è <b>orario</b> (ovvero frequenza: ora e intervallo: 1) e <b>AnchorDateTime</b> contiene <b>minuti e secondi</b>, le parti <b>minuti e secondi</b> di AnchorDateTime vengono ignorate. |No |01/01/0001 |
+| offset |Intervallo di tempo in base al quale l'inizio e la fine di tutte le sezioni dei set di dati vengono spostate. <br/><br/><b>Nota:</b> se vengono specificati sia anchorDateTime che offset, il risultato sarà lo spostamento combinato. |No |ND |
 
 ### <a name="offset-example"></a>Esempio di offset
 Sezioni giornaliere che iniziano alle 6.00 invece che alla mezzanotte predefinita.
@@ -220,7 +242,7 @@ Se è necessario un set di dati su base mensile in una data e a un'ora specifich
 }
 ```
 
-## <a name="a-namepolicyadataset-policy"></a><a name="Policy"></a>Criteri di set di dati
+## <a name="Policy"></a>Criteri di set di dati
 La sezione **policy** nella definizione del set di dati stabilisce i criteri o la condizione che le sezioni del set di dati devono soddisfare.
 
 ### <a name="validation-policies"></a>Criteri di convalida
@@ -365,9 +387,4 @@ A meno che un set di dati non sia generato da Azure Data Factory, deve essere co
     }
 }
 ```
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

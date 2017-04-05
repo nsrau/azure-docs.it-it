@@ -46,6 +46,9 @@
 ### [Utilità di pianificazione](active-directory-aadconnectsync-feature-scheduler.md)
 ### [Estensioni della directory](active-directory-aadconnectsync-feature-directory-extensions.md)
 
+### [Modifica della password dell'account del servizio Azure AD Sync](active-directory-aadconnectsync-change-serviceacct-pass.md)
+### [Abilitare il Cestino di AD](active-directory-aadconnectsync-recycle-bin.md)
+
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
 #### [Operazioni](active-directory-aadconnectsync-service-manager-ui-operations.md)
 #### [Connettori](active-directory-aadconnectsync-service-manager-ui-connectors.md)

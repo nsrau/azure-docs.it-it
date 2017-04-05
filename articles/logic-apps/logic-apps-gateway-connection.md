@@ -15,9 +15,9 @@ ms.workload: integration
 ms.date: 07/05/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: ce0be184fe11a7e5873639d79961e98de730ec86
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: ef7df25d8080cae41235dffb287906508d4a652d
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -58,6 +58,10 @@ Se l'utente non lo hai già fatto, seguire questa procedura per [installare il g
 
 Dopo l'installazione del gateway, è necessario associare la sottoscrizione di Azure al gateway.
 
+> [!IMPORTANT] 
+> Assicurarsi che la risorsa gateway venga creata nella stessa area di Azure in cui si trova l'app per la logica. Se non si esegue la distribuzione nella stessa area, non sarà accessibile nella app per la logica. 
+> 
+
 1. Accedere ad Azure con lo stesso indirizzo di posta elettronica aziendale o dell'istituto di istruzione usato durante l'installazione del gateway.
 2. Scegliere **Nuovo**.
 3. Trovare e selezionare **Gateway dati locale**.
@@ -80,6 +84,11 @@ Ora che la sottoscrizione di Azure è associata a un'istanza del gateway dati lo
 4. Scegliere **Crea** per creare la connessione.
 
 La connessione è ora configurata per l'app per la logica da usare.
+
+## <a name="data-gateway-connection-modifications"></a>Modifiche della connessione al gateway dati
+Dopo avere aggiunto all'app per la logica la connessione al gateway dati, potrebbe essere necessario modificarla per eseguire impostazioni specifiche per questa connessione. La connessione è disponibile in una delle due posizioni:
+* Nel pannello principale dell'app per la logica verrà visualizzato un riquadro per le connessioni API nella sezione Strumenti di sviluppo. Scegliere di visualizzare tutte le connessioni API associate all'app per la logica, una delle quali sarà la connessione al gateway dati. Con questa selezione è possibile quindi visualizzare e modificare le impostazioni associate alla connessione.
+* Selezionando il pannello principale delle connessioni API verranno mostrate tutte le connessioni API nella sottoscrizione. Questo elenco includerà la connessione al gateway dati. Con questa selezione è possibile visualizzare e modificare le impostazioni associate alla connessione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -2,8 +2,8 @@ Ci sono varie ragioni alla base dell'impossibilità di avviare o di connettersi 
 
 Se si sono verificati problemi durante la connessione alla VM tramite RDP o SSH, consultare prima uno dei seguenti articoli:
 
-* [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure che esegue Windows](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure che esegue Windows](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!NOTE]
 > Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../articles/resource-manager-deployment-model.md). In questo articolo viene illustrato l'utilizzo di entrambi i modelli, ma Microsoft indica che le distribuzioni più nuove utilizzano il modello di gestione delle.
@@ -21,8 +21,8 @@ Nel caso di problemi di connessione a un'applicazione, provare con i seguenti pa
   * [Modello di Resource Manager: Gestire gruppi di sicurezza di rete](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 * Connettersi da un percorso diverso, ad esempio da una diversa rete virtuale di Azure
 * Ridistribuire la macchina virtuale
-  * [Ridistribuire una VM Windows](../articles/virtual-machines/virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-  * [Ridistribuire una VM Linux](../articles/virtual-machines/virtual-machines-linux-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+  * [Ridistribuire una VM Windows](../articles/virtual-machines/windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+  * [Ridistribuire una VM Linux](../articles/virtual-machines/linux/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * Ricreare la macchina virtuale
 
 Per ulteriori informazioni, vedere [Risoluzione dei problemi di connettività dell’Endpoint (errori RDP/SSH/HTTP, ecc.)](https://social.msdn.microsoft.com/Forums/azure/en-US/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows).
@@ -115,7 +115,7 @@ Se è possibile accedere all'applicazione, verificare che il dispositivo perifer
 * Il traffico di risposta dell’applicazione in ingresso dalla macchina virtuale di Azure.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
-[Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure che esegue Windows](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure che esegue Windows](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

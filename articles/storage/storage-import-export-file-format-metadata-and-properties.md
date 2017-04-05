@@ -1,6 +1,6 @@
 ---
 title: "Formato di file dei metadati e delle proprietà del servizio Importazione/Esportazione di Azure | Documentazione Microsoft"
-description: "Informazioni su come specificare i metadati e le proprietà per uno o più BLOB che fanno parte di un processo di importazione o esportazione"
+description: "Informazioni su come specificare i metadati e le proprietà per uno o più BLOB nell&quot;ambito di un processo di importazione o esportazione."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
-ms.openlocfilehash: 0cac5419d4b481a5b783b4b9fbd4ad2d4d637042
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 9aa7815eae9ae3c1771cd0efdc8b9db4ad2e0b65
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -69,6 +69,8 @@ Il formato di un file delle proprietà è indicato di seguito:
 |`Content-Encoding`|String|Facoltativa. La codifica del contenuto del BLOB.|  
 |`Content-Language`|String|Facoltativa. La lingua del contenuto del BLOB.|  
 |`Cache-Control`|String|Facoltativa. La stringa di controllo della cache per il BLOB.|  
-  
- Per le regole dettagliate sull'impostazione dei metadati e delle proprietà di un BLOB, vedere [Impostare le proprietà di un BLOB](/rest/api/storageservices/fileservices/set-blob-properties), [Impostare i metadati di un BLOB](/rest/api/storageservices/fileservices/set-blob-metadata) e [Impostazione e recupero di proprietà e metadati per le risorse BLOB](/rest/api/storageservices/fileservices/setting-and-retrieving-properties-and-metadata-for-blob-resources).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per le regole dettagliate sull'impostazione dei metadati e delle proprietà di un BLOB, vedere [Set blob properties](/rest/api/storageservices/fileservices/set-blob-properties) (Impostare le proprietà di un BLOB), [Set Blob Metadata](/rest/api/storageservices/fileservices/set-blob-metadata) (Impostare i metadati di un BLOB) e [Setting and retrieving properties and metadata for blob resources](/rest/api/storageservices/fileservices/setting-and-retrieving-properties-and-metadata-for-blob-resources) (Impostazione e recupero di proprietà e metadati per le risorse BLOB).
 

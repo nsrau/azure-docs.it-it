@@ -1,6 +1,6 @@
 ---
-title: Guida di riferimento rapido per i comandi per il processo di importazione dello strumento di importazione/esportazione di Azure | Documentazione Microsoft
-description: Guida di riferimento per i comandi dello strumento di importazione/esportazione di Azure utilizzati di frequente per i processi di importazione. Si riferisce alla versione 1 dello strumento di importazione/esportazione.
+title: Informazioni di riferimento rapido sui comandi per i processi di importazione dello strumento Importazione/Esportazione di Azure - versione 1 | Documentazione Microsoft
+description: Guida di riferimento per i comandi dello strumento Importazione/Esportazione di Azure usati di frequente per i processi di importazione. Si riferisce alla versione 1 dello strumento Importazione/Esportazione.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,13 +15,14 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 0c58a94a553a22ac06bfdfd8032879f4a4a87fe5
-ms.openlocfilehash: e1c440ee165d148b59f29035b853cd8e13a44e7c
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 632100f324c47d69f64cff020aafbaa300ae8c2b
+ms.lasthandoff: 03/30/2017
 
 
 ---
-# <a name="quick-reference-for-frequently-used-commands-for-import-jobs"></a>Guida di riferimento rapido per i comandi di uso frequente per i processi di importazione
-In questa sezione vengono forniti riferimenti rapidi per alcuni comandi utilizzati di frequente. Per informazioni dettagliate sull'uso, vedere [Preparazione dei dischi rigidi per un processo di importazione](storage-import-export-tool-preparing-hard-drives-import-v1.md).  
+# <a name="quick-reference-for-frequently-used-commands-for-import-jobs"></a>Informazioni di riferimento rapido sui comandi di uso frequente per i processi di importazione
+In questa sezione vengono forniti riferimenti rapidi per alcuni comandi usati di frequente. Per informazioni dettagliate sull'uso, vedere [Preparazione dei dischi rigidi per un processo di importazione](storage-import-export-tool-preparing-hard-drives-import-v1.md).  
 
 ## <a name="prepare-the-disks-when-data-already-copied-to-the-disks"></a>Preparare i dischi quando i dati sono già copiati nei dischi
  Ecco un comando di esempio per preparare un disco quando i dati sono già copiati nel disco rigido non ancora crittografato con BitLocker:  
@@ -40,7 +41,7 @@ WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:movies /logdir:c:\logs /sk:8
 ## <a name="copy-wwo-directories-to-a-hard-drive"></a>Copiare due directory in un disco rigido  
  Per copiare due directory di origine in un'unità, sarà necessario usare due comandi.  
   
- Il primo comando specifica la directory di registro, la chiave dell'account di archiviazione, lettera dell'unità di destinazione e i requisiti `format/encrypt`, nonché i parametri comuni:  
+ Il primo comando specifica la directory di log, la chiave dell'account di archiviazione, la lettera dell'unità di destinazione e i requisiti `format/encrypt`, oltre ai parametri comuni:  
   
 ```  
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:movies /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:x /format /encrypt /srcdir:d:\Movies /dstdir:entertainment/movies/  
@@ -59,11 +60,7 @@ WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:music /srcdir:d:\Music /dstd
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:dvd /srcfile:d:\dvd\favoritemovie.vhd /dstblob:dvd/favoritemovie.vhd  
 ```  
   
-## <a name="see-also"></a>Vedere anche  
- [Flusso di lavoro di esempio per preparare i dischi rigidi per un processo di importazione](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
+## <a name="next-steps"></a>Passaggi successivi
 
-
-
-<!--HONumber=Dec16_HO3-->
-
+* [Sample workflow to prepare hard drives for an import job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md) (Flusso di lavoro campione per preparare i dischi rigidi per un processo di importazione)
 

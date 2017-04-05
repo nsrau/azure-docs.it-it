@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 03/24/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: f4c225c97ac997c412704b278c033c519d4424ed
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 25e266441e902a06d980b3b51abdd4fcf668d4d2
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -95,6 +95,8 @@ Quando sia gli archivi dati di origine che gli archivi dati sink risiedono nel c
 | Brasile | Brasile meridionale | Brasile meridionale |
 | Europa | Europa settentrionale | Europa settentrionale |
 | &nbsp; | Europa occidentale | Europa occidentale |
+| Regno Unito | Regno Unito occidentale | Regno Unito meridionale |
+| &nbsp; | Regno Unito meridionale | Regno Unito meridionale |
 | Asia/Pacifico | Asia sudorientale | Asia sudorientale |
 | &nbsp; | Asia orientale | Asia sudorientale |
 | Australia | Australia orientale | Australia orientale |
@@ -105,7 +107,7 @@ Quando sia gli archivi dati di origine che gli archivi dati sink risiedono nel c
 | &nbsp; | India occidentale | India centrale |
 | &nbsp; | India meridionale | India centrale |
 
-In alternativa, è possibile indicare esplicitamente l'area del servizio Data Factory da usare per eseguire la copia specificando la proprietà `executionLocation` in `typeProperties` nell'attività di copia. I valori supportati per questa proprietà sono elencati nella colonna **Area usata per lo spostamento dei dati** precedente. Si noti che i dati verranno trasferiti in rete attraverso tale area durante la copia. Ad esempio, per eseguire la copia tra archivi di Azure nel Regno Unito è possibile specificare `"executionLocation": "North Europe"` per instradare i dati tramite l'Europa settentrionale (vedere l'[esempio JSON](#by-using-json-scripts) come riferimento).
+In alternativa, è possibile indicare esplicitamente l'area del servizio Data Factory da usare per eseguire la copia specificando la proprietà `executionLocation` in `typeProperties` nell'attività di copia. I valori supportati per questa proprietà sono elencati nella colonna **Area usata per lo spostamento dei dati** precedente. Si noti che i dati verranno trasferiti in rete attraverso tale area durante la copia. Ad esempio, per eseguire la copia tra archivi di Azure in Corea è possibile specificare `"executionLocation": "Japan East"` per instradare i dati tramite l'area del Giappone (vedere l'[esempio JSON](#by-using-json-scripts) come riferimento).
 
 > [!NOTE]
 > Se l'area dell'archivio dati di destinazione non è nell'elenco precedente o non è rilevabile, per impostazione predefinita l'attività di copia non viene completata invece di passare attraverso un'area alternativa, a meno che non sia specificato `executionLocation`. L'elenco di aree supportate verrà ampliato nel tempo.
@@ -155,7 +157,7 @@ Di seguito è riportata una definizione JSON di esempio:
           "sink": {
             "type": "SqlSink"
           },
-          "executionLocation": "North Europe"          
+          "executionLocation": "Japan East"          
         },
         "Policy": {
           "concurrency": 1,

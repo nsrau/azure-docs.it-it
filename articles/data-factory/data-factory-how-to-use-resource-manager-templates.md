@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/25/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 6b50b65fa1ad86c8e80fff0fb92352b1be52632e
-ms.openlocfilehash: db7066fb87175caa165d741b63f9b0e3f9ed851c
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 2faab833724bf4bb3f3262517e1d724868f7524d
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -39,7 +40,7 @@ Per istruzioni dettagliate sulla creazione di entità di Data Factory tramite i 
 * [Tutorial: Create a pipeline to copy data by using Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md) (Esercitazione: Creare una pipeline per copiare dati usando il modello di Azure Resource Manager)
 * [Tutorial: Create a pipeline to process data by using Azure Resource Manager template](data-factory-build-your-first-pipeline.md) (Esercitazione: Creare una pipeline per elaborare dati usando il modello di Azure Resource Manager)
 
-## <a name="data-factory-templates-on-github"></a>Modelli di Data Factory in GitHub
+## <a name="data-factory-templates-on-github"></a>Modelli di data factory in GitHub
 Vedere i modelli di avvio rapido di Azure in GitHub elencati di seguito:
 
 * [Create a Data factory to copy data from Azure Blob Storage to Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) (Creare una data factory per copiare dati dall'archivio BLOB di Azure al database SQL di Azure)
@@ -252,9 +253,4 @@ Se è necessario eseguire il pull di segreti dall'[Insieme di credenziali delle 
 > Attualmente l'esportazione di modelli per le data factory esistenti non è ancora supportata, ma è in via di realizzazione.
 >
 >
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

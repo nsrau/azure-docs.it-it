@@ -21,4 +21,4 @@
 | Max operazioni IOPS per VM |80.000 IOPS con VM GS5<sup>1</sup> |
 | Max velocità effettiva per VM |2000 MB/s con VM GS5<sup>1</sup> |
 
-<sup>1</sup>Consultare [Dimensioni VM](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per conoscere i limiti delle VM di altre dimensioni. 
+<sup>1</sup>Consultare [Dimensioni VM](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per conoscere i limiti delle VM di altre dimensioni. 

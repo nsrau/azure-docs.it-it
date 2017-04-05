@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: bdaf5afff8466a189afe96517135b1b347b85550
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: a39ce143796408f8e44b0d2c877e631e92473462
+ms.lasthandoff: 03/28/2017
 
 ---
 
@@ -50,7 +50,7 @@ FeatureName         ProviderName      RegistrationState
 AllowNetworkWatcher Microsoft.Network Registered
 ```
 
-### <a name="instructions-for-cli"></a>Istruzioni per l'interfaccia della riga di comando
+### <a name="instructions-for-cli-10"></a>Istruzioni per l'interfaccia della riga di comando 1.0
 
 Per eseguire la registrazione:
 
@@ -74,6 +74,9 @@ data:    Provider Name:      Microsoft.Network
 data:    Registration State: Registered
 info:    feature show command OK
 ```
+
+> [!NOTE]
+> Dato che Network Watcher supporta attualmente solo l'interfaccia della riga di comando 1.0, le istruzioni fornite per creare una nuova istanza di Network Watcher sono quelle per l'interfaccia della riga di comando 1.0. Per registrare il provider con l'interfaccia della riga di comando 2.0 usare `az feature register -n AllowNetworkWatcher --namespace Microsoft.Network`.
 
 ## <a name="create-a-network-watcher-in-the-portal"></a>Creare un'istanza di Network Watcher nel portale
 

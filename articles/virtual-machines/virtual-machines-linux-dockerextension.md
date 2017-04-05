@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 508c8433620a1ba3feabc1b35ca2ad461680f37c
-ms.openlocfilehash: 0d1146b4e1d707f914fcb535210b71897efd0b29
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: ad69080d2a6a39653291ca42b4aa182090b5bfd9
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -41,7 +41,7 @@ Creare prima un gruppo di risorse con [az group create](/cli/azure/group#create)
  az group create --name myResourceGroup --location westus
 ```
 
-Successivamente, distribuire una macchina virtuale con il comando [az group deployment create](/cli/azure/group/deployment#create) che include l'estensione di VM Docker di Azure da [questo modello di Azure Resource Manager su Github](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Specificare valori personalizzati per `newStorageAccountName`, `adminUsername`, `adminPassword` e `dnsNameForPublicIP`, come indicato di seguito:
+Successivamente, distribuire una macchina virtuale con il comando [az group deployment create](/cli/azure/group/deployment#create) che include l'estensione di VM Docker di Azure da [questo modello di Azure Resource Manager su GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Specificare valori personalizzati per `newStorageAccountName`, `adminUsername`, `adminPassword` e `dnsNameForPublicIP`, come indicato di seguito:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
