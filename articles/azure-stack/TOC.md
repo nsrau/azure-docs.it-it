@@ -65,10 +65,11 @@
 #### [Creare e pubblicare un elemento di Marketplace](azure-stack-create-and-publish-marketplace-item.md)
 #### [Aggiungere un'immagine di macchina virtuale personalizzata](azure-stack-add-vm-image.md)
 #### [Distribuire macchine virtuali Linux](azure-stack-linux.md)
-### Fatturazione e chargeback
-#### [Panoramica della fatturazione e del chargeback](azure-stack-billing-and-chargeback.md)
-#### [API di utilizzo delle risorse dei provider](azure-stack-provider-resource-api.md)
-#### [API di utilizzo delle risorse dei tenant](azure-stack-tenant-resource-usage-api.md)
+### Utilizzo e fatturazione
+#### [Panoramica](azure-stack-billing-and-chargeback.md)
+#### [Creazione di report sui dati di utilizzo](azure-stack-usage-reporting.md)
+#### [API di utilizzo del provider](azure-stack-provider-resource-api.md)
+#### [API di utilizzo del tenant](azure-stack-tenant-resource-usage-api.md)
 #### [Domande frequenti sull'utilizzo](azure-stack-usage-related-faq.md)
 
 # Usare i servizi

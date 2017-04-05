@@ -45,11 +45,11 @@
 
 ## Archiviazione su disco 
 ### [Creare una VM con Resource Manager e PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
-### [Creare una VM Linux usando l'interfaccia della riga di comando di Azure 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
-### [Collegare un disco gestito a una VM Windows tramite PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
-### [Aggiungere un disco gestito a una VM Linux](../virtual-machines/virtual-machines-linux-add-disk.md)
-### [Creare una copia del disco rigido virtuale archiviato come disco gestito usando gli snapshot in Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
-### [Creare una copia del disco rigido virtuale archiviato come disco gestito usando gli snapshot in Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
+### [Creare una VM Linux usando l'interfaccia della riga di comando di Azure 2.0](../virtual-machines/linux/quick-create-cli.md)
+### [Collegare un disco gestito a una VM Windows tramite PowerShell](../virtual-machines/windows/attach-disk-ps.md)
+### [Aggiungere un disco gestito a una VM Linux](../virtual-machines/linux/add-disk.md)
+### [Creare una copia del disco rigido virtuale archiviato come disco gestito usando gli snapshot in Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
+### [Creare una copia del disco rigido virtuale archiviato come disco gestito usando gli snapshot in Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 # Procedure
 ## [Creare un account di archiviazione](storage-create-storage-account.md)
@@ -74,8 +74,8 @@
 ### [Dischi e VHD per VM Windows](storage-about-disks-and-vhds-windows.md)
 ### [Dischi e VHD per VM Linux](storage-about-disks-and-vhds-linux.md)
 ### [Panoramica di Azure Managed Disks](storage-managed-disks-overview.md)
-### [Eseguire la migrazione di macchine virtuali di Azure ad Azure Managed Disks](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
-### [Eseguire la migrazione da AWS e altre piattaforme a Managed Disks](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
+### [Eseguire la migrazione di macchine virtuali di Azure ad Azure Managed Disks](../virtual-machines/windows/migrate-to-managed-disks.md)
+### [Eseguire la migrazione da AWS e altre piattaforme a Managed Disks](../virtual-machines/windows/on-prem-to-azure.md)
 ### [Domande frequenti sui dischi delle macchine virtuali IaaS di Azure](storage-faq-for-disks.md)
 ### Archiviazione Premium
 #### [Archiviazione Premium con prestazioni elevate per dischi delle macchine virtuali](storage-premium-storage.md)
@@ -139,10 +139,10 @@
 #### [Riparazione di un processo di importazione](storage-import-export-tool-repairing-an-import-job-v1.md)
 #### [Riparazione di un processo di esportazione](storage-import-export-tool-repairing-an-export-job-v1.md)
 #### [Risoluzione dei problemi relativi allo strumento Importazione/Esportazione](storage-import-export-tool-troubleshooting-v1.md)
-#### [Formato file manifesto del servizio Importazione-Esportazione](storage-import-export-file-format-manifest.md)
-#### [Formato file proprietà e manifesto del servizio Importazione/Esportazione](storage-import-export-file-format-metadata-and-properties.md)
+#### [Formato di file manifesto del servizio Importazione/Esportazione](storage-import-export-file-format-manifest.md)
+#### [Formato di file di proprietà e metadati del servizio Importazione/Esportazione](storage-import-export-file-format-metadata-and-properties.md)
 #### [Formato file log del servizio Importazione/Esportazione](storage-import-export-file-format-log.md)
-### [Uso dello strumento Importazione/Esportazione - v1](storage-import-export-tool-how-to-v1.md)
+### [Uso dello strumento Importazione/Esportazione (v1)](storage-import-export-tool-how-to-v1.md)
 #### [Configurazione dello strumento Importazione/Esportazione](storage-import-export-tool-setup-v1.md)
 #### [Preparazione dei dischi rigidi per un processo di importazione](storage-import-export-tool-preparing-hard-drives-import-v1.md)
 ##### [Impostazione di proprietà e metadati durante il processo di importazione](storage-import-export-tool-setting-properties-metadata-import-v1.md)
@@ -153,8 +153,8 @@
 #### [Riparazione di un processo di importazione](storage-import-export-tool-repairing-an-import-job-v1.md)
 #### [Riparazione di un processo di esportazione](storage-import-export-tool-repairing-an-export-job-v1.md)
 #### [Risoluzione dei problemi relativi allo strumento Importazione/Esportazione](storage-import-export-tool-troubleshooting-v1.md)
-#### [Formato file manifesto del servizio Importazione-Esportazione](storage-import-export-file-format-manifest.md)
-#### [Formato file proprietà e manifesto del servizio Importazione/Esportazione](storage-import-export-file-format-metadata-and-properties.md)
+#### [Formato di file manifesto del servizio Importazione/Esportazione](storage-import-export-file-format-manifest.md)
+#### [Formato di file di proprietà e metadati del servizio Importazione/Esportazione](storage-import-export-file-format-metadata-and-properties.md)
 #### [Formato file log del servizio Importazione/Esportazione](storage-import-export-file-format-log.md)
 ### [Uso dell'API REST del servizio Importazione/Esportazione di Azure](storage-import-export-using-the-rest-api.md)
 #### [Creazione di un processo di importazione](storage-import-export-creating-an-import-job.md)
@@ -162,9 +162,9 @@
 #### [Recupero delle informazioni sullo stato per un processo](storage-import-export-retrieving-state-info-for-a-job.md)
 #### [Enumerazione dei processi](storage-import-export-enumerating-jobs.md)
 #### [Annullamento ed eliminazione dei processi](storage-import-export-cancelling-and-deleting-jobs.md)
-#### [Backup dei manifesti disco](storage-import-export-backing-up-drive-manifests.md)
+#### [Backup dei manifesti delle unità](storage-import-export-backing-up-drive-manifests.md)
 #### [Diagnostica e ripristino dagli errori per i processi di Importazione/Esportazione](storage-import-export-diagnostics-and-error-recovery.md)
-# Riferimenti
+# Riferimento
 ## [PowerShell](/powershell/storage)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/storage)
 ## .NET
@@ -201,6 +201,7 @@
 ## Azure Storage Explorer
 ### [Storage Explorer (anteprima)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 ### [Gestire BLOB con Storage Explorer (anteprima)](../vs-azure-tools-storage-explorer-blobs.md)
+### [Uso di Storage Explorer (anteprima) con Archiviazione file di Azure](../vs-azure-tools-storage-explorer-files.md)
 
 ## Pacchetti NuGet
 ### [Libreria client di archiviazione di Azure per .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
