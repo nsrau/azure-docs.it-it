@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 03/06/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 15692a155cdb55d8dc6eeeb68df264411e46b662
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 61eac09668b14a98a42b1907a54577d80eb933a6
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -47,12 +47,12 @@ Ad esempio, il numero di connessioni a un database SQL e il numero di richieste 
 Sono disponibili livelli di servizio e livelli di prestazioni sia per i database singoli che per i pool elastici.
 
 ### <a name="single-databases"></a>Database singoli
-Per un singolo database, i limiti di un database sono definiti dal livello del servizio del database e dal livello delle prestazioni.. La tabella seguente descrive le caratteristiche dei database Basic, Standard e Premium a diversi livelli di prestazioni.
+Per un singolo database, i limiti di un database sono definiti dal livello del servizio del database e dal livello delle prestazioni. La tabella seguente descrive le caratteristiche dei database Basic, Standard e Premium a diversi livelli di prestazioni.
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 > [!IMPORTANT]
-> I clienti che scelgono livelli di prestazioni P11 e P15 possono usare fino a 4 TB di spazio di archiviazione incluso senza alcun costo aggiuntivo. L'opzione 4 TB è attualmente in anteprima pubblica nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti occidentali, Europa occidentale, Asia sud-orientale, Giappone orientale, Australia orientale, Canada centrale e Canada orientale. Per altre informazioni, vedere le [limitazioni correnti per l'opzione 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize).
+> I clienti che scelgono livelli di prestazioni P11 e P15 possono usare fino a 4 TB di spazio di archiviazione incluso senza alcun costo aggiuntivo. L'opzione 4 TB è attualmente in anteprima pubblica nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti occidentali, Europa occidentale, Asia sud-orientale, Giappone orientale, Australia orientale, Canada centrale e Canada orientale.
 >
 
 ### <a name="elastic-pools"></a>Pool elastici
@@ -67,10 +67,10 @@ Per una definizione espansa di ogni risorsa elencata nelle tabelle precedenti, v
 | --- | --- | --- |
 | Database che usano l'esportazione automatizzata per ogni sottoscrizione |10 |L’esportazione automatizzata consente di creare una pianificazione personalizzata per il backup dei database SQL. L'anteprima di questa funzionalità terminerà il 1° marzo 2017.  |
 | Database per server |Fino a 5000 |Nei server V12 sono permessi fino a 5000 database per server. |
-| DTU per server |45000 |In ogni server V12 sono consentite&45000; DTU per il provisioning di database autonomi e pool elastici. Il numero totale di database autonomi e pool consentito per ogni server è limitato solo dal numero di DTU del server.  
+| DTU per server |45000 |In ogni server V12 sono consentite 45000 DTU per il provisioning di database autonomi e pool elastici. Il numero totale di database autonomi e pool consentito per ogni server è limitato solo dal numero di DTU del server.  
 
 > [!IMPORTANT]
-> La funzionalità di esportazione automatizzata di database SQL di Azure, ora disponibile in anteprima, verrà ritirata il 1° marzo 2017. A partire dal 1° dicembre 2016 non è più possibile configurare l'esportazione automatizzata per i database SQL. Tutti i processi di esportazione automatizzata esistenti continueranno a funzionare fino al 1° marzo 2017. Dal 1° dicembre 2016, è possibile usare la [conservazione dei backup a lungo termine](sql-database-long-term-retention.md) o [Automazione di Azure](../automation/automation-intro.md) per archiviare periodicamente i database SQL con PowerShell in base alla pianificazione desiderata. È possibile scaricare uno [script di esempio da GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export). 
+> La funzionalità di esportazione automatizzata di database SQL di Azure, ora disponibile in anteprima, verrà ritirata il 1° marzo 2017. A partire dal 1° dicembre 2016 non è più possibile configurare l'esportazione automatizzata per i database SQL. Tutti i processi di esportazione automatizzata esistenti continueranno a funzionare fino al 1° marzo 2017. Dal 1° dicembre 2016, è possibile usare la [conservazione dei backup a lungo termine](sql-database-long-term-retention.md) o [Automazione di Azure](../automation/automation-intro.md) per archiviare periodicamente i database SQL con PowerShell in base alla pianificazione desiderata. È possibile scaricare uno [script di esempio da GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export).
 >
 
 
@@ -80,5 +80,4 @@ Per una definizione espansa di ogni risorsa elencata nelle tabelle precedenti, v
 [Livelli di servizio e livelli di prestazioni del database SQL di Azure](sql-database-service-tiers.md)
 
 [Messaggi di errore per programmi client di Database SQL](sql-database-develop-error-messages.md)
-
 
