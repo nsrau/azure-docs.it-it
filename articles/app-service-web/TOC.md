@@ -15,13 +15,6 @@
 ## [PowerShell](app-service-powershell-samples.md) 
 
 # Esercitazioni
-## [Aggiungere funzionalità a un'app Web](app-service-web-get-started-2.md)
-## [App ASP.NET con database SQL](web-sites-dotnet-get-started.md)
-## [App Laravel con MySQL](app-service-web-php-get-started.md)
-## [App Sails.js con database NoSQL](app-service-web-nodejs-sails.md)
-## [App Java con Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
-## [App Java con IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
-## [App Django con MySQL](web-sites-python-ptvs-django-mysql.md)
 
 # Concetti
 ## [Funzionamento del servizio app](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)    
@@ -34,20 +27,25 @@
 # Guide alle procedure
 ## Sviluppare l'app    
 ### ASP.NET
-
+#### [App ASP.NET con database SQL](web-sites-dotnet-get-started.md)
 #### [Sviluppare un'app ASP.NET Core con Visual Studio Code](web-sites-create-web-app-using-vscode.md)
 ### PHP
+#### [App Laravel con MySQL](app-service-web-php-get-started.md)
 #### [Configurare il progetto PHP](web-sites-php-configure.md)
 #### [Configurare un'installazione multisito WordPress](web-sites-php-convert-wordpress-multisite.md) 
 ### Node.js
+#### [App Sails.js con database NoSQL](app-service-web-nodejs-sails.md)
 #### [Usare io.js](web-sites-nodejs-iojs.md)
 #### [Eseguire il debug di app Node.js](web-sites-nodejs-debug.md)
 ### Java
-
+#### [App Java con Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
+#### [App Java con IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
 #### [Usare Azure SDK per Java](java-create-azure-website-using-java-sdk.md)
 #### [Caricare un'app esistente](web-sites-java-add-app.md)
 #### [Eseguire il debug remoto di Eclipse](app-service-web-debug-java-web-app-in-eclipse.md)
 #### [Eseguire il debug remoto di IntelliJ](app-service-web-debug-java-web-app-in-intellij.md)
+### Python
+#### [App Django con MySQL](web-sites-python-ptvs-django-mysql.md)
 
 ### [Inviare messaggi di posta elettronica con SendGrid](sendgrid-dotnet-how-to-send-email.md)
 
@@ -82,6 +80,7 @@
 
 ### [Eseguire la migrazione da IIS](web-sites-migration-from-iis-server.md)
 ### [Eseguire il test in ambiente di produzione](app-service-web-test-in-production-get-start.md)
+### [Aggiungere funzionalità a un'app Web](app-service-web-get-started-2.md)
 
 ## Connettersi a DB/risorse        
 
