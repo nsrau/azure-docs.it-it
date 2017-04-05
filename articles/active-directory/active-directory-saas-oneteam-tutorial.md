@@ -11,12 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 3/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: d3327faa5864b721fff5d3a34389d214b0ae29a9
-ms.openlocfilehash: dab95c2b63e18c2cd21ffb33370ce16404237762
-ms.lasthandoff: 12/16/2016
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: f72a2b50fd315d4fa97bd3ca1a65eff062ee05bb
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -27,7 +27,7 @@ Questa esercitazione descrive come integrare Oneteam con Azure Active Directory 
 L'integrazione di Oneteam con Azure AD offre i vantaggi seguenti:
 
 - È possibile controllare in Azure AD chi può accedere a Oneteam
-- È possibile abilitare gli utenti per l'accesso automatico a Oneteam (Single Sign-On) con i propri account Azure AD
+- È possibile abilitare gli utenti per l'accesso automatico a Oneteam Single Sign-On (SSO) con i propri account Azure AD
 - È possibile gestire gli account da una posizione centrale: il portale di Azure classico
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -37,27 +37,27 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 Per configurare l'integrazione di Azure AD con Oneteam, sono necessari gli elementi seguenti:
 
 - Sottoscrizione di Azure AD.
-- Sottoscrizione di Oneteam abilitata per l'accesso Single Sign-On
+- Sottoscrizione di Oneteam abilitata per l'accesso SSO
 
-
-> [!NOTE]
-> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
-
+>[!NOTE]
+>Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
+>
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+- Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene testato l'accesso SSO di Azure AD in un ambiente di test. 
+
+Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
 1. Aggiunta di Oneteam dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+2. Configurazione e test dell'accesso Single Sign-On (SSO) di Microsoft Azure AD
 
-
-## <a name="adding-oneteam-from-the-gallery"></a>Aggiunta di Oneteam dalla raccolta
+## <a name="add-oneteam-from-the-gallery"></a>Aggiungere Oneteam dalla raccolta
 Per configurare l'integrazione di Oneteam in Azure AD, è necessario aggiungere Oneteam dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Oneteam dalla raccolta, seguire questa procedura:**
@@ -88,25 +88,24 @@ Per configurare l'integrazione di Oneteam in Azure AD, è necessario aggiungere 
 
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-oneteam-tutorial/tutorial_oneteam_0001.png)
 
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
+In questa sezione viene configurato e testato l'accesso SSO di Azure AD con Oneteam con un utente test di nome "Britta Simon".
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Oneteam in base a un utente test di nome "Britta Simon".
-
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Oneteam che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Oneteam.
+Per il funzionamento dell'accesso SSO, Azure AD deve conoscere qual è l'utente di Oneteam che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Oneteam.
 
 La relazione di collegamento viene stabilita assegnando il valore di **nome utente** in Azure AD come valore di **Username** (Nome utente) in Oneteam.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Oneteam, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso SSO di Azure AD con Oneteam, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente test di Oneteam](#creating-a-oneteam-test-user)**: per avere una controparte di Britta Simon in Oneteam collegata alla relativa rappresentazione in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale classico e viene configurato l'accesso Single Sign-On nell'applicazione Oneteam.
+In questa sezione viene abilitato l'accesso SSO di Azure AD nel portale di Azure classico e viene configurato l'accesso Single Sign-On nell'applicazione Oneteam.
 
 
 **Per configurare l'accesso Single Sign-On di Azure AD con Oneteam, seguire questa procedura:**
@@ -122,23 +121,19 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 3. Nella pagina della finestra di dialogo **Configurare le impostazioni dell'app**, se si desidera configurare l'applicazione in **modalità iniziata da IDP**,seguire la procedura seguente e fare clic su **Avanti**:
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-oneteam-tutorial/tutorial_oneteam_03.png)
-
-    a. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://api.one-team.io/teams/<team name>/auth/saml/issuer`.
-
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://api.one-team.io/teams/<team name>/auth/saml/callback`.
-
-    c. Fare clic su **Avanti**.
+  1. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://api.one-team.io/teams/<team name>/auth/saml/issuer`.
+  2. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://api.one-team.io/teams/<team name>/auth/saml/callback`.
+  3. Fare clic su **Avanti**.
 
 4. Se si desidera configurare l'applicazione in **SP initiated mode** (Modalità iniziata dal provider di servizi) nella finestra di dialogo **Configurare le impostazioni dell'app** fare clic su **"Mostra opzioni avanzate (facoltativo)"**, quindi digitare l'**URL di accesso** e fare clic su **Avanti**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-oneteam-tutorial/tutorial_oneteam_04.png)
+  1. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<team name>.one-team.io/`.
+  2. Fare clic su **Avanti**.
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<team name>.one-team.io/`.
-
-    b. Fare clic su **Avanti**.
-
-    > [!NOTE]
-    > È necessario aggiornare questi valori con l'URL di accesso, l'ID e l'URL di risposta effettivo. Per ottenere questi valori, è possibile generare il ticket di supporto per Oneteam da <a href="https://support.one-team.com/hc/en-us/requests/new">qui</a>.
+    >[!NOTE]
+    >È necessario aggiornare questi valori con l'URL di accesso, l'ID e l'URL di risposta effettivo. Per ottenere questi valori, è possibile generare il ticket di supporto per Oneteam da <a href="https://support.one-team.com/hc/en-us/requests/new">qui</a>.
+    >
 
 5. Nella pagina **Configura accesso Single Sign-On in Oneteam** fare clic su **Scarica metadati** e salvare il file sul computer:
 
@@ -154,8 +149,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
   
     ![Single Sign-On di Microsoft Azure AD][11]
 
-
-### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 Questa sezione descrive come creare un utente di test chiamato Britta Simon nel portale classico.
 
 ![Creare un utente di Azure AD][20]
@@ -179,26 +173,18 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
 5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
  
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-oneteam-tutorial/create_aaduser_05.png) 
-
-    a. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
-
-    b. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
-
-    c. Fare clic su **Avanti**.
+ 1. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
+ 2. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
+ 3. Fare clic su **Avanti**.
 
 6.  Nella pagina **Profilo utente** seguire questa procedura:
 
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-oneteam-tutorial/create_aaduser_06.png) 
-
-    a. Nella casella di testo **Nome** digitare **Britta**.  
-
-    b. Nella casella di testo **Cognome** digitare **Simon**.
-
-    c. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
-
-    d. Nell'elenco **Ruolo** selezionare **Utente**.
-
-    e. Fare clic su **Avanti**.
+ 1. Nella casella di testo **Nome** digitare **Britta**.  
+ 2. Nella casella di testo **Cognome** digitare **Simon**.
+ 3. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
+ 4. Nell'elenco **Ruolo** selezionare **Utente**.
+ 5. Fare clic su **Avanti**.
 
 7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
 
@@ -207,24 +193,19 @@ Questa sezione descrive come creare un utente di test chiamato Britta Simon nel 
 8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
 
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-oneteam-tutorial/create_aaduser_08.png) 
+ 1. Prendere nota del valore visualizzato in **Nuova password**.
+ 2. Fare clic su **Completa**.   
 
-    a. Prendere nota del valore visualizzato in **Nuova password**.
-
-    b. Fare clic su **Completa**.   
-
-
-
-### <a name="creating-a-oneteam-test-user"></a>Creazione di un utente test di Oneteam
+### <a name="create-a-oneteam-test-user"></a>Creare un utente test di Oneteam
 
 Questa sezione descrive come creare un utente di nome Britta Simon in Oneteam. Oneteam supporta il provisioning just-in-time, che è abilitato per impostazione predefinita.
 
 Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a Oneteam verrà creato un nuovo utente, se non esiste già.
 
-> [!NOTE]
-> Se è necessario creare manualmente un utente, è possibile generare il ticket di supporto con il team di supporto Oneteam da <a href="https://support.one-team.com/hc/en-us/requests/new">qui</a>.
+>[!NOTE]
+>Se è necessario creare manualmente un utente, è possibile generare il ticket di supporto con il team di supporto Oneteam da <a href="https://support.one-team.com/hc/en-us/requests/new">qui</a>.
 
-
-### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure, concedendole l'accesso a Oneteam.
 
@@ -250,9 +231,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
     
     ![Assegna utente][205]
 
-
-
-### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 

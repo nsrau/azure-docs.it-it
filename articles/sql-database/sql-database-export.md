@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 7b96e8b144f329819596e3ff63e6febbbcc1ffb0
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: ff24360696c54091ab93e7e1c8f28d95c226bc0a
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -60,5 +60,5 @@ Quando è necessario esportare un database per l'archiviazione o lo spostamento 
 
 * Per una descrizione dell'intero processo di migrazione del database del database SQL Server, vedere [Migrare un database di SQL Server nel database SQL di Azure](sql-database-cloud-migrate.md).
 * Per una panoramica su come copiare un database in Azure, vedere [Copiare un database SQL di Azure](sql-database-copy.md).
-* È possibile copiare il database SQL di Azure nell'ambiente Azure usando il [portale di Azure](sql-database-copy-portal.md), [PowerShell](sql-database-copy-powershell.md) o [Transact-SQL](sql-database-copy-transact-sql.md). 
+* È possibile copiare il database SQL di Azure nell'ambiente Azure usando il [portale di Azure](sql-database-copy-portal.md), [PowerShell](scripts/sql-database-copy-database-to-new-server-powershell.md) o [Transact-SQL](sql-database-copy-transact-sql.md). 
 

@@ -15,20 +15,19 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 48ee2a2bd2ecd2f487748588ef2ad3138dd9983b
-ms.openlocfilehash: a113120381c4e83bd64a41fd30beb138cb1dd5fa
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: d95aaf81ee4d9c19549a57dd1af0f79a1e1bffdd
+ms.lasthandoff: 03/30/2017
 
 
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparazione dei dischi rigidi per un processo di importazione
-## <a name="overview"></a>Panoramica
 
 WAImportExport è lo strumento di preparazione e ripristino delle unità che è possibile usare con il [servizio Importazione/Esportazione di Microsoft Azure](storage-import-export-service.md). Questo strumento consente di copiare dati nei dischi rigidi da spedire a un data center di Azure. Al termine di un processo di importazione, è possibile usare lo strumento per ripristinare gli eventuali BLOB danneggiati, mancanti o in conflitto con altri BLOB. Dopo aver ricevuto le unità da un processo di esportazione completato, lo strumento consente di ripristinare gli eventuali file danneggiati o mancanti nelle unità. In questo articolo viene esaminato il funzionamento di questo strumento.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-### <a name="prerequisites-for-running-waimportexportexe"></a>Prerequisiti per l'esecuzione di WAImportExport.exe
+### <a name="requirements-for-waimportexportexe"></a>Requisiti per WAImportExport.exe
 
 - **Configurazione del computer**
   - Windows 7, Windows Server 2008 R2 o un sistema operativo Windows più recente
@@ -52,7 +51,7 @@ WAImportExport è lo strumento di preparazione e ripristino delle unità che è 
 
 ## <a name="download-and-install-waimportexport"></a>Scaricare e installare WAImportExport
 
-Scaricare la [versione più recente di WAImportExport.exe](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip). Estrarre il contenuto compresso in una directory del computer.
+Scaricare la [versione più recente di WAImportExport.exe](https://www.microsoft.com/download/details.aspx?id=42659). Estrarre il contenuto compresso in una directory del computer.
 
 L'attività successiva consiste nel creare i file CSV.
 
@@ -87,10 +86,10 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 | --- | --- |
 | BasePath | **[Obbligatorio]**<br/>Il valore di questo parametro rappresenta l'origine in cui si trovano i dati da importare. Lo strumento copia in modo ricorsivo tutti i dati presenti in questo percorso.<br><br/>**Valori consentiti:** deve essere un percorso valido nel computer locale o un percorso di condivisione valido e deve essere accessibile dall'utente. Il percorso di directory deve essere un percorso assoluto, non relativo. Se il percorso termina con "\\" rappresenta una directory, mentre se termina senza "\\" rappresenta un file.<br/>In questo campo non sono consentiti regex. Se il percorso contiene spazi, racchiuderlo tra "".<br><br/>**Esempio**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory 1"  |
 | DstBlobPathOrPrefix | **[Obbligatorio]**<br/> Percorso della directory virtuale di destinazione nell'account di archiviazione di Windows Azure. La directory virtuale può essere già esistente. Se non esiste, il servizio Importazione/Esportazione ne crea una.<br/><br/>Assicurarsi di usare nomi di contenitore validi quando si specificano BLOB o directory virtuali di destinazione. Tenere presente che i nomi di contenitore devono essere costituiti da lettere minuscole. Per le regole di denominazione dei contenitori, vedere [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/fileservices/naming-and-referencing-containers--blobs--and-metadata) (Assegnazione di nome e riferimento a contenitori, BLOB e metadati). Se è specificata solo la radice, la struttura di directory dell'origine viene replicata nel contenitore BLOB di destinazione. Se si vuole una struttura di directory diversa da quella dell'origine, sono necessarie più righe di mapping nel file CSV.<br/><br/>È possibile specificare un contenitore o un prefisso di BLOB come music/70s/. La directory di destinazione deve iniziare con il nome del contenitore, seguito da una barra "/" e facoltativamente può includere una directory BLOB virtuale che termina con "/".<br/><br/>Quando la destinazione è il contenitore radice, è necessario specificarlo in modo esplicito, compresa la barra, con $root/. Poiché i BLOB nel contenitore radice non possono includere "/" nel nome, quando la directory di destinazione è il contenitore radice le sottodirectory della directory di origine non vengono copiate.<br/><br/>**Esempio**<br/>Se il percorso BLOB di destinazione è https://mystorageaccount.blob.core.windows.net/video, il valore di questo campo può essere video/  |
-| BlobType | **[Facoltativo] ** block &#124; page<br/>Attualmente il servizio Importazione/Esportazione supporta 2 tipi di BLOB: di pagine e in blocchi. Per impostazione predefinita, tutti i file vengono importati come BLOB in blocchi. I file con estensione \*.vhd e \*.vhdx vengono importati come BLOB di pagine. La dimensione dei BLOB in blocchi e di pagine non può superare il valore massimo consentito. Per altre informazioni, vedere [Obiettivi di scalabilità per BLOB, code, tabelle e file](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files).  |
+| BlobType | **[Facoltativo]** block &#124; page<br/>Attualmente il servizio Importazione/Esportazione supporta 2 tipi di BLOB. di pagine e in blocchi. Per impostazione predefinita, tutti i file vengono importati come BLOB in blocchi. I file con estensione \*.vhd e \*.vhdx vengono importati come BLOB di pagine. La dimensione dei BLOB in blocchi e di pagine non può superare il valore massimo consentito. Per altre informazioni, vedere [Obiettivi di scalabilità per BLOB, code, tabelle e file](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files).  |
 | Disposition | **[Facoltativo]** rename &#124; no-overwrite &#124; overwrite <br/> Questo campo specifica il comportamento di copia durante l'importazione, ovvero quando i dati vengono caricati nell'account di archiviazione dal disco. Le opzioni disponibili sono: rename&#124;overwite&#124;no-overwrite. Se non è specificato alcun valore, viene utilizzata l'opzione predefinita "rename". <br/><br/>**Rename**: se è presente un oggetto con lo stesso nome, viene creata una copia nella destinazione.<br/>Overwrite: il file viene sovrascritto con un file più recente. Prevale il file modificato per ultimo.<br/>**No-overwrite**: se il file è già presente, non viene scritto.|
-| MetadataFile | **[Facoltativo]** <br/>Il valore per questo campo è il file di metadati che può essere specificato se è necessario mantenere i metadati degli oggetti o specificare metadati personalizzati. Percorso del file di metadati per i BLOB di destinazione. Per altre informazioni, vedere [Import-Export Service Metadata and Properties File format](storage-import-export-file-format-metadata-and-properties.md) (Formato dei file di metadati e delle proprietà del servizio Importazione/Esportazione). |
-| PropertiesFile | **[Facoltativo]** <br/>Percorso del file delle proprietà per i BLOB di destinazione. Per altre informazioni, vedere [Import-Export Service Metadata and Properties File format](storage-import-export-file-format-metadata-and-properties.md) (Formato dei file di metadati e delle proprietà del servizio Importazione/Esportazione). |
+| MetadataFile | **[Facoltativo]** <br/>Il valore per questo campo è il file di metadati che può essere specificato se è necessario mantenere i metadati degli oggetti o specificare metadati personalizzati. Percorso del file di metadati per i BLOB di destinazione. Per altre informazioni, vedere [Import/Export service Metadata and Properties File Format](storage-import-export-file-format-metadata-and-properties.md) (Formato dei file di metadati e delle proprietà del servizio Importazione/Esportazione) |
+| PropertiesFile | **[Facoltativo]** <br/>Percorso del file delle proprietà per i BLOB di destinazione. Per altre informazioni, vedere [Import/Export service Metadata and Properties File Format](storage-import-export-file-format-metadata-and-properties.md) (Formato dei file di metadati e delle proprietà del servizio Importazione/Esportazione). |
 
 ## <a name="prepare-initialdriveset-or-additionaldriveset-csv-file"></a>Preparare il file CSV InitialDriveSet o AdditionalDriveSet
 
@@ -222,7 +221,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 |     /CopyLogFile:&lt;FileLogCopiaUnità&gt; | **Obbligatorio** Applicabile solo per RepairImport e RepairExport. Percorso del file di log di copia dell'unità (file dettagliato o file di errore).  |
 |     /ManifestFile:&lt;FileManifestoUnità&gt; | **Obbligatorio** Applicabile solo per RepairImport e RepairExport.<br/> Percorso del file manifesto dell'unità.  |
 |     /PathMapFile:&lt;FileMappingPercorsoUnità&gt; | **Facoltativo**. Applicabile solo per RepairImport.<br/> Percorso del file contenente i mapping dei percorsi di file relativi alla radice dell'unità ai percorsi dei file effettivi (delimitati da tabulazione). Quando questo parametro viene specificato per la prima volta, viene popolato con percorsi di file con destinazioni vuote, perché si tratta di file non trovati in TargetDirectories, con accesso negato, con nome non valido o esistenti in più directory. Il file di mapping può essere modificato manualmente includendo i percorsi di destinazione corretti e può essere specificato nuovamente in modo da consentire allo strumento di risolvere i percorsi dei file in modo corretto.  |
-|     /ExportBlobListFile:&lt;FileElencoBlobEsportazione&gt; | **Obbligatoria**. Applicabile solo per PreviewExport.<br/> Percorso del file XML contenente l'elenco dei percorsi o dei prefissi dei percorsi dei BLOB da esportare. Il formato del file è lo stesso usato dall'elenco dei BLOB nell'operazione Put Job dell'API REST del servizio Importazione/Esportazione.  |
+|     /ExportBlobListFile:&lt;FileElencoBlobEsportazione&gt; | **Obbligatoria**. Applicabile solo per PreviewExport.<br/> Percorso del file XML contenente l'elenco dei percorsi o dei prefissi dei percorsi BLOB per i BLOB da esportare. Il formato del file è lo stesso usato dall'elenco dei BLOB nell'operazione Put Job dell'API REST del servizio Importazione/Esportazione.  |
 |     /DriveSize:&lt;DimensioneUnità&gt; | **Obbligatoria**. Applicabile solo per PreviewExport.<br/>  Dimensioni delle unità da usare per l'esportazione, ad esempio 500 GB o 1,5 TB. Nota: 1 GB = 1.000.000.000 byte, 1 TB = 1.000.000.000.000 byte  |
 |     /DataSet:&lt;dataset.csv&gt; | **Obbligatorio**<br/> File CSV che contiene un elenco di directory e/o un elenco di file da copiare nelle unità di destinazione.  |
 |     /silentmode  | **Facoltativo**.<br/> Se questo parametro non è specificato, viene visualizzato un messaggio con i requisiti delle unità e sarà necessaria la conferma dell'utente per continuare.  |
@@ -269,7 +268,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 </DriveManifest>
 ```
 
-### <a name="sample-journal-file-for-each-drive-ending-with-xml"></a>Esempio di file journal con estensione xml per ogni unità
+### <a name="sample-journal-file-xml-for-each-drive"></a>Esempio di file journal con estensione xml per ogni unità
 
 ```xml
 [BeginUpdateRecord][2016/11/01 21:22:25.379][Type:ActivityRecord]
@@ -286,7 +285,7 @@ SaveCommandOutput: Completed
 [EndUpdateRecord]
 ```
 
-### <a name="sample-journal-file-for-session-ended-with-jrn--which-records-the-trail-of-sessions"></a>Esempio di file journal con estensione jrn che tiene traccia della successione delle sessioni
+### <a name="sample-journal-file-jrn-for-session-which-records-the-trail-of-sessions"></a>Esempio di file journal con estensione jrn che tiene traccia della successione delle sessioni
 
 ```
 [BeginUpdateRecord][2016/11/02 18:24:14.735][Type:NewJournalFile]
@@ -302,7 +301,7 @@ StorageAccountKey: *******
 [EndUpdateRecord]
 ```
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>domande frequenti
 
 ### <a name="general"></a>Generale
 
@@ -334,7 +333,7 @@ Esempio: session-1 oppure session#1 oppure session\_1
 
 Ogni volta che si esegue WAImportExport per copiare file nel disco rigido, lo strumento crea una sessione di copia. Lo stato della sessione di copia viene scritto nel file journal. Se una sessione di copia viene interrotta, ad esempio a causa di un'interruzione dell'alimentazione del sistema, può essere ripresa eseguendo nuovamente lo strumento e specificando il file journal alla riga di comando.
 
-Per ogni disco rigido preparato con lo strumento di importazione/esportazione di Azure viene creato un singolo file journal denominato "&lt;IDUnità&gt;.xml", dove l'ID corrisponde al numero di serie associato all'unità che lo strumento legge dal disco. Per creare il processo di importazione sono necessari i file journal di tutte le unità. Il file journal può essere usato anche per riprendere la preparazione delle unità nel caso in cui lo strumento venga interrotto.
+Per ogni disco rigido preparato con lo strumento Importazione/Esportazione di Azure, viene creato un singolo file journal denominato "&lt;IDUnità&gt;.xml", dove l'ID corrisponde al numero di serie associato all'unità che lo strumento legge dal disco. Per creare il processo di importazione sono necessari i file journal di tutte le unità. Il file journal può essere usato anche per riprendere la preparazione delle unità nel caso in cui lo strumento venga interrotto.
 
 #### <a name="what-is-a-log-directory"></a>Che cos'è una directory dei log?
 
@@ -367,11 +366,11 @@ Per disabilitare TPM in BitLocker, attenersi alla procedura seguente:<br/>
 3. Modificare il criterio **Richiedi autenticazione aggiuntiva all'avvio**.
 4. Impostare il criterio su **Abilitato** e assicurarsi che l'opzione **Consenti BitLocker senza un TPM compatibile** sia selezionata.
 
-####  <a name="how-to-check-if-net-4-or-higher-version-is-installed-on-my-machine"></a>Come è possibile verificare se nel computer è installato .Net 4 o una versione successiva?
+####  <a name="how-to-check-if-net-4-or-higher-version-is-installed-on-my-machine"></a>Come è possibile verificare se nel computer in uso è installato .NET 4 o una versione successiva?
 
 Tutte le versioni di Microsoft .NET Framework sono installate nella directory seguente: %windir%\Microsoft.NET\Framework\
 
-Selezionare la directory del computer di destinazione citata in precedenza in cui deve essere eseguito lo strumento. Cercare il nome di cartella che inizia con "v4". Se non è presente una directory di questo tipo, .Net v4 non è installato nel computer. È possibile scaricare .Net 4 nel computer dalla pagina [Microsoft .NET Framework 4 (programma di installazione Web)](https://www.microsoft.com/download/details.aspx?id=17851).
+Selezionare la directory del computer di destinazione citata in precedenza in cui deve essere eseguito lo strumento. Cercare il nome di cartella che inizia con "v4". Se non è presente una directory di questo tipo, .NET 4 non è installato nel computer in uso. È possibile scaricare .Net 4 nel computer dalla pagina [Microsoft .NET Framework 4 (programma di installazione Web)](https://www.microsoft.com/download/details.aspx?id=17851).
 
 ### <a name="limits"></a>Limiti
 
@@ -403,9 +402,20 @@ Lo strumento WAImportExport legge e scrive i file un batch alla volta e un batch
 
 ### <a name="waimportexport-output"></a>Output di WAImportExport
 
-#### <a name="there-are-two-journal-files-which-one-should-i-upload-to-azure-portal"></a>Sono presenti due file journal. Quale deve essere caricato nel portale di Azure?
+#### <a name="there-are-two-journal-files-which-one-should-i-upload-to-azure-portal"></a>Sono disponibili due file journal, quale deve essere caricato nel portale di Azure?
 
-**.xml**: per ogni disco rigido preparato con lo strumento WAImportExport viene creato un singolo file journal denominato "&lt;IDUnità&gt;.xml", dove l'ID corrisponde al numero di serie associato all'unità che lo strumento legge dal disco. Per creare il processo di importazione nel portale di Azure sono necessari i file journal di tutte le unità. Il file journal può essere usato anche per riprendere la preparazione delle unità nel caso in cui lo strumento venga interrotto.
+**.xml**: per ogni disco rigido preparato con lo strumento WAImportExport, viene creato un singolo file journal denominato `<DriveID>.xml`, dove l'IDUnità corrisponde al numero di serie associato all'unità che lo strumento legge dal disco. Per creare il processo di importazione nel portale di Azure sono necessari i file journal di tutte le unità. Il file journal può essere usato anche per riprendere la preparazione delle unità nel caso in cui lo strumento venga interrotto.
 
-**.jrn**: il file journal con suffisso jrn contiene lo stato di tutte le sessioni di copia di un disco rigido. Include inoltre le informazioni necessarie per creare il processo di importazione. Quando si esegue lo strumento WAImportExport, è sempre necessario specificare un file journal, nonché l'ID della sessione di copia.
+**.jrn**: il file journal con suffisso `.jrn` contiene lo stato di tutte le sessioni di copia di un disco rigido. Include inoltre le informazioni necessarie per creare il processo di importazione. Quando si esegue lo strumento WAImportExport, è sempre necessario specificare un file journal, nonché l'ID della sessione di copia.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* [Configurazione dello strumento Importazione/Esportazione di Azure](storage-import-export-tool-setup.md)
+* [Impostazione di proprietà e metadati durante il processo di importazione](storage-import-export-tool-setting-properties-metadata-import.md)
+* [Sample workflow to prepare hard drives for an import job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md) (Flusso di lavoro campione per preparare i dischi rigidi per un processo di importazione)
+* [Quick reference for frequently used commands](storage-import-export-tool-quick-reference.md) (Riferimento rapido per i comandi usati più di frequente) 
+* [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md) (Revisione dello stato dei processi con i file di log di copia)
+* [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md) (Riparazione di un processo di importazione)
+* [Repairing an export job](storage-import-export-tool-repairing-an-export-job-v1.md) (Riparazione di un processo di esportazione)
+* [Risoluzione dei problemi relativi allo strumento Importazione/Esportazione di Azure](storage-import-export-tool-troubleshooting-v1.md)
 

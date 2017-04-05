@@ -1,5 +1,5 @@
 ---
-title: Creare modelli per le distribuzioni di Azure | Microsoft Docs
+title: Struttura e sintassi del modello di Azure Resource Manger | Documentazione Microsoft
 description: "Descrive la struttura e le proprietà dei modelli di Azure Resource Manager con la sintassi dichiarativa JSON."
 services: azure-resource-manager
 documentationcenter: na
@@ -12,21 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2017
+ms.date: 03/23/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: a75863878a97c1202e9b9946b0bff19261952c21
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: e5e793eeab46b31c728e7dbb493c6396d6daad08
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="authoring-azure-resource-manager-templates"></a>Creazione di modelli di Gestione risorse di Azure
-Questo argomento descrive la struttura di un modello di Azure Resource Manager. Presenta le diverse sezioni di un modello e le proprietà disponibili in queste sezioni. Il modello è composto da JSON ed espressioni che è possibile usare per creare valori per la distribuzione. 
-
-Per visualizzare il modello per risorse già distribuite, vedere [Esportare un modello di Azure Resource Manager da risorse esistenti](resource-manager-export-template.md). Per indicazioni sulla creazione di un modello, vedere [Procedura dettagliata per un modello di Azure Resource Manager](resource-manager-template-walkthrough.md). Per altri suggerimenti, vedere [Procedure consigliate per la creazione di modelli di Azure Resource Manager](resource-manager-template-best-practices.md).
-
-Un buon editor JSON può semplificare l'attività di creazione dei modelli. Per altre informazioni sull'uso di Visual Studio con i modelli, vedere [Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). Per informazioni sull'uso di Visual Studio Code con Resource Manager, vedere [Utilizzo dei modelli di Azure Resource Manager in Visual Studio Code](resource-manager-vs-code.md).
+# <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Comprendere la struttura e la sintassi dei modelli di Azure Resource Manger
+Questo argomento descrive la struttura di un modello di Azure Resource Manager. Presenta le diverse sezioni di un modello e le proprietà disponibili in queste sezioni. Il modello è composto da JSON ed espressioni che è possibile usare per creare valori per la distribuzione. Per un'esercitazione dettagliata sulla creazione di un modello, vedere [Creare il primo modello di Azure Resource Manager](resource-manager-create-first-template.md).
 
 Limitare le dimensioni del modello a 1 MB e ogni file di parametri a 64 KB. Il limite di 1 MB si applica allo stato finale del modello dopo che è stato espanso con le definizioni delle risorse iterative e i valori di variabili e parametri. 
 
@@ -35,12 +31,12 @@ La struttura più semplice di un modello è costituita dagli elementi seguenti:
 
 ```json
 {
-   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-   "contentVersion": "",
-   "parameters": {  },
-   "variables": {  },
-   "resources": [  ],
-   "outputs": {  }
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "",
+    "parameters": {  },
+    "variables": {  },
+    "resources": [  ],
+    "outputs": {  }
 }
 ```
 
@@ -53,20 +49,76 @@ La struttura più semplice di un modello è costituita dagli elementi seguenti:
 | resources |Sì |Tipi di risorse che vengono distribuite o aggiornate in un gruppo di risorse. |
 | outputs |No |Valori restituiti dopo la distribuzione. |
 
+Ogni elemento contiene proprietà che è possibile impostare. L'esempio seguente contiene la sintassi completa per un modello:
+
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "",
+    "parameters": {  
+        "<parameter-name>" : {
+            "type" : "<type-of-parameter-value>",
+            "defaultValue": "<default-value-of-parameter>",
+            "allowedValues": [ "<array-of-allowed-values>" ],
+            "minValue": <minimum-value-for-int>,
+            "maxValue": <maximum-value-for-int>,
+            "minLength": <minimum-length-for-string-or-array>,
+            "maxLength": <maximum-length-for-string-or-array-parameters>,
+            "metadata": {
+                "description": "<description-of-the parameter>" 
+            }
+        }
+    },
+    "variables": {  
+        "<variable-name>": "<variable-value>",
+        "<variable-name>": { 
+            <variable-complex-type-value> 
+        }
+    },
+    "resources": [
+      {
+          "apiVersion": "<api-version-of-resource>",
+          "type": "<resource-provider-namespace/resource-type-name>",
+          "name": "<name-of-the-resource>",
+          "location": "<location-of-resource>",
+          "tags": "<name-value-pairs-for-resource-tagging>",
+          "comments": "<your-reference-notes>",
+          "dependsOn": [
+              "<array-of-related-resource-names>"
+          ],
+          "properties": "<settings-for-the-resource>",
+          "copy": {
+              "name": "<name-of-copy-loop>",
+              "count": "<number-of-iterations>"
+          },
+          "resources": [
+              "<array-of-child-resources>"
+          ]
+      }
+    ],
+    "outputs": {
+        "<outputName>" : {
+            "type" : "<type-of-output-value>",
+            "value": "<output-value-expression>"
+        }
+    }
+}
+```
+
 Le sezioni del modello verranno esaminate in modo dettagliato più avanti in questo argomento.
 
 ## <a name="expressions-and-functions"></a>Espressioni e funzioni
-La sintassi di base del modello è JSON. Le espressioni e le funzioni estendono ad ogni modo i valori JSON disponibili all'interno del modello.  Le espressioni vengono scritte all'interno di valori letterali stringa JSON il cui primo e ultimo carattere sono le parentesi quadre: rispettivamente`[` e `]`. Il valore dell'espressione viene valutato quando viene distribuito il modello.   Sebbene sia scritto come valore letterale stringa, il risultato della valutazione dell'espressione può essere di un tipo JSON diverso, ad esempio una matrice o un numero intero, a seconda dell'espressione effettiva.  Si noti che per avere una stringa letterale che inizi con una parentesi quadra `[` ma che non venga interpretata come espressione, è necessario aggiungere un'altra parentesi in modo che la stringa inizi con `[[`.
+La sintassi di base del modello è JSON. Le espressioni e le funzioni estendono ad ogni modo i valori JSON disponibili all'interno del modello.  Le espressioni vengono scritte all'interno di valori letterali stringa JSON il cui primo e ultimo carattere sono le parentesi quadre: rispettivamente`[` e `]`. Il valore dell'espressione viene valutato quando viene distribuito il modello. Sebbene sia scritto come valore letterale stringa, il risultato della valutazione dell'espressione può essere di un tipo JSON diverso, ad esempio una matrice o un numero intero, a seconda dell'espressione effettiva.  Per avere una stringa letterale che inizi con una parentesi quadra `[`, ma che non venga interpretata come espressione, è necessario aggiungere un'altra parentesi in modo che la stringa inizi con `[[`.
 
-Solitamente, si usano espressioni con funzioni per eseguire operazioni per la configurazione della distribuzione. Proprio come in JavaScript, le chiamate di funzione sono formattate come **functionName(arg1,arg2,arg3)**. Per i riferimenti alle proprietà si usano il punto e gli operatori [index].
+Solitamente, si usano espressioni con funzioni per eseguire operazioni per la configurazione della distribuzione. Proprio come in JavaScript, le chiamate di funzione sono formattate come `functionName(arg1,arg2,arg3)`. Per i riferimenti alle proprietà si usano il punto e gli operatori [index].
 
 L'esempio seguente illustra come usare diverse funzioni al momento di costruite i valori:
 
 ```json
 "variables": {
-   "location": "[resourceGroup().location]",
-   "usernameAndPassword": "[concat(parameters('username'), ':', parameters('password'))]",
-   "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
+    "location": "[resourceGroup().location]",
+    "usernameAndPassword": "[concat(parameters('username'), ':', parameters('password'))]",
+    "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
 }
 ```
 
@@ -75,24 +127,22 @@ Per l’elenco completo delle funzioni del modello, vedere [Funzioni del modello
 ## <a name="parameters"></a>parameters
 Nella sezione parameters del modello si possono specificare i valori che è possibile immettere durante la distribuzione delle risorse. I valori dei parametri consentono di personalizzare la distribuzione fornendo valori specifici per un determinato ambiente, ad esempio sviluppo, test e produzione. Non è obbligatorio specificare i parametri nel modello, ma senza di essi il modello distribuisce sempre le stesse risorse con lo stesso nome, località e proprietà.
 
-È possibile usare questi valori dei parametri in tutto il modello per impostare valori per le risorse distribuite. Solo i parametri dichiarati nella sezione dei parametri possono essere usati in altre sezioni del modello.
-
 I parametri vengono definiti con la struttura seguente:
 
 ```json
 "parameters": {
-   "<parameter-name>" : {
-     "type" : "<type-of-parameter-value>",
-     "defaultValue": "<default-value-of-parameter>",
-     "allowedValues": [ "<array-of-allowed-values>" ],
-     "minValue": <minimum-value-for-int>,
-     "maxValue": <maximum-value-for-int>,
-     "minLength": <minimum-length-for-string-or-array>,
-     "maxLength": <maximum-length-for-string-or-array-parameters>,
-     "metadata": {
-         "description": "<description-of-the parameter>" 
-     }
-   }
+    "<parameter-name>" : {
+        "type" : "<type-of-parameter-value>",
+        "defaultValue": "<default-value-of-parameter>",
+        "allowedValues": [ "<array-of-allowed-values>" ],
+        "minValue": <minimum-value-for-int>,
+        "maxValue": <maximum-value-for-int>,
+        "minLength": <minimum-length-for-string-or-array>,
+        "maxLength": <maximum-length-for-string-or-array-parameters>,
+        "metadata": {
+            "description": "<description-of-the parameter>" 
+        }
+    }
 }
 ```
 
@@ -106,7 +156,7 @@ I parametri vengono definiti con la struttura seguente:
 | maxValue |No |Il valore massimo per i parametri di tipo int, questo valore è inclusivo. |
 | minLength |No |Lunghezza minima per i parametri di tipo string, secureString e array. Questo valore è inclusivo. |
 | maxLength |No |Lunghezza massima per i parametri di tipo string, secureString e array. Questo valore è inclusivo. |
-| Descrizione |No |Descrizione del parametro, visualizzata agli utenti del modello tramite l'interfaccia dei modelli personalizzati del portale. |
+| Descrizione |No |Descrizione del parametro visualizzato agli utenti nel portale. |
 
 I valori e i tipi consentiti sono:
 
@@ -134,53 +184,53 @@ Il seguente esempio mostra come definire i parametri:
 
 ```json
 "parameters": {
-  "siteName": {
-    "type": "string",
-    "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]"
-  },
-  "hostingPlanName": {
-    "type": "string",
-    "defaultValue": "[concat(parameters('siteName'),'-plan')]"
-  },
-  "skuName": {
-    "type": "string",
-    "defaultValue": "F1",
-    "allowedValues": [
-      "F1",
-      "D1",
-      "B1",
-      "B2",
-      "B3",
-      "S1",
-      "S2",
-      "S3",
-      "P1",
-      "P2",
-      "P3",
-      "P4"
-    ]
-  },
-  "skuCapacity": {
-    "type": "int",
-    "defaultValue": 1,
-    "minValue": 1
-  }
+    "siteName": {
+        "type": "string",
+        "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]"
+    },
+    "hostingPlanName": {
+        "type": "string",
+        "defaultValue": "[concat(parameters('siteName'),'-plan')]"
+    },
+    "skuName": {
+        "type": "string",
+        "defaultValue": "F1",
+        "allowedValues": [
+          "F1",
+          "D1",
+          "B1",
+          "B2",
+          "B3",
+          "S1",
+          "S2",
+          "S3",
+          "P1",
+          "P2",
+          "P3",
+          "P4"
+        ]
+    },
+    "skuCapacity": {
+        "type": "int",
+        "defaultValue": 1,
+        "minValue": 1
+    }
 }
 ```
 
 Per informazioni sull'immissione di valori di parametro durante la distribuzione vedere [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](resource-group-template-deploy.md). 
 
 ## <a name="variables"></a>variables
-Nella sezione variables è possibile costruire valori da usare in tutto il modello. Queste variabili sono in genere basate sui valori forniti dai parametri. Non è obbligatorio definire le variabili, che però permettono spesso di semplificare il modello riducendo le espressioni complesse.
+Nella sezione variables è possibile costruire valori da usare in tutto il modello. Non è obbligatorio definire le variabili, che però permettono spesso di semplificare il modello riducendo le espressioni complesse.
 
 Le variabili vengono definite con la struttura seguente:
 
 ```json
 "variables": {
-   "<variable-name>": "<variable-value>",
-   "<variable-name>": { 
-       <variable-complex-type-value> 
-   }
+    "<variable-name>": "<variable-value>",
+    "<variable-name>": { 
+        <variable-complex-type-value> 
+    }
 }
 ```
 
@@ -196,57 +246,57 @@ Nell'esempio successivo viene illustrata una variabile che rappresenta un tipo J
 
 ```json
 "parameters": {
-   "environmentName": {
-     "type": "string",
-     "allowedValues": [
-       "test",
-       "prod"
-     ]
-   }
+    "environmentName": {
+        "type": "string",
+        "allowedValues": [
+          "test",
+          "prod"
+        ]
+    }
 },
 "variables": {
-   "environmentSettings": {
-     "test": {
-       "instancesSize": "Small",
-       "instancesCount": 1
-     },
-     "prod": {
-       "instancesSize": "Large",
-       "instancesCount": 4
-     }
-   },
-   "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]",
-   "instancesSize": "[variables('currentEnvironmentSettings').instancesSize]",
-   "instancesCount": "[variables('currentEnvironmentSettings').instancesCount]"
+    "environmentSettings": {
+        "test": {
+            "instancesSize": "Small",
+            "instancesCount": 1
+        },
+        "prod": {
+            "instancesSize": "Large",
+            "instancesCount": 4
+        }
+    },
+    "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]",
+    "instancesSize": "[variables('currentEnvironmentSettings').instancesSize]",
+    "instancesCount": "[variables('currentEnvironmentSettings').instancesCount]"
 }
 ```
 
 ## <a name="resources"></a>resources
-Nella sezione risorse è possibile definire le risorse da distribuire o aggiornare. Questa sezione può risultare complicata perché per specificare i valori corretti è necessario conoscere i tipi da distribuire. 
+Nella sezione risorse è possibile definire le risorse da distribuire o aggiornare. Questa sezione può risultare complicata perché per specificare i valori corretti è necessario conoscere i tipi da distribuire. Per i valori specifici della risorsa (apiVersion, tipo e proprietà) che è necessario impostare, vedere [Define resources in Azure Resource Manager templates](/azure/templates/) (Definire risorse nei modelli di Azure Resource Manager). 
 
 Le risorse vengono definite con la struttura seguente:
 
 ```json
 "resources": [
-   {
-     "apiVersion": "<api-version-of-resource>",
-     "type": "<resource-provider-namespace/resource-type-name>",
-     "name": "<name-of-the-resource>",
-     "location": "<location-of-resource>",
-     "tags": "<name-value-pairs-for-resource-tagging>",
-     "comments": "<your-reference-notes>",
-     "dependsOn": [
-       "<array-of-related-resource-names>"
-     ],
-     "properties": "<settings-for-the-resource>",
-     "copy": {
-       "name": "<name-of-copy-loop>",
-       "count": "<number-of-iterations>"
-     },
-     "resources": [
-       "<array-of-child-resources>"
-     ]
-   }
+  {
+      "apiVersion": "<api-version-of-resource>",
+      "type": "<resource-provider-namespace/resource-type-name>",
+      "name": "<name-of-the-resource>",
+      "location": "<location-of-resource>",
+      "tags": "<name-value-pairs-for-resource-tagging>",
+      "comments": "<your-reference-notes>",
+      "dependsOn": [
+          "<array-of-related-resource-names>"
+      ],
+      "properties": "<settings-for-the-resource>",
+      "copy": {
+          "name": "<name-of-copy-loop>",
+          "count": "<number-of-iterations>"
+      },
+      "resources": [
+          "<array-of-child-resources>"
+      ]
+  }
 ]
 ```
 
@@ -254,143 +304,40 @@ Le risorse vengono definite con la struttura seguente:
 |:--- |:--- |:--- |
 | apiVersion |Sì |Versione dell'API REST da utilizzare per la creazione della risorsa. |
 | type |Sì |Tipo di risorsa. Questo valore è una combinazione dello spazio dei nomi del provider di risorse e del tipo di risorsa, ad esempio **Microsoft.Storage/storageAccounts**. |
-| name |Sì |Nome della risorsa. Il nome deve rispettare le restrizioni dei componenti URI definite dallo standard RFC3986. I servizi Azure che rendono visibile il nome della risorsa a terze parti convalidano anche il nome, per garantire che non si tratti di un tentativo di spoofing per un'identità alternativa. Vedere [Controllare il nome della risorsa](https://msdn.microsoft.com/library/azure/mt219035.aspx). |
-| location |Variabile |Aree geografiche supportate della risorsa specificata. È possibile selezionare qualsiasi località disponibile, ma è in genere opportuno sceglierne una vicina agli utenti. Di solito è anche opportuno inserire le risorse che interagiscono tra loro nella stessa area. La maggior parte dei tipi di risorsa richiede una posizione, ma alcuni tipi (ad esempio un'assegnazione di ruolo) non la richiedono. |
-| tags |No |Tag associati alla risorsa. |
+| name |Sì |Nome della risorsa. Il nome deve rispettare le restrizioni dei componenti URI definite dallo standard RFC3986. I servizi Azure che rendono visibile il nome della risorsa a terze parti convalidano anche il nome, per garantire che non si tratti di un tentativo di spoofing per un'identità alternativa. |
+| location |Variabile |Aree geografiche supportate della risorsa specificata. È possibile selezionare qualsiasi località disponibile, ma è in genere opportuno sceglierne una vicina agli utenti. Di solito è anche opportuno inserire le risorse che interagiscono tra loro nella stessa area. La maggior parte dei tipi di risorsa richiede una posizione, ma alcuni tipi (ad esempio un'assegnazione di ruolo) non la richiedono. Vedere [Impostare la posizione delle risorse nei modelli di Azure Resource Manager](resource-manager-template-location.md). |
+| tags |No |Tag associati alla risorsa. Vedere [Applicare i tag alle risorse nei modelli di Azure Resource Manager](resource-manager-template-tags.md). |
 | commenti |No |Le note per documentare le risorse nel modello |
 | dependsOn |No |Risorse da distribuire prima della distribuzione di questa risorsa. Resource Manager valuta le dipendenze tra le risorse e le distribuisce nell'ordine corretto. Quando le risorse non sono interdipendenti, vengono distribuite in parallelo. Il valore può essere un elenco delimitato da virgole di nomi o identificatori univoci di risorse. Elencare solo le risorse distribuite in questo modello. Le risorse non definite in questo modello devono essere già esistenti. Evitare di aggiungere dipendenze non necessarie perché possono rallentare la distribuzione e creare dipendenze circolari. Per indicazioni sull'impostazione delle dipendenze, vedere l'articolo relativo alla [definizione delle dipendenze nei modelli di Azure Resource Manager](resource-group-define-dependencies.md). |
-| properties |No |Impostazioni di configurazione specifiche delle risorse. I valori per l'elemento properties corrispondono esattamente a quelli specificati nel corpo della richiesta per l'operazione API REST (metodo PUT) per creare la risorsa. Per collegamenti alla documentazione sugli schemi delle risorse o all'API REST, vedere [Provider, aree, versioni API e schemi di Resource Manager](resource-manager-supported-services.md). |
+| properties |No |Impostazioni di configurazione specifiche delle risorse. I valori per l'elemento properties corrispondono esattamente a quelli specificati nel corpo della richiesta per l'operazione API REST (metodo PUT) per creare la risorsa. |
 | copy |No |Numero di risorse da creare, se sono necessarie più istanze. Per altre informazioni, vedere [Creare più istanze di risorse in Azure Resource Manager](resource-group-create-multiple.md). |
 | resources |No |Risorse figlio che dipendono dalla risorsa in via di definizione. Specificare solo tipi di risorsa consentiti dallo schema della risorsa padre. Il nome di tipo completo della risorsa figlio include il tipo della risorsa padre, ad esempio **Microsoft.Web/sites/extensions**. La dipendenza dalla risorsa padre non è implicita. È necessario definirla in modo esplicito. |
-
-Sapere quali valori specificare per **apiVersion**, **type** e **location** non è scontato. Fortunatamente possono essere determinati tramite Azure PowerShell o l'interfaccia della riga di comando di Azure.
-
-Per ottenere tutti i provider di risorse con **PowerShell**, usare il comando seguente:
-
-```powershell
-Get-AzureRmResourceProvider -ListAvailable
-```
-
-Nell'elenco restituito trovare i provider di risorse a cui si è interessati. Per ottenere i tipi di risorsa per un provider di risorse, ad esempio Storage, usare il comando seguente:
-
-```powershell
-(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Storage).ResourceTypes
-```
-
-Per ottenere le versioni dell'API per un tipo di risorsa, ad esempio gli account di archiviazione, usare il comando seguente:
-
-```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Storage).ResourceTypes | Where-Object ResourceTypeName -eq storageAccounts).ApiVersions
-```
-
-Per ottenere le località supportate per un tipo di risorsa, usare il comando seguente:
-
-```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Storage).ResourceTypes | Where-Object ResourceTypeName -eq storageAccounts).Locations
-```
-
-Per ottenere tutti i provider di risorse con l'**interfaccia della riga di comando di Azure**, usare il comando seguente:
-
-```azurecli
-azure provider list
-```
-
-Nell'elenco restituito trovare i provider di risorse a cui si è interessati. Per ottenere i tipi di risorsa per un provider di risorse, ad esempio Storage, usare il comando seguente:
-
-```azurecli
-azure provider show Microsoft.Storage
-```
-
-Per ottenere le versioni dell'API e le località supportate, usare il comando seguente:
-
-```azurecli
-azure provider show Microsoft.Storage --details --json
-```
-
-Per altre informazioni sui provider di risorse, vedere [Provider, aree, versioni API e schemi di Resource Manager](resource-manager-supported-services.md).
 
 La sezione resources contiene una matrice delle risorse da distribuire. All'interno di ogni risorsa è anche possibile definire una matrice di risorse figlio. La sezione resources potrebbe quindi avere una struttura simile a questa:
 
 ```json
 "resources": [
-   {
-       "name": "resourceA",
-   },
-   {
-       "name": "resourceB",
-       "resources": [
-           {
-               "name": "firstChildResourceB",
-           },
-           {   
-               "name": "secondChildResourceB",
-           }
-       ]
-   },
-   {
-       "name": "resourceC",
-   }
+  {
+      "name": "resourceA",
+  },
+  {
+      "name": "resourceB",
+      "resources": [
+        {
+            "name": "firstChildResourceB",
+        },
+        {   
+            "name": "secondChildResourceB",
+        }
+      ]
+  },
+  {
+      "name": "resourceC",
+  }
 ]
 ```      
 
-L'esempio seguente illustra una risorsa **Microsoft.Web/serverfarms** e una risorsa **Microsoft.Web/sites** con una risorsa figlio **Extensions**. Si noti che il sito è contrassegnato come dipendente nella server farm perché per poter distribuire il sito deve esistere la server farm. Si noti anche che la risorsa **Extensions** è un elemento figlio del sito.
-
-```json
-"resources": [
-  {
-    "apiVersion": "2015-08-01",
-    "name": "[parameters('hostingPlanName')]",
-    "type": "Microsoft.Web/serverfarms",
-    "location": "[resourceGroup().location]",
-    "tags": {
-      "displayName": "HostingPlan"
-    },
-    "sku": {
-      "name": "[parameters('skuName')]",
-      "capacity": "[parameters('skuCapacity')]"
-    },
-    "properties": {
-      "name": "[parameters('hostingPlanName')]",
-      "numberOfWorkers": 1
-    }
-  },
-  {
-    "apiVersion": "2015-08-01",
-    "type": "Microsoft.Web/sites",
-    "name": "[parameters('siteName')]",
-    "location": "[resourceGroup().location]",
-    "tags": {
-      "environment": "test",
-      "team": "Web"
-    },
-    "dependsOn": [
-      "[concat(parameters('hostingPlanName'))]"
-    ],
-    "properties": {
-      "name": "[parameters('siteName')]",
-      "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
-    },
-    "resources": [
-      {
-        "apiVersion": "2015-08-01",
-        "type": "extensions",
-        "name": "MSDeploy",
-        "dependsOn": [
-          "[concat('Microsoft.Web/sites/', parameters('siteName'))]"
-        ],
-        "properties": {
-          "packageUri": "https://auxmktplceprod.blob.core.windows.net/packages/StarterSite-modified.zip",
-          "dbType": "None",
-          "connectionString": "",
-          "setParameters": {
-            "Application Path": "[parameters('siteName')]"
-          }
-        }
-      }
-    ]
-  }
-]
-```
+Per altre informazioni sulla definizione delle risorse figlio, vedere [Impostare il nome e il tipo di una risorsa figlio in un modello di Resource Manager](resource-manager-template-child-resource.md).
 
 ## <a name="outputs"></a>outputs
 Nella sezione dell'output è possibile specificare i valori restituiti dalla distribuzione. Ad esempio, è possibile restituire l'URI per accedere a una risorsa distribuita.
@@ -399,10 +346,10 @@ L'esempio seguente illustra la struttura di una definizione di output:
 
 ```json
 "outputs": {
-   "<outputName>" : {
-     "type" : "<type-of-output-value>",
-     "value": "<output-value-expression>"
-   }
+    "<outputName>" : {
+        "type" : "<type-of-output-value>",
+        "value": "<output-value-expression>"
+    }
 }
 ```
 
@@ -416,10 +363,10 @@ L'esempio seguente illustra un valore che viene restituito nella sezione dell'ou
 
 ```json
 "outputs": {
-   "siteUri" : {
-     "type" : "string",
-     "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
-   }
+    "siteUri" : {
+        "type" : "string",
+        "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
+    }
 }
 ```
 

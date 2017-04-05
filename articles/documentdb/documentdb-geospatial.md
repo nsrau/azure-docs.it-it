@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/16/2016
+ms.date: 03/20/2016
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 60219a9c78884e01fcf46e18ac03e2a955787bc5
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 382eecf863f1e4798533034f915101c08dd4f448
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -29,13 +29,13 @@ In questo articolo viene fornita un'introduzione alla funzionalità geospaziale 
 * Come è possibile eseguire una query su dati geospaziali in Azure DocumentDB in SQL e LINQ?
 * Come è possibile abilitare o disabilitare l'indicizzazione spaziale in DocumentDB?
 
-Consultare il [progetto Github](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) per esempi di codice.
+Consultare il [progetto GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) per esempi di codice.
 
 ## <a name="introduction-to-spatial-data"></a>Introduzione ai dati spaziali
 I dati spaziali descrivono la posizione e la forma degli oggetti nello spazio. Nella maggior parte delle applicazioni, questi corrispondono a oggetti sulla terra, vale a dire dati geospaziali. I dati spaziali possono essere utilizzati per rappresentare la posizione di una persona, un luogo di interesse o i confini di una città o di un lago. Casi di utilizzo comuni includono spesso query di prossimità, ad esempio, "trova tutti i negozi vicino alla mia posizione attuale". 
 
 ### <a name="geojson"></a>GeoJSON
-DocumentDB supporta l'indicizzazione e le query dei dati di punti geo-spaziali che ha rappresentato mediante la [specifica GeoJSON](http://geojson.org/geojson-spec.html). Le strutture di dati GeoJSON sono sempre oggetti JSON validi, quindi possono essere archiviate e interrogate utilizzando DocumentDB senza librerie o strumenti specializzati. Gli SDK di DocumentDB forniscono classi helper e metodi che semplificano il lavoro con i dati spaziali. 
+DocumentDB supporta l'indicizzazione e le query dei dati di punti geo-spaziali che ha rappresentato mediante la [specifica GeoJSON](https://tools.ietf.org/html/rfc7946). Le strutture di dati GeoJSON sono sempre oggetti JSON validi, quindi possono essere archiviate e interrogate utilizzando DocumentDB senza librerie o strumenti specializzati. Gli SDK di DocumentDB forniscono classi helper e metodi che semplificano il lavoro con i dati spaziali. 
 
 ### <a name="points-linestrings-and-polygons"></a>Punti, oggetti linestring e poligoni
 Un **punto** indica una posizione singola nello spazio. Nei dati geospaziali, un punto rappresenta la posizione esatta, che può essere un indirizzo di un negozio, un chiosco, un'automobile o una città.  Un punto viene rappresentato in GeoJSON (e DocumentDB) mediante la sua coppia di coordinate o longitudine e latitudine. Di seguito è riportato un esempio JSON per un punto.
@@ -385,7 +385,7 @@ Di seguito viene descritto come modificare una raccolta esistente per sfruttare 
 ## <a name="next-steps"></a>Passaggi successivi
 Ora che si è appreso come iniziare a utilizzare il supporto geospaziale in DocumentDB, è possibile:
 
-* Iniziare a codificare con gli [esempi di codice .NET geospaziale in Github](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
+* Iniziare a codificare con gli [esempi di codice .NET geospaziale in GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * Utilizzare le query geospaziali nel [Query Playground di DocumentDB](http://www.documentdb.com/sql/demo#geospatial)
 * Altre informazioni sulle [query di DocumentDB](documentdb-sql-query.md)
 * Ulteriori informazioni sui [criteri di indicizzazione di DocumentDB](documentdb-indexing-policies.md)

@@ -1,3 +1,4 @@
+
 ---
 title: Dimensioni delle macchine virtuali Windows in Azure | Documentazione Microsoft
 description: Elenca le diverse dimensioni disponibili per le macchine virtuali Windows in Azure.
@@ -13,26 +14,52 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/10/2017
+ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 0e1cd22feed61bd41a8f002dc58e2fb0ade1e22e
-ms.openlocfilehash: 3b42be10257440abcb41178592a9d81feed69b11
-ms.lasthandoff: 02/01/2017
-
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 365d6ad9ec0e0a7ad8d9742d863540646257e298
+ms.lasthandoff: 03/27/2017
 
 ---
+
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Dimensioni per le macchine virtuali Windows in Azure
+
 Questo articolo descrive le dimensioni e le opzioni disponibili per le macchine virtuali di Azure che è possibile usare per eseguire le app Windows e i carichi di lavoro. Offre anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse.  Questo articolo è disponibile anche per le [macchine virtuali Linux](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!IMPORTANT]
-> * Per informazioni sui prezzi di varie dimensioni, vedere [Prezzi di Macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). 
-> * Per la disponibilità delle dimensioni di VM nelle aree di Azure, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/).
-> * Per trovare i limiti generali delle VM di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
->   <br>    
-> 
-> 
+>* Per informazioni sui prezzi di varie dimensioni, vedere [Prezzi di Macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). 
+>* Per trovare i limiti generali delle VM di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
+>* I costi di archiviazione vengono calcolati separatamente in base alle pagine usate nell'account di archiviazione. Per informazioni dettagliate, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
+> * Altre informazioni su come le [unità di calcolo di Azure](virtual-machines-windows-acu.md) consentono di confrontare le prestazioni di calcolo negli SKU di Azure.
+>
+>
+<br>    
 
-[!INCLUDE [virtual-machines-common-sizes](../../includes/virtual-machines-common-sizes.md)]
+
+
+
+| Tipo                     | Dimensioni           |    Descrizione       |
+|--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| [Utilizzo generico](virtual-machines-windows-sizes-general.md)          | DSv2, Dv2, DS, D, Av2, A0-7 | Rapporto equilibrato tra CPU e memoria. Soluzione ideale per test e sviluppo, database medio-piccoli e server Web con traffico da medio a ridotto. |
+| [Ottimizzate per il calcolo](virtual-machines-windows-sizes-compute.md)        | Fs, F             | Rapporto elevato tra CPU e memoria. Soluzione idonea per server Web con livelli medi di traffico, dispositivi di rete, processi batch e server applicazioni.        |
+| [Ottimizzate per la memoria](virtual-machines-windows-sizes-memory.md)         | GS, G, DSv2, DS   | Rapporto elevato tra memoria e core. Soluzione ideale per server di database relazionali, cache medio-grandi e analisi in memoria.                 |
+| [Ottimizzate per l'archiviazione](virtual-machines-windows-sizes-storage.md)        | Ls                | I/O e velocità effettiva del disco elevati. Ideale per Big Data, database SQL e NoSQL.                                                         |
+| [GPU](virtual-machines-windows-sizes-gpu.md)            | NV, NC            | Macchine virtuali specializzate ottimizzate per livelli intensivi di rendering della grafica e modifica di video, disponibili con GPU singole o più GPU.       |
+| [High Performance Computing (HPC)](virtual-machines-windows-sizes-hpc.md) | H, A8-11          | Le nostre macchine virtuali con CPU più veloci e potenti, con interfacce di rete ad alta velocità effettiva facoltative (RDMA). 
+
+<br>
+
+Altre informazioni su come le [unità di calcolo di Azure](virtual-machines-windows-acu.md) consentono di confrontare le prestazioni di calcolo negli SKU di Azure.
+
+Altre informazioni sulle diverse dimensioni di macchina virtuale disponibili:
+- [Utilizzo generico](virtual-machines-windows-sizes-general.md)
+- [Ottimizzate per il calcolo](virtual-machines-windows-sizes-compute.md)
+- [Ottimizzate per la memoria](virtual-machines-windows-sizes-memory.md)
+- [Ottimizzate per l'archiviazione](virtual-machines-windows-sizes-storage.md)
+- [Ottimizzate per la GPU](virtual-machines-windows-sizes-gpu.md)
+- [High Performance Computing (HPC)](virtual-machines-windows-sizes-hpc.md)
+
+
 
 

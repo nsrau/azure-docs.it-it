@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 653c9a04016c0157b2107710e170ba63b3a499f7
-ms.openlocfilehash: 38f68d6df19d24492a234933e10d5d5cf34d1b23
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 3539da8afe5781d74cbf723090050b767373f268
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -103,7 +103,7 @@ Azure Analysis Services supporta attualmente la modalità tabulare per i modelli
 ##### <a name="data-sources"></a>Origini dati
 Per l'anteprima, le origini dati seguenti sono supportate nei modelli tabulari 1200 distribuiti a un server Azure Analysis Services.
 
-| **Cloud** | **Locale** |
+| **Cloud** | **Locale (richiede gateway dati)** |
 | --- | --- |
 | Database SQL |SQL Server |
 | SQL Data Warehouse |APS |
@@ -114,7 +114,8 @@ Per l'anteprima, le origini dati seguenti sono supportate nei modelli tabulari 1
 I modelli dati in Azure Analysis Services possono richiedere diversi provider di dati per connettersi alle origini dati rispetto ai modelli dati in SQL Server Analysis Services. I requisiti del provider di dati dipendono dal fatto che l'origine dati si trovi nel cloud o in locale e dal tipo di modello di dati: in memoria o DirectQuery. Per altre informazioni, vedere [Datasource connections](analysis-services-datasource.md) (Connessioni alle origini dati).
 
 ### <a name="client-connections"></a>Connessioni client
-Power BI Embedded non è ancora supportato nella versione di anteprima.
+
+Le applicazioni client richiedono ai [provider di dati](analysis-services-data-providers.md) client più recenti di connettersi ad Azure Analysis Services.
 
 Le cartelle di lavoro di Excel con connessioni attive a un server Azure Analysis Services e salvate in OneDrive o SharePoint Online non sono supportate.
 

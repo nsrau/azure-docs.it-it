@@ -14,9 +14,9 @@ ms.workload: NA
 ms.date: 2/15/2017
 ms.author: chackdan;maburlik
 translationtype: Human Translation
-ms.sourcegitcommit: 523a26ad37ab45fabcc5fc99c291abf864297a22
-ms.openlocfilehash: 88a4b9832fa2c0bf0f22e65dec1787e137398791
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: a09ee1955717d7e042c1df3382c4cecd40069e3a
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -50,7 +50,7 @@ Nel pacchetto autonomo di Service Fabric [scaricato](http://go.microsoft.com/fwl
 | ClusterConfig.gMSA.Windows.MultiMachine.json |File di configurazione del cluster di esempio contenente tutte le impostazioni per un cluster sicuro con più computer o macchine virtuali, con le informazioni per ogni nodo del cluster sicuro. Il cluster è protetto usando gli [account del servizio gestito del gruppo](https://technet.microsoft.com/en-us/library/jj128431(v=ws.11).aspx). |
 
 # <a name="cluster-configuration-samples"></a>Esempi di configurazione del cluster
-Le versioni più recenti dei modelli di configurazione del cluster sono disponibili nella pagina di Github: [Standalone Cluster Configuration Samples](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
+Le versioni più recenti dei modelli di configurazione del cluster sono disponibili nella pagina di GitHub: [Standalone Cluster Configuration Samples](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
 
 ## <a name="related"></a>Risorse correlate
 * [Creare un cluster autonomo di Azure Service Fabric](service-fabric-cluster-creation-for-windows-server.md)

@@ -4,7 +4,7 @@ description: Monitorare un cluster DC/OS nel cluster del servizio contenitore di
 services: container-service
 documentationcenter: 
 author: sauryadas
-manager: dan.lepow
+manager: madhana
 editor: 
 tags: acs, azure-container-service
 keywords: Contenitori, DC/OS, Azure, monitoraggio, ELK
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 03/27/2017
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: 9433eb9f734dbe1b815074f86b9a691b4d16b5c8
-ms.openlocfilehash: c372c4a04de61f1eace81418ec6dea054007ec1f
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: fa17900f8a752d692a62e47d301651cc4f435f06
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -63,12 +64,10 @@ Per accedere al dashboard di Kibana distribuito nella porta 5601, è necessario 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su Elasticsearch, Logstash e Kibana, vedere la [documentazione relativa a Elastic Stack](https://www.elastic.co/guide/index.html).
+* Per l'inoltro e la configurazione del log di sistema e dell'applicazione, vedere [Log Management in DC/OS with ELK](https://docs.mesosphere.com/1.8/administration/logging/elk/) (Gestione log nel controller di dominio o sistema operativo con ELK).
+
+* Per filtrare i log, vedere [Filtering Logs with ELK](https://docs.mesosphere.com/1.8/administration/logging/filter-elk/) (Filtrare i log con ELK). 
+
  
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

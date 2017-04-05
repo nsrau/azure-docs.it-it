@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/21/2016
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 3c07980e09362eabdfc80483213b62912e64ecf6
-ms.openlocfilehash: b57dc0b699d7f7e6d539d6622b3d2769adf4257d
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: c18d17d40dff658a8fc47ef2126dd2c21b68606a
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -91,9 +92,4 @@ In questo articolo è stato descritto come archiviare, indicizzare ed eseguire q
 * Scaricare ed eseguire gli [Esempi di codice su GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
 * Altre informazioni sulle [query di DocumentDB](documentdb-sql-query.md)
 * Ulteriori informazioni sui [criteri di indicizzazione di DocumentDB](documentdb-indexing-policies.md)
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

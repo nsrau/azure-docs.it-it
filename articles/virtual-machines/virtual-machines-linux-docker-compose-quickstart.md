@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: ad6401c1d18d44f56e0db9e7277f7ded995386bc
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 404b1784717d7a2e56e4154dd8995093b37a3bc1
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -42,7 +42,7 @@ Innanzitutto, creare un gruppo di risorse per l'ambiente di Docker con il comand
 az group create --name myResourceGroup --location westus
 ```
 
-Successivamente, distribuire una macchina virtuale con il comando [az group deployment create](/cli/azure/group/deployment#create) che include l'estensione di VM Docker di Azure da [questo modello di Azure Resource Manager su Github](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Specificare valori personalizzati per `newStorageAccountName`, `adminUsername`, `adminPassword` e `dnsNameForPublicIP`:
+Successivamente, distribuire una macchina virtuale con il comando [az group deployment create](/cli/azure/group/deployment#create) che include l'estensione di VM Docker di Azure da [questo modello di Azure Resource Manager su GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Specificare valori personalizzati per `newStorageAccountName`, `adminUsername`, `adminPassword` e `dnsNameForPublicIP`:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -67,7 +67,7 @@ Quando questo comando restituisce `Succeeded`, la distribuzione è stata complet
 ### <a name="azure-cli-10"></a>Interfaccia della riga di comando di Azure 1.0
 Installare la versione più recente, [Interfaccia della riga di comando di Azure 1.0](../cli-install-nodejs.md), e accedere a un account Azure. Verificare di usare la modalità di Resource Manager per creare la macchina virtuale (`azure config mode arm`).
 
-L'esempio seguente consente di creare un gruppo di risorse denominato `myResourceGroup` nel percorso `West US`, distribuendo una VM con l'estensione di VM Docker di Azure. Per distribuire l'ambiente, viene usato un [modello di Azure Resource Manager da Github](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu):
+L'esempio seguente consente di creare un gruppo di risorse denominato `myResourceGroup` nel percorso `West US`, distribuendo una VM con l'estensione di VM Docker di Azure. Per distribuire l'ambiente, viene usato un [modello di Azure Resource Manager da GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu):
 
 ```azurecli
 azure group create --name myResourceGroup --location "West US" \

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 03/28/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: a673044269016f5d216fa62a3bcc6f3b106838c0
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 037045c4e76d0fb8e96944fe8a3235223594a034
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -44,7 +44,7 @@ Il gateway applicazione supporta HTTP, HTTPS e WebSocket.
 
 **D. Quali risorse sono supportate oggi nell'ambito del pool back-end?**
 
-I pool back-end possono essere costituiti da schede di interfaccia di rete, set di scalabilità di macchine virtuali (VMSS), indirizzi IP pubblici, indirizzi IP interni e nomi di dominio completi (FQDN). Il supporto per le app Web di Azure non è attualmente disponibile. I membri del pool back-end del gateway applicazione non sono associati a un set di disponibilità. I membri del pool back-end possono trovarsi tra cluster, data center o all'esterno di Azure, purché abbiano connettività IP.
+I pool back-end possono essere costituiti da schede di interfaccia di rete, set di scalabilità di macchine virtuali, indirizzi IP pubblici, indirizzi IP interni e nomi di dominio completi. Il supporto per le app Web di Azure non è attualmente disponibile. I membri del pool back-end del gateway applicazione non sono associati a un set di disponibilità. I membri del pool back-end possono trovarsi tra cluster, data center o all'esterno di Azure, purché abbiano connettività IP.
 
 **D. In quale aree è disponibile il servizio?**
 
@@ -65,7 +65,6 @@ Quando si usa un indirizzo IP pubblico come endpoint, queste informazioni sono r
 **D. L'IP o il DNS cambia durante il ciclo di vita del gateway applicazione?**
 
 L'indirizzo VIP può cambiare se il gateway viene arrestato e avviato dal cliente. Il DNS associato al gateway applicazione non cambia durante il ciclo di vita del gateway. Per questo motivo è consigliabile usare un alias CNAME che punti all'indirizzo DNS del gateway applicazione.
-
 
 **D. Il gateway applicazione supporta l'IP statico?**
 
@@ -124,10 +123,6 @@ I probe personalizzati non supportano caratteri jolly o regex nei dati di rispos
 **D. Cosa indica il campo Host per i probe personalizzati?**
 
 Il campo Host specifica il nome a cui inviare il probe. Applicabile solo quando vengono configurati più siti nel gateway applicazione. In caso contrario, usare "127.0.0.1". Questo valore è diverso dal nome host della VM ed è nel formato \<protocollo\>://\<host\>:\<porta\>\<percorso\>. 
-
-**D. Gateway applicazione supporta anche i back-end multi-tenant?**
-
-No, attualmente Gateway applicazione mantiene l'intestazione host in ingresso e la invia al back-end. Se il back-end richiede un'intestazione diversa, non funzionerà. Allo stesso modo se il back-end è multi-tenant e l'SSL end-to-end è abilitato, il back-end prevede che il nome del server si trovi nell'estensione SNI. Gateway applicazione attualmente non invia un'intestazione SNI nelle richieste di back-end in scenari SSL end-to-end che provocherebbero problemi di test e di percorso di dati. 
 
 ## <a name="performance"></a>Prestazioni
 
@@ -219,7 +214,7 @@ Sì, il WAF offre tutte le funzionalità disponibili nello SKU Standard.
 
 **D. Qual è la versione di CRS supportata dal gateway applicazione?**
 
-Il gateway applicazione supporta CRS 2.2.9
+Il gateway applicazione supporta CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) e CRS [3.0](application-gateway-crs-rulegroups-rules.md#owasp30).
 
 **D. Come si monitora il Web application firewall?**
 
@@ -231,11 +226,11 @@ No, la modalità di rilevamento registra solo il traffico che ha attivato una re
 
 **D. Come si personalizzano le regole del Web application firewall?**
 
-Le regole del Web application firewall non sono attualmente personalizzabili.
+Sì, le regole WAF sono personalizzabili. Per altre informazioni sulla relativa personalizzazione, vedere [Customize WAF rule groups and rules](application-gateway-customize-waf-rules-portal.md) (Personalizzare le regole e i gruppi di regole di WAF)
 
 **D. Quali regole sono attualmente disponibili?**
 
-Il Web application firewall supporta attualmente CRS 2.2.9, che offre la protezione di base per la maggior parte delle prime 10 vulnerabilità identificate dall'Open Web Application Security Project (OWASP) disponibili in [Prime 10 vulnerabilità OWASP](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013)
+Il Web application firewall supporta attualmente CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) e [3.0](application-gateway-crs-rulegroups-rules.md#owasp30), che offre la protezione di base per la maggior parte delle prime 10 vulnerabilità identificate dall'Open Web Application Security Project (OWASP) disponibili in [Prime 10 vulnerabilità OWASP](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013)
 
 * Protezione dagli attacchi SQL injection
 
@@ -251,9 +246,9 @@ Il Web application firewall supporta attualmente CRS 2.2.9, che offre la protezi
 
 * Rilevamento di errori di configurazione comuni dell'applicazione (ad esempio, Apache, IIS e così via)
 
-**D. Il Web application firewall supporta anche la prevenzione DDos?**
+**D. Il WAF supporta anche la prevenzione DDoS?**
 
-No, il Web application firewall non offre la prevenzione DDos.
+No, non fornisce la prevenzione DDoS.
 
 ## <a name="diagnostics-and-logging"></a>Diagnostica e registrazione
 
@@ -288,4 +283,3 @@ Nella maggior parte dei casi, l'accesso al back-end è bloccato da un gruppo di 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sul gateway applicazione, vedere la [panoramica del gateway applicazione](application-gateway-introduction.md).
-

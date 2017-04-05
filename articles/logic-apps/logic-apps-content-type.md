@@ -15,9 +15,9 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 3206c076350c2105e92d320ce30ce73448ccd3bd
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: d0d283f21caf53406c51670e75bf2796a175be51
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -48,7 +48,7 @@ Non è necessario alcun cast aggiuntivo. Se si lavora con dati JSON ma non è st
 
 ### <a name="schema-and-schema-generator"></a>Schema e generatore di schemi
 
-Il trigger della richiesta consente di immettere uno schema JSON per il payload che si prevede di ricevere. Questo schema consente alla finestra di progettazione di generare token per consentire di usare il contenuto della richiesta. Se non si dispone di uno schema, selezionare `Use sample payload to generate schema` in modo che sia possibile generare uno schema JSON da un payload di esempio.
+Il trigger della richiesta consente di immettere uno schema JSON per il payload che si prevede di ricevere. Questo schema consente alla finestra di progettazione di generare token per consentire di usare il contenuto della richiesta. Se non si dispone di uno schema pronto, selezionare **Usare il payload di esempio per generare lo schema** per generare uno schema JSON da un payload di esempio.
 
 ![Schema](./media/logic-apps-http-endpoint/manualtrigger.png)
 

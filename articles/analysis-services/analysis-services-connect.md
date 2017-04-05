@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 02/13/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 3992e327bbe887338234fc2d516b053f0750a151
-ms.openlocfilehash: 118ea84abb0de095ac515ee98a643718ca54c043
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: eccc181e2203a97de58005f9597613775338ebcc
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -41,7 +41,7 @@ Quando si crea un server di Analysis Services in Azure, si specifica un nome uni
 
 ## <a name="get-the-server-name"></a>Ottenere il nome del server
 
-Prima di connettersi, è necessario ottenere il nome del server. Nel **portale di Azure** > server > **Panoramica** > **Nome server** copiare l'intero nome del server. Se anche altri utenti dell'organizzazione si connettono a questo server, è opportuno condividere il nome del server con loro. Quando si specifica un nome di server, è necessario usare l'intero percorso.
+Prima di connettersi, è necessario ottenere il nome del server. Nel **portale di Azure** > server > **Panoramica** > **Nome server** copiare l'intero nome del server. Se anche altri utenti nell'organizzazione si connettono a questo server, è opportuno condividere il nome del server. Quando si specifica un nome di server, è necessario usare l'intero percorso.
 
 ![Ottenere il nome del server in Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 
@@ -52,7 +52,7 @@ Prima di connettersi, è necessario ottenere il nome del server. Nel **portale d
 > 
 > 
 
-1. In [Power BI Desktop](https://powerbi.microsoft.com/desktop/) fare clic su **Recupera dati** > **Database** > **Azure Analysis Services**.
+1. In [Power BI Desktop](https://powerbi.microsoft.com/desktop/) fare clic su **Recupera dati** > **Azure** > **Database Microsoft Azure Analysis Services**.
 2. In **Server** incollare il nome del server dagli Appunti.
 3. In **Database**, se si conosce il nome della prospettiva o del database del modello tabulare a cui connettersi, incollarlo qui. In caso contrario, è possibile lasciare vuoto questo campo. È possibile selezionare un database o una prospettiva nella schermata successiva.
 4. Lasciare selezionata l'impostazione predefinita dell'opzione **Connessione dinamica** e quindi scegliere **Connetti**. Se viene chiesto di specificare un account, immettere l'account dell'organizzazione.
@@ -68,14 +68,14 @@ Prima di connettersi, è necessario ottenere il nome del server. Nel **portale d
 La connessione al server di Azure Analysis Services in Excel è supportata tramite Recupera dati in Excel 2016 o Power Query nelle versioni precedenti. [Provider MSOLAP.7](analysis-services-data-providers.md) è obbligatorio. La connessione tramite l'Importazione guidata tabella in Power Pivot non è supportata.
 
 > [!NOTE]
-> Alcune organizzazioni distribuiscono gli aggiornamenti di Office 365 su Deferred Channel; gli aggiornamenti relativi alla versione vengono posticipati di quattro mesi rispetto alla versione corrente. Per la versione di Excel 2016 con compilazione 1609.7369.2115 e versioni precedenti o per Excel 2013, è possibile creare un file Office Data Connection (con estensione odc) e aggiornare manualmente il provider MSOLAP.7 per la connessione a un server di Azure Analysis Services. Per altre informazioni, vedere [Create an .odc file](analysis-services-odc.md) (Creare un file con estensione odc).
+> Alcune organizzazioni distribuiscono gli aggiornamenti di Office 365 su Deferred Channel; gli aggiornamenti relativi alla versione vengono posticipati di quattro mesi rispetto alla versione corrente. Per Excel 2016 versione 1609.7369.2115 e precedenti o Excel 2013, è possibile crere un file con estensione odc e aggiornare manualmente il provider MSOLAP.7 per la connessione a un server. Per altre informazioni, vedere [Creare un file con estensione odc](analysis-services-odc.md).
 > 
 > 
 
 **Per connettersi da Excel 2016**
 
 1. In Excel 2016, sulla barra multifunzione **Dati**, fare clic su **Recupera dati esterni** > **Da altre origini** > **Da Analysis Services**.
-2. Nella Connessione guidata dati, in **Nome Server**, incollare il nome del server dagli Appunti. In **Credenziali di accesso** selezionare **Usa nome utente e password seguenti** e quindi digitare il nome utente dell'organizzazione, ad esempio nancy@adventureworks.com,, e la password.
+2. Nella Connessione guidata dati, in **Nome Server**, incollare il nome del server dagli Appunti. In **Credenziali di accesso** selezionare **Usa nome utente e password seguenti** e quindi digitare il nome utente dell'organizzazione, ad esempio nancy@adventureworks.com, e la password.
 
     ![Accesso per la connessione in Excel](./media/analysis-services-connect/aas-connect-excel-logon.png)
 3. In **Seleziona database e tabella** selezionare il database e il modello o la prospettiva e quindi fare clic su **Fine**.

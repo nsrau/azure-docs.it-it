@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 374b2601857b3983bcd7b2f2e11d22b187fe7105
-ms.openlocfilehash: 732ebaaf5bf16c02cfc2185d9e7138daf74c71dd
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 15a1605938941b056eda1a151ea018d05bffc246
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -74,28 +74,28 @@ az disk create --resource-group myResourceGroup --name myManagedDisk \
   --source https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd
 ```
 
-Ottenere l'URI del disco gestito creato con [az disk list](/cli/azure/disk/list):
+Ottenere i dettagli del disco gestito creato con [az disk list](/cli/azure/disk/list):
 
 ```azurecli
 az disk list --resource-group myResourceGroup \
-  --query '[].{Name:name,URI:creationData.sourceUri}' --output table
+  --query [].{Name:name,ID:id} --output table
 ```
 
 L'output è simile all'esempio seguente:
 
 ```azurecli
-Name               URI
+Name               ID
 -----------------  ----------------------------------------------------------------------------------------------------
-myUMDiskFromVHD    https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
+myManagedDisk    /subscriptions/mySubscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk
 ```
 
-Ora, creare la VM con [az vm create](/cli/azure/vm#create) e specificare l'URI del disco gestito (`--image`). L'esempio seguente crea una VM denominata `myVM` utilizzando il disco gestito creato dal disco rigido virtuale caricato:
+Ora, creare la macchina virtuale con [az vm create](/cli/azure/vm#create) e specificare il nome del disco gestito (`--attach-os-disk`). L'esempio seguente crea una VM denominata `myVM` utilizzando il disco gestito creato dal disco rigido virtuale caricato:
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
     --name myVM --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --attach-os-disk myUMDiskFromVHD
+    --attach-os-disk myManagedDisk
 ```
 
 ### <a name="unmanaged-disks"></a>Dischi non gestiti

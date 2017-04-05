@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2017
+ms.date: 03/23/2017
 ms.author: sethm;clemensv
 translationtype: Human Translation
-ms.sourcegitcommit: 4a972b9b8b52a90f27afda98d8bdc661016d1fe1
-ms.openlocfilehash: f5fd4c6c0b8db3fe91d8b57a68fe33dcff353a59
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: a433b918f48b42d3bf7ee8ee16bd912e278a381d
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -138,9 +138,6 @@ L'URL dell'indirizzo fornito nel messaggio JSON viene usato dal listener per sta
 #### <a name="accepting-the-socket"></a>Accettazione del socket
 Per accettare, il listener stabilisce una connessione Web Socket all'indirizzo specificato.
 
-Tenere presente che, durante il periodo di anteprima, l'URI dell'indirizzo può usare un indirizzo IP di base e il certificato TLS fornito dal server non riuscirà a convalidare tale indirizzo.
-Questo problema verrà corretto durante l'anteprima.
-
 Se il messaggio "accept" contiene un'intestazione "Sec-WebSocket-Protocol", si prevede che il listener accetti il Web Socket solo se supporta tale protocollo e che imposti l'intestazione non appena il Web Socket viene stabilito.
 
 Lo stesso vale per l'intestazione "Sec-WebSocket-Extensions". Se il framework supporta un'estensione, deve impostare l'intestazione sulla risposta lato *server* dell'handshake "Sec-WebSocket-Extensions" obbligatorio per l'estensione.
@@ -187,7 +184,7 @@ Per rifiutare il socket, il client accetta l'URI dell'indirizzo dal messaggio "a
 | statusCode |Sì |Codice di stato HTTP numerico. |
 | statusDescription |Sì |Motivo leggibile del rifiuto. |
 
-L'URI risultante viene quindi usato per stabilire una connessione Web Socket. Tenere sempre presente che il certificato TLS potrebbe non corrispondere all'indirizzo durante l'anteprima e che quindi potrebbe essere necessario disabilitare la convalida.
+L'URI risultante viene quindi usato per stabilire una connessione WebSocket.
 
 Se completato correttamente, questo handshake non riuscirà di proposito con il codice errore HTTP 410, perché non è stato stabilito alcun Web Socket. Se si verifica un errore le opzioni sono le seguenti:
 

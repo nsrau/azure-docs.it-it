@@ -1,5 +1,5 @@
 ---
-title: Configurare un Web application firewall - Gateway applicazione di Azure | Documentazione Microsoft
+title: Configurare un web application firewall - Gateway applicazione di Azure | Documentazione Microsoft
 description: Questo articolo fornisce indicazioni su come iniziare a usare il firewall applicazione Web in un gateway applicazione nuovo o esistente.
 documentationcenter: na
 services: application-gateway
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 03/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: bcff92a362c7f8ad1c69b93af07d77e0d03b6a92
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 52b7728c3fc702e37f5c5fe3d6544117a11464e8
+ms.lasthandoff: 03/30/2017
 
 
 ---
-# <a name="configure-web-application-firewall-on-a-new-or-existing-application-gateway"></a>Configurare un firewall applicazione Web su un gateway applicazione nuovo o esistente
+# <a name="configure-web-application-firewall-on-a-new-or-existing-application-gateway"></a>Configurare un web application firewall su un gateway applicazione nuovo o esistente
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](application-gateway-web-application-firewall-portal.md)
@@ -28,7 +29,7 @@ ms.openlocfilehash: bcff92a362c7f8ad1c69b93af07d77e0d03b6a92
 
 Il firewall applicazione Web (WAF) nel gateway applicazione di Azure protegge le applicazioni Web dai comuni attacchi basati sul Web, come ad esempio gli attacchi SQL injection, gli attacchi di scripting intersito e il controllo delle sessioni.
 
-Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello&7;. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale. L'applicazione offre numerose funzionalità di controller per la distribuzione di applicazioni (ADC, Application Delivery Controller), tra cui bilanciamento del carico HTTP, affinità di sessione basata su cookie, offload SSL (Secure Sockets Layer), probe di integrità personalizzati, supporto per più siti e molte altre. Per un elenco completo delle funzionalità supportate, vedere la panoramica del gateway applicazione
+Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello 7. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale. L'applicazione offre numerose funzionalità di controller per la distribuzione di applicazioni (ADC, Application Delivery Controller), tra cui bilanciamento del carico HTTP, affinità di sessione basata su cookie, offload SSL (Secure Sockets Layer), probe di integrità personalizzati, supporto per più siti e molte altre. Per un elenco completo delle funzionalità supportate, vedere la panoramica del gateway applicazione
 
 L'articolo seguente illustra come [aggiungere il firewall applicazione Web a un gateway applicazione esistente](#add-web-application-firewall-to-an-existing-application-gateway) e [creare un gateway applicazione che usa il firewall applicazione Web](#create-an-application-gateway-with-web-application-firewall).
 
@@ -40,7 +41,7 @@ Se è stato letto l'argomento relativo alla [creazione di un gateway applicazion
 
 **SKU**: un gateway applicazione normale senza WAF supporta le dimensioni **Standard\_Small**, **Standard\_Medium** e **Standard\_Large**. Con l'introduzione di WAF sono disponibili due SKU aggiuntive, **WAF\_Medium** e **WAF\_Large**. WAF non è supportato sui gateway applicazione di piccole dimensioni.
 
-**Livello**: i valori disponibili sono **Standard** o **WAF**. Quando si usa un firewall applicazione Web, è necessario scegliere **WAF** .
+**Livello**: i valori disponibili sono **Standard** o **WAF**. Quando si usa un web application firewall, è necessario scegliere **WAF** .
 
 **Modalità** : questa impostazione è la modalità di WAF. I valori consentiti sono **Rilevamento** e **Prevenzione**. Quando il firewall WAF è configurato in modalità di rilevamento, tutte le minacce vengono archiviate in un file di log. In modalità di prevenzione, gli eventi vengono comunque registrati, ma l'autore dell'attacco riceve una risposta di mancata autorizzazione 403 dal gateway applicazione.
 
@@ -66,7 +67,7 @@ Select-AzureRmSubscription -SubscriptionName "<Subscription name>"
 
 ### <a name="step-3"></a>Passaggio 3
 
-Recuperare il gateway a cui si sta aggiungendo il firewall applicazione Web.
+Recuperare il gateway a cui si sta aggiungendo il web application firewall.
 
 ```powershell
 $gw = Get-AzureRmApplicationGateway -Name "AdatumGateway" -ResourceGroupName "MyResourceGroup"
@@ -98,11 +99,11 @@ Aggiornare il gateway applicazione con le impostazioni definite nel passaggio pr
 Set-AzureRmApplicationGateway -ApplicationGateway $gw
 ```
 
-Questo comando aggiorna il gateway applicazione con il firewall applicazione Web. È consigliabile visualizzare [Diagnostica del gateway applicazione](application-gateway-diagnostics.md) per comprendere come visualizzare i log per il gateway applicazione. Per le implicazioni di sicurezza del WAF, i log devono essere esaminati a intervalli regolari per essere aggiornati sulle condizioni di sicurezza delle applicazioni web.
+Questo comando aggiorna il gateway applicazione con il web application firewall. È consigliabile visualizzare [Diagnostica del gateway applicazione](application-gateway-diagnostics.md) per comprendere come visualizzare i log per il gateway applicazione. Per le implicazioni di sicurezza del WAF, i log devono essere esaminati a intervalli regolari per essere aggiornati sulle condizioni di sicurezza delle applicazioni web.
 
-## <a name="create-an-application-gateway-with-web-application-firewall"></a>Creare un gateway applicazione con il firewall applicazione Web
+## <a name="create-an-application-gateway-with-web-application-firewall"></a>Creare un gateway applicazione con il web application firewall
 
-I passaggi seguenti illustrano l'intero processo di creazione di un gateway applicazione con il firewall applicazione Web.
+I passaggi seguenti illustrano l'intero processo di creazione di un gateway applicazione con il web application firewall.
 
 Assicurarsi di usare la versione più recente di Azure PowerShell. Altre informazioni sono disponibili in [Uso di Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md).
 
@@ -292,11 +293,14 @@ $config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enab
 
 ### <a name="step-21"></a>Passaggio 21
 
-Creare un gateway applicazione con tutti gli elementi di configurazione illustrati nei passaggi precedenti. Nell'esempio il gateway applicazione è denominato "appgwtest".
+Creare un gateway applicazione con tutti gli elementi di configurazione illustrati nei passaggi precedenti. Nell'esempio, il gateway applicazione è denominato "appgwtest".
 
 ```powershell
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert -AuthenticationCertificates $authcert
 ```
+
+> [!NOTE]
+> I gateway applicazione creati con la configurazione di base del web application firewall sono configurati con CRS 3.0 per la protezione.
 
 ## <a name="get-application-gateway-dns-name"></a>Ottenere il nome DNS del gateway applicazione
 
@@ -330,12 +334,7 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come configurare la registrazione diagnostica, per registrare gli eventi che vengono rilevati o bloccati con il firewall applicazione Web, visitare [Registrazione diagnostica per il gateway applicazione](application-gateway-diagnostics.md)
+Per informazioni su come configurare la registrazione diagnostica, per registrare gli eventi che vengono rilevati o bloccati con il web application firewall, visitare [Registrazione diagnostica per il gateway applicazione](application-gateway-diagnostics.md)
 
 [scenario]: ./media/application-gateway-web-application-firewall-powershell/scenario.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

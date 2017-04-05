@@ -13,16 +13,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/20/2017
+ms.date: 02/16/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 147c27d12b87379ff02b871ceabd8154e53b6c1a
-ms.openlocfilehash: f189e19b5b843d6a7d056c8230bc06d85e568202
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 466595773663d43ad8e25fa9ec0ec0163a3f5962
+ms.lasthandoff: 03/24/2017
 
 
 ---
 # <a name="create-an-analysis-services-server"></a>Creare un server Analysis Services
-Questo articolo illustra la creazione di una nuova risorsa server Analysis Services nella sottoscrizione di Azure.
+Questo articolo illustra la creazione di una risorsa server Analysis Services nella sottoscrizione di Azure.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Per iniziare, è necessario:
@@ -47,15 +48,15 @@ Per iniziare, è necessario:
    * **Sottoscrizione**: selezionare la sottoscrizione a cui il server addebita le fatture.
    * **Gruppo di risorse**: si tratta di contenitori progettati per facilitare la gestione di una raccolta di risorse di Azure. Per altre informazioni, vedere [Gruppi di risorse](../azure-resource-manager/resource-group-overview.md).
    * **Località**: località del data center di Azure che ospita il server. Selezionare una località vicina alla base di utenti più estesa.
-   * **Piano tariffario**: selezionare un piano tariffario. Sono supportati modelli tabulari fino a 100 GB. È comunque possibile modificare il piano tariffario in un secondo momento.
+   * **Piano tariffario**: selezionare un piano tariffario. Sono supportati modelli tabulari fino a 100 GB. Per altre informazioni, vedere [Prezzi di Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
 4. Fare clic su **Crea**.
 
-La creazione richiede in genere meno di un minuto e spesso solo alcuni secondi. Se si seleziona **Add to Portal** (Aggiungi al portale), spostarsi nel portale per vedere il nuovo server. In alternativa, passare a **More services** (Altri servizi) > **Analysis Services** per vedere se il server è pronto. Se il server non viene visualizzato, aggiornare l'elenco.
+La creazione richiede in genere meno di un minuto e spesso solo alcuni secondi. Se si seleziona **Add to Portal** (Aggiungi al portale), spostarsi nel portale per vedere il nuovo server. In alternativa, passare a **More services** (Altri servizi) > **Analysis Services** per vedere se il server è pronto.
 
  ![Dashboard](./media/analysis-services-create-server/aas-create-server-dashboard.png)
 
 ## <a name="automate-server-creation"></a>Automatizzare la creazione di server
-È possibile automatizzare il provisioning immediato del server grazie ai file modello di Azure Resource Manager. Guardare il video seguente per saperne di più.
+È possibile automatizzare il provisioning immediato del server grazie ai file modello di Azure Resource Manager. Per altre informazioni, guardare questo utile video.
 
 >[!VIDEO https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation/player]
 >
@@ -66,10 +67,5 @@ La creazione richiede in genere meno di un minuto e spesso solo alcuni secondi. 
 Dopo aver creato un server, è possibile distribuirvi un modello usando SSDT o SSMS, come descritto in [Deploy a model](analysis-services-deploy.md) (Distribuire un modello).
 
 Se un modello distribuito sul server si connette a origini dati locali, è necessario installare un gateway dati locale in un computer della rete, come descritto in [On-premises data gateway](analysis-services-gateway.md) (Gateway dati locale).
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

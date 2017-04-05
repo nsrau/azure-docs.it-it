@@ -1,5 +1,5 @@
 ---
-title: AMQP 1.0 nelle operazioni basate su richiesta/risposta del bus di servizio | Documentazione Microsoft
+title: AMQP 1.0 nelle operazioni basate su richiesta/risposta del bus di servizio di Azure | Documentazione Microsoft
 description: Elenco delle operazioni basate su richiesta/risposta del bus di servizio di Microsoft Azure.
 services: service-bus-messaging
 documentationcenter: na
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 03/22/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 05c5c8e8c12357fd150be10def6cd9a272d613e2
-ms.openlocfilehash: 4df8ce114600abfa7abe8e70959a2cd51e2cd8a6
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: a09aefd00a89c48acdc885f98e34d7faa9c5629a
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -46,10 +47,10 @@ Tutte le operazioni descritte in questo documento seguono un modello richiesta/r
 Crea un collegamento al nodo di gestione per l'invio delle richieste.  
   
 ```  
-requestLink = session.attach(     
+requestLink = session.attach(       
 role: SENDER,   
-    target: { address: "<entity address>/$management" },   
-    source: { address: ""<my request link unique address>" }   
+       target: { address: "<entity address>/$management" },   
+       source: { address: ""<my request link unique address>" }   
 )  
   
 ```  
@@ -59,10 +60,10 @@ role: SENDER,
 Crea un collegamento per la ricezione delle risposte dal nodo di gestione.  
   
 ```  
-responseLink = session.attach(    
+responseLink = session.attach(      
 role: RECEIVER,   
     source: { address: "<entity address>/$management" }   
-    target: { address: "<my response link unique address>" }   
+       target: { address: "<my response link unique address>" }   
 )  
   
 ```  
@@ -96,13 +97,13 @@ Il messaggio di risposta avrà il formato seguente.
   
 ```  
 Message(  
-properties: {     
+properties: {      
         correlation-id: <request id>  
     },  
     application-properties: {  
             "statusCode" -> <status code>,  
             "statusDescription" -> <status description>,  
-           },         
+           },          
 )  
   
 ```  
@@ -186,7 +187,7 @@ Il corpo del messaggio di risposta deve essere costituito da una sezione **amqp-
   
 |Chiave|Tipo di valore|Obbligatorio|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
-| del cloud al dispositivo|elenco di mapping|Sì|Elenco di messaggi in cui ogni mapping rappresenta un messaggio.|  
+|del cloud al dispositivo|elenco di mapping|Sì|Elenco di messaggi in cui ogni mapping rappresenta un messaggio.|  
   
 Il mapping che rappresenta un messaggio deve contenere le voci seguenti.  
   
@@ -211,7 +212,7 @@ Il corpo del messaggio di richiesta deve essere costituito da una sezione **amqp
   
 |Chiave|Tipo di valore|Obbligatorio|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
-| del cloud al dispositivo|elenco di mapping|Sì|Elenco di messaggi in cui ogni mapping rappresenta un messaggio.|  
+|del cloud al dispositivo|elenco di mapping|Sì|Elenco di messaggi in cui ogni mapping rappresenta un messaggio.|  
   
 Il mapping che rappresenta un messaggio deve contenere le voci seguenti.  
   
@@ -341,7 +342,7 @@ Il corpo del messaggio di risposta deve essere costituito da una sezione **amqp-
   
 |Chiave|Tipo di valore|Obbligatorio|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
-| del cloud al dispositivo|elenco di mapping|Sì|Elenco di messaggi in cui ogni mapping rappresenta un messaggio.|  
+|del cloud al dispositivo|elenco di mapping|Sì|Elenco di messaggi in cui ogni mapping rappresenta un messaggio.|  
   
  Il mapping che rappresenta un messaggio deve contenere le voci seguenti.  
   
@@ -495,7 +496,7 @@ Il mapping **correlation-filter** deve includere almeno una delle voci seguenti.
 |session-id|string|No||  
 |reply-to-session-id|string|No||  
 |content-type|string|No||  
-|properties|map|No|Mapping alle [proprietà della classe BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.properties.aspx) del bus di servizio.|  
+|properties|map|No|Mapping alle [proprietà della classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties) del bus di servizio.|  
   
 Il mapping **sql-rule-action** deve includere le voci seguenti.  
   
@@ -573,7 +574,7 @@ Il corpo del messaggio di risposta deve essere costituito da una sezione **amqp-
   
 |Chiave|Tipo di valore|Obbligatorio|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
-| del cloud al dispositivo|elenco di mapping|Sì|Elenco di messaggi in cui ogni mapping rappresenta un messaggio.|  
+|del cloud al dispositivo|elenco di mapping|Sì|Elenco di messaggi in cui ogni mapping rappresenta un messaggio.|  
   
 Il mapping che rappresenta un messaggio deve contenere le voci seguenti.  
   
@@ -624,8 +625,3 @@ Per altre informazioni su AMQP e sul bus di servizio, visitare i collegamenti se
 [Panoramica di AMQP per il bus di servizio]: service-bus-amqp-overview.md
 [Supporto di AMQP 1.0 per code e argomenti partizionati del bus di servizio]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP nel bus di servizio per Windows Server]: https://msdn.microsoft.com/library/dn574799.asp
-
-
-<!--HONumber=Nov16_HO4-->
-
-

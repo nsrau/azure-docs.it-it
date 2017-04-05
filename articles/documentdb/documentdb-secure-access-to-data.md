@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/23/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: a12d3a5c25decdc88df0c9f9b3216bfaae33d5a6
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: e4cbc9b0c9532d56376c4fabebcde8c64cb0474b
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -80,7 +80,7 @@ Database database = await client.CreateDatabaseAsync(
 ## <a name="resource-tokens"></a>Token delle risorse
 
 I token delle risorse consentono di accedere alle risorse dell'applicazione all'interno di un database. Token delle risorse:
-- Consentono di accedere a raccolte, documenti, allegati, stored procedure, trigger e funzioni definite dall'utente.
+- Consentono di accedere a raccolte, chiavi di partizioni, documenti, allegati, stored procedure, trigger e funzioni definite dall'utente.
 - Vengono creati quando a un [utente](#users) vengono concesse [autorizzazioni](#permissions) per una risorsa specifica.
 - Vengono ricreati quando si interviene su una risorsa di autorizzazione tramite chiamata POST, GET o PUT.
 - Usano un token di risorsa hash costruito specificamente per l'utente, la risorsa e l'autorizzazione.
@@ -105,9 +105,9 @@ Di seguito è riportato un tipico schema progettuale in cui i token delle risors
 
     ![Flusso di lavoro di DocumentDB risorse token](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
 
- La generazione e la gestione dei token delle risorse vengono gestite tramite le librerie client di DocumentDB native. Se tuttavia si usa REST è necessario creare le intestazioni di richiesta/autenticazione. Per altre informazioni sulla creazione di intestazioni di autenticazione per REST, vedere [Access Control on DocumentDB Resources](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources) (Controllo di accesso per risorse DocumentDB) oppure il [codice sorgente per gli SDK di Microsoft](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
- 
- Per un esempio di servizio di livello intermedio usato per generare o negoziare i token delle risorse, vedere l'app [ResourceTokenBroker](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
+La generazione e la gestione dei token delle risorse vengono gestite tramite le librerie client di DocumentDB native. Se tuttavia si usa REST è necessario creare le intestazioni di richiesta/autenticazione. Per altre informazioni sulla creazione di intestazioni di autenticazione per REST, vedere [Access Control on DocumentDB Resources](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources) (Controllo di accesso per risorse DocumentDB) oppure il [codice sorgente per gli SDK di Microsoft](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
+
+Per un esempio di servizio di livello intermedio usato per generare o negoziare i token delle risorse, vedere l'app [ResourceTokenBroker](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
 <a id="users"></a>
 
@@ -184,5 +184,4 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 * Per altre informazioni sulla sicurezza dei database di DocumentDB, vedere [DocumentDB NoSQL database security](documentdb-nosql-database-security.md) (Sicurezza dei database DocumentDB NoSQL).
 * Per informazioni sulla gestione delle chiavi master e di sola lettura, vedere [Come gestire un account DocumentDB](documentdb-manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
 * Per informazioni su come costruire i token di autorizzazione di DocumentDB, vedere [Access Control on DocumentDB Resources](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources) (Controllo di accesso per risorse DocumentDB).
-
 

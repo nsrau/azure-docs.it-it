@@ -1,6 +1,6 @@
 ---
-title: Flusso di lavoro campione per preparare i dischi rigidi per un processo di importazione di Azure | Documentazione Microsoft
-description: "Viene illustrata una procedura dettagliata e completa su come preparare le unità per un processo di importazione nel servizio di Importazione/Esportazione di Azure"
+title: Flusso di lavoro di esempio per la preparazione dei dischi rigidi per un processo di importazione in Importazione/Esportazione di Azure - versione 1 | Documentazione Microsoft
+description: "Viene illustrata una procedura dettagliata e completa per la preparazione delle unità per un processo di importazione nel servizio Importazione/Esportazione di Azure."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
-ms.openlocfilehash: ee7a8c9ae4cda5b67184100dd37ee4e0384aff26
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 313f8c1f3962a943b4c98c530c324ff28aa84c10
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -49,7 +49,7 @@ Successivamente, per determinare il numero di dischi rigidi necessari, calcolare
   
 `5TB + 30GB + 25GB + 10GB = 5TB + 65GB`  
   
-Per questo esempio, dovrebbero essere sufficienti due dischi rigidi da 3 TB. Tuttavia, poiché la directory di origine `H:\Video` include 5 TB di dati e la capacità del singolo disco rigido è di soli 3 TB, è necessario suddividere `H:\Video` in due directory di dimensioni minori prima di eseguire lo strumento di Importazione/Esportazione di Microsoft Azure: `H:\Video1` e `H:\Video2`. Questo passaggio genera le seguenti directory di origine:  
+Per questo esempio, dovrebbero essere sufficienti due dischi rigidi da 3 TB. Tuttavia, poiché la directory di origine `H:\Video` include 5 TB di dati e la capacità del singolo disco rigido è di soli 3 TB, è necessario suddividere `H:\Video` in due directory di dimensioni minori prima di eseguire lo strumento di importazione/esportazione di Microsoft Azure: `H:\Video1` e `H:\Video2`. Questo passaggio genera le seguenti directory di origine:  
   
 |Percorso|Dimensione|BLOB o directory virtuale di destinazione|  
 |--------------|----------|-------------------------------------------|  
@@ -74,7 +74,7 @@ Per questo esempio, dovrebbero essere sufficienti due dischi rigidi da 3 TB. Tut
   
 Inoltre, è possibile impostare i metadati seguenti per tutti i file:  
   
--   **UploadMethod:** servizio di Importazione/Esportazione di Windows Azure  
+-   **UploadMethod:** servizio Importazione/Esportazione di Windows Azure  
   
 -   **DataSetName:** SampleData  
   
@@ -85,7 +85,7 @@ Per impostare i metadati per i file importati, creare un file di testo, `c:\WAIm
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
 <Metadata>  
-    <UploadMethod>Windows Azure Import/Export Service</UploadMethod>  
+    <UploadMethod>Windows Azure Import/Export service</UploadMethod>  
     <DataSetName>SampleData</DataSetName>  
     <CreationDate>10/1/2013</CreationDate>  
 </Metadata>  
@@ -110,7 +110,7 @@ Per impostare queste proprietà, creare un file di testo, `c:\WAImportExport\Sam
 </Properties>  
 ```
   
-A questo punto è possibile eseguire lo strumento di Importazione/Esportazione di Azure per preparare i due dischi rigidi. Si noti che:  
+A questo punto è possibile eseguire lo strumento di importazione/esportazione di Azure per preparare i due dischi rigidi. Si noti che:  
   
 -   La prima unità viene montata come unità X.  
   
@@ -131,38 +131,50 @@ A questo punto è possibile eseguire lo strumento di Importazione/Esportazione d
     WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:x /format /encrypt /srcdir:x:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt /skipwrite
 ```
 
-Per la prima unità, eseguire due volte lo strumento di Importazione/Esportazione di Azure per copiare le due directory di origine:  
+## <a name="copy-sessions---first-drive"></a>Copiare le sessioni - prima unità
+
+Per la prima unità, eseguire due volte lo strumento di importazione/esportazione di Azure per copiare le due directory di origine:  
+
+**Prima sessione di copia**
   
 ```
-## First copy session for first drive  
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:x /format /encrypt /srcdir:H:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt  
 ```
 
+**Seconda sessione di copia**
+
 ```  
-## Second copy session for first drive  
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Photo /srcdir:H:\Photo /dstdir:photo/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt
 ```
+
+## <a name="copy-sessions---second-drive"></a>Copiare le sessioni - seconda unità
+ 
+Per la seconda unità, eseguire tre volte lo strumento di importazione/esportazione di Azure, una volta per ciascuna delle due directory di origine e una volta per il file di immagine Blu-Ray™ autonomo:  
   
-Per la seconda unità, eseguire tre volte lo strumento di Importazione/Esportazione di Azure, una volta per ciascuna delle due directory di origine e una volta per il file di immagine Blu-Ray™ autonomo:  
-  
+**Prima sessione di copia** 
+
 ```
-## First copy session  
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:Video2 /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:y /format /encrypt /srcdir:H:\Video2 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt  
 ```
   
+**Seconda sessione di copia**
+
 ```
-## Second copy session  
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:Music /srcdir:\\bigshare\john\music /dstdir:music/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt  
 ```  
   
+**Terza sessione di copia**  
+
 ```
-## Third copy session  
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp\BlueRay.ISO /dstblob:favorite/BlueRay.ISO /MetadataFile:c:\WAImportExport\SampleMetadata.txt /PropertyFile:c:\WAImportExport\SampleProperties.txt  
 ```
-  
+
+## <a name="copy-session-completion"></a>Completamento della sessione di copia
+
 Dopo aver completato le sessioni di copia, è possibile disconnettere le due unità dal computer di copia e spedirle al data center di Windows Azure appropriato. I due file journal, `FirstDrive.jrn` e `SecondDrive.jrn`, dovranno essere caricati durante la creazione del processo di importazione nel [portale di gestione di Windows Azure](https://manage.windowsazure.com/).  
   
-## <a name="see-also"></a>Vedere anche  
-[Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)  (Preparazione dei dischi rigidi per un processo di importazione)  
-[Quick Reference for Frequently Used Commands](storage-import-export-tool-quick-reference-v1.md) (Riferimento rapido per i comandi usati più di frequente) 
+## <a name="next-steps"></a>Passaggi successivi
+
+* [Preparing hard drives for an import job](storage-import-export-tool-preparing-hard-drives-import-v1.md) (Preparazione dei dischi rigidi per un processo di importazione)   
+* [Quick reference for frequently used commands](storage-import-export-tool-quick-reference-v1.md) (Riferimento rapido per i comandi usati più di frequente) 
 

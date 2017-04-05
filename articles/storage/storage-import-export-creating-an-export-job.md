@@ -1,6 +1,6 @@
 ---
 title: Creare un processo di esportazione per Importazione/Esportazione di Azure | Documentazione Microsoft
-description: Informazioni su come creare un processo di esportazione per il servizio Importazione/Esportazione di Microsoft Azure
+description: Informazioni su come creare un processo di esportazione per il servizio Importazione/Esportazione di Microsoft Azure.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
-ms.openlocfilehash: 55a45cf4169056d9426141a533dd1d32fe8064c4
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 3440d7e80e6a806c4119dff687fb9c590b8f0d14
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -81,7 +81,7 @@ Seguire i passaggi sotto per ottenere la posizione di spedizione:
 -   L'elenco di BLOB (o i prefissi BLOB) da esportare.
 
 ## <a name="shipping-your-drives"></a>Spedizione delle unità
- Usare ora lo strumento Importazione/Esportazione di Azure per determinare il numero di unità necessarie da inviare, in base ai BLOB selezionati per l'esportazione e alle dimensioni delle unità. Vedere le [informazioni di riferimento sullo strumento Importazione/Esportazione](storage-import-export-tool-how-to-v1.md) per i dettagli.
+ Usare ora lo strumento Importazione/Esportazione di Azure per determinare il numero di unità necessarie da inviare, in base ai BLOB selezionati per l'esportazione e alle dimensioni delle unità. Per i dettagli vedere [Azure Import/Export Tool Reference](storage-import-export-tool-how-to-v1.md) (Informazioni di riferimento sullo strumento Importazione/Esportazione di Azure).
 
  Inserire le unità in un singolo pacchetto e spedirle all'indirizzo ottenuto nel passaggio precedente. Prendere nota del numero di tracciabilità del pacchetto per il passaggio successivo.
 
@@ -94,6 +94,7 @@ Seguire i passaggi sotto per ottenere la posizione di spedizione:
 ## <a name="receiving-the-package"></a>Ricezione del pacchetto
  Dopo che il processo di esportazione è stato elaborato, le unità verranno restituite all'utente con i dati crittografati. È possibile recuperare la chiave BitLocker per ogni unità chiamando l'operazione [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get). È quindi possibile sbloccare l'unità usando la chiave. Il file manifesto di ogni unità contiene l'elenco di file dell'unità, oltre all'indirizzo BLOB originale per ogni file.
 
-## <a name="see-also"></a>Vedere anche
- [Uso dell'API REST del servizio Importazione/Esportazione](storage-import-export-using-the-rest-api.md)
+## <a name="next-steps"></a>Passaggi successivi
+
+* [Uso dell'API REST del servizio Importazione/Esportazione](storage-import-export-using-the-rest-api.md)
 

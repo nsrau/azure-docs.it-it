@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: lmazuel
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: f4c30c4653d8a14c7bf68ec6935c26725c6f623c
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: c2d6999c6c6e8d9168e2417309207dd14bf4f6f2
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -49,7 +50,7 @@ Sono disponibili diverse versioni di interpreti Python, ad esempio:
 Salvo esigenze specifiche, si consiglia di scegliere le prime due opzioni.
 
 ## <a name="sdk-installation-on-windows-linux-and-macos-client-libraries-only"></a>Installazione dell'SDK in Windows, Linux e MacOS (solo per le librerie client)
-Se si dispone già di Python installato, è possibile utilizzare pip per installare un bundle di tutte le librerie client nell'ambiente Python 3.3 + o Python 2.7.esistenti. Questo scaricherà i pacchetti dal [Python Package Index][Python Package Index] (PyPI).
+Se si dispone già di Python installato, è possibile utilizzare pip per installare un bundle di tutte le librerie client nell'ambiente Python 3.3 + o Python 2.7.esistenti. I pacchetti verranno scaricati da [Python Package Index][Python Package Index] (PyPI).
 
 Tale operazione potrebbe richiedere i diritti di amministratore:
 
@@ -88,7 +89,7 @@ o direttamente
 ```
 
 ## <a name="getting-more-packages"></a>Altri pacchetti
-[Python Package Index][Python Package Index] (PyPI) è una selezione completa di librerie di Python.  Se si è scelto di installare una distribuzione, si disporrà già della maggior parte dei componenti interessanti per vari scenari, dallo sviluppo Web all'informatica tecnica.
+[Python Package Index][Python Package Index] (PyPI) è una selezione completa di librerie Python.  Se si è scelto di installare una distribuzione, si disporrà già della maggior parte dei componenti interessanti per vari scenari, dallo sviluppo Web all'informatica tecnica.
 
 ## <a name="python-tools-for-visual-studio"></a>Python Tools per Visual Studio
 [Python Tools per Visual Studio][Python Tools per Visual Studio] (PTVS) è un plug-in OSS/gratuito di Microsoft che trasforma VS in un ambiente IDE Python completo:
@@ -110,7 +111,7 @@ Per Linux o MacOS, ecco gli scenari principali di Azure supportati:
 
 Il primo scenario consente di creare App Web avanzate che sfruttano le funzionalità PaaS di Azure, come l'[archiviazione BLOB](virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), l'[archiviazione code](storage/storage-python-how-to-use-queue-storage.md), l'[archiviazione tabelle](storage/storage-python-how-to-use-table-storage.md) e così via, tramite wrapper di Python per le API REST di Azure. Il funzionamento è identico in Windows, Mac e Linux.  È inoltre possibile usare queste librerie client dal computer di sviluppo locale oppure da una macchina virtuale Linux in esecuzione su Azure.
 
-Per lo scenario della macchina virtuale, avviare una VM Linux a scelta (Ubuntu, CentOS, Suse) ed eseguire o gestire i componenti desiderati.  È ad esempio possibile eseguire [IPython][IPython] REPL/Notebook nel computer Windows/Mac/Linux e puntare il browser a una VM Linux o Windows multi-processore che esegue il motore IPython in Azure. Per altre informazioni, vedere l'esercitazione [IPython Notebook in Azure](virtual-machines/virtual-machines-linux-jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Per lo scenario della macchina virtuale, avviare una VM Linux a scelta (Ubuntu, CentOS, Suse) ed eseguire o gestire i componenti desiderati.  È possibile ad esempio eseguire [IPython][IPython] REPL/Notebook nel computer Windows/Mac/Linux e puntare il browser a una VM multi-processore Linux o Max che esegue il motore IPython in Azure. Per altre informazioni, vedere l'esercitazione [IPython Notebook in Azure](virtual-machines/virtual-machines-linux-jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Per informazioni sulla procedura di configurazione di una VM di Linux, vedere l'esercitazione [Creare una macchina virtuale che esegue Linux](virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -120,52 +121,47 @@ Per altre informazioni su sviluppo e pubblicazione di siti Web di Azure, vedere 
 
 ## <a name="additional-software-and-resources"></a>Risorse e software aggiuntivi:
 * [Azure SDK per Python ReadTheDocs](http://azure-sdk-for-python.readthedocs.io/en/latest/)
-* [Azure SDK per Python Github](https://github.com/Azure/azure-sdk-for-python)
+* [Azure SDK per Python GitHub](https://github.com/Azure/azure-sdk-for-python)
 * [Esempi ufficiali di Azure per Python](https://azure.microsoft.com/documentation/samples/?platform=python)
-* [Distribuzione Python per l'analisi di una sequenza di valori][Distribuzione Python per l'analisi di una sequenza di valori] (Distribuzione di Python con Continuum Analytics)
-* [Distribuzione Python di Enthought][Distribuzione Python di Enthought] (Distribuzione di Python con Enthought)
-* [Distribuzione Python di ActiveState][Distribuzione Python di ActiveState] (Distribuzione di Python con ActiveState)
-* [Serie di librerie scientifiche SciPy per Python][Serie di librerie scientifiche SciPy per Python] (Serie di librerie scientifiche SciPy per Python)
-* [Serie di librerie numeriche NumPy per Python][Serie di librerie numeriche NumPy per Python] (Serie di librerie numeriche NumPy per Python)
-* [Progetto Django: framework/CMS Web avanzato][Progetto Django: framework/CMS Web avanzato] (Progetto Django: framework/CMS Web avanzato)
-* [IPython: REPL/Notebook avanzato per Python][IPython: REPL/Notebook avanzato per Python] (IPython: REPL/Notebook avanzato per Python)
+* [Distribuzione Python per l'analisi di una sequenza di valori][Continuum Analytics Python Distribution]
+* [Distribuzione Python di Enthought][Enthought Python Distribution]
+* [Distribuzione Python di ActiveState][ActiveState Python Distribution]
+* [Serie di librerie scientifiche SciPy per Python][SciPy - A suite of Scientific Python libraries]
+* [Serie di librerie numeriche NumPy per Python][NumPy - A numerics library for Python]
+* [Progetto Django: framework/CMS Web avanzato][Django Project - A mature web framework/CMS]
+* [IPython: REPL/Notebook avanzato per Python][IPython - an advanced REPL/Notebook for Python]
 * [IPython Notebook in Azure](virtual-machines/virtual-machines-linux-jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Python Tools per Visual Studio su GitHub][Python Tools per Visual Studio su GitHub] (Python Tools per Visual Studio in GitHub)
+* [Python Tools per Visual Studio su GitHub][Python Tools for Visual Studio on GitHub]
 * [Centro per sviluppatori Python](/develop/python/)
 
-[Distribuzione Python per l'analisi di una sequenza di valori]: http://continuum.io
-[Distribuzione Python di Enthought]: http://www.enthought.com
-[Distribuzione Python di ActiveState]: http://www.activestate.com
+[Continuum Analytics Python Distribution]: http://continuum.io
+[Enthought Python Distribution]: http://www.enthought.com
+[ActiveState Python Distribution]: http://www.activestate.com
 [www.python.org]: http://www.python.org
 [www.continuum.io]: http://continuum.io
 [www.enthought.com]: http://www.enthought.com
 [www.activestate.com]: http://www.activestate.com
-[Serie di librerie scientifiche SciPy per Python]: http://www.scipy.org
-[Serie di librerie numeriche NumPy per Python]: http://www.numpy.org
-[Progetto Django: framework/CMS Web avanzato]: http://www.djangoproject.com
-[IPython: REPL/Notebook avanzato per Python]: http://ipython.org
+[SciPy - A suite of Scientific Python libraries]: http://www.scipy.org
+[NumPy - A numerics library for Python]: http://www.numpy.org
+[Django Project - A mature web framework/CMS]: http://www.djangoproject.com
+[IPython - an advanced REPL/Notebook for Python]: http://ipython.org
 [IPython]: http://ipython.org
-[IPython Notebook in Azure]: virtual-machines-linux-jupyter-notebook.md
-[Servizi cloud]: cloud-services-python-ptvs.md
-[Siti Web]: web-sites-python-ptvs-django-mysql.md
+[IPython Notebook on Azure]: virtual-machines-linux-jupyter-notebook.md
+[Cloud Services]: cloud-services-python-ptvs.md
+[Websites]: web-sites-python-ptvs-django-mysql.md
 [Python Tools per Visual Studio]: http://aka.ms/ptvs
-[Python Tools per Visual Studio su GitHub]: https://github.com/microsoft/ptvs
+[Python Tools for Visual Studio on GitHub]: https://github.com/microsoft/ptvs
 [Python Package Index]: http://pypi.python.org/pypi
-[Microsoft Azure SDK per Python 2.7]: http://go.microsoft.com/fwlink/?LinkId=254281
-[Microsoft Azure SDK per Python 3.4]: http://go.microsoft.com/fwlink/?LinkID=516990
-[Setting up a Linux VM via the Azure portal]: create-and-configure-opensuse-vm-in-portal.md (Configurazione di una VM Linux tramite il Portale di Azure)
-[Come usare l'interfaccia della riga di comando di Azure]: crossplat-cmd-tools.md
-[Creare una macchina virtuale che esegue Linux]: virtual-machines-linux-quick-create-cli.md
-[Creazione di siti Web con Django]: web-sites-python-create-deploy-django-app.md
-[Creazione di siti Web con Bottle]: web-sites-python-create-deploy-bottle-app.md
-[Creazione di siti Web con Flask]: web-sites-python-create-deploy-flask-app.md
-[Configurazione di Python con Siti Web di Azure]: web-sites-python-configure.md
-[archiviazione in tabelle]: storage-python-how-to-use-table-storage.md
-[archiviazione code]: storage-python-how-to-use-queue-storage.md
-[archiviazione BLOB]: storage-python-how-to-use-blob-storage.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Microsoft Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?LinkId=254281
+[Microsoft Azure SDK for Python 3.4]: http://go.microsoft.com/fwlink/?LinkID=516990
+[Setting up a Linux VM via the Azure portal]: create-and-configure-opensuse-vm-in-portal.md
+[How to use the Azure Command-Line Interface]: crossplat-cmd-tools.md
+[Create a Virtual Machine Running Linux]: virtual-machines-linux-quick-create-cli.md
+[Creating Websites with Django]: web-sites-python-create-deploy-django-app.md
+[Creating Websites with Bottle]: web-sites-python-create-deploy-bottle-app.md
+[Creating Websites with Flask]: web-sites-python-create-deploy-flask-app.md
+[Configuring Python with Azure Websites]: web-sites-python-configure.md
+[table storage]: storage-python-how-to-use-table-storage.md
+[queue storage]: storage-python-how-to-use-queue-storage.md
+[blob storage]: storage-python-how-to-use-blob-storage.md
 

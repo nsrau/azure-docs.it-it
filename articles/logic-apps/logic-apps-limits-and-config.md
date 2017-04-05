@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 7427a5740dd7fe32aeb4d8396568706399c66bd7
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: f09c231baecf2452a6e3abd196748629f13885ff
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -70,9 +70,9 @@ Di seguito sono riportati i limiti per una singola esecuzione di app per la logi
 
 |Nome|Limite|Note|
 |----|----|----|
-|Elementi ForEach|5.000|È possibile usare l' [azione di query](../connectors/connectors-native-query.md) per filtrare matrici di dimensioni superiori, se necessario|
+|Elementi ForEach|100.000|È possibile usare l' [azione di query](../connectors/connectors-native-query.md) per filtrare matrici di dimensioni superiori, se necessario|
 |Iterazioni Until|5.000||
-|Elementi SplitOn|5.000||
+|Elementi SplitOn|100.000||
 |Parallelismo ForEach|20|È possibile impostare un ForEach sequenziale aggiungendo `"operationOptions": "Sequential"` all'azione `foreach`|
 
 
@@ -82,8 +82,9 @@ Di seguito sono riportati i limiti per una singola istanza di app per la logica.
 
 |Nome|Limite|Note|
 |----|----|----|
-|Esecuzioni di azioni al secondo (burst)|1.000|Se necessario, è possibile distribuire il carico di lavoro tra più app|
-|Esecuzioni di azioni all'ora (sostenute)|1.000.000|Se necessario, è possibile distribuire il carico di lavoro tra più app|
+|Esecuzioni di azioni per 5 minuti |100.000|Se necessario, è possibile distribuire il carico di lavoro tra più app|
+
+Se si prevede di superare questo limite nella normale elaborazione o si vuole eseguire il test di carico che potrebbe superare questo limite per un periodo di tempo, [contattaci](mailto://logicappsemail@microsoft.com) per ottenere assistenza sui requisiti specifici.
 
 ### <a name="definition-limits"></a>Limiti delle definizioni
 

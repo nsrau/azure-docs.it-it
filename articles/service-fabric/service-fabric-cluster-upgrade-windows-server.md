@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: eedaefeed1a704f7816e71ef7b2dddda2268a90f
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 6196cb7fa13cf664faa72b7f5f5e0645e4402739
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -127,24 +127,16 @@ Per informazioni dettagliate sull'utilizzo, fare riferimento a [Start-ServiceFab
 
 #### <a name="cluster-upgrade-workflow"></a>Flusso di lavoro per l'aggiornamento del cluster
 
-1. Scaricare la versione più recente del pacchetto dal documento [Creare un cluster Service Fabric per Windows Server](service-fabric-cluster-creation-for-windows-server.md).
-2. Connettersi al cluster da qualsiasi macchina con accesso amministrativo a tutte le macchine elencate come nodi nel cluster. La macchina in cui viene eseguito lo script non deve necessariamente far parte del cluster.
+1. Eseguire Get-ServiceFabricClusterUpgrade da uno dei nodi del cluster e annotare il valore di TargetCodeVersion.
+2. Eseguire il comando seguente da un computer connesso a Internet per elencare tutte le versioni compatibili di l'aggiornamento con la versione corrente e scaricare il pacchetto corrispondente dai collegamenti di download associati.
 
     ```powershell
 
-    ###### Connect to the cluster
-    $ClusterName= "mysecurecluster.something.com:19000"
-    $CertThumbprint= "70EF5E22ADB649799DA3C8B6A6BF7FG2D630F8F3"
-    Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
-        -X509Credential `
-        -ServerCertThumbprint $CertThumbprint  `
-        -FindType FindByThumbprint `
-        -FindValue $CertThumbprint `
-        -StoreLocation CurrentUser `
-        -StoreName My
+    ###### Get list of all upgrade compatible packages  
+    Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion <TargetCodeVersion as noted in Step 1> 
     ```
 
-3. Copiare il pacchetto scaricato nell'archivio immagini del cluster.
+3. Connettersi al cluster da qualsiasi macchina con accesso amministrativo a tutte le macchine elencate come nodi nel cluster. La macchina in cui viene eseguito lo script non deve necessariamente far parte del cluster
 
     ```powershell
 
@@ -155,8 +147,9 @@ Per informazioni dettagliate sull'utilizzo, fare riferimento a [Start-ServiceFab
     Copy-ServiceFabricClusterPackage -Code -CodePackagePath .\MicrosoftAzureServiceFabric.5.3.301.9590.cab -ImageStoreConnectionString "fabric:ImageStore"
 
     ```
+4. Copiare il pacchetto scaricato nell'archivio immagini del cluster.
 
-4. Registrare il pacchetto copiato.
+5. Registrare il pacchetto copiato.
 
     ```powershell
 
@@ -167,7 +160,7 @@ Per informazioni dettagliate sull'utilizzo, fare riferimento a [Start-ServiceFab
     Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
 
      ```
-5. Avviare un aggiornamento del cluster a una versione disponibile.
+6. Avviare un aggiornamento del cluster a una versione disponibile.
 
     ```Powershell
 
@@ -197,6 +190,13 @@ Per aggiornare la configurazione del cluster, eseguire **Start-ServiceFabricClus
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
 
 ```
+
+### <a name="cluster-certificate-config-upgrade"></a>Aggiornamento della configurazione del certificato del cluster  
+Il certificato del cluster viene usato per l'autenticazione tra i nodi del cluster; il rollover del certificato deve quindi essere eseguito con particolare attenzione perché un eventuale errore bloccherà la comunicazione tra i nodi del cluster.  
+Tecnicamente, sono supportate due opzioni:  
+
+1. Aggiornamento certificato singolo: il percorso di aggiornamento è 'Certificato (primario)-> Certificato B (primario)-> Certificato C (primario)->...'.   
+2. Aggiornamento certificato doppio: il percorso di aggiornamento è "Certificato A (primario) -> Certificato A (primario) e B (secondario) -> Certificato B (primario) -> Certificato B (primario) e C (secondario) -> Certificato C (primario) -> ...".
 
 
 ## <a name="next-steps"></a>Passaggi successivi

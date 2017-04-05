@@ -4,20 +4,21 @@ description: Esercitazione introduttiva per gli strumenti di Analisi di flusso d
 keywords: Visual Studio
 documentationcenter: 
 services: stream-analytics
-author: 
-manager: 
-editor: 
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/01/2017
-ms.author: 
+ms.date: 03/28/2017
+ms.author: sujie
 translationtype: Human Translation
-ms.sourcegitcommit: 81a5678051b026a16bdae2f2eab7ead2c17f9563
-ms.openlocfilehash: 4874c52b24d9c69fa1d1648035102aaef276f944
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: d0125dda4df69279e49a9fad4dc28dcbf6368322
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -56,28 +57,28 @@ Si noterà un progetto **Toll** generato in **Esplora soluzioni**.
 2. Accedere con l'account di Azure. 
 
 ## <a name="define-input-sources"></a>Definire le origini di input
-1.  In **Esplora soluzioni** espandere il nodo **Input** e rinominare **Input.json** in **EntryStream.json**. Fare doppio clic su **EntryStream.json**.
-2.  L'**ALIAS DI INPUT** dovrebbe ora essere **EntryStream**. Si noti che l'alias di input verrà usato nello script della query. 
-3.  Il tipo di origine è **Flusso di dati**.
-4.  L'origine è **hub eventi**.
-5.  Lo spazio dei nomi del bus di servizio deve essere **tollData** nell'elenco a discesa.
-6.  Nome hub eventi deve essere impostato su **entry**.
-7.  Nome criterio hub eventi è **RootManageSharedAccessKey** (il valore predefinito).
-8.  Selezionare **JSON** per **FORMATO DI SERIALIZZAZIONE EVENTI** e **UTF8** per **CODIFICA**.
+1.    In **Esplora soluzioni** espandere il nodo **Input** e rinominare **Input.json** in **EntryStream.json**. Fare doppio clic su **EntryStream.json**.
+2.    L'**ALIAS DI INPUT** dovrebbe ora essere **EntryStream**. Si noti che l'alias di input verrà usato nello script della query. 
+3.    Il tipo di origine è **Flusso di dati**.
+4.    L'origine è **hub eventi**.
+5.    Lo spazio dei nomi del bus di servizio deve essere **tollData** nell'elenco a discesa.
+6.    Nome hub eventi deve essere impostato su **entry**.
+7.    Nome criterio hub eventi è **RootManageSharedAccessKey** (il valore predefinito).
+8.    Selezionare **JSON** per **FORMATO DI SERIALIZZAZIONE EVENTI** e **UTF8** per **CODIFICA**.
    
    Le impostazioni vengono visualizzate in questo modo:
    
    ![Definire le origini di input](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-01.png)
    
-9.  Fare clic su **Salva** nella parte inferiore della pagina per terminare la procedura guidata. A questo punto è possibile aggiungere un'altra origine di input per creare il flusso di uscita. Fare clic con il pulsante destro del mouse sul nodo degli input e fare clic su **Nuovo elemento**.
+9.    Fare clic su **Salva** nella parte inferiore della pagina per terminare la procedura guidata. A questo punto è possibile aggiungere un'altra origine di input per creare il flusso di uscita. Fare clic con il pulsante destro del mouse sul nodo degli input e fare clic su **Nuovo elemento**.
    
    ![Definire le origini di input](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-02.png)
    
-10. Nella nuova finestra, selezionare **Input di Analisi di flusso di Azure** e modificare il nome in **ExitStream.json**. Fare clic su **Aggiungi**.
+10.    Nella nuova finestra, selezionare **Input di Analisi di flusso di Azure** e modificare il nome in **ExitStream.json**. Fare clic su **Aggiungi**.
    
    ![Definire le origini di input](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-03.png)
    
-11. Fare doppio clic su **ExitStream.json** nel progetto e seguire i passaggi come per il flusso di entrata. Assicurarsi di immettere i valori del nome hub eventi come nello screenshot seguente.
+11.    Fare doppio clic su **ExitStream.json** nel progetto e seguire i passaggi come per il flusso di entrata. Assicurarsi di immettere i valori del nome hub eventi come nello screenshot seguente.
    
    ![Definire le origini di input](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-04.png)
    
@@ -87,21 +88,21 @@ Si noterà un progetto **Toll** generato in **Esplora soluzioni**.
    
    Successivamente, si aggiungeranno dati di riferimento per il file BLOB contenente i dati di registrazione dell'automobile.
    
-12. Fare clic con il tasto destro del mouse sul nodo **Input** nel progetto, quindi seguire lo stesso processo per gli input di flusso ma selezionare **DATI DI RIFERIMENTO** anziché Flusso dati e Alias di Input come **Registrazione**.
+12.    Fare clic con il tasto destro del mouse sul nodo **Input** nel progetto, quindi seguire lo stesso processo per gli input di flusso ma selezionare **DATI DI RIFERIMENTO** anziché Flusso dati e Alias di Input come **Registrazione**.
    
    ![Definire le origini di input](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-06.png)
    
-13. Selezionare l'account di archiviazione che contiene **tolldata**. Il nome del contenitore deve essere **tolldata** e il **MODELLO PERCORSO** deve essere **registration.json**. Il nome file fa distinzione tra maiuscole e minuscole e deve contenere solo lettere minuscole.
-14. Fare clic su **Salva** per completare la procedura guidata.
+13.    Selezionare l'account di archiviazione che contiene **tolldata**. Il nome del contenitore deve essere **tolldata** e il **MODELLO PERCORSO** deve essere **registration.json**. Il nome file fa distinzione tra maiuscole e minuscole e deve contenere solo lettere minuscole.
+14.    Fare clic su **Salva** per completare la procedura guidata.
 
 Ora sono definiti tutti gli input.
 
 ## <a name="define-output"></a>Definire l'output
-1.  In **Esplora soluzioni** espandere il nodo **Input** e fare doppio clic su **Output.json**.
-2.  Impostare l'alias di output su **output** e quindi Sink sul database SQL.
-2.  Inserire il nome del database: **TollDataDB**.
-3.  Immettere **tolladmin** nel campo **NOME UTENTE**, **123toll!** nel campo **PASSWORD** e **TollDataRefJoin** nel campo **TABELLA**.
-4.  Fare clic su **Save**.
+1.    In **Esplora soluzioni** espandere il nodo **Input** e fare doppio clic su **Output.json**.
+2.    Impostare l'alias di output su **output** e quindi Sink sul database SQL.
+2.    Inserire il nome del database: **TollDataDB**.
+3.    Immettere **tolladmin** nel campo **NOME UTENTE**, **123toll!** nel campo **PASSWORD** e **TollDataRefJoin** nel campo **TABELLA**.
+4.    Fare clic su **Save**.
 
 ![Definire l'output](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-output-01.png)
  
@@ -124,7 +125,8 @@ Per maggiori dettagli, vedere gli articoli di MSDN sui costrutti relativi alla [
 
 Dopo aver scritto la prima query di Analisi di flusso di Azure, occorre testarla con file di dati di esempio disponibili nella cartella TollApp nel percorso seguente:
 
-**..\TollApp\TollApp\Data**
+<seg>
+  **..\TollApp\TollApp\Data**</seg>
 
 Questa cartella contiene i file seguenti: •   Entry.json •   Exit.json •   Registration.json
 
@@ -252,10 +254,5 @@ Esistono due modi per esportare un processo esistente in un progetto.
 * [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

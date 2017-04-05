@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: a2dec2daa4be60a4a53a98164265171bf898cafb
-ms.openlocfilehash: 7f03d376b1785637261b58fc34a0f0e1c1e25f5f
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: b478251715076a254fe87abee1d709f47e2b3886
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -65,12 +66,11 @@ Dopo aver abilitato Desktop remoto nei ruoli, è possibile avviare una connessio
 
 4. Fare clic su **Apri** e quindi su **Connetti** per avviare la connessione Desktop remoto.
 
-## <a name="next-steps"></a>Passaggi successivi
+>[!NOTE]
+> Se il servizio cloud si trova dietro un gruppo di sicurezza di rete, potrebbe essere necessario creare una regola per aprire la porta **20000**.
+
+## <a name="additional-resources"></a>Risorse aggiuntive
 
 [Come configurare i servizi cloud](cloud-services-how-to-configure.md)
-
-
-
-<!--HONumber=Nov16_HO5-->
-
+[Domande frequenti sui servizi cloud - Desktop remoto](cloud-services-faq.md#remote-desktop)
 

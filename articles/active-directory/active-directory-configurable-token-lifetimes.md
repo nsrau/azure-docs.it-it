@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/17/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: c239c12dd9fcc849a6b90ec379ebb8690bd049fc
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 7d0c5f83d907af9109e27d69806d6106d4bc3214
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -47,7 +47,7 @@ Quando un client acquisisce un token di accesso per accedere a una risorsa prote
 È importante distinguere tra client riservati e client pubblici. Per altre informazioni sui diversi tipi di client, vedere la specifica [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
 #### <a name="token-lifetimes-with-confidential-client-refresh-tokens"></a>Durata dei token con token di aggiornamento per client riservati
-I client riservati sono applicazioni che possono archiviare in modo sicuro una password client, ovvero un segreto, e possono dimostrare che le richieste provengono dall'applicazione client e non da un attore malintenzionato. Un'app Web, ad esempio, è un client riservato perché può archiviare un segreto client nel server Web e non viene esposto. I token di aggiornamento rilasciati per questi flussi più sicuri hanno una durata predefinita maggiore, che non può essere modificata tramite i criteri.
+I client riservati sono applicazioni che possono archiviare in modo sicuro una password client, ovvero un segreto, e possono dimostrare che le richieste provengono dall'applicazione client e non da un attore malintenzionato. Un'app Web, ad esempio, è un client riservato perché può archiviare un segreto client nel server Web e non viene esposto. I token di aggiornamento rilasciati per questi flussi più sicuri hanno una durata `until-revoked`, che non può essere modificata tramite i criteri e non può essere revocata con reimpostazioni di password volontarie.
 
 #### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Durata dei token con token di aggiornamento per client pubblici
 
@@ -203,7 +203,7 @@ Per iniziare, seguire questa procedura:
     Connect-AzureAD -Confirm
     ```
 
-3. Per visualizzare tutti i criteri creati nell'organizzazione, eseguire questo comando. Questo comando va usato dopo la maggior parte delle operazioni negli scenari indicato di seguito e consente anche di ottenere l'**ObjectId** dei criteri.
+3. Per visualizzare tutti i criteri creati nell'organizzazione, eseguire questo comando. Questo comando va usato dopo la maggior parte delle operazioni negli scenari indicato di seguito L'esecuzione del comando consente anche di ottenere ** ** dei criteri.
 
     ```PowerShell
     Get-AzureADPolicy
@@ -243,9 +243,8 @@ In questo esempio vengono creati criteri che permettono agli utenti di eseguire 
     Il primo criterio impostato in questo esempio potrebbe non essere rigoroso quanto richiesto dal servizio. Per impostare il token di aggiornamento a fattore singolo in modo che scada tra due giorni, eseguire questo comando:
 
     ```PowerShell
-    Set-AzureADPolicy -ObjectId <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
+    Set-AzureADPolicy -Id <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
     ```
-
 
 ### <a name="example-create-a-policy-for-web-sign-in"></a>Esempio: creare criteri per l'accesso Web
 
@@ -274,7 +273,7 @@ In questo esempio vengono creati i criteri in base ai quali viene richiesto agli
     2.  Dopo aver ottenuto l'**ObjectId** dell'entità servizio, eseguire questo comando:
 
         ```PowerShell
-        Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+        Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
         ```
 
 
@@ -300,7 +299,7 @@ In questo esempio vengono creati i criteri in base ai quali viene richiesto agli
    Dopo aver ottenuto l'**ObjectId** dell'app, eseguire questo comando:
 
         ```PowerShell
-        Add-AzureADApplicationPolicy -ObjectId <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
+        Add-AzureADApplicationPolicy -Id <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
         ```
 
 
@@ -330,13 +329,13 @@ In questo esempio vengono creati alcuni criteri per illustrare il funzionamento 
     2.  Dopo aver ottenuto l'**ObjectId** dell'entità servizio, eseguire questo comando:
 
             ```PowerShell
-            Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+            Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
             ```
         
 3. Impostare il flag `IsOrganizationDefault` su false.
 
     ```PowerShell
-    Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
+    Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
     ```
 
 4. Creare nuovi criteri predefiniti dell'organizzazione.
@@ -380,7 +379,7 @@ Get-AzureADPolicy
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code>[Facoltativo] |**ObjectId** dei criteri da usare. |`-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code>[Facoltativo] |**ObjectId (Id)** dei criteri da usare. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -388,12 +387,12 @@ Get-AzureADPolicy
 Ottiene tutte le app e le entità servizio collegate a criteri specifici.
 
 ```PowerShell
-Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of Policy>
+Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 ```
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**ObjectId** dei criteri da usare. |`-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** dei criteri da usare. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -401,12 +400,12 @@ Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of Policy>
 Aggiorna i criteri esistenti.
 
 ```PowerShell
-Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName <string>
+Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 ```
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**ObjectId** dei criteri da usare. |`-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** dei criteri da usare. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |Stringa relativa al nome dei criteri. |`-DisplayName "MyTokenPolicy"` |
 | <code>&#8209;Definition</code>[Facoltativo] |Matrice del codice JSON in formato stringa contenente tutte le regole dei criteri. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
 | <code>&#8209;IsOrganizationDefault</code>[Facoltativo] |Se true, imposta i criteri come predefiniti dell'organizzazione. Se false, non esegue alcuna operazione. |`-IsOrganizationDefault $true` |
@@ -419,12 +418,12 @@ Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName <string>
 Elimina i criteri specificati.
 
 ```PowerShell
- Remove-AzureADPolicy -ObjectId <ObjectId of Policy>
+ Remove-AzureADPolicy -Id <ObjectId of Policy>
 ```
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**ObjectId** dei criteri da usare. | `-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** dei criteri da usare. | `-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -435,12 +434,12 @@ Elimina i criteri specificati.
 Collega i criteri specificati a un'applicazione.
 
 ```PowerShell
-Add-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -RefObjectId <ObjectId of Policy>
+Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
 ```
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**ObjectId** dell'applicazione. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** dell'applicazione. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ObjectId** dei criteri. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
@@ -449,12 +448,12 @@ Add-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -RefObjectId <O
 Ottiene i criteri assegnati a un'applicazione.
 
 ```PowerShell
-Get-AzureADApplicationPolicy -ObjectId <ObjectId of Application>
+Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 ```
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**ObjectId** dell'applicazione. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** dell'applicazione. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
@@ -462,12 +461,12 @@ Get-AzureADApplicationPolicy -ObjectId <ObjectId of Application>
 Rimuove i criteri da un'applicazione.
 
 ```PowerShell
-Remove-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -PolicyId <ObjectId of Policy>
+Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
 ```
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**ObjectId** dell'applicazione. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** dell'applicazione. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ObjectId** dei criteri. | `-PolicyId <ObjectId of Policy>` |
 
 </br></br>
@@ -479,12 +478,12 @@ Remove-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -PolicyId <O
 Collega i criteri specificati a un'entità servizio.
 
 ```PowerShell
-Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
+Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
 ```
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**ObjectId** dell'applicazione. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** dell'applicazione. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ObjectId** dei criteri. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
@@ -493,12 +492,12 @@ Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal> -RefO
 Ottiene i criteri collegati all'entità servizio specificata.
 
 ```PowerShell
-Get-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>
+Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 ```
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**ObjectId** dell'applicazione. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** dell'applicazione. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
@@ -506,11 +505,11 @@ Get-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>
 Rimuove i criteri dall'entità servizio specificata.
 
 ```PowerShell
-Remove-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
+Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
 ```
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**ObjectId** dell'applicazione. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (Id)** dell'applicazione. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ObjectId** dei criteri. | `-PolicyId <ObjectId of Policy>` |
 
