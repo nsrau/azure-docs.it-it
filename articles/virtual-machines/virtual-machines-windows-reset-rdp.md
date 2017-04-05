@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 03/24/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: e1331276cda20d235341171852dffeb4a9cb8bb2
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 2673c95d2e312d427454585d46ac790cb126fea6
+ms.lasthandoff: 03/27/2017
 
 
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>Come reimpostare il servizio Desktop remoto o la relativa password di accesso in una VM Windows
-Se non è possibile connettersi a una macchina virtuale Windows, è possibile reimpostare la password di amministratore locale o la configurazione del servizio Desktop remoto. È possibile usare il portale di Azure o l'estensione di accesso alla VM in Azure PowerShell per reimpostare la password. Se si usa PowerShell, verificare che il [modulo di PowerShell più recente sia installato e configurato](/powershell/azureps-cmdlets-docs) e di avere eseguito l'accesso alla sottoscrizione di Azure. È anche possibile [eseguire questi passaggi per le macchine virtuali create con il modello di distribuzione classica](virtual-machines-windows-classic-reset-rdp.md).
+Se non è possibile connettersi a una macchina virtuale Windows, è possibile reimpostare la password di amministratore locale o la configurazione del servizio Desktop remoto. È possibile usare il portale di Azure o l'estensione di accesso alla VM in Azure PowerShell per reimpostare la password. Se si usa PowerShell, verificare che il [modulo di PowerShell più recente sia installato e configurato](/powershell/azureps-cmdlets-docs) e di avere eseguito l'accesso alla sottoscrizione di Azure. È anche possibile [eseguire questi passaggi per le macchine virtuali create con il modello di distribuzione classica](windows/classic/reset-rdp.md).
 
 ## <a name="ways-to-reset-configuration-or-credentials"></a>Modalità per ripristinare la configurazione o le credenziali
 È possibile reimpostare i Servizi Desktop remoto e le credenziali in modi diversi, in base alle esigenze specifiche:
@@ -44,9 +44,15 @@ Selezionare la macchina virtuale Windows, quindi fare clic su **Supporto e risol
 
 Immettere il nome utente e una nuova password, quindi fare clic su **Aggiorna**. Provare a connettersi di nuovo alla macchina virtuale.
 
+> [!NOTE] 
+> - Dopo aver modificato la password e completato l'operazione nel portale, attendere 3-5 minuti prima che la modifica sia effettiva sulla macchina virtuale. Se, tuttavia, la modifica non ha effetto, provare a riavviare la macchina virtuale.
+> - L'estensione VMAccess funziona solo con l'account di amministratore locale integrato, e non eseguirà operazioni in qualsiasi altro ID locale o ID di dominio.
+> - Se il computer di destinazione è un controller di dominio, l'estensione ripristina o rinomina l'account dell'amministrazione di dominio.
+
+
 ### <a name="reset-the-remote-desktop-service-configuration"></a>**Reimpostare la configurazione del servizio Desktop remoto**
 
-Selezionare la macchina virtuale Windows, quindi fare clic su **Supporto e risoluzione dei problemi** > **Reimposta password**. Viene visualizzato il pannello per la reimpostazione della password. 
+Selezionare la macchina virtuale Windows, quindi fare clic su **Supporto e risoluzione dei problemi** > **Reimposta password**. Viene visualizzato il pannello per la reimpostazione della password:
 
 ![Ripristinare la configurazione RDP](./media/virtual-machines-windows-reset-rdp/Portal-RM-RDP-Reset.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Riparazione di un processo di esportazione di Azure | Documentazione Microsoft
-description: "Informazioni su come ripristinare un processo di esportazione che è stato creato ed eseguito mediante il servizio di Importazione/Esportazione di Azure."
+title: Riparazione di un processo di esportazione in Importazione/Esportazione di Azure - versione 1 | Documentazione Microsoft
+description: "Informazioni su come ripristinare un processo di esportazione che è stato creato ed eseguito tramite il servizio Importazione/Esportazione di Azure."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
-ms.openlocfilehash: 7ae819a662230a7ca7da6f7bc5bbb3b3f940074e
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: cab61ee993306e830ae899ed639929b0ee7fba82
+ms.lasthandoff: 03/30/2017
 
 
 ---
 # <a name="repairing-an-export-job"></a>Riparazione di un processo di esportazione
-Al termine di un processo di esportazione, è possibile eseguire lo strumento di Importazione/Esportazione di Microsoft Azure in locale per:  
+Al termine di un processo di esportazione, è possibile eseguire lo strumento Importazione/Esportazione di Microsoft Azure in locale per:  
   
 1.  Scaricare i file che il servizio di Importazione/Esportazione di Azure non è riuscito a esportare.  
   
@@ -30,7 +30,11 @@ Al termine di un processo di esportazione, è possibile eseguire lo strumento di
   
 È necessario disporre della connettività all'archiviazione di Azure per usare questa funzionalità.  
   
-Il comando per la riparazione di un processo di importazione è **RepairExport**. È possibile specificare i parametri seguenti:  
+Il comando per la riparazione di un processo di importazione è **RepairExport**.
+
+## <a name="repairexport-parameters"></a>Parametri di RepairExport
+
+È possibile specificare i parametri seguenti con **RepairExport**:  
   
 |Parametro|Descrizione|  
 |---------------|-----------------|  
@@ -44,8 +48,8 @@ Il comando per la riparazione di un processo di importazione è **RepairExport**
 |**/CopyLogFile:\><DriveCopyLogFile**|Obbligatorio. Il percorso del file dei log di copia dell'unità. Il file viene generato dal servizio di Importazione/Esportazione di Azure e può essere scaricato dall'archiviazione BLOB associata al processo. Il file dei log di copia contiene informazioni sui BLOB non riusciti o sui file da ripristinare.|  
 |**/ManifestFile:<DriveManifestFile\>**|Facoltativa. Il percorso al file manifesto dell'unità di esportazione. Questo file è generato dal servizio Importazione/Esportazione di Azure e archiviato nell'unità di esportazione e facoltativamente in un BLOB nell'account di archiviazione associato al processo.<br /><br /> Il contenuto dei file nell'unità di esportazione verrà verificato con gli hash MD5 contenuti in questo file. Tutti i file considerati danneggiati che saranno scaricati e riscritti nelle directory di destinazione.|  
   
-## <a name="using-repairexport-mode-to-correct-failed-exports"></a>Utilizzo della modalità RepairExport per correggere esportazioni non riuscite  
-È possibile utilizzare lo strumento di Importazione/Esportazione di Azure per scaricare i file non esportati. Il file di log di copia conterrà un elenco di file con errori di esportazione.  
+## <a name="using-repairexport-mode-to-correct-failed-exports"></a>Uso della modalità RepairExport per correggere esportazioni non riuscite  
+È possibile usare lo strumento Importazione/Esportazione di Azure per scaricare i file non esportati. Il file di log di copia conterrà un elenco di file con errori di esportazione.  
   
 Le cause di errori di esportazione includono le possibilità seguenti:  
   
@@ -53,7 +57,7 @@ Le cause di errori di esportazione includono le possibilità seguenti:
   
 -   La chiave di account di archiviazione modificata durante il processo di trasferimento  
   
-Per eseguire lo strumento in modalità **RepairExport**, è necessario innanzitutto connettere l'unità contenente i file esportati nel computer. Successivamente, eseguire lo strumento di Importazione/Esportazione di Azure, specificando il percorso dell'unità con il parametro `/d`. È inoltre necessario specificare il percorso di file di log di copia dell'unità che è stato scaricato. Nell'esempio seguente, la riga di comando esegue lo strumento per recuperare eventuali file con errori di esportazione:  
+Per eseguire lo strumento in modalità **RepairExport**, è necessario innanzitutto connettere l'unità contenente i file esportati nel computer. Eseguire poi lo strumento Importazione/Esportazione di Azure, specificando il percorso dell'unità con il parametro `/d`. È inoltre necessario specificare il percorso di file di log di copia dell'unità che è stato scaricato. Nell'esempio seguente, la riga di comando esegue lo strumento per recuperare eventuali file con errori di esportazione:  
   
 ```  
 WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C3U.log  
@@ -80,12 +84,12 @@ Di seguito è riportato un esempio di un file di log di copia che mostra un bloc
   
 Il file di log di copia indica che si è verificato un errore durante il download di uno dei blocchi del BLOB sul file nell'unità di esportazione da parte del servizio di Importazione/Esportazione di Azure. Gli altri componenti del file scaricato correttamente e la lunghezza del file sono stati impostati correttamente. In questo caso, lo strumento apre il file nell'unità, scarica il blocco dall'account di archiviazione e scrive sull'intervallo dei file a partire dall'offset 65536 con lunghezza 65536.  
   
-## <a name="using-repairexport-to-validate-drive-contents"></a>Utilizzo di RepairExport per convalidare i contenuti dell'unità  
+## <a name="using-repairexport-to-validate-drive-contents"></a>Uso di RepairExport per convalidare i contenuti dell'unità  
 È inoltre possibile utilizzare Importazione/Esportazione di Azure con l'opzione **RepairExport** per convalidare la correttezza del contenuto sull'unità. Il file manifesto in ogni unità di esportazione contiene MD5 per il contenuto dell'unità.  
   
-Il servizio di Importazione/Esportazione di Azure può inoltre salvare i file manifesto su un account di archiviazione durante il processo di esportazione. Il percorso del file manifesto è disponibile tramite l'operazione [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) (Ottieni processo) al completamento del processo. Vedere [Formato del file manifesto del servizio Importazione/Esportazione](storage-import-export-file-format-metadata-and-properties.md) per ulteriori informazioni sul formato di un file manifesto dell'unità.  
+Il servizio di Importazione/Esportazione di Azure può inoltre salvare i file manifesto su un account di archiviazione durante il processo di esportazione. Il percorso del file manifesto è disponibile tramite l'operazione [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) (Ottieni processo) al completamento del processo. Per altre informazioni sul formato di un file manifesto dell'unità, vedere [Formato del file manifesto del servizio Importazione/Esportazione di Azure](storage-import-export-file-format-metadata-and-properties.md).  
   
-Nell'esempio seguente viene illustrato come eseguire lo strumento di Importazione/Esportazione di Azure con i parametri **/ManifestFile** e **/CopyLogFile**:  
+Nell'esempio seguente viene illustrato come eseguire lo strumento Importazione/Esportazione di Azure con i parametri **/ManifestFile** e **/CopyLogFile**:  
   
 ```  
 WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C3U.log /ManifestFile:G:\9WM35C3U.manifest  
@@ -129,31 +133,34 @@ Di seguito è riportato un esempio di file manifesto:
 ``` 
   
 Dopo aver completato il processo di ripristino, lo strumento leggerà ciascun file a cui fa riferimento nel file manifesto e verificare l'integrità del file con gli hash MD5. Per il file manifesto di cui sopra, analizzerà i componenti seguenti.  
+
+```  
+G:\pictures\city\redmond.jpg, offset 0, length 3584  
   
-G:\pictures\city\redmond.jpg, offset 0, lunghezza 3584  
+G:\pictures\city\redmond.jpg, offset 3584, length 3584  
   
-G:\pictures\city\redmond.jpg, offset 3584, lunghezza 3584  
+G:\pictures\city\redmond.jpg, offset 7168, length 3584  
   
-G:\pictures\city\redmond.jpg, offset 7168, lunghezza 3584  
+G:\pictures\city\redmond.jpg.properties  
   
-G:\pictures\city\redmond.jpg.Properties  
+G:\pictures\wild\canyon.jpg, offset 0, length 2721  
   
-G:\pictures\wild\canyon.jpg, offset 0, lunghezza 2721  
+G:\pictures\wild\canyon.jpg, offset 2721, length 2721  
   
-G:\pictures\wild\canyon.jpg, offset 2721, lunghezza 2721  
+G:\pictures\wild\canyon.jpg, offset 5442, length 2721  
   
-G:\pictures\wild\canyon.jpg, offset 5442, lunghezza 2721  
+G:\pictures\wild\canyon.jpg, offset 8163, length 2721  
   
-G:\pictures\wild\canyon.jpg, offset 8163, lunghezza 2721  
-  
-G:\pictures\wild\canyon.jpg.Properties  
-  
+G:\pictures\wild\canyon.jpg.properties  
+```
+
 Qualsiasi componente con esito negativo della verifica verrà scaricato dallo strumento e riscritto nello stesso file sull'unità.  
   
-## <a name="see-also"></a>Vedere anche  
-[Configurazione dello strumento Importazione/Esportazione di Azure](storage-import-export-tool-setup-v1.md)   
-[Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)  (Preparazione dei dischi rigidi per un processo di importazione)  
-[Reviewing Job Status with Copy Log Files](storage-import-export-tool-reviewing-job-status-v1.md)  (Revisione dello stato dei processi con i file di log di copia)  
-[Repairing an Import Job](storage-import-export-tool-repairing-an-import-job-v1.md)  (Riparazione di un processo di importazione)  
-[Risoluzione dei problemi relativi allo strumento di Importazione/Esportazione di Azure](storage-import-export-tool-troubleshooting-v1.md)
+## <a name="next-steps"></a>Passaggi successivi
+ 
+* [Configurazione dello strumento Importazione/Esportazione di Azure](storage-import-export-tool-setup-v1.md)   
+* [Preparing hard drives for an import job](storage-import-export-tool-preparing-hard-drives-import-v1.md) (Preparazione dei dischi rigidi per un processo di importazione)   
+* [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md) (Revisione dello stato dei processi con i file di log di copia)   
+* [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md) (Riparazione di un processo di importazione)   
+* [Risoluzione dei problemi relativi allo strumento Importazione/Esportazione di Azure](storage-import-export-tool-troubleshooting-v1.md)
 

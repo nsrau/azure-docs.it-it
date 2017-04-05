@@ -1,6 +1,6 @@
 ---
 title: Uso dell&quot;API REST del servizio Importazione/Esportazione di Azure | Documentazione Microsoft
-description: Informazioni su come usare l&quot;API REST del servizio Importazione/Esportazione di Azure
+description: Informazioni su dove trovare le risorse per usare l&quot;API REST del servizio Importazione/Esportazione di Azure, compresi i materiali di riferimento e i materiali relativi alle procedure.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 22e37e26fec913a7638c71b2547c38f5efacd10b
-ms.openlocfilehash: 675aef8ec0f9344d2b3073021e83856c2fb34b7c
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: e4f5ca289f4bd87574e448d37a1154b222f221f5
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -38,27 +39,23 @@ https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<res
 
 Le richieste al servizio Importazione/Esportazione devono specificare il parametro `api-version` e impostarne il valore su `2016-11-01`.
 
-## <a name="in-this-section"></a>Contenuto della sezione
+## <a name="importexport-service-operations"></a>Operazioni del servizio Importazione/Esportazione
 
-[Creazione di un processo di importazione](storage-import-export-creating-an-import-job.md)
+[Creating an import job](storage-import-export-creating-an-import-job.md) (Creazione di un processo di importazione)
 
-[Creazione di un processo di esportazione](storage-import-export-creating-an-export-job.md)
+[Creating an export job](storage-import-export-creating-an-export-job.md) (Creazione di un processo di esportazione)
 
-[Recupero delle informazioni sullo stato per un processo](storage-import-export-retrieving-state-info-for-a-job.md)
+[Retrieving state information for a job](storage-import-export-retrieving-state-info-for-a-job.md) (Recupero delle informazioni sullo stato per un processo)
 
-[Enumerazione dei processi](storage-import-export-enumerating-jobs.md)
+[Enumerating jobs](storage-import-export-enumerating-jobs.md) (Enumerazione dei processi)
 
-[Annullamento ed eliminazione dei processi](storage-import-export-cancelling-and-deleting-jobs.md)
+[Cancelling and deleting jobs](storage-import-export-cancelling-and-deleting-jobs.md) (Annullamento ed eliminazione dei processi)
 
 [Backup dei manifesti delle unità](storage-import-export-backing-up-drive-manifests.md)
 
 [Diagnostica e ripristino dagli errori per i processi di Importazione/Esportazione](storage-import-export-diagnostics-and-error-recovery.md)
 
-## <a name="see-also"></a>Vedere anche
- [REST di importazione/esportazione dell'archiviazione](/rest/api/storageimportexport)
+## <a name="next-steps"></a>Passaggi successivi
 
-
-
-<!--HONumber=Dec16_HO3-->
-
+* [REST di importazione/esportazione dell'archiviazione](/rest/api/storageimportexport)
 

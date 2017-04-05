@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 6a7e0964a3a6e9be534a6bd683446d3da5edcecd
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 96fb170e7a079fbb4bcfb4a6b1e98970a709406f
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -87,7 +87,8 @@ Per una panoramica dei passaggi necessari per il proprio scenario, vedere la tab
 | Passaggio 1: Configurare il punto di connessione del servizio | ![Controllo][1]                            | ![Controllo][1]                    | ![Controllo][1]        |
 | Passaggio 2: Configurare il rilascio delle attestazioni           |                                        | ![Controllo][1]                    | ![Controllo][1]        |
 | Passaggio 3: Abilitare dispositivi non Windows 10      |                                        |                                | ![Controllo][1]        |
-
+| Passaggio 4: Controllare la distribuzione e l'implementazione     | ![Controllo][1]                            | ![Controllo][1]                    | ![Controllo][1]        |
+| Passaggio 5: Verificare i dispositivi registrati          | ![Controllo][1]                            | ![Controllo][1]                    | ![Controllo][1]        |
 
 
 
@@ -292,8 +293,13 @@ La definizione consente di verificare se i valori sono presenti o devono essere 
         Value = "http://<verified-domain-name>/adfs/services/trust/"
     );
 
-> [!NOTE]
-> L'attestazione issuerID per il computer della regola precedente deve contenere uno dei nomi di dominio verificati di Azure AD. Questo non è l'URL del servizio AD FS.
+
+Nell'attestazione precedente,
+
+- `$<domain>` è l'URL del servizio ADFS
+- `<verified-domain-name>` è un segnaposto che è necessario sostituire con uno dei nomi di dominio verificati in Azure AD
+
+
 
 Per altre informazioni sui nomi dominio verificati, vedere [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](active-directory-add-domain.md).  
 Per ottenere un elenco dei domini aziendali verificati, è possibile usare il cmdlet [Get-MsolDomain](https://docs.microsoft.com/powershell/msonline/v1/get-msoldomain). 

@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Github | Documentazione Microsoft'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Github.
+title: 'Esercitazione: Integrazione di Azure Active Directory con GitHub | Documentazione Microsoft'
+description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e GitHub.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,30 +14,30 @@ ms.topic: article
 ms.date: 03/08/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 74b354778e775146ed6384b50b4e21cfd5c75858
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 8b0417d131bc25225e777285b9e4bfbaa97aad8f
+ms.lasthandoff: 03/29/2017
 
 
 ---
-# <a name="tutorial-azure-active-directory-integration-with-github"></a>Esercitazione: Integrazione di Azure Active Directory con Github
+# <a name="tutorial-azure-active-directory-integration-with-github"></a>Esercitazione: Integrazione di Azure Active Directory con GitHub
 
-Questa esercitazione descrive come integrare Github con Azure Active Directory (Azure AD).
+Questa esercitazione descrive come integrare GitHub con Azure Active Directory (Azure AD).
 
-L'integrazione di Github con Azure AD offre i vantaggi seguenti:
+L'integrazione di GitHub con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD chi può accedere a Github
-- È possibile abilitare gli utenti per l'accesso automatico a Github (Single Sign-On) con i propri account Azure AD
+- È possibile controllare in Azure AD chi può accedere a GitHub
+- È possibile abilitare gli utenti per l'accesso automatico a GitHub (Single Sign-On) con i propri account Azure AD
 - È possibile gestire gli account da una posizione centrale: il portale di gestione di Azure
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per configurare l'integrazione di Azure AD con Github, sono necessari gli elementi seguenti:
+Per configurare l'integrazione di Azure AD con GitHub, sono necessari gli elementi seguenti:
 
 - Sottoscrizione di Azure AD.
-- Sottoscrizione di Github abilitata per l'accesso Single Sign-On
+- Sottoscrizione di GitHub abilitata per l'accesso Single Sign-On
 
 
 > [!NOTE]
@@ -53,14 +53,14 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 ## <a name="scenario-description"></a>Descrizione dello scenario
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
-1. Aggiunta di Github dalla raccolta
+1. Aggiunta di GitHub dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 
-## <a name="adding-github-from-the-gallery"></a>Aggiunta di Github dalla raccolta
-Per configurare l'integrazione di Github in Azure AD, è necessario aggiungere Github dalla raccolta al proprio elenco di app SaaS gestite.
+## <a name="adding-github-from-the-gallery"></a>Aggiunta di GitHub dalla raccolta
+Per configurare l'integrazione di GitHub in Azure AD, è necessario aggiungere GitHub dalla raccolta al proprio elenco di app SaaS gestite.
 
-**Per aggiungere Github dalla raccolta, seguire questa procedura:**
+**Per aggiungere GitHub dalla raccolta, seguire questa procedura:**
 
 1. Nel **[portale di gestione di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
 
@@ -74,37 +74,37 @@ Per configurare l'integrazione di Github in Azure AD, è necessario aggiungere G
 
     ![Applicazioni][3]
 
-4. Nella casella di ricerca digitare **Github.com**.
+4. Nella casella di ricerca digitare **GitHub.com**.
 
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-github-tutorial/tutorial_github_search02.png)
 
-5. Nel pannello dei risultati selezionare **Github** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+5. Nel pannello dei risultati selezionare **GitHub** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-github-tutorial/tutorial_github_search_result02.png)
 
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Github in base a un utente di test di nome "Britta Simon".
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con GitHub in base a un utente test di nome "Britta Simon".
 
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Github che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Github.
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di GitHub che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in GitHub.
 
-La relazione di collegamento viene stabilita assegnando il valore di **nome utente** in Azure AD come valore di **Username** in Github.
+La relazione di collegamento viene stabilita assegnando il valore di **nome utente** in Azure AD come valore di **Username** in GitHub.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Github, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con GitHub, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente di test di Github](#creating-a-Github-test-user)**: per avere una controparte di Britta Simon in Github collegata alla relativa rappresentazione in Azure AD.
+3. **[Creazione di un utente test di GitHub](#creating-a-GitHub-test-user)**: per avere una controparte di Britta Simon in GitHub collegata alla relativa rappresentazione in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
 
-In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di gestione di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Github.
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di gestione di Azure e viene configurato l'accesso Single Sign-On nell'applicazione GitHub.
 
-**Per configurare Single Sign-On di Azure AD con Github, seguire questa procedura:**
+**Per configurare Single Sign-On di Azure AD con GitHub, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **Github** del portale di gestione di Azure fare clic su **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **GitHub** del portale di gestione di Azure fare clic su **Single Sign-On**.
 
     ![Configura accesso Single Sign-On][4]
 
@@ -112,7 +112,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
  
     ![Configura accesso Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_01.png)
 
-3. Nella sezione **URL e dominio Github** seguire questa procedura:
+3. Nella sezione **URL e dominio GitHub** seguire questa procedura:
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_saml011.png)
 
@@ -121,7 +121,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://github.com/orgs/<entity-id>`
 
     > [!NOTE] 
-    > Si noti che questi non sono i valori reali. È necessario aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. In questo caso è consigliabile usare in Identificatore il valore univoco della stringa. Passare alla sezione Admin di Github per recuperare questi valori. 
+    > Si noti che questi non sono i valori reali. È necessario aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. In questo caso è consigliabile usare in Identificatore il valore univoco della stringa. Passare alla sezione Admin di GitHub per recuperare questi valori. 
 
 4. Nella sezione **User Attributes** (Attributi utente) selezionare **User Identifier** (Identificatore utente) come user.mail.
 
@@ -147,13 +147,13 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_05.png) 
 
-10. Nella sezione **Github Configuration** (Configurazione Github) fare clic su **Configure Github** (Configura Github) per aprire la finestra **Configure Sign-On** (Configura Sign-On).
+10. Nella sezione **GitHub Configuration** (Configurazione GitHub) fare clic su **Configure GitHub** (Configura GitHub) per aprire la finestra **Configura accesso**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_06.png) 
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_07.png)
 
-11. In un'altra finestra del Web browser accedere al sito aziendale di Github come amministratore.
+11. In un'altra finestra del Web browser accedere al sito aziendale di GitHub come amministratore.
 
 12. Passare a **Settings** (Impostazioni) e fare clic su **Security** (Sicurezza).
 
@@ -211,14 +211,14 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
     d. Fare clic su **Crea**. 
 
 
-### <a name="creating-a-github-test-user"></a>Creazione di un utente di test Github
+### <a name="creating-a-github-test-user"></a>Creazione di un utente test GitHub
 
-Per consentire agli utenti di Azure AD di accedere a Github, è necessario eseguirne il provisioning in Github.  
-Nel caso di Github, il provisioning è un'attività manuale.
+Per consentire agli utenti di Azure AD di accedere a GitHub, è necessario eseguirne il provisioning in GitHub.  
+Nel caso di GitHub, il provisioning è un'attività manuale.
 
 **Per effettuare il provisioning di un account utente, seguire questa procedura:**
 
-1. Accedere al sito aziendale di Github come amministratore.
+1. Accedere al sito aziendale di GitHub come amministratore.
 
 2. Fare clic su **Persone**.
 
@@ -244,17 +244,17 @@ Nel caso di Github, il provisioning è un'attività manuale.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso di Single Sign-On di Azure concedendole l'accesso a Github.
+In questa sezione Britta Simon viene abilitata per l'uso di Single Sign-On di Azure concedendole l'accesso a GitHub.
 
 ![Assegna utente][200] 
 
-**Per assegnare Britta Simon a Github, seguire questa procedura:**
+**Per assegnare Britta Simon a GitHub, seguire questa procedura:**
 
 1. Nel portale di gestione di Azure aprire la visualizzazione applicazioni, passare alla visualizzazione directory e andare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
 
     ![Assegna utente][201] 
 
-2. Nell'elenco di applicazioni selezionare **Github.com**.
+2. Nell'elenco di applicazioni selezionare **GitHub.com**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_search_result021.png) 
 
@@ -278,7 +278,7 @@ In questa sezione Britta Simon viene abilitata per l'uso di Single Sign-On di Az
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro Github nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Github. L'accesso avverrà con un account aziendale, ma è necessario accedere con l'account personale.
+Quando si fa clic sul riquadro GitHub nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione GitHub. L'accesso avverrà con un account aziendale, ma è necessario accedere con l'account personale.
 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
@@ -301,3 +301,4 @@ Quando si fa clic sul riquadro Github nel pannello di accesso, si dovrebbe acced
 [201]: ./media/active-directory-saas-github-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-github-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-github-tutorial/tutorial_general_203.png
+

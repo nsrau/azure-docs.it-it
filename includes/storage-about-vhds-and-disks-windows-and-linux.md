@@ -1,13 +1,3 @@
-### <a name="disk-persistence"></a>Persistenza del disco 
-
-Nella tabella seguente vengono illustrati i diversi stati per i vari dischi in una macchina virtuale di Azure e la possibile persistenza dei dati in ogni stato.
-
-| Disco | Inizia | Arresto/<br>Deallocare | Sospendi | Re-<br>boot | Arresto<br>sistema | Elimina | Esito negativo | Ridimensionamento | 
-| ---- | ----- | ---- | ---- | ---- | ----  | ------ | ------- | ------ | 
-| Disco del sistema operativo | Sì | Sì  | Sì | Sì | Sì  | No | No  | Sì | 
-| RAM  | Sì | Sì | Sì | Sì | No   | No | No | No | 
-| Disco locale temporaneo | Sì | No | Sì | No | No  | No | No | No | 
-| Disco dati collegato | Sì | Sì | Sì | Sì | Sì  | Sì | Sì | Sì | 
 
 ## <a name="about-vhds"></a>Informazioni sui dischi rigidi virtuali
 
@@ -41,7 +31,7 @@ Archiviazione Premium è supportata da unità SSD e offre prestazioni elevate e 
 
 ### <a name="unmanaged-disks"></a>Dischi non gestiti
 
-I dischi non gestiti sono quelli di tipo tradizionale usati dalle macchine virtuali. Con tali dischi è possibile creare un account di archiviazione personale e specificarlo durante la creazione del disco. Assicurarsi di non inserire troppi dischi nello stesso account di archiviazione, per non superare gli [obiettivi di scalabilità](../articles/storage/storage-scalability-targets.md) dell'account di archiviazione, ad esempio&20;.000 IOPS, limitando di conseguenza le macchine virtuali. Con i dischi non gestiti è necessario ottimizzare l'uso di uno o più account di archiviazione per ottenere migliori prestazioni dalle macchine virtuali.
+I dischi non gestiti sono quelli di tipo tradizionale usati dalle macchine virtuali. Con tali dischi è possibile creare un account di archiviazione personale e specificarlo durante la creazione del disco. Assicurarsi di non inserire troppi dischi nello stesso account di archiviazione, per non superare gli [obiettivi di scalabilità](../articles/storage/storage-scalability-targets.md) dell'account di archiviazione, ad esempio 20.000 IOPS, limitando di conseguenza le macchine virtuali. Con i dischi non gestiti è necessario ottimizzare l'uso di uno o più account di archiviazione per ottenere migliori prestazioni dalle macchine virtuali.
 
 ### <a name="managed-disks"></a>Dischi gestiti 
 

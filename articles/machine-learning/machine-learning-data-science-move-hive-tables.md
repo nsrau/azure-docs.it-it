@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: e29c26a7fbd25d01f2d58dc29a7fd2f34c91307b
-ms.openlocfilehash: 88203f84752d464b63ef31fc77d668cb8b3497e3
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 88c919b64513c8441ab73e2750e7ddfb12fcb63e
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -45,7 +46,7 @@ Se si desidera far pratica con i **dati relativi alle corse dei Taxi di NYC**, �
 * **decomprimere** tutti i file in file con estensione .csv;
 * **caricare** i file nel percorso predefinito (o nel contenitore appropriato) dell'account di archiviazione di Azure creato mediante la procedura descritta nell'argomento [Personalizzare i cluster Hadoop di Azure HDInsight per Advanced Analytics Process and Technology](machine-learning-data-science-customize-hadoop-cluster.md) . Il processo per caricare i file con estensione csv per il contenitore predefinito nell'account di archiviazione sono disponibili in questa [pagina](machine-learning-data-science-process-hive-walkthrough.md#upload).
 
-## <a name="a-namesubmitahow-to-submit-hive-queries"></a><a name="submit"></a>Come inviare query Hive
+## <a name="submit"></a>Come inviare query Hive
 È possibile inviare query Hive mediante:
 
 1. [Inviare le query Hive attraverso la riga di comando di Hadoop nel nodo head del cluster Hadoop](#headnode)
@@ -56,7 +57,7 @@ Le query Hive sono simili a SQL. Se si ha già familiarità con SQL, i [fogli in
 
 Quando si invia una query Hive, è possibile controllare la destinazione dell'output, sia questo visualizzato sullo schermo o incluso in un file locale nel nodo head o in un BLOB di Azure.
 
-### <a name="a-nameheadnodea-1-submit-hive-queries-through-hadoop-command-line-in-headnode-of-hadoop-cluster"></a><a name="headnode"></a> 1. Inviare le query Hive attraverso la riga di comando di Hadoop nel nodo head del cluster Hadoop
+### <a name="headnode"></a> 1. Inviare le query Hive attraverso la riga di comando di Hadoop nel nodo head del cluster Hadoop
 Se la query Hive è complessa e la si invia direttamente al nodo head del cluster Hadoop, il completamento dell'operazione sarà più rapido rispetto a quando l'invio viene effettuato con l'editor Hive o gli script di Azure PowerShell.
 
 Accedere al nodo head del cluster Hadoop, aprire la riga di comando di Hadoop sul desktop del nodo head e immettere il comando `cd %hive_home%\bin`.
@@ -116,14 +117,14 @@ Se si apre il contenitore predefinito del cluster Hadoop usando Esplora archivi 
 
 ![Creare un'area di lavoro](./media/machine-learning-data-science-move-hive-tables/output-hive-results-3.png)
 
-### <a name="a-namehive-editora-2-submit-hive-queries-with-the-hive-editor"></a><a name="hive-editor"></a> 2. Inviare le query Hive con l'editor Hive
+### <a name="hive-editor"></a> 2. Inviare le query Hive con l'editor Hive
 È inoltre possibile usare la Console di Query (Editor Hive) immettendo un URL con formato *https://&#60;Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* in un Web browser. La console è visualizzabile solo dopo aver eseguito l'accesso, pertanto è necessario disporre delle proprie credenziali del cluster Hadoop.
 
-### <a name="a-namepsa-3-submit-hive-queries-with-azure-powershell-commands"></a><a name="ps"></a> 3. Inviare le query Hive con i comandi di Azure PowerShell
+### <a name="ps"></a> 3. Inviare le query Hive con i comandi di Azure PowerShell
 È possibile usare anche PowerShell per inviare le query Hive. Per istruzioni, vedere [Invio di processi Hive tramite PowerShell](../hdinsight/hdinsight-hadoop-use-hive-powershell.md).
 
-## <a name="a-namecreate-tablesacreate-hive-database-and-tables"></a><a name="create-tables"></a>Creare il database e le tabelle Hive
-Le query Hive vengono condivise nell' [archivio GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql) e possono essere scaricate da questa posizione.
+## <a name="create-tables"></a>Creare il database e le tabelle Hive
+Le query Hive vengono condivise nell'[archivio GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql) e possono essere scaricate da questa posizione.
 
 Di seguito è presentata la query Hive che crea una tabella Hive.
 
@@ -149,7 +150,7 @@ Di seguito sono presentate le descrizioni dei campi da collegare e altre configu
 * **&#60;storage location>**: il percorso di archiviazione di Azure in cui salvare i dati delle tabelle Hive. Se il parametro *LOCATION &#60;storage location>* non viene specificato, il database e le tabelle vengono archiviati per impostazione predefinita nella directory *hive/warehouse/* nel contenitore predefinito del cluster Hive. Se si desidera specificare il percorso di archiviazione, questo deve trovarsi nel contenitore predefinito per database e tabelle. Questo percorso deve essere definito come percorso relativo per il contenitore predefinito del cluster nel formato*'wasb:///&#60;directory 1>/'* o *'wasb:///&#60;directory 1>/&#60;directory 2>/'* e così via. Dopo l'esecuzione della query, vengono create le relative directory nel contenitore predefinito.
 * **TBLPROPERTIES("skip.header.line.count"="1")**: se il file di dati presenta una riga di intestazione, si deve aggiungere questa proprietà **alla fine** della query di *creazione della tabella*. In caso contrario, la riga di intestazione verrà caricata come un record nella tabella. Se il file di dati non presenta una riga di intestazione, questa configurazione può essere omessa nella query.
 
-## <a name="a-nameload-dataaload-data-to-hive-tables"></a><a name="load-data"></a>Caricare dati nelle tabelle Hive
+## <a name="load-data"></a>Caricare dati nelle tabelle Hive
 Di seguito è presentata la query Hive che carica i dati in una tabella Hive.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
@@ -161,7 +162,7 @@ Di seguito è presentata la query Hive che carica i dati in una tabella Hive.
   >
   >
 
-## <a name="a-namepartition-orcaadvanced-topics-partitioned-table-and-store-hive-data-in-orc-format"></a><a name="partition-orc"></a>Argomenti avanzati: Tabella partizionata e archiviazione dei dati Hive in formato ORC
+## <a name="partition-orc"></a>Argomenti avanzati: Tabella partizionata e archiviazione dei dati Hive in formato ORC
 Se i dati sono di grandi dimensioni, il partizionamento della tabella è utile per le query che devono solo eseguire l'analisi di alcune partizioni della tabella. Ad esempio, è ragionevole partizionare i dati di log di un sito Web per date.
 
 Oltre al partizionamento delle tabelle Hive, è inoltre utile archiviare i dati Hive in formato ORC. Per altre informazioni sulla formattazione ORC, vedere l’<a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC#LanguageManualORC-ORCFiles" target="_blank">uso dei file ORC per migliorare le prestazioni quando Hive legge, scrive ed elabora dati</a>.
@@ -186,7 +187,7 @@ Quando si interrogano tabelle partizionate, è opportuno aggiungere la condizion
     from <database name>.<partitioned table name>
     where <partitionfieldname>=<partitionfieldvalue> and ...;
 
-### <a name="a-nameorcastore-hive-data-in-orc-format"></a><a name="orc"></a>Archiviare i dati Hive in formato ORC
+### <a name="orc"></a>Archiviare i dati Hive in formato ORC
 Non è possibile caricare direttamente i dati del BLOB nelle tabelle Hive nel formato di archiviazione ORC. Di seguito sono presentati i passaggi da eseguire per caricare dati dai BLOB Azure nelle tabelle Hive archiviate in formato ORC.
 
 Creare una tabella esterna **ARCHIVIATA COME TEXTFILE** e caricare i dati dall'archiviazione BLOB nella tabella.
@@ -235,9 +236,4 @@ Selezionare i dati della tabella esterna nel passaggio 1 e inserirli nella tabel
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 
 Al termine della procedura, si disporrà di una tabella con i dati nel formato ORC pronta per l'uso.  
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

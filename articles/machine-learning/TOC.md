@@ -114,7 +114,6 @@
 #### [Usare query Hive](machine-learning-data-science-create-features-hive.md)
 #### [Selezione delle funzioni TDSP](machine-learning-data-science-select-features.md)
 ### Creare ed eseguire il training di modelli
-#### [Eseguire la conversione all'assegnazione dei punteggi](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 #### [Gestione del ciclo di vita degli esperimenti](machine-learning-version-control.md)
 #### [Gestire le iterazioni](machine-learning-manage-experiment-iterations.md)
 #### [Usare PowerShell per creare modelli](machine-learning-create-models-and-endpoints-with-powershell.md)
@@ -133,19 +132,20 @@
 ##### [Creare moduli R personalizzati](machine-learning-custom-r-modules.md)
 ##### [Eseguire script Python](machine-learning-execute-python-scripts.md)
 
-## Distribuire e utilizzare i modelli
+## Rendere operativi i modelli
 ### [Panoramica](machine-learning-deploy-consume-web-service-guide.md)
 ### Distribuire i modelli
-#### [Funzionamento](machine-learning-model-progression-experiment-to-web-service.md)
 #### [Distribuire un servizio Web](machine-learning-publish-a-machine-learning-web-service.md)
+#### [Funzionamento](machine-learning-model-progression-experiment-to-web-service.md)
+#### [Preparare la distribuzione](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 #### [Usare dati esterni](machine-learning-web-services-that-use-import-export-modules.md)
 #### [Distribuire in più aree](machine-learning-how-to-deploy-to-multiple-regions.md)
 #### [Usare parametri dei servizi Web](machine-learning-web-service-parameters.md)
 #### [Abilitazione della registrazione](machine-learning-web-services-logging.md)
 ### Gestire i servizi Web
-#### [Creare endpoint](machine-learning-create-endpoint.md)
 #### [Usare il portale dei servizi Web](machine-learning-manage-new-webservice.md)
 #### [Gestire con le API](machine-learning-manage-web-service-endpoints-using-api-management.md)
+#### [Creare endpoint](machine-learning-create-endpoint.md)
 #### [Ridimensionamento](machine-learning-scaling-webservice.md)
 ### Ripetere il training dei modelli
 #### [Panoramica](machine-learning-retrain-machine-learning-model.md)
@@ -198,12 +198,6 @@
 #### [Rilevamento anomalie](machine-learning-apps-anomaly-detection-api.md)
 #### [Analisi del testo](machine-learning-apps-text-analytics.md)
 #### [Servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/)
-#### Raccomandazioni
-##### [Panoramica](machine-learning-recommendation-api-sample-application.md)
-##### [Avvio rapido](machine-learning-recommendation-api-quick-start-guide.md)
-##### [Riferimento](machine-learning-recommendation-api-documentation.md)
-##### [Usare JavaScript](machine-learning-recommendation-api-javascript-integration.md)
-##### [DOMANDE FREQUENTI](machine-learning-recommendation-api-faq.md)
 #### Manutenzione predittiva
 ##### [Panoramica](cortana-analytics-playbook-predictive-maintenance.md)
 ##### [Architettura](cortana-analytics-architecture-predictive-maintenance.md)

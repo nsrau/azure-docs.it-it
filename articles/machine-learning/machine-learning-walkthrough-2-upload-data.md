@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: a9ebbbdc431a34553de04e920efbbc8c2496ce5f
-ms.openlocfilehash: 2c44b51d9c832116bf77758144725d2ed3f6e422
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: c2ab5f5252e1ea1ec51f6c3bd489826c70ff011c
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -36,13 +37,19 @@ Per sviluppare un modello predittivo per il rischio di credito, abbiamo bisogno 
 
 Verrà usato il file denominato **german.data**. Scaricare questo file nel disco rigido locale.  
 
-Questo set di dati contiene le righe di 20 variabili per 1000 clienti che in passato hanno fatto richiesta di un credito. Queste 20 variabili rappresentano l'insieme di funzionalità del set di dati (vettore delle funzionalità) che fornisce le caratteristiche di identificazione di ogni richiedente credito. Una colonna aggiuntiva in ogni riga rappresenta il rischio di credito calcolato del richiedente. In questa colonna 700 richiedenti sono identificati come a basso rischio e 300 ad alto rischio.
+Il set di dati **german.data** contiene le righe di 20 variabili per 1000 clienti che in passato hanno fatto richiesta di un credito. Queste 20 variabili rappresentano l'insieme di funzionalità del set di dati (*vettore delle funzionalità*) che fornisce le caratteristiche di identificazione di ogni richiedente credito. Una colonna aggiuntiva in ogni riga rappresenta il rischio di credito calcolato del richiedente. In questa colonna 700 richiedenti sono identificati come a basso rischio e 300 ad alto rischio.
 
 Il sito Web UCI presenta una descrizione degli attributi del vettore delle funzionalità per i dati. Questo include informazioni finanziarie, storico dei crediti, stato di occupazione e dati personali. Per ogni richiedente è stata assegnata una valutazione in formato binario per indicare se è a basso o ad alto rischio. 
 
 Questi dati verranno usati per creare un modello di analisi predittiva. Dopo aver completato questa operazione, il modello dovrebbe essere in grado di accettare un vettore delle funzionalità per un nuovo cliente e prevedere se tale cliente è a basso o ad alto rischio.  
 
-Ma ecco un'interessante svolta. La descrizione del set di dati spiega che classificare erroneamente un cliente come a basso rischio mentre è ad alto rischio implica costi cinque volte più alti per l'istituto di credito rispetto a classificare erroneamente un cliente come ad alto rischio mentre è a basso rischio. Un modo semplice per tenere conto di questo aspetto nell'esperimento consiste nel duplicare (5 volte) le voci che rappresentano un cliente con rischio di credito elevato. In tal modo, se il modello classifica erroneamente come basso un rischio alto, la classificazione errata sarà ripetuta 5 volte, una per ogni duplicato, e il costo di questo errore aumenterà nei risultati.  
+Ma ecco un'interessante svolta. La descrizione del set di dati del sito Web di UCI include i possibili costi in caso di errata classificazione del rischio di credito di un utente.
+Se il modello stima un elevato rischio di credito per un utente che è effettivamente a basso rischio, il modello ha eseguito una errata classificazione.
+Tuttavia, la classificazione errata inversa è cinque volte più costosa per l'istituto finanziario, ovvero se il modello stima un basso rischio di credito per un utente che in realtà è a elevato rischio di credito.
+
+Pertanto, l'obiettivo è eseguire il training del modello in modo che il costo di quest'ultimo tipo di errata classificazione sia cinque volte superiore rispetto all'altro tipo di errata classificazione.
+Un modo semplice per raggiungere questo obiettivo durante il training del modello nell'esperimento consiste nel duplicare (cinque volte) le voci che rappresentano un utente a elevato rischio di credito. Se il modello classifica un utente erroneamente a basso rischio quando è in realtà a rischio elevato, il modello ripete la stessa errata classificazione cinque volte, una volta per ogni duplicato. e il costo di questo errore aumenterà nei risultati.
+
 
 ## <a name="convert-the-dataset-format"></a>Convertire il formato del set di dati
 Nel set di dati originale viene usato un formato con valori delimitati da spazi vuoti. Per il funzionamento ottimale di Machine Learning Studio è preferibile usare un file con valori delimitati da virgole (CSV), di conseguenza il set di dati verrà convertito sostituendo gli spazi con le virgole.  
@@ -55,7 +62,7 @@ Un'altra opzione consiste nell'usare il comando sed di Unix:
 
     sed 's/ /,/g' german.data > german.csv  
 
-In entrambi i casi, è stata creata una versione delimitata da virgole dei dati del file **german.csv** che verrà usato nell'esperimento.
+In entrambi i casi, è stata creata una versione delimitata da virgole dei dati del file **german.csv** che è possibile usare nell'esperimento.
 
 ## <a name="upload-the-dataset-to-machine-learning-studio"></a>Caricare il set di dati in Machine Learning Studio
 Dopo aver convertito i dati in formato CSV, è necessario caricarli in Machine Learning Studio. 
@@ -98,9 +105,4 @@ Per altre informazioni sull'importazione di altri tipi di dati in un esperimento
 [2]: media/machine-learning-walkthrough-2-upload-data/add-dataset.png
 [3]: media/machine-learning-walkthrough-2-upload-data/upload-dataset.png
 [4]: media/machine-learning-walkthrough-2-upload-data/dataset-list.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

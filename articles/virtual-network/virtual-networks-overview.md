@@ -1,92 +1,92 @@
 ---
-title: Reti virtuali di Azure | Documentazione Microsoft
-description: Informazioni sulle reti virtuali in Azure.
+title: Rete virtuale di Azure | Microsoft Docs
+description: "Informazioni sui concetti e sulle funzionalità di Rete virtuale di Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
-editor: tysonn
+manager: timlt
+editor: 
+tags: azure-resource-manager
 ms.assetid: 9633de4b-a867-4ddf-be3c-a332edf02e24
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2016
+ms.date: 03/23/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 75c5b8d3d8c8f389b8cee7d5d304b6e9704252fc
-ms.openlocfilehash: a57805510d5e84fcdc6c4521ae9443ec72de59e1
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 186b8331d2fcfc16bd41eb08badb200e2abf9e30
+ms.lasthandoff: 03/25/2017
 
 
 ---
-# <a name="virtual-networks"></a>Reti virtuali
-Una rete virtuale di Azure (VNet) è una rappresentazione della propria rete personalizzata nel cloud.  È un isolamento logico del cloud di Azure dedicato alla sottoscrizione. È possibile controllare completamente i blocchi di indirizzi IP, le impostazioni DNS, i criteri di sicurezza e le tabelle di route in questa rete. È anche possibile segmentare ulteriormente la rete virtuale in subnet e avviare macchine virtuali (VM) IaaS di Azure e/o [servizi cloud (istanze del ruolo PaaS)](../cloud-services/cloud-services-choose-me.md). È anche possibile connettere la rete virtuale alla rete locale usando una delle [opzioni di connettività](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections) disponibili in Azure. In pratica è possibile espandere la rete ad Azure, con il controllo completo sui blocchi di indirizzi IP con tutti i vantaggi di livello aziendale offerti da Azure.
+# <a name="azure-virtual-network"></a>Rete virtuale di Azure
 
-Per meglio comprendere le reti virtuali, vedere la figura seguente che mostra una rete locale semplificata.
+Il servizio Rete virtuale di Azure consente di connettere tra loro le risorse di Azure in modo sicuro con reti virtuali. Una rete virtuale è una rappresentazione della propria rete nel cloud. È un isolamento logico del cloud di Azure dedicato alla sottoscrizione. È anche possibile connettere le reti virtuali alla rete locale. L'immagine seguente mostra alcune funzionalità del servizio Rete virtuale di Azure:
 
-![Rete locale](./media/virtual-networks-overview/figure01.png)
+![Diagramma di rete](./media/virtual-networks-overview/virtual-network-overview.png)
 
-La figura precedente mostra una rete locale connessa a Internet pubblico attraverso un router. È anche possibile visualizzare un firewall tra il router e una rete perimetrale che ospita un server DNS e un server farm Web. Il server farm Web è con carico bilanciato usando un servizio di bilanciamento del carico hardware che viene esposto a Internet e consuma risorse dalla subnet interna. La subnet interna è separata dalla rete perimetrale da un altro firewall e ospita i server, i server di database e i server delle applicazioni del controller di dominio di Active Directory.
+Per altre informazioni sulle funzionalità di Rete virtuale di Azure riportate di seguito, fare clic sulla funzionalità.
+- **[Isolamento:](#isolation)** le reti virtuali sono isolate una dall'altra. È possibile creare reti virtuali separate per sviluppo, test e produzione che usano gli stessi blocchi di indirizzi CIDR. È altrimenti possibile creare più reti virtuali che usano blocchi di indirizzi CIDR diversi e connettere tra loro le reti. Una rete virtuale può essere segmentata in più subnet. Azure offre la risoluzione dei nomi interna per le VM e le istanze del ruolo Servizi cloud connesse a una rete virtuale. Facoltativamente, è possibile configurare una rete virtuale in modo da usare server DNS personalizzati anziché la risoluzione dei nomi interna di Azure.
+- **[Connettività Internet:](#internet)** per impostazione predefinita, tutte le macchine virtuali (VM) di Azure e le istanze del ruolo Servizi cloud connesse a una rete virtuale hanno accesso a Internet. È anche possibile abilitare l'accesso in ingresso a risorse specifiche, se necessario.
+- **[Connettività delle risorse di Azure:](#within-vnet)** risorse di Azure come Servizi cloud e VM possono essere connesse alla stessa rete virtuale. Le risorse possono essere connesse tra loro usando indirizzi IP privati, anche se si trovano in subnet diverse. Azure offre il routing predefinito tra subnet, reti virtuali e reti locali, quindi non è necessario configurare e gestire le route.
+- **[Connettività delle reti virtuali:](#connect-vnets)** le reti virtuali possono essere connesse tra loro, in modo che le risorse connesse a qualsiasi rete virtuale possano comunicare con qualsiasi risorsa in un'altra rete virtuale.
+- **[Connettività locale:](#connect-on-premises)** le reti virtuali possono essere connesse a reti locali tramite connessioni di rete private tra la rete e Azure o tramite una connessione VPN da sito a sito su Internet.
+- **[Applicazione di filtri al traffico:](#filtering)** il traffico di rete delle VM e delle istanze del ruolo Servizi cloud può essere filtrato in ingresso e in uscita per indirizzo IP e porta di origine, indirizzo IP e porta di destinazione e protocollo.
+- **[Routing:](#routing)** facoltativamente, è possibile sostituire il routing predefinito di Azure configurando route personalizzate o usando route BGP attraverso un gateway di rete.
 
-La stessa rete può essere ospitata in Azure come illustrato nella figura seguente.
+## <a name = "isolation"></a>Isolamento e segmentazione delle reti
 
-![Rete virtuale di Azure](./media/virtual-networks-overview/figure02.png)
+È possibile implementare più reti virtuali in ogni sottoscrizione e area di Azure. Ogni rete virtuale è isolata dalle altre. Per ogni rete virtuale è possibile:
+- Specificare uno spazio indirizzi IP privato personalizzato con indirizzi pubblici e privati (RFC 1918). Azure assegna alle risorse connesse alla rete virtuale un indirizzo IP privato dello spazio indirizzi specificato.
+- Segmentare la rete virtuale in una o più subnet e allocare una parte dello spazio indirizzi della rete virtuale a ogni subnet.
+- Usare la risoluzione dei nomi fornita da Azure oppure specificare un server DNS personalizzato che verrà usato dalle risorse connesse a una rete virtuale. Per altre informazioni sulla risoluzione dei nomi nelle reti virtuali, vedere l'articolo relativo alla [risoluzione dei nomi per VM e Servizi cloud](virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
-Si noti come l'infrastruttura di Azure assume il ruolo di router, consentendo l'accesso dalla propria VNet a Internet pubblico senza la necessità di alcuna configurazione. I firewall possono essere sostituiti da gruppi di sicurezza di rete (NSG) applicati a ogni singola subnet. I servizi di bilanciamento del carico fisici vengono sostituiti da servizi di bilanciamento del carico Internet e interni in Azure.
+## <a name = "internet"></a>Connessione a Internet
+Per impostazione predefinita, tutte le risorse connesse a una rete virtuale hanno la connettività in uscita a Internet. L'indirizzo IP privato della risorsa viene convertito (con Source Network Address Translation, SNAT) in un indirizzo IP pubblico dall'infrastruttura di Azure. Per altre informazioni sulla connettività Internet in uscita, vedere l'articolo [Informazioni sulle connessioni in uscita in Azure](..\load-balancer\load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json#standalone-vm-with-no-instance-level-public-ip-address). È possibile modificare la connettività predefinita implementando il routing personalizzato e applicando filtri al traffico.
 
-> [!NOTE]
-> Esistono due diverse modalità di distribuzione in Azure: classica (nota anche come Gestione dei servizi) e Gestione risorse di Azure. Le reti virtuali classiche possono essere aggiunte a un gruppo di affinità o create come reti virtuali regionali. Se si ha disposizione una rete virtuale in un gruppo di affinità, si consiglia di [eseguirne la migrazione a una rete virtuale regionale](virtual-networks-migrate-to-regional-vnet.md).
->
+Per la comunicazione in ingresso verso le risorse di Azure da Internet o la comunicazione in uscita verso Internet senza SNAT, è necessario che a una risorsa sia assegnato un indirizzo IP pubblico. Per altre informazioni sugli indirizzi IP pubblici, vedere l'articolo [Indirizzi IP pubblici](virtual-network-public-ip-address.md).
 
-## <a name="benefits"></a>Vantaggi
-* **Isolamento**. Le reti virtuali sono completamente isolate una dall'altra. In questo modo è possibile creare reti non contigue per la distribuzione, il test e la produzione che usano gli stessi blocchi di indirizzi CIDR.
-* **Accesso a Internet pubblico**. Tutte le istanze del ruolo PaaS e delle macchine virtuali IaaS in una rete virtuale possono accedere a Internet pubblico per impostazione predefinita. È possibile controllare l'accesso usando gruppi di sicurezza di rete (NSG).
-* **Accesso alle macchine virtuali all'interno della rete virtuale**. Le istanze del ruolo PaaS e le VM IaaS possono essere avviate nella stessa rete virtuale e possono connettersi tra loro usando indirizzi IP privati, anche se sono in subnet diverse, senza che sia necessario configurare un gateway o usare indirizzi IP pubblici.
-* **Risoluzione dei nomi**. Azure offre una [risoluzione dei nomi interna](virtual-networks-name-resolution-for-vms-and-role-instances.md) per le istanze del ruolo PaaS e delle macchine virtuali IaaS distribuite nella propria rete virtuale. È possibile anche distribuire i propri server DNS e configurare la rete virtuale per usarli.
-* **Sicurezza**. Il traffico in entrata e in uscita nelle macchine virtuali e nelle istanze del ruolo PaaS in una rete virtuale può essere controllato con i gruppi di sicurezza di rete.
-* **Connettività**. Le reti virtuali possono essere connesse tra loro tramite gateway di rete o peering reti virtuali. Le reti virtuali possono essere connesse ai data center locali tramite reti VPN da sito a sito o ExpressRoute di Azure. Per altre informazioni sulla connettività VPN da sito a sito, vedere [Informazioni sul gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections). Per altre informazioni su ExpressRoute, visitare [Panoramica tecnica relativa a ExpressRoute](../expressroute/expressroute-introduction.md). Per altre informazioni sul peering reti virtuali, vedere [Peering reti virtuali](virtual-network-peering-overview.md).
+## <a name="within-vnet"></a>Connessione delle risorse di Azure
+È possibile connettere a una rete virtuale diverse risorse di Azure, ad esempio macchine virtuali (VM), Servizi cloud, ambienti del servizio app e set di scalabilità di macchine virtuali. Le VM si connettono a una subnet di una rete virtuale tramite un'interfaccia di rete. Per altre informazioni sulle interfacce di rete, vedere l'articolo [Interfacce di rete](virtual-network-network-interface.md).
 
-  > [!NOTE]
-  > Verificare di aver creato una nuova rete virtuale prima di distribuire eventuali istanze del ruolo PaaS o delle macchine virtuali IaaS nell'ambiente Azure. Le macchine virtuali basate su ARM richiedono una rete virtuale e, se non si specifica una rete virtuale esistente, Azure crea una rete virtuale predefinita che potrebbe presentare un conflitto dei blocchi di indirizzi CIDR con la propria rete locale, rendendo impossibile la connessione tra la propria rete virtuale e la propria rete locale.
-  >
+## <a name="connect-vnets"></a>Connessione delle reti virtuali
 
-## <a name="subnets"></a>Subnet
-Una subnet è un intervallo di indirizzi IP nella rete virtuale. È possibile suddividere la rete virtuale in più subnet per una maggiore organizzazione e sicurezza. Le VM e le istanze del ruolo PaaS distribuite nelle subnet (nella stessa o in diverse) in una rete virtuale possono comunicare tra loro senza nessuna configurazione aggiuntiva. È anche possibile configurare tabelle di route e gruppi di sicurezza di rete per una subnet.
+È possibile connettere tra loro le reti virtuali in modo che le risorse connesse a una di esse possano comunicare tra loro attraverso le reti virtuali. Per connettere tra loro le reti virtuali è possibile usare una o entrambe le opzioni seguenti.
+- **Peering:** consente alle risorse connesse a diverse reti virtuali di Azure nella stessa località di Azure di comunicare tra loro. La larghezza di banda e la latenza tra le reti virtuali sono uguali a quelle che si riscontrerebbero se le risorse fossero connesse alla stessa rete virtuale. Per altre informazioni sul peering, vedere l'articolo [Peering reti virtuali](virtual-network-peering-overview.md).
+- **Connessione da rete virtuale a rete virtuale:** abilita le risorse connesse a diverse reti virtuali di Azure nella stessa località o in località diverse. A differenza del peering, la larghezza di banda tra le reti virtuali è limitata perché il traffico deve passare attraverso un gateway VPN di Azure. Per altre informazioni sulla connessione di reti virtuali con una connessione da rete virtuale a rete virtuale, vedere l'articolo [Configurare una connessione da rete virtuale a rete virtuale](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="ip-addresses"></a>Indirizzi IP
-Esistono due tipi di indirizzi IP assegnati alle risorse in Azure: *pubblici* e *privati*. Gli indirizzi IP pubblici consentono alle risorse di Azure di comunicare con Internet e altri servizi pubblici di Azure, ad esempio [Cache Redis di Azure](https://azure.microsoft.com/services/cache/), [Hub eventi di Azure](https://azure.microsoft.com/documentation/services/event-hubs/). Gli indirizzi IP privati consentono la comunicazione tra risorse in una rete virtuale, oltre che con quelle connesse tramite una VPN, senza usare indirizzi IP instradabili tramite Internet.
+## <a name="connect-on-premises"></a>Connessione a una rete locale
 
-Per altre informazioni sugli indirizzi IP in Azure, visitare [Indirizzi IP in una rete virtuale](virtual-network-ip-addresses-overview-arm.md)
+È possibile connettere la rete locale a una rete virtuale usando qualsiasi combinazione delle opzioni seguenti.
+- **Rete privata virtuale (VPN) da punto a sito:** viene stabilita tra un singolo PC connesso alla rete e la rete virtuale. Questo tipo di connessione è ideale se si sta appena iniziando a usare Azure o per gli sviluppatori, perché richiede modifiche minime o nessuna modifica alla rete esistente. La connessione usa il protocollo SSTP per fornire la comunicazione crittografata su Internet tra il PC e la rete virtuale. La latenza per una VPN da punto a sito è imprevedibile e soggetta alla crittografia, perché il traffico attraversa Internet.
+- **VPN da sito a sito:** viene stabilita una connessione tra il dispositivo VPN e un gateway VPN di Azure. Questo tipo di connessione consente a qualsiasi risorsa locale autorizzata dall'utente di accedere a una rete virtuale. La connessione è una VPN IPSec/IKE che fornisce la comunicazione crittografata su Internet tra il dispositivo locale e il gateway VPN di Azure. La latenza per una connessione da sito a sito è imprevedibile, perché il traffico attraversa Internet.
+- **Azure ExpressRoute:** viene stabilita una connessione tra la rete e Azure tramite un partner ExpressRoute. La connessione è privata. Il traffico non attraversa Internet. La latenza per una connessione ExpressRoute è prevedibile, perché il traffico non attraversa Internet e non viene crittografato.
 
-## <a name="azure-load-balancers"></a>Servizi di bilanciamento del carico di Azure
-Le macchine virtuali e i servizi cloud in una rete virtuale possono essere esposti a Internet usando i servizio di bilanciamento del carico di Azure. È possibile bilanciare il carico delle applicazioni line-of-business connesse alla rete interna solo usando il servizio di bilanciamento del carico interno.
+Per altre informazioni su tutte le opzioni di connessione riportate sopra, vedere [Diagrammi delle topologie di connessione](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#a-namediagramsaconnection-topology-diagrams).
 
-* **Servizio di bilanciamento del carico esterno**. È possibile usare un servizio di bilanciamento del carico esterno per garantire un'elevata disponibilità per istanze del ruolo PaaS e delle macchine virtuali IaaS a cui si è eseguito l'accesso da Internet pubblico.
-* **Servizio di bilanciamento del carico interno**. È possibile usare un servizio di bilanciamento del carico interno per garantire un'elevata disponibilità per le istanze del ruolo PaaS e delle macchine virtuali IaaS a cui si è eseguito l'accesso da altri servizi nella propria rete virtuale.
+## <a name="filtering"></a>Applicazione di filtri al traffico di rete
+<!---Get confirmation that a UDR on the gateway subnet is supported. Need to provide some additional info as to the key differences between the two options.--->
 
-Per altre informazioni sul servizio di bilanciamento del carico in Azure, visitare [Panoramica del servizio di bilanciamento del carico](../load-balancer/load-balancer-overview.md).
+È possibile filtrare il traffico di rete tra subnet usando una o entrambe le opzioni seguenti.
+- **Gruppi di sicurezza di rete (NSG):** ogni gruppo di sicurezza di rete contiene più regole di sicurezza in ingresso e in uscita che consentono di filtrare il traffico per protocollo, porta e indirizzo IP di origine e di destinazione. È possibile applicare un gruppo di sicurezza di rete a qualsiasi interfaccia di rete di una VM, nonché alla subnet a cui è connessa un'interfaccia di rete o un'altra risorsa di Azure. Per altre informazioni sui gruppi di sicurezza di rete, vedere l'articolo [Gruppi di sicurezza di rete](virtual-networks-nsg.md).
+- **Appliance virtuali di rete:** un'appliance virtuale di rete è una VM che esegue software con un funzione di rete, ad esempio un firewall. Per un elenco delle appliance virtuali di rete disponibili, vedere [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). Sono anche disponibili appliance virtuali di rete che eseguono l'ottimizzazione WAN e altre funzioni per il traffico di rete. Le appliance virtuali di rete vengono in genere usate con route BGP o definite dall'utente. È anche possibile usare un'appliance virtuale di rete per filtrare il traffico tra reti virtuali.
 
-## <a name="network-security-groups-nsg"></a>Gruppi di sicurezza di rete (NGS)
-È possibile creare gruppi di sicurezza di rete per controllare l'accesso in ingresso e in uscita per le interfacce di rete (NIC), le macchine virtuali e le subnet. Ogni gruppo di sicurezza di rete contiene una o più regole che specificano se il traffico è approvato o respinto in base all'indirizzo IP di origine, alla porta di origine, all'indirizzo IP di destinazione e alla porta di destinazione. Per altre informazioni sui gruppi di sicurezza di rete, visitare [Che cos'è un gruppo di sicurezza di rete](virtual-networks-nsg.md).
+## <a name="routing"></a>Routing del traffico di rete
 
-## <a name="virtual-appliances"></a>Dispositivo virtuale
-Un dispositivo virtuale è semplicemente un'altra macchina virtuale nella propria rete virtuale che esegue una funzione di dispositivo basata sul software, come ad esempio un firewall, l'ottimizzazione WAN o il rilevamento intrusione. È possibile creare una route in Azure per indirizzare il traffico della rete virtuale attraverso un dispositivo virtuale per usarne le funzionalità.
-
-Ad esempio, i gruppi di sicurezza di rete possono essere usati per garantire la sicurezza nella propria rete virtuale. I gruppi di sicurezza di rete tuttavia offrono l'elenco di controllo di accesso di rete (ACL) di livello 4 a pacchetti in entrata e in uscita. Se si vuole usare un modello di sicurezza di livello 7, è necessario usare un dispositivo firewall.
-
-Le appliance virtuali dipendono da [route e inoltro IP definiti dall'utente](virtual-networks-udr-overview.md).
-
-## <a name="limits"></a>Limiti
-In una sottoscrizione è consentito solo un numero limitato di reti virtuali. Per altre informazioni, vedere [Limiti relativi alle reti di Azure](../azure-subscription-service-limits.md#networking-limits).
+Per impostazione predefinita, Azure crea tabelle di route che consentono alle risorse connesse a qualsiasi subnet di qualsiasi rete virtuale di comunicare tra loro. Per sostituire le route predefinite create da Azure, è possibile implementare una o entrambe le opzioni seguenti.
+- **Route definite dall'utente:** è possibile creare tabelle di route personalizzate con route che controllano l'instradamento del traffico per ogni subnet. Per altre informazioni sulle route definite dall'utente, vedere l'articolo [Route definite dall'utente](virtual-networks-udr-overview.md).
+- **Route BGP:** se si connette la rete virtuale alla rete locale con un gateway VPN di Azure o una connessione ExpressRoute, è possibile propagare le route BGP alle reti virtuali.
 
 ## <a name="pricing"></a>Prezzi
-L'uso di reti virtuali in Azure non comporta costi aggiuntivi. Le istanze di calcolo avviate nella rete virtuale saranno addebitate in base alle tariffe standard, come illustrato in [Prezzi di Macchine virtuali di Azure](https://azure.microsoft.com/pricing/details/virtual-machines/). Anche i [gateway VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) e gli [indirizzi IP pubblici](https://azure.microsoft.com/pricing/details/ip-addresses/) usati nella rete virtuale saranno addebitati in base alle tariffe standard.
+
+Per le reti virtuali, le subnet, le tabelle di route e i gruppi di sicurezza di rete non è previsto alcun addebito. All'utilizzo della larghezza di banda Internet in uscita, agli indirizzi IP pubblici, al peering reti virtuali, ai gateway VPN e a ExpressRoute vengono applicate specifiche strutture di prezzi. Per altre informazioni, vedere le pagine relative ai prezzi di [Rete virtuale](https://azure.microsoft.com/pricing/details/virtual-network), [Gateway VPN](https://azure.microsoft.com/pricing/details/vpn-gateway) ed [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute).
+
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Creare una rete virtuale](virtual-networks-create-vnet-arm-pportal.md) e subnet.
-* [Creare una macchina virtuale in una rete virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
-* Informazioni sui [gruppi di sicurezza di rete](virtual-networks-nsg.md).
-* Informazioni su [route definite dall'utente e inoltro IP](virtual-networks-udr-overview.md).
+
+- Creare la prima rete virtuale e connettervi alcune VM seguendo la procedura descritta nell'articolo [Creare la prima rete virtuale](virtual-network-get-started-vnet-subnet.md).
+- Creare una connessione da punto a sito a una rete virtuale seguendo la procedura descritta nell'articolo [Configurare una connessione da punto a sito](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: aad6bcd3eb704f090156d2ace80d2540a9543bd7
-ms.lasthandoff: 12/28/2016
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 9f8d21f6964d26a2e17e31d1f2947e7eb07c177d
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/28/2016
 Questo articolo illustra come aggiungere una macchina virtuale che esegue Windows Server 2012 R2 a un dominio gestito di Servizi di dominio Azure AD, usando il portale di Azure classico.
 
 ## <a name="step-1-create-the-windows-server-virtual-machine"></a>Passaggio 1: Creare la macchina virtuale Windows Server
-Seguire le istruzioni disponibili nell'esercitazione [Creare una macchina virtuale che esegue Windows nel portale di Azure classico](../virtual-machines/virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). È importante assicurare che la macchina virtuale appena creata venga aggiunta alla stessa rete virtuale in cui sono stati abilitati i Servizi di dominio Azure AD. L'opzione 'Creazione rapida' non consente di aggiungere la macchina virtuale a una rete virtuale. Sarà quindi necessario usare l'opzione 'Da raccolta' per creare la macchina virtuale.
+Seguire le istruzioni disponibili nell'esercitazione [Creare una macchina virtuale che esegue Windows nel portale di Azure classico](../virtual-machines/windows/classic/tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). È importante assicurare che la macchina virtuale appena creata venga aggiunta alla stessa rete virtuale in cui sono stati abilitati i Servizi di dominio Azure AD. L'opzione 'Creazione rapida' non consente di aggiungere la macchina virtuale a una rete virtuale. Sarà quindi necessario usare l'opzione 'Da raccolta' per creare la macchina virtuale.
 
 Seguire questa procedura per creare una macchina virtuale Windows aggiunta alla rete virtuale in cui sono stati abilitati i Servizi di dominio Azure AD.
 
@@ -91,7 +91,7 @@ Seguire questa procedura per aggiungere la macchina virtuale Windows Server al d
     ![Specificare le credenziali per l'aggiunta a un dominio](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
 6. È possibile specificare le credenziali in uno dei modi seguenti:
 
-   * Formato UPN: specificare il suffisso UPN per l'account utente, come configurato in Azure AD. In questo esempio il suffisso UPN dell'utente 'bob' è 'bob@domainservicespreview.onmicrosoft.com'.
+   * Formato UPN: specificare il suffisso UPN per l'account utente, come configurato in Azure AD. In questo esempio il suffisso UPN dell'utente "bob" è "bob@domainservicespreview.onmicrosoft.com".
    * Formato SAMAccountName: è possibile specificare il nome account con il formato SAMAccountName. In questo esempio l'utente 'bob' deve immettere 'CONTOSO100\bob'.
 
      > [!NOTE]
@@ -119,7 +119,7 @@ Se si verificano problemi con le credenziali e non è possibile completare l'agg
 * Provare a usare il formato UPN per specificare le credenziali. L'attributo SAMAccountName per l'account può essere generato automaticamente se sono presenti più utenti con lo stesso prefisso UPN nel tenant o se il prefisso UPN è troppo lungo. Di conseguenza, il formato SAMAccountName per l'account può essere diverso da quello previsto o usato nel dominio locale.
 * Provare a usare le credenziali di un account utente che appartiene al gruppo di amministratori di controller di dominio AAD per aggiungere computer al dominio gestito.
 * Assicurarsi di avere [abilitato la sincronizzazione delle password](active-directory-ds-getting-started-password-sync.md) secondo i passaggi descritti nella Guida introduttiva.
-* Assicurarsi di usare l'UPN dell'utente come configurato in Azure AD (ad esempio 'bob@domainservicespreview.onmicrosoft.com') per eseguire l'accesso.
+* Assicurarsi di usare l'UPN dell'utente come configurato in Azure AD, ad esempio "bob@domainservicespreview.onmicrosoft.com" per eseguire l'accesso.
 * Assicurarsi di avere atteso per il tempo necessario per consentire il completamento della sincronizzazione delle password, come specificato nella Guida introduttiva.
 
 ## <a name="related-content"></a>Contenuti correlati

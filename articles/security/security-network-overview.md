@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2017
+ms.date: 03/28/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 4f8ff754858dfb12a7c1fb6e11b1ea99d99d4aeb
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 7fe9111061fed4af6aa720d0b158e5b4f2becd90
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -29,6 +29,7 @@ L'obiettivo di questo articolo è facilitare la comprensione di ciò che Microso
 Questa panoramica della sicurezza di rete sarà incentrata sugli argomenti seguenti:
 
 * Rete di Azure
+* Azure Network Watcher
 * Controllo di accesso alla rete
 * Accesso remoto sicuro e connettività cross-premise
 * Disponibilità
@@ -43,6 +44,18 @@ La connettività di rete è indispensabile per le macchine virtuali. Per support
 Altre informazioni:
 
 * [Panoramica di Rete virtuale.](../virtual-network/virtual-networks-overview.md)
+
+## <a name="azure-network-watcher"></a>Azure Network Watcher
+Azure Network Watcher include molte funzionalità di monitoraggio della rete utili per la risoluzione dei problemi nonché per fornire un nuovo e completo set di strumenti di supporto per l'identificazione dei problemi di sicurezza.
+
+[Visualizzazione Gruppo di sicurezza](/network-watcher/network-watcher-security-group-view-overview.md) è utile per la conformità di controllo e protezione delle macchine virtuali e può essere usato per eseguire controlli a livello di codice confrontando i criteri di base definiti dall'organizzazione alle regole effettive per ognuna delle VM. Ciò consente di identificare eventuali deviazioni della configurazione.
+
+[Acquisizione pacchetti](/network-watcher/network-watcher-packet-capture-overview.md) consente di acquisire il traffico di rete da e verso la macchina virtuale. Oltre a essere d'aiuto in quanto consente di raccogliere le statistiche di rete e di risolvere i problemi dell'applicazione, l'acquisizione pacchetti può essere utile per analizzare le intrusioni nella rete. Questa funzionalità può essere usata anche con Funzioni di Azure per avviare acquisizioni di rete in risposta ad avvisi specifici di Azure.
+
+Per altre informazioni su Azure Network Watcher e su come avviare il test di alcune delle funzionalità nei laboratori, vedere [Azure network watcher monitoring overview](/network-watcher/network-watcher-monitoring-overview.md) (Panoramica del monitoraggio di Azure Network Watcher)
+
+>[!NOTE]
+Azure Network Watcher è attualmente in versione di anteprima pubblica e potrebbe non offrire lo stesso livello di disponibilità e affidabilità dei servizi presenti nella versione con disponibilità generale. Alcune funzionalità potrebbero non essere supportate, potrebbero avere funzioni limitate o potrebbero non essere disponibili in tutte le località di Azure. Per ricevere le notifiche più aggiornate sulla disponibilità e lo stato di questo servizio, vedere la [pagina degli aggiornamenti di Azure](https://azure.microsoft.com/updates/?product=network-watcher)
 
 ## <a name="network-access-control"></a>Controllo di accesso alla rete
 Il controllo di accesso alla rete comporta la limitazione della connettività da e verso subnet o dispositivi specifici all'interno di una rete virtuale di Azure. L'obiettivo del controllo di accesso alla rete consiste nel garantire che le macchine virtuali e i servizi siano accessibili solo agli utenti e ai dispositivi a cui si vuole concedere l'accesso. I controlli di accesso si basano su decisioni secondo cui le connessioni da e verso una macchina virtuale o un servizio sono consentite o negate.
@@ -213,6 +226,7 @@ Per visualizzare e analizzare questi log è anche possibile usare [Microsoft Pow
 Altre informazioni:
 
 * [Log Analytics per i gruppi di sicurezza di rete (NSG)](../virtual-network/virtual-network-nsg-manage-log.md)
+
 
 ## <a name="name-resolution"></a>Risoluzione dei nomi
 La risoluzione dei nomi è una funzione critica per tutti i servizi ospitati in Azure. Dal punto di vista della sicurezza la compromissione della funzione di risoluzione dei nomi può consentire a un utente malintenzionato di reindirizzare le richieste dai siti dell'utente al suo sito. La sicurezza della risoluzione dei nomi è un requisito per tutti i servizi cloud ospitati.

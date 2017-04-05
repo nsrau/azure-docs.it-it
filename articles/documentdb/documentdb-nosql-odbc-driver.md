@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 01/26/2017
+ms.date: 03/27/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: f1b0fde1e6e31a8179ed61508348d850c5dd784f
-ms.openlocfilehash: 9e2c0cff442f7c66a4b1c76ab612175410f49497
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 5f712c7fa9b6ee06f7c89de40ba4227a925a35ce
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -35,15 +36,22 @@ DocumentDB è un database NoSQL, che consente quindi un rapido sviluppo di app p
 
 Verranno illustrate ora le procedure iniziali riguardanti il driver ODBC.
 
-## <a name="a-idinstallastep-1-install-the-documentdb-odbc-driver"></a><a id="install"></a>Passaggio 1: Installare il driver ODBC di DocumentDB
-1. Scaricare il file [Microsoft Azure DocumentDB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) per sistemi operativi Windows a 64 bit o il file [Microsoft Azure DocumentDB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) per sistemi operativi Windows a 32 bit.2. Eseguire il file msi in locale, avviando così la **Procedura di installazione guidata del driver ODBC di Microsoft Azure DocumentDB**. 
+## <a id="install"></a>Passaggio 1: Installare il driver ODBC di DocumentDB
+
+1. Scaricare i driver per l'ambiente:
+
+    * [Microsoft Azure DocumentDB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) per Windows a 64 bit
+    * [Microsoft Azure DocumentDB ODBC 32x64-bit.msi](https://aka.ms/documentdb-odbc-32x64) per Windows a 32 e a 64 bit
+    * [Microsoft Azure DocumentDB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) per Windows a 32 bit
+
+    Eseguire il file msi in locale, avviando così la **Procedura di installazione guidata del driver ODBC di Microsoft Azure DocumentDB**. 
 2. Completare l'installazione guidata usando l'input predefinito per installare il driver ODBC.
 3. Aprire l'app **Amministrazione origine dati ODBC** nel computer. Per farlo è possibile digitare **ODBC Data sources** nella casella di ricerca di Windows. 
     È possibile verificare la corretta installazione del driver facendo clic sulla scheda **Driver** e assicurandosi che sia elencato il **driver ODCB di Microsoft DocumentDB**.
 
     ![Amministrazione origine dati ODBC di DocumentDB](./media/documentdb-nosql-odbc-driver/documentdb-nosql-odbc-driver.png)
 
-## <a name="a-idconnectastep-2-connect-to-your-documentdb-database"></a><a id="connect"></a>Passaggio 2: Connettersi al database di DocumentDB
+## <a id="connect"></a>Passaggio 2: Connettersi al database di DocumentDB
 
 1. Dopo aver [installato il driver ODBC di DocumentDB](#install), nella finestra **Amministrazione origine dati ODBC** fare clic su **Aggiungi**. È possibile creare un DSN utente o di sistema. In questo esempio viene creato un DSN utente.
 2. Nella finestra **Crea origine dati**, selezionare il **driver ODBC di Microsoft DocumentDB** e fare clic su **Fine**.
@@ -69,7 +77,7 @@ Verranno illustrate ora le procedure iniziali riguardanti il driver ODBC.
 
     ![Nuovo DSN ODBC di DocumentDB nella scheda DSN utente](./media/documentdb-nosql-odbc-driver/documentdb-nosql-odbc-driver-user-dsn.png)
 
-## <a name="a-idcollection-mappingastep-3-create-a-schema-definition-using-the-collection-mapping-method"></a><a id="#collection-mapping"></a>Passaggio 3: Creare una definizione dello schema usando il metodo di mapping raccolta
+## <a id="#collection-mapping"></a>Passaggio 3: Creare una definizione dello schema usando il metodo di mapping raccolta
 
 Esistono due tipi di metodi di campionamento da utilizzare: il **mapping raccolta** o i **delimitatori di tabella**. Una sessione di campionamento può usare entrambi i metodi, ma ogni raccolta può usarne solo uno specifico. La procedura seguente crea uno schema per i dati in una o più raccolte mediante il metodo di mapping raccolta. Questo metodo di campionamento recupera i dati nella pagina di una raccolta per determinare la struttura degli stessi e trasforma la raccolta in una tabella in ODBC. Questo metodo di campionamento è rapido ed efficiente quando i dati in una raccolta sono omogenei. Se una raccolta contiene tipi eterogenei di dati, è consigliabile usare il metodo di [mapping con delimitatori di tabelle](#table-mapping) in quanto consente un campionamento più efficiente per determinare le strutture di dati nella raccolta. 
 
@@ -87,7 +95,7 @@ Esistono due tipi di metodi di campionamento da utilizzare: il **mapping raccolt
 
     Se in futuro si desidera usare questo schema con un DSN, aprire la finestra di configurazione del DSN del driver ODBC di DocumentDB tramite Amministrazione origine dati ODBC di DocumentDB, fare clic su Opzioni avanzate e, nel riquadro File di schema, selezionare lo schema salvato. Salvare un file di schema in un DSN esistente modifica l'ambito della connessione DSN includendo i dati e le strutture definiti dallo schema.
 
-## <a name="a-idtable-mappingastep-4-create-a-schema-definition-using-the-table-delimiters-mapping-method"></a><a id="table-mapping"></a>Passaggio 4: Creare una definizione dello schema usando il metodo di delimitatori di tabella
+## <a id="table-mapping"></a>Passaggio 4: Creare una definizione dello schema usando il metodo di delimitatori di tabella
 
 Esistono due tipi di metodi di campionamento da utilizzare: il **mapping raccolta** o i **delimitatori di tabella**. Una sessione di campionamento può usare entrambi i metodi, ma ogni raccolta può usarne solo uno specifico. 
 
@@ -143,8 +151,4 @@ Se viene visualizzato il seguente errore, verificare che i valori **Host** e **C
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni su DocumentDB, vedere [Che cos'è DocumentDB?](documentdb-introduction.md).
-
-
-<!--HONumber=Jan17_HO4-->
-
 

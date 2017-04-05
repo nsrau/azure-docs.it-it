@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: e20f7349f30c309059c2867d7473fa6fdefa9b61
-ms.openlocfilehash: f7036e8e629e78c5346688556a5aa5794bde3955
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 9edaa7a101ae0e1a395491999854ee7009fb69cd
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -30,7 +31,10 @@ ms.openlocfilehash: f7036e8e629e78c5346688556a5aa5794bde3955
 > * [Modello di Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 > * [Interfaccia della riga di comando di Azure](application-gateway-create-gateway-cli.md)
 
-Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello&7;. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale. Il gateway applicazione offre numerose funzionalità di controller per la distribuzione di applicazioni (ADC, Application Delivery Controller), tra cui bilanciamento del carico HTTP, affinità di sessione basata su cookie, offload SSL (Secure Sockets Layer), probe di integrità personalizzati, supporto per più siti e molte altre. Per un elenco completo delle funzionalità supportate, vedere [Panoramica del gateway applicazione](application-gateway-introduction.md)
+Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello 7. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale.
+Il gateway applicazione offre numerose funzionalità di controller per la distribuzione di applicazioni (ADC, Application Delivery Controller), tra cui bilanciamento del carico HTTP, affinità di sessione basata su cookie, offload SSL (Secure Sockets Layer), probe di integrità personalizzati, supporto per più siti e molte altre.
+
+Per un elenco completo delle funzionalità supportate, vedere [Panoramica del gateway applicazione](application-gateway-introduction.md)
 
 ## <a name="scenario"></a>Scenario
 
@@ -47,8 +51,6 @@ Questo scenario illustrerà come:
 
 > [!IMPORTANT]
 > La configurazione aggiuntiva del gateway applicazione, che include i probe di integrità personalizzati, gli indirizzi del pool back-end e le regole aggiuntive, viene definita dopo la configurazione del gateway applicazione e non durante la distribuzione iniziale.
-> 
-> 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -70,7 +72,7 @@ Per le impostazioni di base sono necessarie le informazioni seguenti.
 
 * **Nome** : nome del gateway applicazione.
 * **Livello**: questa impostazione indica il livello del gateway applicazione. Sono disponibili due livelli, **WAF** e **Standard**. WAF abilita la funzionalità Web application firewall.
-* **Dimensioni SKU**: la dimensione del gateway applicazione. Le opzioni disponibili sono **Small**, **Medium** e **Large**. Small non è disponibile quando si sceglie il livello WAF.
+* **Dimensioni SKU**: la dimensione del gateway applicazione. Le opzioni disponibili sono **piccolo**, **medio** e **grande**. Small non è disponibile quando si sceglie il livello WAF.
 * **Numero di istanze**: il numero di istanze. Questo valore deve essere un numero compreso tra 2 e 10.
 * **Gruppo di risorse**: il gruppo di risorse in cui includere il gateway applicazione. Può essere un gruppo di risorse esistente o nuovo.
 * **Località**: l'area del gateway applicazione. È la stessa località del gruppo di risorse. La località è importante perché la rete virtuale e l'IP pubblico devono trovarsi nella stessa località del gateway.
@@ -151,19 +153,49 @@ Questi passaggi creano un gateway applicazione di base con le impostazioni prede
 
 Dopo aver creato il gateway applicazione, è necessario aggiungere i sistemi che ospitano l'applicazione per cui si richiede il bilanciamento del carico. Gli indirizzi IP o i valori per l'FQDN di questi server vengono aggiunti al pool di indirizzi back-end.
 
-### <a name="step-1"></a>Passaggio 1
+### <a name="ip-address-or-fqdn"></a>Indirizzo IP o nome di dominio completo
+
+#### <a name="step-1"></a>Passaggio 1
 
 Selezionare il gateway applicazione creato, fare clic su **Pool back-end** e selezionare il pool di back-end corrente.
 
 ![Pool back-end del gateway applicazione][11]
 
-### <a name="step-2"></a>Passaggio 2
+#### <a name="step-2"></a>Passaggio 2
 
-Aggiungere gli indirizzi IP o i valori per l'FQDN nelle caselle di testo e fare clic su **Salva**
+Fare clic su **Aggiungi destinazione** per aggiungere indirizzi IP dei valori del nome di dominio completo
+
+![Pool back-end del gateway applicazione][11-1]
+
+#### <a name="step-3"></a>Passaggio 3
+
+Dopo avere immesso tutti i valori di back-end, fare clic su **Salva**
 
 ![aggiungere i valori ai pool back-end del gateway applicazione][12]
 
 Questa azione consente di salvare i valori nel pool back-end. Dopo aver aggiornato il gateway applicazione, il traffico in ingresso nel gateway applicazione viene reindirizzato agli indirizzi back-end aggiunti in questo passaggio.
+
+### <a name="virtual-machine-and-nic"></a>Macchina virtuale e scheda di interfaccia di rete
+
+È anche possibile aggiungere le schede di interfaccia di rete delle macchine virtuali come membri del pool back-end. Solo le macchine virtuali all'interno della stessa rete virtuale in cui si trova il gateway applicazione sono disponibili nell'elenco a discesa.
+
+#### <a name="step-1"></a>Passaggio 1
+
+Selezionare il gateway applicazione creato, fare clic su **Pool back-end** e selezionare il pool di back-end corrente.
+
+![Pool back-end del gateway applicazione][11]
+
+#### <a name="step-2"></a>Passaggio 2
+
+Fare clic su **Aggiungi destinazione** per aggiungere un nuovo membro del pool back-end. Scegliere una macchina virtuale e una scheda di interfaccia di rete nelle caselle a discesa.
+
+![aggiungere le schede di interfaccia di rete ai pool back-end del gateway applicazione][13]
+
+#### <a name="step-3"></a>Passaggio 3
+
+Al termine, fare clic su **Salva** per salvare le schede di interfaccia di rete come membri del back-end.
+
+![salvare la scheda di interfaccia di rete nei pool back-end del gateway applicazione][14]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -187,11 +219,9 @@ Informazioni su come proteggere i siti Web con [Firewall applicazione Web](appli
 [9]: ./media/application-gateway-create-gateway-portal/figure9.png
 [10]: ./media/application-gateway-create-gateway-portal/figure10.png
 [11]: ./media/application-gateway-create-gateway-portal/figure11.png
+[11-1]: ./media/application-gateway-create-gateway-portal/figure11-1.png
 [12]: ./media/application-gateway-create-gateway-portal/figure12.png
+[13]: ./media/application-gateway-create-gateway-portal/figure13.png
+[14]: ./media/application-gateway-create-gateway-portal/figure14.png
 [scenario]: ./media/application-gateway-create-gateway-portal/scenario.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

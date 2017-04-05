@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 02/10/2017
 ms.author: vturecek
+redirect_url: /azure/service-fabric/service-fabric-reliable-services-communication-aspnetcore
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dc0a7dfa74e9100a61fbc45fda908e9227cf54da
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 73b7e1c0cb93ae7c54780a3aab837b0e5bcdb0a0
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -34,19 +36,13 @@ L'API Web in Service Fabric è la stessa API Web ASP.NET già nota e apprezzata 
 L'applicazione API Web non cambia. Non è diversa dalle applicazioni API Web scritte in precedenza, pertanto dovrebbe essere possibile spostare semplicemente la maggior parte del codice dell'applicazione. Se si è abituati all'hosting in IIS, l'hosting dell'applicazione potrebbe tuttavia risultare leggermente diverso. Prima di passare all'hosting, verrà illustrata la parte più familiare: l'applicazione API Web.
 
 ## <a name="create-the-application"></a>Creazione dell'applicazione
-Iniziare creando una nuova applicazione di Service Fabric, con un singolo servizio senza stato in Visual Studio 2015:
-
-![Creare una nuova applicazione di Service Fabric](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
+Iniziare creando una nuova applicazione Service Fabric con un singolo servizio senza stato in Visual Studio 2015.
 
 È disponibile un modello di Visual Studio per un servizio senza stato tramite l'API Web. In questa esercitazione verrà compilato da zero un progetto API Web che genera un risultato simile a ciò che si otterrebbe selezionando tale modello.
 
 È possibile selezionare un progetto Servizio senza stato vuoto per imparare a compilare da zero un progetto API Web oppure partire da un modello API Web di servizio senza stato e seguire semplicemente la procedura.  
 
-![Creare un singolo servizio senza stato](media/service-fabric-reliable-services-communication-webapi/webapi-newproject2.png)
-
 Il primo passaggio consiste nell'eseguire il pull di alcuni pacchetti NuGet per l'API Web. Il pacchetto da usare è Microsoft.AspNet.WebApi.OwinSelfHost. Questo pacchetto include tutti i pacchetti di API Web necessari e i pacchetti *host*, che saranno importanti in un secondo momento.
-
-![Creazione dell'API Web tramite Gestione pacchetti NuGet](media/service-fabric-reliable-services-communication-webapi/webapi-nuget.png)
 
 Dopo aver installato i pacchetti, iniziare a compilare la struttura di base del progetto API Web. Se è già stata usata un'API Web, la struttura del progetto dovrebbe avere un aspetto familiare. Iniziare aggiungendo una directory `Controllers` e un semplice controller di valori:
 
@@ -626,16 +622,12 @@ namespace WebService
 }
 ```
 
-Dopo che tutti gli elementi necessari sono pronti, il progetto sarà simile a una tipica applicazione API Web con i punti di ingresso dell'API di Reliable Services e un host OWIN:
-
-![API Web con punti di ingresso dell'API di Reliable Services e host OWIN](media/service-fabric-reliable-services-communication-webapi/webapi-projectstructure.png)
+Dopo che tutti gli elementi necessari sono pronti, il progetto sarà simile a una tipica applicazione API Web con i punti di ingresso dell'API di Reliable Services e un host OWIN.
 
 ## <a name="run-and-connect-through-a-web-browser"></a>Esecuzione e connessione tramite un Web browser
 Se non lo si è già fatto, [configurare l'ambiente di sviluppo](service-fabric-get-started.md).
 
 È ora possibile compilare e distribuire il servizio. Premere **F5** in Visual Studio per compilare l'applicazione. Nella finestra degli eventi di diagnostica si dovrebbe visualizzare un messaggio nel quale viene indicato che il server Web è aperto in http://localhost:8281/.
-
-![Finestra degli eventi di diagnostica di Visual Studio](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)
 
 > [!NOTE]
 > Se la porta è già stata aperta da un altro processo nel computer, è possibile che venga visualizzato un messaggio di errore. Questo messaggio di errore indica che il listener non può essere aperto. In questo caso provare a usare una porta diversa nella configurazione dell'endpoint in ServiceManifest.xml.
@@ -671,10 +663,5 @@ Per altre informazioni sulla creazione di istanze di applicazioni e di servizi, 
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Debug dell'applicazione di Service Fabric mediante Visual Studio](service-fabric-debugging-your-application.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

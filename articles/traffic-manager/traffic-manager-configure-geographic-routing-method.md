@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 0d6756dcc5b47898575002cd7336b8d4d5200e08
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: eab8b66bc4a9cf3090ee81f9bb47430aaf26eeee
+ms.lasthandoff: 03/24/2017
 
 ---
 
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Configurare il metodo di routing del traffico Geografico tramite Gestione traffico
 
-Il metodo di routing del traffico Geografico consente di indirizzare il traffico a specifici endpoint in base alla posizione geografica da cui ha origine la richiesta. In questa esercitazione viene illustrato come creare un profilo di Gestione traffico con questo metodo di routing e come configurare gli endpoint in modo da ricevere il traffico da aree geografiche specifiche 
+Il metodo di routing del traffico Geografico consente di indirizzare il traffico a specifici endpoint in base alla posizione geografica da cui ha origine la richiesta. In questa esercitazione viene illustrato come creare un profilo di Gestione traffico con questo metodo di routing e come configurare gli endpoint in modo da ricevere il traffico da aree geografiche specifiche.
 
 ## <a name="create-a-traffic-manager-profile"></a>Creazione di un profilo di Gestione traffico 
 
@@ -62,8 +62,6 @@ Il metodo di routing del traffico Geografico consente di indirizzare il traffico
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-
-- Informazioni sul [metodo di routing del traffico Ponderato](traffic-manager-configure-weighted-routing-method.md).
-- Altre informazioni sul [metodo di routing Prestazioni](traffic-manager-configure-performance-routing-method.md).
+- Altre informazioni sul [Metodo di routing del traffico geografico ](traffic-manager-routing-methods.md#geographic-traffic-routing-method).
 - Informazioni su come [testare le impostazioni di Gestione traffico](traffic-manager-testing-settings.md).
 

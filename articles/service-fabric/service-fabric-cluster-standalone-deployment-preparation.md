@@ -14,9 +14,9 @@ ms.workload: NA
 ms.date: 1/17/2017
 ms.author: maburlik;chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: c525925cc581b3c95db330a24799056d6aade92d
-ms.openlocfilehash: 35504d3885c09c142502edf35efc36286b3f9024
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: bd9ea82adc97698957dfebc3ee7c14c498808dd3
+ms.lasthandoff: 03/29/2017
 
 
 ---

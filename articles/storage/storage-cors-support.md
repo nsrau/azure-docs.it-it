@@ -3,7 +3,7 @@ title: Supporto di condivisione delle risorse multiorigine (CORS) | Microsoft Do
 description: Informazioni su come attivare il supporto CORS per i servizi di archiviazione di Microsoft Azure.
 services: storage
 documentationcenter: .net
-author: cbrooks
+author: cbrooksmsft
 manager: carmonm
 editor: tysonn
 ms.assetid: a0229595-5b64-4898-b8d6-fa2625ea6887
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 2/22/2017
 ms.author: cbrooks
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c61be739ce592d75b04bee15d14850cdf94c09da
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: e50e55fb6471add71b3d2ebd477a91ec424a4fab
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -136,7 +137,7 @@ Successivamente, considerare le seguenti richieste CORS:
 | **Metodo** |**Origine** |**Intestazioni della richiesta** |**Corrispondenza regola** |**Risultato** |
 | **PUT** |http://www.contoso.com |x-ms-blob-content-type |Prima regola |Success |
 | **GET** |http://www.contoso.com |x-ms-blob-content-type |Seconda regola |Success |
-| **GET** |http://www.contoso.com |x-ms-blob-content-type |Seconda regola |Esito negativo |
+| **GET** |http://www.contoso.com |x-ms-client-request-id |Seconda regola |Esito negativo |
 
 La prima richiesta corrisponde alla prima regola (il dominio di origine corrisponde alle origini consentite, il metodo corrisponde ai metodi consentiti e l'intestazione corrisponde alle intestazioni consentite), pertanto ha esito positivo.
 
@@ -189,10 +190,5 @@ Le richieste preliminari con esito negativo non verranno fatturate.
 [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx)
 
 [Specifica del W3C relativa alla condivisione delle risorse multiorigine (CORS)](http://www.w3.org/TR/cors/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

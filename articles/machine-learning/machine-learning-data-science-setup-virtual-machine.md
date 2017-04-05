@@ -12,18 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/24/2017
 ms.author: xibingao;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 22d7dc81cb2fc44ff4471951cbc482f60a97bb27
-ms.openlocfilehash: b266dc9ead635fb852d64efa82587299f692a153
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 5fb930cb71fe008ba63d2068bb36643f40259e76
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="set-up-an-azure-virtual-machine-as-an-ipython-notebook-server-for-advanced-analytics"></a>Configurare una macchina virtuale di Azure come server IPython Notebook per l'analisi avanzata
 Questo argomento illustra come preparare e configurare una macchina virtuale di Azure per l'analisi avanzata, che può essere usata nell'ambito di un ambiente di analisi scientifica dei dati. La macchina virtuale Windows è configurata con strumenti di supporto quali IPython Notebook, Azure Storage Explorer e AzCopy, nonché altre utilità per progetti di analisi avanzata. Ad esempio, Esplora archivi Azure e AzCopy forniscono modi efficaci per caricare dati nell'archiviazione BLOB di Azure dal computer locale o per scaricarli dall'archiviazione BLOB nel computer locale.
 
-## <a name="a-namecreate-vmastep-1-create-a-general-purpose-azure-virtual-machine"></a><a name="create-vm"></a>Passaggio 1: Creare una macchina virtuale di Azure per uso generico
+## <a name="create-vm"></a>Passaggio 1: Creare una macchina virtuale di Azure per uso generico
 Se si ha già una macchina virtuale di Azure e si vuole configurare un server di IPython Notebook nella VM, è possibile procedere direttamente con il [Passaggio 2: Aggiungere un endpoint per IPython Notebook a una macchina virtuale esistente](#add-endpoint).
 
 Prima di iniziare il processo di creazione di una macchina virtuale su Azure, occorre determinare la dimensione della macchina necessaria per l'elaborazione dei dati del relativo progetto. Le macchine di dimensioni inferiori sono dotate di meno memoria e core CPU rispetto alle macchine di dimensioni più elevate, ma sono anche meno costose. Per un elenco dei prezzi e dei tipi di macchine virtuali disponibili, vedere la pagina <a href="http://azure.microsoft.com/pricing/details/virtual-machines/" target="_blank">Macchine virtuali - Prezzi</a>
@@ -53,15 +54,15 @@ Il completamento di tale processo può richiedere dai 15 ai 25 minuti. Dopo aver
 
 ![Creare un'area di lavoro][29]
 
-## <a name="a-nameadd-endpointastep-2-add-an-endpoint-for-ipython-notebooks-to-an-existing-virtual-machine"></a><a name="add-endpoint"></a>Passaggio 2: Aggiungere un endpoint per iPython Notebook a una macchina virtuale esistente
+## <a name="add-endpoint"></a>Passaggio 2: Aggiungere un endpoint per iPython Notebook a una macchina virtuale esistente
 Se è stata creata la macchina virtuale attenendosi alla procedura descritta nel passaggio 1, l'endpoint per IPython Notebook è già stato aggiunto ed è possibile ignorare questo passaggio.
 
 Se la macchina virtuale già esiste ed è necessario aggiungere un endpoint per IPython Notebook che verrà installato più avanti nel passaggio 3, effettuare prima di tutto l'accesso al portale di Azure classico, selezionare la macchina virtuale e aggiungere l'endpoint per il server IPython Notebook. Nella figura seguente viene riportata una schermata del portale dopo l'aggiunta dell'endpoint per IPython Notebook a una macchina virtuale di Windows.
 
 ![Creare un'area di lavoro][17]
 
-## <a name="a-namerun-commandsastep-3-install-ipython-notebook-and-other-supporting-tools"></a><a name="run-commands"></a>Passaggio 3: Installare IPython Notebook e altri strumenti di supporto
-Dopo aver creato la macchina virtuale, usare Remote Desktop Protocol (RDP) per accedere alla macchina virtuale di Windows. Per informazioni, vedere [Come accedere a una macchina virtuale che esegue Windows Server](../virtual-machines/virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Aprire il **prompt dei comandi** (**non la finestra di comando di PowerShell**) come **amministratore** ed eseguire il comando seguente.
+## <a name="run-commands"></a>Passaggio 3: Installare IPython Notebook e altri strumenti di supporto
+Dopo aver creato la macchina virtuale, usare Remote Desktop Protocol (RDP) per accedere alla macchina virtuale di Windows. Per informazioni, vedere [Come accedere a una macchina virtuale che esegue Windows Server](../virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Aprire il **prompt dei comandi** (**non la finestra di comando di PowerShell**) come **amministratore** ed eseguire il comando seguente.
 
     set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
 
@@ -71,7 +72,7 @@ Al termine dell'installazione, il server IPython Notebook viene avviato automati
 
 Quando richiesto, immettere una password per IPython Notebook e la password dell'amministratore del computer. In questo modo IPython Notebook viene abilitato in modo da essere eseguito come servizio sul computer.
 
-## <a name="a-nameaccessastep-4-access-ipython-notebooks-from-a-web-browser"></a><a name="access"></a>Passaggio 4: Accedere a IPython Notebook da un Web browser
+## <a name="access"></a>Passaggio 4: Accedere a IPython Notebook da un Web browser
 Per accedere al server IPython Notebook, aprire un Web browser e immettere *https://&#60;nome DNS macchina virtuale>:&#60;numero porta pubblica>* nella casella di testo dell'URL. In questo caso, il *&#60;numero porta pubblica>* corrisponde a quello specificato al momento dell'aggiunta dell'endpoint per IPython Notebook.
 
 Il *&#60;nome DNS macchina virtuale>* è disponibile nel portale di Azure classico. Dopo aver effettuato l'accesso al portale classico, fare clic su **MACCHINE VIRTUALI**, selezionare la macchina virtuale creata, quindi selezionare **DASHBOARD**. Viene visualizzato il nome DNS come mostrato di seguito:
@@ -86,17 +87,17 @@ Viene visualizzato un avviso che indica che *è stato riscontrato un problema co
 **Chrome:**
 ![Creare un'area di lavoro][21]
 
-Dopo aver eseguito l'accesso a IPython Notebook, nel browser verrà visualizzata la directory *DataScienceSamples* . Tale directory contiene esempi di IPython Notebook condivisi da Microsoft per offrire un supporto agli utenti che svolgono attività legate all'analisi scientifica dei dati. Questi esempi di IPython Notebook sono estratti dal [**repository Github**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) nelle macchine virtuali durante la procedura di installazione del server IPython Notebook. Microsoft gestisce e aggiorna frequentemente questi repository. Gli utenti possono visitare il repository GitHub per ottenere gli esempi di IPython Notebook più recenti.
+Dopo aver eseguito l'accesso a IPython Notebook, nel browser verrà visualizzata la directory *DataScienceSamples* . Tale directory contiene esempi di IPython Notebook condivisi da Microsoft per offrire un supporto agli utenti che svolgono attività legate all'analisi scientifica dei dati. Questi esempi di IPython Notebook sono estratti dall'[**archivio GitHub**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) nelle macchine virtuali durante la procedura di installazione del server IPython Notebook. Microsoft gestisce e aggiorna frequentemente questi repository. Gli utenti possono visitare l'archivio GitHub per ottenere gli esempi di IPython Notebook più recenti.
 ![Creare un'area di lavoro][18]
 
-## <a name="a-nameuploadastep-5-upload-an-existing-ipython-notebook-from-a-local-machine-to-the-ipython-notebook-server"></a><a name="upload"></a>Passaggio 5: Caricare un IPython Notebook esistente da un computer locale nel server IPython Notebook
+## <a name="upload"></a>Passaggio 5: Caricare un IPython Notebook esistente da un computer locale nel server IPython Notebook
 Con IPython Notebook si consente agli utenti di caricare con facilità un IPython Notebook locale sul server di IPython Notebook nelle macchine virtuali. Dopo aver eseguito l'accesso a IPython Notebook in un Web browser, fare clic sulla **directory** in cui verrà caricato IPython Notebook. Selezionare quindi un file con estensione ipynb di IPython Notebook da caricare dal computer locale in **Esplora file**e trascinarlo nella directory di IPython Notebook nel Web browser. Fare clic sul pulsante **Carica** per caricare il file IPYNB nel server IPython Notebook. Gli altri utenti potranno quindi iniziare a usarlo dai Web browser di cui dispongono.
 
 ![Creare un'area di lavoro][22]
 
 ![Creare un'area di lavoro][23]
 
-## <a name="a-nameshutdownashut-down-and-de-allocate-virtual-machine-when-not-in-use"></a><a name="shutdown"></a>Arrestare e deallocare la macchina virtuale quando non è in uso
+## <a name="shutdown"></a>Arrestare e deallocare la macchina virtuale quando non è in uso
 Macchine virtuali di Azure è disponibile con **pagamento a consumo**. Per assicurarsi di non ricevere addebiti quando non si usa la macchina virtuale, lo stato deve essere impostato su **Arrestato (deallocato)** .
 
 > [!NOTE]
@@ -134,9 +135,4 @@ I passaggi successivi del Processo di analisi scientifica dei dati per i team so
 [27]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-4.png
 [28]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-5.png
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

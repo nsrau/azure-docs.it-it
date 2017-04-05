@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: bec4f89556a2daa41e19b0ecb2ab9bbbed849107
-ms.openlocfilehash: fb3f7c08c5f3a76e4bd28f3519ab72e8b636b93c
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 2684e09daa3554a5768a96ae18757a669e221efe
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -28,13 +29,13 @@ Per un servizio cloud contenente istanze di ruoli Web o ruoli di lavoro, è poss
 
 Il file *servicedefinition.csdef* contiene la configurazione dell'endpoint e, se sono presenti più istanze per la distribuzione di un ruolo Web o di lavoro, il bilanciamento del carico verrà configurato di conseguenza. La modalità di aggiunta di istanze alla distribuzione cloud comporta la modifica del numero di istanze nel file di configurazione del servizio (con estensione csfg).
 
-La figura seguente mostra un endpoint con carico bilanciato per il traffico Web crittografato condiviso tra tre macchine virtuali per la porta TCP 443, pubblica e privata. Queste tre macchine virtuali appartengono a un set con carico bilanciato.
+La figura seguente mostra un endpoint con carico bilanciato per il traffico Web crittografato condiviso tra tre macchine virtuali per la porta TCP 80, pubblica e privata. Queste tre macchine virtuali appartengono a un set con carico bilanciato.
 
 ![esempio di bilanciamento del carico pubblico](./media/load-balancer-internet-overview/IC727496.png))
 
-Figura 1. Endpoint con bilanciamento del carico per il traffico Web crittografato
+Figura 1. Endpoint con bilanciamento del carico per il traffico Web
 
-Quando i client Internet inviano richieste di pagine Web all'indirizzo IP pubblico del servizio cloud sulla porta TCP 443, Azure Load Balancer distribuisce le richieste tra le tre macchine virtuali del set con carico bilanciato. Per altre informazioni sull'algoritmo di bilanciamento di carico, vedere la [pagina di panoramica del bilanciamento di carico](load-balancer-overview.md#load-balancer-features).
+Quando i client Internet inviano richieste di pagine Web all'indirizzo IP pubblico del servizio cloud sulla porta TCP 80, Azure Load Balancer distribuisce le richieste tra le tre macchine virtuali del set con carico bilanciato. Per altre informazioni sull'algoritmo di bilanciamento di carico, vedere la [pagina di panoramica del bilanciamento di carico](load-balancer-overview.md#load-balancer-features).
 
 Per impostazione predefinita, Azure Load Balancer distribuisce il traffico di rete in modo uniforme tra più istanze di macchine virtuali. È inoltre possibile configurare l'affinità di sessione. Per altre informazioni, vedere l'articolo [Modalità di distribuzione del servizio di bilanciamento del carico](load-balancer-distribution-mode.md).
 
@@ -45,9 +46,4 @@ Leggere le informazioni sul [bilanciamento del carico interno](load-balancer-int
 È anche possibile [iniziare a creare un bilanciamento del carico con connessione Internet](load-balancer-get-started-internet-arm-ps.md) e configurare il tipo di [modalità di distribuzione](load-balancer-distribution-mode.md) per il comportamento specifico del traffico di rete per il bilanciamento del carico.
 
 Se l'applicazione deve mantenere attive le connessioni per i server dietro il servizio di bilanciamento del carico, è possibile ottenere altre informazioni sulle [impostazioni di timeout delle connessioni TCP inattive per un bilanciamento del carico](load-balancer-tcp-idle-timeout.md). Ciò consente di ottenere informazioni sul comportamento delle connessioni inattive quando si usa il servizio di bilanciamento del carico di Azure.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

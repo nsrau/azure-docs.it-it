@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 03/20/2017
 ms.author: dimakwan
 translationtype: Human Translation
-ms.sourcegitcommit: 655f501f920e3169450831f501f7183ae46a4a60
-ms.openlocfilehash: 67d06372d186a0b51eac7a94ad67b9cd7f516319
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: b286a93d7cc5f962f969e877b2f487e56cbb1a95
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -51,7 +51,7 @@ Se non è già disponibile un [gruppo di risorse](../azure-resource-manager/reso
 * Eseguire "az documentdb -h" per ottenere un elenco completo dei comandi disponibili o visitare la [pagina di riferimento][az-documentdb-ref].
 * Eseguire "az documentdb <command> -h" per ottenere un elenco di informazioni dettagliate sui parametri richiesti e opzionali per comando.
 
-## <a name="a-idcreate-documentdb-account-clia-create-a-documentdb-database-account"></a><a id="create-documentdb-account-cli"></a> Creare un account di database DocumentDB
+## <a id="create-documentdb-account-cli"></a> Creare un account di database DocumentDB
 
 Questo comando consente di creare un account di database DocumentDB. Configurare il nuovo account del database come ad area singola o [a più aree][scaling-globally] con un determinato [criterio di coerenza](documentdb-consistency-levels.md). 
 
@@ -65,6 +65,7 @@ Arguments
                                     address ranges in CIDR form to be included as the allowed list
                                     of client IPs for a given database account. IP addresses/ranges
                                     must be comma separated and must not contain any spaces.
+                                    To enable portal access, include 104.42.195.92.
     --kind                        : The type of DocumentDB database account to create.  Allowed
                                     values: GlobalDocumentDB, MongoDB, Parse.  Default:
                                     GlobalDocumentDB.
@@ -93,7 +94,7 @@ Esempi:
 ### <a name="notes"></a>Note
 * Le località devono essere aree in cui DocumentDB è disponibile a livello generale. L'elenco corrente delle aree geografiche è disponibile nella [pagina Aree di Azure](https://azure.microsoft.com/regions/#services).
 
-## <a name="a-idupdate-documentdb-account-clia-update-a-documentdb-database-account"></a><a id="update-documentdb-account-cli"> </a> Aggiornare un account di database DocumentDB
+## <a id="update-documentdb-account-cli"> </a> Aggiornare un account di database DocumentDB
 
 Questo comando consente di aggiornare le proprietà di un account di database DocumentDB. e include il criterio di coerenza e le località in cui esiste l'account di database.
 
@@ -128,7 +129,7 @@ Esempi:
     az documentdb update -g rg-test -n docdb-test --ip-range-filter "13.91.6.132,13.91.6.1/24"
     az documentdb update -g rg-test -n docdb-test --default-consistency-level BoundedStaleness --max-interval 10 --max-staleness-prefix 200
 
-## <a name="a-idadd-remove-region-documentdb-account-clia-addremove-region-from-a-documentdb-database-account"></a><a id="add-remove-region-documentdb-account-cli"></a> Aggiungere/rimuovere un'area da un account di database DocumentDB
+## <a id="add-remove-region-documentdb-account-cli"></a> Aggiungere/rimuovere un'area da un account di database DocumentDB
 
 Per aggiungere o rimuovere aree dall'account di database DocumentDB esistente, usare il comando [update](#update-documentdb-account-cli) con il flag `--locations`. L'esempio seguente illustra come creare un nuovo account e successivamente aggiungere e rimuovere aree da quell'account.
 
@@ -138,7 +139,7 @@ Esempio:
     az documentdb update -g rg-test -n docdb-test --locations "East US"=0 "North Europe"=1 "South Central US"=2
 
 
-## <a name="a-iddelete-documentdb-account-clia-delete-a-documentdb-database-account"></a><a id="delete-documentdb-account-cli"></a> Eliminare un account di database DocumentDB
+## <a id="delete-documentdb-account-cli"></a> Eliminare un account di database DocumentDB
 
 Questo comando consente di eliminare un account di database DocumentDB esistente.
 
@@ -152,7 +153,7 @@ Esempio:
 
     az documentdb delete -g rg-test -n docdb-test
 
-## <a name="a-idget-documentdb-properties-clia-get-properties-of-a-documentdb-database-account"></a><a id="get-documentdb-properties-cli"></a> Ottenere le proprietà di un account di database DocumentDB
+## <a id="get-documentdb-properties-cli"></a> Ottenere le proprietà di un account di database DocumentDB
 
 Questo comando consente di ottenere le proprietà di un account di database DocumentDB esistente.
 
@@ -166,7 +167,7 @@ Esempio:
 
     az documentdb show -g rg-test -n docdb-test
 
-## <a name="a-idlist-account-keys-clia-list-account-keys"></a><a id="list-account-keys-cli"></a> Elencare le chiavi dell'account
+## <a id="list-account-keys-cli"></a> Elencare le chiavi dell'account
 
 Quando si crea un account DocumentDB, il servizio genera due chiavi di accesso principali che possono essere usate per l'autenticazione quando si accede all'account DocumentDB. Fornendo due chiavi di accesso, DocumentDB consente di rigenerare le chiavi senza interruzioni dell'account DocumentDB. Sono disponibili anche chiavi di sola lettura per l'autenticazione delle operazioni di sola lettura. Esistono due chiavi di lettura/scrittura (primaria e secondaria) e due chiavi di sola lettura (primaria e secondaria).
 
@@ -180,7 +181,7 @@ Esempio:
 
     az documentdb list-keys -g rg-test -n docdb-test
 
-## <a name="a-idregenerate-account-key-clia-regenerate-account-key"></a><a id="regenerate-account-key-cli"></a> Rigenerare una chiave dell'account
+## <a id="regenerate-account-key-cli"></a> Rigenerare una chiave dell'account
 
 È consigliabile modificare periodicamente le chiavi di accesso all'account DocumentDB per mantenere più sicure le connessioni. Vengono assegnate due chiavi di accesso per consentire di mantenere le connessioni all'account DocumentDB con una delle due chiavi mentre si rigenera l'altra.
 
@@ -196,9 +197,9 @@ Esempio:
 
     az documentdb regenerate-key -g rg-test -n docdb-test --key-kind secondary
 
-## <a name="a-idmodify-failover-priority-clia-modify-failover-priority-of-a-documentdb-database-account"></a><a id="modify-failover-priority-cli"></a> Modificare la priorità di failover di un account di database DocumentDB
+## <a id="modify-failover-priority-cli"></a> Modificare la priorità di failover di un account di database DocumentDB
 
-Per gli account di database tra più aree, è possibile modificare la priorità di failover delle diverse aree in cui esiste l'account del database DocumentDB. Per altre informazioni sul failover nell'account del database DocumentDB, vedere [Distribuire i dati a livello globale con DocumentDB][distribute-data-globally].
+Per gli account di database tra più aree, è possibile modificare la priorità di failover delle diverse aree in cui esiste l'account del database DocumentDB. Per altre informazioni sul failover nell'account del database DocumentDB, vedere [Distribuire i dati a livello globale con DocumentDB](documentdb-distribute-data-globally.md).
 
 ```
 Arguments

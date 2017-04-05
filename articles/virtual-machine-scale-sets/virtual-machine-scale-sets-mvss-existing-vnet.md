@@ -1,6 +1,6 @@
 ---
-title: "Set di scalabilità di macchine virtuali di Azure: modello di rete virtuale esistente | Microsoft Docs"
-description: "Informazioni su come creare un modello di set di scalabilità con una rete virtuale esistente"
+title: "Fare riferimento a una rete virtuale in un modello di set di scalabilità di Azure | Documentazione Microsoft"
+description: "Informazioni su come aggiungere una rete virtuale in un modello di set di scalabilità di macchine virtuali di Azure esistente"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
@@ -16,18 +16,17 @@ ms.topic: article
 ms.date: 3/06/2017
 ms.author: negat
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: ddb3e1789e49d138e744c2238679236134b69324
-ms.lasthandoff: 03/09/2017
-
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: f300537943b76e53b0e7c271e65293e585a2cd32
+ms.lasthandoff: 03/24/2017
 
 ---
 
-# <a name="about-this-article"></a>Informazioni sull'articolo
+# <a name="add-reference-to-a-virtual-network-to-an-azure-scale-set-template"></a>Aggiungere un riferimento a una rete virtuale in un modello di set di scalabilità di Azure
 
 Questo articolo illustra come modificare il [modello di set di scalabilità minimo valido](./virtual-machine-scale-sets-mvss-start.md) per eseguire la distribuzione in una rete virtuale esistente anziché crearne uno nuovo.
 
-## <a name="modifying-the-minimum-viable-scale-set-to-deploy-into-an-existing-virtual-network"></a>Modifica del modello di set di scalabilità minimo valido per eseguire la distribuzione in una rete virtuale esistente
+## <a name="change-the-template-definition"></a>Modificare la definizione del modello
 
 Il modello di set di scalabilità minimo valido è disponibile [qui](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), mentre il modello per la distribuzione del set di scalabilità in una rete virtuale esistente è disponibile [qui](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json). Viene ora esaminato il diff usato per creare questo modello, `git diff master minimum-viable-scale-set`, passo per passo:
 

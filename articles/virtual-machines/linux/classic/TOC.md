@@ -1,16 +1,16 @@
-# [Panoramica](../../virtual-machines-linux-azure-overview.md)
+# [Panoramica](../overview.md)
 ## [Immagini](about-images.md)
 ## [Estensioni di VM](agents-and-extensions.md)
 ## [Disponibilità](configure-availability.md)
 ## [Domande frequenti](faq.md)
 
-# [Attività iniziali](../../virtual-machines-linux-opensource-links.md)
+# [Attività iniziali](../opensource-links.md)
 ## [Creare una macchina virtuale Linux con il portale](createportal.md)
 ## [Installare l'interfaccia da riga di comando di Azure](../../../cli-install-nodejs.md)
-## [Creare chiavi SSH](../../virtual-machines-linux-mac-create-ssh-keys.md)
+## [Creare chiavi SSH](../mac-create-ssh-keys.md)
 
 # Procedure
-## [Calcolo](../../virtual-machines-linux-intro-on-azure.md)
+## [Calcolo](../intro-on-azure.md)
 ### [Creare una VM personalizzata](create-custom.md)
 ### [Acquisire una VM](capture-image.md)
 ### [Usare Desktop remoto con una VM Linux](remote-desktop.md)

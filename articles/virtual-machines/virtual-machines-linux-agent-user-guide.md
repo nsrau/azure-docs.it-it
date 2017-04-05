@@ -17,9 +17,9 @@ ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 07ee32a293d53dd9c0e0afa5da2bac7ec146a536
-ms.openlocfilehash: c7f39a5396f0f9b6f9a577a3225ccadff1fd0dc9
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: b95d2f268548b48a1e31f2a35de8feaab251a485
+ms.lasthandoff: 03/29/2017
 
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Informazioni e uso dell'agente Linux di Azure
@@ -105,7 +105,7 @@ Per il corretto funzionamento dell'agente Linux sono necessari alcuni package di
 ## <a name="installation"></a>Installazione
 Il metodo preferito per l'installazione e l'aggiornamento dell'agente Linux di Azure prevede l'installazione tramite un pacchetto RPM o DEB dal repository di pacchetti della distribuzione. Tutti i [provider di distribuzione supportati](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) integrano il pacchetto agente Linux di Azure nelle immagini e nei repository.
 
-Leggere la documentazione nel [repository dell'agente Linux di Azure su Github](https://github.com/Azure/WALinuxAgent) per conoscere le opzioni di installazione avanzate, ad esempio l'installazione da origine o da percorsi personalizzati o prefissi.
+Leggere la documentazione nel [repository dell'agente Linux di Azure su GitHub](https://github.com/Azure/WALinuxAgent) per conoscere le opzioni di installazione avanzate, ad esempio l'installazione da origine o da percorsi personalizzati o prefissi.
 
 ## <a name="command-line-options"></a>Opzioni da riga di comando
 ### <a name="flags"></a>Flag
@@ -211,7 +211,7 @@ Se impostato, waagent eseguirà CustomData dopo il provisioning.
 
 **Provisioning.PasswordCryptId**  
 Tipo: stringa  
-Predefinito:&6;
+Predefinito: 6
 
 Algoritmo usato dalla crittografia durante la generazione di hash della password.  
  1 - MD5  
@@ -221,7 +221,7 @@ Algoritmo usato dalla crittografia durante la generazione di hash della password
 
 **Provisioning.PasswordCryptSaltLength**  
 Tipo: stringa  
-Predefinito:&10;
+Predefinito: 10
 
 Lunghezza di salt casuale usata durante la generazione di hash della password.
 
@@ -305,6 +305,6 @@ Si noti che le immagini di Ubuntu Cloud utilizzano [cloud-init](https://launchpa
 * Vedere le risorse seguenti per configurare il punto di montaggio del disco di risorsa e scambiare spazio nelle immagini di Ubuntu Cloud durante il provisioning:
   
   * [Ubuntu Wiki: Configurare partizioni di scambio](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
-  * [Inserimento di dati personalizzati in una macchina virtuale di Azure](virtual-machines-windows-classic-inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+  * [Inserimento di dati personalizzati in una macchina virtuale di Azure](windows/classic/inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 

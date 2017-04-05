@@ -1,6 +1,6 @@
 ---
-title: Riparazione di un processo di importazione di Azure | Documentazione Microsoft
-description: "Informazioni sulla modalità di ripristino di un processo di importazione che è stato creato ed eseguito tramite il servizio Importazione/Esportazione."
+title: Riparazione di un processo di importazione in Importazione/Esportazione di Azure - versione 1 | Documentazione Microsoft
+description: "Informazioni su come ripristinare un processo di importazione che è stato creato ed eseguito usando il servizio Importazione/Esportazione di Azure."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
-ms.openlocfilehash: a47b0da43a84bb77fb8de16c37811a4b87fe3fbf
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 9403fb0bb16227871388f063e9d0004c7186866e
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -31,9 +31,11 @@ Il servizio Importazione/Esportazione di Microsoft Azure potrebbe non riuscire a
   
 -   Chiave dell'account di archiviazione modificata durante il trasferimento del file.  
   
-È possibile eseguire lo strumento Importazione/Esportazione di Microsoft Azure con i file di log di copia del processo. Lo strumento caricherà i file mancanti (o parti di file) nell'account di archiviazione di Azure per completare il processo di importazione.  
+È possibile eseguire lo strumento Importazione/Esportazione di Microsoft Azure con i file di log di copia del processo di importazione. Lo strumento caricherà i file mancanti (o parti di file) nell'account di archiviazione di Windows Azure per completare il processo di importazione.  
   
-Il comando per la riparazione di un processo di importazione è **RepairImport**. È possibile specificare i parametri seguenti:  
+## <a name="repairimport-parameters"></a>Parametri di RepairImport
+
+È possibile specificare i parametri seguenti con **RepairImport**: 
   
 |||  
 |-|-|  
@@ -102,10 +104,11 @@ Lo strumento scriverà quindi i percorsi dei file problematici in `9WM35C2V_path
   
 Dopo aver reso disponibili i file necessari allo strumento o aver aggiornato il file di mappa del percorso, è possibile eseguire nuovamente lo strumento per completare il processo di importazione.  
   
-## <a name="see-also"></a>Vedere anche  
-[Configurazione dello strumento Importazione/Esportazione di Azure](storage-import-export-tool-setup-v1.md)   
-[Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)  (Preparazione dei dischi rigidi per un processo di importazione)  
-[Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md)  (Revisione dello stato dei processi con i file di log di copia)  
-[Repairing an export job](storage-import-export-tool-repairing-an-export-job-v1.md)  (Riparazione di un processo di esportazione)  
-[Risoluzione dei problemi relativi allo strumento Importazione/Esportazione di Azure](storage-import-export-tool-troubleshooting-v1.md)
+## <a name="next-steps"></a>Passaggi successivi
+ 
+* [Configurazione dello strumento Importazione/Esportazione di Azure](storage-import-export-tool-setup-v1.md)   
+* [Preparing hard drives for an import job](storage-import-export-tool-preparing-hard-drives-import-v1.md) (Preparazione dei dischi rigidi per un processo di importazione)   
+* [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md) (Revisione dello stato dei processi con i file di log di copia)   
+* [Repairing an export job](storage-import-export-tool-repairing-an-export-job-v1.md) (Riparazione di un processo di esportazione)   
+* [Risoluzione dei problemi relativi allo strumento Importazione/Esportazione di Azure](storage-import-export-tool-troubleshooting-v1.md)
 

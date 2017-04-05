@@ -4,7 +4,7 @@ description: Descrive come configurare Multipath I/O per il dispositivo StorSimp
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 879fd0f9-c763-4fa0-a5ba-f589a825b2df
 ms.service: storsimple
@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/17/2016
+ms.date: 03/27/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: d07d1c838d99d0de0c5b62aaf42330b447df102c
-ms.openlocfilehash: 4483a395659a09e88fc4174e622143d9acaedf61
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 7b484c27157bd0a261adbf81d66b73a78e252955
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -126,18 +127,17 @@ Dopo la configurazione di MPIO in Windows Server, i volumi creati nel dispositiv
 
 > [!NOTE]
 > **Non modificare i parametri predefiniti.**
-> 
-> 
+
 
 ## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>Passaggio 4: Configurare MPIO per la disponibilità elevata e il bilanciamento del carico
 Per la disponibilità elevata e il bilanciamento del carico basato su percorsi multipli, è necessario aggiungere manualmente più sessioni per dichiarare i diversi percorsi disponibili. Ad esempio, se l'host dispone di due interfacce connesse alla rete SAN e il dispositivo dispone di due interfacce connesse alla rete SAN, è necessario configurare quattro sessioni con permutazioni percorso corrette (se ciascuna interfaccia DATA e ciascuna interfaccia host si trova in una subnet IP diversa e non è instradabile saranno necessarie solo due sessioni).
 
+**È consigliabile disporre di almeno 4 sessioni parallele attive tra il dispositivo e l'applicazione host in uso.** Ciò può essere ottenuto tramite l'abilitazione di 4 interfacce di rete nel sistema Windows Server in uso. Usare interfacce di rete fisiche o tecnologie di virtualizzazione di rete a livello di hardware o di sistema operativo nell'host Windows Server. Con due interfacce di rete nel dispositivo, questa configurazione comporta 8 sessioni di cui 4 saranno attive (le sessioni connesse al controller attivo) e 4 saranno passive (le sessioni connesse al controller passivo). Questa configurazione consente di ottimizzare la velocità effettiva del dispositivo e del cloud.
+
 > [!IMPORTANT]
 > **È consigliabile non combinare interfacce di rete da 1 GbE e da 10 GbE. Se si utilizzano due interfacce di rete, devono essere di tipo identico.**
-> 
-> 
 
-Nella procedura seguente viene descritto come aggiungere le sessioni quando un dispositivo StorSimple con due interfacce di rete viene connesso a un host con due interfacce di rete.
+Nella procedura seguente viene descritto come aggiungere le sessioni quando un dispositivo StorSimple con due interfacce di rete viene connesso a un host con due interfacce di rete. In questo modo solo 2 sessioni sono attive. Usare la stessa procedura con un dispositivo StorSimple con due interfacce di rete connesse a un host con quattro interfacce di rete. Sarà necessario configurare 8 sessioni anziché 4 come descritto qui.
 
 ### <a name="to-configure-mpio-for-high-availability-and-load-balancing"></a>Per configurare MPIO per la disponibilità elevata e il bilanciamento del carico
 1. Eseguire un rilevamento della destinazione: nella finestra di dialogo **iSCSI Initiator Properties** (Proprietà iniziatore iSCSI), nella scheda **Individuazione**, fare clic su **Individua portale**.
@@ -169,10 +169,5 @@ Nella procedura seguente viene descritto come aggiungere le sessioni quando un d
 
 ## <a name="next-steps"></a>Passaggi successivi
 Ulteriori informazioni in [Utilizzare il servizio StorSimple Manager per modificare la configurazione del dispositivo StorSimple](storsimple-modify-device-config.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

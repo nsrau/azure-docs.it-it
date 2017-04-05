@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: apurvajo
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: edcb6d37eb4d82ff5928ee33cf456c3795eb8131
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: f9ff33f33a196e65f6cb7ee7f5332aacb9231f6d
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/10/2017
 > 
 > 
 
-Per impostazione predefinita, il **[servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714)** abilita già HTTPS per un'app Web con un certificato con caratteri jolly per il dominio *.azurewebsites.net. Se non si intende configurare un dominio personalizzato, è possibile usare il certificato HTTPS predefinito. Come tutti i*[domini con caratteri jolly](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates), tuttavia, non è sicuro quanto un dominio personalizzato con il proprio certificato. Il servizio app di Azure offre ora un modo molto semplice per acquistare e gestire un certificato SSL direttamente dal portale di Azure, senza mai uscire dal portale stesso.  
+Per impostazione predefinita, il **[servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714)** abilita già HTTPS per un'app Web con un certificato con caratteri jolly per il dominio *.azurewebsites.net. Se non si intende configurare un dominio personalizzato, è possibile usare il certificato HTTPS predefinito. Come tutti i *[domini con caratteri jolly](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates), tuttavia, non è sicuro quanto un dominio personalizzato con il proprio certificato. Il servizio app di Azure offre ora un modo molto semplice per acquistare e gestire un certificato SSL direttamente dal portale di Azure, senza mai uscire dal portale stesso.  
 Questo articolo spiega come acquistare e configurare un certificato SSL per il **[Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714)** in 3 semplici passaggi. 
 
 > [!NOTE]
@@ -91,9 +91,9 @@ Questo passaggio descrive come archiviare un certificato SSL acquistato nell'ins
    
    ![inserimento immagine stato di pronto per l'archiviazione in un insieme di credenziali delle chiavi](./media/app-service-web-purchase-ssl-web-site/ReadyKV.jpg)
    
-   Si noterà che lo stato del certificato è **"Pending Issuance"** (Rilascio in sospeso) dal momento che sono previsti pochi altri passaggi da completare prima di iniziare a usare questo certificato.
-2. Fare clic su **"Certificate Configuration"** (Configurazione del certificato) nel pannello Certificate Properties (Proprietà del certificato) e fare clic su **"Step 1: Store"** (Passaggio 1: archiviare) per archiviare il certificato nell'insieme di credenziali delle chiavi di Azure.
-3. Nel pannello **"Key Vault Status"** (Stato dell'insieme di credenziali delle chiavi) fare clic su **"Key Vault Repository"** (Archivio dell'insieme di credenziali delle chiavi) per scegliere un insieme esistente in cui archiviare il certificato **O su "Create New Key Vault"** (Crea nuovo insieme di credenziali delle chiavi) per creare un nuovo insieme all'interno della stessa sottoscrizione e dello stesso gruppo di risorse.
+   Si noterà che lo stato del certificato è **In attesa di rilascio** dal momento che sono previsti pochi altri passaggi da completare prima di iniziare a usare questo certificato.
+2. Fare clic su **Configurazione certificati** nel pannello Proprietà certificato e fare clic su **Passaggio 1: archiviare** per archiviare il certificato nell'insieme di credenziali delle chiavi di Azure.
+3. Nel pannello **Stato insieme di credenziali delle chiavi** fare clic su **Repository dell'insieme di credenziali delle chiavi** per scegliere un insieme esistente in cui archiviare il certificato **O su 	Crea nuovo insieme di credenziali delle chiavi** per creare un nuovo insieme all'interno della stessa sottoscrizione e dello stesso gruppo di risorse.
    
    ![inserimento immagine della creazione di un nuovo insieme di credenziali delle chiavi](./media/app-service-web-purchase-ssl-web-site/NewKV.jpg)
    
@@ -173,8 +173,16 @@ Se è stata selezionata l'opzione **SSL basato su IP** e il dominio personalizza
 * Usando gli strumenti forniti dal registrar, modificare il record A per il nome di dominio personalizzato, in modo che faccia riferimento all'indirizzo IP riportato nel passaggio precedente.
    A questo punto si dovrebbe poter andare all'app usando HTTPS:// anziché HTTP:// per verificare che il certificato sia stato configurato correttamente.
 
-## <a name="bkmk_Rekey"></a>Esportare il certificato del servizio app
+## <a name="bkmk_Export"></a>Esportare il certificato del servizio app
 È possibile creare una copia PFX locale di un certificato del servizio app per poterla usare con altri servizi di Azure. Per altre informazioni, **[vedere questo post di blog](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/)**
+
+## <a name="bkmk_Renew"></a>Rinnovo automatico del certificato del servizio app
+Per attivare o disattivare le impostazioni di rinnovo automatico del certificato o per rinnovare manualmente il certificato selezionare l'opzione **Impostazioni di rinnovo automatico** nel pannello **Proprietà certificato**. 
+
+
+  ![inserimento immagine della creazione con il pulsante Sfoglia](./media/app-service-web-purchase-ssl-web-site/autorenew.png)
+
+Attivare il **Rinnovo automatico** per rinnovare automaticamente il certificato prima della scadenza. Questa è l'opzione predefinita. Se attivata, il sistema tenta di rinnovare il certificato a partire da 90 giorni prima della scadenza. Se sono state create associazioni SSL nelle app del servizio app tramite il portale di Azure, anche queste associazioni verranno aggiornate una volta pronto il nuovo certificato, come nello scenario di sincronizzazione e reimpostazione delle chiavi. Per eseguire i rinnovi manualmente è necessario disattivare questa impostazione. È possibile rinnovare manualmente un certificato del servizio app solo se la scadenza è entro 90 giorni.
 
 ## <a name="bkmk_Rekey"></a>Reimpostare e sincronizzare il certificato
 1. Per motivi di sicurezza, sarà possibile reimpostare il certificato semplicemente selezionando l'opzione **"Reimposta e sincronizza"** nel pannello **"Proprietà del certificato"**. 

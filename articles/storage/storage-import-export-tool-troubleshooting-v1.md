@@ -1,6 +1,6 @@
 ---
 title: Risoluzione dei problemi relativi allo strumento Importazione/Esportazione di Azure | Documentazione Microsoft
-description: Informazioni sui problemi comuni rilevati dagli utenti durante l&quot;uso dello strumento Importazione/Esportazione e su come gestirli.
+description: Informazioni su alcuni problemi comuni rilevati durante l&quot;uso dello strumento Importazione/Esportazione di Azure e su come gestirli.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 9aca8aad3f268bf21f3bad9fa22821f5d825f99d
-ms.openlocfilehash: 53755e0048cfd80d9f930419a105893e5b34dc41
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 43b5d5a57df6bdda57a31ff0330ec6eff7aa732c
+ms.lasthandoff: 03/30/2017
 
 
 ---
 
-# <a name="troubleshooting-the-azure-import-export-tool"></a>Risoluzione dei problemi relativi allo strumento Importazione/Esportazione di Azure
+# <a name="troubleshooting-the-azure-importexport-tool"></a>Risoluzione dei problemi relativi allo strumento di importazione/esportazione di Azure
 Lo strumento Importazione/Esportazione di Microsoft Azure restituisce messaggi di errore in caso di problemi. Questo argomento elenca alcuni problemi comuni in cui possono incorrere gli utenti.  
   
 ## <a name="a-copy-session-fails-what-i-should-do"></a>Cosa fare se una sessione di copia non viene completata correttamente?  
@@ -38,10 +38,11 @@ Lo strumento Importazione/Esportazione di Microsoft Azure restituisce messaggi d
 ## <a name="i-lost-the-journal-file-can-i-still-create-the-job"></a>È possibile creare il processo anche se il file journal è andato perso?  
  Il file journal per un'unità contiene le informazioni complete sulla copia dei dati in questa unità, è necessario per aggiungere altri file all'unità e verrà usato per creare un processo di importazione. Se il file journal è andato perso, sarà necessario ripetere tutte le sessioni di copia per l'unità.  
   
-## <a name="see-also"></a>Vedere anche  
- [Configurazione dello strumento Importazione/Esportazione di Azure](storage-import-export-tool-setup-v1.md)   
- [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)  (Preparazione dei dischi rigidi per un processo di importazione)  
- [Reviewing Job Status with Copy Log Files](storage-import-export-tool-reviewing-job-status-v1.md)  (Revisione dello stato dei processi con i file di log di copia)  
- [Repairing an Import Job](storage-import-export-tool-repairing-an-import-job-v1.md)  (Riparazione di un processo di importazione)  
- [Repairing an Export Job](storage-import-export-tool-repairing-an-export-job-v1.md) (Riparazione di un processo di esportazione)
+## <a name="next-steps"></a>Passaggi successivi
+ 
+* [Configurazione dello strumento Importazione/Esportazione di Azure](storage-import-export-tool-setup-v1.md)   
+* [Preparing hard drives for an import job](storage-import-export-tool-preparing-hard-drives-import-v1.md) (Preparazione dei dischi rigidi per un processo di importazione)   
+* [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md) (Revisione dello stato dei processi con i file di log di copia)   
+* [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md) (Riparazione di un processo di importazione)   
+* [Repairing an export job](storage-import-export-tool-repairing-an-export-job-v1.md) (Riparazione di un processo di esportazione)
 

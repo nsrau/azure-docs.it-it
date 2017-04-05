@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 2/6/2017
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 2939de432fcb5dbf4a7316343c3c6ae102b579e8
-ms.openlocfilehash: 5b34969f9c854775587d402acbedee12f236ab7a
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 91d36d5321f455a2af31093fa460ddf6640942d4
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -62,7 +63,7 @@ Un esempio completo e pronto per la distribuzione di un modello di set di scalab
 az vmss disk attach -g dsktest -n dskvmss --size-gb 50 --lun 3
 ```
 > [!NOTE]
-> Le diverse dimensioni delle macchine virtuali hanno limiti differenti per quanto riguarda il numero di unità collegate supportate. Verificare le [dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-windows-sizes.md) prima di aggiungere un nuovo disco.
+> Le diverse dimensioni delle macchine virtuali hanno limiti differenti per quanto riguarda il numero di unità collegate supportate. Verificare le [dimensioni delle macchine virtuali](../virtual-machines/windows/sizes.md) prima di aggiungere un nuovo disco.
 
 È anche possibile aggiungere un disco aggiungendo una nuova voce alla proprietà _dataDisks_ dell'elemento _storageProfile_ della definizione di un set di scalabilità e applicando la modifica. Per testare questa configurazione, trovare una definizione di set di scalabilità esistente in [Esplora risorse di Azure](https://resources.azure.com/). Selezionare _Modifica_ e aggiungere un nuovo disco all'elenco dei dischi di dati. Ad esempio usando l'esempio precedente:
 ```json
@@ -106,10 +107,5 @@ Nell'implementazione iniziale del supporto di dischi collegati per set di scalab
 
 Il supporto del portale di Azure per i dischi di dati collegati nei set di scalabilità è inizialmente limitato. A seconda dei requisiti è possibile usare modelli di Azure, interfaccia della riga di comando, PowerShell, SDK e API REST per gestire i dischi collegati.
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

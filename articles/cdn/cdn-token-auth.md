@@ -15,8 +15,9 @@ ms.workload: integration
 ms.date: 11/11/2016
 ms.author: mezha
 translationtype: Human Translation
-ms.sourcegitcommit: 69c33986f05181460c9eea73295de5721c9ea3cf
-ms.openlocfilehash: 16e87412fd1cbe34ed8a37d6cebcb9395d1c7e36
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 42b182c314795b1ebf69639ec7ac5583208dc7c1
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -58,7 +59,7 @@ Questo grafico illustra come la rete CDN di Azure convalida la richiesta client 
 
 ## <a name="setting-up-token-authentication"></a>Configurazione dell'autenticazione basata su token
 
-1. Dal [portale di Azure](https://portal.azure.com) passare al profilo di rete CDN e quindi fare clic sul pulsante **Gestisci ** per avviare il portale supplementare.
+1. Dal [portale di Azure](https://portal.azure.com) passare al profilo di rete CDN e quindi fare clic sul pulsante **Gestisci** per avviare il portale supplementare.
 
     ![Pulsante Gestisci pannello del profilo di rete CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
 
@@ -132,7 +133,7 @@ Questo grafico illustra come la rete CDN di Azure convalida la richiesta client 
         
     ![Pulsante Gestisci pannello del profilo di rete CDN](./media/cdn-token-auth/cdn-rules-engine2.png)
 
-5. È possibile personalizzare il token che è un'applicazione che genera un token per le funzionalità di autenticazione basata su token. Il codice sorgente è accessibile qui in [Github](https://github.com/VerizonDigital/ectoken).
+5. È possibile personalizzare il token che è un'applicazione che genera un token per le funzionalità di autenticazione basata su token. Il codice sorgente è accessibile qui in [GitHub](https://github.com/VerizonDigital/ectoken).
 I linguaggi disponibili includono:
     
     - C
@@ -146,9 +147,4 @@ I linguaggi disponibili includono:
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Prezzi dei provider e funzionalità della rete CDN di Azure
 
 Vedere l'argomento [Panoramica della rete CDN](cdn-overview.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

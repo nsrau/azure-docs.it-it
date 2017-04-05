@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/22/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 229007db52de53cd50f4d86c145b87d6c2ecf399
-ms.openlocfilehash: e1baa43957ced78b1e25fd632661be2385530db3
-ms.lasthandoff: 01/28/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 2ba94e4dd931b6d385101c7dadccfa3583b5296e
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -26,9 +26,9 @@ ms.lasthandoff: 01/28/2017
 ## <a name="overview"></a>Panoramica
 La libreria per lo spostamento dei dati di Archiviazione di Microsoft Azure è una libreria open source multi-piattaforma progettata per prestazioni elevate di caricamento, download e copia di file e BLOB di Archiviazione di Azure. Questa libreria è il principale framework di spostamento dei dati alla base di [AzCopy](storage-use-azcopy.md). La libreria per lo spostamento dei dati offre metodi pratici che non sono disponibili nella tradizionale [libreria client di Archiviazione di Azure per .NET](storage-dotnet-how-to-use-blobs.md). È possibile ad esempio impostare il numero di operazioni parallele, tener traccia dello stato del trasferimento, riprendere facilmente un trasferimento annullato e molto altro ancora.  
 
-La libreria usa inoltre .NET Core, utile quando si creano app .NET per Windows, Linux e MacOS. Per altre informazioni su .NET Core, consultare la [documentazione di .NET Core](https://dotnet.github.io/). La libreria è compatibile anche con le app .NET Framework tradizionali per Windows. 
+La libreria usa inoltre .NET Core, utile quando si creano app .NET per Windows, Linux e macOS. Per altre informazioni su .NET Core, consultare la [documentazione di .NET Core](https://dotnet.github.io/). La libreria è compatibile anche con le app .NET Framework tradizionali per Windows. 
 
-In questo documento viene spiegato come creare un'applicazione console di .NET Core da eseguire su Windows, Linux e MacOS; inoltre vengono dimostrati gli scenari seguenti:
+In questo documento viene spiegato come creare un'applicazione console di .NET Core da eseguire su Windows, Linux e macOS e vengono dimostrati gli scenari seguenti:
 
 - Caricare file e directory nell'archivio BLOB.
 - Definire il numero di operazioni parallele durante il trasferimento dati.
@@ -581,7 +581,7 @@ In questo esempio il parametro booleano in `TransferManager.CopyAsync` viene imp
 L'applicazione per lo spostamento dei dati ora è completa. [L'esempio di codice completo è disponibile su GitHub](https://github.com/azure-samples/storage-dotnet-data-movement-library-app). 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa guida introduttiva è stata creata un'applicazione in grado di interagire con Archiviazione di Azure e che può essere eseguita su Windows, Linux e MacOS. Questa guida introduttiva ha trattato principalmente dell'archivio BLOB. Tuttavia, queste stesse conoscenze si possono applicare all'archiviazione file. Per altre informazioni, consultare la [documentazione di riferimento sulla libreria per lo spostamento dei dati di Archiviazione di Azure](https://azure.github.io/azure-storage-net-data-movement).
+In questa guida introduttiva è stata creata un'applicazione in grado di interagire con Archiviazione di Azure e che può essere eseguita su Windows, Linux e macOS. Questa guida introduttiva ha trattato principalmente dell'archivio BLOB. Tuttavia, queste stesse conoscenze si possono applicare all'archiviazione file. Per altre informazioni, consultare la [documentazione di riferimento sulla libreria per lo spostamento dei dati di Archiviazione di Azure](https://azure.github.io/azure-storage-net-data-movement).
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 

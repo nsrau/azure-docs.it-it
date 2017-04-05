@@ -21,13 +21,12 @@
 #### [Associazioni di webhook e HTTP](functions-bindings-http-webhook.md)
 #### [Associazioni di app per dispositivi mobili](functions-bindings-mobile-apps.md)
 #### [Associazione di output di Hub di notifica](functions-bindings-notification-hubs.md)
-#### [Trigger e associazioni del bus di servizio per code e argomenti](functions-bindings-service-bus.md)
+#### [Associazioni di bus di servizio](functions-bindings-service-bus.md)
 #### [Associazioni SendGrid](functions-bindings-sendgrid.md)
 #### Associazioni di archiviazione
 ##### [Associazioni di BLOB](functions-bindings-storage-blob.md)
 ##### [Associazioni di code](functions-bindings-storage-queue.md)
 ##### [Associazioni di tabelle](functions-bindings-storage-table.md)
-##### [Associazioni SendGrid](functions-bindings-sendgrid.md)
 #### [Trigger timer](functions-bindings-timer.md)
 #### [Associazione output di Twilio](functions-bindings-twilio.md)
 ### [Creare un'app per le funzioni dal portale di Azure](functions-create-function-app-portal.md) 
@@ -35,8 +34,10 @@
 ### [Sviluppare ed eseguire il debug in locale](functions-run-local.md)
 ### [Procedure consigliate per Funzioni di Azure](functions-best-practices.md)
 ### [Usare Funzioni di Azure per eseguire un'attività di pulizia pianificata](functions-scenario-database-table-cleanup.md)
+### [Creare una definizione OpenAPI (anteprima)](functions-api-definition-getting-started.md)
+#### [Informazioni di riferimento su OpenAPI 2.0 in Funzioni](functions-api-definition.md)
 
-## Gestire
+## Gestisci
 ### [Configurare le impostazioni per MFA](functions-how-to-use-azure-function-app-settings.md)
 
 ## Distribuire

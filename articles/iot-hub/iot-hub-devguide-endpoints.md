@@ -1,5 +1,5 @@
 ---
-title: Informazioni sugli endpoint dell&quot;hub IoT di Azure | Documentazione Microsoft
+title: Conoscere gli endpoint di Azure IoT Hub | Documentazione Microsoft
 description: 'Guida per gli sviluppatori: informazioni di riferimento sugli endpoint dell&quot;hub IoT per dispositivi e per servizi.'
 services: iot-hub
 documentationcenter: .net
@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 03/22/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 32364c5a681c1d614abbc32cc8b73dba4e5a2d18
-ms.openlocfilehash: 00a576357c6e89d7943e6c6c6a83c2c1535d549e
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: cdc50ec4bf98d7924ad5bf97c9a757f0bac01173
+ms.lasthandoff: 03/23/2017
 
 
 ---

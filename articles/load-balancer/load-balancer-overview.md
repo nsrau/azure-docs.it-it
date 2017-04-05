@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: 93577703dd2bc1409250c3df12c2d6265f3f4634
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 2f0b7a04f4b732277abc65dd5fe0844d6e906496
+ms.lasthandoff: 03/30/2017
 
 ---
 
@@ -111,7 +112,7 @@ Il servizio di bilanciamento del carico può essere gestito mediante modelli, AP
 
     Per ogni nuova connessione in uscita avviata da una macchina virtuale, viene allocata anche una porta in uscita dal servizio di bilanciamento del carico. L'host esterno vede il traffico in arrivo con una porta allocata dell'IP virtuale (indirizzo VIP). Per gli scenari che richiedono un numero elevato di connessioni in uscita, è consigliabile usare gli [indirizzi IP pubblici a livello di istanza](../virtual-network/virtual-networks-instance-level-public-ip.md) per poter avere un indirizzo IP in uscita dedicato per SNAT. Ciò consente di ridurre il rischio di esaurimento delle porte.
 
-    Il numero massimo di porte che possono essere usate dall'indirizzo VIP o dall'IP pubblico a livello di istanza è 64.000. Si tratta di una limitazione standard TCP.
+    Per altre informazioni su questo argomento, vedere l'articolo [le Connessioni in uscita](load-balancer-outbound-connections.md).
 
 ### <a name="support-for-multiple-load-balanced-ip-addresses-for-virtual-machines"></a>Supporto per più indirizzi IP con carico bilanciato per le macchine virtuali
 A un set di macchine virtuali è possibile assegnare più di un indirizzo IP pubblico con carico bilanciato. Ciò consente di ospitare più siti Web SSL e/o più listener del gruppo di disponibilità SQL Server AlwaysOn nello stesso set di macchine virtuali. Per altre informazioni, vedere [Indirizzi VIP multipli per un servizio cloud](load-balancer-multivip.md).
@@ -125,10 +126,5 @@ A un set di macchine virtuali è possibile assegnare più di un indirizzo IP pub
 [Panoramica del bilanciamento del carico interno](load-balancer-internal-overview.md)
 
 [Introduzione alla creazione del servizio di bilanciamento del carico Internet](load-balancer-get-started-internet-arm-ps.md)
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

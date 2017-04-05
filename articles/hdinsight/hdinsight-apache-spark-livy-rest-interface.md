@@ -9,16 +9,17 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 2817b779-1594-486b-8759-489379ca907d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/24/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 3c349aecc87e28275045828a84e0ea3f89400b9e
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 6cb0da6d7b3aafeb9a8079b427e31c66811a6281
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -165,6 +166,16 @@ Un cluster HDInsight 3.5, per impostazione predefinita, disabilita l'uso di perc
 2. Nel riquadro di spostamento sinistro fare clic su **Livy** e quindi su **Configs** (Configurazioni).
 
 3. In **livy-default** aggiungere il nome della proprietà `livy.file.local-dir-whitelist` e impostarne il valore su **"/"**, per consentire l'accesso completo al file system. Se si vuole consentire l'accesso solo a una directory specifica, specificare il percorso di tale directory come valore.
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+Di seguito sono illustrati alcuni problemi riscontrabili durante l'uso di Livy per l'invio di processi remoti ai cluster Spark.
+
+### <a name="using-an-external-jar-from-the-additional-storage-is-not-supported"></a>L'uso di un file jar esterno dalla risorsa di archiviazione aggiuntiva non è supportato.
+
+**Problema:** se si esegue un processo Spark usando il riferimento a un file jar esterno dalla risorsa di archiviazione associata al cluster, il processo avrà esito negativo.
+
+**Soluzione:** verificare che il file jar che si vuole usare sia disponibile nella risorsa di archiviazione associata al cluster HDInsight predefinito.
 
 
 ## <a name="seealso"></a>Vedere anche

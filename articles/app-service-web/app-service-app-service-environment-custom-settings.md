@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/22/2016
 ms.author: stefsch
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8a1271acd3d9132048de39173e43c805a372c909
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 687475fae0c90713c15e8abbb92b71059eae81c0
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -53,7 +54,7 @@ L'attributo **clusterSettings** può essere incluso in un modello di Resource Ma
 ## <a name="use-azure-resource-explorer-to-update-an-app-service-environment"></a>Usare Esplora risorse di Azure per aggiornare un ambiente del servizio app
 In alternativa, è possibile aggiornare l'ambiente del servizio app tramite [Esplora risorse di Azure](https://resources.azure.com).  
 
-1. In Esplora risorse passare al nodo dell'ambiente del servizio app (**subscriptions** > **resourceGroups** > **providers** > **Micrososft.Web** > **hostingEnvironments**). quindi fare clic sull'ambiente del servizio app specifico che si vuole aggiornare.
+1. In Esplora risorse passare al nodo dell'ambiente del servizio app (**subscriptions** > **resourceGroups** > **providers** > **Microsoft.Web** > **hostingEnvironments**). quindi fare clic sull'ambiente del servizio app specifico che si vuole aggiornare.
 2. Nel riquadro a destra fare clic su **Lettura/Scrittura** nella barra degli strumenti superiore per consentire la modifica interattiva in Esplora risorse.  
 3. Fare clic sul pulsante **Modifica** blu per rendere modificabile il modello di Resource Manager.
 4. Scorrere fino alla fine del riquadro destro. L'attributo **clusterSettings** si trova nella parte inferiore. Qui è possibile immettere o aggiornare il valore corrispondente.
@@ -96,9 +97,4 @@ Il sito dei modelli di avvio rapido di Azure Resource Manager include un modello
 <!-- LINKS -->
 
 <!-- IMAGES -->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

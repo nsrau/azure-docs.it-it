@@ -1,5 +1,5 @@
 ---
-title: Ricevere eventi da Hub eventi di Azure usando .NET Standard | Microsoft Docs
+title: Ricevere eventi a Hub eventi di Azure usando .NET Standard | Microsoft Docs
 description: Guida introduttiva alla ricezione di messaggi con EventProcessorHost in .NET Standard
 services: event-hubs
 documentationcenter: na
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 03/27/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 65ed5164b8d010453ed34e8b8cdf68915e136007
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: c86a1feee02bbf8580a40119ac140528217e435d
+ms.lasthandoff: 03/28/2017
 
 ---
 
@@ -30,7 +30,7 @@ In questa esercitazione viene illustrata la procedura per scrivere un'applicazio
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Microsoft Visual Studio 2015 o 2017](http://www.visualstudio.com). Gli esempi inclusi nell'esercitazione usano Visual Studio 2015, ma è supportato anche Visual Studio 2017.
+* [Microsoft Visual Studio 2015 o 2017](http://www.visualstudio.com). Gli esempi inclusi nell'esercitazione usano Visual Studio 2017, ma è supportato anche Visual Studio 2015.
 * [Strumenti di Visual Studio 2015 o 2017 per .NET Core](http://www.microsoft.com/net/core).
 * Una sottoscrizione di Azure.
 * Uno spazio dei nomi di Hub eventi in Azure.
@@ -53,32 +53,9 @@ Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azur
 
 ## <a name="create-a-console-application"></a>Creare un'applicazione console
 
-1. Avviare Visual Studio. Scegliere **Nuovo** dal menu **File** e quindi fare clic su **Progetto**. Creare un'applicazione console di .NET Core.
+Avviare Visual Studio. Scegliere **Nuovo** dal menu **File** e quindi fare clic su **Progetto**. Creare un'applicazione console di .NET Core.
 
-    ![Nuovo progetto][2]
-
-2. In Esplora soluzioni fare doppio clic sul file **project.json** per aprirlo nell'editor di Visual Studio.
-3. Aggiungere la stringa `"portable-net45+win8"` alla dichiarazione `"imports"` all'interno della sezione `"frameworks"`. Tale sezione dovrebbe ora avere l'aspetto seguente. Questa stringa è necessaria a causa della dipendenza da OData dell'archiviazione di Azure:
-
-    ```json
-    "frameworks": {
-      "netcoreapp1.0": {
-        "imports": [
-          "dnxcore50",
-          "portable-net45+win8"
-        ]
-      }
-    }
-    ```
-
-4. Scegliere **Save All** (Salva tutto) nel menu **File**.
-
-Si noti che in questa esercitazione viene illustrato come scrivere un'applicazione .NET Core. Se si desidera usare .NET Framework nella sua interezza è necessario aggiungere la linea seguente di codice al file project.json, nella sezione `"frameworks"`:
-
-```json
-"net451": {
-},
-```
+![Nuovo progetto][2]
 
 ## <a name="add-the-event-hubs-nuget-package"></a>Aggiungere il pacchetto NuGet di Hub eventi
 
@@ -93,9 +70,9 @@ Aggiungere i pacchetti NuGet seguenti al progetto:
 2. Aprire il file SimpleEventProcessor.cs e aggiungere le istruzioni `using` seguenti all'inizio del file.
 
     ```csharp
-    using System.Text;
     using Microsoft.Azure.EventHubs;
     using Microsoft.Azure.EventHubs.Processor;
+    using System.Threading.Tasks;
     ```
 
 3. Implementare l'interfaccia `IEventProcessor`. Sostituire l'intero contenuto della classe `SimpleEventProcessor` con il codice seguente:
@@ -141,6 +118,7 @@ Aggiungere i pacchetti NuGet seguenti al progetto:
     ```csharp
     using Microsoft.Azure.EventHubs;
     using Microsoft.Azure.EventHubs.Processor;
+    using System.Threading.Tasks;
     ```
 
 2. Aggiungere le costanti alla classe `Program` per la stringa di connessione di Hub eventi, il nome dell'Hub, il nome del contenitore dell'account di archiviazione, il nome dell'account di archiviazione e la chiave dell'account di archiviazione. Aggiungere il codice seguente, sostituendo i segnaposto con i relativi valori.
