@@ -14,7 +14,7 @@ Esistono due tipi di configurazioni delle macchine virtuali: a istanza multipla 
 
 La configurazione a istanza multipla offre ridondanza tra computer fisici, alimentazione e rete, ed è consigliata per garantire la disponibilità dell'applicazione. Tutte le macchine virtuali nel set di disponibilità devono avere la stessa funzione nell'applicazione.
 
-Per altre informazioni sulla configurazione delle macchine virtuali per una disponibilità elevata, vedere [Gestire la disponibilità delle macchine virtuali Windows](../articles/virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o [Gestire la disponibilità delle macchine virtuali Linux](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Per altre informazioni sulla configurazione delle macchine virtuali per una disponibilità elevata, vedere [Gestire la disponibilità delle macchine virtuali Windows](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o [Gestire la disponibilità delle macchine virtuali Linux](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Al contrario, una configurazione a istanza singola viene utilizzata per le macchine virtuali autonome che non vengono inserite in un set di disponibilità. Tali macchine virtuali non sono idonee per il contratto di servizio che richiede la distribuzione di due o più macchine virtuali nello stesso set di disponibilità.
 
@@ -28,7 +28,7 @@ In un aggiornamento della configurazione a istanza multipla si presuppone che og
 A ciascuna macchina virtuale in un set di disponibilità viene assegnato un dominio di aggiornamento e un dominio di errore dalla piattaforma Azure sottostante. Ciascun dominio di aggiornamento è un gruppo di macchine virtuali che verranno riavviate nello stesso intervallo di tempo. Ciascun dominio di errore è un gruppo di macchine virtuali che condividono un'unità di alimentazione o un commutatore di rete comune.
 
 
-Per altre informazioni sui domini di aggiornamento e sui domini di errore, vedere [Configurazione di più macchine virtuali in un set di disponibilità per la ridondanza](../articles/virtual-machines/virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)
+Per altre informazioni sui domini di aggiornamento e sui domini di errore, vedere [Configurazione di più macchine virtuali in un set di disponibilità per la ridondanza](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)
 
 Per mantenere la disponibilità attraverso un aggiornamento, Azure esegue la manutenzione tramite il dominio di aggiornamento, aggiornando un dominio alla volta. La manutenzione in un dominio di aggiornamento implica l'arresto di tutte le macchine virtuali nel dominio, l'applicazione dell'aggiornamento ai computer host e quindi il riavvio delle macchine virtuali. Al termine del processo di manutenzione nel dominio, Azure ripete il processo con il dominio di aggiornamento successivo e continua con ogni dominio finché non sono stati tutti aggiornati.
 
@@ -101,4 +101,4 @@ Vedere la tabella seguente per coppie di aree correnti:
 <!--Link references-->
 [Virtual Machines Manage Availability]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 
-[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/windows/manage-availability.md#Understand-planned-versus-unplanned-maintenance/

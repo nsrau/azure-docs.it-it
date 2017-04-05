@@ -17,9 +17,9 @@ ms.date: 3/13/2017
 ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 0be8f1f9fb96bce445c4a91520b9a847b205a519
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: a2452b95c9355957b10477a6e457000f0eba6a9c
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -98,7 +98,7 @@ La tabella seguente illustra i componenti di Backup di Azure che hanno il suppor
 Backup di Azure protegge le macchine virtuali di Archiviazione Premium. Archiviazione Premium di Azure è una soluzione di archiviazione basata su unità SSD progettata per supportare carichi di lavoro con attività di I/O intensive. Archiviazione Premium è una soluzione interessante per i carichi di lavoro delle macchine virtuali. Per altre informazioni su Archiviazione Premium, vedere l'articolo [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage/storage-premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Backup di macchine virtuali di Archiviazione Premium
-Durante il backup di macchine virtuali di Archiviazione Premium, il servizio Backup crea un percorso di gestione temporanea, denominato "AzureBackup-", nell'account di archiviazione Premium. Il percorso di gestione temporanea ha le stesse dimensioni dello snapshot del punto di ripristino. Assicurarsi che sia presente spazio libero sufficiente nell'account di archiviazione per il percorso di gestione temporanea. Per altre informazioni, vedere l'articolo [premium storage limitations](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets) (Limiti di Archiviazione Premium). Al termine del processo di backup, il percorso di gestione temporanea viene eliminato. Il prezzo della risorsa di archiviazione usata per il percorso di gestione temporanea è in linea con gli altri [prezzi di Archiviazione Premium](../storage/storage-premium-storage.md#pricing-and-billing).
+Durante il backup di macchine virtuali di Archiviazione Premium, il servizio Backup crea un percorso di gestione temporanea, denominato "AzureBackup-", nell'account di archiviazione Premium. Il percorso di gestione temporanea ha le stesse dimensioni dello snapshot del punto di ripristino. Assicurarsi che sia presente spazio libero sufficiente nell'account di archiviazione per il percorso di gestione temporanea. Per altre informazioni, vedere l'articolo [premium storage limitations](../storage/storage-premium-storage.md#scalability-and-performance-targets) (Limiti di Archiviazione Premium). Al termine del processo di backup, il percorso di gestione temporanea viene eliminato. Il prezzo della risorsa di archiviazione usata per il percorso di gestione temporanea è in linea con gli altri [prezzi di Archiviazione Premium](../storage/storage-premium-storage.md#pricing-and-billing).
 
 > [!NOTE]
 > Non modificare in alcun modo il percorso di gestione temporanea.

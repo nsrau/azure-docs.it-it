@@ -23,7 +23,7 @@ Per aumentare o ridurre il numero di macchine virtuali in un set di scalabilità
 
 Se si sta ridistribuendo un modello per modificare la capacità, è possibile definire un modello molto più piccolo che include solo lo SKU e la capacità aggiornata. Per un esempio, vedere [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-scale-in-or-out/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json).
 
-Per eseguire la procedura di creazione di un set di scalabilità che viene ridimensionato automaticamente, vedere [Ridimensionare automaticamente le macchine virtuali in un set di scalabilità di macchine virtuali](../articles/virtual-machines/virtual-machines-windows-vmss-powershell-creating.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+Per eseguire la procedura di creazione di un set di scalabilità che viene ridimensionato automaticamente, vedere [Ridimensionare automaticamente le macchine virtuali in un set di scalabilità di macchine virtuali](../articles/virtual-machines/windows/vmss-powershell-creating.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="monitoring-your-vm-scale-set"></a>Monitoraggio del set di scalabilità di macchine virtuali
 Per visualizzare i set di scalabilità di macchine virtuali, è consigliabile usare [Esplora risorse di Azure](https://resources.azure.com) . I set di scalabilità di macchine virtuali sono una risorsa di Microsoft.Compute, di conseguenza da questo sito è possibile visualizzarli espandendo i collegamenti seguenti:
@@ -64,7 +64,7 @@ Questa sezione mostra un elenco di alcuni scenari di set di scalabilità di macc
 ## <a name="vm-scale-set-frequently-asked-questions"></a>Domande frequenti sui set di scalabilità di macchine virtuali
 **D.** Quante macchine virtuali si possono includere in un set di scalabilità?
 
-**R.** &100; se si usano immagini della piattaforma che è possibile distribuire in più account di archiviazione. Se si usano immagini personalizzate, fino a 40, perché le immagini personalizzate sono limitate a un solo account di archiviazione durante l'anteprima.
+**R.** 100 se si usano immagini della piattaforma che è possibile distribuire in più account di archiviazione. Se si usano immagini personalizzate, fino a 40, perché le immagini personalizzate sono limitate a un solo account di archiviazione durante l'anteprima.
 
 **Quali altri limiti di risorse esistono per i set di scalabilità di macchine virtuali?**
 
@@ -115,9 +115,4 @@ Questa sezione mostra un elenco di alcuni scenari di set di scalabilità di macc
 **D.** I set di scalabilità di macchine virtuali si integrano con i set di disponibilità di Azure?
 
 **R.** Sì. Un set di scalabilità di macchine virtuali è un set di disponibilità implicito impostato con 3 domini di errore e 5 domini di aggiornamento. Non è necessario configurare nulla in virtualMachineProfile. Nelle versioni future i set di scalabilità di macchine virtuali si estenderanno probabilmente su più tenant, ma per ora un set di scalabilità è un set di disponibilità singolo.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 
