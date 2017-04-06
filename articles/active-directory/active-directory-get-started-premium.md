@@ -3,8 +3,8 @@ title: Introduzione ad Azure Active Directory Premium
 description: Questo argomento descrive come effettuare l&quot;iscrizione ad Azure Active Directory Premium tramite il sito Web dei contratti multilicenza.
 services: active-directory
 documentationcenter: 
-author: MarkusVi
-manager: curtand
+author: curtand
+manager: femila
 ms.assetid: 391764e5-c4eb-4ae6-b8a9-3d09f0de04a6
 ms.service: active-directory
 ms.workload: infrastructure-services

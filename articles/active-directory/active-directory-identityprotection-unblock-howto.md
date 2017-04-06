@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 87c73981c74fc763fd1aec6c283e934c77008441
 ms.openlocfilehash: d17fa0ffb0c55d49487804cd28d8903107069f06
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -56,9 +57,4 @@ Per sbloccare un account a rischio, sono disponibili le opzioni seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
  Per altre informazioni su Azure AD Identity Protection, vedere [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

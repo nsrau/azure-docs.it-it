@@ -3,7 +3,7 @@ title: "Creare report e verificare l&quot;integrità con Azure Service Fabric | 
 description: "Informazioni su come inviare report di integrità dal codice del servizio e su come verificare l&quot;integrità del servizio usando gli strumenti di monitoraggio dell&quot;integrità forniti da Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
-author: toddabel
+author: dkkapur
 manager: mfussell
 editor: 
 ms.assetid: 7c712c22-d333-44bc-b837-d0b3603d9da8
@@ -13,10 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
-ms.author: toddabel
+ms.author: dekapur
 translationtype: Human Translation
 ms.sourcegitcommit: bb93d4dac1853a317bbd6ac70946753f35be264e
 ms.openlocfilehash: bc1dd1d2c378e628094fe717d9c89298aca1f7b4
+ms.lasthandoff: 01/06/2017
 
 
 ---
@@ -151,10 +152,5 @@ activationContext.ReportApplicationHealth(healthInformation);
 * [Introduzione al monitoraggio dell'integrità di Service Fabric](service-fabric-health-introduction.md)
 * [REST API for reporting service health](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service) (API REST per segnalare l'integrità del servizio)
 * [REST API for reporting application health](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-an-application) (API REST per segnalare l'integrità dell'applicazione)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

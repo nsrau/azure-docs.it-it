@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 translationtype: Human Translation
 ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
 ms.openlocfilehash: 3cf91abf83359f2157d0f8cd53e0b450bfd58d80
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -31,16 +33,16 @@ Questo documento fornisce una procedura dettagliata dell'uso del comando Pig per
 >
 > Per HDInsight 3.4 o versione successiva, vedere [Usare Pig con HDInsight e SSH](hdinsight-hadoop-use-pig-ssh.md) per informazioni sull'esecuzione interattiva di processi Pig sul cluster dalla riga di comando.
 
-## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Prerequisiti
+## <a id="prereq"></a>Prerequisiti
 Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
 
 * Un cluster HDInsight (Hadoop in HDInsight) basato su Windows
 * Un computer client che esegue Windows 10, Windows 8 o Windows 7
 
-## <a name="a-idconnectaconnect-with-remote-desktop"></a><a id="connect"></a>Connettersi con Desktop remoto
+## <a id="connect"></a>Connettersi con Desktop remoto
 Abilitare Desktop remoto per il cluster HDInsight e quindi connettersi seguendo le istruzioni disponibili in [Connettersi a cluster HDInsight tramite RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
 
-## <a name="a-idpigause-the-pig-command"></a><a id="pig"></a>Usare il comando Pig
+## <a id="pig"></a>Usare il comando Pig
 1. Dopo avere stabilito una connessione Desktop remoto, avviare la **riga di comando di Hadoop** usando l'icona sul desktop.
 2. Usare il codice seguente per avviare il comando Pig:
 
@@ -116,10 +118,10 @@ Abilitare Desktop remoto per il cluster HDInsight e quindi connettersi seguendo 
         (ERROR,6)
         (FATAL,2)
 
-## <a name="a-idsummaryasummary"></a><a id="summary"></a>Riepilogo
+## <a id="summary"></a>Riepilogo
 Come si può notare, il comando Pig consente di eseguire in modo interattivo operazioni di MapReduce o di eseguire processi Pig Latin archiviati in un file batch.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Passaggi successivi
+## <a id="nextsteps"></a>Passaggi successivi
 Per informazioni generali su Pig in HDInsight:
 
 * [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
@@ -128,9 +130,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

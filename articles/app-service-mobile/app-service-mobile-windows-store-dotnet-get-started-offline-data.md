@@ -35,7 +35,7 @@ Per altre informazioni sulla funzionalità di sincronizzazione offline, vedere l
 Per questa esercitazione sono necessari i prerequisiti seguenti:
 
 * Visual Studio 2013 in esecuzione in Windows 8.1 o versioni successive
-* Completamento dell'esercitazione [Creare un'app Windows][create a windows app].
+* Completamento dell'esercitazione [Creare un'app Windows][Creare un'app Windows].
 * [Azure Mobile Services SQLite Store][sqlite store nuget]
 * [SQLite for Universal Windows Platform](http://www.sqlite.org/downloads)
 
@@ -108,7 +108,7 @@ Gli argomenti seguenti forniscono altre informazioni in background sulla funzion
 
 <!-- URLs. -->
 [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]: app-service-mobile-offline-data-sync.md
-[create a windows app]: app-service-mobile-windows-store-dotnet-get-started.md
+[Creare un'app Windows]: app-service-mobile-windows-store-dotnet-get-started.md
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkID=716919
 [SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkID=716920
 [SQLite for Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921
