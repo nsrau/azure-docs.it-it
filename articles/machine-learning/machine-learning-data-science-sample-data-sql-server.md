@@ -12,15 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/24/2017
 ms.author: fashah;garye;bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
 ms.openlocfilehash: 44ad1c9fb54231a3942889fc24bfc92554ead6fa
+ms.lasthandoff: 02/11/2017
 
 
 ---
-# <a name="a-nameheadingasample-data-in-sql-server-on-azure"></a><a name="heading"></a>Dati di esempio in SQL Server in Azure
+# <a name="heading"></a>Dati di esempio in SQL Server in Azure
 Questo documento illustra come campionare dati archiviati in SQL Server su Azure usando SQL o il linguaggio di programmazione Python. Viene inoltre illustrato come spostare i dati campionati in Azure Machine Learning salvandoli in un file, caricandoli in un BLOB di Azure e quindi leggendoli in Azure Machine Learning Studio.
 
 Il campionamento di Python usa la libreria ODBC [pyodbc](https://code.google.com/p/pyodbc/) per connettersi al server SQL in Azure e la libreria [Pandas](http://pandas.pydata.org/) per creare il campionamento.
@@ -39,7 +40,7 @@ Se il set di dati da analizzare è grande, è in genere opportuno sottocampionar
 
 Questo campionamento è un passaggio del [Processo di analisi scientifica dei dati per i team (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-## <a name="a-namesqlausing-sql"></a><a name="SQL"></a>Utilizzo di SQL
+## <a name="SQL"></a>Utilizzo di SQL
 In questa sezione vengono descritti alcuni metodi di utilizzo di SQL per eseguire il campionamento casuale semplice dei dati all'interno del database. Scegliere il metodo in base alla dimensione dei dati e alla loro distribuzione.
 
 Gli elementi riportati di seguito mostrano come utilizzare il valore newId in SQL Server per effettuare il campionamento. Il metodo scelto dipende dal livello di casualità previsto per il campionamento da eseguire (il valore pk_id nel codice di esempio riportato in basso si presuppone che sia una chiave primaria generata automaticamente).
@@ -64,12 +65,12 @@ Gli elementi riportati di seguito mostrano come utilizzare il valore newId in SQ
 > 
 > 
 
-### <a name="a-namesql-amlaconnecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Connessione ad Azure Machine Learning
+### <a name="sql-aml"></a>Connessione ad Azure Machine Learning
 È possibile usare direttamente le query di esempio riportate sopra nel modulo [Import Data][import-data] (Importazione dati) di Azure Machine Learning per sottocampionare i dati in modo immediato e inserirli in un esperimento di Azure Machine Learning. Di seguito viene riportata una schermata relativa all'uso del modulo Reader per leggere i dati campionati:
 
 ![lettore sql][1]
 
-## <a name="a-namepythonausing-the-python-programming-language"></a><a name="python"></a>Utilizzo del linguaggio di programmazione Python
+## <a name="python"></a>Utilizzo del linguaggio di programmazione Python
 In questa sezione viene mostrato l'uso della [libreria pyodbc](https://code.google.com/p/pyodbc/) per stabilire un collegamento ODBC al database di un server SQL in Python. La stringa di connessione del database è la seguente: (sostituire servername, dbname, username e password con la propria configurazione):
 
     #Set up the SQL Azure connection
@@ -85,7 +86,7 @@ La libreria [Pandas](http://pandas.pydata.org/) in Python fornisce una vasta gam
 
 È ora possibile lavorare con i dati campionati nel frame di dati Pandas. 
 
-### <a name="a-namepython-amlaconnecting-to-azure-machine-learning"></a><a name="python-aml"></a>Connessione ad Azure Machine Learning
+### <a name="python-aml"></a>Connessione ad Azure Machine Learning
 È possibile utilizzare il codice di esempio seguente per salvare i dati ricampionati in un file e caricarli in un BLOB di Azure. I dati del BLOB possono essere letti direttamente in un esperimento di Azure Machine Learning con il modulo [Import Data][import-data] (Importazione dati). Attenersi alla procedura seguente: 
 
 1. Scrivere il frame di dati Pandas in un file locale
@@ -123,9 +124,4 @@ Per un esempio della procedura dettagliata end-to-end del Processo di analisi sc
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png
 
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -9,16 +9,17 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 4d6a2658-6b19-4268-95ee-822890f5a33a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/09/2017
+ms.date: 03/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: bdc00541e55ea68f0b18456f8fa1a1ac51116d69
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 21d8dff230e045607b70013f4eabf1bfe8ec3993
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -64,7 +65,7 @@ La procedura seguente usa un modello di Azure Resource Manager per creare un clu
 > 
 
 ## <a name="create-tables-and-insert-data"></a>Creare tabelle e inserire dati
-È possibile usare SSH per connettersi ai cluster HBase e usare la shell di HBase per creare tabelle HBase, inserire dati ed eseguire query sui dati. Per altre informazioni sull'uso di SSH, vedere [Uso di SSH con Hadoop basato su Linux in HDInsight da Linux, Unix oppure OS X](hdinsight-hadoop-linux-use-ssh-unix.md) o [Uso di SSH con Hadoop basato su Linux in HDInsight da Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+È possibile usare SSH per connettersi ai cluster HBase e usare la shell di HBase per creare tabelle HBase, inserire dati ed eseguire query sui dati. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Per la maggior parte delle persone, i dati vengono visualizzati in formato tabulare:
 
@@ -223,6 +224,11 @@ Un file di dati di esempio è stato caricato in un contenitore BLOB pubblico, *w
         -v
 
 Per altre informazioni sulle API REST HBase, vedere la [Apache HBase Reference Guide](https://hbase.apache.org/book.html#_rest)(Guida di riferimento di Apache HBase).
+
+>
+> [!NOTE]
+> Thrift non è supportato da HBase in HDInsight.
+>
 
 ## <a name="check-cluster-status"></a>Controllare lo stato del cluster
 HBase in HDInsight viene fornito con un'interfaccia utente Web per il monitoraggio dei cluster. Usando l’interfaccia Web è possibile richiedere statistiche o informazioni sulle aree.

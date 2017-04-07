@@ -15,9 +15,9 @@ ms.workload: integration
 ms.date: 03/14/2017
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: cbe7011f827418c1094c4e262e016cb93d6d224c
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: dcf089d680249d0a2f9d748b315076d91c8c78e8
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -70,6 +70,7 @@ Le app per la logica includono funzionalità sofisticate per il flusso di contro
 
 Le app per la logica offrono inoltre l'integrazione con molti servizi, come Funzioni di Azure, Gestione API di Azure, Servizi app di Azure e gli endpoint HTTP personalizzati, ad esempio REST e SOAP.
 
+* [Create a real-time social dashboard with Azure Serverless](logic-apps-scenario-social-serverless.md) (Creare un dashboard di social networking in tempo reale senza server di Azure)
 * [Chiamare Funzioni di Azure da app per la logica](../logic-apps/logic-apps-azure-functions.md)
 * [Scenario: Attivare app per la logica con Funzioni di Azure](logic-apps-scenario-function-sb-trigger.md)
 * [Blog: Call SOAP endpoints from logic apps](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/) (Chiamare endpoint SOAP da app per la logica)

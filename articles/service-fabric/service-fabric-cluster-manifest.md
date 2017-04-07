@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 2/17/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 4cde82601758c9f92ab36c692265a8b6c192cbdc
-ms.openlocfilehash: eef19d304ec63d752b6b84c78833af44ca5344d2
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 8192f9e36ebadd41d93ec3c2fa61b05e342d5bc1
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -154,7 +154,7 @@ La sezione **nodeTypes** descrive il tipo dei nodi del cluster. Per ogni cluster
 * *serviceConnectionEndpointPort* è la porta usata da applicazioni e servizi distribuiti in un nodo, per comunicare con il client di Service Fabric in quel determinato nodo.
 * *httpGatewayEndpointPort* è la porta usata da Service Fabric Explorer per connettersi al cluster.
 * Le porte *ephemeralPorts* eseguono l'override delle [porte dinamiche usate dal sistema operativo](https://support.microsoft.com/kb/929851). Service Fabric userà una parte di queste porte dell'applicazione, mentre le rimanenti saranno a disposizione del sistema operativo. Inoltre eseguirà il mapping di questo intervallo nell'intervallo presente nel sistema operativo, quindi per tutti gli scopi è possibile usare gli intervalli forniti nei file JSON campione. È necessario assicurarsi che la differenza tra la porta iniziale e la porta finale sia almeno 255. Questo intervallo è condiviso con il sistema operativo e possono quindi verificarsi dei conflitti se la differenza è troppo bassa. Per visualizzare l'intervallo di porte dinamiche configurato, eseguire il comando `netsh int ipv4 show dynamicport tcp`.
-* *applicationPorts* sono le porte che verranno usate dalle applicazioni di Service Fabric. Deve trattarsi di un subset di *ephemeralPorts*, sufficiente per soddisfare il requisito di endpoint delle applicazioni. Service Fabric le userà tutte le volte che servono nuove porte, inoltre si occuperà di aprire i relativi firewall. 
+* *applicationPorts* sono le porte che verranno usate dalle applicazioni di Service Fabric. L'intervallo di porte dell'applicazione deve essere abbastanza grande da soddisfare il requisito di endpoint delle applicazioni. Questo intervallo deve essere esclusivo dall'intervallo di porte dinamico del computer, ad esempio l'intervallo *ephemeralPorts* impostato nella configurazione.  Service Fabric le userà tutte le volte che servono nuove porte, inoltre si occuperà di aprire i relativi firewall. 
 * *reverseProxyEndpointPort* è un endpoint proxy inverso facoltativo. Per altri dettagli vedere [Proxy inverso di Service Fabric](service-fabric-reverseproxy.md). 
 
 ### <a name="log-settings"></a>Impostazioni log

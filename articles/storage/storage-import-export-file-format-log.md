@@ -1,7 +1,7 @@
 ---
 
 title: Formato dei file di log del servizio Importazione/Esportazione | Documentazione Microsoft
-description: Altre informazioni sul formato dei file di log creati quando vengono eseguiti i passaggi per un processo del servizio Importazione/Esportazione
+description: Altre informazioni sul formato dei file di log creati quando vengono eseguiti i passaggi per un processo del servizio Importazione/Esportazione.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
-ms.openlocfilehash: 0b402db8c7e6bd4abb5aaf6ded7f539cfec7172e
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 16234ccaf13ce1d85cfd207ed4734e683070faa6
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -126,30 +126,30 @@ Nella tabella seguente vengono illustrati gli elementi del file di log.
 |`PageRange`|Elemento XML|Rappresenta un intervallo di pagine.|  
 |`PageRange/@Offset`|Attributo, valore integer|L'offset iniziale dell'intervallo di pagine nel BLOB.|  
 |`PageRange/@Length`|Attributo, valore integer|La lunghezza in byte dell'intervallo di pagine.|  
-|`PageRange/@Hash`|Attributo, stringa|L'hash MD5 codificato in base&16; dell'intervallo di pagine.|  
+|`PageRange/@Hash`|Attributo, stringa|L'hash MD5 codificato in base 16 dell'intervallo di pagine.|  
 |`PageRange/@Status`|Attributo, stringa|Lo stato di elaborazione dell'intervallo di pagine.|  
 |`BlockList`|Elemento XML nidificato|Rappresenta un elenco di blocchi per un BLOB in blocchi.|  
 |`Block`|Elemento XML|Rappresenta un blocco.|  
 |`Block/@Offset`|Attributo, valore integer|L'offset iniziale del blocco nel BLOB.|  
 |`Block/@Length`|Attributo, valore integer|La lunghezza in byte del blocco.|  
 |`Block/@Id`|Attributo, stringa|L'ID del blocco.|  
-|`Block/@Hash`|Attributo, stringa|L'hash MD5 codificato in base&16; del blocco.|  
+|`Block/@Hash`|Attributo, stringa|L'hash MD5 codificato in base 16 del blocco.|  
 |`Block/@Status`|Attributo, stringa|Lo stato di elaborazione del blocco.|  
 |`Metadata`|Elemento XML nidificato|Rappresenta i metadati del BLOB.|  
 |`Metadata/@Status`|Attributo, stringa|Lo stato di elaborazione dei metadati del BLOB.|  
 |`Metadata/GlobalPath`|String|Il percorso relativo verso il file di metadati globale.|  
-|`Metadata/GlobalPath/@Hash`|Attributo, stringa|L'hash MD5 codificato in base&16; del file di metadati globale.|  
+|`Metadata/GlobalPath/@Hash`|Attributo, stringa|L'hash MD5 codificato in base 16 del file di metadati globale.|  
 |`Metadata/Path`|String|Il percorso relativo verso il file di metadati.|  
-|`Metadata/Path/@Hash`|Attributo, stringa|L'hash MD5 codificato in base&16; del file di metadati.|  
+|`Metadata/Path/@Hash`|Attributo, stringa|L'hash MD5 codificato in base 16 del file di metadati.|  
 |`Properties`|Elemento XML nidificato|Rappresenta le proprietà del BLOB.|  
 |`Properties/@Status`|Attributo, stringa|Lo stato di elaborazione delle proprietà del BLOB, ad esempio file non trovato, completato e così via.|  
 |`Properties/GlobalPath`|String|Il percorso relativo verso il file di proprietà globale.|  
-|`Properties/GlobalPath/@Hash`|Attributo, stringa|L'hash MD5 codificato in base&16; del file di proprietà globale.|  
+|`Properties/GlobalPath/@Hash`|Attributo, stringa|L'hash MD5 codificato in base 16 del file di proprietà globale.|  
 |`Properties/Path`|String|Il percorso relativo verso il file di proprietà.|  
-|`Properties/Path/@Hash`|Attributo, stringa|L'hash MD5 codificato in base&16; del file di proprietà.|  
+|`Properties/Path/@Hash`|Attributo, stringa|L'hash MD5 codificato in base 16 del file di proprietà.|  
 |`Blob/Status`|String|Lo stato di elaborazione del BLOB.|  
   
-### <a name="drive-status-codes"></a>Codici di stato per un'unità  
+# <a name="drive-status-codes"></a>Codici di stato per un'unità  
 Nella tabella seguente sono elencati i codici di stato per l'elaborazione di un'unità.  
   
 |Codice di stato|Descrizione|  
@@ -178,7 +178,7 @@ Nella tabella seguente sono elencati i codici di stato per l'elaborazione di un'
 |`BlobRequestForbidden`|Non è consentito l'accesso ai BLOB nell'account di archiviazione. Ciò potrebbe essere dovuto al fatto che la chiave dell'account di archiviazione o la firma di accesso condiviso del contenitore non sono validi.|  
 |`InternalError`|Si è verificato un errore interno durante l'elaborazione dell'unità.|  
   
-### <a name="blob-status-codes"></a>Codici di stato per un BLOB  
+## <a name="blob-status-codes"></a>Codici di stato per un BLOB  
 Nella tabella seguente sono elencati i codici di stato per l'elaborazione di un BLOB.  
   
 |Codice di stato|Descrizione|  
@@ -197,7 +197,7 @@ Nella tabella seguente sono elencati i codici di stato per l'elaborazione di un 
 |`IOFailed`|Si è verificato un errore di I/O nel disco o nella rete durante l'elaborazione del BLOB.|  
 |`Failed`|Si è verificato un errore sconosciuto durante l'elaborazione del BLOB.|  
   
-### <a name="import-disposition-status-codes"></a>Codici di stato per una disposizione di importazione  
+## <a name="import-disposition-status-codes"></a>Codici di stato per una disposizione di importazione  
 Nella tabella seguente sono elencati i codici di stato per la risoluzione di una disposizione di importazione.  
   
 |Codice di stato|Descrizione|  
@@ -208,7 +208,7 @@ Nella tabella seguente sono elencati i codici di stato per la risoluzione di una
 |`Overwritten`|Il BLOB ha sovrascritto un BLOB esistente in base alla disposizione di importazione `overwrite`.|  
 |`Cancelled`|Un errore precedente ha arrestato un'ulteriore elaborazione della disposizione di importazione.|  
   
-### <a name="page-rangeblock-status-codes"></a>Codici di stato per un intervallo di pagine o un blocco  
+## <a name="page-rangeblock-status-codes"></a>Codici di stato per un intervallo/blocco di pagine  
 Nella tabella seguente sono elencati i codici di stato per l'elaborazione di un intervallo di pagine o un blocco.  
   
 |Codice di stato|Descrizione|  
@@ -224,7 +224,7 @@ Nella tabella seguente sono elencati i codici di stato per l'elaborazione di un 
 |`Failed`|Si è verificato un errore sconosciuto durante l'elaborazione dell'intervallo di pagine o del blocco.|  
 |`Cancelled`|Un errore precedente ha arrestato un'ulteriore elaborazione dell'intervallo di pagine o del blocco.|  
   
-### <a name="metadata-status-codes"></a>Codici di stato per i metadati  
+## <a name="metadata-status-codes"></a>Codici di stato per i metadati  
 Nella tabella seguente sono elencati i codici di stato per l'elaborazione dei metadati del BLOB.  
   
 |Codice di stato|Descrizione|  
@@ -242,7 +242,7 @@ Nella tabella seguente sono elencati i codici di stato per l'elaborazione dei me
 |`Failed`|Si è verificato un errore sconosciuto durante l'elaborazione dei metadati.|  
 |`Cancelled`|Un errore precedente ha arrestato un'ulteriore elaborazione dei metadati.|  
   
-### <a name="properties-status-codes"></a>Codici di stato delle proprietà  
+## <a name="properties-status-codes"></a>Codici di stato delle proprietà  
 Nella tabella seguente sono elencati i codici di stato per l'elaborazione delle proprietà del BLOB.  
   
 |Codice di stato|Descrizione|  
@@ -358,6 +358,7 @@ Il log degli errori seguente per un processo di esportazione indica che il conte
 </DriveLog>  
 ```
   
-## <a name="see-also"></a>Vedere anche  
-[REST di importazione/esportazione dell'archiviazione](/rest/api/storageimportexport/)
+## <a name="next-steps"></a>Passaggi successivi
+ 
+* [Storage Import/Export REST API](/rest/api/storageimportexport/) (API REST di importazione/esportazione dell'archiviazione)
 

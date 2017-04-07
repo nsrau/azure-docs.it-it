@@ -1,6 +1,6 @@
 ---
 title: Configurazione dello strumento Importazione/Esportazione di Azure | Documentazione Microsoft
-description: "Informazioni su come configurare lo strumento di preparazione e ripristino delle unità per il servizio Importazione/Esportazione di Azure"
+description: "Informazioni su come configurare lo strumento di preparazione e ripristino delle unità per il servizio Importazione/Esportazione di Azure."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 41bc5585f3d9dea2a08dc8a6bc1e4fdf9f0c8fc4
-ms.openlocfilehash: cc7107ce89c063ae69184039893d9c28c912db08
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 2aebded82fcf67bf9ad4a00a703e62eb12e2370c
+ms.lasthandoff: 03/30/2017
 
 
 ---
 
 # <a name="setting-up-the-azure-importexport-tool"></a>Configurazione dello strumento Importazione/Esportazione di Azure
 
-Lo strumento Importazione/Esportazione di Microsoft Azure è lo strumento di preparazione e ripristino delle unità che è possibile usare con il servizio Importazione/Esportazione di Microsoft Azure. È possibile usare lo strumento per le funzioni seguenti:
+Lo strumento Importazione/Esportazione di Microsoft Azure è lo strumento di preparazione e ripristino delle unità che è possibile usare con il servizio Importazione/Esportazione di Microsoft Azure. È possibile usare lo strumento per svolgere le funzioni seguenti:
 
 * Prima di creare un processo di importazione, è possibile usare questo strumento per copiare i dati nei dischi rigidi che si intende spedire a un data center di Azure.
 * Al termine di un processo di importazione, è possibile usare questo strumento per ripristinare eventuali BLOB danneggiati, mancanti o in conflitto con altri BLOB.
@@ -51,13 +52,13 @@ Se si cerca di **ripristinare un'esportazione** parzialmente non riuscita, sono 
 
 * I file di log di copia
 * I file manifesto (facoltativi)
-* chiave dell'account di archiviazione.
+* La chiave dell'account di archiviazione
 
-## <a name="installing-the-azure-importexport-tool"></a>Installazione dello strumento Importazione/Esportazione di Azure
+## <a name="installing-the-azure-importexport-tool"></a>Installazione dello strumento di importazione/esportazione di Azure
 
-Prima di tutto [scaricare lo strumento Importazione/Esportazione di Azure](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) ed estrarlo in una directory nel computer, ad esempio `c:\WAImportExport`.
+Prima di tutto [scaricare lo strumento Importazione/Esportazione di Azure](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) ed estrarlo in una directory nel computer in uso, ad esempio `c:\WAImportExport`.
 
-Lo strumento Importazione/Esportazione di Azure è costituito dai file seguenti:
+Lo strumento Importazione/Esportazione di Azure è costituito dai file indicati di seguito:
 
 * dataset.csv
 * driveset.csv
@@ -74,7 +75,7 @@ Aprire quindi una finestra del prompt dei comandi in **modalità amministratore*
 Per visualizzare la Guida per il comando, eseguire lo strumento senza parametri:
 
 ```
-WAImportExport, a client tool for Windows Azure Import/Export Service. Microsoft (c) 2013
+WAImportExport, a client tool for Windows Azure Import/Export service. Microsoft (c) 2013
 
 
 Copy directories and/or files with a new copy session:
@@ -177,7 +178,7 @@ Parameters:
     /ExportBlobListFile:<ExportBlobListFile>
         - Required. Path to the XML file containing list of blob paths or blob path
           prefixes for the blobs to be exported. The file format is the same as the
-          blob list blob format in the Put Job operation of the Import/Export Service
+          blob list blob format in the Put Job operation of the Import/Export service
           REST API.
     /DriveSize:<DriveSize>
         - Required. Size of drives to be used for export. For example, 500GB, 1.5TB.
@@ -222,10 +223,5 @@ Examples:
 * [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md) (Revisione dello stato dei processi con i file di log di copia)
 * [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md) (Riparazione di un processo di importazione)
 * [Repairing an export job](storage-import-export-tool-repairing-an-export-job-v1.md) (Riparazione di un processo di esportazione)
-* [Troubleshooting the Azure Import/Export tool](storage-import-export-tool-troubleshooting-v1.md) (Risoluzione dei problemi relativi allo strumento Importazione/Esportazione di Azure)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+* [Risoluzione dei problemi relativi allo strumento Importazione/Esportazione di Azure](storage-import-export-tool-troubleshooting-v1.md)
 

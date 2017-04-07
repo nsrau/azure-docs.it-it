@@ -11,12 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 3/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 6bbfc7e22e5cb70ed1466bda14831412aead76a6
-ms.openlocfilehash: bacabf7fe51e3c417a93a54f043c14aa5d65b31d
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 187fe8af432d2521e3b9efa59b788280c32692a9
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -27,7 +27,7 @@ Questa esercitazione descrive come integrare Convercent con Azure Active Directo
 L'integrazione di Convercent con Azure AD offre i vantaggi seguenti:
 
 - È possibile controllare in Azure AD chi può accedere a Convercent
-- È possibile abilitare gli utenti per l'accesso automatico a Convercent (Single Sign-On) con i propri account Azure AD
+- È possibile abilitare gli utenti per l'accesso automatico a Convercent Single Sign-On (SSO) con i propri account Azure AD
 - È possibile gestire gli account da una posizione centrale: il nuovo portale di Azure
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -37,27 +37,27 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 Per configurare l'integrazione di Azure AD con Convercent, sono necessari gli elementi seguenti:
 
 - Sottoscrizione di Azure AD.
-- Sottoscrizione di Convercent abilitata per l'accesso Single Sign-On
+- Sottoscrizione di Convercent abilitata per l'accesso SSO
 
-
-> [!NOTE]
-> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
-
+>[!NOTE]
+>Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
+>
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione, a meno che non sia necessario.
-- Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+- Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene testato l'accesso SSO di Azure AD in un ambiente di test. 
+
+Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
 1. Aggiunta di Convercent dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+2. Configurazione e test dell'accesso Single Sign-On (SSO) di Microsoft Azure AD
 
-
-## <a name="adding-convercent-from-the-gallery"></a>Aggiunta di Convercent dalla raccolta
+## <a name="add-convercent-from-the-gallery"></a>Aggiungere Convercent dalla raccolta
 Per configurare l'integrazione di Convercent in Azure AD, è necessario aggiungere Convercent dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Convercent dalla raccolta, seguire questa procedura:**
@@ -82,25 +82,24 @@ Per configurare l'integrazione di Convercent in Azure AD, è necessario aggiunge
 
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_0001.png)
 
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
+In questa sezione viene configurato e testato l'accesso SSO di Azure AD con Convercent con un utente test di nome "Britta Simon".
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Convercent in base a un utente test di nome "Britta Simon".
-
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Convercent che corrisponde a un utente di Azure AD. In altre parole deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Convercent.
+Per il funzionamento dell'accesso SSO, Azure AD deve conoscere qual è l'utente di Convercent che corrisponde a un utente di Azure AD. In altre parole deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Convercent.
 
 La relazione di collegamento viene stabilita assegnando il valore di **nome utente** in Azure AD come valore di **Username** (Nome utente) in Convercent.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Convercent, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso SSO di Azure AD con Convercent, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente test di Convercent](#creating-a-works-mobile-test-user)**: per avere una controparte di Britta Simon in Convercent collegata alla relativa rappresentazione in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel nuovo portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Convercent.
+In questa sezione viene abilitato l'accesso SSO di Azure AD nel nuovo portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Convercent.
 
 **Per configurare l'accesso Single Sign-On di Azure AD con Convercent, seguire questa procedura:**
 
@@ -115,21 +114,17 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel nuovo
 3. Nella sezione **URL e dominio Convercent**, se si vuole configurare l'applicazione in **modalità avviata da IDP**, seguire questa procedura:
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_02.png)
-
-    a. Nella casella di testo **Identificatore** digitare `https://sts.convercent.com/`
-
-    b. Fare clic su **Mostra impostazioni URL avanzate**
-
-    c. Nella casella di testo **Stato dell'inoltro** digitare: `https://app.convercent.com/`
+  1. Nella casella di testo **Identificatore** digitare `https://sts.convercent.com/`
+  2. Fare clic su **"Mostra impostazioni URL avanzate"**.
+  3. Nella casella di testo **Stato dell'inoltro** digitare: `https://app.convercent.com/`
     
 4. Per configurare l'applicazione in **modalità avviata da SP**, nella sezione **URL e dominio Convercent** seguire questa procedura:
     
     ![Configura accesso Single Sign-On](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_03.png)
-
-    a. Nella casella di testo **URL di accesso** digitare `https://app.convercent.com/`
-
-    > [!NOTE] 
-    > In questo caso si suggerisce di usare l'identificatore univoco specificato. Per ottenere tale valore, contattare il [team di supporto di Convercent](mailTo:support@convercent.com).
+  * Nella casella di testo **URL di accesso** digitare `https://app.convercent.com/`
+    >[!NOTE] 
+    >In questo caso si suggerisce di usare l'identificatore univoco specificato. Per ottenere tale valore, contattare il [team di supporto di Convercent](mailTo:support@convercent.com).
+    >
 
 5. Nella sezione **Configurazione di Convercent** fare clic su **Configura Convercent** per aprire la finestra **Configura accesso**. Fare clic su **Metadati SAML XML** e quindi salvare il file di metadati nel computer.
 
@@ -141,8 +136,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel nuovo
 
 7. Nel nuovo portale di Azure, fare clic sul pulsante **Salva**.  
   
-
-### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 Questa sezione descrive come creare un utente test denominato Britta Simon nel nuovo portale di Azure.
 
 ![Creare un utente di Azure AD][100]
@@ -161,28 +155,21 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel n
  
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-convercent-tutorial/create_aaduser_03.png) 
 
-4. Nella finestra di dialogo **Utente** seguire questa procedura:
+4. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
  
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-convercent-tutorial/create_aaduser_04.png) 
+ 1. Nella casella di testo **Nome** digitare **BrittaSimon**.
+ 2. Nella casella di testo **Nome utente** digitare l'**indirizzo di posta elettronica** di BrittaSimon.
+ 3. Selezionare **Mostra password** e prendere nota del valore della **Password**.
+ 4. Fare clic su **Crea**. 
 
-    a. Nella casella di testo **Nome** digitare **BrittaSimon**.
-
-    b. Nella casella di testo **Nome utente** digitare l'**indirizzo di posta elettronica** di BrittaSimon.
-
-    c. Selezionare **Mostra password** e prendere nota del valore di **Password**.
-
-    d. Fare clic su **Crea**. 
-
-
-
-### <a name="creating-a-convercent-test-user"></a>Creazione di un utente test di Convercent
+### <a name="create-a-convercent-test-user"></a>Creare un utente test di Convercent
 
 In questa sezione viene creato un utente di nome Britta Simon in Convercent. Collaborare con il [team di supporto di Convercent](emailto:support@convercent.com) per aggiungere gli utenti nella piattaforma Convercent.
 
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
-
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure, concedendole l'accesso a Convercent.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso SSO di Azure, concedendole l'accesso a Convercent.
 
 ![Assegna utente][200] 
 
@@ -210,9 +197,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
     
-
-
-### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 

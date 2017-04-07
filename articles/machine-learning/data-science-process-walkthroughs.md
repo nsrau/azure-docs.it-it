@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 03/31/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: fde069560d53c5b5010bbb59b52d60a6971d8dac
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -52,10 +53,5 @@ La procedura dettagliata [In-Database Advanced Analytics for SQL Developers](htt
 
 ## <a name="whats-next"></a>Passaggi successivi
 Per una panoramica degli argomenti che forniscono informazioni dettagliate sulle attività che costituiscono il processo di analisi scientifica dei dati in Azure, vedere [Processo di analisi scientifica dei dati per i team](http://aka.ms/datascienceprocess). 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

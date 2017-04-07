@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 03/24/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: e9d7e1b5976719c07de78b01408b2546b4fec297
-ms.openlocfilehash: 875b344d6ed1f467c8d7a51f46e1c39ec42cfacd
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 788021a5b5715524a534ce3e9ff9019310450f4a
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -42,7 +42,7 @@ Stabilire il numero di tipi di nodo con cui il cluster deve iniziare.  Di ogni t
 * Poiché non è possibile prevedere cosa accadrà in futuro, è importante basarsi sulle condizioni attuali per decidere il numero di tipi di nodo necessari alle applicazioni per iniziare. Sarà sempre possibile aggiungere o rimuovere i tipi di nodi in seguito. Un cluster di Service Fabric deve avere almeno un tipo di nodo.
 
 ## <a name="the-properties-of-each-node-type"></a>Proprietà di ogni tipo di nodo
-I **tipi di nodo** possono essere paragonati ai ruoli in Servizi cloud, poiché definiscono le dimensioni delle VM, il numero di VM e le relative proprietà. Ogni tipo di nodo definito in un cluster di Service Fabric viene configurato come set di scalabilità di macchine virtuali separato. I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire una raccolta di macchine virtuali come set. Essendo definito come set di scalabilità di macchine virtuali distinto, ogni tipo di nodo può aumentare o ridurre le prestazioni in modo indipendente, avere diversi set di porte aperte e avere metriche per la capacità diverse.
+I **tipi di nodo** possono essere paragonati ai ruoli in Servizi cloud, poiché definiscono le dimensioni delle VM, il numero di VM e le relative proprietà. Ogni tipo di nodo definito in un cluster di Service Fabric viene configurato come set di scalabilità di macchine virtuali separato. VMSS è una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire una raccolta di macchine virtuali come set. Essendo definito come VMSS, ogni tipo di nodo può aumentare o ridurre le prestazioni in modo indipendente, avere diversi set di porte aperte e avere metriche per la capacità diverse.
 
 Vedere [questo documento](service-fabric-cluster-nodetypes.md) per altri dettagli sulla relazione dei tipi di nodo con il set di scalabilità di macchine virtuali, su come connettersi a una delle istanze tramite RDP, aprire nuove porte e così via.
 
@@ -71,7 +71,7 @@ Il livello di durabilità viene usato per indicare al sistema i privilegi delle 
 
 Questo privilegio viene espresso con i valori seguenti:
 
-* Gold: i processi dell'infrastruttura possono essere sospesi per una durata di 2 ore per ogni dominio di aggiornamento
+* Gold: i processi dell'infrastruttura possono essere sospesi per una durata di 2 ore per ogni dominio di aggiornamento. La durata Gold può essere abilitata solo per gli SKU VM con tutti i nodi come D15_V2, G5 e così via.
 * Silver: i processi dell'infrastruttura possono essere sospesi per una durata di 30 minuti per ogni dominio di aggiornamento. Attualmente non è abilitato per l'uso. Una volta abilitato, sarà disponibile in tutte le VM standard con una sola memoria centrale o più.
 * Bronze: nessun privilegio. Questa è la modalità predefinita.
 

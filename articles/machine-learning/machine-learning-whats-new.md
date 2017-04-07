@@ -12,15 +12,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 03/28/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 0813611f581a68efb8f09a1e041cfbe429bf0c5c
-ms.openlocfilehash: c3662dee7feb6373dd733300a9af2fc112ab270f
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 551b977b90612ddbfa1514a9c2358ebf8179c385
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Novità in Azure Machine Learning
+
+### <a name="the-march-2017-release-of-microsoft-azure-machine-learning-updates-provides-the-following-feature"></a>La versione di marzo 2017 degli aggiornamenti di Microsoft Azure Machine Learning offre la funzionalità seguente:
+
+
+
+* Capacità dedicata per i processi BES di Azure Machine Learning
+
+    L'elaborazione di pool Batch in Machine Learning usa il [servizio Azure Batch](../batch/batch-technical-overview.md) per fornire la scalabilità gestita dal cliente per il servizio di esecuzione Batch di Azure Machine Learning. L'elaborazione di pool Batch consente di creare pool Azure Batch a cui è possibile inviare i processi batch e eseguirli in modo prevedibile.
+
+    Per altre informazioni, vedere [Servizio Azure Batch per i processi di Machine Learning](machine-learning-dedicated-capacity-for-bes-jobs.md).
+
+
 ### <a name="the-august-2016-release-of-microsoft-azure-machine-learning-updates-provide-the-following-features"></a>La versione di agosto 2016 degli aggiornamenti di Microsoft Azure Machine Learning offre le funzionalità seguenti:
 * I servizi Web classici possono ora essere gestiti nel nuovo portale dei [servizi Web di Microsoft Azure Machine Learning](https://services.azureml.net/), che consente di gestire tutti gli aspetti del servizio Web da un'unica posizione e:    
   * Fornisce le [statistiche di uso](machine-learning-manage-new-webservice.md)del servizio Web.
@@ -40,10 +53,5 @@ ms.openlocfilehash: c3662dee7feb6373dd733300a9af2fc112ab270f
 * Offre una nuova pagina di test del servizio Esecuzione batch con la cronologia di invio di processi e dati di esempio.
 
 Inoltre, Machine Learning Studio è stato aggiornato in modo da consentire ancora la distribuzione del modello di servizio Web classico, oltre alla distribuzione del nuovo modello di servizio Web. 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

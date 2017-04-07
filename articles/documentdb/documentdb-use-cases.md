@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 03/23/2017
 ms.author: hawong
 translationtype: Human Translation
-ms.sourcegitcommit: 912d5af4231dee6aa8bc2f32d7950f59377fe90f
-ms.openlocfilehash: dbd5448c94577e6a21a2433a00e7a2f75afcc4a0
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 9a0ba106b4c2aded8aaac673dfba3610bd4ca0fb
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -79,7 +79,7 @@ DocumentDB viene usato dai come [The Walking Dead: No Man's Land](https://azure.
 ![Architettura di riferimento per giochi per Azure DocumentDB](./media/documentdb-use-cases/documentdb-gaming-architecture.png)
 
 ## <a name="web-and-mobile-applications"></a>Applicazioni Web e per dispositivi mobili
-DocumentDB viene comunemente usato all'interno di applicazioni Web e per dispositivi mobili ed è particolarmente adatto alla creazione di modelli di interazione social, all'integrazione con servizi di terze parti e all'ottimizzazione delle esperienze personalizzate. 
+DocumentDB viene comunemente usato all'interno di applicazioni Web e per dispositivi mobili ed è particolarmente adatto alla creazione di modelli di interazione social, all'integrazione con servizi di terze parti e all'ottimizzazione delle esperienze personalizzate. Gli SDK di DocumentDB possono essere usati per la compilazione avanzata di applicazioni iOS e Android usando il diffuso [framework Xamarin](documentdb-mobile-apps-with-xamarin.md).  
 
 ### <a name="social-applications"></a>Applicazioni social
 Un caso di utilizzo comune per DocumentDB prevede l'archiviazione e la query del contenuto generato dall'utente (UGC, User Generated Content) per applicazioni Web e mobili, soprattutto applicazioni per social media. Alcuni esempi di UGC includono sessioni di chat, tweet, post di blog, classificazioni e commenti. Spesso il contenuto UGC nelle applicazioni per social media comprende testo in formato libero, proprietà, tag e relazioni non limitati da una struttura rigida. I contenuti come chat, commenti e post possono essere archiviati in DocumentDB senza richiedere trasformazioni o livelli di mapping relazionale a oggetti complessi.  Le proprietà dei dati possono essere aggiunte o modificate facilmente in modo che rispondano ai requisiti quando gli sviluppatori scorrono il codice dell'applicazione, velocizzando così la fase di sviluppo.  

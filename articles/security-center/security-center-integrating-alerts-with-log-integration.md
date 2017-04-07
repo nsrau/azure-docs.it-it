@@ -1,5 +1,5 @@
 ---
-title: Integrazione degli avvisi del Centro sicurezza di Azure con l&quot;integrazione dei log di Azure (anteprima) | Documentazione Microsoft
+title: Integrazione degli avvisi del Centro sicurezza di Azure con l&quot;integrazione dei log di Azure | Documentazione Microsoft
 description: Questo articolo consente di iniziare a usare gli avvisi del Centro sicurezza con l&quot;integrazione dei log di Azure.
 services: security-center
 documentationcenter: na
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2016
+ms.date: 03/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: 32d26fa811f1b5b34981e40d20e6c941d5f08477
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: fcd14b6b0afe08db82f2b8050beaf03ece7fd212
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="integrating-azure-security-center-alerts-with-azure-log-integration-preview"></a>Integrazione degli avvisi del Centro sicurezza di Azure con l'integrazione dei log di Azure (anteprima)
+# <a name="integrating-azure-security-center-alerts-with-azure-log-integration"></a>Integrazione degli avvisi del Centro sicurezza di Azure con l'integrazione dei log di Azure
 Molti team dedicati alle operazioni di sicurezza e alla risposta ai problemi fanno affidamento su una soluzione SIEM (Security Information and Event Management) come punto di partenza per la valutazione e l'analisi degli avvisi di sicurezza. Con l'integrazione dei log di Azure, i clienti possono sincronizzare gli avvisi del Centro sicurezza e gli eventi di sicurezza delle macchine virtuali, raccolti da Diagnostica di Azure e dai log di controllo di Azure, con la propria soluzione SIEM o di analisi dei log quasi in tempo reale.
 
 L'integrazione dei log di Azure è compatibile con HP ArcSight, Splunk, IBM QRadar e altre soluzioni.
@@ -92,9 +93,4 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/) : informazioni e notizie aggiornate sulla sicurezza di Azure.
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

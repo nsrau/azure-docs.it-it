@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: bd4a38e74ecab47071631f7e67e99c7806abd935
-ms.openlocfilehash: e8f1d55dd374608b49d4189fb47603a6ddaee3dd
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: cd410316910bce76f5c915c06e83b24c034481b7
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -102,7 +103,8 @@ Per usare [Edit Metadata][edit-metadata] (Modifica metadati), è necessario spec
 > 
 
 ## <a name="create-training-and-test-datasets"></a>Creazione di set di dati di training e di test
-Il passaggio successivo dell'esperimento prevede la divisione del set di dati in due set di dati separati. Uno verrà usato per il training del modello e l'altro per il test.
+Sono necessari alcuni dati per il training e alcuni dati per il test del modello.
+Nel passaggio successivo dell'esperimento, il set di dati viene quindi suddiviso in due set di dati separati: uno per il training e uno per il testing del modello.
 
 Per eseguire questa operazione, viene usato il modulo [Split Data][split] (Divisione dati).  
 
@@ -111,7 +113,7 @@ Per eseguire questa operazione, viene usato il modulo [Split Data][split] (Divis
 2. Per impostazione predefinita, il rapporto di suddivisione è impostato su 0,5 e il parametro **Suddivisione casuale** è impostato. Questo significa che una metà casuale dei dati verrà inviata come output attraverso una porta del modulo [Split Data][split] (Divisione dati) e l'altra metà attraverso l'altra. È possibile regolare queste parametri, così come il parametro **Random seed** (Valore di inizializzazione casuale), per modificare la divisione tra dati di training e dati di test. Per questo esempio i parametri vengono lasciati inalterati.
    
    > [!TIP]
-   > La proprietà **Fraction of rows in the first output dataset** determina la quantità di dati da inviare alla porta di output sinistra. Se ad esempio si imposta il rapporto su 0,7, il 70% dei dati verrà inviato alla porta sinistra e il 30% alla porta destra.  
+   > La proprietà **Fraction of rows in the first output dataset** determina la quantità di dati da inviare alla porta di output *sinistra*. Se ad esempio si imposta il rapporto su 0,7, il 70% dei dati verrà inviato alla porta sinistra e il 30% alla porta destra.  
    > 
    > 
 
@@ -119,7 +121,7 @@ Per eseguire questa operazione, viene usato il modulo [Split Data][split] (Divis
 
 È possibile usare gli output del modulo [Split Data][split] (Divisione dati) nel modo preferito, ma in questo caso si sceglie di usare l'output sinistro per i dati di training e quello destro per i dati di test.  
 
-Come indicato prima, il costo di un'errata classificazione come basso di un rischio di credito elevato è cinque volte maggiore del costo di un'errata classificazione come alto di un rischio di credito basso. Tenendo conto di questa indicazione, viene generato un nuovo set di dati che rifletta questa funzione di costo. Nel nuovo set di dati ogni esempio a rischio elevato viene replicato cinque volte, mentre ogni esempio a basso rischio non viene replicato.   
+Come indicato nel [passaggio precedente](machine-learning-walkthrough-2-upload-data.md), il costo di un'errata classificazione come basso di un rischio di credito elevato è cinque volte maggiore del costo di un'errata classificazione come alto di un rischio di credito basso. Tenendo conto di questa indicazione, viene generato un nuovo set di dati che rifletta questa funzione di costo. Nel nuovo set di dati ogni esempio a rischio elevato viene replicato cinque volte, mentre ogni esempio a basso rischio non viene replicato.   
 
 Ciò è ottenibile usando il codice R:  
 
@@ -178,9 +180,4 @@ Per altre informazioni sull'uso di script R negli esperimenti, vedere [Estendere
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

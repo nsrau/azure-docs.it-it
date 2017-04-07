@@ -12,41 +12,121 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/22/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 5046ec3f6a29fb4791cd6badc67c2111a9e3ab2c
-ms.openlocfilehash: 132ecec8aef2f166753214fce410237103583c08
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 08298608c2dfbe8b7226ae13bb0fe0f9cd5cec65
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Spostare i dati da un'origine tabella Web con Azure Data Factory
-Questo articolo illustra come usare l'attività di copia in una data factory di Azure per copiare dati da una tabella in una pagina Web a un altro archivio dati. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) , che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
+Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare dati da una tabella in una pagina Web in un archivio dati sink supportato. Questo articolo si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e l'elenco degli archivi dati supportati come origini/sink.
 
 Data Factory supporta attualmente solo lo spostamento di dati da una tabella Web ad altri archivi dati, non da altri archivi dati a una tabella Web.
 
 > [!NOTE]
-> Questo connettore Web attualmente supporta soltanto l'estrazione del contenuto della tabella da una pagina HTML.
->
->
+> Questo connettore Web attualmente supporta soltanto l'estrazione del contenuto della tabella da una pagina HTML. Per recuperare dati da un endpoint HTTP/s, usare invece il [connettore HTTP](data-factory-http-connector.md).
 
-## <a name="sample-copy-data-from-web-table-to-azure-blob"></a>Esempio: Copiare i dati da una tabella Web al BLOB di Azure
+## <a name="getting-started"></a>Introduzione
+È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati Cassandra usando diversi strumenti/API. 
+
+- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati. 
+- È possibile anche usare gli strumenti seguenti per creare una pipeline: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. 
+
+Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
+
+1. Creare i **servizi collegati** per collegare gli archivi di dati di input e output alla data factory.
+2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia. 
+3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output. 
+
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di Data Factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di Data Factory.  Per un esempio con le definizioni JSON per le entità di Data Factory usate per copiare dati da una tabella Web, vedere la sezione [Esempio JSON: Copiare dati da una tabella Web a BLOB di Azure](#json-example-copy-data-from-web-table-to-azure-blob) di questo articolo. 
+
+Nelle sezioni seguenti sono disponibili le informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità della Data Factory specifiche di una tabella Web:
+
+## <a name="linked-service-properties"></a>Proprietà del servizio collegato
+La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato Web.
+
+| Proprietà | Descrizione | Obbligatorio |
+| --- | --- | --- |
+| type |La proprietà type deve essere impostata su: **Web** |Sì |
+| Url |URL dell'origine Web |Sì |
+| authenticationType |Anonimo. |Sì |
+
+### <a name="using-anonymous-authentication"></a>Uso dell'autenticazione anonima
+
+```json
+{
+    "name": "web",
+    "properties":
+    {
+        "type": "Web",
+        "typeProperties":
+        {
+            "authenticationType": "Anonymous",
+            "url" : "https://en.wikipedia.org/wiki/"
+        }
+    }
+}
+```
+
+## <a name="dataset-properties"></a>Proprietà dei set di dati
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
+
+La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **WebTable** presenta le proprietà seguenti
+
+| Proprietà | Descrizione | Obbligatorio |
+|:--- |:--- |:--- |
+| type |Tipo del set di dati. Deve essere impostato su **WebTable** |Sì |
+| path |URL relativo della risorsa che contiene la tabella. |No. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. |
+| index |Indice della tabella nella risorsa. Per i passaggi per ottenere l'indice di una tabella in una pagina HTML, vedere la sezione [Ottenere l'indice di una tabella in una pagina HTML](#get-index-of-a-table-in-an-html-page) . |Sì |
+
+**Esempio:**
+
+```json
+{
+    "name": "WebTableInput",
+    "properties": {
+        "type": "WebTable",
+        "linkedServiceName": "WebLinkedService",
+        "typeProperties": {
+            "index": 1,
+            "path": "AFI's_100_Years...100_Movies"
+        },
+        "external": true,
+        "availability": {
+            "frequency": "Hour",
+            "interval":  1
+        }
+    }
+}
+```
+
+## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, fare riferimento all'articolo [Creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e criteri.
+
+Le proprietà disponibili nella sezione typeProperties dell'attività variano invece in base al tipo di attività. Per l'attività di copia variano in base ai tipi di origine e sink.
+
+Quando l'origine nell'attività di copia è di tipo **WebSource**non sono attualmente supportate altre proprietà.
+
+
+## <a name="json-example-copy-data-from-web-table-to-azure-blob"></a>Esempio JSON: Copiare dati da una tabella Web a BLOB di Azure
 L'esempio seguente mostra:
 
-1. Un servizio collegato di tipo [Web](#web-linked-service-properties).
-2. Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-3. Un [set di dati](data-factory-create-datasets.md) di input di tipo [WebTable](#WebTable-dataset-properties).
-4. Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-5. Una [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [WebSource](#websource-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+1. Un servizio collegato di tipo [Web](#linked-service-properties).
+2. Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+3. Un [set di dati](data-factory-create-datasets.md) di input di tipo [WebTable](#dataset-properties).
+4. Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. Una [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [WebSource](#copy-activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 Nell'esempio i dati vengono copiati da una tabella Web a un BLOB di Azure ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
 
 Questo esempio illustra come copiare dati da una tabella Web a un BLOB di Azure. Tuttavia, i dati possono essere copiati direttamente in uno qualsiasi dei sink indicati nell'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) , usando l'attività di copia in Azure Data Factory.
 
-**Servizio collegato Web** : questo esempio usa il servizio collegato Web con l'autenticazione anonima. Per i diversi tipi di autenticazione disponibili, vedere la sezione [Servizio collegato Web](#web-linked-service-properties) .
+**Servizio collegato Web** : questo esempio usa il servizio collegato Web con l'autenticazione anonima. Per i diversi tipi di autenticazione disponibili, vedere la sezione [Servizio collegato Web](#linked-service-properties) .
 
-```JSON
+```json
 {
     "name": "WebLinkedService",
     "properties":
@@ -63,7 +143,7 @@ Questo esempio illustra come copiare dati da una tabella Web a un BLOB di Azure.
 
 **Servizio collegato Archiviazione di Azure**
 
-```JSON
+```json
 {
   "name": "AzureStorageLinkedService",
   "properties": {
@@ -82,7 +162,7 @@ Questo esempio illustra come copiare dati da una tabella Web a un BLOB di Azure.
 >
 >
 
-```JSON
+```json
 {
     "name": "WebTableInput",
     "properties": {
@@ -106,7 +186,7 @@ Questo esempio illustra come copiare dati da una tabella Web a un BLOB di Azure.
 
 I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1).
 
-```JSON
+```json
 {
     "name": "AzureBlobOutput",
     "properties":
@@ -130,11 +210,11 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
 
 **Pipeline con attività di copia**
 
-La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output precedenti. È programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo **source** è impostato su **WebSource** e il tipo **sink** è impostato su **BlobSink**.
+La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo **source** è impostato su **WebSource** e il tipo **sink** è impostato su **BlobSink**.
 
-Per l'elenco delle proprietà supportate da WebSource, vedere le [proprietà del tipo WebSource](#websource-copy-activity-type-properties) .
+Per l'elenco delle proprietà supportate da WebSource, vedere le [proprietà del tipo WebSource](#copy-activity-type-properties) .
 
-```JSON
+```json
 {  
     "name":"SamplePipeline",
     "properties":{  
@@ -180,71 +260,6 @@ Per l'elenco delle proprietà supportate da WebSource, vedere le [proprietà del
 }
 ```
 
-## <a name="web-linked-service-properties"></a>Proprietà del servizio collegato Web
-La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato Web.
-
-| Proprietà | Descrizione | Obbligatorio |
-| --- | --- | --- |
-| type |La proprietà type deve essere impostata su: **Web** |Sì |
-| Url |URL dell'origine Web |Sì |
-| authenticationType |Anonimo. |Sì |
-
-### <a name="using-anonymous-authentication"></a>Uso dell'autenticazione anonima
-
-```JSON
-{
-    "name": "web",
-    "properties":
-    {
-        "type": "Web",
-        "typeProperties":
-        {
-            "authenticationType": "Anonymous",
-            "url" : "https://en.wikipedia.org/wiki/"
-        }
-    }
-}
-```
-
-## <a name="webtable-dataset-properties"></a>Proprietà set di dati WebTable
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
-
-La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **WebTable** presenta le proprietà seguenti
-
-| Proprietà | Descrizione | Obbligatorio |
-|:--- |:--- |:--- |
-| type |Tipo del set di dati. Deve essere impostato su **WebTable** |Sì |
-| path |URL relativo della risorsa che contiene la tabella. |No. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. |
-| index |Indice della tabella nella risorsa. Per i passaggi per ottenere l'indice di una tabella in una pagina HTML, vedere la sezione [Ottenere l'indice di una tabella in una pagina HTML](#get-index-of-a-table-in-an-html-page) . |Sì |
-
-**Esempio:**
-
-```JSON
-{
-    "name": "WebTableInput",
-    "properties": {
-        "type": "WebTable",
-        "linkedServiceName": "WebLinkedService",
-        "typeProperties": {
-            "index": 1,
-            "path": "AFI's_100_Years...100_Movies"
-        },
-        "external": true,
-        "availability": {
-            "frequency": "Hour",
-            "interval":  1
-        }
-    }
-}
-```
-
-## <a name="websource---copy-activity-type-properties"></a>Proprietà del tipo di attività di copia WebSource
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, fare riferimento all'articolo [Creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e criteri.
-
-Le proprietà disponibili nella sezione typeProperties dell'attività variano invece in base al tipo di attività. Per l'attività di copia variano in base ai tipi di origine e sink.
-
-Quando l'origine nell'attività di copia è di tipo **WebSource**non sono attualmente supportate altre proprietà.
-
 ## <a name="get-index-of-a-table-in-an-html-page"></a>Ottenere l'indice di una tabella in una pagina HTML
 1. Avviare **Excel 2016** e passare alla scheda **Dati**.  
 2. Fare clic su **Nuova query** sulla barra degli strumenti, scegliere **Da altre origini** e fare clic su **Da Web**.
@@ -270,9 +285,8 @@ Quando l'origine nell'attività di copia è di tipo **WebSource**non sono attual
 
 Se si usa Excel 2013, per ottenere l'indice usare [Microsoft Power Query per Excel](https://www.microsoft.com/download/details.aspx?id=39379) . Per informazioni dettagliate, vedere l'articolo [Connettersi a una pagina Web (Power Query)](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) . I passaggi sono simili se si usa [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 
-[!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
-
-[!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
+> [!NOTE]
+> Per eseguire il mapping dal set di dati di origine alle colonne del set di dati sink, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="performance-and-tuning"></a>Ottimizzazione delle prestazioni
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).

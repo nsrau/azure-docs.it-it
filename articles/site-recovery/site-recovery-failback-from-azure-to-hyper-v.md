@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 2/15/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: a1769a522d13926e887e82b8d26b36afb4c80b08
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 845a950f02ba95a100ffedbb07e4d1491b22a2da
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -63,7 +63,7 @@ Dopo il failover dalla posizione primaria alla posizione secondaria, le macchine
 
 4. Se la crittografia dei dati è abilitata per il cloud, in **Chiave di crittografia** selezionare il certificato emesso quando è stata abilitata la crittografia dei dati durante l'installazione del provider nel server VMM.
 5. Avviare il failover. Nella scheda **Processi** è possibile monitorare l’avanzamento del failover.
-6. Se è stata selezionata l'opzione per sincronizzare i dati prima del failover, dopo la sincronizzazione dati iniziale, quando si è pronti ad arrestare le macchine virtuali in Azure, fare clic su **Processi** > <planned failover job name> **Failover completo**. La macchina Azure viene arrestata e le modifiche più recenti vengono trasferite alla macchina virtuale locale, che viene avviata in locale.
+6. Se è stata selezionata l'opzione per sincronizzare i dati prima del failover, dopo la sincronizzazione dati iniziale, quando si è pronti ad arrestare le macchine virtuali in Azure, fare clic su **Processi** nome processo failover pianificato **Failover completo**. La macchina Azure viene arrestata e le modifiche più recenti vengono trasferite alla macchina virtuale locale, che viene avviata in locale.
 7. A questo punto è possibile accedere alla macchina virtuale per verificare che sia disponibile come previsto.
 8. La macchina virtuale è in uno stato di attesa di commit. Fare clic su **Commit** per eseguire il commit del failover.
 9. Per completare il failback fare clic su **Replica inversa** per iniziare a proteggere la macchina virtuale nel sito primario.

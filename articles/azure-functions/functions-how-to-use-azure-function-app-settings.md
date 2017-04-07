@@ -1,5 +1,5 @@
 ---
-title: Configurare le impostazioni dell&quot;app per le funzioni di Azure | Documentazione Microsoft
+title: Configurare le impostazioni dell&quot;app per le funzioni di Azure | Microsoft Docs
 description: Informazioni su come configurare le impostazioni dell&quot;app per le funzioni di Azure.
 services: 
 documentationcenter: .net
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 3c18b1929a78137ff3b53b8e084dc35e0c8dcaac
-ms.openlocfilehash: 478db825a269beeaa9fbb0afef3488fc7d49d024
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: b7334f68e4526b716210b28388afcd0ee6e48940
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 02/15/2017
 
 ## <a name="develop"></a>Sviluppare
 ### <a name="app-service-editor"></a>Editor del servizio app
-L'Editor del servizio app è un editor avanzato, disponibile nel portale, che si può usare per modificare file di configurazione JSON e file del codice nello stesso modo. Quando si sceglie questa opzione, viene aperta una scheda separata del browser con un editor di base. Ciò consente di integrarsi con Github, eseguire il codice e il relativo debug e modificare le impostazioni dell'applicazione per le funzioni.
+L'Editor del servizio app è un editor avanzato, disponibile nel portale, che si può usare per modificare file di configurazione JSON e file del codice nello stesso modo. Quando si sceglie questa opzione, viene aperta una scheda separata del browser con un editor di base. Ciò consente di realizzare l'integrazione con GitHub, eseguire il codice e il relativo debug e modificare le impostazioni dell'applicazione per le funzioni.
 
 ![Editor del servizio app](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
@@ -87,7 +87,7 @@ Dalla pagina Web Kudu è possibile visualizzare e gestire informazioni di sistem
 
 ![Configurare Kudu](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
 
-## <a name="manage-app-service-settings"></a>Gestire: impostazioni del servizio app
+## <a name="manage-app-service-settings"></a>Gestire le impostazioni del servizio app
 È possibile gestire l'app per le funzioni come qualsiasi altra istanza del servizio app. Questa opzione consente di accedere a tutte le impostazioni descritte in precedenza, oltre ad altre impostazioni.  
 
 Per aprire le impostazioni avanzate, fare clic sul collegamento **Impostazioni avanzate**. 
@@ -96,7 +96,7 @@ Per aprire le impostazioni avanzate, fare clic sul collegamento **Impostazioni a
 
 Per informazioni dettagliate su come configurare ogni impostazione del servizio app, vedere [Configurare le impostazioni del servizio app di Azure](../app-service-web/web-sites-configure.md).
 
-## <a name="manage-cors"></a>Gestire: CORS
+## <a name="manage-cors"></a>Gestire CORS
 In genere, per motivi di sicurezza, non sono consentite chiamate agli host (domini) da origini esterne, ad esempio chiamate Ajax da un browser. In caso contrario, è possibile che venga inviato al back-end ed eseguito codice dannoso. L'approccio più sicuro è quello di disattivare tutte le origini di codice, ad eccezione delle origini attendibili. È possibile configurare le origini da cui si accettano chiamate alle funzioni di Azure tramite la condivisione di risorse tra le origini (CORS). Questo servizio consente di elencare i domini origine di JavaScript che possono chiamare funzioni nell'app per le funzioni di Azure. 
 
 1. Per configurare il servizio CORS, fare clic sul collegamento **Configura CORS**. 
@@ -104,7 +104,7 @@ In genere, per motivi di sicurezza, non sono consentite chiamate agli host (domi
 
 ![Configurare CORS per l'app per le funzioni](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
 
-## <a name="manage-authenticationauthorization"></a>Gestire: autenticazione/autorizzazione
+## <a name="manage-authenticationauthorization"></a>Gestire autenticazione/autorizzazione
 Per le funzioni che usano un trigger HTTP, è possibile richiedere l'autenticazione delle chiamate.
 
 1. Per configurare l'autenticazione fare clic sul collegamento **Configura autenticazione**.
@@ -116,7 +116,7 @@ La maggior parte dei provider di autenticazione richiede un ID client o una chia
 
 Per informazioni dettagliate sulla configurazione di specifici provider di autenticazione, vedere [Autenticazione e autorizzazione nel servizio app di Azure](../app-service/app-service-authentication-overview.md).
 
-## <a name="manage-api-definition"></a>Gestire: definizione di un'API
+## <a name="manage-api-definition"></a>Gestire le definizione di un'API
 Consente ai client di usare più facilmente le funzioni attivate da HTTP.
 
 1. Per configurare un'API, fare clic su **Configura metadati dell'API**. 
@@ -128,7 +128,7 @@ Per altre informazioni sulla creazione di definizioni API con Swagger, visitare 
 
 ## <a name="daily-usage-quota"></a>Quota di utilizzo giornaliero
 
-Funzioni di Azure consente di determinare il limite di utilizzo della piattaforma attraverso l'impostazione della quota di utilizzo quotidiano. Quando questa quota viene raggiunta, l'app per le funzioni viene arrestata. In questo caso, può essere riattivata dallo stesso contesto dell'impostazione della quota di utilizzo. L'unità della quota di utilizzo è l'unità di fatturazione: GB-s (gigabyte-secondi). Per altre informazioni sul modello di fatturazione, fare riferimento alla [pagina dei prezzi di Funzioni di Azure](http://azure.microsoft.com/pricing/details/functions/). 
+Funzioni di Azure consente di determinare il limite di utilizzo della piattaforma attraverso l'impostazione della quota di spesa giornaliera. Quando la quota di spesa giornaliera viene raggiunta, l'app per le funzioni viene arrestata. In questo caso può essere riattivata dallo stesso contesto dell'impostazione della quota di spesa giornaliera. L'unità della quota di spesa è l'unità di fatturazione: GB-s (gigabyte-secondi). Per altre informazioni sul modello di fatturazione, fare riferimento alla [pagina dei prezzi di Funzioni di Azure](http://azure.microsoft.com/pricing/details/functions/). 
 
 ![Configurare le dimensioni della memoria per l'app per le funzioni](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-quota.png)
 

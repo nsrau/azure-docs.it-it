@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: e1563db23e687f772eaff2e90ce9853c9d8b87de
 ms.openlocfilehash: f87df28a5a44b7ab3c1d9a48d43c8d1354c48830
+ms.lasthandoff: 11/23/2016
 
 
 ---
@@ -196,10 +197,5 @@ Ecco alcuni passaggi successivi per continuare l'apprendimento e l'esplorazione.
 * Leggere l'articolo [Dieci cose da fare con la macchina virtuale per l'analisi scientifica dei dati](http://aka.ms/dsvmtenthings)
 * Informazioni su come creare sistematicamente soluzioni analitiche end-to-end usando il [processo di analisi scientifica dei dati per i team](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
 * Visitare [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com) per esempi di Machine Learning e di analisi dei dati con Cortana Intelligence Suite. Per questa raccolta è disponibile anche un'icona nel menu **Start** e sul desktop della macchina virtuale.
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

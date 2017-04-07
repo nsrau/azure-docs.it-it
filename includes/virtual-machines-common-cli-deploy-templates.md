@@ -12,7 +12,7 @@
 * [Collegare un disco dati](#attach-a-data-disk)
 
 ## <a name="getting-ready"></a>Preparazione
-Prima di poter usare l'interfaccia della riga di comando di Azure con i gruppi di risorse di Azure, è necessario disporre della versione corretta dell'interfaccia della riga di comando di Azure e di un account Azure. Se non è disponibile l'interfaccia della riga di comando di Azure, è necessario [installarla](../articles/xplat-cli-install.md).
+Prima di poter usare l'interfaccia della riga di comando di Azure con i gruppi di risorse di Azure, è necessario disporre della versione corretta dell'interfaccia della riga di comando di Azure e di un account Azure. Se non è disponibile l'interfaccia della riga di comando di Azure, è necessario [installarla](../articles/cli-install-nodejs.md).
 
 ### <a name="update-your-azure-cli-version-to-090-or-later"></a>Aggiornare la versione dell'interfaccia della riga di comando di Azure alla 0.9.0 o successiva
 Digitare `azure --version` per verificare se è già installata la versione 0.9.0 o una versione successiva.
@@ -36,7 +36,7 @@ Se non si dispone già di una sottoscrizione di Azure, ma si dispone di una sott
 [Accedere all'account Azure in modo interattivo](../articles/xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login) digitando `azure login` e seguendo le istruzioni dell'esperienza interattiva per l'accesso all'account Azure. 
 
 > [!NOTE]
-> Se si dispone di un ID aziendale o dell'istituto di istruzione e si è certi che l'autenticazione a due fattori non è abilitata, è **anche** possibile usare `azure login -u` con l'ID aziendale o dell'istituto di istruzione per accedere *senza* una sessione interattiva. Se non si dispone di un ID aziendale o dell'istituto di istruzione, è possibile [crearne uno dall'account Microsoft personale](../articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per accedere nello stesso modo.
+> Se si dispone di un ID aziendale o dell'istituto di istruzione e si è certi che l'autenticazione a due fattori non è abilitata, è **anche** possibile usare `azure login -u` con l'ID aziendale o dell'istituto di istruzione per accedere *senza* una sessione interattiva. Se non si dispone di un ID aziendale o dell'istituto di istruzione, è possibile [crearne uno dall'account Microsoft personale](../articles/virtual-machines/windows/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per accedere nello stesso modo.
 >
 >
 
@@ -80,7 +80,7 @@ I *modelli di Gestione risorse di Azure*, tuttavia, consentono di distribuire e 
 
 Per altre informazioni sui gruppi di risorse di Azure e su come usarli, vedere [Panoramica di Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md). Se si è interessati alla creazione di modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../articles/resource-group-authoring-templates.md).
 
-## <a name="a-idquick-create-a-vm-in-azureatask-quick-create-a-vm-in-azure"></a><a id="quick-create-a-vm-in-azure"></a>Attività: Creare rapidamente una macchina virtuale in Azure
+## <a id="quick-create-a-vm-in-azure"></a>Attività: Creare rapidamente una macchina virtuale in Azure
 A volte si sa quale immagine è necessaria e occorre una macchina virtuale di tale immagine al momento e non è rilevante eccessivamente l'infrastruttura (forse potrebbe essere necessario testare un elemento in una nuova macchina virtuale). Ovvero quando si desidera utilizzare il comando `azure vm quick-create` e passare gli argomenti necessari per creare una macchina virtuale e la relativa infrastruttura.
 
 Innanzitutto, creare il gruppo di risorse.
@@ -100,7 +100,7 @@ data:
 info:    group create command OK
 ```
 
-In secondo luogo, è necessaria un'immagine. Per trovare un'immagine con l'interfaccia della riga di comando di Azure, vedere [Navigating and selecting Azure virtual machine images with PowerShell and the Azure CLI](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Esplorazione e selezione di immagini delle macchine virtuali di Azure con PowerShell e l'interfaccia della riga di comando di Azure). In questo articolo è riportato un breve elenco delle immagini più diffuse. Verrà creata un'immagine stabile di CoreOS per questa creazione rapida.
+In secondo luogo, è necessaria un'immagine. Per trovare un'immagine con l'interfaccia della riga di comando di Azure, vedere [Navigating and selecting Azure virtual machine images with PowerShell and the Azure CLI](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Esplorazione e selezione di immagini delle macchine virtuali di Azure con PowerShell e l'interfaccia della riga di comando di Azure). In questo articolo è riportato un breve elenco delle immagini più diffuse. Verrà creata un'immagine stabile di CoreOS per questa creazione rapida.
 
 > [!NOTE]
 > Per ComputeImageVersion, è anche possibile specificare semplicemente 'latest' come parametro nel linguaggio di modello e nell'interfaccia della riga di comando di Azure. In questo modo sarà possibile usare sempre la versione dell'immagine più recente e con l'applicazione di tutte le patch necessarie senza dover modificare script o modelli, come illustrato di seguito.
@@ -214,7 +214,7 @@ info:    vm quick-create command OK
 
 La nuova macchina virtuale è stata completata.
 
-## <a name="a-iddeploy-a-vm-in-azure-from-a-templateatask-deploy-a-vm-in-azure-from-a-template"></a><a id="deploy-a-vm-in-azure-from-a-template"></a>Attività: Distribuire una macchina virtuale in Azure da un modello
+## <a id="deploy-a-vm-in-azure-from-a-template"></a>Attività: Distribuire una macchina virtuale in Azure da un modello
 Per distribuire una nuova macchina virtuale di Azure da un modello usando l'interfaccia della riga di comando di Azure, seguire le istruzioni riportate nelle sezioni seguenti. Questo modello consente di creare una singola macchina virtuale in una nuova rete virtuale con una sola subnet e, a differenza di `azure vm quick-create`, consente di descrivere esattamente cosa si desidera e ripeterlo senza errori. Di seguito ciò che viene creato da questo modello:
 
 ![](./media/virtual-machines-common-cli-deploy-templates/new-vm.png)
@@ -232,7 +232,7 @@ In questo caso, il modello riportato di seguito chiederà:
 * Un nome di dominio che potrà essere usato dall'esterno.
 * Un numero di versione di Ubuntu Server (verrà accettato un solo numero dall'interno di un elenco).
 
-Sono disponibili altre informazioni sui [requisiti relativi a nome utente e password](../articles/virtual-machines/virtual-machines-linux-faq.md#what-are-the-username-requirements-when-creating-a-vm).
+Sono disponibili altre informazioni sui [requisiti relativi a nome utente e password](../articles/virtual-machines/linux/faq.md#what-are-the-username-requirements-when-creating-a-vm).
 
 Una volta definiti questi valori, è possibile creare un gruppo relativo e distribuire il modello nella sottoscrizione di Azure.
 
@@ -483,7 +483,7 @@ info:    group deployment create command OK
 ```
 
 
-## <a name="a-idcreate-a-custom-vm-imageatask-create-a-custom-vm-image"></a><a id="create-a-custom-vm-image"></a>Attività: Creare un'immagine di macchina virtuale personalizzata
+## <a id="create-a-custom-vm-image"></a>Attività: Creare un'immagine di macchina virtuale personalizzata
 Nelle sezioni precedenti è stato illustrato l'utilizzo di base dei modelli. È quindi possibile usare istruzioni simili per creare una macchina virtuale personalizzata da un file VHD in Azure usando un modello tramite l'interfaccia della riga di comando di Azure. La differenza è che questo modello consente di creare una singola macchina virtuale da un disco rigido virtuale (VHD) specificato.
 
 ### <a name="step-1-examine-the-json-file-for-the-template"></a>Passaggio 1: esaminare il file JSON per il modello
@@ -677,9 +677,9 @@ Anche in questo caso, è necessario trovare i valori da immettere per i parametr
 ### <a name="step-2-obtain-the-vhd"></a>Passaggio 2: ottenere il disco rigido virtuale
 Ovviamente, è necessario un file VHD per questa operazione. È possibile usarne uno già presente in Azure o caricarne uno.
 
-Per una macchina virtuale basata su Windows, vedere [Creazione e caricamento di un disco rigido virtuale con Windows Server in Azure](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Per una macchina virtuale basata su Windows, vedere [Creazione e caricamento di un disco rigido virtuale con Windows Server in Azure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-Per una macchina virtuale basata su Linux, vedere [Creazione e caricamento di un disco rigido virtuale che contiene il sistema operativo Linux](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Per una macchina virtuale basata su Linux, vedere [Creazione e caricamento di un disco rigido virtuale che contiene il sistema operativo Linux](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ### <a name="step-3-create-the-virtual-machine-by-using-the-template"></a>Passaggio 3: Creare la macchina virtuale usando il modello
 A questo punto è possibile creare una nuova macchina virtuale in base al file VHD. Creare un gruppo in cui eseguire la distribuzione, usando `azure group create <location>`:
@@ -751,7 +751,7 @@ data:    nicName                        String        myNIC
 info:    group deployment create command OK
 ```
 
-## <a name="a-iddeploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balanceratask-deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a><a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>Attività: Distribuire un'applicazione per più macchine virtuali che usa una rete virtuale e un servizio di bilanciamento del carico esterno
+## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>Attività: Distribuire un'applicazione per più macchine virtuali che usa una rete virtuale e un servizio di bilanciamento del carico esterno
 Questo modello consente di creare due macchine virtuali in un servizio di bilanciamento del carico e configurare una regola per il bilanciamento del carico sulla porta 80. Questo modello distribuisce anche un account di archiviazione, una rete virtuale, l'indirizzo IP pubblico, il set di disponibilità e le interfacce di rete.
 
 ![](./media/virtual-machines-common-cli-deploy-templates/multivmextlb.png)
@@ -759,7 +759,7 @@ Questo modello consente di creare due macchine virtuali in un servizio di bilanc
 Seguire queste procedure per distribuire un'applicazione per più macchine virtuali che usa una rete virtuale e un servizio di bilanciamento del carico usando un modello di Gestione risorse nel repository dei modelli di GitHub tramite i comandi di Azure PowerShell.
 
 ### <a name="step-1-examine-the-json-file-for-the-template"></a>Passaggio 1: esaminare il file JSON per il modello
-Di seguito il contenuto del file JSON per il modello. Se si desidera che la versione più recente, si trova [nel repository Github per i modelli](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). In questo argomento viene usato lo switch `--template-uri` per passare la chiamata del modello, ma è anche possibile usare lo switch `--template-file` per passare una versione locale.
+Di seguito il contenuto del file JSON per il modello. Se si vuole la versione più recente, vedere il [repository di GitHub per i modelli](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). In questo argomento viene usato lo switch `--template-uri` per passare la chiamata del modello, ma è anche possibile usare lo switch `--template-file` per passare una versione locale.
 
 ```json
 {
@@ -1163,7 +1163,7 @@ info:    group deployment create command OK
 
 Si noti che questo modello distribuisce un'immagine di Windows Server. Questa immagine potrebbe essere tuttavia sostituita con qualsiasi immagine Linux. Si vuole creare un cluster Docker con più swarm manager? Per eseguire questa operazione, consultare [questa pagina](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
 
-## <a name="a-idremove-a-resource-groupatask-remove-a-resource-group"></a><a id="remove-a-resource-group"></a>Attività: Rimuovere un gruppo di risorse
+## <a id="remove-a-resource-group"></a>Attività: Rimuovere un gruppo di risorse
 Tenere presente che in un gruppo di risorse è possibile eseguire una nuova distribuzione, tuttavia, se il gruppo di risorse non è più necessario, è possibile eliminarlo usando il comando `azure group delete <group name>`.
 
 ```azurecli
@@ -1174,7 +1174,7 @@ Delete resource group myResourceGroup? [y/n] y
 info:    group delete command OK
 ```
 
-## <a name="a-idshow-the-log-for-a-resource-group-deploymentatask-show-the-log-for-a-resource-group-deployment"></a><a id="show-the-log-for-a-resource-group-deployment"></a>Attività: Visualizzare il log per una distribuzione nel gruppo di risorse
+## <a id="show-the-log-for-a-resource-group-deployment"></a>Attività: Visualizzare il log per una distribuzione nel gruppo di risorse
 Questa operazione è piuttosto comune durante la creazione o l'utilizzo di modelli. Il comando per visualizzare i log di distribuzione per un gruppo è `azure group log show <groupname>`e offre numerose informazioni utili per comprendere il motivo per cui si è verificato, o non si è verificato, un evento. Per altre informazioni sulla risoluzione dei problemi relativi alle distribuzioni o ad altri errori, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](../articles/azure-resource-manager/resource-manager-common-deployment-errors.md).
 
 Per errori specifici  ad esempio, è possibile utilizzare strumenti come **jq** per eseguire query in modo più preciso, ad esempio individuare i singoli errori che è necessario correggere. L'esempio seguente usa **jq** per analizzare un log di distribuzione per **lbgroup**, per trovare eventuali errori.
@@ -1191,7 +1191,7 @@ azure group log show lbgroup -l --json | jq '.[] | select(.status.value == "Fail
 }
 ```
 
-## <a name="a-iddisplay-information-about-a-virtual-machineatask-display-information-about-a-virtual-machine"></a><a id="display-information-about-a-virtual-machine"></a>Attività: Visualizzare informazioni relative a una macchina virtuale
+## <a id="display-information-about-a-virtual-machine"></a>Attività: Visualizzare informazioni relative a una macchina virtuale
 Per visualizzare informazioni su VM specifiche nel proprio gruppo di risorse, usare il comando `azure vm show <groupname> <vmname>` . Se nel gruppo sono presenti più macchine virtuali, potrebbe essere prima necessario elencare le macchine virtuali nel gruppo usando il comando `azure vm list <groupname>`.
 
 ```azurecli
@@ -1263,10 +1263,10 @@ info:    vm show command OK
 >
 >
 
-## <a name="a-idlog-on-to-a-linux-based-virtual-machineatask-log-on-to-a-linux-based-virtual-machine"></a><a id="log-on-to-a-linux-based-virtual-machine"></a>Attività: Accedere a una macchina virtuale basata su Linux
-In genere macchine Linux sono connesse tramite SSH. Per altre informazioni, vedere [How to use SSH with Linux on Azure](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Come usare SSH con Linux in Azure).
+## <a id="log-on-to-a-linux-based-virtual-machine"></a>Attività: Accedere a una macchina virtuale basata su Linux
+In genere macchine Linux sono connesse tramite SSH. Per altre informazioni, vedere [How to use SSH with Linux on Azure](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Come usare SSH con Linux in Azure).
 
-## <a name="a-idstop-a-virtual-machineatask-stop-a-vm"></a><a id="stop-a-virtual-machine"></a>Attività: Arrestare una macchina virtuale
+## <a id="stop-a-virtual-machine"></a>Attività: Arrestare una macchina virtuale
 Eseguire questo comando:
 
 ```azurecli
@@ -1278,14 +1278,14 @@ azure vm stop <group name> <virtual machine name>
 >
 >
 
-## <a name="a-idstart-a-virtual-machineatask-start-a-vm"></a><a id="start-a-virtual-machine"></a>Attività: Avviare una macchina virtuale
+## <a id="start-a-virtual-machine"></a>Attività: Avviare una macchina virtuale
 Eseguire questo comando:
 
 ```azurecli
 azure vm start <group name> <virtual machine name>
 ```
 
-## <a name="a-idattach-a-data-diskatask-attach-a-data-disk"></a><a id="attach-a-data-disk"></a>Attività: Collegare un disco dati
+## <a id="attach-a-data-disk"></a>Attività: Collegare un disco dati
 È inoltre necessario decidere se collegare un nuovo disco o uno che contiene già dati. Per un nuovo disco, il comando permette di creare il file con estensione VHD e contemporaneamente di collegarlo.
 
 Per collegare un nuovo disco, eseguire questo comando:
@@ -1303,11 +1303,6 @@ azure vm disk attach <resource-group> <vm-name> [vhd-url]
 Quindi è necessario montare il disco, come si farebbe normalmente in Linux.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altri esempi che mostrano come usare l'interfaccia della riga di comando di Azure nella modalità **Gestione risorse di Azure** , vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure.](../articles/xplat-cli-azure-resource-manager.md). Per altre informazioni sulle risorse di Azure e i relativi concetti, vedere [Panoramica di Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
+Per altri esempi che mostrano come usare l'interfaccia della riga di comando di Azure nella modalità **Gestione risorse di Azure** , vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Gestione risorse di Azure](../articles/xplat-cli-azure-resource-manager.md). Per altre informazioni sulle risorse di Azure e i relativi concetti, vedere [Panoramica di Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
 
-Per altri modelli disponibili, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/) e [Framework applicazioni usando i modelli](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-<!--HONumber=Jan17_HO4-->
-
-
+Per altri modelli disponibili, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/) e [Framework applicazioni usando i modelli](../articles/virtual-machines/linux/app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

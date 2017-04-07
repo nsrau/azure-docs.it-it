@@ -1,6 +1,6 @@
 ---
 title: Creare un processo di importazione per Importazione/Esportazione di Azure | Documentazione Microsoft
-description: Informazioni su come creare un&quot;importazione per il servizio di Importazione/Esportazione di Microsoft Azure
+description: Informazioni su come creare un&quot;importazione per il servizio Importazione/Esportazione di Microsoft Azure.
 author: muralikk
 manager: syadav
 editor: syadav
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 50fbd0d214c825137c3ac6873be27b9d2d53cee1
-ms.openlocfilehash: 84ba5256c3ee485af9a1a6bccc0571f93c9c0ab7
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 3a0ac3de9828903b7ca66c15e5422d1228e2a731
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/16/2017
 
 La creazione di un processo di importazione per il servizio di Importazione/Esportazione di Microsoft Azure utilizzando l'API REST prevede i passaggi seguenti:
 
--   Preparazione delle unità con lo strumento di Importazione/Esportazione di Azure.
+-   Preparazione delle unità con lo strumento Importazione/Esportazione di Azure.
 
 -   Ottenimento della posizione a cui si desidera spedire l'unità.
 
@@ -49,9 +49,9 @@ La preparazione dell'unità comporta:
 
 -   Identificazione dei BLOB di destinazione in Archiviazione di Azure.
 
--   Uso dello strumento di Importazione/Esportazione di Azure per copiare i dati in uno o più dischi rigidi.
+-   Uso dello strumento Importazione/Esportazione di Azure per copiare i dati in uno o più dischi rigidi.
 
- Lo strumento di Importazione/Esportazione di Azure genererà inoltre un file manifesto per ciascuna unità preparata. Contiene un file manifesto:
+ Lo strumento Importazione/Esportazione di Azure genererà anche un file manifesto per ciascuna unità preparata. Contiene un file manifesto:
 
 -   Enumerazione di tutti i file destinati al caricamento e il mapping tra questi file sui BLOB.
 
@@ -61,7 +61,7 @@ La preparazione dell'unità comporta:
 
 -   Elenco delle azioni da intraprendere se un BLOB che viene caricato ha lo stesso nome di un BLOB esistente nel contenitore. Le opzioni possibili sono: a) sovrascrivere il BLOB con il file, b) mantenere il BLOB esistente e ignorare il caricamento del file, c) aggiungere un suffisso al nome in modo che non sia in conflitto con altri file.
 
-## <a name="obtaining-your-shipping-location"></a>Acquisizione della posizione di spedizione
+## <a name="obtaining-your-shipping-location"></a>Acquisizione della località di spedizione
 
 Prima di creare un processo di importazione, è necessario ottenere il nome e l'indirizzo di una posizione di spedizione chiamando l'operazione [List Locations](/rest/api/storageimportexport/listlocations) (Elenca posizioni). `List Locations` restituirà un elenco di posizione con gli indirizzi postali. È possibile selezionare una posizione dall'elenco restituito e spedire i dischi rigidi a tale indirizzo. È anche possibile usare l'operazione `Get Location` per ottenere direttamente l'indirizzo di spedizione di una posizione specifica.
 
@@ -71,7 +71,7 @@ Prima di creare un processo di importazione, è necessario ottenere il nome e l'
 
 -   Recuperare la posizione disponibile per elaborare questo account di archiviazione chiamando l'operazione `Get Location`.
 
--   Se la proprietà `AlternateLocations` della posizione contiene la posizione stessa, è possibile usare questa posizione. In caso contrario, chiamare di nuovo l'operazione `Get Location` con una delle posizione alternative. La posizione originale potrebbe essere chiusa temporaneamente per manutenzione.
+-   Se la proprietà `AlternateLocations` della posizione contiene la posizione stessa, è possibile usare questa posizione. In caso contrario, chiamare di nuovo l'operazione `Get Location` con una delle posizione alternative. La località originale potrebbe essere chiusa temporaneamente per manutenzione.
 
 ## <a name="creating-the-import-job"></a>Creazione del processo di importazione
 Per creare il processo di importazione, chiamare l'operazione [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) (Inserisci processo). Sarà necessario specificare le informazioni seguenti:
@@ -94,7 +94,7 @@ Per creare il processo di importazione, chiamare l'operazione [Put Job](/rest/ap
 
     -   Il percorso relativo del file manifesto nel disco rigido
 
-    -   Hash MD5 del file manifesto codificato in base&16;
+    -   Hash MD5 del file manifesto codificato in base 16
 
 ## <a name="shipping-your-drives"></a>Spedizione delle unità
 È necessario spedire le unità all'indirizzo ottenuto nel passaggio precedente e fornire il numero di tracciabilità del pacchetto nel servizio di Importazione/Esportazione.
@@ -105,6 +105,7 @@ Per creare il processo di importazione, chiamare l'operazione [Put Job](/rest/ap
 ## <a name="updating-the-import-job-with-your-shipping-information"></a>Aggiornamento del processo di importazione con le informazioni sulla spedizione
 Dopo avere ottenuto il numero di tracciabilità, chiamare l'operazione [Update Job Properties](/api/storageimportexport/jobs#Jobs_Update) (Aggiorna proprietà processo) per aggiornare il nome del vettore, il numero di tracciabilità per il processo e il numero di account del vettore per la spedizione per reso. Facoltativamente è possibile specificare il numero di unità e la data di spedizione.
 
-## <a name="see-also"></a>Vedere anche
-[Uso dell'API REST del servizio Importazione/Esportazione](storage-import-export-using-the-rest-api.md)
+## <a name="next-steps"></a>Passaggi successivi
+
+* [Uso dell'API REST del servizio Importazione/Esportazione](storage-import-export-using-the-rest-api.md)
 

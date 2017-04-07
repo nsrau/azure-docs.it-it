@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev;garye
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: b6751bf2367ca849f35c81a7857b4f85d75ef6a2
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -57,10 +58,10 @@ Per esplorare e modificare un set di dati, i dati devono essere scaricati dall'o
 
 A questo punto si è pronti per esplorare i dati e generare le funzionalità di questo set di dati.
 
-## <a name="a-nameblob-featuregenafeature-generation"></a><a name="blob-featuregen"></a>Creazione di funzionalità
+## <a name="blob-featuregen"></a>Creazione di funzionalità
 Le due sezioni successive illustrano come generare caratteristiche relative alle categorie con i valori dell'indicatore e caratteristiche per la creazione di contenitori mediante gli script di Python.
 
-### <a name="a-nameblob-countfeatureaindicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>Valore dell'indicatore basato sulla creazione di funzionalità
+### <a name="blob-countfeature"></a>Valore dell'indicatore basato sulla creazione di funzionalità
 Le funzionalità relative alle categorie possono essere create come indicato di seguito:
 
 1. Controllare la distribuzione della colonna relativa alla categoria:
@@ -79,7 +80,7 @@ Le funzionalità relative alle categorie possono essere create come indicato di 
         #Remove the original column rate_code in df1_with_dummy
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
-### <a name="a-nameblob-binningfeatureabinning-feature-generation"></a><a name="blob-binningfeature"></a>Creazione di contenitori per la creazione di funzionalità
+### <a name="blob-binningfeature"></a>Creazione di contenitori per la creazione di funzionalità
 Per creare funzionalità in contenitori, procedere come indicato di seguito:
 
 1. Aggiungere una sequenza di colonne per suddividere una colonna numerica
@@ -93,7 +94,7 @@ Per creare funzionalità in contenitori, procedere come indicato di seguito:
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)
 
-## <a name="a-namesql-featuregenawriting-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>Scrittura dei dati nel BLOB di Azure e utilizzo in Azure Machine Learning
+## <a name="sql-featuregen"></a>Scrittura dei dati nel BLOB di Azure e utilizzo in Azure Machine Learning
 Dopo avere esaminato i dati e creato le funzionalità necessarie, è possibile caricare i dati (campionati o completi) in un BLOB di Azure e utilizzarli in Azure Machine Learning attenendosi alla procedura seguente. Tenere presente che le funzionalità aggiuntive possono essere create anche in Azure Machine Learning Studio.
 
 1. Scrivere il frame di dati in file locali
@@ -123,10 +124,5 @@ Dopo avere esaminato i dati e creato le funzionalità necessarie, è possibile c
 3. Ora i dati possono essere letti dal BLOB utilizzando il modulo [Import Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) di Azure Machine Learning, come illustrato nella schermata riportata di seguito:
 
 ![lettore BLOB](./media/machine-learning-data-science-process-data-blob/reader_blob.png)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -16,15 +16,15 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 441caf3cc9a3b9074bd263f4a4c45763967fa580
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: c2c46637ccccd01c1c3056d6a25ef605cfd68f2d
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="getting-started-with-password-management"></a>Introduzione alla gestione delle password
 > [!IMPORTANT]
-> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso** , [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso** , [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -33,7 +33,7 @@ Consentire agli utenti di gestire le proprie password di Azure Active Directory 
 * [**Suggerimenti principali dai clienti da leggere prima di iniziare**](#top-tips-from-our-customers-to-read-before-you-begin)
  * [**SUGGERIMENTO PRINCIPALE - ESPLORAZIONE DELLA DOCUMENTAZIONE**: usare il sommario e la funzionalità Trova del browser per trovare le risposte](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
  * [**Suggerimento 1 - LICENZE**: assicurarsi di comprendere i requisiti relativi alle licenze](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
- * [**Suggerimento 2 - TEST**: eseguire i test con un utente finale, non un amministratore, ed eseguire progetti pilota con un set ridotto di utenti](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+ * [**Suggerimento 2 - TEST**: eseguire i test con un utente finale, non un amministratore, ed eseguire progetti pilota con un set ridotto di utenti](#tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
  * [**Suggerimento 3 - DISTRIBUZIONE**: popolazione anticipata dei dati per gli utenti, in modo che non sia necessario eseguire la registrazione](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
  * [**Suggerimento 4 - DISTRIBUZIONE** usare la reimpostazione della password per evitare di dovere comunicare password temporanee](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
  * [**Suggerimento 5 - WRITEBACK**: esaminare il registro eventi dell'applicazione nel computer di AAD Connect per risolvere i problemi del writeback delle password](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
@@ -59,7 +59,7 @@ Ecco alcuni suggerimenti principali che sono risultati utili per i clienti che d
 
 * [**SUGGERIMENTO PRINCIPALE - ESPLORAZIONE DELLA DOCUMENTAZIONE**: usare il sommario e la funzionalità Trova del browser per trovare le risposte](#top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers)
 * [**Suggerimento 1 - LICENZE**: assicurarsi di comprendere i requisiti relativi alle licenze](#tip-1-licensing---make-sure-you-understand-the-licensing-requirements)
-* [**Suggerimento 2 - TEST**: eseguire i test con un utente finale, non un amministratore, ed eseguire progetti pilota con un set ridotto di utenti](#tip-2-testing---test-with-a-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
+* [**Suggerimento 2 - TEST**: eseguire i test con un utente finale, non un amministratore, ed eseguire progetti pilota con un set ridotto di utenti](#tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users)
 * [**Suggerimento 3 - DISTRIBUZIONE**: popolazione anticipata dei dati per gli utenti, in modo che non sia necessario eseguire la registrazione](#tip-3-deployment---pre-populate-data-for-your-users-so-they-dont-have-to-register)
 * [**Suggerimento 4 - DISTRIBUZIONE** usare la reimpostazione della password per evitare di dovere comunicare password temporanee](#tip-4-deployment---use-password-reset-to-obviate-the-need-to-communicate-temporary-passwords)
 * [**Suggerimento 5 - WRITEBACK**: esaminare il registro eventi dell'applicazione nel computer di AAD Connect per risolvere i problemi del writeback delle password](#tip-5-writeback---look-at-the-application-event-log-on-your-aad-connect-machine-to-troubleshoot-password-writeback)
@@ -78,9 +78,9 @@ Vedere il sommario seguente:
 Per consentire il funzionamento della reimpostazione della password di Azure AD, è necessario che nell'organizzazione sia presente almeno una licenza assegnata. Non vengono applicate licenze per singoli utenti all'esperienza di reimpostazione della password. Se tuttavia si usa la funzionalità senza licenze assegnate ad alcun utente, non si risulterà conformi al Contratto di licenza Microsoft e sarà necessario assegnare licenze a tali utenti.
 
 Ecco alcuni documenti utili per ottenere informazioni sulle licenze necessarie per la reimpostazione della password.
-* [Informazioni generali sulle licenze per la reimpostazione della password]()
-* [Informazioni sulle licenze per la reimpostazione della password specifiche per le singole funzionalità]()
-* [Scenari supportati per il writeback delle password]()
+* [Informazioni generali sulle licenze per la reimpostazione della password](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-customize#what-customization-options-are-available)
+* [Informazioni sulle licenze per la reimpostazione della password specifiche per le singole funzionalità](https://docs.microsoft.com/azure/active-directory/active-directory-passwords#pricing-and-availability)
+* [Scenari supportati per il writeback delle password](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#scenarios-supported-for-password-writeback)
 
 ### <a name="tip-2-testing---test-with-an-end-user-not-an-administrator-and-pilot-with-a-small-set-of-users"></a>Suggerimento 2 - TEST: eseguire i test con un utente finale, non un amministratore, ed eseguire progetti pilota con un set ridotto di utenti
 Quando si esegue il test con un amministratore, viene applicato il criterio di reimpostazione della password dell'amministratore, definito di seguito.  NON verranno quindi visualizzati i risultati previsti del criterio configurato per gli utenti finali.
@@ -190,14 +190,14 @@ Prima di poter abilitare e usare la reimpostazione delle password self-service, 
 * Creare un tenant di AAD. Per altre informazioni, vedere [Introduzione ad Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/)
 * Ottenere una sottoscrizione di Azure. Per altre informazioni, vedere [Che cos'è un tenant di Azure AD?](active-directory-administer.md#what-is-an-azure-ad-tenant).
 * Associare il tenant di AAD alla sottoscrizione di Azure. Per altre informazioni, vedere [Associazione delle sottoscrizioni di Azure ad Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx).
-* Eseguire l'aggiornamento ad Azure AD Premium o Basic oppure usare una licenza di Office&365; a pagamento. Per altre informazioni, vedere [Edizioni di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+* Eseguire l'aggiornamento ad Azure AD Premium o Basic oppure usare una licenza di Office 365 a pagamento. Per altre informazioni, vedere [Edizioni di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
   > [!NOTE]
-  > Per abilitare la reimpostazione delle password self-service per gli utenti del cloud, è necessario eseguire l'aggiornamento ad Azure AD Premium o ad Azure AD Basic oppure usare una licenza di Office&365; a pagamento.  Per abilitare la reimpostazione delle password self-service per gli utenti locali, è necessario eseguire l'aggiornamento ad Azure AD Premium. Per altre informazioni, vedere [Edizioni di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Queste informazioni includono istruzioni dettagliate su come effettuare l'iscrizione ad Azure AD Premium o Basic, come attivare il piano di licenze e attivare l'accesso ad AD Azure e come assegnare l'accesso agli account amministratore e utente.
+  > Per abilitare la reimpostazione delle password self-service per gli utenti del cloud, è necessario eseguire l'aggiornamento ad Azure AD Premium o ad Azure AD Basic oppure usare una licenza di Office 365 a pagamento.  Per abilitare la reimpostazione delle password self-service per gli utenti locali, è necessario eseguire l'aggiornamento ad Azure AD Premium. Per altre informazioni, vedere [Edizioni di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Queste informazioni includono istruzioni dettagliate su come effettuare l'iscrizione ad Azure AD Premium o Basic, come attivare il piano di licenze e attivare l'accesso ad AD Azure e come assegnare l'accesso agli account amministratore e utente.
   >
   >
 * Creare almeno un account amministratore e un account utente nella directory di AAD.
-* Assegnare una licenza di AAD Premium o Basic oppure una licenza di Office&365; a pagamento agli account amministratore e utente creati.
+* Assegnare una licenza di AAD Premium o Basic oppure una licenza di Office 365 a pagamento agli account amministratore e utente creati.
 
 ### <a name="step-1-configure-password-reset-policy"></a>Passaggio 1: Configurare i criteri di reimpostazione delle password
 Per configurare criteri di reimpostazione della password utente, completare i passaggi seguenti:
@@ -310,6 +310,7 @@ Questa sezione illustra come configurazione la reimpostazione delle password per
 Per poter abilitare e usare il writeback delle password, verificare che vengano soddisfatti i prerequisiti seguenti:
 
 * È necessario avere un tenant di Azure AD con Azure AD Premium abilitato.  Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
+* Per il funzionamento del writeback delle password, si deve connettere Azure AD Connect all'emulatore PDC (controller di dominio primario).  Se necessario, è possibile configurare Azure AD Connect per l'uso di un controller di dominio primario facendo clic con il pulsante destro del mouse sulle **proprietà** del connettore di sincronizzazione di Active Directory e quindi scegliendo **configure directory partitions** (configura partizioni di directory). Cercare quindi la sezione **domain controller connection settings** (impostazioni di connessione controller di dominio) e selezionare la casella **only use preferred domain controllers** (usa solo controller di dominio preferiti).  Si noti che se il controller di dominio preferito non è un emulatore PDC, Azure AD Connect continuerà a rivolgersi al controller di dominio primario per il writeback delle password.
 * Nel tenant deve essere stata configurata e abilitata la reimpostazione delle password.  Per altre informazioni, vedere [Consentire agli utenti di reimpostare le password di Azure AD](#enable-users-to-reset-their-azure-ad-passwords)
 * È necessario avere almeno un account amministratore e un account utente test con una licenza Azure AD Premium da usare per testare questa funzionalità.  Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
 
@@ -374,7 +375,7 @@ Dopo aver scaricato lo strumento Azure AD Connect, è possibile abilitare il wri
 #### <a name="to-enable-password-writeback-using-windows-powershell"></a>Per abilitare il writeback delle password con Windows PowerShell
 1. Nel **computer in cui è installato Directory Sync** aprire una nuova **finestra di Windows PowerShell con privilegi elevati**.
 2. Se il modulo non è già stato caricato, immettere il comando `import-module ADSync` per caricare i cmdlet di Azure AD Connect nella sessione attuale.
-3. Ottenere l'elenco dei connettori di Azure AD nel sistema eseguendo il cmdlet `Get-ADSyncConnector` e archiviando i risultati in `$aadConnectorName``$connectors = Get-ADSyncConnector|where-object {$\_.name -like "\*AAD"}`.
+3. Ottenere l'elenco dei connettori di Azure AD nel sistema eseguendo il cmdlet `Get-ADSyncConnector` e archiviando i risultati in `$aadConnectorName``$aadConnectorName = Get-ADSyncConnector|where-object {$_.name -like "*AAD"}`.
 4. Ottenere lo stato corrente del writeback per il connettore corrente eseguendo il cmdlet seguente: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`.
 5. Abilitare il writeback delle password eseguendo il cmdlet: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`.
 
@@ -398,9 +399,9 @@ Dopo avere abilitato il writeback delle password, è necessario assicurarsi che 
 
 #### <a name="why-do-i-need-to-do-this"></a>Perché è necessario eseguire questa operazione?
 
-Affinché il writeback delle password funzioni correttamente, il computer che esegue Azure AD Connect deve essere in grado di stabilire connessioni HTTPS in uscita verso **.servicebus.windows.net* e l'indirizzo IP specifico usato da Azure, come definito nell'[elenco intervalli IP del data center di Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+Per il funzionamento corretto del writeback delle password, il computer che esegue Azure AD Connect deve potere comunicare con il servizio di reimpostazione della password e con il bus di servizio di Azure.
 
-Per la versione **1.1.443.0** (più recente) e le versioni successive dello strumento Azure AD Connect:
+Per la versione **1.1.443.0** e le versioni successive dello strumento Azure AD Connect:
 
 - La versione più recente dello strumento Azure AD Connect dovrà disporre dell'accesso **HTTPS in uscita** a:
     - *passwordreset.microsoftonline.com*
@@ -420,7 +421,7 @@ Per le versioni da **1.0.8667.0** a **1.1.380.0** dello strumento Azure AD Conne
         - In questa configurazione, affinché il writeback delle password continui a funzionare, è necessario assicurarsi che le appliance di rete vengano aggiornate settimanalmente con gli indirizzi IP più recenti dall'elenco di intervalli IP dei data center di Microsoft Azure. Questi intervalli IP sono disponibili sotto forma di file XML che viene aggiornato ogni mercoledì (orario del Pacifico) e diventa effettivo il lunedì successivo (orario del Pacifico).
     - Procedura:
         - Consentire tutte le connessioni HTTPS in uscita verso *.servicebus.windows.net
-        - Consentire tutte le connessioni HTTPS in uscita verso tutti gli indirizzi IP nell'elenco di intervalli IP dei data center di Microsoft Azure e mantenere la configurazione aggiornata con frequenza settimanale.
+        - Consentire tutte le connessioni HTTPS in uscita verso tutti gli indirizzi IP nell'elenco di intervalli IP dei data center di Microsoft Azure e mantenere la configurazione aggiornata con frequenza settimanale. L'elenco è disponibile [qui](https://www.microsoft.com/download/details.aspx?id=41653) per il download.
 
 > [!NOTE]
 > Se è stato configurato il writeback delle password seguendo le istruzioni precedenti e non vengono visualizzati errori nel log eventi di Azure AD Connect, ma si ricevono errori di connettività durante il test, il problema potrebbe essere legato a un'appliance di rete nell'ambiente in uso che blocca le connessioni HTTPS agli indirizzi IP. Ad esempio, se viene consentita una connessione a *https://*.servicebus.windows.net*, potrebbe essere bloccata un'altra connessione a un indirizzo IP specifico all'interno dell'intervallo. Per risolvere questo problema, è necessario configurare l'ambiente di rete per consentire tutte le connessioni HTTPS in uscita sulla porta 443 verso qualsiasi indirizzo IP o URL (Opzione 1 sopra) o consultare il team responsabile della rete per consentire le connessioni HTTPS verso indirizzi IP specifici (Opzione 2 sopra) in modo esplicito.
@@ -435,7 +436,7 @@ Per le versioni da **1.0.8667.0** a **1.1.380.0** dello strumento Azure AD Conne
 
 Dopo aver configurato le appliance di rete, riavviare il computer che esegue lo strumento Azure AD Connect.
 
-#### <a name="idle-connections-on-azure-ad-connect-114430-and-up"></a>Connessioni inattive in Azure AD (versione&1;.1.443.0 e successive)
+#### <a name="idle-connections-on-azure-ad-connect-114430-and-up"></a>Connessioni inattive in Azure AD (versione 1.1.443.0 e successive)
 Lo strumento Azure AD Connect invierà ping/keep-alive periodici agli endpoint di ServiceBus per assicurarsi che le connessioni rimangano attive. Nel caso lo strumento rilevi che vengono interrotte troppe connessioni, aumenterà automaticamente la frequenza dei ping all'endpoint. L'intervallo di ping più breve che può essere impostato è di 1 ping ogni 60 secondi, tuttavia, **è caldamente consigliato che i proxy/firewall consentano la persistenza delle connessioni inattive per almeno 2-3 minuti**. \*Per le versioni precedenti, è consigliata una persistenza di 4 minuti o più.
 
 ### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>Passaggio 4: Impostare le autorizzazioni di Active Directory appropriate
@@ -494,7 +495,7 @@ Dopo aver abilitato il writeback delle password, è possibile verificarne il fun
 ## <a name="next-steps"></a>Passaggi successivi
 Di seguito vengono forniti collegamenti a tutte le pagine della documentazione relative alla reimpostazione della password in Azure AD:
 
-* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+* **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**Funzionamento**](active-directory-passwords-how-it-works.md): informazioni sui sei diversi componenti del servizio e sulle relative funzioni
 * [**Personalizzazione**](active-directory-passwords-customize.md): informazioni su come personalizzare l'aspetto e il comportamento del servizio in base alle esigenze dell'organizzazione
 * [**Procedure consigliate**](active-directory-passwords-best-practices.md): informazioni su come distribuire rapidamente e gestire in modo efficace le password nell'organizzazione

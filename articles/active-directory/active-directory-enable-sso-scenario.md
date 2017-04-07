@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2017
+ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: f6bceb2fd03230e4a39c22605ad1fea8dd422be1
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -111,10 +112,5 @@ Per iniziare a integrare applicazioni con Azure AD, vedere [Guida introduttiva a
 
 ## <a name="see-also"></a>Vedere anche
 [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

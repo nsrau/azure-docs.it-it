@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/29/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: fba4e68e78b8267ff2413f94d5ca5066325f9c76
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: b01b0d3d61168c1eec52f3fd040b829e0c51a878
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -27,7 +27,7 @@ Log Analytics consente di raccogliere dati dai computer Linux e di agire in base
 
 È possibile visualizzare e gestire i dati da tutte queste origini dati con Log Analytics in OMS con un singolo portale di gestione. Ciò consente di ridurre la necessità di monitorarle usando molti sistemi diversi, ne semplifica l'utilizzo e consente di esportare qualsiasi tipo di dati in qualsiasi soluzione di analisi business o in qualsiasi sistema già disponibile.
 
-Questo articolo è una breve guida introduttiva che illustra come raccogliere e gestire i dati per i computer Linux usando l'agente OMS per Linux. Maggiori informazioni tecniche, ad esempio informazioni su configurazione del server proxy, informazioni sulle metriche di CollectD e origini dati JSON personalizzati sono disponibili nella [panoramica sull'agente OMS per Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) e nella [documentazione completa sull'agente OMS per Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md) su Github.
+Questo articolo è una breve guida introduttiva che illustra come raccogliere e gestire i dati per i computer Linux usando l'agente OMS per Linux. Maggiori informazioni tecniche, ad esempio informazioni su configurazione del server proxy, informazioni sulle metriche di CollectD e origini dati JSON personalizzati sono disponibili nella [panoramica sull'agente OMS per Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) e nella [documentazione completa sull'agente OMS per Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md) su GitHub.
 
 È attualmente possibile raccogliere i tipi di dati seguenti da computer Linux:
 
@@ -149,7 +149,7 @@ Per i contatori delle prestazioni di Windows è possibile scegliere un'istanza s
 Analogamente, l'intervallo di campionamento scelto per un contatore padre viene applicato a tutti i rispettivi contatori figlio. In altri termini, gli intervalli di campionamento e le istanze di tutti i contatori figlio sono collegati tra loro.
 
 ### <a name="add-and-configure-performance-metrics-with-linux"></a>Aggiungere e configurare le metriche delle prestazioni con Linux
-Le metriche delle prestazioni sono controllate dalla configurazione in /etc/opt/microsoft/omsagent/conf/omsagent.conf. Per informazioni sulle classi e sulle metriche disponibili per l'agente OMS per Linux, vedere la pagina relativa alle [Metriche delle prestazioni disponibili](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#appendix-available-performance-metrics) .
+Le metriche delle prestazioni sono controllate dalla configurazione in /etc/opt/microsoft/omsagent/&lt;workspace id&gt;/conf/omsagent.conf. Per informazioni sulle classi e sulle metriche disponibili per l'agente OMS per Linux, vedere la pagina relativa alle [Metriche delle prestazioni disponibili](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#appendix-available-performance-metrics) .
 
 Ogni oggetto o categoria delle metriche delle prestazioni da raccogliere deve essere definito nel file di configurazione come singolo elemento `<source>` . La sintassi segue il modello seguente.
 
@@ -219,9 +219,9 @@ Per definire un account utente predefinito per il server MySQL su localhost, usa
 >
 
 ```
-sudo su omsagent -c '/opt/microsoft/mysql-cimprov/bin/mycimprovauth default 127.0.0.1 <username> <password>'
+sudo su omsagent -c '/opt/microsoft/mysql-cimprov/bin/mycimprovauth default 127.0.0.1 <username> <password>
 
-sudo service omiserverd restart
+sudo /opt/omi/bin/service_control restart
 ```
 
 
@@ -330,12 +330,12 @@ Se si usa Nagios o Zabbix per gestire i computer Linux, OMS può ricevere gli av
 ### <a name="collect-alerts-from-nagios"></a>Raccogliere avvisi da Nagios
 Per raccogliere avvisi da un server Nagios, è necessario apportare le modifiche seguenti alla configurazione.
 
-1. Concedere all'utente **omsagent** l'accesso in lettura al file di log Nagios, ad esempio /var/log/nagios/nagios.log/var/log/nagios/nagios.log. Supponendo che il file nagios.log sia di proprietà del gruppo **nagios**, è possibile aggiungere l'utente **omsagent** al gruppo **nagios**.
+1. Concedere all'utente **omsagent** l'accesso in lettura al file di log Nagios, ad esempio /var/log/nagios/nagios.log. Supponendo che il file nagios.log sia di proprietà del gruppo **nagios**, è possibile aggiungere l'utente **omsagent** al gruppo **nagios**.
 
     ```
     sudo usermod –a -G nagios omsagent
     ```
-2. Modificare il file di configurazione omsagent.conf (/etc/opt/microsoft/omsagent/conf/omsagent.conf). Assicurarsi che le voci seguenti siano presenti e non impostate come commento:
+2. Modificare il file omsagent.confconfiguration (/etc/opt/microsoft/omsagent/&lt;workspace id&gt;/conf/omsagent.conf). Assicurarsi che le voci seguenti siano presenti e non impostate come commento:
 
     ```
     <source>
@@ -353,13 +353,13 @@ Per raccogliere avvisi da un server Nagios, è necessario apportare le modifiche
 3. Riavviare il daemon omsagent:
 
     ```
-    sudo service omsagent restart
+    sudo /opt/microsoft/omsagent/bin/service_control restart
     ```
 
 ### <a name="collect-alerts-from-zabbix"></a>Raccogliere avvisi da Zabbix
 Per raccogliere avvisi da un server Zabbix, sarà necessario eseguire una procedura analoga a quella precedente per Nagios, ma occorrerà specificare un utente e una password in *testo non crittografato*. Questo approccio non è ideale, ma verrà probabilmente modificato a breve. Per risolvere questo problema, è consigliabile creare l'utente e assegnare all'utente solo le autorizzazioni per il monitoraggio.
 
-Una sezione di esempio del file di configurazione omsagent.conf (/etc/opt/microsoft/omsagent/conf/omsagent.conf) per Zabbix dovrebbe essere simile alla seguente:
+Una sezione di esempio del file di configurazione omsagent.conf (/etc/opt/microsoft/omsagent/&lt;workspace id&gt;/conf/omsagent.conf) per Zabbix dovrebbe essere simile alla seguente:
 
 ```
 <source>
@@ -416,7 +416,7 @@ L'agente OMS per Linux condivide file binari dell'agente con l'agente System Cen
 3. Riavviare il server OMI:
 
     ```
-    service omiserver restart or systemctl restart omiserver
+    sudo /opt/omi/bin/service_control restart
     ```
 
 ## <a name="database-permissions-required-for-mysql-performance-counters"></a>Autorizzazioni del database necessarie per i contatori delle prestazioni di MySQL
@@ -506,7 +506,7 @@ Il file e la directory auth/omsagent devono essere di proprietà dell'utente oms
 ## <a name="agent-logs"></a>Log dell'agente
 I log per l'agente OMS per Linux sono disponibili nel percorso seguente:
 
-/var/opt/microsoft/omsagent/log/
+/var/opt/microsoft/omsagent/&lt;workspace id&gt;/log/
 
 I log per l'agente OMS per Linux per il programma omsconfig (configurazione dell'agente) sono disponibili nel percorso seguente:
 
@@ -529,15 +529,15 @@ Se nessuna delle informazioni sulla risoluzione dei problemi presenti in questa 
 ### <a name="important-log-locations"></a>Percorsi log importanti
 | File | Path |
 | --- | --- |
-| File di log dell'agente OMS per Linux |`/var/opt/microsoft/omsagent/log/omsagent.log ` |
+| File di log dell'agente OMS per Linux |`/var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log ` |
 | File di log di configurazione dell'agente OMS |`/var/opt/microsoft/omsconfig/omsconfig.log` |
 
 ### <a name="important-configuration-files"></a>File di configurazione importanti
 | Categoria | Percorso file |
 | --- | --- |
 | syslog |`/etc/syslog-ng/syslog-ng.conf` o `/etc/rsyslog.conf` o `/etc/rsyslog.d/95-omsagent.conf` |
-| Output e agente generale Performance, Nagios, Zabbix e OMS |`/etc/opt/microsoft/omsagent/conf/omsagent.conf` |
-| Configurazioni aggiuntive |`/etc/opt/microsoft/omsagent/conf.d/*.conf` |
+| Output e agente generale Performance, Nagios, Zabbix e OMS |`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` |
+| Configurazioni aggiuntive |`/etc/opt/microsoft/omsagent/<workspace id>/omsagent.d/*.conf` |
 
 > [!NOTE]
 > La modifica dei file di configurazione per i contatori delle prestazioni e Syslog vengono sovrascritti se è abilitata la configurazione del portale di OMS. È possibile disabilitare la configurazione nel portale di OMS (per tutti i nodi) o per i singoli nodi eseguendo le operazioni seguenti:
@@ -553,7 +553,7 @@ sudo su omsagent -c /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --d
 Per abilitare la registrazione di debug, è possibile usare il plug-in di output di OMS e l'output dettagliato.
 
 #### <a name="oms-output-plugin"></a>Plug-in di output di OMS
-FluentD consente al plug-in di specificare i livelli di registrazione per diversi livelli di log per input e output. Per specificare un livello di log diverso per l'output di OMS, modificare la configurazione dell'agente generale nel file `/etc/opt/microsoft/omsagent/conf/omsagent.conf`.
+FluentD consente al plug-in di specificare i livelli di registrazione per diversi livelli di log per input e output. Per specificare un livello di log diverso per l'output di OMS, modificare la configurazione dell'agente generale nel file `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`.
 
 Nella parte inferiore del file di configurazione, modificare la proprietà `log_level` da `info` a `debug`.
 
@@ -564,7 +564,7 @@ Nella parte inferiore del file di configurazione, modificare la proprietà `log_
   num_threads 5
   buffer_chunk_limit 5m
   buffer_type file
-  buffer_path /var/opt/microsoft/omsagent/state/out_oms*.buffer
+  buffer_path /var/opt/microsoft/omsagent/<workspace id>/state/out_oms*.buffer
   buffer_queue_limit 10
   flush_interval 20s
   retry_limit 10
@@ -585,7 +585,7 @@ Success sending oms.syslog.authpriv.info x 1 in 0.91s
 #### <a name="verbose-output"></a>Output dettagliato
 Anziché usare il plug-in output di OMS, è anche possibile inviare elementi di dati direttamente a `stdout`, che è visibile nel file di log dell'agente OMS per Linux.
 
-Nel file di configurazione dell'agente generale OMS in `/etc/opt/microsoft/omsagent/conf/omsagent.conf`, impostare come commento il plug-in di output di OMS aggiungendo `#` davanti a ogni riga.
+Nel file di configurazione dell'agente generale OMS in `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`, impostare come commento il plug-in di output di OMS aggiungendo `#` davanti a ogni riga.
 
 ```
 #<match oms.** docker.**>
@@ -594,7 +594,7 @@ Nel file di configurazione dell'agente generale OMS in `/etc/opt/microsoft/omsag
 #  num_threads 5
 #  buffer_chunk_limit 5m
 #  buffer_type file
-#  buffer_path /var/opt/microsoft/omsagent/state/out_oms*.buffer
+#  buffer_path /var/opt/microsoft/omsagent/<workspace id>/state/out_oms*.buffer
 #  buffer_queue_limit 10
 #  flush_interval 20s
 #  retry_limit 10
@@ -662,7 +662,7 @@ Si tratta di un problema noto che si verifica durante il primo caricamento dei d
 
 #### <a name="resolutions"></a>Soluzioni
 * Per leggere dal file di Nagios, aggiungere l'utente omsagent. Per maggiori informazioni, vedere [Nagios alerts](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#nagios-alerts) (Avvisi di Nagios).
-* Nel file di configurazione generale dell'agente OMS per Linux in `/etc/opt/microsoft/omsagent/conf/omsagent.conf` assicurarsi che **entrambe** le sezioni (di origine e filtro) di Nagios contengano i commenti rimossi, in modo analogo all'esempio seguente.
+* Nel file di configurazione generale dell'agente OMS per Linux in `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` assicurarsi che **entrambe** le sezioni (di origine e filtro) di Nagios contengano i commenti rimossi, in modo analogo all'esempio seguente.
 
 ```
 <source>
@@ -685,10 +685,10 @@ Si tratta di un problema noto che si verifica durante il primo caricamento dei d
 * Viene eseguito il backup dei dati dell'agente OMS per Linux
 
 #### <a name="resolutions"></a>Soluzioni
-* Controllare che il caricamento sul servizio OMS abbia avuto esito positivo verificando che `/etc/opt/microsoft/omsagent/conf/omsadmin.conf` esista.
+* Controllare che il caricamento sul servizio OMS abbia avuto esito positivo verificando che `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf` esista.
 * Ripetere il caricamento usando la riga di comando omsadmin.sh. Per maggiori informazioni, vedere [Onboarding using the command line](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line) (Caricamento usando la riga di comando).
 * Se si usa un proxy, seguire i passaggi per la risoluzione dei problemi del proxy riportati sopra
-* In alcuni casi, quando l'agente OMS per Linux non può comunicare con il servizio OMS, viene eseguito il backup dei dati dell'agente alle dimensioni intere del buffer, cioè 50 MB. Riavviare l'agente OMS per Linux eseguendo il comando `service omsagent restart` o `systemctl restart omsagent`.
+* In alcuni casi, quando l'agente OMS per Linux non può comunicare con il servizio OMS, viene eseguito il backup dei dati dell'agente alle dimensioni intere del buffer, cioè 50 MB. Riavviare l'agente OMS per Linux eseguendo il comando `/opt/microsoft/omsagent/bin/service_control restart`.
   >[AZURE.NOTE] Il problema è risolto nell'agente versione 1.1.0-28 o versioni successive.
 
 ### <a name="syslog-linux-performance-counter-configuration-is-not-applied-in-the-oms-portal"></a>La configurazione del contatore delle prestazioni Syslog per Linux non viene applicata nel portale di OMS
@@ -697,7 +697,7 @@ Si tratta di un problema noto che si verifica durante il primo caricamento dei d
 * Le impostazioni modificate nel portale non sono state applicate
 
 #### <a name="resolutions"></a>Soluzioni
-`omsconfig` è l'agente di configurazione nell'agente OMS per Linux che recupera le modifiche alla configurazione del portale di OMS ogni 5 minuti. Questa configurazione viene quindi applicata ai file di configurazione dell'agente OMS per Linux disponibile su `/etc/opt/microsoft/omsagent/conf/omsagent.conf`.
+`omsconfig` è l'agente di configurazione nell'agente OMS per Linux che recupera le modifiche alla configurazione del portale di OMS ogni 5 minuti. Questa configurazione viene quindi applicata ai file di configurazione dell'agente OMS per Linux disponibile su `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`.
 
 * In alcuni casi, l'agente di configurazione OMS per Linux potrebbe non essere in grado di comunicare con il servizio di configurazione del portale, di conseguenza la configurazione più recente non viene applicata.
 * Verificare che l'agente `omsconfig` sia installato con le operazioni seguenti:
@@ -721,7 +721,7 @@ Si tratta di un problema noto che si verifica durante il primo caricamento dei d
 * Si tratta di un problema noto con la race condition che è stato risolto nell'agente OMS per Linux versione 1.1.0-217
 
 #### <a name="resolutions"></a>Soluzioni
-* Verificare che il caricamento sia stato eseguito correttamente determinando se il file `/etc/opt/microsoft/omsagent/conf/omsadmin.conf` esiste.
+* Verificare che il caricamento sia stato eseguito correttamente determinando se il file `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf` esiste.
   * Se necessario, ripetere il caricamento usando la riga di comando omsadmin.sh. Per maggiori informazioni, vedere [Onboarding using the command line](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line) (Caricamento usando la riga di comando).
 * In **Impostazioni** nella scheda **Dati** del portale di OMS verificare che sia selezionata l'impostazione **Applica la configurazione seguente ai server Linux**  
   ![applicazione della configurazione](./media/log-analytics-linux-agents/customloglinuxenabled.png)
@@ -741,7 +741,7 @@ Per concedere l'autorizzazione all'utente `omsagent`, eseguire i comandi seguent
 È presente un problema noto con la race condition che è stato risolto nell'agente OMS per Linux versione 1.1.0-217. Dopo l'aggiornamento all'agente più recente, eseguire il comando seguente per ottenere la versione più recente del plug-in di output:
 
 ```
-sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.conf /etc/opt/microsoft/omsagent/conf/omsagent.conf
+sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf
 ```
 
 ## <a name="known-limitations"></a>Limitazioni note
@@ -750,7 +750,7 @@ Per informazioni sulle limitazioni correnti per l'agente OMS per Linux, vedere l
 ### <a name="azure-diagnostics"></a>Diagnostica Azure
 Per le macchine virtuali Linux in esecuzione in Azure potrebbero essere necessari passaggi aggiuntivi per consentire la raccolta di dati da parte di Diagnostica di Azure e Operations Management Suite. **versione 2.2** dell'estensione di diagnostica per Linux è necessaria per la compatibilità con l'agente OMS per Linux.
 
-Per altre informazioni sull'installazione e sulla configurazione dell'estensione di diagnostica per Linux, vedere [Usare l'interfaccia della riga di comando di Azure per abilitare l'estensione di diagnostica per Linux](../virtual-machines/virtual-machines-linux-classic-diagnostic-extension.md#use-the-azure-cli-command-to-enable-the-linux-diagnostic-extension).
+Per altre informazioni sull'installazione e sulla configurazione dell'estensione di diagnostica per Linux, vedere [Usare l'interfaccia della riga di comando di Azure per abilitare l'estensione di diagnostica per Linux](../virtual-machines/linux/classic/diagnostic-extension.md#use-the-azure-cli-command-to-enable-the-linux-diagnostic-extension).
 
 **Aggiornamento dell'estensione di diagnostica per Linux dalla versione 2.0 alla versione 2.2 di ASM dell'interfaccia della riga di comando di Azure:**
 

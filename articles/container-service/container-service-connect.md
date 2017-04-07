@@ -18,13 +18,13 @@ ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 31897e11abfe70ed08381f0d13c6bdabe56c28ed
-ms.openlocfilehash: 05ff751255000220be3b59d013b6106473e4732b
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 3dfa2c56dd6d3e0fe7757995d284cebe172eabc4
+ms.lasthandoff: 04/03/2017
 
 
 ---
-# <a name="make-a-remote-connection-to-a-kuburnetes-dcos-or-docker-swarm-cluster"></a>Stabilire una connessione remota a un cluster Kuburnetes, DC/OS o Docker Swarm
+# <a name="make-a-remote-connection-to-a-kubernetes-dcos-or-docker-swarm-cluster"></a>Stabilire una connessione remota a un cluster Kubernetes, DC/OS o Docker Swarm
 Dopo aver creato un cluster del servizio contenitore di Azure è necessario connettersi al cluster per distribuire e gestire i carichi di lavoro. Questo articolo descrive come connettersi alla VM master del cluster da un computer remoto. 
 
 I cluster Kubernetes, DC/OS e Docker Swarm forniscono localmente endpoint HTTP. Per Kubernetes, questo endpoint viene esposto in modo sicuro in Internet ed è possibile accedervi eseguendo lo strumento da riga di comando `kubectl` da qualsiasi computer connesso a Internet. 
@@ -35,7 +35,7 @@ Per DC/OS e Docker Swarm è necessario creare un tunnel Secure Shell (SSH) verso
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un cluster Kubernetes, DC/OS o Swarm [distribuito nel servizio contenitore di Azure](container-service-deployment.md).
-* File di chiave privata SSH RSA, corrispondente alla chiave pubblica aggiunta al cluster durante la distribuzione. Questi comandi presuppongono che la chiave privata SSH si trovi in `$HOME/.ssh/id_rsa` nel computer. Vedere le istruzioni per [OS X e Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) o [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) per altre informazioni. Se la connessione SSH non funziona, potrebbe essere necessario [reimpostare le chiavi SSH](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
+* File di chiave privata SSH RSA, corrispondente alla chiave pubblica aggiunta al cluster durante la distribuzione. Questi comandi presuppongono che la chiave privata SSH si trovi in `$HOME/.ssh/id_rsa` nel computer. Vedere le istruzioni per [OS X e Linux](../virtual-machines/linux/mac-create-ssh-keys.md) o [Windows](../virtual-machines/linux/ssh-from-windows.md) per altre informazioni. Se la connessione SSH non funziona, potrebbe essere necessario [reimpostare le chiavi SSH](../virtual-machines/linux/troubleshoot-ssh-connection.md).
 
 ## <a name="connect-to-a-kubernetes-cluster"></a>Connettersi a un cluster Kubernetes
 

@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2016
 ms.author: narayan
 translationtype: Human Translation
-ms.sourcegitcommit: 15afcad97941fc595478e36e826a73831f40475e
-ms.openlocfilehash: eb05b504c5cf13cd852a5e01cc3bec79fd20d547
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6fbcdcf77f46a3c643e8fedc1d112588cbd7befc
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -36,7 +37,7 @@ Requisiti e aspetti principali del peering reti virtuali:
 * Il peering reti virtuali viene eseguito tra due reti virtuali senza alcuna relazione transitiva derivata nei peering. Se, ad esempio, vengono eseguiti il peering della rete virtuale A con la rete virtuale B e il peering della rete virtuale B con la rete virtuale C, il peering della rete virtuale A con la rete virtuale C *non* viene eseguito.
 * È possibile eseguire il peering di reti virtuali che esistono in due diverse sottoscrizioni, a condizione che un utente con privilegi di entrambe le sottoscrizioni autorizzi il peering e che le sottoscrizioni siano associate allo stesso tenant di Active Directory.
 * È possibile eseguire il peering delle reti virtuali se entrambe vengono create tramite il modello di distribuzione Resource Manager o se una viene creata tramite il modello di distribuzione Resource Manager e l'altra viene creata tramite il modello di distribuzione classica. Non è tuttavia possibile eseguire il peering di due reti virtuali create tramite il modello di distribuzione classica. Quando si esegue il peering di reti virtuali create tramite modelli di distribuzione diversi, le reti virtuali devono esistere entrambe nella *stessa* sottoscrizione. È possibile eseguire il peering di reti virtuali create tramite modelli di distribuzione diversi che esistono in sottoscrizioni *diverse* nella release di **anteprima**. Per altre informazioni, vedere l'articolo [Creare un peering reti virtuali usando PowerShell](virtual-networks-create-vnetpeering-arm-ps.md).
-* Anche se non esistono altre restrizioni per la larghezza di banda per la comunicazione tra VM in reti virtuali con peering, è tuttavia previsto un limite massimo per larghezza di banda di rete a seconda delle dimensioni delle macchine virtuali. Per altre informazioni sulla larghezza di banda di rete massima per le diverse dimensioni delle macchine virtuali, vedere gli articoli sulle dimensioni delle VM [Windows](../virtual-machines/virtual-machines-windows-sizes.md) o [Linux](../virtual-machines/virtual-machines-linux-sizes.md).
+* Anche se non esistono altre restrizioni per la larghezza di banda per la comunicazione tra VM in reti virtuali con peering, è tuttavia previsto un limite massimo per larghezza di banda di rete a seconda delle dimensioni delle macchine virtuali. Per altre informazioni sulla larghezza di banda di rete massima per le diverse dimensioni delle macchine virtuali, vedere gli articoli sulle dimensioni delle VM [Windows](../virtual-machines/windows/sizes.md) o [Linux](../virtual-machines/linux/sizes.md).
 
 ![Peering reti virtuali di base](./media/virtual-networks-peering-overview/figure01.png)
 
@@ -84,15 +85,10 @@ Esistono limiti al numero di peering consentiti per una singola rete virtuale. P
 ## <a name="pricing"></a>Prezzi
 È previsto un importo minimo per il traffico in ingresso e in uscita che utilizza un peering reti virtuali. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/virtual-network).
 
-## <a name="a-namenext-stepsanext-steps"></a><a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Informazioni su come creare un peering reti virtuali usando:
 
 * [Il portale di Azure](virtual-networks-create-vnetpeering-arm-portal.md)
 * [Azure PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 * [Modello di Azure Resource Manager](virtual-networks-create-vnetpeering-arm-template-click.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

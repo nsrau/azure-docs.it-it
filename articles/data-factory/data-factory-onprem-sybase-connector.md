@@ -15,46 +15,89 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
-ms.openlocfilehash: b4b60c9134fd491184b02593c32659d2dcdfed8a
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: d5f94685c1d14b282b9f6bc4025b20ce00b5b8a8
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Spostare i dati da Sybase utilizzando Data factory di Azure
-Questo articolo illustra come usare l'attività di copia in una data factory di Azure per spostare dati da Sybase a un altro archivio dati. Questo articolo si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) , che offre una panoramica generale dello spostamento dei dati con attività di copia e delle combinazioni di archivio dati supportate.
+Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare i dati da un database Sybase locale. Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia.
 
+È possibile copiare dati da un archivio dati Sybase locale a qualsiasi archivio dati sink supportato. Per un elenco degli archivi dati supportati come sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data Factory supporta attualmente solo lo spostamento dei dati da un archivio dati Sybase ad altri archivi dati, ma non da altri archivi dati a un archivio dati Sybase. 
+
+## <a name="prerequisites"></a>Prerequisiti
 Data factory supporta la connessione a origini Sybase locali tramite il Gateway di gestione dati. Vedere l'articolo sullo [spostamento di dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md) per informazioni sul Gateway di gestione dati e per istruzioni dettagliate sulla configurazione del gateway.
 
-> [!NOTE]
-> Il gateway è necessario anche se il database Sybase è ospitato in una macchina virtuale IaaS di Azure. È possibile installare il gateway nella stessa VM IaaS dell'archivio dati o in una macchina virtuale diversa, purché il gateway possa connettersi al database.
->
->
+Il gateway è necessario anche se il database Sybase è ospitato in una macchina virtuale IaaS di Azure. È possibile installare il gateway nella stessa VM IaaS dell'archivio dati o in una macchina virtuale diversa, purché il gateway possa connettersi al database.
 
-Data factory supporta attualmente solo lo spostamento di dati da Sybase ad altri archivi dati, non da altri archivi dati a Sybase.
+> [!NOTE]
+> Per suggerimenti sulla risoluzione di problemi correlati alla connessione o al gateway, vedere [Risoluzione dei problemi del gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) .
 
 ## <a name="supported-versions-and-installation"></a>Versioni supportate e installazione
 Perché Gateway di gestione dati si connetta al database Sybase, è necessario installare il [provider di dati per Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 o versione successiva nello stesso sistema del Gateway di gestione dati. Sono supportate le versioni di Sybase a partire dalla 16.
 
-> [!NOTE]
-> Per suggerimenti sulla risoluzione di problemi correlati alla connessione o al gateway, vedere [Risoluzione dei problemi del gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) .
->
->
+## <a name="getting-started"></a>Introduzione
+È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati Cassandra usando diversi strumenti/API. 
 
-## <a name="copy-data-wizard"></a>Copia di dati guidata
-Il modo più semplice per creare una pipeline che copia i dati da un database Sybase in uno degli archivi dati sink supportati consiste nell'usare la Copia dati guidata. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
+- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati. 
+- È possibile anche usare gli strumenti seguenti per creare una pipeline: **portale di Azure**, **Visual Studio**, **Azure PowerShell**, **modello di Azure Resource Manager**, **API .NET** e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia. 
 
+Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
+
+1. Creare i **servizi collegati** per collegare gli archivi di dati di input e output alla data factory.
+2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia. 
+3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output. 
+
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di Data Factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di Data Factory.  Per un esempio con le definizioni JSON per le entità di Data Factory usate per copiare dati da un archivio dati Sybase locale, vedere la sezione [Esempio JSON: Copiare dati da Sybase a BLOB di Azure](#json-example-copy-data-from-sybase-to-azure-blob) di questo articolo. 
+
+Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità di data factory specifiche di un archivio dati Sybase:
+
+## <a name="linked-service-properties"></a>Proprietà del servizio collegato
+La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato Sybase.
+
+| Proprietà | Descrizione | Obbligatorio |
+| --- | --- | --- |
+| type |La proprietà del tipo deve essere impostata su: **OnPremisesSybase** |Sì |
+| server |Nome del server Sybase. |Sì |
+| database |Nome del database Sybase. |Sì |
+| schema |Nome dello schema nel database. |No |
+| authenticationType |Tipo di autenticazione usato per connettersi al database Sybase. I valori possibili sono: anonima, di base e Windows. |Sì |
+| username |Specificare il nome utente se si usa l'autenticazione di base o Windows. |No |
+| password |Specificare la password per l'account utente specificato per il nome utente. |No |
+| gatewayName |Nome del gateway che il servizio Data factory deve usare per connettersi al database Sybase locale. |Sì |
+
+## <a name="dataset-properties"></a>Proprietà dei set di dati
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
+
+La sezione typeProperties è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione **typeProperties** per il set di dati di tipo **RelationalTable** (che include il set di dati Sybase) presenta le proprietà seguenti:
+
+| Proprietà | Descrizione | Obbligatorio |
+| --- | --- | --- |
+| tableName |Nome della tabella nell'istanza del database Sybase a cui fa riferimento il servizio collegato. |No (se la **query** di **RelationalSource** è specificata) |
+
+## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo [Creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e criteri.
+
+Le proprietà disponibili nella sezione typeProperties dell'attività variano invece in base al tipo di attività. Per l'attività di copia variano in base ai tipi di origine e sink.
+
+Se l'origine è di tipo **RelationalSource** (che include Sybase), nella sezione **typeProperties** sono disponibili le proprietà seguenti:
+
+| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
+| --- | --- | --- | --- |
+| query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: selezionare * da MyTable. |No (se **tableName** di **set di dati** è specificato) |
+
+
+## <a name="json-example-copy-data-from-sybase-to-azure-blob"></a>Esempio JSON: Copiare dati da Sybase a BLOB di Azure
 L'esempio seguente fornisce le definizioni JSON campione da usare per creare una pipeline con il [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustrano come copiare dati da un database Sybase in un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.   
-
-## <a name="sample-copy-data-from-sybase-to-azure-blob"></a>Esempio: Copiare i dati da Sybase a BLOB di Azure
-Questo esempio illustra come copiare dati da un database Sybase locale a un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.  
 
 L'esempio include le entità di Data factory seguenti:
 
-1. Un servizio collegato di tipo [OnPremisesSybase](data-factory-onprem-sybase-connector.md#sybase-linked-service-properties).
-2. Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-3. Un [set di dati](data-factory-create-datasets.md) di input di tipo [RelationalTable](data-factory-onprem-sybase-connector.md#sybase-dataset-type-properties).
-4. Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-5. La [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [RelationalSource](data-factory-onprem-sybase-connector.md#sybase-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+1. Un servizio collegato di tipo [OnPremisesSybase](data-factory-onprem-sybase-connector.md#linked-service-properties).
+2. Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+3. Un [set di dati](data-factory-create-datasets.md) di input di tipo [RelationalTable](data-factory-onprem-sybase-connector.md#dataset-properties).
+4. Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. La [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [RelationalSource](data-factory-onprem-sybase-connector.md#copy-activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 L'esempio copia i dati dai risultati della query nel database Sybase in un BLOB ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
 
@@ -231,44 +274,6 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 }
 ```
 
-## <a name="sybase-linked-service-properties"></a>Proprietà del servizio collegato Sybase
-La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato Sybase.
-
-| Proprietà | Descrizione | Obbligatorio |
-| --- | --- | --- |
-| type |La proprietà del tipo deve essere impostata su: **OnPremisesSybase** |Sì |
-| server |Nome del server Sybase. |Sì |
-| database |Nome del database Sybase. |Sì |
-| schema |Nome dello schema nel database. |No |
-| authenticationType |Tipo di autenticazione usato per connettersi al database Sybase. I valori possibili sono: anonima, di base e Windows. |Sì |
-| username |Specificare il nome utente se si usa l'autenticazione di base o Windows. |No |
-| password |Specificare la password per l'account utente specificato per il nome utente. |No |
-| gatewayName |Nome del gateway che il servizio Data factory deve usare per connettersi al database Sybase locale. |Sì |
-
-Vedere [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md) per informazioni dettagliate sull'impostazione delle credenziali per un'origine dati Sybase locale.
-
-## <a name="sybase-dataset-type-properties"></a>Proprietà del tipo di set di dati Sybase
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
-
-La sezione typeProperties è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione **typeProperties** per il set di dati di tipo **RelationalTable** (che include il set di dati Sybase) presenta le proprietà seguenti:
-
-| Proprietà | Descrizione | Obbligatorio |
-| --- | --- | --- |
-| tableName |Nome della tabella nell'istanza del database Sybase a cui fa riferimento il servizio collegato. |No (se la **query** di **RelationalSource** è specificata) |
-
-## <a name="sybase-copy-activity-type-properties"></a>Proprietà del tipo di attività di copia Sybase
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo [Creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e criteri.
-
-Le proprietà disponibili nella sezione typeProperties dell'attività variano invece in base al tipo di attività. Per l'attività di copia variano in base ai tipi di origine e sink.
-
-Se l'origine è di tipo **RelationalSource** (che include Sybase), nella sezione **typeProperties** sono disponibili le proprietà seguenti:
-
-| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
-| --- | --- | --- | --- |
-| query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: selezionare * da MyTable. |No (se **tableName** di **set di dati** è specificato) |
-
-[!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
-
 ## <a name="type-mapping-for-sybase"></a>Mapping dei tipi per Sybase
 Come accennato nell'articolo sulle [attività di spostamento dei dati](data-factory-data-movement-activities.md) , l'attività di copia esegue conversioni automatiche da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi:
 
@@ -277,15 +282,12 @@ Come accennato nell'articolo sulle [attività di spostamento dei dati](data-fact
 
 Sybase supporta i tipi T-SQL e T-SQL. Per una tabella di mapping dai tipi SQL al tipo .NET, vedere l'articolo [Connettore SQL Azure](data-factory-azure-sql-connector.md) .
 
-[!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
+## <a name="map-source-to-sink-columns"></a>Eseguire il mapping delle colonne dell'origine alle colonne del sink
+Per informazioni sul mapping delle colonne del set di dati di origine alle colonne del set di dati del sink, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).
 
-[!INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
+## <a name="repeatable-read-from-relational-sources"></a>Lettura ripetibile da origini relazionali
+Quando si copiano dati da archivi dati relazionali, è necessario tenere presente la ripetibilità per evitare risultati imprevisti. In Azure Data Factory è possibile rieseguire una sezione manualmente. È anche possibile configurare i criteri di ripetizione per un set di dati in modo da rieseguire una sezione in caso di errore. Quando una sezione viene rieseguita in uno dei due modi, è necessario assicurarsi che non vengano letti gli stessi dati, indipendentemente da quante volte viene eseguita la sezione. Vedere [Lettura ripetibile da origini relazionali](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Ottimizzazione delle prestazioni
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

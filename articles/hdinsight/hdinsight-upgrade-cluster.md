@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 01/11/2017
 ms.author: bhanupr
 translationtype: Human Translation
-ms.sourcegitcommit: 8c59375290e410c34ba25d4e5d8e8f9f8de0cafe
-ms.openlocfilehash: ceb5f5c639633d7118a057927b236b51b54f8fa7
-ms.lasthandoff: 02/04/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: e249d2859f135bf1a49b152ce206dc66ddebb75f
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -51,8 +51,7 @@ Dopo avere verificato che tutto funzioni come previsto, pianificare i tempi di i
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Informazioni su come creare cluster HDInsight basati su Linux](hdinsight-hadoop-provision-linux-clusters.md)
-* [Connettersi a un cluster basato su Linux tramite SSH da un client Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-* [Connettersi a un cluster basato su Linux tramite SSH da un client Linux, Unix o Mac](hdinsight-hadoop-linux-use-ssh-unix.md)
+* [Connettersi a HDInsight tramite SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Gestire un cluster basato su Linux tramite Ambari](hdinsight-hadoop-manage-ambari.md)
 
 

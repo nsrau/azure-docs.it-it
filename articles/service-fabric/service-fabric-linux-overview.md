@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/02/2017
 ms.author: SubramaR
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: c4c83345596900162826feab9fe549bc261e7d00
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 62d7e0088c66a538dff7f3b99882ebef4949211b
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -48,4 +48,5 @@ L'anteprima supporta l'interazione con il cluster tramite l'interfaccia della ri
 3. [Preparare l'ambiente di sviluppo in OSX](service-fabric-get-started-mac.md)
 4. [Creare la prima applicazione Java di Service Fabric in Linux](service-fabric-create-your-first-linux-application-with-java.md)
 5. [Configurare l'integrazione e la distribuzione continue di Service Fabric con Jenkins e GitHub](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+6. [Differenze in Service Fabric tra Windows e Linux](service-fabric-linux-windows-differences.md)
 

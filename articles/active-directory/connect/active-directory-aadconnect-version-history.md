@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 7e16fa749389ab876ae413e2ffef7713ed22adac
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: d89135c8f3d5011d7549158a29050e3569defbcc
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -54,6 +54,9 @@ Autenticazione pass-through
 * Risolto un problema che causava un errore nella procedura guidata di Azure AD Connect se si selezionava Autenticazione pass-through ma la registrazione del relativo connettore aveva esito negativo.
 * Risolto un problema che causava il bypass dei controlli di convalida da parte di Azure AD Connect sul metodo di accesso selezionato con la funzionalità Desktop SSO attivata.
 
+Reimpostazione delle password
+* Correzione di un problema che potrebbe causare il mancato tentativo di riconnessione da parte del server Azure AAD Connect, se la connessione è stata terminata da un firewall o un proxy.
+
 **Nuove funzionalità o miglioramenti:**
 
 Servizio di sincronizzazione Azure AD Connect
@@ -65,6 +68,10 @@ Gestione di AD FS.
 * Aggiunto il supporto per la gestione di AD FS 2016.
 * È ora possibile specificare un gMSA (account del servizio gestito di gruppo) durante l'installazione di AD FS.
 * È ora possibile configurare SHA-256 come algoritmo di hash della firma per il trust della relying party di Azure AD.
+
+Reimpostazione delle password
+* Miglioramenti per consentire al prodotto di funzionare in ambienti con regole più severe del firewall.
+* Migliore affidabilità della connessione al bus di servizio.
 
 ## <a name="113800"></a>1.1.380.0
 Data di rilascio: dicembre 2016

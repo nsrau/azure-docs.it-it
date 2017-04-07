@@ -1,5 +1,5 @@
 ---
-title: Creare un gateway applicazione di Azure con Web application firewall | Documentazione Microsoft
+title: Creare o aggiornare un gateway applicazione di Azure con il web application firewall | Documentazione Microsoft
 description: Informazioni su come creare un gateway applicazione con il firewall applicazione Web tramite il portale
 services: application-gateway
 documentationcenter: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 04/03/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 9ba454ad2988c1ebb6410d78f79e46ed020a4bc5
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 9f16384a3944c3943dbfc094aaba37a24969e949
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.openlocfilehash: 9ba454ad2988c1ebb6410d78f79e46ed020a4bc5
 
 Il firewall applicazione Web (WAF) nel gateway applicazione di Azure protegge le applicazioni Web dai comuni attacchi basati sul Web, come ad esempio gli attacchi SQL injection, gli attacchi di scripting intersito e il controllo delle sessioni. L'applicazione Web protegge da molte delle 10 vulnerabilità Web OWASP più diffuse.
 
-Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello&7;. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale.
+Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello 7. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale.
 L'applicazione offre numerose funzionalità di controller per la distribuzione di applicazioni (ADC, Application Delivery Controller), tra cui bilanciamento del carico HTTP, affinità di sessione basata su cookie, offload SSL (Secure Sockets Layer), probe di integrità personalizzati, supporto per più siti e molte altre.
 Per un elenco completo delle funzionalità supportate, vedere [Panoramica del gateway applicazione](application-gateway-introduction.md)
 
@@ -51,7 +52,7 @@ Nel secondo scenario si apprenderà come [creare un gateway applicazione con il 
 
 Il gateway applicazione di Azure richiede una propria subnet. Quando si crea una rete virtuale, assicurarsi di lasciare uno spazio indirizzi sufficiente per più subnet. Dopo che un gateway applicazione è stato distribuito in una subnet, alla subnet possono essere aggiunti solo altri gateway applicazione.
 
-## <a name="add-web-application-firewall-to-an-existing-application-gateway"></a>aggiungere un firewall applicazione Web a un gateway applicazione esistente
+##<a name="add-web-application-firewall-to-an-existing-application-gateway"></a> Aggiungere un firewall applicazione Web a un gateway applicazione esistente
 
 Questo scenario consente di aggiornare un gateway applicazione esistente per supportare firewall applicazione Web in modalità di prevenzione.
 
@@ -63,14 +64,18 @@ Passare al portale di Azure e selezionare un gateway applicazione esistente.
 
 ### <a name="step-2"></a>Passaggio 2
 
-Fare clic su **Configurazione** e aggiornare le impostazioni del gateway applicazione. Al termine, fare clic su **Salva**
+Fare clic su **Firewall applicazione Web** e aggiornare le impostazioni del gateway applicazione. Al termine, fare clic su **Salva**
 
 Di seguito vengono elencate le impostazioni per aggiornare un gateway applicazione esistente per supportare il firewall applicazione Web:
 
-* **Livello**: il livello selezionato deve essere **WAF** per il supporto del firewall applicazione Web
-* **Dimensioni SKU**: la dimensione del gateway applicazione con il firewall applicazione Web. Le opzioni disponibili sono **Medio** e **Grande**.
+* **Aggiorna al livello WAF**: questa impostazione è necessaria per configurare WAF.
 * **Stato Firewall** : questa impostazione consente di abilitare o disabilitare il firewall applicazione Web.
 * **Modalità firewall**: questa impostazione riguarda la modalità di gestione del traffico dannoso da parte del firewall applicazione Web. La modalità **Rilevamento** registra solo gli eventi. La modalità **Prevenzione** registra gli eventi e blocca il traffico dannoso.
+* **Set di regole**: questa impostazione determina il [set di regole di base](application-gateway-web-application-firewall-overview.md#core-rule-sets) utilizzato per proteggere i membri del pool back-end.
+* **Configura regole disabilitate**: per impedire possibili falsi positivi, questa impostazione consente di disabilitare alcune [regole e gruppi di regole](application-gateway-crs-rulegroups-rules.md).
+
+>[!NOTE]
+> Quando si aggiorna un gateway applicazione esistente per lo SKU WAF, le dimensioni dello SKU cambiano in **medie**. L'impostazione può essere riconfigurata al termine della configurazione.
 
 ![Pannello con impostazioni di base][2]
 
@@ -99,7 +104,7 @@ Inserire quindi le informazioni di base sul gateway applicazione. Verificare di 
 Per le impostazioni di base sono necessarie le informazioni seguenti.
 
 * **Nome** : nome del gateway applicazione.
-* **Tier**: livello del gateway applicazione. Le opzioni disponibili sono **Standard** e **WAF**. Il firewall applicazione Web è disponibile solo nel livello WAF.
+* **Livello**: livello del gateway applicazione. Le opzioni disponibili sono **Standard** e **WAF**. Il firewall applicazione Web è disponibile solo nel livello WAF.
 * **Dimensioni SKU**: la dimensione del gateway applicazione. Le opzioni disponibili sono **Medio** e **Grande**.
 * **Numero di istanze**: il numero di istanze. Questo valore deve essere un numero compreso tra **2** e **10**.
 * **Gruppo di risorse**: il gruppo di risorse in cui includere il gateway applicazione. Può essere un gruppo di risorse esistente o nuovo.
@@ -164,7 +169,7 @@ Al termine, fare clic su **OK** per rivedere le impostazioni del gateway applica
 Configurare le impostazioni specifiche del **WAF** .
 
 * **Stato firewall** : consente di attivare o disattivare il WAF.
-* **Modalità firewall** : questa impostazione determina le misure che il firewall deve adottare contro il traffico dannoso. Se viene scelta l'opzione **Rilevamento** , il traffico sarà solo registrato.  Se viene scelta l'opzione **Prevenzione** scelto, il traffico viene registrato e interrotto con un errore 403 di accesso non autorizzato.
+* **Modalità firewall** : questa impostazione determina le misure che il firewall deve adottare contro il traffico dannoso. Se viene scelta l'opzione **Rilevamento** , il traffico sarà solo registrato.  Se viene scelta l'opzione **Prevenzione**, il traffico viene registrato e interrotto con una risposta 403 di accesso non autorizzato.
 
 ![Impostazioni firewall applicazione Web][9]
 
@@ -180,9 +185,12 @@ Al termine della creazione del gateway applicazione, passare al gateway applicaz
 
 Questi passaggi creano un gateway applicazione di base con le impostazioni predefinite per il listener, il pool back-end, le impostazioni HTTP back-end e le regole. Queste impostazioni possono essere modificate in base alla propria distribuzione dopo che è stato completato il provisioning.
 
+> [!NOTE]
+> I gateway applicazione creati con la configurazione di base del web application firewall sono configurati con CRS 3.0 per la protezione.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come configurare la registrazione diagnostica, per registrare gli eventi che vengono rilevati o bloccati con il firewall applicazione Web, visitare [Registrazione diagnostica per il gateway applicazione](application-gateway-diagnostics.md)
+Per informazioni su come configurare la registrazione diagnostica, per registrare gli eventi che vengono rilevati o bloccati con il web application firewall, visitare [Registrazione diagnostica per il gateway applicazione](application-gateway-diagnostics.md)
 
 Per informazioni su come creare probe di integrità personalizzati, vedere [Creare un probe personalizzato per un gateway applicazione con il portale](application-gateway-create-probe-portal.md)
 
@@ -202,9 +210,4 @@ Per informazioni su come configurare l'offload SSL ed evitare costose attività 
 [9]: ./media/application-gateway-web-application-firewall-portal/figure9.png
 [10]: ./media/application-gateway-web-application-firewall-portal/figure10.png
 [scenario]: ./media/application-gateway-web-application-firewall-portal/scenario.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

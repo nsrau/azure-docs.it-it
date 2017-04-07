@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6a03b96b3f06d9c8cdb820e6c7835f728a28cc99
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: eec7d1402bdea4e5433c473dd713eed23aa80464
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -62,10 +63,10 @@ Creare un'app Web con il [servizio app di Azure](https://azure.microsoft.com/ser
 9. Dopo avere scelto il progetto e il ramo, fare clic su OK. Verranno visualizzate le notifiche di una distribuzione.
    
    ![Immagine9][image9]
-10. Tornare a Github per visualizzare il webhook creato per integrare il repository del controllo del codice sorgente con Azure. Il portale di Azure abilita l'integrazione con Github con pochi semplici passaggi.
+10. Tornare a GitHub per visualizzare il webhook creato per integrare il repository del controllo del codice sorgente con Azure. Il portale di Azure abilita l'integrazione con GitHub con pochi semplici passaggi.
     
     ![Immagine10][image10]
-11. Per eseguire una dimostrazione della distribuzione continua, si aggiunge rapidamente contenuto al repository. Per un semplice esempio, aggiungere un file di testo di esempio a un repository Github. È possibile usare .NET, Ruby, Python o un altro tipo di applicazione con il servizio app. È possibile aggiungere un file di testo, un'applicazione ASP.NET MVC, Java o Ruby al repository scelto.
+11. Per eseguire una dimostrazione della distribuzione continua, si aggiunge rapidamente contenuto al repository. Per un semplice esempio, aggiungere un file di testo di esempio a un repository GitHub. È possibile usare .NET, Ruby, Python o un altro tipo di applicazione con il servizio app. È possibile aggiungere un file di testo, un'applicazione ASP.NET MVC, Java o Ruby al repository scelto.
     
     ![Immagine11][image11]
 12. Dopo avere eseguito il commit delle modifiche nel repository, nell'area delle notifiche del portale verrà indicato l'avvio di una nuova distribuzione. Fare clic su Sincronizza se dopo il commit nel repository le modifiche non vengono visualizzate rapidamente.
@@ -334,9 +335,4 @@ Questa esercitazione ha illustrato alcune potenzialità della piattaforma Azure 
 [image67]: ./media/tutorial-azureportal-devops/image67.png
 [image68]: ./media/tutorial-azureportal-devops/image68.png
 [image69]: ./media/tutorial-azureportal-devops/image69.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

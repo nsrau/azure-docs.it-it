@@ -16,14 +16,38 @@ ms.workload: NA
 ms.date: 02/15/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 1b2e22150f9cea004af4892cd7fa2fb2b59c8787
-ms.openlocfilehash: 16e53dbdb4ce6de02a9c8acb2fb1d8a3ac265b8f
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: bee47924092a0b327ef3aa5b936116bf311ce8d7
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizzare le impostazioni del cluster Service Fabric e dei criteri di aggiornamento dell'infrastruttura
 Questo documento illustra come personalizzare le varie impostazioni dell'infrastruttura e i criteri di aggiornamento della stessa per il cluster di Service Fabric. Le impostazioni possono essere personalizzate nel portale o con un modello di Azure Resource Manager.
+
+> [!NOTE]
+> Non tutte le impostazioni potrebbero essere disponibili tramite il portale. Se una delle impostazioni elencate di seguito non è disponibile tramite il portale, personalizzarlo usando un modello di Azure Resource Manager.
+> 
+
+## <a name="customizing-service-fabric-cluster-settings-using-azure-resource-manager-templates"></a>Personalizzazione delle impostazioni del cluster di Service Fabric mediante modelli di Azure Resource Manager
+I passaggi riportati di seguito illustrano come aggiungere una nuova impostazione *MaxDiskQuotaInMB* alla sezione *Diagnostica*.
+
+1. Passare ad https://resources.azure.com
+2. Passare alla sottoscrizione espandendo sottoscrizioni-> gruppi di risorse-> Microsoft.ServiceFabric-> nome del cluster
+3. Nell'angolo superiore destro selezionare "Lettura/Scrittura"
+4. Selezionare Modifica, aggiornare l'elemento JSON `fabricSettings` e aggiungere un nuovo elemento
+
+```
+      {
+        "name": "Diagnostics",
+        "parameters": [
+          {
+            "name": "MaxDiskQuotaInMB",
+            "value": "65536"
+          }
+        ]
+      }
+```
 
 ## <a name="fabric-settings-that-you-can-customize"></a>Impostazioni di infrastruttura che è possibile personalizzare
 Di seguito sono riportate le impostazioni di infrastruttura che è possibile personalizzare.
@@ -71,7 +95,7 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 | MaxCopyQueueSize |Uint, valore predefinito: 16384 |Valore massimo che definisce la dimensione iniziale per la coda che gestisce le operazioni di replica. Si noti che deve essere una potenza di 2. Se durante il runtime la coda raggiunge tale dimensione, le operazioni verranno limitate tra i replicatori primario e secondario. |
 | BatchAcknowledgementInterval | Tempo in secondi, valore predefinito: 0,015 | Specificare l'intervallo di tempo in secondi. Periodo di tempo di attesa del Replicator dopo aver ricevuto un'operazione prima di inviare un acknowledgement in risposta. Altre operazioni ricevuti durante questo periodo di tempo comporteranno un invio dei vari acknowledgement in un unico messaggio, riducendo il traffico di rete ma anche potenzialmente la velocità effettiva del Replicator. |
 | MaxReplicationMessageSize |Uint, valore predefinito: 52428800 | Dimensioni massime dei messaggi delle operazioni di replica. Il valore predefinito è 50 MB. |
-| ReplicatorAddress |Wstring, valore predefinito: "localhost:0" | L'endpoint in forma di stringa "IP:Port" usato dal Replicator di Windows Fabric per stabilire connessioni con altre repliche per inviare/ricevere operazioni. |
+| ReplicatorAddress |stringa, il valore predefinito è "localhost:0" | L'endpoint in forma di stringa "IP:Port" usato dal Replicator di Windows Fabric per stabilire connessioni con altre repliche per inviare/ricevere operazioni. |
 | InitialPrimaryReplicationQueueSize |Uint, valore predefinito: 64 | Valore che definisce la dimensione iniziale per la coda che gestisce le operazioni di replica sul Replicator primario. Si noti che deve essere una potenza di 2.|
 | MaxPrimaryReplicationQueueSize |Uint, valore predefinito: 8192 |Numero massimo di operazioni che possono essere presenti nella coda di replica primaria. Si noti che deve essere una potenza di 2. |
 | MaxPrimaryReplicationQueueMemorySize |Uint, valore predefinito: 0 |Valore massimo della coda di replica primaria in byte. |
@@ -92,7 +116,7 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 ### <a name="section-name-fabricclient"></a>Nome della sezione: FabricClient
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
-| NodeAddresses |Wstring, valore predefinito: "" |Un insieme di indirizzi (stringhe di connessione) in nodi diversi usabile per comunicare con il Naming Service. Inizialmente, il client si connette scegliendo casualmente uno degli indirizzi. Se viene specificata più di una stringa e una connessione non riesce a causa di un errore di comunicazione o timeout, il client usa l'indirizzo successivo in maniera sequenziale. Per i dettagli di semantica sui nuovi tentativi, vedere la sezione relativa del Naming Service. |
+| NodeAddresses |stringa, il valore predefinito è "" |Un insieme di indirizzi (stringhe di connessione) in nodi diversi usabile per comunicare con il Naming Service. Inizialmente, il client si connette scegliendo casualmente uno degli indirizzi. Se viene specificata più di una stringa e una connessione non riesce a causa di un errore di comunicazione o timeout, il client usa l'indirizzo successivo in maniera sequenziale. Per i dettagli di semantica sui nuovi tentativi, vedere la sezione relativa del Naming Service. |
 | ConnectionInitializationTimeout |Tempo in secondi, valore predefinito: 2 |Specificare l'intervallo di tempo in secondi. Intervallo di timeout di connessione per ogni tentativo di apertura di connessione del client al gateway. |
 | PartitionLocationCacheLimit |Int, valore predefinito: 100000 |Numero di partizioni memorizzate nella cache per la risoluzione di servizio. Impostarlo su 0 per non avere limiti. |
 | ServiceChangePollInterval |Tempo in secondi, valore predefinito: 120 |Specificare l'intervallo di tempo in secondi. L'intervallo tra i polling consecutivi per le modifiche di servizio dal client al gateway, per i callback di notifica in caso di modifiche al servizio registrato. |
@@ -121,7 +145,7 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 ### <a name="section-name-nodedomainids"></a>Nome della sezione: NodeDomainIds
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
-| UpgradeDomainId |Wstring, valore predefinito: "" |Descrivi il dominio di aggiornamento a cui appartiene un nodo. |
+| UpgradeDomainId |stringa, il valore predefinito è "" |Descrivi il dominio di aggiornamento a cui appartiene un nodo. |
 | PropertyGroup |NodeFaultDomainIdCollection |Descrive il dominio di errore a cui appartiene un nodo. Il dominio di errore viene definito tramite un URI che descrive la posizione del nodo nel data center.  Gli URI dei domini di errore sono nel formato fd:/fd/ seguito da un segmento di percorso URI.|
 
 ### <a name="section-name-nodeproperties"></a>Nome della sezione: NodeProperties
@@ -139,27 +163,27 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 | --- | --- | --- |
 | StartApplicationPortRange |Int, valore predefinito: 0 |Avvio delle porte di applicazione gestite dal sottosistema di hosting. Obbligatorio se EndpointFilteringEnabled è impostato su true in Hosting. |
 | EndApplicationPortRange |Int, valore predefinito: 0 |Termine (non inclusivo) delle porte di applicazione gestite dal sottosistema di hosting. Obbligatorio se EndpointFilteringEnabled è impostato su true in Hosting. |
-| ClusterX509StoreName |Wstring, valore predefinito: "My" |Nome dell'archivio certificati X.509 che contiene il certificato del cluster per proteggere la comunicazione all'interno del cluster. |
-| ClusterX509FindType |Wstring, valore predefinito: "FindByThumbprint" |Indica la modalità di ricerca di un certificato del cluster nell'archivio specificato da ClusterX509StoreName. Valori supportati: "FindByThumbprint"; "FindBySubjectName". Con "FindBySubjectName", in caso di più corrispondenze, viene usato il certificato con la scadenza più lontana. |
-| ClusterX509FindValue |Wstring, valore predefinito: "" |Valore di filtro di ricerca usato per individuare il certificato del cluster. |
-| ClusterX509FindValueSecondary |Wstring, valore predefinito: "" |Valore di filtro di ricerca usato per individuare il certificato del cluster. |
-| ServerAuthX509StoreName |Wstring, valore predefinito: "My" |Nome dell'archivio certificati X.509 che contiene il certificato server per il servizio di entrata. |
-| ServerAuthX509FindType |Wstring, valore predefinito: "FindByThumbprint" |Indica la modalità di ricerca del certificato server nell'archivio specificato da ServerAuthX509StoreName. Valori supportati: FindByThumbprint; FindBySubjectName. |
-| ServerAuthX509FindValue |Wstring, valore predefinito: "" |Valore di filtro di ricerca usato per individuare il certificato del server. |
-| ServerAuthX509FindValueSecondary |Wstring, valore predefinito: "" |Valore di filtro di ricerca usato per individuare il certificato del server. |
-| ClientAuthX509StoreName |Wstring, valore predefinito: "My" |Nome dell'archivio certificati X.509 che contiene un certificato per il ruolo di amministratore predefinito FabricClient. |
-| ClientAuthX509FindType |Wstring, valore predefinito: "FindByThumbprint" |Indica la modalità di ricerca del certificato nell'archivio specificato da ClientAuthX509StoreName. Valori supportati: FindByThumbprint; FindBySubjectName. |
-| ClientAuthX509FindValue |Wstring, valore predefinito: "" | Valore di filtro di ricerca usato per individuare un certificato per il ruolo di amministratore predefinito FabricClient. |
-| ClientAuthX509FindValueSecondary |Wstring, valore predefinito: "" |Valore di filtro di ricerca usato per individuare un certificato per il ruolo di amministratore predefinito FabricClient. |
-| UserRoleClientX509StoreName |Wstring, valore predefinito: "My" |Nome dell'archivio certificati X.509 che contiene un certificato per il ruolo di utente predefinito FabricClient. |
-| UserRoleClientX509FindType |Wstring, valore predefinito: "FindByThumbprint" |Indica la modalità di ricerca del certificato nell'archivio specificato da UserRoleClientX509StoreName. Valori supportati: FindByThumbprint; FindBySubjectName. |
-| UserRoleClientX509FindValue |Wstring, valore predefinito: "" |Valore di filtro di ricerca usato per individuare un certificato per il ruolo di utente predefinito FabricClient. |
-| UserRoleClientX509FindValueSecondary |Wstring, valore predefinito: "" |Valore di filtro di ricerca usato per individuare un certificato per il ruolo di utente predefinito FabricClient. |
+| ClusterX509StoreName |stringa, il valore predefinito è "My" |Nome dell'archivio certificati X.509 che contiene il certificato del cluster per proteggere la comunicazione all'interno del cluster. |
+| ClusterX509FindType |stringa, valore predefinito è "FindByThumbprint" |Indica la modalità di ricerca di un certificato del cluster nell'archivio specificato da ClusterX509StoreName. Valori supportati: "FindByThumbprint"; "FindBySubjectName". Con "FindBySubjectName", in caso di più corrispondenze, viene usato il certificato con la scadenza più lontana. |
+| ClusterX509FindValue |stringa, il valore predefinito è "" |Valore di filtro di ricerca usato per individuare il certificato del cluster. |
+| ClusterX509FindValueSecondary |stringa, il valore predefinito è "" |Valore di filtro di ricerca usato per individuare il certificato del cluster. |
+| ServerAuthX509StoreName |stringa, il valore predefinito è "My" |Nome dell'archivio certificati X.509 che contiene il certificato server per il servizio di entrata. |
+| ServerAuthX509FindType |stringa, valore predefinito è "FindByThumbprint" |Indica la modalità di ricerca del certificato server nell'archivio specificato da ServerAuthX509StoreName. Valori supportati: FindByThumbprint; FindBySubjectName. |
+| ServerAuthX509FindValue |stringa, il valore predefinito è "" |Valore di filtro di ricerca usato per individuare il certificato del server. |
+| ServerAuthX509FindValueSecondary |stringa, il valore predefinito è "" |Valore di filtro di ricerca usato per individuare il certificato del server. |
+| ClientAuthX509StoreName |stringa, il valore predefinito è "My" |Nome dell'archivio certificati X.509 che contiene un certificato per il ruolo di amministratore predefinito FabricClient. |
+| ClientAuthX509FindType |stringa, valore predefinito è "FindByThumbprint" |Indica la modalità di ricerca del certificato nell'archivio specificato da ClientAuthX509StoreName. Valori supportati: FindByThumbprint; FindBySubjectName. |
+| ClientAuthX509FindValue |stringa, il valore predefinito è "" | Valore di filtro di ricerca usato per individuare un certificato per il ruolo di amministratore predefinito FabricClient. |
+| ClientAuthX509FindValueSecondary |stringa, il valore predefinito è "" |Valore di filtro di ricerca usato per individuare un certificato per il ruolo di amministratore predefinito FabricClient. |
+| UserRoleClientX509StoreName |stringa, il valore predefinito è "My" |Nome dell'archivio certificati X.509 che contiene un certificato per il ruolo di utente predefinito FabricClient. |
+| UserRoleClientX509FindType |stringa, valore predefinito è "FindByThumbprint" |Indica la modalità di ricerca del certificato nell'archivio specificato da UserRoleClientX509StoreName. Valori supportati: FindByThumbprint; FindBySubjectName. |
+| UserRoleClientX509FindValue |stringa, il valore predefinito è "" |Valore di filtro di ricerca usato per individuare un certificato per il ruolo di utente predefinito FabricClient. |
+| UserRoleClientX509FindValueSecondary |stringa, il valore predefinito è "" |Valore di filtro di ricerca usato per individuare un certificato per il ruolo di utente predefinito FabricClient. |
 
 ### <a name="section-name-paas"></a>Nome della sezione: Paas
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
-| ClusterId |Wstring, valore predefinito: "" |Archivio certificati X.509 usato da Service Fabric per la protezione della configurazione. |
+| ClusterId |stringa, il valore predefinito è "" |Archivio certificati X.509 usato da Service Fabric per la protezione della configurazione. |
 
 ### <a name="section-name-fabrichost"></a>Nome della sezione: FabricHost
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
@@ -179,7 +203,7 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 | --- | --- | --- |
 | UserReplicaRestartWaitDuration |Tempo in secondi, valore predefinito: 60,0 * 30 |Specificare l'intervallo di tempo in secondi. Quando una replica persistente va offline, Windows Fabric attende che torni online per questo intervallo di tempo, passato il quale crea nuove repliche sostitutive, che richiederanno una copia dello stato. |
 | QuorumLossWaitDuration |Tempo in secondi, valore predefinito: MaxValue |Specificare l'intervallo di tempo in secondi. Durata massima per cui una partizione può essere in stato di perdita del quorum. Se la partizione si trova ancora in questo stato passato questo intervallo di tempo, viene ripristinata considerando come perse le repliche offline. Ciò può comportare una potenziale perdita di dati. |
-| UserStandByReplicaKeepDuration |Tempo in secondi, valore predefinito: 3600.0 * 24 * 7 |Specificare l'intervallo di tempo in secondi. Quando una replica persistente torna online, potrebbe già essere stata sostituita. Questo timer determina per quanto tempo FM manterrà la replica in standby prima di rimuoverla. |
+| UserStandByReplicaKeepDuration |Tempo in secondi, il valore predefinito è 3600.0 * 24 * 7 |Specificare l'intervallo di tempo in secondi. Quando una replica persistente torna online, potrebbe già essere stata sostituita. Questo timer determina per quanto tempo FM manterrà la replica in standby prima di rimuoverla. |
 | UserMaxStandByReplicaCount |Int, valore predefinito: 1 |Il numero massimo predefinito di repliche in standby che il sistema conserva per i servizi utente. |
 
 ### <a name="section-name-namingservice"></a>Nome della sezione: NamingService
@@ -190,7 +214,7 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 |ReplicaRestartWaitDuration | Tempo in secondi, valore predefinito: (60.0 * 30)| Specificare l'intervallo di tempo in secondi. Quando una replica di Naming Service si arresta, si avvia questo timer.  Alla scadenza FM inizierà a sostituire le repliche non attive; queste non vengono ancora considerate perse. |
 |QuorumLossWaitDuration | Tempo in secondi, valore predefinito: MaxValue | Specificare l'intervallo di tempo in secondi. Quando un Naming Service entra in uno stato di perdita del quorum, si avvia questo timer.  Una volta scaduto, FM considererà perse le repliche offline e tenterà di ripristinare il quorum. Questa azione può comportare la perdita di dati. |
 |StandByReplicaKeepDuration | Tempo in secondi, valore predefinito: è 3600.0 * 2 | Specificare l'intervallo di tempo in secondi. Quando un Naming Service torna online, potrebbe già essere stata sostituito.  Questo timer determina per quanto tempo FM manterrà la replica in standby prima di rimuoverla. |
-|PlacementConstraints | Wstring, valore predefinito: "" | Vincolo di posizionamento per il Naming Service. |
+|PlacementConstraints | stringa, il valore predefinito è "" | Vincolo di posizionamento per il Naming Service. |
 |ServiceDescriptionCacheLimit | Int, valore predefinito: 0 | Numero massimo di voci conservate nella cache della descrizione del servizio LRU nell'archivio di Naming Service. Impostarlo su 0 per non avere limiti. |
 |RepairInterval | Tempo in secondi, valore predefinito: 5 | Specificare l'intervallo di tempo in secondi. Intervallo in cui verrà avviata la correzione delle incoerenze di denominazione tra il proprietario dell'autorità e il proprietario del nome. |
 |MaxNamingServiceHealthReports | Int, valore predefinito: 10 | Numero massimo di operazioni lente non integre di cui il servizio Naming Service esegue globalmente il report. Se il valore è 0, verranno incluse tutte le operazioni lente. |
@@ -207,30 +231,30 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 ### <a name="section-name-runas"></a>Nome della sezione: RunAs
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
-| RunAsAccountName |Wstring, valore predefinito: "" |Indica il nome dell'account RunAs. Parametro necessario solo per i tipi di account "DomainUser" o "ManagedServiceAccount". I valori validi sono "dominio\utente" o "user@domain". |
-|RunAsAccountType|Wstring, valore predefinito: "" |Indica il tipo di account RunAs. Parametro necessario per ogni sezione RunAs. I valori validi sono: "DomainUser/NetworkService/ManagedServiceAccount/LocalSystem".|
-|RunAsPassword|Wstring, valore predefinito: "" |Indica la password dell'account RunAs. Parametro necessario solo per il tipo di account "DomainUser". |
+| RunAsAccountName |stringa, il valore predefinito è "" |Indica il nome dell'account RunAs. Parametro necessario solo per i tipi di account "DomainUser" o "ManagedServiceAccount". I valori validi sono "dominio\utente" o "user@domain". |
+|RunAsAccountType|stringa, il valore predefinito è "" |Indica il tipo di account RunAs. Parametro necessario per ogni sezione RunAs. I valori validi sono: "DomainUser/NetworkService/ManagedServiceAccount/LocalSystem".|
+|RunAsPassword|stringa, il valore predefinito è "" |Indica la password dell'account RunAs. Parametro necessario solo per il tipo di account "DomainUser". |
 
 ### <a name="section-name-runasfabric"></a>Nome della sezione: RunAs_Fabric
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
-| RunAsAccountName |Wstring, valore predefinito: "" |Indica il nome dell'account RunAs. Parametro necessario solo per i tipi di account "DomainUser" o "ManagedServiceAccount". I valori validi sono "dominio\utente" o "user@domain". |
-|RunAsAccountType|Wstring, valore predefinito: "" |Indica il tipo di account RunAs. Parametro necessario per ogni sezione RunAs. I valori validi sono: "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
-|RunAsPassword|Wstring, valore predefinito: "" |Indica la password dell'account RunAs. Parametro necessario solo per il tipo di account "DomainUser". |
+| RunAsAccountName |stringa, il valore predefinito è "" |Indica il nome dell'account RunAs. Parametro necessario solo per i tipi di account "DomainUser" o "ManagedServiceAccount". I valori validi sono "dominio\utente" o "user@domain". |
+|RunAsAccountType|stringa, il valore predefinito è "" |Indica il tipo di account RunAs. Parametro necessario per ogni sezione RunAs. I valori validi sono: "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
+|RunAsPassword|stringa, il valore predefinito è "" |Indica la password dell'account RunAs. Parametro necessario solo per il tipo di account "DomainUser". |
 
 ### <a name="section-name-runashttpgateway"></a>Nome della sezione: RunAs_HttpGateway
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
-| RunAsAccountName |Wstring, valore predefinito: "" |Indica il nome dell'account RunAs. Parametro necessario solo per i tipi di account "DomainUser" o "ManagedServiceAccount". I valori validi sono "dominio\utente" o "user@domain". |
-|RunAsAccountType|Wstring, valore predefinito: "" |Indica il tipo di account RunAs. Parametro necessario per ogni sezione RunAs. I valori validi sono: "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
-|RunAsPassword|Wstring, valore predefinito: "" |Indica la password dell'account RunAs. Parametro necessario solo per il tipo di account "DomainUser". |
+| RunAsAccountName |stringa, il valore predefinito è "" |Indica il nome dell'account RunAs. Parametro necessario solo per i tipi di account "DomainUser" o "ManagedServiceAccount". I valori validi sono "dominio\utente" o "user@domain". |
+|RunAsAccountType|stringa, il valore predefinito è "" |Indica il tipo di account RunAs. Parametro necessario per ogni sezione RunAs. I valori validi sono: "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
+|RunAsPassword|stringa, il valore predefinito è "" |Indica la password dell'account RunAs. Parametro necessario solo per il tipo di account "DomainUser". |
 
 ### <a name="section-name-runasdca"></a>Nome della sezione: RunAs_DCA
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
-| RunAsAccountName |Wstring, valore predefinito: "" |Indica il nome dell'account RunAs. Parametro necessario solo per i tipi di account "DomainUser" o "ManagedServiceAccount". I valori validi sono "dominio\utente" o "user@domain". |
-|RunAsAccountType|Wstring, valore predefinito: "" |Indica il tipo di account RunAs. Parametro necessario per ogni sezione RunAs. I valori validi sono: "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
-|RunAsPassword|Wstring, valore predefinito: "" |Indica la password dell'account RunAs. Parametro necessario solo per il tipo di account "DomainUser". |
+| RunAsAccountName |stringa, il valore predefinito è "" |Indica il nome dell'account RunAs. Parametro necessario solo per i tipi di account "DomainUser" o "ManagedServiceAccount". I valori validi sono "dominio\utente" o "user@domain". |
+|RunAsAccountType|stringa, il valore predefinito è "" |Indica il tipo di account RunAs. Parametro necessario per ogni sezione RunAs. I valori validi sono: "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
+|RunAsPassword|stringa, il valore predefinito è "" |Indica la password dell'account RunAs. Parametro necessario solo per il tipo di account "DomainUser". |
 
 ### <a name="section-name-httpgateway"></a>Nome della sezione: HttpGateway
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
@@ -242,12 +266,12 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 ### <a name="section-name-ktllogger"></a>Nome della sezione: KtlLogger
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
-|AutomaticMemoryConfiguration |Int, valore predefinito: 1 | Flag che indica se le impostazioni di memoria devono essere configurate in modo dinamico e automatico. Se il valore è&0;, le impostazioni vengono usate direttamente e non vengono modificate in base alle condizioni di sistema. Se il valore è&1;, le impostazioni vengono configurate automaticamente e possono cambiare in base alle condizioni di sistema. |
+|AutomaticMemoryConfiguration |Int, valore predefinito: 1 | Flag che indica se le impostazioni di memoria devono essere configurate in modo dinamico e automatico. Se il valore è 0, le impostazioni vengono usate direttamente e non vengono modificate in base alle condizioni di sistema. Se il valore è 1, le impostazioni vengono configurate automaticamente e possono cambiare in base alle condizioni di sistema. |
 |WriteBufferMemoryPoolMinimumInKB |Int, valore predefinito: 8388608 |Il numero di KB da allocare inizialmente per il pool di memoria buffer in scrittura. Usare 0 per non avere limiti. L'impostazione predefinita deve essere coerente con il parametro SharedLogSizeInMB di seguito. |
 |WriteBufferMemoryPoolMaximumInKB | Int, valore predefinito: 0 |Il numero di KB raggiungibile dal pool di memoria buffer in scrittura. Usare 0 per non avere limiti. |
 |MaximumDestagingWriteOutstandingInKB | Int, valore predefinito: 0 | Il numero di KB per cui il log condiviso può superare in dimensioni il log dedicato. Usare 0 per non avere limiti.
-|SharedLogPath |Wstring, valore predefinito: "" | Percorso e nome del file in cui inserire il contenitore del log condiviso. Usare "" per indicare il percorso predefinito nella radice dati di Service Fabric. |
-|SharedLogId |Wstring, valore predefinito: "" |GUID univoco per il contenitore di log condivisi. Usare "" se si usa il percorso predefinito nella radice dati di Service Fabric. |
+|SharedLogPath |stringa, il valore predefinito è "" | Percorso e nome del file in cui inserire il contenitore del log condiviso. Usare "" per indicare il percorso predefinito nella radice dati di Service Fabric. |
+|SharedLogId |stringa, il valore predefinito è "" |GUID univoco per il contenitore di log condivisi. Usare "" se si usa il percorso predefinito nella radice dati di Service Fabric. |
 |SharedLogSizeInMB |Int, valore predefinito: 8192 | Il numero di MB da allocare nel contenitore di log condivisi. |
 
 ### <a name="section-name-applicationgatewayhttp"></a>Nome della sezione: ApplicationGateway/Http
@@ -258,11 +282,11 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 |DefaultHttpRequestTimeout |Tempo in secondi, valore predefinito: 60 |Specificare l'intervallo di tempo in secondi.  Indica il timeout di richiesta predefinito per le richieste http in elaborazione nel gateway applicazione http. |
 |ResolveServiceBackoffInterval |Tempo in secondi, valore predefinito: 5 |Specificare l'intervallo di tempo in secondi.  Indica l'intervallo di backoff predefinito prima di ritentare l'operazione di risoluzione del servizio. |
 |BodyChunkSize |Uint, valore predefinito: 4096 |  Indica la dimensione in byte per il blocco usato per leggere il corpo. |
-|GatewayAuthCredentialType |Wstring, valore predefinito: "None" | Indica il tipo di credenziali di sicurezza da usare nell'endpoint del gateway applicazione http. I valori validi sono "None/X509. |
-|GatewayX509CertificateStoreName |Wstring, valore predefinito: "My" | Nome dell'archivio certificati X.509 che contiene il certificato per il gateway applicazione http. |
-|GatewayX509CertificateFindType |Wstring, valore predefinito: "FindByThumbprint" | Indica la modalità di ricerca del certificato nell'archivio specificato da GatewayX509CertificateStoreName. Valori supportati: FindByThumbprint; FindBySubjectName. |
-|GatewayX509CertificateFindValue | Wstring, valore predefinito: "" | Valore del filtro di ricerca usato per individuare il certificato del gateway applicazione http. Il certificato è configurato nell'endpoint https e può essere usato anche per verificare l'identità dell'app se richiesto dai servizi. Viene prima cercato FindValue. Se non esiste, viene cercato FindValueSecondary. |
-|GatewayX509CertificateFindValueSecondary | Wstring, valore predefinito: "" |Valore del filtro di ricerca usato per individuare il certificato del gateway applicazione http. Il certificato è configurato nell'endpoint https e può essere usato anche per verificare l'identità dell'app se richiesto dai servizi. Viene prima cercato FindValue. Se non esiste, viene cercato FindValueSecondary.|
+|GatewayAuthCredentialType |stringa, il valore predefinito è "None" | Indica il tipo di credenziali di sicurezza da usare nell'endpoint del gateway applicazione http. I valori validi sono "None/X509. |
+|GatewayX509CertificateStoreName |stringa, il valore predefinito è "My" | Nome dell'archivio certificati X.509 che contiene il certificato per il gateway applicazione http. |
+|GatewayX509CertificateFindType |stringa, valore predefinito è "FindByThumbprint" | Indica la modalità di ricerca del certificato nell'archivio specificato da GatewayX509CertificateStoreName. Valori supportati: FindByThumbprint; FindBySubjectName. |
+|GatewayX509CertificateFindValue | stringa, il valore predefinito è "" | Valore del filtro di ricerca usato per individuare il certificato del gateway applicazione http. Il certificato è configurato nell'endpoint https e può essere usato anche per verificare l'identità dell'app se richiesto dai servizi. Viene prima cercato FindValue. Se non esiste, viene cercato FindValueSecondary. |
+|GatewayX509CertificateFindValueSecondary | stringa, il valore predefinito è "" |Valore del filtro di ricerca usato per individuare il certificato del gateway applicazione http. Il certificato è configurato nell'endpoint https e può essere usato anche per verificare l'identità dell'app se richiesto dai servizi. Viene prima cercato FindValue. Se non esiste, viene cercato FindValueSecondary.|
 
 ### <a name="section-name-management"></a>Nome della sezione: Management
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
@@ -293,7 +317,7 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 | ReplicaRestartWaitDuration |Tempo in secondi, valore predefinito: 60 minuti|Specificare l'intervallo di tempo in secondi. ReplicaRestartWaitDuration per FaultAnalysisService. |
 | QuorumLossWaitDuration | Tempo in secondi, valore predefinito: MaxValue |Specificare l'intervallo di tempo in secondi. QuorumLossWaitDuration per FaultAnalysisService. |
 | StandByReplicaKeepDuration| Tempo in secondi, valore predefinito: (60*24*7) minuti |Specificare l'intervallo di tempo in secondi. StandByReplicaKeepDuration per FaultAnalysisService. |
-| PlacementConstraints | Wstring, valore predefinito: ""| PlacementConstraints per FaultAnalysisService. |
+| PlacementConstraints | stringa, il valore predefinito è ""| PlacementConstraints per FaultAnalysisService. |
 | StoredActionCleanupIntervalInSeconds | Int, valore predefinito: 3600 |Indica la frequenza di pulizia dell'archivio.  Verranno rimosse solo le azioni in stato terminale e completate da un numero di secondi pari almeno a CompletedActionKeepDurationInSeconds. |
 | CompletedActionKeepDurationInSeconds | Int, valore predefinito: 604800 | Tempo di conservazione approssimativo delle azioni in stato terminale.  Dipende inoltre StoredActionCleanupIntervalInSeconds, poiché l'operazione di pulizia è eseguita solo in quell'intervallo. 604800 equivale a 7 giorni. |
 | StoredChaosEventCleanupIntervalInSeconds | Int, valore predefinito: 3600 |Frequenza con cui l'archivio verrà controllato per eseguire eventualmente la pulizia. Se il numero di eventi è superiore a 30.000, la pulizia verrà avviata. |
@@ -309,20 +333,20 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 | MaxRequestProcessingThreads | Uint, valore predefinito: 200 |Numero massimo di thread paralleli che possono elaborare richieste nel Replicator primario. '0' == numero di memorie centrali. |
 | MaxSecondaryFileCopyFailureThreshold | Uint, valore predefinito: 25| Numero massimo di tentativi di copia di file nel Replicator secondario prima di interrompere l'operazione. |
 | AnonymousAccessEnabled | Bool, valore predefinito: true |Abilita o disabilita l'accesso anonimo alle condivisioni di FileStoreService. |
-| PrimaryAccountType | Wstring, valore predefinito: "" |AccountType primario dell'entità per l'ACL delle condivisioni di FileStoreService. |
-| PrimaryAccountUserName | Wstring, valore predefinito: "" |Nome utente dell'account primario dell'entità per l'ACL delle condivisioni di FileStoreService. |
-| PrimaryAccountUserPassword | SecureString, valore predefinito: vuoto |Password dell'account primario dell'entità per l'ACL delle condivisioni di FileStoreService. |
+| PrimaryAccountType | stringa, il valore predefinito è "" |L'AccountType primario dell'entità per l'ACL delle condivisioni di FileStoreService. |
+| PrimaryAccountUserName | stringa, il valore predefinito è "" |Il nome utente dell'account primario dell'entità per l'ACL delle condivisioni di FileStoreService. |
+| PrimaryAccountUserPassword | SecureString, valore predefinito: vuoto |La password dell'account primario dell'entità per l'ACL delle condivisioni di FileStoreService. |
 | FileStoreService | PrimaryAccountNTLMPasswordSecret | SecureString, valore predefinito: vuoto | Il segreto della password usato come valore di inizializzazione per generare la stessa password quando si usa l'autenticazione NTLM. |
-| PrimaryAccountNTLMX509StoreLocation | Wstring, valore predefinito: "LocalMachine"| Il percorso dell'archivio del certificato X509 usato per generare HMAC in PrimaryAccountNTLMPasswordSecret quando si usa l'autenticazione NTLM. |
-| PrimaryAccountNTLMX509StoreName | Wstring, valore predefinito: "MY"| Il nome dell'archivio del certificato X509 usato per generare HMAC in PrimaryAccountNTLMPasswordSecret quando si usa l'autenticazione NTLM. |
-| PrimaryAccountNTLMX509Thumbprint | Wstring, valore predefinito: ""|L'identificazione personale dell'archivio del certificato X509 usato per generare HMAC in PrimaryAccountNTLMPasswordSecret quando si usa l'autenticazione NTLM. |
-| SecondaryAccountType | Wstring, valore predefinito: ""| AccountType secondario dell'entità per l'ACL delle condivisioni di FileStoreService. |
-| SecondaryAccountUserName | Wstring, valore predefinito: ""| Nome utente dell'account secondario dell'entità per l'ACL delle condivisioni di FileStoreService. |
-| SecondaryAccountUserPassword | SecureString, valore predefinito: vuoto |Password dell'account secondario dell'entità per l'ACL delle condivisioni di FileStoreService.  |
+| PrimaryAccountNTLMX509StoreLocation | stringa, il valore predefinito è "LocalMachine"| Il percorso dell'archivio del certificato X509 usato per generare HMAC in PrimaryAccountNTLMPasswordSecret quando si usa l'autenticazione NTLM. |
+| PrimaryAccountNTLMX509StoreName | stringa, il valore predefinito è "MY"| Il nome dell'archivio del certificato X509 usato per generare HMAC in PrimaryAccountNTLMPasswordSecret quando si usa l'autenticazione NTLM. |
+| PrimaryAccountNTLMX509Thumbprint | stringa, il valore predefinito è ""|L'identificazione personale dell'archivio del certificato X509 usato per generare HMAC in PrimaryAccountNTLMPasswordSecret quando si usa l'autenticazione NTLM. |
+| SecondaryAccountType | stringa, il valore predefinito è ""| L'AccountType secondario dell'entità per l'ACL delle condivisioni di FileStoreService. |
+| SecondaryAccountUserName | stringa, il valore predefinito è ""| Il nome utente dell'account secondario dell'entità per l'ACL delle condivisioni di FileStoreService. |
+| SecondaryAccountUserPassword | SecureString, valore predefinito: vuoto |La password dell'account secondario dell'entità per l'ACL delle condivisioni di FileStoreService.  |
 | SecondaryAccountNTLMPasswordSecret | SecureString, valore predefinito: vuoto | Il segreto della password usato come valore di inizializzazione per generare la stessa password quando si usa l'autenticazione NTLM. |
-| SecondaryAccountNTLMX509StoreLocation | Wstring, valore predefinito: "LocalMachine" |Il percorso dell'archivio del certificato X509 usato per generare HMAC in SecondaryAccountNTLMPasswordSecret quando si usa l'autenticazione NTLM. |
-| SecondaryAccountNTLMX509StoreName | Wstring, valore predefinito: "MY" |Il nome dell'archivio del certificato X509 usato per generare HMAC in SecondaryAccountNTLMPasswordSecret quando si usa l'autenticazione NTLM. |
-| SecondaryAccountNTLMX509Thumbprint | Wstring, valore predefinito: ""| L'identificazione personale dell'archivio del certificato X509 usato per generare HMAC in SecondaryAccountNTLMPasswordSecret quando si usa l'autenticazione NTLM. |
+| SecondaryAccountNTLMX509StoreLocation | stringa, il valore predefinito è "LocalMachine" |Il percorso dell'archivio del certificato X509 usato per generare HMAC in SecondaryAccountNTLMPasswordSecret quando si usa l'autenticazione NTLM. |
+| SecondaryAccountNTLMX509StoreName | stringa, il valore predefinito è "MY" |Il nome dell'archivio del certificato X509 usato per generare HMAC in SecondaryAccountNTLMPasswordSecret quando si usa l'autenticazione NTLM. |
+| SecondaryAccountNTLMX509Thumbprint | stringa, il valore predefinito è ""| L'identificazione personale dell'archivio del certificato X509 usato per generare HMAC in SecondaryAccountNTLMPasswordSecret quando si usa l'autenticazione NTLM. |
 
 ### <a name="section-name-imagestoreservice"></a>Nome della sezione: ImageStoreService
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
@@ -333,7 +357,7 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 | ReplicaRestartWaitDuration | Tempo in secondi, valore predefinito: 60,0 * 30 | Specificare l'intervallo di tempo in secondi. ReplicaRestartWaitDuration per ImageStoreService. |
 | QuorumLossWaitDuration | Tempo in secondi, valore predefinito: MaxValue | Specificare l'intervallo di tempo in secondi. QuorumLossWaitDuration per ImageStoreService. |
 | StandByReplicaKeepDuration | Tempo in secondi, valore predefinito: è 3600.0 * 2 | Specificare l'intervallo di tempo in secondi. StandByReplicaKeepDuration per ImageStoreService. |
-| PlacementConstraints | Wstring, valore predefinito: "" | PlacementConstraints per ImageStoreService. |
+| PlacementConstraints | stringa, il valore predefinito è "" | PlacementConstraints per ImageStoreService. |
 | ClientUploadTimeout | Tempo in secondi, valore predefinito: 1800 |Specificare l'intervallo di tempo in secondi. Valore di timeout per la richiesta di caricamento principale al servizio di archivio immagini. |
 | ClientCopyTimeout | Tempo in secondi, valore predefinito: 1800 | Specificare l'intervallo di tempo in secondi. Valore di timeout per la richiesta di copia principale al servizio di archivio immagini. |
 | ClientDownloadTimeout | Tempo in secondi, valore predefinito: 1800 | Specificare l'intervallo di tempo in secondi. Valore di timeout per la richiesta di download principale al servizio di archivio immagini |
@@ -352,7 +376,7 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 ### <a name="section-name-tokenvalidationservice"></a>Nome della sezione: TokenValidationService
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
-| Providers |Wstring, valore predefinito: "DSTS" |Elenco separato da virgole dei provider di convalida dei token per l'abilitazione. I provider validi sono: DSTS, AAD. Attualmente è possibile abilitare un singolo provider alla volta. |
+| Providers |stringa, il valore predefinito è "DSTS" |Elenco separato da virgole dei provider di convalida dei token per l'abilitazione. I provider validi sono: DSTS, AAD. Attualmente è possibile abilitare un singolo provider alla volta. |
 
 ### <a name="section-name-upgradeorchestrationservice"></a>Nome della sezione: UpgradeOrchestrationService
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
@@ -362,113 +386,113 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 | ReplicaRestartWaitDuration | Tempo in secondi, valore predefinito: 60 minuti| Specificare l'intervallo di tempo in secondi. ReplicaRestartWaitDuration per UpgradeOrchestrationService. |
 | QuorumLossWaitDuration | Tempo in secondi, valore predefinito: MaxValue | Specificare l'intervallo di tempo in secondi. QuorumLossWaitDuration per UpgradeOrchestrationService. |
 | StandByReplicaKeepDuration | Tempo in secondi, valore predefinito: 60*24*7 minuti | Specificare l'intervallo di tempo in secondi. StandByReplicaKeepDuration per UpgradeOrchestrationService. |
-| PlacementConstraints | Wstring, valore predefinito: "" | PlacementConstraints per UpgradeOrchestrationService. |
+| PlacementConstraints | stringa, il valore predefinito è "" | PlacementConstraints per UpgradeOrchestrationService. |
 | AutoupgradeEnabled | Bool, valore predefinito: true | Polling e aggiornamenti automatici in base a un file di stato obiettivo. |
 | UpgradeApprovalRequired | Bool, valore predefinito: false | Impostazione per richiedere l'approvazione di un amministratore prima di procedere con l'aggiornamento del codice. |
 
 ### <a name="section-name-upgradeservice"></a>Nome della sezione: UpgradeService
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
-| PlacementConstraints |Wstring, valore predefinito: "" |PlacementConstraints per UpgradeService. |
+| PlacementConstraints |stringa, il valore predefinito è "" |PlacementConstraints per UpgradeService. |
 | TargetReplicaSetSize | Int, valore predefinito: 3 | TargetReplicaSetSize per UpgradeService. |
 | MinReplicaSetSize | Int, valore predefinito: 2 | MinReplicaSetSize per UpgradeService. |
-| CoordinatorType | Wstring, valore predefinito: "WUTest"| CoordinatorType per UpgradeService. |
-| BaseUrl | Wstring, valore predefinito: "" |BaseUrl per UpgradeService. |
-| ClusterId | Wstring, valore predefinito: "" | ClusterId per UpgradeService. |
-| X509StoreName | Wstring, valore predefinito: "My"| X509StoreName per UpgradeService. |
-| X509StoreLocation | Wstring, valore predefinito: "" | X509StoreLocation per UpgradeService. |
-| X509FindType | Wstring, valore predefinito: ""| X509FindType per UpgradeService. |
-| X509FindValue | Wstring, valore predefinito: "" | X509FindValue per UpgradeService. |
-| X509SecondaryFindValue | Wstring, valore predefinito: "" | X509SecondaryFindValue per UpgradeService. |
+| CoordinatorType | stringa, il valore predefinito è "WUTest"| CoordinatorType per UpgradeService. |
+| BaseUrl | stringa, il valore predefinito è "" |BaseUrl per UpgradeService. |
+| ClusterId | stringa, il valore predefinito è "" | ClusterId per UpgradeService. |
+| X509StoreName | stringa, il valore predefinito è "My"| X509StoreName per UpgradeService. |
+| X509StoreLocation | stringa, il valore predefinito è "" | X509StoreLocation per UpgradeService. |
+| X509FindType | stringa, il valore predefinito è ""| X509FindType per UpgradeService. |
+| X509FindValue | stringa, il valore predefinito è "" | X509FindValue per UpgradeService. |
+| X509SecondaryFindValue | stringa, il valore predefinito è "" | X509SecondaryFindValue per UpgradeService. |
 | OnlyBaseUpgrade | Bool, valore predefinito: false | OnlyBaseUpgrade per UpgradeService. |
-| TestCabFolder | Wstring, valore predefinito: "" | TestCabFolder per UpgradeService. |
+| TestCabFolder | stringa, il valore predefinito è "" | TestCabFolder per UpgradeService. |
 
 ### <a name="section-name-securityclientaccess"></a>Nome della sezione: Security/ClientAccess
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
-| CreateName |Wstring, valore predefinito: "Admin" |Configurazione di sicurezza per creare un URI di denominazione. |
-| DeleteName |Wstring, valore predefinito: "Admin" |Configurazione di sicurezza per eliminare un URI di denominazione. |
-| PropertyWriteBatch |Wstring, valore predefinito: "Admin" |Configurazione di sicurezza per le operazioni di scrittura di proprietà di denominazione. |
-| CreateService |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per creare un servizio. |
-| CreateServiceFromTemplate |Wstring, valore predefinito: "Admin" |Configurazione di sicurezza per creare un servizio da un modello. |
-| UpdateService |Wstring, valore predefinito: "Admin" |Configurazione di sicurezza per gli aggiornamenti dei servizi. |
-| DeleteService  |Wstring, valore predefinito: "Admin" |Configurazione di sicurezza per eliminare un servizio. |
-| ProvisionApplicationType |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per il provisioning dei tipi di applicazione. |
-| CreateApplication |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per creare un'applicazione. |
-| DeleteApplication |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per eliminare un'applicazione. |
-| UpgradeApplication |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per avviare o interrompere gli aggiornamenti dell'applicazione. |
-| RollbackApplicationUpgrade |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per eseguire il rollback degli aggiornamenti dell'applicazione. |
-| UnprovisionApplicationType |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per annullare il provisioning dei tipi di applicazione. |
-| MoveNextUpgradeDomain |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per riprendere gli aggiornamenti dell'applicazione con un dominio di aggiornamento esplicito. |
-| ReportUpgradeHealth |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per riprendere gli aggiornamenti dell'applicazione con lo stato di avanzamento corrente. |
-| ReportHealth |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per i report di integrità. |
-| ProvisionFabric |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per il provisioning del manifesto del cluster e/o del file con estensione msi. |
-| UpgradeFabric |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per avviare gli aggiornamenti del cluster. |
-| RollbackFabricUpgrade |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per il rollback degli aggiornamenti del cluster. |
-| UnprovisionFabric |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per l'annullamento del provisioning del manifesto del cluster e/o del file con estensione msi. |
-| MoveNextFabricUpgradeDomain |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per riprendere gli aggiornamenti del cluster con un dominio di aggiornamento esplicito. |
-| ReportFabricUpgradeHealth |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per riprendere gli aggiornamenti del cluster con lo stato di avanzamento corrente. |
-| StartInfrastructureTask |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per avviare le attività di infrastruttura. |
-| FinishInfrastructureTask |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per terminare le attività di infrastruttura. |
-| ActivateNode |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per attivare un nodo. |
-| DeactivateNode |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per disattivare un nodo. |
-| DeactivateNodesBatch |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per disattivare più nodi. |
-| RemoveNodeDeactivations |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per annullare la disattivazione di più nodi. |
-| GetNodeDeactivationStatus |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per controllare lo stato di disattivazione. |
-| NodeStateRemoved |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per i report sulla rimozione dello stato di un nodo. |
-| RecoverPartition |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per ripristinare una partizione. |
-| RecoverPartitions |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per ripristinare più partizioni. |
-| RecoverServicePartitions |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per ripristinare partizioni di servizio. |
-| RecoverSystemPartitions |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per ripristinare partizioni di servizio di sistema. |
-| ReportFault |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per i report di errori. |
-| InvokeInfrastructureCommand |Wstring, valore predefinito: "Admin" | Configurazione di protezione per i comandi di gestione delle attività di infrastruttura. |
-| FileContent |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per il trasferimento del file del client dell'archivio immagini (esterno al cluster). |
-| FileDownload |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per l'avvio del download del file del client dell'archivio immagini (esterno al cluster). |
-| InternalList |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per l'operazione di elenco del file del client dell'archivio immagini (interno). |
-| Elimina |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per l'operazione di eliminazione del client dell'archivio immagini. |
-| Carica |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per l'operazione di copia del client dell'archivio immagini. |
-| GetStagingLocation |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per il recupero del percorso di gestione temporanea del client dell'archivio immagini. |
-| GetStoreLocation |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per il recupero del percorso dell'archivio del client dell'archivio immagini. |
-| NodeControl |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per avviare, arrestare e riavviare i nodi. |
-| CodePackageControl |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per riavviare i pacchetti di codice. |
-| UnreliableTransportControl |Wstring, valore predefinito: "Admin" | Trasporto non affidabile per l'aggiunta e la rimozione di comportamenti. |
-| MoveReplicaControl |Wstring, valore predefinito: "Admin" | Spostamento di repliche. |
-| PredeployPackageToNode |Wstring, valore predefinito: "Admin" | API per la pre-distribuzione. |
-| StartPartitionDataLoss |Wstring, valore predefinito: "Admin" | Provoca la perdita di dati in una partizione. |
-| StartPartitionQuorumLoss |Wstring, valore predefinito: "Admin" | Provoca la perdita di quorum in una partizione. |
-| StartPartitionRestart |Wstring, valore predefinito: "Admin" | Riavvia contemporaneamente alcune o tutte le repliche di una partizione. |
-| CancelTestCommand |Wstring, valore predefinito: "Admin" | Annulla un TestCommand specifico, se è in corso. |
-| StartChaos |Wstring, valore predefinito: "Admin" | Avvia Chaos, se non è già avviato. |
-| StopChaos |Wstring, valore predefinito: "Admin" | Arresta Chaos, se è stato avviato. |
-| StartNodeTransition |Wstring, valore predefinito: "Admin" | Configurazione di sicurezza per avviare la transizione di un nodo. |
-| StartClusterConfigurationUpgrade |Wstring, valore predefinito: "Admin" | Provoca StartClusterConfigurationUpgrade in una partizione. |
-| GetUpgradesPendingApproval |Wstring, valore predefinito: "Admin" | Provoca GetUpgradesPendingApproval in una partizione. |
-| StartApprovedUpgrades |Wstring, valore predefinito: "Admin" | Provoca StartApprovedUpgrades in una partizione. |
-| Ping |Wstring, valore predefinito: "Admin\|\|User" | Configurazione di sicurezza per i ping di client. |
-| Query |Wstring, valore predefinito: "Admin\|\|User" | Configurazione di sicurezza per le query. |
-| NameExists |Wstring, valore predefinito: "Admin\|\|User" | Configurazione di sicurezza per i controlli sulla presenza di URI di denominazione. |
-| EnumerateSubnames |Wstring, valore predefinito: "Admin\|\|User" | Configurazione di sicurezza per l'enumerazione degli URI di denominazione. |
-| EnumerateProperties |Wstring, valore predefinito: "Admin\|\|User" | Configurazione di sicurezza per l'enumerazione delle proprietà di denominazione. |
-| PropertyReadBatch |Wstring, valore predefinito: "Admin\|\|User" | Configurazione di sicurezza per le operazioni di lettura delle proprietà di denominazione. |
-| GetServiceDescription |Wstring, valore predefinito: "Admin\|\|User" | Configurazione di sicurezza per le notifiche del servizio di long polling e lettura delle descrizioni dei servizi. |
-| ResolveService |Wstring, valore predefinito: "Admin\|\|User" | Configurazione di sicurezza per la risoluzione di servizi in base a reclami. |
-| ResolveNameOwner |Wstring, valore predefinito: "Admin\|\|User" | Configurazione di sicurezza per la risoluzione dei proprietari degli URI di denominazione. |
-| ResolvePartition |Wstring, valore predefinito: "Admin\|\|User" | Configurazione di sicurezza per la risoluzione dei servizi di sistema. |
-| ServiceNotifications |Wstring, valore predefinito: "Admin\|\|User" | Configurazione di sicurezza per le notifiche di servizi basati su eventi. |
-| PrefixResolveService |Wstring, valore predefinito: "Admin\|\|User" | Configurazione di sicurezza per la risoluzione dei prefissi di basati sui reclami. |
-| GetUpgradeStatus |Wstring, valore predefinito: "Admin\|\|User" | Configurazione di sicurezza per il polling dello stato degli aggiornamenti dell'applicazione. |
-| GetFabricUpgradeStatus |Wstring, valore predefinito: "Admin\|\|User" | Configurazione di sicurezza per il polling dello stato degli aggiornamenti del cluster. |
-| InvokeInfrastructureQuery |Wstring, valore predefinito: "Admin\|\|User" | Configurazione di sicurezza per eseguire query sulle attività di infrastruttura. |
-| Elenco |Wstring, valore predefinito: "Admin\|\|User" | Configurazione di sicurezza per l'operazione di elenco del file del client dell'archivio immagini. |
-| ResetPartitionLoad |Wstring, valore predefinito: "Admin\|\|User" | Configurazione di sicurezza per reimpostare il carico per failoverUnit. |
-| ToggleVerboseServicePlacementHealthReporting | Wstring, valore predefinito: "Admin\|\|User" | Configurazione di sicurezza per attivare o disattivare ServicePlacement HealthReporting dettagliati. |
-| GetPartitionDataLossProgress | Wstring, valore predefinito: "Admin\|\|User" | Recupera lo stato di avanzamento per una chiamata API di richiamo di perdita dei dati. |
-| GetPartitionQuorumLossProgress | Wstring, valore predefinito: "Admin\|\|User" | Recupera lo stato di avanzamento per una chiamata API di richiamo di perdita del quorum. |
-| GetPartitionRestartProgress | Wstring, valore predefinito: "Admin\|\|User" | Recupera lo stato di avanzamento di una chiamata API di riavvio di una partizione. |
-| GetChaosReport | Wstring, valore predefinito: "Admin\|\|User" | Recupera lo stato di Chaos all'interno di un intervallo di tempo specificato. |
-| GetNodeTransitionProgress | Wstring, valore predefinito: "Admin\|\|User" | Configurazione di sicurezza per recuperare lo stato di avanzamento di un comando di transizione nodo. |
-| GetClusterConfigurationUpgradeStatus | Wstring, valore predefinito: "Admin\|\|User" | Provoca GetClusterConfigurationUpgradeStatus in una partizione. |
-| GetClusterConfiguration | Wstring, valore predefinito: "Admin\|\|User" | Provoca GetClusterConfiguration in una partizione. |
+| CreateName |stringa, il valore predefinito è "Admin" |Configurazione di sicurezza per creare un URI di denominazione. |
+| DeleteName |stringa, il valore predefinito è "Admin" |Configurazione di sicurezza per eliminare un URI di denominazione. |
+| PropertyWriteBatch |stringa, il valore predefinito è "Admin" |Configurazione di sicurezza per le operazioni di scrittura di proprietà di denominazione. |
+| CreateService |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per creare un servizio. |
+| CreateServiceFromTemplate |stringa, il valore predefinito è "Admin" |Configurazione di sicurezza per creare un servizio da un modello. |
+| UpdateService |stringa, il valore predefinito è "Admin" |Configurazione di sicurezza per gli aggiornamenti dei servizi. |
+| DeleteService  |stringa, il valore predefinito è "Admin" |Configurazione di sicurezza per eliminare un servizio. |
+| ProvisionApplicationType |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per il provisioning dei tipi di applicazione. |
+| CreateApplication |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per creare un'applicazione. |
+| DeleteApplication |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per eliminare un'applicazione. |
+| UpgradeApplication |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per avviare o interrompere gli aggiornamenti dell'applicazione. |
+| RollbackApplicationUpgrade |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per eseguire il rollback degli aggiornamenti dell'applicazione. |
+| UnprovisionApplicationType |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per annullare il provisioning dei tipi di applicazione. |
+| MoveNextUpgradeDomain |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per riprendere gli aggiornamenti dell'applicazione con un dominio di aggiornamento esplicito. |
+| ReportUpgradeHealth |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per riprendere gli aggiornamenti dell'applicazione con lo stato di avanzamento corrente. |
+| ReportHealth |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per i report di integrità. |
+| ProvisionFabric |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per il provisioning del manifesto del cluster e/o del file con estensione msi. |
+| UpgradeFabric |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per avviare gli aggiornamenti del cluster. |
+| RollbackFabricUpgrade |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per il rollback degli aggiornamenti del cluster. |
+| UnprovisionFabric |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per l'annullamento del provisioning del manifesto del cluster e/o del file con estensione msi. |
+| MoveNextFabricUpgradeDomain |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per riprendere gli aggiornamenti del cluster con un dominio di aggiornamento esplicito. |
+| ReportFabricUpgradeHealth |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per riprendere gli aggiornamenti del cluster con lo stato di avanzamento corrente. |
+| StartInfrastructureTask |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per avviare le attività di infrastruttura. |
+| FinishInfrastructureTask |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per terminare le attività di infrastruttura. |
+| ActivateNode |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per attivare un nodo. |
+| DeactivateNode |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per disattivare un nodo. |
+| DeactivateNodesBatch |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per disattivare più nodi. |
+| RemoveNodeDeactivations |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per annullare la disattivazione di più nodi. |
+| GetNodeDeactivationStatus |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per controllare lo stato di disattivazione. |
+| NodeStateRemoved |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per i report sulla rimozione dello stato di un nodo. |
+| RecoverPartition |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per ripristinare una partizione. |
+| RecoverPartitions |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per ripristinare più partizioni. |
+| RecoverServicePartitions |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per ripristinare partizioni di servizio. |
+| RecoverSystemPartitions |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per ripristinare partizioni di servizio di sistema. |
+| ReportFault |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per i report di errori. |
+| InvokeInfrastructureCommand |stringa, il valore predefinito è "Admin" | Configurazione di protezione per i comandi di gestione delle attività di infrastruttura. |
+| FileContent |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per il trasferimento del file del client dell'archivio immagini (esterno al cluster). |
+| FileDownload |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per l'avvio del download del file del client dell'archivio immagini (esterno al cluster). |
+| InternalList |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per l'operazione di elenco del file del client dell'archivio immagini (interno). |
+| Elimina |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per l'operazione di eliminazione del client dell'archivio immagini. |
+| Carica |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per l'operazione di copia del client dell'archivio immagini. |
+| GetStagingLocation |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per il recupero del percorso di gestione temporanea del client dell'archivio immagini. |
+| GetStoreLocation |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per il recupero del percorso dell'archivio del client dell'archivio immagini. |
+| NodeControl |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per avviare, arrestare e riavviare i nodi. |
+| CodePackageControl |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per riavviare i pacchetti di codice. |
+| UnreliableTransportControl |stringa, il valore predefinito è "Admin" | Trasporto non affidabile per l'aggiunta e la rimozione di comportamenti. |
+| MoveReplicaControl |stringa, il valore predefinito è "Admin" | Spostamento di repliche. |
+| PredeployPackageToNode |stringa, il valore predefinito è "Admin" | API per la pre-distribuzione. |
+| StartPartitionDataLoss |stringa, il valore predefinito è "Admin" | Provoca la perdita di dati in una partizione. |
+| StartPartitionQuorumLoss |stringa, il valore predefinito è "Admin" | Provoca la perdita di quorum in una partizione. |
+| StartPartitionRestart |stringa, il valore predefinito è "Admin" | Riavvia contemporaneamente alcune o tutte le repliche di una partizione. |
+| CancelTestCommand |stringa, il valore predefinito è "Admin" | Annulla un TestCommand specifico, se è in corso. |
+| StartChaos |stringa, il valore predefinito è "Admin" | Avvia Chaos, se non è già avviato. |
+| StopChaos |stringa, il valore predefinito è "Admin" | Arresta Chaos, se è stato avviato. |
+| StartNodeTransition |stringa, il valore predefinito è "Admin" | Configurazione di sicurezza per avviare la transizione di un nodo. |
+| StartClusterConfigurationUpgrade |stringa, il valore predefinito è "Admin" | Provoca StartClusterConfigurationUpgrade in una partizione. |
+| GetUpgradesPendingApproval |stringa, il valore predefinito è "Admin" | Provoca GetUpgradesPendingApproval in una partizione. |
+| StartApprovedUpgrades |stringa, il valore predefinito è "Admin" | Provoca StartApprovedUpgrades in una partizione. |
+| Ping |stringa, il valore predefinito è "Admin\|\|User" | Configurazione di sicurezza per i ping di client. |
+| Query |stringa, il valore predefinito è "Admin\|\|User" | Configurazione di sicurezza per le query. |
+| NameExists |stringa, il valore predefinito è "Admin\|\|User" | Configurazione di sicurezza per i controlli sulla presenza di URI di denominazione. |
+| EnumerateSubnames |stringa, il valore predefinito è "Admin\|\|User" | Configurazione di sicurezza per l'enumerazione degli URI di denominazione. |
+| EnumerateProperties |stringa, il valore predefinito è "Admin\|\|User" | Configurazione di sicurezza per l'enumerazione delle proprietà di denominazione. |
+| PropertyReadBatch |stringa, il valore predefinito è "Admin\|\|User" | Configurazione di sicurezza per le operazioni di lettura delle proprietà di denominazione. |
+| GetServiceDescription |stringa, il valore predefinito è "Admin\|\|User" | Configurazione di sicurezza per le notifiche del servizio di long polling e lettura delle descrizioni dei servizi. |
+| ResolveService |stringa, il valore predefinito è "Admin\|\|User" | Configurazione di sicurezza per la risoluzione di servizi in base a reclami. |
+| ResolveNameOwner |stringa, il valore predefinito è "Admin\|\|User" | Configurazione di sicurezza per la risoluzione dei proprietari degli URI di denominazione. |
+| ResolvePartition |stringa, il valore predefinito è "Admin\|\|User" | Configurazione di sicurezza per la risoluzione dei servizi di sistema. |
+| ServiceNotifications |stringa, il valore predefinito è "Admin\|\|User" | Configurazione di sicurezza per le notifiche di servizi basati su eventi. |
+| PrefixResolveService |stringa, il valore predefinito è "Admin\|\|User" | Configurazione di sicurezza per la risoluzione dei prefissi di basati sui reclami. |
+| GetUpgradeStatus |stringa, il valore predefinito è "Admin\|\|User" | Configurazione di sicurezza per il polling dello stato degli aggiornamenti dell'applicazione. |
+| GetFabricUpgradeStatus |stringa, il valore predefinito è "Admin\|\|User" | Configurazione di sicurezza per il polling dello stato degli aggiornamenti del cluster. |
+| InvokeInfrastructureQuery |stringa, il valore predefinito è "Admin\|\|User" | Configurazione di sicurezza per eseguire query sulle attività di infrastruttura. |
+| Elenco |stringa, il valore predefinito è "Admin\|\|User" | Configurazione di sicurezza per l'operazione di elenco del file del client dell'archivio immagini. |
+| ResetPartitionLoad |stringa, il valore predefinito è "Admin\|\|User" | Configurazione di sicurezza per reimpostare il carico per failoverUnit. |
+| ToggleVerboseServicePlacementHealthReporting | stringa, il valore predefinito è "Admin\|\|User" | Configurazione di sicurezza per attivare o disattivare ServicePlacement HealthReporting dettagliati. |
+| GetPartitionDataLossProgress | stringa, il valore predefinito è "Admin\|\|User" | Recupera lo stato di avanzamento per una chiamata API di richiamo di perdita dei dati. |
+| GetPartitionQuorumLossProgress | stringa, il valore predefinito è "Admin\|\|User" | Recupera lo stato di avanzamento per una chiamata API di richiamo di perdita del quorum. |
+| GetPartitionRestartProgress | stringa, il valore predefinito è "Admin\|\|User" | Recupera lo stato di avanzamento di una chiamata API di riavvio di una partizione. |
+| GetChaosReport | stringa, il valore predefinito è "Admin\|\|User" | Recupera lo stato di Chaos all'interno di un intervallo di tempo specificato. |
+| GetNodeTransitionProgress | stringa, il valore predefinito è "Admin\|\|User" | Configurazione di sicurezza per recuperare lo stato di avanzamento di un comando di transizione nodo. |
+| GetClusterConfigurationUpgradeStatus | stringa, il valore predefinito è "Admin\|\|User" | Provoca GetClusterConfigurationUpgradeStatus in una partizione. |
+| GetClusterConfiguration | stringa, il valore predefinito è "Admin\|\|User" | Provoca GetClusterConfiguration in una partizione. |
 
 ### <a name="section-name-reconfigurationagent"></a>Nome della sezione: ReconfigurationAgent
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
@@ -504,8 +528,8 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 |ConstraintFixPartialDelayAfterNodeDown | Tempo in secondi, valore predefinito: 120 | Specificare l'intervallo di tempo in secondi. Non risolvere violazioni di vincoli FaultDomain e UpgradeDomain in questo periodo dopo che un nodo va offline. |
 |ConstraintFixPartialDelayAfterNewNode | Tempo in secondi, valore predefinito: 120 | Specificare l'intervallo di tempo in secondi. Non risolvere violazioni di vincoli FaultDomain e UpgradeDomain in questo periodo dopo aver aggiunto un nuovo nodo. |
 |GlobalMovementThrottleThreshold | Uint, valore predefinito: 1000 | Numero massimo di movimenti consentiti nella fase di bilanciamento nel precedente intervallo indicato in GlobalMovementThrottleCountingInterval. |
-|GlobalMovementThrottleThresholdForPlacement | Uint, valore predefinito: 0 | Numero massimo di movimenti consentiti nella fase di posizionamento nel precedente intervallo indicato in GlobalMovementThrottleCountingInterval. Impostarlo su&0; per non avere limiti.|
-|GlobalMovementThrottleThresholdForBalancing | Uint, valore predefinito: 0 | Numero massimo di movimenti consentiti nella fase di bilanciamento nel precedente intervallo indicato in GlobalMovementThrottleCountingInterval. Impostarlo su&0; per non avere limiti. |
+|GlobalMovementThrottleThresholdForPlacement | Uint, valore predefinito: 0 | Numero massimo di movimenti consentiti nella fase di posizionamento nel precedente intervallo indicato in GlobalMovementThrottleCountingInterval. Impostarlo su 0 per non avere limiti.|
+|GlobalMovementThrottleThresholdForBalancing | Uint, valore predefinito: 0 | Numero massimo di movimenti consentiti nella fase di bilanciamento nel precedente intervallo indicato in GlobalMovementThrottleCountingInterval. Impostarlo su 0 per non avere limiti. |
 |GlobalMovementThrottleCountingInterval | Tempo in secondi, valore predefinito: 600 | Specificare l'intervallo di tempo in secondi. Indicare la lunghezza dell'intervallo precedente per cui si desidera tenere traccia dei movimenti di replica di dominio. Usato insieme a GlobalMovementThrottleThreshold. È possibile impostarlo su 0 per ignorare del tutto la limitazione globale. |
 |MovementPerPartitionThrottleThreshold | Uint, valore predefinito: 50 | Non avverranno movimenti legati a bilanciamenti per una partizione se il numero di tali movimenti per le repliche della partizione ha raggiunto o superato MovementPerFailoverUnitThrottleThreshold nell'intervallo precedente indicato in MovementPerPartitionThrottleCountingInterval. |
 |MovementPerPartitionThrottleCountingInterval | Tempo in secondi, valore predefinito: 600 | Specificare l'intervallo di tempo in secondi. Indicare la lunghezza dell'intervallo precedente per cui si desidera tenere traccia dei movimenti di replica per ciascuna partizione. Usato insieme a MovementPerPartitionThrottleThreshold. |
@@ -513,13 +537,13 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 |UseMoveCostReports | Bool, valore predefinito: false | Indica al servizio di bilanciamento del carico di ignorare l'elemento di costo della funzione di assegnazione dei punteggio. Comporterà potenzialmente un numero elevato di spostamenti per un posizionamento più bilanciato. |
 |PreventTransientOvercommit | Bool, valore predefinito: false | Determina se PLB deve conteggiare immediatamente le risorse che saranno liberate dagli spostamenti avviati. Per impostazione predefinita, PLB può avviare gli spostamenti in entrata e in uscita nello stesso nodo che può creare un overcommit temporaneo. Impostando il parametro su true sarà possibile prevenire overcommit simili e disabilitare le deframmentazioni su richiesta, note anche come placementWithMove. |
 |InBuildThrottlingEnabled | Bool, valore predefinito: false | Determina se la limitazione in build è abilitata. |
-|InBuildThrottlingAssociatedMetric | Wstring, valore predefinito: "" | Il nome della metrica associato a questa limitazione. |
+|InBuildThrottlingAssociatedMetric | stringa, il valore predefinito è "" | Il nome della metrica associato a questa limitazione. |
 |InBuildThrottlingGlobalMaxValue | Int, valore predefinito: 0 |Il numero massimo di repliche in build consentite a livello globale. |
 |SwapPrimaryThrottlingEnabled | Bool, valore predefinito: false| Determina se la limitazione swap-primary è abilitata. |
-|SwapPrimaryThrottlingAssociatedMetric | Wstring, valore predefinito: ""| Il nome della metrica associato a questa limitazione. |
+|SwapPrimaryThrottlingAssociatedMetric | stringa, il valore predefinito è ""| Il nome della metrica associato a questa limitazione. |
 |SwapPrimaryThrottlingGlobalMaxValue | Int, valore predefinito: 0 | Il numero massimo di repliche swap-primary consentite a livello globale. |
 |PlacementConstraintPriority | Int, valore predefinito: 0 | Determina la priorità del vincolo di posizionamento: 0: priorità elevata; 1: priorità minore; numero negativo: ignorare. |
-|PreferredLocationConstraintPriority | Int, valore predefinito: 2| Determina la priorità del vincolo di posizionamento preferito: 0: priorità elevata; 1: priorità minore; 2: ottimizzazione; numero negativo: ignorare |
+|PreferredLocationConstraintPriority | Int, valore predefinito: 2| Determina la priorità del vincolo di posizionamento preferito: 0 indica priorità elevata, 1 indica priorità minore; 2 indica ottimizzazione e un numero negativo indica "ignorare" |
 |CapacityConstraintPriority | Int, valore predefinito: 0 | Determina la priorità del vincolo di capacità: 0: priorità elevata; 1: priorità minore; numero negativo: ignorare. |
 |AffinityConstraintPriority | Int, valore predefinito: 0 | Determina la priorità del vincolo di affinità: 0: priorità elevata; 1: priorità minore; numero negativo: ignorare. |
 |FaultDomainConstraintPriority | Int, valore predefinito: 0 | Determina la priorità del vincolo di dominio di errore: 0: priorità elevata; 1: priorità minore; numero negativo: ignorare. |
@@ -571,7 +595,7 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 |ReplicaRestartWaitDuration |Tempo in secondi, valore predefinito: (60.0 * 30)|Specificare l'intervallo di tempo in secondi. ReplicaRestartWaitDuration per ClusterManager. |
 |QuorumLossWaitDuration |Tempo in secondi, valore predefinito: MaxValue | Specificare l'intervallo di tempo in secondi. QuorumLossWaitDuration per ClusterManager. |
 |StandByReplicaKeepDuration | Tempo in secondi, valore predefinito: (3600.0 * 2)|Specificare l'intervallo di tempo in secondi. StandByReplicaKeepDuration per ClusterManager. |
-|PlacementConstraints | Wstring, valore predefinito: "" |PlacementConstraints per ClusterManager. |
+|PlacementConstraints | stringa, il valore predefinito è "" |PlacementConstraints per ClusterManager. |
 |SkipRollbackUpdateDefaultService | Bool, valore predefinito: false |CM non riporterà allo stato precedente i servizi predefiniti aggiornati durante il rollback dell'aggiornamento dell'applicazione. |
 |EnableDefaultServicesUpgrade | Bool, valore predefinito: false |Abilita l'aggiornamento dei servizi predefiniti durante l'aggiornamento dell'applicazione. Le descrizioni dei servizi predefiniti vengono sovrascritte in seguito all'aggiornamento. |
 |InfrastructureTaskHealthCheckWaitDuration |Tempo in secondi, valore predefinito: 0| Specificare l'intervallo di tempo in secondi. Il tempo di attesa prima di avviare controlli di integrità dopo la post-elaborazione di un'attività di infrastruttura. |

@@ -31,8 +31,6 @@ Questo articolo descrive alcuni scenari preconfigurati in un'acquisizione di pac
 
 Questo scenario presume che sia già stata eseguita un'acquisizione di pacchetti in una macchina virtuale. Per informazioni su come creare un'acquisizione di pacchetti, vedere [Manage packet captures with the portal](network-watcher-packet-capture-manage-portal.md) (Gestire le acquisizioni di pacchetti con il portale) o [Managing Packet Captures with REST API](network-watcher-packet-capture-manage-rest.md) (Gestione di acquisizioni di pacchetti con l'API REST).
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## <a name="scenario"></a>Scenario
 
 In questo scenario:

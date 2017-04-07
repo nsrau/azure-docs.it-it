@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 03/06/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: a9d496d696298d800bc40b1f3880c95f84e5f29f
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 03d38dbce86711395a967cf8bad440fd50a38631
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -27,8 +27,8 @@ Il database SQL di Azure offre quattro [livelli di servizio](sql-database-servic
 
 > [!NOTE]
 > Questo articolo è incentrato sulle indicazioni relative alle prestazioni per singoli database nel database SQL di Azure. Per indicazioni sulle prestazioni relative ai pool elastici, vedere le [considerazioni su prezzo e prestazioni per i pool elastici](sql-database-elastic-pool-guidance.md). Si noti, tuttavia, che molte raccomandazioni sull'ottimizzazione contenute in questo articolo possono essere applicate ai database in un pool elastico ottenendo vantaggi simili a livello di prestazioni.
-> 
-> 
+>
+>
 
 ## <a name="why-service-tiers"></a>Vantaggi dei livelli di servizio
 Anche se ogni carico di lavoro può presentare caratteristiche diverse, lo scopo dei livelli di servizio è offrire la prevedibilità delle prestazioni a diversi livelli. I clienti con requisiti di risorse di database su larga scala possono operare in un ambiente di calcolo più dedicato.
@@ -58,7 +58,7 @@ Ogni livello di servizio e prestazione è associato a limiti e caratteristiche d
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 > [!IMPORTANT]
-> I clienti che scelgono livelli di prestazioni P11 e P15 possono usare fino a 4 TB di spazio di archiviazione incluso senza alcun costo aggiuntivo. L'opzione 4 TB è attualmente in anteprima pubblica nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti occidentali, Europa occidentale, Asia sud-orientale, Giappone orientale, Australia orientale, Canada centrale e Canada orientale. Per altre informazioni, vedere le [limitazioni correnti per l'opzione 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize).
+> I clienti che scelgono livelli di prestazioni P11 e P15 possono usare fino a 4 TB di spazio di archiviazione incluso senza alcun costo aggiuntivo. L'opzione 4 TB è attualmente in anteprima pubblica nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti occidentali, Europa occidentale, Asia sud-orientale, Giappone orientale, Australia orientale, Canada centrale e Canada orientale.
 >
 
 ### <a name="maximum-in-memory-oltp-storage"></a>Archiviazione di OLTP in memoria massima
@@ -86,8 +86,8 @@ Se più client usano la stessa stringa di connessione, il servizio autentica ogn
 
 > [!NOTE]
 > Questo limite attualmente non si applica ai database in pool elastici.
-> 
-> 
+>
+>
 
 ### <a name="maximum-sessions"></a>Numero massimo di sessioni
 Per visualizzare il numero di sessioni attive correnti, eseguire questa query Transact-SQL sul database SQL:
@@ -105,7 +105,7 @@ Se si analizza un carico di lavoro di SQL Server locale, modificare la query per
 
 Queste query restituiscono un conteggio temporizzato. Se si raccolgono più campioni nel tempo, si otterrà una comprensione ottimale dell'uso della sessione.
 
-Per l'analisi del database SQL, è possibile anche ottenere dati statistici cronologici sulle sessioni eseguendo query della visualizzazione [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) ed esaminando la colonna **active_session_count**. 
+Per l'analisi del database SQL, è possibile anche ottenere dati statistici cronologici sulle sessioni eseguendo query della visualizzazione [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) ed esaminando la colonna **active_session_count**.
 
 ## <a name="monitor-resource-use"></a>Monitorare l'uso delle risorse
 
@@ -149,8 +149,8 @@ Il database SQL di Azure espone le informazioni sulla risorsa usata per ogni dat
 
 > [!NOTE]
 > È necessario essere connessi al database **master** del server logico del database SQL per eseguire la query **sys.resource_stats** negli esempi seguenti.
-> 
-> 
+>
+>
 
 Questo esempio illustra la modalità di esposizione dei dati in questa vista:
 
@@ -164,14 +164,14 @@ Questo esempio illustra la modalità di esposizione dei dati in questa vista:
 L'esempio successivo mostra i diversi modi in cui è possibile usare la vista del catalogo **sys.resource_stats** per ottenere informazioni sul modo in cui il database SQL usa le risorse:
 
 1. Per esaminare l'uso delle risorse nella settimana precedente per il database userdb1, è possibile eseguire questa query:
-   
+
         SELECT *
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND
               start_time > DATEADD(day, -7, GETDATE())
         ORDER BY start_time DESC;
 2. Per verificare l'idoneità del carico di lavoro per il livello di prestazioni, è necessario eseguire il drill-down in ogni aspetto delle metriche delle risorse, ovvero CPU, operazioni di lettura e scrittura, numero di thread di lavoro e numero di sessioni. Ecco la query modificata usando**sys.resource_stats** per segnalare i valori medi e massimi di queste metriche delle risorse:
-   
+
         SELECT
             avg(avg_cpu_percent) AS 'Average CPU use in percent',
             max(avg_cpu_percent) AS 'Maximum CPU use in percent',
@@ -186,35 +186,35 @@ L'esempio successivo mostra i diversi modi in cui è possibile usare la vista de
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
 3. Con queste informazioni sui valori medi e massimi di ogni metrica delle risorse è possibile valutare l'idoneità del livello di prestazioni scelto in rapporto al carico di lavoro. I valori medi di **sys.resource_stats** offrono in genere una buona baseline da usare nelle dimensioni di destinazione. Deve trattarsi dello strumento di misurazione principale. È ad esempio possibile che si usi il livello di servizio Standard con il livello di prestazioni S2. Le percentuali medie di uso per la CPU e per operazioni di scrittura e lettura I/O sono inferiori al 40%, il numero medio di thread di lavoro è inferiore a 50 e il numero medio di sessioni è inferiore a 200. Il carico di lavoro potrebbe essere idoneo per il livello di prestazioni S1. È facile verificare se il database rientra nei limiti dei thread di lavoro e delle sessioni. Per verificare se un database può rientrare in un livello di prestazioni inferiore prendendo in considerazione la CPU e le operazioni di lettura e scrittura, è sufficiente dividere il numero di DTU del livello di prestazioni inferiore per il numero di DTU del livello di prestazioni corrente e moltiplicare il risultato per 100:
-   
-    **S1 DTU / S2 DTU * 100 = 20 / 50* 100 = 40**
-   
+
+    **S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40**
+
     Il risultato rappresenta la differenza di prestazioni relativa, in percentuale, tra i due livelli di prestazioni. Se l'uso delle risorse non supera questa quantità, il carico di lavoro potrebbe essere idoneo per il livello di prestazioni inferiore. È tuttavia necessario esaminare anche tutti gli intervalli dei valori di uso delle risorse e determinare, a livello di percentuale, la frequenza con cui il carico di lavoro del database può rientrare nel livello di prestazioni inferiore. La query seguente genera questa percentuale per ogni dimensione di risorsa, in base alla soglia del 40% calcolata in questo esempio:
-   
+
         SELECT
             (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
             ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent'
             ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data IO Fit Percent'
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-   
+
     In base all'obiettivo del livello di servizio (SLO) del database, è possibile stabilire se il carico di lavoro può rientrare nel livello di prestazioni inferiore. Se l'obiettivo del livello di servizio del carico di lavoro del database è 99,9% e la query precedente restituisce valori superiori al 99,9% per tutte e tre le dimensioni della risorsa, è probabile che il carico di lavoro possa rientrare nel livello di prestazioni inferiore.
-   
+
     La percentuale calcolata in precedenza consente inoltre di stabilire se è opportuno usare il livello di prestazioni superiore a quello attualmente in uso per soddisfare l'obiettivo del livello di servizio. Ad esempio, userdb1 mostra il valore di uso della CPU seguente per la settimana precedente:
-   
+
    | Percentuale CPU media | Percentuale CPU massima |
    | --- | --- |
    | 24,5 |100,00 |
-   
+
     L'utilizzo medio della CPU corrisponde a circa un quarto del limite del livello di prestazioni, che potrebbe rientrare nel livello di prestazioni del database. Il valore massimo corrisponde tuttavia al limite del livello di prestazioni del database. Per decidere se è necessario passare al livello di prestazioni superiore a quello attualmente in uso, Considerare il numero di volte in cui il carico di lavoro raggiunge il 100% e quindi confrontare tale numero con l'obiettivo del livello di servizio del carico di lavoro del database.
-   
+
         SELECT
         (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU fit percent'
         ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log write fit percent'
         ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical data I/O fit percent'
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-   
+
     Se questa query restituisce un valore inferiore a 99,9% per qualsiasi delle tre dimensioni della risorsa, è consigliabile prendere in esame la possibilità di passare al livello di prestazioni superiore o usare tecniche di ottimizzazione dell'applicazione per ridurre il carico nel database SQL.
 4. Questo esercizio tiene in considerazione anche l'aumento di carico di lavoro previsto in futuro.
 
@@ -400,8 +400,8 @@ La seconda parte dell'esempio usa un hint per la query per indicare a Query Opti
 
 > [!NOTE]
 > Anche se il volume in questo esempio è intenzionalmente ridotto, l'effetto dei parametri non ottimali può essere significativo, in particolare nei database di dimensioni più grandi. La differenza, nei casi estremi, può essere di alcuni secondi per i casi veloci e di alcune ore per i casi lenti.
-> 
-> 
+>
+>
 
 Esaminando **sys.resource_stats** è possibile determinare se la risorsa usata per un test usa una quantità di risorse superiore o inferiore rispetto a un altro test. Quando si confrontano i dati, separare gli intervalli di test in modo che non rientrino nella stessa finestra di 5 minuti nella vista **sys.resource_stats**. L'obiettivo dell'esercizio consiste nel ridurre la quantità totale di risorse usate e non di ridurre le risorse di picco. In genere, anche con l'ottimizzazione di una parte di codice per la latenza viene ridotto il consumo di risorse. Assicurarsi che le modifiche apportate a un'applicazione siano necessarie e che non influiscano negativamente sull'esperienza dei clienti che potrebbero usare hint di query nell'applicazione.
 
@@ -412,8 +412,8 @@ Poiché il database SQL di Azure viene eseguito in hardware apposito, i limiti d
 
 > [!NOTE]
 > Il database SQL offre ora una libreria per semplificare il partizionamento orizzontale. Per altre informazioni, vedere [Panoramica della libreria client dei database elastici](sql-database-elastic-database-client-library.md).
-> 
-> 
+>
+>
 
 Se, ad esempio, un database include il nome del cliente, l'ordine e i dettagli dell'ordine (come illustrato nel database di esempio tradizionale Northwind incluso in SQL Server), è possibile suddividere questi dati in più database raggruppando un cliente con l'ordine correlato e con le informazioni dettagliate sull'ordine. È possibile assicurare che i dati del cliente rimangano in un singolo database. L'applicazione suddividerebbe i diversi clienti tra database, estendendo di fatto il carico tra più database. Con il partizionamento orizzontale, i clienti possono evitare di raggiungere il limite massimo delle dimensioni del database, ma anche il database SQL di Azure può elaborare carichi di lavoro notevolmente maggiori rispetto ai limiti corrispondenti ai diversi livelli di prestazioni, a condizione che ogni singolo database rientri nel relativo valore di DTU.
 
@@ -436,5 +436,4 @@ Alcune applicazioni di database contengono carichi di lavoro con intensa attivit
 * Per altre informazioni sui livelli di servizio, vedere [Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL](sql-database-service-tiers.md)
 * Per altre informazioni sui pool elastici, vedere [Informazioni sui pool elastici di Azure](sql-database-elastic-pool.md)
 * Per informazioni sulle prestazioni e sui pool elastici, vedere [Quando usare un pool elastico](sql-database-elastic-pool-guidance.md)
-
 

@@ -34,7 +34,6 @@
 ## Gestire
 ### Gestire Ricerca di Azure
 #### [Portale di Azure](search-manage.md)
-#### [REST](search-get-started-management-api.md)
 #### [PowerShell](search-manage-powershell.md)
 ### [Monitorare l'utilizzo e le statistiche](search-monitor-usage.md)
 ### [Analisi del traffico di ricerca](search-traffic-analytics.md)
@@ -85,8 +84,3 @@
 ### [Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [Ricerca di Azure in GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

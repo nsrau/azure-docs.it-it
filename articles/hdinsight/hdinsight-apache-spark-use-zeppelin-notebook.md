@@ -13,12 +13,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 04/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: eadf0611ca46a975c364a1b073828c6c3faf5f77
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 9e6e0a696ba27c7758c21fa46754a8539ae2255b
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -27,27 +27,15 @@ ms.lasthandoff: 01/24/2017
 Informazioni su come installare i notebook di Zeppelin in cluster Apache Spark e su come utilizzare i notebook di Zeppelin per eseguire i processi Spark.
 
 > [!IMPORTANT]
-> Se è stato eseguito il provisioning di cluster Spark 1.6 in HDInsight 3.5 è possibile accedere ai notebook Zeppelin per impostazione predefinita con le istruzioni illustrate in [Usare notebook Zeppelin con cluster Apache Spark in HDInsight Linux](hdinsight-apache-spark-zeppelin-notebook.md). Se si vuole usare Zeppelin nelle versioni dei cluster HDInsight 3.3, 3.4 o Spark 2.0 in HDInsight 3.5, è necessario seguire le istruzioni in questo articolo per installare Zeppelin.
+> Se è stato eseguito il provisioning di un cluster Spark 1.6 in HDInsight 3.5, è possibile accedere ai notebook Zeppelin per impostazione predefinita con le istruzioni illustrate in [Usare notebook Zeppelin con cluster Apache Spark in HDInsight Linux](hdinsight-apache-spark-zeppelin-notebook.md). Se si vuole usare Zeppelin nelle versioni dei cluster HDInsight 3.3 o 3.4, è necessario seguire le istruzioni in questo articolo per installare Zeppelin.
 >
->
+> Non è possibile usare gli script in questo articolo per installare Zeppelin in cluster Spark 2.0.
 
-**Prerequisiti:**
+## <a name="prerequisites"></a>Prerequisiti
 
-* Prima di iniziare questa esercitazione, è necessario disporre di un abbonamento ad Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* È necessario disporre di una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo relativo alla [creazione di cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
-* Un client SSH. Per distribuzioni Linux e Unix o Macintosh OS X, il comando `ssh` viene offerto con il sistema operativo. Per Windows, è consigliabile [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
-  > [!NOTE]
-  > Se si vuole usare un client SSH diverso da `ssh` o PuTTY, consultare la documentazione per il client su come stabilire un tunnel SSH.
-  >
-  >
-* Un browser Web che può essere configurato per usare un proxy SOCKS
-* **(facoltativo)**: un plug-in, ad esempio [FoxyProxy](http://getfoxyproxy.org/,) che possa applicare delle regole che instradano solo richieste specifiche attraverso il tunnel.
-
-  > [!WARNING]
-  > Senza un plug-in come FoxyProxy, tutte le richieste effettuate tramite il browser possono essere instradate attraverso il tunnel. Ciò può comportare un caricamento più lento delle pagine web nel browser.
-  >
-  >
 
 ## <a name="install-zeppelin-on-a-spark-cluster"></a>Installare Zeppelin in un cluster Spark
 È possibile installare Zeppelin in un cluster Spark tramite l'azione script. L'azione script usa script personalizzati per installare nel cluster i componenti che non sono disponibili per impostazione predefinita. È possibile usare lo script personalizzato per installare Zeppelin dal portale di Azure tramite HDInsight .NET SDK o Azure PowerShell. È possibile utilizzare lo script per installare Zeppelin sia nell’ambito della creazione del cluster che quando il cluster è in esecuzione. I collegamenti nelle sezioni seguenti forniscono le istruzioni.

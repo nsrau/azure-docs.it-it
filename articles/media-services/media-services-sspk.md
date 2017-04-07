@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 03/29/2017
 ms.author: xpouyat
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c4fe7c13f4805f9a3808096f87e86f5f9c973372
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 2a6122645f96e7a1a1286ef2d13c155b5b106056
+ms.lasthandoff: 03/30/2017
 
 
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licenza per Microsoft® Smooth Streaming Client Porting Kit
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Microsoft Smooth Streaming Client Porting Kit,**SSPK** per brevità, è un'implementazione client di Smooth Streaming ottimizzata per aiutare i produttori di dispositivi integrati, operatori di telefonia via cavo e mobile, provider di servizi di gestione del contenuto, produttori di telefoni, fornitori di software indipendenti (ISV) e provider di soluzioni a creare prodotti e servizi per la trasmissione di flussi adattivi in formato Smooth Streaming. SSPK è un'implementazione indipendente dal dispositivo e dalla piattaforma del client Smooth Streaming che può essere applicata dal licenziatario a qualsiasi dispositivo e piattaforma. 
 
 Di seguito è riportata un'architettura di alto livello che include la casella IIS Smooth Streaming Porting Kit, ovvero l'implementazione client di Smooth Streaming fornita da Microsoft, e tutta la logica di base per la riproduzione di contenuto Smooth Streaming. Questa implementazione viene quindi applicata dai partner a una piattaforma o un dispositivo specifico mediante l'implementazione di interfacce appropriate. 
@@ -91,6 +92,7 @@ I licenziatari di SSPK Interim e Final possono inviare domande tecniche a [smoot
 * HANDAN BroadInfoCom Co., Ltd.
 * Infomir GMBH
 * Irdeto USA Inc.
+* iWEDIA S.A. 
 * Liberty Global Services BV
 * MediaTek Inc.
 * MStar Co, Ltd.
@@ -157,10 +159,5 @@ I licenziatari di SSPK Interim e Final possono inviare domande tecniche a [smoot
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 1654c100c1c57b04a61cf2b9d2cf37d58cec1870
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -32,7 +33,7 @@ Il **menu** seguente collega ad argomenti che descrivono come usare gli strument
 > 
 > 
 
-## <a name="a-namesql-dataexplorationaexplore-sql-data-with-sql-scripts"></a><a name="sql-dataexploration"></a>Esplorare i dati SQL mediante gli script SQL
+## <a name="sql-dataexploration"></a>Esplorare i dati SQL mediante gli script SQL
 Di seguito, sono riportati alcuni script SQL di esempio da utilizzare per esplorare gli archivi dati in SQL Server.
 
 1. Visualizzare il numero di osservazioni per giorno
@@ -53,7 +54,7 @@ Di seguito, sono riportati alcuni script SQL di esempio da utilizzare per esplor
 > 
 > 
 
-## <a name="a-namepythonaexplore-sql-data-with-python"></a><a name="python"></a>Esplorare i dati SQL mediante Python
+## <a name="python"></a>Esplorare i dati SQL mediante Python
 L'uso di Python per esplorare i dati e creare funzionalità, se i dati si trovano in SQL Server, funziona in modo analogo all'elaborazione dei dati BLOB di Azure tramite Python, come illustrato in [Process Azure Blob data in your data science environment](machine-learning-data-science-process-data-blob.md) (Elaborare i dati BLOB di Azure in un ambiente di analisi scientifica dei dati). I dati devono essere caricati dal database nei frame di dati Panda. A questo punto, è possibile elaborarli ulteriormente. In questa sezione, è stato descritto il processo di connessione al database per caricare dati all'interno di un frame di dati.
 
 Il seguente formato della stringa di connessione può essere usato per connettersi a un database di SQL Server da Pyhton usando pyodbc (sostituire il nome del server, quello del database, il nome utente e la password con i valori personalizzati):
@@ -71,10 +72,5 @@ A questo punto, è possibile usare il frame di dati di Pandas, come descritto ne
 
 ## <a name="cortana-analytics-process-in-action-example"></a>Il Cortana Analytics Process nell’esempio di azione
 Per un esempio della procedura dettagliata end-to-end del Cortana Analytics Process tramite un set di dati pubblico, vedere [Processo di analisi scientifica dei dati per i team in azione: uso di SQL Sever](machine-learning-data-science-process-sql-walkthrough.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

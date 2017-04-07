@@ -37,7 +37,7 @@
     ```
    
    > [!NOTE]
-   > Per una macchina virtuale Linux, è necessario fornire l'opzione `-e` in `vm create`. Non è possibile abilitare SSH dopo la creazione della macchina virtuale. Per altre informazioni su SSH, vedere la pagina relativa all'[uso di SSH con Linux in Azure](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+   > Per una macchina virtuale Linux, è necessario fornire l'opzione `-e` in `vm create`. Non è possibile abilitare SSH dopo la creazione della macchina virtuale. Per altre informazioni su SSH, vedere la pagina relativa all'[uso di SSH con Linux in Azure](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 5. È possibile verificare gli attributi della macchina virtuale usando il comando `azure vm show`. L'esempio seguente elenca le informazioni della macchina virtuale denominata `myVM`:
 
@@ -53,9 +53,4 @@
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni su tutti questi comandi della macchina virtuale dell'interfaccia della riga di comando di Azure 1.0, vedere [Uso dell'interfaccia della riga di comando di Azure 1.0 con l'API di distribuzione classica](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

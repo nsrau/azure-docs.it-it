@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/20/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 46eb4a20c85140a7893d77984f375d6abf3e7634
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 7dc5143086e3a73e0536408a41468b8cdd40bd12
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -38,7 +38,7 @@ Nelle tabelle seguenti vengono elencati quali servizi Microsoft supportano la di
 | Servizio contenitore |Sì |[Container Service REST](/rest/api/compute/containerservices) |[Risorse del servizio contenitore](/azure/templates/microsoft.containerservice/containerservices) |
 | Servizi del ciclo di vita Dynamics |Sì | | |
 | Set di scalabilità |Sì |[Scale Set REST](/rest/api/compute/virtualmachinescalesets) |[Risorse del set di scalabilità](/azure/templates/microsoft.compute/virtualmachinescalesets) |
-| Service Fabric |Sì |[REST di Service Fabric](/rest/api/servicefabric) | [Schema Service Fabric](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-09-01/Microsoft.ServiceFabric.json) |
+| Service Fabric |Sì |[REST di Service Fabric](/rest/api/servicefabric) | [Risorse di Service Fabric](/azure/templates/microsoft.servicefabric/clusters) |
 | Macchine virtuali |Sì |[VM REST](/rest/api/compute/virtualmachines) |[Risorse VM](/azure/templates/microsoft.compute/virtualmachines) |
 | Macchine virtuali (classico) |Limitato |- |- |
 | RemoteApp |No |- |- |
@@ -117,11 +117,11 @@ Servizi cloud (classico) può essere usato con altre risorse classiche. Le risor
 | RETE CDN |Sì |[REST della rete CDN](/rest/api/cdn) |[Risorse della rete CDN](/azure/templates/microsoft.cdn/profiles) |
 | Servizi multimediali |Sì |[Riferimento all'API REST di Servizi multimediali di Azure](/rest/api/media) |[Risorse multimediali](/azure/templates/microsoft.media/mediaservices) |
 
-## <a name="hybrid-integration"></a>Integrazione ibrida
-| Servizio | Gestione risorse abilitato | API REST | Formato del modello |
+## <a name="enterprise-integration"></a>Integrazione aziendale
+| Service | Gestione risorse abilitato | API REST | Formato del modello |
 | --- | --- | --- | --- |
 | Servizi BizTalk |Sì | |[Schema BizTalk](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
-| Servizio di ripristino |Sì |[REST Servizi di ripristino](/rest/api/recoveryservices) |[Risorse di Servizi di ripristino](/azure/templates/microsoft.recoveryservices/vaults) |
+| Relay | Sì |  | [Risorse di inoltro](/azure/templates/microsoft.relay/namespaces) |
 | Bus di servizio |Sì |[REST del bus di servizio](/rest/api/servicebus) |[Risorse del bus di servizio](/azure/templates/microsoft.servicebus/namespaces) |
 
 ## <a name="identity--access-management"></a>Gestione dell'identità e dell'accesso
@@ -139,10 +139,11 @@ Azure Active Directory funziona con Gestione risorse per l'abilitazione del cont
 | Servizio | Gestione risorse abilitato | API REST | Formato del modello |
 | --- | --- | --- | --- |
 | Advisor | Sì | [REST di Advisor](/rest/api/advisor/) | - |
-| Automazione |Sì |[REST automazione](https://msdn.microsoft.com/library/azure/mt662285.aspx) |[Schema di automazione](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-31/Microsoft.Automation.json) |
+| Automazione |Sì |[REST automazione](https://msdn.microsoft.com/library/azure/mt662285.aspx) |[Risorse di Automazione](/azure/templates/microsoft.automation/automationaccounts) |
 | Fatturazione | Sì | [REST di fatturazione](/rest/api/billing/) | - |
 | Insieme di credenziali di chiave |Sì |[REST insieme di credenziali di chiave](/rest/api/keyvault) |[Risorse di insieme di credenziali chiave](/azure/templates/microsoft.keyvault/vaults) |
 | Operational Insights |Sì | | |
+| Servizio di ripristino |Sì |[REST Servizi di ripristino](/rest/api/recoveryservices) |[Risorse di Servizi di ripristino](/azure/templates/microsoft.recoveryservices/vaults) |
 | Utilità di pianificazione |Sì |[REST dell'utilità di pianificazione](/rest/api/scheduler) |[Risorse dell'utilità di pianificazione](/azure/templates/microsoft.scheduler/jobcollections) |
 | Sicurezza |Sì |[Security Resource Provider REST API Reference](https://msdn.microsoft.com/library/azure/mt704034.aspx) | |
 | Gestione server | Sì | [REST di gestione del server](/rest/api/servermanagement/) | [Risorse di gestione del server](/azure/templates/microsoft.servermanagement/gateways) |

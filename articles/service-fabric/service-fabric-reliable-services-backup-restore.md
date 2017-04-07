@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 3/1/2017
 ms.author: mcoskun
 translationtype: Human Translation
-ms.sourcegitcommit: 615e7ea84aae45f384edb671a28e4ff98b4ade3a
-ms.openlocfilehash: 9cb940a07bf9a5d624669816161450b33e862626
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: babda2a4ad7dade942a0c7ece84a6f1d65bd3453
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -240,7 +240,7 @@ Quando si esegue il ripristino da una catena di backup, in maniera simile a Reli
 È importante assicurarsi che i dati critici vengano sottoposti a backup e che possano essere ripristinati. Per farlo, richiamare il cmdlet **Invoke-ServiceFabricPartitionDataLoss** in PowerShell che può indurre la perdita di dati in una determinata partizione per verificare se la funzionalità di backup e ripristino dei dati per il servizio funziona nel modo previsto.  Si può anche richiamare la perdita e il ripristino dei dati a livello di codice da tale evento.
 
 > [!NOTE]
-> Nell'app di riferimento Web su Github è disponibile un esempio di implementazione della funzionalità di backup e ripristino. Per informazioni più dettagliate, esaminare il servizio Inventory.Service.
+> Nell'app di riferimento Web su GitHub è disponibile un esempio di implementazione della funzionalità di backup e ripristino. Per informazioni più dettagliate, esaminare il servizio Inventory.Service.
 > 
 > 
 

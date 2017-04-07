@@ -1,6 +1,6 @@
 ---
-title: Recupero di informazioni sullo stato per un processo di Importazione/Esportazione di Azure | Documentazione Microsoft
-description: Informazioni su come ottenere informazioni sullo stato per i processi del servizio Importazione/Esportazione di Microsoft Azure
+title: Recupero di informazioni sullo stato per un processo di importazione/esportazione di Azure | Documentazione Microsoft
+description: Informazioni su come ottenere informazioni sullo stato per i processi del servizio Importazione/Esportazione di Microsoft Azure.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
-ms.openlocfilehash: d8156439cc81a88172d5af97c31147b6ceb23ff6
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 13169716c47cf9389c8f2651393ac744441bdd6f
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -86,11 +86,12 @@ La tabella seguente descrive gli stati di errore delle unità e le azioni intrap
 |Stato dell'unità|Evento|Risoluzione/passaggio successivo|
 |-----------------|-----------|-----------------------------|
 |`NeverReceived`|Un'unità contrassegnata come `NeverReceived` (perché non è stata ricevuta come parte della spedizione del processo) viene ricevuta con un'altra spedizione.|Il team operativo sposterà l'unità nello stato `Received`.|
-|`N/A`|Un'unità non inclusa nel processo viene ricevuta nel data center come parte di un altro processo.|L'unità verrà contrassegnata come unità aggiuntiva e verrà restituita al cliente al completamento del processo associato al pacchetto originale.|
+|`N/A`|Un'unità non inclusa nel processo viene ricevuta nel data center come parte di un altro processo.|L'unità verrà contrassegnata come unità aggiuntiva e verrà restituita al cliente una volta completato il processo associato al pacchetto originale.|
 
 ## <a name="faulted-states"></a>Stati con errori
 Quando un processo o un'unità non procede regolarmente nel ciclo di vita previsto, il processo o l'unità verrà spostato in uno stato `Faulted`. A questo punto, il team operativo contatterà il cliente tramite posta elettronica o telefono. Una volta risolto il problema, il processo o l'unità con errore passerà dallo stato `Faulted` allo stato appropriato.
 
-## <a name="see-also"></a>Vedere anche
-[Uso dell'API REST del servizio Importazione/Esportazione](storage-import-export-using-the-rest-api.md)
+## <a name="next-steps"></a>Passaggi successivi
+
+* [Uso dell'API REST del servizio Importazione/Esportazione](storage-import-export-using-the-rest-api.md)
 

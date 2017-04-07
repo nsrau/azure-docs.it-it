@@ -41,7 +41,6 @@ Verrà creata una semplice applicazione Web di elenco contatti basata su ASP.NET
 
 ![schermata del sito web][intro001]
 
-<!-- the next line produces the "Set up the development environment" section as see at http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/ -->
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ### <a name="create-the-project"></a>Creare il progetto

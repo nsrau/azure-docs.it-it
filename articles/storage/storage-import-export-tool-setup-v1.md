@@ -1,6 +1,6 @@
 ---
-title: Configurazione dello strumento Importazione/Esportazione di Azure v.1 | Documentazione Microsoft
-description: "Informazioni su come impostare lo strumento di preparazione e riparazione delle unità per Importazione/Esportazione di Azure"
+title: Configurazione dello strumento Importazione/Esportazione di Azure versione 1 | Documentazione Microsoft
+description: "Informazioni su come configurare lo strumento di preparazione e ripristino delle unità per il servizio Importazione/Esportazione di Azure. Si riferisce alla versione 1 dello strumento Importazione/Esportazione."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 9aca8aad3f268bf21f3bad9fa22821f5d825f99d
-ms.openlocfilehash: 2d30d0da6055a66b60ed5a836dd897a87d564237
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 39d7e9a71a290ace6f6f4caf48f1ec5e46fe9a48
+ms.lasthandoff: 03/30/2017
 
 
 ---
 
 # <a name="setting-up-the-azure-importexport-tool"></a>Configurazione dello strumento Importazione/Esportazione di Azure
-Lo strumento di importazione/esportazione di Microsoft Azure è lo strumento di preparazione e ripristino delle unità che è possibile utilizzare con il servizio di importazione/esportazione di Microsoft Azure. È possibile utilizzare lo strumento per svolgere le funzioni indicate di seguito:  
+Lo strumento Importazione/Esportazione di Microsoft Azure è lo strumento di preparazione e ripristino delle unità che è possibile usare con il servizio Importazione/Esportazione di Microsoft Azure. È possibile usare lo strumento per svolgere le funzioni seguenti:  
   
 -   Prima di creare un processo di importazione, è possibile utilizzare questo strumento per copiare i dati nei dischi rigidi che si intende fornire a un data center di Microsoft Azure.  
   
@@ -65,7 +65,7 @@ Se si tenta di recuperare un'importazione parzialmente non riuscita, è necessar
 -   La chiave dell'account di archiviazione  
   
 ## <a name="installing-the-azure-importexport-tool"></a>Installazione dello strumento di importazione/esportazione di Azure  
- Lo strumento di importazione/esportazione di Azure è costituito dai file indicati di seguito:  
+ Lo strumento Importazione/Esportazione di Azure è costituito dai file indicati di seguito:  
   
 -   WAImportExport.exe  
   
@@ -84,7 +84,7 @@ Se si tenta di recuperare un'importazione parzialmente non riuscita, è necessar
  Per visualizzare la Guida per il comando, eseguire lo strumento senza parametri:  
   
 ```  
-WAImportExport, a client tool for Microsoft Azure Import/Export Service. Microsoft (c) 2013, 2014  
+WAImportExport, a client tool for Microsoft Azure Import/Export service. Microsoft (c) 2013, 2014  
   
 Copy a Directory:  
     WAImportExport.exe PrepImport  
@@ -200,7 +200,7 @@ Parameters:
     /ExportBlobListFile:<ExportBlobListFile>  
         - Required. Path to the XML file containing list of blob paths or blob path  
           prefixes for the blobs to be exported. The file format is the same as the  
-          blob list blob format in the Put Job operation of the Import/Export Service  
+          blob list blob format in the Put Job operation of the Import/Export service  
           REST API.  
     /DriveSize:<DriveSize>  
         - Required. Size of drives to be used for export. For example, 500GB, 1.5TB.  
@@ -254,11 +254,12 @@ Examples:
         es\drama /dstdir:movies/drama/ /skipwrite
 ```  
   
-## <a name="see-also"></a>Vedere anche  
- [Preparazione dei dischi rigidi per un processo di importazione](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
- [Anteprima dell'uso del disco per un processo di esportazione](storage-import-export-tool-previewing-drive-usage-export-v1.md)   
- [Revisione dello stato dei processi con i file di log di copia](storage-import-export-tool-reviewing-job-status-v1.md)   
- [Ripristino di un processo di importazione](storage-import-export-tool-repairing-an-import-job-v1.md)   
- [Ripristino di un processo di esportazione](storage-import-export-tool-repairing-an-export-job-v1.md)   
- [Risoluzione dei problemi relativi allo strumento Importazione/Esportazione di Azure](storage-import-export-tool-troubleshooting-v1.md)
+## <a name="next-steps"></a>Passaggi successivi
+
+* [Preparing hard drives for an import job](storage-import-export-tool-preparing-hard-drives-import-v1.md) (Preparazione dei dischi rigidi per un processo di importazione)   
+* [Anteprima dell'uso del disco per un processo di esportazione](storage-import-export-tool-previewing-drive-usage-export-v1.md)   
+* [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md) (Revisione dello stato dei processi con i file di log di copia)   
+* [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md) (Riparazione di un processo di importazione)   
+* [Repairing an export job](storage-import-export-tool-repairing-an-export-job-v1.md) (Riparazione di un processo di esportazione)   
+* [Risoluzione dei problemi relativi allo strumento Importazione/Esportazione di Azure](storage-import-export-tool-troubleshooting-v1.md)
 

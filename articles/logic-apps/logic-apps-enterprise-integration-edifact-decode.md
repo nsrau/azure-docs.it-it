@@ -41,7 +41,7 @@ Sono necessari gli elementi seguenti:
 
 2. Il connettore di messaggi Decode EDIFACT non dispone di trigger, pertanto è necessario aggiungerne uno per avviare l'app per la logica, ad esempio un trigger di richiesta. In Progettazione app per la logica aggiungere un trigger e un'azione all'app per la logica.
 
-3.    Nella casella di ricerca, digitare "EDIFACT" come filtro. Selezionare **Decodifica il messaggio EDIFACT**.
+3. Nella casella di ricerca, digitare "EDIFACT" come filtro. Selezionare **Decodifica il messaggio EDIFACT**.
    
     ![ricerca di EDIFACT](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage1.png)
 
@@ -56,7 +56,7 @@ Sono necessari gli elementi seguenti:
     | Nome connessione * |Immettere un nome per la connessione. |
     | Account di integrazione * |Immettere un nome per l'account di integrazione. Verificare che l'account di integrazione e l'app per la logica si trovino nella stessa località di Azure. |
 
-4.    Dopo aver completato la creazione della connessione, scegliere **Crea**. I dettagli della connessione dovrebbero essere simili a quelli dell'esempio seguente:
+4. Dopo aver completato la creazione della connessione, scegliere **Crea**. I dettagli della connessione dovrebbero essere simili a quelli dell'esempio seguente:
 
     ![dettagli dell'account di integrazione](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage3.png)  
 

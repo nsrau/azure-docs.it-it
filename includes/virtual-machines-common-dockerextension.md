@@ -1,6 +1,6 @@
 
 
-[Docker](https://www.docker.com/) è uno degli approcci più popolari alla virtualizzazione che usa [contenitori Linux](http://en.wikipedia.org/wiki/LXC) anziché macchine virtuali allo scopo di isolare dati ed eseguire calcoli su risorse condivise. È possibile usare l'[estensione di macchina virtuale Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md) per l'[agente Linux di Azure](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per creare una macchina virtuale Docker che ospiti un numero qualsiasi di contenitori per le applicazioni in Azure.
+[Docker](https://www.docker.com/) è uno degli approcci più popolari alla virtualizzazione che usa [contenitori Linux](http://en.wikipedia.org/wiki/LXC) anziché macchine virtuali allo scopo di isolare dati ed eseguire calcoli su risorse condivise. È possibile usare l'[estensione di macchina virtuale Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md) per l'[agente Linux di Azure](../articles/virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per creare una macchina virtuale Docker che ospiti un numero qualsiasi di contenitori per le applicazioni in Azure.
 
 Questo argomento descrive:
 
@@ -50,9 +50,9 @@ Per creare subito le macchine virtuali abilitate per Docker, vedere:
 * [Come usare l'estensione Docker VM con il portale di Azure classico]
 
 ## <a name="virtual-machine-extensions-for-linux-and-windows"></a>Estensioni della macchina virtuale per Linux e Windows
-L' [estensione della VM Docker per Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) è solo una delle varie estensioni VM che offrono un comportamento speciale e molte altre sono attualmente in corso di sviluppo. Ad esempio, diverse funzionalità dell'[estensione dell'agente di macchine virtuali Linux](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) consentono di modificare e gestire la macchina virtuale, incluse le funzionalità di sicurezza, kernel, rete e così via. L'estensione VMAccess, ad esempio, consente di reimpostare la password amministratore o la chiave SSH.
+L' [estensione della VM Docker per Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) è solo una delle varie estensioni VM che offrono un comportamento speciale e molte altre sono attualmente in corso di sviluppo. Ad esempio, diverse funzionalità dell'[estensione dell'agente di macchine virtuali Linux](../articles/virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) consentono di modificare e gestire la macchina virtuale, incluse le funzionalità di sicurezza, kernel, rete e così via. L'estensione VMAccess, ad esempio, consente di reimpostare la password amministratore o la chiave SSH.
 
-Per un elenco completo, vedere [Estensioni di macchina virtuale](../articles/virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Per un elenco completo, vedere [Estensioni di macchina virtuale](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 <!--Anchors-->
 [Come usare l'estensione della VM Docker dall'interfaccia della riga di comando di Azure (CLI di Azure)]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
@@ -61,8 +61,3 @@ Per un elenco completo, vedere [Estensioni di macchina virtuale](../articles/vir
 [Contenitori Docker e Linux]: #Docker-and-Linux-Containers
 [Come usare l'estensione della VM Docker con Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
 [Estensioni della macchina virtuale per Linux e Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
-
-
-<!--HONumber=Jan17_HO3-->
-
-

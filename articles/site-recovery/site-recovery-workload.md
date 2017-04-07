@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 0c56a74e43b989a32b10a878cec16cce0f972a9f
-ms.openlocfilehash: 63c0397b6e737038fb7758d2749ae82d1485d45d
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 34a9d187eecec185e2b8d6977baea267ca9e60e5
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -131,6 +131,19 @@ Usare Site Recovery per proteggere la distribuzione SAP. In particolare, è poss
 
 [Altre informazioni](http://aka.ms/asr-sap) sulla protezione di SAP.
 
+## <a name="protect-iis"></a>Proteggere IIS
+Usare Site Recovery per proteggere la distribuzione IIS. In particolare, è possibile:
+
+Azure Site Recovery assicura il ripristino di emergenza replicando i componenti critici dell'ambiente in un sito remoto non attivo o in un cloud pubblico, ad esempio Microsoft Azure. Poiché la macchina virtuale con il server Web e il database vengono replicati nel sito di ripristino, non è necessario eseguire il backup separato dei file di configurazione o dei certificati. I mapping e le associazioni dell'applicazione dipendenti dalle variabili di ambiente modificate dopo il failover possono essere aggiornati tramite gli script integrati nei piani di ripristino di emergenza. Le macchine virtuali vengono spostate nel sito di ripristino solo in caso di failover. Azure Site Recovery consente anche di orchestrare il failover end-to-end con le funzionalità seguenti:
+
+-    Sequenza di arresto e avvio delle macchine virtuali nei diversi livelli.
+-    Aggiunta di script per consentire l'aggiornamento delle associazioni e delle dipendenze tra applicazioni nelle macchine virtuali dopo che sono state avviate. Gli script possono essere usati anche per aggiornare il server DNS in modo che punti al sito di ripristino.
+-    Allocare gli indirizzi IP alle macchine virtuali prima del failover eseguendo il mapping delle reti primarie e di ripristino e quindi usare script che non è necessario aggiornare dopo il failover.
+-    Possibilità di failover con un clic per più applicazioni Web nei server Web, eliminando così la confusione derivante da un'emergenza.
+-    Possibilità di testare i piani di ripristino in un ambiente isolato per le esercitazioni sul ripristino di emergenza.
+
+[Altre informazioni](https://aka.ms/asr-iis) sulla protezione di una Web farm IIS.
+
 ## <a name="next-steps"></a>Passaggi successivi
-[Verifica dei prerequisiti](site-recovery-prereq.md) 
+[Controllare i prerequisiti](site-recovery-prereq.md) 
 

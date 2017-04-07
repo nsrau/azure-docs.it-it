@@ -5,7 +5,7 @@
 Le estensioni di VM di Azure implementano comportamenti o funzionalità che semplificano l'esecuzione di altri programmi su VM di Azure (ad esempio, l'estensione **WebDeployForVSDevTest** consente a Visual Studio di eseguire distribuzioni Web di soluzioni nella VM di Azure) o permettono di interagire con la VM per supportare altri comportamenti (ad esempio, è possibile usare le estensioni di accesso alle VM da PowerShell, interfaccia della riga di comando di Azure e client REST per reimpostare o modificare i valori di accesso remoto nella VM di Azure).
 
 > [!IMPORTANT]
-> Per un elenco completo delle estensioni in base alle funzionalità che supportano, vedere [Estensioni e funzionalità delle macchine virtuali](../articles/virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Poiché ogni estensione di macchina virtuale supporta una funzionalità specifica, tutte le operazioni esattamente possibili o meno mediante un'estensione dipendono dall'estensione stessa. Di conseguenza, prima di modificare la macchina virtuale, assicurarsi di aver letto la documentazione per l'estensione di macchina virtuale che si vuole usare. La rimozione di alcune estensioni di macchina virtuale non è supportata, mentre altre includono proprietà che possono essere impostate e che modificano radicalmente il comportamento della macchina virtuale.
+> Per un elenco completo delle estensioni in base alle funzionalità che supportano, vedere [Estensioni e funzionalità delle macchine virtuali](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Poiché ogni estensione di macchina virtuale supporta una funzionalità specifica, tutte le operazioni esattamente possibili o meno mediante un'estensione dipendono dall'estensione stessa. Di conseguenza, prima di modificare la macchina virtuale, assicurarsi di aver letto la documentazione per l'estensione di macchina virtuale che si vuole usare. La rimozione di alcune estensioni di macchina virtuale non è supportata, mentre altre includono proprietà che possono essere impostate e che modificano radicalmente il comportamento della macchina virtuale.
 > 
 > 
 
@@ -105,9 +105,4 @@ Per sapere se un'estensione richiede una configurazione di parametri pubblici e 
 > Le estensioni possono anche usare configurazioni definite con JSON. Quando si applicano questi tipi di estensioni, viene usato solo l'elemento **SampleConfig** .
 > 
 > 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

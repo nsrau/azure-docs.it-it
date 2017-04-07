@@ -140,7 +140,7 @@ I dischi del sistema operativo e i dischi dati hanno una dimensione massima di 1
 ### <a name="striped-disks"></a>Dischi con striping
 Oltre a fornire la capacità per creare dischi di dimensioni superiori a 1023 GB, in molti casi, usare lo striping per i dischi dati contribuisce a migliorare le prestazioni, consentendo a più BLOB di supportare l'archiviazione per un singolo volume. Con lo striping, le operazioni I/O necessarie per scrivere e leggere dati da un singolo disco logico procedono in parallelo.
 
-In Azure sono presenti dei limiti sulla quantità di dischi dati e di larghezza di banda disponibile, a seconda delle dimensioni della macchina virtuale. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+In Azure sono presenti dei limiti sulla quantità di dischi dati e di larghezza di banda disponibile, a seconda delle dimensioni della macchina virtuale. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Se si usa lo striping del disco per i dischi dati di Azure, considerare le linee guida seguenti:
 
@@ -390,16 +390,11 @@ Questa configurazione include:
 ## <a name="additional-resources"></a>Risorse aggiuntive
 [Limiti, quote e vincoli delle sottoscrizioni e dei servizi di Microsoft Azure](../articles/azure-subscription-service-limits.md#storage-limits)
 
-[Dimensioni delle macchine virtuali](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Dimensioni delle macchine virtuali](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../articles/storage/storage-scalability-targets.md)
 
 [Diagramma dell'architettura di riferimento per l'estensione di un data center](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
 [Provider di calcolo, rete e archiviazione in Gestione risorse di Azure](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

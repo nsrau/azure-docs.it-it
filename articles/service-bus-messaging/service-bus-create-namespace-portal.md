@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 03/23/2017
 ms.author: jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: 4a972b9b8b52a90f27afda98d8bdc661016d1fe1
-ms.openlocfilehash: ba7093f8a2c06ab4cecf11207174a4871435ae64
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 5de92033eb7eb4fef8d27a215b3284ab80594065
+ms.lasthandoff: 03/24/2017
 
 
 ---
 # <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>Creare uno spazio dei nomi del bus di servizio usando il portale di Azure
-Uno spazio dei nomi è un contenitore comune per tutti i componenti di messaggistica. Più code e argomenti possono risiedere in un unico spazio dei nomi e gli spazi dei nomi vengono spesso usati come contenitori di applicazioni. Esistono attualmente due diversi modi per creare uno spazio dei nomi del bus di servizio.
+Uno spazio dei nomi è un contenitore comune per tutti i componenti di messaggistica. Più code e argomenti possono risiedere in un unico spazio dei nomi e gli spazi dei nomi vengono spesso usati come contenitori di applicazioni. Esistono due diversi modi per creare uno spazio dei nomi del bus di servizio:
 
 1. Portale di Azure (in questo articolo)
 2. [Modelli di Gestione risorse][create-namespace-using-arm]

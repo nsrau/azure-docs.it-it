@@ -18,9 +18,9 @@ ms.date: 03/20/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: c43648dae95d90d0ee9f3d6b5bedfad7ab4889ca
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: eb3af43b8a13eaaebfa9147848383ff889119d97
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -49,7 +49,7 @@ Tutte le macchine virtuali si trovano nella stessa rete privata virtuale e sono 
 ## <a name="prerequisites"></a>Prerequisiti
 
 
-* **Chiave pubblica SSH RSA**: durante la distribuzione tramite il portale o uno dei modelli di avvio rapido di Azure, è necessario fornire la chiave pubblica SSH RSA per l'autenticazione nelle macchine virtuali del servizio contenitore di Azure. Per creare chiavi SSH (Secure Shell) RSA, vedere le informazioni aggiuntive per [OS X e Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) e [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
+* **Chiave pubblica SSH RSA**: durante la distribuzione tramite il portale o uno dei modelli di avvio rapido di Azure, è necessario fornire la chiave pubblica SSH RSA per l'autenticazione nelle macchine virtuali del servizio contenitore di Azure. Per creare chiavi SSH (Secure Shell) RSA, vedere le informazioni aggiuntive per [OS X e Linux](../virtual-machines/linux/mac-create-ssh-keys.md) e [Windows](../virtual-machines/linux/ssh-from-windows.md). 
 
 * **ID client e segreto dell'entità servizio**: per altre informazioni e istruzioni, vedere [Informazioni sull'entità servizio per un cluster Kubernetes](container-service-kubernetes-service-principal.md).
 

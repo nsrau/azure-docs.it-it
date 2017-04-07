@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 01/19/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 6b82132b24fb2be3f0d8ab5112c712c27edb733e
-ms.openlocfilehash: 4d7754e73abedb704b81fa0001e1957422bde1b3
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 86bd591c26a58200dab9872e07e6e8bdf2522df9
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -43,7 +44,7 @@ Se si cercano opzioni di configurazione lato client per migliorare le prestazion
 ## <a name="run-the-performance-testing-application"></a>Eseguire l'applicazione per il test delle prestazioni
 Il modo più rapido per iniziare è compilare ed eseguire l'esempio .NET riportato di seguito, come descritto nella procedura seguente. È anche possibile esaminare il codice sorgente e implementare configurazioni analoghe alle applicazioni client.
 
-**Passaggio 1**: scaricare il progetto dall'[esempio relativo al test delle prestazioni di DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) o creare la biforcazione del repository GitHub.
+**Passaggio 1**: scaricare il progetto dall'[esempio relativo al test delle prestazioni di DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) o creare la biforcazione dell'archivio GitHub.
 
 **Passaggio 2** : modificare le impostazioni di EndpointUrl, AuthorizationKey, CollectionThroughput e DocumentTemplate (facoltativo) nel file App.config.
 
@@ -112,10 +113,5 @@ In questo articolo è stato illustrato come eseguire test delle prestazioni e de
 * [Documentazione di DocumentDB .NET SDK in MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [Esempi di .NET in DocumentDB](https://github.com/Azure/azure-documentdb-net)
 * [Blog di DocumentDB sui suggerimenti per le prestazioni](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

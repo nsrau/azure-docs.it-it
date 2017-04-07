@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 03/27/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
-ms.openlocfilehash: eb21e6cc47da18d2e6fa5cbb00c3b71bf36173c6
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: a4cbc4cd1c48da1120c643892b19692ac583d4c3
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -25,9 +26,10 @@ ms.openlocfilehash: eb21e6cc47da18d2e6fa5cbb00c3b71bf36173c6
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portale di Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Classica - Portale di Azure](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Classica - Portale classico](virtual-networks-configure-vnet-to-vnet-connection.md)
 > 
-> 
+>
 
 Questo articolo illustra la creazione di una connessione tra reti virtuali nel modello di distribuzione Resource Manager usando il gateway VPN. Le reti virtuali possono trovarsi in aree geografiche uguali o diverse e in sottoscrizioni uguali o diverse.
 
@@ -70,13 +72,13 @@ Le procedure descritte in questo articolo usano variabili dichiarate all'inizio 
 
 ![Entrambe le connessioni](./media/vpn-gateway-vnet-vnet-rm-ps/differentsubscription.png)
 
-## <a name="a-namesamesubahow-to-connect-vnets-that-are-in-the-same-subscription"></a><a name="samesub"></a>Come connettere reti virtuali che si trovano nella stessa sottoscrizione
+## <a name="samesub"></a>Come connettere reti virtuali che si trovano nella stessa sottoscrizione
 ![Diagramma V2V](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 ### <a name="before-you-begin"></a>Prima di iniziare
 Prima di iniziare, è necessario installare i cmdlet di PowerShell per Azure Resource Manager. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 
-### <a name="a-namestep1astep-1---plan-your-ip-address-ranges"></a><a name="Step1"></a>Passaggio 1: Pianificare gli intervalli di indirizzi IP
+### <a name="Step1"></a>Passaggio 1: Pianificare gli intervalli di indirizzi IP
 Nei passaggi seguenti vengono create due reti virtuali con le rispettive subnet del gateway e le configurazioni. Viene quindi configurata una connessione VPN tra le due reti virtuali. È importante pianificare gli intervalli di indirizzi IP per la configurazione di rete. Tenere presente che è necessario assicurarsi che nessuno di intervalli di rete virtuale o intervalli di rete locale si sovrappongano in alcun modo.
 
 Negli esempi vengono usati i valori seguenti:
@@ -114,7 +116,7 @@ Negli esempi vengono usati i valori seguenti:
 * Connessione: VNet4toVNet1
 * ConnectionType: VNet2VNet
 
-### <a name="a-namestep2astep-2---create-and-configure-testvnet1"></a><a name="Step2"></a>Passaggio 2: Creare e configurare TestVNet1
+### <a name="Step2"></a>Passaggio 2: Creare e configurare TestVNet1
 1. Dichiarare le variabili
    
     Per iniziare, dichiarare le variabili. Nell'esempio seguente vengono dichiarate le variabili usando i valori per questo esercizio. Nella maggior parte dei casi è necessario sostituire i valori con quelli personalizzati. È tuttavia possibile usare queste variabili se si esegue la procedura per acquisire familiarità con questo tipo di configurazione. Modificare le variabili se necessario, quindi copiarle e incollarle nella console di PowerShell.
@@ -182,7 +184,7 @@ Negli esempi vengono usati i valori seguenti:
         -Subnet $subnet1 -PublicIpAddress $gwpip1
 8. Creare il gateway per TestVNet1
    
-    In questo passaggio viene creato il gateway di rete virtuale per TestVNet1. Le configurazioni da rete virtuale a rete virtuale richiedono un tipo di VpnType RouteBased. La creazione di un gateway può richiedere anche oltre&45; minuti.
+    In questo passaggio viene creato il gateway di rete virtuale per TestVNet1. Le configurazioni da rete virtuale a rete virtuale richiedono un tipo di VpnType RouteBased. La creazione di un gateway può richiedere anche oltre 45 minuti.
    
         New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
         -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn `
@@ -265,7 +267,7 @@ Dopo aver configurato TestVNet1, creare TestVNet4. Eseguire la procedura seguent
     Dopo alcuni minuti, la connessione dovrebbe stabilirsi.
 4. Verificare la connessione. Vedere la sezione [Come verificare una connessione](#verify).
 
-## <a name="a-namedifsubahow-to-connect-vnets-that-are-in-different-subscriptions"></a><a name="difsub"></a>Come connettere reti virtuali che si trovano in sottoscrizioni diverse
+## <a name="difsub"></a>Come connettere reti virtuali che si trovano in sottoscrizioni diverse
 ![Diagramma V2V](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
 In questo scenario vengono connesse le reti virtuali TestVNet1 e TestVNet5, che si trovano in sottoscrizioni diverse. I passaggi di questa configurazione permettono di aggiungere un'altra connessione tra reti virtuali per connettere TestVNet1 e TestVNet5. 
@@ -421,7 +423,7 @@ In questo esempio, dato che i gateway si trovano in sottoscrizioni diverse, il p
         $vnet1gw.Id = "/subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW "
         New-AzureRmVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
 
-## <a name="a-nameverifyahow-to-verify-a-connection"></a><a name="verify"></a>Come verificare una connessione
+## <a name="verify"></a>Come verificare una connessione
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 [!INCLUDE [verify connection powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
@@ -430,10 +432,5 @@ In questo esempio, dato che i gateway si trovano in sottoscrizioni diverse, il p
 
 * Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere [Macchine virtuali - Documentazione](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) .
 * Per informazioni su BGP, vedere [Panoramica di BGP](vpn-gateway-bgp-overview.md) e [Come configurare BGP](vpn-gateway-bgp-resource-manager-ps.md). 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

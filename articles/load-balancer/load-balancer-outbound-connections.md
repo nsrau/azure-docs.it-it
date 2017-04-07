@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 273598a6eecb358c0b308c481193323e67dd475c
-ms.openlocfilehash: 24c3fdd8124ff3cc43feacb6f25dda84be9f46d9
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: f02e17bb413f250fc4d980c62cfb46bc5359f7fb
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -66,4 +66,8 @@ Esistono molti modi per determinare l'indirizzo IP di origine pubblica di una co
 A volte può succedere di non voler consentire a una macchina virtuale di creare un flusso in uscita o può essere necessario gestire le destinazioni che possono essere raggiunte da flussi in uscita. In questo caso usare i [gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) per gestire le destinazioni che la macchina virtuale può raggiungere. Quando si applica un gruppo di sicurezza di rete a una macchina virtuale con carico bilanciato, è necessario considerare i [tag predefiniti](../virtual-network/virtual-networks-nsg.md#default-tags) e le [regole predefinite](../virtual-network/virtual-networks-nsg.md#default-rules).
 
 È necessario assicurarsi che la macchina virtuale riceva richieste di probe di integrità da Azure Load Balancer. Se un gruppo di sicurezza di rete blocca le richieste di probe di integrità dal tag AZURE_LOADBALANCER predefinito, il probe di integrità della macchina virtuale avrà esito negativo e la macchina virtuale sarà contrassegnata come non attiva. Load Balancer interrompe l'invio di nuovi flussi a tale macchina virtuale.
+
+## <a name="limitations"></a>Limitazioni
+
+Sebbene non garantito, il numero massimo di porte SNAT disponibili oggi è 64,511 (65.535-1024 porte con privilegi).  Questa azione non esegue direttamente la conversione al numero di connessioni; vedere le informazioni precedenti per i dettagli su come e quando vengono allocate le porte SNAT e come gestire questa risorsa esauribile.
 

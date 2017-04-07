@@ -30,8 +30,8 @@
 #### [Indirizza il traffico solo tramite il firewall di nuova generazione](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
 
 ### [Raccomandazioni sul servizio SQL](security-center-sql-service-recommendations.md)
-#### [Abilitare il controllo sui database SQL](security-center-enable-auditing-on-sql-databases.md)
-#### [Abilitare il controllo sui server SQL](security-center-enable-auditing-on-sql-servers.md)
+#### [Abilitare il controllo e il rilevamento delle minacce nei database SQL](security-center-enable-auditing-on-sql-databases.md)
+#### [Abilitare il controllo e il rilevamento delle minacce nei server SQL](security-center-enable-auditing-on-sql-servers.md)
 #### [Abilita Transparent Data Encryption](security-center-enable-transparent-data-encryption.md)
 
 ### [Raccomandazioni sulle macchine virtuali](security-center-virtual-machine-recommendations.md)
@@ -74,8 +74,3 @@
 ## [Panoramica del servizio](https://azure.microsoft.com/services/security-center/)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=security-center)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

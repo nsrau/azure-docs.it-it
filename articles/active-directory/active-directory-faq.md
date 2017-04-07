@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/07/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 23c49393a115d9cd0ac3a1b0f146e9dcc780347e
-ms.openlocfilehash: 42be5d71d8f22a2eb06f7ca0ebd4c33fb3d8bebe
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 025e8c9e575123a3ad9863a35061ebd0af212486
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -137,6 +138,16 @@ Per gli account Azure AD, gli amministratori possono reimpostare le password in 
 
 
 - - -
+## <a name="security"></a>Sicurezza
+**D: Gli account vengono bloccati dopo un numero specifico di tentativi non riusciti o la strategia usata è più sofisticata?**</br>
+La strategia usata per bloccare gli account è più sofisticata e  si basa sull'indirizzo IP della richiesta e le password immesse. La durata del blocco aumenta anche in base alla probabilità che sia in corso un attacco.  
+
+**Q: Alcune password (comuni) vengono rifiutate con messaggi indicanti che la password è stata usata molte volte; si fa riferimento alle password usate nell'istanza corrente di Active Directory?**</br>
+Si fa riferimento alle password comuni a livello globale, ad esempio tutte le varianti di "Password" e "123456".
+
+**D: Una richiesta di accesso proveniente da origini sospette (botnet, endpoint tor) sarà bloccata in un tenant B2C o è necessario un tenant della Basic Edition o della Premium Edition?**</br>
+Esiste un gateway che filtra le richieste e fornisce un livello di protezione da botnet e che viene applicato per tutti i tenant B2C. 
+
 ## <a name="application-access"></a>Accesso all'applicazione
 **D: Dove si può trovare un elenco di applicazioni preintegrate con Azure AD e delle rispettive funzionalità?**
 
@@ -202,9 +213,4 @@ Per altre informazioni, vedere [Automatizzare il provisioning e il deprovisionin
 **D: È possibile configurare una connessione LDAP sicura con Azure AD?**
 
 **R:** No.  Azure AD non supporta il protocollo LDAP.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

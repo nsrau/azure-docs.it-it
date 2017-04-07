@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 03/28/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 1029c7e4c6a17ad2a290ff0783fc88692555b255
-ms.openlocfilehash: e971bd36f9245032296537ea3e0b64e5f3e18ddd
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 32e3ff626e0f4afe80dac11eccbdaa3146d39c31
+ms.lasthandoff: 03/29/2017
 
 
 ---
-# <a name="retrain-a-new-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Ripetere il training di un nuovo servizio Web usando i cmdlet di gestione di PowerShell per Machine Learning
+# <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Ripetere il training di un nuovo servizio Web basato su Resource Manager usando i cmdlet di gestione di PowerShell per Machine Learning
 Quando si ripete il training di un nuovo servizio Web, si aggiorna la definizione del servizio Web predittivo perché faccia riferimento al nuovo modello sottoposto a training.  
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -29,8 +29,6 @@ Quando si ripete il training di un nuovo servizio Web, si aggiorna la definizion
 
 > [!IMPORTANT]
 > L'esperimento predittivo deve essere distribuito come servizio Web nuovo di Machine Learning basato su Azure Resource Manager. Per distribuire un nuovo servizio Web è necessario disporre delle autorizzazioni sufficienti nella sottoscrizione a cui si sta distribuendo il servizio Web. Per altre informazioni, vedere [Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning](machine-learning-manage-new-webservice.md). 
-
-
 
 Per altre informazioni sulla distribuzione di servizi Web, vedere [Distribuire un servizio Web di Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 

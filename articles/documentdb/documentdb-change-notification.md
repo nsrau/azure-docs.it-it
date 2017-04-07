@@ -2,8 +2,9 @@
 redirect_url: https://docs.microsoft.com/azure/documentdb/documentdb-change-feed-hl7-fhir-logic-apps
 ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 0b93e0cd71add8bad86c2b3c0023b524bc4f621a
-ms.openlocfilehash: 1e44ae2341257df6ac367db83947178918016430
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 1b5ec3cb1c2aba86570c6f1753d9142c0d0349ce
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -733,7 +734,7 @@ L'ultimo passaggio consiste nell'inviare una notifica di posta elettronica
 
 In questa azione si invia una notifica di posta elettronica.  Si usa [SendGrid](https://sendgrid.com/marketing/sendgrid-services?cvosrc=PPC.Bing.sendgrib&cvo_cid=SendGrid%20-%20US%20-%20Brand%20-%20&mc=Paid%20Search&mcd=BingAds&keyword=sendgrib&network=o&matchtype=e&mobile=&content=&search=1&utm_source=bing&utm_medium=cpc&utm_term=%5Bsendgrib%5D&utm_content=%21acq%21v2%2134335083397-8303227637-1649139544&utm_campaign=SendGrid+-+US+-+Brand+-+%28English%29).   
 
-Il codice è stato generato usando un modello per l'app per la logica e SendGrid che si trova nel [repository Github&101;-logic-app-sendgrid](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sendgrid).
+Il codice è stato generato usando un modello per l'app per la logica e SendGrid che si trova nell'[archivio GitHub 101-logic-app-sendgrid](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sendgrid).
 
 L'operazione HTTP è un POST. 
 
@@ -815,7 +816,7 @@ Infine si desidera essere in grado di visualizzare i risultati dall'app per la l
 
 ```
 
-Viene restituito lo stesso valore che viene inviato nel corpo del messaggio di posta elettronica. La figura seguente mostra un esempio in cui sono stati trovati&29; record.
+Viene restituito lo stesso valore che viene inviato nel corpo del messaggio di posta elettronica. La figura seguente mostra un esempio in cui sono stati trovati 29 record.
 
 ![Risultati](./media/documentdb-change-notification/logic-app-run.png)
 
@@ -873,7 +874,7 @@ La figura seguente mostra la visualizzazione di progettazione.
 
 ```
 
-Il trigger è impostato per una ricorrenza di&24; ore. L'azione è un POST HTTP che usa l'URL callback per l'app per la logica principale. Il corpo contiene i parametri specificati nello schema JSON. 
+Il trigger è impostato per una ricorrenza di 24 ore. L'azione è un POST HTTP che usa l'URL callback per l'app per la logica principale. Il corpo contiene i parametri specificati nello schema JSON. 
 
 #### <a name="operations"></a>Operazioni
 ##### <a name="request"></a>Richiesta
@@ -1111,13 +1112,8 @@ In questa procedura dettagliata, è stato appreso quanto segue:
 È fondamentale pianificare con anticipo e creare un modello del flusso di lavoro.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Scaricare e usare il codice delle app per la logica disponibile in [Github](https://github.com/HEDIDIN/DocDbNotifications). È consigliabile compilare l'applicazione e inviare le modifiche nel repository. 
+Scaricare e usare il codice delle app per la logica disponibile in [GitHub](https://github.com/HEDIDIN/DocDbNotifications). È consigliabile compilare l'applicazione e inviare le modifiche nel repository. 
 
 Per altre informazioni su DocumentDB, visitare il [percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

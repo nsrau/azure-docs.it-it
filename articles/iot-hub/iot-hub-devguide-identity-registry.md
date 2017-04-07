@@ -12,31 +12,33 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 03/24/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 64a7bfeefd8282f854aa5b143a1708dfbe02ff42
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 75a2fa16a7e33cf85746538e120ca90a389b05c5
+ms.lasthandoff: 03/24/2017
 
 
 ---
 # <a name="understand-identity-registry-in-your-iot-hub"></a>Comprendere il registro delle identità nell'hub IoT
+
 ## <a name="overview"></a>Panoramica
+
 Ogni hub IoT ha un registro delle identità in cui sono archiviate le informazioni sui dispositivi a cui è consentito connettersi all'hub IoT. Prima che un dispositivo possa connettersi a un hub IoT, è necessario che sia presente una voce relativa al dispositivo nel registro delle identità dell'hub IoT. Un dispositivo deve autenticarsi anche con l'hub IoT in base alle credenziali archiviate nel registro delle identità.
 
 A livello generale, il registro delle identità è una raccolta delle risorse relative alle identità dei dispositivi che supporta REST. Quando si aggiunge una voce al registro delle identità, l'hub IoT crea un set di risorse per dispositivo nel servizio, ad esempio una coda contenente messaggi da cloud a dispositivo in elaborazione.
 
 ### <a name="when-to-use"></a>Quando usare le autorizzazioni
+
 Usare il registro delle identità quando è necessario eseguire il provisioning di dispositivi che si connettono all'hub IoT e quando è necessario controllare l'accesso per dispositivo agli endpoint per i dispositivi dell'hub.
 
 > [!NOTE]
 > Il registro delle identità non contiene metadati specifici delle applicazioni.
-> 
-> 
 
 ## <a name="identity-registry-operations"></a>Operazioni del registro delle identità
+
 Il registro delle identità dell'hub IoT espone le operazioni seguenti:
 
 * Creare l'identità del dispositivo
@@ -51,8 +53,6 @@ Tutte queste operazioni possono usare la concorrenza ottimistica, come specifica
 
 > [!IMPORTANT]
 > L'unico modo per recuperare tutte le identità nel registro delle identità di un hub IoT consiste nell'usare la funzionalità [Esporta][lnk-export].
-> 
-> 
 
 Un registro delle identità di un hub IoT:
 
@@ -64,16 +64,16 @@ Una soluzione IoT include in genere un archivio separato specifico della soluzio
 
 > [!IMPORTANT]
 > Usare il registro delle identità solo per le operazioni di gestione e provisioning dei dispositivi. Le operazioni a velocità effettiva elevata in fase di esecuzione non devono dipendere dall'esecuzione di operazioni nel registro delle identità. Ad esempio, la verifica dello stato di connessione di un dispositivo prima dell'invio di un comando non è uno schema supportato. Assicurarsi di verificare le [frequenze di limitazione][lnk-quotas] per il registro delle identità dei dispositivi e il modello di [heartbeat del dispositivo][lnk-guidance-heartbeat].
-> 
-> 
 
 ## <a name="disable-devices"></a>Disabilitare i dispositivi
+
 È possibile disabilitare i dispositivi aggiornando la proprietà **status** di un'identità nel registro delle identità. Questa proprietà viene in genere usata in due scenari:
 
 * Durante un processo di orchestrazione di provisioning. Per altre informazioni, vedere [Provisioning di dispositivi][lnk-guidance-provisioning].
 * Se, per qualsiasi motivo, si considera un dispositivo compromesso o non più autorizzato.
 
 ## <a name="import-and-export-device-identities"></a>Importare ed esportare le identità dei dispositivi
+
 È possibile esportare in blocco le identità dei dispositivi dal registro delle identità di un hub IoT usando operazioni asincrone sull'[endpoint del provider di risorse dell'hub IoT][lnk-endpoints]. Le esportazioni sono processi a esecuzione prolungata che usano un contenitore BLOB specificato dal cliente per salvare i dati relativi alle identità dei dispositivi letti dal registro delle identità.
 
 È possibile importare in blocco le identità dei dispositivi nel registro delle identità di un hub IoT usando operazioni asincrone sull'[endpoint del provider di risorse dell'hub IoT][lnk-endpoints]. Le importazioni sono processi a esecuzione prolungata che usano un contenitore BLOB specificato dal cliente per scrivere i dati relativi alle identità nel registro delle identità.
@@ -82,11 +82,13 @@ Una soluzione IoT include in genere un archivio separato specifico della soluzio
 * Per altre informazioni sull'esecuzione dei processi di importazione ed esportazione, vedere [Gestione in blocco delle identità dei dispositivi dell'hub IoT][lnk-bulk-identity].
 
 ## <a name="device-provisioning"></a>Provisioning di dispositivi
+
 I dati del dispositivo archiviati da una soluzione IoT dipendono dai requisiti specifici di tale soluzione. Tuttavia, come minimo, una soluzione deve archiviare identità di dispositivo e chiavi di autenticazione. L'hub IoT di Azure include un registro delle identità in grado di archiviare i valori per ogni dispositivo, ad esempio ID, chiavi di autenticazione e codici di stato. Una soluzione può usare altri servizi di Azure, ad esempio archiviazione tabelle o Archiviazione BLOB di Azure oppure Azure DocumentDB per archiviare eventuali dati aggiuntivi sui dispositivi.
 
 *Provisioning di dispositivi* è il processo di aggiunta dei dati iniziali dei dispositivi agli archivi nella soluzione. Per abilitare un nuovo dispositivo per la connessione all'hub è necessario aggiungere un ID dispositivo e le relative chiavi al registro delle identità dell'hub IoT. Come parte del processo di provisioning, può essere necessario inizializzare i dati specifici del dispositivo in altri archivi di soluzioni.
 
 ## <a name="device-heartbeat"></a>Heartbeat dispositivo
+
 Il registro delle identità dell'hub IoT contiene un campo denominato **connectionState**. Durante le fasi di sviluppo e debug, usare solo il campo **connectionState**. Le soluzioni IoT non devono eseguire query sul campo in fase di esecuzione (per verificare ad esempio se un dispositivo è connesso al fine di decidere se inviare un messaggio da cloud a dispositivo o un SMS).
 
 Se la soluzione IoT deve essere in grado di stabilire se un dispositivo è connesso, in fase di esecuzione o con un'accuratezza maggiore di quella offerta dalla proprietà **connectionState**, è necessario implementare il *modello di heartbeat*.
@@ -96,14 +98,14 @@ Nel modello di heartbeat il dispositivo invia messaggi da dispositivo a cloud al
 Un'implementazione più complessa può includere le informazioni acquisite dal [monitoraggio delle operazioni][lnk-devguide-opmon] per identificare i dispositivi che provano a connettersi o a comunicare ma con esito negativo. Quando si implementa il modello di heartbeat, assicurarsi di controllare [Quote e limitazioni dell'hub IoT][lnk-quotas].
 
 > [!NOTE]
-> Se una soluzione IoT richiede lo stato di connessione del dispositivo esclusivamente per determinare se inviare i messaggi da cloud a dispositivo e i messaggi non vengono trasmessi a grandi gruppi di dispositivi, un modello molto più semplice da considerare è usare un intervallo di scadenza breve. Un modello di questo tipo consente di gestire il registro dello stato di connessione del dispositivo in modo analogo a un modello di heartbeat, ma con maggiore efficienza. È inoltre possibile, richiedendo gli acknowledgement messaggi, ricevere una notifica tramite l'hub IoT indicante i dispositivi in grado di ricevere i messaggi e che non sono online o sono malfunzionanti.
-> 
-> 
+> Se una soluzione IoT richiede lo stato di connessione del dispositivo esclusivamente per determinare se inviare i messaggi dal cloud al dispositivo e i messaggi non vengono trasmessi a grandi gruppi di dispositivi, un modello più semplice da considerare è usare un intervallo di scadenza breve. Un modello di questo tipo consente di gestire il registro dello stato di connessione del dispositivo in modo analogo a un modello di heartbeat, ma con maggiore efficienza. È inoltre possibile, richiedendo gli acknowledgement messaggi, ricevere una notifica tramite l'hub IoT indicante i dispositivi in grado di ricevere i messaggi e che non sono online o sono malfunzionanti.
 
 ## <a name="reference-topics"></a>Argomenti di riferimento:
+
 Gli argomenti di riferimento seguenti offrono altre informazioni sul registro delle identità.
 
 ## <a name="device-identity-properties"></a>Proprietà delle identità dei dispositivi
+
 Le identità dei dispositivi vengono rappresentate da documenti JSON con le proprietà indicate di seguito.
 
 | Proprietà | Opzioni | Descrizione |
@@ -112,7 +114,7 @@ Le identità dei dispositivi vengono rappresentate da documenti JSON con le prop
 | generationId |Obbligatoria, di sola lettura |Stringa con distinzione tra maiuscole/minuscole generata dall'hub IoT con lunghezza massima di 128 caratteri. Tale valore viene usato per distinguere i dispositivi con la stessa proprietà **deviceId** in caso di eliminazione e nuova creazione. |
 | etag |Obbligatoria, di sola lettura |Stringa che rappresenta un ETag vulnerabile per l'identità del dispositivo, come indicato in [RFC7232][lnk-rfc7232]. |
 | auth |Facoltativa |Oggetto composito contenente le informazioni di autenticazione e i materiali di sicurezza. |
-| auth.symkey |Facoltativa |Oggetto composito contenente una chiave primaria e una chiave secondaria, archiviate in formato Base&64;. |
+| auth.symkey |Facoltativa |Oggetto composito contenente una chiave primaria e una chiave secondaria, archiviate in formato Base 64. |
 | status |Obbligatoria |Indicatore di accesso. Può essere **Enabled** o **Disabled**. Se è **Enabled**, il dispositivo sarà autorizzato alla connessione. Se è **Disabled**, il dispositivo non potrà accedere ad alcun endpoint per il dispositivo. |
 | statusReason |Facoltativa |Stringa con 128 caratteri di lunghezza che memorizza il motivo dello stato dell'identità del dispositivo. Sono consentiti tutti i caratteri UTF-8. |
 | statusUpdateTime |Sola lettura |Indicatore temporale che mostra la data e l'ora dell'ultimo aggiornamento dello stato. |
@@ -122,10 +124,9 @@ Le identità dei dispositivi vengono rappresentate da documenti JSON con le prop
 
 > [!NOTE]
 > Lo stato della connessione può rappresentare solo la visualizzazione Hub IoT dello stato della connessione. Gli aggiornamenti dello stato possono essere ritardati a seconda delle condizioni e delle configurazioni della rete.
-> 
-> 
 
 ## <a name="additional-reference-material"></a>Materiale di riferimento
+
 Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida per gli sviluppatori dell'hub IoT:
 
 * [Endpoint dell'hub IoT][lnk-endpoints] illustra i diversi endpoint esposti da ogni hub IoT per operazioni della fase di esecuzione e di gestione.
@@ -135,6 +136,7 @@ Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida p
 * [Supporto di MQTT nell'hub IoT][lnk-devguide-mqtt] offre altre informazioni sul supporto dell'hub IoT per il protocollo MQTT.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Ora che si è appreso come usare il registro delle identità dell'hub IoT, si potrebbe essere interessati agli argomenti seguenti della Guida per gli sviluppatori dell'hub IoT:
 
 * [Controllare l'accesso all'hub IoT][lnk-devguide-security]

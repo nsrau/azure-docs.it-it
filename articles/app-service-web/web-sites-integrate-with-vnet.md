@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 08/11/2016
 ms.author: ccompy
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1184277f90dce4215de2add8b48c022e013d191d
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 5c8268a90c5e14839ed97daa6a186d170f5a4cc3
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -95,7 +95,7 @@ Se la rete virtuale non ha un gateway e non è da punto a sito, è necessario es
 ![][8]
 
 ##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>Abilitare la connessione da punto a sito in una rete virtuale di Resource Manager
-Per configurare una rete virtuale di Resource Manager con un gateway e una connessione da punto a sito, è necessario usare PowerShell come descritto in [Configurare una connessione da punto a sito a una rete virtuale con PowerShell][V2VNETP2S].  L'interfaccia utente per eseguire questa funzionalità non è ancora disponibile. 
+Per configurare una connessione da punto a sito in una rete virtuale di Resource Manager con un gateway, è possibile usare PowerShell come descritto in [Configurare una connessione da punto a sito a una rete virtuale con PowerShell][ V2VNETP2S] o usare il portale di Azure come descritto in [Configurare una connessione da punto a sito a una rete virtuale usando il portale di Azure][V2VNETPortal].  L'interfaccia utente per eseguire questa funzionalità non è ancora disponibile. 
 
 ### <a name="creating-a-pre-configured-vnet"></a>Creazione di una rete virtuale preconfigurata
 Se si vuole creare una nuova rete virtuale configurata con un gateway e una connessione da punto a sito, è possibile usare l'interfaccia utente di rete del servizio app, ma solo per una rete virtuale di Resource Manager.  Se si vuole creare una rete virtuale classica con un gateway e una connessione da punto a sito, l'operazione deve essere eseguita manualmente tramite l'interfaccia utente di rete. 
@@ -300,4 +300,5 @@ Oltre a differenze funzionali, vanno considerate le differenze di prezzo.  La fu
 [IntPowershell]: http://azure.microsoft.com/documentation/articles/app-service-vnet-integration-powershell/
 [ASEintro]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [ILBASE]: http://azure.microsoft.com/documentation/articles/app-service-environment-with-internal-load-balancer/
+[V2VNETPortal]: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal
 

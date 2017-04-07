@@ -1,5 +1,5 @@
 ---
-title: Inviare eventi a Hub eventi di Azure con .NET Standard | Microsoft Docs
+title: Inviare eventi a Hub eventi di Azure usando .NET Standard | Microsoft Docs
 description: Guida introduttiva all&quot;invio di eventi a Hub eventi in .NET Standard
 services: event-hubs
 documentationcenter: na
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/01/2017
-ms.author: jotaub
+ms.date: 03/27/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 98de5528d8c74630153bf6908c590b3e0a89d870
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 420a79a3f98500fa5e9054c3a59d9ac20ecb6cbf
+ms.lasthandoff: 03/28/2017
 
 ---
 
@@ -30,7 +30,7 @@ Questa esercitazione illustra come scrivere un'applicazione console .NET Core ch
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Microsoft Visual Studio 2015 o 2017](http://www.visualstudio.com). Gli esempi inclusi nell'esercitazione usano Visual Studio 2015, ma è supportato anche Visual Studio 2017.
+* [Microsoft Visual Studio 2015 o 2017](http://www.visualstudio.com). Gli esempi inclusi nell'esercitazione usano Visual Studio 2017, ma è supportato anche Visual Studio 2015.
 * [Strumenti di Visual Studio 2015 o 2017 per .NET Core](http://www.microsoft.com/net/core).
 * Una sottoscrizione di Azure.
 * Uno spazio dei nomi di Hub eventi.
@@ -58,6 +58,7 @@ Aggiungere il pacchetto NuGet [`Microsoft.Azure.EventHubs`](https://www.nuget.or
     ```csharp
     using Microsoft.Azure.EventHubs;
     using System.Text;
+    using System.Threading.Tasks;
     ```
 
 2. Aggiungere le costanti per la classe `Program` per la stringa di connessione e il percorso dell'entità di Hub eventi (nome dell'Hub eventi singolo). Sostituire i segnaposto tra parentesi con i valori specifici ottenuti durante la creazione di Hub eventi.
@@ -92,7 +93,7 @@ Aggiungere il pacchetto NuGet [`Microsoft.Azure.EventHubs`](https://www.nuget.or
     }
     ```
 
-4. Aggiungere alla classe `Program` un nuovo metodo denominato `SendMessagesToEventHub` come il seguente:
+4. Aggiungere alla classe `Program` un nuovo metodo denominato `SendMessagesToEventHub` come da esempio seguente:
 
     ```csharp
     // Creates an Event Hub client and sends 100 messages to the event hub.

@@ -1,14 +1,16 @@
+Le connessioni da sito a sito verso una rete locale richiedono un dispositivo VPN. È possibile usare diversi dispositivi VPN con Azure. Per informazioni sui dispositivi VPN e sulle impostazioni di configurazione, vedere [Dispositivi VPN](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md). Prima di configurare il dispositivo VPN, verificare eventuali [Problemi noti di compatibilità del dispositivo](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known) per il dispositivo VPN da usare. Per informazioni specifiche sulla configurazione del dispositivo VPN, contattare il produttore del dispositivo.
 
-Per configurare il dispositivo VPN locale, è necessario l'indirizzo IP pubblico del gateway di rete virtuale. Contattare il produttore del dispositivo per informazioni specifiche sulla configurazione del dispositivo. Per informazioni sui dispositivi VPN compatibili con Azure, vedere [Informazioni sui dispositivi VPN](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md) .
+Durante la configurazione del dispositivo VPN, sono necessari gli elementi seguenti:
 
-Per trovare l'indirizzo IP pubblico del gateway di rete virtuale con PowerShell, usare l'esempio seguente:
+- **Indirizzo IP pubblico** del gateway di rete virtuale.
 
-    Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
+    -  Per trovare l'indirizzo IP pubblico usando il portale di Azure, passare a **Gateway di rete virtuale**, quindi fare clic sul nome del gateway. 
 
-È possibile visualizzare l'indirizzo IP pubblico del gateway di rete virtuale anche tramite il portale di Azure. Passare a **Gateway di rete virtuale**e quindi fare clic sul nome del gateway.
+    - Per trovare l'indirizzo IP pubblico del gateway di rete virtuale tramite PowerShell, usare l'esempio seguente, sostituendo i valori con quelli personalizzati.
+
+            Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
+- **Chiave condivisa**. Si tratta della stessa chiave condivisa che verrà specificata durante la creazione della connessione VPN da sito a sito. In questi esempi viene usata una chiave condivisa molto semplice. È necessario generare una chiave più complessa per l'uso effettivo.
 
 
-
-<!--HONumber=Nov16_HO2-->
 
 
