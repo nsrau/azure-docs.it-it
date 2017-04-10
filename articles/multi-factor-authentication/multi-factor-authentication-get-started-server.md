@@ -1,5 +1,5 @@
 ---
-title: Introduzione al server Azure Multi-Factor Authentication | Documentazione Microsoft
+title: Introduzione al server Azure Multi-Factor Authentication | Microsoft Docs
 description: "Questa è la pagina di Azure Multi-Factor Authentication in cui viene descritto come iniziare a utilizzare Azure MFA."
 services: multi-factor-authentication
 keywords: server di autenticazione, pagina di attivazione dell&quot;app azure multi factor authentication, download server di autenticazione
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/26/2017
+ms.date: 03/26/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: c5a26a17ab50993f8b57c8868b02541251de1cb1
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: b769f785f67c24b99156dcfc21a42f661cc9da27
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -121,13 +121,13 @@ Ora che il server è stato installato e configurato, è possibile importare rapi
 ## <a name="send-users-an-email"></a>Inviare agli utenti un messaggio di posta elettronica
 Dopo aver importato gli utenti nel server di MFA, inviare un messaggio di posta elettronica per informarli che sono stati registrati per la verifica in due passaggi.
 
-Il messaggio di posta elettronica inviato deve essere determinato dalla configurazione degli utenti per la verifica in due passaggi. Ad esempio, se è stata completata l'importazione dei numeri di telefono dalla directory aziendale, il messaggio di posta elettronica deve includere i numeri di telefono predefiniti in modo che gli utenti sappiano cosa aspettarsi. Se i numeri di telefono non sono stati importati o è previsto che gli utenti usino l'app per dispositivi mobili, inviare un messaggio di posta elettronica per invitarli a completare la registrazione dell'account tramite un collegamento ipertestuale al portale utenti di Azure Multi-Factor Authentication.
+Il messaggio di posta elettronica inviato deve essere determinato dalla configurazione degli utenti per la verifica in due passaggi. Ad esempio, se è stata completata l'importazione dei numeri di telefono dalla directory aziendale, il messaggio di posta elettronica deve includere i numeri di telefono predefiniti in modo che gli utenti sappiano cosa aspettarsi. Se i numeri di telefono non sono stati importati o è previsto che gli utenti usino l'app per dispositivi mobili, inviare un messaggio di posta elettronica per invitarli a completare la registrazione dell'account. Includere nel messaggio un collegamento ipertestuale al portale utenti di Azure Multi-Factor Authentication.
 
 Il contenuto del messaggio di posta elettronica varia a seconda del metodo di verifica impostato per l'utente (telefonata, SMS o app per dispositivi mobili).  Se, ad esempio, l'utente deve usare un PIN quando esegue l'autenticazione, il messaggio di posta elettronica indicherà quale PIN iniziale è stato impostato.  Agli utenti viene richiesto di modificare il PIN nel corso della prima verifica.
 
 
 ### <a name="configure-email-and-email-templates"></a>Configurare l'indirizzo di posta elettronica e i modelli di messaggio di posta elettronica
-Fare clic sull'icona del messaggio di posta elettronica a sinistra per configurare le impostazioni per l'invio dei messaggi di posta elettronica. In quest'area è possibile immettere le informazioni SMTP del server di posta elettronica e inviare un messaggio selezionando la casella di controllo **Invia messaggi agli utenti**.
+Fare clic sull'icona del messaggio di posta elettronica a sinistra per configurare le impostazioni per l'invio dei messaggi di posta elettronica. In questa pagina è possibile immettere le informazioni SMTP del server di posta elettronica e inviare un messaggio selezionando la casella di controllo **Invia messaggi agli utenti**.
 
 ![Impostazioni di posta elettronica](./media/multi-factor-authentication-get-started-server/email1.png)
 
@@ -155,11 +155,7 @@ Oltre a questi campi, il risultato della verifica (esito positivo/rifiuto) e il 
 
 - Installare e configurare il [portale utenti](multi-factor-authentication-get-started-portal.md) per la modalità self-service per gli utenti finali.
 
-- Configurare Azure Multi-Factor Authentication con [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md).
-
-- Installare e configurare il server Azure MFA con [Autenticazione RADIUS](multi-factor-authentication-get-started-server-radius.md). L'uso di RADIUS consente di integrare vari sistemi di terze parti con il server di Azure MFA. 
-
-- Installare e configurare il server Azure MFA con l'[autenticazione di Windows](multi-factor-authentication-get-started-server-windows.md).
+- Installare e configurare il server Azure MFA con [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md), l'[autenticazione RADIUS](multi-factor-authentication-get-started-server-radius.md) o l'[autenticazione LDAP](multi-factor-authentication-get-started-server-ldap.md).
 
 - Installare e configurare [Gateway Desktop remoto e server Azure Multi-Factor Authentication utilizzando RADIUS](multi-factor-authentication-get-started-server-rdg.md). 
 

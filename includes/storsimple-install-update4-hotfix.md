@@ -22,7 +22,7 @@ Eseguire i passaggi seguenti per scaricare l'aggiornamento del software da Micro
 > [!NOTE]
 > Gli hotfix devono essere accessibili da entrambi i controller per rilevare eventuali messaggi di errore dal peer al controller.
 >
-> È necessario copiare gli hotfix in tre cartelle separate. L'aggiornamento del software del dispositivo deve essere copiato nella cartella _FirstOrderUpdate_, tutti gli altri aggiornamenti che non comportano interruzioni del servizio devono essere copiati nella cartella _SecondOrderUpdate_ e gli aggiornamenti per la modalità di manutenzione devono essere copiati nella cartella _ThirdOrderUpdate_.
+> È necessario copiare gli hotfix in tre cartelle separate. Ad esempio, l'aggiornamento del software del dispositivo può essere copiato nella cartella _FirstOrderUpdate_, tutti gli altri aggiornamenti che non comportano interruzioni del servizio possono essere copiati nella cartella _SecondOrderUpdate_ e gli aggiornamenti per la modalità di manutenzione possono essere copiati nella cartella _ThirdOrderUpdate_.
 
 #### <a name="to-install-and-verify-regular-mode-hotfixes"></a>Per installare e verificare gli hotfix in modalità normale
 
@@ -40,11 +40,11 @@ Per installare e verificare gli aggiornamenti rapidi in modalità normale, segui
    
     Specificare la password quando richiesto.
    
-    Di seguito è riportato un output di esempio per l'installazione degli aggiornamenti di primo livello.
+    Di seguito è riportato un output di esempio per l'installazione degli aggiornamenti di primo livello. Per l'aggiornamento di primo livello, è necessario fare riferimento al file specifico.
    
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
-        \FirstOrderUpdate\ -Credential contoso\John
+        \FirstOrderUpdate\HcsSoftwareUpdate.exe -Credential contoso\John
    
         Confirm
    
@@ -96,7 +96,7 @@ Per installare e verificare gli aggiornamenti rapidi in modalità normale, segui
     > [!IMPORTANT]
     > È necessario riavviare il controller attivo tramite il cmdlet `Restart-HcsController` prima di applicare gli altri aggiornamenti.
      
-7. Ripetere i passaggi da 3 a 5 per installare gli aggiornamenti di secondo livello. Per installare più aggiornamenti è possibile eseguire `Start-HcsHotfix cmdlet` e puntare alla cartella in cui si trovano gli aggiornamenti di secondo livello. Il cmdlet eseguirà tutti gli aggiornamenti disponibili nella cartella. Se è già installato un aggiornamento, la logica di aggiornamento lo rileva e non applica l'aggiornamento. Dopo aver installato tutti gli hotfix, usare il cmdlet `Get-HcsSystem`. Le versioni devono essere:
+7. Ripetere i passaggi da 3 a 5 per installare gli aggiornamenti di secondo livello. **Per gli aggiornamenti di secondo livello, è possibile installare più aggiornamenti eseguendo semplicemente `Start-HcsHotfix cmdlet` e puntando alla cartella in cui si trovano gli aggiornamenti di secondo livello. Il cmdlet eseguirà tutti gli aggiornamenti disponibili nella cartella.** Se è già installato un aggiornamento, la logica di aggiornamento lo rileva e non applica l'aggiornamento. Dopo aver installato tutti gli hotfix, usare il cmdlet `Get-HcsSystem`. Le versioni devono essere:
 
    * `CisAgentVersion:  1.0.9441.0`
    * `MdsAgentVersion: 35.2.2.0`
@@ -247,9 +247,4 @@ Per installare gli aggiornamenti del firmware del disco, seguire le istruzioni r
    `Exit-HcsMaintenanceMode`
 
 5. I controller si riavviano quando si esce dalla modalità di manutenzione. Dopo la corretta istallazione degli aggiornamenti del firmware del disco e dopo che il dispositivo ha terminato la modalità manutenzione, tornare al portale di Azure classico. Si noti che il portale potrebbe non mostrare che sono stati installati gli aggiornamenti per la modalità di manutenzione prima di 24 ore.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

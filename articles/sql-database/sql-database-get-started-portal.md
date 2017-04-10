@@ -9,23 +9,25 @@ manager: jhubbard
 editor: 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start create
 ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/13/2017
+ms.date: 04/03/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: be5839e04fae457b889db11dffe56f31afe723a5
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: c0c6cdf8aa48568b7a4468dd87b2896f94fc1bf6
+ms.lasthandoff: 04/04/2017
 
 
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Creare un database SQL di Azure nel portale di Azure
 
 Questa esercitazione introduttiva illustra come creare un database SQL in Azure.  Il database SQL di Azure è un'offerta di "database distribuito come servizio" che consente di eseguire e ridimensionare i database di SQL Server a disponibilità elevata nel cloud.  Questa guida introduttiva illustra come iniziare a creare un nuovo database SQL con il portale di Azure.
+
+Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure.
 
@@ -43,10 +45,10 @@ Seguire questi passaggi per creare un database SQL contenente i dati di esempio 
 
     ![Creare il database 1](./media/sql-database-get-started/create-database-1.png)
 
-3. Compilare il modulo Database SQL con le informazioni seguenti, come illustrato nell'immagine precedente: 
-   - Nome database: usare **mySampleDatabase**
-   - Gruppo di risorse: usare **myResourceGroup**
-   - Origine: selezionare **Sample (AdventureWorksLT)**
+3. Compilare il modulo Database SQL con le informazioni seguenti, come illustrato nell'immagine precedente:     
+   - Nome database: **mySampleDatabase**
+   - Gruppo di risorse: **myResourceGroup**
+   - Origine: **Sample (AdventureWorksLT)**
 
 4. Fare clic su **Server** per creare e configurare un nuovo server per il nuovo database. Compilare il **modulo Nuovo server** specificando un nome server univoco globale, immettere un nome per l'accesso amministratore server e quindi specificare la password scelta. 
 
@@ -82,7 +84,7 @@ Il servizio di database SQL crea un firewall a livello di server che impedisce a
 
 4. Fare clic su **OK** e quindi sulla **X** per chiudere la pagina **Impostazioni del firewall**.
 
-È ora possibile connettersi al database e al server usando SQL Server Management Studio o un altro strumento di propria scelta.
+È ora possibile connettersi al database e al server usando SQL Server Management Studio o un altro strumento di propria scelta da questo indirizzo IP con l'account amministratore del server creato in precedenza.
 
 ## <a name="query-the-sql-database"></a>Effettuare una query sul database SQL
 
@@ -103,7 +105,7 @@ Quando è stato creato il database SQL, è stato popolato con il database di ese
 5. Dopo l'autenticazione, digitare la query seguente nel riquadro dell'editor di query.
 
    ```
-   SELECT pc.Name as CategoryName, p.name as ProductName
+   SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
    FROM SalesLT.ProductCategory pc
    JOIN SalesLT.Product p
    ON pc.productcategoryid = p.productcategoryid;

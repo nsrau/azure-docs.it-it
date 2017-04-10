@@ -97,7 +97,7 @@ In questa sezione si crea un'app console Java che invia messaggi da cloud a disp
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.2.17</version>
+      <version>1.2.18</version>
     </dependency>
     ```
 

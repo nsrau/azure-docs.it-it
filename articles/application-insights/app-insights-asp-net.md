@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: ae869be6ed9f304629498f416ffdda96252bdf9c
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: bcd8b3b7fb44a28d7184d14969eb998ce07c8e53
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -86,6 +86,7 @@ Aprire la risorsa Application Insights. Accedere al [portale di Azure](https://p
 > Se viene visualizzato un errore di accesso, è possibile che si abbiano più set di credenziali Microsoft e che l'accesso sia stato eseguito con il set sbagliato. Nel portale disconnettersi e accedere nuovamente.
 
 Nel portale verrà visualizzata la telemetria dell'app.
+
 ![Screenshot della pagina Panoramica di Application Insights](./media/app-insights-asp-net/66.png)
 
 Per visualizzare altri dettagli, fare clic su qualsiasi riquadro o grafico.

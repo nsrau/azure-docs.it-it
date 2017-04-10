@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2017
+ms.date: 03/31/2017
 ms.author: sethm; babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 55cc1559189a37741d866d86241426fb73f72e4f
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 6450651062219c8f2c4757d6f233bd4b710e56ff
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -34,7 +34,7 @@ Gli eventi e le funzionalità di gestione della telemetria di Hub eventi sono pa
 Hub eventi consente anche il rilevamento del comportamento nelle app per dispositivi mobili, il traffico di informazioni da Web farm, l'acquisizione di eventi nei giochi per console e la raccolta di dati di telemetria da computer industriali o veicoli connessi.
 
 ## <a name="azure-event-hubs-overview"></a>Panoramica di Hub eventi di Azure
-Il ruolo comune svolto da Hub eventi nelle architetture delle soluzioni è la sua funzione di "porta principale" per una pipeline di eventi, spesso denominata *ingestor evento*. Un ingestor evento è un componente o servizio che si trova tra gli autori e i consumer di eventi per separare la produzione di un flusso di eventi dal consumo di tali eventi.
+Il ruolo comune svolto da Hub eventi nelle architetture delle soluzioni è la sua funzione di "porta principale" per una pipeline di eventi, spesso denominata *ingestor evento*. Un ingestor evento è un componente o servizio che si trova tra gli autori e i consumer di eventi per separare la produzione di un flusso di eventi dal consumo di tali eventi. Questa architettura è illustrata nella figura seguente:
 
 ![Hub eventi](./media/event-hubs-what-is-event-hubs/event_hubs_full_pipeline.png)
 
@@ -104,6 +104,8 @@ Di seguito sono riportati esempi della convenzione dell'URI del gruppo di consum
 //[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #1]
 //[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #2]
 ```
+
+La figura seguente illustra l'architettura di elaborazione del flusso di Hub eventi:
 
 ![Hub eventi](./media/event-hubs-what-is-event-hubs/event_hubs_architecture.png)
 

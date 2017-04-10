@@ -15,14 +15,15 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: piotrci
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6dcadbfb99d4d111ab9ddde9d74db65b5542a8f5
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 20f9e9b31498f20c2a27f0d82d434abad73d2454
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="publish-applications-to-individual-users-in-an-azure-remoteapp-collection-preview"></a>Pubblicare applicazioni per singoli utenti in una raccolta di Azure RemoteApp (anteprima)
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp verrà sospeso a partire dal 31 agosto 2017. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -102,10 +103,5 @@ Siamo lieti di ricevere commenti e suggerimenti su questa funzionalità in antep
 
 ## <a name="havent-had-a-chance-to-try-the-preview-feature"></a>Se non è stato possibile provare la funzionalità in anteprima
 Se non si è ancora autorizzati a provare l'anteprima, usare questo [sondaggio](http://www.instant.ly/s/AY83p) per richiedere l'accesso.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

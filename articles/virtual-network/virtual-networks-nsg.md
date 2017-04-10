@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2165cdc87a505e94fab2fc73c30a5764348c6dc1
-ms.openlocfilehash: b382cf65ae172e0037f2bc668a4f5862b29d1700
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6ea9db6ac7a7ba63652b860c22899a8616ea81bc
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -65,8 +66,8 @@ La figura precedente illustra come vengono elaborate le regole del gruppo di sic
 ### <a name="default-tags"></a>Tag predefiniti
 I tag predefiniti sono identificatori forniti dal sistema per risolvere una categoria di indirizzi IP. È possibile usare i tag predefiniti nelle proprietà **prefisso dell'indirizzo di origine** e **prefisso dell'indirizzo di destinazione** di qualsiasi regola. Esistono tre tag predefiniti, che è possibile utilizzare.
 
-* **VIRTUAL_NETWORK:** questo tag predefinito identifica tutto lo spazio indirizzi della rete. Include lo spazio di indirizzi della rete virtuale (intervalli CIDR definiti in Azure), nonché tutti gli spazi di indirizzi locali e rete virtuali di Azure connesse (reti locali).
-* **AZURE_LOADBALANCER:** questo tag predefinito identifica il servizio di bilanciamento del carico dell'infrastruttura di Azure. Viene convertito in un IP del data center di Azure da cui hanno origine i probe di integrità di Azure.
+* **VIRTUAL_NETWORK** (**VirtualNetwork** se si usa Azure Resource Manager): questo tag predefinito identifica tutto lo spazio degli indirizzi della rete. Include lo spazio di indirizzi della rete virtuale (intervalli CIDR definiti in Azure), nonché tutti gli spazi di indirizzi locali e rete virtuali di Azure connesse (reti locali).
+* **AZURE_LOADBALANCER** (**AzureLoadBalancer** se si usa Azure Resource Manager): questo tag predefinito identifica il servizio di bilanciamento del carico dell'infrastruttura di Azure. Viene convertito in un IP del data center di Azure da cui hanno origine i probe di integrità di Azure.
 * **INTERNET:** questo tag predefinito identifica lo spazio indirizzi IP esterno alla rete virtuale e raggiungibile tramite la rete Internet pubblica. Questo intervallo include anche lo [spazio di IP pubblici appartenenti ad Azure](https://www.microsoft.com/download/details.aspx?id=41653) .
 
 ### <a name="default-rules"></a>Regole predefinite
@@ -258,9 +259,4 @@ Poiché alcuni gruppi di sicurezza di rete devono essere associati a singole sch
 * [Distribuire gruppi di sicurezza di rete nel modello di distribuzione classica](virtual-networks-create-nsg-classic-ps.md).
 * [Distribuire gli NSG nella Gestione risorse](virtual-networks-create-nsg-arm-pportal.md).
 * [Gestire i log dei gruppi di sicurezza di rete](virtual-network-nsg-manage-log.md).
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 
