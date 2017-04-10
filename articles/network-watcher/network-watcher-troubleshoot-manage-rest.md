@@ -46,7 +46,6 @@ Questo scenario presuppone il completamento dei passaggi descritti in [Creare un
 
 La risoluzione dei problemi relativi a Network Watcher consente di risolvere i problemi che si verificano con i gateway di rete virtuale e le connessioni. Quando viene inviata una richiesta di risoluzione dei problemi delle risorse, i log vengono sottoposti a query e controllati. Dopo aver completato l'ispezione, vengono restituiti i risultati. Le richieste di risoluzione dei problemi delle API sono richieste a esecuzione prolungata, che possono richiedere anche diversi minuti per restituire un risultato. I log vengono archiviati in un contenitore di un account di archiviazione.
 
-
 ## <a name="log-in-with-armclient"></a>Accedere con ARMClient
 
 ```PowerShell
