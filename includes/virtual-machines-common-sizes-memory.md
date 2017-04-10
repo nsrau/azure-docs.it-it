@@ -6,6 +6,8 @@ Le macchine virtuali serie D sono progettate per eseguire le applicazioni che ri
 
 Serie Dv2, una versione successiva della serie D originale, dotata di una CPU più potente. La CPU della serie Dv2 è circa il 35% più rapida rispetto alla CPU della serie D. È basata sul processore Intel Xeon® E5-2673 v3 a 2,4 GHz (Haswell) e grazie alla tecnologia Intel Turbo Boost 2.0 può funzionare fino a 3,1 GHz. La serie Dv2 ha le stesse configurazioni di memoria e disco della serie D.
 
+> [!NOTE]
+> Tutte le dimensioni di macchine virtuali di Azure supporteranno almeno due schede di interfaccia di rete a partire dal 15 aprile. Per informazioni sulle aree specifiche, controllare la disponibilità di un [aggiornamento del servizio](https://azure.microsoft.com/en-us/updates/). Questi aggiornamenti sono indicati di seguito con un carattere "^".
 
 ## <a name="gs-series"></a>Serie GS*
 
@@ -13,7 +15,7 @@ ACU: 180 - 240
 
 | Dimensione | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva massima del disco locale e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Larghezza di banda della rete/scheda NIC max |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_GS1 |2 |28 |56 |4 |10.000/100 (264) |5.000/125 |1/alta |
+| Standard_GS1 |2 |28 |56 |4 |10.000/100 (264) |5.000/125 |2^/alta |
 | Standard_GS2 |4 |56 |112 |8 |20.000/200 (528) |10.000/250 |2/alta |
 | Standard_GS3 |8 |112 |224 |16 |40.000/400 (1.056) |20.000/500 |4/molto alta |
 | Standard_GS4 |16 |224 |448 |32 |80.000/800 (2,112) |40.000/1.000 |8/estremamente alta |
@@ -32,7 +34,7 @@ ACU: 180 - 240
 
 | Dimensione         | Core CPU | Memoria: GiB | Unità SSD locale: GiB | Velocità effettiva massima del disco locale: IOPS/Mbps di lettura/Mbps di scrittura | Velocità effettiva/disco di dati massimo: IOPS | Larghezza di banda della rete/scheda NIC max |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 4/4 x 500                       | 1/alta                     |
+| Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 4/4 x 500                       | 2^/alta                     |
 | Standard_G2  | 4         | 56          | 768            | 12000 / 187 / 93                                         | 8/8 x 500                       | 2/alta                     |
 | Standard_G3  | 8         | 112         | 1.536          | 24000 / 375 / 187                                        | 16/16 x 500                     | 4/molto alta                |
 | Standard_G4  | 16        | 224         | 3.072          | 48000 / 750 / 375                                        | 32/32 x 500                     | 8/estremamente alta           |

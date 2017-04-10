@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
-ms.openlocfilehash: ae263615d5fa262eb8a8ed2e5461d92bec503f1d
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: d796566676e13b312832dd543f52d3475d877ef8
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -33,30 +34,31 @@ Per altre informazioni su come applicare le raccomandazioni, leggere l'articolo 
 
 Il riquadro **Integrità sicurezza delle risorse** consente di monitorare lo stato di sicurezza delle risorse. L'esempio seguente mostra alcuni problemi con livelli di gravità medio e alto che richiedono attenzione. I criteri di sicurezza abilitati influiranno sui tipi di controlli monitorati.
 
-![Riquadro Integrità sicurezza delle risorse](./media/security-center-monitoring/security-center-monitoring-fig1-new4-2017.png)
+![Riquadro Integrità sicurezza delle risorse](./media/security-center-monitoring/security-center-monitoring-fig1-new001-2017.png)
 
 Se il Centro sicurezza identifica una vulnerabilità che deve essere risolta, ad esempio una macchina virtuale in cui mancano aggiornamenti della sicurezza o una subnet senza un [gruppo di sicurezza di rete](/virtual-network/virtual-networks-nsg.md), la vulnerabilità verrà riportata qui.
 
-### <a name="monitor-virtual-machines"></a>Monitorare le macchine virtuali
-Quando si fa clic su **Macchine virtuali** nel riquadro **Integrità sicurezza delle risorse**, viene aperto il pannello **Macchine virtuali** con altri dettagli sulle operazioni di caricamento e di prevenzione e un elenco di tutte le macchine virtuali monitorate dal Centro sicurezza, come illustrato nello screenshot seguente.
+### <a name="monitor-compute"></a>Monitorare le risorse di calcolo
+Quando si fa clic su **Calcolo** nel riquadro **Integrità sicurezza delle risorse**, il pannello **Calcolo** visualizzato comprende tre schede:
 
-![Aggiornamento di sistema mancante per la macchina virtuale](./media/security-center-monitoring/security-center-monitoring-fig2-ga.png)
+- **Panoramica**: consigli sul monitoraggio e sulle macchine virtuali.
+- **Macchine virtuali**: elenco di tutte le macchine virtuali e il rispettivo stato di sicurezza corrente.
+- **Servizi cloud**: elenco di tutti i ruoli Web e di lavoro monitorati dal Centro sicurezza.
 
-* Operazioni di caricamento
-* Raccomandazioni per le macchine virtuali
-* Macchine virtuali
+![Aggiornamento di sistema mancante per la macchina virtuale](./media/security-center-monitoring/security-center-monitoring-fig1-new002-2017.png)
 
-In ogni sezione è possibile selezionare una singola opzione per visualizzare altri dettagli riguardanti la procedura raccomandata per risolvere il problema. Le sezioni successive descrivono in maggiore dettaglio queste aree.
+In ogni scheda possono essere presenti più sezioni ed è possibile selezionare in ogni sezione una singola opzione per visualizzare altri dettagli sulla procedura consigliata per risolvere il problema. 
 
 #### <a name="monitoring-recommendations"></a>Monitoraggio delle raccomandazioni
-Questa sezione mostra il numero totale di macchine virtuali inizializzate per la raccolta dei dati, con i relativi stati correnti. Dopo l'inizializzazione della raccolta dei dati in tutte le macchine virtuali, queste potranno ricevere i criteri di sicurezza dal Centro sicurezza. Quando si fa clic su questa voce, viene aperto il pannello **Stato di installazione della raccolta di dati** in cui è possibile esaminare i nomi delle macchine virtuali e lo stato corrente della raccolta dati nella colonna **STATO DELL'INSTALLAZIONE**, come illustrato nello screenshot seguente.
+Questa sezione mostra il numero totale di macchine virtuali inizializzate per la raccolta dei dati, con i relativi stati correnti. Dopo l'inizializzazione della raccolta dei dati in tutte le macchine virtuali, queste potranno ricevere i criteri di sicurezza dal Centro sicurezza. Quando si fa clic su questa voce, viene visualizzato il pannello **L'agente di macchine virtuali non è presente o non risponde**. 
 
-![Stato di inizializzazione delle macchine virtuali](./media/security-center-monitoring/security-center-monitoring-fig3-ga.png)
+![Aggiornamento di sistema mancante per la macchina virtuale](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
+
 
 #### <a name="virtual-machine-recommendations"></a>Raccomandazioni per le macchine virtuali
 Questa sezione include una serie di [raccomandazioni per ogni macchina virtuale](security-center-virtual-machine-recommendations.md) monitorata dal Centro sicurezza di Azure. La prima colonna elenca la raccomandazione. La seconda colonna mostra il numero totale di macchine virtuali interessate da questa raccomandazione. La terza colonna indica la gravità del problema, come illustrato nello screenshot seguente.
 
-![Raccomandazioni per le macchine virtuali](./media/security-center-monitoring/security-center-monitoring-fig4-ga.png)
+![Raccomandazioni per le macchine virtuali](./media/security-center-monitoring/security-center-monitoring-fig1-new004-2017.png)
 
 > [!NOTE]
 > Nell'elenco **Network topology** (Topologia di rete) del pannello **Networking Health** (Integrità rete) vengono visualizzate soltanto le macchine virtuali con almeno un endpoint pubblico.
@@ -93,7 +95,7 @@ Per visualizzare i dettagli delle raccomandazioni, fare clic sul nome della macc
 #### <a name="virtual-machines-section"></a>Sezione Macchine virtuali
 La sezione relativa alle macchine virtuali offre una panoramica di tutte le macchine virtuali con le relative raccomandazioni. Ogni colonna rappresenta un set di raccomandazioni, come illustrato nello screenshot seguente:
 
-![Panoramica di tutte le macchine virtuali e delle raccomandazioni](./media/security-center-monitoring/security-center-monitoring-fig7-ga.png)
+![Panoramica di tutte le macchine virtuali e delle raccomandazioni](./media/security-center-monitoring/security-center-monitoring-fig1-new005-2017.png)
 
 L'icona visualizzata sotto ogni tipo di raccomandazione consente di identificare rapidamente le macchine virtuali che richiedono attenzione e il tipo di raccomandazione.
 
@@ -103,12 +105,12 @@ Nell'esempio precedente, per una macchina virtuale è disponibile una raccomanda
 
 Il pannello include dettagli di sicurezza per la macchina virtuale. Nella parte inferiore di questo pannello è possibile vedere l'azione consigliata e il livello di gravità di ogni problema.
 
-#### <a name="cloud-services-preview-section"></a>Sezione Servizi cloud (anteprima)
-Lo stato di integrità per i servizi cloud è incluso nel riquadro **Integrità sicurezza** delle macchine virtuali. Viene creata una raccomandazione quando la versione del sistema operativo non è aggiornata, come illustrato nello screenshot seguente:
+#### <a name="cloud-services-section"></a>Sezione Servizi cloud
+Per i servizi cloud viene creata una raccomandazione quando la versione del sistema operativo non è aggiornata, come illustrato nello screenshot seguente:
 
-![Stato di integrità per i servizi cloud](./media/security-center-monitoring/security-center-monitoring-fig8-new2.png)
+![Stato di integrità per i servizi cloud](./media/security-center-monitoring/security-center-monitoring-fig1-new006-2017.png)
 
-È necessario seguire i passaggi indicati nella raccomandazione per aggiornare la versione del sistema operativo. Ad esempio, se si fa clic nell'avviso rosso in un ruolo Web1 (che esegue Windows Server con l'app Web distribuita automaticamente in IIS) o un ruolo di lavoro1 (che esegue Windows Server con l'app Web distribuita automaticamente in IIS), verrà visualizzato un nuovo pannello con altri dettagli su questa raccomandazione, come illustrato nello screenshot seguente:
+In uno scenario in cui è presente una raccomandazione, a differenza dell'esempio precedente, è necessario seguire la procedura illustrata nella raccomandazione per aggiornare la versione del sistema operativo. Quando è disponibile un aggiornamento, verrà visualizzato un avviso di tipo rosso o arancione, in base alla gravità del problema. Quando si fa clic su questo avviso in un ruolo Web1 (che esegue Windows Server con l'app Web distribuita automaticamente in IIS) o un ruolo di lavoro1 (che esegue Windows Server con l'app Web distribuita automaticamente in IIS), verrà visualizzato un nuovo pannello con altri dettagli su questa raccomandazione, come illustrato nello screenshot seguente:
 
 ![Dettagli del servizio cloud](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
@@ -214,9 +216,4 @@ Questo articolo descrive come usare le funzionalità di monitoraggio nel Centro 
 * [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare l'integrità delle soluzioni dei partner.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

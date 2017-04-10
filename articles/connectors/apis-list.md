@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 01/27/2017
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: e9eae9ea648fc0e657d32f3f91e6641046bfae79
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: a469a6e29e07029b7eab4e80e132b9276c5b18df
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -26,30 +26,36 @@ ms.lasthandoff: 03/15/2017
 Selezionare un connettore per informazioni su come creare rapidamente flussi di lavoro.
 
 ## <a name="standard-connectors"></a>Connettori Standard
+
 | Connettori |  |  |  |
 | --- | --- | --- | --- |
-|[![API Icon][API/Web-Appicon]<br/>**App Web/API**][API/Web-Appdoc]|![Icona API][appFiguresicon]<br/>**Appfigures**|![Icona API][Asanaicon]<br/>**Asana**|![Icona API][Azure-DocumentDBicon]<br/>**Azure DocumentDB**|
-|![Icona API][Azure-MLicon]<br/>**Azure ML**|[![API Icon][Azure-Functionsicon]<br/>**Funzioni<br/>di Azure**][Azure-Functionsdoc]|[![API Icon][AzureBlobStorageicon]<br/>**Archiviazione BLOB<br/>di Azure**][AzureBlobStoragedoc]|![Icona API][Basecamp-3icon]<br/>**Basecamp 3**|
-|![Icona API][Bitlyicon]<br/>**Bitly**|![Icona API][BizTalk-Servericon]<br/>**BizTalk Server**|![Icona API][Bloggericon]<br/>**Blogger**|[![API Icon][Boxicon]<br/>**Box**][boxDoc]|
-|![Icona API][Campfireicon]<br/>**Campfire**|![Icona API][Cognitive-Services-Text-Analyticsicon]<br/>**Servizi cognitivi<br/>Analisi del testo**|![Icona API][Common-Data-Serviceicon]<br/>**Dati comuni<br/>Servizio**|[![API Icon][DB2icon]<br/>**DB2**][db2doc]|
-|[![API Icon][Delayicon]<br/>**Ritardo**][Delaydoc]|[![API Icon][Dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![API Icon][Dynamics-365icon]<br/>**Dynamics 365**][Dynamics-365doc]|![Icona API][Dynamics-365-for-Financialsicon]<br/>**Dynamics 365<br/>per Financials**|
-|![Icona API][Dynamics-365-for-Operationsicon]<br/>**Dynamics 365<br/>per Operations**|![Icona API][Easy-Redmineicon]<br/>**Easy Redmine**|[![API Icon][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![API Icon][FileSystemIcon]<br/>**File System**][FileSystemdoc]|
-|[![API Icon][FTPicon]<br/>**FTP**][FTPdoc]|![Icona API][GitHubicon]<br/>**GitHub**|![Icona API][Google-Calendaricon]<br/>**Google Calendar**|[![API Icon][Google-Driveicon]<br/>**Google Drive**][Google-Drivedoc]|
-|![Icona API][Google-Sheetsicon]<br/>**Fogli Google**|![Icona API][Google-Tasksicon]<br/>**Google Tasks**|![Icona API][HipChaticon]<br/>**HipChat**|[![API Icon][HTTPicon]<br/>**HTTP**][HTTPdoc]|
-|[![API Icon][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![API Icon][HTTP-Requesticon]<br/>**Richiesta<br/>HTTP**][HTTP-Requestdoc]|[![API Icon][HTTP-Responseicon]<br/>**Risposta<br/>HTTP**][HTTP-Responsedoc]|[![API Icon][Informixicon]<br/>**Informix**][Informixdoc]|
-|![Icona API][Insightlyicon]<br/>**Insightly**|![Icona API][Instagramicon]<br/>**Instagram**|![Icona API][Instapapericon]<br/>**Instapaper**|![Icona API][JIRAicon]<br/>**JIRA**|
-|[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![Icona API][Mandrillicon]<br/>**Mandrill**|[![API Icon][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|[![API Icon][Nested-Logic-Appicon]<br/>**App per la logica<br/>annidata**][Nested-Logic-Appdoc]|
-|[![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365-Usersicon]][office365-usersdoc]<br/>**Office 365<br/>Users**|[![API Icon][Office-365-Videoicon]<br/>**Video di<br/>Office 365**][office365-videodoc]|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|
-|[![API Icon][OneDrive-for-Businessicon]<br/>**OneDrive for<br/>Business**][OneDrive-for-Businessdoc]|[![API Icon][Oracle-DB-icon]<br/>**Database Oracle**][oracle-db-doc]|[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![Icona API][PagerDutyicon]<br/>**PagerDuty**|
-|![Icona API][Pinteresticon]<br/>**Pinterest**|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|[![API Icon][Queryicon]<br/>**Query**][Querydoc]|[![API Icon][Recurrenceicon]<br/>**Ricorrenza**][Recurrencedoc]|
-|![Icona API][Redmineicon]<br/>**Redmine**|[![API Icon][RSSicon]<br/>**RSS**][RSSdoc]|[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc]|
-|[![API Icon][Service-Busicon]<br/>**Bus di servizio**][Service-Busdoc]|[![API Icon][SFTPicon]<br/>**SFTP**][SFTPdoc]|[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API Icon][Slackicon]<br/>**Slack**][Slackdoc]|
-|![Icona API][Smartsheeticon]<br/>**Smartsheet**|[![API Icon][SMTPicon]<br/>**SMTP**][SMTPdoc]|![Icona API][SparkPosticon]<br/>**SparkPost**|[![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|
-|![Icona API][Todoisticon]<br/>**Todoist**|[![API Icon][Trelloicon]<br/>**Trello**][Trellodoc]|[![API Icon][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc]|
-|![Icona API][Vimeoicon]<br/>**Vimeo**|![Icona API][Visual-Studio-Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc]|![Icona API][WordPressicon]<br/>**WordPress**|
-|[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|![Icona API][YouTubeicon]<br/>**YouTube**|
+|[![API Icon][API/Web-Appicon]<br/>**App Web/API**][API/Web-Appdoc]|![Icona API][appFiguresicon]<br/>**appFigures**|![Icona API][Asanaicon]<br/>**Asana**|![Icona API][Azure-Automation-icon]<br/>**Automazione di Azure**|
+|[![API Icon][AzureBlobStorageicon]<br/>**Archiviazione BLOB<br/>di Azure**][AzureBlobStoragedoc]|![Icona API][Azure-Data-Lake-icon]<br/>**Azure Data<br/>Lake**|![Icona API][Azure-DocumentDBicon]<br/>**Azure DocumentDB**|[![API Icon][Azure-Functionsicon]<br/>**Funzioni<br/>di Azure**][Azure-Functionsdoc]|
+|![Icona API][Azure-MLicon]<br/>**Azure ML**|![Icona API][Azure-Resource-Manager-icon]<br/>**Azure Resource<br/>Manager**|![Icona API][Azure-Queues-icon]<br/>**Code di Azure**|![Icona API][Basecamp-3icon]<br/>**Basecamp 3**|
+|![Icona API][Bitbucket-icon]<br/>**Bitbucket**|![Icona API][Bitlyicon]<br/>**Bitly**|![Icona API][BizTalk-Servericon]<br/>**BizTalk Server**|![Icona API][Bloggericon]<br/>**Blogger**|
+|[![API Icon][Boxicon]<br/>**Box**][boxDoc]|![Icona API][Campfireicon]<br/>**Campfire**|![Icona API][Cognitive-Services-Text-Analyticsicon]<br/>**Servizi cognitivi<br/>Analisi del testo**|![Icona API][Common-Data-Serviceicon]<br/>**Dati comuni<br/>Servizio**|
+|[![API Icon][DB2icon]<br/>**DB2**][db2doc]|[![API Icon][Delayicon]<br/>**Ritardo**][Delaydoc]|[![API Icon][Dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![API Icon][Dynamics-365icon]<br/>**Dynamics 365**][Dynamics-365doc]|
+|![Icona API][Dynamics-365-for-Financialsicon]<br/>**Dynamics 365<br/>per Financials**|![Icona API][Dynamics-365-for-Operationsicon]<br/>**Dynamics 365<br/>per Operations**|![Icona API][Easy-Redmineicon]<br/>**Easy Redmine**|[![API Icon][Event-hubs-icon]<br/>**Hub eventi**][event-hubs-doc]|
+|[![API Icon][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![API Icon][FileSystemIcon]<br/>**File System**][FileSystemdoc]|[![API Icon][FTPicon]<br/>**FTP**][FTPdoc]|![Icona API][GitHubicon]<br/>**GitHub**|
+|![Icona API][Google-Calendaricon]<br/>**Google Calendar**|[![API Icon][Google-Driveicon]<br/>**Google Drive**][Google-Drivedoc]|![Icona API][Google-Sheetsicon]<br/>**Fogli Google**|![Icona API][Google-Tasksicon]<br/>**Google Tasks**|
+|![Icona API][HipChaticon]<br/>**HipChat**|[![API Icon][HTTPicon]<br/>**HTTP**][HTTPdoc]|[![API Icon][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![API Icon][HTTP-Requesticon]<br/>**Richiesta<br/>HTTP**][HTTP-Requestdoc]|
+|[![API Icon][HTTP-Responseicon]<br/>**Risposta<br/>HTTP**][HTTP-Responsedoc]|[![API Icon][Informixicon]<br/>**Informix**][Informixdoc]|![Icona API][Insightlyicon]<br/>**Insightly**|![Icona API][Instagramicon]<br/>**Instagram**|
+|![Icona API][Instapapericon]<br/>**Instapaper**|![Icona API][JIRAicon]<br/>**JIRA**|[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![Icona API][Mandrillicon]<br/>**Mandrill**|
+|[![API Icon][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|[![API Icon][Nested-Logic-Appicon]<br/>**App per la logica<br/>annidata**][Nested-Logic-Appdoc]|[![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365-Usersicon]][office365-usersdoc]<br/>**Office 365<br/>Users**|
+|[![API Icon][Office-365-Videoicon]<br/>**Video di<br/>Office 365**][office365-videodoc]|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![API Icon][OneDrive-for-Businessicon]<br/>**OneDrive for<br/>Business**][OneDrive-for-Businessdoc]|[![API Icon][Oracle-DB-icon]<br/>**Database Oracle**][oracle-db-doc]|
+|[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![Icona API][PagerDutyicon]<br/>**PagerDuty**|![Icona API][Pinteresticon]<br/>**Pinterest**|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|
+|[![API Icon][Queryicon]<br/>**Query**][Querydoc]|[![API Icon][Recurrenceicon]<br/>**Ricorrenza**][Recurrencedoc]|![Icona API][Redmineicon]<br/>**Redmine**|[![API Icon][RSSicon]<br/>**RSS**][RSSdoc]|
+|[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc]|[![API Icon][Service-Busicon]<br/>**Bus di servizio**][Service-Busdoc]|[![API Icon][SFTPicon]<br/>**SFTP**][SFTPdoc]|
+|[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API Icon][Slackicon]<br/>**Slack**][Slackdoc]|![Icona API][Smartsheeticon]<br/>**Smartsheet**|[![API Icon][SMTPicon]<br/>**SMTP**][SMTPdoc]|
+|![Icona API][SparkPosticon]<br/>**SparkPost**|[![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|![Icona API][Todoisticon]<br/>**Todoist**|[![API Icon][Trelloicon]<br/>**Trello**][Trellodoc]|
+|[![API Icon][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc]|![Icona API][Vimeoicon]<br/>**Vimeo**|![Icona API][Visual-Studio-Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|
+|[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc]|![Icona API][WordPressicon]<br/>**WordPress**|[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|
+|![Icona API][YouTubeicon]<br/>**YouTube**|
 
-### <a name="integration-account-connectors"></a>Connettori dell'account di integrazione 
+> [!TIP]
+> Se si vuole iniziare a usare le app per la logica di Azure prima di creare un account di Azure, passare a [Try Logic Apps](https://tryappservice.azure.com/?appservice=logic) (Prova App per la logica). È possibile creare immediatamente un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+
+## <a name="integration-account-connectors"></a>Connettori dell'account di integrazione 
 
 | Connettori<br/>dell'account di integrazione |  |  |  |
 | --- | --- | --- | --- |
@@ -57,29 +63,37 @@ Selezionare un connettore per informazioni su come creare rapidamente flussi di 
 | [![API Icon][as2icon]<br/>**Decodifica</br> AS2**][as2decode] |[![API Icon][as2icon]<br/>**Codifica</br> AS2**][as2encode] |[![API Icon][x12icon]<br/>**Decodifica</br> X12**][x12decode] |[![API Icon][x12icon]<br/>**Codifica</br> X12**][x12encode] |
 | [![API Icon][x12icon]<br/>**Decodifica</br> EDIFACT**][EDIFACTdecode] |[![API Icon][x12icon]<br/>**Codifica</br> EDIFACT**][EDIFACTencode] | | |
 
-> [!NOTE]
-> Se si vuole iniziare a usare le app per la logica di Azure prima di creare un account di Azure, passare a [Try Logic Apps](https://tryappservice.azure.com/?appservice=logic) (Prova App per la logica). È possibile creare immediatamente un'app per la logica iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
-
 ## <a name="enterprise-connectors"></a>Connettori aziendali
-Usare i connettori aziendali per creare app per la logica per gli scenari B2B che includono EAI ed EDI.  
+
+Usare questi connettori aziendali per creare app per la logica per gli scenari B2B che includono EAI ed EDI.
 
 | Enterprise<br/>dell'account di integrazione |  |
 | --- | --- |
 |![Icona API][MQicon]<br/>**MQ**|[![API Icon][SAPicon]<br/>**SAP**][sapconnector]|
 
+## <a name="connectors-as-triggers"></a>Connettori come trigger
 
-
-<!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
-### <a name="connectors-can-be-triggers"></a>Connettori come trigger
-Vari connettori forniscono trigger che possono inviare notifiche all'app quando si verifica un evento specifico. Ad esempio, il connettore FTP include il trigger OnUpdatedFile. È possibile creare un'app per la logica, una PowerApp o un flusso che resta in ascolto del trigger ed esegue un'azione ogni volta che il trigger viene attivato.
+Alcuni connettori forniscono trigger che possono inviare notifiche all'app quando si verifica un evento specifico. Il connettore FTP include ad esempio il trigger OnUpdatedFile che invia una notifica all'app quando viene aggiornato un file. È possibile compilare un'app per la logica, una PowerApp o un flusso che resta in ascolto del trigger ed esegue un'azione ogni volta che il trigger viene attivato.
 
 Sono disponibili due tipi di trigger:  
 
-* Trigger di polling: questi trigger eseguono il polling del servizio a una frequenza specificata per verificare la disponibilità di nuovi dati. Quando sono disponibili nuovi dati, viene eseguita una nuova istanza dell'app con i dati come input. Per evitare che gli stessi dati vengano utilizzati più volte, il trigger può eseguire la pulizia dei dati letti e passati all'app.
-* Trigger di push: questi trigger restano in attesa dei dati su un endpoint o che si verifichi un evento, quindi attivano una nuova istanza dell'app. Il connettore Twitter ne è un esempio.
+* *Trigger di polling*: questi trigger eseguono il polling del servizio a una frequenza specificata per verificare la disponibilità di nuovi dati. Quando sono disponibili nuovi dati, viene eseguita una nuova istanza dell'app con i dati come input. Per evitare che gli stessi dati vengano utilizzati più volte, il trigger può eseguire la pulizia dei dati letti e passati all'app.
 
-### <a name="connectors-can-be-actions"></a>Connettori come azioni
-È inoltre possibile usare i connettori come azioni nelle applicazioni. Le azioni sono utili per cercare i dati da usare nell'esecuzione dell'app. Può essere necessario ad esempio cercare in un database SQL dati su un cliente quando si elabora un ordine. Oppure può essere necessario scrivere, aggiornare o eliminare dati in una tabella di destinazione. È possibile eseguire queste attività usando le azioni fornite dai connettori. Le azioni vengono mappate alle operazioni definite nei metadati Swagger.
+* *Trigger di push*: questi trigger restano in attesa dei dati su un endpoint o di un evento, quindi attivano una nuova istanza dell'app. Il connettore Twitter ne è un esempio.
+
+## <a name="connectors-as-actions"></a>Connettori come azioni
+
+I connettori forniscono anche azioni che è possibile usare nel flusso di lavoro dell'applicazione. L'app può ad esempio cercare dati che potranno essere quindi usati quando si esegue l'applicazione. Più in particolare è possibile cercare i dati di un cliente in un database SQL quando si elabora un ordine. Oppure può essere necessario scrivere, aggiornare o eliminare dati in una tabella di destinazione. Le azioni vengono mappate alle operazioni definite nei metadati Swagger.
+
+## <a name="custom-connectors-and-certification-for-microsoft-azure"></a>Connettori personalizzati e certificazione per Microsoft Azure
+
+Per creare connettori personalizzati oppure se non si trova il connettore desiderato, è possibile [estendere la piattaforma delle app per la logica](../logic-apps/logic-apps-create-api-app.md) e creare app per le API che eseguono chiamate in API o sistemi non disponibili come connettori predefiniti. È anche possibile inviare le app per le API per la certificazione di Microsoft Azure e quindi renderle disponibili tramite Azure. Altre informazioni su come ottenere la [certificazione di Microsoft Azure](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/) per le soluzioni.
+
+## <a name="get-help"></a>Ottenere aiuto
+
+Per porre domande, fornire risposte e ottenere informazioni sulle attività degli altri utenti delle app per la logica di Azure, vedere il [forum sulle app per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+
+Per contribuire al miglioramento delle app per la logica e dei connettori, votare o inviare idee al [sito dei commenti e suggerimenti degli utenti delle app per la logica](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Creare la prima app per la logica](../logic-apps/logic-apps-create-a-logic-app.md)
@@ -95,6 +109,7 @@ Sono disponibili due tipi di trigger:
 [delaydoc]: ./connectors-native-delay.md "Eseguire azioni di ritardo"
 [dropboxdoc]: ./connectors-create-api-dropbox.md "Connettersi a Dropbox. Caricare, recuperare, eliminare ed elencare i file e altro ancora"
 [Dynamics-365doc]: ./connectors-create-api-crmonline.md "Connettersi a Dynamics CRM Online per poter usare i dati di CRM Online"
+[event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Connettersi a Hub eventi di Azure. Ricevere e inviare eventi tra app per la logica e hub eventi"
 [facebookdoc]: ./connectors-create-api-facebook.md "Connettersi a Facebook. Pubblicare un post in un diario, ottenere il feed di una pagina e altro ancora"
 [filesystemdoc]: ../logic-apps/logic-apps-using-file-connector.md "Connettersi a un file system locale"
 [ftpdoc]: ./connectors-create-api-ftp.md "Connettersi a un server FTP/FTPS ed eseguire diverse attività FTP, come caricare, recuperare ed eliminare file e altro ancora"
@@ -118,7 +133,7 @@ Sono disponibili due tipi di trigger:
 [office365-videodoc]: ./connectors-create-api-office365-video.md "Ottenere informazioni sui video, canali, elenchi dei video e URL di riproduzione per i video di Office 365"
 [onedrivedoc]: ./connectors-create-api-onedrive.md "Connettersi all'account Microsoft OneDrive personale. Caricare, eliminare ed elencare i file e altro ancora"
 [onedrive-for-businessdoc]: ./connectors-create-api-onedriveforbusiness.md "Connettersi all'account Microsoft OneDrive aziendale. Caricare, eliminare ed elencare i file e altro ancora"
-[oracle-db-doc]: https://powerapps.microsoft.com/blog/connecting-to-oracle-database-from-powerapps-flow-and-logic-apps "Connettersi a un database Oracle"
+[oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Connettersi a un database Oracle per aggiungere, inserire, eliminare righe e altro ancora"
 [outlook.comdoc]: ./connectors-create-api-outlook.md "Connettersi alla cassetta postale di Outlook. Gestire posta elettronica, calendari, contatti e altro ancora"
 [project-onlinedoc]: ./connectors-create-api-projectonline.md "Connettersi a Microsoft Project Online. Gestire progetti, attività, risorse a altro ancora"
 [querydoc]: ./connectors-native-query.md "Selezionare e filtrare matrici con l'azione di query"
@@ -159,10 +174,15 @@ Sono disponibili due tipi di trigger:
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
 [Asanaicon]: ./media/apis-list/asana.png
+[Azure-Automation-icon]: ./media/apis-list/azure-automation.png
 [AzureBlobStorageicon]: ./media/apis-list/azureblob.png
-[Azure-DocumentDBicon]: ./media/apis-list/documentdb.png
+[Azure-Data-Lake-icon]: ./media/apis-list/azure-data-lake.png
+[Azure-DocumentDBicon]: ./media/apis-list/azure-documentdb.png
 [Azure-MLicon]: ./media/apis-list/azureml.png
+[Azure-Resource-Manager-icon]: ./media/apis-list/azure-resource-manager.png
+[Azure-Queues-icon]: ./media/apis-list/azure-queues.png
 [Basecamp-3icon]: ./media/apis-list/basecamp.png
+[Bitbucket-icon]: ./media/apis-list/bitbucket.png
 [Bitlyicon]: ./media/apis-list/bitly.png
 [BizTalk-Servericon]: ./media/apis-list/biztalk.png
 [Bloggericon]: ./media/apis-list/blogger.png
@@ -175,6 +195,7 @@ Sono disponibili due tipi di trigger:
 [Dynamics-365-for-Financialsicon]: ./media/apis-list/madeira.png
 [Dynamics-365-for-Operationsicon]: ./media/apis-list/dynamicsax.png
 [Easy-Redmineicon]: ./media/apis-list/easyredmine.png
+[Event-Hubs-icon]: ./media/apis-list/eventhubs.png
 [Facebookicon]: ./media/apis-list/facebook.png
 [FTPicon]: ./media/apis-list/ftp.png
 [GitHubicon]: ./media/apis-list/github.png

@@ -14,8 +14,9 @@ ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 46e6ab8a9c5d4e6a00d61ee4e5bbfd42307bfc69
-ms.openlocfilehash: 5ec35fb0171a4a62b915579b5a079060132998dd
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 42507475b5d15c4704e6bcb3d56dc00c91006655
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -60,9 +61,10 @@ Di seguito sono riportate implementazioni di [Application Insights](app-insights
 ## <a name="logging-frameworks"></a>Framework di registrazione
 * [Log4Net, NLog o System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 * [Java, Log4J o Logback](app-insights-java-trace-logs.md)
-* [Registrazione semantica (SLAB)](https://github.com/fidmor89/SLAB_AppInsights)&#151;si integra con il [blocco applicazione per la registrazione semantica](https://msdn.microsoft.com/library/dn440729.aspx)
+* [Registrazione semantica (SLAB)](https://github.com/fidmor89/SLAB_AppInsights) - si integra con il [blocco applicazione per la registrazione semantica](https://msdn.microsoft.com/library/dn440729.aspx)
 * [Test di carico basato su cloud](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 * [Plug-in LogStash](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
+* [Log Analytics di OMS](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 
 ## <a name="content-management-systems"></a>Sistemi di gestione del contenuto
 * [Concrete](https://github.com/fidmor89/appInsights-Concrete)
@@ -77,11 +79,6 @@ Di seguito sono riportate implementazioni di [Application Insights](app-insights
 * [Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 * [Analisi dei flussi](app-insights-export-power-bi.md)
 
-## <a name="a-nameprojectsa-build-your-own-sdk"></a><a name="projects"></a> Creare un SDK personalizzato
+## <a name="projects"></a> Creare un SDK personalizzato
 Se non esiste ancora un SDK per il linguaggio o la piattaforma usata, è possibile crearne uno. A tale scopo, esaminare il codice degli SDK esistenti incluso nel [progetto di Application Insights SDK su GitHub](https://github.com/Microsoft/AppInsights-Home).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

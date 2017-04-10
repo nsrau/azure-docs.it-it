@@ -1,4 +1,4 @@
-I seguenti limiti si applicano solo per le risorse di rete gestite tramite il modello di distribuzione classica per sottoscrizione.
+<a name="virtual-networking-limits-classic"></a>I limiti seguenti si applicano solo per le risorse di rete gestite tramite il modello di distribuzione classica per sottoscrizione.
 
 | Risorsa | Limite predefinito | Limite massimo |
 | --- | --- | --- |
@@ -37,7 +37,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Indirizzi IP pubblici (statici) |20 |Contattare il supporto tecnico |
 | Bilanciamento del carico (interno e con connessione Internet) |100 |Contattare il supporto tecnico |
 | Regole del servizio di bilanciamento del carico per ogni servizio di bilanciamento del carico |150 |150 |
-| IP front-end pubblico per ogni di bilanciamento del carico |10 |Contattare il supporto tecnico |
+| IP front-end pubblico per ogni di bilanciamento del carico |10 |30 |
 | IP front-end privato per ogni di bilanciamento del carico |10 |Contattare il supporto tecnico |
 | Peering di reti virtuali per rete virtuale |10 |50 |
 | Certificati radice Point-to-Site per ogni gateway VPN |20 |20 |

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/16/2017
+ms.date: 04/03/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 89d44476e9de8ac32195efaf66535cdd9fb4260e
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: 248e820ccd2c68a8500aab3233c5beea3c8cc868
+ms.lasthandoff: 04/04/2017
 
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Connettersi a HDInsight (Hadoop) con SSH
@@ -30,16 +30,19 @@ La tabella seguente contiene le informazioni relative a indirizzo e porta necess
 
 | Indirizzo | Porta | Connessione a |
 | ----- | ----- | ----- |
-| `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Nodo perimetrale (se presente) |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Nodo perimetrale (R Server in HDInsight) |
+| `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Nodo perimetrale (qualsiasi tipo di cluster, se è presente un nodo perimetrale) |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | Nodo head primario |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Nodo head secondario |
 
 > [!NOTE]
-> Sostituire `<edgenodename>` con il nome del nodo perimetrale. Per altre informazioni sull'uso dei nodi perimetrali, vedere l'articolo su come [usare nodi perimetrali in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node).
+> Sostituire `<edgenodename>` con il nome del nodo perimetrale.
 >
 > Sostituire `<clustername>` con il nome del cluster HDInsight.
 >
 > È consigliabile __connettersi sempre al nodo perimetrale__, se presente. I nodi head ospitano servizi critici per l'integrità del cluster. Il nodo perimetrale esegue solo quanto inserito dall'utente nel nodo stesso.
+>
+> Per altre informazioni sull'uso dei nodi perimetrali, vedere l'articolo su come [usare nodi perimetrali in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node).
 
 ## <a name="ssh-clients"></a>Client SSH
 

@@ -1,7 +1,8 @@
 ## <a name="typical-output"></a>Output tipico
-Di seguito è riportato un esempio dell'output scritto nel file di log per l'esempio Hello World. Sono stati aggiunti caratteri di nuova riga e di tabulazione per migliorare la leggibilità:
 
-```
+Il seguente è un esempio dell'output scritto nel file di log per l'esempio Hello World. L'output è formattato per migliorare la leggibilità:
+
+```json
 [{
     "time": "Mon Apr 11 13:48:07 2016",
     "content": "Log started"
@@ -30,14 +31,16 @@ Di seguito è riportato un esempio dell'output scritto nel file di log per l'ese
 ```
 
 ## <a name="code-snippets"></a>Frammenti di codice
-In questa sezione vengono descritti alcuni elementi chiave del codice nell'esempio di Hello World.
+
+In questa sezione vengono descritte alcune sezioni chiave del codice nell'esempio hello\_world.
 
 ### <a name="gateway-creation"></a>Creazione di gateway
-Lo sviluppatore deve scrivere il *processo del gateway*. Questo programma crea l'infrastruttura interna, ovvero il broker, carica i moduli e configura tutto in modo che funzioni correttamente. L'SDK specifica la funzione **Gateway_Create_From_JSON** per consentire di avviare un gateway da un file JSON. Per usare la funzione **Gateway_Create_From_JSON**, è necessario chiamarla dal percorso di un file JSON che specifica i moduli da caricare. 
 
-È possibile trovare il codice per il processo del gateway per l'esempio Hello World nel file [main.c][lnk-main-c]. Per migliorare la leggibilità, il frammento di codice riportato di seguito illustra una versione abbreviata del codice del processo del gateway. Questo programma crea un gateway e quindi attende che l'utente prema **INVIO** prima di rimuove il gateway. 
+Lo sviluppatore deve scrivere il *processo del gateway*. Questo programma crea l'infrastruttura interna, ovvero il broker, carica i moduli e configura tutto in modo che funzioni correttamente. L'SDK specifica la funzione **Gateway\_Create\_From\_JSON** per consentire di avviare un gateway da un file JSON. Per usare la funzione **Gateway\_Create\_From\_JSON**, è necessario chiamarla dal percorso di un file JSON che specifica i moduli da caricare.
 
-```
+È possibile trovare il codice per il processo del gateway per l'esempio Hello World nel file [main.c][lnk-main-c]. Per migliorare la leggibilità, il frammento di codice seguente illustra una versione abbreviata del codice del processo del gateway. Questo programma di esempio crea un gateway e quindi attende che l'utente prema **INVIO** prima di rimuove il gateway.
+
+```c
 int main(int argc, char** argv)
 {
     GATEWAY_HANDLE gateway;
@@ -53,22 +56,21 @@ int main(int argc, char** argv)
         Gateway_LL_Destroy(gateway);
     }
     return 0;
-} 
+}
 ```
 
-Il file di impostazioni JSON contiene un elenco di moduli da caricare e collegamenti tra i moduli.
-Ogni modulo deve specificare:
+Il file di impostazioni JSON contiene un elenco di moduli da caricare e collegamenti tra i moduli. Ogni modulo deve specificare:
 
 * **name**: nome univoco per il modulo.
-* **loader**: un caricatore che sia in grado di caricare il modulo appropriato.  I caricatori sono punti di estensione per il caricamento di tipi diversi di moduli. Microsoft offre caricatori da usare con moduli scritti in C, Node.js, Java e .NET nativi. L'esempio Hello World usa solo il caricatore "nativo" poiché tutti i moduli in questo esempio sono librerie dinamiche scritte in C. Vedere gli esempi [Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample) o [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample) per altre informazioni sull'uso di moduli scritti in linguaggi diversi.
-    * **name**: nome del caricatore usato per caricare il modulo.  
-    * **entrypoint**: percorso della libreria che contiene il modulo. Per Linux si tratta di un file con estensione so, per Windows si tratta di un file con estensione dll. Si noti che il punto di ingresso è specifico per il tipo di caricatore in uso. Ad esempio, il punto di ingresso del caricatore di Node.js è un file js, il punto di ingresso del caricatore Java è un percorso classe + nome classe e il punto di ingresso del caricatore .NET è un nome assembly + nome classe.
+* **loader**: un caricatore che riesca a caricare il modulo appropriato. I caricatori sono punti di estensione per il caricamento di tipi diversi di moduli. Microsoft offre caricatori da usare con moduli scritti in C, Node.js, Java e .NET nativi. L'esempio Hello World usa solo il caricatore C nativo perché tutti i moduli in questo esempio sono librerie dinamiche scritte in C. Per altre informazioni su come usare moduli scritti in linguaggi diversi, vedere gli esempi [Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/java_sample) o [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/dotnet_binding_sample).
+    * **name**: nome del caricatore usato per caricare il modulo.
+    * **entrypoint**: percorso della libreria che contiene il modulo. In Linux questa libreria è un file con estensione so, in Windows è un file con estensione dll. Il punto di ingresso è specifico per il tipo di caricatore in uso. Il punto di ingresso del caricatore Node.js è un file con estensione js. Il punto di ingresso del caricatore Java è un percorso di classe più un nome di classe. Il punto di ingresso del caricatore .NET è un nome di assembly più un nome di classe.
 
 * **args**: le informazioni di configurazione necessarie per il modulo.
 
-Il codice seguente illustra l'uso di JSON per dichiarare tutti i moduli per l'esempio Hello World in Linux. L'uso di argomenti nei moduli dipende dalla loro struttura. In questo esempio, il modulo logger include un argomento che specifica il percorso del file di output e il modulo Hello World non include nessun argomento.
+Il codice seguente illustra l'uso di JSON per dichiarare tutti i moduli per l'esempio Hello World in Linux. L'uso di argomenti nei moduli dipende dalla loro struttura. In questo esempio, il modulo logger include un argomento che specifica il percorso del file di output e il modulo hello\_world non include nessun argomento.
 
-```
+```json
 "modules" :
 [
     {
@@ -94,17 +96,17 @@ Il codice seguente illustra l'uso di JSON per dichiarare tutti i moduli per l'es
 ]
 ```
 
-Il file JSON contiene anche i collegamenti tra i moduli che verranno passati al broker. Un collegamento ha due proprietà:
+Il file JSON contiene anche i collegamenti tra i moduli che vengono passati al broker. Un collegamento ha due proprietà:
 
 * **source**: il nome di un modulo dalla sezione `modules` oppure "\*".
 * **sink**: il nome di un modulo dalla sezione `modules`.
 
-Ogni collegamento definisce una route messaggi e una direzione. I messaggi dal modulo `source` devono essere recapitati al modulo `sink`. Il modulo `source` può essere impostato su "\*", a indicare che i messaggi da qualsiasi modulo verranno ricevuti dal `sink`.
+Ogni collegamento definisce una route messaggi e una direzione. I messaggi dal modulo `source` vengono recapitati al modulo `sink`. Il modulo `source` può essere impostato su "\*", a indicare che i messaggi da qualsiasi modulo vengono ricevuti dal `sink`.
 
-Il codice seguente illustra l'uso di JSON per configurare i collegamenti tra i moduli usati nell'esempio Hello World in Linux. Tutti i messaggi generati dal modulo `hello_world` verranno utilizzati dal modulo `logger`.
+Il codice seguente illustra l'uso di JSON per configurare i collegamenti tra i moduli usati nell'esempio hello\_world in Linux. Tutti i messaggi generati dal modulo `hello_world` vengono utilizzati dal modulo `logger`.
 
-```
-"links": 
+```json
+"links":
 [
     {
         "source": "hello_world",
@@ -113,10 +115,11 @@ Il codice seguente illustra l'uso di JSON per configurare i collegamenti tra i m
 ]
 ```
 
-### <a name="hello-world-module-message-publishing"></a>Pubblicazione dei messaggi del modulo di Hello World
-Il codice usato dal modulo "hello world" per pubblicare i messaggi è disponibile nel file ['hello_world.c'][lnk-helloworld-c]. Il frammento di codice riportato di seguito riporta una versione modificata, ai fini di una maggior leggibilità, in cui sono stati aggiunti commenti ed è stato rimosso del codice per la gestione degli errori:
+### <a name="helloworld-module-message-publishing"></a>Pubblicazione dei messaggi del modulo hello\_world
 
-```
+Il codice usato dal modulo hello\_world per pubblicare i messaggi è disponibile nel file ["hello_world.c"][lnk-helloworld-c]. Il frammento di codice seguente riporta una versione modificata, per una maggior leggibilità, in cui sono stati aggiunti commenti ed è stata rimossa parte del codice per la gestione degli errori:
+
+```c
 int helloWorldThread(void *param)
 {
     // create data structures used in function.
@@ -162,10 +165,11 @@ int helloWorldThread(void *param)
 }
 ```
 
-### <a name="hello-world-module-message-processing"></a>Elaborazione dei messaggi del modulo di Hello World
-Il modulo Hello World non deve mai elaborare messaggi pubblicati da altri moduli nel broker. Di conseguenza, l'implementazione del callback dei messaggi nel modulo Hello World è una funzione no-op.
+### <a name="helloworld-module-message-processing"></a>Elaborazione dei messaggi del modulo hello\_world
 
-```
+Il modulo hello\_world non elabora mai messaggi pubblicati da altri moduli nel broker. L'implementazione del callback dei messaggi nel modulo hello\_world è quindi una funzione no-op.
+
+```c
 static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
     /* No action, HelloWorld is not interested in any messages. */
@@ -173,11 +177,12 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 ```
 
 ### <a name="logger-module-message-publishing-and-processing"></a>Elaborazione e pubblicazione dei messaggi del modulo di logger
-Il modulo di logger riceve messaggi dal broker e li scrive in un file, ma non pubblica mai messaggi. Il codice del modulo logger quindi non chiama mai la funzione **Broker_Publish**.
 
-La funzione **Logger_Recieve** nel file [logger.c][lnk-logger-c] è il callback che viene richiamato dal broker per recapitare i messaggi al modulo logger. Il frammento di codice riportato di seguito riporta una versione modificata, ai fini di una maggior leggibilità, in cui sono stati aggiunti commenti ed è stato rimosso del codice per la gestione degli errori:
+Il modulo logger riceve messaggi dal broker e li scrive in un file, ma non pubblica mai messaggi. Il codice del modulo logger quindi non chiama mai la funzione **Broker_Publish**.
 
-```
+La funzione **Logger_Recieve** nel file [logger.c][lnk-logger-c] è il callback che viene richiamato dal broker per recapitare i messaggi al modulo logger. Il frammento di codice seguente riporta una versione modificata, per una maggior leggibilità, in cui sono stati aggiunti commenti ed è stata rimossa parte del codice per la gestione degli errori:
+
+```c
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
 
@@ -217,7 +222,8 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni su come usare IoT Gateway SDK per gateway, vedere quanto segue:
+
+Per informazioni su come usare IoT Gateway SDK, vedere gli articoli seguenti:
 
 * [IoT Gateway SDK: inviare messaggi da dispositivo a cloud con un dispositivo simulato usando Linux][lnk-gateway-simulated].
 * [Azure IoT Gateway SDK][lnk-gateway-sdk] in GitHub.
@@ -228,7 +234,3 @@ Per informazioni su come usare IoT Gateway SDK per gateway, vedere quanto segue:
 [lnk-logger-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/modules/logger/src/logger.c
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
-
-<!--HONumber=Feb17_HO3-->
-
-
