@@ -3,7 +3,7 @@ title: Come usare il servizio di archiviazione code di Azure con WebJobs SDK
 description: Informazioni su come usare il servizio di archiviazione code di Azure con WebJobs SDK. Creare ed eliminare code, inserire, visualizzare, ottenere ed eliminare messaggi dalla coda e altro ancora.
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: dbfac5d9-f4a0-4e3e-9ecc-af3d7bf80463

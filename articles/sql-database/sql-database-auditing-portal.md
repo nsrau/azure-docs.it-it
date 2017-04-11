@@ -31,7 +31,7 @@ Per una panoramica sul del controllo, vedere [Controllo del database SQL](sql-da
 
 ## <a name="configure-blob-auditing"></a>Configurare il controllo BLOB
 
-1. Avviare il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
+1. Avviare il [portale di Azure](https://portal.azure.com) all'indirizzo https://portal.azure.com .
 2. Passare al pannello di configurazione del database SQL/SQL Server che si vuole controllare. Nel pannello Impostazioni selezionare **Controllo e rilevamento delle minacce**.
 
     ![Riquadro di spostamento](./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png)
@@ -56,7 +56,7 @@ Per una panoramica sul del controllo, vedere [Controllo del database SQL](sql-da
 > Prima di impostare il **controllo Tabella** verificare se è in uso un ["Client di livello inferiore"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). Se le impostazioni del firewall sono restrittive, tenere anche presente che l'[endpoint IP del database viene modificato](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) quando si abilita il controllo tabelle.
 >
 
-1. Avviare il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
+1. Avviare il [portale di Azure](https://portal.azure.com) all'indirizzo https://portal.azure.com .
 2. Passare al pannello di configurazione del database SQL/SQL Server che si vuole controllare. Nel pannello Impostazioni selezionare **Controllo e rilevamento minacce** (*[vedere la schermata illustrata nella sezione Controllo BLOB](#auditing-screenshot)*).
 3. Nel pannello per la configurazione del controllo del database è possibile selezionare la casella di controllo **Eredita impostazioni di controllo del server** per indicare che il database viene controllato in base alle impostazioni del relativo server. Se questa opzione è selezionata, viene visualizzato il collegamento **Visualizza impostazioni di controllo del server** che consente di visualizzare o modificare le impostazioni di controllo del server da questo contesto.
 

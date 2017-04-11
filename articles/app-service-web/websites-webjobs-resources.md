@@ -3,7 +3,7 @@ title: Risorse di documentazione di Processi Web di Azure
 description: Risorse consigliate per informazioni sull&quot;uso di Processi Web di Azure e Azure WebJobs SDK.
 services: app-service
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: ed005e56-4334-4641-a5e5-15435c2be36b

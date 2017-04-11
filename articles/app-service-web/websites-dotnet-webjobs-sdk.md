@@ -3,7 +3,7 @@ title: "Cos&quot;è Azure WebJobs SDK"
 description: "Introduzione ad Azure WebJobs SDK. Spiega che cos&quot;è l&quot;SDK e gli scenari tipici in cui è utile con alcuni esempi di codice."
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: 8281267b-572b-4b14-a328-6704493ea682
