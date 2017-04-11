@@ -85,7 +85,7 @@ Se si preferisce mantenere il controllo sui tempi di inattività, è possibile a
 ### <a name="self-migration-instructions"></a>Istruzioni per la migrazione self-service
 Per migrare da sé il data warehouse, utilizzare le funzionalità di backup e ripristino. La parte della migrazione relativa al ripristino dovrebbe richiedere circa un'ora per TB di archiviazione per ogni data warehouse. Per mantenere lo stesso nome dopo il completamento della migrazione, seguire la [procedura di ridenominazione durante la migrazione][steps to rename during migration].
 
-1. [Sospendere] [ Pause] il data warehouse. Questa operazione richiede un backup automatico.
+1. [Sospendere][Pause] il data warehouse. Questa operazione richiede un backup automatico.
 2. [Eseguire il ripristino][Restore] dallo snapshot più recente.
 3. Eliminare il data warehouse esistente in archiviazione Standard. **Se non viene eseguito questo passaggio, si riceverà l'addebito per entrambi i data warehouse.**
 

@@ -37,7 +37,7 @@ Questo articolo illustra come creare un'istanza di SQL Data Warehouse usando T-S
 Per iniziare, è necessario:
 
 * **Account Azure**: per creare un account, vedere la [versione di valutazione gratuita][Azure Free Trial] o [MSDN Azure Credits][MSDN Azure Credits] (Crediti Azure MSDN).
-* **Server SQL di Azure**: per altre informazioni dettagliate, vedere [Create an Azure SQL Database logical server with the Azure Portal][Create an Azure SQL Database logical server with the Azure Portal] (Creare un server logico del database SQL di Azure con il portale di Azure) o [Creare un server logico del database SQL di Azure con PowerShell][Create an Azure SQL Database logical server with PowerShell].
+* **Server SQL di Azure**: per altre informazioni dettagliate, vedere [Create an Azure SQL Database logical server with the Azure Portal][Create an Azure SQL Database logical server with the Azure Portal] \(Creare un server logico del database SQL di Azure con il portale di Azure) o [Creare un server logico del database SQL di Azure con PowerShell][Create an Azure SQL Database logical server with PowerShell].
 * **Gruppo di risorse**: usare lo stesso gruppo di risorse del server di Azure SQL oppure vedere [Creare un gruppo di risorse][how to create a resource group].
 * **Ambiente per l'esecuzione di T-SQL**: per eseguire T-SQL, è possibile usare [Visual Studio][Installing Visual Studio and SSDT], [sqlcmd][sqlcmd] o [SSMS][SSMS].
 
