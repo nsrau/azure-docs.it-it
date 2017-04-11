@@ -3,7 +3,7 @@ title: Distribuzione di processi Web usando Visual Studio
 description: Informazioni su come distribuire processi Web di Azure in Servizio app per app Web di Azure.
 services: app-service
 documentationcenter: 
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755

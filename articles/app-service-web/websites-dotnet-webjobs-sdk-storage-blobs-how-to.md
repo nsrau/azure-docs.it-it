@@ -3,7 +3,7 @@ title: Come usare il servizio di archiviazione BLOB di Azure con WebJobs SDK
 description: Informazioni su come usare il servizio di archiviazione BLOB di Azure con WebJobs SDK. Attivare un processo quando viene visualizzato un nuovo BLOB in un contenitore e gestire i BLOB non elaborabili.
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: 
 ms.assetid: bf32f919-f7bc-4aaa-916e-461c02f2e26c

@@ -1,7 +1,7 @@
 ---
 title: Usare il portale di Azure per creare avvisi per il database SQL | Documentazione Microsoft
 description: Usare il portale di Azure per creare avvisi per il database SQL in grado di attivare notifiche o eventi di automazione quando vengono soddisfatte le condizioni specificate.
-author: CarlRabeler
+author: aamalvea
 manager: jhubbard
 editor: 
 services: sql-database
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
-ms.author: carlrab
+ms.author: aamalvea
 translationtype: Human Translation
 ms.sourcegitcommit: 2679681c77dd6a3410bbe6ddbcf562924b13bfe6
 ms.openlocfilehash: afa21052281200768db24ce35a94097f23f23efe
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -73,7 +74,7 @@ Dopo aver creato un avviso, è possibile selezionarlo e:
 
 ## <a name="sql-database-alert-values-and-thresholds"></a>Soglie e valori degli avvisi per il database SQL
 
-| Tipo di risorsa | Nome della metrica | Nome descrittivo | Tipo di aggregazione | Intervallo di tempo minimo per l'avviso|
+| Tipo di risorsa    | Nome della metrica | Nome descrittivo | Tipo di aggregazione | Intervallo di tempo minimo per l'avviso|
 | --- | --- | --- | --- | --- |
 | Database SQL | cpu_percent | Percentuale CPU | Media | 5 minuti |
 | Database SQL | physical_data_read_percent | Percentuale di I/O di dati | Media | 5 minuti |
@@ -90,7 +91,7 @@ Dopo aver creato un avviso, è possibile selezionarlo e:
 | Database SQL | sessions_percent | Percentuale sessioni | Media | 5 minuti |
 | Database SQL | dtu_limit | Limite DTU | Media | 5 minuti |
 | Database SQL | dtu_used | Uso DTU | Media | 5 minuti |
-||||||           
+||||||               
 | SQL Data Warehouse | cpu_percent | Percentuale CPU | Media | 10 minuti |
 | SQL Data Warehouse | physical_data_read_percent | Percentuale di I/O di dati | Media | 10 minuti |
 | SQL Data Warehouse | storage | Dimensioni totali database | Massima | 10 minuti |
@@ -101,7 +102,7 @@ Dopo aver creato un avviso, è possibile selezionarlo e:
 | SQL Data Warehouse | dwu_limit | Limite DWU | Massima | 10 minuti |
 | SQL Data Warehouse | dwu_consumption_percent | Percentuale DWU | Media | 10 minuti |
 | SQL Data Warehouse | dwu_used | Uso DWU | Media | 10 minuti |
-||||||               
+||||||                     
 | Pool elastico | cpu_percent | Percentuale CPU | Media | 5 minuti |
 | Pool elastico | physical_data_read_percent | Percentuale di I/O di dati | Media | 5 minuti |
 | Pool elastico | log_write_percent | Percentuale I/O registro | Media | 5 minuti |
@@ -121,10 +122,5 @@ Dopo aver creato un avviso, è possibile selezionarlo e:
 * Altre informazioni sui [runbook di automazione di Azure](../automation/automation-starting-a-runbook.md).
 * Leggere una [panoramica dei log di diagnostica](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) e sulla raccolta di metriche dettagliate e ad alta frequenza sul servizio.
 * Leggere una [panoramica della raccolta di metriche](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) per verificare che il servizio sia disponibile e reattivo.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
