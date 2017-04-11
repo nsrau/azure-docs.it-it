@@ -167,11 +167,11 @@ SerDe è la scelta migliore per l'analisi di documenti JSON annidati, perché co
    
     ![Clonazione del progetto][image-hdi-hivejson-serde]
 
-4. Passare alla cartella in cui è stato scaricato il pacchetto, quindi digitare "mvn package". Verranno creati i file jar necessari, che verranno quindi copiati nel cluster.
+4: Passare alla cartella in cui è stato scaricato il pacchetto, quindi digitare "mvn package". Verranno creati i file jar necessari, che verranno quindi copiati nel cluster.
 
-5. Passare alla cartella di destinazione nella cartella radice in cui è stato scaricato il pacchetto. Caricare il file json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar nel nodo head del cluster. È in genere consigliabile inserirlo sotto la cartella dei file binari di Hive, ad esempio C:\apps\dist\hive-0.13.0.2.1.11.0-2316\bin o in una cartella analoga.
+5: Passare alla cartella di destinazione nella cartella radice in cui è stato scaricato il pacchetto. Caricare il file json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar nel nodo head del cluster. È in genere consigliabile inserirlo sotto la cartella dei file binari di Hive, ad esempio C:\apps\dist\hive-0.13.0.2.1.11.0-2316\bin o in una cartella analoga.
 
-6. Al prompt di Hive digitare "add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar". Poiché in questo esempio il file jar si trova nella cartella C:\apps\dist\hive-0.13.x\bin, è possibile aggiungere direttamente il file jar con il nome, come illustrato di seguito:
+6: Al prompt di Hive digitare "add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar". Poiché in questo esempio il file jar si trova nella cartella C:\apps\dist\hive-0.13.x\bin, è possibile aggiungere direttamente il file jar con il nome, come illustrato di seguito:
 
     add jar json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar;
 
