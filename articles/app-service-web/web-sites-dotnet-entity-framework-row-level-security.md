@@ -17,6 +17,7 @@ ms.author: thmullan
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ba1bb3d84b462dfebbb2564569517d7336bf54fd
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -203,7 +204,7 @@ Se nell'applicazione sono già stati creati utenti, ad esempio tramite account l
 
 ![Tabella AspNetUsers SSMS](./media/web-sites-dotnet-entity-framework-row-level-security/SSMS-AspNetUsers.png)
 
-Copiare l'ID per user1@contoso.com, e incollarlo nell'istruzione T-SQL seguente. Eseguire questa istruzione per associare tre contatti con l'UserId.
+Copiare l'ID per user1@contoso.com e incollarlo nell'istruzione T-SQL seguente. Eseguire questa istruzione per associare tre contatti con l'UserId.
 
 ```
 UPDATE Contacts SET UserId = '19bc9b0d-28dd-4510-bd5e-d6b6d445f511'
@@ -248,10 +249,5 @@ L'operazione è terminata. La semplice app Web Contact Manager è stata converti
 Questa esercitazione offre solo un'idea delle possibilità della sicurezza a livello di riga. È ad esempio possibile avere una logica di accesso più avanzata o granulare e archiviare più del solo valore UserId corrente in SESSION_CONTEXT. È anche possibile [integrare la sicurezza a livello di riga con le librerie client del database elastico](../sql-database/sql-database-elastic-tools-multi-tenant-row-level-security.md) per supportare partizioni multi-tenant in un livello dati con scalabilità orizzontale.
 
 Microsoft si impegna anche a migliorare continuamente la sicurezza a livello di riga. In caso di domande, idee o suggerimenti, inviare commenti. I commenti e suggerimenti degli utenti sono molto apprezzati.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
