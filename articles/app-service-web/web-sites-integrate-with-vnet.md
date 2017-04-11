@@ -95,7 +95,7 @@ Se la rete virtuale non ha un gateway e non è da punto a sito, è necessario es
 ![][8]
 
 ##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>Abilitare la connessione da punto a sito in una rete virtuale di Resource Manager
-Per configurare una connessione da punto a sito in una rete virtuale di Resource Manager con un gateway, è possibile usare PowerShell come descritto in [Configurare una connessione da punto a sito a una rete virtuale con PowerShell][ V2VNETP2S] o usare il portale di Azure come descritto in [Configurare una connessione da punto a sito a una rete virtuale usando il portale di Azure][V2VNETPortal].  L'interfaccia utente per eseguire questa funzionalità non è ancora disponibile. 
+Per configurare una connessione da punto a sito in una rete virtuale di Resource Manager con un gateway, è possibile usare PowerShell come descritto in [Configurare una connessione da punto a sito a una rete virtuale con PowerShell][V2VNETP2S] o usare il portale di Azure come descritto in [Configurare una connessione da punto a sito a una rete virtuale usando il portale di Azure][V2VNETPortal].  L'interfaccia utente per eseguire questa funzionalità non è ancora disponibile. 
 
 ### <a name="creating-a-pre-configured-vnet"></a>Creazione di una rete virtuale preconfigurata
 Se si vuole creare una nuova rete virtuale configurata con un gateway e una connessione da punto a sito, è possibile usare l'interfaccia utente di rete del servizio app, ma solo per una rete virtuale di Resource Manager.  Se si vuole creare una rete virtuale classica con un gateway e una connessione da punto a sito, l'operazione deve essere eseguita manualmente tramite l'interfaccia utente di rete. 
