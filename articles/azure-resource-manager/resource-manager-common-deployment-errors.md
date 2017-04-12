@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: b31ecb83665208151e48f81e6148928bbf21d1b5
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: bfbb3356454b9ef8b1834d03e7b76de9860a12c9
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -259,7 +259,7 @@ Questo errore può essere causato da diversi tipi di errori.
 
 - È stata rilevata una dipendenza circolare
 
-   Questo errore viene visualizzato quando le dipendenze tra le risorse impediscono l'avvio della distribuzione. A causa di una combinazione di interdipendenze, due o più risorse attendono altre risorse che sono a propria volta in attesa. Ad esempio, la risorsa&1; dipende dalla risorsa&3;, la risorsa&2; dipende dalla risorsa&1; e la risorsa&3; dipende dalla risorsa&2;. È in genere possibile risolvere questo problema rimuovendo le dipendenze non necessarie. Per suggerimenti sulla risoluzione degli errori relativi alle dipendenze, vedere [Controllare la sequenza di distribuzione](#check-deployment-sequence).
+   Questo errore viene visualizzato quando le dipendenze tra le risorse impediscono l'avvio della distribuzione. A causa di una combinazione di interdipendenze, due o più risorse attendono altre risorse che sono a propria volta in attesa. Ad esempio, la risorsa 1 dipende dalla risorsa 3, la risorsa 2 dipende dalla risorsa 1 e la risorsa 3 dipende dalla risorsa 2. È in genere possibile risolvere questo problema rimuovendo le dipendenze non necessarie. Per suggerimenti sulla risoluzione degli errori relativi alle dipendenze, vedere [Controllare la sequenza di distribuzione](#check-deployment-sequence).
 
 <a id="notfound" />
 ### <a name="notfound-and-resourcenotfound"></a>NotFound and ResourceNotFound
@@ -660,17 +660,17 @@ La rimozione di valori dalla proprietà **dependsOn** può causare errori durant
 
 Se con questo approccio non si rivolve la dipendenza circolare, provare a spostare parte della logica di distribuzione in risorse figlio, come estensioni o impostazioni di configurazione. Configurare tali risorse figlio in modo che vengano distribuite dopo le risorse coinvolte nella dipendenza circolare. Si supponga, ad esempio, di distribuire due macchine virtuali e che sia necessario impostare in ognuna proprietà che fanno riferimento all'altra. È possibile eseguire la distribuzione nell'ordine seguente:
 
-1. VM&1;
-2. VM&2;
-3. L'estensione in VM&1; dipende da VM&1; e VM&2;. L'estensione imposta in VM&1; valori ottenuti da VM&2;.
-4. L'estensione in VM&2; dipende da VM&1; e VM&2;. L'estensione imposta in VM&2; valori ottenuti da VM&1;.
+1. VM 1
+2. VM 2
+3. L'estensione in VM 1 dipende da VM 1 e VM 2. L'estensione imposta in VM 1 valori ottenuti da VM 2.
+4. L'estensione in VM 2 dipende da VM 1 e VM 2. L'estensione imposta in VM 2 valori ottenuti da VM 1.
 
 Lo stesso approccio è applicabile alle app del servizio app. Provare a spostare i valori di configurazione in una risorsa figlio della risorsa app. È possibile distribuire due app Web nell'ordine seguente:
 
-1. App Web&1;
-2. App Web&2;
-3. La configurazione per App Web&1; dipende da App Web&1; e App Web&2;. Contiene impostazioni dell'app con valori di App Web&2;.
-4. La configurazione per App Web&2; dipende da App Web&1; e App Web&2;. Contiene impostazioni dell'app con valori di App Web&1;.
+1. App Web 1
+2. App Web 2
+3. La configurazione per App Web 1 dipende da App Web 1 e App Web 2. Contiene impostazioni dell'app con valori di App Web 2.
+4. La configurazione per App Web 2 dipende da App Web 1 e App Web 2. Contiene impostazioni dell'app con valori di App Web 1.
 
 ## <a name="troubleshooting-other-services"></a>Risoluzione dei problemi di altri servizi
 Se i codici degli errori di distribuzione precedenti non consentono di risolvere il problema, è possibile cercare indicazioni più dettagliate per la risoluzione dei problemi per ogni servizio di Azure.
@@ -679,13 +679,13 @@ La tabella seguente elenca gli argomenti sulla risoluzione dei problemi delle ma
 
 | Errore | Articoli |
 | --- | --- |
-| Errori dell'estensione script personalizzata |[Errori delle estensioni macchina virtuale Windows](../virtual-machines/virtual-machines-windows-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />oppure<br />[Risoluzione degli errori delle estensioni della macchina virtuale Linux di Azure](../virtual-machines/virtual-machines-linux-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Errori di provisioning dell'immagine del sistema operativo |[Errori delle nuove VM Windows](../virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />oppure<br />[Errori delle nuove VM Linux](../virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Errori di allocazione |[Errori di allocazione delle VM Windows](../virtual-machines/virtual-machines-windows-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />oppure<br />[Risolvere i problemi relativi a errori di allocazione quando si crea, riavvia o ridimensiona una macchina virtuale Linux in Azure](../virtual-machines/virtual-machines-linux-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Errori SSH (Secure Shell) errori durante il tentativo di connessione |[Risolvere i problemi relativi alle connessioni Secure Shell a una macchina virtuale di Azure basata su Linux](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Errori di connessione all'applicazione in esecuzione nella macchina virtuale |[Applicazione in esecuzione in una VM Windows](../virtual-machines/virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />oppure<br />[Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](../virtual-machines/virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Errori di connessione Desktop remoto |[Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure che esegue Windows](../virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| Errori di connessione risolti con la ridistribuzione |[Ridistribuzione della macchina virtuale su un nuovo nodo di Azure](../virtual-machines/virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Errori dell'estensione script personalizzata |[Errori delle estensioni macchina virtuale Windows](../virtual-machines/windows/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />oppure<br />[Risoluzione degli errori delle estensioni della macchina virtuale Linux di Azure](../virtual-machines/linux/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Errori di provisioning dell'immagine del sistema operativo |[Errori delle nuove VM Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />oppure<br />[Errori delle nuove VM Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Errori di allocazione |[Errori di allocazione delle VM Windows](../virtual-machines/windows/allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />oppure<br />[Risolvere i problemi relativi a errori di allocazione quando si crea, riavvia o ridimensiona una macchina virtuale Linux in Azure](../virtual-machines/linux/allocation-failure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Errori SSH (Secure Shell) errori durante il tentativo di connessione |[Risolvere i problemi relativi alle connessioni Secure Shell a una macchina virtuale di Azure basata su Linux](../virtual-machines/linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Errori di connessione all'applicazione in esecuzione nella macchina virtuale |[Applicazione in esecuzione in una VM Windows](../virtual-machines/windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />oppure<br />[Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](../virtual-machines/linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Errori di connessione Desktop remoto |[Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure che esegue Windows](../virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Errori di connessione risolti con la ridistribuzione |[Ridistribuzione della macchina virtuale su un nuovo nodo di Azure](../virtual-machines/windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Errori del servizio cloud |[Risolvere eventuali problemi di distribuzione dei servizi cloud](../cloud-services/cloud-services-troubleshoot-deployment-problems.md) |
 
 La tabella seguente elenca gli argomenti sulla risoluzione dei problemi di altri servizi di Azure, in particolare i problemi relativi alla distribuzione o alla configurazione delle risorse. Se occorre assistenza per la risoluzione dei problemi in fase di esecuzione di una risorsa, vedere la documentazione relativa al servizio di Azure specifico.

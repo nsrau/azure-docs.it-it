@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 03/29/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 788b3a6ce98c6668a8efc41f66c7e39b8aeda2db
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 1d1eec1457917baef1acab27f7c60bdb048837a9
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -26,8 +26,7 @@ ms.lasthandoff: 03/30/2017
 
 ![Connessione tra il sensore, dispositivi IoT, hub IoT e app Web di Azure](media/iot-hub-live-data-visualization-in-web-apps/1_sensor-iot-device-azure-iot-hub-web-app-connection.png)
 
-> [!NOTE]
-> Prima di iniziare questa esercitazione, assicurarsi di aver completato [Collegare ESP8266 all'hub IoT di Azure](/iot-hub-arduino-huzzah-esp8266-get-started.md). In [Collegare ESP8266 all'hub IoT di Azure](/iot-hub-arduino-huzzah-esp8266-get-started.md), configurare il dispositivo IoT e l'hub IoT e distribuire un'applicazione di esempio per l'esecuzione sul dispositivo. L'applicazione invia i dati del sensore raccolti all'hub IoT.
+[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 ## <a name="what-you-learn"></a>Contenuto dell'esercitazione
 
@@ -126,8 +125,4 @@ Si è utilizzato correttamente un'app Web per visualizzare i dati del sensore in
 
 Esiste un modo alternativo per visualizzare i dati dall'hub IoT di Azure. Vedere [Usare Power BI per visualizzare i dati del sensore in tempo reale dall'hub IoT di Azure](iot-hub-live-data-visualization-in-power-bi.md).
 
-Per altre informazioni sulle attività iniziali con l'hub IoT e per esplorare altri scenari IoT, vedere:
-
-- [Gestire la messaggistica dei dispositivi cloud con iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
-- [Salvare i messaggi dell'hub IoT nell'archivio dati di Azure](iot-hub-store-data-in-azure-table-storage.md)
-
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

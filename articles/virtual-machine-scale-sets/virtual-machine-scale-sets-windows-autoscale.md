@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 4fa0cdc2ee71d4e499dfc45bac7b690d728b626a
-ms.openlocfilehash: 2649edd4af67e25ce49bf0ced858b7c7e4633290
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: b2565bef6643decd1b96fc3cc5b01003916e9685
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -110,7 +110,7 @@ Un modello di Gestione risorse di Azure permette di distribuire e gestire le ris
         * Prefissi e nomi di indirizzi IP per la rete virtuale e le subnet.
         * Nomi e identificatori di rete virtuale, servizio di bilanciamento del carico e rete.
         * Nomi di account di archiviazione per gli account associati alle macchine virtuali nel set di scalabilità.
-        * Impostazioni per l'estensione Diagnostica installata nelle macchine virtuali. Per altre informazioni sull'estensione Diagnostica, vedere [Creare una macchina virtuale Windows con monitoraggio e diagnostica mediante il modello di Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        * Impostazioni per l'estensione Diagnostica installata nelle macchine virtuali. Per altre informazioni sull'estensione Diagnostica, vedere [Creare una macchina virtuale Windows con monitoraggio e diagnostica mediante il modello di Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 4. Aggiungere la risorsa account di archiviazione all'interno dell'elemento padre delle risorse aggiunto al modello. Questo modello usa un ciclo per creare cinque account di archiviazione consigliati in cui sono archiviati i dischi del sistema operativo e i dati di diagnostica. Questo set di account può supportare fino a 100 macchine virtuali in un set di scalabilità, ovvero il limite massimo corrente. A ogni account di archiviazione è assegnato un nome costituito da un indicatore di lettera definito nelle variabili in combinazione con il prefisso specificato nei parametri per il modello.
 

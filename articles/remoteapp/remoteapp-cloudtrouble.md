@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 022a910e5acfe12c03348df4476cc17f13c5c1d3
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 304ba7c5057b27c459bccbb75d3a711567757675
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="troubleshoot-creating-remoteapp-cloud-collections"></a>Risoluzione dei problemi di creazione di raccolte di cloud di RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp verrà sospeso a partire dal 31 agosto 2017. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -45,10 +46,5 @@ Se si usa una delle immagini Microsoft incluse nella sottoscrizione, provare a c
     PlatformImageTrialModeOnly
 
 Se viene visualizzato questo errore in genere significa che è stato effettuato l'aggiornamento a un account a pagamento, ma si sta tentando di usare un'immagine fornita da Microsoft che è valida solo durante la modalità di valutazione del servizio. In questo caso, provare a creare nuovamente la raccolta cloud, ma assicurarsi di specificare l'immagine corretta.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

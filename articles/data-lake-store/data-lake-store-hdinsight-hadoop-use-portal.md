@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: f7c977dc2e385819dada976afa9497e9a20fd90c
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: 2aa5542dc095beaf951bad2b0361a3acc4468f2d
+ms.lasthandoff: 04/05/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/22/2017
 >
 >
 
-Questo articolo descrive come usare il portale di Azure per creare cluster HDInsight con accesso ad Azure Data Lake Store. Per i tipi di cluster supportati, è possibile usare Data Lake Store come risorsa di archiviazione predefinita o come account di archiviazione aggiuntivo. 
+Questo articolo descrive come usare il portale di Azure per creare cluster HDInsight con accesso ad Azure Data Lake Store. Per i tipi di cluster supportati, è possibile usare Data Lake Store come risorsa di archiviazione predefinita o come account di archiviazione aggiuntivo.
 
 Quando si usa Data Lake Store come risorsa di archiviazione aggiuntiva, l'account di archiviazione predefinito per i cluster resta archiviazione BLOB di Azure, mentre i file correlati ai cluster, ad esempio i log, continuano a essere scritti nella risorsa di archiviazione predefinita. Tuttavia, i dati da elaborare possono essere archiviati in un account Data Lake Store. L'uso di Data Lake Store come account di archiviazione aggiuntivo non ha impatto sulle prestazioni o sulla possibilità di leggere o scrivere nella risorsa di archiviazione dal cluster.
 
@@ -57,7 +57,7 @@ Prima di iniziare l'esercitazione, verificare di aver soddisfatto i requisiti se
 * **Un'entità servizio di Azure Active Directory**. Questa esercitazione fornisce tutte le istruzioni utili su come creare un'entità servizio in Azure Active Directory (Azure AD). Tuttavia, per creare un'entità servizio è necessario essere un amministratore di Azure AD. Se si è un amministratore, è possibile ignorare questo prerequisito e procedere con l'esercitazione.
 
     >[!NOTE]
-    >È possibile creare un'entità servizio solo se si è un amministratore di Azure AD. Prima di poter creare un cluster HDInsight con Data Lake Store, un amministratore di Azure AD deve creare un'entità servizio. Inoltre, l'entità servizio deve essere creata usando un certificato, come descritto in [Creare un'entità servizio con certificato](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+    >È possibile creare un'entità servizio solo se si è un amministratore di Azure AD. Prima di poter creare un cluster HDInsight con Data Lake Store, un amministratore di Azure AD deve creare un'entità servizio. Inoltre, l'entità servizio deve essere creata usando un certificato, come descritto in [Creare un'entità servizio con certificato](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority).
     >
 
 ## <a name="create-an-hdinsight-cluster-with-access-to-a-data-lake-store"></a>Creare un cluster HDInsight con accesso a Data Lake Store
@@ -78,20 +78,20 @@ In questa sezione si creerà un cluster HDInsight Hadoop che usa Data Lake Store
 
     ![Aggiungere l'entità servizio al cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Aggiungere l'entità servizio al cluster HDInsight")
 
-    
+
     Nella schermata precedente il percorso della cartella radice è /clusters/myhdiadlcluster, dove *myhdiadlcluster* è il nome del cluster da creare. In questo caso, assicurarsi che la cartella */cluster* esista già nell'account Data Lake Store. La cartella *myhdiadlcluster* verrà creata durante la creazione del cluster. Analogamente, se il percorso radice è stato impostato su */hdinsight/clusters/data/myhdiadlcluter*, assicurarsi che il percorso */hdinsight/cluster/data/* esista già nell'account Data Lake Store.
 
-5. Fare clic su **Accesso a Data Lake Store** per configurare l'accesso tra l'account Data Lake Store e i cluster HDInsight. Per istruzioni, vedere [Configurare l'accesso tra i cluster HDInsight e Data Lake Store](#configure-access-between-hdinsight-cluster-and-data-lake-store). 
+5. Fare clic su **Accesso a Data Lake Store** per configurare l'accesso tra l'account Data Lake Store e i cluster HDInsight. Per istruzioni, vedere [Configurare l'accesso tra i cluster HDInsight e Data Lake Store](#configure-access-between-hdinsight-cluster-and-data-lake-store).
 
 
-### <a name="create-a-cluster-with-data-lake-store-as-additional-storage"></a>Creare un cluster con Data Lake Store come risorsa di archiviazione aggiuntiva 
+### <a name="create-a-cluster-with-data-lake-store-as-additional-storage"></a>Creare un cluster con Data Lake Store come risorsa di archiviazione aggiuntiva
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Per avviare il provisioning di un cluster HDInsight, seguire le istruzioni contenute in [Creare cluster Hadoop in HDInsight](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
 
 3. Nel pannello **Archiviazione**, in **Tipo di archiviazione primario** selezionare **Archiviazione di Azure**.
- 
+
 4. In **Metodo di selezione**, effettuare una delle operazioni seguenti:
 
     * Per specificare un account di archiviazione che fa parte della sottoscrizione di Azure, selezionare **Sottoscrizioni personali**, quindi selezionare l'account di archiviazione.
@@ -132,7 +132,7 @@ In questa sezione è possibile configurare l'accesso tra i cluster HDInsight e D
 
 7. Nel pannello **Accesso a Data Lake Store** fare clic su **Accesso**. Per impostazione predefinita, verrà visualizzato il pannello per la** **selezione delle autorizzazioni per i file. Questo pannello elenca tutti gli account Data Lake Store nella sottoscrizione.
 
-8. Selezionare l'account Data Lake Store che si vuole associare al cluster. 
+8. Selezionare l'account Data Lake Store che si vuole associare al cluster.
 
     **Se si usa Data Lake Store come risorsa di archiviazione predefinita**, è necessario assegnare autorizzazioni a due livelli.
 

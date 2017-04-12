@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: jhubbard
 translationtype: Human Translation
-ms.sourcegitcommit: 46f65a2898c39774bd63ff2f8f053224d7238fb0
-ms.openlocfilehash: 0abfceb43ec5c333e9800ee6fca4e31fb317208d
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 266b29025126cbf5d6ea1809db6c5391842c7445
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -33,7 +33,7 @@ Automazione di Azure offre un motore di esecuzione del flusso di lavoro a elevat
 Il servizio permette di ridurre i costi operativi e di liberare risorse dello staff IT/DevOp consentendo loro di concentrarsi su attività a valore aggiunto grazie al trasferimento delle attività di gestione del cloud all'esecuzione automatica di Automazione di Azure.
 
 ## <a name="how-can-azure-automation-help-manage-azure-sql-databases"></a>Come può Automazione di Azure aiutare nella gestione dei database SQL?
-Il database SQL di Azure può essere gestito in Automazione di Azure usando i [cmdlet di PowerShell del database SQL di Azure](https://docs.microsoft.com/powershell/servicemanagement/azure.sqldatabase/v1.6.1/azure.sqldatabase/) disponibili negli [strumenti di Azure PowerShell](https://docs.microsoft.com/en-us/powershell/). I cmdlet di PowerShell per database SQL di Azure sono predefiniti in Automazione di Azure, per consentire l'esecuzione di tutte le attività di gestione dei database SQL dall'interno del servizio. È anche possibile abbinare tali cmdlet in Automazione di Azure ai cmdlet per altri servizi di Azure per automatizzare attività complesse in tutti i servizi di Azure e nei sistemi di terze parti.
+Il database SQL di Azure può essere gestito in Automazione di Azure usando i [cmdlet di PowerShell del database SQL di Azure](https://docs.microsoft.com/powershell/servicemanagement/azure.sqldatabase/v1.6.1/azure.sqldatabase/) disponibili negli [strumenti di Azure PowerShell](https://docs.microsoft.com/powershell/). I cmdlet di PowerShell per database SQL di Azure sono predefiniti in Automazione di Azure, per consentire l'esecuzione di tutte le attività di gestione dei database SQL dall'interno del servizio. È anche possibile abbinare tali cmdlet in Automazione di Azure ai cmdlet per altri servizi di Azure per automatizzare attività complesse in tutti i servizi di Azure e nei sistemi di terze parti.
 
 Automazione di Azure è in grado di comunicare direttamente con i server SQL tramite l'invio di comandi SQL da PowerShell.
 

@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4015aede386913607df8a9499c0f08c414ee6959
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 17fbef55920c4f06f895739b89a0acc6ff08bd9d
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-do-you-deploy-quickbooks-in-azure-remoteapp"></a>Come distribuire QuickBooks in Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp verrà sospeso a partire dal 31 agosto 2017. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -41,17 +42,12 @@ Usare le informazioni seguenti per la condivisione di QuickBooks come app in Azu
 4. Avviare il client QuickBooks ospitato in Azure RemoteApp, passare tramite reti Windows standard alla macchina virtuale che ospita il server di database QuickBooks e aprire il file della società. 
 
 ## <a name="documentation-references"></a>Riferimenti di documentazione
-*  [Configurazioni supportate](http://enterprisesuite.intuit.com/products/enterprise-solutions/technical/#top)
-*  [Opzioni di distribuzione](http://enterprisesuite.intuit.com/everythingenterprise/launchpad/new-user/)
+* [Configurazioni supportate](http://enterprisesuite.intuit.com/products/enterprise-solutions/technical/#top)
+* [Opzioni di distribuzione](http://enterprisesuite.intuit.com/everythingenterprise/launchpad/new-user/)
 
 È inoltre possibile consultare la presentazione Ignite relativa all'[amministrazione e alla gestione di Microsoft Azure RemoteApp](https://channel9.msdn.com/Events/Ignite/2015/BRK3868). Andare al minuto 1:02:45 per la parte su QuickBooks.
 
 ## <a name="deployment-architecture"></a>Architettura di distribuzione
 ![QuickBooks + distribuzione di Azure RemoteApp](./media/remoteapp-quickbooks/ra-quickbooks.png)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

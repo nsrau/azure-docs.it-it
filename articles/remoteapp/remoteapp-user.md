@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3dbeba840501f395c9bad07109fe8ea47947a5fa
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: a84aa7e3ac7de717c2a628abcf6f5f11b05411e8
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-add-a-user-to-your-azure-remoteapp-collection"></a>Come aggiungere un utente alla raccolta di Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp verrà sospeso a partire dal 31 agosto 2017. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -60,10 +61,5 @@ Per [altre informazioni](remoteapp-ad.md) , vedere Configurare Azure Active Dire
 
 ## <a name="office-365-proplus-user-account-information"></a>Informazioni sugli account utente di Office 365 ProPlus
 Se si usa l'immagine modello di Office 365 ProPlus nella raccolta *o* se è stata creata un'immagine personalizzata che usa Office 365, è possibile solo aggiungere gli utenti di Azure Active Directory che dispongono di sottoscrizioni a Office 365 per il dominio predefinito della sottoscrizione. Per altre informazioni, vedere l'articolo relativo all' [uso di Office 365 con Azure RemoteApp](remoteapp-o365.md) .
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

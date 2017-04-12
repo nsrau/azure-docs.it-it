@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 9eafaca75bbf3db639a42c8206d2ac506c255273
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 936212bf634a0245ea70318fcad703a87bf63c5f
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -34,7 +34,7 @@ Questo documento fornisce un esempio di come usare Azure PowerShell per eseguire
 * **Un cluster Azure HDInsight (Hadoop in HDInsight)**
 
   > [!IMPORTANT]
-  > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * **Workstation con Azure PowerShell**.
 
@@ -61,13 +61,13 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
     [!code-powershell[main](../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 
 2. Quindi, aprire un nuovo prompt dei comandi di **Azure PowerShell** . Passare al percorso del file **mapreducejob.ps1** , quindi usare il seguente comando per eseguire lo script.
-   
+
         .\mapreducejob.ps1
-   
+
     Quando si esegue lo script viene chiesto il nome del cluster HDInsight e il nome dell'account Admin/HTTPS e la password per il cluster. Potrebbe anche essere richiesta l'autenticazione alla sottoscrizione di Azure.
 
 3. Al termine del processo, viene visualizzato un output simile al testo seguente:
-    
+
         Cluster         : CLUSTERNAME
         ExitCode        : 0
         Name            : wordcount
@@ -77,12 +77,12 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
         StatusDirectory : f1ed2028-afe8-402f-a24b-13cc17858097
         SubmissionTime  : 12/5/2014 8:34:09 PM
         JobId           : job_1415949758166_0071
-    
+
     Questo output indica che il processo è stato completato correttamente.
-    
+
     > [!NOTE]
     > Se **ExitCode** è un valore diverso da 0, vedere [Risoluzione dei problemi](#troubleshooting).
-    
+
     Questo esempio consente anche di archiviare i file scaricati in un file **output.txt** nella directory in cui viene eseguito lo script.
 
 ### <a name="view-output"></a>Visualizzare l’output
@@ -122,5 +122,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 
 * [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
 * [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
-
 

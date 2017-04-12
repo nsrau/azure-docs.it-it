@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 05/27/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 0197d78185cda05cec3512e6a4ad411ae0da60da
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 932744208d9d53c87e31dcdf9e34539750be4bdb
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -159,7 +159,7 @@ Dopo avere completato i passaggi sopra elencati, si sarà ottenuto un host Docke
 
 <!--Link references-->
 [Come usare l'estensione della VM Docker dall'interfaccia della riga di comando di Azure]:http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
-[Agente Linux di Azure]:../../virtual-machines-linux-agent-user-guide.md
+[Agente Linux di Azure]:../agent-user-guide.md
 [Link 3 to another azure.microsoft.com documentation topic]:../storage-whatis-account.md
 
 [Esecuzione di Docker con https]:http://docs.docker.com/articles/https/

@@ -17,9 +17,9 @@ ms.date: 02/07/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: bd3032b3df92c43b6cc6431eff19bd7cc0cc47bd
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 6c92292a67d14ac43c0fe5dbe7e14672c74b216b
+ms.lasthandoff: 04/11/2017
 
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Analizzare i dati sui ritardi dei voli con Hive in HDInsight basato su Linux
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/25/2017
 Informazioni su come analizzare i dati sui ritardi dei voli usando Hive in HDInsight basato su Linux, quindi su come esportare i dati nel database SQL di Azure mediante Sqoop.
 
 > [!IMPORTANT]
-> I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ### <a name="prerequisites"></a>Prerequisiti
 
@@ -42,44 +42,44 @@ Informazioni su come analizzare i dati sui ritardi dei voli usando Hive in HDIns
 1. Passare alla pagina [Research and Innovative Technology Administration, Bureau of Transportation Statistics (RITA)][rita-website].
 
 2. Selezionare i valori seguenti nella pagina:
-   
+
    | Nome | Valore |
    | --- | --- |
    | Filter Year |2013 |
    | Filter Period |January |
    | Fields |Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. Deselezionare tutti gli altri campi |
 
-3. Fare clic su **Download**. 
+3. Fare clic su **Download**.
 
 ## <a name="upload-the-data"></a>Caricare i dati
 
 1. Usare il comando seguente per caricare il file con estensione zip nel nodo head del cluster HDInsight:
-   
+
     ```
     scp FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
     ```
-   
+
     Sostituire **FILENAME** con il nome del file con estensione zip. Sostituire **USERNAME** con l'account di accesso SSH per il cluster HDInsight. Sostituire CLUSTERNAME con il nome del cluster HDInsight.
-   
+
    > [!NOTE]
    > Se è stata usata una password per l'autenticazione a SSH, viene richiesto di specificarla. Se è stata usata una chiave pubblica, può essere necessario usare il parametro `-i` e specificare il percorso alla chiave privata corrispondente. Ad esempio: `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 
 2. Una volta completato il caricamento, connettersi al cluster tramite SSH:
-   
+
     ```ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net```
-   
+
     Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 3. Dopo la connessione, usare il comando seguente per decomprimere il file con estensione zip:
-   
+
     ```
     unzip FILENAME.zip
     ```
-   
+
     Questo comando estrae un file con estensione CSV con una dimensione di circa 60 MB.
 
 4. Usare il comando seguente per creare una directory nell'archivio di HDInsight e quindi copiare il file nella directory:
-   
+
     ```
     hdfs dfs -mkdir -p /tutorials/flightdelays/data
     hdfs dfs -put FILENAME.csv /tutorials/flightdelays/data/
@@ -90,13 +90,13 @@ Informazioni su come analizzare i dati sui ritardi dei voli usando Hive in HDIns
 Usare la procedura seguente per importare dati dal file con estensione csv in una tabella Hive denominata **Delays**.
 
 1. Usare il comando seguente per creare e modificare un nuovo file denominato **flightdelays.hql**:
-   
+
     ```
     nano flightdelays.hql
     ```
-   
+
     Usare il testo seguente come contenuto del file:
-   
+
     ```hiveql
     DROP TABLE delays_raw;
     -- Creates an external table over the csv file
@@ -160,22 +160,22 @@ Usare la procedura seguente per importare dati dal file con estensione csv in un
 2. Usare **Ctrl + X**, quindi premere **Y** per salvare il file.
 
 3. Usare il comando seguente per avviare Hive ed eseguire il file **flightdelays.hql** :
-   
+
     ```
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -f flightdelays.hql
     ```
-   
+
    > [!NOTE]
    > In questo esempio viene usato `localhost` dal momento che si è connessi al nodo head del cluster HDInsight, in cui HiveServer2 è in esecuzione.
 
 4. Al termine dell'esecuzione dello script __flightdelays__, usare il comando seguente per aprire una sessione Beeline interattiva:
-   
+
     ```
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
     ```
 
 5. Quando si riceve il prompt di `jdbc:hive2://localhost:10001/>`, usare la query seguente per recuperare i dati dai dati sui ritardi dei voli importati.
-   
+
     ```hiveql
     INSERT OVERWRITE DIRECTORY '/tutorials/flightdelays/output'
     ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
@@ -185,7 +185,7 @@ Usare la procedura seguente per importare dati dal file con estensione csv in un
     WHERE weather_delay IS NOT NULL
     GROUP BY origin_city_name;
     ```
-   
+
     Grazie a questa query viene recuperato un elenco di città in cui si sono verificati ritardi meteo e il tempo di ritardo medio che può essere salvato in `/tutorials/flightdelays/output`. Sqoop legge in seguito i dati da questo percorso e li esporta nel database SQL di Azure.
 
 6. Per uscire da Beeline, immettere `!quit` al prompt dei comandi.
@@ -205,19 +205,19 @@ Se non si dispone già di un database SQL, vedere le informazioni in [Esercitazi
 1. Per connettersi al cluster HDInsight basato su Linux, usare SSH ed eseguire la procedura seguente dalla sessione di SSH.
 
 2. Immettere il comando seguente per installare FreeTDS:
-   
+
     ```
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
 3. Al termine dell'installazione, usare il comando seguente per connettersi al server del database SQL. Sostituire **serverName** con il nome server del database SQL. Sostituire **adminLogin** e **adminPassword** con le credenziali di accesso per il database SQL. Sostituire **databaseName** con il nome del database.
-   
+
     ```
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
-   
+
     L'output che si riceve è simile al testo seguente:
-   
+
     ```
     locale is "en_US.UTF-8"
     locale charset is "UTF-8"
@@ -227,7 +227,7 @@ Se non si dispone già di un database SQL, vedere le informazioni in [Esercitazi
     ```
 
 4. Al prompt di `1>` , immettere il codice seguente:
-   
+
     ```
     CREATE TABLE [dbo].[delays](
     [origin_city_name] [nvarchar](50) NOT NULL,
@@ -236,18 +236,18 @@ Se non si dispone già di un database SQL, vedere le informazioni in [Esercitazi
     ([origin_city_name] ASC))
     GO
     ```
-   
+
     Dopo aver immesso l'istruzione `GO`, vengono valutate le istruzioni precedenti. Si crea una tabella denominata **Ritardi**, con un indice cluster.
-   
+
     Per verificare la corretta creazione della tabella, usare il comando seguente:
-   
+
     ```
     SELECT * FROM information_schema.tables
     GO
     ```
-   
+
     L'output è simile al seguente:
-   
+
     ```
     TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
     databaseName       dbo     delays      BASE TABLE
@@ -258,34 +258,34 @@ Se non si dispone già di un database SQL, vedere le informazioni in [Esercitazi
 ## <a name="export-data-with-sqoop"></a>Esportare i dati con Sqoop
 
 1. Usare il comando seguente per verificare che Sqoop possa visualizzare il database SQL:
-   
+
     ```
     sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
     ```
-   
+
     Questo comando restituisce un elenco di database, compreso il database in cui è stata creata in precedenza la tabella Ritardi.
 
 2. Usare il comando seguente per esportare dati dalla tabella hivesampletable alla tabella mobiledata:
-   
+
     ```
     sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
     ```
-   
+
     Sqoop si connette al database contenente la tabella Ritardi ed esporta i dati dalla directory `/tutorials/flightdelays/output` alla tabella dei ritardi.
 
 3. Al termine dell'esecuzione del comando, usare le informazioni seguenti per connettersi al database tramite TSQL:
-   
+
     ```
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
-   
+
     Sopo la connessione, usare le istruzioni seguenti per verificare che i dati siano stati esportati nella tabella mobiledata:
-   
+
     ```
     SELECT * FROM delays
     GO
     ```
-    
+
     Dovrebbe essere visualizzato un elenco di dati della tabella. Digitare `exit` per uscire dall'utilità tsql.
 
 ## <a id="nextsteps"></a> Passaggi successivi
@@ -321,7 +321,4 @@ Per altre informazioni su come usare i dati in HDInsight, vedere i documenti seg
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
-
-
-
 

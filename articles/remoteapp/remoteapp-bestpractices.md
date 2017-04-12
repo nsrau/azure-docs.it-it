@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 9af9f95e9638eda71fbc4508bea8e35ce5191734
-ms.openlocfilehash: 3caabe366db4def4f8332c64d08f86f271c31bb2
-ms.lasthandoff: 01/10/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: fda356fc5fd6e9888138a06a0b72232e3581567b
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="best-practices-for-configuring-and-using-azure-remoteapp"></a>Procedure consigliate per la configurazione e l'uso di Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://blogs.technet.microsoft.com/enterprisemobility/2016/08/12/application-remoting-and-the-cloud/) .
+> Azure RemoteApp verrà sospeso a partire dal 31 agosto 2017. Per i dettagli, vedere l' [annuncio](https://blogs.technet.microsoft.com/enterprisemobility/2016/08/12/application-remoting-and-the-cloud/) .
 > 
 > 
 

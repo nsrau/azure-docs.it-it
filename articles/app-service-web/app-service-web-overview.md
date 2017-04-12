@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 83c063bb003ccda80ba6c1a74aadcd624d77ae47
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 2a1e1004a4dab48aed75740a24ff5556242eaa67
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -62,12 +62,12 @@ Oltre ad App Web nel servizio app, Azure offre altri servizi che possono essere 
 Per iniziare a distribuire codice di esempio in una nuova app Web nel servizio app, usare una delle esercitazioni nella casella di riepilogo a discesa seguente. Sarà necessario un account Azure gratuito.
 
 > [!div class="op_single_selector"]
-> * [Distribuire il primo sito HTML in Azure in 5 minuti](app-service-web-get-started-html-cli-nodejs.md)
-> * [Distribuire la prima app Web ASP.NET in Azure in 5 minuti](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [Distribuire la prima app Web PHP in Azure in 5 minuti](app-service-web-get-started-php-cli-nodejs.md)
-> * [Distribuire la prima app Web Node.js in Azure in 5 minuti](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [Distribuire la prima app Web Python in Azure in 5 minuti](app-service-web-get-started-python-cli-nodejs.md)
+> * [Distribuire la prima app Web ASP.NET in Azure in 5 minuti](app-service-web-get-started-dotnet.md)
+> * [Distribuire la prima app Web PHP in Azure in 5 minuti](app-service-web-get-started-php.md)
+> * [Distribuire la prima app Web Node.js in Azure in 5 minuti](app-service-web-get-started-nodejs.md)
 > * [Distribuire la prima app Web Java in Azure in 5 minuti](app-service-web-get-started-java.md)
+> * [Distribuire la prima app Web Python in Azure in 5 minuti](app-service-web-get-started-python.md)
+> * [Distribuire il primo sito HTML in Azure in 5 minuti](app-service-web-get-started-html.md)
 > 
 > 
 

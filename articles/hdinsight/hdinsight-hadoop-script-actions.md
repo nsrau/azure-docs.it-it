@@ -17,9 +17,9 @@ ms.date: 02/06/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: 6c468c8ed0d817a32c343d55cac780b904ee8668
-ms.openlocfilehash: 6cedd18c22bcd97f7fb2b6926bdf637fe9f04ab4
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 989f45eed033409b1ade183827719acdd9a4b0b4
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -29,7 +29,7 @@ Informazioni su come scrivere script di Azione script per HDInsight Per informaz
 
 
 > [!IMPORTANT]
-> I passaggi descritti in questo documento funzionano solo con i cluster HDInsight basati su Windows. HDInsight è disponibile in Windows solo per le versioni precedenti a HDInsight 3.4. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Per informazioni sull'uso di azioni script con cluster basati su Linux, vedere [Sviluppo di azioni script con HDInsight (Linux)](hdinsight-hadoop-script-actions-linux.md).
+> I passaggi descritti in questo documento funzionano solo con i cluster HDInsight basati su Windows. HDInsight è disponibile in Windows solo per le versioni precedenti a HDInsight 3.4. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). Per informazioni sull'uso di azioni script con cluster basati su Linux, vedere [Sviluppo di azioni script con HDInsight (Linux)](hdinsight-hadoop-script-actions-linux.md).
 >
 >
 

@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 8c04dc5a91b7859b5d75f919da55846599038f61
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 5a8af257eb964be4677d5da6a57aadaad1eb2cc3
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="using-office-with-azure-remoteapp"></a>Usare Office con Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp verrà sospeso a partire dal 31 agosto 2017. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -53,10 +54,5 @@ Quando si attiva l'account, l'operazione avrà effetto su tutte le raccolte Remo
 * L'immagine modello di Office 2013 Professional Plus (versione di valutazione) è destinata esclusivamente alla valutazione. Le raccolte in cui si esegue questa immagine modello non possono essere passate alla modalità di produzione. Queste raccolte verranno messe in stato di "disabilitazione".
 
 Se non si esegue la transizione alla modalità di produzione entro la scadenza della versione di valutazione, le raccolte RemoteApp verranno disabilitate. Ciò non sarà comunque un problema: le impostazioni e i dati degli utenti verranno salvati per altri 90 giorni, in modo che sia comunque possibile attivare il servizio e passare alla modalità di produzione senza alcuna perdita di dati.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

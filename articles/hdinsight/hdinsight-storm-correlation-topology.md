@@ -17,9 +17,9 @@ ms.date: 03/01/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: a16b3eee9ed52a197b5407dc7ebe71c0710d6fa1
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: d0a5bc9d3365a48b03d6f53c21d672a928777956
+ms.lasthandoff: 04/12/2017
 
 ---
 # <a name="correlate-events-that-arrive-at-different-times-using-storm-and-hbase"></a>Correlare eventi che arrivano in momenti diversi tramite Storm e HBase
@@ -33,14 +33,14 @@ Questo documento descrive come creare una topologia di Storm C# di base che teng
 * Visual Studio e gli strumenti di HDInsight per Visual Studio. Per altre informazioni, vedere [Introduzione all'uso di strumenti di HDInsight per Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 * Cluster Apache Storm in HDInsight, basato su Windows.
-  
+
   > [!IMPORTANT]
   > Anche se le topologie SCP.NET sono supportate nei cluster Storm basati su Linux creati dopo il 28/10/2016, il pacchetto HBase SDK per .NET disponibile dal 28/10/2016 non funziona correttamente in Linux.
 
 * Cluster Apache HBase in HDInsight, basato su Linux o su Windows.
 
   > [!IMPORTANT]
-  > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * [Java](https://java.com) 1.7 o versione successiva nell'ambiente di sviluppo. Java viene usato per creare il pacchetto della topologia per l'invio al cluster HDInsight.
 
@@ -72,7 +72,7 @@ Quando si avvia una sessione, un evento **START** viene ricevuto dalla topologia
 
 > [!IMPORTANT]
 > Mentre con questa topologia viene illustrato il modello di base, per una soluzione di produzione potrebbe essere necessaria la progettazione per gli scenari seguenti:
-> 
+>
 > * Eventi che arrivano nell'ordine errato
 > * Eventi duplicati
 > * Eventi eliminati
@@ -96,7 +96,7 @@ In HBase, i dati vengono archiviati in una tabella con lo schema e le impostazio
 * Chiave di riga: la sessione ID viene utilizzato come chiave per le righe in questa tabella.
 
 * Famiglia di colonne: il nome di famiglia è 'cf'. Le colonne memorizzate in questo gruppo sono le seguenti:
-  
+
   * event: START o END.
 
   * time: il tempo in millisecondi in cui si è verificato l'evento.
@@ -104,7 +104,7 @@ In HBase, i dati vengono archiviati in una tabella con lo schema e le impostazio
   * duration: la lunghezza del periodo di tempo che intercorre tra gli eventi START ed END.
 
 * VERSIONS: la famiglia 'cf' è impostata per conservare 5 versioni di ogni riga.
-  
+
   > [!NOTE]
   > Le versioni sono un registro dei valori precedentemente memorizzati per una chiave di riga specifica. Per impostazione predefinita, HBase restituisce solo il valore relativo alla versione più recente di una riga. In questo caso, la stessa riga viene utilizzata per tutti gli eventi (START, END) ogni versione di una riga viene identificata dal valore di timestamp. Le versioni forniscono una visualizzazione cronologica degli eventi registrati per un ID specifico.
 
@@ -123,11 +123,11 @@ Il download contiene i seguenti progetti C#:
 1. Aprire il progetto **SessionInfo** in Visual Studio.
 
 2. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **SessionInfo**, quindi scegliere **Proprietà**.
-   
+
     ![Schermata del menu con le proprietà selezionate](./media/hdinsight-storm-correlation-topology/selectproperties.png)
 
 3. Selezionare **Impostazioni**, quindi impostare i valori seguenti:
-   
+
    * HBaseClusterURL: l'URL del cluster HBase. Ad esempio, https://myhbasecluster.azurehdinsight.net.
 
    * HBaseClusterUserName: l'account amministratore/utente HTTP per il cluster
@@ -137,7 +137,7 @@ Il download contiene i seguenti progetti C#:
    * HBaseTableName: il nome della tabella da utilizzare in questo esempio
 
    * HBaseTableColumnFamily: il nome di famiglia di colonne
-     
+
      ![Finestra di dialogo delle impostazioni di connessione](./media/hdinsight-storm-correlation-topology/settings.png)
 
 4. Eseguire la soluzione. Quando richiesto, selezionare il tasto 'C' per creare la tabella nel cluster HBase.
@@ -149,7 +149,7 @@ Il download contiene i seguenti progetti C#:
 2. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **CorrelationTopology** e quindi scegliere Proprietà.
 
 3. Nella finestra Proprietà selezionare **Impostazioni** e immettere i valori di configurazione per questo progetto. I primi cinque sono gli stessi valori usati dal progetto **SessionInfo**:
-   
+
    * HBaseClusterURL: l'URL del cluster HBase. Ad esempio, https://myhbasecluster.azurehdinsight.net.
 
    * HBaseClusterUserName: l'account amministratore/utente HTTP per il cluster.
@@ -159,30 +159,30 @@ Il download contiene i seguenti progetti C#:
    * HBaseTableName: il nome della tabella da utilizzare in questo esempio. Questo valore deve corrispondere al nome di tabella usato nel progetto SessionInfo.
 
    * HBaseTableColumnFamily: il nome di famiglia di colonne. Questo valore deve corrispondere al nome di famiglia di colonne usato nel progetto SessionInfo.
-   
+
    > [!IMPORTANT]
    > Non modificare HBaseTableColumnNames, poiché i valori predefiniti sono i nomi utilizzati da **SessionInfo** per recuperare i dati.
 
 4. Salvare le proprietà, quindi compilare il progetto.
 
 5. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Submit to Storm on HDInsight** (Invia a Storm in HDInsight). Se richiesto, immettere le credenziali per la sottoscrizione di Azure.
-   
+
    ![Immagine della voce di menu Submit to Storm](./media/hdinsight-storm-correlation-topology/submittostorm.png)
 
 6. Nella finestra di dialogo **Submit Topology** (Invia topologia) selezionare il cluster Storm in cui distribuire questa topologia.
-   
+
    > [!NOTE]
    > La prima volta che si invia una topologia potrebbe richiedere alcuni secondi per recuperare il nome dei cluster HDInsight.
 
 7. Dopo che la topologia è stata caricata e inviata al cluster, la finestra **Storm Topology View** (Visualizzazione topologia Storm) si apre e visualizza la topologia in esecuzione. Per aggiornare i dati, selezionare **CorrelationTopology** e usare il pulsante di aggiornamento nella parte superiore destra della pagina.
-   
+
    ![Immagine della visualizzazione topologia](./media/hdinsight-storm-correlation-topology/topologyview.png)
-   
+
    Quando la topologia inizia la generazione di dati, il valore nella colonna **Emitted** (Emesso) aumenta.
-   
+
    > [!NOTE]
    > Se la finestra **Storm Topology View** non veniva visualizzato automaticamente, utilizzare i passaggi seguenti per aprirlo:
-   > 
+   >
    > 1. Da **Esplora soluzioni** espandere **Azure**, quindi **HDInsight**.
    > 2. Fare clic con il pulsante destro del mouse sul cluster di Storm su cui è in esecuzione la topologia e quindi scegliere **View Storm Topologies** (Visualizza topologie Storm).
 
@@ -193,11 +193,11 @@ Una volta generati i dati, utilizzare la procedura seguente per eseguire query s
 1. Tornare al progetto **SessionInfo** . Se non in esecuzione, avviare una nuova istanza.
 
 2. Quando richiesto, selezionare **S** per la ricerca dell'evento START. Viene richiesto di immettere un'ora di inizio e fine per definire un intervallo di tempo; vengono restituiti solo gli eventi che si sono verificati all'interno di questo intervallo.
-   
+
     Utilizzare i seguenti formati quando si immette l'ora di inizio e fine: HH:MM e 'M'' e 'am' o 'pm'. Ad esempio, 11:20 pm.
-   
+
     Per tornare agli eventi registrati, usare una data di inizio precedente alla distribuzione della topologia Storm e un'ora di fine corrispondente all'ora attuale. I dati restituiti contengano voci simili al testo seguente:
-   
+
         Session e6992b3e-79be-4991-afcf-5cb47dd1c81c started at 6/5/2015 6:10:15 PM. Timestamp = 1433527820737
 
 La ricerca degli eventi END funziona come gli eventi START. Tuttavia, gli eventi END vengono generati in modo casuale in un tempo compreso tra 1 e 5 minuti dopo l'evento START. Può essere necessario provare alcuni intervalli di tempo per trovare gli eventi END. Gli eventi END contengono anche la durata della sessione, ovvero la differenza tra l'ora dell'evento START e l'ora dell'evento END. Di seguito è riportato un esempio di dati per gli eventi END:
@@ -218,5 +218,4 @@ Quando si è pronti per arrestare la topologia, tornare al progetto **Correlatio
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altri esempi di Storm, vedere [Topologie di esempio per Storm in HDInsight](hdinsight-storm-example-topology.md).
-
 

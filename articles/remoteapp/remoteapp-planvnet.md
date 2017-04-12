@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 71537845edcca85a7d0722dd32264da9f6b579e9
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 1eb8115b13fb18074b4c4726b69e3d9faf387c32
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-plan-your-virtual-network-for-azure-remoteapp"></a>Come pianificare la rete virtuale per Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp verrà sospeso a partire dal 31 agosto 2017. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -56,10 +57,5 @@ Di seguito sono elencati gli elementi che  è necessario abilitare nella subnet 
 
 ## <a name="virtual-network-with-forced-tunneling"></a>Rete virtuale con tunneling forzato
 [tunneling forzato](../vpn-gateway/vpn-gateway-about-forced-tunneling.md) ora è supportato per tutte le nuove raccolte Azure RemoteApp. Attualmente non è supportata la migrazione di una raccolta esistente per supportare il tunneling forzato.  Sarà necessario eliminare tutte le raccolte esistenti usando la rete virtuale collegata ad Azure RemoteApp e crearne di nuove per abilitare il tunneling forzato nelle raccolte. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -9,8 +9,6 @@ Durante la compilazione di applicazioni è possibile usare alcune aree speciali 
 
 * **US Gov Virginia** e **US Gov Iowa**
   * Un'istanza logica e fisica di Azure isolata dalla rete per i partner e gli enti pubblici statunitensi, gestita da persone selezionate negli Stati Uniti. Include certificazioni di conformità aggiuntive, come [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) e [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). Ulteriori informazioni su [Microsoft Azure per enti pubblici](https://azure.microsoft.com/features/gov/).
-* **India centrale**, **India meridionale** e **India occidentale**
-  * Queste aree sono attualmente disponibili per clienti e partner titolari di contratti multilicenza con iscrizione locale in India. Nella versione 2016 gli utenti possono accedervi a condizione che abbiano acquistato sottoscrizioni online dirette.
 * **Cina orientale** e **Cina settentrionale**
   * Queste aree sono disponibili nel contesto di una partnership esclusiva tra Microsoft e 21Vianet, in virtù della quale i datacenter non sono gestiti direttamente da Microsoft. Altre informazioni sulla [disponibilità di Microsoft Azure in Cina](http://www.windowsazure.cn/).
 * **Germania centrale** e **Germania nord-orientale**

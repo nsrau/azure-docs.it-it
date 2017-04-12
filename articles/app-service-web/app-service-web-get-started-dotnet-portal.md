@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/10/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: fa3f31cdd708729071876ffad707bea70567da83
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 6b1dede903083d1771733330a069b6ab533d9f00
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -103,7 +103,7 @@ Quando Azure completa la distribuzione dell'app viene visualizzata un'altra noti
     ![Configurazione di Umbraco: la prima app Umbraco in Servizio app di Azure](./media/app-service-web-get-started-dotnet-portal/umbraco-config.png)
     
 ## <a name="next-steps"></a>Passaggi successivi
-* [Distribuire un'app web ASP.NET in Servizio app di Azure, tramite Visual Studio](web-sites-dotnet-get-started.md): informazioni su come creare una nuova app Web di Azure da Visual Studio, mediante uno dei modelli di applicazione incluso.
+* [Distribuire un'app web ASP.NET in Servizio app di Azure, tramite Visual Studio](app-service-web-get-started-dotnet.md): informazioni su come creare una nuova app Web di Azure da Visual Studio, mediante uno dei modelli di applicazione incluso.
 * [Distribuire il codice nel Servizio app di Azure](web-sites-deploy.md): informazioni su come distribuire da FTP o da repository di controllo del codice sorgente.
 * [Aggiungere funzionalità alla prima app Web](app-service-web-get-started-2.md): eseguire l'app di Azure nel livello successivo. autenticare gli utenti, ridimensionare l'app in base alla richiesta e configurare alcuni avvisi sulle prestazioni, tutto con pochi clic.
 

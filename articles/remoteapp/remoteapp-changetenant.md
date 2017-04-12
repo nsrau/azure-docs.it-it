@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 5326c779d766e075a54f5ec43f92b6c5c973be8b
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 1199ca2378cfe4adba2d591bfab204113b4a0468
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="change-the-azure-active-directory-tenant-in-azure-remoteapp"></a>Modificare il tenant di Azure Active Directory in RemoteApp di Azure
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp verrà sospeso a partire dal 31 agosto 2017. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -48,10 +49,5 @@ Se si vuole usare un tenant differente, completare i seguenti passaggi per modif
 8. Accedere di nuovo e passare a **Impostazioni -> Sottoscrizioni**. Selezionare la propria sottoscrizione, quindi fare clic su **Modifica directory**. Selezionare il tenant di Azure AD che si desidera usare.
 
 È ora possibile usare il nuovo tenant di Azure AD per controllare l'accesso alla sottoscrizione di Azure e configurare l'accesso utente in Azure RemoteApp.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 2/14/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: f4e7b1f2ac7f10748473605eacee71bf0cd538e6
-ms.openlocfilehash: 2b28045c3ec32a703c62aeb509777750342ffbb3
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 87403d68bfb57645417d6255329af7fd0d757f50
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -231,19 +232,14 @@ Per abilitare la diagnostica su una risorsa di calcolo, ad esempio una macchina 
 3. Aggiungere il contenuto del file XML WADCfg nella proprietà XMLCfg, usando le sequenze di escape corrette per i caratteri XML.
 
 > [!WARNING]
-> Quest'ultimo passaggio può risultare difficile. [vedere questo articolo](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md#diagnostics-configuration-variables) .
+> Quest'ultimo passaggio può risultare difficile. [vedere questo articolo](../virtual-machines/windows/extensions-diagnostics-template.md#diagnostics-configuration-variables) .
 > 
 > 
 
-L'intero processo, esempi compresi, viene descritto in [questo documento](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+L'intero processo, esempi compresi, viene descritto in [questo documento](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Altre informazioni sui log di diagnostica di Azure](monitoring-overview-of-diagnostic-logs.md)
 * [Trasmettere log di diagnostica di Azure a Hub eventi](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 6cc74e3d3bd704dab1a43b66374b51c1f3e2a0a2
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 75d5415d33324d957617426e75909a6c6c58b1f9
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="never-store-sensitive-data-on-custom-images"></a>Non archiviare mai dati sensibili in immagini personalizzate
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp verrà sospeso a partire dal 31 agosto 2017. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -47,10 +48,5 @@ Punti principali:
 * Quando si crea un'immagine personalizzata, non archiviare mai nell'immagine dati sensibili che possano andare perduti.
 * I dati sensibili devono sempre trovarsi in un file server separato, in una VM di Azure separata o nel cloud e devono essere sempre esterni alle istanze della VM che ospita le applicazioni all'interno di Azure RemoteApp. 
 * I dati utente vengono salvati e mantenuti nel disco profili utente.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

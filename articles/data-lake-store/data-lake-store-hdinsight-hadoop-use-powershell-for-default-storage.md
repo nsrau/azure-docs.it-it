@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/02/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: e1101c92118e56768c668d19f6556517d5a79c51
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: fe8a84d7e6d88f11498c288e0424ba204d7f06fd
+ms.lasthandoff: 04/05/2017
 
 
 ---
@@ -49,7 +49,7 @@ Prima di iniziare l'esercitazione, verificare di soddisfare i requisiti seguenti
 * **Entità servizio Azure Active Directory**: questa esercitazione descrive come creare un'entità servizio in Azure Active Directory (Azure AD). Tuttavia, per creare un'entità servizio è necessario essere un amministratore di Azure AD. Se si è un amministratore, è possibile ignorare questo prerequisito e procedere con l'esercitazione.
 
     >[!NOTE]
-    >È possibile creare un'entità servizio solo se si è un amministratore di Azure AD. Prima di poter creare un cluster HDInsight con Data Lake Store, un amministratore di Azure AD deve creare un'entità servizio. L'entità servizio deve essere creata con un certificato, come descritto in [Creare un'entità servizio con certificato](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+    >È possibile creare un'entità servizio solo se si è un amministratore di Azure AD. Prima di poter creare un cluster HDInsight con Data Lake Store, un amministratore di Azure AD deve creare un'entità servizio. L'entità servizio deve essere creata con un certificato, come descritto in [Creare un'entità servizio con certificato](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority).
     >
 
 ## <a name="create-a-data-lake-store-account"></a>Creare un account Archivio Data Lake
@@ -71,7 +71,7 @@ Per creare un account Data Lake Store, procedere come segue:
 
     > [!NOTE]
     > Se si registra il provider di risorse Data Lake Store e viene visualizzato un errore simile a `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`, la sottoscrizione potrebbe non essere inclusa nell'elenco elementi consentiti per Data Lake Store. Per abilitare la sottoscrizione di Azure per l'anteprima pubblica di Data Lake Store, seguire le istruzioni in [Introduzione all'uso di Azure Data Lake Store tramite il portale di Azure](data-lake-store-get-started-portal.md).
-    > 
+    >
 
 2. Quando viene richiesto di effettuare l'accesso, accedere come amministratore o proprietario della sottoscrizione.
 3. Un account Data Lake Store è associato a un gruppo di risorse di Azure. Iniziare creando un gruppo di risorse.

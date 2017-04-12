@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/02/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 792907646a602004904eef5c4000f464881c6c4b
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 79e122beb0f31c46bbb9951a2dee223de4a77e1f
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 03/25/2017
 I cluster Azure HDInsight mettono a disposizione Hadoop in un ambiente Linux familiare, in esecuzione nel cloud di Azure. Per la maggior parte delle operazioni, dovrebbe funzionare esattamente come qualsiasi altra installazione di Hadoop in Linux. Questo documento indica le differenze specifiche che è opportuno conoscere.
 
 > [!IMPORTANT]
-> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -218,7 +218,7 @@ L'operazione di ridimensionamento può influire sui tipi di cluster come indicat
     2. Usare il codice seguente per avviare la shell HBase:
 
             hbase shell
-    
+
     3. Una volta caricata la shell HBase, usare il codice seguente per bilanciare manualmente i server a livello di area:
 
             balancer

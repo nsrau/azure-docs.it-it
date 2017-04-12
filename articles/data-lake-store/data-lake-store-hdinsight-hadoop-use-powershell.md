@@ -14,9 +14,9 @@ ms.workload: big-data
 ms.date: 02/14/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: d8100903d78a9ca8d88d2649ad5245ce3f456518
-ms.openlocfilehash: c21f244408ed6f6ca3168ee193bcba4d3b26cd40
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: 230cbb12830793ca4e6b9679c5c37c4733c00f02
+ms.lasthandoff: 04/05/2017
 
 
 ---
@@ -57,7 +57,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 * **Windows SDK**. Per installarlo, fare clic [qui](https://dev.windows.com/en-us/downloads). Usarlo per creare un certificato di sicurezza.
 * **Entità servizio di Azure Active Directory**. Questa esercitazione fornisce tutte le istruzioni utili su come creare un'entità servizio in Azure AD. Tuttavia, è necessario essere un amministratore di Azure AD per creare un'entità servizio. Se si è un amministratore di Azure AD, è possibile ignorare questo prerequisito e procedere con l'esercitazione.
 
-    **Se non si è un amministratore di Azure AD**, non sarà possibile eseguire i passaggi necessari per creare un'entità servizio. In tal caso, l'amministratore di Azure AD deve creare un'entità servizio prima di creare un cluster HDInsight con l'archivio Data Lake Store. Inoltre, l'entità servizio deve essere creata usando un certificato, come descritto in [Creare un'entità servizio con certificato](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+    **Se non si è un amministratore di Azure AD**, non sarà possibile eseguire i passaggi necessari per creare un'entità servizio. In tal caso, l'amministratore di Azure AD deve creare un'entità servizio prima di creare un cluster HDInsight con l'archivio Data Lake Store. Inoltre, l'entità servizio deve essere creata usando un certificato, come descritto in [Creare un'entità servizio con certificato](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority).
 
 ## <a name="create-an-azure-data-lake-store"></a>Creare un Archivio Azure Data Lake
 Per creare un Archivio Data Lake, seguire questa procedura.
@@ -118,7 +118,7 @@ Assicurarsi di avere installato [Windows SDK](https://dev.windows.com/en-us/down
 
         $certificateFileDir = "<my certificate directory>"
         cd $certificateFileDir
-        
+
         makecert -sv mykey.pvk -n "cn=HDI-ADL-SP" CertFile.cer -r -len 2048
 
     Verrà richiesto di immettere la password della chiave privata. Una volta completata l'esecuzione del comando, nella directory del certificato specificata verranno visualizzati **CertFile.cer** e **mykey.pvk**.
@@ -194,7 +194,7 @@ In questa sezione viene creato un cluster HDInsight di Handoop Linux con Data La
 
     Dopo il completamento del cmdlet, viene visualizzato un output simile al seguente.
 
-        
+
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-the-data-lake-store"></a>Eseguire i processi di test sul cluster HDInsight per usare Archivio Data Lake.
 Dopo aver configurato un cluster HDInsight, è possibile eseguire processi di test sul cluster per verificare che il cluster HDInsight possa accedere ad Archivio Data Lake. A questo scopo, verrà eseguito un processo Hive di esempio che crea una tabella con i dati di esempio caricati in precedenza in Archivio Data Lake.
 
@@ -228,7 +228,7 @@ In questa sezione si accede tramite SSH al cluster Linux HDInsight e viene esegu
 ## <a name="access-data-lake-store-using-hdfs-commands"></a>Accedere ad Archivio Data Lake tramite comandi HDFS
 Dopo aver configurato il cluster HDInsight perché funzioni con Archivio Data Lake, è possibile usare i comandi della shell HDFS per accedere all'archivio.
 
-In questa sezione si accede tramite SSH al cluster Linux HDInsight creato e viene eseguito il comando HDFS. 
+In questa sezione si accede tramite SSH al cluster Linux HDInsight creato e viene eseguito il comando HDFS.
 
 * Se si usa un client Windows per accedere tramite SSH al cluster, vedere [Uso di SSH con Hadoop basato su Linux in HDInsight da Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 * Se si usa un client Linux per accedere tramite SSH al cluster, vedere [Uso di SSH con Hadoop basato su Linux in HDInsight da Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).

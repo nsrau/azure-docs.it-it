@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/13/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 798b4310eb5ea7a4877d7842371b5dd7cf88d632
-ms.openlocfilehash: 8a5c1a381cc5cf30f211da948951dc577a124951
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 3142bea414e54e321e3dc9ae13aca110049ee105
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -81,10 +82,9 @@ Gli spazi dei nomi associati supportano *sendavailability*, che consente di pres
 
 1. I messaggi vengono ricevuti solo dallo spazio dei nomi primario.
 2. I messaggi inviati a una coda o a un argomento specifico possono arrivare senza un ordine preciso.
-3. Se l'applicazione usa le sessioni, i messaggi all'interno di una sessione possono arrivare senza un ordine preciso. Questa è un'interruzione rispetto alla normale funzionalità delle sessioni, che sta a indicare che l'applicazione usa le sessioni per il raggruppamento logico dei messaggi. Lo stato delle sessioni viene mantenuto solo nello spazio dei nomi primario.
-4. I messaggi in una sessione possono arrivare senza un ordine preciso. Questa è un'interruzione rispetto alla normale funzionalità delle sessioni, che sta a indicare che l'applicazione usa le sessioni per il raggruppamento logico dei messaggi.
-5. Lo stato delle sessioni viene mantenuto solo nello spazio dei nomi primario.
-6. La coda primaria può tornare online e iniziare ad accettare i messaggi prima che la coda secondaria recapiti tutti i messaggi alla coda primaria.
+3. I messaggi in una sessione possono arrivare senza un ordine preciso. Questa è un'interruzione rispetto alla normale funzionalità delle sessioni, che sta a indicare che l'applicazione usa le sessioni per il raggruppamento logico dei messaggi.
+4. Lo stato delle sessioni viene mantenuto solo nello spazio dei nomi primario.
+5. La coda primaria può tornare online e iniziare ad accettare i messaggi prima che la coda secondaria recapiti tutti i messaggi alla coda primaria.
 
 Le sezioni seguenti illustrano l'API, la relativa modalità di implementazione e il codice di esempio che usa la funzionalità. Si noti che a questa funzionalità sono associati costi di fatturazione.
 
@@ -152,9 +152,4 @@ Dopo avere appreso le nozioni di base della messaggistica asincrona nel bus di s
 [UnauthorizedAccessException]: https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx
 [BacklogQueueCount]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions?redirectedfrom=MSDN#Microsoft_ServiceBus_Messaging_SendAvailabilityPairedNamespaceOptions_BacklogQueueCount
 [paired namespaces]: service-bus-paired-namespaces.md
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

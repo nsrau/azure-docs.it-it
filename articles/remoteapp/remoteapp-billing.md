@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 4558a91c7f1e1f5ee825e167e20988878d164862
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 18c369c4e8ccf828c35ec4a964e61f13613f899b
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-stop-being-billed-for-azure-remoteapp"></a>Come interrompere la fatturazione per Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp verrà sospeso a partire dal 31 agosto 2017. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -34,10 +35,5 @@ Per eliminare la raccolta:
 3. Ripetere questa operazione per ogni raccolta nella sottoscrizione. 
 
 Potrebbero occorrere alcuni minuti per eliminare ogni raccolta.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
