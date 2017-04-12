@@ -17,9 +17,9 @@ ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9f9908466dbfd471bc881387c0968c924140c67b
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 99292dedfd83c0adde6b7352e08e7ae3b0b14513
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -95,7 +95,7 @@ Prima di distribuire il modello fornito con questa documentazione, assicurarsi d
     },
     ```
 
-6. Si noti che **vmSize** contiene il valore *Standard_DS3*. Solo alcune dimensioni di macchine virtuali consentono l'uso di più schede di interfaccia di rete. È possibile verificare quali dimensioni di macchina virtuale supportano più schede di interfaccia di rete leggendo gli articoli [Dimensioni delle VM Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Dimensioni delle VM Linux](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+6. Si noti che **vmSize** contiene il valore *Standard_DS3*. Solo alcune dimensioni di macchine virtuali consentono l'uso di più schede di interfaccia di rete. È possibile verificare quali dimensioni di macchina virtuale supportano più schede di interfaccia di rete leggendo gli articoli [Dimensioni delle VM Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Dimensioni delle VM Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 7. Scorrere le **risorse** e notare il primo elemento. Questo descrive un account di archiviazione che verrà usato per gestire i dischi dati usati da ogni macchina virtuale del database. In questo scenario, ogni macchina virtuale del database dispone di un disco del sistema operativo archiviato nell'archiviazione consueta e due dischi dati archiviati nell'archiviazione dell'unità SSD (premium).
 

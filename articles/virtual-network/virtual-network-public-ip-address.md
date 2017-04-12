@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 851d806a7e92dafaa5325c032fd3e0a71ce726c2
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 5274ffe641768e0725623c2acf38d432a97eea9f
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -32,9 +32,9 @@ Informazioni sugli indirizzi IP pubblici e su come crearli, modificarli ed elimi
 Questo articolo illustra come operare con gli indirizzi IP pubblici, e si applica alle risorse distribuite tramite il modello di distribuzione Azure Resource Manager. Sebbene gli indirizzi IP pubblici possano essere assegnati alle risorse distribuite tramite il modello di distribuzione classica, gli indirizzi vengono applicati in modo diverso rispetto a quanto accade con Azure Resource Manager. Per altre informazioni sulle differenze tra i due modelli, leggere l'articolo [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Informazioni sui modelli di distribuzione di Azure).
 
 Le sezioni seguenti di questo articolo illustrano come completare tutte le attività correlate agli indirizzi IP pubblici. Ogni sezione elenca:
-- La procedura per completare l'attività nel portale di Azure. Per completare la procedura, è necessario essere registrati al [portale di Azure](http://portal.azure.com). È possibile registrarsi per [ottenere un account gratuito](https://azure.microsoft.com/free) se non se ne ha già uno.
-- Comandi per completare l'attività usando Azure PowerShell con collegamenti al riferimento del comando per il comando. Installare e configurare Azure PowerShell eseguendo i passaggi descritti nell'articolo sull'[installazione e la configurazione di Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Per informazioni ed esempi relativi ai comandi di PowerShell, digitare `get-help <command> -full`.
-- Comandi per completare l'attività usando l'interfaccia della riga di comando di Azure con collegamenti al riferimento del comando per il comando. Per installare l'interfaccia della riga di comando di Azure, seguire la procedura riportata nell'articolo sull'[installazione e la configurazione dell'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Per informazioni sui comandi dell'interfaccia della riga di comando, digitare `az <command> -h`.
+- La procedura per completare l'attività nel portale di Azure. Per completare la procedura è necessario accedere al [portale di Azure](http://portal.azure.com). È possibile iscriversi per [ottenere un account di valutazione gratuito](https://azure.microsoft.com/free), se non se ne ha già uno.
+- Comandi per completare l'attività usando Azure PowerShell con collegamenti al riferimento per il comando. Installare e configurare Azure PowerShell eseguendo i passaggi descritti nell'articolo sull'[installazione e la configurazione di Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Per informazioni ed esempi relativi ai comandi di PowerShell, digitare `get-help <command> -full`.
+- Comandi per completare l'attività usando l'interfaccia della riga di comando di Azure con collegamenti al riferimento per il comando. Per installare l'interfaccia della riga di comando di Azure, seguire la procedura riportata nell'articolo sull'[installazione e la configurazione dell'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Per informazioni sui comandi dell'interfaccia della riga di comando, digitare `az <command> -h`.
 
 Per gli indirizzi IP pubblici è previsto un addebito nominale. Per visualizzare i prezzi, consultare la pagina [Prezzi per gli indirizzi IP](https://azure.microsoft.com/pricing/details/ip-addresses). È previsto un limite al numero di indirizzi IP pubblici che possono essere usati in una sottoscrizione. Per informazioni su tali limiti, vedere l'articolo [Limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 
@@ -85,7 +85,7 @@ Per modificare o eliminare un indirizzo IP pubblico, attenersi alla procedura se
 ## <a name="next-steps"></a>Passaggi successivi
 Assegnare gli indirizzi IP pubblici durante la creazione delle risorse di Azure seguenti:
 
-- Macchine virtuali [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- Macchine virtuali [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Servizio di bilanciamento del carico con connessione Internet](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Gateway applicazione Azure](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Connessione da sito a sito con gateway VPN di Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 097a8aeecc783199b25d95dbc470dcabefa37ced
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: db3285bcdfb93c0c2b9f8972edb04e7064cfa31c
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -145,9 +145,6 @@ IMPOSTAZIONI
 * [**Blocchi**](../azure-resource-manager/resource-group-lock-resources.md): bloccano le risorse di Azure.
 * [**Script di automazione**](app-insights-powershell.md): consente di esportare una definizione della risorsa di Azure da usare come modello per la creazione di nuove risorse.
 
-SUPPORTO
-
-* **Richiesta di supporto**: richiede una sottoscrizione a pagamento. Vedere anche [Come ottenere supporto tecnico](app-insights-get-dev-support.md).
 
 ## <a name="video"></a>Video
 

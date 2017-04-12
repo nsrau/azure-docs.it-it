@@ -17,9 +17,9 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 6f0fe474787efc15db5c75266cde369725832aab
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: c9b7cc0321ba06a5d30ea5bd467efe4feeb73b99
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -87,7 +87,7 @@ Dopo aver soddisfatto questi prerequisiti, è possibile procedere con la creazio
 
 1. Accedere al [portale di Azure](http://portal.azure.com) con la propria sottoscrizione.
 
-1. [Creare un set di disponibilità di Azure](../../virtual-machines-windows-create-availability-set.md).
+1. [Creare un set di disponibilità di Azure](../create-availability-set.md).
 
    Un set di disponibilità raggruppa le macchine virtuali in più domini di errore e domini di aggiornamento. Il set di disponibilità garantisce che l'applicazione non sia influenzata da singoli punti di errore, come il commutatore di rete o l'unità di alimentazione di un rack di server. 
 

@@ -16,9 +16,9 @@ ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: a779dd05623e84250d5595311d7d87d83f1298ad
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 2f92ebd82e5ac64f921e236a77657a1abc478a7c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -41,7 +41,7 @@ Microsoft HPC Pack fornisce le funzionalità necessarie per eseguire applicazion
   
   **Altre informazioni importanti**
   
-  * Per i prerequisiti di rete Linux RDMA in Azure, vedere [Informazioni sulle macchine virtuali serie H e serie A a elevato uso di calcolo](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+  * Per i prerequisiti di rete Linux RDMA in Azure, vedere [Informazioni sulle macchine virtuali serie H e serie A a elevato uso di calcolo](../../windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   * Se si usa l'opzione di distribuzione con script Powershell, distribuire tutti i nodi di calcolo Linux all'interno di un unico servizio cloud per usare la connessione di rete RDMA.
   * Dopo aver distribuito i nodi Linux, è necessaria una connessione tramite SSH per eseguire eventuali attività amministrative aggiuntive. I dettagli della connessione SSH relativi a ciascuna macchina virtuale di Linux sono disponibili nel portale di Azure.  
 * **Intel MPI**: per eseguire OpenFOAM su nodi di calcolo SLES 12 HPC in Azure, è necessario installare il runtime di Intel MPI Library 5 dal [sito Intel.com](https://software.intel.com/en-us/intel-mpi-library/). (Intel MPI 5 è preinstallato nelle immagini HPC basate su CentOS).  Se necessario, in un passaggio successivo installare Intel MPI nei nodi di calcolo Linux. Come preparazione a questo passaggio, dopo aver eseguito la registrazione a Intel fare clic sul collegamento contenuto nel messaggio di posta elettronica di conferma per accedere alla relativa pagina Web. Copiare quindi il collegamento di download del file con estensione tgz per la versione appropriata di Intel MPI. Questo articolo si riferisce a Intel MPI versione 5.0.3.048.

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: genli;markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 26ea5c6f867165a25dd5aecb01d0a0ce3b213a51
-ms.openlocfilehash: 707d666eb6c23fb926c31711daddfb22979513bc
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d7924d8aade1ea582faa0f319f8c1d16d5461fbc
+ms.lasthandoff: 04/03/2017
 
 ---
 
@@ -54,7 +55,7 @@ Per informazioni su come configurare un proxy HTTP per i backup delle macchine v
 ### <a name="solution"></a>Soluzione
 La maggior parte degli errori relativi ad agenti o estensioni nelle macchine virtuali Linux è dovuta a problemi correlati ad agenti di macchine virtuali non aggiornati. Per risolvere il problema, seguire queste indicazioni generali:
 
-1. Seguire le istruzioni per l'[aggiornamento dell'agente di macchine virtuali Linux](../virtual-machines/virtual-machines-linux-update-agent.md).
+1. Seguire le istruzioni per l'[aggiornamento dell'agente di macchine virtuali Linux](../virtual-machines/linux/update-agent.md).
 
  >[!NOTE]
  >È *fortemente consigliato* aggiornare l'agente solo tramite un repository di distribuzione. Non è consigliabile scaricare il codice dell'agente direttamente da GitHub e aggiornarlo. Se l'agente più recente non è disponibile per la distribuzione, contattare il supporto per la distribuzione per istruzioni su come installarlo. Per cercare l'agente più recente, passare alla pagina dell'[agente Linux di Microsoft Azure](https://github.com/Azure/WALinuxAgent/releases) nel repository GitHub.
@@ -118,9 +119,4 @@ Le condizioni seguenti possono causare errori dell'attività di snapshot:
 | Diverse macchine virtuali dello stesso servizio cloud sono configurate per eseguire il backup nello stesso momento. | È consigliabile distribuire le pianificazione dei backup per le macchine virtuali dello stesso servizio cloud. |
 | L'esecuzione della macchina virtuale fa un uso elevato della CPU o della memoria. | Se l'esecuzione della macchina virtuale fa un uso elevato della CPU (oltre il 90%) o della memoria, l'attività di snapshot viene accodata e ritardata e infine si verifica il timeout. In una situazione di questo tipo, provare a eseguire un backup su richiesta. |
 | La macchina virtuale non riesce a ottenere l'indirizzo dell'host/infrastruttura dal DHCP. | DHCP deve essere abilitato nel computer guest per consentire il funzionamento del backup delle VM IaaS.  Se la macchina virtuale non riesce a ottenere l'indirizzo dell'host/infrastruttura dal DHCP, risposta 245, non è possibile scaricare o eseguire le estensioni. Se è necessario un indirizzo IP privato statico, è necessario configurarlo tramite la piattaforma. L'opzione DHCP all'interno della VM deve essere abilitata. Per altre informazioni, vedere [Impostazione di un indirizzo IP privato interno statico](../virtual-network/virtual-networks-reserved-private-ip.md). |
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

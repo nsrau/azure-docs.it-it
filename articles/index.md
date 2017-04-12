@@ -4,9 +4,9 @@ hide_bc: true
 title: Documentazione di Microsoft Azure
 description: Informazioni su come compilare e gestire applicazioni avanzate usando i servizi cloud di Microsoft Azure. Ottenere la documentazione, il codice di esempio, le esercitazioni e altro.
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 355f6d4457668459676aeafb39701e65bb6673df
-ms.lasthandoff: 04/08/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 6156ec5732cb9f24d762afe12a678fabe9c93069
+ms.lasthandoff: 04/10/2017
 
 ---
 <div id="main" class="v2">
@@ -2600,10 +2600,10 @@ ms.lasthandoff: 04/08/2017
                                                     <a href="https://pypi.python.org/pypi/azure">Ottenere Python SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/index">Introduzione</a>
+                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">Introduzione</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/index">Informazioni di riferimento sulle API</a>
+                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">Informazioni di riferimento sulle API</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/resources/samples/?platform=python">Ottenere gli esempi</a>
@@ -2809,7 +2809,7 @@ ms.lasthandoff: 04/08/2017
                                                     <a href="http://aka.ms/webpi-azure-cli">Scaricare l'interfaccia della riga di comando di Azure per Windows</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/articles/azure-cli-arm-commands/index">Informazioni di riferimento</a>
+                                                    <a href="/azure/virtual-machines/azure-cli-arm-commands?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Informazioni di riferimento</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2832,7 +2832,7 @@ ms.lasthandoff: 04/08/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.visualstudio.com/vs/azure-tools/index">Strumenti di Visual Studio per Azure</a>
+                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">Strumenti di Visual Studio per Azure</a>
                                                 </h3>
                                                 <p>
                                                     <a href="https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids">Download</a>
@@ -2904,10 +2904,10 @@ ms.lasthandoff: 04/08/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="http://storageexplorer.com/index">Storage Explorer</a>
+                                                    <a href="http://storageexplorer.com">Storage Explorer</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/articles/vs-azure-tools-storage-manage-with-storage-explorer/index">Introduzione</a>
+                                                    <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer">Introduzione</a>
                                                 </p>
                                                 <p>
                                                      <a  href="http://go.microsoft.com/fwlink/?LinkId=722418">Download per Linux</a>

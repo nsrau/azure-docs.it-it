@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2017
+ms.date: 04/04/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 6ad2194a71e0d36ba4a0b9a46ca6dbcd58b619ff
-ms.openlocfilehash: 06a8b79f0740e902bb7f9412b449a98b2f0167ea
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: e22a1ccb958942cfa3c67194430af6bc74fdba64
+ms.openlocfilehash: 233691d19aa2553744f92af17f7ecf9fda2290e0
+ms.lasthandoff: 04/05/2017
 
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Domande frequenti su Azure AD Connect Health
@@ -138,22 +138,6 @@ No, il controllo non deve essere abilitato nei server proxy applicazione Web.
 **D: In che modo vengono risolti gli avvisi di Azure AD Connect Health?**
 
 Gli avvisi di Azure AD Connect Health vengono risolti se si verifica una condizione di esito positivo. Gli agenti di Azure AD Connect Health rilevano e segnalano periodicamente al servizio le condizioni di esito positivo. Per alcuni avvisi, l'eliminazione è basata sul tempo. In altri termini, se entro 72 ore dalla generazione dell'avviso non viene osservata la stessa condizione di errore, l'avviso viene automaticamente risolto.
-
-## <a name="migration-questions"></a>Domande sulla migrazione
-
-Questa sezione riguarda solo i clienti che hanno ricevuto una notifica su una prossima migrazione dei dati del servizio Azure AD Connect Health.
-
-**D: Sarà necessario registrare gli agenti o configurare le impostazioni di notifica dopo la migrazione?**
-
-No, le informazioni di registrazione degli agenti e le impostazioni di notifica vengono spostate durante la migrazione.
-
-**D: Quanto tempo dopo la migrazione i dati saranno visibili nel portale?**
-
-I dati saranno disponibili nel portale entro un'ora dalla migrazione.
-
-**D: Che cosa accade agli avvisi attivi esistenti?**
-
-Gli avvisi applicabili verranno riattivati entro un'ora dalla migrazione.
 
 ## <a name="related-links"></a>Collegamenti correlati
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

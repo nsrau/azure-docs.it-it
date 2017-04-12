@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/21/2016
 ms.author: riande
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 11d9869e656014fe7106f9c66975792c5faa357d
-ms.lasthandoff: 01/20/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: b1d9c1c75d29e39bbd9433197ad06a56da5dc799
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -40,7 +40,7 @@ Contenuto dell'esercitazione:
 * Come distribuire un progetto Web che usa un database in un' [app Web](http://go.microsoft.com/fwlink/?LinkId=529714) nel servizio app di Azure.
 
 > [!NOTE]
-> Si tratta di un'esercitazione lunga. Per una rapida introduzione ai progetti Web del Servizio app di Azure e di Visual Studio, vedere [Creare un'app Web ASP.NET nel Servizio app di Azure](web-sites-dotnet-get-started.md). Per informazioni su come risolvere i problemi, vedere la sezione [Risoluzione dei problemi](#troubleshooting) .
+> Si tratta di un'esercitazione lunga. Per una rapida introduzione ai progetti Web del Servizio app di Azure e di Visual Studio, vedere [Creare un'app Web ASP.NET nel Servizio app di Azure](app-service-web-get-started-dotnet.md). Per informazioni su come risolvere i problemi, vedere la sezione [Risoluzione dei problemi](#troubleshooting) .
 > 
 > Oppure, per iniziare a usare il servizio app di Azure prima di iscriversi per ottenere un account Azure, passare al sito [Prova il servizio app](https://azure.microsoft.com/try/app-service/)in cui è possibile creare immediatamente un'app Web temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
@@ -581,7 +581,7 @@ In caso di problemi, ecco alcuni suggerimenti su come procedere.
 
 * Errori durante il provisioning del database SQL: verificare che sia installato l'SDK corrente. Le versioni precedenti alla 2.8.1 contengono un bug che in alcuni scenari causa errori quando VS cerca di creare il server di database o il database.
 * Messaggio di errore simile a "Operazione non supportata per il tipo di offerta di sottoscrizione" durante la creazione di risorse di Azure: come sopra.
-* Errori durante la distribuzione: vedere l'articolo sulla [distribuzione ASP.NET di base](web-sites-dotnet-get-started.md) . Tale scenario di distribuzione è più semplice e, se si verifica lo stesso problema, potrebbe essere più facile isolarlo. In alcuni ambienti aziendali, ad esempio, un firewall aziendale potrebbe impedire a Distribuzione Web di stabilire i tipi di connessione ad Azure necessari.
+* Errori durante la distribuzione: vedere l'articolo sulla [distribuzione ASP.NET di base](app-service-web-get-started-dotnet.md) . Tale scenario di distribuzione è più semplice e, se si verifica lo stesso problema, potrebbe essere più facile isolarlo. In alcuni ambienti aziendali, ad esempio, un firewall aziendale potrebbe impedire a Distribuzione Web di stabilire i tipi di connessione ad Azure necessari.
 * Nessuna opzione per selezionare la stringa di connessione nella procedura guidata Pubblica sito Web durante la distribuzione: se è stato usato un metodo diverso per creare le risorse di Azure (ad esempio, si sta cercando di eseguire la distribuzione in un'App Web e in un database SQL creati nel portale), il database SQL potrebbe non essere associato all'App Web. La soluzione più semplice consiste nel creare una nuova app Web e un nuovo database usando VS, come mostrato nell'esercitazione. Non è necessario ricominciare l'esercitazione da capo. Nella procedura guidata Pubblica sito Web è infatti possibile scegliere di creare una nuova app Web. In questo modo verrà aperta la stessa finestra di dialogo di creazione delle risorse di Azure che si apre quando si crea il progetto.
 * Le indicazioni relative al portale per sviluppatori di Google o Facebook sono obsolete: vedere il commento Disqus alla fine di questa esercitazione.
 

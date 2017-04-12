@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 8f62547316e4ecc02da0341aab94010d880115f8
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 5e5c11251cd316e8161dbe362b300be76927ac01
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -37,7 +37,7 @@ Questo argomento descrive e illustra la distribuzione e la configurazione di un 
 * **Sottoscrizione di Azure**: verificare il numero di core disponibili nella sottoscrizione di Azure. Se si crea la dimensione di macchina virtuale consigliata **A3**, sono necessari **4** core disponibili. Se si usa la dimensione di macchina virtuale **A2**, sono necessari **2** core disponibili.
   
   * Per verificare il limite di core della sottoscrizione, nel portale di Azure classico fare clic su IMPOSTAZIONI nel riquadro a sinistra e quindi su UTILIZZO nel menu in alto.
-  * Per aumentare la quota di core, contattare il [supporto tecnico di Azure](https://azure.microsoft.com/support/options/). Per informazioni sulle dimensioni delle macchine virtuali, vedere [Dimensioni delle macchine virtuali per Azure](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+  * Per aumentare la quota di core, contattare il [supporto tecnico di Azure](https://azure.microsoft.com/support/options/). Per informazioni sulle dimensioni delle macchine virtuali, vedere [Dimensioni delle macchine virtuali per Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * **Scripting di Windows PowerShell**: l'argomento presuppone una conoscenza di base di Windows PowerShell. Per altre informazioni sull'uso di Windows PowerShell, vedere gli argomenti seguenti:
   
   * [Avvio di Windows PowerShell in Windows Server](https://technet.microsoft.com/library/hh847814.aspx)

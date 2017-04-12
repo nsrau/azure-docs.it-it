@@ -15,9 +15,9 @@ ms.workload: big-compute
 ms.date: 03/17/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 671d5c3e88585d7874dbfb0b03adc3cd9374ceca
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: aff11fe3d7e4cea3580f73d54a53d9624e4f3ac9
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -49,7 +49,7 @@ HPC Pack è la soluzione HPC gratuita di Microsoft basata sulle tecnologie di Mi
 * [Scaricare HPC Pack 2016](https://www.microsoft.com/download/details.aspx?id=54507)
 * [Scaricare HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49922)
 * [Documentazione](https://technet.microsoft.com/library/jj899572.aspx)
-* Opzioni per il cluster HPC Pack in Azure: [Linux](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e [Windows](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 
+* Opzioni per il cluster HPC Pack in Azure: [Linux](../virtual-machines/linux/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e [Windows](../virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 
 * [Potenziare le istanze del ruolo di lavoro di Azure con HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 * [Potenziare Azure Batch con HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)
 * [Forum di Windows HPC](https://social.microsoft.com/Forums/home?category=windowshpc)
@@ -77,7 +77,7 @@ Usare questi modelli di Azure per distribuire cluster HPC Linux.
 * [Forum di MPI](https://social.microsoft.com/Forums/en-us/home?forum=windowshpcmpi)
 
 ## <a name="compute-intensive-instances"></a>Istanze a elevato uso di calcolo
-Azure offre [varie dimensioni di macchine virtuali](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), tra cui istanze [a elevato uso di calcolo serie H](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) che consentono di connettersi a una rete RDMA di back-end per eseguire carichi di lavoro HPC Linux e Windows. 
+Azure offre [varie dimensioni di macchine virtuali](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), tra cui istanze [a elevato uso di calcolo serie H](../virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) che consentono di connettersi a una rete RDMA di back-end per eseguire carichi di lavoro HPC Linux e Windows. 
 
 * [Configurazione di un cluster Linux RDMA per eseguire applicazioni MPI](../virtual-machines/linux/classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Configurare un cluster di Windows RDMA con Microsoft HPC Pack per eseguire applicazioni MPI](../virtual-machines/windows/classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)

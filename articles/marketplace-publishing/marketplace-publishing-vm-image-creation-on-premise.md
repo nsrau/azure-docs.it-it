@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
 translationtype: Human Translation
-ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
-ms.openlocfilehash: 101d0b2733a43b99b32efae8a9510ffca2a2e467
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 8f6b9a9293dc149586e6e5fd55028170ea825b07
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -124,7 +125,7 @@ Sarà quindi possibile creare un contenitore in tale account di archiviazione us
 > Tali comandi presuppongono che il contesto dell’account di archiviazione corrente sia già stato impostato in PowerShell.   Per ulteriori dettagli sulla configurazione di PowerShell fare riferimento a [Configurazione di Azure PowerShell](marketplace-publishing-powershell-setup.md) .  
 > 
 > ### <a name="create-a-storage-account-by-using-the-command-line-tool-for-mac-and-linux"></a>Creare un account di archiviazione con lo strumento da riga di comando per Mac e Linux
-> Dallo [strumento da riga di comando per Linux](../virtual-machines/virtual-machines-linux-cli-manage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)creare un account di archiviazione come segue.
+> Dallo [strumento da riga di comando per Linux](../virtual-machines/linux/cli-manage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)creare un account di archiviazione come segue.
 > 
 > 
 
@@ -148,10 +149,5 @@ Con lo [strumento da riga di comando per Linux](https://docs.microsoft.com/cli/a
 ## <a name="see-also"></a>Vedere anche
 * [Creazione di un'immagine di macchina virtuale per Marketplace](marketplace-publishing-vm-image-creation.md)
 * [Configurazione di Azure PowerShell](marketplace-publishing-powershell-setup.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

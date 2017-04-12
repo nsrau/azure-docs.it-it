@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/6/2016
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 376e3ff9078cf0b53493dbfee9273c415da04e52
-ms.openlocfilehash: fa978644f2cd95b8eb21687e90d16d0df22b3d44
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: bc9d9aa1cbe704de5f7fb960f1467aa522acd0b5
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -38,7 +39,7 @@ Se si usano set di scalabilità di macchine virtuali e una metrica specifica non
 
 Se una metrica specifica non viene campionata o trasferita con la frequenza prevista, è possibile aggiornare la configurazione della diagnostica.
 
-Se si verificano entrambe le condizioni precedenti, vedere [Usare PowerShell per abilitare la Diagnostica di Azure in una macchina virtuale che esegue Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md) per informazioni su come usare PowerShell per configurare e aggiornare l'estensione Diagnostica delle VM di Azure per abilitare la metrica. Questo articolo include anche un file di configurazione della diagnostica di esempio.
+Se si verificano entrambe le condizioni precedenti, vedere [Usare PowerShell per abilitare la Diagnostica di Azure in una macchina virtuale che esegue Windows](../virtual-machines/windows/ps-extensions-diagnostics.md) per informazioni su come usare PowerShell per configurare e aggiornare l'estensione Diagnostica delle VM di Azure per abilitare la metrica. Questo articolo include anche un file di configurazione della diagnostica di esempio.
 
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Metriche host per le VM Windows e Linux basate su Resource Manager
 Le metriche a livello di host seguenti vengono generate per impostazione predefinita per le VM di Azure e VMSS nelle istanze di Windows e Linux. Queste metriche descrivono la VM di Azure, ma vengono raccolte dall'host della VM di Azure anziché tramite l'agente installato nella VM guest. Queste metriche possono essere usate nelle regole di scalabilità automatica. 
@@ -196,10 +197,5 @@ Per i set di scalabilità di macchine virtuali, è possibile aggiornare l'impost
 > Per il bus di servizio il concetto di gruppo di risorse non esiste, ma Azure Resource Manager consente di creare un gruppo di risorse predefinito per ogni area. Il gruppo di risorse è in genere nel formato "Default-ServiceBus-[area]". Ad esempio, "Default-ServiceBus-EastUS", "Default-ServiceBus-WestUS", "Default-ServiceBus-AustraliaEast" e così via.
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

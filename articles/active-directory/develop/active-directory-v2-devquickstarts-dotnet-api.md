@@ -1,5 +1,5 @@
 ---
-title: Aggiungere informazioni di accesso a un&quot;API Web .NET MVC usando l&quot;endpoint&2;.0 di Azure AD | Documentazione Microsoft
+title: Aggiungere informazioni di accesso a un&quot;API Web .NET MVC usando l&quot;endpoint 2.0 di Azure AD | Documentazione Microsoft
 description: Come creare un&quot;API Web .NET MVC che accetta token da account Microsoft personali, aziendali e dell&quot;istituto di istruzione.
 services: active-directory
 documentationcenter: .net
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 47dce83cb4e3e5df92e91f1ca9195326634d6c8b
-ms.openlocfilehash: af75c0016d4c64c13c971abc80d0c56542a0db3e
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: d063ea881c82b158a196cb5f63e7514777732846
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: af75c0016d4c64c13c971abc80d0c56542a0db3e
 Con l'endpoint v2.0 di Azure Active Directory è possibile proteggere un'API Web usando token di accesso [OAuth 2.0](active-directory-v2-protocols.md) in modo da consentire agli utenti di accedere all'API Web in modo sicuro con un account Microsoft personale, aziendale o dell'istituto di istruzione.
 
 > [!NOTE]
-> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint&2;.0.  Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
+> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint 2.0.  Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
 >
 >
 
@@ -37,7 +38,7 @@ Il codice per questa esercitazione è salvato [su GitHub](https://github.com/Azu
 git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
 ```
 
-Lo scheletro di un'app include tutto il codice boilerplate per una semplice API, ma non tutte le parti relative all'identità. Se non si vuole proseguire, in alternativa è possibile clonare o [scaricare l'esempio completo](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip).
+Lo scheletro di un'app include tutto il codice boilerplate per una semplice API, ma non tutte le parti relative all'identità. Se non si vuole proseguire, in alternativa è possibile clonare o [scaricare l'esempio completo](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip).
 
 ```
 git clone https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
@@ -53,7 +54,7 @@ Questa soluzione di visual studio contiene anche una "TodoListClient", che è un
 * Aggiungere la piattaforma **Mobile** per l'app.
 
 ## <a name="install-owin"></a>Installare OWIN
-Dopo aver registrato un'app, si dovrà configurarla in modo che comunichi con l'endpoint v&2;.0 per convalidare le richieste in ingresso e i token.
+Dopo aver registrato un'app, si dovrà configurarla in modo che comunichi con l'endpoint v 2.0 per convalidare le richieste in ingresso e i token.
 
 * Per iniziare, aprire la soluzione e aggiungere i pacchetti NuGet del middleware OWIN al progetto TodoListService usando la Console di Gestione pacchetti.
 
@@ -77,7 +78,7 @@ public partial class Startup
 }
 ```
 
-* Aprire il file `App_Start\Startup.Auth.cs` e implementare il metodo `ConfigureAuth(…)`, che configura l'API Web per accettare token dall'endpoint&2;.0.
+* Aprire il file `App_Start\Startup.Auth.cs` e implementare il metodo `ConfigureAuth(…)`, che configura l'API Web per accettare token dall'endpoint 2.0.
 
 ```C#
 public void ConfigureAuth(IAppBuilder app)
@@ -143,7 +144,7 @@ public IEnumerable<TodoItem> Get()
   * `ida:Audience` rappresenta l' **ID applicazione** dell'app immesso nel portale.
 
 ## <a name="configure-the-client-app"></a>Configurare l'app client
-Prima di poter vedere in azione il servizio To Do List, è necessario configurare il client To Do List in modo che possa ricevere i token dall'endpoint&2;.0 ed eseguire chiamate al servizio.
+Prima di poter vedere in azione il servizio To Do List, è necessario configurare il client To Do List in modo che possa ricevere i token dall'endpoint 2.0 ed eseguire chiamate al servizio.
 
 * Nel progetto client To Do List aprire `App.config` e immettere i valori di configurazione nella sezione `<appSettings>`.
   * ID applicazione `ida:ClientId` copiato dal portale.
@@ -166,9 +167,4 @@ Per altre risorse, vedere:
 
 ## <a name="get-security-updates-for-our-products"></a>Ottenere aggiornamenti della sicurezza per i prodotti
 È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

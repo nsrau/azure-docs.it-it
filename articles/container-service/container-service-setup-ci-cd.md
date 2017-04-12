@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: johnsta
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 65fc37a1fd1d1d0149b98767117f8faafb5dcd2b
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: acfba48585b960a1ce39b77e35d292189aa9732b
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -50,8 +50,8 @@ Ecco alcuni aspetti principali dell'app e del rispettivo flusso di distribuzione
 >[!IMPORTANT]
 > Per creare un cluster sicuro, passare il file di chiave SSH pubblica da usare per la chiamata ad `az acs create` . È possibile fare in modo che l'interfaccia della riga di comando di Azure versione 2.0 generi e passi contemporaneamente le chiavi tramite l'opzione `--generate-ssh-keys` oppure è possibile passare il percorso delle chiavi usando l'opzione `--ssh-key-value`. Il percorso predefinito in Linux è `~/.ssh/id_rsa.pub` e in Windows è `%HOMEPATH%\.ssh\id_rsa.pub`, ma è possibile modificarlo.
 <!---Loc Comment: What do you mean by "you pass your SSH public key file to pass"? Thank you.--->
-> Per creare file di chiave SSH pubblica e privata in Linux, vedere [Creare chiavi SSH in Linux e Mac](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
-> Per creare file di chiave SSH pubblica e privata in Windows, vedere [Creare chiavi SSH in Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
+> Per creare file di chiave SSH pubblica e privata in Linux, vedere [Creare chiavi SSH in Linux e Mac](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
+> Per creare file di chiave SSH pubblica e privata in Windows, vedere [Creare chiavi SSH in Windows](../virtual-machines/linux/ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
 
 1. Digitare prima di tutto il comando [az login](/cli/azure/#login) in una finestra del terminale per accedere alla sottoscrizione di Azure con l'interfaccia della riga di comando di Azure: 
 

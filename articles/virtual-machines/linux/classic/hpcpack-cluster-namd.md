@@ -16,9 +16,9 @@ ms.workload: big-compute
 ms.date: 10/13/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 1e1e3b405d752c459ecfc7f74fbdafc148c147b5
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: f46facee3e45704f74a13db7a18274f5ce90ceff
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -61,7 +61,7 @@ Per generare con facilità una coppia di chiavi RSA, che contiene una chiave pub
    ![Chiavi pubbliche e private][keys]
 
 ### <a name="add-the-key-pair-to-the-hpc-pack-cluster"></a>Aggiungere la coppia di chiavi al cluster HPC Pack
-1. [Connettersi tramite Desktop remoto](../../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) alla VM con nodo head usando le credenziali del dominio specificate durante la distribuzione del cluster, ad esempio hpc\clusteradmin. Il cluster viene gestito dal nodo head.
+1. [Connettersi tramite Desktop remoto](../../windows/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) alla VM con nodo head usando le credenziali del dominio specificate durante la distribuzione del cluster, ad esempio hpc\clusteradmin. Il cluster viene gestito dal nodo head.
 2. Usare le procedure standard di Windows Server per creare un account utente di dominio nel dominio di Active Directory del cluster. Ad esempio, usare lo strumento Utenti e computer di Active Directory sul nodo head. Gli esempi in questo articolo presuppongono che venga creato un utente di dominio denominato hpclab\hpcuser nel dominio hpclab (hpclab\hpcuser).
 3. Aggiungere l'utente di dominio al cluster HPC Pack come utente del cluster. Per le istruzioni, vedere [Aggiungere o rimuovere utenti del cluster](https://technet.microsoft.com/library/ff919330.aspx).
 4. Creare un file con nome C:\cred.xml e copiarvi i dati della chiave RSA. Un esempio è disponibile nei file di esempio alla fine dell'articolo.

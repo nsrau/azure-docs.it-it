@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 91e061820e8edc81bca395dc78d3e1e840b21438
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: da4bb7fcbb45afed5d45f4d48c0b90e44503daf8
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -44,7 +45,7 @@ Per configurare un servizio cloud da compilare e distribuire automaticamente in 
    
     ![][4]
 2. È possibile distribuire un’app Web o un servizio cloud (applicazione Azure) seguendo i passaggi di questa procedura dettagliata. Creare un nuovo progetto servizio cloud di Azure o un nuovo progetto ASP.NET MVC. Assicurarsi che il progetto sia per .NET Framework 4 o versione successiva. Se si crea un progetto di servizio cloud, aggiungere un ruolo Web ASP.NET MVC e un ruolo di lavoro.
-   Per creare un'app Web, scegliere il modello di progetto **Applicazione Web ASP.NET** e quindi **MVC**. Per altre informazioni, vedere [Creare un'app Web ASP.NET in Servizio app di Azure](../app-service-web/web-sites-dotnet-get-started.md) .
+   Per creare un'app Web, scegliere il modello di progetto **Applicazione Web ASP.NET** e quindi **MVC**. Per altre informazioni, vedere [Creare un'app Web ASP.NET in Servizio app di Azure](../app-service-web/app-service-web-get-started-dotnet.md) .
 3. Aprire il menu di scelta rapida relativo alla soluzione e scegliere **Commit**.
    
     ![][7]
@@ -232,9 +233,4 @@ Per altri suggerimenti sull'uso di Git con Visual Studio Team Services, vedere l
 [45]: ./media/cloud-services-continuous-delivery-use-vso-git/SyncChanges2.PNG
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
