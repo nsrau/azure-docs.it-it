@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/09/2016
+ms.date: 04/11/2017
 ms.author: bwren
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 31291a9b0f452adeae42f744a976c14e61a4b303
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -105,10 +106,5 @@ La soluzione potrebbe includere ad esempio un runbook di Automazione per raccogl
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Vedere [OMS SDK](operations-management-suite-sdk.md) per informazioni tecniche su come automatizzare i servizi OMS.  
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

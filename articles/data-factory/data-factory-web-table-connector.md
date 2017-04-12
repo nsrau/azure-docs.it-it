@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 04/12/2017
 ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
@@ -26,7 +26,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 Data Factory supporta attualmente solo lo spostamento di dati da una tabella Web ad altri archivi dati, non da altri archivi dati a una tabella Web.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Questo connettore Web attualmente supporta soltanto l'estrazione del contenuto della tabella da una pagina HTML. Per recuperare dati da un endpoint HTTP/s, usare invece il [connettore HTTP](data-factory-http-connector.md).
 
 ## <a name="getting-started"></a>Introduzione
