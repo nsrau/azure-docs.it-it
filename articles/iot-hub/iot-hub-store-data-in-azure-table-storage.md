@@ -16,16 +16,15 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: de47a15dd4009b9a33a53fd981bc178eaa50c035
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ef5d4af5d5dad2b548ab01be5ba9c4769b21416a
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="save-iot-hub-messages-that-contain-information-like-sensor-data-to-azure-table-storage"></a>Salvare i messaggi dell'hub IoT che contengono informazioni come i dati di sensori nell'archiviazione tabelle di Azure
 
-> [!Note]
-> Prima di iniziare questa esercitazione, assicurarsi di aver completato [Connettere ESP8266 all'hub IoT di Azure](/iot-hub-arduino-huzzah-esp8266-get-started.md). In [Connettere ESP8266 all'hub IoT di Azure](/iot-hub-arduino-huzzah-esp8266-get-started.md) si configurano il dispositivo IoT e l'hub IoT e si distribuisce un'applicazione di esempio da eseguire nel dispositivo. L'applicazione invia i dati del sensore raccolti all'hub IoT.
+[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 ## <a name="what-you-will-learn"></a>Contenuto dell'esercitazione
 
@@ -39,7 +38,7 @@ Si apprenderà come creare un account di archiviazione di Azure e un'app per le 
 
 ## <a name="what-you-will-need"></a>Prerequisiti
 
-- Completare l'esercitazione [Connettere ESP8266 all'hub IoT di Azure](/iot-hub-arduino-huzzah-esp8266-get-started.md) che prevede i requisiti seguenti:
+- Completare l'esercitazione [Connettere ESP8266 all'hub IoT di Azure](iot-hub-arduino-huzzah-esp8266-get-started.md) che prevede i requisiti seguenti:
   - Una sottoscrizione di Azure attiva.
   - Un hub IoT di Azure nella sottoscrizione.
   - Un'applicazione in esecuzione che invia messaggi all'hub IoT di Azure.
@@ -205,6 +204,4 @@ L'app per le funzioni è stata creata. Archivia i messaggi ricevuti dall'hub IoT
 
 È stato creato l'account di archiviazione di Azure e l'app per le funzioni di Azure per archiviare i messaggi ricevuti dall'hub IoT nell'archivio tabelle di Azure.
 
-Per altre informazioni sulle attività iniziali con l'hub IoT e per esplorare altri scenari IoT, vedere:
-
-- [Gestire la messaggistica dei dispositivi cloud con iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

@@ -1,66 +1,10 @@
 ---
-title: Scollegare un disco dati da una VM Windows - Azure | Microsoft Docs
-description: Informazioni su come scollegare un disco dati da una macchina virtuale in Azure usando il modello di distribuzione Resource Manager.
-services: virtual-machines-windows
-documentationcenter: 
-author: cynthn
-manager: timlt
-editor: 
-tags: azure-service-management
-ms.assetid: 13180343-ac49-4a3a-85d8-0ead95e2028c
-ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
-ms.date: 03/21/2017
-ms.author: cynthn
+redirect_url: /azure/virtual-machines/windows/detach-disk
+redirect_document_id: true
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 7274a86ada8115e86156592cf034d0350f59ebab
-ms.lasthandoff: 03/22/2017
-
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: f9d5a674d927f89ff32dda03507977fb9cb91e4a
+ms.lasthandoff: 03/31/2017
 
 ---
-# <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Come scollegare un disco dati da una macchina virtuale di Windows
-Quando un disco dati collegato a una macchina virtuale non è più necessario, è possibile scollegarlo con facilità. Il disco verrà rimosso dalla macchina virtuale, ma non dall'archivio. 
-
-> [!WARNING]
-> Se si scollega un disco, questo non viene automaticamente eliminato. Se è stata eseguita la sottoscrizione all'archiviazione Premium, si continueranno a sostenere costi di archiviazione per il disco. Per altre informazioni fare riferimento a [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage/storage-premium-storage.md#pricing-and-billing). 
-> 
-> 
-
-Se si vogliono riusare i dati presenti nel disco, è possibile ricollegarlo alla stessa macchina virtuale o collegarlo a una nuova.  
-
-## <a name="detach-a-data-disk-using-the-portal"></a>Scollegare un disco dati tramite il portale
-1. Nell'hub del portale selezionare **Macchine virtuali**.
-2. Selezionare la macchina virtuale con il disco dati che si vuole scollegare e fare clic su **Arresta** per deallocare la macchina virtuale.
-3. Nel pannello delle macchine virtuali selezionare **Dischi**.
-4. Nella parte superiore del pannello **Dischi** selezionare **Modifica**.
-5. Nel pannello **Dischi**, fare clic sul pulsante per scollegare il disco ![Immagine del pulsante per scollegare il disco](./media/virtual-machines-common-detach-disk/detach.png) nella parte più a destra del disc dati.
-5. Dopo aver rimosso il disco, fare clic su Salva nella parte superiore del pannello.
-6. Nel pannello delle macchine virtuali fare clic su **Panoramica** e quindi fare clic su **Avvia** nella parte superiore del pannello per riavviare la macchina virtuale.
-
-
-
-Il disco rimane nello spazio di archiviazione ma non è più collegato a una macchina virtuale.
-
-## <a name="detach-a-data-disk-using-powershell"></a>Scollegare un disco dati tramite PowerShell
-In questo esempio, il primo comando consente di denominare la macchina virtuale **MyVM07** nel gruppo di risorse **RG11** usando il cmdlet Get-AzureRmVM. Il comando archivia la macchina virtuale nella variabile **$VirtualMachine** . 
-
-Il secondo comando rimuove il disco dati denominato DataDisk3 dalla macchina virtuale. 
-
-L'ultimo comando aggiorna lo stato della macchina virtuale per completare il processo di rimozione del disco dati.
-
-```powershell
-$VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" 
-Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
-Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
-```
-
-Per altre informazioni, vedere [Remove-AzureRmVMDataDisk](/powershell/remove-azurermvmdatadisk).
-
-## <a name="next-steps"></a>Passaggi successivi
-Se si desidera riutilizzare il disco dati, è sufficiente [collegarlo a un'altra VM](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
 

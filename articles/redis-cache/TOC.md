@@ -26,7 +26,7 @@
 ###[Distribuire la cache con il clustering](cache-how-to-premium-clustering.md)
 ## Automatizzare
 ###[Distribuire e gestire con Powershell](cache-howto-manage-redis-cache-powershell.md)
-###[Distribuire e gestire con l'interfaccia della riga di comando di Azure](cache-manage-cli.md)
+###[Distribuire e gestire con l'interfaccia della riga di comando di Azure](cli-samples.md)
 ###[Effettuare il provisioning di Cache Redis](cache-redis-cache-arm-provision.md)
 ###[Effettuare il provisioning di un'App Web con Cache Redis](cache-web-app-arm-with-redis-cache-provision.md)
 ## Integrazione con ASP.NET

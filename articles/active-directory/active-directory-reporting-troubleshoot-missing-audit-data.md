@@ -1,6 +1,6 @@
 ---
 title: "Risoluzione dei problemi: dati mancanti nel log attività di Azure Active Directory - Anteprima | Microsoft Docs"
-description: Offre una soluzione ed elenca i vari report disponibili per l&quot;anteprima di Azure Active Directory
+description: Elenca i vari report disponibili per l&quot;anteprima di Azure Active Directory
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 03/09/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: ebc92bc23201dbcd01f90e0cc3d5055fb85820be
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: c372fe5f3a419a6a27ef00d755d5d46325b956c6
+ms.lasthandoff: 04/06/2017
 
 
 ---

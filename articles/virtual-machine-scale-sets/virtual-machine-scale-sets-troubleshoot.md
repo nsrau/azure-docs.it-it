@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 4818c0c036c7e462af5b8d99f1085f8d9025156c
-ms.openlocfilehash: 7b4db2f215b8f7369694a45533d0c862b8f8d08e
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: bd45a0fb99a77851aa7b91d23bd4b830b6f5cc7b
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: 7b4db2f215b8f7369694a45533d0c862b8f8d08e
 Alcuni aspetti da considerare:
 
 * Quanti core sono presenti in ogni macchina virtuale e viene caricato ogni singolo core?
-  Il modello di avvio rapido di Azure di esempio riportato sopra ha uno script do_work.php, che carica un singolo core. Se si usa una macchina virtuale di dimensioni superiori a quelle di una macchina virtuale a core singolo come Standard_A1 o D1, è necessario eseguire il carico più volte. Per verificare il numero di core delle macchine virtuali, vedere [Dimensioni delle macchine virtuali in Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+  Il modello di avvio rapido di Azure di esempio riportato sopra ha uno script do_work.php, che carica un singolo core. Se si usa una macchina virtuale di dimensioni superiori a quelle di una macchina virtuale a core singolo come Standard_A1 o D1, è necessario eseguire il carico più volte. Per verificare il numero di core delle macchine virtuali, vedere [Dimensioni delle macchine virtuali in Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * Quante VM sono presenti nel set di scalabilità di macchine virtuali e vengono eseguite operazioni su ogni VM?
   
     Un aumento del numero di istanze ha luogo unicamente quando l'uso medio della CPU tra **tutte** le macchine virtuali in un set di scalabilità supera il valore di soglia, in base al tempo definito all'interno delle regole di scalabilità automatica.
@@ -82,9 +83,4 @@ Alcuni aspetti da considerare:
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png
 [explorer]: ./media/virtual-machine-scale-sets-troubleshoot/image1.png
 [tables]: ./media/virtual-machine-scale-sets-troubleshoot/image4.png
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

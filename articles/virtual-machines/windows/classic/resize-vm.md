@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 522463673b9ac6e53da616e435a465d2d2ce0524
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 4277bc8394c7ba140291e9dc776162e87deab96b
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -28,7 +28,7 @@ Questo articolo illustra come ridimensionare una VM Windows creata nel modello d
 Riguardo alla possibilità di ridimensionare una VM, è necessario tenere in considerazione i due fattori che controllano l'intervallo di dimensioni disponibili. Il primo fattore è la regione in cui è distribuita la VM. L'elenco delle dimensioni di VM disponibili nella regione si trova nella scheda Servizi della pagina Web Regioni di Azure. Il secondo fattore è l'hardware fisico che ospita attualmente la VM. I server fisici che ospitano le VM sono raggruppati in cluster di hardware fisico comune. Il metodo di modifica delle dimensioni di una VM varia a seconda che le nuove dimensioni siano supportate dal cluster hardware che ospita attualmente la VM stessa.
 
 > [!IMPORTANT] 
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. È anche possibile [ridimensionare una VM creata nel modello di distribuzione Resource Manager](../../virtual-machines-windows-resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. È anche possibile [ridimensionare una VM creata nel modello di distribuzione Resource Manager](../resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="add-your-account"></a>Aggiungere il proprio account
 È necessario configurare Azure PowerShell per garantirne il funzionamento con le risorse classiche di Azure. Per configurare Azure PowerShell per la gestione delle risorse classiche, seguire questa procedura.
@@ -68,6 +68,6 @@ Per ridimensionare una VM a una dimensione non disponibile nel cluster hardware 
 Uno script di esempio per l'eliminazione e la nuova creazione di un servizio cloud mediante una nuova dimensione di VM è disponibile [qui](https://github.com/Azure/azure-vm-scripts). 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Ridimensionare una VM creata nel modello di distribuzione Resource Manager](../../virtual-machines-windows-resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* [Ridimensionare una VM creata nel modello di distribuzione Resource Manager](../resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

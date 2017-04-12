@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 03/03/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: db01dd7ff7590c6cb43b5f8bc39674f585160856
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 10e2f35bdaf1b6e00e3d8dde34dd5809a89cde30
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -37,18 +37,18 @@ Per seguire la procedura descritta in questo articolo, sono necessari gli elemen
 * Un cluster Azure HDInsight (Hadoop in HDInsight) basato su Windows o su Linux.
 
   > [!IMPORTANT]
-  > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * Visual Studio 2012, 2013, 2015 o 2017.
 
 ## <a name="create-the-application"></a>Creazione dell'applicazione
 
-HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei cluster HDInsight da .NET. 
+HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei cluster HDInsight da .NET.
 
 1. In Visual Studio scegliere **Nuovo** dal menu **File**, quindi fare clic su **Progetto**.
 
 2. Nella finestra di dialogo Nuovo progetto digitare o selezionare i valori seguenti:
-   
+
    | Proprietà | Valore |
    | ------ | ------ |
    | Categoria | Templates/Visual C#/Windows |
@@ -60,11 +60,11 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei clus
 4. Selezionare **Library Package Manager** (Gestione pacchetti libreria) o **Gestione pacchetti NuGet** dal menu **Strumenti** e quindi scegliere **Console di Gestione pacchetti**.
 
 5. Per installare i pacchetti .NET SDK, usare il comando seguente:
-   
+
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 
 6. In Esplora soluzioni fare doppio clic su **Program.cs** per aprirlo. Replace Sostituire il codice esistente con il seguente.
-   
+
     ```csharp
     using Microsoft.Azure.Management.HDInsight.Job;
     using Microsoft.Azure.Management.HDInsight.Job.Models;
@@ -117,7 +117,7 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei clus
         }
     }
     ```
-    
+
 7. Per avviare l'applicazione, premere **F5**.
 
 8. Per uscire dall'applicazione, premere **INVIO**.

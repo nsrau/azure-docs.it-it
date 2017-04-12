@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 61610078ad5cefd513fdb758aec45d7489704817
-ms.openlocfilehash: b4cb40d81613c16558be1e0e2c10dbfa0265a6b7
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 1a462b8d557ad23bda912ddf9431195a8cfe909e
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -125,7 +125,7 @@ Azure Managed Disks supporta attualmente solo l'archiviazione con ridondanza loc
 
 **Perché i clienti devono sbloccare il traffico in uscita sulla porta 8443 per le macchine virtuali usando Managed Disks di Azure?**
 
-L'agente di macchine virtuali di Azure usa la porta 8443 per segnalare lo stato di ogni estensione della macchina virtuale nella piattaforma di Azure. Se questa porta non viene sbloccata, l'agente di macchine virtuali non sarà in grado di segnalare lo stato di un'estensione della macchina virtuale. Per altre informazioni sull'agente di VM, vedere [Panoramica dell'agente di macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-agent-user-guide.md).
+L'agente di macchine virtuali di Azure usa la porta 8443 per segnalare lo stato di ogni estensione della macchina virtuale nella piattaforma di Azure. Se questa porta non viene sbloccata, l'agente di macchine virtuali non sarà in grado di segnalare lo stato di un'estensione della macchina virtuale. Per altre informazioni sull'agente di VM, vedere [Panoramica dell'agente di macchine virtuali di Azure](../virtual-machines/windows/agent-user-guide.md).
 
 **Cosa accade se una macchina virtuale viene distribuita con le estensioni e la porta non viene sbloccata?**
 

@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 045410664ec70c846abbf32a36dcc8f70ac471be
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 8b5f4568fa4e505b28011134cc8669ea50e17cf6
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="estimate-azure-remoteapp-network-bandwidth-usage"></a>Uso previsto della larghezza di banda di rete di Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp sta per essere sospeso. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
+> Azure RemoteApp verrà sospeso a partire dal 31 agosto 2017. Per i dettagli, vedere l' [annuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -43,10 +44,5 @@ Quando si esaminano i test proposti e i consigli generali, effettivamente piutto
 Verrà esaminato il reindirizzamento dei dispositivi, ma non verrà preso in considerazione l'impatto sulla larghezza di banda del traffico di rete causato da dispositivi collegati, ad esempio risorse di archiviazione, stampanti, scanner, fotocamere Web e altri dispositivi USB. Tali dispositivi di solito causano picchi temporanei nella richiesta di larghezza di banda, che si ridimensionano al termine di ciascuna attività. Se questo accade di frequente, tuttavia, la mancanza di larghezza di banda potrebbe rendersi evidente.
 
 Inoltre non verrà esaminato in che modo un utente possa influire sugli altri utenti all'interno della stessa rete. Ad esempio, un utente che usa video 4K in una rete a 100 MB/s può influire in modo significativo sugli altri utenti della stessa rete che tentano di eseguire la stessa attività. Purtroppo diventa sempre più difficile determinare l'impatto dell'uso simultaneo per offrire una soluzione comune o esaustiva per le prestazioni del sistema nel complesso. È possibile affermare solo che la tecnologia del protocollo sottostante usa al meglio la larghezza di banda disponibile, ma presenta comunque alcune limitazioni.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

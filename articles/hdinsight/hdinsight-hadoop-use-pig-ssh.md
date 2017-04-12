@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 4fe50acbbf9424275c5746b3bdabc79b08b027d3
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 22862d87562e9d9ec9d509eab2f65c850f4aa6d6
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -40,7 +40,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 * Un cluster HDInsight basato su Linux (Hadoop su HDInsight).
 
   > [!IMPORTANT]
-  > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * Un client SSH. Linux, Unix e Mac OS dovrebbero essere dotati di un client SSH. Per gli utenti di Windows è necessario scaricare un client, ad esempio [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -59,24 +59,24 @@ Per altre informazioni sull'uso di SSH con HDInsight, vedere l'articolo [Usare S
 
 ## <a id="pig"></a>Usare il comando Pig
 1. Una volta connessi, avviare l'interfaccia della riga di comando di Pig (CLI) mediante il comando seguente.
-   
+
         pig
-   
+
     Dopo qualche istante verrà visualizzato un prompt dei comandi `grunt>` .
 2. Immettere la seguente istruzione.
-   
+
         LOGS = LOAD 'wasbs:///example/data/sample.log';
-   
+
     Questo comando carica i contenuti del file sample. log in LOGS. È possibile visualizzare i contenuti del file usando il seguente comando.
-   
+
         DUMP LOGS;
 3. Successivamente, trasformare i dati applicando un'espressione regolare per estrarre solo il livello di registrazione da ogni record usando il comando seguente.
-   
+
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-   
+
     È possibile usare **DUMP** per visualizzare i dati dopo la trasformazione. In questo caso, usare `DUMP LEVELS;`.
 4. Continuare ad applicare le trasformazioni usando le seguenti istruzioni. Usare `DUMP` per visualizzare il risultato della trasformazione dopo ogni passaggio.
-   
+
     <table>
     <tr>
     <th>Istruzione</th><th>Risultato</th>
@@ -95,25 +95,25 @@ Per altre informazioni sull'uso di SSH con HDInsight, vedere l'articolo [Usare S
     </tr>
     </table>
 5. È anche possibile salvare i risultati di una trasformazione usando l'istruzione `STORE` . Ad esempio, la seguente istruzione salva il valore `RESULT` nella directory **/example/data/pigout** nel contenitore di archiviazione predefinito per il cluster.
-   
+
         STORE RESULT into 'wasbs:///example/data/pigout';
-   
+
    > [!NOTE]
    > I dati vengono memorizzati nella directory specificata nei file denominati **part-nnnnn**. Se la directory esiste già, si riceverà un errore.
-   > 
-   > 
+   >
+   >
 6. Per uscire dal prompt grunt, immettere la seguente istruzione.
-   
+
         QUIT;
 
 ### <a name="pig-latin-batch-files"></a>File batch di Pig Latin
 È inoltre possibile usare il comando Pig per eseguire processi Pig Latin contenuti in un file.
 
 1. Dopo aver chiuso il prompt grunt, usare il seguente comando per indirizzare STDIN in un file denominato **pigbatch.pig**. Questo file verrà creato nella directory principale dell'account al quale è stata eseguita la registrazione per la sessione SSH.
-   
+
         cat > ~/pigbatch.pig
 2. Digitare o incollare le righe seguenti e quindi premere CTRL+D al termine.
-   
+
         LOGS = LOAD 'wasbs:///example/data/sample.log';
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
         FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
@@ -122,11 +122,11 @@ Per altre informazioni sull'uso di SSH con HDInsight, vedere l'articolo [Usare S
         RESULT = order FREQUENCIES by COUNT desc;
         DUMP RESULT;
 3. Usare quanto segue per eseguire il file **pigbatch.pig** mediante il comando Pig.
-   
+
         pig ~/pigbatch.pig
-   
+
     Al termine del processo batch, si otterrà il seguente output, corrispondente a quello ottenuto quando è stato usato `DUMP RESULT;` nei passaggi precedenti.
-   
+
         (TRACE,816)
         (DEBUG,434)
         (INFO,96)
@@ -146,5 +146,4 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight.
 
 * [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)
 * [Usare MapReduce con Hadoop in HDInsight](hdinsight-use-mapreduce.md)
-
 
