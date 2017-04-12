@@ -59,7 +59,7 @@ I passaggi di questa procedura illustrano come connettersi al portale di Azure c
 2. Accedere al [portale di Azure](https://portal.azure.com/).
 3. Nella **pagina di accesso** specificare le credenziali per la sottoscrizione.
    
-   ![pagina di accesso](./media/sql-database-get-started/login.png)
+   ![pagina di accesso](./media/sql-database-get-started-portal/login.png)
 
 
 <a name="create-logical-server-bk"></a>
@@ -84,11 +84,11 @@ I passaggi di questa procedura illustrano come visualizzare le informazioni sull
 
 1. Aprire SQL Server Management Studio e connettersi al server come amministratore usando l'autenticazione di SQL Server e l'account amministratore del server.
 
-   ![connetti al server](./media/sql-database-get-started/connect-to-server.png)
+   ![connetti al server](./media/sql-database-get-started-portal/connect-to-server.png)
 
 2. Fare clic su **Connect**.
 
-   ![connesso al server](./media/sql-database-get-started/connected-to-server.png)
+   ![connesso al server](./media/sql-database-get-started-portal/connected-to-server.png)
 
 3. In Esplora oggetti espandere **Sicurezza** e quindi **Account di accesso** per visualizzare gli account di accesso esistenti per il server. L'unico account di accesso per un nuovo server è quello dell'account amministratore del server.
 

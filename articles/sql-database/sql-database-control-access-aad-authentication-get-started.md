@@ -64,7 +64,7 @@ Usando la [sottoscrizione esistente](https://account.windowsazure.com/Home/Index
 2. Accedere al [portale di Azure](https://portal.azure.com/).
 3. Nella **pagina di accesso** specificare le credenziali per la sottoscrizione.
    
-   ![pagina di accesso](./media/sql-database-get-started/login.png)
+   ![pagina di accesso](./media/sql-database-get-started-portal/login.png)
 
 
 <a name="create-logical-server-bk"></a>
@@ -99,7 +99,7 @@ In questa sezione dell'esercitazione vengono visualizzate le informazioni relati
 
 2. Dopo l'installazione, digitare **Microsoft SQL Server Management Studio** nella casella di ricerca di Windows e premere **INVIO** per aprire SSMS.
 
-   ![SQL Server Management Studio](./media/sql-database-get-started/ssms.png)
+   ![SQL Server Management Studio](./media/sql-database-connect-query-ssms/ssms.png)
 
 3. Nella finestra di dialogo **Connetti al server** selezionare un metodo di autenticazione di Active Directory e quindi specificare le informazioni di autenticazione appropriate. Per informazioni sulla scelta di un metodo, vedere gli articoli relativi all'[autenticazione di Azure Active Directory](sql-database-aad-authentication.md) e al [supporto di SSMS per l'autenticazione MFA di Azure AD](sql-database-ssms-mfa-authentication.md).
 

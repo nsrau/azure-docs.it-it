@@ -96,23 +96,23 @@ Dopo avere eseguito la connessione alla macchina virtuale con Desktop remoto Win
 ## <a name="InstallIPython"></a>Installare IPython Notebook e altri strumenti di supporto
 Per configurare la nuova macchina virtuale di SQL Server in modo che funzioni da server di IPython Notebook e per installare ulteriori strumenti di supporto, come AzCopy, Esplora archivi Azure, i pacchetti Python per l'analisi scientifica dei dati e altro, all'utente viene fornita una personalizzazione particolare. Per effettuare l'installazione:
 
-* Fare clic con il pulsante destro del mouse sull'icona di **avvio di Windows** e scegliere **Prompt dei comandi (amministratore)**
-* Copiare i seguenti comandi e incollarli nel prompt dei comandi.
+1. Fare clic con il pulsante destro del mouse sull'icona di **avvio di Windows** e scegliere **Prompt dei comandi (amministratore)**
+2. Copiare i seguenti comandi e incollarli nel prompt dei comandi.
   
         set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
         @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
-* Quando richiesto, immettere una password per il server di IPython Notebook.
-* Lo script di personalizzazione consente di automatizzare varie procedure post-installazione, tra cui:
-  * Installazione e configurazione del server di IPython Notebook
-  * Apertura di porte TCP in Windows Firewall per gli endpoint creati in precedenza:
-  * Per la connessione remota di SQL Server
-  * Per la connessione remota del server di IPython Notebook
-  * Recupero di blocchi appunti IPython e script SQL di esempio
-  * Download e installazione di pacchetti Python per l'analisi scientifica dei dati
-  * Download e installazione di strumenti Azure come AzCopy ed Esplora archivi Azure   
+3. Quando richiesto, immettere una password per il server di IPython Notebook.
+4. Lo script di personalizzazione consente di automatizzare varie procedure post-installazione, tra cui:
+    * Installazione e configurazione del server di IPython Notebook
+    * Apertura di porte TCP in Windows Firewall per gli endpoint creati in precedenza:
+    * Per la connessione remota di SQL Server
+    * Per la connessione remota del server di IPython Notebook
+    * Recupero di blocchi appunti IPython e script SQL di esempio
+    * Download e installazione di pacchetti Python per l'analisi scientifica dei dati
+    * Download e installazione di strumenti Azure come AzCopy ed Esplora archivi Azure   
     <br>
-* È possibile accedere a IPython Notebook ed eseguirlo da un browser remoto o locale usando un URL nel formato `https://<virtual_machine_DNS_name>:<port>`, dove la porta indica la porta pubblica di IPython selezionata durante il provisioning della macchina virtuale.
-* Il server di IPython Notebook è in esecuzione come servizio in background e verrà riavviato automaticamente quando si riavvierà la macchina virtuale.
+5. È possibile accedere a IPython Notebook ed eseguirlo da un browser remoto o locale usando un URL nel formato `https://<virtual_machine_DNS_name>:<port>`, dove la porta indica la porta pubblica di IPython selezionata durante il provisioning della macchina virtuale.
+6. Il server di IPython Notebook è in esecuzione come servizio in background e verrà riavviato automaticamente quando si riavvierà la macchina virtuale.
 
 ## <a name="Optional"></a>Collegare un disco dati secondo necessità
 Se l'immagine di macchina virtuale non contiene dischi dati, vale a dire dischi diversi dall'unità C (disco del SO) e dall'unità D (disco temporaneo), è necessario aggiungere uno o più dischi dati per archiviare i dati. L'immagine di macchina virtuale per SQL Server 2012 SP2 Enterprise ottimizzato per carichi di lavoro di data warehouse viene preconfigurata con dischi aggiuntivi per file di dati e log di SQL Server.

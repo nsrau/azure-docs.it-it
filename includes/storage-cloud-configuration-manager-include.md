@@ -3,7 +3,7 @@ La [libreria di Gestione configurazione di Microsoft Azure per .NET](https://www
 Per fare riferimento al pacchetto CloudConfigurationManager, aggiungere l'istruzione `using` seguente:
 
 ```csharp
-using Microsoft.Azure;    //Namespace for CloudConfigurationManager
+using Microsoft.Azure; //Namespace for CloudConfigurationManager
 ```
 
 Ecco un esempio che illustra come recuperare una stringa di connessione da un file di configurazione:
@@ -15,9 +15,4 @@ CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 ```
 
 L'uso di Gestione configurazione di Azure è facoltativo. È anche possibile usare un'API, ad esempio la classe [ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) di .NET Framework.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

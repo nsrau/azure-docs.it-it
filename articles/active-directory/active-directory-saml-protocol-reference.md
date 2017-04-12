@@ -38,4 +38,3 @@ Azure Active Directory espone endpoint di Single Sign-On e Single Sign-Out speci
 
 Per informazioni sui documenti di metadati della federazione pubblicati da Azure AD, vedere [Metadati della federazione](active-directory-federation-metadata.md).
 
-

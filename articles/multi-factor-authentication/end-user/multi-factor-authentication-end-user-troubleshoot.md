@@ -13,12 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 03/15/2017
 ms.author: kgremban
+ms.custom: end-user
 translationtype: Human Translation
 ms.sourcegitcommit: 4ff028f88e984f28bc0f4a228aabed1fabc90560
 ms.openlocfilehash: 2eab76ba42955616ae4d6909c1568f03da0c1819
-
+ms.lasthandoff: 12/22/2016
 
 ---
 # <a name="having-trouble-with-two-step-verification"></a>Problemi con la verifica in due passaggi
@@ -92,10 +93,5 @@ Queste informazioni consentiranno di risolvere il problema nel più breve tempo 
 ## <a name="related-topics"></a>Argomenti correlati
 * [Gestire le impostazioni per la verifica in due passaggi](multi-factor-authentication-end-user-manage-settings.md)  
 * [Domande frequenti sull'applicazione Microsoft Authenticator](microsoft-authenticator-app-faq.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 
