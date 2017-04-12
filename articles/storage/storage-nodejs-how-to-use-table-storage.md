@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: b9041713f3d084fde77a34ef7956a2c59312245e
-ms.openlocfilehash: d9008f6232ca2442edce2a3cae88f0b3d2be2f14
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 70830309c33d4a94fc1eb5abb85cba26c8623f88
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -30,7 +31,7 @@ Questo argomento illustra come eseguire scenari comuni usando il servizio tabell
 
 Negli esempi di codice illustrati in questo argomento si suppone che sia già stata ottenuta un'applicazione Node.js. Per informazioni su come creare un'applicazione Node.js in Azure, vedere uno qualsiasi degli argomenti seguenti:
 
-* [Creare un'app Web Node.js nel servizio app di Azure](../app-service-web/web-sites-nodejs-develop-deploy-mac.md)
+* [Creare un'app Web Node.js nel servizio app di Azure](../app-service-web/app-service-web-get-started-nodejs.md)
 * [Creazione e distribuzione di un sito Web Node.js in Azure con WebMatrix](../app-service-web/web-sites-nodejs-use-webmatrix.md)
 * [Creare e distribuire un'applicazione Node.js in un servizio cloud di Azure](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (usando Windows PowerShell)
 
@@ -195,7 +196,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > 1. Recuperare il valore ETag dell'oggetto da aggiornare. Questo valore viene restituito insieme a `response` per qualsiasi operazione associata all'entità e può essere recuperato tramite `response['.metadata'].etag`.
 > 2. Quando si esegue un'operazione di aggiornamento su un'entità, aggiungere le informazioni ETag precedentemente recuperate alla nuova entità. Ad esempio:
 >
->       entity2['.metadata'].etag = currentEtag;
+>         entity2['.metadata'].etag = currentEtag;
 > 3. Eseguire l'operazione di aggiornamento. Se l'entità è stata modificata dall'ultimo recupero del valore di ETag, ad esempio da un'altra istanza dell'applicazione, viene restituito un `error` che indica che la condizione di aggiornamento specificata nella richiesta non è stata soddisfatta.
 >
 >
@@ -457,17 +458,8 @@ Per altre informazioni, vedere le risorse seguenti:
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 [OData.org]: http://www.odata.org/
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-[Azure portal]: portal.azure.com
 
-[Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Website with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
-[Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
 [App Web Node.js con il servizio tabelle di Azure]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
-[Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+[Create and deploy a Node.js application to an Azure website]: ../app-service-web/app-service-web-get-started-nodejs.md
 

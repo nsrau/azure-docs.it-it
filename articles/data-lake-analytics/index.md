@@ -13,8 +13,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b6b6a217f6fa54928b2c05cf44c5b0b74aaf8ce6
-ms.openlocfilehash: 21b56baf3e17b7955e6baf4b996b02d67fe50b81
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 6098c2b7465ee14a5303d07c014a6f918ad62a61
+ms.lasthandoff: 04/10/2017
 
 ---
 # <a name="data-lake-analytics-documentation"></a>Documentazione di Data Lake Analytics
@@ -215,6 +216,7 @@ Informazioni su come usare Data Lake Analytics per eseguire processi di analisi 
                     <div class="cardText">
                         <h3>Riga di comando</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.datalakeanalytics/v2.3.0/azurerm.datalakeanalytics">PowerShell</a></p>
+                        <p><a href="/cli/azure/dla">Interfaccia della riga di comando 2.0</a></p>
                     </div>
                 </div>
             </div>
@@ -249,10 +251,5 @@ Informazioni su come usare Data Lake Analytics per eseguire processi di analisi 
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

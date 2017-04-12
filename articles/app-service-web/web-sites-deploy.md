@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: cephalin;dariac
 translationtype: Human Translation
-ms.sourcegitcommit: 283b1cfda82b4f96ad5148c522a4c9833cb4c381
-ms.openlocfilehash: 4b3b96e9c5d7a4ff99c803aa356dcb5ad6997978
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 99ec39d3f0f6e82409de571db1e7c7c9468eb068
+ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="deploy-your-app-to-azure-app-service"></a>Distribuire l'app nel servizio app di Azure
 Questo articolo consente di determinare l'opzione migliore per distribuire i file per l'app Web, il back-end dell'app per dispositivi mobili o l'app per le API nel [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). L'articolo quindi descrive le risorse appropriate, con istruzioni sulle procedure specifiche per l'opzione scelta.
 
-## <a name="a-nameoverviewaazure-app-service-deployment-overview"></a><a name="overview"></a>Panoramica della distribuzione nel servizio app di Azure
+## <a name="overview"></a>Panoramica della distribuzione nel servizio app di Azure
 Il framework applicazioni (ASP.NET, PHP, Node.js, e così via) viene gestito direttamente dal servizio app di Azure. Alcuni framework sono abilitati per impostazione predefinita, mentre altri, come Java e Python, possono richiedere una semplice configurazione con segni di spunta per abilitarli. È anche possibile personalizzare il framework applicazioni, ad esempio la versione PHP o il numero di bit del proprio runtime. Per altre informazioni, vedere [Configurare le app Web nel servizio app di Azure](web-sites-configure.md).
 
 Non essendo necessario occuparsi del server Web o del framework applicazioni, per distribuire l'app al servizio app è sufficiente distribuire il codice, i file binari, i file di contenuto e le rispettive strutture di directory nella directory [**/site/wwwroot**](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure o, per i processi Web, nella directory **/site/wwwroot/App_Data/Jobs/**. Il servizio app supporta tre processi di distribuzione diversi. Tutti i metodi di distribuzione in questo articolo usano uno dei processi seguenti: 
@@ -43,7 +44,7 @@ Gli strumenti di sviluppo Web più diffusi supportano uno o più di questi proce
 > 
 > 
 
-## <a name="a-nameftpadeploy-manually-by-uploading-files-with-ftp"></a><a name="ftp"></a>Eseguire manualmente la distribuzione caricando file con il protocollo FTP
+## <a name="ftp"></a>Eseguire manualmente la distribuzione caricando file con il protocollo FTP
 Se di solito si copia il contenuto Web in un server Web manualmente, è possibile usare un'utilità [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) per copiare i file, ad esempio Esplora risorse o [FileZilla](https://filezilla-project.org/).
 
 Ecco i vantaggi della copia manuale dei file:
@@ -59,12 +60,12 @@ Ecco gli svantaggi della copia manuale dei file:
 * Nessuna cronologia di distribuzione per la risoluzione d eventuali problemi nel corso di questa operazione.
 * Possibilità di tempi lunghi di distribuzione, poiché molti strumenti FTP non sono dotati della funzione di copia delle sole differenze e copiano semplicemente tutti i file.  
 
-### <a name="a-namehowtoftpahow-to-upload-files-with-ftp"></a><a name="howtoftp"></a>Come caricare i file con il protocollo FTP
+### <a name="howtoftp"></a>Come caricare i file con il protocollo FTP
 Nel [portale di Azure](https://portal.azure.com) sono disponibili tutte le informazioni necessarie per connettersi alle directory dell'app tramite il protocollo FTP o FTPS.
 
 * [Distribuire l'app nel servizio app di Azure tramite il protocollo FTP](app-service-deploy-ftp.md)
 
-## <a name="a-namedropboxadeploy-by-syncing-with-a-cloud-folder"></a><a name="dropbox"></a>Distribuire tramite sincronizzazione con una cartella nel cloud
+## <a name="dropbox"></a>Distribuire tramite sincronizzazione con una cartella nel cloud
 Una valida alternativa alla [copia manuale dei file](#ftp) è la sincronizzazione di file e cartelle con il servizio app da un servizio di archiviazione cloud, ad esempio OneDrive e Dropbox. La sincronizzazione con una cartella nel cloud usa il processo Kudu per la distribuzione. Vedere [Panoramica dei processi di distribuzione](#overview).
 
 Ecco i vantaggi della sincronizzazione con una cartella nel cloud:
@@ -78,12 +79,12 @@ Ecco gli svantaggi della sincronizzazione con una cartella nel cloud:
 * Nessun controllo della versione per il ripristino dello stato precedente quando si verificano errori.
 * Nessuna distribuzione automatizzata. È necessaria la sincronizzazione manuale.
 
-### <a name="a-namehowtodropboxahow-to-deploy-by-syncing-with-a-cloud-folder"></a><a name="howtodropbox"></a>Come distribuire tramite sincronizzazione con una cartella nel cloud
+### <a name="howtodropbox"></a>Come distribuire tramite sincronizzazione con una cartella nel cloud
 Nel [portale di Azure](https://portal.azure.com)è possibile designare una cartella per la sincronizzazione del contenuto nel servizio di archiviazione cloud OneDrive o Dropbox, usare il codice e il contenuto dell'app disponibili in tale cartella e procedere alla sincronizzazione con il servizio app con un semplice clic.
 
 * [Sincronizzare il contenuto da una cartella nel cloud al servizio app di Azure](app-service-deploy-content-sync.md) 
 
-## <a name="a-namecontinuousdeploymentadeploy-continuously-from-a-cloud-based-source-control-service"></a><a name="continuousdeployment"></a>Eseguire una distribuzione continua da un servizio di controllo del codice sorgente basato sul cloud
+## <a name="continuousdeployment"></a>Eseguire una distribuzione continua da un servizio di controllo del codice sorgente basato sul cloud
 Se il team di sviluppo usa un sistema di gestione del codice sorgente basato sul cloud, ad esempio [Visual Studio Team Services](http://www.visualstudio.com/), [GitHub](https://www.github.com) o [BitBucket](https://bitbucket.org/), è possibile configurare il servizio app in modo da integrarlo con il repository e consentire la distribuzione continua. 
 
 Di seguito vengono indicati i vantaggi della distribuzione da un servizio di controllo del codice sorgente basato sul cloud:
@@ -97,14 +98,14 @@ Svantaggio della distribuzione da un servizio di controllo del codice sorgente b
 
 * È necessaria una certa conoscenza del relativo servizio di gestione del codice sorgente.
 
-### <a name="a-namevstsahow-to-deploy-continuously-from-a-cloud-based-source-control-service"></a><a name="vsts"></a>Come eseguire una distribuzione continua da un servizio di controllo del codice sorgente basato sul cloud
+### <a name="vsts"></a>Come eseguire una distribuzione continua da un servizio di controllo del codice sorgente basato sul cloud
 Nel [portale di Azure](https://portal.azure.com)è possibile configurare la distribuzione continua da GitHub, Bitbucket e Visual Studio Team Services.
 
 * [Distribuzione continua nel servizio app di Azure](app-service-continuous-deployment.md). 
 
 Per informazioni su come configurare manualmente la distribuzione continua da un repository cloud non elencato nel portale di Azure (ad esempio, [GitLab](https://gitlab.com/)), vedere [Setting up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps) (Configurazione manuale della distribuzione continua).
 
-## <a name="a-namelocalgitdeploymentadeploy-from-local-git"></a><a name="localgitdeployment"></a>Distribuire dall'archivio Git locale
+## <a name="localgitdeployment"></a>Distribuire dall'archivio Git locale
 Se il team di sviluppo usa un servizio locale di gestione del codice sorgente locale basato su archivio Git, è possibile configurare questo servizio come origine di distribuzione al servizio app. 
 
 Vantaggi della distribuzione da un archivio Git locale:
@@ -118,7 +119,7 @@ Svantaggi della distribuzione da un archivio Git locale:
 * È necessaria una certa conoscenza del relativo sistema di gestione del codice sorgente.
 * Nessuna soluzione chiavi in mano per la distribuzione continua. 
 
-### <a name="a-namevstsahow-to-deploy-from-local-git"></a><a name="vsts"></a>Come distribuire dall'archivio Git locale
+### <a name="vsts"></a>Come distribuire dall'archivio Git locale
 Nel [portale di Azure](https://portal.azure.com)è possibile configurare la distribuzione dell'archivio Git locale.
 
 * [Distribuzione dell'archivio Git locale nel servizio app di Azure](app-service-deploy-local-git.md). 
@@ -146,20 +147,20 @@ Ecco gli svantaggi della distribuzione con un IDE:
 * Azure Explorer integrato.
 * Distribuzione solo delle differenze. 
 
-### <a name="a-namevsahow-to-deploy-from-visual-studio-directly"></a><a name="vs"></a>Come distribuire direttamente da Visual Studio
-* [Introduzione ad Azure e ASP.NET](web-sites-dotnet-get-started.md). Come creare e distribuire un semplice Progetto Applicazione Web MVC ASP.NET utilizzando Visual Studio e Distribuzione Web.
+### <a name="vs"></a>Come distribuire direttamente da Visual Studio
+* [Introduzione ad Azure e ASP.NET](app-service-web-get-started-dotnet.md). Come creare e distribuire un semplice Progetto Applicazione Web MVC ASP.NET utilizzando Visual Studio e Distribuzione Web.
 * [Come eseguire la distribuzione nei processi Web di Azure utilizzando Visual Studio](websites-dotnet-deploy-webjobs.md). Come configurare i progetti di applicazioni console in modo da distribuirli come processi Web.  
 * [Distribuire un'app ASP.NET MVC 5 sicura con appartenenza, OAuth e database SQL in App Web](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). Come creare e distribuire un Progetto Applicazione Web MVC ASP.NET con un database SQL utilizzando Visual Studio, Distribuzione Web e Migrazioni Code First di Entity Framework.
 * [Distribuzione di Web ASP.NET con Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). Una serie di esercitazioni in 12 parti in cui è trattata una gamma più completa di attività di distribuzione rispetto alle altre risorse in questo elenco. Sono state aggiunte alcune funzionalità di distribuzione di Azure dal momento in cui è stata creata l'esercitazione. Tuttavia, le note aggiunte successivamente descrivono gli elementi mancanti.
 * Articolo relativo alla [distribuzione di un sito Web ASP.NET in Azure con Visual Studio 2012 direttamente da un repository Git](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). L'articolo contiene informazioni su come distribuire un progetto Web ASP.NET con Visual Studio, utilizzando il plugin Git per eseguire il commit del codice a Git e connettere Azure al repository Git. A partire da Visual Studio 2013, il supporto per Git è integrato, pertanto non è più necessario installare un plug-in.
 
-### <a name="a-nameaztkahow-to-deploy-using-the-azure-toolkits-for-eclipse-and-intellij-idea"></a><a name="aztk"></a>Come distribuire usando i toolkit di Azure per Eclipse e IntelliJ IDEA
+### <a name="aztk"></a>Come distribuire usando i toolkit di Azure per Eclipse e IntelliJ IDEA
 Microsoft consente la distribuzione di App Web in Azure direttamente da Eclipse e IntelliJ tramite il [toolkit di Azure per Eclipse](../azure-toolkit-for-eclipse.md) e il [toolkit di Azure per IntelliJ](../azure-toolkit-for-intellij.md). Le esercitazioni seguenti illustrano i passaggi coinvolti nella distribuzione di una semplice App Web "Hello World" in Azure mediante l'IDE:
 
 * [Creare un'app Web Hello World per Azure in Eclipse](app-service-web-eclipse-create-hello-world-web-app.md). Questa esercitazione descrive come usare il toolkit di Azure per Eclipse per creare e distribuire un'App Web Hello World per Azure.
 * [Creare un'app Web Hello World per Azure in IntelliJ](app-service-web-intellij-create-hello-world-web-app.md). Questa esercitazione descrive come usare il toolkit di Azure per IntelliJ per creare e distribuire un'App Web Hello World per Azure.
 
-## <a name="a-nameautomateaautomate-deployment-by-using-command-line-tools"></a><a name="automate"></a>Automatizzare la distribuzione con strumenti da riga di comando
+## <a name="automate"></a>Automatizzare la distribuzione con strumenti da riga di comando
 Se come ambiente di sviluppo si preferisce un terminale da riga di comando, è possibile creare script delle attività di distribuzione per l'app del servizio app usando gli strumenti da riga di comando. 
 
 Di seguito vengono indicati i vantaggi della distribuzione tramite gli strumenti da riga di comando:
@@ -172,20 +173,15 @@ Gli svantaggi della distribuzione tramite gli strumenti da riga di comando sono 
 
 * Approccio non adatto agli sviluppatori che preferiscono l'interfaccia utente grafica.
 
-### <a name="a-nameautomatehowahow-to-automate-deployment-with-command-line-tools"></a><a name="automatehow"></a>Come automatizzare la distribuzione con gli strumenti da riga di comando
+### <a name="automatehow"></a>Come automatizzare la distribuzione con gli strumenti da riga di comando
 
 Per un elenco di strumenti da riga di comando e di collegamenti a esercitazioni, vedere [Automatizzare la distribuzione con strumenti da riga di comando](app-service-deploy-command-line.md). 
 
-## <a name="a-namenextstepsanext-steps"></a><a name="nextsteps"></a>Passaggi successivi
+## <a name="nextsteps"></a>Passaggi successivi
 In alcuni scenari potrebbe essere necessario passare facilmente da una versione temporanea a una versione di produzione dell'app e viceversa. Per ulteriori informazioni, vedere [Distribuzione temporanea su App Web](web-sites-staged-publishing.md).
 
 La definizione di un piano di backup e ripristino è una parte importante di un flusso di distribuzione. Per informazioni sulla funzionalità di backup e ripristino del servizio app, vedere [Eseguire il backup di un'App Web nel servizio app di Azure](web-sites-backup.md).  
 
 Per informazioni su come usare il controllo degli accessi in base al ruolo di Azure per gestire l'accesso alla distribuzione del servizio app, vedere [Controllo degli accessi in base al ruolo e pubblicazione di App Web](https://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing/).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

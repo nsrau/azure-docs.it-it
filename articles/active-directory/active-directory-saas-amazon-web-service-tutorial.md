@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 3/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 8ea8de916a36a1b5274f42513b0446f99707c179
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 2cbd477776329ef84ef615b6c28c56cfee12fc99
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -50,7 +50,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 ## <a name="scenario-description"></a>Descrizione dello scenario
 L'obiettivo di questa esercitazione è quello di testare l'accesso Single Sign-On (SSO) di Azure AD in un ambiente di test.  
 
-Lo scenario descritto in questa esercitazione è costituito da tre blocchi principali:
+Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
 1. Aggiunta di Amazon Web Service (AWS) dalla raccolta 
 2. Configurazione e test dell'accesso Single Sign-On (SSO) di Microsoft Azure AD

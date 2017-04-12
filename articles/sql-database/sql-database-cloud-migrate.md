@@ -9,7 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
 ms.service: sql-database
-ms.custom: migrate and move
+ms.custom: migrate
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -17,9 +17,9 @@ ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 2d72731304aee0952abbb1f3b2c24b620118fc6c
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 272b5eade0a80b1f46af4e4df1c7801d86fee175
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -44,7 +44,7 @@ L'elenco seguente illustra un flusso di lavoro generico per la migrazione di un 
 2. Preparare eventuali correzioni necessarie come script Transact-SQL.
 3. Creare una copia del database di origine coerente a livello di transazione e assicurarsi che non vengano apportate ulteriori modifiche al database di origine. In alternativa, è possibile applicare manualmente le eventuali modifiche al termine della migrazione. Per disattivare un database sono disponibili vari metodi, dalla disabilitazione della connettività client alla creazione di uno [snapshot del database](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Distribuire gli script Transact-SQL per applicare le correzioni alla copia del database.
-5. [Esportare](sql-database-export-sqlpackage.md) la copia del database in un file BACPAC in un'unità locale.
+5. [Esportare](sql-database-export.md) la copia del database in un file BACPAC in un'unità locale.
 6. [Importare](sql-database-import-sqlpackage.md) il file BACPAC come nuovo database SQL di Azure usando uno dei tanti strumenti di importazione BACPAC disponibili. Lo strumento consigliato è SQLPackage.exe, che permette di ottenere prestazioni ottimali.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Ottimizzazione delle prestazioni di trasferimento dei dati durante la migrazione 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
-ms.openlocfilehash: 801fe10ad20c48fb965d3f80956d7979c9c2314e
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: f5d6bb7ccbf15424e9940ccda2fac668a2af5a57
+ms.lasthandoff: 04/12/2017
 
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Come salvare e configurare la configurazione del servizio Gestione API tramite Git
@@ -158,7 +159,7 @@ Dopo il commit e il push delle modifiche locali nel repository del server, è po
 
 ![Distribuisci][api-management-configuration-deploy]
 
-Per informazioni sull'esecuzione di questa operazione tramite l'API REST, vedere la [pagina relativa alla distribuzione delle modifiche al database di configurazione tramite l'API REST](https://msdn.microsoft.com/library/dn781420.aspx#DeployChanges).
+Per informazioni sull'esecuzione di questa operazione tramite l'API REST, vedere la [pagina relativa alla distribuzione delle modifiche al database di configurazione tramite l'API REST](https://docs.microsoft.com/en-us/rest/api/apimanagement/tenantconfiguration).
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Informazioni di riferimento sulla struttura di file e cartelle del repository Git locale
 I file e cartelle nel repository Git locale contengono le informazioni di configurazione dell'istanza del servizio.
@@ -308,10 +309,5 @@ Per informazioni su altri metodi di gestione dell'istanza del servizio, vedere:
 
 
 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

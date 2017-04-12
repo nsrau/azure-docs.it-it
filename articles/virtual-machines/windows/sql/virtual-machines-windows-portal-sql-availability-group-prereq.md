@@ -17,9 +17,9 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 96f42929c3f4d0ccf4f2f1fbc206dddd90d6d3d1
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 8073a2ed0b565b1fdd2685f9c0f69abf2a3fc10a
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -136,7 +136,7 @@ La tabella seguente riepiloga le impostazioni di configurazione della rete:
 
 ## <a name="create-availability-sets"></a>Creare set di disponibilità
 
-Prima di creare le macchine virtuali, è necessario creare i set di disponibilità. I set di disponibilità riducono il tempo di inattività per gli eventi di manutenzione sia pianificati che non pianificati. Un set di disponibilità di Azure è un gruppo logico di risorse che Azure inserisce in domini di errore e domini di aggiornamento fisici. Un dominio di errore assicura che i membri del set di disponibilità dispongano di risorse di alimentazione e di rete separate. Un dominio di aggiornamento assicura che i membri del set di disponibilità non vengano disattivati contemporaneamente per la manutenzione. [Gestione della disponibilità delle macchine virtuali](../../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Prima di creare le macchine virtuali, è necessario creare i set di disponibilità. I set di disponibilità riducono il tempo di inattività per gli eventi di manutenzione sia pianificati che non pianificati. Un set di disponibilità di Azure è un gruppo logico di risorse che Azure inserisce in domini di errore e domini di aggiornamento fisici. Un dominio di errore assicura che i membri del set di disponibilità dispongano di risorse di alimentazione e di rete separate. Un dominio di aggiornamento assicura che i membri del set di disponibilità non vengano disattivati contemporaneamente per la manutenzione. [Gestione della disponibilità delle macchine virtuali](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Sono necessari due set di disponibilità, uno per i controller di dominio e il secondo per i server SQL.
 
@@ -195,7 +195,7 @@ La tabella seguente descrive le impostazioni per queste due macchine:
 
 
    >[!IMPORTANT]
-   >È possibile inserire una VM in un set di disponibilità solo in fase di creazione. Non è possibile modificare il set di disponibilità dopo che la VM è stata creata. Vedere [Gestire la disponibilità delle macchine virtuali](../../virtual-machines-windows-manage-availability.md).
+   >È possibile inserire una VM in un set di disponibilità solo in fase di creazione. Non è possibile modificare il set di disponibilità dopo che la VM è stata creata. Vedere [Gestire la disponibilità delle macchine virtuali](../manage-availability.md).
 
 Azure crea le macchine virtuali.
 

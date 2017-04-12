@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 1c812fc31011b57f2cdb357574877d6b7125280f
-ms.openlocfilehash: c5ae5049588d5bc7628442942e71f182a425fead
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: c0413f9c83fd6dceb4a1d956c0f32712e29bdc58
+ms.lasthandoff: 03/31/2017
 
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
@@ -49,7 +49,7 @@ Tutte le attività che è possibile eseguire sulle risorse tramite Gestione riso
 Il primo passaggio consiste nel creare un'applicazione Azure Active Directory. Accedere al [portale di Azure classico](http://manage.windowsazure.com/) usando la sottoscrizione che include l'istanza del servizio Gestione API e passare alla scheda **Applicazioni** per la directory predefinita di Azure Active Directory.
 
 > [!NOTE]
-> Se la directory predefinita di Azure Active Directory non è visibile nel proprio account, contattare l'amministratore della sottoscrizione di Azure perché conceda le autorizzazioni necessarie per l'account. Per informazioni su come individuare la directory predefinita, vedere "Individuare la directory predefinita nel portale di Azure classico" in [Creazione di un'identità di lavoro o scuola in Azure Active Directory da usare con macchine virtuali Windows](../virtual-machines/virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> Se la directory predefinita di Azure Active Directory non è visibile nel proprio account, contattare l'amministratore della sottoscrizione di Azure perché conceda le autorizzazioni necessarie per l'account. Per informazioni su come individuare la directory predefinita, vedere "Individuare la directory predefinita nel portale di Azure classico" in [Creazione di un'identità di lavoro o scuola in Azure Active Directory da usare con macchine virtuali Windows](../virtual-machines/windows/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 >
 >
 

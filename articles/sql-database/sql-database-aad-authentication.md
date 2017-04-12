@@ -17,9 +17,9 @@ ms.workload: data-management
 ms.date: 03/23/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 01294f8f8fdaa65a5f33dbf6d35c0baa342cacc8
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 154cd7eec65559ec2263a12b8977ec0af0a78743
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -39,12 +39,11 @@ L'autenticazione di Azure Active Directory è un meccanismo di connessione al da
 I passaggi di configurazione includono le procedure seguenti per configurare e usare l'autenticazione di Azure Active Directory.
 
 1. Creare e popolare un'istanza di Azure AD.
-2. Assicurarsi che il database sia in un database SQL di Azure versione 12. Questo non è necessario per SQL Data Warehouse.
-3. Facoltativo: associare o modificare l'istanza di Active Directory attualmente associata alla sottoscrizione di Azure.
-4. Creare un amministratore di Azure Active Directory per il server di Azure SQL o per [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
-5. Configurare i computer client.
-6. Creare gli utenti di database indipendente nel database di cui è stato eseguito il mapping alle identità di Azure AD.
-7. Connettersi al database usando le identità di Azure AD.
+2. Facoltativo: associare o modificare l'istanza di Active Directory attualmente associata alla sottoscrizione di Azure.
+3. Creare un amministratore di Azure Active Directory per il server di Azure SQL o per [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
+4. Configurare i computer client.
+5. Creare gli utenti di database indipendente nel database di cui è stato eseguito il mapping alle identità di Azure AD.
+6. Connettersi al database usando le identità di Azure AD.
 
 > [!NOTE]
 > Per informazioni su come creare e popolare Azure AD e quindi configurare Azure AD con il database SQL di Azure e SQL Data Warehouse, vedere [Configurare Azure AD con il database SQL di Azure](sql-database-aad-authentication-configure.md).

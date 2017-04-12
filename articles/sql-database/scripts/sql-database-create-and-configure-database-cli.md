@@ -17,9 +17,9 @@ ms.workload: database
 ms.date: 04/04/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 2e65b7a5c44c240c1bc7dea8119c821a7bca2120
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 7a8a6c634cb4be2da654a971d9412f981d4e0e8a
+ms.lasthandoff: 04/11/2017
 
 ---
 
@@ -49,7 +49,7 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 |---|---|
 | [az group create](/cli/azure/group#create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az sql server create](/cli/azure/sql/server#create) | Consente di creare un server logico che ospita il database SQL. |
-| [az sql server firewall create](/cli/azure/sql/server/firewall#create) | Consente di creare una regola del firewall per consentire l'accesso a tutti i database SQL presenti sul server dall'intervallo di indirizzi IP immesso. |
+| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create) | Consente di creare una regola del firewall per consentire l'accesso a tutti i database SQL presenti sul server dall'intervallo di indirizzi IP immesso. |
 | [az sql db create](/cli/azure/sql/db#create) | Consente di creare il database SQL nel server logico. |
 | [az group delete](/cli/azure/resource#delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 

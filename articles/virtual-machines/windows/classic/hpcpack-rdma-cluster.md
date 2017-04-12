@@ -16,9 +16,9 @@ ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 680b2bec3af18273d0ac43d7102a99392fd8ebe0
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 4e542ea6431933668d96f7028431826bceb9f337
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -85,7 +85,7 @@ Di seguito sono riportati le considerazioni e i passaggi per il burst in istanze
    Al termine dell'esecuzione dei processi, portare i nodi offline e usare l'azione **Stop** in HPC Cluster Manager.
 
 ## <a name="scenario-2-deploy-compute-nodes-in-compute-intensive-vms-iaas"></a>Scenario 2: Distribuzione di nodi di calcolo in macchine virtuali a elevato utilizzo di calcolo (IaaS)
-In questo scenario si distribuisce il nodo head HPC Pack e i nodi di calcolo del cluster in macchine virtuali in una rete virtuale di Azure. HPC Pack fornisce una serie di [opzioni di distribuzione nelle macchine virtuali di Azure](../../virtual-machines-linux-hpcpack-cluster-options.md), inclusi script di distribuzione automatizzati e modelli di avvio rapido di Azure. Ad esempio, le considerazioni e i passaggi seguenti consentono di usare lo [script di distribuzione di HPC Pack IaaS](hpcpack-cluster-powershell-script.md) per automatizzare la distribuzione di un cluster HPC Pack 2012 R2 in Azure.
+In questo scenario si distribuisce il nodo head HPC Pack e i nodi di calcolo del cluster in macchine virtuali in una rete virtuale di Azure. HPC Pack fornisce una serie di [opzioni di distribuzione nelle macchine virtuali di Azure](../../linux/hpcpack-cluster-options.md), inclusi script di distribuzione automatizzati e modelli di avvio rapido di Azure. Ad esempio, le considerazioni e i passaggi seguenti consentono di usare lo [script di distribuzione di HPC Pack IaaS](hpcpack-cluster-powershell-script.md) per automatizzare la distribuzione di un cluster HPC Pack 2012 R2 in Azure.
 
 ![Cluster in macchine virtuali di Azure][iaas]
 
@@ -102,7 +102,7 @@ In questo scenario si distribuisce il nodo head HPC Pack e i nodi di calcolo del
    * **Sistema operativo Windows Server**: per supportare la connettività RDMA, specificare un sistema operativo Windows Server 2012 R2 o Windows Server 2012 per le macchine virtuali del nodo di calcolo.
    * **Servizi cloud**: è consigliabile eseguire la distribuzione del nodo head in un servizio cloud e dei nodi di calcolo in un altro servizio cloud.
    * **Dimensioni nodo head**: per questo scenario prendere in considerazione dimensioni pari almeno ad A4 (Molto grande) per il nodo head.
-   * **Estensione HpcVmDrivers**: lo script di distribuzione installa l'agente di macchine virtuali Azure e l'estensione HpcVmDrivers automaticamente quando si distribuiscono nodi di calcolo di dimensioni A8 o A9 con un sistema operativo Windows Server. L'estensione HpcVmDrivers installa i driver nelle macchine virtuali del nodo di calcolo in modo che possano connettersi alla rete RDMA. Nelle macchine virtuali serie H con supporto per RDMA è necessario installare manualmente l'estensione HpcVmDrivers. Vedere [Informazioni sulle VM serie H e serie A a elevato utilizzo di calcolo](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#access-to-the-rdma-network).
+   * **Estensione HpcVmDrivers**: lo script di distribuzione installa l'agente di macchine virtuali Azure e l'estensione HpcVmDrivers automaticamente quando si distribuiscono nodi di calcolo di dimensioni A8 o A9 con un sistema operativo Windows Server. L'estensione HpcVmDrivers installa i driver nelle macchine virtuali del nodo di calcolo in modo che possano connettersi alla rete RDMA. Nelle macchine virtuali serie H con supporto per RDMA è necessario installare manualmente l'estensione HpcVmDrivers. Vedere [Informazioni sulle VM serie H e serie A a elevato utilizzo di calcolo](../a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#access-to-the-rdma-network).
    * **Configurazione della rete del cluster**: lo script di distribuzione configura automaticamente il cluster HPC Pack nella topologia 5 (tutti i nodi nella rete aziendale). Questa topologia è obbligatoria per tutte le distribuzioni di cluster HPC Pack nelle VM. Non modificare la topologia della rete del cluster in seguito.
 2. **Portare online i nodi di calcolo per eseguire i processi**
    

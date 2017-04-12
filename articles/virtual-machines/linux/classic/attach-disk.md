@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: fc2a181a301ca56e41f586428e2994fcdf6d704d
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 017ba7197e11c2b222082833d5acabb9e542b762
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>Come collegare un disco dati a una macchina virtuale Linux
 > [!IMPORTANT] 
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Vedere come [collegare un disco dati tramite il modello di distribuzione di Resource Manager](../../virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Vedere come [collegare un disco dati tramite il modello di distribuzione di Resource Manager](../add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 È possibile collegare sia dischi vuoti sia dischi contenenti dati alle VM di Azure. In entrambi i casi i dischi sono file con estensione vhd che risiedono in un account di archiviazione di Azure. Come con l'aggiunta di un disco a un computer Linux, dopo aver collegato il disco, è necessario inizializzarlo e formattarlo affinché sia pronto per l'uso. Questo articolo illustra in dettaglio come collegare sia i dischi vuoti sia i dischi contenenti dati alle VM e come inizializzare e formattare successivamente un nuovo disco.
 
@@ -229,10 +229,10 @@ Per altre informazioni sull'uso delle VM Linux, vedere gli articoli seguenti:
 * [Come accedere a una macchina virtuale che esegue Linux][Logon]
 * [Informazioni su come scollegare un disco da una macchina virtuale Linux](detach-disk.md)
 * [Comandi dell'interfaccia della riga di comando di Azure in modalità Gestione servizi di Azure (asm)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
-* [Configurare RAID in una macchina virtuale Linux in Azure](../../virtual-machines-linux-configure-raid.md)
-* [Configurare LVM in una macchina virtuale Linux in Azure](../../virtual-machines-linux-configure-lvm.md)
+* [Configurare RAID in una macchina virtuale Linux in Azure](../configure-raid.md)
+* [Configurare LVM in una macchina virtuale Linux in Azure](../configure-lvm.md)
 
 <!--Link references-->
-[Agent]:../../virtual-machines-linux-agent-user-guide.md
-[Logon]:../../virtual-machines-linux-mac-create-ssh-keys.md
+[Agent]:../agent-user-guide.md
+[Logon]:../mac-create-ssh-keys.md
 

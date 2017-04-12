@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: 2bd8f7ac127cd34b2d5129ecb49c56e2adf257b8
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: c6de21da824a6e81c38f36c41c05ddd704fadcb6
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -130,7 +131,7 @@ Inizialmente si potrebbe pensare che un modello debba fornire ai fruitori la mas
 ### <a name="free-form-configurations"></a>Configurazioni in formato libero
 In apparenza, le configurazioni in formato libero sembrano ideali. Consentono di selezionare un tipo di VM e specificare un numero arbitrario di nodi e dischi collegati per tali nodi, come parametri di un modello. Questo approccio, tuttavia, non è l'ideale per alcuni scenari.
 
-Nell'articolo [Dimensioni delle macchine virtuali](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) vengono identificati i diversi tipi di VM e le dimensioni disponibili oltre a ciascuna combinazione di dischi permanenti (2, 4, 8, 16 o 32) collegabili. Ogni disco collegato fornisce 500 IOPS ed è possibile raggruppare più dischi per ottenere un multiplo di tale numero di IOPS. Ad esempio, 16 dischi possono essere raggruppati per fornire 8.000 IOPS. Il pooling viene eseguito con la configurazione nel sistema operativo, utilizzando spazi di archiviazione di Microsoft Windows o RAID (Redundant Array of Inexpensive Disks) in Linux.
+Nell'articolo [Dimensioni delle macchine virtuali](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) vengono identificati i diversi tipi di VM e le dimensioni disponibili oltre a ciascuna combinazione di dischi permanenti (2, 4, 8, 16 o 32) collegabili. Ogni disco collegato fornisce 500 IOPS ed è possibile raggruppare più dischi per ottenere un multiplo di tale numero di IOPS. Ad esempio, 16 dischi possono essere raggruppati per fornire 8.000 IOPS. Il pooling viene eseguito con la configurazione nel sistema operativo, utilizzando spazi di archiviazione di Microsoft Windows o RAID (Redundant Array of Inexpensive Disks) in Linux.
 
 Una configurazione in formato libero consente di selezionare varie istanze di VM, vari tipi e dimensioni differenti di VM per tali istanze, un numero di dischi che può variare in base al tipo di VM e uno o più script per configurare il contenuto delle VM.
 
@@ -347,10 +348,5 @@ Se si desidera pubblicare il modello nel marketplace, occorre stabilire copie di
 * Per consigli su come gestire la protezione in Gestione risorse di Azure, vedere [Considerazioni sulla protezione per Gestione risorse di Azure](best-practices-resource-manager-security.md)
 * Per ulteriori informazioni sulla condivisione dello stato all'interno e all'esterno dei modelli, vedere [Condivisione dello stato nei modelli di Gestione risorse di Azure](best-practices-resource-manager-state.md)
 * Per indicazioni su come le aziende possono usare Resource Manager per gestire efficacemente le sottoscrizioni, vedere [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Scaffolding aziendale Azure - Governance prescrittiva per le sottoscrizioni).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: tobiast
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 6cb781b9bc0cfe672e2734661be958d4794e08d8
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d15ab88be778b8cc081e07fb95fbd99164f18ba1
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -79,7 +79,7 @@ In alternativa, è possibile creare un file DSN mediante la procedura guidata av
 Congratulazioni. È stata correttamente stabilita una connessione ad Azure SQL mediante C++ e ODBC in Windows. È possibile continuare la lettura per eseguire la stessa operazione sulla piattaforma Linux. 
 
 ## <a id="Linux"></a>Passaggio 5: Connessione da un'applicazione C/C++ per Linux
-Visual Studio ora consente di sviluppare anche applicazioni C++ per Linux. Per informazioni su questo nuovo scenario, vedere il blog [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) (Visual C++ per sviluppo di applicazioni Linux). Per la compilazione per Linux è necessario un computer remoto in cui è in esecuzione la distribuzione Linux. Se non si ha disponibile un computer remoto con Linux, è possibile configurarlo rapidamente seguendo i passaggi presenti nell'articolo [Linux Azure Virtual machines](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Macchine virtuali di Linux in Azure). 
+Visual Studio ora consente di sviluppare anche applicazioni C++ per Linux. Per informazioni su questo nuovo scenario, vedere il blog [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) (Visual C++ per sviluppo di applicazioni Linux). Per la compilazione per Linux è necessario un computer remoto in cui è in esecuzione la distribuzione Linux. Se non si ha disponibile un computer remoto con Linux, è possibile configurarlo rapidamente seguendo i passaggi presenti nell'articolo [Linux Azure Virtual machines](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Macchine virtuali di Linux in Azure). 
 
 Per questa esercitazione, si supponga di avere configurata una distribuzione di Linux Ubuntu 16.04. I passaggi qui di seguito si applicano anche a Ubuntu 15.10, Red Hat 6 e Red Hat 7. 
 

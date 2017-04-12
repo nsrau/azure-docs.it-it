@@ -12,11 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/31/2017
 ms.author: luisca
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: machine-learning-datamarket-deprecation
 translationtype: Human Translation
-ms.sourcegitcommit: c5d1812a3bd7e1ad3621ca691339f01729882b08
-ms.openlocfilehash: 67131bbaccff549817bfe5fdf874d609ea22c2bc
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 21cf8b726ffd9b05f771c8ac6480140a6ed3199e
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -701,10 +704,5 @@ XML OData
 
 ## <a name="legal"></a>Note legali
 Questo documento viene fornito "così com'è". Le informazioni e le indicazioni riportate nel presente documento, inclusi URL e altri riferimenti a siti Internet, sono soggette a modifica senza preavviso. Alcuni esempi usati in questo documento vengono forniti a scopo puramente illustrativo e sono fittizi. Nessuna associazione reale o connessione è intenzionale o può essere desunta. Il presente documento non fornisce all'utente alcun diritto legale rispetto a qualsiasi proprietà intellettuale in qualsiasi prodotto Microsoft. È possibile copiare e usare il presente documento per scopi interni e di riferimento. © 2014 Microsoft. Tutti i diritti sono riservati. 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

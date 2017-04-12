@@ -15,8 +15,9 @@ ms.workload: tbd
 ms.date: 01/12/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 45011050a6d2f8e4d9d92f4124d6dc9a9eec4cf7
-ms.openlocfilehash: 88032b3855c2f89b935064abe496a8455dcff88b
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: aee9d9b735358c3800f8f97f78dd2d3ad1e5e8a8
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -34,20 +35,20 @@ In Azure sono disponibili più dimensioni standard. Si tengano presenti le consi
 * Le macchine virtuali serie D sono progettate per eseguire le applicazioni che richiedono maggiore potenza di calcolo e prestazioni del disco temporaneo. Le macchine virtuali serie D forniscono processori più veloci, un rapporto tra memoria e memoria centrale superiore e un'unità SSD ( solid-state drive) per il disco temporaneo. Per ulteriori informazioni, vedere l'annuncio sul blog di Azure, [Nuove dimensioni delle macchine virtuali serie D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 * Serie Dv2, una versione successiva della serie D originale, dotata di una CPU più potente. La CPU della serie Dv2 è circa il 35% più rapida rispetto alla CPU della serie D. È basata sul processore Intel Xeon® E5-2673 v3 a 2,4 GHz (Haswell) e grazie alla tecnologia Intel Turbo Boost 2.0 può funzionare fino a 3,1 GHz. La serie Dv2 ha le stesse configurazioni di memoria e disco della serie D.
 * Le VM serie G offrono la maggiore quantità di memoria e vengono eseguite su host con processori della famiglia Intel Xeon E5 V3.
-* Le VM di serie A possono essere distribuite su una vasta gamma di tipi di hardware e di processori. La dimensione è limitata, in base all'hardware, per offrire prestazioni del processore coerenti per l'istanza in esecuzione, indipendentemente dall'hardware in cui è distribuita. Per determinare l'hardware fisico in cui viene distribuita questa dimensione, eseguire una query nell'hardware virtuale dall'interno della macchina virtuale.
+* Le VM della serie A possono essere distribuite su vari tipi di hardware e processori. La dimensione è limitata, in base all'hardware, per offrire prestazioni del processore coerenti per l'istanza in esecuzione, indipendentemente dall'hardware in cui è distribuita. Per determinare l'hardware fisico in cui viene distribuita questa dimensione, eseguire una query nell'hardware virtuale dall'interno della macchina virtuale.
 * La sottoscrizione della dimensione A0 è eccessiva nell'hardware fisico. Solo per questa dimensione specifica, altre distribuzioni dei clienti possono compromettere le prestazioni del carico di lavoro in esecuzione. Le prestazioni relative sono indicate di seguito come linea di base prevista, con variabilità approssimativa del 15%.
 
-La dimensione della macchina virtuale influisce sul prezzo. Influisce, inoltre, sull'elaborazione, sulla memoria e sulla capacità di archiviazione della macchina virtuale. I costi di archiviazione vengono calcolati separatamente in base alle pagine usate nell'account di archiviazione. Per informazioni dettagliate, vedere [Dettagli prezzi di Servizi cloud](https://azure.microsoft.com/pricing/details/cloud-services/) e [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
+La dimensione della macchina virtuale influisce sul prezzo. Influisce, inoltre, sull'elaborazione, sulla memoria e sulla capacità di archiviazione della macchina virtuale. I costi di archiviazione vengono calcolati separatamente in base alle pagine usate nell'account di archiviazione. Per informazioni dettagliate, vedere i [dettagli sui prezzi dei servizi cloud](https://azure.microsoft.com/pricing/details/cloud-services/) e [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 Le considerazioni seguenti potrebbero essere utili all'utente per scegliere una dimensione:
 
-* Le dimensioni delle serie A8-A11 e H sono note anche come *istanze a elevato uso di calcolo*. L'hardware che esegue queste dimensioni è progettato e ottimizzato per applicazioni a elevato utilizzo di calcolo e di rete, come applicazioni cluster HPC, modellazione e simulazioni. La serie A8-A11 usa Intel Xeon E5-2670 @ 2,6 GHZ, mentre la serie H usa Intel Xeon E5-2667 v3 @ 3,2 GHz. Per informazioni e considerazioni dettagliate sull'uso di queste dimensioni, vedere [Informazioni sulle VM serie H e serie A a elevato uso di calcolo](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Le dimensioni delle serie A8-A11 e H sono note anche come *istanze a elevato uso di calcolo*. L'hardware che esegue queste dimensioni è progettato e ottimizzato per applicazioni a elevato utilizzo di calcolo e di rete, come applicazioni cluster HPC, modellazione e simulazioni. La serie A8-A11 usa Intel Xeon E5-2670 a 2,6 GHZ, mentre la serie H usa Intel Xeon E5-2667 v3 a 3,2 GHz. Per informazioni e considerazioni dettagliate sull'uso di queste dimensioni, vedere [Informazioni sulle VM serie H e serie A a elevato uso di calcolo](../virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * La serie Dv2, D e G sono ideali per le applicazioni che richiedono CPU più veloci, prestazioni migliori del disco locale o requisiti di memoria superiori. Offrono una potente combinazione per molte applicazioni di livello aziendale.
 * Alcuni degli host fisici nei data center di Azure potrebbero non supportare macchine virtuali di dimensioni superiori, ad esempio da A5 ad A11. Di conseguenza, potrebbe essere visualizzato il messaggio di errore **Impossibile configurare la macchina virtuale {nome macchina virtuale}** o **Impossibile creare la macchina virtuale {nome macchina virtuale}** quando si configura una macchina virtuale esistente in base a una nuova dimensione, si crea una nuova macchina virtuale in una rete virtuale creata prima del 16 aprile 2013 o si aggiunge una nuova macchina a un servizio cloud esistente. Vedere [Errore: "Impossibile configurare la macchina virtuale"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) nel forum di supporto per le soluzioni alternative per ogni scenario di distribuzione.
 * La sottoscrizione può anche limitare il numero di core che è possibile distribuire in alcune famiglie di dimensioni . Per aumentare la quota, contattare il supporto tecnico di Azure.
 
 ## <a name="performance-considerations"></a>Considerazioni sulle prestazioni
-È stato creato il concetto di unità di elaborazione di Azure (ACU, Azure Compute Unit) per mettere a punto un modo per confrontare le prestazioni di calcolo (CPU) degli SKU di Azure e identificare lo SKU in grado di soddisfare con più probabilità le esigenze di prestazioni.  L'unità ACU adotta come standard una macchina virtuale Small (Standard_A1), a cui attribuisce il valore 100. Per tutte le altre SKU sarà quindi possibile valutare la maggiore velocità di elaborazione con cui sono in grado di eseguire un benchmark standard.
+È stato creato il concetto di unità di calcolo di Azure (ACU, Azure Compute Unit) per mettere a punto un modo per confrontare le prestazioni di calcolo (CPU) degli SKU di Azure e identificare lo SKU in grado di soddisfare con più probabilità le esigenze di prestazioni.  L'unità ACU adotta come standard una macchina virtuale Small (Standard_A1), a cui attribuisce il valore 100. Per tutte le altre SKU sarà quindi possibile valutare la maggiore velocità di elaborazione con cui sono in grado di eseguire un benchmark standard.
 
 > [!IMPORTANT]
 > L'unità ACU costituisce solo un'indicazione di riferimento. I risultati possono variare in base al carico di lavoro.
@@ -92,7 +93,7 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 | A7              | 8         | 56           | 2040                 | 4/alta |
 
 ## <a name="a-series---compute-intensive-instances"></a>Serie A - Istanze a elevato utilizzo di calcolo
-Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informazioni sulle VM serie H e serie A a elevato uso di calcolo](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informazioni sulle VM serie H e serie A a elevato uso di calcolo](../virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 | Dimensione            | Core CPU | Memoria: GiB  | Unità HDD locale: GiB       | Larghezza di banda della rete/scheda NIC max |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
@@ -180,10 +181,10 @@ Di seguito è riportato un esempio per impostare la dimensione di ruolo [Standar
 
 ## <a name="changing-the-size-of-an-existing-role"></a>Modifica delle dimensioni di un ruolo esistente
 
-Man mano che la natura del carico di lavoro cambia o nuove dimensioni di VM diventano disponibili, è possibile che si desideri modificare la dimensione del proprio ruolo. A tale scopo, è necessario modificare le dimensioni di macchina virtuale nel file di definizione del servizio (come illustrato in precedenza), ricreare il pacchetto del servizio cloud e distribuirlo. Non è possibile modificare le dimensioni delle macchine virtuali direttamente dal portale o da PowerShell.
+Man mano che la natura del carico di lavoro cambia o nuove dimensioni della VM diventano disponibili, è possibile che si desideri modificare la dimensione del ruolo. A tale scopo, è necessario modificare le dimensioni della macchina virtuale nel file di definizione del servizio, come illustrato in precedenza, ricreare il pacchetto del servizio cloud e distribuirlo. Non è possibile modificare le dimensioni delle macchine virtuali direttamente dal portale o da PowerShell.
 
 >[!TIP]
-> È possibile che si desideri utilizzare dimensioni di VM differenti per il ruolo in ambienti diversi (ad esempio, test e produzione). A tal fine, è possibile creare più file di definizione del servizio (.csdef) nel progetto e successivamente creare pacchetti del servizio cloud differenti per ogni ambiente durante la compilazione automatica utilizzando lo strumento CSPack. Per ulteriori informazioni sugli elementi di un pacchetto di servizi cloud e su come crearli, vedere [Cos'è il modello di servizi cloud e come è possibile crearne il pacchetto?](cloud-services-model-and-package.md)
+> È possibile che si desideri usare dimensioni della VM differenti per il ruolo in ambienti diversi (ad esempio, test e produzione). A tal fine, è possibile creare più file di definizione del servizio (.csdef) nel progetto e successivamente creare pacchetti del servizio cloud differenti per ogni ambiente durante la compilazione automatica usano lo strumento CSPack. Per ulteriori informazioni sugli elementi di un pacchetto di servizi cloud e su come crearli, vedere [Cos'è il modello di servizi cloud e come è possibile crearne il pacchetto?](cloud-services-model-and-package.md)
 >
 >
 
@@ -196,10 +197,5 @@ Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceS
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
-* Per altre informazioni, vedere [Informazioni sulle VM serie H e serie A a elevato uso di calcolo](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per carichi di lavoro come High-Performance Computing (HPC).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+* Per altre informazioni, vedere [Informazioni sulle VM serie H e serie A a elevato uso di calcolo](../virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per carichi di lavoro come High-Performance Computing (HPC).
 

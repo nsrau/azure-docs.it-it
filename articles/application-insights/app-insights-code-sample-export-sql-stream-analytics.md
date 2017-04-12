@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 03/06/2015
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 96614dd3c0bf9c55ffd81d0912ecb62b71c32b22
-ms.openlocfilehash: fa9b09833f61e372738ff74022ac9fd6a288847f
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 6fc9394cbc60a1ea9bc9989d271f1008acf0379b
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -261,7 +262,6 @@ Dopo alcuni minuti, tornare agli strumenti di gestione di SQL Server e controlla
 
 
 ## <a name="related-articles"></a>Articoli correlati
-* [Esportare in SQL usando un ruolo di lavoro](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Esportare in PowerBI usando l'analisi di flusso](app-insights-export-power-bi.md)
 * [Riferimento dettagliato al modello di dati per i valori e i tipi di proprietà.](app-insights-export-data-model.md)
 * [Esportazione continua in Application Insights](app-insights-export-telemetry.md)
@@ -274,10 +274,5 @@ Dopo alcuni minuti, tornare agli strumenti di gestione di SQL Server e controlla
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [start]: app-insights-overview.md
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

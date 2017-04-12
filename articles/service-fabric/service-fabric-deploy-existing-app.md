@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/17/2016
+ms.date: 04/07/2016
 ms.author: mfussell;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: e9c53dc601406961ee7aeca2e350ba14e691cb9b
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 16000dcb751bd96fba247c6209e85c581833681d
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -36,7 +36,7 @@ L'esecuzione di un eseguibile guest in un cluster di Service Fabric presenta num
 * Densità. È possibile eseguire più applicazioni in un cluster, eliminando la necessità che ogni applicazione venga eseguita nel proprio hardware.
 
 ## <a name="samples"></a>Esempi
-* [Esempio per la creazione di un pacchetto e distribuzione di un file guest eseguibile](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication)
+* [Esempio per la creazione di un pacchetto e distribuzione di un file guest eseguibile](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Esempio di due eseguibili guest (C# e nodejs) che comunicano tramite il servizio Naming usando REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## <a name="overview-of-application-and-service-manifest-files"></a>Panoramica dei file manifesto dell'applicazione e del servizio
@@ -348,7 +348,7 @@ In Yeoman deve essere stato creato un pacchetto dell'applicazione con i file man
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo si è appreso come creare il pacchetto di un eseguibile guest e come distribuirlo in Service Fabric. Per informazioni e attività correlate, vedere gli articoli seguenti.
 
-* [Esempio per la creazione del pacchetto e la distribuzione di un file guest eseguibile ](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), con un collegamento alla versione preliminare dello strumento per la creazione di pacchetti
+* [Esempio per la creazione del pacchetto e la distribuzione di un file guest eseguibile ](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), con un collegamento alla versione preliminare dello strumento per la creazione di pacchetti
 * [Esempio di due eseguibili guest (C# e nodejs) che comunicano tramite il servizio Naming usando REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 * [Distribuire più eseguibili guest](service-fabric-deploy-multiple-apps.md)
 * [Creare la prima applicazione Service Fabric in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
