@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 02/27/2016
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 14218a7c2acf6b68025095c1ecb60cb480233044
-ms.lasthandoff: 03/23/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 197e32058908533bc46b2ea2e38ff521a4a1fa3f
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -36,10 +36,10 @@ I provider di dati per le connessioni client sono diversi da quelli necessari pe
 ## <a name="download-the-latest-preview-data-providers"></a>Scaricare i provider di dati **in anteprima** più recenti  
 Usare il provider di dati seguenti per ottenere le correzioni di bug e gli aggiornamenti più recenti. Questi provider di dati sono consigliati per la connessione all'anteprima di Azure Analysis Services o a SQL Server vNext Analysis Services.
 
-[Anteprima di MSOLAP (amd64)](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.304.138/1033/x64/SQL_AS_OLEDB.msi)</br>
-[Anteprima di MSOLAP (x86)](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.304.138/1033/x86/SQL_AS_OLEDB.msi)</br>
-[Anteprima AMO](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.304.138/1033/x64/SQL_AS_AMO.msi)</br>
-[Anteprima ADOMD](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.304.138/1033/x64/SQL_AS_ADOMD.msi)</br>
+[Anteprima di MSOLAP (amd64)](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/amd64/SQL_AS_OLEDB.msi)</br>
+[Anteprima di MSOLAP (x86)](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/x86/SQL_AS_OLEDB.msi)</br>
+[Anteprima AMO](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/SQL_AS_AMO.msi)</br>
+[Anteprima ADOMD](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/SQL_AS_ADOMD.msi)</br>
 
 ## <a name="download-the-latest-rtm-data-providers"></a>Scaricare i provider di dati **RTM** più recenti  
 Usare i seguenti provider di dati se ci si trova in un ambiente di produzione e si richiedono versioni completamente rilasciate e supportate.

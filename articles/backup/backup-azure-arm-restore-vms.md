@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 3/12/2017
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 1dc2883056eab9764cda674b42fa40c517550ccd
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 61f09a6f103b9cedaf19f1128a21fa8d5df974a1
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -128,7 +128,7 @@ Se si desidera personalizzare la macchina virtuale da creare dai dischi di cui �
 
 Al termine dell'operazione di ripristino, è possibile:
 * [Usare il modello per personalizzare la macchina virtuale ripristinata](#use-templates-to-customize-restore-vm)
-* [Usare i dischi ripristinati per collegarlo a una macchina virtuale esistente](../virtual-machines/virtual-machines-windows-attach-disk-portal.md)
+* [Usare i dischi ripristinati per collegarlo a una macchina virtuale esistente](../virtual-machines/windows/attach-disk-portal.md)
 * [Creare una nuova macchina virtuale tramite PowerShell dai dischi ripristinati.](./backup-azure-vms-automation.md#restore-an-azure-vm)
 
 Nel pannello **Configurazione di ripristino** fare clic su **OK** per portare a termine la configurazione di ripristino. Nel pannello **Ripristino** fare clic su **Ripristina** per attivare l'operazione di ripristino.
@@ -193,7 +193,7 @@ Dopo aver immesso i valori richiesti, accettare le *Condizioni per l'utilizzo* e
 * Se si usa una distribuzione Linux basata su cloud-init, ad esempio Ubuntu, per motivi di sicurezza la password viene bloccata dopo il ripristino. Per [reimpostare la password](../virtual-machines/linux/classic/reset-access.md)nella macchina virtuale ripristinata usare l'estensione VMAccess. È consigliabile usare chiavi SSH in queste distribuzioni per evitare la reimpostazione della password dopo il ripristino.
 * Le estensioni presenti durante la configurazione di backup verranno installate, ma non attivate. In caso di problemi, reinstallare le estensioni. 
 * Se la macchina virtuale di backup dispone di indirizzo IP statico, dopo il ripristino, la macchina virtuale ripristinata avrà un indirizzo IP dinamico per evitare conflitti durante la creazione della macchina virtuale ripristinata. Altre informazioni su come [aggiungere un indirizzo IP statico alla macchina virtuale ripristinata](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
-* La macchina virtuale ripristinata non avrà set di disponibilità. È consigliabile usare l'opzione di ripristino dei dischi e [aggiungere il set di disponibilità](../virtual-machines/virtual-machines-windows-create-availability-set.md#use-powershell-to-create-an-availability-set) durante la creazione di una macchina virtuale da PowerShell o dei modelli tramite i dischi ripristinati. 
+* La macchina virtuale ripristinata non avrà set di disponibilità. È consigliabile usare l'opzione di ripristino dei dischi e [aggiungere il set di disponibilità](../virtual-machines/windows/create-availability-set.md#use-powershell-to-create-an-availability-set) durante la creazione di una macchina virtuale da PowerShell o dei modelli tramite i dischi ripristinati. 
 
 ## <a name="backup-for-restored-vms"></a>Backup per le macchine virtuali ripristinate
 Se la macchina virtuale è stata ripristinata nello stesso gruppo di risorse con lo stesso nome della macchina virtuale di cui è stato originariamente eseguito il backup, l'operazione di backup continua nella macchina virtuale dopo il ripristino. Se la macchina virtuale è stata ripristinata in un gruppo di risorse diverso o se è stato specificato un nome diverso per la macchina virtuale ripristinata, quest'ultima verrà considerata come nuova ed è necessario configurare il backup per la macchina virtuale ripristinata.

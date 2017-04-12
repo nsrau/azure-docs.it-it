@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 2/7/2017
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: c059d39840ae268da647cffd2bfcb937f006356a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 7937a4070907faa5848f125f83c23849320b9cf4
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -49,7 +49,7 @@ Prima di proteggere o eseguire il backup di una macchina virtuale (VM) di Resour
 Se nell'ambiente esistono già queste condizioni, passare all'articolo [Eseguire il backup di macchine virtuali di Azure](backup-azure-vms.md). Se si vuole impostare o verificare qualsiasi prerequisito, questo articolo spiega la procedura di preparazione dei prerequisiti.
 
 ##<a name="supported-operating-system-for-backup"></a>Sistema operativo supportato per il backup
- * **Linux**: Backup di Azure supporta [un elenco di distribuzioni approvate da Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , ad eccezione di CoreOS Linux. _È possibile usare altre distribuzioni Bring Your Own Linux, a condizione che l'agente di macchine virtuali sia disponibile nella macchina virtuale e sia configurato il supporto per Python. Microsoft tuttavia non consiglia queste distribuzioni per il backup._
+ * **Linux**: Backup di Azure supporta [un elenco di distribuzioni approvate da Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , ad eccezione di CoreOS Linux. _È possibile usare altre distribuzioni Bring Your Own Linux, a condizione che l'agente di macchine virtuali sia disponibile nella macchina virtuale e sia configurato il supporto per Python. Microsoft tuttavia non consiglia queste distribuzioni per il backup._
  * **Windows Server**: le versioni precedenti a Windows Server 2008 R2 non sono supportate.
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Limitazioni durante il backup e il ripristino di una VM
@@ -181,8 +181,8 @@ In caso di problemi con il backup della macchina virtuale di Azure, assicurarsi 
 
 | **Operazione** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Installazione dell'agente di macchine virtuali |Scaricare e installare il file [MSI per l'agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Per completare l'installazione sono necessari privilegi di amministratore. |<li> Installare l'[agente Linux](../virtual-machines/virtual-machines-linux-agent-user-guide.md) più recente. Per completare l'installazione sono necessari privilegi di amministratore. È consigliabile installare l'agente dal repository di distribuzione. **Non è consigliabile** installare l'agente di macchine virtuali Linux direttamente da GitHub.  |
-| Aggiornamento dell'agente di VM |L'aggiornamento dell'agente di VM è semplice quanto la reinstallazione dei [file binari dell'agente di VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente di VM. |Seguire le istruzioni sull'[aggiornamento dell'agente di macchine virtuali Linux ](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). È consigliabile aggiornare l'agente dal repository di distribuzione. **Non è consigliabile** aggiornare l'agente di macchine virtuali Linux direttamente da GitHub.<br>Assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente di VM. |
+| Installazione dell'agente di macchine virtuali |Scaricare e installare il file [MSI per l'agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Per completare l'installazione sono necessari privilegi di amministratore. |<li> Installare l'[agente Linux](../virtual-machines/linux/agent-user-guide.md) più recente. Per completare l'installazione sono necessari privilegi di amministratore. È consigliabile installare l'agente dal repository di distribuzione. **Non è consigliabile** installare l'agente di macchine virtuali Linux direttamente da GitHub.  |
+| Aggiornamento dell'agente di VM |L'aggiornamento dell'agente di VM è semplice quanto la reinstallazione dei [file binari dell'agente di VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente di VM. |Seguire le istruzioni sull'[aggiornamento dell'agente di macchine virtuali Linux ](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). È consigliabile aggiornare l'agente dal repository di distribuzione. **Non è consigliabile** aggiornare l'agente di macchine virtuali Linux direttamente da GitHub.<br>Assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente di VM. |
 | Convalida dell'installazione dell'agente di macchine virtuali |<li>Passare alla cartella *C:\WindowsAzure\Packages* nella VM di Azure, <li>che dovrebbe includere il file WaAppAgent.exe.<li> Fare clic con il pulsante destro del mouse sul file, scegliere **Proprietà** e quindi selezionare la scheda **Dettagli**. Il campo Versione prodotto deve essere 2.6.1198.718 o superiore. |N/D |
 
 ### <a name="backup-extension"></a>Estensione di backup
