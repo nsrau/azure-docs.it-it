@@ -17,6 +17,7 @@ ms.author: sumuth
 translationtype: Human Translation
 ms.sourcegitcommit: 385eb87ec32f5f605b28cc8c76b1c89c7e90bfec
 ms.openlocfilehash: 5284022ea473db893800b0f64b5bf4f811d994aa
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -164,7 +165,7 @@ Questa sezione descrive come configurare un flusso di lavoro di distribuzione us
     * prefix. Only numbers, letters, and underscores please!
     */
     $table_prefix = getenv('DB_PREFIX');
-```
+    ```
 
 #### <a name="use-relative-paths"></a>Usare percorsi relativi
 Infine è necessario configurare i percorsi relativi nell'app WordPress. WordPress archivia le informazioni relative all'URL nel database. Questo tipo di archiviazione rende più difficile il trasferimento dei contenuti da un ambiente all'altro. È necessario aggiornare il database ogni volta che si spostano contenuti da ambiente locale ad ambiente di gestione temporanea o da ambiente di gestione temporanea ad ambiente di produzione. Per ridurre i rischi associati alla distribuzione del database ogni volta che si esegue la distribuzione da un ambiente a un altro, usare il [plug-in per i collegamenti relativi alla radice](https://wordpress.org/plugins/root-relative-urls/), che può essere installato usando il dashboard di amministrazione di WordPress.
@@ -442,9 +443,4 @@ Questo esempio illustra la flessibilità della piattaforma in cui è possibile c
 [Configurare ambienti di staging per le app Web nel servizio app di Azure](web-sites-staged-publishing.md)
 
 [Come bloccare l'accesso Web agli slot di distribuzione non di produzione](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

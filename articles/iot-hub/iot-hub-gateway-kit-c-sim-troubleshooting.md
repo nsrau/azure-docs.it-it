@@ -7,6 +7,7 @@ author: shizn
 manager: timtl
 tags: 
 keywords: Problemi di IoT, Internet delle cose
+ROBOTS: NOINDEX
 ms.assetid: 3ee8f4b0-5799-40a3-8cf0-8d5aa44dbc2b
 ms.service: iot-hub
 ms.devlang: c

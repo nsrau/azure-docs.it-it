@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: archiviazione di dati nel cloud, dati archiviati nel cloud, servizio cloud iot
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: f84f9a85-e2c4-4a92-8969-f65eb34c194e
 ms.service: iot-hub
 ms.devlang: c

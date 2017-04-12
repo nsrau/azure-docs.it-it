@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/30/2017
+ms.date: 04/11/2017
 ms.author: cherylmc
 translationtype: Human Translation
 ms.sourcegitcommit: b5bad71095e4b7e3b26df15780467526200ffa10
 ms.openlocfilehash: 68d94a6402b1497f65c4d03fb987ba800e86c2a3
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -34,14 +35,20 @@ Per eseguire la verifica con PowerShell, installare la versione più recente dei
 
 ### <a name="log-in-to-your-azure-account"></a>Accedere all'account Azure
 1. Aprire la console di PowerShell con privilegi elevati e connettersi al proprio account.
-   
-        Login-AzureRmAccount
+
+  ```powershell
+  Login-AzureRmAccount
+  ```
 2. Controllare le sottoscrizioni per l'account.
-   
-        Get-AzureRmSubscription 
+
+  ```powershell
+  Get-AzureRmSubscription
+  ``` 
 3. Specificare la sottoscrizione da usare.
-   
-        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
 
 ### <a name="verify-your-connection"></a>Verificare la connessione
 
@@ -56,27 +63,30 @@ Per eseguire la verifica con PowerShell, installare le versioni più recenti dei
 
 ### <a name="log-in-to-your-azure-account"></a>Accedere all'account Azure
 1. Aprire la console di PowerShell con privilegi elevati e connettersi al proprio account.
-   
-        Login-AzureRmAccount
+
+  ```powershell
+  Login-AzureRmAccount
+  ```
 2. Controllare le sottoscrizioni per l'account.
-   
-        Get-AzureRmSubscription 
+
+  ```powershell
+  Get-AzureRmSubscription 
+  ```
 3. Specificare la sottoscrizione da usare.
-   
-        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
 4. Eseguire l'accesso per usare i cmdlet di Gestione dei servizi per il modello di distribuzione classica.
 
-        Add-AzureAccount
+  ```powershell
+  Add-AzureAccount
+  ```
 
 ### <a name="verify-your-connection"></a>Verificare la connessione
 [!INCLUDE [Classic PowerShell](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 * È possibile aggiungere macchine virtuali alla rete virtuale. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) .
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 
