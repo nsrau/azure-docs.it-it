@@ -119,10 +119,10 @@ I pool elastici nel database SQL combinano l'isolamento dei tenant alla condivis
 | --- | --- |
 | Isolamento dei tenant e condivisione delle risorse |[Pool elastici:](sql-database-elastic-pool.md): un pool di risorse del database SQLD viene allocato e condiviso in vari database. I singoli database possono prendere dal pool tutte le risorse necessarie per rispondere ai picchi di domanda di capacità dovuti a modifiche nei carichi di lavoro dei tenant. In base alle esigenze è possibile aumentare o ridurre le prestazioni dello stesso pool elastico. I pool elastici sono anche facili da gestire, monitorare e correggere, in caso di problemi, a livello di pool. |
 | Facilità di DevOps tra i database |[Pool elastici:](sql-database-elastic-pool.md)come sopra. |
-| [Query elastica:](sql-database-elastic-query-horizontal-partitioning.md)la query viene eseguita tra database a scopo di creazione di report o l'analisi tra tenant. | |
-| [Processi elastici:](sql-database-elastic-jobs-overview.md)vengono creati pacchetti e distribuzioni affidabili delle operazioni di manutenzione dei database o delle modifiche allo schema di database a vari database. | |
-| [Transazioni elastiche:](sql-database-elastic-transactions-overview.md)le modifiche a più database vengono elaborate in modo atomico e isolato. Le transazioni elastiche sono necessarie quando le applicazioni richiedono garanzie di tipo "tutto o niente" su varie operazioni di database. | |
-| [Libreria client dei database elastici](sql-database-elastic-database-client-library.md): le distribuzioni dei dati vengono gestite e i tenant vengono mappati ai database. | |
+| | [Query elastica:](sql-database-elastic-query-horizontal-partitioning.md)la query viene eseguita tra database a scopo di creazione di report o l'analisi tra tenant. |
+| | [Processi elastici:](sql-database-elastic-jobs-overview.md)vengono creati pacchetti e distribuzioni affidabili delle operazioni di manutenzione dei database o delle modifiche allo schema di database a vari database. |
+| | [Transazioni elastiche:](sql-database-elastic-transactions-overview.md)le modifiche a più database vengono elaborate in modo atomico e isolato. Le transazioni elastiche sono necessarie quando le applicazioni richiedono garanzie di tipo "tutto o niente" su varie operazioni di database. |
+| | [Libreria client dei database elastici](sql-database-elastic-database-client-library.md): le distribuzioni dei dati vengono gestite e i tenant vengono mappati ai database. |
 
 ## <a name="shared-models"></a>Modelli condivisi
 Come descritto in precedenza, per la maggior parte dei provider SaaS l'approccio con un modello condiviso può rappresentare un problema in termini di isolamento dei tenant, ma anche di complessità nello sviluppo e nella manutenzione delle applicazioni. Tuttavia, per le applicazioni multi-tenant che forniscono un servizio direttamente ai consumer, i requisiti di isolamento dei tenant possono non essere prioritari quanto la riduzione al minimo dei costi. Potrebbe essere possibile riunire i tenant in uno o più database a densità elevata per ridurre i costi. I modelli di database condivisi che usano un database singolo o più database partizionati possono offrire una maggiore efficienza in termini di condivisione delle risorse e riduzione del costo complessivo. Il database SQL di Azure offre alcune funzionalità che consentono a tali clienti di compilare l'isolamento per una maggiore sicurezza e la gestione su larga scala nel livello dati.
@@ -132,10 +132,10 @@ Come descritto in precedenza, per la maggior parte dei provider SaaS l'approccio
 | Funzionalità di isolamento di sicurezza |[Sicurezza a livello di riga](https://msdn.microsoft.com/library/dn765131.aspx) |
 | [Schema del database](https://msdn.microsoft.com/library/dd207005.aspx) | |
 | Facilità di DevOps tra i database |[Query elastica](sql-database-elastic-query-horizontal-partitioning.md) |
-| [Processi elastici](sql-database-elastic-jobs-overview.md) | |
-| [Transazioni elastiche](sql-database-elastic-transactions-overview.md) | |
-| [Libreria client dei database elastici](sql-database-elastic-database-client-library.md) | |
-| [Divisione e unione dei database elastici](sql-database-elastic-scale-overview-split-and-merge.md) | |
+| | [Processi elastici](sql-database-elastic-jobs-overview.md) |
+| | [Transazioni elastiche](sql-database-elastic-transactions-overview.md) |
+| | [Libreria client dei database elastici](sql-database-elastic-database-client-library.md) |
+| | [Divisione e unione dei database elastici](sql-database-elastic-scale-overview-split-and-merge.md) |
 
 ## <a name="summary"></a>Riepilogo
 I requisiti di isolamento dei tenant sono importanti per la maggior parte delle applicazioni SaaS multi-tenant. Il modo migliore per garantire l'isolamento propende decisamente verso l'approccio con database per ogni tenant. Gli altri due approcci comportano investimenti complessi a livello di applicazione, che richiedono sviluppatori competenti per garantire l'isolamento, aumentando significativamente i costi e i rischi. Se non si tiene conto dei requisiti di isolamento nelle prime fasi di sviluppo del servizio, l'adeguamento può risultare ancora più dispendioso nei primi due modelli. Gli svantaggi principali associati al modello con database per ogni tenant sono correlati all'aumento dei costi delle risorse cloud. Questo a causa del livello di condivisione ridotto e della gestione di un numero elevato di database. Gli sviluppatori di applicazioni SaaS incontrano spesso difficoltà a causa di questi compromessi.
