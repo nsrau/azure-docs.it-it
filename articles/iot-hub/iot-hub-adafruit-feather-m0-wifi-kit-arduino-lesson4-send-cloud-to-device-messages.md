@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: led di controllo arduino dal web, led di controllo arduino tramite web
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
 ms.assetid: a0bf53fb-29fb-485f-ba4a-6c715057b1a2
 ms.service: iot-hub
 ms.devlang: arduino

@@ -14,7 +14,7 @@
 ## [Requisiti di routing](expressroute-routing.md)
 ## [Requisiti NAT](expressroute-nat.md)
 ## [Requisiti QoS](expressroute-qos.md)
-## [Spostamento dei circuiti dal modello classico a Resource Manager](expressroute-move.md)
+## [Informazioni sullo spostamento dei circuiti dal modello classico a Resource Manager](expressroute-move.md)
 
 # Procedure
 ## Creare e modificare un circuito
@@ -29,6 +29,7 @@
 ## [Configurare un gateway di rete virtuale per ExpressRoute](expressroute-howto-add-gateway-resource-manager.md)
 ## [Configurare connessioni coesistenti ExpressRoute e da sito a sito](expressroute-howto-coexist-resource-manager.md)
 ## [Spostare un circuito dal modello di distribuzione classica a quello Resource Manager](expressroute-howto-move-arm.md)
+## [Eseguire la migrazione di reti virtuali associate dal modello classico a Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Configurare un router per ExpressRoute
 ### [Configurare un router](expressroute-config-samples-routing.md)
 ### [Esempi di configurazione di router per NAT](expressroute-config-samples-nat.md)
