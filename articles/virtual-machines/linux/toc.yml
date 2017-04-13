@@ -39,6 +39,8 @@
     href: azure-vm-network-overview.md
   - name: "Set di scalabilità delle VM"
     href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
+  - name: "Servizio metadati dell&quot;istanza" 
+    href: ../virtual-machines-instancemetadataservice-overview.md
   - name: "Contenitori"
     href: containers.md
   - name: "Gestione risorse"

@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: strumenti di sviluppo arduino, sviluppo iot, software iot, software per internet delle cose, installare git in mac, installare node js in mac
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
 ms.assetid: 0262f3dd-0259-4eb0-962f-9fb534f8359e
 ms.service: iot-hub
 ms.devlang: arduino

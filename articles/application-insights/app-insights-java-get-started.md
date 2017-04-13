@@ -397,5 +397,5 @@ Se il sito è inattivo, si otterranno grafici dei tempi di risposta, nonché not
 [eclipse]: app-insights-java-eclipse.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md
 

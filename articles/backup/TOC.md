@@ -19,6 +19,7 @@
 ## Server di backup di Azure
 ### [Preparare i carichi di lavoro del server di Backup di Azure nel portale di Azure](backup-azure-microsoft-azure-backup.md)
 ### [Preparare i carichi di lavoro del server di Backup di Azure nel portale classico](backup-azure-microsoft-azure-backup-classic.md)
+### [Usare il server di Backup di Azure per eseguire il backup di un server VMware](backup-azure-backup-server-vmware.md)
 ### [Usare il server di Backup di Azure per eseguire il backup di Exchange](backup-azure-exchange-mabs.md)
 ### [Usare il server di Backup di Azure per eseguire il backup di una farm di SharePoint](backup-azure-backup-sharepoint-mabs.md)
 ### [Usare il server di Backup di Azure per eseguire il backup di SQL](backup-azure-sql-mabs.md)

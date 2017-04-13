@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: configurazione di arduino, connessione di arduino al pc, impostazione di arduino, scheda arduino
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
 ms.assetid: f5b334f0-a148-41aa-b374-ce7b9f5b305a
 ms.service: iot-hub
 ms.devlang: arduino
