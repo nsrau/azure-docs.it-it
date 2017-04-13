@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/09/2017
+ms.date: 04/12/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
@@ -78,7 +78,7 @@ Per impostazione predefinita, l'account Microsoft o l'account aziendale che crea
 Esistono due modelli di autorizzazione che controllano l'accesso a un'area di lavoro di Log Analytics:
 
 1. Ruoli utente di Log Analytics legacy
-2. [Accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md) 
+2. [Accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md)
 
 La tabella seguente riepiloga l'accesso che si può impostare con ogni modello di autorizzazione:
 
@@ -101,13 +101,14 @@ Le attività seguenti nel portale di Log Analytics richiedono le autorizzazioni 
 | Aggiunta e rimozione di soluzioni di gestione                        | Scrittura per il gruppo di risorse <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
 | Modifica del piano tariffario                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Visualizzazione dei dati nei riquadri delle soluzioni *Backup* e *Site Recovery* | Amministratore/Coamministratore | Risorse di accesso distribuite usando il modello di distribuzione classica |
- 
+
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Gestione dell'accesso a Log Analytics con le autorizzazioni di Azure
 Per concedere l'accesso all'area di lavoro di Log Analytics usando le autorizzazioni di Azure, seguire i passaggi indicati in [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](../active-directory/role-based-access-control-configure.md).
 
 Avendo almeno l'autorizzazione di lettura di Azure per l'area di lavoro di Log Analytics, è possibile aprire il portale di OMS facendo clic sull'attività **Portale di OMS** quando si visualizza l'area di lavoro di Log Analytics.
 
-Quando si apre il portale di Log Analytics, si passa all'uso dei ruoli utente di Log Analytics legacy. Se non si ha un'assegnazione di ruolo nel portale di Log Analytics, il servizio [controlla le autorizzazioni di Azure disponibili per l'area di lavoro](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource). L'assegnazione di ruolo nel portale di Log Analytics viene determinata come segue:
+Quando si apre il portale di Log Analytics, si passa all'uso dei ruoli utente di Log Analytics legacy. Se non si ha un'assegnazione di ruolo nel portale di Log Analytics, il servizio [controlla le autorizzazioni di Azure disponibili per l'area di lavoro](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource).
+L'assegnazione di ruolo nel portale di Log Analytics viene determinata come segue:
 
 | Condizioni                                                   | Ruolo utente di Log Analytics assegnato | Note |
 |--------------------------------------------------------------|----------------------------------|-------|
@@ -119,7 +120,7 @@ Quando si apre il portale di Log Analytics, si passa all'uso dei ruoli utente di
 | Per le sottoscrizioni gestite da un Cloud Solution Provider (CSP) <br> L'account con cui è stato eseguito l'accesso si trova nell'istanza di Azure Active Directory collegata all'area di lavoro | Amministratore | In genere il cliente di un CSP |
 | Per le sottoscrizioni gestite da un Cloud Solution Provider (CSP) <br> L'account con cui è stato eseguito l'accesso non si trova nell'istanza di Azure Active Directory collegata all'area di lavoro | Collaboratore | In genere il CSP |
 
-<sup>1</sup> Per altre informazioni sulle definizioni del ruolo, vedere [Autorizzazioni di Azure](../active-directory/role-based-access-control-custom-roles.md). Quando si valutano i ruoli, un'azione `*` non equivale a `Microsoft.OperationalInsights/workspaces/*`. 
+<sup>1</sup> Per altre informazioni sulle definizioni del ruolo, vedere [Autorizzazioni di Azure](../active-directory/role-based-access-control-custom-roles.md). Quando si valutano i ruoli, un'azione `*` non equivale a `Microsoft.OperationalInsights/workspaces/*`.
 
 Ecco alcuni elementi relativi al portale di Azure da tenere presenti:
 
