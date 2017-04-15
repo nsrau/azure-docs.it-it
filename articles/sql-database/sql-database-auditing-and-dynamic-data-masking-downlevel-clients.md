@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 4ef19ed1-e798-43a2-ad99-0e563f93ab53
 ms.service: sql-database
-ms.custom: secure and protect
+ms.custom: security-protect
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/17/2017
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-auditing"></a>Database SQL: supporto dei client di livello inferiore e modifiche all'endpoint IP per Controllo
 Il [controllo del database](sql-database-auditing.md) funziona automaticamente con i client SQL che supportano il reindirizzamento TDS. Si noti che il reindirizzamento non è applicabile quando si usa il metodo di controllo BLOB.
 
-## <a name="a-idsubheading-1adownlevel-clients-support"></a><a id="subheading-1"></a>Supporto dei client di livello inferiore
+## <a id="subheading-1"></a>Supporto dei client di livello inferiore
 Qualsiasi client che implementa TDS 7.4 deve supportare anche il reindirizzamento. Rappresentano un'eccezione JDBC 4.0, in cui non è del tutto supportata la funzionalità di reindirizzamento, e Tedious per Node.JS, in cui non è implementato il reindirizzamento.
 
 Per i "client di livello inferiore", ad esempio quelli che supportano la versione 7.3 di TDS e inferiori, il nome di dominio completo del server nella stringa di connessione deve essere modificato:
@@ -43,7 +43,7 @@ Un elenco parziale di "client di livello inferiore" include:
 
 **Nota:** la modifica del nome di dominio completo del server citata in precedenza può risultare utile per applicare un criterio di controllo a livello di server SQL senza la necessità di una procedura di configurazione in ogni database (attenuazione temporanea).
 
-## <a name="a-idsubheading-2aip-endpoint-changes-when-enabling-auditing"></a><a id="subheading-2"></a>Modifiche all'endpoint IP quando si abilita il Controllo
+## <a id="subheading-2"></a>Modifiche all'endpoint IP quando si abilita il Controllo
 Si noti che quando si abilita il controllo delle tabelle, l'endpoint IP del database viene modificato. Se si dispone di impostazioni del firewall restrittive, aggiornarle.
 
 Il nuovo endpoint IP del database dipenderà dall'area del database:
