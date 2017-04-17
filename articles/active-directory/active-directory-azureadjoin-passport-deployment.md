@@ -89,7 +89,7 @@ Usare System Center Configuration Manager è il metodo preferito quando lo si us
    
     b. Per **Usa Trusted Platform Module (TPM)** selezionare **Richiesto**. 
    
-    c. Per **Metodo di autenticazione **selezionare **Basata su certificati**.
+    c. Per **Metodo di autenticazione**selezionare **Basata su certificati**.
    
     d. Fare clic su **Avanti**.
 6. Nella finestra di dialogo **Riepilogo** fare clic su **Avanti**.
