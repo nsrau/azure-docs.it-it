@@ -12,12 +12,12 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2017
+ms.date: 04/05/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 5da00d1d64b258773fa485baa804b283fde731c3
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 1b0d278c102497eca978d8cd3fa29cd2527f186c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -148,11 +148,63 @@ Esempio di questo tipo di avviso:
 ![Avviso di processo sospetto](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
 ### <a name="multiple-domain-accounts-queried"></a>Tentativi ripetuti di query sugli account di dominio
-Centro sicurezza può rilevare tentativi di query ripetuti sugli account di dominio, attività in genere eseguita dagli utenti malintenzionati durante la ricognizione della rete. Gli utenti malintenzionati possono sfruttare questa tecnica per eseguire query sul dominio e identificare gli utenti, gli account di amministrazione del dominio, i computer che fungono da controller di dominio e anche potenziali relazioni di trust di dominio con altri domini.
+Il Centro sicurezza può rilevare tentativi di query ripetuti sugli account di dominio di Active Directory, attività in genere eseguita dagli utenti malintenzionati durante la ricognizione della rete. Gli utenti malintenzionati possono sfruttare questa tecnica per eseguire query sul dominio e identificare gli utenti, gli account di amministrazione del dominio, i computer che fungono da controller di dominio e anche potenziali relazioni di trust di dominio con altri domini.
 
 Esempio di questo tipo di avviso:
 
 ![Avviso di tentativi di query multipli su account di dominio](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
+
+### <a name="local-administrators-group-members-were-enumerated"></a>Sono stati enumerati i membri del gruppo Administrators locale
+
+Il Centro sicurezza attiverà un avviso quando si verifica l'evento di sicurezza 4798 in Windows 10 e Windows Server 2016. L'evento si verifica quando i gruppi Administrators locali vengono enumerati, attività in genere eseguita dagli utenti malintenzionati durante la ricognizione della rete. Gli utenti malintenzionati possono sfruttare questa tecnica per eseguire una query l'identità degli utenti con privilegi amministrativi.
+
+Esempio di questo tipo di avviso:
+
+![Amministratore locale](./media/security-center-alerts-type/security-center-alerts-type-fig14-new.png)
+
+### <a name="anomalous-mix-of-upper-and-lower-case-characters"></a>Combinazione anomala di lettere maiuscole e minuscole
+
+Il Centro sicurezza attiva un avviso quando rileva l'uso di una combinazione di lettere maiuscole e minuscole nella riga di comando. Alcuni utenti malintenzionati possono usare questa tecnica per nascondersi da regole della macchina con distinzione tra maiuscole e minuscole o basate su hash.
+
+Esempio di questo tipo di avviso:
+
+![Combinazione anomala](./media/security-center-alerts-type/security-center-alerts-type-fig15-new.png)
+
+### <a name="suspected-kerberos-golden-ticket-attack"></a>Sospetto attacco con Golden Ticket Kerberos
+
+Una chiave [krbtgt](https://technet.microsoft.com/library/dn745899.aspx) compromessa può essere usata da un utente malintenzionato per creare "Golden Ticket" Kerberos, che consentono all'utente malintenzionato stesso di rappresentare qualsiasi utente. Il Centro sicurezza attiverà un avviso quando rileva questo tipo di attività.
+
+> [!NOTE] 
+> Per altre informazioni sui Golden Ticket Kerberos, vedere [Windows 10 credential theft mitigation guide](http://download.microsoft.com/download/C/1/4/C14579CA-E564-4743-8B51-61C0882662AC/Windows%2010%20credential%20theft%20mitigation%20guide.docx) (Guida alla prevenzione del furto di credenziali in Windows 10).
+
+Esempio di questo tipo di avviso:
+
+![Golden ticket](./media/security-center-alerts-type/security-center-alerts-type-fig16-new.png)
+
+### <a name="suspicious-account-created"></a>Creato account sospetto
+
+Centro sicurezza attiverà un avviso quando viene creato un account molto somigliante a un account predefinito esistente con privilegi amministrativi. Questa tecnica può essere usata da utenti malintenzionati per creare un account non autorizzato e sfuggire a una verifica umana.
+ 
+Esempio di questo tipo di avviso:
+
+![Account sospetto](./media/security-center-alerts-type/security-center-alerts-type-fig17-new.png)
+
+### <a name="suspicious-firewall-rule-created"></a>Creata regola del firewall sospetta
+
+Gli utenti malintenzionati possono provare ad aggirare la sicurezza dell'host creando regole del firewall personalizzate per consentire ad applicazioni dannose di comunicare con i server di comando e controllo o di avviare attacchi nella rete tramite l'host compromesso. Il Centro sicurezza attiverà un avviso quando rileva che è stata creata una nuova regola del firewall da un file eseguibile in una posizione sospetta.
+ 
+Esempio di questo tipo di avviso:
+
+![Regola del firewall](./media/security-center-alerts-type/security-center-alerts-type-fig18-new.png)
+
+### <a name="suspicious-combination-of-hta-and-powershell"></a>Combinazione sospetta di HTA e PowerShell
+
+Il Centro sicurezza attiverà un avviso quando rileva che un host HTA (HTML Application Host) di Microsoft sta avviando comandi di PowerShell. Si tratta di una tecnica usata dagli utenti malintenzionati per avviare script di PowerShell dannosi.
+ 
+Esempio di questo tipo di avviso:
+
+![HTA e PS](./media/security-center-alerts-type/security-center-alerts-type-fig19-new.png)
+
 
 ## <a name="network-analysis"></a>Analisi di rete
 Il sistema di rilevamento delle minacce di rete del Centro sicurezza funziona mediante la raccolta automatica di informazioni sulla sicurezza dal traffico IPFIX (Internet Protocol Flow Information Export) di Azure. Per identificare le minacce, analizza queste informazioni, correlando spesso quelle raccolte da più origini.

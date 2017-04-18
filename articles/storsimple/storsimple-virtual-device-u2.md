@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/22/2017
+ms.date: 04/07/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 48d9d8ae97eb763932dd6a59a7df01ae92c92eff
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: d9ba200dba2b1460a9d3c9ba07e2bca54c30b53a
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -33,7 +33,7 @@ Il dispositivo virtuale StorSimple è disponibile in due modelli, Standard 8010 
 | **Capacità massima** |30 TB |64 TB |
 | **Macchina virtuale di Azure** |Standard_A3 (4 core, 7 GB di memoria) |Standard_DS3 (4 core, 14 GB di memoria) |
 | **Compatibilità tra le versioni** |Versioni con aggiornamenti precedenti a Update 2 o successivi |Versioni con aggiornamenti Update 2 o successivi |
-| **Aree di disponibilità** |Tutte le aree di Azure |Tutte le aree di Azure che supportano Archiviazione Premium<br></br> Le aree di archiviazione Premium corrispondono alla riga relativa all'*archiviazione su disco* nell'elenco dei [servizi di Azure in base all'area](https://azure.microsoft.com/en-us/regions/services). |
+| **Aree di disponibilità** |Tutte le aree di Azure |Tutte le aree di Azure che supportano Archiviazione Premium e VM DS3 di Azure<br></br> Usare [questo elenco](https://azure.microsoft.com/en-us/regions/services) per verificare se nella propria area sono disponibili sia le *macchine virtuali serie DS* che l'*archiviazione su disco*. |
 | **Tipo di archiviazione** |Usa l'Archiviazione Standard di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Standard](../storage/storage-create-storage-account.md) |Usa l'Archiviazione Standard di Azure<sup>2</sup> <br></br>Informazioni su come [creare un account di archiviazione Premium](../storage/storage-premium-storage.md) |
 | **Indicazioni relative al carico di lavoro** |Recupero a livello di elemento per i file dai backup |Scenari di sviluppo e test cloud, bassa latenza, carichi di lavoro a prestazioni superiori  <br></br>Dispositivo secondario per il ripristino di emergenza |
 

@@ -12,18 +12,18 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 04/11/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: 76c884bfdfbfacf474489d41f1e388956e4daaa0
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 8b502f5ac5d89801d390a872e7a8b06e094ecbba
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Applicazione .NET multilivello che usa code del bus di servizio
 ## <a name="introduction"></a>Introduzione
-Microsoft Azure consente di sviluppare applicazioni con la stessa semplicità offerta da Visual Studio e Azure SDK gratuito per .NET. Questa esercitazione illustra i passaggi per creare un'applicazione che usa più risorse di Azure in esecuzione nell'ambiente locale. In questa procedura si presuppone che l'utente non abbia mai usato Azure.
+Microsoft Azure consente di sviluppare applicazioni con la stessa semplicità offerta da Visual Studio e Azure SDK gratuito per .NET. Questa esercitazione illustra i passaggi per creare un'applicazione che usa più risorse di Azure in esecuzione nell'ambiente locale.
 
 Verranno illustrate le operazioni seguenti:
 
@@ -34,16 +34,16 @@ Verranno illustrate le operazioni seguenti:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-In questa esercitazione verrà creata ed eseguita un'applicazione multilivello in un servizio cloud di Azure. Il front-end è un ruolo Web ASP.NET MVC e il back-end è un ruolo di lavoro che usa una coda del bus di servizio. È possibile creare la stessa applicazione multilivello con il front-end come progetto Web distribuito in un sito Web di Azure invece che in un servizio cloud. Per istruzioni sulle procedure diverse per un front-end di sito Web di Azure, vedere la sezione [Passaggi successivi](#nextsteps). È anche possibile vedere l'esercitazione sull'[applicazione .NET ibrida locale/sul cloud](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
+In questa esercitazione verrà creata ed eseguita un'applicazione multilivello in un servizio cloud di Azure. Il front-end è un ruolo Web ASP.NET MVC e il back-end è un ruolo di lavoro che usa una coda del bus di servizio. È possibile creare la stessa applicazione multilivello con il front-end come progetto Web distribuito in un sito Web di Azure invece che in un servizio cloud. È anche possibile vedere l'esercitazione sull'[applicazione .NET ibrida locale/sul cloud](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
 
 Nella schermata seguente è illustrata l'applicazione completata.
 
 ![][0]
 
 ## <a name="scenario-overview-inter-role-communication"></a>Informazioni generali sullo scenario: comunicazione tra ruoli
-Per inviare un ordine per l'elaborazione, è necessario che il componente dell'interfaccia utente front-end, in esecuzione nel ruolo Web, interagisca con la logica di livello intermedio in esecuzione nel ruolo di lavoro. Per consentire le comunicazioni tra i livelli, in questo esempio viene usata la messaggistica negoziata del bus di servizio.
+Per inviare un ordine per l'elaborazione, è necessario che il componente dell'interfaccia utente front-end, in esecuzione nel ruolo Web, interagisca con la logica di livello intermedio in esecuzione nel ruolo di lavoro. Questo esempio usa la messaggistica del bus di servizio per la comunicazione tra i livelli.
 
-L'uso della messaggistica negoziata tra il livello Web e il livello intermedio consente di disaccoppiare i due componenti. Invece di usare la messaggistica diretta, ovvero TCP o HTTP, il livello Web non si connette direttamente al livello intermedio, ma inserisce unità di lavoro, ad esempio messaggi, nel bus di servizio, che li conserva in modo affidabile fino a quando il livello intermedio non sarà pronto per usarli ed elaborarli.
+L'uso della messaggistica del bus di servizio tra il livello Web e il livello intermedio consente di disaccoppiare i due componenti. Invece di usare la messaggistica diretta, ovvero TCP o HTTP, il livello Web non si connette direttamente al livello intermedio, ma inserisce unità di lavoro, ad esempio messaggi, nel bus di servizio, che li conserva in modo affidabile fino a quando il livello intermedio non sarà pronto per usarli ed elaborarli.
 
 Il bus di servizio offre due entità per il supporto della messaggistica negoziata, ovvero le code e gli argomenti. Se si usano le code, ogni messaggio inviato alla coda viene usato da un ricevitore singolo. Gli argomenti supportano il modello pubblicazione/sottoscrizione, in cui ogni messaggio pubblicato viene reso disponibile a una sottoscrizione registrata per l'argomento. Ogni sottoscrizione mantiene in modo logico la propria coda di messaggi. È anche possibile configurare le sottoscrizioni specificando regole di filtro per limitare i set di messaggi passati alla coda della sottoscrizione ai soli messaggi corrispondenti al filtro. Nel seguente esempio vengono usate le code del bus di servizio.
 
@@ -63,7 +63,7 @@ Il codice che consente di implementare questa architettura viene illustrato nell
 Prima di iniziare a sviluppare applicazioni Azure, è necessario ottenere gli strumenti e configurare l'ambiente di sviluppo.
 
 1. Installare Azure SDK per .NET dalla [pagina di download](https://azure.microsoft.com/downloads/) di SDK.
-2. Nella colonna **.NET** fare clic sulla versione di [Visual Studio](http://www.visualstudio.com) in uso. Nelle procedure di questa esercitazione viene usato Visual Studio 2015.
+2. Nella colonna **.NET** fare clic sulla versione di [Visual Studio](http://www.visualstudio.com) in uso. I passaggi di questa esercitazione usano Visual Studio 2015, ma funzionano anche con Visual Studio 2017.
 3. Quando viene richiesto se eseguire o salvare il file di installazione, fare clic su **Esegui**.
 4. Nell'**Installazione guidata piattaforma Web** fare clic su **Installa** e procedere con l'installazione.
 5. Al termine dell'installazione, saranno disponibili tutti gli strumenti necessari per avviare lo sviluppo dell’app. Nell'SDK sono disponibili gli strumenti che consentono di sviluppare con facilità applicazioni per Azure in Visual Studio.
@@ -78,7 +78,7 @@ Creare in questa sezione il front-end dell'applicazione. Creare prima di tutto l
 Aggiungere quindi il codice per inviare elementi a una coda del bus di servizio e visualizzare informazioni relative allo stato della coda.
 
 ### <a name="create-the-project"></a>Creare il progetto
-1. Usando privilegi di amministratore, avviare Microsoft Visual. Per avviare Visual Studio con privilegi di amministratore, fare clic con il pulsante destro del mouse sull'icona del programma **Visual Studio** e quindi scegliere **Esegui come amministratore**. Per l'emulatore di calcolo di Azure, illustrato più avanti in questo articolo, è necessario che Visual Studio sia avviato con privilegi di amministratore.
+1. Avviare Visual Studio con privilegi di amministratore: fare clic con il pulsante destro del mouse sull'icona del programma **Visual Studio** e quindi scegliere **Esegui come amministratore**. Per l'emulatore di calcolo di Azure, illustrato più avanti in questo articolo, è necessario che Visual Studio sia avviato con privilegi di amministratore.
    
    In Visual Studio scegliere **Nuovo** dal menu **File**, quindi fare clic su **Progetto**.
 2. Da **Modelli installati** in **Visual C#** fare clic su **Cloud** e quindi su **Servizio cloud di Azure**. Assegnare al progetto il nome **MultiTierApp**. Fare quindi clic su **OK**.
@@ -98,7 +98,7 @@ Aggiungere quindi il codice per inviare elementi a una coda del bus di servizio 
     ![][16]
 7. Nella finestra di dialogo **Nuovo progetto ASP.NET** fare clic su **OK** per creare il progetto.
 8. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Riferimenti** nel progetto **FrontendWebRole** e quindi scegliere **Gestisci pacchetti NuGet**.
-9. Fare clic sulla scheda **Sfoglia** e quindi cercare `Microsoft Azure Service Bus`. Fare clic su **Installa**e accettare le condizioni per l'utilizzo.
+9. Fare clic sulla scheda **Sfoglia** e quindi cercare `Microsoft Azure Service Bus`. Selezionare il pacchetto **WindowsAzure.ServiceBus**, fare clic su **Installa** e quindi accettare le condizioni per l'utilizzo.
    
    ![][13]
    
@@ -362,7 +362,7 @@ Verrà ora creato il ruolo di lavoro che elabora l'invio dell'ordine. In questo 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni sul bus di servizio, vedere le risorse seguenti:  
 
-* [Bus di servizio di Azure][sbmsdn]  
+* [Documentazione sul bus di servizio di Azure][sbdocs]  
 * [Pagina del servizio Bus di servizio][sbacom]  
 * [Come usare le code del bus di servizio][sbacomqhowto]  
 
@@ -370,7 +370,7 @@ Per altre informazioni sugli scenari multilivello, vedere:
 
 * [Applicazione .NET multilivello con tabelle, code e BLOB di archiviazione di Azure][mutitierstorage]  
 
-[0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
+[0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app.png
 [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
 [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
 [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
@@ -381,8 +381,8 @@ Per altre informazioni sugli scenari multilivello, vedere:
 [14]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-33.png
 [15]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-34.png
 [16]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-14.png
-[17]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-36.png
-[18]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-37.png
+[17]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app.png
+[18]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app2.png
 
 [19]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-38.png
 [20]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-39.png
@@ -391,7 +391,7 @@ Per altre informazioni sugli scenari multilivello, vedere:
 [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
-[sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
+[sbdocs]: /azure/service-bus-messaging/  
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36

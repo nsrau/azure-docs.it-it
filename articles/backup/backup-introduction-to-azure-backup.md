@@ -17,9 +17,9 @@ ms.date: 3/13/2017
 ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: a2452b95c9355957b10477a6e457000f0eba6a9c
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 2e981f0f45bc5b338937839b74114e12db960927
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -90,9 +90,9 @@ La tabella seguente illustra i componenti di Backup di Azure che hanno il suppor
 | Componente | Supporto Linux (approvato per Azure) |
 | --- | --- |
 | Agente di Backup di Azure (MARS) |No (solo agente basato su Windows) |
-| System Center DPM |Backup coerente a livello di file solo in Hyper-V<br/> (non disponibile per le VM di Azure) |
-| Server di backup di Azure |Backup coerente a livello di file solo in Hyper-V<br/> (non disponibile per le VM di Azure) |
-| Backup di VM IaaS di Azure |Sì (backup coerente con le applicazioni tramite il [framework dello script di pre-backup e post-backup](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)) |
+| System Center DPM |Backup coerenti con i file di macchine virtuali guest Linux in Hyper-V e VMWare<br/> (non disponibile per le VM di Azure)<br/> Ripristino di macchine virtuali guest Linux in Hyper-V e VMWare |
+| Server di backup di Azure |Backup coerenti con i file di macchine virtuali guest Linux in Hyper-V e VMWare<br/> (non disponibile per le VM di Azure)<br/> Ripristino di macchine virtuali guest Linux in Hyper-V e VMWare |
+| Backup di VM IaaS di Azure |Backup coerente con le applicazioni tramite il [framework dello script di pre-backup e post-backup](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)<br/> [Ripristino granulare di file](backup-azure-restore-files-from-vm.md)<br/> [Ripristinare tutti i dischi di macchina virtuale](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-backed-up-disks)<br/> [Ripristino della macchina virtuale](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-new-vm-from-restore-point) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Uso di macchine virtuali di Archiviazione Premium con Backup di Azure
 Backup di Azure protegge le macchine virtuali di Archiviazione Premium. Archiviazione Premium di Azure è una soluzione di archiviazione basata su unità SSD progettata per supportare carichi di lavoro con attività di I/O intensive. Archiviazione Premium è una soluzione interessante per i carichi di lavoro delle macchine virtuali. Per altre informazioni su Archiviazione Premium, vedere l'articolo [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../storage/storage-premium-storage.md).
