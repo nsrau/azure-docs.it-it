@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: fcdeac53c79551000b48a47a1afc65e082bcc692
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: b835b04d6ef6d06e35add4f503e6800099e97383
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -259,6 +259,16 @@ Per montare la condivisione file da un client locale, è prima necessario seguir
 > Alcuni provider di servizi Internet bloccano la porta 445, quindi è opportuno verificare con il proprio provider di servizi.
 > 
 > 
+
+### <a name="unmount-the-file-share"></a>Smontare la condivisione file
+Per smontare la condivisione file, è possibile usare il comando `net use` con l'opzione `/delete`.
+
+```
+net use <drive-letter> /delete
+
+example :
+net use z: /delete
+```
 
 ## <a name="develop-with-file-storage"></a>Sviluppare con Archiviazione file
 Per scrivere codice che chiama Archiviazione file, è possibile usare le librerie client di archiviazione per .NET e Java o l'API REST di Archiviazione di Azure. L'esempio in questa sezione illustra come usare una condivisione file con la [libreria client di Archiviazione di Azure per .NET](https://msdn.microsoft.com/library/mt347887.aspx) da una semplice applicazione console in esecuzione sul desktop.
@@ -666,11 +676,13 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
     È anche possibile fare riferimento all'articolo sulla [risoluzione dei problemi di archiviazione file di Azure](storage-troubleshoot-file-connection-problems.md) per indicazioni sulla risoluzione dei problemi end-to-end.               
 
 18. **Come è possibile abilitare la crittografia lato server per File di Azure?**
+> [!NOTE]
+> La [crittografia lato server](storage-service-encryption.md) per File di Azure è attualmente in anteprima. È possibile contattare [SSEDiscussion](mailto:ssediscussions@microsoft.com) in caso di domande durante l'anteprima.
 
-    La [crittografia lato server](storage-service-encryption.md) per File di Azure è attualmente in anteprima. Durante l'anteprima, è possibile abilitare questa funzionalità solo nei nuovi account di archiviazione di Azure Resource Manager creati con il [portale di Azure](https://portal.azure.com). Non sono previsti costi aggiuntivi per questa funzionalità. Quando si abilita la crittografia del servizio di archiviazione per l'archiviazione file di Azure, i dati vengono crittografati automaticamente. 
+    [Server Side Encryption](storage-service-encryption.md) for Azure Files is currently in preview. During preview, you can enable this feature only on new Azure Resource Manager storage accounts created by using the [Azure portal](https://portal.azure.com). There is no additional charge for enabling this feature. When you enable Storage Service Encryption for Azure File Storage, your data is automatically encrypted for you. 
     
-    In futuro è prevista la possibilità di abilitare la crittografia per l'archiviazione file tramite [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), l'[interfaccia della riga di comando di Azure](storage-azure-cli.md) e l'[API REST del provider di risorse di Archiviazione di Azure](/rest/api/storagerp/storageaccounts). 
-    Per altre informazioni sulla crittografia di dati inattivi in Archiviazione di Azure, vedere [Crittografia del servizio Archiviazione](storage-service-encryption.md). Per eventuali domande durante l'anteprima, contattare ssediscussions@microsoft.com.
+    We plan to support enabling encryption for file storage with [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md), and the [Azure Storage Resource Provider REST API](/rest/api/storagerp/storageaccounts) in the future. 
+    See [Storage Service Encryption](storage-service-encryption.md) for more information about encryption at rest in Azure Storage, and you can contact ssediscussions@microsoft.com if you have questions during the preview.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere i collegamenti seguenti per ulteriori informazioni sull'archiviazione file di Azure.

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 692a0086bd8e0dd6b57de1db0f4e2a9b4f2f0bda
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 6e1a1f522b9632c7d162d36ad5baa23d6130f8b6
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -29,11 +30,6 @@ Monitoraggio di Azure è il servizio di piattaforma che mette a disposizione un'
 2. Fare clic sull'opzione **Monitoraggio** per aprire il pannello **Monitoraggio**. che riunisce tutte le impostazioni e i dati di monitoraggio in un'unica vista consolidata. Per prima cosa si apre la sezione **Log di attività**.
    
     ![Esplorazione del pannello Monitoraggio](./media/monitoring-get-started/monitor-blade-nav.png)
-   
-   > [!WARNING]
-   > Le opzioni **Notifiche del servizio** e **Gruppi di notifica** indicate in precedenza vengono visualizzate solo per gli utenti con anteprima privata per queste funzionalità.
-   > 
-   > 
    
     Monitoraggio di Azure presenta tre categorie di base dei dati di monitoraggio: **log di attività**, **metriche** e **log di diagnostica**.
 3. Fare clic su **Log di attività** per assicurarsi di visualizzare la sezione Log di attività.
@@ -88,7 +84,7 @@ Monitoraggio di Azure è il servizio di piattaforma che mette a disposizione un'
     
     ![pannello avvisi pubblici](./media/monitoring-get-started/monitor-alerts-nopp.png)
     
-    Qui è possibile gestire tutti gli [**avvisi**](monitoring-overview-alerts.md) delle risorse di Azure, compresi gli avvisi sulle metriche, sugli eventi di log di attività (nell'anteprima privata), sui test Web di Application Insights (posizioni) e sulla diagnostica proattiva di Application Insights. Gli avvisi possono attivare l'invio di un messaggio di posta elettronica o un HTTP POST a un URL webhook.
+    Qui è possibile gestire tutti gli [**avvisi**](monitoring-overview-alerts.md) delle risorse di Azure, compresi gli avvisi sulle metriche, sugli eventi di log attività, sui test Web di Application Insights (posizioni) e sulla diagnostica proattiva di Application Insights. Gli avvisi possono attivare l'invio di un messaggio di posta elettronica o un HTTP POST a un URL webhook.
 13. Fare clic su **Aggiungi avviso sulla metrica** per creare un avviso.
     
     ![Aggiungi avviso sulla metrica](./media/monitoring-get-started/monitor-alerts-add.png)
@@ -103,10 +99,5 @@ Seguendo questi passaggi e aggiungendo tutti i riquadri pertinenti a un dashboar
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Consultare [Panoramica del monitoraggio di Azure](monitoring-overview.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

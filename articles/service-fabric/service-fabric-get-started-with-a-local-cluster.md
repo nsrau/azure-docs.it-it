@@ -12,12 +12,12 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/15/2017
+ms.date: 04/07/2017
 ms.author: ryanwi;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: eddca02c4fba88aee667216568beecc76ea65d7c
-ms.openlocfilehash: d1320daaf4b0bd8c1a7b7c8e37fa8b81c4a53e64
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: c0c5ab8a9db60ff375b7d823e40f83cbc4d2b4c3
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -30,7 +30,7 @@ Azure Service Fabric SDK include un ambiente di sviluppo locale completo che pu�
 > 
 
 ## <a name="create-a-local-cluster"></a>Creare un cluster locale
-Un cluster di Service Fabric rappresenta un set di risorse hardware in cui è possibile distribuire le applicazioni. In genere un cluster è costituito da un minimo di&5; fino a diverse migliaia di macchine virtuali, tuttavia Service Fabric SDK include una configurazione cluster che può essere eseguita in una singola macchina virtuale.
+Un cluster di Service Fabric rappresenta un set di risorse hardware in cui è possibile distribuire le applicazioni. In genere un cluster è costituito da un minimo di 5 fino a diverse migliaia di macchine virtuali, tuttavia Service Fabric SDK include una configurazione cluster che può essere eseguita in una singola macchina virtuale.
 
 È importante comprendere che il cluster locale di Service Fabric non è un emulatore o un simulatore. Esegue lo stesso codice della piattaforma eseguito nei cluster costituiti da più macchine virtuali. La differenza sta nel fatto che esegue in una sola macchina virtuale i processi della piattaforma che normalmente vengono eseguiti in cinque macchine virtuali.
 
@@ -90,7 +90,7 @@ In questa esercitazione si userà un'applicazione di esempio esistente, denomina
    
     ![Interfaccia utente dell'applicazione distribuita][deployed-app-ui]
    
-    L'applicazione WordCount è semplice. Include il codice JavaScript lato client per generare "parole" casuali di cinque caratteri, che vengono quindi inoltrate all'applicazione tramite l'API Web ASP.NET. Un servizio con stato tiene traccia del numero di parole conteggiate, che vengono partizionate in base al primo carattere della parola. È possibile trovare il codice sorgente per l'app WordCount negli [esempi introduttivi](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/).
+    L'applicazione WordCount è semplice. Include il codice JavaScript lato client per generare "parole" casuali di cinque caratteri, che vengono quindi inoltrate all'applicazione tramite l'API Web ASP.NET. Un servizio con stato tiene traccia del numero di parole conteggiate, che vengono partizionate in base al primo carattere della parola. È possibile trovare il codice sorgente per l'app WordCount negli [esempi introduttivi classici](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/WordCount).
    
     L'applicazione distribuita contiene quattro partizioni. Le parole che iniziano con le lettere dalla A alla G vengono archiviate nella prima partizione, quelle che iniziano con le lettere dalla H alla N nella seconda partizione e così via.
 
