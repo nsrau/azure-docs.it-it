@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2017
+ms.date: 04/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 981155c38bdc8cb54639d2271be1f3bd3036125c
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 5348cedf369264defc5bb8417397aae046915ca7
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -49,9 +49,16 @@ Questo articolo descrive la distribuzione nel [portale di Azure](https://portal.
 
 ## <a name="migrate-on-premises-vms-and-physical-servers"></a>Eseguire la migrazione di server fisici e VM locali
 
-Per eseguire la migrazione di server fisici e VM VMware e Hyper-V locali, si segue approssimativamente la stessa procedura usata per la replica normale. Si configurano un insieme di credenziali di Servizi di ripristino e quindi i server di gestione necessari (in base agli elementi di cui si vuole eseguire la migrazione), si aggiungono tali server all'insieme di credenziali e si specificano le impostazioni di replica. Dopo aver abilitato la replica per i computer di cui si vuole eseguire la migrazione, si effettua un rapido failover di test per verificare che tutto funzioni come previsto.
+Per eseguire la migrazione di server fisici e VM VMware e Hyper-V locali, si segue approssimativamente la stessa procedura usata per la replica normale.
 
-Dopo aver verificato il funzionamento dell'ambiente di replica, si usa un failover pianificato o non pianificato a seconda della [tipologia supportata](site-recovery-failover.md) per lo scenario. Per la migrazione, non è necessario eseguire il commit di un failover. Si seleziona invece l'opzione **Completa la migrazione** per ogni computer di cui si vuole eseguire la migrazione. L'azione **Completa la migrazione** porta a termine il processo di migrazione, rimuove la replica per il computer e interrompe la relativa fatturazione di Site Recovery.
+1. Configurare un insieme di credenziali dei Servizi di ripristino
+2. Configurare i server di gestione necessari (VMware, VMM o Hyper-V a seconda degli elementi di cui si vuole eseguire la migrazione), aggiungerli all'insieme di credenziali e specificare le impostazioni di replica.
+3. Abilitare la replica per le macchine virtuali di cui eseguire la migrazione
+4. Dopo la migrazione iniziale, eseguire un rapido failover di test per verificare che tutto funzioni come previsto.
+5. Dopo aver verificato il funzionamento dell'ambiente di replica, si usa un failover pianificato o non pianificato a seconda della [tipologia supportata](site-recovery-failover.md) per lo scenario. È consigliabile usare un failover pianificato, quando possibile.
+6. Per la migrazione non è necessario eseguire il commit del failover oppure eliminarlo. Si seleziona invece l'opzione **Completa la migrazione** per ogni computer di cui si vuole eseguire la migrazione.
+     - In **Elementi replicati** fare clic con il pulsante destro del mouse sulla macchina virtuale e scegliere **Completa la migrazione**. Fare clic su **OK** per completare la migrazione. È possibile tenere traccia dello stato del processo nelle proprietà della VM oppure monitorando il processo Completa la migrazione in **Processi di Site Recovery**.
+     - L'azione **Completa la migrazione** porta a termine il processo di migrazione, rimuove la replica per il computer e interrompe la relativa fatturazione di Site Recovery.
 
 ![completemigration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 

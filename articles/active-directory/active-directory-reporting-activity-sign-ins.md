@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/22/2017
+ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 78617dc7e3a4b6eb4fc32d32b6850b8c0832d6d8
-ms.openlocfilehash: 9819c5f6a3aea53664d86e3a23b25946c0f2b731
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: a63514af636696d168931150cbda2fd30e0b32ce
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -44,17 +44,99 @@ Le informazioni contenute nel report relativo all'accesso utente consentono di r
 * Quanti utenti hanno effettuato l'accesso nell'arco di una settimana?
 * Qual è lo stato di questi accessi?
 
+Il primo punto di ingresso a tutte le attività di accesso è **Accessi** nella sezione **Attività** di Azure Active Directory.
+
+
+![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/61.png "Attività di accesso")
+
+
+Un log di controllo è una visualizzazione elenco predefinita che include:
+
+- Utente correlato.
+- Applicazione a cui l'utente ha eseguito l'accesso.
+- Stato dell'accesso.
+- Orario di accesso.
+
+![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/41.png "Attività di accesso")
+
+Per personalizzare la visualizzazione elenco, fare clic su **Colonne** nella barra degli strumenti.
+
+![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/19.png "Attività di accesso")
+
+In questo modo è possibile visualizzare campi aggiuntivi o rimuovere campi già visualizzati.
+
+![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/42.png "Attività di accesso")
+
+Facendo clic su un elemento nella visualizzazione elenco, è possibile ottenere tutti i dettagli disponibili sull'elemento.
+
+![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/43.png "Attività di accesso")
+
+
+## <a name="filtering-sign-in-activities"></a>Filtro delle attività di accesso
+
+Per limitare i dati segnalati in base alle esigenze, è possibile filtrare i dati di accesso usando i campi seguenti:
+
+- Intervallo di tempo
+- Utente
+- Applicazione
+- Client
+- Stato accesso
+
+![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/44.png "Attività di accesso")
+
+
+Il filtro **Intervallo di tempo** permette di definire un intervallo di tempo per i dati restituiti.  
+I valori possibili sono:
+
+- 1 mese
+- 7 giorni
+- 24 ore
+- Personalizzate
+
+Quando si seleziona un intervallo di tempo personalizzato, è possibile configurare un'ora di inizio e un'ora di fine.
+
+Il filtro **Utente** permette di specificare il nome o il nome dell'entità utente (UPN) per l'utente richiesto.
+
+Il filtro **Applicazione** permette di specificare il nome dell'applicazione richiesta.
+
+Il filtro **Client** permette di specificare informazioni sul dispositivo richiesto.
+
+Il filtro **Stato accesso** permette di selezionare uno dei filtri seguenti:
+
+- Tutti
+- Success
+- Esito negativo
+
+
+## <a name="sign-in-activities-shortcuts"></a>Collegamenti alle attività di accesso
+
+Oltre ad Azure Active Directory, il portale di Azure offre due ulteriori punti di ingresso ai dati sulle attività di accesso:
+
+- Utenti e gruppi
+- Applicazioni aziendali
+
+
+### <a name="users-and-groups-sign-ins-activities"></a>Attività di accesso di utenti e gruppi
+
+Le informazioni contenute nel report relativo all'accesso utente consentono di rispondere a domande come le seguenti:
+
+- Qual è il modello di accesso di un utente?
+- Quanti utenti hanno effettuato l'accesso nell'arco di una settimana?
+- Qual è lo stato di questi accessi?
+
+
+
 Il punto di ingresso a questi dati è il grafico relativo agli accessi utente della sezione **Panoramica** in **Utenti e gruppi**.
 
- ![Report](./media/active-directory-reporting-activity-sign-ins/05.png "Report")
+![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/45.png "Attività di accesso")
 
 Il grafico degli accessi utente visualizza le aggregazioni settimanali degli accessi per tutti gli utenti in un determinato periodo di tempo. Il periodo di tempo predefinito è di 30 giorni.
 
-![Report](./media/active-directory-reporting-activity-sign-ins/02.png "Report")
+![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/46.png "Attività di accesso")
 
-Quando si fa clic su un giorno nel grafico degli accessi, si ottiene un elenco dettagliato delle attività di accesso.
+Quando si fa clic su un giorno nel grafico degli accessi, si ottiene un elenco dettagliato delle attività di accesso per tale giorno.
 
-![Report](./media/active-directory-reporting-activity-sign-ins/03.png "Report")
+![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/41.png "Attività di accesso")
 
 Ogni riga nell'elenco di attività di accesso offre informazioni dettagliate sull'accesso selezionato, ad esempio:
 
@@ -63,6 +145,12 @@ Ogni riga nell'elenco di attività di accesso offre informazioni dettagliate sul
 * Qual era l'applicazione di destinazione dell'accesso?
 * Qual è l'indirizzo IP dell'accesso?
 * Qual era lo stato dell'accesso?
+
+L'opzione **Accessi** offre una panoramica completa di tutti gli accessi utente.
+
+![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/51.png "Attività di accesso")
+
+
 
 ## <a name="usage-of-managed-applications"></a>Utilizzo di applicazioni gestite
 
@@ -74,43 +162,27 @@ Con una visualizzazione dei dati di accesso basata sulle applicazioni, è possib
 
 Il punto di ingresso a questi dati sono le prime 3 applicazioni nell'organizzazione nel report sugli ultimi 30 giorni della sezione **Panoramica** in **Applicazioni aziendali**.
 
- ![Report](./media/active-directory-reporting-activity-sign-ins/06.png "Report")
+![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/64.png "Attività di accesso")
 
 Il grafico sull'utilizzo delle app visualizza le aggregazioni settimanali degli accessi per le prime 3 applicazioni in un determinato periodo di tempo. Il periodo di tempo predefinito è di 30 giorni.
 
-![Report](./media/active-directory-reporting-activity-sign-ins/78.png "Report")
+![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/47.png "Attività di accesso")
 
 Se si preferisce, è possibile mettere in evidenza un'applicazione specifica.
+
 
 ![Report](./media/active-directory-reporting-activity-sign-ins/single_spp_usage_graph.png "Report")
 
 Quando si fa clic su un giorno nel grafico dell'utilizzo dell'app, si ottiene un elenco dettagliato delle attività di accesso.
 
-![Report](./media/active-directory-reporting-activity-sign-ins/top_app_sign_ins.png "Report")
+
+![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/48.png "Attività di accesso")
+
 
 L'opzione **Accessi** offre una panoramica completa di tutti gli eventi di accesso nell'applicazione.
 
-![Report](./media/active-directory-reporting-activity-sign-ins/85.png "Report")
+![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/49.png "Attività di accesso")
 
-Usando la selezione colonne, è possibile selezionare i campi dati che si vuole visualizzare.
-
-![Report](./media/active-directory-reporting-activity-sign-ins/column_chooser.png "Report")
-
-## <a name="filtering-sign-ins"></a>Filtro degli accessi
-È possibile utilizzare i seguenti campi per filtrare gli accessi in modo da limitare la quantità di dati visualizzati.
-
-* Data e ora 
-* Nome dell'entità utente (utente)
-* Nome dell'applicazione
-* Nome del client
-* Stato accesso
-
-![Report](./media/active-directory-reporting-activity-sign-ins/293.png "Report")
-
-Un altro metodo per filtrare le voci nelle attività di accesso consiste nel cercare voci specifiche.
-Il metodo della ricerca consente di definire l'ambito degli accessi in base a **utenti**, **gruppi** or **applicazioni** specifiche.
-
-![Report](./media/active-directory-reporting-activity-sign-ins/84.png "Report")
 
 
 ## <a name="next-steps"></a>Passaggi successivi

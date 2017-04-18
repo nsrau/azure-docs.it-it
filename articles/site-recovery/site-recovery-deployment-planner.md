@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 431f73e1be45dec9aa0fe186cb22078f8d95588d
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 07c6836c9279ed2f28730a49d131c064891de1b1
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -90,11 +90,11 @@ La cartella contiene più file e sottocartelle. Il file eseguibile è ASRDeploym
 
     Esempio:  
     Copiare il file ZIP nell'unità E:\ ed estrarlo.
-   E:\ASR Deployment Planner-Preview_v1.1.zip
+   E:\ASR Deployment Planner-Preview_v1.2.zip
 
-    E:\ASR Deployment Planner-Preview_v1.1\ ASR Deployment Planner-Preview_v1.1\ ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner-Preview_v1.2\ ASR Deployment Planner-Preview_v1.2\ ASRDeploymentPlanner.exe
 
-## <a name="capabilities"></a>Funzionalità
+## <a name="capabilities"></a>Capabilities
 È possibile eseguire lo strumento da riga di comando (ASRDeploymentPlanner.exe) in una delle tre modalità seguenti:
 
 1. Profilatura  
@@ -145,6 +145,8 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Password | (Facoltativo) Password da usare per connettersi al server vCenter o all'host vSphere ESXi. Se non se ne specifica una in questa fase, verrà chiesta all'esecuzione del comando.|
 | -StorageAccountName | (Facoltativo) Nome dell'account di archiviazione usato per determinare la velocità effettiva ottenibile per la replica dei dati dall'ambiente locale ad Azure. Lo strumento carica i dati di test in questo account di archiviazione per calcolare la velocità effettiva.|
 | -StorageAccountKey | (Facoltativo) Chiave dell'account di archiviazione usata per accedere all'account di archiviazione. Passare al portale di Azure e scegliere Account di archiviazione > <*nome account di archiviazione*> > Impostazioni > Chiavi di accesso > Key1 oppure Chiave di accesso primaria per l'account di archiviazione classico. |
+| -Environment | (Facoltativo) Ambiente dell'account di archiviazione di Azure di destinazione. Può trattarsi di uno di tre valori: AzureCloud, AzureUSGovernment, AzureChinaCloud. Il valore predefinito è AzureCloud. Usare il parametro quando l'area di destinazione del cloud di Azure è Azure US Government o Azure Cina. |
+
 
 È consigliabile profilare le VM per almeno 15-30 giorni. Durante il periodo di profilatura, ASRDeploymentPlanner.exe rimane in esecuzione. Lo strumento accetta l'input della durata della profilatura in giorni. Se si vuole eseguire la profilatura per alcune ore o alcuni minuti per un rapido test dello strumento, nell'anteprima pubblica sarà necessario convertire la durata nella misura equivalente in giorni. Per eseguire ad esempio la profilatura per 30 minuti, l'input deve essere 30/(60*24) = 0,021 giorni. La durata minima della profilatura è di 30 minuti.
 
@@ -281,11 +283,12 @@ Aprire una console della riga di comando e passare alla cartella dello strumento
 
 |Nome parametro | Descrizione |
 |-|-|
-| -operation | GetThroughput |
+| -Operation | GetThroughput |
 | -Directory | (Facoltativo) UNC o percorso della directory locale in cui vengono archiviati i dati profilati, ovvero i file generati durante la profilatura. Questi dati sono necessari per la generazione di report. Se non viene specificato un nome di directory, viene usata la directory "ProfiledData". |
 | -StorageAccountName | Nome dell'account di archiviazione usato per determinare la larghezza di banda utilizzata per la replica dei dati dall'ambiente locale ad Azure. Lo strumento carica i dati di test in questo account di archiviazione per determinare la larghezza di banda utilizzata. |
 | -StorageAccountKey | Chiave dell'account di archiviazione usata per accedere all'account di archiviazione. Passare al portale di Azure e scegliere Account di archiviazione > <*nome account di archiviazione*> > Impostazioni > Chiavi di accesso > Key1 oppure una chiave di accesso primaria per un account di archiviazione classico. |
 | -VMListFile | File contenente l'elenco di VM da profilare per calcolare la larghezza di banda utilizzata. Il percorso del file può essere assoluto o relativo. Il file deve contenere un solo nome/indirizzo IP di VM per riga. I nomi delle VM specificati nel file devono corrispondere ai nomi nel server vCenter o nell'host vSphere ESXi.<br>Ad esempio, il file VMList.txt contiene le VM seguenti:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
+| -Environment | (Facoltativo) Ambiente dell'account di archiviazione di Azure di destinazione. Può trattarsi di uno di tre valori: AzureCloud, AzureUSGovernment, AzureChinaCloud. Il valore predefinito è AzureCloud. Usare il parametro quando l'area di destinazione del cloud di Azure è Azure US Government o Azure Cina. |
 
 Lo strumento crea diversi file asrvhdfile<#>.vhd (dove "#" è il numero di file) da 64 MB nella directory specificata. Lo strumento carica i file nell'account di archiviazione per determinare la velocità effettiva. Dopo aver misurato la velocità effettiva, lo strumento elimina tutti i file dall'account di archiviazione e dal server locale. Se per qualsiasi motivo lo strumento viene terminato mentre sta calcolando la velocità effettiva, non elimina i file dalla risorsa di archiviazione o dal server locale. Sarà necessario eliminarli manualmente.
 
@@ -477,6 +480,10 @@ Se in virtù delle caratteristiche di un carico di lavoro un disco appartiene al
 
 **NICs** (Schede di interfaccia di rete): numero di schede di interfaccia di rete della VM.
 
+**Boot Type** (Tipo di avvio): tipo di avvio della macchina virtuale. Può essere BIOS o EFI. Azure Site Recovery supporta attualmente solo il tipo di avvio BIOS. Tutte le macchine virtuali con tipo di avvio EFI sono elencate nel foglio di lavoro VM incompatibili. 
+
+**OS Type** (Tipo di sistema operativo): tipo di sistema operativo della macchina virtuale. Può essere Windows, Linux o altro.
+
 ## <a name="incompatible-vms"></a>VM incompatibili
 
 ![Foglio di calcolo di Excel delle VM incompatibili](./media/site-recovery-deployment-planner/incompatible-vms.png)
@@ -486,6 +493,7 @@ Se in virtù delle caratteristiche di un carico di lavoro un disco appartiene al
 **VM Compatibility** (Compatibilità VM): indica perché la VM è incompatibile per l'uso con Site Recovery. I motivi vengono descritti per ogni disco incompatibile della VM e, in base ai [limiti di archiviazione](https://aka.ms/azure-storage-scalbility-performance) pubblicati, possono essere uno dei seguenti:
 
 * Dimensioni disco superiori a 1023 GB. Archiviazione di Azure non supporta attualmente dimensioni superiori a 1 TB.
+* Il tipo di avvio è EFI. Azure Site Recovery supporta attualmente solo macchine virtuali con tipo di avvio BIOS.
 
 * Le dimensioni totali della VM (replica + failover di test) superano i limiti supportati dall'account di archiviazione (35 TB). Questa incompatibilità si verifica in genere quando un singolo disco della VM ha una caratteristica di prestazioni che supera i limiti massimi supportati da Azure o da Site Recovery per l'archiviazione Standard. In questo caso la VM rientra nell'area dell'archiviazione Premium. Le dimensioni massime supportate da un account di archiviazione Premium sono tuttavia pari a 35 TB e non è possibile proteggere una singola VM su più account di archiviazione. Si noti anche che, quando un failover di test viene eseguito in una VM protetta, viene eseguito nello stesso account di archiviazione in cui è in corso la replica. In questo caso, configurare il doppio delle dimensioni del disco per far sì che la replica prosegua e il failover di test venga completato in parallelo.
 * Le operazioni di I/O al secondo di origine superano il limite supportato di archiviazione di 5000 operazioni per ogni disco.
@@ -508,6 +516,10 @@ Se in virtù delle caratteristiche di un carico di lavoro un disco appartiene al
 **Memory (MB)** (Memoria - MB): quantità di RAM della VM.
 
 **NICs** (Schede di interfaccia di rete): numero di schede di interfaccia di rete della VM.
+
+**Boot Type** (Tipo di avvio): tipo di avvio della macchina virtuale. Può essere BIOS o EFI. Azure Site Recovery supporta attualmente solo il tipo di avvio BIOS. Tutte le macchine virtuali con tipo di avvio EFI sono elencate nel foglio di lavoro VM incompatibili. 
+
+**OS Type** (Tipo di sistema operativo): tipo di sistema operativo della macchina virtuale. Può essere Windows, Linux o altro.
 
 
 ## <a name="site-recovery-limits"></a>Limiti relativi a Site Recovery
@@ -546,6 +558,18 @@ Per aggiornare Deployment Planner, seguire questa procedura:
 
 
 ## <a name="version-history"></a>Cronologia delle versioni
+### <a name="12"></a>1.2
+Ultimo aggiornamento: 7 aprile 2017
+
+Sono state aggiunte le correzioni seguenti:
+
+* Aggiunta la verifica del tipo di avvio (BIOS o EFI) per ogni macchina virtuale per determinare se la macchina virtuale è compatibile o incompatibile per la protezione.
+* Aggiunte le informazioni sul tipo di sistema operativo nei fogli di lavoro VM compatibili e VM incompatibili.
+* L'operazione GetThroughput è ora supportata nelle aree US Government e Cina di Microsoft Azure.
+* Aggiunte alcune altre verifiche dei prerequisiti per server vCenter ed ESXi.
+* Venivano generati report errati in caso di impostazioni locali diverse dall'inglese.
+
+
 ### <a name="11"></a>1.1
 Ultimo aggiornamento: 9 marzo 2017
 
