@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: tobiast
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d15ab88be778b8cc081e07fb95fbd99164f18ba1
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 713e4a29550f37b03af3547bead42146a84a417f
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -41,7 +41,7 @@ Azure attualmente offre due opzioni per l'hosting dei carichi di lavoro su SQL S
 La connessione al database SQL di Azure è del tutto analoga e attualmente sono disponibili due modi per connettersi ai database: ODBC (Open Database Connectivity) e OLE DB (Object Linking and Embedding Database). Negli ultimi anni Microsoft si è allineata a [ODBC per l'accesso ai dati relazionali nativi](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC è relativamente semplice e molto più veloce rispetto a OLE DB. Si tenga tuttavia presente che ODBC usa una vecchia API di tipo C. 
 
 ## <a id="Create"></a>Passaggio 1: Creazione di un database SQL di Azure
-Vedere la [pagina introduttiva](sql-database-get-started.md) per informazioni su come creare un database di esempio.  In alternativa, è possibile guardare questo [breve video di due minuti](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) per creare un database SQL di Azure mediante il portale di Azure.
+Vedere la [pagina introduttiva](sql-database-get-started-portal.md) per informazioni su come creare un database di esempio.  In alternativa, è possibile guardare questo [breve video di due minuti](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) per creare un database SQL di Azure mediante il portale di Azure.
 
 ## <a id="ConnectionString"></a>Passaggio 2: Ottenere la stringa di connessione
 Dopo aver eseguito il provisioning del database SQLdi Azure, è necessario eseguire la procedura seguente per determinare le informazioni di connessione e aggiungere l'IP client per l'accesso al firewall. 

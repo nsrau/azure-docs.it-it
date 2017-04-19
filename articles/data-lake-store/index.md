@@ -13,8 +13,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: dcc8f86fe5871d307bf304252e80e64a0084ef49
-ms.openlocfilehash: d7f56dd2658de2cc270f569b871ebf28ad610fd7
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 68174d2f86a355a9966a7fb91b22e3eb96102d02
+ms.lasthandoff: 04/14/2017
 
 ---
 # <a name="data-lake-store-documentation"></a>Documentazione su Data Lake Store
@@ -179,6 +180,7 @@ Informazioni su come usare Data Lake Store per creare un repository con iperscal
                     <div class="cardText">
                         <h3>Riga di comando</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore">PowerShell</a></p>
+                        <p><a href="/cli/azure/dls">Interfaccia della riga di comando di Azure 2.0</a></p>
                     </div>
                 </div>
             </div>
@@ -213,10 +215,5 @@ Informazioni su come usare Data Lake Store per creare un repository con iperscal
         </div>
     </li>
 </ul>
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

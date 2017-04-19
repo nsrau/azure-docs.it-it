@@ -4,9 +4,9 @@ hide_bc: true
 title: Documentazione di Microsoft Azure
 description: Informazioni su come compilare e gestire applicazioni avanzate usando i servizi cloud di Microsoft Azure. Ottenere la documentazione, il codice di esempio, le esercitazioni e altro.
 translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 6156ec5732cb9f24d762afe12a678fabe9c93069
-ms.lasthandoff: 04/10/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 11c880885b501f402413dec9175c8b2659f65bf3
+ms.lasthandoff: 04/18/2017
 
 ---
 <div id="main" class="v2">
@@ -82,61 +82,61 @@ ms.lasthandoff: 04/10/2017
                                     <h3>Calcolo</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/virtual-machines/linux/index">
+                                            <a href="/azure/virtual-machines/linux/">
                                                 <img src="media/index/VirtualMachine.svg" alt="" />
                                                 <p>Macchine virtuali Linux</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/virtual-machines/windows/index">
+                                            <a href="/azure/virtual-machines/windows/">
                                                 <img src="media/index/VirtualMachine.svg" alt="" />
                                                 <p>Macchine virtuali Windows</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/virtual-machine-scale-sets/index">
+                                            <a href="/azure/virtual-machine-scale-sets/">
                                                 <img src="media/index/AvailabilitySetOld.svg" alt="" />
                                                 <p>Set di scalabilità di macchine virtuali</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/app-service/index">
+                                            <a href="/azure/app-service/">
                                                 <img src="media/index/app-service-web.svg" alt="" />
                                                 <p>App Web</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/container-service/index">
+                                            <a href="/azure/container-service/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
                                                 <p>Servizio contenitore di Azure</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/container-registry/index">
+                                            <a href="/azure/container-registry/">
                                                 <img src="media/index/container-registry.svg" alt="" />
                                                 <p>Registro di sistema del contenitore di Azure</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/azure-functions/index">
+                                            <a href="/azure/azure-functions/">
                                                 <img src="media/index/AzureFunctions.svg" alt="" />
                                                 <p>Funzioni</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/service-fabric/index">
+                                            <a href="/azure/service-fabric/">
                                                 <img src="media/index/Fabric.svg" alt="" />
                                                 <p>Service Fabric</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/batch/index">
+                                            <a href="/azure/batch/">
                                                 <img src="media/index/Batch.svg" alt="" />
                                                 <p>Batch</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cloud-services/index">
+                                            <a href="/azure/cloud-services/">
                                                 <img src="media/index/CloudService.svg" alt="" />
                                                 <p>Servizi cloud</p>
                                             </a>
@@ -145,37 +145,37 @@ ms.lasthandoff: 04/10/2017
                                     <h3>Database</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/sql-database/index">
+                                            <a href="/azure/sql-database/">
                                                 <img src="media/index/SQLDatabase.svg" alt="" />
                                                 <p>Database SQL</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/sql-data-warehouse/index">
+                                            <a href="/azure/sql-data-warehouse/">
                                                 <img src="media/index/SQLDataWarehouse.svg" alt="" />
                                                 <p>SQL Data Warehouse</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/sql-server-stretch-database/index">
+                                            <a href="/azure/sql-server-stretch-database/">
                                                 <img src="media/index/SQLDatabase.svg" alt="" />
                                                 <p>Estensione database di SQL Server</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/documentdb/index">
+                                            <a href="/azure/documentdb/">
                                                 <img src="media/index/DocumentDB.svg" alt="" />
                                                 <p>DocumentDB</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/redis-cache/index">
+                                            <a href="/azure/redis-cache/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
                                                 <p>Cache Redis</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/data-factory/index">
+                                            <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
                                                 <p>Data factory</p>
                                             </a>
@@ -190,13 +190,13 @@ ms.lasthandoff: 04/10/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/key-vault/index">
+                                            <a href="/azure/key-vault/">
                                                 <img src="media/index/KeyVault.svg" alt="" />
                                                 <p>Insieme di credenziali delle chiavi</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/active-directory/index">
+                                            <a href="/azure/active-directory/">
                                                 <img src="media/index/ActiveDirectory.svg" alt="" />
                                                 <p>Azure Active Directory</p>
                                             </a>
@@ -214,13 +214,13 @@ ms.lasthandoff: 04/10/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/multi-factor-authentication/index">
+                                            <a href="/azure/multi-factor-authentication/">
                                                 <img src="media/index/MultiFactorAuthentication.svg" alt="" />
                                                 <p>Multi-Factor Authentication</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/security/index">
+                                            <a href="/azure/security/">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
                                                 <p>Informazioni sulla sicurezza</p>
                                             </a>
@@ -231,55 +231,55 @@ ms.lasthandoff: 04/10/2017
                                     <h3>Rete</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/virtual-network/index">
+                                            <a href="/azure/virtual-network/">
                                                 <img src="media/index/VirtualNetwork.svg" alt="" />
                                                 <p>Rete virtuale</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/load-balancer/index">
+                                            <a href="/azure/load-balancer/">
                                                 <img src="media/index/LoadBalancer.svg" alt="" />
                                                 <p>Bilanciamento del carico</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/application-gateway/index">
+                                            <a href="/azure/application-gateway/">
                                                 <img src="media/index/ApplicationGateway.svg" alt="" />
                                                 <p>gateway applicazione</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/vpn-gateway/index">
+                                            <a href="/azure/vpn-gateway/">
                                                 <img src="media/index/VPNGateway.svg" alt="" />
                                                 <p>Gateway VPN</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/dns/index">
+                                            <a href="/azure/dns/">
                                                 <img src="media/index/DNS.svg" alt="" />
                                                 <p>DNS di Azure</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cdn/index">
+                                            <a href="/azure/cdn/">
                                                 <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
                                                 <p>RETE CDN</p>
                                             </a>
                                         </li>
                                         <li>
-                                        <a href="/azure/traffic-manager/index">
+                                        <a href="/azure/traffic-manager/">
                                                 <img src="media/index/TrafficManager.svg" alt="" />
                                                 <p>Gestione traffico</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/expressroute/index">
+                                            <a href="/azure/expressroute/">
                                                 <img src="media/index/ExpressRoute.svg" alt="" />
                                                 <p>ExpressRoute</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/network-watcher/index">
+                                            <a href="/azure/network-watcher/">
                                                 <img src="media/index/network-watcher.svg" alt="" />
                                                 <p>Network Watcher</p>
                                             </a>
@@ -288,67 +288,67 @@ ms.lasthandoff: 04/10/2017
                                     <h3>Intelligence e analisi</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/hdinsight/index">
+                                            <a href="/azure/hdinsight/">
                                                 <img src="media/index/HDInsight.svg" alt="" />
                                                 <p>HDInsight</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/machine-learning/index">
+                                            <a href="/azure/machine-learning/">
                                                 <img src="media/index/MachineLearning.svg" alt="" />
                                                 <p>Machine Learning</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/stream-analytics/index">
+                                            <a href="/azure/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
                                                 <p>Analisi di flusso</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/index">
+                                            <a href="/azure/cognitive-services/">
                                                 <img src="media/index/CognitiveServices.svg" alt="" />
                                                 <p>Servizi cognitivi</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/data-catalog/index">
+                                            <a href="/azure/data-catalog/">
                                                 <img src="media/index/data-catalog.svg" alt="" />
                                                 <p>Data Catalog</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/data-lake-analytics/index">
+                                            <a href="/azure/data-lake-analytics/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
                                                 <p>Data Lake Analytics</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/data-lake-store/index">
+                                            <a href="/azure/data-lake-store/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
                                                 <p>Data Lake Store</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/data-factory/index">
+                                            <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
                                                 <p>Data factory</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/power-bi-embedded/index">
+                                            <a href="/azure/power-bi-embedded/">
                                                 <img src="media/index/PowerBIEmbedded.svg" alt="" />
                                                 <p>Power BI Embedded</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/analysis-services/index">
+                                            <a href="/azure/analysis-services/">
                                                 <img src="media/index/AnalysisServices.svg" alt="" />
                                                 <p>Analysis Services</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.botframework.com/en-us/azure-bot-service/index">
+                                            <a href="https://docs.botframework.com/en-us/azure-bot-service/">
                                                 <img src="media/index/bot-service.svg" alt="" />
                                                 <p>Servizio bot di Azure</p>
                                             </a>
@@ -363,19 +363,19 @@ ms.lasthandoff: 04/10/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/devtest-lab/index">
+                                            <a href="/azure/devtest-lab/">
                                                 <img src="media/index/DevTestLabs.svg" alt="" />
                                                 <p>Azure DevTest Labs</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/application-insights/index">
+                                            <a href="/azure/application-insights/">
                                                 <img src="media/index/ApplicationInsights.svg" alt="" />
                                                 <p>Application Insights</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/api-management/index">
+                                            <a href="/azure/api-management/">
                                                 <img src="media/index/APIManagement.svg" alt="" />
                                                 <p>Gestione API</p>
                                             </a>
@@ -394,31 +394,31 @@ ms.lasthandoff: 04/10/2017
                                     <h3>Archiviazione</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/storage/index">
+                                            <a href="/azure/storage/">
                                                 <img src="media/index/Storage.svg" alt="" />
                                                 <p>Archiviazione</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/data-lake-store/index">
+                                            <a href="/azure/data-lake-store/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
                                                 <p>Data Lake Store</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/storsimple/index">
+                                            <a href="/azure/storsimple/">
                                                 <img src="media/index/StorSimple.svg" alt="" />
                                                 <p>StorSimple</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/backup/index">
+                                            <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
                                                 <p>Backup</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/site-recovery/index">
+                                            <a href="/azure/site-recovery/">
                                                 <img src="media/index/SiteRecovery.svg" alt="" />
                                                 <p>Site Recovery</p>
                                             </a>
@@ -433,37 +433,37 @@ ms.lasthandoff: 04/10/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/iot-hub/index">
+                                            <a href="/azure/iot-hub/">
                                                 <img src="media/index/IoTHub.svg" alt="" />
                                                 <p>Hub IoT Azure</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/iot-suite/index">
+                                            <a href="/azure/iot-suite/">
                                                 <img src="media/index/iot-suite.svg" alt="" />
                                                 <p>Azure IoT Suite</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/event-hubs/index">
+                                            <a href="/azure/event-hubs/">
                                                 <img src="media/index/EventHubs.svg" alt="" />
                                                 <p>Hub eventi</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/notification-hubs/index">
+                                            <a href="/azure/notification-hubs/">
                                                 <img src="media/index/NotificationHubs.svg" alt="" />
                                                 <p>Hub di notifica</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/stream-analytics/index">
+                                            <a href="/azure/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
                                                 <p>Analisi di flusso</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/machine-learning/index">
+                                            <a href="/azure/machine-learning/">
                                                 <img src="media/index/MachineLearning.svg" alt="" />
                                                 <p>Machine Learning</p>
                                             </a>
@@ -472,49 +472,49 @@ ms.lasthandoff: 04/10/2017
                                     <h3>Monitoraggio e gestione</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/application-insights/index">
+                                            <a href="/azure/application-insights/">
                                                 <img src="media/index/ApplicationInsights.svg" alt="" />
                                                 <p>Application Insights</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/log-analytics/index">
+                                            <a href="/azure/log-analytics/">
                                                 <img src="media/index/OperationsManagementSuite.svg" alt="" />
                                                 <p>Log Analytics</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/automation/index">
+                                            <a href="/azure/automation/">
                                                 <img src="media/index/Automation.svg" alt="" />
                                                 <p>Automazione</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/backup/index">
+                                            <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
                                                 <p>Backup</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/site-recovery/index">
+                                            <a href="/azure/site-recovery/">
                                                 <img src="media/index/SiteRecovery.svg" alt="" />
                                                 <p>Site Recovery</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/scheduler/index">
+                                            <a href="/azure/scheduler/">
                                                 <img src="media/index/Scheduler.svg" alt="" />
                                                 <p>Utilità di pianificazione</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/monitoring-and-diagnostics/index">
+                                            <a href="/azure/monitoring-and-diagnostics/">
                                                 <img src="media/index/AzureMonitoring.svg" alt="" />
                                                 <p>Monitoraggio di Azure</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/billing/index">
+                                            <a href="/azure/billing/">
                                                 <img src="media/index/billing.svg" alt="" />
                                                 <p>Fatturazione</p>
                                             </a>
@@ -532,7 +532,7 @@ ms.lasthandoff: 04/10/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/azure-resource-manager/index">
+                                            <a href="/azure/azure-resource-manager/">
                                                 <img src="media/index/AzureDefaultBlack.svg" alt="" />
                                                 <p>Gestione risorse di Azure</p>
                                             </a>
@@ -543,61 +543,61 @@ ms.lasthandoff: 04/10/2017
                                     <h3>Web e dispositivi mobili </h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/app-service/index">
+                                            <a href="/azure/app-service/">
                                                 <img src="media/index/AppService.svg" alt="" />
                                                 <p>Servizio app</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/app-service-web/index">
+                                            <a href="/azure/app-service-web/">
                                                 <img src="media/index/app-service-web.svg" alt="" />
                                                 <p>App Web</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/app-service-mobile/index">
+                                            <a href="/azure/app-service-mobile/">
                                                 <img src="media/index/app-service-mobile.svg" alt="" />
                                                 <p>App per dispositivi mobili</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/app-service-api/index">
+                                            <a href="/azure/app-service-api/">
                                                 <img src="media/index/app-service-api.svg" alt="" />
                                                 <p>App per le API</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/logic-apps/index">
+                                            <a href="/azure/logic-apps/">
                                                 <img src="media/index/LogicApp.svg" alt="" />
                                                 <p>App per la logica</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cdn/index">
+                                            <a href="/azure/cdn/">
                                                 <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
                                                 <p>RETE CDN</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/media-services/index">
+                                            <a href="/azure/media-services/">
                                                 <img src="media/index/MediaServices.svg" alt="" />
                                                 <p>Servizi multimediali</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/search/index">
+                                            <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
                                                 <p>Ricerca</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/mobile-engagement/index">
+                                            <a href="/azure/mobile-engagement/">
                                                 <img src="media/index/MobileEngagement.svg" alt="" />
                                                 <p>Mobile Engagement</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/notification-hubs/index">
+                                            <a href="/azure/notification-hubs/">
                                                 <img src="media/index/NotificationHubs.svg" alt="" />
                                                 <p>Hub di notifica</p>
                                             </a>
@@ -606,43 +606,43 @@ ms.lasthandoff: 04/10/2017
                                     <h3>Integrazione aziendale</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/logic-apps/index">
+                                            <a href="/azure/logic-apps/">
                                                 <img src="media/index/LogicApp.svg" alt="" />
                                                 <p>App per la logica</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/service-bus/index">
+                                            <a href="/azure/service-bus/">
                                                 <img src="media/index/ServiceBus.svg" alt="" />
                                                 <p>Bus di servizio</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/api-management/index">
+                                            <a href="/azure/api-management/">
                                                 <img src="media/index/APIManagement.svg" alt="" />
                                                 <p>Gestione API</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/storsimple/index">
+                                            <a href="/azure/storsimple/">
                                                 <img src="media/index/StorSimple.svg" alt="" />
                                                 <p>StorSimple</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/sql-server-stretch-database/index">
+                                            <a href="/azure/sql-server-stretch-database/">
                                                 <img src="media/index/SQLDatabase.svg" alt="" />
                                                 <p>Estensione database di SQL Server</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/data-factory/index">
+                                            <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
                                                 <p>Data factory</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/biztalk-services/index">
+                                            <a href="/azure/biztalk-services/">
                                                 <img src="media/index/BizTalkServices.svg" alt="" />
                                                 <p>Servizi BizTalk</p>
                                             </a>
@@ -651,13 +651,13 @@ ms.lasthandoff: 04/10/2017
                                     <h3>Altri cloud</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/azure-government/index">
+                                            <a href="/azure/azure-government/">
                                                 <img src="media/index/azure-government.svg" alt="" />
                                                 <p>Azure per enti pubblici statunitensi</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/azure-stack/index">
+                                            <a href="/azure/azure-stack/">
                                                 <img src="media/index/azure-stack.svg" alt="" />
                                                 <p>Azure Stack</p>
                                             </a>
@@ -682,8 +682,8 @@ ms.lasthandoff: 04/10/2017
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Distribuire l'infrastruttura</h3>
-                                                <a class="barLink" href="/azure/virtual-machines/linux/index">Macchine virtuali Linux</a>
-                                                <a class="barLink" href="/azure/virtual-machines/windows/index">Macchine virtuali Windows</a>
+                                                <a class="barLink" href="/azure/virtual-machines/linux/">Macchine virtuali Linux</a>
+                                                <a class="barLink" href="/azure/virtual-machines/windows/">Macchine virtuali Windows</a>
                                             </div>
                                         </div>
                                     </div>
@@ -736,7 +736,7 @@ ms.lasthandoff: 04/10/2017
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Gestire i dati</h3>
-                                                <a class="barLink" href="/azure/sql-database/index">Database SQL distribuito come servizio</a>
+                                                <a class="barLink" href="/azure/sql-database/">Database SQL distribuito come servizio</a>
                                             </div>
                                         </div>
                                     </div>
@@ -755,7 +755,7 @@ ms.lasthandoff: 04/10/2017
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="/powershell/azure/overview?view=azurermps-3.7.0">
+                                                    <a href="/powershell/azure/overview">
                                                         <img src="media/index/azure_dev-8.svg" alt="">
                                                         <span>Azure<br />PowerShell</span>
                                                     </a>
@@ -777,7 +777,7 @@ ms.lasthandoff: 04/10/2017
                         <a href="#Compute">Calcolo</a>
                         <ul id="Compute" class="cardsA">
                             <li>
-                                <a href="/azure/virtual-machines/linux/index">
+                                <a href="/azure/virtual-machines/linux/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -796,7 +796,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/virtual-machines/windows/index">
+                                <a href="/azure/virtual-machines/windows/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -815,7 +815,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/virtual-machine-scale-sets/index">
+                                <a href="/azure/virtual-machine-scale-sets/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -853,7 +853,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/container-service/index">
+                                <a href="/azure/container-service/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -872,7 +872,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/container-registry/index">
+                                <a href="/azure/container-registry/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -891,7 +891,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-functions/index">
+                                <a href="/azure/azure-functions/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -910,7 +910,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/service-fabric/index">
+                                <a href="/azure/service-fabric/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -929,7 +929,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/batch/index">
+                                <a href="/azure/batch/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -948,7 +948,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cloud-services/index">
+                                <a href="/azure/cloud-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -972,7 +972,7 @@ ms.lasthandoff: 04/10/2017
                         <a href="#network">Rete</a>
                         <ul id="network" class="cardsA">
                             <li>
-                                <a href="/azure/virtual-network/index">
+                                <a href="/azure/virtual-network/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -991,7 +991,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/load-balancer/index">
+                                <a href="/azure/load-balancer/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1010,7 +1010,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/application-gateway/index">
+                                <a href="/azure/application-gateway/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1029,7 +1029,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/vpn-gateway/index">
+                                <a href="/azure/vpn-gateway/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1048,7 +1048,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/dns/index">
+                                <a href="/azure/dns/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1067,7 +1067,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cdn/index">
+                                <a href="/azure/cdn/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1086,7 +1086,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/traffic-manager/index">
+                                <a href="/azure/traffic-manager/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1105,7 +1105,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/expressroute/index">
+                                <a href="/azure/expressroute/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1124,7 +1124,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/network-watcher/index">
+                                <a href="/azure/network-watcher/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1148,7 +1148,7 @@ ms.lasthandoff: 04/10/2017
                         <a href="#storage">Archiviazione</a>
                         <ul id="storage" class="cardsA">
                             <li>
-                                <a href="/azure/storage/index">
+                                <a href="/azure/storage/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1167,7 +1167,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/data-lake-store/index">
+                                <a href="/azure/data-lake-store/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1186,7 +1186,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/storsimple/index">
+                                <a href="/azure/storsimple/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1205,7 +1205,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/backup/index">
+                                <a href="/azure/backup/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1224,7 +1224,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/site-recovery/index">
+                                <a href="/azure/site-recovery/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1248,7 +1248,7 @@ ms.lasthandoff: 04/10/2017
                         <a href="#web">Web e dispositivi mobili</a>
                         <ul id="web" class="cardsA">
                             <li>
-                                <a href="/azure/app-service/index">
+                                <a href="/azure/app-service/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1324,7 +1324,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/logic-apps/index">
+                                <a href="/azure/logic-apps/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1343,7 +1343,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cdn/index">
+                                <a href="/azure/cdn/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1362,7 +1362,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/media-services/index">
+                                <a href="/azure/media-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1381,7 +1381,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/search/index">
+                                <a href="/azure/search/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1400,7 +1400,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/mobile-engagement/index">
+                                <a href="/azure/mobile-engagement/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1419,7 +1419,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/notification-hubs/index">
+                                <a href="/azure/notification-hubs/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1443,7 +1443,7 @@ ms.lasthandoff: 04/10/2017
                         <a href="#databases">Database</a>
                         <ul id="databases" class="cardsA">
                             <li>
-                                <a href="/azure/sql-database/index">
+                                <a href="/azure/sql-database/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1462,7 +1462,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/sql-data-warehouse/index">
+                                <a href="/azure/sql-data-warehouse/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1481,7 +1481,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/sql-server-stretch-database/index">
+                                <a href="/azure/sql-server-stretch-database/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1500,7 +1500,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/documentdb/index">
+                                <a href="/azure/documentdb/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1519,7 +1519,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/redis-cache/index">
+                                <a href="/azure/redis-cache/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1538,7 +1538,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/data-factory/index">
+                                <a href="/azure/data-factory/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1562,7 +1562,7 @@ ms.lasthandoff: 04/10/2017
                         <a href="#analytics">Intelligence e analisi</a>
                         <ul id="analytics" class="cardsA">
                             <li>
-                                <a href="/azure/hdinsight/index">
+                                <a href="/azure/hdinsight/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1581,7 +1581,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/machine-learning/index">
+                                <a href="/azure/machine-learning/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1600,7 +1600,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/stream-analytics/index">
+                                <a href="/azure/stream-analytics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1619,7 +1619,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cognitive-services/index">
+                                <a href="/azure/cognitive-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1638,7 +1638,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/data-catalog/index">
+                                <a href="/azure/data-catalog/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1657,7 +1657,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/data-lake-analytics/index">
+                                <a href="/azure/data-lake-analytics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1676,7 +1676,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/data-lake-store/index">
+                                <a href="/azure/data-lake-store/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1695,7 +1695,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/data-factory/index">
+                                <a href="/azure/data-factory/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1714,7 +1714,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/power-bi-embedded/index">
+                                <a href="/azure/power-bi-embedded/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1733,7 +1733,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/analysis-services/index">
+                                <a href="/azure/analysis-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1752,7 +1752,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.botframework.com/en-us/azure-bot-service/index">
+                                <a href="https://docs.botframework.com/en-us/azure-bot-service/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1776,7 +1776,7 @@ ms.lasthandoff: 04/10/2017
                         <a href="#iot">Internet delle cose</a>
                         <ul id="iot" class="cardsA">
                             <li>
-                                <a href="https://azure.microsoft.com/develop/iot/index">
+                                <a href="https://azure.microsoft.com/develop/iot/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1795,7 +1795,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/iot-hub/index">
+                                <a href="/azure/iot-hub/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1814,7 +1814,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/iot-suite/index">
+                                <a href="/azure/iot-suite/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1833,7 +1833,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/event-hubs/index">
+                                <a href="/azure/event-hubs/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1852,7 +1852,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/stream-analytics/index">
+                                <a href="/azure/stream-analytics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1871,7 +1871,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/machine-learning/index">
+                                <a href="/azure/machine-learning/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1890,7 +1890,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/notification-hubs/index">
+                                <a href="/azure/notification-hubs/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1914,7 +1914,7 @@ ms.lasthandoff: 04/10/2017
                         <a href="#integration">Integrazione aziendale</a>
                         <ul id="integration" class="cardsA">
                             <li>
-                                <a href="/azure/logic-apps/index">
+                                <a href="/azure/logic-apps/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1933,7 +1933,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/service-bus/index">
+                                <a href="/azure/service-bus/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1952,7 +1952,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/api-management/index">
+                                <a href="/azure/api-management/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1971,7 +1971,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/storsimple/index">
+                                <a href="/azure/storsimple/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1990,7 +1990,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/sql-server-stretch-database/index">
+                                <a href="/azure/sql-server-stretch-database/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2009,7 +2009,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/data-factory/index">
+                                <a href="/azure/data-factory/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2028,7 +2028,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/biztalk-services/index">
+                                <a href="/azure/biztalk-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2071,7 +2071,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/key-vault/index">
+                                <a href="/azure/key-vault/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2090,7 +2090,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/active-directory/index">
+                                <a href="/azure/active-directory/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2147,7 +2147,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/multi-factor-authentication/index">
+                                <a href="/azure/multi-factor-authentication/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2166,7 +2166,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/security/index">
+                                <a href="/azure/security/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2209,7 +2209,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/devtest-lab/index">
+                                <a href="/azure/devtest-lab/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2228,7 +2228,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/application-insights/index">
+                                <a href="/azure/application-insights/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2247,7 +2247,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/api-management/index">
+                                <a href="/azure/api-management/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2290,7 +2290,7 @@ ms.lasthandoff: 04/10/2017
                         <a href="#mgmt">Monitoraggio e gestione</a>
                         <ul id="mgmt" class="cardsA">
                             <li>
-                                <a href="/azure/application-insights/index">
+                                <a href="/azure/application-insights/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2309,7 +2309,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/log-analytics/index">
+                                <a href="/azure/log-analytics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2328,7 +2328,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/automation/index">
+                                <a href="/azure/automation/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2347,7 +2347,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/backup/index">
+                                <a href="/azure/backup/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2366,7 +2366,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/site-recovery/index">
+                                <a href="/azure/site-recovery/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2385,7 +2385,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/scheduler/index">
+                                <a href="/azure/scheduler/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2404,7 +2404,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/monitoring-and-diagnostics/index">
+                                <a href="/azure/monitoring-and-diagnostics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2423,7 +2423,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/billing/index">
+                                <a href="/azure/billing/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2442,7 +2442,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/advisor/index">
+                                <a href="/azure/advisor/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2480,7 +2480,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-resource-manager/index">
+                                <a href="/azure/azure-resource-manager/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2504,7 +2504,7 @@ ms.lasthandoff: 04/10/2017
                         <a href="#other">Altri cloud</a>
                         <ul id="other" class="cardsA">
                             <li>
-                                <a href="/azure/azure-government/index">
+                                <a href="/azure/azure-government/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2523,7 +2523,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-stack/index">
+                                <a href="/azure/azure-stack/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2567,19 +2567,19 @@ ms.lasthandoff: 04/10/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/dotnet/api">Ottenere .NET SDK</a>
+                                                    <a href="/azure/dotnet/ ">Ottenere .NET SDK</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/azure/app-service-web/app-service-web-get-started-dotnet">Introduzione</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/dotnet/api">Informazioni di riferimento sulle API</a>
+                                                    <a href="/dotnet/api/?term=Microsoft.Azure">Informazioni di riferimento sulle API</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/documentation/samples/?platform=dotnet">Ottenere gli esempi</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/net/index">Altre informazioni</a>
+                                                    <a href="https://azure.microsoft.com/develop/net/">Altre informazioni</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2630,7 +2630,7 @@ ms.lasthandoff: 04/10/2017
                                                     <a href="https://www.npmjs.com/package/azure">Ottenere Node.js SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://azure.github.io/azure-sdk-for-node/index">Introduzione</a>
+                                                    <a href="http://azure.github.io/azure-sdk-for-node/">Introduzione</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure.github.io/azure-storage-node/index.html">Informazioni di riferimento sulle API</a>
@@ -2660,16 +2660,16 @@ ms.lasthandoff: 04/10/2017
                                                     <a href="https://github.com/Azure/azure-sdk-for-java#download">Ottenere Java SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/java/api/index">Introduzione</a>
+                                                    <a href="/java/api/">Introduzione</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/java/api/index">Informazioni di riferimento sulle API</a>
+                                                    <a href="/java/api/">Informazioni di riferimento sulle API</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/documentation/samples/?platform=java">Ottenere gli esempi</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/java/index">Altre informazioni</a>
+                                                    <a href="https://azure.microsoft.com/develop/java/">Altre informazioni</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2699,7 +2699,7 @@ ms.lasthandoff: 04/10/2017
                                                     <a href="https://azure.microsoft.com/documentation/samples/?platform=ruby">Ottenere gli esempi</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/ruby/index">Altre informazioni</a>
+                                                    <a href="https://azure.microsoft.com/develop/ruby/">Altre informazioni</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2717,7 +2717,7 @@ ms.lasthandoff: 04/10/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/rest/api/index">Introduzione a REST</a>
+                                                    <a href="/rest/api/">Introduzione a REST</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/rest/api">Informazioni di riferimento</a>
@@ -2963,7 +2963,7 @@ ms.lasthandoff: 04/10/2017
                                 </div>
                             </li>
                             <li>
-                                <a href="/azure/architecture/index">
+                                <a href="/azure/architecture/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2982,7 +2982,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/architecture/reference-architectures/index">
+                                <a href="/azure/architecture/reference-architectures/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3001,7 +3001,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/architecture/patterns/index">
+                                <a href="/azure/architecture/patterns/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3039,7 +3039,7 @@ ms.lasthandoff: 04/10/2017
                                 </a>
                             </li>
 <!--                            <li>
-                                <a href="/azure/architecture/index">
+                                <a href="/azure/architecture/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3065,4 +3065,3 @@ ms.lasthandoff: 04/10/2017
         </ul>
     </div>
 </div>
-

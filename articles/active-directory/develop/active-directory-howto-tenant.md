@@ -4,7 +4,7 @@ description: Come ottenere un tenant di Azure Active Directory per la registrazi
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: terrylan
+manager: mbaldwin
 editor: 
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 09/28/2015
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: 151b9bd8f29a1112c9ad839f2729309dba97c283
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: b4232f2d27624e44a720047ad44991059316413e
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -45,9 +46,9 @@ A tale scopo, seguire questa procedura.  In alternativa, è possibile creare un 
 1. Accedere al [portale di Azure](https://portal.azure.com) con l'account personale.
 2. Passare alla sezione "Azure Active Directory" del portale, che si trova nella barra di spostamento a sinistra in **Altri servizi**.
 3. Viene eseguito automaticamente l'accesso alla "directory predefinita". In caso contrario, è possibile passare a un'altra directory facendo clic sul nome dell'account nell'angolo superiore destro.
-4. Nella sezione **Attività rapide ** scegliere **Aggiungere un utente**.
+4. Nella sezione **Attività rapide** scegliere **Aggiungere un utente**.
 5. Nel modulo Aggiungi utente specificare le informazioni seguenti:
-   
+
    * Nome: scegliere un valore appropriato
    * Nome utente: scegliere un nome utente per questo amministratore
    * Profilo: specificare i valori appropriati per nome, cognome, posizione e reparto
@@ -57,16 +58,10 @@ A tale scopo, seguire questa procedura.  In alternativa, è possibile creare un 
 8. Per modificare la password temporanea, accedere a [https://login.microsoftonline.com](https://login.microsoftonline.com) con questo nuovo account utente e modificare la password quando richiesto.
 
 ## <a name="use-an-organizational-azure-subscription"></a>Usare una sottoscrizione di Azure aziendale
-Se in precedenza è stata creata una sottoscrizione di Azure usando il proprio account aziendale, si ha già un tenant.  Nel [Portale di Azure](https://portal.azure.com) dovrebbe essere visualizzato un tenant quando si passa a "Altri servizi" e "Azure Active Directory".  È possibile usare questo tenant in base alle esigenze. 
+Se in precedenza è stata creata una sottoscrizione di Azure usando il proprio account aziendale, si ha già un tenant.  Nel [Portale di Azure](https://portal.azure.com) dovrebbe essere visualizzato un tenant quando si passa a "Altri servizi" e "Azure Active Directory".  È possibile usare questo tenant in base alle esigenze.
 
 ## <a name="start-from-scratch"></a>Iniziare da zero
 Se quanto descritto finora è incomprensibile, non è il caso di preoccuparsi.  Passare a [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) per iscriversi ad Azure con un nuovo account aziendale.  Al termine della procedura verrà creato il proprio tenant di Azure AD con il nome di dominio scelto durante l'iscrizione.  Per trovare il tenant nel [portale di Azure](https://portal.azure.com), passare ad "Azure Active Directory" nella barra di spostamento a sinistra.
 
 Durante la procedura di iscrizione ad Azure, verrà richiesto di indicare i dettagli della carta di credito.  Non c'è nulla di cui preoccuparsi, la pubblicazione di applicazioni in Azure AD o la creazione di nuovi tenant non vengono addebitate.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -16,14 +16,15 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: genemi
 translationtype: Human Translation
-ms.sourcegitcommit: fdbe5ff497b7acc9d8521b8ba1a016ae11bc69d2
-ms.openlocfilehash: 26140426eb2a5376af003248a0de6685999ac5a2
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: b42d2bd64dbaf44f1be85d687b27ffe47eb0db53
+ms.lasthandoff: 04/15/2017
 
 
 ---
 # <a name="connection-libraries-for-sql-database-and-sql-server"></a>Raccolte di connessioni per database SQL e Server SQL
 
-In questo argomento vengono elencati le librerie e i *driver* che è possibile usare nei programmi client quando ci si connette al database SQL di Azure o a Microsoft SQL Server.
+In questo argomento vengono elencati le librerie e i *driver* che è possibile usare nei programmi client quando ci si connette al database SQL di Azure o a Microsoft SQL Server. 
 
 | Lingua | Piattaforma | Risorse aggiuntive | Scaricare |
 |:--- |:--- |:--- |:--- |
@@ -38,13 +39,10 @@ In questo argomento vengono elencati le librerie e i *driver* che è possibile u
 ## <a name="related-links"></a>Collegamenti correlati
 
 - [SQL Server Drivers](https://docs.microsoft.com/sql/connect/sql-server-drivers/) (Driver SQL Server), per la connessione da un client
-- [Connettersi al database SQL tramite .NET (C#)](sql-database-develop-dotnet-simple.md), ADO.NET
-- [Connettersi al Database SQL tramite Node.js](sql-database-develop-nodejs-simple.md)
-- [Connettersi al database SQL tramite Python](sql-database-develop-python-simple.md), pymssql
-- [Connettersi al database SQL tramite Ruby](sql-database-develop-ruby-simple.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
+- [Connettersi al database SQL tramite .NET (C#)](sql-database-connect-query-dotnet.md)
+- [Connettersi al database SQL tramite PHP](sql-database-connect-query-php.md)
+- [Connettersi al Database SQL tramite Node.js](sql-database-connect-query-nodejs.md)
+- [Connettersi al database SQL tramite Java](sql-database-connect-query-java.md)
+- [Connettersi al database SQL tramite Python](sql-database-connect-query-python.md)
+- [Connettersi al database SQL tramite Ruby](sql-database-connect-query-ruby.md)
 
