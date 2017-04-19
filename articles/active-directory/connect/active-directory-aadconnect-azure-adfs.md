@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2017
-ms.author: anandy;billmath
+ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: ed3b3b114af2844405779f65fa8c3e89ae6a6c35
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: a6a8300046a0f17061e74b793b254cdca1e1a265
+ms.lasthandoff: 04/10/2017
 
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Distribuzione di Active Directory Federation Services in Azure
@@ -119,8 +119,8 @@ Creare i set di disponibilità seguenti
 | contosodcset |Controller di dominio/AD FS |3 |5 |
 | contosowapset |WAP |3 |5 |
 
-### <a name="4----deploy-virtual-machines"></a>4.    Distribuire le macchine virtuali
-Il passaggio successivo consiste nel distribuire le macchine virtuali che ospiteranno i diversi ruoli nell'infrastruttura. In ogni set di disponibilità è consigliato un minimo di due computer. Creare sei macchine virtuali per la distribuzione di base.
+### <a name="4-deploy-virtual-machines"></a>4. Distribuire le macchine virtuali
+Il passaggio successivo consiste nel distribuire le macchine virtuali che ospiteranno i diversi ruoli nell'infrastruttura. In ogni set di disponibilità è consigliato un minimo di due computer. Creare quattro macchine virtuali per la distribuzione di base.
 
 | Machine | Ruolo | Subnet | Set di disponibilità | Account di archiviazione | Indirizzo IP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -146,8 +146,8 @@ Al termine della distribuzione, il riquadro relativo alle macchine virtuali avr�
 * Innalzare i due server al livello di controller di dominio di replica con DNS
 * Configurare i server AD FS installando il ruolo AD FS con Server Manager
 
-### <a name="6----deploying-internal-load-balancer-ilb"></a>6.    Distribuire il servizio di bilanciamento del carico interno
-**6.1.    Creare il servizio di bilanciamento del carico interno**
+### <a name="6-deploying-internal-load-balancer-ilb"></a>6. Distribuire il servizio di bilanciamento del carico interno
+**6.1. Creare il servizio di bilanciamento del carico interno**
 
 Per distribuire un servizio di bilanciamento del carico interno, selezionare Servizi di bilanciamento del carico nel portale di Azure e fare clic su Aggiungi (+).
 
@@ -172,7 +172,7 @@ Dopo che si è fatto clic su Crea, il servizio di bilanciamento del carico inter
 
 Il passaggio successivo consiste nel configurare il pool back-end e il probe del back-end.
 
-**6.2.    Configurare il pool back-end del servizio di bilanciamento del carico interno**
+**6.2. Configurare il pool back-end del servizio di bilanciamento del carico interno**
 
 Selezionare il servizio di bilanciamento del carico interno appena creato nel pannello Servizi di bilanciamento del carico. Verrà aperto il pannello delle impostazioni. 
 
@@ -183,7 +183,7 @@ Selezionare il servizio di bilanciamento del carico interno appena creato nel pa
 
 ![Configurare il pool back-end del servizio di bilanciamento del carico interno](./media/active-directory-aadconnect-azure-adfs/ilbdeployment3.png)
 
-**6.3.    Configurare il probe**
+**6.3. Configurare il probe**
 
 Nel pannello Impostazioni del servizio di bilanciamento del carico interno selezionare Probe.
 
@@ -192,7 +192,7 @@ Nel pannello Impostazioni del servizio di bilanciamento del carico interno selez
 
 ![Configurare il probe del servizio di bilanciamento del carico interno](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
 
-**6.4.    Creare le regole di bilanciamento del carico**
+**6.4. Creare le regole di bilanciamento del carico**
 
 Per bilanciare efficacemente il traffico, il servizio di bilanciamento del carico interno dovrà essere configurato con regole di bilanciamento del carico. Per creare una regola di bilanciamento del carico: 
 
@@ -202,23 +202,23 @@ Per bilanciare efficacemente il traffico, il servizio di bilanciamento del caric
 
 ![Configurare le regole di bilanciamento del servizio di bilanciamento del carico interno](./media/active-directory-aadconnect-azure-adfs/ilbdeployment5.png)
 
-**6.5.    Aggiornare il DNS con il servizio di bilanciamento del carico interno**
+**6.5. Aggiornare il DNS con il servizio di bilanciamento del carico interno**
 
 Passare al server DNS e creare un CNAME per il servizio di bilanciamento del carico interno. Il CNAME dovrà essere creato per il servizio federativo con indirizzo IP che punta all'indirizzo IP del servizio di bilanciamento del carico interno. Se l'indirizzo DIP del servizio di bilanciamento del carico interno è 10.3.0.8 e il servizio federativo installato è fs.contoso.com, ad esempio, creare un CNAME per fs.contoso.com che punta a 10.3.0.8.
 In questo modo, tutta la comunicazione relativa a fs.contoso.com raggiungerà il servizio di bilanciamento del carico interno e verrà indirizzata correttamente.
 
-### <a name="7----configuring-the-web-application-proxy-server"></a>7.    Configurare il server proxy applicazione Web
-**7.1.    Configurare i server proxy applicazione Web per raggiungere i server AD FS**
+### <a name="7-configuring-the-web-application-proxy-server"></a>7. Configurare il server proxy applicazione Web
+**7.1. Configurare i server proxy applicazione Web per raggiungere i server AD FS**
 
 Affinché i server proxy applicazione Web possano raggiungere i server AD FS controllati dal servizio di bilanciamento del carico interno, creare un record per il servizio di bilanciamento del carico interno in %systemroot%\system32\drivers\etc\hosts. Si noti che il nome distinto dovrà essere il nome del servizio federativo, ad esempio fs.contoso.com, e la voce dell'indirizzo IP dovrà essere quella dell'indirizzo IP del servizio di bilanciamento del carico interno (10.3.0.8 nell'esempio).
 
-**7.2.    Installare il ruolo Proxy applicazione Web**
+**7.2. Installare il ruolo Proxy applicazione Web**
 
 Dopo aver verificato che i server proxy applicazione Web possano raggiungere i server AD FS controllati dal servizio di bilanciamento del carico interno, è possibile installare i server proxy applicazione Web. I server proxy applicazione Web non vengono aggiunti al dominio. Installare i ruoli Proxy applicazione Web nei due server proxy applicazione Web selezionando il ruolo Accesso remoto. Server Manager consentirà di completare l'installazione di WAP.
 Per altre informazioni sulla distribuzione di WAP, vedere [Installare e configurare il server del proxy dell'applicazione Web](https://technet.microsoft.com/library/dn383662.aspx).
 
-### <a name="8----deploying-the-internet-facing-public-load-balancer"></a>8.    Distribuire il servizio di bilanciamento del carico con connessione Internet (pubblico)
-**8.1.    Creare il servizio di bilanciamento del carico con connessione Internet (pubblico)**
+### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.  Distribuire il servizio di bilanciamento del carico con connessione Internet (pubblico)
+**8.1.  Creare il servizio di bilanciamento del carico con connessione Internet (pubblico)**
 
 Nel portale di Azure selezionare Servizi di bilanciamento del carico e quindi fare clic su Aggiungi. Nel pannello Crea servizio di bilanciamento del carico immettere le informazioni seguenti.
 
@@ -232,7 +232,7 @@ Al termine della distribuzione, il servizio di bilanciamento del carico verrà v
 
 ![Elenco dei servizi di bilanciamento del carico](./media/active-directory-aadconnect-azure-adfs/elbdeployment2.png)
 
-**8.2.    Assegnare un'etichetta DNS all'IP pubblico**
+**8.2. Assegnare un'etichetta DNS all'IP pubblico**
 
 Fare clic sulla voce del servizio di bilanciamento del carico appena creato nel pannello Servizi di bilanciamento del carico per visualizzare il pannello per la configurazione. Per configurare l'etichetta DNS per l'IP pubblico, seguire questa procedura:
 
@@ -244,26 +244,26 @@ Fare clic sulla voce del servizio di bilanciamento del carico appena creato nel 
 
 ![Configurare il servizio di bilanciamento del carico con connessione Internet (DNS)](./media/active-directory-aadconnect-azure-adfs/elbdeployment4.png)
 
-**8.3.    Configurare il pool back-end per il servizio di bilanciamento del carico con connessione Internet (pubblico)** 
+**8.3. Configurare il pool back-end per il servizio di bilanciamento del carico con connessione Internet (pubblico)** 
 
 Seguire la stessa procedura indicata per la creazione del servizio di bilanciamento del carico interno per configurare il pool back-end per il servizio di bilanciamento del carico con connessione Internet (pubblico) come set di disponibilità per i server WAP, ad esempio contosowapset.
 
 ![Configurare il pool back-end del servizio di bilanciamento del carico con connessione Internet](./media/active-directory-aadconnect-azure-adfs/elbdeployment5.png)
 
-**8.4.    Configurare il probe**
+**8.4. Configurare il probe**
 
 Seguire la stessa procedura impiegata durante la configurazione del servizio di bilanciamento del carico interno per configurare il probe per il pool back-end dei server WAP.
 
 ![Configurare il probe del servizio di bilanciamento del carico con connessione Internet](./media/active-directory-aadconnect-azure-adfs/elbdeployment6.png)
 
-**8.5.    Creare regole di bilanciamento del carico**
+**8.5. Creare regole di bilanciamento del carico**
 
 Seguire la stessa procedura indicata per il servizio di bilanciamento del carico interno per configurare la regola di bilanciamento del carico per la porta TCP 443.
 
 ![Configurare le regole di bilanciamento del servizio di bilanciamento del carico con connessione Internet](./media/active-directory-aadconnect-azure-adfs/elbdeployment7.png)
 
-### <a name="9----securing-the-network"></a>9.    Proteggere la rete
-**9.1.    Proteggere la subnet interna**
+### <a name="9-securing-the-network"></a>9. Proteggere la rete
+**9.1. Proteggere la subnet interna**
 
 In generale, per proteggere efficacemente la subnet interna sono necessarie le regole seguenti, nell'ordine indicato di seguito.
 
@@ -276,7 +276,7 @@ In generale, per proteggere efficacemente la subnet interna sono necessarie le r
 
 [commento]: <> (![regole di accesso interno (in ingresso)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) [commento]: <> (![regole di accesso interno (in uscita)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
 
-**9.2.    Proteggere la subnet perimetrale**
+**9.2. Proteggere la subnet perimetrale**
 
 | Regola | Descrizione | Flusso |
 |:--- |:--- |:---:|
@@ -292,7 +292,7 @@ In generale, per proteggere efficacemente la subnet interna sono necessarie le r
 > 
 > 
 
-### <a name="10----test-the-ad-fs-sign-in"></a>10.    Testare l'accesso ad AD FS
+### <a name="10-test-the-ad-fs-sign-in"></a>10. Testare l'accesso ad AD FS
 Il modo più semplice per testare AD FS consiste nell'usare la pagina IdpInitiatedSignon.aspx. A tale scopo, è necessario abilitare IdpInitiatedSignOn nelle proprietà di AD FS. Per verificare l'installazione di AD FS, seguire questa procedura.
 
 1. Eseguire con PowerShell il cmdlet di seguito nel server AD FS per impostare l'abilitazione:
