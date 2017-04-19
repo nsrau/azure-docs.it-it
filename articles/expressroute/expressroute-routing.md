@@ -17,7 +17,7 @@ ms.author: osamam
 translationtype: Human Translation
 ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
 ms.openlocfilehash: e678062429605db34c1e6c835841aaf2508d81a3
-ms.lasthandoff: 03/03/2017
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -85,7 +85,7 @@ Assicurarsi che l'indirizzo IP e il numero AS siano registrati all'utente in uno
 * [ALTDB](http://altdb.net/)
 
 > [!IMPORTANT]
-> Gli indirizzi IP pubblici annunciati su Microsoft tramite ExpressRoute non devono essere annunciati su Internet, altrimenti potrebbe interrompersi la connettività con altri servizi Microsoft. Tuttavia, gli indirizzi IP pubblici usati dai server nella rete che comunica con gli endpoint di Office&365; nell'ambiente Microsoft possono essere annunciati tramite ExpressRoute. 
+> Gli indirizzi IP pubblici annunciati su Microsoft tramite ExpressRoute non devono essere annunciati su Internet, altrimenti potrebbe interrompersi la connettività con altri servizi Microsoft. Tuttavia, gli indirizzi IP pubblici usati dai server nella rete che comunica con gli endpoint di Office 365 nell'ambiente Microsoft possono essere annunciati tramite ExpressRoute. 
 > 
 > 
 

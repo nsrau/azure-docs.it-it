@@ -17,7 +17,7 @@ ms.author: raynew
 translationtype: Human Translation
 ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
 ms.openlocfilehash: 9adf266c6a2ac00c3aaa34e2a29aefe34abe2871
-ms.lasthandoff: 03/06/2017
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -75,10 +75,10 @@ Altre informazioni sulla distribuzione:
 ### <a name="initial-replication"></a>Replica iniziale
 
 1. Quando viene attivata la replica iniziale, viene acquisito uno [snapshot della VM Hyper-V](https://technet.microsoft.com/library/dd560637.aspx).
-2. I dischi rigidi virtuali vengono replicati una alla volta fino a quando non vengono copiati tutti in Azure. L'operazione potrebbe richiedere alcuni minuti, a seconda delle dimensioni della macchina virtuale e della larghezza di banda di rete. Per informazioni su come ottimizzare l'utilizzo della rete, vedere [How to manage on-premises to Azure protection network bandwidth usage](https://support.microsoft.com/kb/3056159)(Come gestire l'utilizzo della larghezza di banda di rete per la protezione da ambiente locale ad Azure).
+2. I dischi rigidi virtuali vengono replicati uno alla volta fino a quando non vengono copiati tutti in Azure. L'operazione potrebbe richiedere alcuni minuti, a seconda delle dimensioni della macchina virtuale e della larghezza di banda di rete. Per informazioni su come ottimizzare l'utilizzo della rete, vedere [How to manage on-premises to Azure protection network bandwidth usage](https://support.microsoft.com/kb/3056159)(Come gestire l'utilizzo della larghezza di banda di rete per la protezione da ambiente locale ad Azure).
 3. Se vengono apportate modifiche al disco mentre è in corso la replica iniziale, la gestione delle repliche di Hyper-V tiene traccia delle modifiche sotto forma di log di replica di Hyper-V (con estensione hrl). Questi file si trovano nella stessa cartella dei dischi. A ogni disco è associato un file con estensione hrl, che verrà inviato alla risorsa di archiviazione secondaria.
 4. Si noti che lo snapshot e i file di log usano risorse del disco durante l'esecuzione della replica iniziale.
-5. Al termine della replica iniziale, lo snapshot della macchina virtuale viene eliminato. Le modifiche differenziali al disco nel log vengono sincronizzate e unite al disco padre.
+5. Al termine della replica iniziale, lo snapshot della macchina virtuale viene eliminato. Nel log le modifiche differenziali al disco vengono sincronizzate e unite al disco padre.
 
 
 ### <a name="finalize-protection"></a>Finalizzare la protezione

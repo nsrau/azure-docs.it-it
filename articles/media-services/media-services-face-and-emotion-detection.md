@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 04/17/2017
 ms.author: milanga;juliako;
 translationtype: Human Translation
 ms.sourcegitcommit: adaf2a71e022d6d29493ab0a679bd593ea40195e
@@ -49,7 +49,7 @@ L'API per il rilevamento e monitoraggio volti offre il rilevamento e il monitora
 
 I volti rilevati e monitorati vengono restituiti con coordinate (sinistra, superiore, larghezza e altezza) indicanti la posizione dei volti nell'immagine in pixel e un codice ID del volto che indica il monitoraggio della persona. I codici ID del volto sono soggetti a ripristino quando le riprese non sono frontali o sono sovrapposte nel fotogramma, causando l'assegnazione di diversi ID alla stessa persona.
 
-### <a name="a-idoutputelementsaelements-of-the-output-json-file"></a><a id="output_elements"></a>Elementi del file di output JSON
+### <a id="output_elements"></a>Elementi del file di output JSON
 Per le operazioni di rilevamento e monitoraggio dei volti, il risultato restituito contiene i metadati ricavati dai volti all'interno del file specificato in formato JSON.
 
 Il file JSON sul rilevamento e monitoraggio dei volti include gli attributi seguenti:
@@ -83,7 +83,7 @@ Il rilevatore di volti usa tecniche di frammentazione, che consentono di suddivi
 Quando si crea un'attività con **Rilevamento multimediale volti di Azure**, è necessario specificare un set di impostazioni di configurazione. Il set di impostazioni di configurazione seguente serve unicamente per il rilevamento volti.
 
     {
-      "version":"1.0"
+      "version":"1.0",
       "options":{
           "TrackingMode": "Faster"
       }
